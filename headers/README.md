@@ -4,3 +4,4 @@ Doxyfile generated from the header files that were given for developers wanting 
 
 Currently the documentation is straight from Apple, who was apparently not very good at documenting things. The goal is for me and hopefully others to learn more about the API and fill in the gaps, to create a better documentation.
 
+[Source code avaliable here.](https://github.com/IoIxD/macdocs)
