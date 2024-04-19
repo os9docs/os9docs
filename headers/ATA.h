@@ -6,7 +6,7 @@
     \introduced_in  System 7.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1995-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1995-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -69,7 +69,7 @@ enum {
   mDQEChanged = 1 /** DQE has changed */
 };
 
-/** Task file definition ��� Error Register ���*/
+/** Task file definition ©©© Error Register ©©©*/
 enum {
   bATABadBlock = 7,                 /** bit number of bad block error bit*/
   bATAUncorrectable = 6,            /** bit number of uncorrectable error bit*/
@@ -91,13 +91,13 @@ enum {
   mATAAddressNotFound = 1 << bATAAddressNotFound /** Address Mark Not Found*/
 };
 
-/** Task file definition ��� Features register ���*/
+/** Task file definition ©©© Features register ©©©*/
 enum {
   bATAPIuseDMA = 0, /** bit number of useDMA bit (ATAPI)*/
   mATAPIuseDMA = 1 << bATAPIuseDMA
 };
 
-/** Task file definition ��� ataTFSDH Register ���*/
+/** Task file definition ©©© ataTFSDH Register ©©©*/
 enum {
   mATAHeadNumber = 0x0F,  /** Head Number (bits 0-3) */
   mATASectorSize = 0xA0,  /** bit 7=1; bit 5 = 01 (512 sector size) <DP4>*/
@@ -105,7 +105,7 @@ enum {
   mATALBASelect = 0x40    /** LBA mode bit (0 = chs, 1 = LBA)*/
 };
 
-/** Task file definition ��� Status Register ���*/
+/** Task file definition ©©© Status Register ©©©*/
 enum {
   bATABusy = 7,                         /** bit number of BSY bit*/
   bATADriveReady = 6,                   /** bit number of drive ready bit*/
@@ -125,7 +125,7 @@ enum {
   mATAError = 1 << bATAError /** Error condition - see error register*/
 };
 
-/** Task file definition ��� Device Control Register ���*/
+/** Task file definition ©©© Device Control Register ©©©*/
 enum {
   bATADCROne = 3,                   /** bit number of always one bit*/
   bATADCRReset = 2,                 /** bit number of reset bit*/
@@ -330,7 +330,7 @@ enum {
 };
 
 /** add bus flags */
-/** �� Applies to the ataAddBus structure �� */
+/** ©© Applies to the ataAddBus structure ©© */
 enum { mATANoDMAOnBus = 0x80 };
 
 typedef CALLBACK_API(void, ATACallbackProcPtr)(void *ataPB);
@@ -457,7 +457,7 @@ struct ATAResult {
 typedef struct ATAResult ATAResult;
 /**
    For ATAPI devices the ExtendedPB field is a pointer to the Command Packet
-   record which exists of an array of words structured as follows�  <06/15/94>
+   record which exists of an array of words structured as follows©  <06/15/94>
 */
 struct ATAPICmdPacket {
   SInt16 atapiPacketSize; /** Size of command packet in bytes    <06/15/94>*/
@@ -1334,7 +1334,7 @@ union ataPB {
   ataGeneric ataGenericParamBlock; /** parameter block for all other functions*/
 };
 typedef union ataPB ataPB;
-/** The ATA Event codes�*/
+/** The ATA Event codes©*/
 enum {
   kATANullEvent = 0x00,      /** Just kidding -- nothing happened*/
   kATAOnlineEvent = 0x01,    /** An ATA device has come online*/
@@ -1601,7 +1601,7 @@ enum {
   ATAAbortedDueToRst =
       ATABaseErrCode +
       0x38, /** 0xDB7A: Request aborted due to a device reset command.*/
-  ATAPIPhaseErr = ATABaseErrCode + 0x39, /** 0xDB7B: Unexpected phase - ���IS
+  ATAPIPhaseErr = ATABaseErrCode + 0x39, /** 0xDB7B: Unexpected phase - ©©©IS
                                             THIS VALID ERROR??? <06/15/94>*/
   ATAPITxCntErr =
       ATABaseErrCode + 0x3A, /** 0xDB7C: Overrun/Underrun condition detected*/

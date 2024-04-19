@@ -6,7 +6,7 @@
     \introduced_in  AppleScript 1.3
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1991-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1991-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -93,7 +93,7 @@ enum {
   kASRemainder = FOUR_CHAR_CODE('mod '),
   kASPower = FOUR_CHAR_CODE('^   '),
   kASEqual = kAEEquals,
-  kASNotEqual = FOUR_CHAR_CODE('�   '),
+  kASNotEqual = FOUR_CHAR_CODE('©   '),
   kASGreaterThan = kAEGreaterThan,
   kASGreaterThanOrEqual = kAEGreaterThanEquals,
   kASLessThan = kAELessThan,

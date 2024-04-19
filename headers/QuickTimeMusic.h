@@ -6,7 +6,7 @@
     \introduced_in  QuickTime 5.0.1
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1990-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -80,8 +80,8 @@ enum {
   kaiSampleDataQUIDType = FOUR_CHAR_CODE('quid'),
   kaiInstInfoType = FOUR_CHAR_CODE('iinf'),
   kaiPictType = FOUR_CHAR_CODE('pict'),
-  kaiWriterType = FOUR_CHAR_CODE('�wrt'),
-  kaiCopyrightType = FOUR_CHAR_CODE('�cpy'),
+  kaiWriterType = FOUR_CHAR_CODE('©wrt'),
+  kaiCopyrightType = FOUR_CHAR_CODE('©cpy'),
   kaiOtherStrType = FOUR_CHAR_CODE('str '),
   kaiInstrumentRefType = FOUR_CHAR_CODE('iref'),
   kaiInstGMQualityType = FOUR_CHAR_CODE('qual'),
@@ -488,7 +488,7 @@ struct SynthesizerDescription {
                                         always uses */
 
   unsigned long outputCount; /* number of audio outputs (usually two) */
-  unsigned long latency;     /* response time in �Sec */
+  unsigned long latency;     /* response time in ©Sec */
 
   unsigned long controllers[4];   /* array of 128 bits */
   unsigned long gmInstruments[4]; /* array of 128 bits */
@@ -686,7 +686,7 @@ enum {
       1, /* STR# 1: synth name, 2:about author,3:aboutcopyright,4:aboutother */
   kGenericMusicResMiscLongList = 2, /* Long various params, see list below */
   kGenericMusicResInstrumentList =
-      3, /* NmLs of names and shorts, categories prefixed by '��' */
+      3, /* NmLs of names and shorts, categories prefixed by '©©' */
   kGenericMusicResDrumList = 4, /* NmLs of names and shorts */
   kGenericMusicResInstrumentKnobDescriptionList = 5, /* Knob */
   kGenericMusicResDrumKnobDescriptionList = 6,       /* Knob */
@@ -2429,40 +2429,40 @@ typedef MusicOpWord *MusicOpWordPtr;
    events, short NOTE events, short CONTROL events, short GENERAL events, Long
    NOTE events, long CONTROL events, and variable GENERAL events.
 
-        � REST Event (4 bytes/event):
+        © REST Event (4 bytes/event):
 
             (0 0 0) (5-bit UNUSED) (24-bit Rest Duration)
 
-        ��Short NOTE Events (4 bytes/event):
+        ©©Short NOTE Events (4 bytes/event):
 
             (0 0 1) (5-bit Part) (6-bit Pitch) (7-bit Volume) (11-bit Duration)
 
             where:  Pitch is offset by 32 (Actual pitch = pitch field + 32)
 
-        ��Short CONTROL Events (4 bytes/event):
+        ©©Short CONTROL Events (4 bytes/event):
 
             (0 1 0) (5-bit Part) (8-bit Controller) (1-bit UNUSED) (1-bit Sign)
-   (7-bit MSB) (7-bit LSB) ( or 15-bit Signed Value) � Short GENERAL Event (4
+   (7-bit MSB) (7-bit LSB) ( or 15-bit Signed Value) © Short GENERAL Event (4
    bytes/event):
 
             (0 1 1) (1-bit UNUSED) (12-bit Sub-Type) (16-bit Value)
 
-        � Long NOTE Events (8 bytes/event):
+        © Long NOTE Events (8 bytes/event):
 
             (1 0 0 1) (12-bit Part) (1-bit UNUSED) (7-bit Pitch) (1-bit UNUSED)
    (7-bit Volume) (1 0) (8-bit UNUSED) (22-bit Duration)
 
-        ��Long CONTROL Event (8 bytes/event):
+        ©©Long CONTROL Event (8 bytes/event):
 
             (1 0 1 0) (12-bit Part) (16-bit Value MSB)
             (1 0) (14-bit Controller) (16-bit Value LSB)
 
-        ��Long KNOB Event (8 bytes/event):
+        ©©Long KNOB Event (8 bytes/event):
 
             (1 0 1 1) (12-bit Sub-Type) (16-bit Value MSB)
             (1 0) (14-bit KNOB) (16-bit Value LSB)
 
-        ��Variable GENERAL Length Events (N bytes/event):
+        ©©Variable GENERAL Length Events (N bytes/event):
 
             (1 1 1 1) (12-bit Sub-Type) (16-bit Length)
                 :
@@ -2477,10 +2477,10 @@ typedef MusicOpWord *MusicOpWordPtr;
     The following event type values have not been used yet and are reserved for
     future expansion:
 
-        � (1 0 0 0)     (8 bytes/event)
-        � (1 1 0 0)     (N bytes/event)
-        � (1 1 0 1)     (N bytes/event)
-        � (1 1 1 0)     (N bytes/event)
+        © (1 0 0 0)     (8 bytes/event)
+        © (1 1 0 0)     (N bytes/event)
+        © (1 1 0 1)     (N bytes/event)
+        © (1 1 1 0)     (N bytes/event)
 
     For all events, the following generalizations apply:
 

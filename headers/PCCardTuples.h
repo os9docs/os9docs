@@ -6,7 +6,7 @@
     \introduced_in  System 7.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1994-2001 by Apple Computer, Inc.  All rights reserved.
+    \copyright © 1994-2001 by Apple Computer, Inc.  All rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -43,9 +43,9 @@ extern "C" {
 
 enum { MAX_TUPLE_SIZE = 256 };
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Defines for Tuple codes
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 enum {
   CISTPL_NULL = 0x00,
   CISTPL_DEVICE = 0x01,
@@ -86,9 +86,9 @@ enum {
   CISTPL_END = 0xFF
 };
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Tuple Data Block Definitions
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 
 /**------------    Device Information Tuple (01H, 17H)    ----------- */
 

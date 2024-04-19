@@ -6,7 +6,7 @@
     \introduced_in  System 7.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1990-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -62,7 +62,7 @@ extern "C" {
    Carbon and are only defined for those files that need to build pre-Carbon
    applications.
 */
-/* ��constants*/
+/* ©©constants*/
 
 typedef SInt16 BalloonVariant;
 enum {
@@ -83,7 +83,7 @@ enum {
 
 enum {
   kHMHelpMenuID = -16490, /* Resource ID and menu ID of help menu */
-  kHMAboutHelpItem = 1,   /* help menu item number of About Balloon Help� */
+  kHMAboutHelpItem = 1,   /* help menu item number of About Balloon Help© */
   kHMShowBalloonsItem = 3 /* help menu item number of Show/Hide Balloons */
 };
 

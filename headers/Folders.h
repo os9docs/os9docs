@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 8
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1995-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1995-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -223,7 +223,7 @@ enum {
       FOUR_CHAR_CODE('flnt'), /** items deleted at boot */
   kApplicationSupportFolderType =
       FOUR_CHAR_CODE('asup'), /** third-party items and folders */
-  kTextEncodingsFolderType = FOUR_CHAR_CODE('�tex'), /** encoding tables */
+  kTextEncodingsFolderType = FOUR_CHAR_CODE('©tex'), /** encoding tables */
   kStationeryFolderType = FOUR_CHAR_CODE('odst'),    /** stationery */
   kOpenDocFolderType = FOUR_CHAR_CODE('odod'),       /** OpenDoc root */
   kOpenDocShellPlugInsFolderType =
@@ -231,38 +231,38 @@ enum {
   kEditorsFolderType =
       FOUR_CHAR_CODE('oded'), /** OpenDoc editors in MacOS Folder */
   kOpenDocEditorsFolderType =
-      FOUR_CHAR_CODE('�odf'), /** OpenDoc subfolder of Editors folder */
+      FOUR_CHAR_CODE('©odf'), /** OpenDoc subfolder of Editors folder */
   kOpenDocLibrariesFolderType =
       FOUR_CHAR_CODE('odlb'), /** OpenDoc libraries folder */
   kGenEditorsFolderType = FOUR_CHAR_CODE(
-      '�edi'), /** CKH general editors folder at root level of Sys folder */
+      '©edi'), /** CKH general editors folder at root level of Sys folder */
   kHelpFolderType = FOUR_CHAR_CODE(
-      '�hlp'), /** CKH help folder currently at root of system folder */
+      '©hlp'), /** CKH help folder currently at root of system folder */
   kInternetPlugInFolderType = FOUR_CHAR_CODE(
-      '�net'), /** CKH internet plug ins for browsers and stuff */
+      '©net'), /** CKH internet plug ins for browsers and stuff */
   kModemScriptsFolderType = FOUR_CHAR_CODE(
-      '�mod'), /** CKH modem scripts, get 'em OUT of the Extensions folder */
+      '©mod'), /** CKH modem scripts, get 'em OUT of the Extensions folder */
   kPrinterDescriptionFolderType = FOUR_CHAR_CODE(
       'ppdf'), /** CKH new folder at root of System folder for printer descs. */
   kPrinterDriverFolderType =
-      FOUR_CHAR_CODE('�prd'), /** CKH new folder at root of System folder for
+      FOUR_CHAR_CODE('©prd'), /** CKH new folder at root of System folder for
                                  printer drivers */
   kScriptingAdditionsFolderType =
-      FOUR_CHAR_CODE('�scr'), /** CKH at root of system folder */
+      FOUR_CHAR_CODE('©scr'), /** CKH at root of system folder */
   kSharedLibrariesFolderType =
-      FOUR_CHAR_CODE('�lib'), /** CKH for general shared libs. */
+      FOUR_CHAR_CODE('©lib'), /** CKH for general shared libs. */
   kVoicesFolderType = FOUR_CHAR_CODE('fvoc'), /** CKH macintalk can live here */
   kControlStripModulesFolderType =
       FOUR_CHAR_CODE('sdev'), /** CKH for control strip modules */
   kAssistantsFolderType = FOUR_CHAR_CODE(
-      'ast�'), /** SJF for Assistants (MacOS Setup Assistant, etc) */
-  kUtilitiesFolderType = FOUR_CHAR_CODE('uti�'), /** SJF for Utilities folder */
+      'ast©'), /** SJF for Assistants (MacOS Setup Assistant, etc) */
+  kUtilitiesFolderType = FOUR_CHAR_CODE('uti©'), /** SJF for Utilities folder */
   kAppleExtrasFolderType =
-      FOUR_CHAR_CODE('aex�'), /** SJF for Apple Extras folder */
+      FOUR_CHAR_CODE('aex©'), /** SJF for Apple Extras folder */
   kContextualMenuItemsFolderType =
       FOUR_CHAR_CODE('cmnu'), /** SJF for Contextual Menu items */
   kMacOSReadMesFolderType =
-      FOUR_CHAR_CODE('mor�'), /** SJF for MacOS ReadMes folder */
+      FOUR_CHAR_CODE('mor©'), /** SJF for MacOS ReadMes folder */
   kALMModulesFolderType =
       FOUR_CHAR_CODE('walk'), /** EAS for Location Manager Module files except
                                  type 'thng' (within kExtensionFolderType) */
@@ -273,18 +273,18 @@ enum {
       FOUR_CHAR_CODE('fall'), /** EAS for Location Manager Locations (within
                                  kALMPreferencesFolderType) */
   kColorSyncProfilesFolderType =
-      FOUR_CHAR_CODE('prof'),                 /** for ColorSync� Profiles */
+      FOUR_CHAR_CODE('prof'),                 /** for ColorSync© Profiles */
   kThemesFolderType = FOUR_CHAR_CODE('thme'), /** for Theme data files */
   kFavoritesFolderType =
       FOUR_CHAR_CODE('favs'), /** Favorties folder for Navigation Services */
   kInternetFolderType = FOUR_CHAR_CODE(
-      'int�'), /** Internet folder (root level of startup volume) */
+      'int©'), /** Internet folder (root level of startup volume) */
   kAppearanceFolderType =
       FOUR_CHAR_CODE('appr'), /** Appearance folder (root of system folder) */
   kSoundSetsFolderType =
       FOUR_CHAR_CODE('snds'), /** Sound Sets folder (in Appearance folder) */
   kDesktopPicturesFolderType = FOUR_CHAR_CODE(
-      'dtp�'), /** Desktop Pictures folder (in Appearance folder) */
+      'dtp©'), /** Desktop Pictures folder (in Appearance folder) */
   kInternetSearchSitesFolderType =
       FOUR_CHAR_CODE('issf'), /** Internet Search Sites folder */
   kFindSupportFolderType = FOUR_CHAR_CODE('fnds'), /** Find support folder */
@@ -292,7 +292,7 @@ enum {
       FOUR_CHAR_CODE('fbcf'), /** Find by content folder */
   kInstallerLogsFolderType =
       FOUR_CHAR_CODE('ilgf'),                  /** Installer Logs folder */
-  kScriptsFolderType = FOUR_CHAR_CODE('scr�'), /** Scripts folder */
+  kScriptsFolderType = FOUR_CHAR_CODE('scr©'), /** Scripts folder */
   kFolderActionsFolderType =
       FOUR_CHAR_CODE('fasf'), /** Folder Actions Scripts folder */
   kLauncherItemsFolderType =
@@ -370,7 +370,7 @@ enum {
   kMovieDocumentsFolderType = FOUR_CHAR_CODE(
       'mdoc'), /** Refers to the "Movies" folder in a users home directory*/
   kMusicDocumentsFolderType = FOUR_CHAR_CODE(
-      '�doc'), /** Refers to the "Music" folder in a users home directory*/
+      '©doc'), /** Refers to the "Music" folder in a users home directory*/
   kInternetSitesFolderType = FOUR_CHAR_CODE(
       'site'), /** Refers to the "Sites" folder in a users home directory*/
   kPublicFolderType = FOUR_CHAR_CODE(
@@ -412,7 +412,7 @@ enum {
 };
 
 enum {
-  kLocalesFolderType = FOUR_CHAR_CODE('�loc'), /** PKE for Locales folder */
+  kLocalesFolderType = FOUR_CHAR_CODE('©loc'), /** PKE for Locales folder */
   kFindByContentPluginsFolderType =
       FOUR_CHAR_CODE('fbcp') /** Find By Content Plug-ins */
 };
@@ -436,25 +436,25 @@ enum {
 
 enum {
   kAppleshareAutomountServerAliasesFolderType = FOUR_CHAR_CODE(
-      'srv�'), /** Appleshare puts volumes to automount inside this folder. */
+      'srv©'), /** Appleshare puts volumes to automount inside this folder. */
   kPreMacOS91ApplicationsFolderType =
-      FOUR_CHAR_CODE('�pps'), /** The "Applications" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©pps'), /** The "Applications" folder, pre Mac OS 9.1 */
   kPreMacOS91InstallerLogsFolderType =
-      FOUR_CHAR_CODE('�lgf'), /** The "Installer Logs" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©lgf'), /** The "Installer Logs" folder, pre Mac OS 9.1 */
   kPreMacOS91AssistantsFolderType =
-      FOUR_CHAR_CODE('�st�'), /** The "Assistants" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©st©'), /** The "Assistants" folder, pre Mac OS 9.1 */
   kPreMacOS91UtilitiesFolderType =
-      FOUR_CHAR_CODE('�ti�'), /** The "Utilities" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©ti©'), /** The "Utilities" folder, pre Mac OS 9.1 */
   kPreMacOS91AppleExtrasFolderType =
-      FOUR_CHAR_CODE('�ex�'), /** The "Apple Extras" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©ex©'), /** The "Apple Extras" folder, pre Mac OS 9.1 */
   kPreMacOS91MacOSReadMesFolderType =
-      FOUR_CHAR_CODE('�or�'), /** The "Mac OS ReadMes" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©or©'), /** The "Mac OS ReadMes" folder, pre Mac OS 9.1 */
   kPreMacOS91InternetFolderType =
-      FOUR_CHAR_CODE('�nt�'), /** The "Internet" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©nt©'), /** The "Internet" folder, pre Mac OS 9.1 */
   kPreMacOS91AutomountedServersFolderType =
-      FOUR_CHAR_CODE('�rv�'), /** The "Servers" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©rv©'), /** The "Servers" folder, pre Mac OS 9.1 */
   kPreMacOS91StationeryFolderType =
-      FOUR_CHAR_CODE('�dst') /** The "Stationery" folder, pre Mac OS 9.1 */
+      FOUR_CHAR_CODE('©dst') /** The "Stationery" folder, pre Mac OS 9.1 */
 };
 
 /** FolderDescFlags values */

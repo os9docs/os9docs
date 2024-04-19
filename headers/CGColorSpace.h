@@ -6,7 +6,7 @@
     \introduced_in  CoreGraphics-122 (Mac OS X 10.1)
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 2000-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:

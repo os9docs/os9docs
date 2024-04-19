@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 8.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1990-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -83,7 +83,7 @@ struct FontSpec {
                        127) */
   short style;      /** combined style of all occurrances of the font */
   long
-      nameOffset; /** offset into the fontNamesHdl handle for the font�s name */
+      nameOffset; /** offset into the fontNamesHdl handle for the font©s name */
 };
 typedef struct FontSpec FontSpec;
 typedef FontSpec *FontSpecPtr;

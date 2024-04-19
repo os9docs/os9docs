@@ -6,7 +6,7 @@
     \introduced_in  1.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1999-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1999-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -42,22 +42,22 @@ extern "C" {
 #endif
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     A collection of numerical functions designed to facilitate a wide
     range of numerical programming for the Altivec Programming model.
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 #ifdef __VEC__
 /**
-������������������������[ Computational Functions]�����������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©[ Computational Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
-    vdivf        C = A � B
-    vsqrtf       B = �A
-    vrsqrtf      B = 1/�A
+    vdivf        C = A © B
+    vsqrtf       B = ©A
+    vrsqrtf      B = 1/©A
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vdivf()
@@ -90,7 +90,7 @@ EXTERN_API_C(vector float) vsqrtf(vector float X);
 EXTERN_API_C(vector float) vrsqrtf(vector float X);
 
 /**
-��������������������������[ Exponential Functions]�����������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©[ Exponential Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     vexpf       B = Exp(A)
     vexpm1f     ExpM1(x) = Exp(x) - 1.  But, for small enough arguments,
@@ -105,7 +105,7 @@ EXTERN_API_C(vector float) vrsqrtf(vector float X);
     vscalbf     Computes x * 2^n efficently.  This is not normally done by
                 computing 2^n explicitly.
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vexpf()
@@ -168,7 +168,7 @@ EXTERN_API_C(vector float) vlogbf(vector float X);
 EXTERN_API_C(vector float) vscalbf(vector float X, vector signed int n);
 
 /**
-���������������������������[ Auxiliary Functions]������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©[ Auxiliary Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     vfabf           Absolute value is part of the programming model, however
                     completeness it is included in the library.
@@ -180,7 +180,7 @@ EXTERN_API_C(vector float) vscalbf(vector float X, vector signed int n);
     vnextafterf     Computes the next representable value after 'x' in the
                     direction of 'y'.  if x == y, then y is returned.
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vfabf()
@@ -213,13 +213,13 @@ EXTERN_API_C(vector float) vcopysignf(vector float arg2, vector float arg1);
 EXTERN_API_C(vector float) vnextafterf(vector float x, vector float y);
 
 /**
-�����������������������������[ Inquiry Functions]������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©[ Inquiry Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
-    vclassifyf      Returns one of the FP_� values.
+    vclassifyf      Returns one of the FP_© values.
     vsignbitf       Non-zero if and only if the sign of the argument x is
                     negative.  This includes, NaNs, infinities and zeros.
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vclassifyf()
@@ -242,13 +242,13 @@ EXTERN_API_C(vector unsigned int) vclassifyf(vector float arg);
 EXTERN_API_C(vector unsigned int) vsignbitf(vector float arg);
 
 /**
-�������������������������[ Transcendental Functions]����������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©[ Transcendental Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     vsinf           B = Sin(A).
     vcosf           B = Cos(A).
     vtanf           B = Tan(A).
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vsinf()
@@ -281,7 +281,7 @@ EXTERN_API_C(vector float) vcosf(vector float arg);
 EXTERN_API_C(vector float) vtanf(vector float arg);
 
 /**
-�������������������������[ Trigonometric Functions]����������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©[ Trigonometric Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     vasinf      result is in [-pi/2,pi/2].
     vacosf      result is in [0,pi].
@@ -289,7 +289,7 @@ EXTERN_API_C(vector float) vtanf(vector float arg);
     vatan2f     Computes the arc tangent of y/x in [-pi,pi] using the sign of
                 both arguments to determine the quadrant of the computed value.
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vasinf()
@@ -332,7 +332,7 @@ EXTERN_API_C(vector float) vatanf(vector float arg);
 EXTERN_API_C(vector float) vatan2f(vector float arg1, vector float arg2);
 
 /**
-��������������������������[ Hyperbolic Functions]������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©[ Hyperbolic Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     vsinhf      Sine Hyperbolic.
     vcoshf      Cosine Hyperbolic.
@@ -341,7 +341,7 @@ EXTERN_API_C(vector float) vatan2f(vector float arg1, vector float arg2);
     vacoshf     Arccosine Hyperbolic.
     vatanhf     Atctangent Hyperbolic.
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vsinhf()
@@ -404,7 +404,7 @@ EXTERN_API_C(vector float) vacoshf(vector float X);
 EXTERN_API_C(vector float) vatanhf(vector float X);
 
 /**
-���������������������������[ Remainder Functions]������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©[ Remainder Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     vfmodf          B = X mod Y.
     vremainderf     IEEE 754 floating point standard for remainder.
@@ -412,7 +412,7 @@ EXTERN_API_C(vector float) vatanhf(vector float X);
                     bits of the integer quotient x/y, such that:
                     -127 <= quotient <= 127.
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vfmodf()
@@ -446,13 +446,13 @@ EXTERN_API_C(vector float)
 vremquof(vector float X, vector float Y, vector unsigned int *QUO);
 
 /**
-������������������������������[ Power Functions]������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©[ Power Functions]©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
     vipowf          Returns x raised to the integer power of y.
     vpowf           Returns x raised to the power of y.  Result is more
                     accurate than using exp(log(x)*y).
 
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vipowf()
@@ -475,9 +475,9 @@ EXTERN_API_C(vector float) vipowf(vector float X, vector signed int Y);
 EXTERN_API_C(vector float) vpowf(vector float X, vector float Y);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Useful
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vtablelookup()

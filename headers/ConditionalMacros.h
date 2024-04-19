@@ -6,7 +6,7 @@
     \introduced_in  Universal Interface Files
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1993-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1993-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -36,7 +36,7 @@
 
 /*****************************************************************************************************
 
-    TARGET_CPU_�
+    TARGET_CPU_©
     These conditionals specify which microprocessor instruction set is being
     generated.  At most one of these is true, the rest are false.
 
@@ -48,7 +48,7 @@
         TARGET_CPU_ALPHA        - Compiler is generating Dec Alpha instructions
 
 
-    TARGET_OS_�
+    TARGET_OS_©
     These conditionals specify in which Operating System the generated code will
     run. At most one of the these is true, the rest are false.
 
@@ -57,7 +57,7 @@
         TARGET_OS_UNIX          - Generate code will run under some unix
 
 
-    TARGET_RT_�
+    TARGET_RT_©
     These conditionals specify in which runtime the generated code will
     run. This is needed when the OS and CPU support more than one runtime
     (e.g. MacOS on 68K supports CFM68K and Classic 68k).
@@ -70,12 +70,12 @@ Mach-O style runtime TARGET_RT_MAC_68881     - TARGET_OS_MAC is true and 68881
 floating point instructions used
 
 
-    TARGET__API_�_�
+    TARGET__API_©_©
     These conditionals are used to differentiate between sets of API's on the
 same processor under the same OS.  The first section after _API_ is the OS.  The
     second section is the API set.  Unlike TARGET_OS_ and TARGET_CPU_, these
     conditionals are not mutally exclusive. This file will attempt to
-auto-configure all TARGET_API_�_� values, but will often need a TARGET_API_�_�
+auto-configure all TARGET_API_©_© values, but will often need a TARGET_API_©_©
 value predefined in order to disambiguate.
 
         TARGET_API_MAC_OS8      - Code is being compiled to run on System 7
@@ -84,7 +84,7 @@ Mac OS 8 and Mac OS X via CarbonLib TARGET_API_MAC_OSX      - Code is being
 compiled to run on Mac OS X
 
 
-    PRAGMA_�
+    PRAGMA_©
     These conditionals specify whether the compiler supports particular
 #pragma's
 
@@ -108,7 +108,7 @@ compilers.
 value
 
 
-    TYPE_�
+    TYPE_©
     These conditionals specify whether the compiler supports particular types.
 
         TYPE_LONGLONG               - Compiler supports "long long" 64-bit
@@ -117,7 +117,7 @@ Compiler supports "extended" 80/96 bit floating point TYPE_LONGDOUBLE_IS_DOUBLE
 - Compiler implements "long double" same as "double"
 
 
-    FUNCTION_�
+    FUNCTION_©
     These conditionals specify whether the compiler supports particular language
 extensions to function prototypes and definitions.
 
@@ -215,7 +215,7 @@ extensions to function prototypes and definitions.
 #if TARGET_RT_MAC_CFM
 #define PRAGMA_IMPORT 1
 #if (__SC__ <= 0x0810)
-/** old versions of SC don't support �#pragma import reset� */
+/** old versions of SC don't support ©#pragma import reset© */
 #define PRAGMA_IMPORT_OFF 1
 #endif
 #else
@@ -1440,7 +1440,7 @@ C Under Win32, there are two calling conventions: __cdecl or __stdcall Headers
 and implementation files can use the following macros to make their source more
 portable by hiding the calling convention details:
 
-    EXTERN_API�
+    EXTERN_API©
     These macros are used to specify the calling convention on a function
 prototype.
 
@@ -1450,7 +1450,7 @@ prototype.
         EXTERN_API_C_STDCALL    - Classic 68k: C,      Win32: __stdcall
 
 
-    DEFINE_API�
+    DEFINE_API©
     These macros are used to specify the calling convention on a function
 definition.
 
@@ -1460,7 +1460,7 @@ definition.
         DEFINE_API_C_STDCALL    - Classic 68k: C,      Win32: __stdcall
 
 
-    CALLBACK_API�
+    CALLBACK_API©
     These macros are used to specify the calling convention of a function
 pointer.
 
@@ -1588,7 +1588,7 @@ pointer.
 #endif
 /*****************************************************************************************************
 
-    Set up TARGET_API_�_� values
+    Set up TARGET_API_©_© values
 
 ****************************************************************************************************/
 #if TARGET_OS_MAC

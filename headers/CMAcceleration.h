@@ -6,7 +6,7 @@
     \introduced_in  ColorSync 2.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1995-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1995-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -45,17 +45,17 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/** �������������������������������������� version info */
+/** ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© version info */
 enum { cmAccelerationInterfaceVersion = 1 };
 
-/** �������������������������������������� Component Type */
+/** ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© Component Type */
 enum { cmAccelerationComponentType = FOUR_CHAR_CODE('csac') };
 
-/** �������������������������������������� Required Component function selectors
+/** ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© Required Component function selectors
  */
 enum { cmLoadTables = 0, cmCalculateData = 1 };
 
-/** �������������������������������������� table data for acceleration component
+/** ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© table data for acceleration component
  */
 struct CMAccelerationTableData {
   long
@@ -84,7 +84,7 @@ struct CMAccelerationTableData {
 typedef struct CMAccelerationTableData CMAccelerationTableData;
 typedef CMAccelerationTableData *CMAccelerationTableDataPtr;
 typedef CMAccelerationTableDataPtr *CMAccelerationTableDataHdl;
-/** �������������������������������������� calc data for acceleration component
+/** ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© calc data for acceleration component
  */
 struct CMAccelerationCalcData {
   long pixelCount; /** count of input pixels*/
@@ -97,10 +97,10 @@ typedef struct CMAccelerationCalcData CMAccelerationCalcData;
 typedef CMAccelerationCalcData *CMAccelerationCalcDataPtr;
 typedef CMAccelerationCalcDataPtr *CMAccelerationCalcDataHdl;
 /**
-   ������������������������������������������������������������������������������������������������
+   ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
                 A c c e l e r a t i o n   C o m p o n e n t   I n t e r f a c e
    s
-   ������������������������������������������������������������������������������������������������
+   ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 #if CALL_NOT_IN_CARBON
 /**

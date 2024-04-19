@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1996-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1996-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -146,7 +146,7 @@ enum {
   /** Constant for the returnID param of AECreateAppleEvent */
   kAutoGenerateReturnID =
       -1, /** AECreateAppleEvent will generate a session-unique ID */
-          /** Constant for transaction ID�s */
+          /** Constant for transaction ID©s */
   kAnyTransactionID = 0 /** no transaction is in use */
 };
 
@@ -736,15 +736,15 @@ EXTERN_API_C(Boolean)
 AECheckIsRecord(const AEDesc *theDesc);
 
 /**
-  Note: The following #defines map �key� calls on AERecords into �param� calls
+  Note: The following #defines map ©key© calls on AERecords into ©param© calls
   on AppleEvents.  Although no errors are currently returned if AERecords are
-  passed to �param� calls and AppleEvents to �key� calls, the behavior of
+  passed to ©param© calls and AppleEvents to ©key© calls, the behavior of
   this type of API-mixing is not explicitly documented in Inside Macintosh.
-  It j\carbon_libs that the �key� calls have the same functionality as their
-  �param� counterparts.  Since none of the �key� calls are currently available
-  in the PowerPC IntefaceLib, the #defines exploit the fact that �key� and
-  �param� routines can be used interchangeably, and makes sure that every
-  invocation of a �key� API becomes an invocation of a �param� API.
+  It j\carbon_libs that the ©key© calls have the same functionality as their
+  ©param© counterparts.  Since none of the ©key© calls are currently available
+  in the PowerPC IntefaceLib, the #defines exploit the fact that ©key© and
+  ©param© routines can be used interchangeably, and makes sure that every
+  invocation of a ©key© API becomes an invocation of a ©param© API.
 */
 #define AEPutKeyPtr(theAERecord, theAEKeyword, typeCode, dataPtr, dataSize)    \
   AEPutParamPtr((theAERecord), (theAEKeyword), (typeCode), (dataPtr),          \

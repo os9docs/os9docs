@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 8.1
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1984-2001 by Apple Computer, Inc.  All rights reserved.
+    \copyright © 1984-2001 by Apple Computer, Inc.  All rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:

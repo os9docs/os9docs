@@ -6,7 +6,7 @@
     \introduced_in  System 7.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1994-2001 by Apple Computer, Inc. All rights reserved.
+    \copyright © 1994-2001 by Apple Computer, Inc. All rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -148,9 +148,9 @@ struct SS_WISTRUCT {
 };
 typedef struct SS_WISTRUCT SS_WISTRUCT;
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     function selectors passed to Socket Service entry point
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 enum {
   fnSSGetAdapterCount = 0x80,
   fnSSUnsupported81 = 0x81,
@@ -212,9 +212,9 @@ enum {
   fnVSSleepWakeNotification = 0x05
 };
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     defines for the Socket Services function codes
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 enum {
   AC_IND = 1, /** adapter characteristics*/
   AC_PWR = 2,
@@ -309,9 +309,9 @@ enum {
   SS_CMPL_2_10 = 0x0210  /** compliant with rev 2.1 of SS standard*/
 };
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Universal ProcPtr for Socket Service entry point
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 typedef CALLBACK_API(short, PCCardSSEntryProcPtr)(UInt16 fnCode, Ptr callPB,
                                                   Ptr dataPtr);
 typedef STACK_UPP_TYPE(PCCardSSEntryProcPtr) PCCardSSEntryUPP;
@@ -398,9 +398,9 @@ inline short InvokePCCardSSEntryUPP(UInt16 fnCode, Ptr callPB, Ptr dataPtr,
   InvokePCCardSSEntryUPP(fnCode, callPB, dataPtr, userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Card Services calls used by a Socket Service
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 struct CSEventEntryPB {
   UInt32 ssHandlerID;
   UInt16 adapter;
@@ -540,9 +540,9 @@ EXTERN_API(OSErr)
 CSReplaceSocketServices(ReplaceSocketServicesPB *pb)
     TWOWORDINLINE(0x7051, 0xAAF0);
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     parameter blocks for each Socket Service function
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 #endif /** CALL_NOT_IN_CARBON */
 
 struct SSAcknowledgeInterruptPB {
@@ -728,12 +728,12 @@ struct SSVendorSpecificPB {
   UInt32 attributes; /**    SS_LONG*/
 };
 typedef struct SSVendorSpecificPB SSVendorSpecificPB;
-/**  �attributes� constants */
+/**  ©attributes© constants */
 enum { kSSGoingToSleep = 0x00000001, kSSWakingFromSleep = 0x00000002 };
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Non-specific Socket Services Functions
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 #if CALL_NOT_IN_CARBON
 /**
  *  SSGetAdapterCount()
@@ -746,9 +746,9 @@ enum { kSSGoingToSleep = 0x00000001, kSSWakingFromSleep = 0x00000002 };
 EXTERN_API(SS_RETCODE)
 SSGetAdapterCount(SSGetAdapterCountPB *pb, Ptr dataPtr);
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Adapter Functions
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /**
  *  SSAcknowledgeInterrupt()
  *
@@ -859,9 +859,9 @@ SSSetAdapter(SSGetSetAdapterPB *pb, Ptr dataPtr);
 EXTERN_API(SS_RETCODE)
 SSVendorSpecific(SSVendorSpecificPB *pb, Ptr dataPtr);
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Socket Functions
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /**
  *  SSGetSocket()
  *
@@ -917,9 +917,9 @@ SSResetSocket(SSResetSocketPB *pb, Ptr dataPtr);
 EXTERN_API(SS_RETCODE)
 SSSetSocket(SSGetSetSocketPB *pb, Ptr dataPtr);
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Window Functions
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /**
  *  SSGetPage()
  *
@@ -975,9 +975,9 @@ SSSetPage(SSGetSetPagePB *pb, Ptr dataPtr);
 EXTERN_API(SS_RETCODE)
 SSSetWindow(SSGetSetWindowPB *pb, Ptr dataPtr);
 
-/**������������������������������������������������������������������������
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Error Detection Functions
-������������������������������������������������������������������������*/
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /**
  *  SSGetEDC()
  *

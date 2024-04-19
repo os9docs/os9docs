@@ -6,7 +6,7 @@
     \introduced_in  QuickTime 3.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1997-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1997-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -608,7 +608,7 @@ typedef OSType BigEndianOSType;
 #endif
 
 /**
-    Implement �LtoB and �BtoL
+    Implement ©LtoB and ©BtoL
 */
 #define EndianS16_LtoB(value) ((SInt16)Endian16_Swap(value))
 #define EndianS16_BtoL(value) ((SInt16)Endian16_Swap(value))
@@ -624,7 +624,7 @@ typedef OSType BigEndianOSType;
 #define EndianU64_BtoL(value) ((UInt64)Endian64_Swap(value))
 
 /**
-    Implement low level �_Swap functions.
+    Implement low level ©_Swap functions.
 
         extern UInt16 Endian16_Swap(UInt16 value);
         extern UInt32 Endian32_Swap(UInt32 value);

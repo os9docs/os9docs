@@ -7,7 +7,7 @@
     \introduced_in  2.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1993-2001 by Apple Computer, Inc. and Mentat Inc., all rights
+    \copyright © 1993-2001 by Apple Computer, Inc. and Mentat Inc., all rights
    reserved.
 
     For bug reports, consult the following page on

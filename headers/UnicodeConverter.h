@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1994-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1994-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -158,7 +158,7 @@ enum { kUnicodeFallbackSequencingBits = 0 };
 enum {
   kUnicodeFallbackSequencingMask = 3L << kUnicodeFallbackSequencingBits,
   kUnicodeFallbackInterruptSafeMask =
-      1L << 2 /** To indicate that caller fallback routine doesn�t move memory*/
+      1L << 2 /** To indicate that caller fallback routine doesn©t move memory*/
 };
 
 /** values for kUnicodeFallbackSequencing field */

@@ -1,12 +1,9 @@
 /**
-     \file       Multiprocessing.h
-
-    \brief   Multiprocessing interfaces
-
-    \introduced_in  Multiprocessing API version 2.4, integrated NanoKernel
+   \file       Multiprocessing.h
+   \brief   Multiprocessing interfaces
+   \introduced_in  Multiprocessing API version 2.4, integrated NanoKernel
    support \avaliable_from Universal Interfaces 3.4.1
-
-    \copyright � 1995-2001 DayStar Digital, Inc.
+   \copyright © 1995-2001 DayStar Digital, Inc.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -64,7 +61,7 @@ extern "C" {
    (whose names began with an underscore) have been removed from this header.  A
    very few are still implemented for binary compatibility, or in cases where
    they happened to be exposed inappropriately.  (E.g. _MPIsFullyInitialized
-   must be called to see if the MP API is ReallyTruly� usable.)  New code and
+   must be called to see if the MP API is ReallyTruly© usable.)  New code and
    recompiles of old code should avoid use of these defunct services, except for
    _MPIsFullyInitialized.
    ===========================================================================================
@@ -169,13 +166,13 @@ extern "C" {
 */
 
 /**
-   �
+   ©
    ===========================================================================================
    General Types and Constants
    ===========================
 */
 
-#define MPCopyrightNotice "Copyright � 1995-2001 Apple Computer, Inc.\n"
+#define MPCopyrightNotice "Copyright © 1995-2001 Apple Computer, Inc.\n"
 #define MPLibraryName "MPLibrary"
 #define MPLibraryCName MPLibraryName
 #define MPLibraryPName "\p" MPLibraryName
@@ -246,7 +243,7 @@ enum {
 };
 
 /**
-   �
+   ©
    ===========================================================================================
    Process/Processor Services
    ==========================
@@ -279,7 +276,7 @@ MPProcessorsScheduled(void);
 /* Those currently in use.*/
 
 /**
-   �
+   ©
    ===========================================================================================
    Tasking Services
    ================
@@ -442,7 +439,7 @@ EXTERN_API_C(TaskStorageValue)
 MPGetTaskStorageValue(TaskStorageIndex index);
 
 /**
-   �
+   ©
    ===========================================================================================
    Synchronization Services
    ========================
@@ -649,7 +646,7 @@ MPWaitForEvent(MPEventID event, MPEventFlags *flags, /* can be NULL */
                Duration timeout);
 
 /**
-   �
+   ©
    ===========================================================================================
    Notification Services (API)
    =====================
@@ -715,7 +712,7 @@ EXTERN_API_C(OSStatus)
 MPCauseNotification(MPNotificationID notificationID);
 
 /**
-   �
+   ©
    ===========================================================================================
    Timer Services
    ==============
@@ -857,7 +854,7 @@ EXTERN_API_C(OSStatus)
 MPCancelTimer(MPTimerID timerID, AbsoluteTime *timeRemaining); /* can be NULL */
 
 /**
-   �
+   ©
    ===========================================================================================
    Memory Services
    ===============
@@ -984,7 +981,7 @@ MPDataToCode(LogicalAddress address, ByteCount size);
 
 /* ! MPDataToCode is new in version 2.0.*/
 /**
-   �
+   ©
    ===========================================================================================
    Exception/Debugging Services
    ============================
@@ -1194,7 +1191,7 @@ EXTERN_API_C(OSStatus)
 MPUnregisterDebugger(MPQueueID queue);
 
 /**
-   �
+   ©
    ===========================================================================================
    Remote Call Services
    ====================
@@ -1224,7 +1221,7 @@ MPRemoteCall(MPRemoteProcedure remoteProc, void *parameter,
 
 /* ! MPRemoteCall is new in version 2.0.*/
 /**
-   �
+   ©
    ===========================================================================================
    Checking API Availability
    =========================
@@ -1250,7 +1247,7 @@ MPRemoteCall(MPRemoteProcedure remoteProc, void *parameter,
    assume that a noErr result from GetSharedLibrary means that MP services are
    available.
 
-   � If you import from the MP API library you MUST:
+   © If you import from the MP API library you MUST:
 
         Use the MPLibraryIsLoaded macro (or equivalent code in languages other
    than C) to tell if the MP API services are available.  It is not sufficient
@@ -1264,7 +1261,7 @@ MPRemoteCall(MPRemoteProcedure remoteProc, void *parameter,
    if resolved calls it.  Both parts must succeed for the MP API services to be
    available.
 
-   � If you explicitly prepare the MP API library you MUST:
+   © If you explicitly prepare the MP API library you MUST:
 
         Use code similar to the following example to tell if the MP API services
    are available. It is not sufficient to depend on just a noErr result from
@@ -1308,7 +1305,7 @@ typedef CALLBACK_API_C(Boolean, MPIsFullyInitializedProc)(void);
     (UInt32)kMPUnresolvedCFragSymbolAddress) &&                                \
    (_MPIsFullyInitialized()))
 /**
-   �
+   ©
    ===========================================================================================
    Miscellaneous Services
    ======================
@@ -1330,7 +1327,7 @@ _MPLibraryVersion(const char **versionCString, /* can be NULL */
                   UInt32 *revision);           /* can be NULL */
 
 /**
-   �
+   ©
    ===========================================================================================
    Unofficial Services
    ===================
@@ -1404,7 +1401,7 @@ _MPLibraryIsCompatible(const char *versionCString, UInt32 major, UInt32 minor,
 #define MPTaskIsToolboxSafe _MPTaskIsToolboxSafe
 
 /**
-   �
+   ©
    ===========================================================================================
    Defunct Services
    ================

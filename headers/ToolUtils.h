@@ -6,7 +6,7 @@
     \introduced_in  System 7.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1990-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -58,7 +58,7 @@ extern "C" {
 #endif
 
 /**
-������������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Note:
 
     The following routines that used to be in this header file, have moved to
@@ -88,7 +88,7 @@ extern "C" {
                         GetString
                         NewString
                         SetString
-������������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 
 /**

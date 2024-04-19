@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1985-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -37,7 +37,7 @@
 #include <UTCUtils.h>
 #endif
 
-/* Finder constants were moved to Finder.� */
+/* Finder constants were moved to Finder.© */
 #ifndef __FINDER__
 #include <Finder.h>
 #endif
@@ -689,7 +689,7 @@ enum {
 };
 
 /**
-    VolMount stuff was once in FSM.�
+    VolMount stuff was once in FSM.©
 */
 struct VolMountInfoHeader {
   short length;     /* length of location data (including self) */
@@ -805,7 +805,7 @@ struct AFPTagData {
 };
 typedef struct AFPTagData AFPTagData;
 struct AFPAlternateAddress {
-  /* ����NOTE: fVersion was missing in 3.2 Universal Interfaces*/
+  /* ©©©©NOTE: fVersion was missing in 3.2 Universal Interfaces*/
   UInt8 fVersion; /* version of the structure (currently 0x00)*/
   UInt8 fAddressCount;
   UInt8 fAddressList[1]; /* actually variable length packed set of AFPTagData */
@@ -4830,7 +4830,7 @@ typedef SInt16 FSVolumeRefNum;
 enum { kFSInvalidVolumeRefNum = 0 };
 
 struct FSRef {
-  UInt8 hidden[80]; /* private to File Manager; �� need symbolic constant */
+  UInt8 hidden[80]; /* private to File Manager; ©© need symbolic constant */
 };
 typedef struct FSRef FSRef;
 typedef FSRef *FSRefPtr;
@@ -5165,7 +5165,7 @@ struct FSVolumeInfo {
   UInt32 nextAllocation; /* start of next allocation search */
   UInt32 rsrcClumpSize;  /* default resource fork clump size */
   UInt32 dataClumpSize;  /* default data fork clump size */
-  UInt32 nextCatalogID; /* next unused catalog node ID ��� OYG ��� need to make
+  UInt32 nextCatalogID; /* next unused catalog node ID ©©© OYG ©©© need to make
                            HFSVolumes.h work Should be HFSCatalogNodeID*/
   UInt8 finderInfo[32]; /* information used by Finder */
 

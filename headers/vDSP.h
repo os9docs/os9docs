@@ -6,7 +6,7 @@
     \introduced_in  1.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 2000-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -63,18 +63,18 @@ typedef SInt32 FFTRadix;
 enum { kFFTRadix2 = 0, kFFTRadix3 = 1, kFFTRadix5 = 2 };
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     The criteria to invoke the PowerPC vector implementation is subject to
     change and become less restrictive in the future.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions create_fftsetup and destroy_fftsetup.
 
     create_fftsetup will allocate memory and setup a weight array used by
     the FFT. The call destroy_fftsetup will free the array.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  create_fftsetup()
@@ -99,7 +99,7 @@ EXTERN_API_C(void)
 destroy_fftsetup(FFTSetup setup);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions ctoz and ztoc.
 
     ctoz converts a complex array to a complex-split array
@@ -113,7 +113,7 @@ destroy_fftsetup(FFTSetup setup);
         5. C is 8-byte aligned if Z.realp and Z.imagp are 4-byte- aligned
            or C is 16-byte aligned if Z.realp and Z.imagp are at least
            8-byte aligned.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  ctoz()
@@ -140,7 +140,7 @@ ztoc(const DSPSplitComplex *Z, SInt32 strideZ, DSPComplex C[], SInt32 strideC,
      UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions fft_zip and fft_zipt
 
     In-place Split Complex Fourier Transform with or without temporary memory.
@@ -156,7 +156,7 @@ ztoc(const DSPSplitComplex *Z, SInt32 strideZ, DSPComplex C[], SInt32 strideC,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  Direction can be either
       kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft_zip()
@@ -183,7 +183,7 @@ fft_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
          DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
      Functions fft_zop and fft_zopt
 
      Out-of-place Split Complex Fourier Transform with or without temporary
@@ -202,7 +202,7 @@ fft_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  Direction can be either
       kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft_zop()
@@ -231,7 +231,7 @@ fft_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
          DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions fft_zrip and fft_zript
 
     In-Place Real Fourier Transform with or without temporary memory,
@@ -246,7 +246,7 @@ fft_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  Direction can be either
       kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft_zrip()
@@ -273,7 +273,7 @@ fft_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
           DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions fft_zrop and fft_zropt
 
     Out-of-Place Real Fourier Transform with or without temporary memory,
@@ -290,7 +290,7 @@ fft_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  Direction can be either
       kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft_zrop()
@@ -319,7 +319,7 @@ fft_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
           DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions fft2d_zip and fft2d_zipt
 
     In-place two dimensional Split Complex Fourier Transform with or without
@@ -337,7 +337,7 @@ fft_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  ( log2n = log2nInRow + log2nInCol )
       Direction can be either kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft2d_zip()
@@ -366,7 +366,7 @@ fft2d_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
            UInt32 log2nInRow, FFTDirection direction);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions fft2d_zop and fft2d_zopt
 
     Out-of-Place two dimemsional Split Complex Fourier Transform with or
@@ -388,7 +388,7 @@ fft2d_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  ( log2n = log2nInRow + log2nInCol )
       Direction can be either kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft2d_zop()
@@ -420,7 +420,7 @@ fft2d_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
            SInt32 flag);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions fft2d_zrip and fft2d_zript
 
     In-place two dimensional Real Fourier Transform with or without temporary
@@ -438,7 +438,7 @@ fft2d_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  ( log2n = log2nInRow + log2nInCol )
       Direction can be either kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft2d_zrip()
@@ -467,7 +467,7 @@ fft2d_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
             UInt32 log2nInRow, FFTDirection direction);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Functions fft2d_zrop and fft2d_zropt
 
     Out-of-Place Two-Dimemsional Real Fourier Transform with or without
@@ -488,7 +488,7 @@ fft2d_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
       implementation will be used.  The size of temporary memory for each part
       is the lower value of 4*n and 16k.  ( log2n = log2nInRow + log2nInCol )
       Direction can be either kFFTDirection_Forward or kFFTDirection_Inverse.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  fft2d_zrop()
@@ -520,7 +520,7 @@ fft2d_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
             SInt32 flag);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function conv
 
     Floating Point Convolution and Correlation
@@ -535,7 +535,7 @@ fft2d_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.  strideFilter can be positive for
       correlation or negative for convolution.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  conv()
@@ -551,7 +551,7 @@ conv(const float signal[], SInt32 signalStride, const float filter[],
      SInt32 lenFilter);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function vadd
 
     Floating Point Add
@@ -565,7 +565,7 @@ conv(const float signal[], SInt32 signalStride, const float filter[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vadd()
@@ -580,7 +580,7 @@ vadd(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
      float result[], SInt32 strideResult, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function vsub
 
      Floating Point Substract
@@ -594,7 +594,7 @@ vadd(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vsub()
@@ -609,7 +609,7 @@ vsub(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
      float result[], SInt32 strideResult, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function vmul
 
     Floating Point Multiply
@@ -623,7 +623,7 @@ vsub(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vmul()
@@ -638,7 +638,7 @@ vmul(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
      float result[], SInt32 strideResult, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function vsmul
 
     Floating Point - Scalar Multiply
@@ -651,7 +651,7 @@ vmul(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vsmul()
@@ -666,7 +666,7 @@ vsmul(const float input1[], SInt32 stride1, const float *input2, float result[],
       SInt32 strideResult, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function vsq
 
     Floating Point Square
@@ -679,7 +679,7 @@ vsmul(const float input1[], SInt32 stride1, const float *input2, float result[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vsq()
@@ -694,7 +694,7 @@ vsq(const float input[], SInt32 strideInput, float result[],
     SInt32 strideResult, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function vssq
 
     Floating Point Signed Square
@@ -707,7 +707,7 @@ vsq(const float input[], SInt32 strideInput, float result[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vssq()
@@ -722,7 +722,7 @@ vssq(const float input[], SInt32 strideInput, float result[],
      SInt32 strideResult, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function dotpr
 
     Floating Point Dot product
@@ -735,7 +735,7 @@ vssq(const float input[], SInt32 strideInput, float result[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  dotpr()
@@ -750,7 +750,7 @@ dotpr(const float input1[], SInt32 stride1, const float input2[],
       SInt32 stride2, float *result, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function vam
 
     Floating Point vadd and Multiply
@@ -765,7 +765,7 @@ dotpr(const float input1[], SInt32 stride1, const float input2[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  vam()
@@ -781,7 +781,7 @@ vam(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
     UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zconv
 
     Split Complex Convolution and Correlation
@@ -797,7 +797,7 @@ vam(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.  strideFilter can be positive for correlation
       or negative for convolution
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zconv()
@@ -813,7 +813,7 @@ zconv(DSPSplitComplex *signal, SInt32 signalStride, DSPSplitComplex *filter,
       SInt32 lenResult, SInt32 lenFilter);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zvadd
 
     Split Complex vadd
@@ -828,7 +828,7 @@ zconv(DSPSplitComplex *signal, SInt32 signalStride, DSPSplitComplex *filter,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zvadd()
@@ -844,7 +844,7 @@ zvadd(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zvsub
 
     Split Complex Substract
@@ -859,7 +859,7 @@ zvadd(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zvsub()
@@ -875,7 +875,7 @@ zvsub(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zvmul
 
     Split Complex Multiply
@@ -890,7 +890,7 @@ zvsub(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.  The conjugate value can be 1 or -1.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zvmul()
@@ -906,7 +906,7 @@ zvmul(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       SInt32 conjugate);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zdotpr
 
     Split Complex Dot product
@@ -920,7 +920,7 @@ zvmul(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zdotpr()
@@ -935,7 +935,7 @@ zdotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
        SInt32 stride2, DSPSplitComplex *result, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zidotpr
 
     Split Complex Inner Dot product
@@ -949,7 +949,7 @@ zdotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zidotpr()
@@ -964,7 +964,7 @@ zidotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
         SInt32 stride2, DSPSplitComplex *result, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zrdotpr
 
     Split Complex - Real Dot product
@@ -977,7 +977,7 @@ zidotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zrdotpr()
@@ -992,7 +992,7 @@ zrdotpr(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
         SInt32 stride2, DSPSplitComplex *result, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zvcma
 
     Split Complex Conjugate Multiply And vadd
@@ -1009,7 +1009,7 @@ zrdotpr(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zvcma()
@@ -1025,7 +1025,7 @@ zvcma(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       DSPSplitComplex *result, SInt32 strideResult, UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zrvadd
 
     Split Complex - Real Add
@@ -1040,7 +1040,7 @@ zvcma(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zrvadd()
@@ -1056,7 +1056,7 @@ zrvadd(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
        UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zrvsub
 
     Split Complex - Real Substract
@@ -1071,7 +1071,7 @@ zrvadd(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zrvsub()
@@ -1087,7 +1087,7 @@ zrvsub(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
        UInt32 size);
 
 /**
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     Function zrvmul
 
     Split Complex - Real Multiply
@@ -1102,7 +1102,7 @@ zrvsub(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
 
       If any of the above criteria are not satisfied, the PowerPC scalor code
       implementation will be used.
-�������������������������������������������������������������������������������
+©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /**
  *  zrvmul()

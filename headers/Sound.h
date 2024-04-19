@@ -6,7 +6,7 @@
     \introduced_in  Sound Manager 3.6
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1986-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1986-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -516,7 +516,7 @@ enum {
   kCDXA4Compression = FOUR_CHAR_CODE('cdx4'), /**CD/XA 4:1*/
   kCDXA2Compression = FOUR_CHAR_CODE('cdx2'), /**CD/XA 2:1*/
   kIMACompression = FOUR_CHAR_CODE('ima4'),   /**IMA 4:1*/
-  kULawCompression = FOUR_CHAR_CODE('ulaw'),  /**�Law 2:1*/
+  kULawCompression = FOUR_CHAR_CODE('ulaw'),  /**©Law 2:1*/
   kALawCompression = FOUR_CHAR_CODE('alaw'),  /**aLaw 2:1*/
   kMicrosoftADPCMFormat = 0x6D730002,         /**Microsoft ADPCM - ACM code 2*/
   kDVIIntelIMAFormat = 0x6D730011, /**DVI/Intel IMA ADPCM - ACM code 17*/

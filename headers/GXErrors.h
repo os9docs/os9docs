@@ -6,7 +6,7 @@
     \introduced_in  Quickdraw GX 1.1
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1994-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1994-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -957,9 +957,9 @@ enum {
                                      each memory mgr. call */
   gxFontBlockValidation = 0x0200, /** check the system gxHeap as well */
   gxApHeapValidation =
-      0x0400, /** check the memory manager�s gxHeap after every mem. call */
+      0x0400, /** check the memory manager©s gxHeap after every mem. call */
   gxFontHeapValidation = 0x0800,     /** check the system gxHeap as well */
-  gxCheckApHeapValidation = 0x1000,  /** check the memory manager�s gxHeap if
+  gxCheckApHeapValidation = 0x1000,  /** check the memory manager©s gxHeap if
                                         checking routine parameters */
   gxCheckFontHeapValidation = 0x2000 /** check the system gxHeap as well */
 };

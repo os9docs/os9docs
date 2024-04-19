@@ -6,7 +6,7 @@
     \introduced_in  QuickTime 5.0.1
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1990-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -2702,7 +2702,7 @@ struct DataHScheduleRecord {
   TimeRecord timeNeededBy;
   long extendedID;   /** always is kDataHExtendedSchedule*/
   long extendedVers; /** always set to 0*/
-  Fixed priority;    /** 100.0 or more means must have. lower numbers�*/
+  Fixed priority;    /** 100.0 or more means must have. lower numbers©*/
 };
 typedef struct DataHScheduleRecord DataHScheduleRecord;
 typedef DataHScheduleRecord *DataHSchedulePtr;

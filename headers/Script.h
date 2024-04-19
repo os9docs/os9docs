@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9 / Carbon
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1986-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1986-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -316,7 +316,7 @@ enum {
   verDenmark = 9,     /** DK da_DK*/
   verPortugal = 10,   /** PO pt_PT     Portuguese for Portugal*/
   verFrCanada = 11,   /** C  fr_CA       French for Canada*/
-  verNorway = 12,     /** H  no_NO,nb_NO  Bokm�l*/
+  verNorway = 12,     /** H  no_NO,nb_NO  Bokm©l*/
   verIsrael = 13,     /** HB he_IL,iw_IL Hebrew*/
   verJapan = 14,      /** J  ja_JP*/
   verAustralia = 15,  /** X  en_AU       English for Australia*/

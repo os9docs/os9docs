@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 8
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1993-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1993-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -184,7 +184,7 @@ enum {
 /** DisplayID/DeviceID constants */
 enum {
   kDummyDeviceID = 0x00FF,    /** This is the ID of the dummy display, used when
-                                 the last �real� display is disabled.*/
+                                 the last ©real© display is disabled.*/
   kInvalidDisplayID = 0x0000, /** This is the invalid ID*/
   kFirstDisplayID = 0x0100
 };
@@ -338,7 +338,7 @@ struct DMComponentListEntryRec {
 };
 typedef struct DMComponentListEntryRec DMComponentListEntryRec;
 typedef DMComponentListEntryRec *DMComponentListEntryPtr;
-/** ��� Move AVLocationRec to AVComponents.i AFTER AVComponents.i is created*/
+/** ©©© Move AVLocationRec to AVComponents.i AFTER AVComponents.i is created*/
 struct AVLocationRec {
   unsigned long locationConstant; /** Set to 0 (future expansion - probably an
                                      alternate code style)*/

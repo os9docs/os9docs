@@ -6,7 +6,7 @@
     \introduced_in  HyperCard 2.3
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1987-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1987-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -72,11 +72,11 @@ enum {
   xGiveUpSoundEvt = 1003,   /* you are losing the sound channel... */
   xHidePalettesEvt = 1004,  /* someone called HideHCPalettes */
   xShowPalettesEvt = 1005,  /* someone called ShowHCPalettes */
-  xEditUndo = 1100,         /* Edit��Undo */
-  xEditCut = 1102,          /* Edit��Cut */
-  xEditCopy = 1103,         /* Edit��Copy */
-  xEditPaste = 1104,        /* Edit��Paste */
-  xEditClear = 1105,        /* Edit��Clear */
+  xEditUndo = 1100,         /* Edit©©Undo */
+  xEditCut = 1102,          /* Edit©©Cut */
+  xEditCopy = 1103,         /* Edit©©Copy */
+  xEditPaste = 1104,        /* Edit©©Paste */
+  xEditClear = 1105,        /* Edit©©Clear */
   xSendEvt = 1200,          /* script has sent you a message (text) */
   xSetPropEvt = 1201,       /* set a window property */
   xGetPropEvt = 1202,       /* get a window property */

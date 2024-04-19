@@ -7,7 +7,7 @@
     \introduced_in  2.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1993-2001 by Apple Computer, Inc. and Mentat Inc., all rights
+    \copyright © 1993-2001 by Apple Computer, Inc. and Mentat Inc., all rights
    reserved.
 
     For bug reports, consult the following page on
@@ -90,7 +90,7 @@ extern "C" {
 /**
    These allocators allocate memory in the shared client pool,
    which is shared between all clients and is not disposed when
-   a particular client goes away.  See DTS Technote ���
+   a particular client goes away.  See DTS Technote ©©©
    "Understanding Open Transport Memory Management" for details.
 */
 #if CALL_NOT_IN_CARBON
@@ -358,8 +358,8 @@ struct qband {
   msgb *qb_last;          /** tail of message queue */
   unsigned long qb_hiwat; /** high water mark */
   unsigned long qb_lowat; /** low water mark */
-  unsigned short qb_flag; /** ����state */
-  short qb_pad1;          /** ��� reserved */
+  unsigned short qb_flag; /** ©©©©state */
+  short qb_pad1;          /** ©©© reserved */
 };
 typedef struct qband qband;
 typedef qband qband_t;
@@ -381,9 +381,9 @@ struct queue {
   unsigned long q_hiwat;   /** high water mark, for flow control */
   unsigned long q_lowat;   /** low water mark */
   qband *q_bandp;          /** band information */
-  unsigned short q_flag;   /** ��� queue state */
-  unsigned char q_nband;   /** ��� number of bands */
-  unsigned char q_pad1[1]; /** ��� reserved */
+  unsigned short q_flag;   /** ©©© queue state */
+  unsigned char q_nband;   /** ©©© number of bands */
+  unsigned char q_pad1[1]; /** ©©© reserved */
   q_xtra *q_osx;           /** Pointer to OS-dependent extra stuff */
   struct queue *q_ffcp;    /** Forward flow control pointer */
   struct queue *q_bfcp;    /** Backward flow control pointer */

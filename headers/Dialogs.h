@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1985-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -567,9 +567,9 @@ GetDialogParent(DialogRef theDialog);
 #endif /** !TARGET_OS_MAC */
 
 /**
-  ���������������������������������������������������������������������������������������������������������
-    � Following types are valid with Appearance 1.0 and later
-  ���������������������������������������������������������������������������������������������������������
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+    © Following types are valid with Appearance 1.0 and later
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 enum {
   /** Alert types to pass into StandardAlert */
@@ -706,7 +706,7 @@ struct AlertStdCFStringAlertParamRec {
 };
 typedef struct AlertStdCFStringAlertParamRec AlertStdCFStringAlertParamRec;
 typedef AlertStdCFStringAlertParamRec *AlertStdCFStringAlertParamPtr;
-/** ��� end Appearance 1.0 or later stuff*/
+/** ©©© end Appearance 1.0 or later stuff*/
 
 /**
     NOTE: Code running under MultiFinder or System 7.0 or newer
@@ -1292,9 +1292,9 @@ SetDialogTracksCursor(DialogRef theDialog, Boolean tracks)
     THREEWORDINLINE(0x303C, 0x0306, 0xAA68);
 
 /**
-  ���������������������������������������������������������������������������������������������������������
-    � Appearance Dialog Routines (available only with Appearance 1.0 and later)
-  ���������������������������������������������������������������������������������������������������������
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+    © Appearance Dialog Routines (available only with Appearance 1.0 and later)
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 
 /**
@@ -1592,9 +1592,9 @@ AppendDialogItemList(DialogRef dialog, SInt16 ditlID, DITLMethod method)
     THREEWORDINLINE(0x303C, 0x0412, 0xAA68);
 
 /**
-  ���������������������������������������������������������������������������������������������������������
-    � Dialog Routines available only with Appearance 1.1 and later
-  ���������������������������������������������������������������������������������������������������������
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+    © Dialog Routines available only with Appearance 1.1 and later
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 
 /**
@@ -1644,9 +1644,9 @@ EXTERN_API(OSStatus)
 GetModalDialogEventMask(DialogRef inDialog, EventMask *outMask);
 
 /**
-  ���������������������������������������������������������������������������������������������������������
-    � Accessor functions
-  ���������������������������������������������������������������������������������������������������������
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+    © Accessor functions
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 
 /**

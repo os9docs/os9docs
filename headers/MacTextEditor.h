@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1996-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1996-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -928,7 +928,7 @@ typedef struct TXNCarbonEventInfo TXNCarbonEventInfo;
   displayed.
 
     iFrame:     If text-area does not fill the entire window.  This specifies
-  the area to fill.  Can be NULL. In  which case, the window�s portRect is used
+  the area to fill.  Can be NULL. In  which case, the window©s portRect is used
   as the frame.
 
     iFrameOptions:  Specify the options to be supported by this frame.  The
@@ -950,8 +950,8 @@ typedef struct TXNCarbonEventInfo TXNCarbonEventInfo;
   document).  If you  truly want  rich documents which can potentially contain
   graphics and sound you should specify kTextensionTextFileOutput.  If you want
   a plain text editor like SimpleText specify that style information by saved
-  via �styl� resources. If you want files similar to those output by CW IDE,
-  BBEdit, and MPW specify that style information be saved in a �MPSR� resource.
+  via ©styl© resources. If you want files similar to those output by CW IDE,
+  BBEdit, and MPW specify that style information be saved in a ©MPSR© resource.
 
    Output:
 
@@ -1768,8 +1768,8 @@ TXNSetTypeAttributes(TXNObject iTXNObject, ItemCount iAttrCount,
  *
  *    iControlTags:
  *      An array of values that specifies kind of data that is passed
- *      in the iControlData parameter. See �Formatting and Privileges
- *      Settings� for a description of possible values. On systems that
+ *      in the iControlData parameter. See ©Formatting and Privileges
+ *      Settings© for a description of possible values. On systems that
  *      use Apple Type Services for Unicode Imaging (ATSUI), you can
  *      also pass ATSUI attribute tag constants. See the ATSUI
  *      documentation for a description of the ATSUI constants. Can be
@@ -1817,7 +1817,7 @@ TXNSetTXNObjectControls(TXNObject iTXNObject, Boolean iClearAll,
  *    iControlTags:
  *      An array of values that specify the kind of formatting
  *      information you want returned in the oControlData array. See
- *      �Formatting and Privileges Settings� for a description of
+ *      ©Formatting and Privileges Settings© for a description of
  *      possible values.
  *
  *    oControlData:
@@ -1907,7 +1907,7 @@ TXNCountRunsInRange(TXNObject iTXNObject, TXNOffset iStartOffset,
  *
  *    oRunDataType:
  *      On return, a pointer to a value that identifies the type of
- *      data in the run. See �Supported Data Types� for a description
+ *      data in the run. See ©Supported Data Types© for a description
  *      of possible values.
  *
  *    iTypeAttributeCount:
@@ -2073,7 +2073,7 @@ TXNSetDataFromFile(TXNObject iTXNObject, SInt16 iFileRefNum, OSType iFileType,
  *      to replace data.
  *
  *    iDataType:
- *      The type of the replacement data. See �Supported Data Types�
+ *      The type of the replacement data. See ©Supported Data Types©
  *      for a description of possible values.
  *
  *    iDataPtr:
@@ -2760,7 +2760,7 @@ TXNDoFontMenuSelection(TXNObject iTXNObject,
  *  Discussion:
  *    You should call the TXNPrepareFontMenu function just before your
  *    application opens the Font menu for your user. If the text
- *    object�s current selection is a single font, MLTE places a
+ *    object©s current selection is a single font, MLTE places a
  *    checkmark next to the menu item for that font.
  *
  *  Parameters:

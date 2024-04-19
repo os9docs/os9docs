@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1997-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1997-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -106,10 +106,10 @@ typedef OSType PropertyTag;
 
 typedef UInt32 WindowClass;
 enum {
-  kAlertWindowClass = 1L, /** �I need your attention now.�*/
+  kAlertWindowClass = 1L, /** ©I need your attention now.©*/
   kMovableAlertWindowClass =
-      2L, /** �I need your attention now, but I�m kind enough to let you switch
-             out of this app to do other things.�*/
+      2L, /** ©I need your attention now, but I©m kind enough to let you switch
+             out of this app to do other things.©*/
   kModalWindowClass = 3L,        /** system modal, not draggable*/
   kMovableModalWindowClass = 4L, /** application modal, draggable*/
   kFloatingWindowClass = 5L, /** floats above all other application windows*/
@@ -423,13 +423,13 @@ enum {
 };
 
 /** */
-/** Passed into StandardAlert and used in �WIND�, �DLOG�, and �ALRT� templates
+/** Passed into StandardAlert and used in ©WIND©, ©DLOG©, and ©ALRT© templates
  */
 /** StandardAlert uses zero to specify the default position. Other calls use
  * zero to     */
-/** specify �no position�.  Do not pass these constants to RepositionWindow.  Do
+/** specify ©no position©.  Do not pass these constants to RepositionWindow.  Do
  * not     */
-/** store these constants in the BasicWindowDescription of a �wind� resource. */
+/** store these constants in the BasicWindowDescription of a ©wind© resource. */
 
 enum {
   kWindowNoPosition = 0x0000,
@@ -481,7 +481,7 @@ enum {
   kWindowOpaqueRgn = 35, /** \mac_os_x Area of window considered to be opaque.
                             Only valid for windows with alpha channels.*/
   kWindowGlobalPortRgn =
-      40 /** Carbon forward - bounds of the window�s port in global coordinates;
+      40 /** Carbon forward - bounds of the window©s port in global coordinates;
             not affected by CollapseWindow*/
 };
 
@@ -676,7 +676,7 @@ enum {
   wTitleBarColor = 4
 };
 
-/**  � Region Dragging Constants */
+/**  © Region Dragging Constants */
 
 enum { kMouseUpOutOfSlop = (long)0x80008000 };
 
@@ -760,7 +760,7 @@ struct AuxWinRec {
 
 #endif /** !OPAQUE_TOOLBOX_STRUCTS */
 
-/**  � BasicWindowDescription */
+/**  © BasicWindowDescription */
 /** */
 /**  Contains statically-sized basic attributes of the window, for storage in a
  */
@@ -808,7 +808,7 @@ enum {
 };
 
 /** */
-/**  Special cases for the �behind� parameter in window creation calls. */
+/**  Special cases for the ©behind© parameter in window creation calls. */
 
 #define kFirstWindowOfClass ((WindowRef)(-1))
 #define kLastWindowOfClass ((WindowRef)0)
@@ -1196,7 +1196,7 @@ CreateNewWindow(WindowClass windowClass, WindowAttributes attributes,
 
 /** Routines available from Mac OS 8.5 forward*/
 
-/** Create a window from a �wind� resource*/
+/** Create a window from a ©wind© resource*/
 /**
  *  CreateWindowFromResource()
  *
@@ -1549,7 +1549,7 @@ ChangeWindowAttributes(WindowRef window, WindowAttributes setTheseAttributes,
 EXTERN_API(OSStatus)
 SetWindowClass(WindowRef inWindow, WindowClass inWindowClass);
 
-/**  � Window Modality */
+/**  © Window Modality */
 
 /**
  *  WindowModality
@@ -1631,7 +1631,7 @@ SetWindowModality(WindowRef inWindow, WindowModality inModalKind,
  *      On exit, contains the modality of the window.
  *
  *    outUnavailableWindow:
- *      On exit, if�the window is window-modal, contains the target
+ *      On exit, if©the window is window-modal, contains the target
  *      window of the specified window's modality.
  *
 
@@ -1764,14 +1764,14 @@ enum {
  *  Discussion:
  *    Every window has a WindowActivationScope. It defines how windows
  *    are activated by the Window Manager with respect to other windows
- *    in the window�s group and in the current process.
+ *    in the window©s group and in the current process.
  */
 typedef UInt32 WindowActivationScope;
 enum {
 
   /**
    * Windows with this scope are never activated by the Window Manager.
-   * This should be used when the window�s visual state does not change
+   * This should be used when the window©s visual state does not change
    * based on activation (for example, tooltip windows), or when the
    * client wishes to manually control all activation. The window owner
    * is free to explicitly activate windows using the ActivateWindow
@@ -1838,7 +1838,7 @@ enum {
    * Indicates that Count/GetWindowGroupContents should include the
    * contents of groups contained by the specified group. If this
    * option is not set, these APIs only return information about the
-   * specified group�s contents.
+   * specified group©s contents.
    */
   kWindowGroupContentsRecurse = 1 << 1,
 
@@ -1851,7 +1851,7 @@ enum {
 };
 
 /**----------------------------------------------------------------------------------*/
-/**  � Group creation, destruction, and refcounting */
+/**  © Group creation, destruction, and refcounting */
 /**----------------------------------------------------------------------------------*/
 /**
  *  CreateWindowGroup()
@@ -1966,7 +1966,7 @@ EXTERN_API_C(WindowGroupRef)
 GetWindowGroupOfClass(WindowClass windowClass);
 
 /**----------------------------------------------------------------------------------*/
-/**  ��Group name, attributes, and level */
+/**  ©©Group name, attributes, and level */
 /**----------------------------------------------------------------------------------*/
 /**
  *  SetWindowGroupName()
@@ -2033,7 +2033,7 @@ CopyWindowGroupName(WindowGroupRef inGroup, CFStringRef *outName);
  *      The group whose attributes to retrieve.
  *
  *    outAttributes:
- *      On exit, the group�s attributes.
+ *      On exit, the group©s attributes.
  *
 
  *    \non_carbon_cfm   not available
@@ -2139,7 +2139,7 @@ EXTERN_API_C(OSStatus)
 GetWindowGroupLevel(WindowGroupRef inGroup, SInt32 *outLevel);
 
 /**----------------------------------------------------------------------------------*/
-/**  ��Group z-ordering */
+/**  ©©Group z-ordering */
 /**----------------------------------------------------------------------------------*/
 /**
  *  SendWindowGroupBehind()
@@ -2170,7 +2170,7 @@ EXTERN_API_C(OSStatus)
 SendWindowGroupBehind(WindowGroupRef inGroup, WindowGroupRef behindGroup);
 
 /**----------------------------------------------------------------------------------*/
-/**  ��Group containment hierarchy manipulation */
+/**  ©©Group containment hierarchy manipulation */
 /**----------------------------------------------------------------------------------*/
 /**
  *  GetWindowGroup()
@@ -2203,11 +2203,11 @@ GetWindowGroup(WindowRef inWindow);
  *    Sets the window group that contains a window.
  *
  *  Discussion:
- *    The window�s z-order relative to windows in the current process
+ *    The window©s z-order relative to windows in the current process
  *    may also be changed by this API. If the new window group is
- *    z-ordered above the window�s current group, the window will be
+ *    z-ordered above the window©s current group, the window will be
  *    placed at the end of the new group. If the new window group is
- *    z-ordered below the window�s current group, the window will be
+ *    z-ordered below the window©s current group, the window will be
  *    placed at the top of the new group. You may not place a window
  *    directly into the root group.
  *
@@ -2262,7 +2262,7 @@ IsWindowContainedInGroup(WindowRef inWindow, WindowGroupRef inGroup);
  *      The group whose containing group to retrieve.
  *
  *    outGroup:
- *      On exit, the containing window group of the group. The group�s
+ *      On exit, the containing window group of the group. The group©s
  *      refcount is not incremented by this API, and the caller does
  *      not need to release the reference.
  *
@@ -2381,7 +2381,7 @@ EXTERN_API_C(OSStatus)
 SetWindowGroupOwner(WindowGroupRef inGroup, WindowRef inWindow);
 
 /**----------------------------------------------------------------------------------*/
-/**  � Inspection of group contents */
+/**  © Inspection of group contents */
 /**----------------------------------------------------------------------------------*/
 
 /**
@@ -2396,7 +2396,7 @@ SetWindowGroupOwner(WindowGroupRef inGroup, WindowRef inWindow);
  *      The group whose contents to count.
  *
  *    inOptions:
- *      Specifies how to count the group�s contents.
+ *      Specifies how to count the group©s contents.
  *
 
  *    \non_carbon_cfm   not available
@@ -2517,7 +2517,7 @@ GetIndexedWindow(WindowGroupRef inGroup, UInt32 inIndex,
  *      does not need to be explicitly specified.
  *
  *    outIndex:
- *      On exit, contains the window�s z-order index.
+ *      On exit, contains the window©s z-order index.
  *
 
  *    \non_carbon_cfm   not available
@@ -2529,7 +2529,7 @@ GetWindowIndex(WindowRef inWindow, WindowGroupRef inStartGroup,
                WindowGroupContentOptions inOptions, UInt32 *outIndex);
 
 /**----------------------------------------------------------------------------------*/
-/**  ��Window activation */
+/**  ©©Window activation */
 /**----------------------------------------------------------------------------------*/
 /**
  *  ActiveNonFloatingWindow()
@@ -2619,7 +2619,7 @@ ActivateWindow(WindowRef inWindow, Boolean inActivate);
  *  GetWindowActivationScope()
  *
  *  Summary:
- *    Retrieves a window�s activation scope.
+ *    Retrieves a window©s activation scope.
  *
  *  Parameters:
  *
@@ -2627,7 +2627,7 @@ ActivateWindow(WindowRef inWindow, Boolean inActivate);
  *      The window whose activation scope to retrieve.
  *
  *    outScope:
- *      On exit, the window�s activation scope.
+ *      On exit, the window©s activation scope.
  *
 
  *    \non_carbon_cfm   not available
@@ -2641,7 +2641,7 @@ GetWindowActivationScope(WindowRef inWindow, WindowActivationScope *outScope);
  *  SetWindowActivationScope()
  *
  *  Summary:
- *    Sets a window�s activation scope.
+ *    Sets a window©s activation scope.
  *
  *  Parameters:
  *
@@ -2660,7 +2660,7 @@ EXTERN_API_C(OSStatus)
 SetWindowActivationScope(WindowRef inWindow, WindowActivationScope inScope);
 
 /**----------------------------------------------------------------------------------*/
-/**  ��Debugging Utilities */
+/**  ©©Debugging Utilities */
 /**----------------------------------------------------------------------------------*/
 /**
  *  DebugPrintWindowGroup()
@@ -2795,10 +2795,10 @@ typedef UInt32 ScrollWindowOptions;
 enum {
   kScrollWindowNoOptions = 0,
   kScrollWindowInvalidate =
-      (1L << 0), /** add the exposed area to the window�s update region*/
+      (1L << 0), /** add the exposed area to the window©s update region*/
   kScrollWindowEraseToPortBackground =
       (1L << 1) /** erase the exposed area using the background color/pattern of
-                   the window�s grafport*/
+                   the window©s grafport*/
 };
 
 /** Routines available from Mac OS 8.1 forward when linking to CarbonLib 1.0
@@ -3685,9 +3685,9 @@ WindowPathSelect(WindowRef window, MenuRef menu, /** can be NULL */
 EXTERN_API(Boolean)
 IsWindowPathSelectEvent(WindowRef window, EventRef inEvent);
 
-/**  � HiliteWindowFrameForDrag */
+/**  © HiliteWindowFrameForDrag */
 /** */
-/**  If you call ShowDragHilite and HideDragHilite, you don�t need to use this
+/**  If you call ShowDragHilite and HideDragHilite, you don©t need to use this
  * routine.  */
 /**  If you implement custom drag hiliting, you should call
  * HiliteWindowFrameForDrag     */
@@ -4400,9 +4400,9 @@ inline DEFINE_API(Boolean) MacIsWindowVisible(WindowRef window) {
 #endif
 
 /**
-  ��������������������������������������������������������������������������������������
-    ��Latent window visibility
-  ��������������������������������������������������������������������������������������
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+    ©©Latent window visibility
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 
 /**
@@ -4491,7 +4491,7 @@ IsWindowLatentVisible(
     WindowLatentVisibility *outLatentVisible); /** can be NULL */
 
 /**
-    � Sheets
+    © Sheets
 
     Sheets are a new user interface object in Mac OS X. A sheet is a modal alert
    or dialog, but unlike a traditional alert or dialog window (which is visually
@@ -4503,7 +4503,7 @@ IsWindowLatentVisible(
    window-modal; it only prevents user interaction with its parent window, and
     events continue to flow to other windows in the application.
 
-    � Sheet Event Handling
+    © Sheet Event Handling
 
     Implementing a sheet window in your application generally requires some
    modifications to your event-handling code. A traditional app-modal window is
@@ -4540,7 +4540,7 @@ IsWindowLatentVisible(
 
     Which approach you choose is up to you.
 
-    � Sheets in CarbonLib
+    © Sheets in CarbonLib
 
     The sheet window class, sheet WDEF procIDs, and ShowSheetWindow,
    HideSheetWindow, and GetSheetWindowParent APIs are implemented in CarbonLib
@@ -4555,7 +4555,7 @@ IsWindowLatentVisible(
    modality, the Carbon Event Manager will discard events in any windows other
    than the sheet.
 
-    ��Creating a Sheet
+    ©©Creating a Sheet
 
     A sheet is just a normal window with a special window class:
    kSheetWindowClass or kSheetAlertWindowClass. As such, it can be created in
@@ -4590,7 +4590,7 @@ IsWindowLatentVisible(
     creating a sheet window that will be used to display an alert, although this
    is not required.
 
-    � Displaying a Sheet
+    © Displaying a Sheet
 
     A sheet is made visible by calling the ShowSheetWindow API. This API shows
    the sheet, using whatever visual effects are appropriate for the platform,
@@ -4698,7 +4698,7 @@ EXTERN_API(OSStatus)
 GetSheetWindowParent(WindowRef inSheet, WindowRef *outParentWindow);
 
 /**
-   disable and enable screen updates for changes to the current application�s
+   disable and enable screen updates for changes to the current application©s
    windows (OS X only for now)
 */
 
@@ -4884,7 +4884,7 @@ DragTheRgn(RgnHandle theRgn, Point startPt, const Rect *limitRect,
            const Rect *slopRect, short axis, DragGrayRgnUPP actionProc)
     ONEWORDINLINE(0xA926);
 
-/**  � GetAuxWin */
+/**  © GetAuxWin */
 /** */
 /**  GetAuxWin is not available in Carbon */
 
@@ -5393,7 +5393,7 @@ inline DEFINE_API(Rect *) GetWindowPortBounds(WindowRef window, Rect *bounds) {
  *  GetWindowFromPort()
  *
  *  Discussion:
- *    Needed to �cast up� to a WindowRef from a GrafPtr
+ *    Needed to ©cast up© to a WindowRef from a GrafPtr
  *
 
  *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later or as macro/inline
@@ -5559,9 +5559,9 @@ inline SInt16 GetWindowTitleWidth(WindowRef window) {
 #endif
 #endif
 
-/**��������������������������������������������������������������������������������������������������*/
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /** Obsolete symbolic names */
-/**��������������������������������������������������������������������������������������������������*/
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 #endif /** CALL_NOT_IN_CARBON */
 
 enum {

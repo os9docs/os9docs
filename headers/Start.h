@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 8.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1987-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1987-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -669,11 +669,11 @@ GetSelectedFirewireStartupDeviceInfo(UnsignedWide *GUID, UInt32 *mao,
  *
  *      [bootp,]siaddr,filename,ciaddr,giaddr,bootp-retries,tftp-retries
  *
- *          bootp...specifies the use of BOOTP as the �discovery� protocol to be
+ *          bootp...specifies the use of BOOTP as the ©discovery© protocol to be
  * used. siaddr is the IP address of the intended server. filename is the
  * filename of the file that is to be loaded by TFTP from the server. ciaddr is
  * the IP address of the client (i.e., the system being booted). giaddr is the
- * IP address of the BOOTP �gateway�. bootp-retries is the maximum number of
+ * IP address of the BOOTP ©gateway©. bootp-retries is the maximum number of
  * retries that are attempted before the BOOTP process is determined to have
  * failed. tftp-retries is the maximum number of retries that are attempted
  * before the TFTP process is stopped.
@@ -743,12 +743,12 @@ SetSelectedStartupDevice(UInt16 driveNum);
  *
  *      [bootp,]siaddr,filename,ciaddr,giaddr,bootp-retries,tftp-retries
  *
- *          bootp...specifies the use of BOOTP as the �discovery� protocol to be
+ *          bootp...specifies the use of BOOTP as the ©discovery© protocol to be
  * used. if not specified (parameter is nil), bootp is used by default siaddr is
  * the IP address of the intended server. filename is the filename of the file
  * that is to be loaded by TFTP from the server. ciaddr is the IP address of the
  * client (i.e., the system being booted). giaddr is the IP address of the BOOTP
- * �gateway�. bootp-retries is the maximum number of retries that are attempted
+ * ©gateway©. bootp-retries is the maximum number of retries that are attempted
  * before the BOOTP process is determined to have failed. tftp-retries is the
  * maximum number of retries that are attempted before the TFTP process is
  * stopped.

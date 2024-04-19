@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1999-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1999-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -65,9 +65,9 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Resource Types */
-/*������������������������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © Resource Types */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 
 enum {
   kControlTabListResType = FOUR_CHAR_CODE(
@@ -76,27 +76,27 @@ enum {
       'ldes') /* used for list box control (Appearance 1.0 and later)*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Check Box Values */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © Check Box Values */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 enum {
   kControlCheckBoxUncheckedValue = 0,
   kControlCheckBoxCheckedValue = 1,
   kControlCheckBoxMixedValue = 2
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Radio Button Values */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © Radio Button Values */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 enum {
   kControlRadioButtonUncheckedValue = 0,
   kControlRadioButtonCheckedValue = 1,
   kControlRadioButtonMixedValue = 2
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Pop-Up Menu Control Constants */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © Pop-Up Menu Control Constants */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /* Variant codes for the System 7 pop-up menu*/
 enum {
   popupFixedWidth = 1 << 0,
@@ -124,9 +124,9 @@ enum {
   popupTitleRightJust = 0x000000FF
 };
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � PopUp Menu Private Data Structure */
-/*������������������������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © PopUp Menu Private Data Structure */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 #if !OPAQUE_TOOLBOX_STRUCTS
 struct PopupPrivateData {
   MenuRef mHandle;
@@ -137,9 +137,9 @@ typedef PopupPrivateData *PopupPrivateDataPtr;
 typedef PopupPrivateDataPtr *PopupPrivateDataHandle;
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Definition ID�s */
-/*������������������������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © Control Definition ID©s */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /* Standard System 7 procIDs*/
 
 enum {
@@ -150,9 +150,9 @@ enum {
   popupMenuProc = 1008
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Part Codes */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © Control Part Codes */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 enum {
   kControlLabelPart = 1,
   kControlMenuPart = 2,
@@ -180,12 +180,12 @@ enum {
   kControlDataBrowserDraggedPart = 25 /* CarbonLib 1.0 and later*/
 };
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Types and ID�s available only with Appearance 1.0 and later */
-/*������������������������������������������������������������������������������������������������������*/
-/*��������������������������������������������������������������������������������������*/
-/*  � BEVEL BUTTON INTERFACE (CDEF 2) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © Control Types and ID©s available only with Appearance 1.0 and later */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © BEVEL BUTTON INTERFACE (CDEF 2) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  Bevel buttons allow you to control the content type (pict/icon/etc.), the
  * behavior  */
 /* (pushbutton/toggle/sticky), and the bevel size. You also have the option of
@@ -200,7 +200,7 @@ enum {
  * where: */
 /*                                                                                      */
 /*  Parameter                   What Goes Here */
-/*  ������������������� ���������������������������������������������������� */
+/*  ©©©©©©©©©©©©©©©©©©© ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© */
 /*  Min                         Hi Byte = Behavior, Lo Byte = content type. */
 /*  Max                         ResID for resource-based content types. */
 /*  Value                       MenuID to attach, 0 = no menu, please. */
@@ -251,7 +251,7 @@ enum {
 /*          with the GetBevelButtonMenuValue helper function. */
 /*                                                                                      */
 /*  Handle-based Content */
-/*  �������������������� */
+/*  ©©©©©©©©©©©©©©©©©©©© */
 /*  You can create your control and then set the content to an existing handle
  * to an    */
 /*  icon suite, etc. using the macros below. Please keep in mind that
@@ -529,9 +529,9 @@ EXTERN_API(OSErr)
 SetBevelButtonTextPlacement(ControlRef inButton,
                             ControlButtonTextPlacement inWhere);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � SLIDER (CDEF 3) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © SLIDER (CDEF 3) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  There are several variants that control the behavior of the slider control.
  * Any     */
 /*  combination of the following three constants can be added to the basic CDEF
@@ -610,9 +610,9 @@ CreateSliderControl(WindowRef window, const Rect *boundsRect, SInt32 value,
                     Boolean liveTracking, ControlActionUPP liveTrackingProc,
                     ControlRef *outControl);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � DISCLOSURE TRIANGLE (CDEF 4) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © DISCLOSURE TRIANGLE (CDEF 4) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  This control can be used as either left or right facing. It can also handle
  * its own */
 /*  tracking if you wish. This means that when the 'autotoggle' variant is used,
@@ -733,9 +733,9 @@ enum {
 EXTERN_API(OSErr)
 SetDisclosureTriangleLastValue(ControlRef inTabControl, SInt16 inValue);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � PROGRESS INDICATOR (CDEF 5) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © PROGRESS INDICATOR (CDEF 5) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  This CDEF implements both determinate and indeterminate progress bars. To
  * switch,   */
 /*  just use SetControlData to set the indeterminate flag to make it
@@ -790,9 +790,9 @@ enum {
   kControlProgressBarAnimatingTag = FOUR_CHAR_CODE('anim')      /* Boolean*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � LITTLE ARROWS (CDEF 6) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © LITTLE ARROWS (CDEF 6) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  This control implements the little up and down arrows you'd see in the
  * Memory       */
 /*  control panel for adjusting the cache size. */
@@ -816,9 +816,9 @@ CreateLittleArrowsControl(WindowRef window, const Rect *boundsRect,
                           SInt32 value, SInt32 minimum, SInt32 maximum,
                           SInt32 increment, ControlRef *outControl);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � CHASING ARROWS (CDEF 7) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © CHASING ARROWS (CDEF 7) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  To animate this control, make sure to call IdleControls repeatedly. */
 /*                                                                                      */
 /* Chasing Arrows proc IDs */
@@ -845,9 +845,9 @@ enum {
   kControlChasingArrowsAnimatingTag = FOUR_CHAR_CODE('anim') /* Boolean*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � TABS (CDEF 8) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © TABS (CDEF 8) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  Tabs use an auxiliary resource (tab#) to hold tab information such as the
  * tab name  */
 /*  and an icon suite ID for each tab. */
@@ -984,9 +984,9 @@ GetTabContentRect(ControlRef inTabControl, Rect *outContentRect);
 EXTERN_API(OSErr)
 SetTabEnabled(ControlRef inTabControl, SInt16 inTabToHilite, Boolean inEnabled);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � VISUAL SEPARATOR (CDEF 9) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © VISUAL SEPARATOR (CDEF 9) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  Separator lines determine their orientation (horizontal or vertical)
  * automatically  */
 /*  based on the relative height and width of their contrlRect. */
@@ -1009,9 +1009,9 @@ EXTERN_API(OSStatus)
 CreateSeparatorControl(WindowRef window, const Rect *boundsRect,
                        ControlRef *outControl);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � GROUP BOX (CDEF 10) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © GROUP BOX (CDEF 10) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  The group box CDEF can be use in several ways. It can have no title, a text
  * title,  */
 /*  a check box as the title, or a popup button as a title. There are two
@@ -1093,9 +1093,9 @@ enum {
                                 drawn in. (get only)*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � IMAGE WELL (CDEF 11) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © IMAGE WELL (CDEF 11) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  Image Wells allow you to control the content type (pict/icon/etc.) shown in
  * the     */
 /*  well. */
@@ -1104,7 +1104,7 @@ enum {
  * control.  */
 /*                                                                                      */
 /*  Parameter                   What Goes Here */
-/*  ������������������� �������������������������������������������������� */
+/*  ©©©©©©©©©©©©©©©©©©© ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© */
 /*  Min                         content type (see constants for bevel buttons)
  */
 /*  Value                       Resource ID of content type, if resource-based.
@@ -1112,7 +1112,7 @@ enum {
 /*                                                                                      */
 /*                                                                                      */
 /*  Handle-based Content */
-/*  �������������������� */
+/*  ©©©©©©©©©©©©©©©©©©©© */
 /*  You can create your control and then set the content to an existing handle
  * to an    */
 /*  icon suite, etc. using the macros below. Please keep in mind that
@@ -1190,9 +1190,9 @@ SetImageWellContentInfo(ControlRef inButton,
 EXTERN_API(OSErr)
 SetImageWellTransform(ControlRef inButton, IconTransformType inTransform);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � POPUP ARROW (CDEF 12) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © POPUP ARROW (CDEF 12) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  The popup arrow CDEF is used to draw the small arrow normally associated
  * with a     */
 /*  popup control. The arrow can point in four directions, and a small or large
@@ -1243,9 +1243,9 @@ CreatePopupArrowControl(WindowRef window, const Rect *boundsRect,
                         ControlPopupArrowOrientation orientation,
                         ControlPopupArrowSize size, ControlRef *outControl);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � PLACARD (CDEF 14) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © PLACARD (CDEF 14) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /* Placard proc IDs */
 enum { kControlPlacardProc = 224 };
 
@@ -1265,9 +1265,9 @@ EXTERN_API(OSStatus)
 CreatePlacardControl(WindowRef window, const Rect *boundsRect,
                      ControlRef *outControl);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � CLOCK (CDEF 15) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © CLOCK (CDEF 15) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  NOTE:   You can specify more options in the Value paramter when creating the
  * clock. */
 /*          See below. */
@@ -1345,9 +1345,9 @@ enum {
   kControlClockAnimatingTag = FOUR_CHAR_CODE('anim') /* Boolean*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � USER PANE (CDEF 16) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © USER PANE (CDEF 16) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  User panes have two primary purposes: to allow easy implementation of a
  * custom      */
 /*  control by the developer, and to provide a generic container for embedding
@@ -1375,7 +1375,7 @@ enum {
  */
 /*                                                                                      */
 /*  Parameter                   What Goes Here */
-/*  ������������������� �������������������������������������������������� */
+/*  ©©©©©©©©©©©©©©©©©©© ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© */
 /*  Value                       Control feature flags */
 
 /* User Pane proc IDs */
@@ -2107,9 +2107,9 @@ InvokeControlUserPaneBackgroundUPP(ControlRef control,
 #endif /* CALL_NOT_IN_CARBON */
 
 /**
-  ������������������������������������������������������������������������������������������
-    � EDIT TEXT (CDEF 17)
-  ������������������������������������������������������������������������������������������
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+    © EDIT TEXT (CDEF 17)
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 */
 /* Edit Text proc IDs */
 enum { kControlEditTextProc = 272, kControlEditTextPasswordProc = 274 };
@@ -2277,9 +2277,9 @@ InvokeControlEditTextValidationUPP(ControlRef control,
   InvokeControlEditTextValidationUPP(control, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/*��������������������������������������������������������������������������������������*/
-/*  � STATIC TEXT (CDEF 18) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © STATIC TEXT (CDEF 18) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /* Static Text proc IDs */
 enum { kControlStaticTextProc = 288 };
 
@@ -2319,9 +2319,9 @@ enum {
       FOUR_CHAR_CODE('cfst') /* CFStringRef (Also available on CarbonLib 1.5)*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � PICTURE CONTROL (CDEF 19) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © PICTURE CONTROL (CDEF 19) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  Value parameter should contain the ID of the picture you wish to display
  * when       */
 /*  creating controls of this type. If you don't want the control tracked at
@@ -2355,9 +2355,9 @@ enum {
   kControlPictureHandleTag = FOUR_CHAR_CODE('pich') /* PicHandle*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � ICON CONTROL (CDEF 20) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © ICON CONTROL (CDEF 20) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  Value parameter should contain the ID of the ICON or cicn you wish to
  * display when  */
 /*  creating controls of this type. If you don't want the control tracked at
@@ -2447,9 +2447,9 @@ enum {
       FOUR_CHAR_CODE('cont') /* accepts a ControlButtonContentInfo*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � WINDOW HEADER (CDEF 21) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © WINDOW HEADER (CDEF 21) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /* Window Header proc IDs */
 enum {
   kControlWindowHeaderProc = 336, /* normal header*/
@@ -2473,9 +2473,9 @@ EXTERN_API(OSStatus)
 CreateWindowHeaderControl(WindowRef window, const Rect *boundsRect,
                           Boolean isListHeader, ControlRef *outControl);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � LIST BOX (CDEF 22) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © LIST BOX (CDEF 22) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  Lists use an auxiliary resource to define their format. The resource type
  * used is   */
 /*  'ldes' and a definition for it can be found in Appearance.r. The resource ID
@@ -2526,9 +2526,9 @@ enum {
       FOUR_CHAR_CODE('ldef') /* SInt16. ID of LDEF to use.*/
 };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � PUSH BUTTON (CDEF 23) */
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/*  © PUSH BUTTON (CDEF 23) */
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  The new standard checkbox and radio button controls support a "mixed" value
  * that    */
 /*  indicates that the current setting contains a mixed set of on and off
@@ -2650,7 +2650,7 @@ enum {
       FOUR_CHAR_CODE('cncl') /* cancel button flag (1.1 and later)*/
 };
 
-/*��������������������������������������������������������������������������������������*/
+/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©���������������������������������������������������*/
 /*  � SCROLL BAR (CDEF 24) */
 /*��������������������������������������������������������������������������������������*/
 /*  This is the new Appearance scroll bar. */

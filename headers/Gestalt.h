@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9.1
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1988-2001 by Apple Computer, Inc.  All rights reserved
+    \copyright © 1988-2001 by Apple Computer, Inc.  All rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -667,7 +667,7 @@ enum {
   gestaltAppleEventsPresent = 0, /** True if Apple Events present */
   gestaltScriptingSupport = 1,
   gestaltOSLInSystem =
-      2, /** OSL is in system so don�t use the one linked in to app */
+      2, /** OSL is in system so don©t use the one linked in to app */
   gestaltSupportsApplicationURL =
       4 /** Supports the typeApplicationURL addressing mode */
 };
@@ -1850,7 +1850,7 @@ enum {
   gestaltNuBusPresent = 1,                  /** NuBus slots are present  */
   gestaltSESlotPresent = 2,                 /** SE PDS slot present  */
   gestaltSE30SlotPresent = 3,               /** SE/30 slot present  */
-  gestaltPortableSlotPresent = 4            /** Portable�s slot present  */
+  gestaltPortableSlotPresent = 4            /** Portable©s slot present  */
 };
 
 enum {

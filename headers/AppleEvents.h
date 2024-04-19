@@ -6,7 +6,7 @@
     \introduced_in  System 7.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1989-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1989-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -81,7 +81,7 @@ enum {
 /** Event Class */
 enum { kCoreEventClass = FOUR_CHAR_CODE('aevt') };
 
-/** Event ID�s */
+/** Event ID©s */
 enum {
   kAEOpenApplication = FOUR_CHAR_CODE('oapp'),
   kAEOpenDocuments = FOUR_CHAR_CODE('odoc'),

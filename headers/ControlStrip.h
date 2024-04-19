@@ -6,7 +6,7 @@
     \introduced_in  ControlStrip 1.4
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1992-2001 by Apple Computer, Inc. All rights reserved.
+    \copyright © 1992-2001 by Apple Computer, Inc. All rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -109,7 +109,7 @@ enum {
 };
 
 enum {
-  sdevMenuItemMark = 0xA5 /** ԥ�: �checkmark� to use in popup menus*/
+  sdevMenuItemMark = 0xA5 /** ԥ©: ©checkmark© to use in popup menus*/
 };
 
 /**  direction values for SBDrawBarGraph*/

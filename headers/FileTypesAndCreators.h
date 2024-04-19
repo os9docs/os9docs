@@ -7,7 +7,7 @@
     \introduced_in  Macintosh Easy Open 1.1
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1992-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1992-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -46,7 +46,7 @@ extern "C" {
 
 Motivation for FileTypesAndCreators.h
 
-    The TranslationMgr (Macintosh Easy Open) uses �FileTypes� to express and
+    The TranslationMgr (Macintosh Easy Open) uses ©FileTypes© to express and
 manage translation capabilities.  This works well for most Macintosh
 applications.  It simply uses the file type stored in the catalog info by HFS.
 But, the TranslationMgr needs to work with non-Macintosh files.  These do not
@@ -66,8 +66,8 @@ easier to use, some style guidelines are provided.
 
 Creators:
 
-    The symbolic constant for all creator codes begin with �sig�. Following
-�sig� is the application name.  Example:
+    The symbolic constant for all creator codes begin with ©sig©. Following
+©sig© is the application name.  Example:
 
         sigSurfWriter = 'SURF'
 
@@ -101,7 +101,7 @@ is used. Example:
 
 FileTypes:
 
-    The symbolic constant for all file types begin with �ft�. Following �ft� is
+    The symbolic constant for all file types begin with ©ft©. Following ©ft© is
 the ideal kind for that document.  Example:
 
         ftSurfWriterDocument =  'SRFD'
@@ -365,13 +365,13 @@ enum {
   ftMacSpinDataSet = FOUR_CHAR_CODE('D2BN'),
   sigAutoCAD = FOUR_CHAR_CODE('ACAD'),
   sigLabVIEW = FOUR_CHAR_CODE('LBVW'),
-  sigColorMacCheese = FOUR_CHAR_CODE('CMC�'),
+  sigColorMacCheese = FOUR_CHAR_CODE('CMC©'),
   sigMiniCad = FOUR_CHAR_CODE('CDP3'),
   sigDreams = FOUR_CHAR_CODE('PHNX'),
   sigOmnis5 = FOUR_CHAR_CODE('Q2$$'),
   sigPhotoMac = FOUR_CHAR_CODE('PMAC'),
   sigGraphMaster = FOUR_CHAR_CODE('GRAM'),
-  sigInfiniD = FOUR_CHAR_CODE('SI�D'),
+  sigInfiniD = FOUR_CHAR_CODE('SI©D'),
   sigOfoto = FOUR_CHAR_CODE('APLS'),
   sigMacDraw = FOUR_CHAR_CODE('MDRW'),
   sigDeltagraphPro = FOUR_CHAR_CODE('DGRH'),

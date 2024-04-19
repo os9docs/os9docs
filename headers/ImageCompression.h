@@ -6,7 +6,7 @@
     \introduced_in  QuickTime 5.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1990-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -3842,7 +3842,7 @@ enum {
   kQTPhotoshopLayerClipping =
       FOUR_CHAR_CODE('lclp'), /** UInt8, 0 = base, 1 = non-base */
   kQTPhotoshopLayerFlags = FOUR_CHAR_CODE('lflg'), /** UInt8 */
-  kQTPhotoshopLayerName = FOUR_CHAR_CODE('�lnm'),  /** Text */
+  kQTPhotoshopLayerName = FOUR_CHAR_CODE('©lnm'),  /** Text */
   kQTPhotoshopLayerUnicodeName =
       FOUR_CHAR_CODE('luni') /** Unicode characters, not terminated */
 };

@@ -6,7 +6,7 @@
     \introduced_in  MacOS
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1993-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1993-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -64,10 +64,10 @@ typedef RegEntryID *RegEntryIDPtr;
  *
  * Root Entry Name Definitions  (Applies to all Names in the RootNameSpace)
  *
- *  � Names are a colon-separated list of name components.  Name components
+ *  © Names are a colon-separated list of name components.  Name components
  *    may not themselves contain colons.
- *  � Names are presented as null-terminated ASCII character strings.
- *  � Names follow similar parsing rules to Apple file system absolute
+ *  © Names are presented as null-terminated ASCII character strings.
+ *  © Names follow similar parsing rules to Apple file system absolute
  *    and relative paths.  However the '::' parent directory syntax is
  *    not currently supported.
  */

@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 9
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1985-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -537,7 +537,7 @@ enum {
   notHeldErr = -621,              /*specified range of memory is not held*/
   cannotMakeContiguousErr = -622, /*cannot make specified range contiguous*/
   notLockedErr = -623,            /*specified range of memory is not locked*/
-  interruptsMaskedErr = -624,     /*don�t call with interrupts masked*/
+  interruptsMaskedErr = -624,     /*don©t call with interrupts masked*/
   cannotDeferErr = -625,          /*unable to defer additional functions*/
   noMMUErr = -626                 /*no MMU present*/
 };
@@ -987,10 +987,10 @@ enum {
   matrixErr = -2203,         /* bad matrix, digitizer did nothing */
   notExactMatrixErr = -2204, /* warning of bad matrix, digitizer did its best */
   noMoreKeyColorsErr = -2205, /* all key indexes in use */
-  notExactSizeErr = -2206,    /* Can�t do exact size requested */
-  badDepthErr = -2207,        /* Can�t digitize into this depth */
+  notExactSizeErr = -2206,    /* Can©t do exact size requested */
+  badDepthErr = -2207,        /* Can©t digitize into this depth */
   noDMAErr =
-      -2208, /* Can�t do DMA digitizing (i.e. can't go to requested dest */
+      -2208, /* Can©t do DMA digitizing (i.e. can't go to requested dest */
   badCallOrderErr = -2209 /* Usually due to a status call being called prior to
                              being setup first */
 };
@@ -1034,7 +1034,7 @@ enum {
   tsmTSMDocBusyErr = -2506,   /* document is still active */
   tsmDocNotActiveErr = -2507, /* document is NOT active */
   tsmNoOpenTSErr = -2508,     /* no open text service */
-  tsmCantOpenComponentErr = -2509,   /* can�t open the component */
+  tsmCantOpenComponentErr = -2509,   /* can©t open the component */
   tsmTextServiceNotFoundErr = -2510, /* no text service found */
   tsmDocumentOpenErr = -2511,        /* there are open documents */
   tsmUseInputWindowErr =
@@ -1447,7 +1447,7 @@ enum {
   kECONNREFUSEDErr = -3260,    /* Connection refused           */
   kEHOSTDOWNErr = -3263,       /* Host is down                */
   kEHOSTUNREACHErr = -3264,    /* No route to host               */
-  kEPROTOErr = -3269,      /* ��� fill out missing codes ���     */
+  kEPROTOErr = -3269,      /* ©©© fill out missing codes ©©©     */
   kETIMEErr = -3270,       /*                          */
   kENOSRErr = -3271,       /*                          */
   kEBADMSGErr = -3272,     /*                          */
@@ -1774,7 +1774,7 @@ enum {
       -5601, /* tried to create a window with WindowAttributes not supported by
                 the WindowClass*/
   errWindowDoesNotHaveProxy = -5602, /* tried to do something requiring a proxy
-                                        to a window which doesn�t have a proxy*/
+                                        to a window which doesn©t have a proxy*/
   errInvalidWindowProperty =
       -5603, /* tried to access a property tag with private creator*/
   errWindowPropertyNotFound = -5604, /* tried to get a nonexistent property*/
@@ -1844,7 +1844,7 @@ enum {
                                     be off to do their thing.*/
   kDMWrongNumberOfDisplays = -6222, /*Can only handle 2 displays for now.*/
   kDMMirroringBlocked = -6223,      /*DMBlockMirroring() has been called.*/
-  kDMCantBlock = -6224,      /*Mirroring is already on, can�t Block now (call
+  kDMCantBlock = -6224,      /*Mirroring is already on, can©t Block now (call
                                 DMUnMirror() first).*/
   kDMMirroringNotOn = -6225, /*Returned by all calls that need mirroring to be
                                 on to do their thing.*/
@@ -2091,7 +2091,7 @@ enum {
       -8800, /*    Used when an attempt was made to read in style data */
              /*    from an invalid cache.  Either the format of the */
              /*    cached data doesn't match that used by Apple Type */
-             /*    Services for Unicode� Imaging, or the cached data */
+             /*    Services for Unicode© Imaging, or the cached data */
              /*    is corrupt.  */
   kATSUNotSetErr =
       -8801, /*    Used when the client attempts to retrieve an attribute, */
@@ -2416,7 +2416,7 @@ enum {
   /*    telNoTools        = -10101,        unable to find any telephone tools */
   telNoSuchTool = -10102,      /* unable to find tool with name specified */
   telUnknownErr = -10103,      /* unable to set config */
-  telNoCommFolder = -10106,    /* Communications/Extensions � not found */
+  telNoCommFolder = -10106,    /* Communications/Extensions © not found */
   telInitFailed = -10107,      /* initialization failed */
   telBadCodeResource = -10108, /* code resource not found */
   telDeviceNotFound = -10109,  /* device not found */
@@ -2902,7 +2902,7 @@ enum {
   dsFinderErr = 41,      /*can't load the Finder error*/
   dsBadSlotInt = 51,     /*unserviceable slot interrupt*/
   dsBadSANEOpcode = 81,  /*bad opcode given to SANE Pack4*/
-  dsBadPatchHeader = 83, /*SetTrapAddress saw the �come-from� header*/
+  dsBadPatchHeader = 83, /*SetTrapAddress saw the ©come-from© header*/
   menuPrgErr = 84,       /*happens when a menu is purged*/
   dsMBarNFnd = 85,       /*Menu Manager Errors*/
   dsHMenuFindErr = 86,   /*Menu Manager Errors*/
@@ -2913,7 +2913,7 @@ enum {
 
 enum {
   dsNoFPU =
-      90, /*an FPU instruction was executed and the machine doesn�t have one*/
+      90, /*an FPU instruction was executed and the machine doesn©t have one*/
   dsNoPatch = 98,                /*Can't patch for particular Model Mac*/
   dsBadPatch = 99,               /*Can't load patch resource*/
   dsParityErr = 101,             /*memory parity error*/
@@ -2972,12 +2972,12 @@ enum {
 enum {
   dsNoExtsMacsBug = -1,          /*not a SysErr, just a placeholder */
   dsNoExtsDisassembler = -2,     /*not a SysErr, just a placeholder */
-  dsMacsBugInstalled = -10,      /*say �MacsBug Installed�*/
-  dsDisassemblerInstalled = -11, /*say �Disassembler Installed�*/
-  dsExtensionsDisabled = -13,    /*say �Extensions Disabled�*/
+  dsMacsBugInstalled = -10,      /*say ©MacsBug Installed©*/
+  dsDisassemblerInstalled = -11, /*say ©Disassembler Installed©*/
+  dsExtensionsDisabled = -13,    /*say ©Extensions Disabled©*/
   dsGreeting = 40,               /*welcome to Macintosh greeting*/
   dsSysErr = 32767,              /*general system error*/
-                                 /*old names here for compatibility�s sake*/
+                                 /*old names here for compatibility©s sake*/
   WDEFNFnd = dsWDEFNotFound
 };
 
@@ -2985,8 +2985,8 @@ enum {
   CDEFNFnd = dsCDEFNotFound,
   dsNotThe1 = 31,        /*not the disk I wanted*/
   dsBadStartupDisk = 42, /*unable to mount boot volume (sad Mac only)*/
-  dsSystemFileErr = 43,  /*can�t find System file to open (sad Mac only)*/
-  dsHD20Installed = -12, /*say �HD20 Startup�*/
+  dsSystemFileErr = 43,  /*can©t find System file to open (sad Mac only)*/
+  dsHD20Installed = -12, /*say ©HD20 Startup©*/
   mBarNFnd = -126,       /*system error code for MBDF not found*/
   fsDSIntErr = -127,     /*non-hardware Internal file system error*/
   hMenuFindErr = -127,   /*could not find HMenu's parent in MenuKey (wrong error

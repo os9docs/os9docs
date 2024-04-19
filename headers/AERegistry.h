@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 8.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1993-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1993-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -830,7 +830,7 @@ enum {
 enum {
   /** Suite code */
   kAEInternetSuite = FOUR_CHAR_CODE('gurl'),
-  kAEISWebStarSuite = FOUR_CHAR_CODE('WWW�')
+  kAEISWebStarSuite = FOUR_CHAR_CODE('WWW©')
 };
 
 enum {

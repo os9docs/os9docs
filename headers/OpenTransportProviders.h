@@ -7,7 +7,7 @@
     \introduced_in  2.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1993-2001 by Apple Computer, Inc. and Mentat Inc., all rights
+    \copyright © 1993-2001 by Apple Computer, Inc. and Mentat Inc., all rights
    reserved.
 
     For bug reports, consult the following page on
@@ -688,7 +688,7 @@ enum {
   kNBPEntityBufferSize = (kNBPMaxNameLength + kNBPMaxTypeLength +
                           kNBPMaxZoneLength + kNBPSlushLength),
   kNBPWildCard = 0x3D,         /** NBP name and type match anything '='*/
-  kNBPImbeddedWildCard = 0xC5, /** NBP name and type match some '�'*/
+  kNBPImbeddedWildCard = 0xC5, /** NBP name and type match some '©'*/
   kNBPDefaultZone = 0x2A       /** NBP default zone '*'*/
 };
 
@@ -1906,7 +1906,7 @@ enum {
 
 enum {
   kOTISDNTelephoneALaw = 1,   /** G.711 A-law                */
-  kOTISDNTelephoneMuLaw = 26, /** G.711 �-law                */
+  kOTISDNTelephoneMuLaw = 26, /** G.711 ©-law                */
   kOTISDNDigital64k = 13,     /** unrestricted digital (default)     */
   kOTISDNDigital56k = 37,     /** user rate 56Kb/s           */
   kOTISDNVideo64k = 41,       /** video terminal at 64Kb/s    */

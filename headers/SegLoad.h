@@ -6,7 +6,7 @@
     \introduced_in  Mac OS 8
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1985-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -127,7 +127,7 @@ getappparms(char *apName, short *apRefNum, Handle *apParam);
 #endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM || !TARGET_OS_MAC */
 
 /**
-   Because PowerPC applications don�t have segments.
+   Because PowerPC applications don©t have segments.
    But, in order to allow applications to not have conditionalized
    source code, UnloadSeg is macro'ed away for PowerPC.
 */

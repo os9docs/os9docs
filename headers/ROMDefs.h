@@ -6,7 +6,7 @@
     \introduced_in  System 7.5
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1986-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1986-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -81,7 +81,7 @@ enum {
   sRsrcHWDevId = 8, /**Hardware Device Id*/
   minorBaseOS = 10, /**Offset to base of sResource in minor space.*/
   minorLength =
-      11, /**Length of sResource�s address space in standard slot space.*/
+      11, /**Length of sResource©s address space in standard slot space.*/
   majorBaseOS = 12,   /**Offset to base of sResource in Major space.*/
   majorLength = 13,   /**Length of sResource in super slot space.*/
   sRsrcTest = 14,     /**sBlock diagnostic code*/
@@ -110,7 +110,7 @@ enum {
       4, /**      4 - when set is built-in (in the box), but detaches*/
   sVidParmDir = 126,
   sBkltParmDir = 140,  /**directory of backlight tables*/
-  stdBkltTblSize = 36, /**size of �standard� 0..31-entry backlight table*/
+  stdBkltTblSize = 36, /**size of ©standard© 0..31-entry backlight table*/
   sSuperDir = 254
 };
 
@@ -156,7 +156,7 @@ enum {
   drHwGemini = 1,
   drHwDeskBar = 1,
   drHwHooperDock =
-      2, /**Hooper�s CatDock,TypeDesk,DrSwApple ID; registered with DTS.*/
+      2, /**Hooper©s CatDock,TypeDesk,DrSwApple ID; registered with DTS.*/
   drHwATT3210 = 0x0001,
   drHwBootBug = 0x0100,
   drHwMicroDock = 0x0100, /** video hardware id's  - <catDisplay><typVideo>*/
@@ -164,11 +164,11 @@ enum {
   drHwSTB =
       drHwSTB3,     /** (Both STB-3 and STB-4 share the same video hardware.) */
   drHwRBV = 0x0018, /** IIci Aurora25/16 hw ID */
-  drHwJMFB = 0x0019, /** 4�8/8�24 NuBus card */
+  drHwJMFB = 0x0019, /** 4©8/8©24 NuBus card */
   drHwElsie = 0x001A,
   drHwTim = 0x001B,
   drHwDAFB = 0x001C,
-  drHwDolphin = 0x001D, /** 8�24GC NuBus card */
+  drHwDolphin = 0x001D, /** 8©24GC NuBus card */
   drHwGSC = 0x001E,     /** (Renamed from GSC drHWDBLite) */
   drHwDAFBPDS = 0x001F,
   drHWVSC = 0x0020,
@@ -182,7 +182,7 @@ enum {
   drHWCSC = 0x0028,
   drHwJET = 0x0029,
   drHWMEMCjr = 0x002A,
-  drHwBoogie = 0x002B,   /** 8�24AC nuBus video card (built by Radius) */
+  drHwBoogie = 0x002B,   /** 8©24AC nuBus video card (built by Radius) */
   drHwHPV = 0x002C,      /** High performance Video (HPV) PDS card for original
                             PowerMacs */
   drHwPlanaria = 0x002D, /**PowerMac 6100/7100/8100 PDS AV video*/

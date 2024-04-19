@@ -6,7 +6,7 @@
     \introduced_in  1.3.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1998-2001 by Apple Computer, Inc., all rights reserved
+    \copyright © 1998-2001 by Apple Computer, Inc., all rights reserved
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -271,7 +271,7 @@ OTCfgSetCurrentArea(CfgDatabaseRef dbRef, CfgAreaID areaID);
     Outputs:    none
     Returns:    OSStatus                        *** list errors ***
 
-    Sets the current area. If the area doesn�t exist kCfgErrAreaNotFound is
+    Sets the current area. If the area doesn©t exist kCfgErrAreaNotFound is
    returned.
 */
 /**
@@ -316,7 +316,7 @@ OTCfgDeleteArea(CfgDatabaseRef dbRef, CfgAreaID areaID);
     Outputs:    none
     Returns:    OSStatus                        *** list errors ***
 
-    Deletes the specified area. If the area doesn�t exist kCfgErrAreaNotFound is
+    Deletes the specified area. If the area doesn©t exist kCfgErrAreaNotFound is
    returned.
 */
 /**
@@ -341,7 +341,7 @@ OTCfgDuplicateArea(CfgDatabaseRef dbRef, CfgAreaID sourceAreaID,
     Returns:    OSStatus                        *** list errors ***
 
     Duplicates the source area content into the destination area. Both areas
-   should exist prior to making this call. If either area doesn�t exist
+   should exist prior to making this call. If either area doesn©t exist
    kCfgErrAreaNotFound is returned.
 */
 /**
@@ -366,7 +366,7 @@ OTCfgSetAreaName(CfgDatabaseRef dbRef, CfgAreaID areaID,
     Returns:    OSStatus                        *** list errors ***
 
     Renames the specified area. A new id is returned: it should be used from now
-   on. If the area doesn�t exist kCfgErrAreaNotFound is returned.
+   on. If the area doesn©t exist kCfgErrAreaNotFound is returned.
 */
 /**
  *  OTCfgGetAreaName()
@@ -387,7 +387,7 @@ OTCfgGetAreaName(CfgDatabaseRef dbRef, CfgAreaID areaID, Str255 areaName);
     Outputs:    Str255 areaName                 Name of area
     Returns:    OSStatus                        *** list errors ***
 
-    Gets the name of the specified area. If the area doesn�t exist
+    Gets the name of the specified area. If the area doesn©t exist
    kCfgErrAreaNotFound is returned.
 
     Requires Network Setup 1.0.1 or higher.
@@ -419,7 +419,7 @@ OTCfgOpenArea(CfgDatabaseRef dbRef, CfgAreaID areaID);
     Outputs:    none
     Returns:    OSStatus                        *** list errors ***
 
-    Opens the specified area for reading. If the area doesn�t exist
+    Opens the specified area for reading. If the area doesn©t exist
    kCfgErrAreaNotFound is returned.
 */
 /**
@@ -441,7 +441,7 @@ OTCfgCloseArea(CfgDatabaseRef dbRef, CfgAreaID areaID);
     Outputs:    none
     Returns:    OSStatus                        *** list errors ***
 
-    Closes an area opened for reading. If the area doesn�t exist
+    Closes an area opened for reading. If the area doesn©t exist
    kCfgErrAreaNotFound is returned.
 */
 /**
@@ -470,7 +470,7 @@ OTCfgBeginAreaModifications(CfgDatabaseRef dbRef, CfgAreaID readAreaID,
     Opens the specified area for writing. A new area id is provided.  This area
    id should be used to enumerate, add, delete, read and write to the modified
    data. The original id can still be used to access the original unmodified
-   data. If the area doesn�t exist, kCfgErrAreaNotFound is returned.
+   data. If the area doesn©t exist, kCfgErrAreaNotFound is returned.
 */
 /**
  *  OTCfgCommitAreaModifications()
@@ -497,7 +497,7 @@ OTCfgCommitAreaModifications(CfgDatabaseRef dbRef, CfgAreaID readAreaID,
    readers are informed that the database changed state.  The readAreaID should
    be the ID of the original area passed to OTCfgBeginAreaModifications.  The
    writeAreaID should be the ID returned by OTCfgBeginAreaModifications. If
-   either area doesn�t exist or there is a mismatch between readAreaID and
+   either area doesn©t exist or there is a mismatch between readAreaID and
    writeAreaID, kCfgErrAreaNotFound is returned.
 */
 /**
@@ -520,7 +520,7 @@ OTCfgAbortAreaModifications(CfgDatabaseRef dbRef, CfgAreaID readAreaID);
     Returns:    OSStatus                        *** list errors ***
 
     Closes an area opened for writing, discarding any modification. The areaID
-   should be the id of the original area. If the area doesn�t exist or the wrong
+   should be the id of the original area. If the area doesn©t exist or the wrong
    id is passed kCfgErrAreaNotFound is returned.
 */
 /**
@@ -560,7 +560,7 @@ OTCfgGetEntitiesCount(CfgDatabaseRef dbRef, CfgAreaID areaID,
 
     Returns the number of entities of the specified class and type in the
    specified area. To obtain all entities regardless of their class or type pass
-   kCfgClassAnyEntity or kCfgTypeAnyEntity. If the area doesn�t exist,
+   kCfgClassAnyEntity or kCfgTypeAnyEntity. If the area doesn©t exist,
    kCfgErrAreaNotFound is returned.
 */
 
@@ -604,7 +604,7 @@ OTCfgGetEntitiesList(CfgDatabaseRef dbRef, CfgAreaID areaID,
    kCfgClassAnyEntity or kCfgTypeAnyEntity. The count parameter should have the
    value obtained by CfgGetEntitiesCount.  On exit count may be less if some
    entities were deleted in the meantime. The id and info parameters should be
-   arrays large enough to hold count entries. If the area doesn�t exist,
+   arrays large enough to hold count entries. If the area doesn©t exist,
     kCfgErrAreaNotFound is returned.  The info array contains information about
    each entity, including its class, type, name and the area of its icon:
 
@@ -638,7 +638,7 @@ OTCfgCreateEntity(CfgDatabaseRef dbRef, CfgAreaID areaID,
    created Returns:    OSStatus                        *** list errors ***
 
     Creates a new entity with the specified class, type and name and returns an
-   id for it. If the area doesn�t exist, kCfgErrAreaNotFound is returned. If
+   id for it. If the area doesn©t exist, kCfgErrAreaNotFound is returned. If
    there is already an entity with the same name kCfgErrEntityAlreadyExists is
    returned.
 */
@@ -686,7 +686,7 @@ OTCfgDuplicateEntity(CfgDatabaseRef dbRef, const CfgEntityRef *entityRef,
     Returns:    OSStatus                        *** list errors ***
 
     Copies the contents of entityRef into newEntityRef. Both entities must exit.
-    If either entity doesn�t exist kCfgErrEntityNotFound is returned.
+    If either entity doesn©t exist kCfgErrEntityNotFound is returned.
 */
 /**
  *  OTCfgSetEntityName()
@@ -709,7 +709,7 @@ OTCfgSetEntityName(CfgDatabaseRef dbRef, const CfgEntityRef *entityRef,
     Outputs:    CfgEntityRef* newEntityRef      Reference to renamed entity
     Returns:    OSStatus                        *** list errors ***
 
-    Renames the specified entity. If the entity doesn�t exist
+    Renames the specified entity. If the entity doesn©t exist
    kCfgEntityNotfoundErr is returned. If there is already an entity with that
    name kCfgErrEntityAlreadyExists is returned.
 */
@@ -1141,7 +1141,7 @@ OTCfgGetPrefsTOC(CfgEntityAccessID accessID, ItemCount *itemCount,
    preferences in the count. prefsTOC has to be big enough to hold information
    about all the preference.
 
-    Current versions of Network Setup don�t read the input value of itemCount to
+    Current versions of Network Setup don©t read the input value of itemCount to
    ensure that the returned preference information doesn't write off the end of
    the prefsTOC array. This is too be fixed in a future version.  The upshot is
    that:

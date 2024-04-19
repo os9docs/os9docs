@@ -6,7 +6,7 @@
     \introduced_in  xxx put version here xxx
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1997-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1997-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -120,7 +120,7 @@ enum {
 /**
    Errors
     These REALLY need to be moved into Errors.h
-   ����needs officially assigned numbers
+   ©©©©needs officially assigned numbers
 */
 enum {
   kIDHErrDeviceDisconnected = -14101,
@@ -154,7 +154,7 @@ typedef struct IDHIsochInterval IDHIsochInterval;
 typedef struct OpaquePsuedoID *PsuedoID;
 /**
    Isoch Device Status
-    This is atom-like, but isn�t an atom
+    This is atom-like, but isn©t an atom
 */
 struct IDHDeviceStatus {
   UInt32 version;
@@ -164,7 +164,7 @@ struct IDHDeviceStatus {
   Boolean exclusiveAccess;
   UInt32 currentBandwidth;
   UInt32 currentChannel;
-  PsuedoID localNodeID; /**����may go in atoms */
+  PsuedoID localNodeID; /**©©©©may go in atoms */
   SInt16 inputStandard; /** One of the QT input standards*/
   Boolean deviceActive;
 };

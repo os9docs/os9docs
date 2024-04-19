@@ -6,7 +6,7 @@
     \introduced_in  ColorSync 3.0
     \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1992-2001 by Apple Computer, Inc., all rights reserved.
+    \copyright © 1992-2001 by Apple Computer, Inc., all rights reserved.
 
     For bug reports, consult the following page on
                  the World Wide Web:
@@ -401,7 +401,7 @@ enum {
 /* channel encoding format */
 enum {
   cmSRGB16ChannelEncoding =
-      0x00010000 /* used for sRGB64 encoding ( �3.12 format)*/
+      0x00010000 /* used for sRGB64 encoding ( ©3.12 format)*/
 };
 
 /* general colorspaces */
