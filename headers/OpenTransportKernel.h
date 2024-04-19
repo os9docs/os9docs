@@ -10,6 +10,8 @@
     \copyright � 1993-2001 by Apple Computer, Inc. and Mentat Inc., all rights
    reserved.
 
+    \ingroup OpenTransport
+
     For bug reports, consult the following page on
                  the World Wide Web:
 

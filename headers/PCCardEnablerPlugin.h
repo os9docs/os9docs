@@ -9,6 +9,8 @@
     \copyright � 1997-2001 by Apple Computer, Inc. and SystemSoft Corporation.
    All rights reserved.
 
+    \ingroup Hardware
+
     For bug reports, consult the following page on
                  the World Wide Web:
 

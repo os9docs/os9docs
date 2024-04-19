@@ -1,106 +1,155 @@
 /**
-   \file       Multiprocessing.h
+   \file    Multiprocessing.h
+
    \brief   Multiprocessing interfaces
+
    \introduced_in  Multiprocessing API version 2.4, integrated NanoKernel
-   support \avaliable_from Universal Interfaces 3.4.1
+   support
+   
+   \avaliable_from Universal Interfaces 3.4.1
+   
    \copyright © 1995-2001 DayStar Digital, Inc.
 
-   This is the header file for version 2.4 of the Mac OS multiprocessing
-   support.  This version has been totally reimplemented and has significant new
-   services.  The main goal of the reimplementation has been to transfer task
-   management into the core operating system to provide much more reliable and
-   more efficient operation, including on single processor machines. The memory
-   management has also been massively improved, it is much faster and wastes
-   much less space.  New services include POSIX style per-task storage, timers
-   with millisecond and microsecond resolutions, memory allocation at a
-   specified alignment, and system pageable and RAM resident memory pools.  See
-   the MP API documentation for details. The old "DayStar" debugging services
-   (whose names began with an underscore) have been removed from this header.  A
-   very few are still implemented for binary compatibility, or in cases where
-   they happened to be exposed inappropriately.  (E.g. _MPIsFullyInitialized
-   must be called to see if the MP API is ReallyTruly© usable.)  New code and
-   recompiles of old code should avoid use of these defunct services, except for
-   _MPIsFullyInitialized.
+   \ingroup Multiprocessing
 
-   The following services are from the original MP API and remain supported in
-   version 2.0: MPProcessors MPCreateTask MPTerminateTask MPCurrentTaskID
+   This is the header file for version 2.4 of the Mac OS multiprocessing support.  This version has been totally reimplemented and has significant new services.  The main goal of the reimplementation has been to transfer task management into the core operating system to provide much more reliable and more efficient operation, including on single processor machines. The memory management has also been massively improved, it is much faster and wastes much less space.  New services include POSIX style per-task storage, timers with millisecond and microsecond resolutions, memory allocation at a specified alignment, and system pageable and RAM resident memory pools.  See the MP API documentation for details. The old "DayStar" debugging services (whose names began with an underscore) have been removed from this header.  A very few are still implemented for binary compatibility, or in cases where they happened to be exposed inappropriately.  (E.g. _MPIsFullyInitialized must be called to see if the MP API is ReallyTruly© usable.)  New code and recompiles of old code should avoid use of these defunct services, except for _MPIsFullyInitialized.
+
+   The following services are from the original MP API and remain supported in version 2.0: MPProcessors MPCreateTask MPTerminateTask MPCurrentTaskID
+   
    * MPYield
+   
    * MPExit
+   
    * MPCreateQueue
+   
    * MPDeleteQueue
+   
    * MPNotifyQueue
+   
    * MPWaitOnQueue
+   
    * MPCreateSemaphore
+   
    * MPCreateBinarySemaphore     (In C only, a macro that calls MPCreateSemaphore.) 
+   
    * MPDeleteSemaphore MPSignalSemaphore MPWaitOnSemaphore
+   
    * MPCreateCriticalRegion
+   
    * MPDeleteCriticalRegion
+   
    * MPEnterCriticalRegion
+   
    * MPExitCriticalRegion
+   
    * MPAllocate                  (Deprecated, use MPAllocateAligned for new builds.) MPFree MPBlockCopy MPLibraryIsLoaded           (In C only, a macro.)
+   
    * _MPIsFullyInitialized       (See comments about checking for MP API availability.)
 
    The following services are new in version 2.0:
+   
    * MPProcessorsScheduled
+   
    * MPSetTaskWeight
+   
    * MPTaskIsPreemptive
+   
    * MPAllocateTaskStorageIndex
+   
    * MPDeallocateTaskStorageIndex
+   
    * MPSetTaskStorageValue
+   
    * MPGetTaskStorageValue
+   
    * MPSetQueueReserve
+   
    * MPCreateEvent
+   
    * MPDeleteEvent
+   
    * MPSetEvent
+   
    * MPWaitForEvent
+   
    * UpTime
+   
    * DurationToAbsolute
+   
    * AbsoluteToDuration
+   
    * MPDelayUntil
+   
    * MPCreateTimer
+   
    * MPDeleteTimer
+   
    * MPSetTimerNotify
+   
    * MPArmTimer
+   
    * MPCancelTimer
+   
    * MPSetExceptionHandler
+   
    * MPThrowException
+   
    * MPDisposeTaskException
+   
    * MPExtractTaskState
+   
    * MPSetTaskState
+   
    * MPRegisterDebugger
+   
    * MPUnregisterDebugger
+   
    * MPAllocateAligned           (Preferred over MPAllocate.)
+   
    * MPGetAllocatedBlockSize
+   
    * MPBlockClear
+   
    * MPDataToCode
+   
    * MPRemoteCall                (Preferred over _MPRPC.)
  
    * The following services are new in version 2.1:
+   
    * MPCreateNotification
+   
    * MPDeleteNotification
+   
    * MPModifyNotification
+   
    * MPCauseNotification
+   
    * MPGetNextTaskID
+   
    * MPGetNextCpuID
    
    The following services are "unofficial" extensions to the original API. They are not in the multiprocessing API documentation, but were in previous versions of this header. They remain supported version 2.0. They may not be supported in other environments. 
+   
    * _MPRPC                      (Deprecated, use MPRemoteCall for new builds.) 
+   
    * _MPAllocateSys              (Deprecated, use MPAllocateAligned for new builds.) 
+   
    * _MPTaskIsToolboxSafe 
+   
    * _MPLibraryVersion 
+   
    * _MPLibraryIsCompatible
    
    The following services were in previous versions of this header for "debugging only" use. They are NOT implemented in version 2.0.  For old builds they can be accessed by defining the symbol MPIncludeDefunctServices to have a nonzero value. _MPInitializePrintf _MPPrintf _MPDebugStr
+   
    * _MPStatusPString
+   
    * _MPStatusCString
    
    For bug reports, consult the following page on the World Wide Web: http://developer.apple.com/bugreporter/
 
-   WARNING
-   =======
-
-   You must properly check the availability of MP services before
-   calling them! See the section titled \ref checkapi "Checking API Availability".
+   \warning You must properly check the availability of MP services before calling them! See the section titled "CheckingAPIAvailability".
+   
 */
 
 #ifndef __MULTIPROCESSING__
@@ -835,61 +884,6 @@ void MPDataToCode(LogicalAddress address, ByteCount size);
  * \name Exception/Debugging Services
 */
 
-/**
-   \page task_state Task State Warning
-
-   The functions MPExtractTaskState and MPSetTaskState infer the size of the "info" buffer from the "kind" parameter.  A given value for MPTaskStateKind will always refer to a single specific physical buffer layout.  Should new register sets be added, or the size or number of any registers change, new values of MPTaskStateKind will be introduced to refer to the new buffer layouts.
-
-   The following types for the buffers are in MachineExceptions. The correspondence between MPTaskStateKind values and MachineExceptions types is:
-
-   <table>
-      <tr>
-         <td>kMPTaskStateRegisters</td><td>RegisterInformation</td>
-      </tr>
-      <tr>
-         <td>kMPTaskStateFPU</td><td>FPUInformation</td>
-      </tr>
-      <tr>
-         <td>kMPTaskStateVectors</td><td>VectorInformation</td>
-      </tr>
-      <tr>
-         <td>kMPTaskStateMachine</td><td>MachineInformation</td>
-      </tr>
-      <tr>
-         <td>kMPTaskState32BitMemoryException</td><td>ExceptionInfo for old-style 32-bit memory exceptions</td>
-      </tr>
-   </table>
-
-   For reference, on PowerPC the MachineExceptions types contain:
-
-   <table>
-      <tr>
-         <td>RegisterInformation</td><td>The GPRs, 32 values of 64 bits each.</td>
-      </tr>
-      <tr>
-         <td>FPUInformation</td><td>The FPRs plus FPSCR, 32 values of 64 bits each, one value of 32 bits.</td>
-      </tr>
-      <tr>
-         <td>VectorInformation</td><td>The AltiVec vector registers plus VSCR and VRSave, 32 values of 128 bits each, one value of 128 bits, and one 32 bit value</td>
-      </tr>
-      <tr>
-         <td>MachineInformation</td><td>The CTR, LR, PC, each of 64 bits. The CR, XER, MSR, MQ, exception kind, and DSISR, each of 32 bits. The 64 bit DAR.
-      </tr>
-      <tr>
-         <td>ExceptionInfo</td><td>Only memory exceptions are specified, 4 fields of 32 bits each. Note that this type only covers memory exceptions on 32-bit CPUs!
-         
-         The following types are declared here: 
-
-         * MPTaskStateTaskInfo
-         
-         * MPTaskInfo
-         </td>
-      </tr>
-   </table>
-   
-  
-*/
-
 /** Values for the TaskStateKind to MPExtractTaskState and MPSetTaskState.*/
 enum {
   kMPTaskStateRegisters = 0, /*< The task general registers.*/
@@ -1086,7 +1080,7 @@ void * MPRemoteCall(MPRemoteProcedure remoteProc, void *parameter,
  *  _MPIsFullyInitialized()
  * 
  *  \warning You must properly check the availability of MP services before
-   calling them! See the section titled \ref checkapi "Checking API Availability".
+   calling them! See the section titled "CheckingAPIAvailability".
    
  *  Availability:
  *    \non_carbon_cfm   in MPLibrary 1.0 and later
@@ -1101,41 +1095,6 @@ typedef CALLBACK_API_C(Boolean, MPIsFullyInitializedProc)(void);
   (((UInt32)_MPIsFullyInitialized !=                                           \
     (UInt32)kMPUnresolvedCFragSymbolAddress) &&                                \
    (_MPIsFullyInitialized()))
-
-
-/**
-   \page checkapi Checking API Availability
-   
-   You must properly check the availability of MP services before calling them!
-
-   Checking for the availability of the MP API is rather ugly.  This is a historical problem, caused by the original implementation letting itself get prepared when it really wasn't usable and complicated by some important clients then depending on weak linking to "work". (And further complicated by CFM not supporting "deferred" imports, which is how many programmers think weak imports work.)
-
-   The end result is that the MP API library may get prepared by CFM but be totally unusable. This means that if you import from the MP API library, you cannot simply check for a resolved import to decide if MP services are available.  Worse, if you explicitly prepare the MP API library you cannot assume that a noErr result from GetSharedLibrary means that MP services are available.
-
-   If you import from the MP API library you MUST use the MPLibraryIsLoaded macro (or equivalent code in languages other than C) to tell if the MP API services are available. It is not sufficient to simply check that an imported symbol is resolved as is commonly done for other libraries.  The macro expands to the expression:
-      (((UInt32)_MPIsFullyInitialized != (UInt32)kUnresolvedCFragSymbolAddress ) && (_MPIsFullyInitialized ()))
-   
-   This checks if the imported symbol _MPIsFullyInitialized is resolved and if resolved calls it.  Both parts must succeed for the MP API services to be available.
-
-   If you explicitly prepare the MP API library you MUST use code similar to the following example to tell if the MP API services are available. It is not sufficient to depend on just a noErr result from GetSharedLibrary.
-
-         OSErr                       err;
-         Boolean                     mpIsAvailable           = false;
-         CFragConnectionID           connID                  = kInvalidID;
-         MPIsFullyInitializedProc    mpIsFullyInitialized    = NULL;
-
-         err = GetSharedLibrary("\pMPLibrary", kCompiledCFragArch,  kReferenceCFrag, &connID, NULL, NULL);
-
-         if (err == noErr) {
-            err = FindSymbol(connID, "\p_MPIsFullyInitialized", (Ptr *) &mpIsFullyInitialized, NULL);
-         }
-
-         if (err == noErr) {
-            mpIsAvailable = (*mpIsFullyInitialized)();
-         }
-
-*/
-
 
 
 
@@ -1310,3 +1269,100 @@ void _MPPrintf(const char *format, ...);
 #endif
 
 #endif /* __MULTIPROCESSING__ */
+
+
+/**
+   \section CheckingAPIAvailability
+   
+   \warning This is not a real struct. This is here because Doxygen does not otherwise let me place notes on pages without making an entirely new page that shows up above everything on the sidebar, which I dislike.
+   
+   You must properly check the availability of MP services before calling them!
+
+   Checking for the availability of the MP API is rather ugly.  This is a historical problem, caused by the original implementation letting itself get prepared when it really wasn't usable and complicated by some important clients then depending on weak linking to "work". (And further complicated by CFM not supporting "deferred" imports, which is how many programmers think weak imports work.)
+
+   The end result is that the MP API library may get prepared by CFM but be totally unusable. This means that if you import from the MP API library, you cannot simply check for a resolved import to decide if MP services are available.  Worse, if you explicitly prepare the MP API library you cannot assume that a noErr result from GetSharedLibrary means that MP services are available.
+
+   If you import from the MP API library you MUST use the MPLibraryIsLoaded macro (or equivalent code in languages other than C) to tell if the MP API services are available. It is not sufficient to simply check that an imported symbol is resolved as is commonly done for other libraries.  The macro expands to the expression:
+      (((UInt32)_MPIsFullyInitialized != (UInt32)kUnresolvedCFragSymbolAddress ) && (_MPIsFullyInitialized ()))
+   
+   This checks if the imported symbol _MPIsFullyInitialized is resolved and if resolved calls it.  Both parts must succeed for the MP API services to be available.
+
+   If you explicitly prepare the MP API library you MUST use code similar to the following example to tell if the MP API services are available. It is not sufficient to depend on just a noErr result from GetSharedLibrary.
+
+         OSErr                       err;
+         Boolean                     mpIsAvailable           = false;
+         CFragConnectionID           connID                  = kInvalidID;
+         MPIsFullyInitializedProc    mpIsFullyInitialized    = NULL;
+
+         err = GetSharedLibrary("\pMPLibrary", kCompiledCFragArch,  kReferenceCFrag, &connID, NULL, NULL);
+
+         if (err == noErr) {
+            err = FindSymbol(connID, "\p_MPIsFullyInitialized", (Ptr *) &mpIsFullyInitialized, NULL);
+         }
+
+         if (err == noErr) {
+            mpIsAvailable = (*mpIsFullyInitialized)();
+         }
+
+*/
+struct CheckingAPIAvailability {};
+
+
+
+/**
+   \section TaskStateWarning
+
+   \warning This is not a real struct. This is here because Doxygen does not otherwise let me place notes on pages without making an entirely new page that shows up above everything on the sidebar, which I dislike.
+   
+   The functions MPExtractTaskState and MPSetTaskState infer the size of the "info" buffer from the "kind" parameter.  A given value for MPTaskStateKind will always refer to a single specific physical buffer layout.  Should new register sets be added, or the size or number of any registers change, new values of MPTaskStateKind will be introduced to refer to the new buffer layouts.
+
+   The following types for the buffers are in MachineExceptions. The correspondence between MPTaskStateKind values and MachineExceptions types is:
+
+   <table>
+      <tr>
+         <td>kMPTaskStateRegisters</td><td>RegisterInformation</td>
+      </tr>
+      <tr>
+         <td>kMPTaskStateFPU</td><td>FPUInformation</td>
+      </tr>
+      <tr>
+         <td>kMPTaskStateVectors</td><td>VectorInformation</td>
+      </tr>
+      <tr>
+         <td>kMPTaskStateMachine</td><td>MachineInformation</td>
+      </tr>
+      <tr>
+         <td>kMPTaskState32BitMemoryException</td><td>ExceptionInfo for old-style 32-bit memory exceptions</td>
+      </tr>
+   </table>
+
+   For reference, on PowerPC the MachineExceptions types contain:
+
+   <table>
+      <tr>
+         <td>RegisterInformation</td><td>The GPRs, 32 values of 64 bits each.</td>
+      </tr>
+      <tr>
+         <td>FPUInformation</td><td>The FPRs plus FPSCR, 32 values of 64 bits each, one value of 32 bits.</td>
+      </tr>
+      <tr>
+         <td>VectorInformation</td><td>The AltiVec vector registers plus VSCR and VRSave, 32 values of 128 bits each, one value of 128 bits, and one 32 bit value</td>
+      </tr>
+      <tr>
+         <td>MachineInformation</td><td>The CTR, LR, PC, each of 64 bits. The CR, XER, MSR, MQ, exception kind, and DSISR, each of 32 bits. The 64 bit DAR.
+      </tr>
+      <tr>
+         <td>ExceptionInfo</td><td>Only memory exceptions are specified, 4 fields of 32 bits each. Note that this type only covers memory exceptions on 32-bit CPUs!
+         
+         The following types are declared here: 
+
+         * MPTaskStateTaskInfo
+         
+         * MPTaskInfo
+         </td>
+      </tr>
+   </table>
+   
+  
+*/
+struct TaskStateWarning {};

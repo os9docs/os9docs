@@ -8,6 +8,8 @@
 
     \copyright � 1994-2001 by Apple Computer, Inc. All rights reserved.
 
+    \ingroup Networking
+    
     For bug reports, consult the following page on
                  the World Wide Web:
 

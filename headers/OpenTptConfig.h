@@ -3,6 +3,8 @@
 
     \brief   Open Transport port information
 
+    \ingroup OpenTransport
+
     \introduced_in  Open Transport 2.5
     \avaliable_from Universal Interfaces 3.4.1
 

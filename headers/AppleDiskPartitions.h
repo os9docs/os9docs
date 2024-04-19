@@ -9,6 +9,8 @@
 
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved
 
+    \ingroup AppleDisk
+
     For bug reports, consult the following page on
                  the World Wide Web:
 

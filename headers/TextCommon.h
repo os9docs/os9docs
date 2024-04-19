@@ -1,14 +1,15 @@
 /**
      \file       TextCommon.h
 
-    \brief   TextEncoding-related types and constants, and prototypes for
-   related functions
+    \brief   TextEncoding-related types and constants, and prototypes for related functions
 
     \introduced_in  Mac OS 9 / Carbon
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright � 1995-2001 by Apple Computer, Inc., all rights reserved.
 
+    \ingroup Font
+    
     For bug reports, consult the following page on
                  the World Wide Web:
 

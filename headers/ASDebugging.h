@@ -8,6 +8,7 @@
 
     \copyright � 1992-2001 by Apple Computer, Inc., all rights reserved
 
+    \ingroup AppleScript
     For bug reports, consult the following page on
                  the World Wide Web:
 

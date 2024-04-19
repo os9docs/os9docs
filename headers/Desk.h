@@ -1,6 +1,7 @@
 /**
  * \file Desk.h
  * \brief Split into <Menus.h>, <Devices.h>, and <Events.h>
+ * \ingroup MovedFiles
 */
 #include <Menus.h>
 #include <Devices.h>

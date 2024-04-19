@@ -7,6 +7,8 @@
 
     \copyright © 1995-2001 by Apple Computer, Inc., all rights reserved.
 
+    \ingroup System
+    
     For bug reports, consult the following page on
                  the World Wide Web:
 

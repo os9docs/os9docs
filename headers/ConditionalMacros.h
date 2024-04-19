@@ -1,5 +1,5 @@
 /**
-     \file       ConditionalMacros.h
+    \file       ConditionalMacros.h
 
     \brief   Set up for compiler independent conditionals
 

@@ -3,6 +3,8 @@
 
     \brief   Link related constants and structures
 
+    \ingroup OpenTransport
+
     \introduced_in  Mac OS 8.1
     \avaliable_from Universal Interfaces 3.4.1
 

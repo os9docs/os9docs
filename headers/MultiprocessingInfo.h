@@ -1,26 +1,59 @@
 /**
-     \file       MultiprocessingInfo.h
+   \file       MultiprocessingInfo.h
 
-    \brief   Multiprocessing Information interfaces
+   \brief   Multiprocessing Information interfaces
 
-    \introduced_in  Multiprocessing Information API version 2.2
-    \avaliable_from Universal Interfaces 3.4.1
+   \introduced_in  Multiprocessing Information API version 2.2
+   \avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1995-2001 DayStar Digital, Inc.
+   \copyright � 1995-2001 DayStar Digital, Inc.
 
-    For bug reports, consult the following page on
-                 the World Wide Web:
+   \ingroup Multiprocessing
 
-                     http://developer.apple.com/bugreporter/
+   This is the header file for version 2.3 of the Mac OS multiprocessing
+   information support.
+   
+   The following services are new in version 2.1:
+   
+   * MPGetNextTaskID
+   
+   * MPGetNextCpuID
+   
+   The following services are new in version 2.2:
+   
+   * MPGetPageSizeClasses
+   
+   * MPGetPageSize
+   
+   * MPGetNextAreaID
+ 
+   The following services are new in version 2.3:
+   
+   * MPGetNextCoherenceID
+   
+   * MPGetNextProcessID
+   
+   * MPGetNextAddressSpaceID
+   
+   * MPGetNextQueueID
+   
+   * MPGetNextSemaphoreID
+   
+   * MPGetNextCriticalRegionID
+   
+   * MPGetNextTimerID
+   
+   * MPGetNextEventID
+   
+   * MPGetNextNotificationID
+   
+   * MPGetNextConsoleID
+ 
+   For bug reports, consult the following page on the World Wide Web:  http://developer.apple.com/bugreporter/
 
-*/
-
-/**
-   ==========================================================================================================================
-   *** WARNING: You must properly check the availability of MP services before
-   calling them! See the section titled "Checking API Availability".
-   ==========================================================================================================================
-*/
+   \warning You must properly check the availability of MP services before calling them! See CheckingAPIAvailability
+   
+   */
 
 #ifndef __MULTIPROCESSINGINFO__
 #define __MULTIPROCESSINGINFO__
@@ -53,90 +86,40 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/**
-   ==========================================================================================================================
-   This is the header file for version 2.3 of the Mac OS multiprocessing
-   information support.
-   ==========================================================================================================================
-*/
 
 /**
-   ==========================================================================================================================
-   The following services are new in version 2.1:
-    MPGetNextTaskID
-    MPGetNextCpuID
-   ==========================================================================================================================
-*/
-
-/**
-   ==========================================================================================================================
-   The following services are new in version 2.2:
-    MPGetPageSizeClasses
-    MPGetPageSize
-    MPGetNextAreaID
-   ==========================================================================================================================
-*/
-
-/**
-   ==========================================================================================================================
-   The following services are new in version 2.3:
-    MPGetNextCoherenceID
-    MPGetNextProcessID
-    MPGetNextAddressSpaceID
-    MPGetNextQueueID
-    MPGetNextSemaphoreID
-    MPGetNextCriticalRegionID
-    MPGetNextTimerID
-    MPGetNextEventID
-    MPGetNextNotificationID
-    MPGetNextConsoleID
-   ==========================================================================================================================
-*/
-
-/**
-   �
-   ==========================================================================================================================
-   Page size Services
-   ==================
+   \section Page size Services
 */
 
 #if CALL_NOT_IN_CARBON
 /**
  *  MPGetPageSizeClasses()
  *
-
+ * The number of page size classes, 1 to n.
+ * 
  *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MPPageSizeClass)
-MPGetPageSizeClasses(void);
-
-/* The number of page size classes, 1 to n.*/
+MPPageSizeClass MPGetPageSizeClasses(void);
 #endif /* CALL_NOT_IN_CARBON */
 
-/* -------------------------------------------------------------------------------------------*/
 #if CALL_NOT_IN_CARBON
 /**
  *  MPGetPageSize()
  *
-
+ * The page size in bytes.
  *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ByteCount)
-MPGetPageSize(MPPageSizeClass pageClass);
+ByteCount MPGetPageSize(MPPageSizeClass pageClass);
 
-/* The page size in bytes.*/
 #endif /* CALL_NOT_IN_CARBON */
 
 /**
-   �
-   ==========================================================================================================================
-   ID Iterator Services
-   ==========================
-*/
+   \section ID Iterator Services
+   ========*/
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -147,8 +130,7 @@ MPGetPageSize(MPPageSizeClass pageClass);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextCoherenceID(MPCoherenceID *coherenceID);
+OSStatus MPGetNextCoherenceID(MPCoherenceID *coherenceID);
 
 /**
  *  MPGetNextCpuID()
@@ -158,8 +140,7 @@ MPGetNextCoherenceID(MPCoherenceID *coherenceID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextCpuID(MPCoherenceID owningCoherenceID, MPCpuID *cpuID);
+OSStatus MPGetNextCpuID(MPCoherenceID owningCoherenceID, MPCpuID *cpuID);
 
 /**
  *  MPGetNextProcessID()
@@ -169,8 +150,7 @@ MPGetNextCpuID(MPCoherenceID owningCoherenceID, MPCpuID *cpuID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextProcessID(MPProcessID *processID);
+OSStatus MPGetNextProcessID(MPProcessID *processID);
 
 /**
  *  MPGetNextAddressSpaceID()
@@ -180,8 +160,7 @@ MPGetNextProcessID(MPProcessID *processID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextAddressSpaceID(MPProcessID owningProcessID,
+OSStatus MPGetNextAddressSpaceID(MPProcessID owningProcessID,
                         MPAddressSpaceID *addressSpaceID);
 
 /**
@@ -192,8 +171,7 @@ MPGetNextAddressSpaceID(MPProcessID owningProcessID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextTaskID(MPProcessID owningProcessID, MPTaskID *taskID);
+OSStatus MPGetNextTaskID(MPProcessID owningProcessID, MPTaskID *taskID);
 
 /**
  *  MPGetNextQueueID()
@@ -203,8 +181,7 @@ MPGetNextTaskID(MPProcessID owningProcessID, MPTaskID *taskID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextQueueID(MPProcessID owningProcessID, MPQueueID *queueID);
+OSStatus MPGetNextQueueID(MPProcessID owningProcessID, MPQueueID *queueID);
 
 /**
  *  MPGetNextSemaphoreID()
@@ -214,8 +191,7 @@ MPGetNextQueueID(MPProcessID owningProcessID, MPQueueID *queueID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextSemaphoreID(MPProcessID owningProcessID, MPSemaphoreID *semaphoreID);
+OSStatus MPGetNextSemaphoreID(MPProcessID owningProcessID, MPSemaphoreID *semaphoreID);
 
 /**
  *  MPGetNextCriticalRegionID()
@@ -225,8 +201,7 @@ MPGetNextSemaphoreID(MPProcessID owningProcessID, MPSemaphoreID *semaphoreID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextCriticalRegionID(MPProcessID owningProcessID,
+OSStatus MPGetNextCriticalRegionID(MPProcessID owningProcessID,
                           MPCriticalRegionID *criticalRegionID);
 
 /**
@@ -237,8 +212,7 @@ MPGetNextCriticalRegionID(MPProcessID owningProcessID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextTimerID(MPProcessID owningProcessID, MPTimerID *timerID);
+OSStatus MPGetNextTimerID(MPProcessID owningProcessID, MPTimerID *timerID);
 
 /**
  *  MPGetNextEventID()
@@ -248,19 +222,16 @@ MPGetNextTimerID(MPProcessID owningProcessID, MPTimerID *timerID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextEventID(MPProcessID owningProcessID, MPEventID *eventID);
+OSStatus MPGetNextEventID(MPProcessID owningProcessID, MPEventID *eventID);
 
 /**
  *  MPGetNextNotificationID()
  *
-
  *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextNotificationID(MPProcessID owningProcessID,
+OSStatus MPGetNextNotificationID(MPProcessID owningProcessID,
                         MPNotificationID *notificationID);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -288,10 +259,7 @@ MPGetNextAreaID(MPAddressSpaceID owningSpaceID, MPAreaID *areaID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextConsoleID(MPConsoleID *consoleID);
-
-/* -------------------------------------------------------------------------------------------*/
+OSStatus MPGetNextConsoleID(MPConsoleID *consoleID);
 
 /**
  *  MPGetNextID()
@@ -301,20 +269,11 @@ MPGetNextConsoleID(MPConsoleID *consoleID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNextID(MPOpaqueIDClass kind, MPOpaqueID *id);
+OSStatus MPGetNextID(MPOpaqueIDClass kind, MPOpaqueID *id);
 
 /**
-   �
-   ==========================================================================================================================
-   Object Information Services
-   ===========================
-*/
-
-/**
-   ----------------------------------------------------------------------------------------------
-   ! The implementation of MPGetObjectInfo assumes that all info records are in
-   4 byte multiples.
+   \section Object Information Services
+   \warning The implementation of MPGetObjectInfo assumes that all info records are in 4 byte multiples.
 */
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -341,73 +300,73 @@ struct MPQueueInfo {
   ItemCount nMessages;
   ItemCount nReserved;
 
-  void *p1; /* First message parameters...*/
+  void *p1; /*< First message parameters...*/
   void *p2;
   void *p3;
 };
 typedef struct MPQueueInfo MPQueueInfo;
 struct MPSemaphoreInfo {
-  PBVersion version; /* Version of the data structure requested*/
+  PBVersion version; /*< Version of the data structure requested*/
 
-  MPProcessID processID; /* Owning process ID*/
-  OSType semaphoreName;  /* Semaphore name*/
+  MPProcessID processID; /*< Owning process ID*/
+  OSType semaphoreName;  /*< Semaphore name*/
 
   ItemCount nWaiting;
-  MPTaskID waitingTaskID; /* First waiting task.*/
+  MPTaskID waitingTaskID; /*< First waiting task.*/
 
   ItemCount maximum;
   ItemCount count;
 };
 typedef struct MPSemaphoreInfo MPSemaphoreInfo;
 struct MPEventInfo {
-  PBVersion version; /* Version of the data structure requested*/
+  PBVersion version; /*< Version of the data structure requested*/
 
-  MPProcessID processID; /* Owning process ID*/
-  OSType eventName;      /* Event name*/
+  MPProcessID processID; /*< Owning process ID*/
+  OSType eventName;      /*< Event name*/
 
   ItemCount nWaiting;
-  MPTaskID waitingTaskID; /* First waiting task.*/
+  MPTaskID waitingTaskID; /*< First waiting task.*/
 
   MPEventFlags events;
 };
 typedef struct MPEventInfo MPEventInfo;
 struct MPCriticalRegionInfo {
-  PBVersion version; /* Version of the data structure requested*/
+  PBVersion version; /*< Version of the data structure requested*/
 
-  MPProcessID processID; /* Owning process ID*/
-  OSType regionName;     /* Critical region name*/
+  MPProcessID processID; /*< Owning process ID*/
+  OSType regionName;     /*< Critical region name*/
 
   ItemCount nWaiting;
-  MPTaskID waitingTaskID; /* First waiting task.*/
+  MPTaskID waitingTaskID; /*< First waiting task.*/
 
   MPTaskID owningTask;
   ItemCount count;
 };
 typedef struct MPCriticalRegionInfo MPCriticalRegionInfo;
 struct MPNotificationInfo {
-  PBVersion version; /* Version of the data structure requested*/
+  PBVersion version; /*< Version of the data structure requested*/
 
-  MPProcessID processID;   /* Owning process ID*/
-  OSType notificationName; /* Notification name*/
+  MPProcessID processID;   /*< Owning process ID*/
+  OSType notificationName; /*< Notification name*/
 
-  MPQueueID queueID; /* Queue to notify.*/
+  MPQueueID queueID; /*< Queue to notify.*/
   void *p1;
   void *p2;
   void *p3;
 
-  MPEventID eventID; /* Event to set.*/
+  MPEventID eventID; /*< Event to set.*/
   MPEventFlags events;
 
-  MPSemaphoreID semaphoreID; /* Sempahore to signal.   */
+  MPSemaphoreID semaphoreID; /*< Sempahore to signal.   */
 };
 typedef struct MPNotificationInfo MPNotificationInfo;
 struct MPAddressSpaceInfo {
-  PBVersion version; /* Version of the data structure requested*/
+  PBVersion version; /*< Version of the data structure requested*/
 
-  MPProcessID processID; /* Owning process ID*/
-  MPCoherenceID groupID; /* Related coherence group.*/
-  ItemCount nTasks;      /* Number of tasks in this space.*/
-  UInt32 vsid[16];       /* Segment register VSIDs.*/
+  MPProcessID processID; /*< Owning process ID*/
+  MPCoherenceID groupID; /*< Related coherence group.*/
+  ItemCount nTasks;      /*< Number of tasks in this space.*/
+  UInt32 vsid[16];       /*< Segment register VSIDs.*/
 };
 typedef struct MPAddressSpaceInfo MPAddressSpaceInfo;
 /* *** We should put the task info call here instead of in MPExtractTaskState.*/
@@ -421,8 +380,7 @@ typedef struct MPAddressSpaceInfo MPAddressSpaceInfo;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetQueueInfo(MPQueueID id, PBVersion version, MPQueueInfo *info_o);
+OSStatus MPGetQueueInfo(MPQueueID id, PBVersion version, MPQueueInfo *info_o);
 
 /**
  *  MPGetSemaphoreInfo()
@@ -432,8 +390,7 @@ MPGetQueueInfo(MPQueueID id, PBVersion version, MPQueueInfo *info_o);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetSemaphoreInfo(MPSemaphoreID id, PBVersion version,
+OSStatus MPGetSemaphoreInfo(MPSemaphoreID id, PBVersion version,
                    MPSemaphoreInfo *info_o);
 
 /**
@@ -444,8 +401,7 @@ MPGetSemaphoreInfo(MPSemaphoreID id, PBVersion version,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetEventInfo(MPEventID id, PBVersion version, MPEventInfo *info_o);
+OSStatus MPGetEventInfo(MPEventID id, PBVersion version, MPEventInfo *info_o);
 
 /**
  *  MPGetCriticalRegionInfo()
@@ -455,8 +411,7 @@ MPGetEventInfo(MPEventID id, PBVersion version, MPEventInfo *info_o);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetCriticalRegionInfo(MPCriticalRegionID id, PBVersion version,
+OSStatus MPGetCriticalRegionInfo(MPCriticalRegionID id, PBVersion version,
                         MPCriticalRegionInfo *info_o);
 
 /**
@@ -467,8 +422,7 @@ MPGetCriticalRegionInfo(MPCriticalRegionID id, PBVersion version,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetNotificationInfo(MPNotificationID id, PBVersion version,
+OSStatus MPGetNotificationInfo(MPNotificationID id, PBVersion version,
                       MPNotificationInfo *info_o);
 
 /**
@@ -479,11 +433,8 @@ MPGetNotificationInfo(MPNotificationID id, PBVersion version,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
-MPGetAddressSpaceInfo(MPAddressSpaceID id, PBVersion version,
+OSStatus MPGetAddressSpaceInfo(MPAddressSpaceID id, PBVersion version,
                       MPAddressSpaceInfo *info_o);
-
-/* ==========================================================================================================================*/
 
 #endif /* CALL_NOT_IN_CARBON */
 

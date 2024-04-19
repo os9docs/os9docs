@@ -7,7 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
-
+    
+    \ingroup QuickTime
+    
     For bug reports, consult the following page on
                  the World Wide Web:
 
