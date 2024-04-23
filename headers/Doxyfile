@@ -1117,7 +1117,7 @@ HTML_STYLESHEET    =
 # customization is desired it has to be added explicitly. For an example see the
 # documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
-HTML_EXTRA_STYLESHEET  = ../doxygen-awesome-css/doxygen-awesome.css
+HTML_EXTRA_STYLESHEET  = 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
 # that these files will be copied to the base HTML output directory. Use the
@@ -1136,7 +1136,7 @@ HTML_EXTRA_FILES  =
 # light and dark mode via a button.
 # The default value is: AUTO_LIGHT.
 # This tag requires that the tag GENERATE_HTML is set to YES.
-HTML_COLORSTYLE    = LIGHT
+HTML_COLORSTYLE    = TOGGLE
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
 # will adjust the colors in the style sheet and background images according to
 # this color. Hue is specified as an angle on a color-wheel, see
