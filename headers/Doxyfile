@@ -1117,7 +1117,7 @@ HTML_STYLESHEET    =
 # customization is desired it has to be added explicitly. For an example see the
 # documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
-HTML_EXTRA_STYLESHEET  = 
+HTML_EXTRA_STYLESHEET  = ../doxygen-awesome-css/doxygen-awesome.css
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
 # that these files will be copied to the base HTML output directory. Use the
