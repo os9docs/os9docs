@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,68 +48,69 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef struct VBLTask VBLTask;
-typedef VBLTask *VBLTaskPtr;
-typedef CALLBACK_API_REGISTER68K(void, VBLProcPtr, (VBLTaskPtr vblTaskPtr));
-typedef REGISTER_UPP_TYPE(VBLProcPtr) VBLUPP;
-struct VBLTask {
-  QElemPtr qLink;
-  short qType;
-  VBLUPP vblAddr;
-  short vblCount;
-  short vblPhase;
-};
+  typedef struct VBLTask VBLTask;
+  typedef VBLTask *VBLTaskPtr;
+  typedef CALLBACK_API_REGISTER68K(void, VBLProcPtr, (VBLTaskPtr vblTaskPtr));
+  typedef REGISTER_UPP_TYPE(VBLProcPtr) VBLUPP;
+  struct VBLTask
+  {
+    QElemPtr qLink;
+    short qType;
+    VBLUPP vblAddr;
+    short vblCount;
+    short vblPhase;
+  };
 
 #if CALL_NOT_IN_CARBON
-/**
- *  NewVBLUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(VBLUPP)
-NewVBLUPP(VBLProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(VBLUPP)
+  NewVBLUPP(VBLProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppVBLProcInfo = 0x00009802
-}; /* register no_return_value Func(4_bytes:A0) */
+  enum
+  {
+    uppVBLProcInfo = 0x00009802
+  }; /* register no_return_value Func(4_bytes:A0) */
 #ifdef __cplusplus
-inline VBLUPP NewVBLUPP(VBLProcPtr userRoutine) {
-  return (VBLUPP)NewRoutineDescriptor((ProcPtr)(userRoutine), uppVBLProcInfo,
-                                      GetCurrentArchitecture());
-}
+  inline VBLUPP NewVBLUPP(VBLProcPtr userRoutine)
+  {
+    return (VBLUPP)NewRoutineDescriptor((ProcPtr)(userRoutine), uppVBLProcInfo,
+                                        GetCurrentArchitecture());
+  }
 #else
-#define NewVBLUPP(userRoutine)                                                 \
-  (VBLUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppVBLProcInfo,        \
+#define NewVBLUPP(userRoutine)                                          \
+  (VBLUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppVBLProcInfo, \
                                 GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeVBLUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeVBLUPP(VBLUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(void)
+  DisposeVBLUPP(VBLUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeVBLUPP(VBLUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeVBLUPP(VBLUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeVBLUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
 /**
- *  InvokeVBLUPP()
- *
+  *
 
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        not available
@@ -117,16 +119,17 @@ inline void DisposeVBLUPP(VBLUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeVBLUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
-InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP) ONEWORDINLINE(0x4E91);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+  EXTERN_API_C(void)
+  InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP) ONEWORDINLINE(0x4E91);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppVBLProcInfo, vblTaskPtr);
-}
+  inline void InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppVBLProcInfo, vblTaskPtr);
+  }
 #else
-#define InvokeVBLUPP(vblTaskPtr, userUPP)                                      \
+#define InvokeVBLUPP(vblTaskPtr, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppVBLProcInfo, (vblTaskPtr))
 #endif
 #endif
@@ -136,25 +139,23 @@ inline void InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP) {
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewVBLProc(userRoutine) NewVBLUPP(userRoutine)
-#define CallVBLProc(userRoutine, vblTaskPtr)                                   \
+#define CallVBLProc(userRoutine, vblTaskPtr) \
   InvokeVBLUPP(vblTaskPtr, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  GetVBLQHdr()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(QHdrPtr)
-GetVBLQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x0160);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API(QHdrPtr)
+  GetVBLQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x0160);
 
 /**
- *  SlotVInstall()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -163,12 +164,11 @@ GetVBLQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x0160);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 SlotVInstall(__A0, __D0)
 #endif
-EXTERN_API(OSErr)
-SlotVInstall(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA06F);
+  EXTERN_API(OSErr)
+  SlotVInstall(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA06F);
 
 /**
- *  SlotVRemove()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -177,12 +177,11 @@ SlotVInstall(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA06F);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 SlotVRemove(__A0, __D0)
 #endif
-EXTERN_API(OSErr)
-SlotVRemove(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA070);
+  EXTERN_API(OSErr)
+  SlotVRemove(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA070);
 
 /**
- *  AttachVBL()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -191,12 +190,11 @@ SlotVRemove(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA070);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 AttachVBL(__D0)
 #endif
-EXTERN_API(OSErr)
-AttachVBL(short theSlot) ONEWORDINLINE(0xA071);
+  EXTERN_API(OSErr)
+  AttachVBL(short theSlot) ONEWORDINLINE(0xA071);
 
 /**
- *  DoVBLTask()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -205,12 +203,11 @@ AttachVBL(short theSlot) ONEWORDINLINE(0xA071);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 DoVBLTask(__D0)
 #endif
-EXTERN_API(OSErr)
-DoVBLTask(short theSlot) ONEWORDINLINE(0xA072);
+  EXTERN_API(OSErr)
+  DoVBLTask(short theSlot) ONEWORDINLINE(0xA072);
 
 /**
- *  VInstall()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -219,12 +216,11 @@ DoVBLTask(short theSlot) ONEWORDINLINE(0xA072);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 VInstall(__A0)
 #endif
-EXTERN_API(OSErr)
-VInstall(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA033);
+  EXTERN_API(OSErr)
+  VInstall(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA033);
 
 /**
- *  VRemove()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -233,8 +229,8 @@ VInstall(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA033);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 VRemove(__A0)
 #endif
-EXTERN_API(OSErr)
-VRemove(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA034);
+  EXTERN_API(OSErr)
+  VRemove(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA034);
 
 #endif /* CALL_NOT_IN_CARBON */
 

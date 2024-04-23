@@ -9,7 +9,7 @@
     \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup System
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -43,737 +44,779 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  paramErr = -50,              /*error in user parameter list*/
-  noHardwareErr = -200,        /*Sound Manager Error Returns*/
-  notEnoughHardwareErr = -201, /*Sound Manager Error Returns*/
-  userCanceledErr = -128,
-  qErr = -1,          /*queue element not found during deletion*/
-  vTypErr = -2,       /*invalid queue element*/
-  corErr = -3,        /*core routine number out of range*/
-  unimpErr = -4,      /*unimplemented core routine*/
-  SlpTypeErr = -5,    /*invalid queue element*/
-  seNoDB = -8,        /*no debugger installed to handle debugger command*/
-  controlErr = -17,   /*I/O System Errors*/
-  statusErr = -18,    /*I/O System Errors*/
-  readErr = -19,      /*I/O System Errors*/
-  writErr = -20,      /*I/O System Errors*/
-  badUnitErr = -21,   /*I/O System Errors*/
-  unitEmptyErr = -22, /*I/O System Errors*/
-  openErr = -23,      /*I/O System Errors*/
-  closErr = -24,      /*I/O System Errors*/
-  dRemovErr = -25,    /*tried to remove an open driver*/
-  dInstErr = -26      /*DrvrInstall couldn't find driver in resources*/
-};
+  enum
+  {
+    paramErr = -50,              /*error in user parameter list*/
+    noHardwareErr = -200,        /*Sound Manager Error Returns*/
+    notEnoughHardwareErr = -201, /*Sound Manager Error Returns*/
+    userCanceledErr = -128,
+    qErr = -1,          /*queue element not found during deletion*/
+    vTypErr = -2,       /*invalid queue element*/
+    corErr = -3,        /*core routine number out of range*/
+    unimpErr = -4,      /*unimplemented core routine*/
+    SlpTypeErr = -5,    /*invalid queue element*/
+    seNoDB = -8,        /*no debugger installed to handle debugger command*/
+    controlErr = -17,   /*I/O System Errors*/
+    statusErr = -18,    /*I/O System Errors*/
+    readErr = -19,      /*I/O System Errors*/
+    writErr = -20,      /*I/O System Errors*/
+    badUnitErr = -21,   /*I/O System Errors*/
+    unitEmptyErr = -22, /*I/O System Errors*/
+    openErr = -23,      /*I/O System Errors*/
+    closErr = -24,      /*I/O System Errors*/
+    dRemovErr = -25,    /*tried to remove an open driver*/
+    dInstErr = -26      /*DrvrInstall couldn't find driver in resources*/
+  };
 
-enum {
-  abortErr = -27,       /*IO call aborted by KillIO*/
-  iIOAbortErr = -27,    /*IO abort error (Printing Manager)*/
-  notOpenErr = -28,     /*Couldn't rd/wr/ctl/sts cause driver not opened*/
-  unitTblFullErr = -29, /*unit table has no more entries*/
-  dceExtErr = -30,      /*dce extension error*/
-  slotNumErr = -360,    /*invalid slot # error*/
-  gcrOnMFMErr = -400,   /*gcr format on high density media error*/
-  dirFulErr = -33,      /*Directory full*/
-  dskFulErr = -34,      /*disk full*/
-  nsvErr = -35,         /*no such volume*/
-  ioErr = -36,          /*I/O error (bummers)*/
-  bdNamErr = -37,       /*there may be no bad names in the final system!*/
-  fnOpnErr = -38,       /*File not open*/
-  eofErr = -39,         /*End of file*/
-  posErr = -40,         /*tried to position to before start of file (r/w)*/
-  mFulErr = -41,        /*memory full (open) or file won't fit (load)*/
-  tmfoErr = -42,        /*too many files open*/
-  fnfErr = -43,         /*File not found*/
-  wPrErr = -44,         /*diskette is write protected.*/
-  fLckdErr = -45        /*file is locked*/
-};
+  enum
+  {
+    abortErr = -27,       /*IO call aborted by KillIO*/
+    iIOAbortErr = -27,    /*IO abort error (Printing Manager)*/
+    notOpenErr = -28,     /*Couldn't rd/wr/ctl/sts cause driver not opened*/
+    unitTblFullErr = -29, /*unit table has no more entries*/
+    dceExtErr = -30,      /*dce extension error*/
+    slotNumErr = -360,    /*invalid slot # error*/
+    gcrOnMFMErr = -400,   /*gcr format on high density media error*/
+    dirFulErr = -33,      /*Directory full*/
+    dskFulErr = -34,      /*disk full*/
+    nsvErr = -35,         /*no such volume*/
+    ioErr = -36,          /*I/O error (bummers)*/
+    bdNamErr = -37,       /*there may be no bad names in the final system!*/
+    fnOpnErr = -38,       /*File not open*/
+    eofErr = -39,         /*End of file*/
+    posErr = -40,         /*tried to position to before start of file (r/w)*/
+    mFulErr = -41,        /*memory full (open) or file won't fit (load)*/
+    tmfoErr = -42,        /*too many files open*/
+    fnfErr = -43,         /*File not found*/
+    wPrErr = -44,         /*diskette is write protected.*/
+    fLckdErr = -45        /*file is locked*/
+  };
 
-enum {
-  vLckdErr = -46,     /*volume is locked*/
-  fBsyErr = -47,      /*File is busy (delete)*/
-  dupFNErr = -48,     /*duplicate filename (rename)*/
-  opWrErr = -49,      /*file already open with with write permission*/
-  rfNumErr = -51,     /*refnum error*/
-  gfpErr = -52,       /*get file position error*/
-  volOffLinErr = -53, /*volume not on line error (was Ejected)*/
-  permErr = -54,      /*permissions error (on file open)*/
-  volOnLinErr = -55,  /*drive volume already on-line at MountVol*/
-  nsDrvErr = -56,     /*no such drive (tried to mount a bad drive num)*/
-  noMacDskErr = -57,  /*not a mac diskette (sig bytes are wrong)*/
-  extFSErr = -58,     /*volume in question belongs to an external fs*/
-  fsRnErr = -59,    /*file system internal error:during rename the old entry was
-                       deleted but could not be restored.*/
-  badMDBErr = -60,  /*bad master directory block*/
-  wrPermErr = -61,  /*write permissions error*/
-  dirNFErr = -120,  /*Directory not found*/
-  tmwdoErr = -121,  /*No free WDCB available*/
-  badMovErr = -122, /*Move into offspring error*/
-  wrgVolTypErr =
-      -123, /*Wrong volume type error [operation not supported for MFS]*/
-  volGoneErr = -124 /*Server volume has been disconnected.*/
-};
+  enum
+  {
+    vLckdErr = -46,     /*volume is locked*/
+    fBsyErr = -47,      /*File is busy (delete)*/
+    dupFNErr = -48,     /*duplicate filename (rename)*/
+    opWrErr = -49,      /*file already open with with write permission*/
+    rfNumErr = -51,     /*refnum error*/
+    gfpErr = -52,       /*get file position error*/
+    volOffLinErr = -53, /*volume not on line error (was Ejected)*/
+    permErr = -54,      /*permissions error (on file open)*/
+    volOnLinErr = -55,  /*drive volume already on-line at MountVol*/
+    nsDrvErr = -56,     /*no such drive (tried to mount a bad drive num)*/
+    noMacDskErr = -57,  /*not a mac diskette (sig bytes are wrong)*/
+    extFSErr = -58,     /*volume in question belongs to an external fs*/
+    fsRnErr = -59,      /*file system internal error:during rename the old entry was
+                           deleted but could not be restored.*/
+    badMDBErr = -60,    /*bad master directory block*/
+    wrPermErr = -61,    /*write permissions error*/
+    dirNFErr = -120,    /*Directory not found*/
+    tmwdoErr = -121,    /*No free WDCB available*/
+    badMovErr = -122,   /*Move into offspring error*/
+    wrgVolTypErr =
+        -123,         /*Wrong volume type error [operation not supported for MFS]*/
+    volGoneErr = -124 /*Server volume has been disconnected.*/
+  };
 
-enum {
-  fidNotFound = -1300,       /*no file thread exists.*/
-  fidExists = -1301,         /*file id already exists*/
-  notAFileErr = -1302,       /*directory specified*/
-  diffVolErr = -1303,        /*files on different volumes*/
-  catChangedErr = -1304,     /*the catalog has been modified*/
-  desktopDamagedErr = -1305, /*desktop database files are corrupted*/
-  sameFileErr = -1306,       /*can't exchange a file with itself*/
-  badFidErr =
-      -1307, /*file id is dangling or doesn't match with the file number*/
-  notARemountErr =
-      -1308, /*when _Mount allows only remounts and doesn't get one*/
-  fileBoundsErr = -1309,    /*file's EOF, offset, mark or size is too big*/
-  fsDataTooBigErr = -1310,  /*file or volume is too big for system*/
-  volVMBusyErr = -1311,     /*can't eject because volume is in use by VM*/
-  badFCBErr = -1327,        /*FCBRecPtr is not valid*/
-  errFSUnknownCall = -1400, /* selector is not recognized by this filesystem */
-  errFSBadFSRef = -1401,    /* FSRef parameter is bad */
-  errFSBadForkName = -1402, /* Fork name parameter is bad */
-  errFSBadBuffer = -1403,   /* A buffer parameter was bad */
-  errFSBadForkRef = -1404,  /* A ForkRefNum parameter was bad */
-  errFSBadInfoBitmap = -1405,  /* A CatalogInfoBitmap or VolumeInfoBitmap has
-                                  reserved or invalid bits set */
-  errFSMissingCatInfo = -1406, /* A CatalogInfo parameter was NULL */
-  errFSNotAFolder = -1407,     /* Expected a folder, got a file */
-  errFSForkNotFound = -1409,   /* Named fork does not exist */
-  errFSNameTooLong = -1410,    /* File/fork name is too long to create/rename */
-  errFSMissingName = -1411,   /* A Unicode name parameter was NULL or nameLength
-                                 parameter was zero */
-  errFSBadPosMode = -1412,    /* Newline bits set in positionMode */
-  errFSBadAllocFlags = -1413, /* Invalid bits set in allocationFlags */
-  errFSNoMoreItems = -1417,   /* Iteration ran out of items to return */
-  errFSBadItemCount = -1418,  /* maximumItems was zero */
-  errFSBadSearchParams =
-      -1419, /* Something wrong with CatalogSearch searchParams */
-  errFSRefsDifferent =
-      -1420,               /* FSCompareFSRefs; refs are for different objects */
-  errFSForkExists = -1421, /* Named fork already exists. */
-  errFSBadIteratorFlags = -1422, /* Flags passed to FSOpenIterator are bad */
-  errFSIteratorNotFound = -1423, /* Passed FSIterator is not an open iterator */
-  errFSIteratorNotSupported = -1424, /* The iterator's flags or container are
-                                        not supported by this call */
-  envNotPresent = -5500,             /*returned by glue.*/
-  envBadVers = -5501,                /*Version non-positive*/
-  envVersTooBig = -5502,             /*Version bigger than call can handle*/
-  fontDecError = -64,                /*error during font declaration*/
-  fontNotDeclared = -65,             /*font not declared*/
-  fontSubErr = -66,                  /*font substitution occurred*/
-  fontNotOutlineErr =
-      -32615,        /*bitmap font passed to routine that does outlines only*/
-  firstDskErr = -84, /*I/O System Errors*/
-  lastDskErr = -64,  /*I/O System Errors*/
-  noDriveErr = -64,  /*drive not installed*/
-  offLinErr = -65,   /*r/w requested for an off-line drive*/
-  noNybErr = -66     /*couldn't find 5 nybbles in 200 tries*/
-};
+  enum
+  {
+    fidNotFound = -1300,       /*no file thread exists.*/
+    fidExists = -1301,         /*file id already exists*/
+    notAFileErr = -1302,       /*directory specified*/
+    diffVolErr = -1303,        /*files on different volumes*/
+    catChangedErr = -1304,     /*the catalog has been modified*/
+    desktopDamagedErr = -1305, /*desktop database files are corrupted*/
+    sameFileErr = -1306,       /*can't exchange a file with itself*/
+    badFidErr =
+        -1307, /*file id is dangling or doesn't match with the file number*/
+    notARemountErr =
+        -1308,                   /*when _Mount allows only remounts and doesn't get one*/
+    fileBoundsErr = -1309,       /*file's EOF, offset, mark or size is too big*/
+    fsDataTooBigErr = -1310,     /*file or volume is too big for system*/
+    volVMBusyErr = -1311,        /*can't eject because volume is in use by VM*/
+    badFCBErr = -1327,           /*FCBRecPtr is not valid*/
+    errFSUnknownCall = -1400,    /* selector is not recognized by this filesystem */
+    errFSBadFSRef = -1401,       /* FSRef parameter is bad */
+    errFSBadForkName = -1402,    /* Fork name parameter is bad */
+    errFSBadBuffer = -1403,      /* A buffer parameter was bad */
+    errFSBadForkRef = -1404,     /* A ForkRefNum parameter was bad */
+    errFSBadInfoBitmap = -1405,  /* A CatalogInfoBitmap or VolumeInfoBitmap has
+                                    reserved or invalid bits set */
+    errFSMissingCatInfo = -1406, /* A CatalogInfo parameter was NULL */
+    errFSNotAFolder = -1407,     /* Expected a folder, got a file */
+    errFSForkNotFound = -1409,   /* Named fork does not exist */
+    errFSNameTooLong = -1410,    /* File/fork name is too long to create/rename */
+    errFSMissingName = -1411,    /* A Unicode name parameter was NULL or nameLength
+                                    parameter was zero */
+    errFSBadPosMode = -1412,     /* Newline bits set in positionMode */
+    errFSBadAllocFlags = -1413,  /* Invalid bits set in allocationFlags */
+    errFSNoMoreItems = -1417,    /* Iteration ran out of items to return */
+    errFSBadItemCount = -1418,   /* maximumItems was zero */
+    errFSBadSearchParams =
+        -1419, /* Something wrong with CatalogSearch searchParams */
+    errFSRefsDifferent =
+        -1420,                         /* FSCompareFSRefs; refs are for different objects */
+    errFSForkExists = -1421,           /* Named fork already exists. */
+    errFSBadIteratorFlags = -1422,     /* Flags passed to FSOpenIterator are bad */
+    errFSIteratorNotFound = -1423,     /* Passed FSIterator is not an open iterator */
+    errFSIteratorNotSupported = -1424, /* The iterator's flags or container are
+                                          not supported by this call */
+    envNotPresent = -5500,             /*returned by glue.*/
+    envBadVers = -5501,                /*Version non-positive*/
+    envVersTooBig = -5502,             /*Version bigger than call can handle*/
+    fontDecError = -64,                /*error during font declaration*/
+    fontNotDeclared = -65,             /*font not declared*/
+    fontSubErr = -66,                  /*font substitution occurred*/
+    fontNotOutlineErr =
+        -32615,        /*bitmap font passed to routine that does outlines only*/
+    firstDskErr = -84, /*I/O System Errors*/
+    lastDskErr = -64,  /*I/O System Errors*/
+    noDriveErr = -64,  /*drive not installed*/
+    offLinErr = -65,   /*r/w requested for an off-line drive*/
+    noNybErr = -66     /*couldn't find 5 nybbles in 200 tries*/
+  };
 
-enum {
-  noAdrMkErr = -67,  /*couldn't find valid addr mark*/
-  dataVerErr = -68,  /*read verify compare failed*/
-  badCksmErr = -69,  /*addr mark checksum didn't check*/
-  badBtSlpErr = -70, /*bad addr mark bit slip nibbles*/
-  noDtaMkErr = -71,  /*couldn't find a data mark header*/
-  badDCksum = -72,   /*bad data mark checksum*/
-  badDBtSlp = -73,   /*bad data mark bit slip nibbles*/
-  wrUnderrun = -74,  /*write underrun occurred*/
-  cantStepErr = -75, /*step handshake failed*/
-  tk0BadErr = -76,   /*track 0 detect doesn't change*/
-  initIWMErr = -77,  /*unable to initialize IWM*/
-  twoSideErr = -78,  /*tried to read 2nd side on a 1-sided drive*/
-  spdAdjErr = -79,   /*unable to correctly adjust disk speed*/
-  seekErr = -80,     /*track number wrong on address mark*/
-  sectNFErr = -81,   /*sector number never found on a track*/
-  fmt1Err = -82,     /*can't find sector 0 after track format*/
-  fmt2Err = -83,     /*can't get enough sync*/
-  verErr = -84,      /*track failed to verify*/
-  clkRdErr = -85,    /*unable to read same clock value twice*/
-  clkWrErr = -86,    /*time written did not verify*/
-  prWrErr = -87,     /*parameter ram written didn't read-verify*/
-  prInitErr = -88,   /*InitUtil found the parameter ram uninitialized*/
-  rcvrErr = -89,     /*SCC receiver error (framing; parity; OR)*/
-  breakRecd = -90    /*Break received (SCC)*/
-};
+  enum
+  {
+    noAdrMkErr = -67,  /*couldn't find valid addr mark*/
+    dataVerErr = -68,  /*read verify compare failed*/
+    badCksmErr = -69,  /*addr mark checksum didn't check*/
+    badBtSlpErr = -70, /*bad addr mark bit slip nibbles*/
+    noDtaMkErr = -71,  /*couldn't find a data mark header*/
+    badDCksum = -72,   /*bad data mark checksum*/
+    badDBtSlp = -73,   /*bad data mark bit slip nibbles*/
+    wrUnderrun = -74,  /*write underrun occurred*/
+    cantStepErr = -75, /*step handshake failed*/
+    tk0BadErr = -76,   /*track 0 detect doesn't change*/
+    initIWMErr = -77,  /*unable to initialize IWM*/
+    twoSideErr = -78,  /*tried to read 2nd side on a 1-sided drive*/
+    spdAdjErr = -79,   /*unable to correctly adjust disk speed*/
+    seekErr = -80,     /*track number wrong on address mark*/
+    sectNFErr = -81,   /*sector number never found on a track*/
+    fmt1Err = -82,     /*can't find sector 0 after track format*/
+    fmt2Err = -83,     /*can't get enough sync*/
+    verErr = -84,      /*track failed to verify*/
+    clkRdErr = -85,    /*unable to read same clock value twice*/
+    clkWrErr = -86,    /*time written did not verify*/
+    prWrErr = -87,     /*parameter ram written didn't read-verify*/
+    prInitErr = -88,   /*InitUtil found the parameter ram uninitialized*/
+    rcvrErr = -89,     /*SCC receiver error (framing; parity; OR)*/
+    breakRecd = -90    /*Break received (SCC)*/
+  };
 
-enum {
-  /*Scrap Manager errors*/
-  noScrapErr = -100, /*No scrap exists error*/
-  noTypeErr = -102   /*No object of that type in scrap*/
-};
+  enum
+  {
+    /*Scrap Manager errors*/
+    noScrapErr = -100, /*No scrap exists error*/
+    noTypeErr = -102   /*No object of that type in scrap*/
+  };
 
-enum {
-  /* ENET error codes */
-  eLenErr = -92,  /*Length error ddpLenErr*/
-  eMultiErr = -91 /*Multicast address error ddpSktErr*/
-};
+  enum
+  {
+    /* ENET error codes */
+    eLenErr = -92,  /*Length error ddpLenErr*/
+    eMultiErr = -91 /*Multicast address error ddpSktErr*/
+  };
 
-enum {
-  ddpSktErr = -91,     /*error in soket number*/
-  ddpLenErr = -92,     /*data length too big*/
-  noBridgeErr = -93,   /*no network bridge for non-local send*/
-  lapProtErr = -94,    /*error in attaching/detaching protocol*/
-  excessCollsns = -95, /*excessive collisions on write*/
-  portNotPwr = -96,    /*serial port not currently powered*/
-  portInUse = -97,     /*driver Open error code (port is in use)*/
-  portNotCf = -98 /*driver Open error code (parameter RAM not configured for
-                     this connection)*/
-};
+  enum
+  {
+    ddpSktErr = -91,     /*error in soket number*/
+    ddpLenErr = -92,     /*data length too big*/
+    noBridgeErr = -93,   /*no network bridge for non-local send*/
+    lapProtErr = -94,    /*error in attaching/detaching protocol*/
+    excessCollsns = -95, /*excessive collisions on write*/
+    portNotPwr = -96,    /*serial port not currently powered*/
+    portInUse = -97,     /*driver Open error code (port is in use)*/
+    portNotCf = -98      /*driver Open error code (parameter RAM not configured for
+                            this connection)*/
+  };
 
-enum {
-  /* Memory Manager errors*/
-  memROZWarn = -99,    /*soft error in ROZ*/
-  memROZError = -99,   /*hard error in ROZ*/
-  memROZErr = -99,     /*hard error in ROZ*/
-  memFullErr = -108,   /*Not enough room in heap zone*/
-  nilHandleErr = -109, /*Master Pointer was NIL in HandleZone or other*/
-  memWZErr = -111,     /*WhichZone failed (applied to free block)*/
-  memPurErr = -112,    /*trying to purge a locked or non-purgeable block*/
-  memAdrErr = -110,    /*address was odd; or out of range*/
-  memAZErr = -113,     /*Address in zone check failed*/
-  memPCErr = -114,     /*Pointer Check failed*/
-  memBCErr = -115,     /*Block Check failed*/
-  memSCErr = -116,     /*Size Check failed*/
-  memLockedErr = -117  /*trying to move a locked block (MoveHHi)*/
-};
+  enum
+  {
+    /* Memory Manager errors*/
+    memROZWarn = -99,    /*soft error in ROZ*/
+    memROZError = -99,   /*hard error in ROZ*/
+    memROZErr = -99,     /*hard error in ROZ*/
+    memFullErr = -108,   /*Not enough room in heap zone*/
+    nilHandleErr = -109, /*Master Pointer was NIL in HandleZone or other*/
+    memWZErr = -111,     /*WhichZone failed (applied to free block)*/
+    memPurErr = -112,    /*trying to purge a locked or non-purgeable block*/
+    memAdrErr = -110,    /*address was odd; or out of range*/
+    memAZErr = -113,     /*Address in zone check failed*/
+    memPCErr = -114,     /*Pointer Check failed*/
+    memBCErr = -115,     /*Block Check failed*/
+    memSCErr = -116,     /*Size Check failed*/
+    memLockedErr = -117  /*trying to move a locked block (MoveHHi)*/
+  };
 
-enum {
-  /* Printing Errors */
-  iMemFullErr = -108,
-  iIOAbort = -27
-};
+  enum
+  {
+    /* Printing Errors */
+    iMemFullErr = -108,
+    iIOAbort = -27
+  };
 
-enum {
-  resourceInMemory = -188, /*Resource already in memory*/
-  writingPastEnd = -189,   /*Writing past end of file*/
-  inputOutOfBounds = -190, /*Offset of Count out of bounds*/
-  resNotFound = -192,      /*Resource not found*/
-  resFNotFound = -193,     /*Resource file not found*/
-  addResFailed = -194,     /*AddResource failed*/
-  addRefFailed = -195,     /*AddReference failed*/
-  rmvResFailed = -196,     /*RmveResource failed*/
-  rmvRefFailed = -197,     /*RmveReference failed*/
-  resAttrErr = -198,       /*attribute inconsistent with operation*/
-  mapReadErr = -199,       /*map inconsistent with operation*/
-  CantDecompress = -186,   /*resource bent ("the bends") - can't decompress a
-                              compressed resource*/
-  badExtResource = -185,   /*extended resource has a bad format.*/
-  noMemForPictPlaybackErr = -145,
-  rgnOverflowErr = -147,
-  rgnTooBigError = -147,
-  pixMapTooDeepErr = -148,
-  insufficientStackErr = -149,
-  nsStackErr = -149
-};
+  enum
+  {
+    resourceInMemory = -188, /*Resource already in memory*/
+    writingPastEnd = -189,   /*Writing past end of file*/
+    inputOutOfBounds = -190, /*Offset of Count out of bounds*/
+    resNotFound = -192,      /*Resource not found*/
+    resFNotFound = -193,     /*Resource file not found*/
+    addResFailed = -194,     /*AddResource failed*/
+    addRefFailed = -195,     /*AddReference failed*/
+    rmvResFailed = -196,     /*RmveResource failed*/
+    rmvRefFailed = -197,     /*RmveReference failed*/
+    resAttrErr = -198,       /*attribute inconsistent with operation*/
+    mapReadErr = -199,       /*map inconsistent with operation*/
+    CantDecompress = -186,   /*resource bent ("the bends") - can't decompress a
+                                compressed resource*/
+    badExtResource = -185,   /*extended resource has a bad format.*/
+    noMemForPictPlaybackErr = -145,
+    rgnOverflowErr = -147,
+    rgnTooBigError = -147,
+    pixMapTooDeepErr = -148,
+    insufficientStackErr = -149,
+    nsStackErr = -149
+  };
 
-enum {
-  evtNotEnb = 1 /*event not enabled at PostEvent*/
-};
+  enum
+  {
+    evtNotEnb = 1 /*event not enabled at PostEvent*/
+  };
 
-/* OffScreen QuickDraw Errors */
-enum {
-  cMatchErr = -150,   /*Color2Index failed to find an index*/
-  cTempMemErr = -151, /*failed to allocate memory for temporary structures*/
-  cNoMemErr = -152,   /*failed to allocate memory for structure*/
-  cRangeErr = -153,   /*range error on colorTable request*/
-  cProtectErr = -154, /*colorTable entry protection violation*/
-  cDevErr = -155,     /*invalid type of graphics device*/
-  cResErr = -156,     /*invalid resolution for MakeITable*/
-  cDepthErr = -157,   /*invalid pixel depth */
-  rgnTooBigErr = -500,
-  updPixMemErr = -125,         /*insufficient memory to update a pixmap*/
-  pictInfoVersionErr = -11000, /*wrong version of the PictInfo structure*/
-  pictInfoIDErr =
-      -11001, /*the internal consistancy check for the PictInfoID is wrong*/
-  pictInfoVerbErr = -11002,       /*the passed verb was invalid*/
-  cantLoadPickMethodErr = -11003, /*unable to load the custom pick proc*/
-  colorsRequestedErr = -11004,    /*the number of colors requested was illegal*/
-  pictureDataErr = -11005         /*the picture data was invalid*/
-};
+  /* OffScreen QuickDraw Errors */
+  enum
+  {
+    cMatchErr = -150,   /*Color2Index failed to find an index*/
+    cTempMemErr = -151, /*failed to allocate memory for temporary structures*/
+    cNoMemErr = -152,   /*failed to allocate memory for structure*/
+    cRangeErr = -153,   /*range error on colorTable request*/
+    cProtectErr = -154, /*colorTable entry protection violation*/
+    cDevErr = -155,     /*invalid type of graphics device*/
+    cResErr = -156,     /*invalid resolution for MakeITable*/
+    cDepthErr = -157,   /*invalid pixel depth */
+    rgnTooBigErr = -500,
+    updPixMemErr = -125,         /*insufficient memory to update a pixmap*/
+    pictInfoVersionErr = -11000, /*wrong version of the PictInfo structure*/
+    pictInfoIDErr =
+        -11001,                     /*the internal consistancy check for the PictInfoID is wrong*/
+    pictInfoVerbErr = -11002,       /*the passed verb was invalid*/
+    cantLoadPickMethodErr = -11003, /*unable to load the custom pick proc*/
+    colorsRequestedErr = -11004,    /*the number of colors requested was illegal*/
+    pictureDataErr = -11005         /*the picture data was invalid*/
+  };
 
-/* ColorSync Result codes */
-enum {
-  /* General Errors */
-  cmProfileError = -170,
-  cmMethodError = -171,
-  cmMethodNotFound = -175,       /* CMM not present */
-  cmProfileNotFound = -176,      /* Responder error */
-  cmProfilesIdentical = -177,    /* Profiles the same */
-  cmCantConcatenateError = -178, /* Profile can't be concatenated */
-  cmCantXYZ = -179,              /* CMM cant handle XYZ space */
-  cmCantDeleteProfile = -180,    /* Responder error */
-  cmUnsupportedDataType = -181,  /* Responder error */
-  cmNoCurrentProfile = -182      /* Responder error */
-};
+  /* ColorSync Result codes */
+  enum
+  {
+    /* General Errors */
+    cmProfileError = -170,
+    cmMethodError = -171,
+    cmMethodNotFound = -175,       /* CMM not present */
+    cmProfileNotFound = -176,      /* Responder error */
+    cmProfilesIdentical = -177,    /* Profiles the same */
+    cmCantConcatenateError = -178, /* Profile can't be concatenated */
+    cmCantXYZ = -179,              /* CMM cant handle XYZ space */
+    cmCantDeleteProfile = -180,    /* Responder error */
+    cmUnsupportedDataType = -181,  /* Responder error */
+    cmNoCurrentProfile = -182      /* Responder error */
+  };
 
-enum {
-  /*Sound Manager errors*/
-  noHardware = noHardwareErr,               /*obsolete spelling*/
-  notEnoughHardware = notEnoughHardwareErr, /*obsolete spelling*/
-  queueFull = -203,                         /*Sound Manager Error Returns*/
-  resProblem = -204,                        /*Sound Manager Error Returns*/
-  badChannel = -205,                        /*Sound Manager Error Returns*/
-  badFormat = -206,                         /*Sound Manager Error Returns*/
-  notEnoughBufferSpace = -207,              /*could not allocate enough memory*/
-  badFileFormat = -208,   /*was not type AIFF or was of bad format,corrupt*/
-  channelBusy = -209,     /*the Channel is being used for a PFD already*/
-  buffersTooSmall = -210, /*can not operate in the memory allowed*/
-  channelNotBusy = -211,
-  noMoreRealTime = -212, /*not enough CPU cycles left to add another task*/
-  siVBRCompressionNotSupported =
-      -213, /*vbr audio compression not supported for this operation*/
-  siNoSoundInHardware = -220, /*no Sound Input hardware*/
-  siBadSoundInDevice = -221, /*invalid index passed to SoundInGetIndexedDevice*/
-  siNoBufferSpecified =
-      -222, /*returned by synchronous SPBRecord if nil buffer passed*/
-  siInvalidCompression = -223, /*invalid compression type*/
-  siHardDriveTooSlow = -224,   /*hard drive too slow to record to disk*/
-  siInvalidSampleRate = -225,  /*invalid sample rate*/
-  siInvalidSampleSize = -226,  /*invalid sample size*/
-  siDeviceBusyErr = -227,      /*input device already in use*/
-  siBadDeviceName = -228,      /*input device could not be opened*/
-  siBadRefNum = -229,          /*invalid input device reference number*/
-  siInputDeviceErr = -230,     /*input device hardware failure*/
-  siUnknownInfoType = -231, /*invalid info type selector (returned by driver)*/
-  siUnknownQuality = -232   /*invalid quality selector (returned by driver)*/
-};
+  enum
+  {
+    /*Sound Manager errors*/
+    noHardware = noHardwareErr,               /*obsolete spelling*/
+    notEnoughHardware = notEnoughHardwareErr, /*obsolete spelling*/
+    queueFull = -203,                         /*Sound Manager Error Returns*/
+    resProblem = -204,                        /*Sound Manager Error Returns*/
+    badChannel = -205,                        /*Sound Manager Error Returns*/
+    badFormat = -206,                         /*Sound Manager Error Returns*/
+    notEnoughBufferSpace = -207,              /*could not allocate enough memory*/
+    badFileFormat = -208,                     /*was not type AIFF or was of bad format,corrupt*/
+    channelBusy = -209,                       /*the Channel is being used for a PFD already*/
+    buffersTooSmall = -210,                   /*can not operate in the memory allowed*/
+    channelNotBusy = -211,
+    noMoreRealTime = -212, /*not enough CPU cycles left to add another task*/
+    siVBRCompressionNotSupported =
+        -213,                   /*vbr audio compression not supported for this operation*/
+    siNoSoundInHardware = -220, /*no Sound Input hardware*/
+    siBadSoundInDevice = -221,  /*invalid index passed to SoundInGetIndexedDevice*/
+    siNoBufferSpecified =
+        -222,                    /*returned by synchronous SPBRecord if nil buffer passed*/
+    siInvalidCompression = -223, /*invalid compression type*/
+    siHardDriveTooSlow = -224,   /*hard drive too slow to record to disk*/
+    siInvalidSampleRate = -225,  /*invalid sample rate*/
+    siInvalidSampleSize = -226,  /*invalid sample size*/
+    siDeviceBusyErr = -227,      /*input device already in use*/
+    siBadDeviceName = -228,      /*input device could not be opened*/
+    siBadRefNum = -229,          /*invalid input device reference number*/
+    siInputDeviceErr = -230,     /*input device hardware failure*/
+    siUnknownInfoType = -231,    /*invalid info type selector (returned by driver)*/
+    siUnknownQuality = -232      /*invalid quality selector (returned by driver)*/
+  };
 
-/*Speech Manager errors*/
-enum {
-  noSynthFound = -240,
-  synthOpenFailed = -241,
-  synthNotReady = -242,
-  bufTooSmall = -243,
-  voiceNotFound = -244,
-  incompatibleVoice = -245,
-  badDictFormat = -246,
-  badInputText = -247
-};
+  /*Speech Manager errors*/
+  enum
+  {
+    noSynthFound = -240,
+    synthOpenFailed = -241,
+    synthNotReady = -242,
+    bufTooSmall = -243,
+    voiceNotFound = -244,
+    incompatibleVoice = -245,
+    badDictFormat = -246,
+    badInputText = -247
+  };
 
-/* Midi Manager Errors: */
-enum {
-  midiNoClientErr = -250,     /*no client with that ID found*/
-  midiNoPortErr = -251,       /*no port with that ID found*/
-  midiTooManyPortsErr = -252, /*too many ports already installed in the system*/
-  midiTooManyConsErr = -253,  /*too many connections made*/
-  midiVConnectErr = -254,     /*pending virtual connection created*/
-  midiVConnectMade = -255,    /*pending virtual connection resolved*/
-  midiVConnectRmvd = -256,    /*pending virtual connection removed*/
-  midiNoConErr = -257,        /*no connection exists between specified ports*/
-  midiWriteErr = -258, /*MIDIWritePacket couldn't write to all connected ports*/
-  midiNameLenErr = -259,   /*name supplied is longer than 31 characters*/
-  midiDupIDErr = -260,     /*duplicate client ID*/
-  midiInvalidCmdErr = -261 /*command not supported for port type*/
-};
+  /* Midi Manager Errors: */
+  enum
+  {
+    midiNoClientErr = -250,     /*no client with that ID found*/
+    midiNoPortErr = -251,       /*no port with that ID found*/
+    midiTooManyPortsErr = -252, /*too many ports already installed in the system*/
+    midiTooManyConsErr = -253,  /*too many connections made*/
+    midiVConnectErr = -254,     /*pending virtual connection created*/
+    midiVConnectMade = -255,    /*pending virtual connection resolved*/
+    midiVConnectRmvd = -256,    /*pending virtual connection removed*/
+    midiNoConErr = -257,        /*no connection exists between specified ports*/
+    midiWriteErr = -258,        /*MIDIWritePacket couldn't write to all connected ports*/
+    midiNameLenErr = -259,      /*name supplied is longer than 31 characters*/
+    midiDupIDErr = -260,        /*duplicate client ID*/
+    midiInvalidCmdErr = -261    /*command not supported for port type*/
+  };
 
-enum {
-  nmTypErr = -299 /*Notification Manager:wrong queue type*/
-};
+  enum
+  {
+    nmTypErr = -299 /*Notification Manager:wrong queue type*/
+  };
 
-enum {
-  siInitSDTblErr = 1,  /*slot int dispatch table could not be initialized.*/
-  siInitVBLQsErr = 2,  /*VBLqueues for all slots could not be initialized.*/
-  siInitSPTblErr = 3,  /*slot priority table could not be initialized.*/
-  sdmJTInitErr = 10,   /*SDM Jump Table could not be initialized.*/
-  sdmInitErr = 11,     /*SDM could not be initialized.*/
-  sdmSRTInitErr = 12,  /*Slot Resource Table could not be initialized.*/
-  sdmPRAMInitErr = 13, /*Slot PRAM could not be initialized.*/
-  sdmPriInitErr = 14   /*Cards could not be initialized.*/
-};
+  enum
+  {
+    siInitSDTblErr = 1,  /*slot int dispatch table could not be initialized.*/
+    siInitVBLQsErr = 2,  /*VBLqueues for all slots could not be initialized.*/
+    siInitSPTblErr = 3,  /*slot priority table could not be initialized.*/
+    sdmJTInitErr = 10,   /*SDM Jump Table could not be initialized.*/
+    sdmInitErr = 11,     /*SDM could not be initialized.*/
+    sdmSRTInitErr = 12,  /*Slot Resource Table could not be initialized.*/
+    sdmPRAMInitErr = 13, /*Slot PRAM could not be initialized.*/
+    sdmPriInitErr = 14   /*Cards could not be initialized.*/
+  };
 
-enum {
-  smSDMInitErr = -290,  /*Error; SDM could not be initialized.*/
-  smSRTInitErr = -291,  /*Error; Slot Resource Table could not be initialized.*/
-  smPRAMInitErr = -292, /*Error; Slot Resource Table could not be initialized.*/
-  smPriInitErr = -293,  /*Error; Cards could not be initialized.*/
-  smEmptySlot = -300,   /*No card in slot*/
-  smCRCFail = -301,     /*CRC check failed for declaration data*/
-  smFormatErr = -302,   /*FHeader Format is not Apple's*/
-  smRevisionErr = -303, /*Wrong revison level*/
-  smNoDir = -304,       /*Directory offset is Nil*/
-  smDisabledSlot = -305, /*This slot is disabled (-305 use to be smLWTstBad)*/
-  smNosInfoArray = -306  /*No sInfoArray. Memory Mgr error.*/
-};
+  enum
+  {
+    smSDMInitErr = -290,   /*Error; SDM could not be initialized.*/
+    smSRTInitErr = -291,   /*Error; Slot Resource Table could not be initialized.*/
+    smPRAMInitErr = -292,  /*Error; Slot Resource Table could not be initialized.*/
+    smPriInitErr = -293,   /*Error; Cards could not be initialized.*/
+    smEmptySlot = -300,    /*No card in slot*/
+    smCRCFail = -301,      /*CRC check failed for declaration data*/
+    smFormatErr = -302,    /*FHeader Format is not Apple's*/
+    smRevisionErr = -303,  /*Wrong revison level*/
+    smNoDir = -304,        /*Directory offset is Nil*/
+    smDisabledSlot = -305, /*This slot is disabled (-305 use to be smLWTstBad)*/
+    smNosInfoArray = -306  /*No sInfoArray. Memory Mgr error.*/
+  };
 
-enum {
-  smResrvErr = -307,     /*Fatal reserved error. Resreved field <> 0.*/
-  smUnExBusErr = -308,   /*Unexpected BusError*/
-  smBLFieldBad = -309,   /*ByteLanes field was bad.*/
-  smFHBlockRdErr = -310, /*Error occurred during _sGetFHeader.*/
-  smFHBlkDispErr =
-      -311, /*Error occurred during _sDisposePtr (Dispose of FHeader block).*/
-  smDisposePErr = -312,  /*_DisposePointer error*/
-  smNoBoardSRsrc = -313, /*No Board sResource.*/
-  smGetPRErr = -314,     /*Error occurred during _sGetPRAMRec (See SIMStatus).*/
-  smNoBoardId = -315,    /*No Board Id.*/
-  smInitStatVErr = -316, /*The InitStatusV field was negative after primary or
-                            secondary init.*/
-  smInitTblVErr = -317,  /*An error occurred while trying to initialize the Slot
-                            Resource Table.*/
-  smNoJmpTbl = -318,     /*SDM jump table could not be created.*/
-  smReservedSlot =
-      -318, /*slot is reserved, VM should not use this address space.*/
-  smBadBoardId = -319, /*BoardId was wrong; re-init the PRAM record.*/
-  smBusErrTO = -320,   /*BusError time out.*/
-  /* These errors are logged in the  vendor status field of the sInfo record. */
-  svTempDisable = -32768L, /*Temporarily disable card but run primary init.*/
-  svDisabled =
-      -32640,        /*Reserve range -32640 to -32768 for Apple temp disables.*/
-  smBadRefId = -330, /*Reference Id not found in List*/
-  smBadsList = -331, /*Bad sList: Id1 < Id2 < Id3 ...format is not followed.*/
-  smReservedErr = -332, /*Reserved field not zero*/
-  smCodeRevErr = -333   /*Code revision is wrong*/
-};
+  enum
+  {
+    smResrvErr = -307,     /*Fatal reserved error. Resreved field <> 0.*/
+    smUnExBusErr = -308,   /*Unexpected BusError*/
+    smBLFieldBad = -309,   /*ByteLanes field was bad.*/
+    smFHBlockRdErr = -310, /*Error occurred during _sGetFHeader.*/
+    smFHBlkDispErr =
+        -311,              /*Error occurred during _sDisposePtr (Dispose of FHeader block).*/
+    smDisposePErr = -312,  /*_DisposePointer error*/
+    smNoBoardSRsrc = -313, /*No Board sResource.*/
+    smGetPRErr = -314,     /*Error occurred during _sGetPRAMRec (See SIMStatus).*/
+    smNoBoardId = -315,    /*No Board Id.*/
+    smInitStatVErr = -316, /*The InitStatusV field was negative after primary or
+                              secondary init.*/
+    smInitTblVErr = -317,  /*An error occurred while trying to initialize the Slot
+                              Resource Table.*/
+    smNoJmpTbl = -318,     /*SDM jump table could not be created.*/
+    smReservedSlot =
+        -318,            /*slot is reserved, VM should not use this address space.*/
+    smBadBoardId = -319, /*BoardId was wrong; re-init the PRAM record.*/
+    smBusErrTO = -320,   /*BusError time out.*/
+    /* These errors are logged in the  vendor status field of the sInfo record. */
+    svTempDisable = -32768L, /*Temporarily disable card but run primary init.*/
+    svDisabled =
+        -32640,           /*Reserve range -32640 to -32768 for Apple temp disables.*/
+    smBadRefId = -330,    /*Reference Id not found in List*/
+    smBadsList = -331,    /*Bad sList: Id1 < Id2 < Id3 ...format is not followed.*/
+    smReservedErr = -332, /*Reserved field not zero*/
+    smCodeRevErr = -333   /*Code revision is wrong*/
+  };
 
-enum {
-  smCPUErr = -334,      /*Code revision is wrong*/
-  smsPointerNil = -335, /*LPointer is nil From sOffsetData. If this error
-                           occurs; check sInfo rec for more information.*/
-  smNilsBlockErr =
-      -336, /*Nil sBlock error (Dont allocate and try to use a nil sBlock)*/
-  smSlotOOBErr = -337,    /*Slot out of bounds error*/
-  smSelOOBErr = -338,     /*Selector out of bounds error*/
-  smNewPErr = -339,       /*_NewPtr error*/
-  smBlkMoveErr = -340,    /*_BlockMove error*/
-  smCkStatusErr = -341,   /*Status of slot = fail.*/
-  smGetDrvrNamErr = -342, /*Error occurred during _sGetDrvrName.*/
-  smDisDrvrNamErr = -343, /*Error occurred during _sDisDrvrName.*/
-  smNoMoresRsrcs = -344,  /*No more sResources*/
-  smsGetDrvrErr = -345,   /*Error occurred during _sGetDriver.*/
-  smBadsPtrErr = -346,    /*Bad pointer was passed to sCalcsPointer*/
-  smByteLanesErr = -347,  /*NumByteLanes was determined to be zero.*/
-  smOffsetErr = -348,     /*Offset was too big (temporary error*/
-  smNoGoodOpens = -349,   /*No opens were successfull in the loop.*/
-  smSRTOvrFlErr = -350,   /*SRT over flow.*/
-  smRecNotFnd = -351      /*Record not found in the SRT.*/
-};
+  enum
+  {
+    smCPUErr = -334,      /*Code revision is wrong*/
+    smsPointerNil = -335, /*LPointer is nil From sOffsetData. If this error
+                             occurs; check sInfo rec for more information.*/
+    smNilsBlockErr =
+        -336,               /*Nil sBlock error (Dont allocate and try to use a nil sBlock)*/
+    smSlotOOBErr = -337,    /*Slot out of bounds error*/
+    smSelOOBErr = -338,     /*Selector out of bounds error*/
+    smNewPErr = -339,       /*_NewPtr error*/
+    smBlkMoveErr = -340,    /*_BlockMove error*/
+    smCkStatusErr = -341,   /*Status of slot = fail.*/
+    smGetDrvrNamErr = -342, /*Error occurred during _sGetDrvrName.*/
+    smDisDrvrNamErr = -343, /*Error occurred during _sDisDrvrName.*/
+    smNoMoresRsrcs = -344,  /*No more sResources*/
+    smsGetDrvrErr = -345,   /*Error occurred during _sGetDriver.*/
+    smBadsPtrErr = -346,    /*Bad pointer was passed to sCalcsPointer*/
+    smByteLanesErr = -347,  /*NumByteLanes was determined to be zero.*/
+    smOffsetErr = -348,     /*Offset was too big (temporary error*/
+    smNoGoodOpens = -349,   /*No opens were successfull in the loop.*/
+    smSRTOvrFlErr = -350,   /*SRT over flow.*/
+    smRecNotFnd = -351      /*Record not found in the SRT.*/
+  };
 
-enum {
-  /*Dictionary Manager errors*/
-  notBTree = -410,     /*The file is not a dictionary.*/
-  btNoSpace = -413,    /*Can't allocate disk space.*/
-  btDupRecErr = -414,  /*Record already exists.*/
-  btRecNotFnd = -415,  /*Record cannot be found.*/
-  btKeyLenErr = -416,  /*Maximum key length is too long or equal to zero.*/
-  btKeyAttrErr = -417, /*There is no such a key attribute.*/
-  unknownInsertModeErr = -20000, /*There is no such an insert mode.*/
-  recordDataTooBigErr =
-      -20001, /*The record data is bigger than buffer size (1024 bytes).*/
-  invalidIndexErr = -20002 /*The recordIndex parameter is not valid.*/
-};
+  enum
+  {
+    /*Dictionary Manager errors*/
+    notBTree = -410,               /*The file is not a dictionary.*/
+    btNoSpace = -413,              /*Can't allocate disk space.*/
+    btDupRecErr = -414,            /*Record already exists.*/
+    btRecNotFnd = -415,            /*Record cannot be found.*/
+    btKeyLenErr = -416,            /*Maximum key length is too long or equal to zero.*/
+    btKeyAttrErr = -417,           /*There is no such a key attribute.*/
+    unknownInsertModeErr = -20000, /*There is no such an insert mode.*/
+    recordDataTooBigErr =
+        -20001,              /*The record data is bigger than buffer size (1024 bytes).*/
+    invalidIndexErr = -20002 /*The recordIndex parameter is not valid.*/
+  };
 
-/**
- * Error codes from FSM functions
- */
-enum {
-  fsmFFSNotFoundErr = -431,   /* Foreign File system does not exist - new Pack2
-                                 could return this error too */
-  fsmBusyFFSErr = -432,       /* File system is busy, cannot be removed */
-  fsmBadFFSNameErr = -433,    /* Name length not 1 <= length <= 31 */
-  fsmBadFSDLenErr = -434,     /* FSD size incompatible with current FSM vers */
-  fsmDuplicateFSIDErr = -435, /* FSID already exists on InstallFS */
-  fsmBadFSDVersionErr = -436, /* FSM version incompatible with FSD */
-  fsmNoAlternateStackErr = -437, /* no alternate stack for HFS CI */
-  fsmUnknownFSMMessageErr = -438 /* unknown message passed to FSM */
-};
+  /**
+   * Error codes from FSM functions
+   */
+  enum
+  {
+    fsmFFSNotFoundErr = -431,      /* Foreign File system does not exist - new Pack2
+                                      could return this error too */
+    fsmBusyFFSErr = -432,          /* File system is busy, cannot be removed */
+    fsmBadFFSNameErr = -433,       /* Name length not 1 <= length <= 31 */
+    fsmBadFSDLenErr = -434,        /* FSD size incompatible with current FSM vers */
+    fsmDuplicateFSIDErr = -435,    /* FSID already exists on InstallFS */
+    fsmBadFSDVersionErr = -436,    /* FSM version incompatible with FSD */
+    fsmNoAlternateStackErr = -437, /* no alternate stack for HFS CI */
+    fsmUnknownFSMMessageErr = -438 /* unknown message passed to FSM */
+  };
 
-enum {
-  /* Edition Mgr errors*/
-  editionMgrInitErr = -450,       /*edition manager not inited by this app*/
-  badSectionErr = -451,           /*not a valid SectionRecord*/
-  notRegisteredSectionErr = -452, /*not a registered SectionRecord*/
-  badEditionFileErr = -453,       /*edition file is corrupt*/
-  badSubPartErr = -454,           /*can not use sub parts in this release*/
-  multiplePublisherWrn =
-      -460, /*A Publisher is already registered for that container*/
-  containerNotFoundWrn = -461, /*could not find editionContainer at this time*/
-  containerAlreadyOpenWrn = -462, /*container already opened by this section*/
-  notThePublisherWrn =
-      -463 /*not the first registered publisher for that container*/
-};
+  enum
+  {
+    /* Edition Mgr errors*/
+    editionMgrInitErr = -450,       /*edition manager not inited by this app*/
+    badSectionErr = -451,           /*not a valid SectionRecord*/
+    notRegisteredSectionErr = -452, /*not a registered SectionRecord*/
+    badEditionFileErr = -453,       /*edition file is corrupt*/
+    badSubPartErr = -454,           /*can not use sub parts in this release*/
+    multiplePublisherWrn =
+        -460,                       /*A Publisher is already registered for that container*/
+    containerNotFoundWrn = -461,    /*could not find editionContainer at this time*/
+    containerAlreadyOpenWrn = -462, /*container already opened by this section*/
+    notThePublisherWrn =
+        -463 /*not the first registered publisher for that container*/
+  };
 
-enum {
-  teScrapSizeErr = -501,       /*scrap item too big for text edit record*/
-  hwParamErr = -502,           /*bad selector for _HWPriv*/
-  driverHardwareGoneErr = -503 /*disk driver's hardware was disconnected*/
-};
+  enum
+  {
+    teScrapSizeErr = -501,       /*scrap item too big for text edit record*/
+    hwParamErr = -502,           /*bad selector for _HWPriv*/
+    driverHardwareGoneErr = -503 /*disk driver's hardware was disconnected*/
+  };
 
-enum {
-  /*Process Manager errors*/
-  procNotFound = -600, /*no eligible process with specified descriptor*/
-  memFragErr = -601,   /*not enough room to launch app w/special requirements*/
-  appModeErr = -602,   /*memory mode is 32-bit, but app not 32-bit clean*/
-  protocolErr = -603,  /*app made module calls in improper order*/
-  hardwareConfigErr = -604, /*hardware configuration not correct for call*/
-  appMemFullErr = -605,     /*application SIZE not big enough for launch*/
-  appIsDaemon = -606,       /*app is BG-only, and launch flags disallow this*/
-  bufferIsSmall = -607,     /*error returns from Post and Accept */
-  noOutstandingHLE = -608,
-  connectionInvalid = -609,
-  noUserInteractionAllowed = -610 /* no user interaction allowed */
-};
+  enum
+  {
+    /*Process Manager errors*/
+    procNotFound = -600,      /*no eligible process with specified descriptor*/
+    memFragErr = -601,        /*not enough room to launch app w/special requirements*/
+    appModeErr = -602,        /*memory mode is 32-bit, but app not 32-bit clean*/
+    protocolErr = -603,       /*app made module calls in improper order*/
+    hardwareConfigErr = -604, /*hardware configuration not correct for call*/
+    appMemFullErr = -605,     /*application SIZE not big enough for launch*/
+    appIsDaemon = -606,       /*app is BG-only, and launch flags disallow this*/
+    bufferIsSmall = -607,     /*error returns from Post and Accept */
+    noOutstandingHLE = -608,
+    connectionInvalid = -609,
+    noUserInteractionAllowed = -610 /* no user interaction allowed */
+  };
 
-enum {
-  /* More Process Manager errors */
-  wrongApplicationPlatform = -875, /* The application could not launch because
-                                      the required platform is not available */
-  appVersionTooOld =
-      -876, /* The application's creator and version are incompatible with the
-               current version of Mac OS. */
-  notAppropriateForClassic = -877 /* This application won't or shouldn't run on
-                                     Classic (Problem 2481058). */
-};
+  enum
+  {
+    /* More Process Manager errors */
+    wrongApplicationPlatform = -875, /* The application could not launch because
+                                        the required platform is not available */
+    appVersionTooOld =
+        -876,                       /* The application's creator and version are incompatible with the
+                                       current version of Mac OS. */
+    notAppropriateForClassic = -877 /* This application won't or shouldn't run on
+                                       Classic (Problem 2481058). */
+  };
 
-/* Thread Manager Error Codes */
-enum {
-  threadTooManyReqsErr = -617,
-  threadNotFoundErr = -618,
-  threadProtocolErr = -619
-};
+  /* Thread Manager Error Codes */
+  enum
+  {
+    threadTooManyReqsErr = -617,
+    threadNotFoundErr = -618,
+    threadProtocolErr = -619
+  };
 
-/*MemoryDispatch errors*/
-enum {
-  notEnoughMemoryErr = -620,      /*insufficient physical memory*/
-  notHeldErr = -621,              /*specified range of memory is not held*/
-  cannotMakeContiguousErr = -622, /*cannot make specified range contiguous*/
-  notLockedErr = -623,            /*specified range of memory is not locked*/
-  interruptsMaskedErr = -624,     /*don©t call with interrupts masked*/
-  cannotDeferErr = -625,          /*unable to defer additional functions*/
-  noMMUErr = -626                 /*no MMU present*/
-};
+  /*MemoryDispatch errors*/
+  enum
+  {
+    notEnoughMemoryErr = -620,      /*insufficient physical memory*/
+    notHeldErr = -621,              /*specified range of memory is not held*/
+    cannotMakeContiguousErr = -622, /*cannot make specified range contiguous*/
+    notLockedErr = -623,            /*specified range of memory is not locked*/
+    interruptsMaskedErr = -624,     /*don©t call with interrupts masked*/
+    cannotDeferErr = -625,          /*unable to defer additional functions*/
+    noMMUErr = -626                 /*no MMU present*/
+  };
 
-/* FileMapping errors */
-enum {
-  vmInvalidBackingFileIDErr = -640, /* invalid BackingFileID */
-  vmMappingPrivilegesErr =
-      -641, /* requested MappingPrivileges cannot be obtained */
-  vmBusyBackingFileErr = -642,    /* open views found on BackingFile */
-  vmNoMoreBackingFilesErr = -643, /* no more BackingFiles were found */
-  vmInvalidFileViewIDErr = -644,  /*invalid FileViewID */
-  vmFileViewAccessErr = -645,  /* requested FileViewAccess cannot be obtained */
-  vmNoMoreFileViewsErr = -646, /* no more FileViews were found */
-  vmAddressNotInFileViewErr = -647, /* address is not in a FileView */
-  vmInvalidOwningProcessErr =
-      -648 /* current process does not own the BackingFileID or FileViewID */
-};
+  /* FileMapping errors */
+  enum
+  {
+    vmInvalidBackingFileIDErr = -640, /* invalid BackingFileID */
+    vmMappingPrivilegesErr =
+        -641,                         /* requested MappingPrivileges cannot be obtained */
+    vmBusyBackingFileErr = -642,      /* open views found on BackingFile */
+    vmNoMoreBackingFilesErr = -643,   /* no more BackingFiles were found */
+    vmInvalidFileViewIDErr = -644,    /*invalid FileViewID */
+    vmFileViewAccessErr = -645,       /* requested FileViewAccess cannot be obtained */
+    vmNoMoreFileViewsErr = -646,      /* no more FileViews were found */
+    vmAddressNotInFileViewErr = -647, /* address is not in a FileView */
+    vmInvalidOwningProcessErr =
+        -648 /* current process does not own the BackingFileID or FileViewID */
+  };
 
-/* Database access error codes */
-enum {
-  rcDBNull = -800,
-  rcDBValue = -801,
-  rcDBError = -802,
-  rcDBBadType = -803,
-  rcDBBreak = -804,
-  rcDBExec = -805,
-  rcDBBadSessID = -806,
-  rcDBBadSessNum = -807,   /* bad session number for DBGetConnInfo */
-  rcDBBadDDEV = -808,      /* bad ddev specified on DBInit */
-  rcDBAsyncNotSupp = -809, /* ddev does not support async calls */
-  rcDBBadAsyncPB = -810,   /* tried to kill a bad pb */
-  rcDBNoHandler = -811,    /* no app handler for specified data type */
-  rcDBWrongVersion = -812, /* incompatible versions */
-  rcDBPackNotInited = -813 /* attempt to call other routine before InitDBPack */
-};
+  /* Database access error codes */
+  enum
+  {
+    rcDBNull = -800,
+    rcDBValue = -801,
+    rcDBError = -802,
+    rcDBBadType = -803,
+    rcDBBreak = -804,
+    rcDBExec = -805,
+    rcDBBadSessID = -806,
+    rcDBBadSessNum = -807,   /* bad session number for DBGetConnInfo */
+    rcDBBadDDEV = -808,      /* bad ddev specified on DBInit */
+    rcDBAsyncNotSupp = -809, /* ddev does not support async calls */
+    rcDBBadAsyncPB = -810,   /* tried to kill a bad pb */
+    rcDBNoHandler = -811,    /* no app handler for specified data type */
+    rcDBWrongVersion = -812, /* incompatible versions */
+    rcDBPackNotInited = -813 /* attempt to call other routine before InitDBPack */
+  };
 
-/*Help Mgr error range: -850 to -874*/
-enum {
-  hmHelpDisabled =
-      -850, /* Show Balloons mode was off, call to routine ignored */
-  hmBalloonAborted = -853,    /* Returned if mouse was moving or mouse wasn't in
-                                 window port rect */
-  hmSameAsLastBalloon = -854, /* Returned from HMShowMenuBalloon if menu & item
-                                 is same as last time */
-  hmHelpManagerNotInited =
-      -855, /* Returned from HMGetHelpMenuHandle if help menu not setup */
-  hmSkippedBalloon =
-      -857, /* Returned from calls if helpmsg specified a skip balloon */
-  hmWrongVersion =
-      -858, /* Returned if help mgr resource was the wrong version */
-  hmUnknownHelpType =
-      -859, /* Returned if help msg record contained a bad type */
-  hmOperationUnsupported = -861, /* Returned from HMShowBalloon call if bad
-                                    method passed to routine */
-  hmNoBalloonUp = -862, /* Returned from HMRemoveBalloon if no balloon was
-                           visible when call was made */
-  hmCloseViewActive =
-      -863 /* Returned from HMRemoveBalloon if CloseView was active */
-};
+  /*Help Mgr error range: -850 to -874*/
+  enum
+  {
+    hmHelpDisabled =
+        -850,                   /* Show Balloons mode was off, call to routine ignored */
+    hmBalloonAborted = -853,    /* Returned if mouse was moving or mouse wasn't in
+                                   window port rect */
+    hmSameAsLastBalloon = -854, /* Returned from HMShowMenuBalloon if menu & item
+                                   is same as last time */
+    hmHelpManagerNotInited =
+        -855, /* Returned from HMGetHelpMenuHandle if help menu not setup */
+    hmSkippedBalloon =
+        -857, /* Returned from calls if helpmsg specified a skip balloon */
+    hmWrongVersion =
+        -858, /* Returned if help mgr resource was the wrong version */
+    hmUnknownHelpType =
+        -859,                      /* Returned if help msg record contained a bad type */
+    hmOperationUnsupported = -861, /* Returned from HMShowBalloon call if bad
+                                      method passed to routine */
+    hmNoBalloonUp = -862,          /* Returned from HMRemoveBalloon if no balloon was
+                                      visible when call was made */
+    hmCloseViewActive =
+        -863 /* Returned from HMRemoveBalloon if CloseView was active */
+  };
 
-enum {
-  /*PPC errors*/
-  notInitErr = -900, /*PPCToolBox not initialized*/
-  nameTypeErr =
-      -902, /*Invalid or inappropriate locationKindSelector in locationName*/
-  noPortErr =
-      -903, /*Unable to open port or bad portRefNum.  If you're calling */
-            /* AESend, this is because your application does not have */
-            /* the isHighLevelEventAware bit set in your SIZE resource. */
-  noGlobalsErr = -904,      /*The system is hosed, better re-boot*/
-  localOnlyErr = -905,      /*Network activity is currently disabled*/
-  destPortErr = -906,       /*Port does not exist at destination*/
-  sessTableErr = -907,      /*Out of session tables, try again later*/
-  noSessionErr = -908,      /*Invalid session reference number*/
-  badReqErr = -909,         /*bad parameter or invalid state for operation*/
-  portNameExistsErr = -910, /*port is already open (perhaps in another app)*/
-  noUserNameErr = -911,     /*user name unknown on destination machine*/
-  userRejectErr = -912,     /*Destination rejected the session request*/
-  noMachineNameErr = -913,  /*user hasn't named his Macintosh in the Network
-                               Setup Control Panel*/
-  noToolboxNameErr = -914,  /*A system resource is missing, not too likely*/
-  noResponseErr = -915,     /*unable to contact destination*/
-  portClosedErr = -916,     /*port was closed*/
-  sessClosedErr = -917,     /*session was closed*/
-  badPortNameErr = -919,    /*PPCPortRec malformed*/
-  noDefaultUserErr =
-      -922, /*user hasn't typed in owners name in Network Setup Control Pannel*/
-  notLoggedInErr = -923, /*The default userRefNum does not yet exist*/
-  noUserRefErr = -924,   /*unable to create a new userRefNum*/
-  networkErr = -925, /*An error has occurred in the network, not too likely*/
-  noInformErr =
-      -926, /*PPCStart failed because destination did not have inform pending*/
-  authFailErr = -927,         /*unable to authenticate user at destination*/
-  noUserRecErr = -928,        /*Invalid user reference number*/
-  badServiceMethodErr = -930, /*illegal service type, or not supported*/
-  badLocNameErr = -931,       /*location name malformed*/
-  guestNotAllowedErr = -932   /*destination port requires authentication*/
-};
+  enum
+  {
+    /*PPC errors*/
+    notInitErr = -900, /*PPCToolBox not initialized*/
+    nameTypeErr =
+        -902, /*Invalid or inappropriate locationKindSelector in locationName*/
+    noPortErr =
+        -903,                 /*Unable to open port or bad portRefNum.  If you're calling */
+                              /* AESend, this is because your application does not have */
+                              /* the isHighLevelEventAware bit set in your SIZE resource. */
+    noGlobalsErr = -904,      /*The system is hosed, better re-boot*/
+    localOnlyErr = -905,      /*Network activity is currently disabled*/
+    destPortErr = -906,       /*Port does not exist at destination*/
+    sessTableErr = -907,      /*Out of session tables, try again later*/
+    noSessionErr = -908,      /*Invalid session reference number*/
+    badReqErr = -909,         /*bad parameter or invalid state for operation*/
+    portNameExistsErr = -910, /*port is already open (perhaps in another app)*/
+    noUserNameErr = -911,     /*user name unknown on destination machine*/
+    userRejectErr = -912,     /*Destination rejected the session request*/
+    noMachineNameErr = -913,  /*user hasn't named his Macintosh in the Network
+                                 Setup Control Panel*/
+    noToolboxNameErr = -914,  /*A system resource is missing, not too likely*/
+    noResponseErr = -915,     /*unable to contact destination*/
+    portClosedErr = -916,     /*port was closed*/
+    sessClosedErr = -917,     /*session was closed*/
+    badPortNameErr = -919,    /*PPCPortRec malformed*/
+    noDefaultUserErr =
+        -922,              /*user hasn't typed in owners name in Network Setup Control Pannel*/
+    notLoggedInErr = -923, /*The default userRefNum does not yet exist*/
+    noUserRefErr = -924,   /*unable to create a new userRefNum*/
+    networkErr = -925,     /*An error has occurred in the network, not too likely*/
+    noInformErr =
+        -926,                   /*PPCStart failed because destination did not have inform pending*/
+    authFailErr = -927,         /*unable to authenticate user at destination*/
+    noUserRecErr = -928,        /*Invalid user reference number*/
+    badServiceMethodErr = -930, /*illegal service type, or not supported*/
+    badLocNameErr = -931,       /*location name malformed*/
+    guestNotAllowedErr = -932   /*destination port requires authentication*/
+  };
 
-/* Font Mgr errors*/
-enum {
-  kFMIterationCompleted = -980L,
-  kFMInvalidFontFamilyErr = -981L,
-  kFMInvalidFontErr = -982L,
-  kFMIterationScopeModifiedErr = -983L,
-  kFMFontTableAccessErr = -984L,
-  kFMFontContainerAccessErr = -985L
-};
+  /* Font Mgr errors*/
+  enum
+  {
+    kFMIterationCompleted = -980L,
+    kFMInvalidFontFamilyErr = -981L,
+    kFMInvalidFontErr = -982L,
+    kFMIterationScopeModifiedErr = -983L,
+    kFMFontTableAccessErr = -984L,
+    kFMFontContainerAccessErr = -985L
+  };
 
-enum {
-  noMaskFoundErr = -1000 /*Icon Utilties Error*/
-};
+  enum
+  {
+    noMaskFoundErr = -1000 /*Icon Utilties Error*/
+  };
 
-enum {
-  nbpBuffOvr = -1024, /*Buffer overflow in LookupName*/
-  nbpNoConfirm = -1025,
-  nbpConfDiff = -1026,  /*Name confirmed at different socket*/
-  nbpDuplicate = -1027, /*Duplicate name exists already*/
-  nbpNotFound = -1028,  /*Name not found on remove*/
-  nbpNISErr = -1029     /*Error trying to open the NIS*/
-};
+  enum
+  {
+    nbpBuffOvr = -1024, /*Buffer overflow in LookupName*/
+    nbpNoConfirm = -1025,
+    nbpConfDiff = -1026,  /*Name confirmed at different socket*/
+    nbpDuplicate = -1027, /*Duplicate name exists already*/
+    nbpNotFound = -1028,  /*Name not found on remove*/
+    nbpNISErr = -1029     /*Error trying to open the NIS*/
+  };
 
-enum {
-  aspBadVersNum = -1066,  /*Server cannot support this ASP version*/
-  aspBufTooSmall = -1067, /*Buffer too small*/
-  aspNoMoreSess = -1068,  /*No more sessions on server*/
-  aspNoServers = -1069,   /*No servers at that address*/
-  aspParamErr = -1070,    /*Parameter error*/
-  aspServerBusy = -1071,  /*Server cannot open another session*/
-  aspSessClosed = -1072,  /*Session closed*/
-  aspSizeErr = -1073,     /*Command block too big*/
-  aspTooMany = -1074,     /*Too many clients (server error)*/
-  aspNoAck = -1075        /*No ack on attention request (server err)*/
-};
+  enum
+  {
+    aspBadVersNum = -1066,  /*Server cannot support this ASP version*/
+    aspBufTooSmall = -1067, /*Buffer too small*/
+    aspNoMoreSess = -1068,  /*No more sessions on server*/
+    aspNoServers = -1069,   /*No servers at that address*/
+    aspParamErr = -1070,    /*Parameter error*/
+    aspServerBusy = -1071,  /*Server cannot open another session*/
+    aspSessClosed = -1072,  /*Session closed*/
+    aspSizeErr = -1073,     /*Command block too big*/
+    aspTooMany = -1074,     /*Too many clients (server error)*/
+    aspNoAck = -1075        /*No ack on attention request (server err)*/
+  };
 
-enum {
-  reqFailed = -1096,
-  tooManyReqs = -1097,
-  tooManySkts = -1098,
-  badATPSkt = -1099,
-  badBuffNum = -1100,
-  noRelErr = -1101,
-  cbNotFound = -1102,
-  noSendResp = -1103,
-  noDataArea = -1104,
-  reqAborted = -1105
-};
+  enum
+  {
+    reqFailed = -1096,
+    tooManyReqs = -1097,
+    tooManySkts = -1098,
+    badATPSkt = -1099,
+    badBuffNum = -1100,
+    noRelErr = -1101,
+    cbNotFound = -1102,
+    noSendResp = -1103,
+    noDataArea = -1104,
+    reqAborted = -1105
+  };
 
-/* ADSP Error Codes */
-enum {
-  /* driver control ioResults */
-  errRefNum = -1280,       /* bad connection refNum */
-  errAborted = -1279,      /* control call was aborted */
-  errState = -1278,        /* bad connection state for this operation */
-  errOpening = -1277,      /* open connection request failed */
-  errAttention = -1276,    /* attention message too long */
-  errFwdReset = -1275,     /* read terminated by forward reset */
-  errDSPQueueSize = -1274, /* DSP Read/Write Queue Too small */
-  errOpenDenied = -1273    /* open connection request was denied */
-};
+  /* ADSP Error Codes */
+  enum
+  {
+    /* driver control ioResults */
+    errRefNum = -1280,       /* bad connection refNum */
+    errAborted = -1279,      /* control call was aborted */
+    errState = -1278,        /* bad connection state for this operation */
+    errOpening = -1277,      /* open connection request failed */
+    errAttention = -1276,    /* attention message too long */
+    errFwdReset = -1275,     /* read terminated by forward reset */
+    errDSPQueueSize = -1274, /* DSP Read/Write Queue Too small */
+    errOpenDenied = -1273    /* open connection request was denied */
+  };
 
-/*--------------------------------------------------------------
-        Apple event manager error messages
---------------------------------------------------------------*/
+  /*---
+          Apple event manager error messages
 
-enum {
-  errAECoercionFail =
-      -1700, /* bad parameter data or unable to coerce the data supplied */
+
+  enum
+  {
+    errAECoercionFail =
+        -1700, /* bad parameter data or unable to coerce the data supplied */
   errAEDescNotFound = -1701,
   errAECorruptData = -1702,
   errAEWrongDataType = -1703,
   errAENotAEDesc = -1704,
-  errAEBadListItem = -1705,   /* the specified list item does not exist */
-  errAENewerVersion = -1706,  /* need newer version of the AppleEvent manager */
-  errAENotAppleEvent = -1707, /* the event is not in AppleEvent format */
-  errAEEventNotHandled =
-      -1708, /* the AppleEvent was not handled by any handler */
-  errAEReplyNotValid =
-      -1709, /* AEResetTimer was passed an invalid reply parameter */
-  errAEUnknownSendMode = -1710, /* mode wasn't NoReply, WaitReply, or QueueReply
-                                   or Interaction level is unknown */
-  errAEWaitCanceled = -1711, /* in AESend, the user cancelled out of wait loop
-                                for reply or receipt */
-  errAETimeout = -1712,      /* the AppleEvent timed out */
-  errAENoUserInteraction = -1713, /* no user interaction is allowed */
-  errAENotASpecialFunction =
-      -1714, /* there is no special function for/with this keyword */
-  errAEParamMissed = -1715,        /* a required parameter was not accessed */
-  errAEUnknownAddressType = -1716, /* the target address type is not known */
-  errAEHandlerNotFound =
-      -1717, /* no handler in the dispatch tables fits the parameters to
-                AEGetEventHandler or AEGetCoercionHandler */
-  errAEReplyNotArrived = -1718, /* the contents of the reply you are accessing
-                                   have not arrived yet */
-  errAEIllegalIndex = -1719,    /* index is out of range in a put operation */
-  errAEImpossibleRange = -1720, /* A range like 3rd to 2nd, or 1st to all. */
-  errAEWrongNumberArgs =
-      -1721, /* Logical op kAENOT used with other than 1 term */
-  errAEAccessorNotFound = -1723, /* Accessor proc matching wantClass and
-                                    containerType or wildcards not found */
-  errAENoSuchLogical = -1725,    /* Something other than AND, OR, or NOT */
-  errAEBadTestKey =
-      -1726, /* Test is neither typeLogicalDescriptor nor typeCompDescriptor */
-  errAENotAnObjSpec = -1727, /* Param to AEResolve not of type 'obj ' */
-  errAENoSuchObject =
-      -1728, /* e.g.,: specifier asked for the 3rd, but there are only 2.
-                Basically, this indicates a run-time resolution error. */
-  errAENegativeCount = -1729, /* CountProc returned negative value */
-  errAEEmptyListContainer =
-      -1730, /* Attempt to pass empty list as container to accessor */
-  errAEUnknownObjectType =
-      -1731, /* available only in version 1.0.1 or greater */
-  errAERecordingIsAlreadyOn =
-      -1732, /* available only in version 1.0.1 or greater */
-  errAEReceiveTerminate = -1733, /* break out of all levels of AEReceive to the
-                                    topmost (1.1 or greater) */
-  errAEReceiveEscapeCurrent =
-      -1734, /* break out of only lowest level of AEReceive (1.1 or greater) */
-  errAEEventFiltered = -1735,    /* event has been filtered, and should not be
-                                    propogated (1.1 or greater) */
-  errAEDuplicateHandler = -1736, /* attempt to install handler in table for
-                                    identical class and id (1.1 or greater) */
-  errAEStreamBadNesting = -1737, /* nesting violation while streaming */
-  errAEStreamAlreadyConverted =
-      -1738, /* attempt to convert a stream that has already been converted */
-  errAEDescIsNull = -1739, /* attempting to perform an invalid operation on a
-                              null descriptor */
-  errAEBuildSyntaxError =
-      -1740, /* AEBuildDesc and friends detected a syntax error */
-  errAEBufferTooSmall = -1741 /* buffer for AEFlattenDesc too small */
+  errAEBadListItem = -1705,       /* the specified list item does not exist */
+      errAENewerVersion = -1706,  /* need newer version of the AppleEvent manager */
+      errAENotAppleEvent = -1707, /* the event is not in AppleEvent format */
+      errAEEventNotHandled =
+          -1708, /* the AppleEvent was not handled by any handler */
+      errAEReplyNotValid =
+          -1709,                      /* AEResetTimer was passed an invalid reply parameter */
+      errAEUnknownSendMode = -1710,   /* mode wasn't NoReply, WaitReply, or QueueReply
+                                         or Interaction level is unknown */
+      errAEWaitCanceled = -1711,      /* in AESend, the user cancelled out of wait loop
+                                         for reply or receipt */
+      errAETimeout = -1712,           /* the AppleEvent timed out */
+      errAENoUserInteraction = -1713, /* no user interaction is allowed */
+      errAENotASpecialFunction =
+          -1714,                       /* there is no special function for/with this keyword */
+      errAEParamMissed = -1715,        /* a required parameter was not accessed */
+      errAEUnknownAddressType = -1716, /* the target address type is not known */
+      errAEHandlerNotFound =
+          -1717,                    /* no handler in the dispatch tables fits the parameters to
+                                       AEGetEventHandler or AEGetCoercionHandler */
+      errAEReplyNotArrived = -1718, /* the contents of the reply you are accessing
+                                       have not arrived yet */
+      errAEIllegalIndex = -1719,    /* index is out of range in a put operation */
+      errAEImpossibleRange = -1720, /* A range like 3rd to 2nd, or 1st to all. */
+      errAEWrongNumberArgs =
+          -1721,                     /* Logical op kAENOT used with other than 1 term */
+      errAEAccessorNotFound = -1723, /* Accessor proc matching wantClass and
+                                        containerType or wildcards not found */
+      errAENoSuchLogical = -1725,    /* Something other than AND, OR, or NOT */
+      errAEBadTestKey =
+          -1726,                 /* Test is neither typeLogicalDescriptor nor typeCompDescriptor */
+      errAENotAnObjSpec = -1727, /* Param to AEResolve not of type 'obj ' */
+      errAENoSuchObject =
+          -1728,                  /* e.g.,: specifier asked for the 3rd, but there are only 2.
+                                     Basically, this indicates a run-time resolution error. */
+      errAENegativeCount = -1729, /* CountProc returned negative value */
+      errAEEmptyListContainer =
+          -1730, /* Attempt to pass empty list as container to accessor */
+      errAEUnknownObjectType =
+          -1731, /* available only in version 1.0.1 or greater */
+      errAERecordingIsAlreadyOn =
+          -1732,                     /* available only in version 1.0.1 or greater */
+      errAEReceiveTerminate = -1733, /* break out of all levels of AEReceive to the
+                                        topmost (1.1 or greater) */
+      errAEReceiveEscapeCurrent =
+          -1734,                     /* break out of only lowest level of AEReceive (1.1 or greater) */
+      errAEEventFiltered = -1735,    /* event has been filtered, and should not be
+                                        propogated (1.1 or greater) */
+      errAEDuplicateHandler = -1736, /* attempt to install handler in table for
+                                        identical class and id (1.1 or greater) */
+      errAEStreamBadNesting = -1737, /* nesting violation while streaming */
+      errAEStreamAlreadyConverted =
+          -1738,               /* attempt to convert a stream that has already been converted */
+      errAEDescIsNull = -1739, /* attempting to perform an invalid operation on a
+                                  null descriptor */
+      errAEBuildSyntaxError =
+          -1740,                  /* AEBuildDesc and friends detected a syntax error */
+      errAEBufferTooSmall = -1741 /* buffer for AEFlattenDesc too small */
 };
 
-enum {
+enum
+{
   errOSASystemError = -1750,
   errOSAInvalidID = -1751,
   errOSABadStorageType = -1752,
@@ -792,7 +835,8 @@ enum {
 };
 
 /* AppleEvent error definitions */
-enum {
+enum
+{
   errOffsetInvalid = -1800,
   errOffsetIsOutsideOfView = -1801,
   errTopOfDocument = -1810,
@@ -801,7 +845,8 @@ enum {
   errEndOfBody = -1813
 };
 
-enum {
+enum
+{
   /* Drag Manager error codes */
   badDragRefErr = -1850,             /* unknown drag reference */
   badDragItemErr = -1851,            /* unknown drag item reference */
@@ -815,11 +860,12 @@ enum {
   noSuitableDisplaysErr = -1859,     /* no displays support translucency */
   badImageRgnErr = -1860,            /* bad translucent image region */
   badImageErr = -1861,               /* bad translucent image PixMap */
-  nonDragOriginatorErr = -1862 /* illegal attempt at originator only data */
+  nonDragOriginatorErr = -1862       /* illegal attempt at originator only data */
 };
 
 /*QuickTime errors*/
-enum {
+enum
+{
   couldNotResolveDataRef = -2000,
   badImageDescription = -2001,
   badPublicMovieAtom = -2002,
@@ -893,7 +939,8 @@ enum {
   invalidSpriteIDErr = -2069
 };
 
-enum {
+enum
+{
   internalComponentErr = -2070,
   notImplementedMusicOSErr = -2071,
   cantSendToSynthesizerOSErr = -2072,
@@ -916,11 +963,12 @@ enum {
   videoOutputInUseErr = -2090
 };
 
-enum {
+enum
+{
   componentDllLoadErr =
       -2091, /* Windows specific errors (when component is loading)*/
   componentDllEntryNotFoundErr =
-      -2092, /* Windows specific errors (when component is loading)*/
+      -2092,              /* Windows specific errors (when component is loading)*/
   qtmlDllLoadErr = -2093, /* Windows specific errors (when qtml is loading)*/
   qtmlDllEntryNotFoundErr =
       -2094, /* Windows specific errors (when qtml is loading)*/
@@ -929,7 +977,8 @@ enum {
   unsupportedProcessorErr = -2097
 };
 
-enum {
+enum
+{
   cannotFindAtomErr = -2101,
   notLeafAtomErr = -2102,
   atomsNotOfSameTypeErr = -2103,
@@ -983,22 +1032,24 @@ enum {
   qtXMLApplicationErr = -2159
 };
 
-enum {
-  digiUnimpErr = -2201,      /* feature unimplemented */
-  qtParamErr = -2202,        /* bad input parameter (out of range, etc) */
-  matrixErr = -2203,         /* bad matrix, digitizer did nothing */
-  notExactMatrixErr = -2204, /* warning of bad matrix, digitizer did its best */
+enum
+{
+  digiUnimpErr = -2201,       /* feature unimplemented */
+  qtParamErr = -2202,         /* bad input parameter (out of range, etc) */
+  matrixErr = -2203,          /* bad matrix, digitizer did nothing */
+  notExactMatrixErr = -2204,  /* warning of bad matrix, digitizer did its best */
   noMoreKeyColorsErr = -2205, /* all key indexes in use */
   notExactSizeErr = -2206,    /* Can©t do exact size requested */
   badDepthErr = -2207,        /* Can©t digitize into this depth */
   noDMAErr =
-      -2208, /* Can©t do DMA digitizing (i.e. can't go to requested dest */
+      -2208,              /* Can©t do DMA digitizing (i.e. can't go to requested dest */
   badCallOrderErr = -2209 /* Usually due to a status call being called prior to
                              being setup first */
 };
 
 /*  Kernel Error Codes  */
-enum {
+enum
+{
   kernelIncompleteErr = -2401,
   kernelCanceledErr = -2402,
   kernelOptionsErr = -2403,
@@ -1023,7 +1074,8 @@ enum {
   kernelUnrecoverableErr = -2499
 };
 
-enum {
+enum
+{
   /* Text Services Mgr error codes */
   tsmComponentNoErr = 0, /* component result = no error */
   tsmUnsupScriptLanguageErr = -2500,
@@ -1031,23 +1083,23 @@ enum {
   tsmNotAnAppErr = -2502,          /* not an application error */
   tsmAlreadyRegisteredErr = -2503, /* want to register again error */
   tsmNeverRegisteredErr =
-      -2504,                  /* app never registered error (not TSM aware) */
-  tsmInvalidDocIDErr = -2505, /* invalid TSM documentation id */
-  tsmTSMDocBusyErr = -2506,   /* document is still active */
-  tsmDocNotActiveErr = -2507, /* document is NOT active */
-  tsmNoOpenTSErr = -2508,     /* no open text service */
+      -2504,                         /* app never registered error (not TSM aware) */
+  tsmInvalidDocIDErr = -2505,        /* invalid TSM documentation id */
+  tsmTSMDocBusyErr = -2506,          /* document is still active */
+  tsmDocNotActiveErr = -2507,        /* document is NOT active */
+  tsmNoOpenTSErr = -2508,            /* no open text service */
   tsmCantOpenComponentErr = -2509,   /* can©t open the component */
   tsmTextServiceNotFoundErr = -2510, /* no text service found */
   tsmDocumentOpenErr = -2511,        /* there are open documents */
   tsmUseInputWindowErr =
-      -2512, /* not TSM aware because we are using input window */
+      -2512,                 /* not TSM aware because we are using input window */
   tsmTSHasNoMenuErr = -2513, /* the text service has no menu */
   tsmTSNotOpenErr = -2514,   /* text service is not open */
   tsmComponentAlreadyOpenErr =
-      -2515, /* text service already opened for the document */
+      -2515,                      /* text service already opened for the document */
   tsmInputMethodIsOldErr = -2516, /* returned by GetDefaultInputMethod */
   tsmScriptHasNoIMErr =
-      -2517, /* script has no imput method or is using old IM */
+      -2517,                     /* script has no imput method or is using old IM */
   tsmUnsupportedTypeErr = -2518, /* unSupported interface type error */
   tsmUnknownErr = -2519,         /* any other errors */
   tsmInvalidContext = -2520,     /* Invalid TSMContext specified in call */
@@ -1060,13 +1112,15 @@ enum {
                (GetDefaultInputMethod) */
 };
 
-enum {
+enum
+{
   /* Mixed Mode error codes */
   mmInternalError = -2526
 };
 
 /* NameRegistry error codes */
-enum {
+enum
+{
   nrLockedErr = -2536,
   nrNotEnoughMemoryErr = -2537,
   nrInvalidNodeErr = -2538,
@@ -1093,7 +1147,8 @@ enum {
 };
 
 /* Icon Services error codes */
-enum {
+enum
+{
   invalidIconRefErr = -2580,     /* The icon ref is not valid */
   noSuchIconErr = -2581,         /* The requested icon could not be found */
   noIconDataAvailableErr = -2582 /* The necessary icon data is not available */
@@ -1105,27 +1160,28 @@ enum {
     These errors result from data-dependent conditions and are typically
     signaled at runtime.
 */
-enum {
+enum
+{
   errOSACantCoerce = errAECoercionFail, /* Signaled when a value can't be
                                            coerced to the desired type. */
   errOSACantAccess = errAENoSuchObject, /* Signaled when an object is not found
                                            in a container*/
   errOSACantAssign =
-      -10006, /* Signaled when an object cannot be set in a container.*/
+      -10006,                 /* Signaled when an object cannot be set in a container.*/
   errOSAGeneralError = -2700, /* Signaled by user scripts or applications when
                                  no actual error code is to be returned.*/
   errOSADivideByZero =
-      -2701, /* Signaled when there is an attempt to divide by zero*/
+      -2701,                     /* Signaled when there is an attempt to divide by zero*/
   errOSANumericOverflow = -2702, /* Signaled when integer or real value is too
                                     large to be represented*/
   errOSACantLaunch =
       -2703, /* Signaled when application can't be launched or when it is remote
                 and program linking is not enabled*/
   errOSAAppNotHighLevelEventAware =
-      -2704, /* Signaled when an application can't respond to AppleEvents*/
+      -2704,                        /* Signaled when an application can't respond to AppleEvents*/
   errOSACorruptTerminology = -2705, /* Signaled when an application's
                                        terminology resource is not readable*/
-  errOSAStackOverflow = -2706, /* Signaled when the runtime stack overflows*/
+  errOSAStackOverflow = -2706,      /* Signaled when the runtime stack overflows*/
   errOSAInternalTableOverflow =
       -2707, /* Signaled when a runtime internal data structure overflows*/
   errOSADataBlockTooLarge =
@@ -1149,22 +1205,23 @@ enum {
     time errors.  However, in a dynamic system (e.g. AppleScript) any or all
     of these may also occur at runtime.
 */
-enum {
+enum
+{
   errOSATypeError = errAEWrongDataType,
   OSAMessageNotUnderstood =
-      errAEEventNotHandled, /* Signaled when a message was sent to an object
-                               that didn't handle it*/
+      errAEEventNotHandled,                   /* Signaled when a message was sent to an object
+                                                 that didn't handle it*/
   OSAUndefinedHandler = errAEHandlerNotFound, /* Signaled when a function to be
                                                  returned doesn't exist. */
   OSAIllegalAccess = errAEAccessorNotFound,   /* Signaled when a container can
                                                  never have the requested object*/
-  OSAIllegalIndex = errAEIllegalIndex, /* Signaled when index was out of range.
-                                          Specialization of errOSACantAccess*/
+  OSAIllegalIndex = errAEIllegalIndex,        /* Signaled when index was out of range.
+                                                 Specialization of errOSACantAccess*/
   OSAIllegalRange =
       errAEImpossibleRange, /* Signaled when a range is screwy. Specialization
                                of errOSACantAccess*/
   OSAIllegalAssign =
-      -10003, /* Signaled when an object can never be set in a container*/
+      -10003,             /* Signaled when an object can never be set in a container*/
   OSASyntaxError = -2740, /* Signaled when a syntax error occurs. (e.g. "Syntax
                              error" or "<this> can't go after <that>")*/
   OSASyntaxTypeError =
@@ -1218,21 +1275,23 @@ enum {
     Apple Script Error Codes
 **************************************************************************/
 /* Runtime errors: */
-enum {
+enum
+{
   errASCantConsiderAndIgnore = -2720,
   errASCantCompareMoreThan32k = -2721, /* Parser/Compiler errors: */
   errASTerminologyNestingTooDeep = -2760,
   errASIllegalFormalParameter = -2761,
   errASParameterNotForEvent = -2762,
   errASNoResultReturned =
-      -2763, /*    The range -2780 thru -2799 is reserved for dialect specific
-                error codes. (Error codes from different dialects may overlap.)
-              */
+      -2763,                     /*    The range -2780 thru -2799 is reserved for dialect specific
+                                    error codes. (Error codes from different dialects may overlap.)
+                                  */
   errASInconsistentNames = -2780 /*    English errors: */
 };
 
 /* The preferred spelling for Code Fragment Manager errors:*/
-enum {
+enum
+{
   cfragFirstErrCode = -2800,    /* The first value in the range of CFM errors.*/
   cfragContextIDErr = -2800,    /* The context ID was not valid.*/
   cfragConnectionIDErr = -2801, /* The connection ID was not valid.*/
@@ -1244,19 +1303,19 @@ enum {
   cfragFragmentFormatErr = -2806, /* A fragment's container format is unknown.*/
   cfragUnresolvedErr = -2807,     /* A fragment had "hard" unresolved imports.*/
   cfragNoPositionErr =
-      -2808, /* The registration insertion point was not found.*/
+      -2808,                    /* The registration insertion point was not found.*/
   cfragNoPrivateMemErr = -2809, /* Out of memory for internal bookkeeping.*/
   cfragNoClientMemErr =
-      -2810, /* Out of memory for fragment mapping or section instances.*/
-  cfragNoIDsErr = -2811, /* No more CFM IDs for contexts, connections, etc.*/
+      -2810,                    /* Out of memory for fragment mapping or section instances.*/
+  cfragNoIDsErr = -2811,        /* No more CFM IDs for contexts, connections, etc.*/
   cfragInitOrderErr = -2812,    /* */
   cfragImportTooOldErr = -2813, /* An import library was too old for a client.*/
   cfragImportTooNewErr = -2814, /* An import library was too new for a client.*/
-  cfragInitLoopErr = -2815,   /* Circularity in required initialization order.*/
-  cfragInitAtBootErr = -2816, /* A boot library has an initialization function.
-                                 (System 7 only)*/
-  cfragLibConnErr = -2817,    /* */
-  cfragCFMStartupErr = -2818, /* Internal error during CFM initialization.*/
+  cfragInitLoopErr = -2815,     /* Circularity in required initialization order.*/
+  cfragInitAtBootErr = -2816,   /* A boot library has an initialization function.
+                                   (System 7 only)*/
+  cfragLibConnErr = -2817,      /* */
+  cfragCFMStartupErr = -2818,   /* Internal error during CFM initialization.*/
   cfragCFMInternalErr =
       -2819, /* An internal inconstistancy has been detected.*/
   cfragFragmentCorruptErr =
@@ -1266,23 +1325,24 @@ enum {
   cfragNoApplicationErr =
       -2822, /* No application member found in the cfrg resource.*/
   cfragArchitectureErr =
-      -2823, /* A fragment has an unacceptable architecture.*/
-  cfragFragmentUsageErr = -2824, /* A semantic error in usage of the fragment.*/
-  cfragFileSizeErr = -2825,      /* A file was too large to be mapped.*/
-  cfragNotClosureErr = -2826, /* The closure ID was actually a connection ID.*/
+      -2823,                      /* A fragment has an unacceptable architecture.*/
+  cfragFragmentUsageErr = -2824,  /* A semantic error in usage of the fragment.*/
+  cfragFileSizeErr = -2825,       /* A file was too large to be mapped.*/
+  cfragNotClosureErr = -2826,     /* The closure ID was actually a connection ID.*/
   cfragNoRegistrationErr = -2827, /* The registration name was not found.*/
   cfragContainerIDErr = -2828,    /* The fragment container ID was not valid.*/
   cfragClosureIDErr = -2829,      /* The closure ID was not valid.*/
   cfragAbortClosureErr =
       -2830, /* Used by notification handlers to abort a closure.*/
   cfragOutputLengthErr =
-      -2831, /* An output parameter is too small to hold the value.*/
+      -2831,               /* An output parameter is too small to hold the value.*/
   cfragLastErrCode = -2899 /* The last value in the range of CFM errors.*/
 };
 
 #if OLDROUTINENAMES
 /* The old spelling for Code Fragment Manager errors, kept for compatibility:*/
-enum {
+enum
+{
   fragContextNotFound = cfragContextIDErr,
   fragConnectionIDNotFound = cfragConnectionIDErr,
   fragSymbolNotFound = cfragNoSymbolErr,
@@ -1313,7 +1373,8 @@ enum {
 #endif /* OLDROUTINENAMES */
 
 /*Component Manager & component errors*/
-enum {
+enum
+{
   invalidComponentID = -3000,
   validInstancesExist = -3001,
   componentNotCaptured = -3002,
@@ -1323,7 +1384,8 @@ enum {
 };
 
 /*Translation manager & Translation components*/
-enum {
+enum
+{
   invalidTranslationPathErr =
       -3025, /*Source type to destination type not a valid path*/
   couldNotParseSourceFileErr =
@@ -1333,7 +1395,8 @@ enum {
   noPrefAppErr = -3032
 };
 
-enum {
+enum
+{
   buf2SmallErr = -3101,
   noMPPErr = -3102,
   ckSumErr = -3103,
@@ -1346,33 +1409,34 @@ enum {
 };
 
 /* OpenTransport errors*/
-enum {
-  kOTNoError = 0,            /* No Error occurred                    */
-  kOTOutOfMemoryErr = -3211, /* OT ran out of memory, may be a temporary      */
-  kOTNotFoundErr = -3201,    /* OT generic not found error               */
+enum
+{
+  kOTNoError = 0,               /* No Error occurred                    */
+  kOTOutOfMemoryErr = -3211,    /* OT ran out of memory, may be a temporary      */
+  kOTNotFoundErr = -3201,       /* OT generic not found error               */
   kOTDuplicateFoundErr = -3216, /* OT generic duplicate found error */
   kOTBadAddressErr =
       -3150, /* XTI2OSStatus(TBADADDR) A Bad address was specified          */
   kOTBadOptionErr =
-      -3151, /* XTI2OSStatus(TBADOPT) A Bad option was specified             */
-  kOTAccessErr = -3152, /* XTI2OSStatus(TACCES) Missing access permission */
+      -3151,                  /* XTI2OSStatus(TBADOPT) A Bad option was specified             */
+  kOTAccessErr = -3152,       /* XTI2OSStatus(TACCES) Missing access permission */
   kOTBadReferenceErr = -3153, /* XTI2OSStatus(TBADF) Bad provider reference */
-  kOTNoAddressErr = -3154, /* XTI2OSStatus(TNOADDR) No address was specified */
+  kOTNoAddressErr = -3154,    /* XTI2OSStatus(TNOADDR) No address was specified */
   kOTOutStateErr =
       -3155, /* XTI2OSStatus(TOUTSTATE) Call issued in wrong state           */
   kOTBadSequenceErr =
-      -3156, /* XTI2OSStatus(TBADSEQ) Sequence specified does not exist */
+      -3156,              /* XTI2OSStatus(TBADSEQ) Sequence specified does not exist */
   kOTSysErrorErr = -3157, /* XTI2OSStatus(TSYSERR) A system error occurred */
-  kOTLookErr = -3158, /* XTI2OSStatus(TLOOK) An event occurred - call Look() */
-  kOTBadDataErr = -3159, /* XTI2OSStatus(TBADDATA) An illegal amount of data was
-                            specified */
+  kOTLookErr = -3158,     /* XTI2OSStatus(TLOOK) An event occurred - call Look() */
+  kOTBadDataErr = -3159,  /* XTI2OSStatus(TBADDATA) An illegal amount of data was
+                             specified */
   kOTBufferOverflowErr =
-      -3160, /* XTI2OSStatus(TBUFOVFLW) Passed buffer not big enough          */
+      -3160,          /* XTI2OSStatus(TBUFOVFLW) Passed buffer not big enough          */
   kOTFlowErr = -3161, /* XTI2OSStatus(TFLOW) Provider is flow-controlled */
   kOTNoDataErr =
       -3162, /* XTI2OSStatus(TNODATA) No data available for reading          */
   kOTNoDisconnectErr =
-      -3163, /* XTI2OSStatus(TNODIS) No disconnect indication available */
+      -3163,             /* XTI2OSStatus(TNODIS) No disconnect indication available */
   kOTNoUDErrErr = -3164, /* XTI2OSStatus(TNOUDERR) No Unit Data Error indication
                             available */
   kOTBadFlagErr =
@@ -1382,7 +1446,7 @@ enum {
   kOTNotSupportedErr =
       -3167, /* XTI2OSStatus(TNOTSUPPORT) Command is not supported           */
   kOTStateChangeErr =
-      -3168, /* XTI2OSStatus(TSTATECHNG) State is changing - try again later */
+      -3168,                     /* XTI2OSStatus(TSTATECHNG) State is changing - try again later */
   kOTNoStructureTypeErr = -3169, /* XTI2OSStatus(TNOSTRUCTYPE) Bad structure
                                     type requested for OTAlloc    */
   kOTBadNameErr =
@@ -1392,73 +1456,73 @@ enum {
   kOTAddressBusyErr =
       -3172, /* XTI2OSStatus(TADDRBUSY) Address requested is already in use */
   kOTIndOutErr =
-      -3173, /* XTI2OSStatus(TINDOUT) Accept failed because of pending listen */
+      -3173,                      /* XTI2OSStatus(TINDOUT) Accept failed because of pending listen */
   kOTProviderMismatchErr = -3174, /* XTI2OSStatus(TPROVMISMATCH) Tried to accept
                                      on incompatible endpoint   */
-  kOTResQLenErr = -3175, /* XTI2OSStatus(TRESQLEN)                            */
-  kOTResAddressErr = -3176, /* XTI2OSStatus(TRESADDR) */
-  kOTQFullErr = -3177,      /* XTI2OSStatus(TQFULL)                          */
+  kOTResQLenErr = -3175,          /* XTI2OSStatus(TRESQLEN)                            */
+  kOTResAddressErr = -3176,       /* XTI2OSStatus(TRESADDR) */
+  kOTQFullErr = -3177,            /* XTI2OSStatus(TQFULL)                          */
   kOTProtocolErr =
       -3178, /* XTI2OSStatus(TPROTO) An unspecified provider error occurred */
   kOTBadSyncErr =
       -3179, /* XTI2OSStatus(TBADSYNC) A synchronous call at interrupt time */
   kOTCanceledErr =
-      -3180, /* XTI2OSStatus(TCANCELED) The command was cancelled            */
-  kEPERMErr = -3200,           /* Permission denied            */
-  kENOENTErr = -3201,          /* No such file or directory       */
-  kENORSRCErr = -3202,         /* No such resource               */
-  kEINTRErr = -3203,           /* Interrupted system service        */
-  kEIOErr = -3204,             /* I/O error                 */
-  kENXIOErr = -3205,           /* No such device or address       */
-  kEBADFErr = -3208,           /* Bad file number                 */
-  kEAGAINErr = -3210,          /* Try operation again later       */
-  kENOMEMErr = -3211,          /* Not enough space               */
-  kEACCESErr = -3212,          /* Permission denied            */
-  kEFAULTErr = -3213,          /* Bad address                   */
-  kEBUSYErr = -3215,           /* Device or resource busy          */
-  kEEXISTErr = -3216,          /* File exists                   */
-  kENODEVErr = -3218,          /* No such device               */
-  kEINVALErr = -3221,          /* Invalid argument               */
-  kENOTTYErr = -3224,          /* Not a character device          */
-  kEPIPEErr = -3231,           /* Broken pipe                   */
-  kERANGEErr = -3233,          /* Message size too large for STREAM  */
-  kEWOULDBLOCKErr = -3234,     /* Call would block, so was aborted     */
-  kEDEADLKErr = -3234,         /* or a deadlock would occur       */
-  kEALREADYErr = -3236,        /*                          */
-  kENOTSOCKErr = -3237,        /* Socket operation on non-socket     */
-  kEDESTADDRREQErr = -3238,    /* Destination address required      */
-  kEMSGSIZEErr = -3239,        /* Message too long               */
-  kEPROTOTYPEErr = -3240,      /* Protocol wrong type for socket     */
-  kENOPROTOOPTErr = -3241,     /* Protocol not available          */
-  kEPROTONOSUPPORTErr = -3242, /* Protocol not supported          */
-  kESOCKTNOSUPPORTErr = -3243, /* Socket type not supported       */
-  kEOPNOTSUPPErr = -3244,      /* Operation not supported on socket  */
-  kEADDRINUSEErr = -3247,      /* Address already in use          */
-  kEADDRNOTAVAILErr = -3248,   /* Can't assign requested address     */
-  kENETDOWNErr = -3249,        /* Network is down                 */
-  kENETUNREACHErr = -3250,     /* Network is unreachable          */
-  kENETRESETErr = -3251,       /* Network dropped connection on reset    */
-  kECONNABORTEDErr = -3252,    /* Software caused connection abort     */
-  kECONNRESETErr = -3253,      /* Connection reset by peer          */
-  kENOBUFSErr = -3254,         /* No buffer space available       */
-  kEISCONNErr = -3255,         /* Socket is already connected         */
-  kENOTCONNErr = -3256,        /* Socket is not connected          */
-  kESHUTDOWNErr = -3257,       /* Can't send after socket shutdown     */
-  kETOOMANYREFSErr = -3258,    /* Too many references: can't splice  */
-  kETIMEDOUTErr = -3259,       /* Connection timed out             */
-  kECONNREFUSEDErr = -3260,    /* Connection refused           */
-  kEHOSTDOWNErr = -3263,       /* Host is down                */
-  kEHOSTUNREACHErr = -3264,    /* No route to host               */
-  kEPROTOErr = -3269,      /* ©©© fill out missing codes ©©©     */
-  kETIMEErr = -3270,       /*                          */
-  kENOSRErr = -3271,       /*                          */
-  kEBADMSGErr = -3272,     /*                          */
-  kECANCELErr = -3273,     /*                          */
-  kENOSTRErr = -3274,      /*                          */
-  kENODATAErr = -3275,     /*                          */
-  kEINPROGRESSErr = -3276, /*                          */
-  kESRCHErr = -3277,       /*                          */
-  kENOMSGErr = -3278,      /*                          */
+      -3180,                          /* XTI2OSStatus(TCANCELED) The command was cancelled            */
+  kEPERMErr = -3200,                  /* Permission denied            */
+  kENOENTErr = -3201,                 /* No such file or directory       */
+  kENORSRCErr = -3202,                /* No such resource               */
+  kEINTRErr = -3203,                  /* Interrupted system service        */
+  kEIOErr = -3204,                    /* I/O error                 */
+  kENXIOErr = -3205,                  /* No such device or address       */
+  kEBADFErr = -3208,                  /* Bad file number                 */
+  kEAGAINErr = -3210,                 /* Try operation again later       */
+  kENOMEMErr = -3211,                 /* Not enough space               */
+  kEACCESErr = -3212,                 /* Permission denied            */
+  kEFAULTErr = -3213,                 /* Bad address                   */
+  kEBUSYErr = -3215,                  /* Device or resource busy          */
+  kEEXISTErr = -3216,                 /* File exists                   */
+  kENODEVErr = -3218,                 /* No such device               */
+  kEINVALErr = -3221,                 /* Invalid argument               */
+  kENOTTYErr = -3224,                 /* Not a character device          */
+  kEPIPEErr = -3231,                  /* Broken pipe                   */
+  kERANGEErr = -3233,                 /* Message size too large for STREAM  */
+  kEWOULDBLOCKErr = -3234,            /* Call would block, so was aborted     */
+  kEDEADLKErr = -3234,                /* or a deadlock would occur       */
+  kEALREADYErr = -3236,               /*                          */
+  kENOTSOCKErr = -3237,               /* Socket operation on non-socket     */
+  kEDESTADDRREQErr = -3238,           /* Destination address required      */
+  kEMSGSIZEErr = -3239,               /* Message too long               */
+  kEPROTOTYPEErr = -3240,             /* Protocol wrong type for socket     */
+  kENOPROTOOPTErr = -3241,            /* Protocol not available          */
+  kEPROTONOSUPPORTErr = -3242,        /* Protocol not supported          */
+  kESOCKTNOSUPPORTErr = -3243,        /* Socket type not supported       */
+  kEOPNOTSUPPErr = -3244,             /* Operation not supported on socket  */
+  kEADDRINUSEErr = -3247,             /* Address already in use          */
+  kEADDRNOTAVAILErr = -3248,          /* Can't assign requested address     */
+  kENETDOWNErr = -3249,               /* Network is down                 */
+  kENETUNREACHErr = -3250,            /* Network is unreachable          */
+  kENETRESETErr = -3251,              /* Network dropped connection on reset    */
+  kECONNABORTEDErr = -3252,           /* Software caused connection abort     */
+  kECONNRESETErr = -3253,             /* Connection reset by peer          */
+  kENOBUFSErr = -3254,                /* No buffer space available       */
+  kEISCONNErr = -3255,                /* Socket is already connected         */
+  kENOTCONNErr = -3256,               /* Socket is not connected          */
+  kESHUTDOWNErr = -3257,              /* Can't send after socket shutdown     */
+  kETOOMANYREFSErr = -3258,           /* Too many references: can't splice  */
+  kETIMEDOUTErr = -3259,              /* Connection timed out             */
+  kECONNREFUSEDErr = -3260,           /* Connection refused           */
+  kEHOSTDOWNErr = -3263,              /* Host is down                */
+  kEHOSTUNREACHErr = -3264,           /* No route to host               */
+  kEPROTOErr = -3269,                 /* ©©© fill out missing codes ©©©     */
+  kETIMEErr = -3270,                  /*                          */
+  kENOSRErr = -3271,                  /*                          */
+  kEBADMSGErr = -3272,                /*                          */
+  kECANCELErr = -3273,                /*                          */
+  kENOSTRErr = -3274,                 /*                          */
+  kENODATAErr = -3275,                /*                          */
+  kEINPROGRESSErr = -3276,            /*                          */
+  kESRCHErr = -3277,                  /*                          */
+  kENOMSGErr = -3278,                 /*                          */
   kOTClientNotInittedErr = -3279,     /*                          */
   kOTPortHasDiedErr = -3280,          /*                          */
   kOTPortWasEjectedErr = -3281,       /*                          */
@@ -1469,7 +1533,8 @@ enum {
 };
 
 /* Color Picker errors*/
-enum {
+enum
+{
   firstPickerError = -4000,
   invalidPickerType = firstPickerError,
   requiredFlagsDontMatch = -4001,
@@ -1484,25 +1549,26 @@ enum {
 };
 
 /* NSL error codes*/
-enum {
+enum
+{
   kNSL68kContextNotSupported = -4170, /* no 68k allowed*/
-  kNSLSchedulerError = -4171, /* A custom thread routine encountered an error*/
-  kNSLBadURLSyntax = -4172,   /* URL contains illegal characters*/
+  kNSLSchedulerError = -4171,         /* A custom thread routine encountered an error*/
+  kNSLBadURLSyntax = -4172,           /* URL contains illegal characters*/
   kNSLNoCarbonLib = -4173,
   kNSLUILibraryNotAvailable =
       -4174, /* The NSL UI Library needs to be in the Extensions Folder*/
   kNSLNotImplementedYet = -4175,
   kNSLErrNullPtrError = -4176,
   kNSLSomePluginsFailedToLoad =
-      -4177, /* (one or more plugins failed to load, but at least one did load;
-                this error isn't fatal)*/
+      -4177,                       /* (one or more plugins failed to load, but at least one did load;
+                                      this error isn't fatal)*/
   kNSLNullNeighborhoodPtr = -4178, /* (client passed a null neighborhood ptr)*/
   kNSLNoPluginsForSearch =
       -4179, /* (no plugins will respond to search request; bad protocol(s)?)*/
   kNSLSearchAlreadyInProgress =
       -4180, /* (you can only have one ongoing search per clientRef)*/
   kNSLNoPluginsFound =
-      -4181, /* (manager didn't find any valid plugins to load)*/
+      -4181,                    /* (manager didn't find any valid plugins to load)*/
   kNSLPluginLoadFailed = -4182, /* (manager unable to load one of the plugins)*/
   kNSLBadProtocolTypeErr =
       -4183,               /* (client is trying to add a null protocol type)*/
@@ -1512,7 +1578,7 @@ enum {
   kNSLCannotContinueLookup =
       -4186, /* (Can't continue lookup; error or bad state)*/
   kNSLBufferTooSmallForData =
-      -4187, /* (Client buffer too small for data from plugin)*/
+      -4187,                      /* (Client buffer too small for data from plugin)*/
   kNSLNoContextAvailable = -4188, /* (ContinueLookup function ptr invalid)*/
   kNSLRequestBufferAlreadyInList = -4189,
   kNSLInvalidPluginSpec = -4190,
@@ -1530,7 +1596,8 @@ enum {
 };
 
 /* desktop printing error codes*/
-enum {
+enum
+{
   kDTPHoldJobErr = -4200,
   kDTPStopQueueErr = -4201,
   kDTPTryAgainErr = -4202,
@@ -1538,7 +1605,8 @@ enum {
 };
 
 /* ColorSync Result codes */
-enum {
+enum
+{
   /* Profile Access Errors */
   cmElementTagNotFound = -4200,
   cmIndexRangeErr = -4201, /* Tag index out of range */
@@ -1549,26 +1617,27 @@ enum {
   cmInvalidProfileLocation =
       -4205, /* Operation not supported for this profile location */
   cmCantCopyModifiedV1Profile =
-      -4215, /* Illegal to copy version 1 profiles that have been modified */
-             /* Profile Search Errors */
+      -4215,               /* Illegal to copy version 1 profiles that have been modified */
+                           /* Profile Search Errors */
   cmInvalidSearch = -4206, /* Bad Search Handle */
   cmSearchError = -4207,
   cmErrIncompatibleProfile = -4208, /* Other ColorSync Errors */
   cmInvalidColorSpace =
-      -4209,                 /* Profile colorspace does not match bitmap type */
-  cmInvalidSrcMap = -4210,   /* Source pix/bit map was invalid */
-  cmInvalidDstMap = -4211,   /* Destination pix/bit map was invalid */
-  cmNoGDevicesError = -4212, /* Begin/End Matching -- no gdevices available */
+      -4209,                       /* Profile colorspace does not match bitmap type */
+  cmInvalidSrcMap = -4210,         /* Source pix/bit map was invalid */
+  cmInvalidDstMap = -4211,         /* Destination pix/bit map was invalid */
+  cmNoGDevicesError = -4212,       /* Begin/End Matching -- no gdevices available */
   cmInvalidProfileComment = -4213, /* Bad Profile comment during drawpicture */
-  cmRangeOverFlow = -4214, /* Color conversion warning that some output color
-                              values over/underflowed and were clipped */
-  cmNamedColorNotFound = -4216, /* NamedColor not found */
+  cmRangeOverFlow = -4214,         /* Color conversion warning that some output color
+                                      values over/underflowed and were clipped */
+  cmNamedColorNotFound = -4216,    /* NamedColor not found */
   cmCantGamutCheckError =
       -4217 /* Gammut checking not supported by this ColorWorld */
 };
 
 /* new Folder Manager error codes */
-enum {
+enum
+{
   badFolderDescErr = -4270,
   duplicateFolderDescErr = -4271,
   noMoreFolderDescErr = -4272,
@@ -1579,10 +1648,14 @@ enum {
 };
 
 /* Core Foundation errors*/
-enum { coreFoundationUnknownErr = -4960 };
+enum
+{
+  coreFoundationUnknownErr = -4960
+};
 
 /* ScrapMgr error codes (CarbonLib 1.0 and later)*/
-enum {
+enum
+{
   internalScrapErr = -4988,
   duplicateScrapFlavorErr = -4989,
   badScrapRefErr = -4990,
@@ -1599,18 +1672,19 @@ enum {
   needClearScrapErr = -100       /* == noScrapErr*/
 };
 
-enum {
+enum
+{
   /*  AFP Protocol Errors */
   afpAccessDenied = -5000, /* Insufficient access privileges for operation */
   afpAuthContinue =
-      -5001, /* Further information required to complete AFPLogin call */
+      -5001,             /* Further information required to complete AFPLogin call */
   afpBadUAM = -5002,     /* Unknown user authentication method specified */
   afpBadVersNum = -5003, /* Unknown AFP protocol version number specified */
   afpBitmapErr = -5004,  /* Bitmap contained bits undefined for call */
   afpCantMove = -5005,   /* Move destination is offspring of source, or root was
                             specified */
   afpDenyConflict =
-      -5006, /* Specified open/deny modes conflict with current open modes */
+      -5006,              /* Specified open/deny modes conflict with current open modes */
   afpDirNotEmpty = -5007, /* Cannot delete non-empty directory */
   afpDiskFull = -5008,    /* Insufficient free space on volume for operation */
   afpEofError = -5009,    /* Read beyond logical end-of-file */
@@ -1619,30 +1693,30 @@ enum {
   afpItemNotFound =
       -5012, /* Unknown UserName/UserID or missing comment/APPL entry */
   afpLockErr =
-      -5013, /* Some or all of requested range is locked by another user */
+      -5013,              /* Some or all of requested range is locked by another user */
   afpMiscErr = -5014,     /* Unexpected error encountered during execution */
   afpNoMoreLocks = -5015, /* Maximum lock limit reached */
   afpNoServer = -5016,    /* Server not responding */
   afpObjectExists =
-      -5017, /* Specified destination file or directory already exists */
+      -5017,                 /* Specified destination file or directory already exists */
   afpObjectNotFound = -5018, /* Specified file or directory does not exist */
-  afpParmErr = -5019, /* A specified parameter was out of allowable range */
+  afpParmErr = -5019,        /* A specified parameter was out of allowable range */
   afpRangeNotLocked =
       -5020, /* Tried to unlock range that was not locked by user */
   afpRangeOverlap =
       -5021,             /* Some or all of range already locked by same user */
   afpSessClosed = -5022, /* Session closed*/
   afpUserNotAuth =
-      -5023, /* No AFPLogin call has successfully been made for this session */
+      -5023,                   /* No AFPLogin call has successfully been made for this session */
   afpCallNotSupported = -5024, /* Unsupported AFP call was made */
   afpObjectTypeErr =
-      -5025, /* File/Directory specified where Directory/File expected */
+      -5025,                   /* File/Directory specified where Directory/File expected */
   afpTooManyFilesOpen = -5026, /* Maximum open file count reached */
   afpServerGoingDown = -5027,  /* Server is shutting down */
   afpCantRename = -5028,       /* AFPRename cannot rename volume */
   afpDirNotFound = -5029,      /* Unknown directory specified */
   afpIconTypeError =
-      -5030, /* Icon size specified different from existing icon size */
+      -5030,               /* Icon size specified different from existing icon size */
   afpVolLocked = -5031,    /* Volume is Read-Only */
   afpObjectLocked = -5032, /* Object is M/R/D/W inhibited*/
   afpContainsSharedErr =
@@ -1653,13 +1727,13 @@ enum {
   afpCatalogChanged = -5037,
   afpSameObjectErr = -5038,
   afpBadIDErr = -5039,
-  afpPwdSameErr = -5040, /* Someone tried to change their password to the same
-                            password on a mantadory password change */
+  afpPwdSameErr = -5040,     /* Someone tried to change their password to the same
+                                password on a mantadory password change */
   afpPwdTooShortErr = -5041, /* The password being set is too short: there is a
                                 minimum length that must be met or exceeded */
   afpPwdExpiredErr =
-      -5042, /* The password being used is too old: this requires the user to
-                change the password before log-in can continue */
+      -5042,                  /* The password being used is too old: this requires the user to
+                                 change the password before log-in can continue */
   afpInsideSharedErr = -5043, /* The folder being shared is inside a shared
                                  folder OR the folder contains a shared folder
                                  and is being moved into a shared folder */
@@ -1674,17 +1748,18 @@ enum {
   afpPwdPolicyErr =
       -5046, /* Password does not conform to servers password policy */
   afpAlreadyLoggedInErr =
-      -5047, /* User has been authenticated but is already logged in from
-                another machine (and that's not allowed on this server) */
+      -5047,                /* User has been authenticated but is already logged in from
+                               another machine (and that's not allowed on this server) */
   afpCallNotAllowed = -5048 /* The server knows what you wanted to do, but won't
                                let you do it just now */
 };
 
-enum {
+enum
+{
   /*  AppleShare Client Errors */
   afpBadDirIDType = -5060,
   afpCantMountMoreSrvre =
-      -5061, /* The Maximum number of server connections has been reached */
+      -5061,                 /* The Maximum number of server connections has been reached */
   afpAlreadyMounted = -5062, /* The volume is already mounted */
   afpSameNodeErr = -5063     /* An Attempt was made to connect to a file server
                                 running on the same machine */
@@ -1692,7 +1767,8 @@ enum {
 
 /*Text Engines, TSystemTextEngines, HIEditText error coded*/
 
-enum {
+enum
+{
   errUnknownAttributeTag = -5240,
   errMarginWilllNotFit = -5241,
   errNotInImagingMode = -5242,
@@ -1710,7 +1786,8 @@ enum {
 };
 
 /* HTMLRendering OSStaus codes*/
-enum {
+enum
+{
   hrHTMLRenderingLibNotInstalledErr = -5360,
   hrMiscellaneousExceptionErr = -5361,
   hrUnableToResizeHandleErr = -5362,
@@ -1718,7 +1795,8 @@ enum {
 };
 
 /* IAExtractor result codes */
-enum {
+enum
+{
   errIANoErr = 0,
   errIAUnknownErr = -5380,
   errIAAllocationErr = -5381,
@@ -1732,7 +1810,8 @@ enum {
 };
 
 /* QuickTime Streaming Errors */
-enum {
+enum
+{
   qtsBadSelectorErr = -5400,
   qtsBadStateErr = -5401,
   qtsBadDataErr = -5402, /* something is wrong with the data */
@@ -1746,17 +1825,19 @@ enum {
   qtsAddressBusyErr = -5421
 };
 
-enum {
+enum
+{
   /*Gestalt error codes*/
   gestaltUnknownErr =
-      -5550, /*value returned if Gestalt doesn't know the answer*/
+      -5550,                       /*value returned if Gestalt doesn't know the answer*/
   gestaltUndefSelectorErr = -5551, /*undefined selector was passed to Gestalt*/
-  gestaltDupSelectorErr = -5552, /*tried to add an entry that already existed*/
-  gestaltLocationErr = -5553     /*gestalt function ptr wasn't in sysheap*/
+  gestaltDupSelectorErr = -5552,   /*tried to add an entry that already existed*/
+  gestaltLocationErr = -5553       /*gestalt function ptr wasn't in sysheap*/
 };
 
 /* Menu Manager error codes*/
-enum {
+enum
+{
   menuPropertyInvalidErr = -5603, /* invalid property creator */
   menuPropertyInvalid =
       menuPropertyInvalidErr,      /* "menuPropertyInvalid" is deprecated */
@@ -1769,16 +1850,17 @@ enum {
 };
 
 /* Window Manager error codes*/
-enum {
+enum
+{
   errInvalidWindowPtr = -5600, /* tried to pass a bad WindowRef argument*/
   errInvalidWindowRef = -5600, /* tried to pass a bad WindowRef argument*/
   errUnsupportedWindowAttributesForClass =
-      -5601, /* tried to create a window with WindowAttributes not supported by
-                the WindowClass*/
+      -5601,                         /* tried to create a window with WindowAttributes not supported by
+                                        the WindowClass*/
   errWindowDoesNotHaveProxy = -5602, /* tried to do something requiring a proxy
                                         to a window which doesn©t have a proxy*/
   errInvalidWindowProperty =
-      -5603, /* tried to access a property tag with private creator*/
+      -5603,                         /* tried to access a property tag with private creator*/
   errWindowPropertyNotFound = -5604, /* tried to get a nonexistent property*/
   errUnrecognizedWindowClass =
       -5605, /* tried to create a window with a bad WindowClass*/
@@ -1792,8 +1874,8 @@ enum {
       -5608, /* tried to call InitFloatingWindows twice, or called InitWindows
                 and then floating windows*/
   errFloatingWindowsNotInitialized =
-      -5609, /* called HideFloatingWindows or ShowFloatingWindows without
-                calling InitFloatingWindows*/
+      -5609,                 /* called HideFloatingWindows or ShowFloatingWindows without
+                                calling InitFloatingWindows*/
   errWindowNotFound = -5610, /* returned from FindWindowOfClass*/
   errWindowDoesNotFitOnscreen =
       -5611, /* ConstrainWindowToScreen could not make the window fit onscreen*/
@@ -1804,7 +1886,7 @@ enum {
   windowManagerInternalErr =
       -5614, /* something really weird happened inside the window manager*/
   windowWrongStateErr =
-      -5615, /* window is not in a state that is valid for the current action*/
+      -5615,                     /* window is not in a state that is valid for the current action*/
   windowGroupInvalidErr = -5616, /* WindowGroup is invalid*/
   windowAppModalStateAlreadyExistsErr =
       -5617, /* we're already running this window modally*/
@@ -1815,10 +1897,14 @@ enum {
 };
 
 /* Dialog Mgr error codes*/
-enum { dialogNoTimeoutErr = -5640 };
+enum
+{
+  dialogNoTimeoutErr = -5640
+};
 
 /* NavigationLib error codes*/
-enum {
+enum
+{
   kNavWrongDialogStateErr = -5694,
   kNavWrongDialogClassErr = -5695,
   kNavInvalidSystemConfigErr = -5696,
@@ -1828,7 +1914,8 @@ enum {
 };
 
 /* Collection Manager errors */
-enum {
+enum
+{
   collectionItemLockedErr = -5750,
   collectionItemNotFoundErr = -5751,
   collectionIndexRangeErr = -5752,
@@ -1836,32 +1923,36 @@ enum {
 };
 
 /* QuickTime Streaming Server Errors */
-enum { kQTSSUnknownErr = -6150 };
+enum
+{
+  kQTSSUnknownErr = -6150
+};
 
-enum {
+enum
+{
   /* Display Manager error codes (-6220...-6269)*/
-  kDMGenErr = -6220,             /*Unexpected Error*/
-                                 /* Mirroring-Specific Errors */
-  kDMMirroringOnAlready = -6221, /*Returned by all calls that need mirroring to
-                                    be off to do their thing.*/
+  kDMGenErr = -6220,                /*Unexpected Error*/
+                                    /* Mirroring-Specific Errors */
+  kDMMirroringOnAlready = -6221,    /*Returned by all calls that need mirroring to
+                                       be off to do their thing.*/
   kDMWrongNumberOfDisplays = -6222, /*Can only handle 2 displays for now.*/
   kDMMirroringBlocked = -6223,      /*DMBlockMirroring() has been called.*/
-  kDMCantBlock = -6224,      /*Mirroring is already on, can©t Block now (call
-                                DMUnMirror() first).*/
-  kDMMirroringNotOn = -6225, /*Returned by all calls that need mirroring to be
-                                on to do their thing.*/
-                             /* Other Display Manager Errors */
-  kSysSWTooOld = -6226,      /*Missing critical pieces of System Software.*/
-  kDMSWNotInitializedErr = -6227, /*Required software not initialized (eg
-                                     windowmanager or display mgr).*/
+  kDMCantBlock = -6224,             /*Mirroring is already on, can©t Block now (call
+                                       DMUnMirror() first).*/
+  kDMMirroringNotOn = -6225,        /*Returned by all calls that need mirroring to be
+                                       on to do their thing.*/
+                                    /* Other Display Manager Errors */
+  kSysSWTooOld = -6226,             /*Missing critical pieces of System Software.*/
+  kDMSWNotInitializedErr = -6227,   /*Required software not initialized (eg
+                                       windowmanager or display mgr).*/
   kDMDriverNotDisplayMgrAwareErr =
-      -6228, /*Video Driver does not support display manager.*/
+      -6228,                     /*Video Driver does not support display manager.*/
   kDMDisplayNotFoundErr = -6229, /*Could not find item (will someday remove).*/
   kDMNotFoundErr = -6229,        /*Could not find item.*/
   kDMDisplayAlreadyInstalledErr =
       -6230, /*Attempt to add an already installed display.*/
   kDMMainDisplayCannotMoveErr =
-      -6231, /*Trying to move main display (or a display mirrored to it) */
+      -6231,                        /*Trying to move main display (or a display mirrored to it) */
   kDMNoDeviceTableclothErr = -6231, /*obsolete*/
   kDMFoundErr = -6232               /*Did not proceed because we found an item*/
 };
@@ -1869,29 +1960,36 @@ enum {
 /**
     Language Analysis error codes
 */
-enum {
+enum
+{
   laTooSmallBufferErr =
-      -6984, /* output buffer is too small to store any result */
+      -6984,                        /* output buffer is too small to store any result */
   laEnvironmentBusyErr = -6985,     /* specified environment is used */
   laEnvironmentNotFoundErr = -6986, /* can't fint the specified environment */
-  laEnvironmentExistErr = -6987, /* same name environment is already exists */
-  laInvalidPathErr = -6988,      /* path is not correct */
-  laNoMoreMorphemeErr = -6989,   /* nothing to read*/
-  laFailAnalysisErr = -6990,     /* analysis failed*/
-  laTextOverFlowErr = -6991,     /* text is too long*/
+  laEnvironmentExistErr = -6987,    /* same name environment is already exists */
+  laInvalidPathErr = -6988,         /* path is not correct */
+  laNoMoreMorphemeErr = -6989,      /* nothing to read*/
+  laFailAnalysisErr = -6990,        /* analysis failed*/
+  laTextOverFlowErr = -6991,        /* text is too long*/
   laDictionaryNotOpenedErr = -6992, /* the dictionary is not opened*/
   laDictionaryUnknownErr =
-      -6993, /* can't use this dictionary with this environment*/
-  laDictionaryTooManyErr = -6994, /* too many dictionaries*/
-  laPropertyValueErr = -6995,     /* Invalid property value*/
-  laPropertyUnknownErr = -6996, /* the property is unknown to this environment*/
+      -6993,                       /* can't use this dictionary with this environment*/
+  laDictionaryTooManyErr = -6994,  /* too many dictionaries*/
+  laPropertyValueErr = -6995,      /* Invalid property value*/
+  laPropertyUnknownErr = -6996,    /* the property is unknown to this environment*/
   laPropertyIsReadOnlyErr = -6997, /* the property is read only*/
   laPropertyNotFoundErr = -6998,   /* can't find the property*/
   laPropertyErr = -6999,           /* Error in properties*/
   laEngineNotFoundErr = -7000      /* can't find the engine*/
 };
 
-enum { kUSBNoErr = 0, kUSBNoTran = 0, kUSBNoDelay = 0, kUSBPending = 1 };
+enum
+{
+  kUSBNoErr = 0,
+  kUSBNoTran = 0,
+  kUSBNoDelay = 0,
+  kUSBPending = 1
+};
 
 /**
 
@@ -1906,7 +2004,8 @@ enum { kUSBNoErr = 0, kUSBNoTran = 0, kUSBNoDelay = 0, kUSBPending = 1 };
    cleared before a USBClearPipeStallByReference
    can be used.
 */
-enum {
+enum
+{
   kUSBNotSent2Err = -6901, /*  Transaction not sent */
   kUSBNotSent1Err = -6902, /*  Transaction not sent */
   kUSBBufUnderRunErr =
@@ -1930,17 +2029,19 @@ enum {
 
    USB Manager Errors
 */
-enum {
-  kUSBQueueFull = -6948,  /* Internal queue maxxed  */
-  kUSBNotHandled = -6987, /* Notification was not handled   (same as NotFound)*/
+enum
+{
+  kUSBQueueFull = -6948,           /* Internal queue maxxed  */
+  kUSBNotHandled = -6987,          /* Notification was not handled   (same as NotFound)*/
   kUSBUnknownNotification = -6949, /* Notification type not defined  */
   kUSBBadDispatchTable = -6950     /* Improper driver dispatch table     */
 };
 
 /* USB Services Errors */
-enum {
+enum
+{
   kUSBPortDisabled =
-      -6969, /* The port you are attached to is disabled, use USBDeviceReset.*/
+      -6969,                       /* The port you are attached to is disabled, use USBDeviceReset.*/
   kUSBQueueAborted = -6970,        /* Pipe zero stall cleared.*/
   kUSBTimedOut = -6971,            /* Transaction timed out. */
   kUSBDeviceDisconnected = -6972,  /* Disconnected during suspend or reset */
@@ -1953,7 +2054,7 @@ enum {
   kUSBPipeStalledError =
       -6979, /*  Pipe has stalled, error needs to be cleared */
   kUSBPipeIdleError =
-      -6980, /*  Pipe is Idle, it will not accept transactions */
+      -6980,                          /*  Pipe is Idle, it will not accept transactions */
   kUSBNoBandwidthError = -6981,       /*  Not enough bandwidth available */
   kUSBAbortedError = -6982,           /*  Pipe aborted */
   kUSBFlagsError = -6983,             /*  Unused flags not zeroed */
@@ -1978,7 +2079,8 @@ enum {
 /**
     DictionaryMgr error codes
 */
-enum {
+enum
+{
   dcmParamErr = -7100,             /* bad parameter*/
   dcmNotDictionaryErr = -7101,     /* not dictionary*/
   dcmBadDictionaryErr = -7102,     /* invalid dictionary*/
@@ -2005,7 +2107,8 @@ enum {
 };
 
 /* Apple Remote Access error codes*/
-enum {
+enum
+{
   kRAInvalidParameter = -7100,
   kRAInvalidPort = -7101,
   kRAStartupFailed = -7102,
@@ -2049,7 +2152,8 @@ enum {
 };
 
 /* ATSUnicode error codes*/
-enum {
+enum
+{
   kATSUInvalidTextLayoutErr =
       -8790, /*    An attempt was made to use a ATSUTextLayout */
              /*    which hadn't been initialized or is otherwise */
@@ -2106,15 +2210,15 @@ enum {
   kATSUQuickDrawTextErr = -8803, /*    Used when QuickDraw Text encounters an
                                     error rendering or measuring*/
                                  /*    a line of ATSUI text.*/
-  kATSULowLevelErr = -8804, /*    Used when an error was encountered within the
-                               low level ATS */
+  kATSULowLevelErr = -8804,      /*    Used when an error was encountered within the
+                                    low level ATS */
   /*    mechanism performing an operation requested by ATSUI.*/
   kATSUNoFontCmapAvailableErr = -8805, /*    Used when no CMAP table can be
                                           accessed or synthesized for the */
   /*    font passed into a SetAttributes Font call.*/
   kATSUNoFontScalerAvailableErr =
-      -8806, /*    Used when no font scaler is available for the font passed*/
-             /*    into a SetAttributes Font call.*/
+      -8806,                          /*    Used when no font scaler is available for the font passed*/
+                                      /*    into a SetAttributes Font call.*/
   kATSUCoordinateOverflowErr = -8807, /*    Used to indicate the coordinates
                                          provided to an ATSUI routine caused*/
   /*    a coordinate overflow (i.e. > 32K).*/
@@ -2133,12 +2237,13 @@ enum {
 
 /* Error & status codes for general text and text encoding conversion*/
 
-enum {
+enum
+{
   /* general text errors*/
   kTextUnsupportedEncodingErr =
       -8738, /* specified encoding not supported for this operation*/
   kTextMalformedInputErr =
-      -8739, /* in DBCS, for example, high byte followed by invalid low byte*/
+      -8739,                        /* in DBCS, for example, high byte followed by invalid low byte*/
   kTextUndefinedElementErr = -8740, /* text conversion errors*/
   kTECMissingTableErr = -8745,
   kTECTableChecksumErr = -8746,
@@ -2146,8 +2251,8 @@ enum {
   kTECCorruptConverterErr = -8748, /* invalid converter object reference*/
   kTECNoConversionPathErr = -8749,
   kTECBufferBelowMinimumSizeErr =
-      -8750, /* output buffer too small to allow processing of first input text
-                element*/
+      -8750,                /* output buffer too small to allow processing of first input text
+                               element*/
   kTECArrayFullErr = -8751, /* supplied name buffer or TextRun, TextEncoding, or
                                UnicodeMapping array is too small*/
   kTECBadTextRunErr = -8752,
@@ -2158,7 +2263,7 @@ enum {
                                        long for internal buffers*/
   kTECDirectionErr = -8756,         /* direction stack overflow, etc.*/
   kTECGlobalsUnavailableErr =
-      -8770, /* globals have already been deallocated (premature TERM)*/
+      -8770,                      /* globals have already been deallocated (premature TERM)*/
   kTECItemUnavailableErr = -8771, /* item (e.g. name) not available for
                                      specified region (& encoding if relevant)*/
                                   /* text conversion status codes*/
@@ -2184,13 +2289,15 @@ enum {
 };
 
 /* UTCUtils Status Codes */
-enum {
+enum
+{
   kUTCUnderflowErr = -8850,
   kUTCOverflowErr = -8851,
   kIllegalClockValueErr = -8852
 };
 
-enum {
+enum
+{
   codecErr = -8960,
   noCodecErr = -8961,
   codecUnimpErr = -8962,
@@ -2230,20 +2337,21 @@ enum {
 };
 
 /* PCCard error codes */
-enum {
+enum
+{
   kBadAdapterErr = -9050,   /* invalid adapter number*/
   kBadAttributeErr = -9051, /* specified attributes field value is invalid*/
   kBadBaseErr = -9052,      /* specified base system memory address is invalid*/
   kBadEDCErr = -9053,       /* specified EDC generator specified is invalid*/
   kBadIRQErr = -9054,       /* specified IRQ level is invalid*/
-  kBadOffsetErr = -9055, /* specified PC card memory array offset is invalid*/
-  kBadPageErr = -9056,   /* specified page is invalid*/
-  kBadSizeErr = -9057,   /* specified size is invalid*/
+  kBadOffsetErr = -9055,    /* specified PC card memory array offset is invalid*/
+  kBadPageErr = -9056,      /* specified page is invalid*/
+  kBadSizeErr = -9057,      /* specified size is invalid*/
   kBadSocketErr =
-      -9058, /* specified logical or physical socket number is invalid*/
-  kBadTypeErr = -9059, /* specified window or interface type is invalid*/
-  kBadVccErr = -9060,  /* specified Vcc power level index is invalid*/
-  kBadVppErr = -9061,  /* specified Vpp1 or Vpp2 power level index is invalid*/
+      -9058,                  /* specified logical or physical socket number is invalid*/
+  kBadTypeErr = -9059,        /* specified window or interface type is invalid*/
+  kBadVccErr = -9060,         /* specified Vcc power level index is invalid*/
+  kBadVppErr = -9061,         /* specified Vpp1 or Vpp2 power level index is invalid*/
   kBadWindowErr = -9062,      /* specified window is invalid*/
   kBadArgLengthErr = -9063,   /* ArgLength argument is invalid*/
   kBadArgsErr = -9064,        /* values in argument packet are invalid*/
@@ -2255,14 +2363,14 @@ enum {
   kGeneralFailureErr = -9070, /* an undefined error has occurred*/
   kNoCardErr = -9071,         /* no PC card in the socket*/
   kUnsupportedFunctionErr =
-      -9072, /* function is not supported by this implementation*/
-  kUnsupportedModeErr = -9073, /* mode is not supported*/
-  kBusyErr = -9074, /* unable to process request at this time - try later*/
+      -9072,                       /* function is not supported by this implementation*/
+  kUnsupportedModeErr = -9073,     /* mode is not supported*/
+  kBusyErr = -9074,                /* unable to process request at this time - try later*/
   kWriteProtectedErr = -9075,      /* media is write-protected*/
   kConfigurationLockedErr = -9076, /* a configuration has already been locked*/
-  kInUseErr = -9077,         /* requested resource is being used by a client*/
-  kNoMoreItemsErr = -9078,   /* there are no more of the requested item*/
-  kOutOfResourceErr = -9079, /* Card Services has exhausted the resource*/
+  kInUseErr = -9077,               /* requested resource is being used by a client*/
+  kNoMoreItemsErr = -9078,         /* there are no more of the requested item*/
+  kOutOfResourceErr = -9079,       /* Card Services has exhausted the resource*/
   kNoCardSevicesSocketsErr = -9080,
   kInvalidRegEntryErr = -9081,
   kBadLinkErr = -9082,
@@ -2279,31 +2387,32 @@ enum {
   kBadTupleDataErr = -9092,    /* Data in tuple is invalid */
   kBadCustomIFIDErr = -9093,   /* Custom interface ID is invalid */
   kNoIOWindowRequestedErr =
-      -9094, /* Request I/O window before calling configuration */
+      -9094,                      /* Request I/O window before calling configuration */
   kNoMoreTimerClientsErr = -9095, /* All timer callbacks are in use */
   kNoMoreInterruptSlotsErr =
-      -9096,                   /* All internal Interrupt slots are in use */
-  kNoClientTableErr = -9097,   /* The client table has not be initialized yet */
-  kUnsupportedCardErr = -9098, /* Card not supported by generic enabler*/
+      -9096,                       /* All internal Interrupt slots are in use */
+  kNoClientTableErr = -9097,       /* The client table has not be initialized yet */
+  kUnsupportedCardErr = -9098,     /* Card not supported by generic enabler*/
   kNoCardEnablersFoundErr = -9099, /* No Enablers were found*/
   kNoEnablerForCardErr =
       -9100, /* No Enablers were found that can support the card*/
   kNoCompatibleNameErr =
       -9101, /* There is no compatible driver name for this device*/
   kClientRequestDenied =
-      -9102,            /* CS Clients should return this code inorder to */
-                        /*   deny a request-type CS Event                */
-  kNotReadyErr = -9103, /* PC Card failed to go ready */
+      -9102,                     /* CS Clients should return this code inorder to */
+                                 /*   deny a request-type CS Event                */
+  kNotReadyErr = -9103,          /* PC Card failed to go ready */
   kTooManyIOWindowsErr = -9104,  /* device requested more than one I/O window */
   kAlreadySavedStateErr = -9105, /* The state has been saved on previous call */
   kAttemptDupCardEntryErr =
-      -9106, /* The Enabler was asked to create a duplicate card entry */
+      -9106,                /* The Enabler was asked to create a duplicate card entry */
   kCardPowerOffErr = -9107, /* Power to the card has been turned off */
   kNotZVCapableErr = -9108, /* This socket does not support Zoomed Video */
   kNoCardBusCISErr = -9109  /* No valid CIS exists for this CardBus card */
 };
 
-enum {
+enum
+{
   noDeviceForChannel = -9400,
   grabTimeComplete = -9401,
   cantDoThatInCurrentMode = -9402,
@@ -2322,7 +2431,8 @@ enum {
 };
 
 /* AERegistry Errors */
-enum {
+enum
+{
   errAEBadKeyForm = -10002,
   errAECantHandleClass = -10010,
   errAECantSupplyType = -10009,
@@ -2341,7 +2451,7 @@ enum {
   errAETypeError = -10001,
   errAEWriteDenied = -10006,
   errAENotAnEnumMember =
-      -10023, /* enumerated value in SetData is not allowed for this property */
+      -10023,                     /* enumerated value in SetData is not allowed for this property */
   errAECantPutThatThere = -10024, /* in make new, duplicate, etc. class can't be
                                      an element of container */
   errAEPropertiesClash = -10025   /* illegal combination of properties settings
@@ -2349,7 +2459,8 @@ enum {
 };
 
 /* TELErr */
-enum {
+enum
+{
   telGenericError = -1,
   telNoErr = 0,
   telNoTools = 8,           /* no telephone tools found in extension folder */
@@ -2374,15 +2485,15 @@ enum {
   telStateNotSupp = -10020, /* device state not supported by tool */
   telBadIntExt = -10021,    /* bad internal external error */
   telIntExtNotSupp =
-      -10022, /* internal external type not supported by this tool */
+      -10022,                 /* internal external type not supported by this tool */
   telBadDNDType = -10023,     /* bad DND type specified */
   telDNDTypeNotSupp = -10024, /* DND type is not supported by this tool */
   telFeatNotSub = -10030,     /* feature not subscribed */
   telFeatNotAvail = -10031,   /* feature subscribed but not available */
   telFeatActive = -10032,     /* feature already active */
-  telFeatNotSupp = -10033, /* feature program call not supported by this tool */
+  telFeatNotSupp = -10033,    /* feature program call not supported by this tool */
   telConfLimitErr =
-      -10040, /* limit specified is too high for this configuration */
+      -10040,              /* limit specified is too high for this configuration */
   telConfNoLimit = -10041, /* no limit was specified but required*/
   telConfErr = -10042,     /* conference was not prepared */
   telConfRej = -10043,     /* conference request was rejected */
@@ -2390,26 +2501,26 @@ enum {
   telTransferRej = -10045, /* transfer request rejected */
   telCBErr = -10046,       /* call back feature not set previously */
   telConfLimitExceeded =
-      -10047,                   /* attempt to exceed switch conference limits */
-  telBadDNType = -10050,        /* DN type invalid */
-  telBadPageID = -10051,        /* bad page ID specified*/
-  telBadIntercomID = -10052,    /* bad intercom ID specified */
-  telBadFeatureID = -10053,     /* bad feature ID specified */
-  telBadFwdType = -10054,       /* bad fwdType specified */
-  telBadPickupGroupID = -10055, /* bad pickup group ID specified */
-  telBadParkID = -10056,        /* bad park id specified */
-  telBadSelect = -10057,        /* unable to select or deselect DN */
-  telBadBearerType = -10058,    /* bad bearerType specified */
-  telBadRate = -10059,          /* bad rate specified */
-  telDNTypeNotSupp = -10060,    /* DN type not supported by tool */
-  telFwdTypeNotSupp = -10061,   /* forward type not supported by tool */
-  telBadDisplayMode = -10062,   /* bad display mode specified */
+      -10047,                     /* attempt to exceed switch conference limits */
+  telBadDNType = -10050,          /* DN type invalid */
+  telBadPageID = -10051,          /* bad page ID specified*/
+  telBadIntercomID = -10052,      /* bad intercom ID specified */
+  telBadFeatureID = -10053,       /* bad feature ID specified */
+  telBadFwdType = -10054,         /* bad fwdType specified */
+  telBadPickupGroupID = -10055,   /* bad pickup group ID specified */
+  telBadParkID = -10056,          /* bad park id specified */
+  telBadSelect = -10057,          /* unable to select or deselect DN */
+  telBadBearerType = -10058,      /* bad bearerType specified */
+  telBadRate = -10059,            /* bad rate specified */
+  telDNTypeNotSupp = -10060,      /* DN type not supported by tool */
+  telFwdTypeNotSupp = -10061,     /* forward type not supported by tool */
+  telBadDisplayMode = -10062,     /* bad display mode specified */
   telDisplayModeNotSupp = -10063, /* display mode not supported by tool */
   telNoCallbackRef =
-      -10064, /* no call back reference was specified, but is required */
-  telAlreadyOpen = -10070, /* terminal already open */
-  telStillNeeded = -10071, /* terminal driver still needed by someone else */
-  telTermNotOpen = -10072, /* terminal not opened via TELOpenTerm */
+      -10064,                   /* no call back reference was specified, but is required */
+  telAlreadyOpen = -10070,      /* terminal already open */
+  telStillNeeded = -10071,      /* terminal driver still needed by someone else */
+  telTermNotOpen = -10072,      /* terminal not opened via TELOpenTerm */
   telCANotAcceptable = -10080,  /* CA not "acceptable" */
   telCANotRejectable = -10081,  /* CA not "rejectable" */
   telCANotDeflectable = -10082, /* CA not "deflectable" */
@@ -2431,26 +2542,29 @@ enum {
   telNotEnoughdspBW = -10116   /* not enough real-time for allocation */
 };
 
-enum {
+enum
+{
   errTaskNotFound = -10780 /* no task with that task id exists */
 };
 
 /* Video driver Errorrs -10930 to -10959 */
 /* Defined in video.h. */
 
-enum {
+enum
+{
   /*Power Manager Errors*/
   pmBusyErr = -13000,      /*Power Mgr never ready to start handshake*/
   pmReplyTOErr = -13001,   /*Timed out waiting for reply*/
   pmSendStartErr = -13002, /*during send, pmgr did not start hs*/
   pmSendEndErr = -13003,   /*during send, pmgr did not finish hs*/
   pmRecvStartErr = -13004, /*during receive, pmgr did not start hs*/
-  pmRecvEndErr = -13005 /*during receive, pmgr did not finish hs configured for
-                           this connection*/
+  pmRecvEndErr = -13005    /*during receive, pmgr did not finish hs configured for
+                              this connection*/
 };
 
 /*Power Manager 2.0 Errors*/
-enum {
+enum
+{
   kPowerHandlerExistsForDeviceErr = -13006,
   kPowerHandlerNotFoundForDeviceErr = -13007,
   kPowerHandlerNotFoundForProcErr = -13008,
@@ -2463,31 +2577,34 @@ enum {
 };
 
 /* Debugging library errors */
-enum {
+enum
+{
   debuggingExecutionContextErr =
       -13880, /* routine cannot be called at this time */
   debuggingDuplicateSignatureErr =
       -13881, /* componentSignature already registered */
   debuggingDuplicateOptionErr =
-      -13882, /* optionSelectorNum already registered */
+      -13882,                            /* optionSelectorNum already registered */
   debuggingInvalidSignatureErr = -13883, /* componentSignature not registered */
-  debuggingInvalidOptionErr = -13884, /* optionSelectorNum is not registered */
+  debuggingInvalidOptionErr = -13884,    /* optionSelectorNum is not registered */
   debuggingInvalidNameErr =
-      -13885, /* componentName or optionName is invalid (NULL) */
+      -13885,                      /* componentName or optionName is invalid (NULL) */
   debuggingNoCallbackErr = -13886, /* debugging component has no callback */
   debuggingNoMatchErr =
       -13887 /* debugging component or option not found at this index */
 };
 
 /* HID device driver error codes */
-enum {
+enum
+{
   kHIDVersionIncompatibleErr = -13909,
   kHIDDeviceNotReady =
       -13910 /* The device is still initializing, try again later*/
 };
 
 /* HID error codes */
-enum {
+enum
+{
   kHIDSuccess = 0,
   kHIDInvalidRangePageErr = -13923,
   kHIDReportIDZeroErr = -13924,
@@ -2520,14 +2637,16 @@ enum {
 };
 
 /* the OT modem module may return the following error codes:*/
-enum {
+enum
+{
   kModemOutOfMemory = -14000,
   kModemPreferencesMissing = -14001,
   kModemScriptMissing = -14002
 };
 
 /* MacTextEditor error codes */
-enum {
+enum
+{
   kTXNEndIterationErr = -22000,
   kTXNCannotAddFrameErr = -22001,
   kTXNInvalidFrameIDErr = -22002,
@@ -2551,10 +2670,14 @@ enum {
 };
 
 /*Possible errors from the PrinterStatus bottleneck*/
-enum { printerStatusOpCodeNotSupportedErr = -25280 };
+enum
+{
+  printerStatusOpCodeNotSupportedErr = -25280
+};
 
 /* Keychain Manager error codes */
-enum {
+enum
+{
   errKCNotAvailable = -25291,
   errKCReadOnly = -25292,
   errKCAuthFailed = -25293,
@@ -2586,14 +2709,16 @@ enum {
 };
 
 /* UnicodeUtilities error & status codes*/
-enum {
+enum
+{
   kUCOutputBufferTooSmall =
-      -25340, /* Output buffer too small for Unicode string result*/
+      -25340,                             /* Output buffer too small for Unicode string result*/
   kUCTextBreakLocatorMissingType = -25341 /* Unicode text break error*/
 };
 
 /* Multiprocessing API error codes*/
-enum {
+enum
+{
   kMPIterationEndErr = -29275,
   kMPPrivilegedErr = -29276,
   kMPProcessCreatedErr = -29288,
@@ -2610,7 +2735,8 @@ enum {
 };
 
 /* StringCompare error codes (in TextUtils range)*/
-enum {
+enum
+{
   kCollateAttributesNotFoundErr = -29500,
   kCollateInvalidOptions = -29501,
   kCollateMissingUnicodeTableErr = -29502,
@@ -2622,15 +2748,16 @@ enum {
 };
 
 /* FontSync OSStatus Codes */
-enum {
+enum
+{
   kFNSInvalidReferenceErr = -29580,    /* ref. was NULL or otherwise bad */
   kFNSBadReferenceVersionErr = -29581, /* ref. version is out of known range */
   kFNSInvalidProfileErr = -29582,      /* profile is NULL or otherwise bad */
-  kFNSBadProfileVersionErr = -29583, /* profile version is out of known range */
+  kFNSBadProfileVersionErr = -29583,   /* profile version is out of known range */
   kFNSDuplicateReferenceErr =
       -29584, /* the ref. being added is already in the profile */
   kFNSMismatchErr =
-      -29585, /* reference didn't match or wasn't found in profile */
+      -29585,                       /* reference didn't match or wasn't found in profile */
   kFNSInsufficientDataErr = -29586, /* insufficient data for the operation */
   kFNSBadFlattenedSizeErr =
       -29587, /* flattened size didn't match input or was too small */
@@ -2639,7 +2766,8 @@ enum {
 };
 
 /* MacLocales error codes*/
-enum {
+enum
+{
   kLocalesBufferTooSmallErr = -30001,
   kLocalesTableFormatErr = -30002,
   kLocalesDefaultDisplayStatus =
@@ -2647,7 +2775,8 @@ enum {
 };
 
 /* Settings Manager (formerly known as Location Manager) Errors */
-enum {
+enum
+{
   kALMInternalErr = -30049,
   kALMGroupNotFoundErr = -30048,
   kALMNoSuchModuleErr = -30047,
@@ -2658,12 +2787,14 @@ enum {
   kALMRebootFlagsLevelErr = -30042
 };
 
-enum {
+enum
+{
   kALMLocationNotFoundErr = kALMGroupNotFoundErr /* Old name */
 };
 
 /* SoundSprocket Error Codes */
-enum {
+enum
+{
   kSSpInternalErr = -30340,
   kSSpVersionErr = -30341,
   kSSpCantInstallErr = -30342,
@@ -2672,7 +2803,8 @@ enum {
 };
 
 /* NetSprocket Error Codes */
-enum {
+enum
+{
   kNSpInitializationFailedErr = -30360,
   kNSpAlreadyInitializedErr = -30361,
   kNSpTopologyNotSupportedErr = -30362,
@@ -2712,7 +2844,8 @@ enum {
 };
 
 /* InputSprockets error codes */
-enum {
+enum
+{
   kISpInternalErr = -30420,
   kISpSystemListErr = -30421,
   kISpBufferToSmallErr = -30422,
@@ -2726,7 +2859,8 @@ enum {
 };
 
 /* DrawSprockets error/warning codes */
-enum {
+enum
+{
   kDSpNotInitializedErr = -30440L,
   kDSpSystemSWTooOldErr = -30441L,
   kDSpInvalidContextErr = -30442L,
@@ -2745,7 +2879,8 @@ enum {
    Find By Content errors are assigned in the range -30500 to -30539, inclusive.
    ***************************************************************************
 */
-enum {
+enum
+{
   kFBCvTwinExceptionErr = -30500, /*no telling what it was*/
   kFBCnoIndexesFound = -30501,
   kFBCallocFailed = -30502, /*probably low memory*/
@@ -2783,7 +2918,8 @@ enum {
 };
 
 /* QuickTime VR Errors */
-enum {
+enum
+{
   notAQTVRMovieErr = -30540,
   constraintReachedErr = -30541,
   callNotSupportedByNodeErr = -30542,
@@ -2803,7 +2939,8 @@ enum {
 };
 
 /* Appearance Manager Error Codes */
-enum {
+enum
+{
   themeInvalidBrushErr = -30560, /* pattern index invalid */
   themeProcessRegisteredErr = -30561,
   themeProcessNotRegisteredErr = -30562,
@@ -2817,7 +2954,8 @@ enum {
 };
 
 /* Control Manager Error Codes */
-enum {
+enum
+{
   errMessageNotSupported = -30580,
   errDataNotSupported = -30581,
   errControlDoesntSupportFocus = -30582,
@@ -2840,7 +2978,8 @@ enum {
 };
 
 /* URLAccess Error Codes */
-enum {
+enum
+{
   kURLInvalidURLReferenceError = -30770,
   kURLProgressAlreadyDisplayedError = -30771,
   kURLDestinationExistsError = -30772,
@@ -2861,14 +3000,16 @@ enum {
 };
 
 /* ComponentError codes*/
-enum {
+enum
+{
   badComponentInstance =
       (long)0x80008001, /* when cast to an OSErr this is -32767*/
   badComponentSelector =
       (long)0x80008002 /* when cast to an OSErr this is -32766*/
 };
 
-enum {
+enum
+{
   dsBusError = 1,   /*bus error*/
   dsAddressErr = 2, /*address error*/
   dsIllInstErr = 3, /*illegal instruction error*/
@@ -2890,7 +3031,8 @@ enum {
   dsNoPk2 = 19      /*package 2 not present*/
 };
 
-enum {
+enum
+{
   dsNoPk3 = 20,          /*package 3 not present*/
   dsNoPk4 = 21,          /*package 4 not present*/
   dsNoPk5 = 22,          /*package 5 not present*/
@@ -2913,28 +3055,29 @@ enum {
   dsMDEFNotFound = 89    /*could not load MDEF*/
 };
 
-enum {
+enum
+{
   dsNoFPU =
-      90, /*an FPU instruction was executed and the machine doesn©t have one*/
-  dsNoPatch = 98,                /*Can't patch for particular Model Mac*/
-  dsBadPatch = 99,               /*Can't load patch resource*/
-  dsParityErr = 101,             /*memory parity error*/
-  dsOldSystem = 102,             /*System is too old for this ROM*/
-  ds32BitMode = 103,             /*booting in 32-bit on a 24-bit sys*/
-  dsNeedToWriteBootBlocks = 104, /*need to write new boot blocks*/
-  dsNotEnoughRAMToBoot = 105,    /*must have at least 1.5MB of RAM to boot 7.0*/
-  dsBufPtrTooLow = 106,          /*bufPtr moved too far during boot*/
+      90,                          /*an FPU instruction was executed and the machine doesn©t have one*/
+  dsNoPatch = 98,                  /*Can't patch for particular Model Mac*/
+  dsBadPatch = 99,                 /*Can't load patch resource*/
+  dsParityErr = 101,               /*memory parity error*/
+  dsOldSystem = 102,               /*System is too old for this ROM*/
+  ds32BitMode = 103,               /*booting in 32-bit on a 24-bit sys*/
+  dsNeedToWriteBootBlocks = 104,   /*need to write new boot blocks*/
+  dsNotEnoughRAMToBoot = 105,      /*must have at least 1.5MB of RAM to boot 7.0*/
+  dsBufPtrTooLow = 106,            /*bufPtr moved too far during boot*/
   dsVMDeferredFuncTableFull = 112, /*VM's DeferUserFn table is full*/
   dsVMBadBackingStore =
-      113, /*Error occurred while reading or writing the VM backing-store file*/
+      113,                       /*Error occurred while reading or writing the VM backing-store file*/
   dsCantHoldSystemHeap = 114,    /*Unable to hold the system heap during boot*/
   dsSystemRequiresPowerPC = 116, /*Startup disk requires PowerPC*/
   dsGibblyMovedToDisabledFolder =
       117, /* For debug builds only, signals that active gibbly was disabled
               during boot. */
   dsUnBootableSystem =
-      118, /* Active system file will not boot on this system because it was
-              designed only to boot from a CD. */
+      118,                     /* Active system file will not boot on this system because it was
+                                  designed only to boot from a CD. */
   dsMustUseFCBAccessors = 119, /* FCBSPtr and FSFCBLen are invalid - must use
                                   FSM FCB accessor functions */
   dsMacOSROMVersionTooOld =
@@ -2945,15 +3088,15 @@ enum {
   dsRAMDiskTooBig =
       122, /* The RAM disk is too big to boot safely; will be turned off */
   dsWriteToSupervisorStackGuardPage =
-      128,            /*the supervisor stack overflowed into its guard page */
-  dsReinsert = 30,    /*request user to reinsert off-line volume*/
-  shutDownAlert = 42, /*handled like a shutdown error*/
+      128,                     /*the supervisor stack overflowed into its guard page */
+  dsReinsert = 30,             /*request user to reinsert off-line volume*/
+  shutDownAlert = 42,          /*handled like a shutdown error*/
   dsShutDownOrRestart = 20000, /*user choice between ShutDown and Restart*/
   dsSwitchOffOrRestart =
-      20001,            /*user choice between switching off and Restart*/
-  dsForcedQuit = 20002, /*allow the user to ExitToShell, return if Cancel*/
-  dsRemoveDisk = 20003, /*request user to remove disk from manual eject drive*/
-  dsDirtyDisk = 20004,  /*request user to return a manually-ejected dirty disk*/
+      20001,                  /*user choice between switching off and Restart*/
+  dsForcedQuit = 20002,       /*allow the user to ExitToShell, return if Cancel*/
+  dsRemoveDisk = 20003,       /*request user to remove disk from manual eject drive*/
+  dsDirtyDisk = 20004,        /*request user to return a manually-ejected dirty disk*/
   dsShutDownOrResume = 20109, /*allow user to return to Finder or ShutDown*/
   dsSCSIWarn = 20010,         /*Portable SCSI adapter warning.*/
   dsMBSysError = 29200,       /*Media Bay replace warning.*/
@@ -2961,7 +3104,7 @@ enum {
   dsMBATASysError = 29202,    /*Media Bay, ATA replace warning.*/
   dsMBATAPISysError = 29203,  /*Media Bay, ATAPI replace warning...*/
   dsMBExternFlpySysError =
-      29204, /*Media Bay, external floppy drive reconnect warning*/
+      29204,                  /*Media Bay, external floppy drive reconnect warning*/
   dsPCCardATASysError = 29205 /*PCCard has been ejected while still in use. */
 };
 
@@ -2971,7 +3114,8 @@ enum {
    16384-32767) negative numbers add to an existing dialog without putting up a
    whole new dialog
 */
-enum {
+enum
+{
   dsNoExtsMacsBug = -1,          /*not a SysErr, just a placeholder */
   dsNoExtsDisassembler = -2,     /*not a SysErr, just a placeholder */
   dsMacsBugInstalled = -10,      /*say ©MacsBug Installed©*/
@@ -2983,7 +3127,8 @@ enum {
   WDEFNFnd = dsWDEFNotFound
 };
 
-enum {
+enum
+{
   CDEFNFnd = dsCDEFNotFound,
   dsNotThe1 = 31,        /*not the disk I wanted*/
   dsBadStartupDisk = 42, /*unable to mount boot volume (sad Mac only)*/
@@ -2995,10 +3140,11 @@ enum {
                             code - obsolete)*/
   userBreak = -490,      /*user debugger break*/
   strUserBreak = -491,   /*user debugger break; display string on stack*/
-  exUserBreak = -492 /*user debugger break; execute debugger commands on stack*/
+  exUserBreak = -492     /*user debugger break; execute debugger commands on stack*/
 };
 
-enum {
+enum
+{
   /* DS Errors which are specific to the new runtime model introduced with
      PowerPC */
   dsBadLibrary = 1010,      /* Bad shared library */
@@ -3006,8 +3152,7 @@ enum {
 };
 
 /**
- *  SysError()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later

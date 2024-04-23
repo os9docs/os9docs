@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Keychain
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -40,7 +40,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -55,106 +56,98 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/** Locking and unlocking a keychain */
-/**
- *  KCUnlock()
- *
+    /** Locking and unlocking a keychain */
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-KCUnlock(KCRef keychain,      /** can be NULL */
-         StringPtr password); /** can be NULL */
+     *    \non_carbon_cfm   in KeychainLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API(OSStatus)
+    KCUnlock(KCRef keychain,      /** can be NULL */
+             StringPtr password); /** can be NULL */
 
-/** Managing keychain items */
-/**
- *  KCAddItem()
- *
+    /** Managing keychain items */
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-KCAddItem(KCItemRef item);
+     *    \non_carbon_cfm   in KeychainLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API(OSStatus)
+    KCAddItem(KCItemRef item);
 
-/** Creating a new keychain */
-/**
- *  KCCreateKeychain()
- *
+    /** Creating a new keychain */
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-KCCreateKeychain(StringPtr password, /** can be NULL */
-                 KCRef *keychain);   /** can be NULL */
+     *    \non_carbon_cfm   in KeychainLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API(OSStatus)
+    KCCreateKeychain(StringPtr password, /** can be NULL */
+                     KCRef *keychain);   /** can be NULL */
 
-/** Changing a keychain's settings */
-/**
- *  KCChangeSettings()
- *
+    /** Changing a keychain's settings */
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 2.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-KCChangeSettings(KCRef keychain);
+     *    \non_carbon_cfm   in KeychainLib 2.0 and later
+     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API(OSStatus)
+    KCChangeSettings(KCRef keychain);
 
-/**
- *  kcunlock()
- *
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-kcunlock(KCRef keychain,        /** can be NULL */
-         const char *password); /** can be NULL */
+     *    \non_carbon_cfm   in KeychainLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API_C(OSStatus)
+    kcunlock(KCRef keychain,        /** can be NULL */
+             const char *password); /** can be NULL */
 
-/**
- *  kccreatekeychain()
- *
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-kccreatekeychain(const char *password, /** can be NULL */
-                 KCRef *keychain);     /** can be NULL */
+     *    \non_carbon_cfm   in KeychainLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API_C(OSStatus)
+    kccreatekeychain(const char *password, /** can be NULL */
+                     KCRef *keychain);     /** can be NULL */
 
 /** Working with certificates */
 #if CALL_NOT_IN_CARBON
-/**
- *  KCFindX509Certificates()
- *
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSStatus)
-KCFindX509Certificates(KCRef keychain, CFStringRef name,
-                       CFStringRef emailAddress, KCCertSearchOptions options,
-                       CFMutableArrayRef *certificateItems); /** can be NULL */
+     *    \non_carbon_cfm   in KeychainLib 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    EXTERN_API(OSStatus)
+    KCFindX509Certificates(KCRef keychain, CFStringRef name,
+                           CFStringRef emailAddress, KCCertSearchOptions options,
+                           CFMutableArrayRef *certificateItems); /** can be NULL */
 
-/**
- *  KCChooseCertificate()
- *
+    /**
+      *
 
- *    \non_carbon_cfm   in KeychainLib 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSStatus)
-KCChooseCertificate(CFArrayRef items, KCItemRef *certificate,
-                    CFArrayRef policyOIDs, KCVerifyStopOn stopOn);
+     *    \non_carbon_cfm   in KeychainLib 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    EXTERN_API(OSStatus)
+    KCChooseCertificate(CFArrayRef items, KCItemRef *certificate,
+                        CFArrayRef policyOIDs, KCVerifyStopOn stopOn);
 
 #endif /** CALL_NOT_IN_CARBON */
 

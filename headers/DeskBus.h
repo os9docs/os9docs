@@ -9,7 +9,7 @@
     \copyright � 1987-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Hardware
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -48,64 +49,66 @@ extern "C" {
 #endif
 
 #if TARGET_OS_MAC
-typedef SInt8 ADBAddress;
+  typedef SInt8 ADBAddress;
 #if CALL_NOT_IN_CARBON
-typedef CALLBACK_API_REGISTER68K(void, ADBCompletionProcPtr,
-                                 (Ptr buffer, Ptr refCon, long command));
-typedef CALLBACK_API_REGISTER68K(void, ADBDeviceDriverProcPtr,
-                                 (SInt8 devAddress, SInt8 devType));
-/**
-    TempADBServiceRoutineUPP is needed because of circular definition of
-    ADBServiceRoutineProcPtr and ADBServiceRoutineUPP depending on each other.
-*/
-typedef REGISTER_UPP_TYPE(ADBServiceRoutineProcPtr) TempADBServiceRoutineUPP;
-typedef CALLBACK_API_REGISTER68K(void, ADBServiceRoutineProcPtr,
-                                 (Ptr buffer,
-                                  TempADBServiceRoutineUPP completionProc,
-                                  Ptr refCon, long command));
-typedef CALLBACK_API_REGISTER68K(void, ADBInitProcPtr, (SInt8 callOrder));
-typedef REGISTER_UPP_TYPE(ADBCompletionProcPtr) ADBCompletionUPP;
-typedef REGISTER_UPP_TYPE(ADBDeviceDriverProcPtr) ADBDeviceDriverUPP;
-typedef REGISTER_UPP_TYPE(ADBServiceRoutineProcPtr) ADBServiceRoutineUPP;
-typedef REGISTER_UPP_TYPE(ADBInitProcPtr) ADBInitUPP;
-struct ADBDataBlock {
-  SInt8 devType;                       /* original handler ID */
-  SInt8 origADBAddr;                   /* original ADB Address */
-  ADBServiceRoutineUPP dbServiceRtPtr; /* service routine pointer */
-  Ptr dbDataAreaAddr; /* this field is passed as the refCon parameter to the
-                         service routine */
-};
-typedef struct ADBDataBlock ADBDataBlock;
-typedef ADBDataBlock *ADBDBlkPtr;
-struct ADBSetInfoBlock {
-  ADBServiceRoutineUPP siService; /* service routine pointer */
-  Ptr siDataAreaAddr; /* this field is passed as the refCon parameter to the
-                         service routine */
-};
-typedef struct ADBSetInfoBlock ADBSetInfoBlock;
-typedef ADBSetInfoBlock *ADBSInfoPtr;
-/* ADBOpBlock is only used when calling ADBOp from 68k assembly code */
-struct ADBOpBlock {
-  Ptr dataBuffPtr; /* buffer: pointer to variable length data buffer */
-  ADBServiceRoutineUPP
-      opServiceRtPtr; /* completionProc: completion routine pointer */
-  Ptr opDataAreaPtr;  /* refCon: this field is passed as the refCon parameter to
-                         the completion routine */
-};
-typedef struct ADBOpBlock ADBOpBlock;
-typedef ADBOpBlock *ADBOpBPtr;
+  typedef CALLBACK_API_REGISTER68K(void, ADBCompletionProcPtr,
+                                   (Ptr buffer, Ptr refCon, long command));
+  typedef CALLBACK_API_REGISTER68K(void, ADBDeviceDriverProcPtr,
+                                   (SInt8 devAddress, SInt8 devType));
+  /**
+      TempADBServiceRoutineUPP is needed because of circular definition of
+      ADBServiceRoutineProcPtr and ADBServiceRoutineUPP depending on each other.
+  */
+  typedef REGISTER_UPP_TYPE(ADBServiceRoutineProcPtr) TempADBServiceRoutineUPP;
+  typedef CALLBACK_API_REGISTER68K(void, ADBServiceRoutineProcPtr,
+                                   (Ptr buffer,
+                                    TempADBServiceRoutineUPP completionProc,
+                                    Ptr refCon, long command));
+  typedef CALLBACK_API_REGISTER68K(void, ADBInitProcPtr, (SInt8 callOrder));
+  typedef REGISTER_UPP_TYPE(ADBCompletionProcPtr) ADBCompletionUPP;
+  typedef REGISTER_UPP_TYPE(ADBDeviceDriverProcPtr) ADBDeviceDriverUPP;
+  typedef REGISTER_UPP_TYPE(ADBServiceRoutineProcPtr) ADBServiceRoutineUPP;
+  typedef REGISTER_UPP_TYPE(ADBInitProcPtr) ADBInitUPP;
+  struct ADBDataBlock
+  {
+    SInt8 devType;                       /* original handler ID */
+    SInt8 origADBAddr;                   /* original ADB Address */
+    ADBServiceRoutineUPP dbServiceRtPtr; /* service routine pointer */
+    Ptr dbDataAreaAddr;                  /* this field is passed as the refCon parameter to the
+                                            service routine */
+  };
+  typedef struct ADBDataBlock ADBDataBlock;
+  typedef ADBDataBlock *ADBDBlkPtr;
+  struct ADBSetInfoBlock
+  {
+    ADBServiceRoutineUPP siService; /* service routine pointer */
+    Ptr siDataAreaAddr;             /* this field is passed as the refCon parameter to the
+                                       service routine */
+  };
+  typedef struct ADBSetInfoBlock ADBSetInfoBlock;
+  typedef ADBSetInfoBlock *ADBSInfoPtr;
+  /* ADBOpBlock is only used when calling ADBOp from 68k assembly code */
+  struct ADBOpBlock
+  {
+    Ptr dataBuffPtr; /* buffer: pointer to variable length data buffer */
+    ADBServiceRoutineUPP
+        opServiceRtPtr; /* completionProc: completion routine pointer */
+    Ptr opDataAreaPtr;  /* refCon: this field is passed as the refCon parameter to
+                           the completion routine */
+  };
+  typedef struct ADBOpBlock ADBOpBlock;
+  typedef ADBOpBlock *ADBOpBPtr;
 #endif /* CALL_NOT_IN_CARBON */
 #if CALL_NOT_IN_CARBON
-/**
- *  ADBReInit()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-ADBReInit(void) ONEWORDINLINE(0xA07B);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API(void)
+  ADBReInit(void) ONEWORDINLINE(0xA07B);
 
 /**
     ADBOp has a different interface for 68k assembly than for everything else
@@ -131,23 +134,21 @@ ADBReInit(void) ONEWORDINLINE(0xA07B);
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  ADBOp()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ADBOp(Ptr refCon, ADBCompletionUPP compRout, Ptr buffer, short commandNum);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API(OSErr)
+  ADBOp(Ptr refCon, ADBCompletionUPP compRout, Ptr buffer, short commandNum);
 
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
 /**
- *  CountADBs()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -156,12 +157,11 @@ ADBOp(Ptr refCon, ADBCompletionUPP compRout, Ptr buffer, short commandNum);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 CountADBs
 #endif
-EXTERN_API(short)
-CountADBs(void) ONEWORDINLINE(0xA077);
+  EXTERN_API(short)
+  CountADBs(void) ONEWORDINLINE(0xA077);
 
 /**
- *  GetIndADB()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -170,12 +170,11 @@ CountADBs(void) ONEWORDINLINE(0xA077);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 GetIndADB(__A0, __D0)
 #endif
-EXTERN_API(ADBAddress)
-GetIndADB(ADBDataBlock *info, short devTableIndex) ONEWORDINLINE(0xA078);
+  EXTERN_API(ADBAddress)
+  GetIndADB(ADBDataBlock *info, short devTableIndex) ONEWORDINLINE(0xA078);
 
 /**
- *  GetADBInfo()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -184,12 +183,11 @@ GetIndADB(ADBDataBlock *info, short devTableIndex) ONEWORDINLINE(0xA078);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 GetADBInfo(__A0, __D0)
 #endif
-EXTERN_API(OSErr)
-GetADBInfo(ADBDataBlock *info, ADBAddress adbAddr) ONEWORDINLINE(0xA079);
+  EXTERN_API(OSErr)
+  GetADBInfo(ADBDataBlock *info, ADBAddress adbAddr) ONEWORDINLINE(0xA079);
 
 /**
- *  SetADBInfo()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -198,62 +196,64 @@ GetADBInfo(ADBDataBlock *info, ADBAddress adbAddr) ONEWORDINLINE(0xA079);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 SetADBInfo(__A0, __D0)
 #endif
-EXTERN_API(OSErr)
-SetADBInfo(const ADBSetInfoBlock *info, ADBAddress adbAddr)
-    ONEWORDINLINE(0xA07A);
+  EXTERN_API(OSErr)
+  SetADBInfo(const ADBSetInfoBlock *info, ADBAddress adbAddr)
+      ONEWORDINLINE(0xA07A);
 
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  NewADBCompletionUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(ADBCompletionUPP)
-NewADBCompletionUPP(ADBCompletionProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(ADBCompletionUPP)
+  NewADBCompletionUPP(ADBCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppADBCompletionProcInfo = 0x007B9802
-}; /* register no_return_value Func(4_bytes:A0, 4_bytes:A2, 4_bytes:D0) */
+  enum
+  {
+    uppADBCompletionProcInfo = 0x007B9802
+  }; /* register no_return_value Func(4_bytes:A0, 4_bytes:A2, 4_bytes:D0) */
 #ifdef __cplusplus
-inline ADBCompletionUPP NewADBCompletionUPP(ADBCompletionProcPtr userRoutine) {
-  return (ADBCompletionUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppADBCompletionProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline ADBCompletionUPP NewADBCompletionUPP(ADBCompletionProcPtr userRoutine)
+  {
+    return (ADBCompletionUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppADBCompletionProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewADBCompletionUPP(userRoutine)                                       \
-  (ADBCompletionUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppADBCompletionProcInfo,   \
+#define NewADBCompletionUPP(userRoutine)                                     \
+  (ADBCompletionUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppADBCompletionProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewADBDeviceDriverUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(ADBDeviceDriverUPP)
-NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(ADBDeviceDriverUPP)
+  NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppADBDeviceDriverProcInfo = 0x00050802
-}; /* register no_return_value Func(1_byte:D0, 1_byte:D1) */
+  enum
+  {
+    uppADBDeviceDriverProcInfo = 0x00050802
+  }; /* register no_return_value Func(1_byte:D0, 1_byte:D1) */
 #ifdef __cplusplus
-inline ADBDeviceDriverUPP
-NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine) {
-  return (ADBDeviceDriverUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                  uppADBDeviceDriverProcInfo,
-                                                  GetCurrentArchitecture());
-}
+  inline ADBDeviceDriverUPP
+  NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine)
+  {
+    return (ADBDeviceDriverUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                    uppADBDeviceDriverProcInfo,
+                                                    GetCurrentArchitecture());
+  }
 #else
 #define NewADBDeviceDriverUPP(userRoutine)                                     \
   (ADBDeviceDriverUPP)                                                         \
@@ -262,171 +262,172 @@ NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine) {
 #endif
 #endif
 
-/**
- *  NewADBServiceRoutineUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(ADBServiceRoutineUPP)
-NewADBServiceRoutineUPP(ADBServiceRoutineProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(ADBServiceRoutineUPP)
+  NewADBServiceRoutineUPP(ADBServiceRoutineProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppADBServiceRoutineProcInfo = 0x0F779802
-}; /* register no_return_value Func(4_bytes:A0, 4_bytes:A1, 4_bytes:A2,
-      4_bytes:D0) */
+  enum
+  {
+    uppADBServiceRoutineProcInfo = 0x0F779802
+  }; /* register no_return_value Func(4_bytes:A0, 4_bytes:A1, 4_bytes:A2,
+        4_bytes:D0) */
 #ifdef __cplusplus
-inline ADBServiceRoutineUPP
-NewADBServiceRoutineUPP(ADBServiceRoutineProcPtr userRoutine) {
-  return (ADBServiceRoutineUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppADBServiceRoutineProcInfo,
-      GetCurrentArchitecture());
-}
+  inline ADBServiceRoutineUPP
+  NewADBServiceRoutineUPP(ADBServiceRoutineProcPtr userRoutine)
+  {
+    return (ADBServiceRoutineUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppADBServiceRoutineProcInfo,
+        GetCurrentArchitecture());
+  }
 #else
-#define NewADBServiceRoutineUPP(userRoutine)                                   \
-  (ADBServiceRoutineUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),          \
-                                              uppADBServiceRoutineProcInfo,    \
+#define NewADBServiceRoutineUPP(userRoutine)                                \
+  (ADBServiceRoutineUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),       \
+                                              uppADBServiceRoutineProcInfo, \
                                               GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewADBInitUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(ADBInitUPP)
-NewADBInitUPP(ADBInitProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(ADBInitUPP)
+  NewADBInitUPP(ADBInitProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppADBInitProcInfo = 0x00000802
-}; /* register no_return_value Func(1_byte:D0) */
+  enum
+  {
+    uppADBInitProcInfo = 0x00000802
+  }; /* register no_return_value Func(1_byte:D0) */
 #ifdef __cplusplus
-inline ADBInitUPP NewADBInitUPP(ADBInitProcPtr userRoutine) {
-  return (ADBInitUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppADBInitProcInfo, GetCurrentArchitecture());
-}
+  inline ADBInitUPP NewADBInitUPP(ADBInitProcPtr userRoutine)
+  {
+    return (ADBInitUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppADBInitProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewADBInitUPP(userRoutine)                                             \
-  (ADBInitUPP) NewRoutineDescriptor(                                           \
+#define NewADBInitUPP(userRoutine)   \
+  (ADBInitUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppADBInitProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeADBCompletionUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeADBCompletionUPP(ADBCompletionUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(void)
+  DisposeADBCompletionUPP(ADBCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeADBCompletionUPP(ADBCompletionUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeADBCompletionUPP(ADBCompletionUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeADBCompletionUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeADBDeviceDriverUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeADBDeviceDriverUPP(ADBDeviceDriverUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(void)
+  DisposeADBDeviceDriverUPP(ADBDeviceDriverUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeADBDeviceDriverUPP(ADBDeviceDriverUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeADBDeviceDriverUPP(ADBDeviceDriverUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeADBDeviceDriverUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeADBServiceRoutineUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeADBServiceRoutineUPP(ADBServiceRoutineUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(void)
+  DisposeADBServiceRoutineUPP(ADBServiceRoutineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeADBServiceRoutineUPP(ADBServiceRoutineUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeADBServiceRoutineUPP(ADBServiceRoutineUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeADBServiceRoutineUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeADBInitUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeADBInitUPP(ADBInitUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(void)
+  DisposeADBInitUPP(ADBInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeADBInitUPP(ADBInitUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeADBInitUPP(ADBInitUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeADBInitUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeADBCompletionUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-InvokeADBCompletionUPP(Ptr buffer, Ptr refCon, long command,
-                       ADBCompletionUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(void)
+  InvokeADBCompletionUPP(Ptr buffer, Ptr refCon, long command,
+                         ADBCompletionUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeADBCompletionUPP(Ptr buffer, Ptr refCon, long command,
-                                   ADBCompletionUPP userUPP) {
-  CALL_THREE_PARAMETER_UPP(userUPP, uppADBCompletionProcInfo, buffer, refCon,
-                           command);
-}
+  inline void InvokeADBCompletionUPP(Ptr buffer, Ptr refCon, long command,
+                                     ADBCompletionUPP userUPP)
+  {
+    CALL_THREE_PARAMETER_UPP(userUPP, uppADBCompletionProcInfo, buffer, refCon,
+                             command);
+  }
 #else
-#define InvokeADBCompletionUPP(buffer, refCon, command, userUPP)               \
-  CALL_THREE_PARAMETER_UPP((userUPP), uppADBCompletionProcInfo, (buffer),      \
+#define InvokeADBCompletionUPP(buffer, refCon, command, userUPP)          \
+  CALL_THREE_PARAMETER_UPP((userUPP), uppADBCompletionProcInfo, (buffer), \
                            (refCon), (command))
 #endif
 #endif
 
 /**
- *  InvokeADBDeviceDriverUPP()
- *
+  *
 
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        not available
@@ -435,57 +436,57 @@ inline void InvokeADBCompletionUPP(Ptr buffer, Ptr refCon, long command,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeADBDeviceDriverUPP(__D0, __D1, __A0)
 #endif
-EXTERN_API_C(void)
-InvokeADBDeviceDriverUPP(SInt8 devAddress, SInt8 devType,
-                         ADBDeviceDriverUPP userUPP) ONEWORDINLINE(0x4E90);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+  EXTERN_API_C(void)
+  InvokeADBDeviceDriverUPP(SInt8 devAddress, SInt8 devType,
+                           ADBDeviceDriverUPP userUPP) ONEWORDINLINE(0x4E90);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeADBDeviceDriverUPP(SInt8 devAddress, SInt8 devType,
-                                     ADBDeviceDriverUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppADBDeviceDriverProcInfo, devAddress,
-                         devType);
-}
+  inline void InvokeADBDeviceDriverUPP(SInt8 devAddress, SInt8 devType,
+                                       ADBDeviceDriverUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppADBDeviceDriverProcInfo, devAddress,
+                           devType);
+  }
 #else
-#define InvokeADBDeviceDriverUPP(devAddress, devType, userUPP)                 \
-  CALL_TWO_PARAMETER_UPP((userUPP), uppADBDeviceDriverProcInfo, (devAddress),  \
+#define InvokeADBDeviceDriverUPP(devAddress, devType, userUPP)                \
+  CALL_TWO_PARAMETER_UPP((userUPP), uppADBDeviceDriverProcInfo, (devAddress), \
                          (devType))
 #endif
 #endif
 
-/**
- *  InvokeADBServiceRoutineUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-InvokeADBServiceRoutineUPP(Ptr buffer, TempADBServiceRoutineUPP completionProc,
-                           Ptr refCon, long command,
-                           ADBServiceRoutineUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(void)
+  InvokeADBServiceRoutineUPP(Ptr buffer, TempADBServiceRoutineUPP completionProc,
+                             Ptr refCon, long command,
+                             ADBServiceRoutineUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeADBServiceRoutineUPP(Ptr buffer,
-                                       TempADBServiceRoutineUPP completionProc,
-                                       Ptr refCon, long command,
-                                       ADBServiceRoutineUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppADBServiceRoutineProcInfo, buffer,
-                          completionProc, refCon, command);
-}
+  inline void InvokeADBServiceRoutineUPP(Ptr buffer,
+                                         TempADBServiceRoutineUPP completionProc,
+                                         Ptr refCon, long command,
+                                         ADBServiceRoutineUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppADBServiceRoutineProcInfo, buffer,
+                            completionProc, refCon, command);
+  }
 #else
-#define InvokeADBServiceRoutineUPP(buffer, completionProc, refCon, command,    \
-                                   userUPP)                                    \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppADBServiceRoutineProcInfo, (buffer),   \
+#define InvokeADBServiceRoutineUPP(buffer, completionProc, refCon, command,  \
+                                   userUPP)                                  \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppADBServiceRoutineProcInfo, (buffer), \
                           (completionProc), (refCon), (command))
 #endif
 #endif
 
 /**
- *  InvokeADBInitUPP()
- *
+  *
 
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        not available
@@ -494,16 +495,17 @@ inline void InvokeADBServiceRoutineUPP(Ptr buffer,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeADBInitUPP(__D0, __A0)
 #endif
-EXTERN_API_C(void)
-InvokeADBInitUPP(SInt8 callOrder, ADBInitUPP userUPP) ONEWORDINLINE(0x4E90);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+  EXTERN_API_C(void)
+  InvokeADBInitUPP(SInt8 callOrder, ADBInitUPP userUPP) ONEWORDINLINE(0x4E90);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeADBInitUPP(SInt8 callOrder, ADBInitUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppADBInitProcInfo, callOrder);
-}
+  inline void InvokeADBInitUPP(SInt8 callOrder, ADBInitUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppADBInitProcInfo, callOrder);
+  }
 #else
-#define InvokeADBInitUPP(callOrder, userUPP)                                   \
+#define InvokeADBInitUPP(callOrder, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppADBInitProcInfo, (callOrder))
 #endif
 #endif
@@ -514,18 +516,18 @@ inline void InvokeADBInitUPP(SInt8 callOrder, ADBInitUPP userUPP) {
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewADBCompletionProc(userRoutine) NewADBCompletionUPP(userRoutine)
 #define NewADBDeviceDriverProc(userRoutine) NewADBDeviceDriverUPP(userRoutine)
-#define NewADBServiceRoutineProc(userRoutine)                                  \
+#define NewADBServiceRoutineProc(userRoutine) \
   NewADBServiceRoutineUPP(userRoutine)
 #define NewADBInitProc(userRoutine) NewADBInitUPP(userRoutine)
-#define CallADBCompletionProc(userRoutine, buffer, refCon, command)            \
+#define CallADBCompletionProc(userRoutine, buffer, refCon, command) \
   InvokeADBCompletionUPP(buffer, refCon, command, userRoutine)
-#define CallADBDeviceDriverProc(userRoutine, devAddress, devType)              \
+#define CallADBDeviceDriverProc(userRoutine, devAddress, devType) \
   InvokeADBDeviceDriverUPP(devAddress, devType, userRoutine)
 #define CallADBServiceRoutineProc(userRoutine, buffer, completionProc, refCon, \
                                   command)                                     \
   InvokeADBServiceRoutineUPP(buffer, completionProc, refCon, command,          \
                              userRoutine)
-#define CallADBInitProc(userRoutine, callOrder)                                \
+#define CallADBInitProc(userRoutine, callOrder) \
   InvokeADBInitUPP(callOrder, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 

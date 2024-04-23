@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,44 +48,41 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/**************************************************************************
-    Types and Constants
-**************************************************************************/
-/**************************************************************************
-    Routines for Associating a Storage Type with a Script Data Handle
-**************************************************************************/
-/**
- *  OSAGetStorageType()
- *
+    /**************************************************************************
+        Types and Constants
+    **************************************************************************/
+    /**************************************************************************
+        Routines for Associating a Storage Type with a Script Data Handle
+    **************************************************************************/
+    /**
+      *
 
- *    \non_carbon_cfm   in AppleScriptLib 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-OSAGetStorageType(AEDataStorage scriptData, DescType *dscType);
+     *    \non_carbon_cfm   in AppleScriptLib 1.1 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API(OSErr)
+    OSAGetStorageType(AEDataStorage scriptData, DescType *dscType);
 
-/**
- *  OSAAddStorageType()
- *
+    /**
+      *
 
- *    \non_carbon_cfm   in AppleScriptLib 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-OSAAddStorageType(AEDataStorage scriptData, DescType dscType);
+     *    \non_carbon_cfm   in AppleScriptLib 1.1 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API(OSErr)
+    OSAAddStorageType(AEDataStorage scriptData, DescType dscType);
 
-/**
- *  OSARemoveStorageType()
- *
+    /**
+      *
 
- *    \non_carbon_cfm   in AppleScriptLib 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-OSARemoveStorageType(AEDataStorage scriptData);
+     *    \non_carbon_cfm   in AppleScriptLib 1.1 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    EXTERN_API(OSErr)
+    OSARemoveStorageType(AEDataStorage scriptData);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

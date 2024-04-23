@@ -21,9 +21,9 @@
 # configuration file without replacing the environment variables or CMake type
 # replacement variables:
 # doxygen -x_noenv [configFile]
-#---------------------------------------------------------------------------
+#---
 # Project related configuration options
-#---------------------------------------------------------------------------
+#---
 # This tag specifies the encoding used for all characters in the configuration
 # file that follow. The default is UTF-8 which is also the encoding used for all
 # text before the first occurrence of this tag. Doxygen uses libiconv (or the
@@ -412,9 +412,9 @@ NUM_PROC_THREADS  = 1
 # Possible values are: YES, NO, DATETIME and DATE.
 # The default value is: NO.
 TIMESTAMP    = NO
-#---------------------------------------------------------------------------
+#---
 # Build related configuration options
-#---------------------------------------------------------------------------
+#---
 # If the EXTRACT_ALL tag is set to YES, doxygen will assume all entities in
 # documentation are documented, even if no documentation was available. Private
 # class members and static file members will be hidden unless the
@@ -652,9 +652,9 @@ LAYOUT_FILE  =
 # LATEX_BIB_STYLE. To use this feature you need bibtex and perl available in the
 # search path. See also \cite for info how to create references.
 CITE_BIB_FILES     =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to warning and progress messages
-#---------------------------------------------------------------------------
+#---
 # The QUIET tag can be used to turn on/off the messages that are generated to
 # standard output by doxygen. If QUIET is set to YES this implies that the
 # messages are off.
@@ -735,9 +735,9 @@ WARN_LINE_FORMAT  = "at line $line of file $file"
 # specified the warning and error messages are written to standard output
 # (stdout).
 WARN_LOGFILE  =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the input files
-#---------------------------------------------------------------------------
+#---
 # The INPUT tag is used to specify the files and/or directories that contain
 # documented source files. You may enter file names like myfile.cpp or
 # directories like /usr/src/myproject. Separate the files or directories with
@@ -934,9 +934,9 @@ USE_MDFILE_AS_MAINPAGE = README.md
 # be processed before the automatic comment starts.
 # Minimum value: 7, maximum value: 10000, default value: 72.
 FORTRAN_COMMENT_AFTER  = 72
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to source browsing
-#---------------------------------------------------------------------------
+#---
 # If the SOURCE_BROWSER tag is set to YES then a list of source files will be
 # generated. Documented entities will be cross-referenced with these sources.
 #
@@ -1034,9 +1034,9 @@ CLANG_OPTIONS =
 # Note: The availability of this option depends on whether or not doxygen was
 # generated with the -Duse_libclang=ON option for CMake.
 CLANG_DATABASE_PATH    =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the alphabetical class index
-#---------------------------------------------------------------------------
+#---
 # If the ALPHABETICAL_INDEX tag is set to YES, an alphabetical index of all
 # compounds will be generated. Enable this if the project contains a lot of
 # classes, structs, unions or interfaces.
@@ -1049,9 +1049,9 @@ ALPHABETICAL_INDEX     = YES
 # after removing the prefix.
 # This tag requires that the tag ALPHABETICAL_INDEX is set to YES.
 IGNORE_PREFIX =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the HTML output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_HTML tag is set to YES, doxygen will generate HTML output
 # The default value is: YES.
 GENERATE_HTML = YES
@@ -1584,9 +1584,9 @@ EXTERNAL_SEARCH_ID     =
 # EXTRA_SEARCH_MAPPINGS = tagname1=loc1 tagname2=loc2 ...
 # This tag requires that the tag SEARCHENGINE is set to YES.
 EXTRA_SEARCH_MAPPINGS  =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the LaTeX output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_LATEX tag is set to YES, doxygen will generate LaTeX output.
 # The default value is: YES.
 GENERATE_LATEX     = YES
@@ -1730,9 +1730,9 @@ LATEX_BIB_STYLE    = plain
 # LATEX_OUTPUT directory will be used.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 LATEX_EMOJI_DIRECTORY  =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the RTF output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_RTF tag is set to YES, doxygen will generate RTF output. The
 # RTF output is optimized for Word 97 and may not look too pretty with other RTF
 # readers/editors.
@@ -1773,9 +1773,9 @@ RTF_STYLESHEET_FILE    =
 # generated using doxygen -e rtf extensionFile.
 # This tag requires that the tag GENERATE_RTF is set to YES.
 RTF_EXTENSIONS_FILE    =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the man page output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_MAN tag is set to YES, doxygen will generate man pages for
 # classes and files.
 # The default value is: NO.
@@ -1806,9 +1806,9 @@ MAN_SUBDIR   =
 # The default value is: NO.
 # This tag requires that the tag GENERATE_MAN is set to YES.
 MAN_LINKS    = NO
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the XML output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_XML tag is set to YES, doxygen will generate an XML file that
 # captures the structure of the code including all documentation.
 # The default value is: NO.
@@ -1831,9 +1831,9 @@ XML_PROGRAMLISTING     = YES
 # The default value is: NO.
 # This tag requires that the tag GENERATE_XML is set to YES.
 XML_NS_MEMB_FILE_SCOPE = NO
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the DOCBOOK output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_DOCBOOK tag is set to YES, doxygen will generate Docbook files
 # that can be used to generate PDF.
 # The default value is: NO.
@@ -1844,18 +1844,18 @@ GENERATE_DOCBOOK  = NO
 # The default directory is: docbook.
 # This tag requires that the tag GENERATE_DOCBOOK is set to YES.
 DOCBOOK_OUTPUT     = docbook
-#---------------------------------------------------------------------------
+#---
 # Configuration options for the AutoGen Definitions output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_AUTOGEN_DEF tag is set to YES, doxygen will generate an
 # AutoGen Definitions (see https://autogen.sourceforge.net/) file that captures
 # the structure of the code including all documentation. Note that this feature
 # is still experimental and incomplete at the moment.
 # The default value is: NO.
 GENERATE_AUTOGEN_DEF   = NO
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to Sqlite3 output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_SQLITE3 tag is set to YES doxygen will generate a Sqlite3
 # database with symbols found by doxygen stored in tables.
 # The default value is: NO.
@@ -1872,9 +1872,9 @@ SQLITE3_OUTPUT     = sqlite3
 # The default value is: YES.
 # This tag requires that the tag GENERATE_SQLITE3 is set to YES.
 SQLITE3_RECREATE_DB    = YES
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the Perl module output
-#---------------------------------------------------------------------------
+#---
 # If the GENERATE_PERLMOD tag is set to YES, doxygen will generate a Perl module
 # file that captures the structure of the code including all documentation.
 #
@@ -1901,9 +1901,9 @@ PERLMOD_PRETTY     = YES
 # overwrite each other's variables.
 # This tag requires that the tag GENERATE_PERLMOD is set to YES.
 PERLMOD_MAKEVAR_PREFIX =
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to the preprocessor
-#---------------------------------------------------------------------------
+#---
 # If the ENABLE_PREPROCESSING tag is set to YES, doxygen will evaluate all
 # C-preprocessor directives found in the sources and include files.
 # The default value is: YES.
@@ -1961,9 +1961,9 @@ EXPAND_AS_DEFINED =
 # The default value is: YES.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 SKIP_FUNCTION_MACROS   = YES
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to external references
-#---------------------------------------------------------------------------
+#---
 # The TAGFILES tag can be used to specify one or more tag files. For each tag
 # file the location of the external documentation should be added. The format of
 # a tag file without this location is as follows:
@@ -1996,9 +1996,9 @@ EXTERNAL_GROUPS    = YES
 # be listed.
 # The default value is: YES.
 EXTERNAL_PAGES     = YES
-#---------------------------------------------------------------------------
+#---
 # Configuration options related to diagram generator tools
-#---------------------------------------------------------------------------
+#---
 # If set to YES the inheritance and collaboration graphs will hide inheritance
 # and usage relations if the target is undocumented or is not a class.
 # The default value is: YES.

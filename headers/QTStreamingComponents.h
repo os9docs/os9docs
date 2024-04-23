@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,456 +52,498 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/*============================================================================
-        Stream Sourcer
-============================================================================*/
-enum { kQTSSourcerType = FOUR_CHAR_CODE('srcr') };
+  /** \name Stream Sourcer */ enum
+  {
+    kQTSSourcerType = FOUR_CHAR_CODE('srcr')
+  };
 
-typedef ComponentInstance QTSSourcer;
-enum {
-  kQTSSGChannelSourcerType = FOUR_CHAR_CODE('sgch'),
-  kQTSMovieTrackSourcerType = FOUR_CHAR_CODE('trak'),
-  kQTSPushDataSourcerType = FOUR_CHAR_CODE('push')
-};
+  typedef ComponentInstance QTSSourcer;
+  enum
+  {
+    kQTSSGChannelSourcerType = FOUR_CHAR_CODE('sgch'),
+    kQTSMovieTrackSourcerType = FOUR_CHAR_CODE('trak'),
+    kQTSPushDataSourcerType = FOUR_CHAR_CODE('push')
+  };
 
-/* flags for sourcer data */
-enum { kQTSSourcerDataFlag_SyncSample = 0x00000001 };
+  /* flags for sourcer data */
+  enum
+  {
+    kQTSSourcerDataFlag_SyncSample = 0x00000001
+  };
 
-enum { kQTSSourcerInitParamsVersion1 = 1 };
+  enum
+  {
+    kQTSSourcerInitParamsVersion1 = 1
+  };
 
-struct QTSSourcerInitParams {
-  SInt32 version;
-  SInt32 flags;
-  OSType dataType;
-  void *data;
-  UInt32 dataLength;
-};
-typedef struct QTSSourcerInitParams QTSSourcerInitParams;
-/**
- *  QTSNewSourcer()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSErr)
-QTSNewSourcer(void *params, const QTSSourcerInitParams *inInitParams,
-              SInt32 inFlags, ComponentInstance *outSourcer);
+  struct QTSSourcerInitParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    OSType dataType;
+    void *data;
+    UInt32 dataLength;
+  };
+  typedef struct QTSSourcerInitParams QTSSourcerInitParams;
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(OSErr)
+  QTSNewSourcer(void *params, const QTSSourcerInitParams *inInitParams,
+                SInt32 inFlags, ComponentInstance *outSourcer);
 
-/* info selectors for sourcers - get and set */
-enum {
-  kQTSInfo_Track = FOUR_CHAR_CODE('trak'),         /* QTSTrackParams* */
-  kQTSInfo_Loop = FOUR_CHAR_CODE('loop'),          /* QTSLoopParams* */
-  kQTSInfo_SourcerTiming = FOUR_CHAR_CODE('stim'), /* QTSSourcerTimingParams* */
-  kQTSInfo_TargetFrameRate =
-      FOUR_CHAR_CODE('tfps'),                 /* Fixed * in frames per second */
-  kQTSInfo_PushData = FOUR_CHAR_CODE('push'), /* QTSPushDataParams* */
-  kQTSInfo_SourcerCallbackProc =
-      FOUR_CHAR_CODE('scbp'), /* QTSSourcerCallbackProcParams* */
-  kQTSInfo_TargetDataRate =
-      FOUR_CHAR_CODE('tdrt'), /* UInt32 * in bytes per second */
-  kQTSInfo_AudioAutoGainOnOff =
-      FOUR_CHAR_CODE('agc '), /* Boolean*  - error if unavailable*/
-  kQTSInfo_AudioGain =
-      FOUR_CHAR_CODE('gain'), /* Fixed* kFixed1 is unity gain */
-  kQTSInfo_CroppedInputRect = FOUR_CHAR_CODE(
-      'crpr'), /* Rect* - defined relative to kQTSInfo_FullInputRect below */
-  kQTSInfo_SpatialSettings =
-      FOUR_CHAR_CODE('sptl'), /* pointer to SCSpatialSettings struct*/
-  kQTSInfo_TemporalSettings =
-      FOUR_CHAR_CODE('tprl'), /* pointer to SCTemporalSettings struct*/
-  kQTSInfo_DataRateSettings =
-      FOUR_CHAR_CODE('drat'), /* pointer to SCDataRateSettings struct*/
-  kQTSInfo_CodecFlags = FOUR_CHAR_CODE('cflg'),    /* pointer to CodecFlags*/
-  kQTSInfo_CodecSettings = FOUR_CHAR_CODE('cdec'), /* pointer to Handle*/
-  kQTSInfo_ForceKeyValue = FOUR_CHAR_CODE('ksim'), /* pointer to long*/
-  kQTSInfo_SoundSampleRate =
-      FOUR_CHAR_CODE('ssrt'), /* pointer to UnsignedFixed*/
-  kQTSInfo_SoundSampleSize = FOUR_CHAR_CODE('ssss'),   /* pointer to short*/
-  kQTSInfo_SoundChannelCount = FOUR_CHAR_CODE('sscc'), /* pointer to short*/
-  kQTSInfo_SoundCompression = FOUR_CHAR_CODE('ssct'),  /* pointer to OSType*/
-  kQTSInfo_CompressionList =
-      FOUR_CHAR_CODE('ctyl'),                 /* pointer to OSType Handle*/
-  kQTSInfo_VideoHue = FOUR_CHAR_CODE('hue '), /* UInt16* */
-  kQTSInfo_VideoSaturation = FOUR_CHAR_CODE('satr'), /* UInt16* */
-  kQTSInfo_VideoContrast = FOUR_CHAR_CODE('trst'),   /* UInt16* */
-  kQTSInfo_VideoBrightness = FOUR_CHAR_CODE('brit'), /* UInt16* */
-  kQTSInfo_VideoSharpness = FOUR_CHAR_CODE('shrp'),  /* UInt16* */
-  kQTSInfo_TimeScale = FOUR_CHAR_CODE('scal')        /* UInt32* */
-};
+  /* info selectors for sourcers - get and set */
+  enum
+  {
+    kQTSInfo_Track = FOUR_CHAR_CODE('trak'),         /* QTSTrackParams* */
+    kQTSInfo_Loop = FOUR_CHAR_CODE('loop'),          /* QTSLoopParams* */
+    kQTSInfo_SourcerTiming = FOUR_CHAR_CODE('stim'), /* QTSSourcerTimingParams* */
+    kQTSInfo_TargetFrameRate =
+        FOUR_CHAR_CODE('tfps'),                 /* Fixed * in frames per second */
+    kQTSInfo_PushData = FOUR_CHAR_CODE('push'), /* QTSPushDataParams* */
+    kQTSInfo_SourcerCallbackProc =
+        FOUR_CHAR_CODE('scbp'), /* QTSSourcerCallbackProcParams* */
+    kQTSInfo_TargetDataRate =
+        FOUR_CHAR_CODE('tdrt'), /* UInt32 * in bytes per second */
+    kQTSInfo_AudioAutoGainOnOff =
+        FOUR_CHAR_CODE('agc '), /* Boolean*  - error if unavailable*/
+    kQTSInfo_AudioGain =
+        FOUR_CHAR_CODE('gain'), /* Fixed* kFixed1 is unity gain */
+    kQTSInfo_CroppedInputRect = FOUR_CHAR_CODE(
+        'crpr'), /* Rect* - defined relative to kQTSInfo_FullInputRect below */
+    kQTSInfo_SpatialSettings =
+        FOUR_CHAR_CODE('sptl'), /* pointer to SCSpatialSettings struct*/
+    kQTSInfo_TemporalSettings =
+        FOUR_CHAR_CODE('tprl'), /* pointer to SCTemporalSettings struct*/
+    kQTSInfo_DataRateSettings =
+        FOUR_CHAR_CODE('drat'),                      /* pointer to SCDataRateSettings struct*/
+    kQTSInfo_CodecFlags = FOUR_CHAR_CODE('cflg'),    /* pointer to CodecFlags*/
+    kQTSInfo_CodecSettings = FOUR_CHAR_CODE('cdec'), /* pointer to Handle*/
+    kQTSInfo_ForceKeyValue = FOUR_CHAR_CODE('ksim'), /* pointer to long*/
+    kQTSInfo_SoundSampleRate =
+        FOUR_CHAR_CODE('ssrt'),                          /* pointer to UnsignedFixed*/
+    kQTSInfo_SoundSampleSize = FOUR_CHAR_CODE('ssss'),   /* pointer to short*/
+    kQTSInfo_SoundChannelCount = FOUR_CHAR_CODE('sscc'), /* pointer to short*/
+    kQTSInfo_SoundCompression = FOUR_CHAR_CODE('ssct'),  /* pointer to OSType*/
+    kQTSInfo_CompressionList =
+        FOUR_CHAR_CODE('ctyl'),                        /* pointer to OSType Handle*/
+    kQTSInfo_VideoHue = FOUR_CHAR_CODE('hue '),        /* UInt16* */
+    kQTSInfo_VideoSaturation = FOUR_CHAR_CODE('satr'), /* UInt16* */
+    kQTSInfo_VideoContrast = FOUR_CHAR_CODE('trst'),   /* UInt16* */
+    kQTSInfo_VideoBrightness = FOUR_CHAR_CODE('brit'), /* UInt16* */
+    kQTSInfo_VideoSharpness = FOUR_CHAR_CODE('shrp'),  /* UInt16* */
+    kQTSInfo_TimeScale = FOUR_CHAR_CODE('scal')        /* UInt32* */
+  };
 
-/* info selectors for sourcers - get only*/
-enum {
-  kQTSInfo_SGChannel = FOUR_CHAR_CODE('sgch'),       /* SGChannel* */
-  kQTSInfo_InputDeviceName = FOUR_CHAR_CODE('innm'), /* Handle* */
-  kQTSInfo_InputSourceName = FOUR_CHAR_CODE('srnm'), /* Handle* */
-  kQTSInfo_FullInputRect = FOUR_CHAR_CODE('fulr')    /* Rect* */
-};
+  /* info selectors for sourcers - get only*/
+  enum
+  {
+    kQTSInfo_SGChannel = FOUR_CHAR_CODE('sgch'),       /* SGChannel* */
+    kQTSInfo_InputDeviceName = FOUR_CHAR_CODE('innm'), /* Handle* */
+    kQTSInfo_InputSourceName = FOUR_CHAR_CODE('srnm'), /* Handle* */
+    kQTSInfo_FullInputRect = FOUR_CHAR_CODE('fulr')    /* Rect* */
+  };
 
-/* loop flags */
-enum { kQTSLoopFlag_Loop = 0x00000001 };
+  /* loop flags */
+  enum
+  {
+    kQTSLoopFlag_Loop = 0x00000001
+  };
 
-enum { kQTSLoopParamsVersion1 = 1 };
+  enum
+  {
+    kQTSLoopParamsVersion1 = 1
+  };
 
-struct QTSLoopParams {
-  SInt32 version;
-  SInt32 flags;
-  SInt32 loopFlags;
-  SInt32 flagsMask;
-  SInt32 numLoops;
-};
-typedef struct QTSLoopParams QTSLoopParams;
-enum { kQTSTrackParamsVersion1 = 1 };
+  struct QTSLoopParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    SInt32 loopFlags;
+    SInt32 flagsMask;
+    SInt32 numLoops;
+  };
+  typedef struct QTSLoopParams QTSLoopParams;
+  enum
+  {
+    kQTSTrackParamsVersion1 = 1
+  };
 
-struct QTSTrackParams {
-  SInt32 version;
-  SInt32 flags;
-  Track track;
-  TimeValue64 trackStartOffset; /* to start other than at the beginning
-                                   otherwise set to 0*/
-  TimeValue64 duration;         /* to limit the duration otherwise set to 0*/
-  QTSLoopParams
-      *loopParams; /* set to NULL if not using; default is no looping */
-};
-typedef struct QTSTrackParams QTSTrackParams;
-enum { kQTSSourcerTimingParamsVersion1 = 1 };
+  struct QTSTrackParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    Track track;
+    TimeValue64 trackStartOffset; /* to start other than at the beginning
+                                     otherwise set to 0*/
+    TimeValue64 duration;         /* to limit the duration otherwise set to 0*/
+    QTSLoopParams
+        *loopParams; /* set to NULL if not using; default is no looping */
+  };
+  typedef struct QTSTrackParams QTSTrackParams;
+  enum
+  {
+    kQTSSourcerTimingParamsVersion1 = 1
+  };
 
-struct QTSSourcerTimingParams {
-  SInt32 version;
-  SInt32 flags;
-  TimeScale timeScale;
-  TimeValue64 presentationStartTime;
-  TimeValue64 presentationEndTime;
-  TimeValue64 presentationCurrentTime;
-  TimeValue64 localStartTime;
-  TimeValue64 localEndTime;
-  TimeValue64 localCurrentTime;
-};
-typedef struct QTSSourcerTimingParams QTSSourcerTimingParams;
-enum { kQTSPushDataParamsVersion1 = 1 };
+  struct QTSSourcerTimingParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    TimeScale timeScale;
+    TimeValue64 presentationStartTime;
+    TimeValue64 presentationEndTime;
+    TimeValue64 presentationCurrentTime;
+    TimeValue64 localStartTime;
+    TimeValue64 localEndTime;
+    TimeValue64 localCurrentTime;
+  };
+  typedef struct QTSSourcerTimingParams QTSSourcerTimingParams;
+  enum
+  {
+    kQTSPushDataParamsVersion1 = 1
+  };
 
-enum {
-  kQTSPushDataFlag_SampleTimeIsValid = 0x00000001,
-  kQTSPushDataFlag_DurationIsValid = 0x00000002
-};
+  enum
+  {
+    kQTSPushDataFlag_SampleTimeIsValid = 0x00000001,
+    kQTSPushDataFlag_DurationIsValid = 0x00000002
+  };
 
-struct QTSPushDataParams {
-  SInt32 version;
-  SInt32 flags;
-  SampleDescriptionHandle sampleDescription; /* caller owns the handle */
-  UInt32 sampleDescSeed;
-  TimeValue64 sampleTime; /* also set flag if you set this */
-  TimeValue64 duration;   /* also set flag if you set this */
-  UInt32 dataLength;
-  void *dataPtr; /* this does not have to be a real macintosh Ptr */
-};
-typedef struct QTSPushDataParams QTSPushDataParams;
-enum { kQTSSourcerCallbackProcParamsVersion1 = 1 };
+  struct QTSPushDataParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    SampleDescriptionHandle sampleDescription; /* caller owns the handle */
+    UInt32 sampleDescSeed;
+    TimeValue64 sampleTime; /* also set flag if you set this */
+    TimeValue64 duration;   /* also set flag if you set this */
+    UInt32 dataLength;
+    void *dataPtr; /* this does not have to be a real macintosh Ptr */
+  };
+  typedef struct QTSPushDataParams QTSPushDataParams;
+  enum
+  {
+    kQTSSourcerCallbackProcParamsVersion1 = 1
+  };
 
-struct QTSSourcerCallbackProcParams {
-  SInt32 version;
-  SInt32 flags;
-  QTSNotificationUPP proc;
-  void *refCon;
-};
-typedef struct QTSSourcerCallbackProcParams QTSSourcerCallbackProcParams;
-/* track sourcer callback selectors*/
-enum {
-  kQTSSourcerCallback_Done = FOUR_CHAR_CODE('done') /* QTSSourcerDoneParams* */
-};
+  struct QTSSourcerCallbackProcParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    QTSNotificationUPP proc;
+    void *refCon;
+  };
+  typedef struct QTSSourcerCallbackProcParams QTSSourcerCallbackProcParams;
+  /* track sourcer callback selectors*/
+  enum
+  {
+    kQTSSourcerCallback_Done = FOUR_CHAR_CODE('done') /* QTSSourcerDoneParams* */
+  };
 
-/* push data sourcer callback selectors*/
-enum {
-  kQTSPushDataSourcerCallback_HasCharacteristic =
-      0x050D, /* QTSPushDataHasCharacteristicParams* */
-  kQTSPushDataSourcerCallback_SetInfo = 0x0507, /* QTSPushDataInfoParams* */
-  kQTSPushDataSourcerCallback_GetInfo = 0x0508  /* QTSPushDataInfoParams* */
-};
+  /* push data sourcer callback selectors*/
+  enum
+  {
+    kQTSPushDataSourcerCallback_HasCharacteristic =
+        0x050D,                                   /* QTSPushDataHasCharacteristicParams* */
+    kQTSPushDataSourcerCallback_SetInfo = 0x0507, /* QTSPushDataInfoParams* */
+    kQTSPushDataSourcerCallback_GetInfo = 0x0508  /* QTSPushDataInfoParams* */
+  };
 
-struct QTSPushDataHasCharacteristicParams {
-  SInt32 version;
-  SInt32 flags;
-  OSType characteristic;
-  Boolean returnedHasIt;
-  char reserved[3];
-};
-typedef struct QTSPushDataHasCharacteristicParams
-    QTSPushDataHasCharacteristicParams;
-struct QTSPushDataInfoParams {
-  SInt32 version;
-  SInt32 flags;
-  OSType selector;
-  void *ioParams;
-};
-typedef struct QTSPushDataInfoParams QTSPushDataInfoParams;
-enum { kQTSSourcerDoneParamsVersion1 = 1 };
+  struct QTSPushDataHasCharacteristicParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    OSType characteristic;
+    Boolean returnedHasIt;
+    char reserved[3];
+  };
+  typedef struct QTSPushDataHasCharacteristicParams
+      QTSPushDataHasCharacteristicParams;
+  struct QTSPushDataInfoParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    OSType selector;
+    void *ioParams;
+  };
+  typedef struct QTSPushDataInfoParams QTSPushDataInfoParams;
+  enum
+  {
+    kQTSSourcerDoneParamsVersion1 = 1
+  };
 
-struct QTSSourcerDoneParams {
-  SInt32 version;
-  SInt32 flags;
-  ComponentInstance sourcer;
-};
-typedef struct QTSSourcerDoneParams QTSSourcerDoneParams;
+  struct QTSSourcerDoneParams
+  {
+    SInt32 version;
+    SInt32 flags;
+    ComponentInstance sourcer;
+  };
+  typedef struct QTSSourcerDoneParams QTSSourcerDoneParams;
 
-/*-----------------------------------------
-    Stream Sourcer Selectors
------------------------------------------*/
-enum {
-  kQTSSourcerInitializeSelect = 0x0500,
-  kQTSSourcerSetEnableSelect = 0x0503,
-  kQTSSourcerGetEnableSelect = 0x0504,
-  kQTSSourcerSetInfoSelect = 0x0507,
-  kQTSSourcerGetInfoSelect = 0x0508,
-  kQTSSourcerSetTimeScaleSelect = 0x050E,
-  kQTSSourcerGetTimeScaleSelect = 0x050F,
-  kQTSSourcerIdleSelect = 0x0516
-};
+  /*
+      Stream Sourcer Selectors
 
-/*-----------------------------------------
-    Stream Sourcer Prototypes
------------------------------------------*/
-/**
- *  QTSSourcerInitialize()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0.1 and later
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- * X version 10.1 and later \mac_os_x         in version 10.1 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerInitialize(QTSSourcer inSourcer,
-                     const QTSSourcerInitParams *inInitParams)
-    FIVEWORDINLINE(0x2F3C, 0x0004, 0x0500, 0x7000, 0xA82A);
+  enum
+  {
+    kQTSSourcerInitializeSelect = 0x0500,
+    kQTSSourcerSetEnableSelect = 0x0503,
+    kQTSSourcerGetEnableSelect = 0x0504,
+    kQTSSourcerSetInfoSelect = 0x0507,
+    kQTSSourcerGetInfoSelect = 0x0508,
+    kQTSSourcerSetTimeScaleSelect = 0x050E,
+    kQTSSourcerGetTimeScaleSelect = 0x050F,
+    kQTSSourcerIdleSelect = 0x0516
+  };
 
-/**
- *  QTSSourcerIdle()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerIdle(QTSSourcer inSourcer, const TimeValue64 *inTime, SInt32 inFlags,
-               SInt32 *outFlags)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0516, 0x7000, 0xA82A);
+  /*
+      Stream Sourcer Prototypes
 
-/**
- *  QTSSourcerSetEnable()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerSetEnable(QTSSourcer inSourcer, Boolean inEnableMode, SInt32 inFlags)
-    FIVEWORDINLINE(0x2F3C, 0x0006, 0x0503, 0x7000, 0xA82A);
+  /**
+      *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0.1 and later
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   * X version 10.1 and later \mac_os_x         in version 10.1 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerInitialize(QTSSourcer inSourcer,
+                       const QTSSourcerInitParams *inInitParams)
+      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0500, 0x7000, 0xA82A);
 
-/**
- *  QTSSourcerGetEnable()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerGetEnable(QTSSourcer inSourcer, Boolean *outEnableMode,
-                    SInt32 inFlags)
-    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0504, 0x7000, 0xA82A);
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerIdle(QTSSourcer inSourcer, const TimeValue64 *inTime, SInt32 inFlags,
+                 SInt32 *outFlags)
+      FIVEWORDINLINE(0x2F3C, 0x000C, 0x0516, 0x7000, 0xA82A);
 
-/**
- *  QTSSourcerSetTimeScale()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerSetTimeScale(QTSSourcer inSourcer, TimeScale inTimeScale)
-    FIVEWORDINLINE(0x2F3C, 0x0004, 0x050E, 0x7000, 0xA82A);
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerSetEnable(QTSSourcer inSourcer, Boolean inEnableMode, SInt32 inFlags)
+      FIVEWORDINLINE(0x2F3C, 0x0006, 0x0503, 0x7000, 0xA82A);
 
-/**
- *  QTSSourcerGetTimeScale()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerGetTimeScale(QTSSourcer inSourcer, TimeScale *outTimeScale)
-    FIVEWORDINLINE(0x2F3C, 0x0004, 0x050F, 0x7000, 0xA82A);
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerGetEnable(QTSSourcer inSourcer, Boolean *outEnableMode,
+                      SInt32 inFlags)
+      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0504, 0x7000, 0xA82A);
 
-/**
- *  QTSSourcerSetInfo()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerSetInfo(QTSSourcer inSourcer, OSType inSelector, void *ioParams)
-    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0507, 0x7000, 0xA82A);
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerSetTimeScale(QTSSourcer inSourcer, TimeScale inTimeScale)
+      FIVEWORDINLINE(0x2F3C, 0x0004, 0x050E, 0x7000, 0xA82A);
 
-/**
- *  QTSSourcerGetInfo()
- *
- *  Availability:
- *    \non_carbon_cfm   in QTStreamLib 5.0 and later
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSSourcerGetInfo(QTSSourcer inSourcer, OSType inSelector, void *ioParams)
-    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0508, 0x7000, 0xA82A);
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerGetTimeScale(QTSSourcer inSourcer, TimeScale *outTimeScale)
+      FIVEWORDINLINE(0x2F3C, 0x0004, 0x050F, 0x7000, 0xA82A);
 
-/*============================================================================
-        Stream Handler
-============================================================================*/
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerSetInfo(QTSSourcer inSourcer, OSType inSelector, void *ioParams)
+      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0507, 0x7000, 0xA82A);
 
-/**
-    Server edits are only valid for the current chunk
-*/
-struct SHServerEditParameters {
-  UInt32 version;
-  Fixed editRate;
-  TimeValue64 dataStartTime_mediaAxis;
-  TimeValue64 dataEndTime_mediaAxis;
-};
-typedef struct SHServerEditParameters SHServerEditParameters;
-enum {
-  kSHNoChunkDispatchFlags = 0,
-  kSHChunkFlagSyncSample = 1 << 2,
-  kSHChunkFlagDataLoss = 1 << 4
-};
+  /**
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in QTStreamLib 5.0 and later
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(ComponentResult)
+  QTSSourcerGetInfo(QTSSourcer inSourcer, OSType inSelector, void *ioParams)
+      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0508, 0x7000, 0xA82A);
 
-struct SHChunkRecord {
-  UInt32 version;
-  long reserved1;
-  SInt32 flags;
-  UInt32 dataSize;
-  UInt8 *dataPtr;
-  long reserved2;
-  long reserved3;
-  TimeValue64 presentationTime;
+  /** \name Stream Handler */
+  /**
+      Server edits are only valid for the current chunk
+  */
+  struct SHServerEditParameters
+  {
+    UInt32 version;
+    Fixed editRate;
+    TimeValue64 dataStartTime_mediaAxis;
+    TimeValue64 dataEndTime_mediaAxis;
+  };
+  typedef struct SHServerEditParameters SHServerEditParameters;
+  enum
+  {
+    kSHNoChunkDispatchFlags = 0,
+    kSHChunkFlagSyncSample = 1 << 2,
+    kSHChunkFlagDataLoss = 1 << 4
+  };
 
-  long reserved4;
-  long reserved5;
-  const SHServerEditParameters *serverEditParameters;
-  long reserved6;
-  long reserved7;
-};
-typedef struct SHChunkRecord SHChunkRecord;
+  struct SHChunkRecord
+  {
+    UInt32 version;
+    long reserved1;
+    SInt32 flags;
+    UInt32 dataSize;
+    UInt8 *dataPtr;
+    long reserved2;
+    long reserved3;
+    TimeValue64 presentationTime;
 
-/*============================================================================
-        RTP Components
-============================================================================*/
+    long reserved4;
+    long reserved5;
+    const SHServerEditParameters *serverEditParameters;
+    long reserved6;
+    long reserved7;
+  };
+  typedef struct SHChunkRecord SHChunkRecord;
 
-typedef UInt32 RTPSSRC;
-enum { kRTPInvalidSSRC = 0 };
+  /** \name RTP Components */
+  typedef UInt32 RTPSSRC;
+  enum
+  {
+    kRTPInvalidSSRC = 0
+  };
 
-/* RTP standard content encodings for audio */
-enum {
-  kRTPPayload_PCMU = 0,       /* 8kHz PCM mu-law mono */
-  kRTPPayload_1016 = 1,       /* 8kHz CELP (Fed Std 1016) mono */
-  kRTPPayload_G721 = 2,       /* 8kHz G.721 ADPCM mono */
-  kRTPPayload_GSM = 3,        /* 8kHz GSM mono */
-  kRTPPayload_G723 = 4,       /* 8kHz G.723 ADPCM mono */
-  kRTPPayload_DVI_8 = 5,      /* 8kHz Intel DVI ADPCM mono */
-  kRTPPayload_DVI_16 = 6,     /* 16kHz Intel DVI ADPCM mono */
-  kRTPPayload_LPC = 7,        /* 8kHz LPC */
-  kRTPPayload_PCMA = 8,       /* 8kHz PCM a-law mono */
-  kRTPPayload_L16_44_2 = 10,  /* 44.1kHz 16-bit linear stereo */
-  kRTPPayload_L16_44_1 = 11,  /* 44.1kHz 16-bit linear mono */
-  kRTPPayload_PureVoice = 12, /* 8kHz PureVoice mono (QCELP) */
-  kRTPPayload_MPEGAUDIO = 14, /* MPEG I and II audio */
-  kRTPPayload_DVI_11 = 16,    /* 11kHz Intel DVI ADPCM mono */
-  kRTPPayload_DVI_22 = 17     /* 22kHz Intel DVI ADPCM mono */
-};
+  /* RTP standard content encodings for audio */
+  enum
+  {
+    kRTPPayload_PCMU = 0,       /* 8kHz PCM mu-law mono */
+    kRTPPayload_1016 = 1,       /* 8kHz CELP (Fed Std 1016) mono */
+    kRTPPayload_G721 = 2,       /* 8kHz G.721 ADPCM mono */
+    kRTPPayload_GSM = 3,        /* 8kHz GSM mono */
+    kRTPPayload_G723 = 4,       /* 8kHz G.723 ADPCM mono */
+    kRTPPayload_DVI_8 = 5,      /* 8kHz Intel DVI ADPCM mono */
+    kRTPPayload_DVI_16 = 6,     /* 16kHz Intel DVI ADPCM mono */
+    kRTPPayload_LPC = 7,        /* 8kHz LPC */
+    kRTPPayload_PCMA = 8,       /* 8kHz PCM a-law mono */
+    kRTPPayload_L16_44_2 = 10,  /* 44.1kHz 16-bit linear stereo */
+    kRTPPayload_L16_44_1 = 11,  /* 44.1kHz 16-bit linear mono */
+    kRTPPayload_PureVoice = 12, /* 8kHz PureVoice mono (QCELP) */
+    kRTPPayload_MPEGAUDIO = 14, /* MPEG I and II audio */
+    kRTPPayload_DVI_11 = 16,    /* 11kHz Intel DVI ADPCM mono */
+    kRTPPayload_DVI_22 = 17     /* 22kHz Intel DVI ADPCM mono */
+  };
 
-/* RTP standard content encodings for video */
-enum {
-  kRTPPayload_CELLB = 25,     /* Sun CellB */
-  kRTPPayload_JPEG = 26,      /* JPEG */
-  kRTPPayload_CUSEEME = 27,   /* Cornell CU-SeeMe */
-  kRTPPayload_NV = 28,        /* Xerox PARC nv */
-  kRTPPayload_PICWIN = 29,    /* BBN Picture Window */
-  kRTPPayload_CPV = 30,       /* Bolter CPV */
-  kRTPPayload_H261 = 31,      /* CCITT H.261 */
-  kRTPPayload_MPEGVIDEO = 32, /* MPEG I and II video */
-  kRTPPayload_H263 = 34       /* CCITT H.263 */
-};
+  /* RTP standard content encodings for video */
+  enum
+  {
+    kRTPPayload_CELLB = 25,     /* Sun CellB */
+    kRTPPayload_JPEG = 26,      /* JPEG */
+    kRTPPayload_CUSEEME = 27,   /* Cornell CU-SeeMe */
+    kRTPPayload_NV = 28,        /* Xerox PARC nv */
+    kRTPPayload_PICWIN = 29,    /* BBN Picture Window */
+    kRTPPayload_CPV = 30,       /* Bolter CPV */
+    kRTPPayload_H261 = 31,      /* CCITT H.261 */
+    kRTPPayload_MPEGVIDEO = 32, /* MPEG I and II video */
+    kRTPPayload_H263 = 34       /* CCITT H.263 */
+  };
 
-/* Other RTP standard content encodings */
-enum {
-  kRTPPayload_MPEG2T = 33 /* MPEG 2 Transport */
-};
+  /* Other RTP standard content encodings */
+  enum
+  {
+    kRTPPayload_MPEG2T = 33 /* MPEG 2 Transport */
+  };
 
-/* Dynamic encodings */
-enum {
-  kRTPPayload_FirstDynamic = 96,
-  kRTPPayload_LastDynamic = 127,
-  kRTPPayload_Unknown = 0xFF
-};
+  /* Dynamic encodings */
+  enum
+  {
+    kRTPPayload_FirstDynamic = 96,
+    kRTPPayload_LastDynamic = 127,
+    kRTPPayload_Unknown = 0xFF
+  };
 
-/**
------------------------------------------
-    RTP Info selectors
------------------------------------------
-*/
-/* ----- these are get and set ----- */
-enum {
-  kRTPInfo_SSRC = FOUR_CHAR_CODE('ssrc'),      /* UInt32* */
-  kRTPInfo_NextSeqNum = FOUR_CHAR_CODE('rnsn') /* UInt16* */
-};
+  /**
 
-/*-----------------------------------------
-    RTP Statistics
------------------------------------------*/
-enum {
-  kRTPTotalReceivedPktsStat = FOUR_CHAR_CODE('trcp'),
-  kRTPTotalLostPktsStat = FOUR_CHAR_CODE('tlsp'),
-  kRTPTotalProcessedPktsStat = FOUR_CHAR_CODE('tprp'),
-  kRTPTotalDroppedPktsStat = FOUR_CHAR_CODE('tdrp'),
-  kRTPBadHeaderDroppedPktsStat = FOUR_CHAR_CODE('bhdp'),
-  kRTPOurHeaderDroppedPktsStat = FOUR_CHAR_CODE('ohdp'),
-  kRTPNotReceivingSenderDroppedPktsStat = FOUR_CHAR_CODE('nsdp'),
-  kRTPNotProcessingDroppedPktsStat = FOUR_CHAR_CODE('npdp'),
-  kRTPBadSeqDroppedPktsStat = FOUR_CHAR_CODE('bsdp'),
-  kRTPArriveTooLatePktsStat = FOUR_CHAR_CODE('artl'),
-  kRTPWaitForSeqDroppedPktsStat = FOUR_CHAR_CODE('wsdp'),
-  kRTPBadStateDroppedPktsStat = FOUR_CHAR_CODE('stdp'),
-  kRTPBadPayloadDroppedPktsStat = FOUR_CHAR_CODE('bpdp'),
-  kRTPNoTimeScaleDroppedPktsStat = FOUR_CHAR_CODE('ntdp'),
-  kRTPDupSeqNumDroppedPktsStat = FOUR_CHAR_CODE('dsdp'),
-  kRTPLostPktsPercentStat = FOUR_CHAR_CODE('lspp'),
-  kRTPDroppedPktsPercentStat = FOUR_CHAR_CODE('dppp'),
-  kRTPTotalUnprocessedPktsPercentStat = FOUR_CHAR_CODE('tupp'),
-  kRTPRTCPDataRateStat = FOUR_CHAR_CODE('rrcd'),
-  kRTPPayloadIDStat = FOUR_CHAR_CODE('rpid'),
-  kRTPPayloadNameStat = FOUR_CHAR_CODE('rpnm'),
-  kRTPNumPktsInQueueStat = FOUR_CHAR_CODE('rnpq'),
-  kRTPTotalPktsInQueueStat = FOUR_CHAR_CODE('rtpq'),
-  kRTPTotalOutOfOrderPktsStat = FOUR_CHAR_CODE('rtoo'),
-  kRTPRetransmissionStat = FOUR_CHAR_CODE('rrtx')
-};
+      RTP Info selectors
 
-/*-----------------------------------------
-    Payload Info
------------------------------------------*/
-enum {
-  kRTPPayloadSpeedTag = FOUR_CHAR_CODE('sped'), /* 0-255, 255 is fastest*/
+  */
+  /* e are get and set  */
+  enum
+  {
+    kRTPInfo_SSRC = FOUR_CHAR_CODE('ssrc'),      /* UInt32* */
+    kRTPInfo_NextSeqNum = FOUR_CHAR_CODE('rnsn') /* UInt16* */
+  };
+
+  /*
+      RTP Statistics
+
+  enum
+  {
+    kRTPTotalReceivedPktsStat = FOUR_CHAR_CODE('trcp'),
+    kRTPTotalLostPktsStat = FOUR_CHAR_CODE('tlsp'),
+    kRTPTotalProcessedPktsStat = FOUR_CHAR_CODE('tprp'),
+    kRTPTotalDroppedPktsStat = FOUR_CHAR_CODE('tdrp'),
+    kRTPBadHeaderDroppedPktsStat = FOUR_CHAR_CODE('bhdp'),
+    kRTPOurHeaderDroppedPktsStat = FOUR_CHAR_CODE('ohdp'),
+    kRTPNotReceivingSenderDroppedPktsStat = FOUR_CHAR_CODE('nsdp'),
+    kRTPNotProcessingDroppedPktsStat = FOUR_CHAR_CODE('npdp'),
+    kRTPBadSeqDroppedPktsStat = FOUR_CHAR_CODE('bsdp'),
+    kRTPArriveTooLatePktsStat = FOUR_CHAR_CODE('artl'),
+    kRTPWaitForSeqDroppedPktsStat = FOUR_CHAR_CODE('wsdp'),
+    kRTPBadStateDroppedPktsStat = FOUR_CHAR_CODE('stdp'),
+    kRTPBadPayloadDroppedPktsStat = FOUR_CHAR_CODE('bpdp'),
+    kRTPNoTimeScaleDroppedPktsStat = FOUR_CHAR_CODE('ntdp'),
+    kRTPDupSeqNumDroppedPktsStat = FOUR_CHAR_CODE('dsdp'),
+    kRTPLostPktsPercentStat = FOUR_CHAR_CODE('lspp'),
+    kRTPDroppedPktsPercentStat = FOUR_CHAR_CODE('dppp'),
+    kRTPTotalUnprocessedPktsPercentStat = FOUR_CHAR_CODE('tupp'),
+    kRTPRTCPDataRateStat = FOUR_CHAR_CODE('rrcd'),
+    kRTPPayloadIDStat = FOUR_CHAR_CODE('rpid'),
+    kRTPPayloadNameStat = FOUR_CHAR_CODE('rpnm'),
+    kRTPNumPktsInQueueStat = FOUR_CHAR_CODE('rnpq'),
+    kRTPTotalPktsInQueueStat = FOUR_CHAR_CODE('rtpq'),
+    kRTPTotalOutOfOrderPktsStat = FOUR_CHAR_CODE('rtoo'),
+    kRTPRetransmissionStat = FOUR_CHAR_CODE('rrtx')
+  };
+
+  /*
+      Payload Info
+
+  enum
+  {
+    kRTPPayloadSpeedTag = FOUR_CHAR_CODE('sped'), /* 0-255, 255 is fastest*/
   kRTPPayloadLossRecoveryTag =
       FOUR_CHAR_CODE('loss') /* 0-255, 0 can't handle any loss, 128 can handle
                                 50% packet loss*/
 };
 
-struct RTPPayloadCharacteristic {
+struct RTPPayloadCharacteristic
+{
   OSType tag;
   long value;
 };
@@ -511,7 +554,8 @@ typedef struct RTPPayloadCharacteristic RTPPayloadCharacteristic;
    key to sort on. value is positive for ascending sort (low value first),
    negative for descending sort (high value first).
 */
-struct RTPPayloadSortRequest {
+struct RTPPayloadSortRequest
+{
   long characteristicCount;
   RTPPayloadCharacteristic
       characteristic[1]; /* tag is key to sort on, value is + for ascending, -
@@ -520,12 +564,14 @@ struct RTPPayloadSortRequest {
 typedef struct RTPPayloadSortRequest RTPPayloadSortRequest;
 typedef RTPPayloadSortRequest *RTPPayloadSortRequestPtr;
 /* flags for RTPPayloadInfo */
-enum {
+enum
+{
   kRTPPayloadTypeStaticFlag = 0x00000001,
   kRTPPayloadTypeDynamicFlag = 0x00000002
 };
 
-struct RTPPayloadInfo {
+struct RTPPayloadInfo
+{
   long payloadFlags;
   UInt8 payloadID;
   char unused[3];
@@ -534,13 +580,14 @@ struct RTPPayloadInfo {
 typedef struct RTPPayloadInfo RTPPayloadInfo;
 typedef RTPPayloadInfo *RTPPayloadInfoPtr;
 typedef RTPPayloadInfoPtr *RTPPayloadInfoHandle;
-/*============================================================================
-        RTP Reassembler
-============================================================================*/
-typedef ComponentInstance RTPReassembler;
-enum { kRTPReassemblerType = FOUR_CHAR_CODE('rtpr') };
+/** \name RTP Reassembler */ typedef ComponentInstance RTPReassembler;
+enum
+{
+  kRTPReassemblerType = FOUR_CHAR_CODE('rtpr')
+};
 
-enum {
+enum
+{
   kRTPBaseReassemblerType = FOUR_CHAR_CODE('gnrc'),
   kRTP261ReassemblerType = FOUR_CHAR_CODE('h261'),
   kRTP263ReassemblerType = FOUR_CHAR_CODE('h263'),
@@ -554,7 +601,8 @@ enum {
   kRTPSorensonReassemblerType = FOUR_CHAR_CODE('SVQ1')
 };
 
-struct RTPRssmInitParams {
+struct RTPRssmInitParams
+{
   RTPSSRC ssrc;
   UInt8 payloadType;
   UInt8 pad[3];
@@ -562,7 +610,8 @@ struct RTPRssmInitParams {
   TimeScale timeScale;
 };
 typedef struct RTPRssmInitParams RTPRssmInitParams;
-struct RTPRssmPacket {
+struct RTPRssmPacket
+{
   struct RTPRssmPacket *next;
   struct RTPRssmPacket *prev;
   QTSStreamBuffer *streamBuffer;
@@ -579,26 +628,35 @@ struct RTPRssmPacket {
 };
 typedef struct RTPRssmPacket RTPRssmPacket;
 /* flags for RTPRssmPacket struct*/
-enum {
+enum
+{
   kRTPRssmPacketHasMarkerBitSet = 0x00000001,
   kRTPRssmPacketHasServerEditFlag = 0x00010000
 };
 
 /* flags for RTPRssmSendStreamBufferRange*/
-enum { kRTPRssmCanRefStreamBuffer = 0x00000001 };
+enum
+{
+  kRTPRssmCanRefStreamBuffer = 0x00000001
+};
 
 /* flags for RTPRssmSendPacketList*/
-enum { kRTPRssmLostSomePackets = 0x00000001 };
+enum
+{
+  kRTPRssmLostSomePackets = 0x00000001
+};
 
 /* flags for RTPRssmSetFlags*/
-enum {
+enum
+{
   kRTPRssmEveryPacketAChunkFlag = 0x00000001,
   kRTPRssmQueueAndUseMarkerBitFlag = 0x00000002,
   kRTPRssmTrackLostPacketsFlag = 0x00010000,
   kRTPRssmNoReorderingRequiredFlag = 0x00020000
 };
 
-struct RTPSendStreamBufferRangeParams {
+struct RTPSendStreamBufferRangeParams
+{
   QTSStreamBuffer *streamBuffer;
   TimeValue64 presentationTime;
   UInt32 chunkStartPosition;
@@ -609,14 +667,19 @@ struct RTPSendStreamBufferRangeParams {
 };
 typedef struct RTPSendStreamBufferRangeParams RTPSendStreamBufferRangeParams;
 /* characteristics*/
-enum {
+enum
+{
   kRTPCharacteristic_RequiresOrderedPackets = FOUR_CHAR_CODE('rrop'),
   kRTPCharacteristic_TimeStampsNotMonoIncreasing = FOUR_CHAR_CODE('tsmi')
 };
 
-enum { kRTPReassemblerInfoResType = FOUR_CHAR_CODE('rsmi') };
+enum
+{
+  kRTPReassemblerInfoResType = FOUR_CHAR_CODE('rsmi')
+};
 
-struct RTPReassemblerInfo {
+struct RTPReassemblerInfo
+{
   long characteristicCount;
   RTPPayloadCharacteristic characteristic[1];
 
@@ -627,14 +690,16 @@ struct RTPReassemblerInfo {
 typedef struct RTPReassemblerInfo RTPReassemblerInfo;
 typedef RTPReassemblerInfo *RTPReassemblerInfoPtr;
 typedef RTPReassemblerInfoPtr *RTPReassemblerInfoHandle;
-#define RTPReassemblerInfoToPayloadInfo(_rsmi)                                 \
-  ((RTPPayloadInfoPtr)(&(                                                      \
+#define RTPReassemblerInfoToPayloadInfo(_rsmi) \
+  ((RTPPayloadInfoPtr)(&(                      \
       (_rsmi)->characteristic[(_rsmi)->characteristicCount])))
 /* RTPReassemblerInfoElement structs are padded to 32 bits */
-enum { kRTPReassemblerInfoPadUpToBytes = 4 };
+enum
+{
+  kRTPReassemblerInfoPadUpToBytes = 4
+};
 
 /**
- *  QTSFindReassemblerForPayloadID()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -648,7 +713,6 @@ QTSFindReassemblerForPayloadID(UInt8 inPayloadID,
                                QTAtomContainer *outReassemblerList);
 
 /**
- *  QTSFindReassemblerForPayloadName()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -661,10 +725,11 @@ QTSFindReassemblerForPayloadName(const char *inPayloadName,
                                  RTPPayloadSortRequest *inSortInfo,
                                  QTAtomContainer *outReassemblerList);
 
-/*-----------------------------------------
+/*
     RTP Reassembler Selectors
------------------------------------------*/
-enum {
+
+enum
+{
   kRTPRssmSetCapabilitiesSelect = 0x0100,
   kRTPRssmGetCapabilitiesSelect = 0x0101,
   kRTPRssmSetPayloadHeaderLengthSelect = 0x0102,
@@ -698,13 +763,12 @@ enum {
   kRTPRssmResetSelect = 0x050C
 };
 
-/*-----------------------------------------
+/*
     RTP Reassembler functions - base to derived
------------------------------------------*/
+
 
 /**
- *  RTPRssmInitialize()
- *
+  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -716,7 +780,6 @@ RTPRssmInitialize(RTPReassembler rtpr, RTPRssmInitParams *inInitParams)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0500, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmHandleNewPacket()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -730,7 +793,6 @@ RTPRssmHandleNewPacket(RTPReassembler rtpr, QTSStreamBuffer *inStreamBuffer,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0501, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmComputeChunkSize()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -744,7 +806,6 @@ RTPRssmComputeChunkSize(RTPReassembler rtpr, RTPRssmPacket *inPacketListHead,
     FIVEWORDINLINE(0x2F3C, 0x000C, 0x0502, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmAdjustPacketParams()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -758,7 +819,6 @@ RTPRssmAdjustPacketParams(RTPReassembler rtpr, RTPRssmPacket *inPacket,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0503, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmCopyDataToChunk()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -773,7 +833,6 @@ RTPRssmCopyDataToChunk(RTPReassembler rtpr, RTPRssmPacket *inPacketListHead,
     FIVEWORDINLINE(0x2F3C, 0x0010, 0x0504, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSendPacketList()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -788,7 +847,6 @@ RTPRssmSendPacketList(RTPReassembler rtpr, RTPRssmPacket *inPacketListHead,
     FIVEWORDINLINE(0x2F3C, 0x000C, 0x0505, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmGetTimeScaleFromPacket()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -803,7 +861,6 @@ RTPRssmGetTimeScaleFromPacket(RTPReassembler rtpr,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0506, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSetInfo()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -816,7 +873,6 @@ RTPRssmSetInfo(RTPReassembler rtpr, OSType inSelector, void *ioParams)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0509, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmGetInfo()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -829,7 +885,6 @@ RTPRssmGetInfo(RTPReassembler rtpr, OSType inSelector, void *ioParams)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x050A, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmHasCharacteristic()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -843,7 +898,6 @@ RTPRssmHasCharacteristic(RTPReassembler rtpr, OSType inCharacteristic,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x050B, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmReset()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -855,12 +909,11 @@ EXTERN_API(ComponentResult)
 RTPRssmReset(RTPReassembler rtpr, SInt32 inFlags)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x050C, 0x7000, 0xA82A);
 
-/*-----------------------------------------
+/*
     RTP Reassembler functions - derived to base
------------------------------------------*/
-/* ----- setup*/
+
+/* p*/
 /**
- *  RTPRssmSetCapabilities()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -873,7 +926,6 @@ RTPRssmSetCapabilities(RTPReassembler rtpr, SInt32 inFlags, SInt32 inFlagsMask)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0100, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmGetCapabilities()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -886,7 +938,6 @@ RTPRssmGetCapabilities(RTPReassembler rtpr, SInt32 *outFlags)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSetPayloadHeaderLength()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -899,7 +950,6 @@ RTPRssmSetPayloadHeaderLength(RTPReassembler rtpr, UInt32 inPayloadHeaderLength)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmGetPayloadHeaderLength()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -913,7 +963,6 @@ RTPRssmGetPayloadHeaderLength(RTPReassembler rtpr,
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSetTimeScale()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -926,7 +975,6 @@ RTPRssmSetTimeScale(RTPReassembler rtpr, TimeScale inSHTimeScale)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0104, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmGetTimeScale()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -939,7 +987,6 @@ RTPRssmGetTimeScale(RTPReassembler rtpr, TimeScale *outSHTimeScale)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0105, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmNewStreamHandler()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -954,7 +1001,6 @@ RTPRssmNewStreamHandler(RTPReassembler rtpr, OSType inSHType,
     FIVEWORDINLINE(0x2F3C, 0x0010, 0x0106, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSetStreamHandler()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -967,7 +1013,6 @@ RTPRssmSetStreamHandler(RTPReassembler rtpr, ComponentInstance inStreamHandler)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0107, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmGetStreamHandler()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -981,7 +1026,6 @@ RTPRssmGetStreamHandler(RTPReassembler rtpr,
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0108, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSendStreamHandlerChanged()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -994,7 +1038,6 @@ RTPRssmSendStreamHandlerChanged(RTPReassembler rtpr)
     FIVEWORDINLINE(0x2F3C, 0x0000, 0x0109, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSetSampleDescription()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1007,9 +1050,8 @@ RTPRssmSetSampleDescription(RTPReassembler rtpr,
                             SampleDescriptionHandle inSampleDescription)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x010A, 0x7000, 0xA82A);
 
-/* ----- manually sending chunks*/
+/* ally sending chunks*/
 /**
- *  RTPRssmGetChunkAndIncrRefCount()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1024,7 +1066,6 @@ RTPRssmGetChunkAndIncrRefCount(RTPReassembler rtpr, UInt32 inChunkDataSize,
     FIVEWORDINLINE(0x2F3C, 0x000C, 0x010D, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSendChunkAndDecrRefCount()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1038,7 +1079,6 @@ RTPRssmSendChunkAndDecrRefCount(RTPReassembler rtpr, SHChunkRecord *inChunk,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x010E, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSendLostChunk()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1052,7 +1092,6 @@ RTPRssmSendLostChunk(RTPReassembler rtpr,
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x010F, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmSendStreamBufferRange()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1066,7 +1105,6 @@ RTPRssmSendStreamBufferRange(RTPReassembler rtpr,
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0110, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmClearCachedPackets()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1079,7 +1117,6 @@ RTPRssmClearCachedPackets(RTPReassembler rtpr, SInt32 inFlags)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0111, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmFillPacketListParams()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1094,7 +1131,6 @@ RTPRssmFillPacketListParams(RTPReassembler rtpr,
     FIVEWORDINLINE(0x2F3C, 0x000C, 0x0113, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmReleasePacketList()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1107,7 +1143,6 @@ RTPRssmReleasePacketList(RTPReassembler rtpr, RTPRssmPacket *inPacketListHead)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0114, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmIncrChunkRefCount()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1120,7 +1155,6 @@ RTPRssmIncrChunkRefCount(RTPReassembler rtpr, SHChunkRecord *inChunk)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0115, 0x7000, 0xA82A);
 
 /**
- *  RTPRssmDecrChunkRefCount()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1132,13 +1166,14 @@ EXTERN_API(ComponentResult)
 RTPRssmDecrChunkRefCount(RTPReassembler rtpr, SHChunkRecord *inChunk)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0116, 0x7000, 0xA82A);
 
-/*============================================================================
-        RTP Media Packetizer
-============================================================================*/
-enum { kRTPMediaPacketizerType = FOUR_CHAR_CODE('rtpm') };
+/** \name RTP Media Packetizer */ enum
+{
+  kRTPMediaPacketizerType = FOUR_CHAR_CODE('rtpm')
+};
 
 typedef ComponentInstance RTPMediaPacketizer;
-enum {
+enum
+{
   kRTPBaseMediaPacketizerType = FOUR_CHAR_CODE('gnrc'),
   kRTP261MediaPacketizerType = FOUR_CHAR_CODE('h261'),
   kRTP263PlusMediaPacketizerType = FOUR_CHAR_CODE('263+'),
@@ -1155,7 +1190,8 @@ typedef UInt32 RTPMPSampleRef;
 typedef CALLBACK_API(void, RTPMPDataReleaseProcPtr)(UInt8 *inData,
                                                     void *inRefCon);
 typedef STACK_UPP_TYPE(RTPMPDataReleaseProcPtr) RTPMPDataReleaseUPP;
-enum {
+enum
+{
   kMediaPacketizerCanPackEditRate = 1 << 0,
   kMediaPacketizerCanPackLayer = 1 << 1,
   kMediaPacketizerCanPackVolume = 1 << 2,
@@ -1164,23 +1200,25 @@ enum {
   kMediaPacketizerCanPackEmptyEdit = 1 << 5
 };
 
-struct MediaPacketizerRequirements {
+struct MediaPacketizerRequirements
+{
   OSType mediaType;  /* media type supported (0 for all)*/
   OSType dataFormat; /* data format (e.g., compression) supported (0 for all)*/
   UInt32
-      capabilityFlags; /* ability to handle non-standard track characteristics*/
+      capabilityFlags;     /* ability to handle non-standard track characteristics*/
   UInt8 canPackMatrixType; /* can pack any matrix type up to this
                               (identityMatrixType for identity only)*/
   UInt8 pad[3];
 };
 typedef struct MediaPacketizerRequirements MediaPacketizerRequirements;
 typedef MediaPacketizerRequirements *MediaPacketizerRequirementsPtr;
-struct MediaPacketizerInfo {
+struct MediaPacketizerInfo
+{
   OSType mediaType;  /* media type supported (0 for all)*/
   OSType dataFormat; /* data format (e.g., compression) supported (0 for all)*/
-  OSType vendor; /* manufacturer of this packetizer (e.g., 'appl' for Apple)*/
+  OSType vendor;     /* manufacturer of this packetizer (e.g., 'appl' for Apple)*/
   UInt32
-      capabilityFlags; /* ability to handle non-standard track characteristics*/
+      capabilityFlags;     /* ability to handle non-standard track characteristics*/
   UInt8 canPackMatrixType; /* can pack any matrix type up to this
                               (identityMatrixType for identity only)*/
   UInt8 pad[3];
@@ -1194,13 +1232,15 @@ struct MediaPacketizerInfo {
 typedef struct MediaPacketizerInfo MediaPacketizerInfo;
 typedef MediaPacketizerInfo *MediaPacketizerInfoPtr;
 typedef MediaPacketizerInfoPtr *MediaPacketizerInfoHandle;
-#define MediaPacketizerInfoToPayloadInfo(_mpi)                                 \
+#define MediaPacketizerInfoToPayloadInfo(_mpi) \
   ((RTPPayloadInfoPtr)(&((_mpi)->characteristic[(_mpi)->characteristicCount])))
 /* MediaPacketizerInfo structs are padded to 32 bits */
-enum { kMediaPacketizerInfoPadUpToBytes = 4 };
+enum
+{
+  kMediaPacketizerInfoPadUpToBytes = 4
+};
 
 /**
- *  QTSFindMediaPacketizer()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1215,7 +1255,6 @@ QTSFindMediaPacketizer(MediaPacketizerRequirementsPtr inPacketizerinfo,
                        QTAtomContainer *outPacketizerList);
 
 /**
- *  QTSFindMediaPacketizerForTrack()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1229,7 +1268,6 @@ QTSFindMediaPacketizerForTrack(Track inTrack, long inSampleDescriptionIndex,
                                QTAtomContainer *outPacketizerList);
 
 /**
- *  QTSFindMediaPacketizerForPayloadID()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1243,7 +1281,6 @@ QTSFindMediaPacketizerForPayloadID(long payloadID,
                                    QTAtomContainer *outPacketizerList);
 
 /**
- *  QTSFindMediaPacketizerForPayloadName()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1257,15 +1294,20 @@ QTSFindMediaPacketizerForPayloadName(const char *payloadName,
                                      QTAtomContainer *outPacketizerList);
 
 /* flags for RTPMPInitialize*/
-enum { kRTPMPRealtimeModeFlag = 0x00000001 };
+enum
+{
+  kRTPMPRealtimeModeFlag = 0x00000001
+};
 
 /* flags for RTPMPSampleDataParams*/
-enum {
+enum
+{
   kRTPMPSyncSampleFlag = 0x00000001,
   kRTPMPRespectDurationFlag = 0x00000002
 };
 
-struct RTPMPSampleDataParams {
+struct RTPMPSampleDataParams
+{
   UInt32 version;
   UInt32 timeStamp;
   UInt32 duration; /* 0 = unknown duration*/
@@ -1282,24 +1324,27 @@ struct RTPMPSampleDataParams {
 };
 typedef struct RTPMPSampleDataParams RTPMPSampleDataParams;
 /* out flags for idle, RTPMPSetSampleData, and RTPMPFlush*/
-enum {
+enum
+{
   kRTPMPStillProcessingData = 0x00000001 /* not done with data you've got*/
 };
 
-struct RTPMPPayloadTypeParams {
+struct RTPMPPayloadTypeParams
+{
   UInt32 flags;
   UInt32 payloadNumber;
-  short nameLength; /* in: size of payloadName buffer (counting null terminator)
-                       -- this will be reset to needed length and paramErr
-                       returned if too small */
+  short nameLength;  /* in: size of payloadName buffer (counting null terminator)
+                        -- this will be reset to needed length and paramErr
+                        returned if too small */
   char *payloadName; /* caller must provide buffer */
 };
 typedef struct RTPMPPayloadTypeParams RTPMPPayloadTypeParams;
-/*-----------------------------------------
+/*
     RTP Media Packetizer Info selectors
------------------------------------------*/
+
 /* info selectors - get only */
-enum {
+enum
+{
   kRTPMPPayloadTypeInfo = FOUR_CHAR_CODE('rtpp'),  /* RTPMPPayloadTypeParams* */
   kRTPMPRTPTimeScaleInfo = FOUR_CHAR_CODE('rtpt'), /* TimeScale* */
   kRTPMPRequiredSampleDescriptionInfo =
@@ -1307,7 +1352,7 @@ enum {
   kRTPMPMinPayloadSize = FOUR_CHAR_CODE(
       'mins'), /* UInt32* in bytes, does not include rtp header; default is 0 */
   kRTPMPMinPacketDuration = FOUR_CHAR_CODE(
-      'mind'), /* UInt3* in milliseconds; default is no min required */
+      'mind'),                                                /* UInt3* in milliseconds; default is no min required */
   kRTPMPSuggestedRepeatPktCountInfo = FOUR_CHAR_CODE('srpc'), /* UInt32* */
   kRTPMPSuggestedRepeatPktSpacingInfo =
       FOUR_CHAR_CODE('srps'), /* UInt32* in milliseconds */
@@ -1318,11 +1363,12 @@ enum {
   kRTPMPPayloadNameInfo = FOUR_CHAR_CODE('name') /* StringPtr */
 };
 
-/*-----------------------------------------
+/*
     RTP Media Packetizer Characteristics
------------------------------------------*/
+
 /* also supports relevant ones in Movies.h and QTSToolbox.h */
-enum {
+enum
+{
   kRTPMPNoSampleDataRequiredCharacteristic = FOUR_CHAR_CODE('nsdr'),
   kRTPMPHasUserSettingsDialogCharacteristic = FOUR_CHAR_CODE('sdlg'),
   kRTPMPPrefersReliableTransportCharacteristic = FOUR_CHAR_CODE('rely'),
@@ -1330,10 +1376,11 @@ enum {
   kRTPMPReadsPartialSamplesCharacteristic = FOUR_CHAR_CODE('rpsp')
 };
 
-/*-----------------------------------------
+/*
     RTP Media Packetizer selectors
------------------------------------------*/
-enum {
+
+enum
+{
   kRTPMPInitializeSelect = 0x0500,
   kRTPMPPreflightMediaSelect = 0x0501,
   kRTPMPIdleSelect = 0x0502,
@@ -1356,23 +1403,23 @@ enum {
   kRTPMPSetMaxPacketDurationSelect = 0x0514,
   kRTPMPGetMaxPacketDurationSelect =
       0x0515, /* for export component and apps who want to*/
-              /* access dialogs for Media-specific settings*/
-              /* (such as Pure Voice interleave factor)*/
-  kRTPMPDoUserDialogSelect = 0x0516,
-  kRTPMPSetSettingsFromAtomContainerAtAtomSelect = 0x0517,
-  kRTPMPGetSettingsIntoAtomContainerAtAtomSelect = 0x0518,
-  kRTPMPGetSettingsAsTextSelect = 0x0519,
-  kRTPMPGetSettingsSelect = 0x051A,
-  kRTPMPSetSettingsSelect = 0x051B
-};
+/* access dialogs for Media-specific settings*/
+/* (such as Pure Voice interleave factor)*/
+kRTPMPDoUserDialogSelect = 0x0516,
+    kRTPMPSetSettingsFromAtomContainerAtAtomSelect = 0x0517,
+    kRTPMPGetSettingsIntoAtomContainerAtAtomSelect = 0x0518,
+    kRTPMPGetSettingsAsTextSelect = 0x0519,
+    kRTPMPGetSettingsSelect = 0x051A,
+    kRTPMPSetSettingsSelect = 0x051B
+}
+;
 
-/*-----------------------------------------
+/*
     RTP Media Packetizer functions
------------------------------------------*/
+
 
 /**
- *  RTPMPInitialize()
- *
+  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -1385,7 +1432,6 @@ RTPMPInitialize(RTPMediaPacketizer rtpm, SInt32 inFlags)
 
 /* return noErr if you can handle this media */
 /**
- *  RTPMPPreflightMedia()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1403,7 +1449,6 @@ RTPMPPreflightMedia(RTPMediaPacketizer rtpm, OSType inMediaType,
    if you're doing time consuming operations
 */
 /**
- *  RTPMPIdle()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1423,7 +1468,6 @@ RTPMPIdle(RTPMediaPacketizer rtpm, SInt32 inFlags, SInt32 *outFlags)
    much cpu time - otherwise do it in idle
 */
 /**
- *  RTPMPSetSampleData()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1441,7 +1485,6 @@ RTPMPSetSampleData(RTPMediaPacketizer rtpm,
    you set the kRTPMPStillProcessingData flag here and in idle
 */
 /**
- *  RTPMPFlush()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1460,7 +1503,6 @@ RTPMPFlush(RTPMediaPacketizer rtpm, SInt32 inFlags, SInt32 *outFlags)
    state should be the same as if you were just initialized
 */
 /**
- *  RTPMPReset()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1472,12 +1514,11 @@ EXTERN_API(ComponentResult)
 RTPMPReset(RTPMediaPacketizer rtpm, SInt32 inFlags)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0505, 0x7000, 0xA82A);
 
-/*-----------------------------------------
+/*
     RTP Media Packetizer get / set functions
------------------------------------------*/
+
 /**
- *  RTPMPSetInfo()
- *
+  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -1489,7 +1530,6 @@ RTPMPSetInfo(RTPMediaPacketizer rtpm, OSType inSelector, const void *ioParams)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0506, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetInfo()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1502,7 +1542,6 @@ RTPMPGetInfo(RTPMediaPacketizer rtpm, OSType inSelector, void *ioParams)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0507, 0x7000, 0xA82A);
 
 /**
- *  RTPMPSetTimeScale()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1515,7 +1554,6 @@ RTPMPSetTimeScale(RTPMediaPacketizer rtpm, TimeScale inTimeScale)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0508, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetTimeScale()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1528,7 +1566,6 @@ RTPMPGetTimeScale(RTPMediaPacketizer rtpm, TimeScale *outTimeScale)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0509, 0x7000, 0xA82A);
 
 /**
- *  RTPMPSetTimeBase()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1541,7 +1578,6 @@ RTPMPSetTimeBase(RTPMediaPacketizer rtpm, TimeBase inTimeBase)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x050A, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetTimeBase()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1554,7 +1590,6 @@ RTPMPGetTimeBase(RTPMediaPacketizer rtpm, TimeBase *outTimeBase)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x050B, 0x7000, 0xA82A);
 
 /**
- *  RTPMPHasCharacteristic()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1568,7 +1603,6 @@ RTPMPHasCharacteristic(RTPMediaPacketizer rtpm, OSType inSelector,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x050C, 0x7000, 0xA82A);
 
 /**
- *  RTPMPSetPacketBuilder()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1582,7 +1616,6 @@ RTPMPSetPacketBuilder(RTPMediaPacketizer rtpm,
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x050E, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetPacketBuilder()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1596,7 +1629,6 @@ RTPMPGetPacketBuilder(RTPMediaPacketizer rtpm,
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x050F, 0x7000, 0xA82A);
 
 /**
- *  RTPMPSetMediaType()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1609,7 +1641,6 @@ RTPMPSetMediaType(RTPMediaPacketizer rtpm, OSType inMediaType)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0510, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetMediaType()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1623,7 +1654,6 @@ RTPMPGetMediaType(RTPMediaPacketizer rtpm, OSType *outMediaType)
 
 /* size is in bytes*/
 /**
- *  RTPMPSetMaxPacketSize()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1636,7 +1666,6 @@ RTPMPSetMaxPacketSize(RTPMediaPacketizer rtpm, UInt32 inMaxPacketSize)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0512, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetMaxPacketSize()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1650,7 +1679,6 @@ RTPMPGetMaxPacketSize(RTPMediaPacketizer rtpm, UInt32 *outMaxPacketSize)
 
 /* duration is in milliseconds*/
 /**
- *  RTPMPSetMaxPacketDuration()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1663,7 +1691,6 @@ RTPMPSetMaxPacketDuration(RTPMediaPacketizer rtpm, UInt32 inMaxPacketDuration)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0514, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetMaxPacketDuration()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1676,7 +1703,6 @@ RTPMPGetMaxPacketDuration(RTPMediaPacketizer rtpm, UInt32 *outMaxPacketDuration)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0515, 0x7000, 0xA82A);
 
 /**
- *  RTPMPDoUserDialog()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1690,7 +1716,6 @@ RTPMPDoUserDialog(RTPMediaPacketizer rtpm, ModalFilterUPP inFilterUPP,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0516, 0x7000, 0xA82A);
 
 /**
- *  RTPMPSetSettingsFromAtomContainerAtAtom()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1705,7 +1730,6 @@ RTPMPSetSettingsFromAtomContainerAtAtom(RTPMediaPacketizer rtpm,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0517, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetSettingsIntoAtomContainerAtAtom()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1720,7 +1744,6 @@ RTPMPGetSettingsIntoAtomContainerAtAtom(RTPMediaPacketizer rtpm,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0518, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetSettingsAsText()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1733,7 +1756,6 @@ RTPMPGetSettingsAsText(RTPMediaPacketizer rtpm, Handle *text)
     FIVEWORDINLINE(0x2F3C, 0x0004, 0x0519, 0x7000, 0xA82A);
 
 /**
- *  RTPMPGetSettings()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
@@ -1747,7 +1769,6 @@ RTPMPGetSettings(RTPMediaPacketizer rtpm, QTAtomContainer *outSettings,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x051A, 0x7000, 0xA82A);
 
 /**
- *  RTPMPSetSettings()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
@@ -1760,17 +1781,18 @@ RTPMPSetSettings(RTPMediaPacketizer rtpm, QTAtomSpecPtr inSettings,
                  SInt32 inFlags)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x051B, 0x7000, 0xA82A);
 
-/*============================================================================
-        RTP Packet Builder
-============================================================================*/
-enum { kRTPPacketBuilderType = FOUR_CHAR_CODE('rtpb') };
+/** \name RTP Packet Builder */ enum
+{
+  kRTPPacketBuilderType = FOUR_CHAR_CODE('rtpb')
+};
 
 typedef ComponentInstance RTPPacketBuilder;
 typedef struct OpaqueRTPPacketGroupRef *RTPPacketGroupRef;
 typedef struct OpaqueRTPPacketRef *RTPPacketRef;
 typedef struct OpaqueRTPPacketRepeatedDataRef *RTPPacketRepeatedDataRef;
 /* flags for RTPPBBegin/EndPacket, RTPPBBegin/EndPacketGroup*/
-enum {
+enum
+{
   kRTPPBSetMarkerFlag = 0x00000001,
   kRTPPBRepeatPacketFlag = 0x00000002,
   kRTPPBSyncSampleFlag = 0x00010000,
@@ -1779,19 +1801,26 @@ enum {
       0x10000000 /* when set in EndPacketGroup, will not add group*/
 };
 
-enum { kRTPPBUnknownPacketMediaDataLength = 0 };
+enum
+{
+  kRTPPBUnknownPacketMediaDataLength = 0
+};
 
 /* flags for RTPPBGetSampleData*/
-enum { kRTPPBEndOfDataFlag = 0x00000001 };
+enum
+{
+  kRTPPBEndOfDataFlag = 0x00000001
+};
 
 typedef CALLBACK_API(void, RTPPBCallbackProcPtr)(OSType inSelector,
                                                  void *ioParams,
                                                  void *inRefCon);
 typedef STACK_UPP_TYPE(RTPPBCallbackProcPtr) RTPPBCallbackUPP;
-/*-----------------------------------------
+/*
     RTP Packet Builder selectors
------------------------------------------*/
-enum {
+
+enum
+{
   kRTPPBBeginPacketGroupSelect = 0x0500,
   kRTPPBEndPacketGroupSelect = 0x0501,
   kRTPPBBeginPacketSelect = 0x0502,
@@ -1813,12 +1842,11 @@ enum {
   kRTPPBAddRepeatPacketSelect = 0x0512
 };
 
-/*-----------------------------------------
+/*
     RTP Packet Builder functions
------------------------------------------*/
+
 /**
- *  RTPPBBeginPacketGroup()
- *
+  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -1831,7 +1859,6 @@ RTPPBBeginPacketGroup(RTPPacketBuilder rtpb, SInt32 inFlags, UInt32 inTimeStamp,
     FIVEWORDINLINE(0x2F3C, 0x000C, 0x0500, 0x7000, 0xA82A);
 
 /**
- *  RTPPBEndPacketGroup()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1845,7 +1872,6 @@ RTPPBEndPacketGroup(RTPPacketBuilder rtpb, SInt32 inFlags,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x0501, 0x7000, 0xA82A);
 
 /**
- *  RTPPBBeginPacket()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1860,7 +1886,6 @@ RTPPBBeginPacket(RTPPacketBuilder rtpb, SInt32 inFlags,
     FIVEWORDINLINE(0x2F3C, 0x0010, 0x0502, 0x7000, 0xA82A);
 
 /**
- *  RTPPBEndPacket()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1879,7 +1904,6 @@ RTPPBEndPacket(RTPPacketBuilder rtpb, SInt32 inFlags,
    pb must return a repeated data ref
 */
 /**
- *  RTPPBAddPacketLiteralData()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1900,7 +1924,6 @@ RTPPBAddPacketLiteralData(RTPPacketBuilder rtpb, SInt32 inFlags,
    pb must return a repeated data ref
 */
 /**
- *  RTPPBAddPacketSampleData()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1921,7 +1944,6 @@ RTPPBAddPacketSampleData(RTPPacketBuilder rtpb, SInt32 inFlags,
    pb must return a repeated data ref
 */
 /**
- *  RTPPBAddPacketSampleData64()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
@@ -1944,7 +1966,6 @@ RTPPBAddPacketSampleData64(RTPPacketBuilder rtpb, SInt32 inFlags,
    RTPPBAddPacketLiteralData or RTPPBAddPacketSampleData
 */
 /**
- *  RTPPBAddPacketRepeatedData()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1961,7 +1982,6 @@ RTPPBAddPacketRepeatedData(RTPPacketBuilder rtpb, SInt32 inFlags,
 
 /* call when done with repeated data*/
 /**
- *  RTPPBReleaseRepeatedData()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1979,7 +1999,6 @@ RTPPBReleaseRepeatedData(RTPPacketBuilder rtpb,
    don't call if you don't care when seq # is used
 */
 /**
- *  RTPPBSetPacketSequenceNumber()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1994,7 +2013,6 @@ RTPPBSetPacketSequenceNumber(RTPPacketBuilder rtpb, SInt32 inFlags,
     FIVEWORDINLINE(0x2F3C, 0x0010, 0x0508, 0x7000, 0xA82A);
 
 /**
- *  RTPPBGetPacketSequenceNumber()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -2009,7 +2027,6 @@ RTPPBGetPacketSequenceNumber(RTPPacketBuilder rtpb, SInt32 inFlags,
     FIVEWORDINLINE(0x2F3C, 0x0010, 0x0509, 0x7000, 0xA82A);
 
 /**
- *  RTPPBSetPacketTimeStampOffset()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
@@ -2024,7 +2041,6 @@ RTPPBSetPacketTimeStampOffset(RTPPacketBuilder rtpb, SInt32 inFlags,
     FIVEWORDINLINE(0x2F3C, 0x0010, 0x050E, 0x7000, 0xA82A);
 
 /**
- *  RTPPBGetPacketTimeStampOffset()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
@@ -2039,7 +2055,6 @@ RTPPBGetPacketTimeStampOffset(RTPPacketBuilder rtpb, SInt32 inFlags,
     FIVEWORDINLINE(0x2F3C, 0x0010, 0x050F, 0x7000, 0xA82A);
 
 /**
- *  RTPPBAddRepeatPacket()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
@@ -2058,7 +2073,6 @@ RTPPBAddRepeatPacket(RTPPacketBuilder rtpb, SInt32 inFlags,
    NOT used for communicating with the media packetizers themselves
 */
 /**
- *  RTPPBSetCallback()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -2072,7 +2086,6 @@ RTPPBSetCallback(RTPPacketBuilder rtpb, RTPPBCallbackUPP inCallback,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x050A, 0x7000, 0xA82A);
 
 /**
- *  RTPPBGetCallback()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -2086,7 +2099,6 @@ RTPPBGetCallback(RTPPacketBuilder rtpb, RTPPBCallbackUPP *outCallback,
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x050B, 0x7000, 0xA82A);
 
 /**
- *  RTPPBSetInfo()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -2099,7 +2111,6 @@ RTPPBSetInfo(RTPPacketBuilder rtpb, OSType inSelector, void *ioParams)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x050C, 0x7000, 0xA82A);
 
 /**
- *  RTPPBGetInfo()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -2112,7 +2123,6 @@ RTPPBGetInfo(RTPPacketBuilder rtpb, OSType inSelector, void *ioParams)
     FIVEWORDINLINE(0x2F3C, 0x0008, 0x050D, 0x7000, 0xA82A);
 
 /**
- *  RTPPBGetSampleData()
  *
  *  Availability:
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
@@ -2128,7 +2138,6 @@ RTPPBGetSampleData(RTPPacketBuilder rtpb, RTPMPSampleDataParams *inParams,
 
 /* UPP call backs */
 /**
- *  NewRTPMPDataReleaseUPP()
  *
  *  Availability:
  *    \non_carbon_cfm   available as macro/inline
@@ -2138,26 +2147,27 @@ RTPPBGetSampleData(RTPPacketBuilder rtpb, RTPMPSampleDataParams *inParams,
 EXTERN_API_C(RTPMPDataReleaseUPP)
 NewRTPMPDataReleaseUPP(RTPMPDataReleaseProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
+enum
+{
   uppRTPMPDataReleaseProcInfo = 0x000003C0
 }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
 inline RTPMPDataReleaseUPP
-NewRTPMPDataReleaseUPP(RTPMPDataReleaseProcPtr userRoutine) {
+NewRTPMPDataReleaseUPP(RTPMPDataReleaseProcPtr userRoutine)
+{
   return (RTPMPDataReleaseUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                    uppRTPMPDataReleaseProcInfo,
                                                    GetCurrentArchitecture());
 }
 #else
-#define NewRTPMPDataReleaseUPP(userRoutine)                                    \
-  (RTPMPDataReleaseUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),           \
-                                             uppRTPMPDataReleaseProcInfo,      \
+#define NewRTPMPDataReleaseUPP(userRoutine)                               \
+  (RTPMPDataReleaseUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),      \
+                                             uppRTPMPDataReleaseProcInfo, \
                                              GetCurrentArchitecture())
 #endif
 #endif
 
 /**
- *  NewRTPPBCallbackUPP()
  *
  *  Availability:
  *    \non_carbon_cfm   available as macro/inline
@@ -2167,25 +2177,26 @@ NewRTPMPDataReleaseUPP(RTPMPDataReleaseProcPtr userRoutine) {
 EXTERN_API_C(RTPPBCallbackUPP)
 NewRTPPBCallbackUPP(RTPPBCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
+enum
+{
   uppRTPPBCallbackProcInfo = 0x00000FC0
 }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline RTPPBCallbackUPP NewRTPPBCallbackUPP(RTPPBCallbackProcPtr userRoutine) {
+inline RTPPBCallbackUPP NewRTPPBCallbackUPP(RTPPBCallbackProcPtr userRoutine)
+{
   return (RTPPBCallbackUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                 uppRTPPBCallbackProcInfo,
                                                 GetCurrentArchitecture());
 }
 #else
-#define NewRTPPBCallbackUPP(userRoutine)                                       \
-  (RTPPBCallbackUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppRTPPBCallbackProcInfo,   \
+#define NewRTPPBCallbackUPP(userRoutine)                                     \
+  (RTPPBCallbackUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppRTPPBCallbackProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
 /**
- *  DisposeRTPMPDataReleaseUPP()
  *
  *  Availability:
  *    \non_carbon_cfm   available as macro/inline
@@ -2196,7 +2207,8 @@ EXTERN_API_C(void)
 DisposeRTPMPDataReleaseUPP(RTPMPDataReleaseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeRTPMPDataReleaseUPP(RTPMPDataReleaseUPP userUPP) {
+inline void DisposeRTPMPDataReleaseUPP(RTPMPDataReleaseUPP userUPP)
+{
   DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
 }
 #else
@@ -2205,7 +2217,6 @@ inline void DisposeRTPMPDataReleaseUPP(RTPMPDataReleaseUPP userUPP) {
 #endif
 
 /**
- *  DisposeRTPPBCallbackUPP()
  *
  *  Availability:
  *    \non_carbon_cfm   available as macro/inline
@@ -2216,7 +2227,8 @@ EXTERN_API_C(void)
 DisposeRTPPBCallbackUPP(RTPPBCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeRTPPBCallbackUPP(RTPPBCallbackUPP userUPP) {
+inline void DisposeRTPPBCallbackUPP(RTPPBCallbackUPP userUPP)
+{
   DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
 }
 #else
@@ -2225,7 +2237,6 @@ inline void DisposeRTPPBCallbackUPP(RTPPBCallbackUPP userUPP) {
 #endif
 
 /**
- *  InvokeRTPMPDataReleaseUPP()
  *
  *  Availability:
  *    \non_carbon_cfm   available as macro/inline
@@ -2238,19 +2249,19 @@ InvokeRTPMPDataReleaseUPP(UInt8 *inData, void *inRefCon,
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
 inline void InvokeRTPMPDataReleaseUPP(UInt8 *inData, void *inRefCon,
-                                      RTPMPDataReleaseUPP userUPP) {
+                                      RTPMPDataReleaseUPP userUPP)
+{
   CALL_TWO_PARAMETER_UPP(userUPP, uppRTPMPDataReleaseProcInfo, inData,
                          inRefCon);
 }
 #else
-#define InvokeRTPMPDataReleaseUPP(inData, inRefCon, userUPP)                   \
-  CALL_TWO_PARAMETER_UPP((userUPP), uppRTPMPDataReleaseProcInfo, (inData),     \
+#define InvokeRTPMPDataReleaseUPP(inData, inRefCon, userUPP)               \
+  CALL_TWO_PARAMETER_UPP((userUPP), uppRTPMPDataReleaseProcInfo, (inData), \
                          (inRefCon))
 #endif
 #endif
 
 /**
- *  InvokeRTPPBCallbackUPP()
  *
  *  Availability:
  *    \non_carbon_cfm   available as macro/inline
@@ -2263,13 +2274,14 @@ InvokeRTPPBCallbackUPP(OSType inSelector, void *ioParams, void *inRefCon,
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
 inline void InvokeRTPPBCallbackUPP(OSType inSelector, void *ioParams,
-                                   void *inRefCon, RTPPBCallbackUPP userUPP) {
+                                   void *inRefCon, RTPPBCallbackUPP userUPP)
+{
   CALL_THREE_PARAMETER_UPP(userUPP, uppRTPPBCallbackProcInfo, inSelector,
                            ioParams, inRefCon);
 }
 #else
-#define InvokeRTPPBCallbackUPP(inSelector, ioParams, inRefCon, userUPP)        \
-  CALL_THREE_PARAMETER_UPP((userUPP), uppRTPPBCallbackProcInfo, (inSelector),  \
+#define InvokeRTPPBCallbackUPP(inSelector, ioParams, inRefCon, userUPP)       \
+  CALL_THREE_PARAMETER_UPP((userUPP), uppRTPPBCallbackProcInfo, (inSelector), \
                            (ioParams), (inRefCon))
 #endif
 #endif
@@ -2278,9 +2290,9 @@ inline void InvokeRTPPBCallbackUPP(OSType inSelector, void *ioParams,
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewRTPMPDataReleaseProc(userRoutine) NewRTPMPDataReleaseUPP(userRoutine)
 #define NewRTPPBCallbackProc(userRoutine) NewRTPPBCallbackUPP(userRoutine)
-#define CallRTPMPDataReleaseProc(userRoutine, inData, inRefCon)                \
+#define CallRTPMPDataReleaseProc(userRoutine, inData, inRefCon) \
   InvokeRTPMPDataReleaseUPP(inData, inRefCon, userRoutine)
-#define CallRTPPBCallbackProc(userRoutine, inSelector, ioParams, inRefCon)     \
+#define CallRTPPBCallbackProc(userRoutine, inSelector, ioParams, inRefCon) \
   InvokeRTPPBCallbackUPP(inSelector, ioParams, inRefCon, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 

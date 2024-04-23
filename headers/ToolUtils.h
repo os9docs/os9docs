@@ -9,7 +9,7 @@
     \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup CommunicationsToolbox
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -44,7 +44,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -59,145 +60,137 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/**
-©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
-    Note:
+  /**
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+      Note:
 
-    The following routines that used to be in this header file, have moved to
-    more appropriate headers.
+      The following routines that used to be in this header file, have moved to
+      more appropriate headers.
 
-        FixMath.h:      FixMul
-                        FixRatio
-                        FixRound
+          FixMath.h:      FixMul
+                          FixRatio
+                          FixRound
 
-        Icons.h:        GetIcon
-                        PlotIcon
+          Icons.h:        GetIcon
+                          PlotIcon
 
-        Quickdraw.h:    AngleFromSlope
-                        DeltaPoint
-                        GetCursor
-                        GetIndPattern
-                        GetPattern
-                        GetPicture
-                        PackBits
-                        ScreenRes
-                        ShieldCursor
-                        SlopeFromAngle
-                        UnpackBits
+          Quickdraw.h:    AngleFromSlope
+                          DeltaPoint
+                          GetCursor
+                          GetIndPattern
+                          GetPattern
+                          GetPicture
+                          PackBits
+                          ScreenRes
+                          ShieldCursor
+                          SlopeFromAngle
+                          UnpackBits
 
-        TextUtils.h:    Munger
-                        GetIndString
-                        GetString
-                        NewString
-                        SetString
-©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
-*/
+          TextUtils.h:    Munger
+                          GetIndString
+                          GetString
+                          NewString
+                          SetString
+  ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  */
 
-/**
- *  BitTst()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-BitTst(const void *bytePtr, long bitNum) ONEWORDINLINE(0xA85D);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(Boolean)
+  BitTst(const void *bytePtr, long bitNum) ONEWORDINLINE(0xA85D);
 
-/**
- *  BitSet()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-BitSet(void *bytePtr, long bitNum) ONEWORDINLINE(0xA85E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(void)
+  BitSet(void *bytePtr, long bitNum) ONEWORDINLINE(0xA85E);
 
-/**
- *  BitClr()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-BitClr(void *bytePtr, long bitNum) ONEWORDINLINE(0xA85F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(void)
+  BitClr(void *bytePtr, long bitNum) ONEWORDINLINE(0xA85F);
 
-/**
- *  BitAnd()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-BitAnd(long value1, long value2) ONEWORDINLINE(0xA858);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(long)
+  BitAnd(long value1, long value2) ONEWORDINLINE(0xA858);
 
-/**
- *  BitOr()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-BitOr(long value1, long value2) ONEWORDINLINE(0xA85B);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(long)
+  BitOr(long value1, long value2) ONEWORDINLINE(0xA85B);
 
-/**
- *  BitXor()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-BitXor(long value1, long value2) ONEWORDINLINE(0xA859);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(long)
+  BitXor(long value1, long value2) ONEWORDINLINE(0xA859);
 
-/**
- *  BitNot()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-BitNot(long value) ONEWORDINLINE(0xA85A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(long)
+  BitNot(long value) ONEWORDINLINE(0xA85A);
 
-/**
- *  BitShift()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-BitShift(long value, short count) ONEWORDINLINE(0xA85C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API(long)
+  BitShift(long value, short count) ONEWORDINLINE(0xA85C);
 
 #if TARGET_CPU_68K
-struct Int64Bit {
-  SInt32 hiLong;
-  UInt32 loLong;
-};
-typedef struct Int64Bit Int64Bit;
+  struct Int64Bit
+  {
+    SInt32 hiLong;
+    UInt32 loLong;
+  };
+  typedef struct Int64Bit Int64Bit;
 #if CALL_NOT_IN_CARBON
-/**
- *  LongMul()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LongMul(long a, long b, Int64Bit *result) ONEWORDINLINE(0xA867);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API(void)
+  LongMul(long a, long b, Int64Bit *result) ONEWORDINLINE(0xA867);
 
 #else
 #define LongMul(a, b, result) ((void)WideMultiply((a), (b), (wide *)(result)))

@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup CoreGraphics
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -37,7 +37,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -67,233 +68,217 @@ extern "C" {
 #endif
 #endif
 
-typedef struct CGImage *CGImageRef;
-enum CGImageAlphaInfo {
-  kCGImageAlphaNone = 0,
-  kCGImageAlphaPremultipliedLast = 1,  /* For example, premultiplied RGBA */
-  kCGImageAlphaPremultipliedFirst = 2, /* For example, premultiplied ARGB */
-  kCGImageAlphaLast = 3,               /* For example, non-premultiplied RGBA */
-  kCGImageAlphaFirst = 4,              /* For example, non-premultiplied ARGB */
-  kCGImageAlphaNoneSkipLast = 5,       /* Equivalent to kCGImageAlphaNone. */
-  kCGImageAlphaNoneSkipFirst = 6
-};
-typedef enum CGImageAlphaInfo CGImageAlphaInfo;
+  typedef struct CGImage *CGImageRef;
+  enum CGImageAlphaInfo
+  {
+    kCGImageAlphaNone = 0,
+    kCGImageAlphaPremultipliedLast = 1,  /* For example, premultiplied RGBA */
+    kCGImageAlphaPremultipliedFirst = 2, /* For example, premultiplied ARGB */
+    kCGImageAlphaLast = 3,               /* For example, non-premultiplied RGBA */
+    kCGImageAlphaFirst = 4,              /* For example, non-premultiplied ARGB */
+    kCGImageAlphaNoneSkipLast = 5,       /* Equivalent to kCGImageAlphaNone. */
+    kCGImageAlphaNoneSkipFirst = 6
+  };
+  typedef enum CGImageAlphaInfo CGImageAlphaInfo;
 
-/* Create an image. */
-/**
- *  CGImageCreate()
- *
+  /* Create an image. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGImageRef)
-CGImageCreate(size_t width, size_t height, size_t bitsPerComponent,
-              size_t bitsPerPixel, size_t bytesPerRow,
-              CGColorSpaceRef colorspace, CGImageAlphaInfo alphaInfo,
-              CGDataProviderRef provider, const float decode[],
-              int shouldInterpolate, CGColorRenderingIntent intent);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(CGImageRef)
+  CGImageCreate(size_t width, size_t height, size_t bitsPerComponent,
+                size_t bitsPerPixel, size_t bytesPerRow,
+                CGColorSpaceRef colorspace, CGImageAlphaInfo alphaInfo,
+                CGDataProviderRef provider, const float decode[],
+                int shouldInterpolate, CGColorRenderingIntent intent);
 
-/* Create an image mask. */
-/**
- *  CGImageMaskCreate()
- *
+  /* Create an image mask. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGImageRef)
-CGImageMaskCreate(size_t width, size_t height, size_t bitsPerComponent,
-                  size_t bitsPerPixel, size_t bytesPerRow,
-                  CGDataProviderRef provider, const float decode[],
-                  int shouldInterpolate);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(CGImageRef)
+  CGImageMaskCreate(size_t width, size_t height, size_t bitsPerComponent,
+                    size_t bitsPerPixel, size_t bytesPerRow,
+                    CGDataProviderRef provider, const float decode[],
+                    int shouldInterpolate);
 
-/* Create an image from `source', a data provider of JPEG-encoded data. */
-/**
- *  CGImageCreateWithJPEGDataProvider()
- *
+  /* Create an image from `source', a data provider of JPEG-encoded data. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.1 and later
- */
-EXTERN_API_C(CGImageRef)
-CGImageCreateWithJPEGDataProvider(CGDataProviderRef source,
-                                  const float decode[], int shouldInterpolate,
-                                  CGColorRenderingIntent intent);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.1 and later
+   */
+  EXTERN_API_C(CGImageRef)
+  CGImageCreateWithJPEGDataProvider(CGDataProviderRef source,
+                                    const float decode[], int shouldInterpolate,
+                                    CGColorRenderingIntent intent);
 
-/* Increment the retain count of `image' and return it.  All images are
- * created with an initial retain count of 1. */
-/**
- *  CGImageRetain()
- *
+  /* Increment the retain count of `image' and return it.  All images are
+   * created with an initial retain count of 1. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGImageRef)
-CGImageRetain(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(CGImageRef)
+  CGImageRetain(CGImageRef image);
 
-/* Decrement the retain count of `image'.  If the retain count reaches 0,
- * then release it and any associated resources. */
-/**
- *  CGImageRelease()
- *
+  /* Decrement the retain count of `image'.  If the retain count reaches 0,
+   * then release it and any associated resources. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-CGImageRelease(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(void)
+  CGImageRelease(CGImageRef image);
 
-/* Return 1 if `image' is an image mask, 0 otherwise. */
-/**
- *  CGImageIsMask()
- *
+  /* Return 1 if `image' is an image mask, 0 otherwise. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(int)
-CGImageIsMask(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(int)
+  CGImageIsMask(CGImageRef image);
 
-/* Return the width of `image'. */
-/**
- *  CGImageGetWidth()
- *
+  /* Return the width of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(size_t)
-CGImageGetWidth(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(size_t)
+  CGImageGetWidth(CGImageRef image);
 
-/* Return the height of `image'. */
-/**
- *  CGImageGetHeight()
- *
+  /* Return the height of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(size_t)
-CGImageGetHeight(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(size_t)
+  CGImageGetHeight(CGImageRef image);
 
-/* Return the number of bits/component of `image'. */
-/**
- *  CGImageGetBitsPerComponent()
- *
+  /* Return the number of bits/component of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(size_t)
-CGImageGetBitsPerComponent(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(size_t)
+  CGImageGetBitsPerComponent(CGImageRef image);
 
-/* Return the number of bits/pixel of `image'. */
-/**
- *  CGImageGetBitsPerPixel()
- *
+  /* Return the number of bits/pixel of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(size_t)
-CGImageGetBitsPerPixel(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(size_t)
+  CGImageGetBitsPerPixel(CGImageRef image);
 
-/* Return the number of bytes/row of `image'. */
-/**
- *  CGImageGetBytesPerRow()
- *
+  /* Return the number of bytes/row of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(size_t)
-CGImageGetBytesPerRow(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(size_t)
+  CGImageGetBytesPerRow(CGImageRef image);
 
-/* Return the colorspace of `image', or NULL if `image' is an image
- * mask. */
-/**
- *  CGImageGetColorSpace()
- *
+  /* Return the colorspace of `image', or NULL if `image' is an image
+   * mask. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGColorSpaceRef)
-CGImageGetColorSpace(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(CGColorSpaceRef)
+  CGImageGetColorSpace(CGImageRef image);
 
-/* Return the alpha info of `image'. */
-/**
- *  CGImageGetAlphaInfo()
- *
+  /* Return the alpha info of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGImageAlphaInfo)
-CGImageGetAlphaInfo(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(CGImageAlphaInfo)
+  CGImageGetAlphaInfo(CGImageRef image);
 
-/*Return the data provider of `image'. */
-/**
- *  CGImageGetDataProvider()
- *
+  /*Return the data provider of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGDataProviderRef)
-CGImageGetDataProvider(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(CGDataProviderRef)
+  CGImageGetDataProvider(CGImageRef image);
 
-/* Return the decode array of `image'. */
-/**
- *  CGImageGetDecode()
- *
+  /* Return the decode array of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(const float *)
-CGImageGetDecode(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(const float *)
+  CGImageGetDecode(CGImageRef image);
 
-/* Return the interpolation parameter of `image'. */
-/**
- *  CGImageGetShouldInterpolate()
- *
+  /* Return the interpolation parameter of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(int)
-CGImageGetShouldInterpolate(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(int)
+  CGImageGetShouldInterpolate(CGImageRef image);
 
-/* Return the rendering intent of `image'. */
-/**
- *  CGImageGetRenderingIntent()
- *
+  /* Return the rendering intent of `image'. */
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGColorRenderingIntent)
-CGImageGetRenderingIntent(CGImageRef image);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(CGColorRenderingIntent)
+  CGImageGetRenderingIntent(CGImageRef image);
 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset

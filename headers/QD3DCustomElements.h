@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -75,38 +76,35 @@ extern "C" {
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  CENameElement_SetData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CENameElement_SetData(TQ3Object object, const char *name);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CENameElement_SetData(TQ3Object object, const char *name);
 
-/**
- *  CENameElement_GetData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CENameElement_GetData(TQ3Object object, char **name);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CENameElement_GetData(TQ3Object object, char **name);
 
-/**
- *  CENameElement_EmptyData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CENameElement_EmptyData(char **name);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CENameElement_EmptyData(char **name);
 
 /*******************************************************************************
  **                                                                          **
@@ -116,53 +114,55 @@ CENameElement_EmptyData(char **name);
 #define CEcUrlElementName "Apple Computer, Inc.:URLElement"
 #endif /** CALL_NOT_IN_CARBON */
 
-enum TCEUrlOptions { kCEUrlOptionNone = 0, kCEUrlOptionUseMap = 1 };
-typedef enum TCEUrlOptions TCEUrlOptions;
+  enum TCEUrlOptions
+  {
+    kCEUrlOptionNone = 0,
+    kCEUrlOptionUseMap = 1
+  };
+  typedef enum TCEUrlOptions TCEUrlOptions;
 
-struct TCEUrlData {
-  char *url;
-  char *description;
-  TCEUrlOptions options;
-};
-typedef struct TCEUrlData TCEUrlData;
+  struct TCEUrlData
+  {
+    char *url;
+    char *description;
+    TCEUrlOptions options;
+  };
+  typedef struct TCEUrlData TCEUrlData;
 /*******************************************************************************
  **                                                                          **
  **                     Custom URL Element Functions                         **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  CEUrlElement_SetData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CEUrlElement_SetData(TQ3Object object, TCEUrlData *urlData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CEUrlElement_SetData(TQ3Object object, TCEUrlData *urlData);
 
-/**
- *  CEUrlElement_GetData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CEUrlElement_GetData(TQ3Object object, TCEUrlData **urlData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CEUrlElement_GetData(TQ3Object object, TCEUrlData **urlData);
 
-/**
- *  CEUrlElement_EmptyData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CEUrlElement_EmptyData(TCEUrlData **urlData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CEUrlElement_EmptyData(TCEUrlData **urlData);
 
 /*******************************************************************************
  **                                                                          **
@@ -171,43 +171,40 @@ CEUrlElement_EmptyData(TCEUrlData **urlData);
  *****************************************************************************/
 #define CEcWireElementName "Apple Computer, Inc.:WireElement"
 
-/*******************************************************************************
- **                                                                          **
- **                     Wire Custom Element Functions                        **
- **                                                                          **
- *****************************************************************************/
-/**
- *  CEWireElement_SetData()
- *
+  /*******************************************************************************
+   **                                                                          **
+   **                     Wire Custom Element Functions                        **
+   **                                                                          **
+   *****************************************************************************/
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CEWireElement_SetData(TQ3Object object, QTAtomContainer wireData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CEWireElement_SetData(TQ3Object object, QTAtomContainer wireData);
 
-/**
- *  CEWireElement_GetData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CEWireElement_GetData(TQ3Object object, QTAtomContainer *wireData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CEWireElement_GetData(TQ3Object object, QTAtomContainer *wireData);
 
-/**
- *  CEWireElement_EmptyData()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-CEWireElement_EmptyData(QTAtomContainer *wireData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  EXTERN_API_C(TQ3Status)
+  CEWireElement_EmptyData(QTAtomContainer *wireData);
 
 #endif /** CALL_NOT_IN_CARBON */
 

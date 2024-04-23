@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,85 +48,89 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef struct NMRec NMRec;
-typedef NMRec *NMRecPtr;
-typedef CALLBACK_API(void, NMProcPtr)(NMRecPtr nmReqPtr);
-typedef STACK_UPP_TYPE(NMProcPtr) NMUPP;
-struct NMRec {
-  QElemPtr qLink;   /** next queue entry*/
-  short qType;      /** queue type -- ORD(nmType) = 8*/
-  short nmFlags;    /** reserved*/
-  long nmPrivate;   /** reserved*/
-  short nmReserved; /** reserved*/
-  short nmMark;     /** item to mark in Apple menu*/
-  Handle nmIcon;    /** handle to small icon*/
-  Handle nmSound;   /** handle to sound record*/
-  StringPtr nmStr;  /** string to appear in alert*/
-  NMUPP nmResp;     /** pointer to response routine*/
-  long nmRefCon;    /** for application use*/
-};
+  typedef struct NMRec NMRec;
+  typedef NMRec *NMRecPtr;
+  typedef CALLBACK_API(void, NMProcPtr)(NMRecPtr nmReqPtr);
+  typedef STACK_UPP_TYPE(NMProcPtr) NMUPP;
+  struct NMRec
+  {
+    QElemPtr qLink;   /** next queue entry*/
+    short qType;      /** queue type -- ORD(nmType) = 8*/
+    short nmFlags;    /** reserved*/
+    long nmPrivate;   /** reserved*/
+    short nmReserved; /** reserved*/
+    short nmMark;     /** item to mark in Apple menu*/
+    Handle nmIcon;    /** handle to small icon*/
+    Handle nmSound;   /** handle to sound record*/
+    StringPtr nmStr;  /** string to appear in alert*/
+    NMUPP nmResp;     /** pointer to response routine*/
+    long nmRefCon;    /** for application use*/
+  };
 
-/**
- *  NewNMUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(NMUPP)
-NewNMUPP(NMProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(NMUPP)
+  NewNMUPP(NMProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppNMProcInfo = 0x000000C0 }; /** pascal no_return_value Func(4_bytes) */
+  enum
+  {
+    uppNMProcInfo = 0x000000C0
+  }; /** pascal no_return_value Func(4_bytes) */
 #ifdef __cplusplus
-inline NMUPP NewNMUPP(NMProcPtr userRoutine) {
-  return (NMUPP)NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo,
-                                     GetCurrentArchitecture());
-}
+  inline NMUPP NewNMUPP(NMProcPtr userRoutine)
+  {
+    return (NMUPP)NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo,
+                                       GetCurrentArchitecture());
+  }
 #else
-#define NewNMUPP(userRoutine)                                                  \
-  (NMUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo,          \
+#define NewNMUPP(userRoutine)                                         \
+  (NMUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo, \
                                GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeNMUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeNMUPP(NMUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(void)
+  DisposeNMUPP(NMUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeNMUPP(NMUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeNMUPP(NMUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeNMUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeNMUPP()
- *
+  /**
+    *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EXTERN_API_C(void)
+  InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppNMProcInfo, nmReqPtr);
-}
+  inline void InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppNMProcInfo, nmReqPtr);
+  }
 #else
-#define InvokeNMUPP(nmReqPtr, userUPP)                                         \
+#define InvokeNMUPP(nmReqPtr, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppNMProcInfo, (nmReqPtr))
 #endif
 #endif
@@ -137,8 +142,7 @@ inline void InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP) {
 #endif /** CALL_NOT_IN_CARBON */
 
 /**
- *  NMInstall()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
@@ -147,12 +151,11 @@ inline void InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 NMInstall(__A0)
 #endif
-EXTERN_API(OSErr)
-NMInstall(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05E);
+  EXTERN_API(OSErr)
+  NMInstall(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05E);
 
 /**
- *  NMRemove()
- *
+  *
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
@@ -161,8 +164,8 @@ NMInstall(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05E);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 NMRemove(__A0)
 #endif
-EXTERN_API(OSErr)
-NMRemove(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05F);
+  EXTERN_API(OSErr)
+  NMRemove(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05F);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
