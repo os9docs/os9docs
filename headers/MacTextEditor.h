@@ -712,7 +712,7 @@ typedef STACK_UPP_TYPE(TXNActionKeyMapperProcPtr) TXNActionKeyMapperUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TXNFindUPP)
+TXNFindUPP
 NewTXNFindUPP(TXNFindProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -739,7 +739,7 @@ inline TXNFindUPP NewTXNFindUPP(TXNFindProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TXNActionKeyMapperUPP)
+TXNActionKeyMapperUPP
 NewTXNActionKeyMapperUPP(TXNActionKeyMapperProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -768,7 +768,7 @@ NewTXNActionKeyMapperUPP(TXNActionKeyMapperProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTXNFindUPP(TXNFindUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -788,7 +788,7 @@ inline void DisposeTXNFindUPP(TXNFindUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTXNActionKeyMapperUPP(TXNActionKeyMapperUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -808,7 +808,7 @@ inline void DisposeTXNActionKeyMapperUPP(TXNActionKeyMapperUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeTXNFindUPP(const TXNMatchTextRecord *matchData, TXNDataType iDataType,
                  TXNMatchOptions iMatchOptions, const void *iSearchTextPtr,
                  TextEncoding encoding, TXNOffset absStartOffset,
@@ -848,7 +848,7 @@ InvokeTXNFindUPP(const TXNMatchTextRecord *matchData, TXNDataType iDataType,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFStringRef)
+CFStringRef
 InvokeTXNActionKeyMapperUPP(TXNActionKey actionKey, UInt32 commandID,
                             TXNActionKeyMapperUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -976,7 +976,7 @@ typedef struct TXNCarbonEventInfo TXNCarbonEventInfo;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNNewObject(const FSSpec *iFileSpec,               /** can be NULL */
              WindowRef iWindow, const Rect *iFrame, /** can be NULL */
              TXNFrameOptions iFrameOptions, TXNFrameType iFrameType,
@@ -1002,7 +1002,7 @@ TXNNewObject(const FSSpec *iFileSpec,               /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNDeleteObject(TXNObject iTXNObject);
 
 /**
@@ -1027,7 +1027,7 @@ TXNDeleteObject(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNResizeFrame(TXNObject iTXNObject, UInt32 iWidth, UInt32 iHeight,
                TXNFrameID iTXNFrameID);
 
@@ -1051,7 +1051,7 @@ TXNResizeFrame(TXNObject iTXNObject, UInt32 iWidth, UInt32 iHeight,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNSetFrameBounds(TXNObject iTXNObject, SInt32 iTop, SInt32 iLeft,
                   SInt32 iBottom, SInt32 iRight, TXNFrameID iTXNFrameID);
 
@@ -1094,7 +1094,7 @@ TXNSetFrameBounds(TXNObject iTXNObject, SInt32 iTop, SInt32 iLeft,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNInitTextension(
     const TXNMacOSPreferredFontDescription iDefaultFonts[], /** can be NULL */
     ItemCount iCountDefaultFonts, TXNInitOptions iUsageFlags);
@@ -1113,7 +1113,7 @@ TXNInitTextension(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNTerminateTextension(void);
 
 /**
@@ -1137,7 +1137,7 @@ TXNTerminateTextension(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNKeyDown(TXNObject iTXNObject, const EventRecord *iEvent);
 
 /**
@@ -1159,7 +1159,7 @@ TXNKeyDown(TXNObject iTXNObject, const EventRecord *iEvent);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNAdjustCursor(TXNObject iTXNObject, RgnHandle ioCursorRgn);
 
 /**
@@ -1177,7 +1177,7 @@ TXNAdjustCursor(TXNObject iTXNObject, RgnHandle ioCursorRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNClick(TXNObject iTXNObject, const EventRecord *iEvent);
 
 /**
@@ -1207,7 +1207,7 @@ TXNClick(TXNObject iTXNObject, const EventRecord *iEvent);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 TXNTSMCheck(TXNObject iTXNObject, /** can be NULL */
             EventRecord *ioEvent);
 
@@ -1228,7 +1228,7 @@ TXNTSMCheck(TXNObject iTXNObject, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNSelectAll(TXNObject iTXNObject);
 
 /**
@@ -1250,7 +1250,7 @@ TXNSelectAll(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNFocus(TXNObject iTXNObject, Boolean iBecomingFocused);
 
 /**
@@ -1269,7 +1269,7 @@ TXNFocus(TXNObject iTXNObject, Boolean iBecomingFocused);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNUpdate(TXNObject iTXNObject);
 
 /**
@@ -1300,7 +1300,7 @@ TXNUpdate(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNDraw(TXNObject iTXNObject, GWorldPtr iDrawPort); /** can be NULL */
 
 /**
@@ -1319,7 +1319,7 @@ TXNDraw(TXNObject iTXNObject, GWorldPtr iDrawPort); /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNForceUpdate(TXNObject iTXNObject);
 
 /**
@@ -1340,7 +1340,7 @@ TXNForceUpdate(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 TXNGetSleepTicks(TXNObject iTXNObject);
 
 /**
@@ -1359,7 +1359,7 @@ TXNGetSleepTicks(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNIdle(TXNObject iTXNObject);
 
 /**
@@ -1378,7 +1378,7 @@ TXNIdle(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNGrowWindow(TXNObject iTXNObject, const EventRecord *iEvent);
 
 /**
@@ -1397,7 +1397,7 @@ TXNGrowWindow(TXNObject iTXNObject, const EventRecord *iEvent);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNZoomWindow(TXNObject iTXNObject, SInt16 iPart);
 
 /**
@@ -1420,7 +1420,7 @@ TXNZoomWindow(TXNObject iTXNObject, SInt16 iPart);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 TXNCanUndo(TXNObject iTXNObject,
            TXNActionKey *oTXNActionKey); /** can be NULL */
 
@@ -1439,7 +1439,7 @@ TXNCanUndo(TXNObject iTXNObject,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNUndo(TXNObject iTXNObject);
 
 /**
@@ -1463,7 +1463,7 @@ TXNUndo(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 TXNCanRedo(TXNObject iTXNObject,
            TXNActionKey *oTXNActionKey); /** can be NULL */
 
@@ -1482,7 +1482,7 @@ TXNCanRedo(TXNObject iTXNObject,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNRedo(TXNObject iTXNObject);
 
 /**
@@ -1502,7 +1502,7 @@ TXNRedo(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNCut(TXNObject iTXNObject);
 
 /**
@@ -1523,7 +1523,7 @@ TXNCut(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNCopy(TXNObject iTXNObject);
 
 /**
@@ -1544,7 +1544,7 @@ TXNCopy(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNPaste(TXNObject iTXNObject);
 
 /**
@@ -1565,7 +1565,7 @@ TXNPaste(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNClear(TXNObject iTXNObject);
 
 /**
@@ -1590,7 +1590,7 @@ TXNClear(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNGetSelection(TXNObject iTXNObject, TXNOffset *oStartOffset,
                 TXNOffset *oEndOffset);
 
@@ -1611,7 +1611,7 @@ TXNGetSelection(TXNObject iTXNObject, TXNOffset *oStartOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNShowSelection(TXNObject iTXNObject, Boolean iShowEnd);
 
 /**
@@ -1631,7 +1631,7 @@ TXNShowSelection(TXNObject iTXNObject, Boolean iShowEnd);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 TXNIsSelectionEmpty(TXNObject iTXNObject);
 
 /**
@@ -1652,7 +1652,7 @@ TXNIsSelectionEmpty(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSetSelection(TXNObject iTXNObject, TXNOffset iStartOffset,
                 TXNOffset iEndOffset);
 
@@ -1699,7 +1699,7 @@ TXNSetSelection(TXNObject iTXNObject, TXNOffset iStartOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetContinuousTypeAttributes(
     TXNObject iTxnObject, TXNContinuousFlags *oContinuousFlags,
     ItemCount iCount, TXNTypeAttributes ioTypeAttributes[]); /** can be NULL */
@@ -1733,7 +1733,7 @@ TXNGetContinuousTypeAttributes(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSetTypeAttributes(TXNObject iTXNObject, ItemCount iAttrCount,
                      const TXNTypeAttributes iAttributes[],
                      TXNOffset iStartOffset, TXNOffset iEndOffset);
@@ -1794,7 +1794,7 @@ TXNSetTypeAttributes(TXNObject iTXNObject, ItemCount iAttrCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSetTXNObjectControls(TXNObject iTXNObject, Boolean iClearAll,
                         ItemCount iControlCount,
                         const TXNControlTag iControlTags[],   /** can be NULL */
@@ -1836,7 +1836,7 @@ TXNSetTXNObjectControls(TXNObject iTXNObject, Boolean iClearAll,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetTXNObjectControls(TXNObject iTXNObject, /** can be NULL */
                         ItemCount iControlCount,
                         const TXNControlTag iControlTags[],
@@ -1863,7 +1863,7 @@ TXNGetTXNObjectControls(TXNObject iTXNObject, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNCountRunsInRange(TXNObject iTXNObject, TXNOffset iStartOffset,
                     TXNOffset iEndOffset, ItemCount *oRunCount);
 
@@ -1931,7 +1931,7 @@ TXNCountRunsInRange(TXNObject iTXNObject, TXNOffset iStartOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetIndexedRunInfoFromRange(
     TXNObject iTXNObject, ItemCount iIndex, TXNOffset iStartOffset,
     TXNOffset iEndOffset, TXNOffset *oRunStartOffset, /** can be NULL */
@@ -1959,7 +1959,7 @@ TXNGetIndexedRunInfoFromRange(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ByteCount)
+ByteCount
 TXNDataSize(TXNObject iTXNObject);
 
 /**
@@ -1995,7 +1995,7 @@ TXNDataSize(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetData(TXNObject iTXNObject, TXNOffset iStartOffset, TXNOffset iEndOffset,
            Handle *oDataHandle);
 
@@ -2026,7 +2026,7 @@ TXNGetData(TXNObject iTXNObject, TXNOffset iStartOffset, TXNOffset iEndOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetDataEncoded(TXNObject iTXNObject, TXNOffset iStartOffset,
                   TXNOffset iEndOffset, Handle *oDataHandle,
                   TXNDataType iEncoding);
@@ -2057,7 +2057,7 @@ TXNGetDataEncoded(TXNObject iTXNObject, TXNOffset iStartOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSetDataFromFile(TXNObject iTXNObject, SInt16 iFileRefNum, OSType iFileType,
                    ByteCount iFileLength, TXNOffset iStartOffset,
                    TXNOffset iEndOffset);
@@ -2105,7 +2105,7 @@ TXNSetDataFromFile(TXNObject iTXNObject, SInt16 iFileRefNum, OSType iFileType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSetData(TXNObject iTXNObject, TXNDataType iDataType,
            const void *iDataPtr, /** can be NULL */
            ByteCount iDataSize, TXNOffset iStartOffset, TXNOffset iEndOffset);
@@ -2131,7 +2131,7 @@ TXNSetData(TXNObject iTXNObject, TXNDataType iDataType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ItemCount)
+ItemCount
 TXNGetChangeCount(TXNObject iTXNObject);
 
 /**
@@ -2166,7 +2166,7 @@ TXNGetChangeCount(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSave(TXNObject iTXNObject, TXNFileType iType, OSType iResType,
         TXNPermanentTextEncodingType iPermanentEncoding,
         const FSSpec *iFileSpecification, SInt16 iDataReference,
@@ -2189,7 +2189,7 @@ TXNSave(TXNObject iTXNObject, TXNFileType iType, OSType iResType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNRevert(TXNObject iTXNObject);
 
 /**
@@ -2210,7 +2210,7 @@ TXNRevert(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNPageSetup(TXNObject iTXNObject);
 
 /**
@@ -2230,7 +2230,7 @@ TXNPageSetup(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNPrint(TXNObject iTXNObject);
 
 /**
@@ -2252,7 +2252,7 @@ TXNPrint(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 TXNIsScrapPastable(void);
 
 /**
@@ -2273,7 +2273,7 @@ TXNIsScrapPastable(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNConvertToPublicScrap(void);
 
 /**
@@ -2294,7 +2294,7 @@ TXNConvertToPublicScrap(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNConvertFromPublicScrap(void);
 
 /**
@@ -2314,7 +2314,7 @@ TXNConvertFromPublicScrap(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNGetViewRect(TXNObject iTXNObject, Rect *oViewRect);
 
 /**
@@ -2338,7 +2338,7 @@ TXNGetViewRect(TXNObject iTXNObject, Rect *oViewRect);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 TXNSetViewRect(TXNObject iTXNObject, const Rect *iViewRect);
 
 /**
@@ -2385,7 +2385,7 @@ TXNSetViewRect(TXNObject iTXNObject, const Rect *iViewRect);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNFind(TXNObject iTXNObject,
         const TXNMatchTextRecord *iMatchTextDataPtr, /** can be NULL */
         TXNDataType iDataType, TXNMatchOptions iMatchOptions,
@@ -2414,7 +2414,7 @@ TXNFind(TXNObject iTXNObject,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSetFontDefaults(TXNObject iTXNObject, ItemCount iCount,
                    TXNMacOSPreferredFontDescription iFontDefaults[]);
 
@@ -2442,7 +2442,7 @@ TXNSetFontDefaults(TXNObject iTXNObject, ItemCount iCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetFontDefaults(
     TXNObject iTXNObject, ItemCount *ioCount,
     TXNMacOSPreferredFontDescription ioFontDefaults[]); /** can be NULL */
@@ -2471,7 +2471,7 @@ TXNGetFontDefaults(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNAttachObjectToWindow(TXNObject iTXNObject, GWorldPtr iWindow,
                         Boolean iIsActualWindow);
 
@@ -2492,7 +2492,7 @@ TXNAttachObjectToWindow(TXNObject iTXNObject, GWorldPtr iWindow,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 TXNIsObjectAttachedToWindow(TXNObject iTXNObject);
 
 /**
@@ -2519,7 +2519,7 @@ TXNIsObjectAttachedToWindow(TXNObject iTXNObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 TXNDragTracker(TXNObject iTXNObject, TXNFrameID iTXNFrameID,
                DragTrackingMessage iMessage, WindowRef iWindow,
                DragReference iDragReference,
@@ -2549,7 +2549,7 @@ TXNDragTracker(TXNObject iTXNObject, TXNFrameID iTXNFrameID,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 TXNDragReceiver(TXNObject iTXNObject, TXNFrameID iTXNFrameID, WindowRef iWindow,
                 DragReference iDragReference,
                 Boolean iDifferentObjectSameWindow);
@@ -2584,7 +2584,7 @@ TXNDragReceiver(TXNObject iTXNObject, TXNFrameID iTXNFrameID, WindowRef iWindow,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNActivate(TXNObject iTXNObject, TXNFrameID iTXNFrameID,
             TXNScrollBarState iActiveState);
 
@@ -2608,7 +2608,7 @@ TXNActivate(TXNObject iTXNObject, TXNFrameID iTXNFrameID,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNSetBackground(TXNObject iTXNObject, const TXNBackground *iBackgroundInfo);
 
 /**
@@ -2639,7 +2639,7 @@ TXNSetBackground(TXNObject iTXNObject, const TXNBackground *iBackgroundInfo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNEchoMode(TXNObject iTXNObject, UniChar iEchoCharacter,
             TextEncoding iEncoding, Boolean iOn);
 
@@ -2678,7 +2678,7 @@ TXNEchoMode(TXNObject iTXNObject, UniChar iEchoCharacter,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNNewFontMenuObject(MenuRef iFontMenuHandle, SInt16 iMenuID,
                      SInt16 iStartHierMenuID,
                      TXNFontMenuObject *oTXNFontMenuObject);
@@ -2702,7 +2702,7 @@ TXNNewFontMenuObject(MenuRef iFontMenuHandle, SInt16 iMenuID,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetFontMenuHandle(TXNFontMenuObject iTXNFontMenuObject,
                      MenuRef *oFontMenuHandle);
 
@@ -2725,7 +2725,7 @@ TXNGetFontMenuHandle(TXNFontMenuObject iTXNFontMenuObject,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNDisposeFontMenuObject(TXNFontMenuObject iTXNFontMenuObject);
 
 /**
@@ -2748,7 +2748,7 @@ TXNDisposeFontMenuObject(TXNFontMenuObject iTXNFontMenuObject);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNDoFontMenuSelection(TXNObject iTXNObject,
                        TXNFontMenuObject iTXNFontMenuObject, SInt16 iMenuID,
                        SInt16 iMenuItem);
@@ -2783,7 +2783,7 @@ TXNDoFontMenuSelection(TXNObject iTXNObject,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNPrepareFontMenu(TXNObject iTXNObject, /** can be NULL */
                    TXNFontMenuObject iTXNFontMenuObject);
 
@@ -2812,7 +2812,7 @@ TXNPrepareFontMenu(TXNObject iTXNObject, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TXNVersionValue)
+TXNVersionValue
 TXNVersionInformation(TXNFeatureBits *oFeatureFlags);
 
 /**
@@ -2837,7 +2837,7 @@ TXNVersionInformation(TXNFeatureBits *oFeatureFlags);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNPointToOffset(TXNObject iTXNObject, Point iPoint, TXNOffset *oOffset);
 
 /**
@@ -2861,7 +2861,7 @@ TXNPointToOffset(TXNObject iTXNObject, Point iPoint, TXNOffset *oOffset);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNOffsetToPoint(TXNObject iTXNObject, TXNOffset iOffset, Point *oPoint);
 
 /**
@@ -2892,7 +2892,7 @@ TXNOffsetToPoint(TXNObject iTXNObject, TXNOffset iOffset, Point *oPoint);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNDrawUnicodeTextBox(const UniChar iText[], UniCharCount iLen, Rect *ioBox,
                       ATSUStyle iStyle,                  /** can be NULL */
                       TXNTextBoxOptionsData *ioOptions); /** can be NULL */
@@ -2922,7 +2922,7 @@ TXNDrawUnicodeTextBox(const UniChar iText[], UniCharCount iLen, Rect *ioBox,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNDrawCFStringTextBox(CFStringRef iText, Rect *ioBox,
                        ATSUStyle iStyle,                  /** can be NULL */
                        TXNTextBoxOptionsData *ioOptions); /** can be NULL */
@@ -2946,7 +2946,7 @@ TXNDrawCFStringTextBox(CFStringRef iText, Rect *ioBox,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetLineCount(TXNObject iTXNObject, ItemCount *oLineTotal);
 
 /**
@@ -2970,7 +2970,7 @@ TXNGetLineCount(TXNObject iTXNObject, ItemCount *oLineTotal);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetLineMetrics(TXNObject iTXNObject, UInt32 iLineNumber, Fixed *oLineWidth,
                   Fixed *oLineHeight);
 
@@ -3002,7 +3002,7 @@ TXNGetLineMetrics(TXNObject iTXNObject, UInt32 iLineNumber, Fixed *oLineWidth,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetActionChangeCount(TXNObject iTXNObject, TXNCountOptions iOptions,
                         ItemCount *oCount);
 
@@ -3030,7 +3030,7 @@ TXNGetActionChangeCount(TXNObject iTXNObject, TXNCountOptions iOptions,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNClearActionChangeCount(TXNObject iTXNObject, TXNCountOptions iOptions);
 
 /**
@@ -3060,7 +3060,7 @@ TXNClearActionChangeCount(TXNObject iTXNObject, TXNCountOptions iOptions);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNIsObjectAttachedToSpecificWindow(TXNObject iTXNObject, WindowRef iWindow,
                                     Boolean *oAttached);
 
@@ -3096,7 +3096,7 @@ TXNIsObjectAttachedToSpecificWindow(TXNObject iTXNObject, WindowRef iWindow,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 TXNSetRectBounds(TXNObject iTXNObject, const Rect *iViewRect, /** can be NULL */
                  const TXNLongRect *iDestinationRect,         /** can be NULL */
                  Boolean iUpdate);
@@ -3134,7 +3134,7 @@ TXNSetRectBounds(TXNObject iTXNObject, const Rect *iViewRect, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TXNGetRectBounds(TXNObject iTXNObject, Rect *oViewRect, /** can be NULL */
                  TXNLongRect *oDestinationRect,         /** can be NULL */
                  TXNLongRect *oTextRect);               /** can be NULL */
@@ -3160,7 +3160,7 @@ TXNGetRectBounds(TXNObject iTXNObject, Rect *oViewRect, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 TXNRecalcTextLayout(TXNObject iTXNObject);
 
 #if PRAGMA_STRUCT_ALIGN

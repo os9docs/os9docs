@@ -594,7 +594,7 @@ typedef STACK_UPP_TYPE(Lg2PhysProcPtr) Lg2PhysUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Lg2PhysUPP)
+Lg2PhysUPP
 NewLg2PhysUPP(Lg2PhysProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -621,7 +621,7 @@ inline Lg2PhysUPP NewLg2PhysUPP(Lg2PhysProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeLg2PhysUPP(Lg2PhysUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -641,7 +641,7 @@ inline void DisposeLg2PhysUPP(Lg2PhysUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeLg2PhysUPP(void *fsdGlobalPtr, VCBPtr volCtrlBlockPtr,
                  FCBRecPtr fileCtrlBlockPtr, short fileRefNum,
                  unsigned long filePosition, unsigned long reqCount,
@@ -697,7 +697,7 @@ typedef STACK_UPP_TYPE(HFSCIProcPtr) HFSCIUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(HFSCIUPP)
+HFSCIUPP
 NewHFSCIUPP(HFSCIProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -723,7 +723,7 @@ inline HFSCIUPP NewHFSCIUPP(HFSCIProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeHFSCIUPP(HFSCIUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -743,7 +743,7 @@ inline void DisposeHFSCIUPP(HFSCIUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeHFSCIUPP(VCBPtr theVCB, short selectCode, void *paramBlock,
                void *fsdGlobalPtr, short fsid, HFSCIUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -804,7 +804,7 @@ typedef STACK_UPP_TYPE(DICIProcPtr) DICIUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DICIUPP)
+DICIUPP
 NewDICIUPP(DICIProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -830,7 +830,7 @@ inline DICIUPP NewDICIUPP(DICIProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDICIUPP(DICIUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -850,7 +850,7 @@ inline void DisposeDICIUPP(DICIUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDICIUPP(short whatFunction, void *paramBlock, void *fsdGlobalPtr,
               DICIUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1006,7 +1006,7 @@ typedef STACK_UPP_TYPE(FSDCommProcPtr) FSDCommUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FSDCommUPP)
+FSDCommUPP
 NewFSDCommUPP(FSDCommProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1032,7 +1032,7 @@ inline FSDCommUPP NewFSDCommUPP(FSDCommProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFSDCommUPP(FSDCommUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1052,7 +1052,7 @@ inline void DisposeFSDCommUPP(FSDCommUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeFSDCommUPP(short message, void *paramBlock, void *globalsPtr,
                  FSDCommUPP userUPP);
 #if !OPAQUE_UPP_TYPES

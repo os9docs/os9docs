@@ -696,7 +696,7 @@ typedef STACK_UPP_TYPE(PPCFilterProcPtr) PPCFilterUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PPCCompUPP)
+PPCCompUPP
 NewPPCCompUPP(PPCCompProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -722,7 +722,7 @@ inline PPCCompUPP NewPPCCompUPP(PPCCompProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PPCFilterUPP)
+PPCFilterUPP
 NewPPCFilterUPP(PPCFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -748,7 +748,7 @@ inline PPCFilterUPP NewPPCFilterUPP(PPCFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePPCCompUPP(PPCCompUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -768,7 +768,7 @@ inline void DisposePPCCompUPP(PPCCompUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePPCFilterUPP(PPCFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -788,7 +788,7 @@ inline void DisposePPCFilterUPP(PPCFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokePPCCompUPP(PPCParamBlockPtr pb, PPCCompUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -809,7 +809,7 @@ inline void InvokePPCCompUPP(PPCParamBlockPtr pb, PPCCompUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokePPCFilterUPP(LocationNamePtr name, PortInfoPtr port,
                    PPCFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES

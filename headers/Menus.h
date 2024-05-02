@@ -808,7 +808,7 @@ typedef MenuAccessKeyPtr *MenuAccessKeyHandle;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SetMenuItemHotKey(MenuRef menu, short itemID, char hotKey, long flags);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1164,7 +1164,7 @@ typedef STACK_UPP_TYPE(MenuDefProcPtr) MenuDefUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MenuDefUPP)
+MenuDefUPP
 NewMenuDefUPP(MenuDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1191,7 +1191,7 @@ inline MenuDefUPP NewMenuDefUPP(MenuDefProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMenuDefUPP(MenuDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1211,7 +1211,7 @@ inline void DisposeMenuDefUPP(MenuDefUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeMenuDefUPP(short message, MenuRef theMenu, Rect *menuRect, Point hitPt,
                  short *whichItem, MenuDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1255,7 +1255,7 @@ typedef REGISTER_UPP_TYPE(MBarHookProcPtr) MBarHookUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MenuBarDefUPP)
+MenuBarDefUPP
 NewMenuBarDefUPP(MenuBarDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1281,7 +1281,7 @@ inline MenuBarDefUPP NewMenuBarDefUPP(MenuBarDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MenuHookUPP)
+MenuHookUPP
 NewMenuHookUPP(MenuHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppMenuHookProcInfo = 0x00000000 }; /* pascal no_return_value Func() */
@@ -1305,7 +1305,7 @@ inline MenuHookUPP NewMenuHookUPP(MenuHookProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MBarHookUPP)
+MBarHookUPP
 NewMBarHookUPP(MBarHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppMBarHookProcInfo = 0x000000CF }; /* SPECIAL_CASE_PROCINFO(12) */
@@ -1329,7 +1329,7 @@ inline MBarHookUPP NewMBarHookUPP(MBarHookProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMenuBarDefUPP(MenuBarDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1349,7 +1349,7 @@ inline void DisposeMenuBarDefUPP(MenuBarDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMenuHookUPP(MenuHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1369,7 +1369,7 @@ inline void DisposeMenuHookUPP(MenuHookUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMBarHookUPP(MBarHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1389,7 +1389,7 @@ inline void DisposeMBarHookUPP(MBarHookUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeMenuBarDefUPP(short selector, short message, short parameter1,
                     long parameter2, MenuBarDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1415,7 +1415,7 @@ inline long InvokeMenuBarDefUPP(short selector, short message, short parameter1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeMenuHookUPP(MenuHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1436,7 +1436,7 @@ inline void InvokeMenuHookUPP(MenuHookUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeMBarHookUPP(Rect *menuRect, MBarHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -2089,7 +2089,7 @@ IsMenuSizeInvalid(MenuRef inMenu);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 EraseMenuBackground(MenuRef inMenu, const Rect *inEraseRect,
                     CGContextRef inContext); /* can be NULL */
 
@@ -2130,7 +2130,7 @@ EraseMenuBackground(MenuRef inMenu, const Rect *inEraseRect,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ScrollMenuImage(MenuRef inMenu, const Rect *inScrollRect, int inHScroll,
                 int inVScroll, CGContextRef inContext); /* can be NULL */
 
@@ -5137,7 +5137,7 @@ typedef struct ContextualMenuInterfaceStruct ContextualMenuInterfaceStruct;
 
  *    Implemented by client
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CMPluginExamineContext(void *thisInstance, const AEDesc *inContext,
                        AEDescList *outCommandPairs);
 
@@ -5147,7 +5147,7 @@ CMPluginExamineContext(void *thisInstance, const AEDesc *inContext,
 
  *    Implemented by client
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CMPluginHandleSelection(void *thisInstance, AEDesc *inContext,
                         SInt32 inCommandID);
 
@@ -5157,7 +5157,7 @@ CMPluginHandleSelection(void *thisInstance, AEDesc *inContext,
 
  *    Implemented by client
  */
-EXTERN_API_C(void)
+void
 CMPluginPostMenuCleanup(void *thisInstance);
 
 /* previously in LowMem.h.  This functions return the menu ID of the hilited
@@ -5182,7 +5182,7 @@ LMGetTheMenu(void) TWOWORDINLINE(0x3EB8, 0x0A26);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MenuRef)
+MenuRef
 newmenu(MenuID menuID, const char *menuTitle);
 
 /**
@@ -5193,7 +5193,7 @@ newmenu(MenuID menuID, const char *menuTitle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 appendmenu(MenuRef menu, const char *data);
 
 /**
@@ -5204,7 +5204,7 @@ appendmenu(MenuRef menu, const char *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 insertmenuitem(MenuRef theMenu, const char *itemString, short afterItem);
 
 /**
@@ -5215,7 +5215,7 @@ insertmenuitem(MenuRef theMenu, const char *itemString, short afterItem);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 menuselect(const Point *startPt);
 
 /**
@@ -5226,7 +5226,7 @@ menuselect(const Point *startPt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 setmenuitemtext(MenuRef menu, short item, const char *itemString);
 
 /**
@@ -5237,7 +5237,7 @@ setmenuitemtext(MenuRef menu, short item, const char *itemString);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getmenuitemtext(MenuRef menu, short item, char *itemString);
 
 #endif /* CALL_NOT_IN_CARBON */

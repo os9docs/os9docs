@@ -197,7 +197,7 @@ typedef STACK_UPP_TYPE(OSLAdjustMarksProcPtr) OSLAdjustMarksUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLAccessorUPP)
+OSLAccessorUPP
 NewOSLAccessorUPP(OSLAccessorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -225,7 +225,7 @@ inline OSLAccessorUPP NewOSLAccessorUPP(OSLAccessorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLCompareUPP)
+OSLCompareUPP
 NewOSLCompareUPP(OSLCompareProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -251,7 +251,7 @@ inline OSLCompareUPP NewOSLCompareUPP(OSLCompareProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLCountUPP)
+OSLCountUPP
 NewOSLCountUPP(OSLCountProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -277,7 +277,7 @@ inline OSLCountUPP NewOSLCountUPP(OSLCountProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLDisposeTokenUPP)
+OSLDisposeTokenUPP
 NewOSLDisposeTokenUPP(OSLDisposeTokenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -306,7 +306,7 @@ NewOSLDisposeTokenUPP(OSLDisposeTokenProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLGetMarkTokenUPP)
+OSLGetMarkTokenUPP
 NewOSLGetMarkTokenUPP(OSLGetMarkTokenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -335,7 +335,7 @@ NewOSLGetMarkTokenUPP(OSLGetMarkTokenProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLGetErrDescUPP)
+OSLGetErrDescUPP
 NewOSLGetErrDescUPP(OSLGetErrDescProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -363,7 +363,7 @@ inline OSLGetErrDescUPP NewOSLGetErrDescUPP(OSLGetErrDescProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLMarkUPP)
+OSLMarkUPP
 NewOSLMarkUPP(OSLMarkProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -389,7 +389,7 @@ inline OSLMarkUPP NewOSLMarkUPP(OSLMarkProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSLAdjustMarksUPP)
+OSLAdjustMarksUPP
 NewOSLAdjustMarksUPP(OSLAdjustMarksProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -418,7 +418,7 @@ NewOSLAdjustMarksUPP(OSLAdjustMarksProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLAccessorUPP(OSLAccessorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -438,7 +438,7 @@ inline void DisposeOSLAccessorUPP(OSLAccessorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLCompareUPP(OSLCompareUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -458,7 +458,7 @@ inline void DisposeOSLCompareUPP(OSLCompareUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLCountUPP(OSLCountUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -478,7 +478,7 @@ inline void DisposeOSLCountUPP(OSLCountUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLDisposeTokenUPP(OSLDisposeTokenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -498,7 +498,7 @@ inline void DisposeOSLDisposeTokenUPP(OSLDisposeTokenUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLGetMarkTokenUPP(OSLGetMarkTokenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -518,7 +518,7 @@ inline void DisposeOSLGetMarkTokenUPP(OSLGetMarkTokenUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLGetErrDescUPP(OSLGetErrDescUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -538,7 +538,7 @@ inline void DisposeOSLGetErrDescUPP(OSLGetErrDescUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLMarkUPP(OSLMarkUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -558,7 +558,7 @@ inline void DisposeOSLMarkUPP(OSLMarkUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSLAdjustMarksUPP(OSLAdjustMarksUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -578,7 +578,7 @@ inline void DisposeOSLAdjustMarksUPP(OSLAdjustMarksUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLAccessorUPP(DescType desiredClass, const AEDesc *container,
                      DescType containerClass, DescType form,
                      const AEDesc *selectionData, AEDesc *value,
@@ -611,7 +611,7 @@ inline OSErr InvokeOSLAccessorUPP(DescType desiredClass,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLCompareUPP(DescType oper, const AEDesc *obj1, const AEDesc *obj2,
                     Boolean *result, OSLCompareUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -637,7 +637,7 @@ inline OSErr InvokeOSLCompareUPP(DescType oper, const AEDesc *obj1,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLCountUPP(DescType desiredType, DescType containerClass,
                   const AEDesc *container, long *result, OSLCountUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -666,7 +666,7 @@ inline OSErr InvokeOSLCountUPP(DescType desiredType, DescType containerClass,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLDisposeTokenUPP(AEDesc *unneededToken, OSLDisposeTokenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -690,7 +690,7 @@ inline OSErr InvokeOSLDisposeTokenUPP(AEDesc *unneededToken,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLGetMarkTokenUPP(const AEDesc *dContainerToken, DescType containerClass,
                          AEDesc *result, OSLGetMarkTokenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -719,7 +719,7 @@ inline OSErr InvokeOSLGetMarkTokenUPP(const AEDesc *dContainerToken,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLGetErrDescUPP(AEDesc **appDescPtr, OSLGetErrDescUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -743,7 +743,7 @@ inline OSErr InvokeOSLGetErrDescUPP(AEDesc **appDescPtr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLMarkUPP(const AEDesc *dToken, const AEDesc *markToken, long index,
                  OSLMarkUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -768,7 +768,7 @@ inline OSErr InvokeOSLMarkUPP(const AEDesc *dToken, const AEDesc *markToken,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSLAdjustMarksUPP(long newStart, long newStop, const AEDesc *markToken,
                         OSLAdjustMarksUPP userUPP);
 #if !OPAQUE_UPP_TYPES

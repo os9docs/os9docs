@@ -67,7 +67,7 @@ typedef struct CGPDFDocument *CGPDFDocumentRef;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGPDFDocumentRef)
+CGPDFDocumentRef
 CGPDFDocumentCreateWithProvider(CGDataProviderRef provider);
 
 /* Create a PDF document from `url'. */
@@ -79,7 +79,7 @@ CGPDFDocumentCreateWithProvider(CGDataProviderRef provider);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGPDFDocumentRef)
+CGPDFDocumentRef
 CGPDFDocumentCreateWithURL(CFURLRef url);
 
 /* Increment the retain count of `document' and return it.  All PDF
@@ -92,7 +92,7 @@ CGPDFDocumentCreateWithURL(CFURLRef url);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGPDFDocumentRef)
+CGPDFDocumentRef
 CGPDFDocumentRetain(CGPDFDocumentRef document);
 
 /* Decrement the retain count of `document'.  If the retain count reaches 0,
@@ -105,7 +105,7 @@ CGPDFDocumentRetain(CGPDFDocumentRef document);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGPDFDocumentRelease(CGPDFDocumentRef document);
 
 /* Return the number of pages in `document'. */
@@ -117,7 +117,7 @@ CGPDFDocumentRelease(CGPDFDocumentRef document);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGPDFDocumentGetNumberOfPages(CGPDFDocumentRef document);
 
 /* Return the media box of page number `page' in `document'. */
@@ -129,7 +129,7 @@ CGPDFDocumentGetNumberOfPages(CGPDFDocumentRef document);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGPDFDocumentGetMediaBox(CGPDFDocumentRef document, int page);
 
 /* Return the crop box of page number `page' in `document'. */
@@ -141,7 +141,7 @@ CGPDFDocumentGetMediaBox(CGPDFDocumentRef document, int page);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGPDFDocumentGetCropBox(CGPDFDocumentRef document, int page);
 
 /* Return the bleed box of page number `page' in `document'. */
@@ -153,7 +153,7 @@ CGPDFDocumentGetCropBox(CGPDFDocumentRef document, int page);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGPDFDocumentGetBleedBox(CGPDFDocumentRef document, int page);
 
 /* Return the trim box of page number `page' in `document'. */
@@ -165,7 +165,7 @@ CGPDFDocumentGetBleedBox(CGPDFDocumentRef document, int page);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGPDFDocumentGetTrimBox(CGPDFDocumentRef document, int page);
 
 /* Return the art box of page number `page' in `document'. */
@@ -177,7 +177,7 @@ CGPDFDocumentGetTrimBox(CGPDFDocumentRef document, int page);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGPDFDocumentGetArtBox(CGPDFDocumentRef document, int page);
 
 /* Return the rotation angle (in degrees) of page number `page' in
@@ -190,7 +190,7 @@ CGPDFDocumentGetArtBox(CGPDFDocumentRef document, int page);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGPDFDocumentGetRotationAngle(CGPDFDocumentRef document, int page);
 
 #if PRAGMA_STRUCT_ALIGN

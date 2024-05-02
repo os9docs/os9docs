@@ -292,7 +292,7 @@ typedef HIDValueCapabilities *HIDValueCapabilitiesPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 HIDGetHIDLibVersion(void);
 
 /**
@@ -303,7 +303,7 @@ HIDGetHIDLibVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDOpenReportDescriptor(void *hidReportDescriptor, ByteCount descriptorLength,
                         HIDPreparsedDataRef *preparsedDataRef, UInt32 flags);
 
@@ -315,7 +315,7 @@ HIDOpenReportDescriptor(void *hidReportDescriptor, ByteCount descriptorLength,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDCloseReportDescriptor(HIDPreparsedDataRef preparsedDataRef);
 
 /**
@@ -326,7 +326,7 @@ HIDCloseReportDescriptor(HIDPreparsedDataRef preparsedDataRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetCaps(HIDPreparsedDataRef preparsedDataRef, HIDCapsPtr capabilities);
 
 /**
@@ -337,7 +337,7 @@ HIDGetCaps(HIDPreparsedDataRef preparsedDataRef, HIDCapsPtr capabilities);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetCapabilities(HIDPreparsedDataRef preparsedDataRef,
                    HIDCapabilitiesPtr capabilities);
 
@@ -349,7 +349,7 @@ HIDGetCapabilities(HIDPreparsedDataRef preparsedDataRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetCollectionNodes(HIDCollectionNodePtr collectionNodes,
                       UInt32 *collectionNodesSize,
                       HIDPreparsedDataRef preparsedDataRef);
@@ -362,7 +362,7 @@ HIDGetCollectionNodes(HIDCollectionNodePtr collectionNodes,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetButtonCaps(HIDReportType reportType, HIDButtonCapsPtr buttonCaps,
                  UInt32 *buttonCapsSize, HIDPreparsedDataRef preparsedDataRef);
 
@@ -374,7 +374,7 @@ HIDGetButtonCaps(HIDReportType reportType, HIDButtonCapsPtr buttonCaps,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetButtonCapabilities(HIDReportType reportType,
                          HIDButtonCapabilitiesPtr buttonCaps,
                          UInt32 *buttonCapsSize,
@@ -388,7 +388,7 @@ HIDGetButtonCapabilities(HIDReportType reportType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetValueCaps(HIDReportType reportType, HIDValueCapsPtr valueCaps,
                 UInt32 *valueCapsSize, HIDPreparsedDataRef preparsedDataRef);
 
@@ -400,7 +400,7 @@ HIDGetValueCaps(HIDReportType reportType, HIDValueCapsPtr valueCaps,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetValueCapabilities(HIDReportType reportType,
                         HIDValueCapabilitiesPtr valueCaps,
                         UInt32 *valueCapsSize,
@@ -414,7 +414,7 @@ HIDGetValueCapabilities(HIDReportType reportType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetSpecificButtonCaps(HIDReportType reportType, HIDUsage usagePage,
                          UInt32 collection, HIDUsage usage,
                          HIDButtonCapsPtr buttonCaps, UInt32 *buttonCapsSize,
@@ -428,7 +428,7 @@ HIDGetSpecificButtonCaps(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetSpecificButtonCapabilities(HIDReportType reportType, HIDUsage usagePage,
                                  UInt32 collection, HIDUsage usage,
                                  HIDButtonCapabilitiesPtr buttonCaps,
@@ -443,7 +443,7 @@ HIDGetSpecificButtonCapabilities(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetSpecificValueCaps(HIDReportType reportType, HIDUsage usagePage,
                         UInt32 collection, HIDUsage usage,
                         HIDValueCapsPtr valueCaps, UInt32 *valueCapsSize,
@@ -457,7 +457,7 @@ HIDGetSpecificValueCaps(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetSpecificValueCapabilities(HIDReportType reportType, HIDUsage usagePage,
                                 UInt32 collection, HIDUsage usage,
                                 HIDValueCapabilitiesPtr valueCaps,
@@ -472,7 +472,7 @@ HIDGetSpecificValueCapabilities(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetNextButtonInfo(HIDReportType reportType, HIDUsage usagePage,
                      HIDUsage usage, UInt32 *collection, UInt8 *reportID,
                      HIDPreparsedDataRef preparsedDataRef);
@@ -485,7 +485,7 @@ HIDGetNextButtonInfo(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetNextUsageValueInfo(HIDReportType reportType, HIDUsage usagePage,
                          HIDUsage usage, UInt32 *collection, UInt8 *reportID,
                          HIDPreparsedDataRef preparsedDataRef);
@@ -498,7 +498,7 @@ HIDGetNextUsageValueInfo(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 HIDMaxUsageListLength(HIDReportType reportType, HIDUsage usagePage,
                       HIDPreparsedDataRef preparsedDataRef);
 
@@ -510,7 +510,7 @@ HIDMaxUsageListLength(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetReportLength(HIDReportType reportType, UInt8 reportID,
                    ByteCount *reportLength,
                    HIDPreparsedDataRef preparsedDataRef);
@@ -523,7 +523,7 @@ HIDGetReportLength(HIDReportType reportType, UInt8 reportID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDInitReport(HIDReportType reportType, UInt8 reportID,
               HIDPreparsedDataRef preparsedDataRef, void *report,
               ByteCount reportLength);
@@ -536,7 +536,7 @@ HIDInitReport(HIDReportType reportType, UInt8 reportID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetButtons(HIDReportType reportType, UInt32 collection,
               HIDUsageAndPagePtr usageList, UInt32 *usageListSize,
               HIDPreparsedDataRef preparsedDataRef, void *report,
@@ -550,7 +550,7 @@ HIDGetButtons(HIDReportType reportType, UInt32 collection,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetButtonsOnPage(HIDReportType reportType, HIDUsage usagePage,
                     UInt32 collection, HIDUsage *usageList,
                     UInt32 *usageListSize, HIDPreparsedDataRef preparsedDataRef,
@@ -564,7 +564,7 @@ HIDGetButtonsOnPage(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetScaledUsageValue(HIDReportType reportType, HIDUsage usagePage,
                        UInt32 collection, HIDUsage usage, SInt32 *usageValue,
                        HIDPreparsedDataRef preparsedDataRef, void *report,
@@ -578,7 +578,7 @@ HIDGetScaledUsageValue(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetUsageValue(HIDReportType reportType, HIDUsage usagePage,
                  UInt32 collection, HIDUsage usage, SInt32 *usageValue,
                  HIDPreparsedDataRef preparsedDataRef, void *report,
@@ -592,7 +592,7 @@ HIDGetUsageValue(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDGetUsageValueArray(HIDReportType reportType, HIDUsage usagePage,
                       UInt32 collection, HIDUsage usage, Byte *usageValueBuffer,
                       ByteCount usageValueBufferSize,
@@ -607,7 +607,7 @@ HIDGetUsageValueArray(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDSetButton(HIDReportType reportType, HIDUsage usagePage, UInt32 collection,
              HIDUsage usage, HIDPreparsedDataRef preparsedDataRef, void *report,
              ByteCount reportLength);
@@ -620,7 +620,7 @@ HIDSetButton(HIDReportType reportType, HIDUsage usagePage, UInt32 collection,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDSetButtons(HIDReportType reportType, HIDUsage usagePage, UInt32 collection,
               HIDUsage *usageList, UInt32 *usageListSize,
               HIDPreparsedDataRef preparsedDataRef, void *report,
@@ -634,7 +634,7 @@ HIDSetButtons(HIDReportType reportType, HIDUsage usagePage, UInt32 collection,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDSetScaledUsageValue(HIDReportType reportType, HIDUsage usagePage,
                        UInt32 collection, HIDUsage usage, SInt32 usageValue,
                        HIDPreparsedDataRef preparsedDataRef, void *report,
@@ -648,7 +648,7 @@ HIDSetScaledUsageValue(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDSetUsageValue(HIDReportType reportType, HIDUsage usagePage,
                  UInt32 collection, HIDUsage usage, SInt32 usageValue,
                  HIDPreparsedDataRef preparsedDataRef, void *report,
@@ -662,7 +662,7 @@ HIDSetUsageValue(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDSetUsageValueArray(HIDReportType reportType, HIDUsage usagePage,
                       UInt32 collection, HIDUsage usage, Byte *usageValueBuffer,
                       ByteCount usageValueBufferLength,
@@ -677,7 +677,7 @@ HIDSetUsageValueArray(HIDReportType reportType, HIDUsage usagePage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 HIDUsageListDifference(HIDUsage *previousUsageList, HIDUsage *currentUsageList,
                        HIDUsage *breakUsageList, HIDUsage *makeUsageList,
                        UInt32 usageListsSize);

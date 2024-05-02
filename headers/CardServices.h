@@ -604,7 +604,7 @@ typedef STACK_UPP_TYPE(PCCardCSClientProcPtr) PCCardCSClientUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PCCardCSClientUPP)
+PCCardCSClientUPP
 NewPCCardCSClientUPP(PCCardCSClientProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -633,7 +633,7 @@ NewPCCardCSClientUPP(PCCardCSClientProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePCCardCSClientUPP(PCCardCSClientUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -653,7 +653,7 @@ inline void DisposePCCardCSClientUPP(PCCardCSClientUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 InvokePCCardCSClientUPP(ClientCallbackPBPtr ccPBPtr, PCCardCSClientUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

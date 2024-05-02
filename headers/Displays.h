@@ -498,7 +498,7 @@ typedef STACK_UPP_TYPE(DMDisplayListIteratorProcPtr) DMDisplayListIteratorUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DMNotificationUPP)
+DMNotificationUPP
 NewDMNotificationUPP(DMNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -527,7 +527,7 @@ NewDMNotificationUPP(DMNotificationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DMExtendedNotificationUPP)
+DMExtendedNotificationUPP
 NewDMExtendedNotificationUPP(DMExtendedNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -556,7 +556,7 @@ NewDMExtendedNotificationUPP(DMExtendedNotificationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DMComponentListIteratorUPP)
+DMComponentListIteratorUPP
 NewDMComponentListIteratorUPP(DMComponentListIteratorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -585,7 +585,7 @@ NewDMComponentListIteratorUPP(DMComponentListIteratorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DMDisplayModeListIteratorUPP)
+DMDisplayModeListIteratorUPP
 NewDMDisplayModeListIteratorUPP(DMDisplayModeListIteratorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -614,7 +614,7 @@ NewDMDisplayModeListIteratorUPP(DMDisplayModeListIteratorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DMProfileListIteratorUPP)
+DMProfileListIteratorUPP
 NewDMProfileListIteratorUPP(DMProfileListIteratorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -643,7 +643,7 @@ NewDMProfileListIteratorUPP(DMProfileListIteratorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DMDisplayListIteratorUPP)
+DMDisplayListIteratorUPP
 NewDMDisplayListIteratorUPP(DMDisplayListIteratorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -672,7 +672,7 @@ NewDMDisplayListIteratorUPP(DMDisplayListIteratorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDMNotificationUPP(DMNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -692,7 +692,7 @@ inline void DisposeDMNotificationUPP(DMNotificationUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDMExtendedNotificationUPP(DMExtendedNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -714,7 +714,7 @@ DisposeDMExtendedNotificationUPP(DMExtendedNotificationUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDMComponentListIteratorUPP(DMComponentListIteratorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -736,7 +736,7 @@ DisposeDMComponentListIteratorUPP(DMComponentListIteratorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDMDisplayModeListIteratorUPP(DMDisplayModeListIteratorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -758,7 +758,7 @@ DisposeDMDisplayModeListIteratorUPP(DMDisplayModeListIteratorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDMProfileListIteratorUPP(DMProfileListIteratorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -779,7 +779,7 @@ inline void DisposeDMProfileListIteratorUPP(DMProfileListIteratorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDMDisplayListIteratorUPP(DMDisplayListIteratorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -800,7 +800,7 @@ inline void DisposeDMDisplayListIteratorUPP(DMDisplayListIteratorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDMNotificationUPP(AppleEvent *theEvent, DMNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -822,7 +822,7 @@ inline void InvokeDMNotificationUPP(AppleEvent *theEvent,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDMExtendedNotificationUPP(void *userData, short theMessage,
                                 void *notifyData,
                                 DMExtendedNotificationUPP userUPP);
@@ -850,7 +850,7 @@ inline void InvokeDMExtendedNotificationUPP(void *userData, short theMessage,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDMComponentListIteratorUPP(void *userData, DMListIndexType itemIndex,
                                  DMComponentListEntryPtr componentInfo,
                                  DMComponentListIteratorUPP userUPP);
@@ -879,7 +879,7 @@ InvokeDMComponentListIteratorUPP(void *userData, DMListIndexType itemIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDMDisplayModeListIteratorUPP(void *userData, DMListIndexType itemIndex,
                                    DMDisplayModeListEntryPtr displaymodeInfo,
                                    DMDisplayModeListIteratorUPP userUPP);
@@ -908,7 +908,7 @@ InvokeDMDisplayModeListIteratorUPP(void *userData, DMListIndexType itemIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDMProfileListIteratorUPP(void *userData, DMListIndexType itemIndex,
                                DMProfileListEntryPtr profileInfo,
                                DMProfileListIteratorUPP userUPP);
@@ -937,7 +937,7 @@ inline void InvokeDMProfileListIteratorUPP(void *userData,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDMDisplayListIteratorUPP(void *userData, DMListIndexType itemIndex,
                                DisplayListEntryPtr displaymodeInfo,
                                DMDisplayListIteratorUPP userUPP);

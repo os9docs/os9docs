@@ -656,7 +656,7 @@ struct UDPiopb {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(GetIPIOCompletionUPP)
+GetIPIOCompletionUPP
 NewGetIPIOCompletionUPP(GetIPIOCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -685,7 +685,7 @@ NewGetIPIOCompletionUPP(GetIPIOCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IPIOCompletionUPP)
+IPIOCompletionUPP
 NewIPIOCompletionUPP(IPIOCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -714,7 +714,7 @@ NewIPIOCompletionUPP(IPIOCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ICMPEchoNotifyUPP)
+ICMPEchoNotifyUPP
 NewICMPEchoNotifyUPP(ICMPEchoNotifyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -743,7 +743,7 @@ NewICMPEchoNotifyUPP(ICMPEchoNotifyProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TCPNotifyUPP)
+TCPNotifyUPP
 NewTCPNotifyUPP(TCPNotifyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -770,7 +770,7 @@ inline TCPNotifyUPP NewTCPNotifyUPP(TCPNotifyProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TCPIOCompletionUPP)
+TCPIOCompletionUPP
 NewTCPIOCompletionUPP(TCPIOCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -799,7 +799,7 @@ NewTCPIOCompletionUPP(TCPIOCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UDPNotifyUPP)
+UDPNotifyUPP
 NewUDPNotifyUPP(UDPNotifyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -825,7 +825,7 @@ inline UDPNotifyUPP NewUDPNotifyUPP(UDPNotifyProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UDPIOCompletionUPP)
+UDPIOCompletionUPP
 NewUDPIOCompletionUPP(UDPIOCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -854,7 +854,7 @@ NewUDPIOCompletionUPP(UDPIOCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeGetIPIOCompletionUPP(GetIPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -874,7 +874,7 @@ inline void DisposeGetIPIOCompletionUPP(GetIPIOCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIPIOCompletionUPP(IPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -894,7 +894,7 @@ inline void DisposeIPIOCompletionUPP(IPIOCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeICMPEchoNotifyUPP(ICMPEchoNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -914,7 +914,7 @@ inline void DisposeICMPEchoNotifyUPP(ICMPEchoNotifyUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTCPNotifyUPP(TCPNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -934,7 +934,7 @@ inline void DisposeTCPNotifyUPP(TCPNotifyUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTCPIOCompletionUPP(TCPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -954,7 +954,7 @@ inline void DisposeTCPIOCompletionUPP(TCPIOCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeUDPNotifyUPP(UDPNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -974,7 +974,7 @@ inline void DisposeUDPNotifyUPP(UDPNotifyUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeUDPIOCompletionUPP(UDPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -994,7 +994,7 @@ inline void DisposeUDPIOCompletionUPP(UDPIOCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeGetIPIOCompletionUPP(GetAddrParamBlock *iopb,
                            GetIPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1017,7 +1017,7 @@ inline void InvokeGetIPIOCompletionUPP(GetAddrParamBlock *iopb,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeIPIOCompletionUPP(ICMPParamBlock *iopb, IPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1039,7 +1039,7 @@ inline void InvokeIPIOCompletionUPP(ICMPParamBlock *iopb,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeICMPEchoNotifyUPP(ICMPParamBlock *iopb, ICMPEchoNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1061,7 +1061,7 @@ inline void InvokeICMPEchoNotifyUPP(ICMPParamBlock *iopb,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTCPNotifyUPP(StreamPtr tcpStream, unsigned short eventCode,
                    Ptr userDataPtr, unsigned short terminReason,
                    ICMPReport *icmpMsg, TCPNotifyUPP userUPP);
@@ -1090,7 +1090,7 @@ inline void InvokeTCPNotifyUPP(StreamPtr tcpStream, unsigned short eventCode,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTCPIOCompletionUPP(TCPiopb *iopb, TCPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1112,7 +1112,7 @@ inline void InvokeTCPIOCompletionUPP(TCPiopb *iopb,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeUDPNotifyUPP(StreamPtr udpStream, unsigned short eventCode,
                    Ptr userDataPtr, ICMPReport *icmpMsg, UDPNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1139,7 +1139,7 @@ inline void InvokeUDPNotifyUPP(StreamPtr udpStream, unsigned short eventCode,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeUDPIOCompletionUPP(UDPiopb *iopb, UDPIOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

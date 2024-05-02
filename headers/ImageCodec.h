@@ -366,7 +366,7 @@ typedef STACK_UPP_TYPE(ImageCodecDrawBandCompleteProcPtr)
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ImageCodecTimeTriggerUPP)
+ImageCodecTimeTriggerUPP
 NewImageCodecTimeTriggerUPP(ImageCodecTimeTriggerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -395,7 +395,7 @@ NewImageCodecTimeTriggerUPP(ImageCodecTimeTriggerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ImageCodecDrawBandCompleteUPP)
+ImageCodecDrawBandCompleteUPP
 NewImageCodecDrawBandCompleteUPP(ImageCodecDrawBandCompleteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -424,7 +424,7 @@ inline ImageCodecDrawBandCompleteUPP NewImageCodecDrawBandCompleteUPP(
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeImageCodecTimeTriggerUPP(ImageCodecTimeTriggerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -445,7 +445,7 @@ inline void DisposeImageCodecTimeTriggerUPP(ImageCodecTimeTriggerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeImageCodecDrawBandCompleteUPP(ImageCodecDrawBandCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -467,7 +467,7 @@ DisposeImageCodecDrawBandCompleteUPP(ImageCodecDrawBandCompleteUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeImageCodecTimeTriggerUPP(void *refcon, ImageCodecTimeTriggerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -489,7 +489,7 @@ inline void InvokeImageCodecTimeTriggerUPP(void *refcon,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeImageCodecDrawBandCompleteUPP(void *refcon,
                                     ComponentResult drawBandResult,
                                     UInt32 drawBandCompleteFlags,
@@ -1062,7 +1062,7 @@ typedef STACK_UPP_TYPE(ImageCodecMPDrawBandProcPtr) ImageCodecMPDrawBandUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ImageCodecMPDrawBandUPP)
+ImageCodecMPDrawBandUPP
 NewImageCodecMPDrawBandUPP(ImageCodecMPDrawBandProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1091,7 +1091,7 @@ NewImageCodecMPDrawBandUPP(ImageCodecMPDrawBandProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeImageCodecMPDrawBandUPP(ImageCodecMPDrawBandUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1112,7 +1112,7 @@ inline void DisposeImageCodecMPDrawBandUPP(ImageCodecMPDrawBandUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeImageCodecMPDrawBandUPP(void *refcon, ImageSubCodecDecompressRecord *drp,
                               ImageCodecMPDrawBandUPP userUPP);
 #if !OPAQUE_UPP_TYPES

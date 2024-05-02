@@ -628,7 +628,7 @@ typedef STACK_UPP_TYPE(CMMIterateProcPtr) CMMIterateUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMProfileIterateUPP)
+CMProfileIterateUPP
 NewCMProfileIterateUPP(CMProfileIterateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -657,7 +657,7 @@ NewCMProfileIterateUPP(CMProfileIterateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMMIterateUPP)
+CMMIterateUPP
 NewCMMIterateUPP(CMMIterateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -683,7 +683,7 @@ inline CMMIterateUPP NewCMMIterateUPP(CMMIterateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCMProfileIterateUPP(CMProfileIterateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -703,7 +703,7 @@ inline void DisposeCMProfileIterateUPP(CMProfileIterateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCMMIterateUPP(CMMIterateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -723,7 +723,7 @@ inline void DisposeCMMIterateUPP(CMMIterateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCMProfileIterateUPP(CMProfileIterateData *iterateData, void *refCon,
                           CMProfileIterateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -749,7 +749,7 @@ inline OSErr InvokeCMProfileIterateUPP(CMProfileIterateData *iterateData,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCMMIterateUPP(CMMInfo *iterateData, void *refCon, CMMIterateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

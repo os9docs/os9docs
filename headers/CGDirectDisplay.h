@@ -98,7 +98,7 @@ enum { CGDisplayNoErr = kCGErrorSuccess };
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGGetDisplaysWithPoint(CGPoint point, CGDisplayCount maxDisplays,
                        CGDirectDisplayID *dspys, CGDisplayCount *dspyCnt);
 
@@ -110,7 +110,7 @@ CGGetDisplaysWithPoint(CGPoint point, CGDisplayCount maxDisplays,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGGetDisplaysWithRect(CGRect rect, CGDisplayCount maxDisplays,
                       CGDirectDisplayID *dspys, CGDisplayCount *dspyCnt);
 
@@ -122,7 +122,7 @@ CGGetDisplaysWithRect(CGRect rect, CGDisplayCount maxDisplays,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGGetDisplaysWithOpenGLDisplayMask(CGOpenGLDisplayMask mask,
                                    CGDisplayCount maxDisplays,
                                    CGDirectDisplayID *dspys,
@@ -147,7 +147,7 @@ CGGetDisplaysWithOpenGLDisplayMask(CGOpenGLDisplayMask mask,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGGetActiveDisplayList(CGDisplayCount maxDisplays,
                        CGDirectDisplayID *activeDspys, CGDisplayCount *dspyCnt);
 
@@ -160,7 +160,7 @@ CGGetActiveDisplayList(CGDisplayCount maxDisplays,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGOpenGLDisplayMask)
+CGOpenGLDisplayMask
 CGDisplayIDToOpenGLDisplayMask(CGDirectDisplayID display);
 
 /** Return screen size and origin in global coords; Empty rect if display is
@@ -173,7 +173,7 @@ CGDisplayIDToOpenGLDisplayMask(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGDisplayBounds(CGDirectDisplayID display);
 
 /**
@@ -184,7 +184,7 @@ CGDisplayBounds(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(size_t)
+size_t
 CGDisplayPixelsWide(CGDirectDisplayID display);
 
 /**
@@ -195,7 +195,7 @@ CGDisplayPixelsWide(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(size_t)
+size_t
 CGDisplayPixelsHigh(CGDirectDisplayID display);
 
 /**
@@ -306,7 +306,7 @@ extern CFStringRef kCGDisplayIOFlags;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFArrayRef)
+CFArrayRef
 CGDisplayAvailableModes(CGDirectDisplayID display);
 
 /**
@@ -327,7 +327,7 @@ CGDisplayAvailableModes(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFDictionaryRef)
+CFDictionaryRef
 CGDisplayBestModeForParameters(CGDirectDisplayID display, size_t bitsPerPixel,
                                size_t width, size_t height,
                                boolean_t *exactMatch);
@@ -340,7 +340,7 @@ CGDisplayBestModeForParameters(CGDirectDisplayID display, size_t bitsPerPixel,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFDictionaryRef)
+CFDictionaryRef
 CGDisplayBestModeForParametersAndRefreshRate(CGDirectDisplayID display,
                                              size_t bitsPerPixel, size_t width,
                                              size_t height,
@@ -359,7 +359,7 @@ CGDisplayBestModeForParametersAndRefreshRate(CGDirectDisplayID display,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFDictionaryRef)
+CFDictionaryRef
 CGDisplayCurrentMode(CGDirectDisplayID display);
 
 /**
@@ -379,7 +379,7 @@ CGDisplayCurrentMode(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplaySwitchToMode(CGDirectDisplayID display, CFDictionaryRef mode);
 
 /** Query parameters for current mode */
@@ -391,7 +391,7 @@ CGDisplaySwitchToMode(CGDirectDisplayID display, CFDictionaryRef mode);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(size_t)
+size_t
 CGDisplayBitsPerPixel(CGDirectDisplayID display);
 
 /**
@@ -402,7 +402,7 @@ CGDisplayBitsPerPixel(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(size_t)
+size_t
 CGDisplayBitsPerSample(CGDirectDisplayID display);
 
 /**
@@ -413,7 +413,7 @@ CGDisplayBitsPerSample(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(size_t)
+size_t
 CGDisplaySamplesPerPixel(CGDirectDisplayID display);
 
 /**
@@ -424,7 +424,7 @@ CGDisplaySamplesPerPixel(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(size_t)
+size_t
 CGDisplayBytesPerRow(CGDirectDisplayID display);
 
 /**
@@ -450,7 +450,7 @@ typedef float CGGammaValue;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGSetDisplayTransferByFormula(CGDirectDisplayID display, CGGammaValue redMin,
                               CGGammaValue redMax, CGGammaValue redGamma,
                               CGGammaValue greenMin, CGGammaValue greenMax,
@@ -465,7 +465,7 @@ CGSetDisplayTransferByFormula(CGDirectDisplayID display, CGGammaValue redMin,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGGetDisplayTransferByFormula(CGDirectDisplayID display, CGGammaValue *redMin,
                               CGGammaValue *redMax, CGGammaValue *redGamma,
                               CGGammaValue *greenMin, CGGammaValue *greenMax,
@@ -487,7 +487,7 @@ CGGetDisplayTransferByFormula(CGDirectDisplayID display, CGGammaValue *redMin,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGSetDisplayTransferByTable(CGDirectDisplayID display, CGTableCount tableSize,
                             const CGGammaValue *redTable,
                             const CGGammaValue *greenTable,
@@ -506,7 +506,7 @@ CGSetDisplayTransferByTable(CGDirectDisplayID display, CGTableCount tableSize,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGGetDisplayTransferByTable(CGDirectDisplayID display, CGTableCount capacity,
                             CGGammaValue *redTable, CGGammaValue *greenTable,
                             CGGammaValue *blueTable, CGTableCount *sampleCount);
@@ -520,7 +520,7 @@ CGGetDisplayTransferByTable(CGDirectDisplayID display, CGTableCount capacity,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGSetDisplayTransferByByteTable(CGDirectDisplayID display,
                                 CGTableCount tableSize,
                                 const CGByteValue *redTable,
@@ -537,7 +537,7 @@ CGSetDisplayTransferByByteTable(CGDirectDisplayID display,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGDisplayRestoreColorSyncSettings(void);
 
 /** Display capture and release */
@@ -549,7 +549,7 @@ CGDisplayRestoreColorSyncSettings(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(boolean_t)
+boolean_t
 CGDisplayIsCaptured(CGDirectDisplayID display);
 
 /**
@@ -560,7 +560,7 @@ CGDisplayIsCaptured(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplayCapture(CGDirectDisplayID display);
 
 /**
@@ -571,7 +571,7 @@ CGDisplayCapture(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplayRelease(CGDirectDisplayID display);
 
 /**
@@ -587,7 +587,7 @@ CGDisplayRelease(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGCaptureAllDisplays(void);
 
 /**
@@ -603,7 +603,7 @@ CGCaptureAllDisplays(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGReleaseAllDisplays(void);
 
 /**
@@ -618,7 +618,7 @@ CGReleaseAllDisplays(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void *)
+void *
 CGShieldingWindowID(CGDirectDisplayID display);
 
 /**
@@ -634,7 +634,7 @@ CGShieldingWindowID(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int32_t)
+int32_t
 CGShieldingWindowLevel(void);
 
 /**
@@ -650,7 +650,7 @@ CGShieldingWindowLevel(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void *)
+void *
 CGDisplayBaseAddress(CGDirectDisplayID display);
 
 /**
@@ -668,7 +668,7 @@ CGDisplayBaseAddress(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void *)
+void *
 CGDisplayAddressForPosition(CGDirectDisplayID display, CGDisplayCoord x,
                             CGDisplayCoord y);
 
@@ -681,7 +681,7 @@ CGDisplayAddressForPosition(CGDirectDisplayID display, CGDisplayCoord x,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplayHideCursor(CGDirectDisplayID display);
 
 /** increments hide cursor count */
@@ -693,7 +693,7 @@ CGDisplayHideCursor(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplayShowCursor(CGDirectDisplayID display);
 
 /** decrements hide cursor count  */
@@ -711,7 +711,7 @@ CGDisplayShowCursor(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplayMoveCursorToPoint(CGDirectDisplayID display, CGPoint point);
 
 /**
@@ -726,7 +726,7 @@ CGDisplayMoveCursorToPoint(CGDirectDisplayID display, CGPoint point);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGGetLastMouseDelta(CGMouseDelta *deltaX, CGMouseDelta *deltaY);
 
 /** Palette controls (8 bit pseudocolor only) */
@@ -741,7 +741,7 @@ CGGetLastMouseDelta(CGMouseDelta *deltaX, CGMouseDelta *deltaY);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(boolean_t)
+boolean_t
 CGDisplayCanSetPalette(CGDirectDisplayID display);
 
 /**
@@ -756,7 +756,7 @@ CGDisplayCanSetPalette(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplaySetPalette(CGDirectDisplayID display, CGDirectPaletteRef palette);
 
 /**
@@ -802,7 +802,7 @@ CGDisplaySetPalette(CGDirectDisplayID display, CGDirectPaletteRef palette);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDisplayErr)
+CGDisplayErr
 CGDisplayWaitForBeamPositionOutsideLines(CGDirectDisplayID display,
                                          CGBeamPosition upperScanLine,
                                          CGBeamPosition lowerScanLine);
@@ -821,7 +821,7 @@ CGDisplayWaitForBeamPositionOutsideLines(CGDirectDisplayID display,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGBeamPosition)
+CGBeamPosition
 CGDisplayBeamPosition(CGDirectDisplayID display);
 
 #if PRAGMA_STRUCT_ALIGN

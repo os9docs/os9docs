@@ -2781,7 +2781,7 @@ enum { kCurrentlyNativeEndian = 1, kCurrentlyNotNativeEndian = 2 };
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MusicMIDISendUPP)
+MusicMIDISendUPP
 NewMusicMIDISendUPP(MusicMIDISendProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2809,7 +2809,7 @@ inline MusicMIDISendUPP NewMusicMIDISendUPP(MusicMIDISendProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MusicOfflineDataUPP)
+MusicOfflineDataUPP
 NewMusicOfflineDataUPP(MusicOfflineDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2838,7 +2838,7 @@ NewMusicOfflineDataUPP(MusicOfflineDataProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TuneCallBackUPP)
+TuneCallBackUPP
 NewTuneCallBackUPP(TuneCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2866,7 +2866,7 @@ inline TuneCallBackUPP NewTuneCallBackUPP(TuneCallBackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TunePlayCallBackUPP)
+TunePlayCallBackUPP
 NewTunePlayCallBackUPP(TunePlayCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2895,7 +2895,7 @@ NewTunePlayCallBackUPP(TunePlayCallBackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMusicMIDISendUPP(MusicMIDISendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2915,7 +2915,7 @@ inline void DisposeMusicMIDISendUPP(MusicMIDISendUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMusicOfflineDataUPP(MusicOfflineDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2935,7 +2935,7 @@ inline void DisposeMusicOfflineDataUPP(MusicOfflineDataUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTuneCallBackUPP(TuneCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2955,7 +2955,7 @@ inline void DisposeTuneCallBackUPP(TuneCallBackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTunePlayCallBackUPP(TunePlayCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2975,7 +2975,7 @@ inline void DisposeTunePlayCallBackUPP(TunePlayCallBackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeMusicMIDISendUPP(ComponentInstance self, long refCon,
                        MusicMIDIPacket *mmp, MusicMIDISendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3001,7 +3001,7 @@ inline ComponentResult InvokeMusicMIDISendUPP(ComponentInstance self,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeMusicOfflineDataUPP(Ptr SoundData, long numBytes, long myRefCon,
                           MusicOfflineDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3028,7 +3028,7 @@ inline ComponentResult InvokeMusicOfflineDataUPP(Ptr SoundData, long numBytes,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeTuneCallBackUPP(const TuneStatus *status, long refCon,
                       TuneCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3051,7 +3051,7 @@ inline void InvokeTuneCallBackUPP(const TuneStatus *status, long refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeTunePlayCallBackUPP(unsigned long *event, long seed, long refCon,
                           TunePlayCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES

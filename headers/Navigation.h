@@ -448,7 +448,7 @@ typedef STACK_UPP_TYPE(NavObjectFilterProcPtr) NavObjectFilterUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(NavEventUPP)
+NavEventUPP
 NewNavEventUPP(NavEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -474,7 +474,7 @@ inline NavEventUPP NewNavEventUPP(NavEventProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(NavPreviewUPP)
+NavPreviewUPP
 NewNavPreviewUPP(NavPreviewProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -500,7 +500,7 @@ inline NavPreviewUPP NewNavPreviewUPP(NavPreviewProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(NavObjectFilterUPP)
+NavObjectFilterUPP
 NewNavObjectFilterUPP(NavObjectFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -529,7 +529,7 @@ NewNavObjectFilterUPP(NavObjectFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeNavEventUPP(NavEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -549,7 +549,7 @@ inline void DisposeNavEventUPP(NavEventUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeNavPreviewUPP(NavPreviewUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -569,7 +569,7 @@ inline void DisposeNavPreviewUPP(NavPreviewUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeNavObjectFilterUPP(NavObjectFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -589,7 +589,7 @@ inline void DisposeNavObjectFilterUPP(NavObjectFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeNavEventUPP(NavEventCallbackMessage callBackSelector,
                   NavCBRecPtr callBackParms, void *callBackUD,
                   NavEventUPP userUPP);
@@ -617,7 +617,7 @@ inline void InvokeNavEventUPP(NavEventCallbackMessage callBackSelector,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeNavPreviewUPP(NavCBRecPtr callBackParms, void *callBackUD,
                     NavPreviewUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -642,7 +642,7 @@ inline Boolean InvokeNavPreviewUPP(NavCBRecPtr callBackParms, void *callBackUD,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeNavObjectFilterUPP(AEDesc *theItem, void *info, void *callBackUD,
                          NavFilterModes filterMode, NavObjectFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1412,7 +1412,7 @@ typedef struct NavDialogCreationOptions NavDialogCreationOptions;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavGetDefaultDialogCreationOptions(NavDialogCreationOptions *outOptions);
 
 /**
@@ -1464,7 +1464,7 @@ NavGetDefaultDialogCreationOptions(NavDialogCreationOptions *outOptions);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateGetFileDialog(
     const NavDialogCreationOptions *inOptions, /* can be NULL */
     NavTypeListHandle inTypeList,              /* can be NULL */
@@ -1521,7 +1521,7 @@ NavCreateGetFileDialog(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreatePutFileDialog(
     const NavDialogCreationOptions *inOptions, /* can be NULL */
     OSType inFileType, OSType inFileCreator,
@@ -1582,7 +1582,7 @@ NavCreatePutFileDialog(
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateAskReviewDocumentsDialog(const NavDialogCreationOptions *inOptions,
                                   UInt32 inDocumentCount,
                                   NavEventUPP inEventProc, /* can be NULL */
@@ -1634,7 +1634,7 @@ NavCreateAskReviewDocumentsDialog(const NavDialogCreationOptions *inOptions,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateAskSaveChangesDialog(const NavDialogCreationOptions *inOptions,
                               NavAskSaveChangesAction inAction,
                               NavEventUPP inEventProc, /* can be NULL */
@@ -1680,7 +1680,7 @@ NavCreateAskSaveChangesDialog(const NavDialogCreationOptions *inOptions,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateAskDiscardChangesDialog(const NavDialogCreationOptions *inOptions,
                                  NavEventUPP inEventProc, /* can be NULL */
                                  void *inClientData,      /* can be NULL */
@@ -1736,7 +1736,7 @@ NavCreateAskDiscardChangesDialog(const NavDialogCreationOptions *inOptions,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateChooseFileDialog(
     const NavDialogCreationOptions *inOptions, /* can be NULL */
     NavTypeListHandle inTypeList,              /* can be NULL */
@@ -1787,7 +1787,7 @@ NavCreateChooseFileDialog(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateChooseFolderDialog(
     const NavDialogCreationOptions *inOptions, /* can be NULL */
     NavEventUPP inEventProc,                   /* can be NULL */
@@ -1836,7 +1836,7 @@ NavCreateChooseFolderDialog(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateChooseVolumeDialog(
     const NavDialogCreationOptions *inOptions, /* can be NULL */
     NavEventUPP inEventProc,                   /* can be NULL */
@@ -1890,7 +1890,7 @@ NavCreateChooseVolumeDialog(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateChooseObjectDialog(
     const NavDialogCreationOptions *inOptions, /* can be NULL */
     NavEventUPP inEventProc,                   /* can be NULL */
@@ -1938,7 +1938,7 @@ NavCreateChooseObjectDialog(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavCreateNewFolderDialog(
     const NavDialogCreationOptions *inOptions, /* can be NULL */
     NavEventUPP inEventProc,                   /* can be NULL */
@@ -1983,7 +1983,7 @@ NavCreateNewFolderDialog(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavDialogRun(NavDialogRef inDialog);
 
 /**
@@ -2008,7 +2008,7 @@ NavDialogRun(NavDialogRef inDialog);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 NavDialogDispose(NavDialogRef inDialog);
 
 /**
@@ -2035,7 +2035,7 @@ NavDialogDispose(NavDialogRef inDialog);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowRef)
+WindowRef
 NavDialogGetWindow(NavDialogRef inDialog);
 
 /**
@@ -2072,7 +2072,7 @@ NavDialogGetWindow(NavDialogRef inDialog);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(NavUserAction)
+NavUserAction
 NavDialogGetUserAction(NavDialogRef inDialog);
 
 /**
@@ -2106,7 +2106,7 @@ NavDialogGetUserAction(NavDialogRef inDialog);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavDialogGetReply(NavDialogRef inDialog, NavReplyRecord *outReply);
 
 /**
@@ -2140,7 +2140,7 @@ NavDialogGetReply(NavDialogRef inDialog, NavReplyRecord *outReply);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFStringRef)
+CFStringRef
 NavDialogGetSaveFileName(NavDialogRef inPutFileDialog);
 
 /**
@@ -2173,7 +2173,7 @@ NavDialogGetSaveFileName(NavDialogRef inPutFileDialog);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavDialogSetSaveFileName(NavDialogRef inPutFileDialog, CFStringRef inFileName);
 
 /**
@@ -2202,7 +2202,7 @@ NavDialogSetSaveFileName(NavDialogRef inPutFileDialog, CFStringRef inFileName);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 NavDialogGetSaveFileExtensionHidden(NavDialogRef inPutFileDialog);
 
 /**
@@ -2234,7 +2234,7 @@ NavDialogGetSaveFileExtensionHidden(NavDialogRef inPutFileDialog);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NavDialogSetSaveFileExtensionHidden(NavDialogRef inPutFileDialog,
                                     Boolean inHidden);
 

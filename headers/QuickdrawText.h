@@ -61,7 +61,7 @@ extern "C" {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 StandardGlyphs(void *dataStream, ByteCount size);
 
 enum {
@@ -147,7 +147,7 @@ typedef STACK_UPP_TYPE(StyleRunDirectionProcPtr) StyleRunDirectionUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(StyleRunDirectionUPP)
+StyleRunDirectionUPP
 NewStyleRunDirectionUPP(StyleRunDirectionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -176,7 +176,7 @@ NewStyleRunDirectionUPP(StyleRunDirectionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeStyleRunDirectionUPP(StyleRunDirectionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -196,7 +196,7 @@ inline void DisposeStyleRunDirectionUPP(StyleRunDirectionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeStyleRunDirectionUPP(short styleRunIndex, void *dirParam,
                            StyleRunDirectionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -773,7 +773,7 @@ TruncText(short width, Ptr textPtr, short *length, TruncCode truncWhere)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 drawstring(const char *s);
 
 /**
@@ -784,7 +784,7 @@ drawstring(const char *s);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 stringwidth(const char *s);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -797,7 +797,7 @@ stringwidth(const char *s);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 stdtext(short count, const void *textAddr, const Point *numer,
         const Point *denom);
 

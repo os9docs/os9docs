@@ -499,7 +499,7 @@ InstallDebugAssertOutputHandler(DebugAssertOutputHandlerUPP handler)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 dprintf(const char *format, ...)
     SIXWORDINLINE(0x2057, 0x43EF, 0x0004, 0x303C, 0x000A, 0xAA7E);
 
@@ -543,7 +543,7 @@ vdprintf(const char *format, char *va_args_list) TWOWORDINLINE(0x7009, 0xAA7E);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DebugComponentCallbackUPP)
+DebugComponentCallbackUPP
 NewDebugComponentCallbackUPP(DebugComponentCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -572,7 +572,7 @@ NewDebugComponentCallbackUPP(DebugComponentCallbackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DebugAssertOutputHandlerUPP)
+DebugAssertOutputHandlerUPP
 NewDebugAssertOutputHandlerUPP(DebugAssertOutputHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -602,7 +602,7 @@ NewDebugAssertOutputHandlerUPP(DebugAssertOutputHandlerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDebugComponentCallbackUPP(DebugComponentCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -624,7 +624,7 @@ DisposeDebugComponentCallbackUPP(DebugComponentCallbackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDebugAssertOutputHandlerUPP(DebugAssertOutputHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -646,7 +646,7 @@ DisposeDebugAssertOutputHandlerUPP(DebugAssertOutputHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDebugComponentCallbackUPP(SInt32 optionSelectorNum, UInt32 command,
                                 Boolean *optionSetting,
                                 DebugComponentCallbackUPP userUPP);
@@ -675,7 +675,7 @@ inline void InvokeDebugComponentCallbackUPP(SInt32 optionSelectorNum,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDebugAssertOutputHandlerUPP(OSType componentSignature, UInt32 options,
                                   const char *assertionString,
                                   const char *exceptionString,

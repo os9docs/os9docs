@@ -156,7 +156,7 @@ typedef struct TQ3HitPath TQ3HitPath;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Pick_GetType(TQ3PickObject pick);
 
 /**
@@ -167,7 +167,7 @@ Q3Pick_GetType(TQ3PickObject pick);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_GetData(TQ3PickObject pick, TQ3PickData *data);
 
 /**
@@ -178,7 +178,7 @@ Q3Pick_GetData(TQ3PickObject pick, TQ3PickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_SetData(TQ3PickObject pick, const TQ3PickData *data);
 
 /**
@@ -189,7 +189,7 @@ Q3Pick_SetData(TQ3PickObject pick, const TQ3PickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_GetVertexTolerance(TQ3PickObject pick, float *vertexTolerance);
 
 /**
@@ -200,7 +200,7 @@ Q3Pick_GetVertexTolerance(TQ3PickObject pick, float *vertexTolerance);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_GetEdgeTolerance(TQ3PickObject pick, float *edgeTolerance);
 
 /**
@@ -211,7 +211,7 @@ Q3Pick_GetEdgeTolerance(TQ3PickObject pick, float *edgeTolerance);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_SetVertexTolerance(TQ3PickObject pick, float vertexTolerance);
 
 /**
@@ -222,7 +222,7 @@ Q3Pick_SetVertexTolerance(TQ3PickObject pick, float vertexTolerance);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_SetEdgeTolerance(TQ3PickObject pick, float edgeTolerance);
 
 /**
@@ -233,7 +233,7 @@ Q3Pick_SetEdgeTolerance(TQ3PickObject pick, float edgeTolerance);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_GetNumHits(TQ3PickObject pick, unsigned long *numHits);
 
 /**
@@ -244,7 +244,7 @@ Q3Pick_GetNumHits(TQ3PickObject pick, unsigned long *numHits);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_EmptyHitList(TQ3PickObject pick);
 
 /**
@@ -255,7 +255,7 @@ Q3Pick_EmptyHitList(TQ3PickObject pick);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_GetPickDetailValidMask(TQ3PickObject pick, unsigned long index,
                               TQ3PickDetail *pickDetailValidMask);
 
@@ -267,7 +267,7 @@ Q3Pick_GetPickDetailValidMask(TQ3PickObject pick, unsigned long index,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Pick_GetPickDetailData(TQ3PickObject pick, unsigned long index,
                          TQ3PickDetail pickDetailValue, void *detailData);
 
@@ -279,7 +279,7 @@ Q3Pick_GetPickDetailData(TQ3PickObject pick, unsigned long index,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3HitPath_EmptyData(TQ3HitPath *hitPath);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -298,7 +298,7 @@ Q3HitPath_EmptyData(TQ3HitPath *hitPath);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3PickObject)
+TQ3PickObject
 Q3WindowPointPick_New(const TQ3WindowPointPickData *data);
 
 /**
@@ -309,7 +309,7 @@ Q3WindowPointPick_New(const TQ3WindowPointPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowPointPick_GetPoint(TQ3PickObject pick, TQ3Point2D *point);
 
 /**
@@ -320,7 +320,7 @@ Q3WindowPointPick_GetPoint(TQ3PickObject pick, TQ3Point2D *point);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowPointPick_SetPoint(TQ3PickObject pick, const TQ3Point2D *point);
 
 /**
@@ -331,7 +331,7 @@ Q3WindowPointPick_SetPoint(TQ3PickObject pick, const TQ3Point2D *point);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowPointPick_GetData(TQ3PickObject pick, TQ3WindowPointPickData *data);
 
 /**
@@ -342,7 +342,7 @@ Q3WindowPointPick_GetData(TQ3PickObject pick, TQ3WindowPointPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowPointPick_SetData(TQ3PickObject pick,
                           const TQ3WindowPointPickData *data);
 
@@ -359,7 +359,7 @@ Q3WindowPointPick_SetData(TQ3PickObject pick,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3PickObject)
+TQ3PickObject
 Q3WindowRectPick_New(const TQ3WindowRectPickData *data);
 
 /**
@@ -370,7 +370,7 @@ Q3WindowRectPick_New(const TQ3WindowRectPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowRectPick_GetRect(TQ3PickObject pick, TQ3Area *rect);
 
 /**
@@ -381,7 +381,7 @@ Q3WindowRectPick_GetRect(TQ3PickObject pick, TQ3Area *rect);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowRectPick_SetRect(TQ3PickObject pick, const TQ3Area *rect);
 
 /**
@@ -392,7 +392,7 @@ Q3WindowRectPick_SetRect(TQ3PickObject pick, const TQ3Area *rect);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowRectPick_GetData(TQ3PickObject pick, TQ3WindowRectPickData *data);
 
 /**
@@ -403,7 +403,7 @@ Q3WindowRectPick_GetData(TQ3PickObject pick, TQ3WindowRectPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WindowRectPick_SetData(TQ3PickObject pick, const TQ3WindowRectPickData *data);
 
 /*******************************************************************************
@@ -419,7 +419,7 @@ Q3WindowRectPick_SetData(TQ3PickObject pick, const TQ3WindowRectPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3PickObject)
+TQ3PickObject
 Q3WorldRayPick_New(const TQ3WorldRayPickData *data);
 
 /**
@@ -430,7 +430,7 @@ Q3WorldRayPick_New(const TQ3WorldRayPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WorldRayPick_GetRay(TQ3PickObject pick, TQ3Ray3D *ray);
 
 /**
@@ -441,7 +441,7 @@ Q3WorldRayPick_GetRay(TQ3PickObject pick, TQ3Ray3D *ray);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WorldRayPick_SetRay(TQ3PickObject pick, const TQ3Ray3D *ray);
 
 /**
@@ -452,7 +452,7 @@ Q3WorldRayPick_SetRay(TQ3PickObject pick, const TQ3Ray3D *ray);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WorldRayPick_GetData(TQ3PickObject pick, TQ3WorldRayPickData *data);
 
 /**
@@ -463,7 +463,7 @@ Q3WorldRayPick_GetData(TQ3PickObject pick, TQ3WorldRayPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3WorldRayPick_SetData(TQ3PickObject pick, const TQ3WorldRayPickData *data);
 
 /*******************************************************************************
@@ -479,7 +479,7 @@ Q3WorldRayPick_SetData(TQ3PickObject pick, const TQ3WorldRayPickData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3ShapePart_GetType(TQ3ShapePartObject shapePartObject);
 
 /**
@@ -490,7 +490,7 @@ Q3ShapePart_GetType(TQ3ShapePartObject shapePartObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3MeshPart_GetType(TQ3MeshPartObject meshPartObject);
 
 /**
@@ -501,7 +501,7 @@ Q3MeshPart_GetType(TQ3MeshPartObject meshPartObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ShapePart_GetShape(TQ3ShapePartObject shapePartObject,
                      TQ3ShapeObject *shapeObject);
 
@@ -513,7 +513,7 @@ Q3ShapePart_GetShape(TQ3ShapePartObject shapePartObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MeshPart_GetComponent(TQ3MeshPartObject meshPartObject,
                         TQ3MeshComponent *component);
 
@@ -525,7 +525,7 @@ Q3MeshPart_GetComponent(TQ3MeshPartObject meshPartObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MeshFacePart_GetFace(TQ3MeshFacePartObject meshFacePartObject,
                        TQ3MeshFace *face);
 
@@ -537,7 +537,7 @@ Q3MeshFacePart_GetFace(TQ3MeshFacePartObject meshFacePartObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MeshEdgePart_GetEdge(TQ3MeshEdgePartObject meshEdgePartObject,
                        TQ3MeshEdge *edge);
 
@@ -549,7 +549,7 @@ Q3MeshEdgePart_GetEdge(TQ3MeshEdgePartObject meshEdgePartObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MeshVertexPart_GetVertex(TQ3MeshVertexPartObject meshVertexPartObject,
                            TQ3MeshVertex *vertex);
 

@@ -109,7 +109,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSReportStatusChange(const RegEntryID *adapterRef, PCCardSocket whichSocket,
                      PCCardSCEvents statusChange,
                      PCCardSocketStatus socketStatus);

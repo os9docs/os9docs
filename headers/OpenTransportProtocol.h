@@ -104,7 +104,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTAllocSharedClientMem(OTByteCount size);
 
 /**
@@ -115,7 +115,7 @@ OTAllocSharedClientMem(OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTFreeSharedClientMem(void *mem);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -3112,7 +3112,7 @@ typedef struct OTClientList OTClientList;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTYieldPortRequest(ProviderRef ref, OTPortRef portRef, OTClientList *buffer,
                    OTByteCount size);
 
@@ -3125,7 +3125,7 @@ OTYieldPortRequest(ProviderRef ref, OTPortRef portRef, OTClientList *buffer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTNotifyAllClients(OTEventCode code, OTResult result, void *cookie);
 
 /** Determine if "child" is a child port of "parent"*/
@@ -3137,7 +3137,7 @@ OTNotifyAllClients(OTEventCode code, OTResult result, void *cookie);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTIsDependentPort(OTPortRef parent, OTPortRef child);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -3241,7 +3241,7 @@ OTScheduleTimerTask(OTTimerTask timerTask, OTTimeout milliSeconds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTByteCount)
+OTByteCount
 OTBufferDataSize(OTBuffer *buffer);
 
 /**
@@ -3252,7 +3252,7 @@ OTBufferDataSize(OTBuffer *buffer);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTReadBuffer(OTBufferInfo *buffer, void *dest, OTByteCount *len);
 
 /**
@@ -3263,7 +3263,7 @@ OTReadBuffer(OTBufferInfo *buffer, void *dest, OTByteCount *len);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTReleaseBuffer(OTBuffer *buffer);
 
 #if CALL_NOT_IN_CARBON
@@ -3275,7 +3275,7 @@ OTReleaseBuffer(OTBuffer *buffer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 StoreIntoNetbuf(TNetbuf *netBuf, void *source, SInt32 len);
 
 /**
@@ -3286,7 +3286,7 @@ StoreIntoNetbuf(TNetbuf *netBuf, void *source, SInt32 len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 StoreMsgIntoNetbuf(TNetbuf *netBuf, OTBuffer *buffer);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -3311,7 +3311,7 @@ StoreMsgIntoNetbuf(TNetbuf *netBuf, OTBuffer *buffer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigNewConfiguration(const char *path);
 
 /**
@@ -3322,7 +3322,7 @@ OTCfigNewConfiguration(const char *path);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTCfigDeleteConfiguration(OTConfigurationRef cfig);
 
 /**
@@ -3333,7 +3333,7 @@ OTCfigDeleteConfiguration(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigCloneConfiguration(OTConfigurationRef cfig);
 
 /**
@@ -3344,7 +3344,7 @@ OTCfigCloneConfiguration(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigPushNewSingleChild(OTConfigurationRef cfig, const char *path,
                          OSStatus *errPtr);
 
@@ -3356,7 +3356,7 @@ OTCfigPushNewSingleChild(OTConfigurationRef cfig, const char *path,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigPushParent(OTConfigurationRef cfig, const char *path, OSStatus *errPtr);
 
 /**
@@ -3367,7 +3367,7 @@ OTCfigPushParent(OTConfigurationRef cfig, const char *path, OSStatus *errPtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigPushChild(OTConfigurationRef cfig, OTItemCount index, const char *path,
                 OSStatus *errPtr);
 
@@ -3379,7 +3379,7 @@ OTCfigPushChild(OTConfigurationRef cfig, OTItemCount index, const char *path,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTCfigPopChild(OTConfigurationRef cfig, OTItemCount index);
 
 /**
@@ -3390,7 +3390,7 @@ OTCfigPopChild(OTConfigurationRef cfig, OTItemCount index);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigGetChild(OTConfigurationRef cfig, OTItemCount index);
 
 /**
@@ -3401,7 +3401,7 @@ OTCfigGetChild(OTConfigurationRef cfig, OTItemCount index);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTCfigSetPath(OTConfigurationRef cfig, const char *path);
 
 /**
@@ -3412,7 +3412,7 @@ OTCfigSetPath(OTConfigurationRef cfig, const char *path);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigNewChild(OTConfigurationRef cfig, const char *path, OSStatus *errPtr);
 
 /**
@@ -3423,7 +3423,7 @@ OTCfigNewChild(OTConfigurationRef cfig, const char *path, OSStatus *errPtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTCfigAddChild(OTConfigurationRef cfig, OTConfigurationRef child);
 
 /**
@@ -3434,7 +3434,7 @@ OTCfigAddChild(OTConfigurationRef cfig, OTConfigurationRef child);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigRemoveChild(OTConfigurationRef cfig, OTItemCount index);
 
 /**
@@ -3445,7 +3445,7 @@ OTCfigRemoveChild(OTConfigurationRef cfig, OTItemCount index);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTCfigSetPortRef(OTConfigurationRef cfig, OTPortRef portRef);
 
 /**
@@ -3456,7 +3456,7 @@ OTCfigSetPortRef(OTConfigurationRef cfig, OTPortRef portRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTCfigChangeProviderName(OTConfigurationRef cfig, const char *name);
 
 /** Query a configuration*/
@@ -3469,7 +3469,7 @@ OTCfigChangeProviderName(OTConfigurationRef cfig, const char *name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 OTCfigNumberOfChildren(OTConfigurationRef cfig);
 
 /**
@@ -3480,7 +3480,7 @@ OTCfigNumberOfChildren(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTConfigurationRef)
+OTConfigurationRef
 OTCfigGetParent(OTConfigurationRef cfig);
 
 /**
@@ -3491,7 +3491,7 @@ OTCfigGetParent(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TNetbuf *)
+TNetbuf *
 OTCfigGetOptionNetbuf(OTConfigurationRef cfig);
 
 /**
@@ -3502,7 +3502,7 @@ OTCfigGetOptionNetbuf(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTPortRef)
+OTPortRef
 OTCfigGetPortRef(OTConfigurationRef cfig);
 
 /**
@@ -3513,7 +3513,7 @@ OTCfigGetPortRef(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTCfigGetInstallFlags(OTConfigurationRef cfig);
 
 /**
@@ -3524,7 +3524,7 @@ OTCfigGetInstallFlags(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(const char *)
+const char *
 OTCfigGetProviderName(OTConfigurationRef cfig);
 
 /**
@@ -3535,7 +3535,7 @@ OTCfigGetProviderName(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTCfigIsPort(OTConfigurationRef cfig);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -3613,7 +3613,7 @@ typedef CALLBACK_API_C(void, OTCFHandleSystemEventProcPtr)(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTIsMasterConfigurator(TOTConfiguratorRef cfigor);
 
 /** Get back the userData you passed in to OTNewConfigurator*/
@@ -3625,7 +3625,7 @@ OTIsMasterConfigurator(TOTConfiguratorRef cfigor);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTGetConfiguratorUserData(TOTConfiguratorRef cfigor);
 
 /** Create a configurator object for use by Open Transport*/
@@ -3637,7 +3637,7 @@ OTGetConfiguratorUserData(TOTConfiguratorRef cfigor);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TOTConfiguratorRef)
+TOTConfiguratorRef
 OTNewConfigurator(void *userData, OTCFConfigureProcPtr configure,
                   OTCFCreateStreamProcPtr createStream,
                   OTCFHandleSystemEventProcPtr handleEvent);
@@ -3651,7 +3651,7 @@ OTNewConfigurator(void *userData, OTCFConfigureProcPtr configure,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTDeleteConfigurator(TOTConfiguratorRef cfigor);
 
 /**
@@ -3666,7 +3666,7 @@ OTDeleteConfigurator(TOTConfiguratorRef cfigor);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTNotifyUser(FSSpec *theFile, SInt32 rsrcID, OTItemCount index, char *parm1,
              char *parm2);
 
@@ -3679,7 +3679,7 @@ OTNotifyUser(FSSpec *theFile, SInt32 rsrcID, OTItemCount index, char *parm1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTConfiguratorUnloaded(TOTConfiguratorRef cfigor);
 
 /**
@@ -3696,7 +3696,7 @@ OTConfiguratorUnloaded(TOTConfiguratorRef cfigor);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTCreateControlStream(OTConfigurationRef cfig, TOTConfiguratorRef cfigor,
                       OTNotifyUPP proc, void *contextPtr);
 
@@ -3712,7 +3712,7 @@ OTCreateControlStream(OTConfigurationRef cfig, TOTConfiguratorRef cfigor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTConfigureChildren(OTConfigurationRef cfig);
 
 /** Allocate a bit in the system-wide control mask for streams.*/
@@ -3724,7 +3724,7 @@ OTConfigureChildren(OTConfigurationRef cfig);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTNewControlMask(void);
 
 /** Warning: These 2 APIs is going away*/
@@ -3736,7 +3736,7 @@ OTNewControlMask(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTCloseProvidersByUseCount(SInt32 *useCount, OTResult reason,
                            OTBooleanParam doneDeal);
 
@@ -3748,7 +3748,7 @@ OTCloseProvidersByUseCount(SInt32 *useCount, OTResult reason,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTCloseProvidersByPortRef(OTPortRef ref, OTResult reason,
                           OTBooleanParam doneDeal);
 
@@ -3761,7 +3761,7 @@ OTCloseProvidersByPortRef(OTPortRef ref, OTResult reason,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTCloseProviderByStream(StreamRef ref, OTResult reason,
                         OTBooleanParam doneDeal);
 
@@ -3773,7 +3773,7 @@ OTCloseProviderByStream(StreamRef ref, OTResult reason,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTCloseMatchingProviders(UInt32 mask, OTPortRef port, OTResult reason,
                          OTBooleanParam doneDeal);
 
@@ -3919,7 +3919,7 @@ struct OTStateMachine {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTStateMachine *)
+OTStateMachine *
 OTCreateStateMachine(void *buf, OTByteCount bufSize, OTByteCount structSize,
                      OTNotifyUPP proc, void *contextPtr);
 
@@ -3931,7 +3931,7 @@ OTCreateStateMachine(void *buf, OTByteCount bufSize, OTByteCount structSize,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTDestroyStateMachine(OTStateMachine *sm);
 
 /**
@@ -3952,7 +3952,7 @@ OTDestroyStateMachine(OTStateMachine *sm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMCallStateProc(OTStateMachine *sm, OTStateProcPtr proc, UInt32 state);
 
 /**
@@ -3963,7 +3963,7 @@ OTSMCallStateProc(OTStateMachine *sm, OTStateProcPtr proc, UInt32 state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 OTSMGetState(OTStateMachine *sm);
 
 /**
@@ -3974,7 +3974,7 @@ OTSMGetState(OTStateMachine *sm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTSMSetState(OTStateMachine *sm, UInt32 state);
 
 /** Fill out the fCookie, fCode, and fResult fields before calling!*/
@@ -3986,7 +3986,7 @@ OTSMSetState(OTStateMachine *sm, UInt32 state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTSMComplete(OTStateMachine *sm);
 
 /**
@@ -3997,7 +3997,7 @@ OTSMComplete(OTStateMachine *sm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTSMPopCallback(OTStateMachine *sm);
 
 /**
@@ -4008,7 +4008,7 @@ OTSMPopCallback(OTStateMachine *sm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMWaitForComplete(OTStateMachine *sm);
 
 /**
@@ -4019,7 +4019,7 @@ OTSMWaitForComplete(OTStateMachine *sm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMCreateStream(OTStateMachine *sm, OTConfigurationRef cfig,
                  OTOpenFlags flags);
 
@@ -4031,7 +4031,7 @@ OTSMCreateStream(OTStateMachine *sm, OTConfigurationRef cfig,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMOpenStream(OTStateMachine *sm, const char *name, OTOpenFlags flags);
 
 /**
@@ -4042,7 +4042,7 @@ OTSMOpenStream(OTStateMachine *sm, const char *name, OTOpenFlags flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMIoctl(OTStateMachine *sm, StreamRef strm, UInt32 cmd, long data);
 
 /**
@@ -4053,7 +4053,7 @@ OTSMIoctl(OTStateMachine *sm, StreamRef strm, UInt32 cmd, long data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMPutMessage(OTStateMachine *sm, StreamRef strm, strbuf *ctlbuf,
                strbuf *databuf, OTFlags flags);
 
@@ -4065,7 +4065,7 @@ OTSMPutMessage(OTStateMachine *sm, StreamRef strm, strbuf *ctlbuf,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMGetMessage(OTStateMachine *sm, StreamRef strm, strbuf *ctlbuf,
                strbuf *databuf, OTFlags *flagsPtr);
 
@@ -4077,7 +4077,7 @@ OTSMGetMessage(OTStateMachine *sm, StreamRef strm, strbuf *ctlbuf,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTSMReturnToCaller(OTStateMachine *sm);
 
 /**
@@ -4088,7 +4088,7 @@ OTSMReturnToCaller(OTStateMachine *sm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTSMGetClientData(OTStateMachine *sm);
 
 /**
@@ -4099,7 +4099,7 @@ OTSMGetClientData(OTStateMachine *sm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTSMInstallCompletionProc(OTStateMachine *sm, OTSMCompleteProcPtr completeProc,
                           void *contextPtr);
 
@@ -4111,7 +4111,7 @@ OTSMInstallCompletionProc(OTStateMachine *sm, OTSMCompleteProcPtr completeProc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSMCreateControlStream(OTStateMachine *sm, OTConfigurationRef cfig,
                         TOTConfiguratorRef cfigor);
 
@@ -4294,7 +4294,7 @@ typedef CALLBACK_API_C(Boolean,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTGetUserPortNameFromPortRef(OTPortRef ref, Str255 friendlyName);
 
 /**
@@ -4309,7 +4309,7 @@ OTGetUserPortNameFromPortRef(OTPortRef ref, Str255 friendlyName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTGetPortIconFromPortRef(OTPortRef ref, OTResourceLocator *iconLocation);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -4324,7 +4324,7 @@ OTGetPortIconFromPortRef(OTPortRef ref, OTResourceLocator *iconLocation);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTIsPortCompatibleWith(const OTPortRecord *port, char *protocolName);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -4358,7 +4358,7 @@ OTIsPortCompatibleWith(const OTPortRecord *port, char *protocolName);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTResult)
+OTResult
 OTSetFirstClearBit(UInt8 *bitMap, OTByteCount startBit, OTByteCount numBits);
 
 /** Standard clear, set and test bit functions*/
@@ -4370,7 +4370,7 @@ OTSetFirstClearBit(UInt8 *bitMap, OTByteCount startBit, OTByteCount numBits);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTClearBit(UInt8 *bitMap, OTByteCount bitNo);
 
 /**
@@ -4381,7 +4381,7 @@ OTClearBit(UInt8 *bitMap, OTByteCount bitNo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTSetBit(UInt8 *bitMap, OTByteCount bitNo);
 
 /**
@@ -4392,7 +4392,7 @@ OTSetBit(UInt8 *bitMap, OTByteCount bitNo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTTestBit(UInt8 *bitMap, OTByteCount bitNo);
 
 /** OTHashList*/
@@ -4440,7 +4440,7 @@ typedef struct OTHashList OTHashList;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTByteCount)
+OTByteCount
 OTCalculateHashListMemoryNeeds(OTItemCount numEntries);
 
 /**
@@ -4455,7 +4455,7 @@ OTCalculateHashListMemoryNeeds(OTItemCount numEntries);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTResult)
+OTResult
 OTInitHashList(void *memory, OTByteCount numBytes, OTHashProcPtr hashProc);
 
 /**
@@ -4466,7 +4466,7 @@ OTInitHashList(void *memory, OTByteCount numBytes, OTHashProcPtr hashProc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTAddToHashList(OTHashList *hashList, OTLink *linkToAdd);
 
 /**
@@ -4477,7 +4477,7 @@ OTAddToHashList(OTHashList *hashList, OTLink *linkToAdd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTRemoveLinkFromHashList(OTHashList *hashList, OTLink *linkToRemove);
 
 /**
@@ -4488,7 +4488,7 @@ OTRemoveLinkFromHashList(OTHashList *hashList, OTLink *linkToRemove);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTIsInHashList(OTHashList *hashList, OTLink *link);
 
 /**
@@ -4499,7 +4499,7 @@ OTIsInHashList(OTHashList *hashList, OTLink *link);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTFindInHashList(OTHashList *hashList, OTHashSearchProcPtr searchProc,
                  const void *refPtr, UInt32 hashValue);
 
@@ -4511,7 +4511,7 @@ OTFindInHashList(OTHashList *hashList, OTHashSearchProcPtr searchProc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTRemoveFromHashList(OTHashList *hashList, OTHashSearchProcPtr searchProc,
                      const void *refPtr, UInt32 hashValue);
 
@@ -4555,7 +4555,7 @@ inline OTLink *OTHashList::FindLink(OTHashSearchProcPtr proc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTGetRandomSeed(void);
 
 /**
@@ -4566,7 +4566,7 @@ OTGetRandomSeed(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTGetRandomNumber(UInt32 *seed, UInt32 lo, UInt32 hi);
 
 /** Concurrency Control*/
@@ -4599,7 +4599,7 @@ typedef struct OTGate OTGate;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTInitGate(OTGate *gate, OTGateProcPtr proc);
 
 /**
@@ -4610,7 +4610,7 @@ OTInitGate(OTGate *gate, OTGateProcPtr proc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTEnterGate(OTGate *gate, OTLink *withLink);
 
 /**
@@ -4621,7 +4621,7 @@ OTEnterGate(OTGate *gate, OTLink *withLink);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTLeaveGate(OTGate *gate);
 
 /** ***** Shared Library Bonus Extras ******/
@@ -4690,7 +4690,7 @@ typedef CALLBACK_API_C(void *, OTAllocMemProcPtr)(OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTFindCFMLibraries(OSType libKind, const char *libType, OTList *theList,
                    OTAllocMemProcPtr allocator);
 
@@ -4705,7 +4705,7 @@ OTFindCFMLibraries(OSType libKind, const char *libType, OTList *theList,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTLoadCFMLibrary(const char *libName, UInt32 *connID, UInt32 loadFlags);
 
 /** Load a CFM library and get a named pointer from it*/
@@ -4717,7 +4717,7 @@ OTLoadCFMLibrary(const char *libName, UInt32 *connID, UInt32 loadFlags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTGetCFMPointer(const char *libName, const char *entryName, UInt32 *connID,
                 UInt32 loadFlags);
 
@@ -4730,7 +4730,7 @@ OTGetCFMPointer(const char *libName, const char *entryName, UInt32 *connID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTGetCFMSymbol(const char *entryName, UInt32 connID, UInt32 loadFlags);
 
 /** Release a connection to a CFM library*/
@@ -4742,7 +4742,7 @@ OTGetCFMSymbol(const char *entryName, UInt32 connID, UInt32 loadFlags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTReleaseCFMConnection(UInt32 *connID);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -4765,7 +4765,7 @@ OTReleaseCFMConnection(UInt32 *connID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTHoldThisCFMLibrary(const CFragInitBlock *initBlock);
 
 /**
@@ -4780,7 +4780,7 @@ OTHoldThisCFMLibrary(const CFragInitBlock *initBlock);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTUnholdThisCFMLibrary(void);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -4798,7 +4798,7 @@ OTUnholdThisCFMLibrary(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTLoadASLMLibrary(const char *libName);
 
 /** Unload an ASLM library*/
@@ -4810,7 +4810,7 @@ OTLoadASLMLibrary(const char *libName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTUnloadASLMLibrary(const char *libName);
 
 /**
@@ -4827,7 +4827,7 @@ OTUnloadASLMLibrary(const char *libName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 UnloadUnusedLibraries(void);
 
 #endif /** CALL_NOT_IN_CARBON */

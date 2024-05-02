@@ -81,7 +81,7 @@ typedef STACK_UPP_TYPE(ContextReplyProcPtr) ContextReplyUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(CoachReplyUPP)
+CoachReplyUPP
 NewCoachReplyUPP(CoachReplyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -107,7 +107,7 @@ inline CoachReplyUPP NewCoachReplyUPP(CoachReplyProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ContextReplyUPP)
+ContextReplyUPP
 NewContextReplyUPP(ContextReplyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -135,7 +135,7 @@ inline ContextReplyUPP NewContextReplyUPP(ContextReplyProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeCoachReplyUPP(CoachReplyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -155,7 +155,7 @@ inline void DisposeCoachReplyUPP(CoachReplyUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeContextReplyUPP(ContextReplyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -175,7 +175,7 @@ inline void DisposeContextReplyUPP(ContextReplyUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCoachReplyUPP(Rect *pRect, Ptr name, long refCon, CoachReplyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -199,7 +199,7 @@ inline OSErr InvokeCoachReplyUPP(Rect *pRect, Ptr name, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeContextReplyUPP(Ptr pInputData, Size inputDataSize, Ptr *ppOutputData,
                       Size *pOutputDataSize, AGAppInfoHdl hAppInfo,
                       ContextReplyUPP userUPP);

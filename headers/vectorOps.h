@@ -78,7 +78,7 @@ into three categories (called levels), as follows:
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(long)
+long
 vIsamax(long count, const vector float x[]);
 
 /***************************************************
@@ -96,7 +96,7 @@ vIsamax(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(long)
+long
 vIsamin(long count, const vector float x[]);
 
 /***************************************************
@@ -114,7 +114,7 @@ vIsamin(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(long)
+long
 vIsmax(long count, const vector float x[]);
 
 /***************************************************
@@ -132,7 +132,7 @@ vIsmax(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(long)
+long
 vIsmin(long count, const vector float x[]);
 
 /***************************************************
@@ -150,7 +150,7 @@ vIsmin(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 vSasum(long count, const vector float x[]);
 
 /***************************************************
@@ -168,7 +168,7 @@ vSasum(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 vSsum(long count, const vector float x[]);
 
 /***************************************************
@@ -190,7 +190,7 @@ vSsum(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSaxpy(long n, float alpha, const vector float x[], vector float y[]);
 
 /**************************************************************
@@ -208,7 +208,7 @@ vSaxpy(long n, float alpha, const vector float x[], vector float y[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vScopy(long n, const vector float x[], vector float y[]);
 
 /**************************************************************
@@ -226,7 +226,7 @@ vScopy(long n, const vector float x[], vector float y[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 vSdot(long n, const vector float x[], const vector float y[]);
 
 /**************************************************************
@@ -250,7 +250,7 @@ vSdot(long n, const vector float x[], const vector float y[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSnaxpy(long n, long m, const vector float a[], const vector float x[],
         vector float y[]);
 
@@ -283,7 +283,7 @@ vSnaxpy(long n, long m, const vector float a[], const vector float x[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSndot(long n, long m, float s[], long isw, const vector float x[],
        const vector float y[]);
 
@@ -302,7 +302,7 @@ vSndot(long n, long m, float s[], long isw, const vector float x[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 vSnrm2(long count, const vector float x[]);
 
 /**************************************************************
@@ -319,7 +319,7 @@ vSnrm2(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 vSnorm2(long count, const vector float x[]);
 
 /**************************************************************
@@ -344,7 +344,7 @@ vSnorm2(long count, const vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSrot(long n, vector float x[], vector float y[], float c, float s);
 
 /**************************************************************
@@ -364,7 +364,7 @@ vSrot(long n, vector float x[], vector float y[], float c, float s);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSscal(long n, float alpha, vector float x[]);
 
 /**************************************************************
@@ -383,7 +383,7 @@ vSscal(long n, float alpha, vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSswap(long n, vector float x[], vector float y[]);
 
 /**************************************************************
@@ -404,7 +404,7 @@ vSswap(long n, vector float x[], vector float y[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSyax(long n, float alpha, const vector float x[], vector float y[]);
 
 /**************************************************************
@@ -428,7 +428,7 @@ vSyax(long n, float alpha, const vector float x[], vector float y[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSzaxpy(long n, float alpha, const vector float x[], const vector float yY[],
         vector float z[]);
 
@@ -479,7 +479,7 @@ vSzaxpy(long n, float alpha, const vector float x[], const vector float yY[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgemv(char forma, long m, long n, float alpha, const vector float a[],
        const vector float x[], float beta, vector float y[]);
 
@@ -508,7 +508,7 @@ vSgemv(char forma, long m, long n, float alpha, const vector float a[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgemx(long m, long n, float alpha, const vector float a[],
        const vector float x[], vector float y[]);
 
@@ -538,7 +538,7 @@ vSgemx(long m, long n, float alpha, const vector float a[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgemtx(long m, long n, float alpha, const vector float a[],
         const vector float x[], vector float y[]);
 
@@ -592,7 +592,7 @@ vSgemtx(long m, long n, float alpha, const vector float a[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgeadd(long height, long width, const vector float a[], char forma,
         const vector float b[], char formb, vector float c[]);
 
@@ -640,7 +640,7 @@ vSgeadd(long height, long width, const vector float a[], char forma,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgesub(long height, long width, const vector float a[], char forma,
         const vector float b[], char formb, vector float c[]);
 
@@ -690,7 +690,7 @@ vSgesub(long height, long width, const vector float a[], char forma,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgemul(long l, long m, long n, const vector float a[], char forma,
         const vector float b[], char formb, vector float matrix[]);
 
@@ -747,7 +747,7 @@ vSgemul(long l, long m, long n, const vector float a[], char forma,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgemm(long l, long m, long n, const vector float a[], char forma,
        const vector float b[], char formb, vector float c[], float alpha,
        float beta, vector float matrix[]);
@@ -765,7 +765,7 @@ vSgemm(long l, long m, long n, const vector float a[], char forma,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgetmi(long size, vector float x[]);
 
 /**************************************************************
@@ -783,7 +783,7 @@ vSgetmi(long size, vector float x[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgetmo(long height, long width, const vector float x[], vector float y[]);
 
 /**************************************************************
@@ -808,7 +808,7 @@ vSgetmo(long height, long width, const vector float x[], vector float y[]);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vSgevv(long l, long n, const vector float a[], const vector float b[],
        vector float m[]);
 

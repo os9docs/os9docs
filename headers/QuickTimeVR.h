@@ -399,7 +399,7 @@ typedef STACK_UPP_TYPE(QTVRBackBufferImagingProcPtr) QTVRBackBufferImagingUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTVRLeavingNodeUPP)
+QTVRLeavingNodeUPP
 NewQTVRLeavingNodeUPP(QTVRLeavingNodeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -428,7 +428,7 @@ NewQTVRLeavingNodeUPP(QTVRLeavingNodeProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTVREnteringNodeUPP)
+QTVREnteringNodeUPP
 NewQTVREnteringNodeUPP(QTVREnteringNodeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -457,7 +457,7 @@ NewQTVREnteringNodeUPP(QTVREnteringNodeProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTVRMouseOverHotSpotUPP)
+QTVRMouseOverHotSpotUPP
 NewQTVRMouseOverHotSpotUPP(QTVRMouseOverHotSpotProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -486,7 +486,7 @@ NewQTVRMouseOverHotSpotUPP(QTVRMouseOverHotSpotProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTVRImagingCompleteUPP)
+QTVRImagingCompleteUPP
 NewQTVRImagingCompleteUPP(QTVRImagingCompleteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -515,7 +515,7 @@ NewQTVRImagingCompleteUPP(QTVRImagingCompleteProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTVRBackBufferImagingUPP)
+QTVRBackBufferImagingUPP
 NewQTVRBackBufferImagingUPP(QTVRBackBufferImagingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -545,7 +545,7 @@ NewQTVRBackBufferImagingUPP(QTVRBackBufferImagingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTVRLeavingNodeUPP(QTVRLeavingNodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -565,7 +565,7 @@ inline void DisposeQTVRLeavingNodeUPP(QTVRLeavingNodeUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTVREnteringNodeUPP(QTVREnteringNodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -585,7 +585,7 @@ inline void DisposeQTVREnteringNodeUPP(QTVREnteringNodeUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTVRMouseOverHotSpotUPP(QTVRMouseOverHotSpotUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -606,7 +606,7 @@ inline void DisposeQTVRMouseOverHotSpotUPP(QTVRMouseOverHotSpotUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTVRImagingCompleteUPP(QTVRImagingCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -626,7 +626,7 @@ inline void DisposeQTVRImagingCompleteUPP(QTVRImagingCompleteUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTVRBackBufferImagingUPP(QTVRBackBufferImagingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -647,7 +647,7 @@ inline void DisposeQTVRBackBufferImagingUPP(QTVRBackBufferImagingUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeQTVRLeavingNodeUPP(QTVRInstance qtvr, UInt32 fromNodeID, UInt32 toNodeID,
                          Boolean *cancel, SInt32 refCon,
                          QTVRLeavingNodeUPP userUPP);
@@ -678,7 +678,7 @@ inline OSErr InvokeQTVRLeavingNodeUPP(QTVRInstance qtvr, UInt32 fromNodeID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeQTVREnteringNodeUPP(QTVRInstance qtvr, UInt32 nodeID, SInt32 refCon,
                           QTVREnteringNodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -704,7 +704,7 @@ inline OSErr InvokeQTVREnteringNodeUPP(QTVRInstance qtvr, UInt32 nodeID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeQTVRMouseOverHotSpotUPP(QTVRInstance qtvr, UInt32 hotSpotID, UInt32 flags,
                               SInt32 refCon, QTVRMouseOverHotSpotUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -730,7 +730,7 @@ inline OSErr InvokeQTVRMouseOverHotSpotUPP(QTVRInstance qtvr, UInt32 hotSpotID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeQTVRImagingCompleteUPP(QTVRInstance qtvr, SInt32 refCon,
                              QTVRImagingCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -755,7 +755,7 @@ inline OSErr InvokeQTVRImagingCompleteUPP(QTVRInstance qtvr, SInt32 refCon,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeQTVRBackBufferImagingUPP(QTVRInstance qtvr, Rect *drawRect,
                                UInt16 areaIndex, UInt32 flagsIn,
                                UInt32 *flagsOut, SInt32 refCon,
@@ -862,7 +862,7 @@ typedef STACK_UPP_TYPE(QTVRInterceptProcPtr) QTVRInterceptUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTVRInterceptUPP)
+QTVRInterceptUPP
 NewQTVRInterceptUPP(QTVRInterceptProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -890,7 +890,7 @@ inline QTVRInterceptUPP NewQTVRInterceptUPP(QTVRInterceptProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTVRInterceptUPP(QTVRInterceptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -910,7 +910,7 @@ inline void DisposeQTVRInterceptUPP(QTVRInterceptUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeQTVRInterceptUPP(QTVRInstance qtvr, QTVRInterceptPtr qtvrMsg,
                        SInt32 refCon, Boolean *cancel,
                        QTVRInterceptUPP userUPP);
@@ -954,7 +954,7 @@ inline void InvokeQTVRInterceptUPP(QTVRInstance qtvr, QTVRInterceptPtr qtvrMsg,
  *    \mac_os_x         not available
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InitializeQTVR(void);
 
 /**
@@ -966,7 +966,7 @@ InitializeQTVR(void);
  *    \mac_os_x         not available
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 TerminateQTVR(void);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -987,7 +987,7 @@ TerminateQTVR(void);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(Track)
+Track
 QTVRGetQTVRTrack(Movie theMovie, SInt32 index);
 
 /**
@@ -999,7 +999,7 @@ QTVRGetQTVRTrack(Movie theMovie, SInt32 index);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetQTVRInstance(QTVRInstance *qtvr, Track qtvrTrack, MovieController mc);
 
 /**
@@ -1019,7 +1019,7 @@ QTVRGetQTVRInstance(QTVRInstance *qtvr, Track qtvrTrack, MovieController mc);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetViewParameter(QTVRInstance qtvr, UInt32 viewParameter, void *value,
                      UInt32 flagsIn);
 
@@ -1034,7 +1034,7 @@ QTVRSetViewParameter(QTVRInstance qtvr, UInt32 viewParameter, void *value,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetViewParameter(QTVRInstance qtvr, UInt32 viewParameter, void *value,
                      UInt32 flagsIn, UInt32 *flagsOut);
 
@@ -1047,7 +1047,7 @@ QTVRGetViewParameter(QTVRInstance qtvr, UInt32 viewParameter, void *value,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetPanAngle(QTVRInstance qtvr, float panAngle);
 
 /**
@@ -1059,7 +1059,7 @@ QTVRSetPanAngle(QTVRInstance qtvr, float panAngle);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(float)
+float
 QTVRGetPanAngle(QTVRInstance qtvr);
 
 /**
@@ -1071,7 +1071,7 @@ QTVRGetPanAngle(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetTiltAngle(QTVRInstance qtvr, float tiltAngle);
 
 /**
@@ -1083,7 +1083,7 @@ QTVRSetTiltAngle(QTVRInstance qtvr, float tiltAngle);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(float)
+float
 QTVRGetTiltAngle(QTVRInstance qtvr);
 
 /**
@@ -1095,7 +1095,7 @@ QTVRGetTiltAngle(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetFieldOfView(QTVRInstance qtvr, float fieldOfView);
 
 /**
@@ -1107,7 +1107,7 @@ QTVRSetFieldOfView(QTVRInstance qtvr, float fieldOfView);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(float)
+float
 QTVRGetFieldOfView(QTVRInstance qtvr);
 
 /**
@@ -1119,7 +1119,7 @@ QTVRGetFieldOfView(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRShowDefaultView(QTVRInstance qtvr);
 
 /* Object Specific*/
@@ -1132,7 +1132,7 @@ QTVRShowDefaultView(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetViewCenter(QTVRInstance qtvr, const QTVRFloatPoint *viewCenter);
 
 /**
@@ -1144,7 +1144,7 @@ QTVRSetViewCenter(QTVRInstance qtvr, const QTVRFloatPoint *viewCenter);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetViewCenter(QTVRInstance qtvr, QTVRFloatPoint *viewCenter);
 
 /**
@@ -1156,7 +1156,7 @@ QTVRGetViewCenter(QTVRInstance qtvr, QTVRFloatPoint *viewCenter);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRNudge(QTVRInstance qtvr, QTVRNudgeControl direction);
 
 /* QTVRInteractionNudge requires QTVR 2.1 (kQTVRAPIMajorVersion02 +
@@ -1170,7 +1170,7 @@ QTVRNudge(QTVRInstance qtvr, QTVRNudgeControl direction);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRInteractionNudge(QTVRInstance qtvr, QTVRNudgeControl direction);
 
 /**
@@ -1188,7 +1188,7 @@ QTVRInteractionNudge(QTVRInstance qtvr, QTVRNudgeControl direction);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetVRWorld(QTVRInstance qtvr, QTAtomContainer *VRWorld);
 
 /**
@@ -1200,7 +1200,7 @@ QTVRGetVRWorld(QTVRInstance qtvr, QTAtomContainer *VRWorld);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetNodeInfo(QTVRInstance qtvr, UInt32 nodeID, QTAtomContainer *nodeInfo);
 
 /**
@@ -1212,7 +1212,7 @@ QTVRGetNodeInfo(QTVRInstance qtvr, UInt32 nodeID, QTAtomContainer *nodeInfo);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGoToNodeID(QTVRInstance qtvr, UInt32 nodeID);
 
 /**
@@ -1224,7 +1224,7 @@ QTVRGoToNodeID(QTVRInstance qtvr, UInt32 nodeID);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTVRGetCurrentNodeID(QTVRInstance qtvr);
 
 /**
@@ -1236,7 +1236,7 @@ QTVRGetCurrentNodeID(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSType)
+OSType
 QTVRGetNodeType(QTVRInstance qtvr, UInt32 nodeID);
 
 /**
@@ -1254,7 +1254,7 @@ QTVRGetNodeType(QTVRInstance qtvr, UInt32 nodeID);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRPtToHotSpotID(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID);
 
 /* QTVRGetHotSpotType requires QTVR 2.1 (kQTVRAPIMajorVersion02 +
@@ -1268,7 +1268,7 @@ QTVRPtToHotSpotID(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetHotSpotType(QTVRInstance qtvr, UInt32 hotSpotID, OSType *hotSpotType);
 
 /**
@@ -1280,7 +1280,7 @@ QTVRGetHotSpotType(QTVRInstance qtvr, UInt32 hotSpotID, OSType *hotSpotType);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRTriggerHotSpot(QTVRInstance qtvr, UInt32 hotSpotID,
                    QTAtomContainer nodeInfo, QTAtom selectedAtom);
 
@@ -1293,7 +1293,7 @@ QTVRTriggerHotSpot(QTVRInstance qtvr, UInt32 hotSpotID,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetMouseOverHotSpotProc(QTVRInstance qtvr,
                             QTVRMouseOverHotSpotUPP mouseOverHotSpotProc,
                             SInt32 refCon, UInt32 flags);
@@ -1307,7 +1307,7 @@ QTVRSetMouseOverHotSpotProc(QTVRInstance qtvr,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVREnableHotSpot(QTVRInstance qtvr, UInt32 enableFlag, UInt32 hotSpotValue,
                   Boolean enable);
 
@@ -1320,7 +1320,7 @@ QTVREnableHotSpot(QTVRInstance qtvr, UInt32 enableFlag, UInt32 hotSpotValue,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTVRGetVisibleHotSpots(QTVRInstance qtvr, Handle hotSpots);
 
 /**
@@ -1332,7 +1332,7 @@ QTVRGetVisibleHotSpots(QTVRInstance qtvr, Handle hotSpots);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetHotSpotRegion(QTVRInstance qtvr, UInt32 hotSpotID,
                      RgnHandle hotSpotRegion);
 
@@ -1351,7 +1351,7 @@ QTVRGetHotSpotRegion(QTVRInstance qtvr, UInt32 hotSpotID,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetMouseOverTracking(QTVRInstance qtvr, Boolean enable);
 
 /**
@@ -1363,7 +1363,7 @@ QTVRSetMouseOverTracking(QTVRInstance qtvr, Boolean enable);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 QTVRGetMouseOverTracking(QTVRInstance qtvr);
 
 /**
@@ -1375,7 +1375,7 @@ QTVRGetMouseOverTracking(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetMouseDownTracking(QTVRInstance qtvr, Boolean enable);
 
 /**
@@ -1387,7 +1387,7 @@ QTVRSetMouseDownTracking(QTVRInstance qtvr, Boolean enable);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 QTVRGetMouseDownTracking(QTVRInstance qtvr);
 
 /**
@@ -1399,7 +1399,7 @@ QTVRGetMouseDownTracking(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseEnter(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
 
 /**
@@ -1411,7 +1411,7 @@ QTVRMouseEnter(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseWithin(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
 
 /**
@@ -1423,7 +1423,7 @@ QTVRMouseWithin(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseLeave(QTVRInstance qtvr, Point pt, WindowRef w);
 
 /**
@@ -1435,7 +1435,7 @@ QTVRMouseLeave(QTVRInstance qtvr, Point pt, WindowRef w);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseDown(QTVRInstance qtvr, Point pt, UInt32 when, UInt16 modifiers,
               UInt32 *hotSpotID, WindowRef w);
 
@@ -1448,7 +1448,7 @@ QTVRMouseDown(QTVRInstance qtvr, Point pt, UInt32 when, UInt16 modifiers,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseStillDown(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
 
 /**
@@ -1460,7 +1460,7 @@ QTVRMouseStillDown(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseUp(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
 
 /* These require QTVR 2.01 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion01)*/
@@ -1473,7 +1473,7 @@ QTVRMouseUp(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseStillDownExtended(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID,
                            WindowRef w, UInt32 when, UInt16 modifiers);
 
@@ -1486,7 +1486,7 @@ QTVRMouseStillDownExtended(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRMouseUpExtended(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w,
                     UInt32 when, UInt16 modifiers);
 
@@ -1505,7 +1505,7 @@ QTVRMouseUpExtended(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRInstallInterceptProc(QTVRInstance qtvr, QTVRProcSelector selector,
                          QTVRInterceptUPP interceptProc, SInt32 refCon,
                          UInt32 flags);
@@ -1519,7 +1519,7 @@ QTVRInstallInterceptProc(QTVRInstance qtvr, QTVRProcSelector selector,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRCallInterceptedProc(QTVRInstance qtvr, QTVRInterceptRecord *qtvrMsg);
 
 /**
@@ -1538,7 +1538,7 @@ QTVRCallInterceptedProc(QTVRInstance qtvr, QTVRInterceptRecord *qtvrMsg);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTVRGetCurrentMouseMode(QTVRInstance qtvr);
 
 /**
@@ -1550,7 +1550,7 @@ QTVRGetCurrentMouseMode(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetFrameRate(QTVRInstance qtvr, float rate);
 
 /**
@@ -1562,7 +1562,7 @@ QTVRSetFrameRate(QTVRInstance qtvr, float rate);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(float)
+float
 QTVRGetFrameRate(QTVRInstance qtvr);
 
 /**
@@ -1574,7 +1574,7 @@ QTVRGetFrameRate(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetViewRate(QTVRInstance qtvr, float rate);
 
 /**
@@ -1586,7 +1586,7 @@ QTVRSetViewRate(QTVRInstance qtvr, float rate);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(float)
+float
 QTVRGetViewRate(QTVRInstance qtvr);
 
 /**
@@ -1598,7 +1598,7 @@ QTVRGetViewRate(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetViewCurrentTime(QTVRInstance qtvr, TimeValue time);
 
 /**
@@ -1610,7 +1610,7 @@ QTVRSetViewCurrentTime(QTVRInstance qtvr, TimeValue time);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(TimeValue)
+TimeValue
 QTVRGetViewCurrentTime(QTVRInstance qtvr);
 
 /**
@@ -1622,7 +1622,7 @@ QTVRGetViewCurrentTime(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(TimeValue)
+TimeValue
 QTVRGetCurrentViewDuration(QTVRInstance qtvr);
 
 /**
@@ -1640,7 +1640,7 @@ QTVRGetCurrentViewDuration(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetViewState(QTVRInstance qtvr, QTVRViewStateType viewStateType,
                  UInt16 state);
 
@@ -1653,7 +1653,7 @@ QTVRSetViewState(QTVRInstance qtvr, QTVRViewStateType viewStateType,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetViewState(QTVRInstance qtvr, QTVRViewStateType viewStateType,
                  UInt16 *state);
 
@@ -1666,7 +1666,7 @@ QTVRGetViewState(QTVRInstance qtvr, QTVRViewStateType viewStateType,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(UInt16)
+UInt16
 QTVRGetViewStateCount(QTVRInstance qtvr);
 
 /**
@@ -1678,7 +1678,7 @@ QTVRGetViewStateCount(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetAnimationSetting(QTVRInstance qtvr, QTVRObjectAnimationSetting setting,
                         Boolean enable);
 
@@ -1691,7 +1691,7 @@ QTVRSetAnimationSetting(QTVRInstance qtvr, QTVRObjectAnimationSetting setting,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetAnimationSetting(QTVRInstance qtvr, QTVRObjectAnimationSetting setting,
                         Boolean *enable);
 
@@ -1704,7 +1704,7 @@ QTVRGetAnimationSetting(QTVRInstance qtvr, QTVRObjectAnimationSetting setting,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetControlSetting(QTVRInstance qtvr, QTVRControlSetting setting,
                       Boolean enable);
 
@@ -1717,7 +1717,7 @@ QTVRSetControlSetting(QTVRInstance qtvr, QTVRControlSetting setting,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetControlSetting(QTVRInstance qtvr, QTVRControlSetting setting,
                       Boolean *enable);
 
@@ -1730,7 +1730,7 @@ QTVRGetControlSetting(QTVRInstance qtvr, QTVRControlSetting setting,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVREnableFrameAnimation(QTVRInstance qtvr, Boolean enable);
 
 /**
@@ -1742,7 +1742,7 @@ QTVREnableFrameAnimation(QTVRInstance qtvr, Boolean enable);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 QTVRGetFrameAnimation(QTVRInstance qtvr);
 
 /**
@@ -1754,7 +1754,7 @@ QTVRGetFrameAnimation(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVREnableViewAnimation(QTVRInstance qtvr, Boolean enable);
 
 /**
@@ -1766,7 +1766,7 @@ QTVREnableViewAnimation(QTVRInstance qtvr, Boolean enable);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 QTVRGetViewAnimation(QTVRInstance qtvr);
 
 /**
@@ -1784,7 +1784,7 @@ QTVRGetViewAnimation(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetVisible(QTVRInstance qtvr, Boolean visible);
 
 /**
@@ -1796,7 +1796,7 @@ QTVRSetVisible(QTVRInstance qtvr, Boolean visible);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 QTVRGetVisible(QTVRInstance qtvr);
 
 /**
@@ -1808,7 +1808,7 @@ QTVRGetVisible(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetImagingProperty(QTVRInstance qtvr, QTVRImagingMode imagingMode,
                        UInt32 imagingProperty, SInt32 propertyValue);
 
@@ -1821,7 +1821,7 @@ QTVRSetImagingProperty(QTVRInstance qtvr, QTVRImagingMode imagingMode,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetImagingProperty(QTVRInstance qtvr, QTVRImagingMode imagingMode,
                        UInt32 imagingProperty, SInt32 *propertyValue);
 
@@ -1834,7 +1834,7 @@ QTVRGetImagingProperty(QTVRInstance qtvr, QTVRImagingMode imagingMode,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRUpdate(QTVRInstance qtvr, QTVRImagingMode imagingMode);
 
 /**
@@ -1846,7 +1846,7 @@ QTVRUpdate(QTVRInstance qtvr, QTVRImagingMode imagingMode);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRBeginUpdateStream(QTVRInstance qtvr, QTVRImagingMode imagingMode);
 
 /**
@@ -1858,7 +1858,7 @@ QTVRBeginUpdateStream(QTVRInstance qtvr, QTVRImagingMode imagingMode);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVREndUpdateStream(QTVRInstance qtvr);
 
 /**
@@ -1870,7 +1870,7 @@ QTVREndUpdateStream(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetTransitionProperty(QTVRInstance qtvr, UInt32 transitionType,
                           UInt32 transitionProperty, SInt32 transitionValue);
 
@@ -1883,7 +1883,7 @@ QTVRSetTransitionProperty(QTVRInstance qtvr, UInt32 transitionType,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVREnableTransition(QTVRInstance qtvr, UInt32 transitionType, Boolean enable);
 
 /**
@@ -1901,7 +1901,7 @@ QTVREnableTransition(QTVRInstance qtvr, UInt32 transitionType, Boolean enable);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetAngularUnits(QTVRInstance qtvr, QTVRAngularUnits units);
 
 /**
@@ -1913,7 +1913,7 @@ QTVRSetAngularUnits(QTVRInstance qtvr, QTVRAngularUnits units);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(QTVRAngularUnits)
+QTVRAngularUnits
 QTVRGetAngularUnits(QTVRInstance qtvr);
 
 /* Pano specific routines*/
@@ -1926,7 +1926,7 @@ QTVRGetAngularUnits(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRPtToAngles(QTVRInstance qtvr, Point pt, float *panAngle, float *tiltAngle);
 
 /**
@@ -1938,7 +1938,7 @@ QTVRPtToAngles(QTVRInstance qtvr, Point pt, float *panAngle, float *tiltAngle);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRCoordToAngles(QTVRInstance qtvr, QTVRFloatPoint *coord, float *panAngle,
                   float *tiltAngle);
 
@@ -1951,7 +1951,7 @@ QTVRCoordToAngles(QTVRInstance qtvr, QTVRFloatPoint *coord, float *panAngle,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRAnglesToCoord(QTVRInstance qtvr, float panAngle, float tiltAngle,
                   QTVRFloatPoint *coord);
 
@@ -1965,7 +1965,7 @@ QTVRAnglesToCoord(QTVRInstance qtvr, float panAngle, float tiltAngle,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(short)
+short
 QTVRPanToColumn(QTVRInstance qtvr, float panAngle);
 
 /* zero based   */
@@ -1978,7 +1978,7 @@ QTVRPanToColumn(QTVRInstance qtvr, float panAngle);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(float)
+float
 QTVRColumnToPan(QTVRInstance qtvr, short column);
 
 /* zero based   */
@@ -1991,7 +1991,7 @@ QTVRColumnToPan(QTVRInstance qtvr, short column);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(short)
+short
 QTVRTiltToRow(QTVRInstance qtvr, float tiltAngle);
 
 /* zero based   */
@@ -2004,7 +2004,7 @@ QTVRTiltToRow(QTVRInstance qtvr, float tiltAngle);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(float)
+float
 QTVRRowToTilt(QTVRInstance qtvr, short row);
 
 /* zero based               */
@@ -2017,7 +2017,7 @@ QTVRRowToTilt(QTVRInstance qtvr, short row);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRWrapAndConstrain(QTVRInstance qtvr, short kind, float value, float *result);
 
 /**
@@ -2035,7 +2035,7 @@ QTVRWrapAndConstrain(QTVRInstance qtvr, short kind, float value, float *result);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetEnteringNodeProc(QTVRInstance qtvr, QTVREnteringNodeUPP enteringNodeProc,
                         SInt32 refCon, UInt32 flags);
 
@@ -2048,7 +2048,7 @@ QTVRSetEnteringNodeProc(QTVRInstance qtvr, QTVREnteringNodeUPP enteringNodeProc,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetLeavingNodeProc(QTVRInstance qtvr, QTVRLeavingNodeUPP leavingNodeProc,
                        SInt32 refCon, UInt32 flags);
 
@@ -2061,7 +2061,7 @@ QTVRSetLeavingNodeProc(QTVRInstance qtvr, QTVRLeavingNodeUPP leavingNodeProc,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetInteractionProperty(QTVRInstance qtvr, UInt32 property, void *value);
 
 /**
@@ -2073,7 +2073,7 @@ QTVRSetInteractionProperty(QTVRInstance qtvr, UInt32 property, void *value);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetInteractionProperty(QTVRInstance qtvr, UInt32 property, void *value);
 
 /**
@@ -2085,7 +2085,7 @@ QTVRGetInteractionProperty(QTVRInstance qtvr, UInt32 property, void *value);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRReplaceCursor(QTVRInstance qtvr, QTVRCursorRecord *cursRecord);
 
 /**
@@ -2103,7 +2103,7 @@ QTVRReplaceCursor(QTVRInstance qtvr, QTVRCursorRecord *cursRecord);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetViewingLimits(QTVRInstance qtvr, UInt16 kind, float *minValue,
                      float *maxValue);
 
@@ -2116,7 +2116,7 @@ QTVRGetViewingLimits(QTVRInstance qtvr, UInt16 kind, float *minValue,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTVRGetConstraintStatus(QTVRInstance qtvr);
 
 /**
@@ -2128,7 +2128,7 @@ QTVRGetConstraintStatus(QTVRInstance qtvr);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetConstraints(QTVRInstance qtvr, UInt16 kind, float *minValue,
                    float *maxValue);
 
@@ -2141,7 +2141,7 @@ QTVRGetConstraints(QTVRInstance qtvr, UInt16 kind, float *minValue,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetConstraints(QTVRInstance qtvr, UInt16 kind, float minValue,
                    float maxValue);
 
@@ -2160,7 +2160,7 @@ QTVRSetConstraints(QTVRInstance qtvr, UInt16 kind, float minValue,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetAvailableResolutions(QTVRInstance qtvr, UInt16 *resolutionsMask);
 
 /* These require QTVR 2.1 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion10)*/
@@ -2173,7 +2173,7 @@ QTVRGetAvailableResolutions(QTVRInstance qtvr, UInt16 *resolutionsMask);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetBackBufferMemInfo(QTVRInstance qtvr, UInt32 geometry, UInt16 resolution,
                          UInt32 cachePixelFormat, SInt32 *minCacheBytes,
                          SInt32 *suggestedCacheBytes, SInt32 *fullCacheBytes);
@@ -2187,7 +2187,7 @@ QTVRGetBackBufferMemInfo(QTVRInstance qtvr, UInt32 geometry, UInt16 resolution,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRGetBackBufferSettings(QTVRInstance qtvr, UInt32 *geometry,
                           UInt16 *resolution, UInt32 *cachePixelFormat,
                           SInt16 *cacheSize);
@@ -2201,7 +2201,7 @@ QTVRGetBackBufferSettings(QTVRInstance qtvr, UInt32 *geometry,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetBackBufferPrefs(QTVRInstance qtvr, UInt32 geometry, UInt16 resolution,
                        UInt32 cachePixelFormat, SInt16 cacheSize);
 
@@ -2220,7 +2220,7 @@ QTVRSetBackBufferPrefs(QTVRInstance qtvr, UInt32 geometry, UInt16 resolution,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetPrescreenImagingCompleteProc(QTVRInstance qtvr,
                                     QTVRImagingCompleteUPP imagingCompleteProc,
                                     SInt32 refCon, UInt32 flags);
@@ -2234,7 +2234,7 @@ QTVRSetPrescreenImagingCompleteProc(QTVRInstance qtvr,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRSetBackBufferImagingProc(QTVRInstance qtvr,
                              QTVRBackBufferImagingUPP backBufferImagingProc,
                              UInt16 numAreas,
@@ -2250,7 +2250,7 @@ QTVRSetBackBufferImagingProc(QTVRInstance qtvr,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTVRRefreshBackBuffer(QTVRInstance qtvr, UInt32 flags);
 
 /**

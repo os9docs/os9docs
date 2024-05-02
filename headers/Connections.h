@@ -227,7 +227,7 @@ typedef CMIOPB *CMIOPBPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionToolDefUPP)
+ConnectionToolDefUPP
 NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -256,7 +256,7 @@ NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionSearchCallBackUPP)
+ConnectionSearchCallBackUPP
 NewConnectionSearchCallBackUPP(ConnectionSearchCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -285,7 +285,7 @@ NewConnectionSearchCallBackUPP(ConnectionSearchCallBackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionCompletionUPP)
+ConnectionCompletionUPP
 NewConnectionCompletionUPP(ConnectionCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -314,7 +314,7 @@ NewConnectionCompletionUPP(ConnectionCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionChooseIdleUPP)
+ConnectionChooseIdleUPP
 NewConnectionChooseIdleUPP(ConnectionChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -343,7 +343,7 @@ NewConnectionChooseIdleUPP(ConnectionChooseIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionToolDefUPP(ConnectionToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -363,7 +363,7 @@ inline void DisposeConnectionToolDefUPP(ConnectionToolDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionSearchCallBackUPP(ConnectionSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -385,7 +385,7 @@ DisposeConnectionSearchCallBackUPP(ConnectionSearchCallBackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionCompletionUPP(ConnectionCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -406,7 +406,7 @@ inline void DisposeConnectionCompletionUPP(ConnectionCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -427,7 +427,7 @@ inline void DisposeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeConnectionToolDefUPP(ConnHandle hConn, short msg, long p1, long p2,
                            long p3, ConnectionToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -453,7 +453,7 @@ inline long InvokeConnectionToolDefUPP(ConnHandle hConn, short msg, long p1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeConnectionSearchCallBackUPP(ConnHandle hConn, Ptr matchPtr, long refNum,
                                   ConnectionSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -479,7 +479,7 @@ InvokeConnectionSearchCallBackUPP(ConnHandle hConn, Ptr matchPtr, long refNum,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeConnectionCompletionUPP(ConnHandle hConn,
                               ConnectionCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -502,7 +502,7 @@ inline void InvokeConnectionCompletionUPP(ConnHandle hConn,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

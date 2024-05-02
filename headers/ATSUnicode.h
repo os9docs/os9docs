@@ -535,7 +535,7 @@ typedef TVECTOR_UPP_TYPE(RedrawBackgroundProcPtr) RedrawBackgroundUPP;
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(RedrawBackgroundUPP)
+RedrawBackgroundUPP
 NewRedrawBackgroundUPP(RedrawBackgroundProcPtr userRoutine);
 
 /**
@@ -546,7 +546,7 @@ NewRedrawBackgroundUPP(RedrawBackgroundProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeRedrawBackgroundUPP(RedrawBackgroundUPP userUPP);
 
 /**
@@ -557,7 +557,7 @@ DisposeRedrawBackgroundUPP(RedrawBackgroundUPP userUPP);
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeRedrawBackgroundUPP(ATSUTextLayout iLayout,
                           UniCharArrayOffset iTextOffset,
                           UniCharCount iTextLength,
@@ -625,7 +625,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCopyToHandle(ATSUStyle iStyle, Handle oStyleHandle);
 
 /**
@@ -636,7 +636,7 @@ ATSUCopyToHandle(ATSUStyle iStyle, Handle oStyleHandle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUPasteFromHandle(ATSUStyle iStyle, Handle iStyleHandle);
 
 /*  Memory allocation specification functions (not in Carbon)   */
@@ -649,7 +649,7 @@ ATSUPasteFromHandle(ATSUStyle iStyle, Handle iStyleHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateMemorySetting(ATSUHeapSpec iHeapSpec,
                         ATSUMemoryCallbacks *iMemoryCallbacks,
                         ATSUMemorySetting *oMemorySetting);
@@ -662,7 +662,7 @@ ATSUCreateMemorySetting(ATSUHeapSpec iHeapSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetCurrentMemorySetting(ATSUMemorySetting iMemorySetting);
 
 /**
@@ -673,7 +673,7 @@ ATSUSetCurrentMemorySetting(ATSUMemorySetting iMemorySetting);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ATSUMemorySetting)
+ATSUMemorySetting
 ATSUGetCurrentMemorySetting(void);
 
 /**
@@ -684,7 +684,7 @@ ATSUGetCurrentMemorySetting(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUDisposeMemorySetting(ATSUMemorySetting iMemorySetting);
 
 /*  Font fallback object functions  */
@@ -698,7 +698,7 @@ ATSUDisposeMemorySetting(ATSUMemorySetting iMemorySetting);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateFontFallbacks(ATSUFontFallbacks *oFontFallback);
 
 /**
@@ -709,7 +709,7 @@ ATSUCreateFontFallbacks(ATSUFontFallbacks *oFontFallback);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUDisposeFontFallbacks(ATSUFontFallbacks iFontFallbacks);
 
 /**
@@ -720,7 +720,7 @@ ATSUDisposeFontFallbacks(ATSUFontFallbacks iFontFallbacks);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetObjFontFallbacks(ATSUFontFallbacks iFontFallbacks,
                         ItemCount iFontFallbacksCount,
                         const ATSUFontID iFonts[],
@@ -734,7 +734,7 @@ ATSUSetObjFontFallbacks(ATSUFontFallbacks iFontFallbacks,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetObjFontFallbacks(ATSUFontFallbacks iFontFallbacks,
                         ItemCount iMaxFontFallbacksCount, ATSUFontID oFonts[],
                         ATSUFontFallbackMethod *oFontFallbackMethod,
@@ -749,7 +749,7 @@ ATSUGetObjFontFallbacks(ATSUFontFallbacks iFontFallbacks,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateStyle(ATSUStyle *oStyle);
 
 /**
@@ -760,7 +760,7 @@ ATSUCreateStyle(ATSUStyle *oStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateAndCopyStyle(ATSUStyle iStyle, ATSUStyle *oStyle);
 
 /**
@@ -771,7 +771,7 @@ ATSUCreateAndCopyStyle(ATSUStyle iStyle, ATSUStyle *oStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUDisposeStyle(ATSUStyle iStyle);
 
 /**
@@ -782,7 +782,7 @@ ATSUDisposeStyle(ATSUStyle iStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetStyleRefCon(ATSUStyle iStyle, UInt32 iRefCon);
 
 /**
@@ -793,7 +793,7 @@ ATSUSetStyleRefCon(ATSUStyle iStyle, UInt32 iRefCon);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetStyleRefCon(ATSUStyle iStyle, UInt32 *oRefCon);
 
 /*  Style comparison        */
@@ -805,7 +805,7 @@ ATSUGetStyleRefCon(ATSUStyle iStyle, UInt32 *oRefCon);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCompareStyles(ATSUStyle iFirstStyle, ATSUStyle iSecondStyle,
                   ATSUStyleComparison *oComparison);
 
@@ -818,7 +818,7 @@ ATSUCompareStyles(ATSUStyle iFirstStyle, ATSUStyle iSecondStyle,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCopyAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
 
 /**
@@ -829,7 +829,7 @@ ATSUCopyAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUOverwriteAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
 
 /**
@@ -840,7 +840,7 @@ ATSUOverwriteAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUUnderwriteAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
 
 /*  Empty styles    */
@@ -852,7 +852,7 @@ ATSUUnderwriteAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearStyle(ATSUStyle iStyle);
 
 /**
@@ -863,7 +863,7 @@ ATSUClearStyle(ATSUStyle iStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUStyleIsEmpty(ATSUStyle iStyle, Boolean *oIsClear);
 
 /*  Get and set attributes */
@@ -875,7 +875,7 @@ ATSUStyleIsEmpty(ATSUStyle iStyle, Boolean *oIsClear);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCalculateBaselineDeltas(ATSUStyle iStyle, BslnBaselineClass iBaselineClass,
                             BslnBaselineRecord oBaselineDeltas);
 
@@ -887,7 +887,7 @@ ATSUCalculateBaselineDeltas(ATSUStyle iStyle, BslnBaselineClass iBaselineClass,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetAttributes(ATSUStyle iStyle, ItemCount iAttributeCount,
                   const ATSUAttributeTag iTag[], const ByteCount iValueSize[],
                   const ATSUAttributeValuePtr iValue[]);
@@ -900,7 +900,7 @@ ATSUSetAttributes(ATSUStyle iStyle, ItemCount iAttributeCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetAttribute(ATSUStyle iStyle, ATSUAttributeTag iTag,
                  ByteCount iExpectedValueSize, ATSUAttributeValuePtr oValue,
                  ByteCount *oActualValueSize);
@@ -913,7 +913,7 @@ ATSUGetAttribute(ATSUStyle iStyle, ATSUAttributeTag iTag,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetAllAttributes(ATSUStyle iStyle, ATSUAttributeInfo oAttributeInfoArray[],
                      ItemCount iTagValuePairArraySize,
                      ItemCount *oTagValuePairCount);
@@ -926,7 +926,7 @@ ATSUGetAllAttributes(ATSUStyle iStyle, ATSUAttributeInfo oAttributeInfoArray[],
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearAttributes(ATSUStyle iStyle, ItemCount iTagCount,
                     const ATSUAttributeTag iTag[]);
 
@@ -939,7 +939,7 @@ ATSUClearAttributes(ATSUStyle iStyle, ItemCount iTagCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetFontFeatures(ATSUStyle iStyle, ItemCount iFeatureCount,
                     const ATSUFontFeatureType iType[],
                     const ATSUFontFeatureSelector iSelector[]);
@@ -952,7 +952,7 @@ ATSUSetFontFeatures(ATSUStyle iStyle, ItemCount iFeatureCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontFeature(ATSUStyle iStyle, ItemCount iFeatureIndex,
                    ATSUFontFeatureType *oFeatureType,
                    ATSUFontFeatureSelector *oFeatureSelector);
@@ -965,7 +965,7 @@ ATSUGetFontFeature(ATSUStyle iStyle, ItemCount iFeatureIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetAllFontFeatures(ATSUStyle iStyle, ItemCount iMaximumFeatureCount,
                        ATSUFontFeatureType oFeatureType[],
                        ATSUFontFeatureSelector oFeatureSelector[],
@@ -979,7 +979,7 @@ ATSUGetAllFontFeatures(ATSUStyle iStyle, ItemCount iMaximumFeatureCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearFontFeatures(ATSUStyle iStyle, ItemCount iFeatureCount,
                       const ATSUFontFeatureType iType[],
                       const ATSUFontFeatureSelector iSelector[]);
@@ -993,7 +993,7 @@ ATSUClearFontFeatures(ATSUStyle iStyle, ItemCount iFeatureCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetVariations(ATSUStyle iStyle, ItemCount iVariationCount,
                   const ATSUFontVariationAxis iAxes[],
                   const ATSUFontVariationValue iValue[]);
@@ -1006,7 +1006,7 @@ ATSUSetVariations(ATSUStyle iStyle, ItemCount iVariationCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontVariationValue(ATSUStyle iStyle,
                           ATSUFontVariationAxis iFontVariationAxis,
                           ATSUFontVariationValue *oFontVariationValue);
@@ -1019,7 +1019,7 @@ ATSUGetFontVariationValue(ATSUStyle iStyle,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetAllFontVariations(ATSUStyle iStyle, ItemCount iVariationCount,
                          ATSUFontVariationAxis oVariationAxes[],
                          ATSUFontVariationValue oFontVariationValues[],
@@ -1033,7 +1033,7 @@ ATSUGetAllFontVariations(ATSUStyle iStyle, ItemCount iVariationCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearFontVariations(ATSUStyle iStyle, ItemCount iAxisCount,
                         const ATSUFontVariationAxis iAxis[]);
 
@@ -1046,7 +1046,7 @@ ATSUClearFontVariations(ATSUStyle iStyle, ItemCount iAxisCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateTextLayout(ATSUTextLayout *oTextLayout);
 
 /**
@@ -1057,7 +1057,7 @@ ATSUCreateTextLayout(ATSUTextLayout *oTextLayout);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateAndCopyTextLayout(ATSUTextLayout iTextLayout,
                             ATSUTextLayout *oTextLayout);
 
@@ -1069,7 +1069,7 @@ ATSUCreateAndCopyTextLayout(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateTextLayoutWithTextPtr(
     ConstUniCharArrayPtr iText, UniCharArrayOffset iTextOffset,
     UniCharCount iTextLength, UniCharCount iTextTotalLength,
@@ -1084,7 +1084,7 @@ ATSUCreateTextLayoutWithTextPtr(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCreateTextLayoutWithTextHandle(
     UniCharArrayHandle iText, UniCharArrayOffset iTextOffset,
     UniCharCount iTextLength, UniCharCount iTextTotalLength,
@@ -1099,7 +1099,7 @@ ATSUCreateTextLayoutWithTextHandle(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearLayoutCache(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart);
 
 /**
@@ -1110,7 +1110,7 @@ ATSUClearLayoutCache(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUDisposeTextLayout(ATSUTextLayout iTextLayout);
 
 /**
@@ -1121,7 +1121,7 @@ ATSUDisposeTextLayout(ATSUTextLayout iTextLayout);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetTextLayoutRefCon(ATSUTextLayout iTextLayout, UInt32 iRefCon);
 
 /**
@@ -1132,7 +1132,7 @@ ATSUSetTextLayoutRefCon(ATSUTextLayout iTextLayout, UInt32 iRefCon);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetTextLayoutRefCon(ATSUTextLayout iTextLayout, UInt32 *oRefCon);
 
 /*  Glyph bounds retrieval  */
@@ -1144,7 +1144,7 @@ ATSUGetTextLayoutRefCon(ATSUTextLayout iTextLayout, UInt32 *oRefCon);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetGlyphBounds(ATSUTextLayout iTextLayout,
                    ATSUTextMeasurement iTextBasePointX,
                    ATSUTextMeasurement iTextBasePointY,
@@ -1162,7 +1162,7 @@ ATSUGetGlyphBounds(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUIdle(ATSUTextLayout iTextLayout);
 
 /*  Text location   */
@@ -1174,7 +1174,7 @@ ATSUIdle(ATSUTextLayout iTextLayout);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetTextPointerLocation(ATSUTextLayout iTextLayout,
                            ConstUniCharArrayPtr iText,
                            UniCharArrayOffset iTextOffset,
@@ -1189,7 +1189,7 @@ ATSUSetTextPointerLocation(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetTextHandleLocation(ATSUTextLayout iTextLayout, UniCharArrayHandle iText,
                           UniCharArrayOffset iTextOffset,
                           UniCharCount iTextLength,
@@ -1203,7 +1203,7 @@ ATSUSetTextHandleLocation(ATSUTextLayout iTextLayout, UniCharArrayHandle iText,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetTextLocation(ATSUTextLayout iTextLayout, void **oText,
                     Boolean *oTextIsStoredInHandle, UniCharArrayOffset *oOffset,
                     UniCharCount *oTextLength, UniCharCount *oTextTotalLength);
@@ -1217,7 +1217,7 @@ ATSUGetTextLocation(ATSUTextLayout iTextLayout, void **oText,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUTextDeleted(ATSUTextLayout iTextLayout,
                 UniCharArrayOffset iDeletedRangeStart,
                 UniCharCount iDeletedRangeLength);
@@ -1230,7 +1230,7 @@ ATSUTextDeleted(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUTextInserted(ATSUTextLayout iTextLayout,
                  UniCharArrayOffset iInsertionLocation,
                  UniCharCount iInsertionLength);
@@ -1243,7 +1243,7 @@ ATSUTextInserted(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUTextMoved(ATSUTextLayout iTextLayout, ConstUniCharArrayPtr iNewLocation);
 
 /*  Layout controls */
@@ -1255,7 +1255,7 @@ ATSUTextMoved(ATSUTextLayout iTextLayout, ConstUniCharArrayPtr iNewLocation);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCopyLayoutControls(ATSUTextLayout iSourceTextLayout,
                        ATSUTextLayout iDestTextLayout);
 
@@ -1267,7 +1267,7 @@ ATSUCopyLayoutControls(ATSUTextLayout iSourceTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetLayoutControls(ATSUTextLayout iTextLayout, ItemCount iAttributeCount,
                       const ATSUAttributeTag iTag[],
                       const ByteCount iValueSize[],
@@ -1281,7 +1281,7 @@ ATSUSetLayoutControls(ATSUTextLayout iTextLayout, ItemCount iAttributeCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetLayoutControl(ATSUTextLayout iTextLayout, ATSUAttributeTag iTag,
                      ByteCount iExpectedValueSize, ATSUAttributeValuePtr oValue,
                      ByteCount *oActualValueSize);
@@ -1294,7 +1294,7 @@ ATSUGetLayoutControl(ATSUTextLayout iTextLayout, ATSUAttributeTag iTag,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetAllLayoutControls(ATSUTextLayout iTextLayout,
                          ATSUAttributeInfo oAttributeInfoArray[],
                          ItemCount iTagValuePairArraySize,
@@ -1308,7 +1308,7 @@ ATSUGetAllLayoutControls(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearLayoutControls(ATSUTextLayout iTextLayout, ItemCount iTagCount,
                         const ATSUAttributeTag iTag[]);
 
@@ -1321,7 +1321,7 @@ ATSUClearLayoutControls(ATSUTextLayout iTextLayout, ItemCount iTagCount,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCopyLineControls(ATSUTextLayout iSourceTextLayout,
                      UniCharArrayOffset iSourceLineStart,
                      ATSUTextLayout iDestTextLayout,
@@ -1335,7 +1335,7 @@ ATSUCopyLineControls(ATSUTextLayout iSourceTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetLineControls(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                     ItemCount iAttributeCount, const ATSUAttributeTag iTag[],
                     const ByteCount iValueSize[],
@@ -1349,7 +1349,7 @@ ATSUSetLineControls(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetLineControl(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                    ATSUAttributeTag iTag, ByteCount iExpectedValueSize,
                    ATSUAttributeValuePtr oValue, ByteCount *oActualValueSize);
@@ -1362,7 +1362,7 @@ ATSUGetLineControl(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetAllLineControls(ATSUTextLayout iTextLayout,
                        UniCharArrayOffset iLineStart,
                        ATSUAttributeInfo oAttributeInfoArray[],
@@ -1377,7 +1377,7 @@ ATSUGetAllLineControls(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearLineControls(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                       ItemCount iTagCount, const ATSUAttributeTag iTag[]);
 
@@ -1390,7 +1390,7 @@ ATSUClearLineControls(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetRunStyle(ATSUTextLayout iTextLayout, ATSUStyle iStyle,
                 UniCharArrayOffset iRunStart, UniCharCount iRunLength);
 
@@ -1402,7 +1402,7 @@ ATSUSetRunStyle(ATSUTextLayout iTextLayout, ATSUStyle iStyle,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetRunStyle(ATSUTextLayout iTextLayout, UniCharArrayOffset iOffset,
                 ATSUStyle *oStyle, UniCharArrayOffset *oRunStart,
                 UniCharCount *oRunLength);
@@ -1415,7 +1415,7 @@ ATSUGetRunStyle(ATSUTextLayout iTextLayout, UniCharArrayOffset iOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetContinuousAttributes(ATSUTextLayout iTextLayout,
                             UniCharArrayOffset iOffset, UniCharCount iLength,
                             ATSUStyle oStyle);
@@ -1429,7 +1429,7 @@ ATSUGetContinuousAttributes(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUDrawText(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineOffset,
              UniCharCount iLineLength, ATSUTextMeasurement iLocationX,
              ATSUTextMeasurement iLocationY);
@@ -1442,7 +1442,7 @@ ATSUDrawText(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUMeasureText(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                 UniCharCount iLineLength, ATSUTextMeasurement *oTextBefore,
                 ATSUTextMeasurement *oTextAfter, ATSUTextMeasurement *oAscent,
@@ -1456,7 +1456,7 @@ ATSUMeasureText(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUMeasureTextImage(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineOffset,
                      UniCharCount iLineLength, ATSUTextMeasurement iLocationX,
                      ATSUTextMeasurement iLocationY, Rect *oTextImageRect);
@@ -1470,7 +1470,7 @@ ATSUMeasureTextImage(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUHighlightText(ATSUTextLayout iTextLayout,
                   ATSUTextMeasurement iTextBasePointX,
                   ATSUTextMeasurement iTextBasePointY,
@@ -1485,7 +1485,7 @@ ATSUHighlightText(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUUnhighlightText(ATSUTextLayout iTextLayout,
                     ATSUTextMeasurement iTextBasePointX,
                     ATSUTextMeasurement iTextBasePointY,
@@ -1500,7 +1500,7 @@ ATSUUnhighlightText(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetTextHighlight(ATSUTextLayout iTextLayout,
                      ATSUTextMeasurement iTextBasePointX,
                      ATSUTextMeasurement iTextBasePointY,
@@ -1516,7 +1516,7 @@ ATSUGetTextHighlight(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUPositionToOffset(ATSUTextLayout iTextLayout, ATSUTextMeasurement iLocationX,
                      ATSUTextMeasurement iLocationY,
                      UniCharArrayOffset *ioPrimaryOffset, Boolean *oIsLeading,
@@ -1530,7 +1530,7 @@ ATSUPositionToOffset(ATSUTextLayout iTextLayout, ATSUTextMeasurement iLocationX,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUOffsetToPosition(ATSUTextLayout iTextLayout, UniCharArrayOffset iOffset,
                      Boolean iIsLeading, ATSUCaret *oMainCaret,
                      ATSUCaret *oSecondCaret, Boolean *oCaretIsSplit);
@@ -1543,7 +1543,7 @@ ATSUOffsetToPosition(ATSUTextLayout iTextLayout, UniCharArrayOffset iOffset,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUPositionToCursorOffset(ATSUTextLayout iTextLayout,
                            ATSUTextMeasurement iLocationX,
                            ATSUTextMeasurement iLocationY,
@@ -1560,7 +1560,7 @@ ATSUPositionToCursorOffset(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUOffsetToCursorPosition(ATSUTextLayout iTextLayout,
                            UniCharArrayOffset iOffset, Boolean iIsLeading,
                            ATSUCursorMovementType iMovementType,
@@ -1576,7 +1576,7 @@ ATSUOffsetToCursorPosition(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUNextCursorPosition(ATSUTextLayout iTextLayout,
                        UniCharArrayOffset iOldOffset,
                        ATSUCursorMovementType iMovementType,
@@ -1590,7 +1590,7 @@ ATSUNextCursorPosition(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUPreviousCursorPosition(ATSUTextLayout iTextLayout,
                            UniCharArrayOffset iOldOffset,
                            ATSUCursorMovementType iMovementType,
@@ -1604,7 +1604,7 @@ ATSUPreviousCursorPosition(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSURightwardCursorPosition(ATSUTextLayout iTextLayout,
                             UniCharArrayOffset iOldOffset,
                             ATSUCursorMovementType iMovementType,
@@ -1618,7 +1618,7 @@ ATSURightwardCursorPosition(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSULeftwardCursorPosition(ATSUTextLayout iTextLayout,
                            UniCharArrayOffset iOldOffset,
                            ATSUCursorMovementType iMovementType,
@@ -1633,7 +1633,7 @@ ATSULeftwardCursorPosition(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUBreakLine(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
               ATSUTextMeasurement iLineWidth, Boolean iUseAsSoftLineBreak,
               UniCharArrayOffset *oLineBreak);
@@ -1646,7 +1646,7 @@ ATSUBreakLine(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetSoftLineBreak(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineBreak);
 
 /**
@@ -1657,7 +1657,7 @@ ATSUSetSoftLineBreak(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineBreak);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetSoftLineBreaks(ATSUTextLayout iTextLayout,
                       UniCharArrayOffset iRangeStart, UniCharCount iRangeLength,
                       ItemCount iMaximumBreaks, UniCharArrayOffset oBreaks[],
@@ -1671,7 +1671,7 @@ ATSUGetSoftLineBreaks(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUClearSoftLineBreaks(ATSUTextLayout iTextLayout,
                         UniCharArrayOffset iRangeStart,
                         UniCharCount iRangeLength);
@@ -1685,7 +1685,7 @@ ATSUClearSoftLineBreaks(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetFontFallbacks(ItemCount iFontFallbacksCount, const ATSUFontID iFontIDs[],
                      ATSUFontFallbackMethod iFontFallbackMethod);
 
@@ -1697,7 +1697,7 @@ ATSUSetFontFallbacks(ItemCount iFontFallbacksCount, const ATSUFontID iFontIDs[],
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontFallbacks(ItemCount iMaxFontFallbacksCount, ATSUFontID oFontIDs[],
                      ATSUFontFallbackMethod *oFontFallbackMethod,
                      ItemCount *oActualFallbacksCount);
@@ -1710,7 +1710,7 @@ ATSUGetFontFallbacks(ItemCount iMaxFontFallbacksCount, ATSUFontID oFontIDs[],
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUMatchFontsToText(ATSUTextLayout iTextLayout, UniCharArrayOffset iTextStart,
                      UniCharCount iTextLength, ATSUFontID *oFontID,
                      UniCharArrayOffset *oChangedOffset,
@@ -1724,7 +1724,7 @@ ATSUMatchFontsToText(ATSUTextLayout iTextLayout, UniCharArrayOffset iTextStart,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetTransientFontMatching(ATSUTextLayout iTextLayout,
                              Boolean iTransientFontMatching);
 
@@ -1736,7 +1736,7 @@ ATSUSetTransientFontMatching(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetTransientFontMatching(ATSUTextLayout iTextLayout,
                              Boolean *oTransientFontMatching);
 
@@ -1749,7 +1749,7 @@ ATSUGetTransientFontMatching(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUFontCount(ItemCount *oFontCount);
 
 /**
@@ -1760,7 +1760,7 @@ ATSUFontCount(ItemCount *oFontCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontIDs(ATSUFontID oFontIDs[], ItemCount iArraySize,
                ItemCount *oFontCount);
 
@@ -1772,7 +1772,7 @@ ATSUGetFontIDs(ATSUFontID oFontIDs[], ItemCount iArraySize,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUFONDtoFontID(short iFONDNumber, Style iFONDStyle, ATSUFontID *oFontID);
 
 /**
@@ -1783,7 +1783,7 @@ ATSUFONDtoFontID(short iFONDNumber, Style iFONDStyle, ATSUFontID *oFontID);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUFontIDtoFOND(ATSUFontID iFontID, short *oFONDNumber, Style *oFONDStyle);
 
 /*  Font names  */
@@ -1795,7 +1795,7 @@ ATSUFontIDtoFOND(ATSUFontID iFontID, short *oFONDNumber, Style *oFONDStyle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCountFontNames(ATSUFontID iFontID, ItemCount *oFontNameCount);
 
 /**
@@ -1806,7 +1806,7 @@ ATSUCountFontNames(ATSUFontID iFontID, ItemCount *oFontNameCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetIndFontName(ATSUFontID iFontID, ItemCount iFontNameIndex,
                    ByteCount iMaximumNameLength, Ptr oName,
                    ByteCount *oActualNameLength, FontNameCode *oFontNameCode,
@@ -1822,7 +1822,7 @@ ATSUGetIndFontName(ATSUFontID iFontID, ItemCount iFontNameIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUFindFontName(ATSUFontID iFontID, FontNameCode iFontNameCode,
                  FontPlatformCode iFontNamePlatform,
                  FontScriptCode iFontNameScript,
@@ -1838,7 +1838,7 @@ ATSUFindFontName(ATSUFontID iFontID, FontNameCode iFontNameCode,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUFindFontFromName(Ptr iName, ByteCount iNameLength,
                      FontNameCode iFontNameCode,
                      FontPlatformCode iFontNamePlatform,
@@ -1854,7 +1854,7 @@ ATSUFindFontFromName(Ptr iName, ByteCount iNameLength,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCountFontFeatureTypes(ATSUFontID iFontID, ItemCount *oTypeCount);
 
 /**
@@ -1865,7 +1865,7 @@ ATSUCountFontFeatureTypes(ATSUFontID iFontID, ItemCount *oTypeCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCountFontFeatureSelectors(ATSUFontID iFontID, ATSUFontFeatureType iType,
                               ItemCount *oSelectorCount);
 
@@ -1877,7 +1877,7 @@ ATSUCountFontFeatureSelectors(ATSUFontID iFontID, ATSUFontFeatureType iType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontFeatureTypes(ATSUFontID iFontID, ItemCount iMaximumTypes,
                         ATSUFontFeatureType oTypes[],
                         ItemCount *oActualTypeCount);
@@ -1890,7 +1890,7 @@ ATSUGetFontFeatureTypes(ATSUFontID iFontID, ItemCount iMaximumTypes,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontFeatureSelectors(ATSUFontID iFontID, ATSUFontFeatureType iType,
                             ItemCount iMaximumSelectors,
                             ATSUFontFeatureSelector oSelectors[],
@@ -1906,7 +1906,7 @@ ATSUGetFontFeatureSelectors(ATSUFontID iFontID, ATSUFontFeatureType iType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontFeatureNameCode(ATSUFontID iFontID, ATSUFontFeatureType iType,
                            ATSUFontFeatureSelector iSelector,
                            FontNameCode *oNameCode);
@@ -1920,7 +1920,7 @@ ATSUGetFontFeatureNameCode(ATSUFontID iFontID, ATSUFontFeatureType iType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCountFontTracking(ATSUFontID iFontID,
                       ATSUVerticalCharacterType iCharacterOrientation,
                       ItemCount *oTrackingCount);
@@ -1933,7 +1933,7 @@ ATSUCountFontTracking(ATSUFontID iFontID,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetIndFontTracking(ATSUFontID iFontID,
                        ATSUVerticalCharacterType iCharacterOrientation,
                        ItemCount iTrackIndex, Fixed *oFontTrackingValue,
@@ -1948,7 +1948,7 @@ ATSUGetIndFontTracking(ATSUFontID iFontID,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCountFontVariations(ATSUFontID iFontID, ItemCount *oVariationCount);
 
 /**
@@ -1959,7 +1959,7 @@ ATSUCountFontVariations(ATSUFontID iFontID, ItemCount *oVariationCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetIndFontVariation(ATSUFontID iFontID, ItemCount iVariationIndex,
                         ATSUFontVariationAxis *oATSUFontVariationAxis,
                         ATSUFontVariationValue *oMinimumValue,
@@ -1974,7 +1974,7 @@ ATSUGetIndFontVariation(ATSUFontID iFontID, ItemCount iVariationIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontVariationNameCode(ATSUFontID iFontID, ATSUFontVariationAxis iAxis,
                              FontNameCode *oNameCode);
 
@@ -1987,7 +1987,7 @@ ATSUGetFontVariationNameCode(ATSUFontID iFontID, ATSUFontVariationAxis iAxis,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUCountFontInstances(ATSUFontID iFontID, ItemCount *oInstances);
 
 /**
@@ -1998,7 +1998,7 @@ ATSUCountFontInstances(ATSUFontID iFontID, ItemCount *oInstances);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontInstance(ATSUFontID iFontID, ItemCount iFontInstanceIndex,
                     ItemCount iMaximumVariations, ATSUFontVariationAxis oAxes[],
                     ATSUFontVariationValue oValues[],
@@ -2012,7 +2012,7 @@ ATSUGetFontInstance(ATSUFontID iFontID, ItemCount iFontInstanceIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetFontInstanceNameCode(ATSUFontID iFontID, ItemCount iInstanceIndex,
                             FontNameCode *oNameCode);
 
@@ -2028,7 +2028,7 @@ ATSUGetFontInstanceNameCode(ATSUFontID iFontID, ItemCount iInstanceIndex,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetGlyphInfo(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                  UniCharCount iLineLength, ByteCount *ioBufferSize,
                  ATSUGlyphInfoArray *oGlyphInfoPtr);
@@ -2041,7 +2041,7 @@ ATSUGetGlyphInfo(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUDrawGlyphInfo(ATSUGlyphInfoArray *iGlyphInfoArray, Float32Point iLocation);
 
 /* Font Data Access */
@@ -2053,7 +2053,7 @@ ATSUDrawGlyphInfo(ATSUGlyphInfoArray *iGlyphInfoArray, Float32Point iLocation);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGlyphGetIdealMetrics(ATSUStyle iATSUStyle, ItemCount iNumOfGlyphs,
                          GlyphID iGlyphIDs[], ByteOffset iInputOffset,
                          ATSGlyphIdealMetrics oIdealMetrics[]);
@@ -2066,7 +2066,7 @@ ATSUGlyphGetIdealMetrics(ATSUStyle iATSUStyle, ItemCount iNumOfGlyphs,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGetNativeCurveType(ATSUStyle iATSUStyle, ATSCurveType *oCurveType);
 
 /* Device specific routines */
@@ -2078,7 +2078,7 @@ ATSUGetNativeCurveType(ATSUStyle iATSUStyle, ATSCurveType *oCurveType);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGlyphGetScreenMetrics(ATSUStyle iATSUStyle, ItemCount iNumOfGlyphs,
                           GlyphID iGlyphIDs[], ByteOffset iInputOffset,
                           Boolean iForcingAntiAlias, Boolean iAntiAliasSwitch,
@@ -2109,7 +2109,7 @@ typedef TVECTOR_UPP_TYPE(ATSQuadraticClosePathProcPtr) ATSQuadraticClosePathUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSQuadraticLineUPP)
+ATSQuadraticLineUPP
 NewATSQuadraticLineUPP(ATSQuadraticLineProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2133,7 +2133,7 @@ NewATSQuadraticLineUPP(ATSQuadraticLineProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSQuadraticCurveUPP)
+ATSQuadraticCurveUPP
 NewATSQuadraticCurveUPP(ATSQuadraticCurveProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2157,7 +2157,7 @@ NewATSQuadraticCurveUPP(ATSQuadraticCurveProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSQuadraticNewPathUPP)
+ATSQuadraticNewPathUPP
 NewATSQuadraticNewPathUPP(ATSQuadraticNewPathProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2181,7 +2181,7 @@ NewATSQuadraticNewPathUPP(ATSQuadraticNewPathProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSQuadraticClosePathUPP)
+ATSQuadraticClosePathUPP
 NewATSQuadraticClosePathUPP(ATSQuadraticClosePathProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2205,7 +2205,7 @@ NewATSQuadraticClosePathUPP(ATSQuadraticClosePathProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSQuadraticLineUPP(ATSQuadraticLineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2223,7 +2223,7 @@ inline void DisposeATSQuadraticLineUPP(ATSQuadraticLineUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSQuadraticCurveUPP(ATSQuadraticCurveUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2241,7 +2241,7 @@ inline void DisposeATSQuadraticCurveUPP(ATSQuadraticCurveUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSQuadraticNewPathUPP(ATSQuadraticNewPathUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2259,7 +2259,7 @@ inline void DisposeATSQuadraticNewPathUPP(ATSQuadraticNewPathUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSQuadraticClosePathUPP(ATSQuadraticClosePathUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2277,7 +2277,7 @@ inline void DisposeATSQuadraticClosePathUPP(ATSQuadraticClosePathUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSQuadraticLineUPP(const Float32Point *pt1, const Float32Point *pt2,
                           void *callBackDataPtr, ATSQuadraticLineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2302,7 +2302,7 @@ inline OSStatus InvokeATSQuadraticLineUPP(const Float32Point *pt1,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSQuadraticCurveUPP(const Float32Point *pt1,
                            const Float32Point *controlPt,
                            const Float32Point *pt2, void *callBackDataPtr,
@@ -2331,7 +2331,7 @@ inline OSStatus InvokeATSQuadraticCurveUPP(const Float32Point *pt1,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSQuadraticNewPathUPP(void *callBackDataPtr,
                              ATSQuadraticNewPathUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2354,7 +2354,7 @@ inline OSStatus InvokeATSQuadraticNewPathUPP(void *callBackDataPtr,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSQuadraticClosePathUPP(void *callBackDataPtr,
                                ATSQuadraticClosePathUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2378,7 +2378,7 @@ InvokeATSQuadraticClosePathUPP(void *callBackDataPtr,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGlyphGetQuadraticPaths(ATSUStyle iATSUStyle, GlyphID iGlyphID,
                            ATSQuadraticNewPathUPP iNewPathProc,
                            ATSQuadraticLineUPP iLineProc,
@@ -2408,7 +2408,7 @@ typedef TVECTOR_UPP_TYPE(ATSCubicClosePathProcPtr) ATSCubicClosePathUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSCubicMoveToUPP)
+ATSCubicMoveToUPP
 NewATSCubicMoveToUPP(ATSCubicMoveToProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2432,7 +2432,7 @@ NewATSCubicMoveToUPP(ATSCubicMoveToProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSCubicLineToUPP)
+ATSCubicLineToUPP
 NewATSCubicLineToUPP(ATSCubicLineToProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2456,7 +2456,7 @@ NewATSCubicLineToUPP(ATSCubicLineToProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSCubicCurveToUPP)
+ATSCubicCurveToUPP
 NewATSCubicCurveToUPP(ATSCubicCurveToProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2480,7 +2480,7 @@ NewATSCubicCurveToUPP(ATSCubicCurveToProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSCubicClosePathUPP)
+ATSCubicClosePathUPP
 NewATSCubicClosePathUPP(ATSCubicClosePathProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2504,7 +2504,7 @@ NewATSCubicClosePathUPP(ATSCubicClosePathProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSCubicMoveToUPP(ATSCubicMoveToUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2522,7 +2522,7 @@ inline void DisposeATSCubicMoveToUPP(ATSCubicMoveToUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSCubicLineToUPP(ATSCubicLineToUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2540,7 +2540,7 @@ inline void DisposeATSCubicLineToUPP(ATSCubicLineToUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSCubicCurveToUPP(ATSCubicCurveToUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2558,7 +2558,7 @@ inline void DisposeATSCubicCurveToUPP(ATSCubicCurveToUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeATSCubicClosePathUPP(ATSCubicClosePathUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2576,7 +2576,7 @@ inline void DisposeATSCubicClosePathUPP(ATSCubicClosePathUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSCubicMoveToUPP(const Float32Point *pt, void *callBackDataPtr,
                         ATSCubicMoveToUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2600,7 +2600,7 @@ inline OSStatus InvokeATSCubicMoveToUPP(const Float32Point *pt,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSCubicLineToUPP(const Float32Point *pt, void *callBackDataPtr,
                         ATSCubicLineToUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2624,7 +2624,7 @@ inline OSStatus InvokeATSCubicLineToUPP(const Float32Point *pt,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSCubicCurveToUPP(const Float32Point *pt1, const Float32Point *pt2,
                          const Float32Point *pt3, void *callBackDataPtr,
                          ATSCubicCurveToUPP userUPP);
@@ -2651,7 +2651,7 @@ inline OSStatus InvokeATSCubicCurveToUPP(const Float32Point *pt1,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeATSCubicClosePathUPP(void *callBackDataPtr, ATSCubicClosePathUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2673,7 +2673,7 @@ inline OSStatus InvokeATSCubicClosePathUPP(void *callBackDataPtr,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGlyphGetCubicPaths(ATSUStyle iATSUStyle, GlyphID iGlyphID,
                        ATSCubicMoveToUPP iMoveToProc,
                        ATSCubicLineToUPP iLineToProc,
@@ -2689,7 +2689,7 @@ ATSUGlyphGetCubicPaths(ATSUStyle iATSUStyle, GlyphID iGlyphID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUGlyphGetCurvePaths(ATSUStyle iATSUStyle, GlyphID iGlyphID,
                        ByteCount *ioBufferSize, ATSUCurvePaths *oPaths);
 
@@ -2745,7 +2745,7 @@ ATSUGlyphGetCurvePaths(ATSUStyle iATSUStyle, GlyphID iGlyphID,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSUSetHighlightingMethod(ATSUTextLayout iTextLayout,
                           ATSUHighlightMethod iMethod,
                           const ATSUUnhighlightData *iUnhighlightData);

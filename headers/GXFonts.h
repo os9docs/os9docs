@@ -69,7 +69,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFont)
+gxFont
 GXNewFont(gxFontStorageTag storage, gxFontStorageReference reference,
           gxFontAttribute attributes) THREEWORDINLINE(0x303C, 0x0201, 0xA832);
 
@@ -81,7 +81,7 @@ GXNewFont(gxFontStorageTag storage, gxFontStorageReference reference,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontStorageTag)
+gxFontStorageTag
 GXGetFont(gxFont fontID, gxFontStorageReference *reference,
           gxFontAttribute *attributes) THREEWORDINLINE(0x303C, 0x0202, 0xA832);
 
@@ -93,7 +93,7 @@ GXGetFont(gxFont fontID, gxFontStorageReference *reference,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFont)
+gxFont
 GXFindFont(gxFontStorageTag storage, gxFontStorageReference reference,
            gxFontAttribute *attributes) THREEWORDINLINE(0x303C, 0x0203, 0xA832);
 
@@ -105,7 +105,7 @@ GXFindFont(gxFontStorageTag storage, gxFontStorageReference reference,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetFont(gxFont fontID, gxFontStorageTag storage,
           gxFontStorageReference reference, gxFontAttribute attributes)
     THREEWORDINLINE(0x303C, 0x0204, 0xA832);
@@ -118,7 +118,7 @@ GXSetFont(gxFont fontID, gxFontStorageTag storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeFont(gxFont fontID) THREEWORDINLINE(0x303C, 0x0205, 0xA832);
 
 /**
@@ -129,7 +129,7 @@ GXDisposeFont(gxFont fontID) THREEWORDINLINE(0x303C, 0x0205, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXChangedFont(gxFont fontID) THREEWORDINLINE(0x303C, 0x0206, 0xA832);
 
 /**
@@ -140,7 +140,7 @@ GXChangedFont(gxFont fontID) THREEWORDINLINE(0x303C, 0x0206, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontFormatTag)
+gxFontFormatTag
 GXGetFontFormat(gxFont fontID) THREEWORDINLINE(0x303C, 0x0207, 0xA832);
 
 /**
@@ -151,7 +151,7 @@ GXGetFontFormat(gxFont fontID) THREEWORDINLINE(0x303C, 0x0207, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFont)
+gxFont
 GXGetDefaultFont(void) THREEWORDINLINE(0x303C, 0x0208, 0xA832);
 
 /**
@@ -162,7 +162,7 @@ GXGetDefaultFont(void) THREEWORDINLINE(0x303C, 0x0208, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFont)
+gxFont
 GXSetDefaultFont(gxFont fontID) THREEWORDINLINE(0x303C, 0x0209, 0xA832);
 
 /**
@@ -173,7 +173,7 @@ GXSetDefaultFont(gxFont fontID) THREEWORDINLINE(0x303C, 0x0209, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXFindFonts(gxFont familyID, gxFontName name, gxFontPlatform platform,
             gxFontScript script, gxFontLanguage language, long length,
             const unsigned char text[], long index, long count, gxFont fonts[])
@@ -187,7 +187,7 @@ GXFindFonts(gxFont familyID, gxFontName name, gxFontPlatform platform,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontGlyphs(gxFont fontID) THREEWORDINLINE(0x303C, 0x020B, 0xA832);
 
 /**
@@ -198,7 +198,7 @@ GXCountFontGlyphs(gxFont fontID) THREEWORDINLINE(0x303C, 0x020B, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontTables(gxFont fontID) THREEWORDINLINE(0x303C, 0x020C, 0xA832);
 
 /**
@@ -209,7 +209,7 @@ GXCountFontTables(gxFont fontID) THREEWORDINLINE(0x303C, 0x020C, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetFontTable(gxFont fontID, long index, void *tableData,
                gxFontTableTag *tableTag)
     THREEWORDINLINE(0x303C, 0x020D, 0xA832);
@@ -222,7 +222,7 @@ GXGetFontTable(gxFont fontID, long index, void *tableData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXFindFontTable(gxFont fontID, gxFontTableTag tableTag, void *tableData,
                 long *index) THREEWORDINLINE(0x303C, 0x020E, 0xA832);
 
@@ -234,7 +234,7 @@ GXFindFontTable(gxFont fontID, gxFontTableTag tableTag, void *tableData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetFontTableParts(gxFont fontID, long index, long offset, long length,
                     void *tableData, gxFontTableTag *tableTag)
     THREEWORDINLINE(0x303C, 0x020F, 0xA832);
@@ -247,7 +247,7 @@ GXGetFontTableParts(gxFont fontID, long index, long offset, long length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXFindFontTableParts(gxFont fontID, gxFontTableTag tableTag, long offset,
                      long length, void *tableData, long *index)
     THREEWORDINLINE(0x303C, 0x0210, 0xA832);
@@ -260,7 +260,7 @@ GXFindFontTableParts(gxFont fontID, gxFontTableTag tableTag, long offset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXSetFontTable(gxFont fontID, long index, gxFontTableTag tableTag, long length,
                const void *tableData) THREEWORDINLINE(0x303C, 0x0211, 0xA832);
 
@@ -272,7 +272,7 @@ GXSetFontTable(gxFont fontID, long index, gxFontTableTag tableTag, long length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXSetFontTableParts(gxFont fontID, long index, gxFontTableTag tableTag,
                     long offset, long oldLength, long newLength,
                     const void *tableData)
@@ -286,7 +286,7 @@ GXSetFontTableParts(gxFont fontID, long index, gxFontTableTag tableTag,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXDeleteFontTable(gxFont fontID, long index, gxFontTableTag tableTag)
     THREEWORDINLINE(0x303C, 0x0213, 0xA832);
 
@@ -298,7 +298,7 @@ GXDeleteFontTable(gxFont fontID, long index, gxFontTableTag tableTag)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontNames(gxFont fontID) THREEWORDINLINE(0x303C, 0x0214, 0xA832);
 
 /**
@@ -309,7 +309,7 @@ GXCountFontNames(gxFont fontID) THREEWORDINLINE(0x303C, 0x0214, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetFontName(gxFont fontID, long index, gxFontName *name,
               gxFontPlatform *platform, gxFontScript *script,
               gxFontLanguage *language, unsigned char text[])
@@ -323,7 +323,7 @@ GXGetFontName(gxFont fontID, long index, gxFontName *name,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXFindFontName(gxFont fontID, gxFontName name, gxFontPlatform platform,
                gxFontScript script, gxFontLanguage language,
                unsigned char text[], long *index)
@@ -337,7 +337,7 @@ GXFindFontName(gxFont fontID, gxFontName name, gxFontPlatform platform,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXSetFontName(gxFont fontID, gxFontName name, gxFontPlatform platform,
               gxFontScript script, gxFontLanguage language, long length,
               const unsigned char text[])
@@ -351,7 +351,7 @@ GXSetFontName(gxFont fontID, gxFontName name, gxFontPlatform platform,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXDeleteFontName(gxFont fontID, long index, gxFontName name,
                  gxFontPlatform platform, gxFontScript script,
                  gxFontLanguage language)
@@ -365,7 +365,7 @@ GXDeleteFontName(gxFont fontID, long index, gxFontName name,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontName)
+gxFontName
 GXNewFontNameID(gxFont fontID) THREEWORDINLINE(0x303C, 0x0219, 0xA832);
 
 /**
@@ -376,7 +376,7 @@ GXNewFontNameID(gxFont fontID) THREEWORDINLINE(0x303C, 0x0219, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontEncodings(gxFont fontID) THREEWORDINLINE(0x303C, 0x021A, 0xA832);
 
 /**
@@ -387,7 +387,7 @@ GXCountFontEncodings(gxFont fontID) THREEWORDINLINE(0x303C, 0x021A, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontPlatform)
+gxFontPlatform
 GXGetFontEncoding(gxFont fontID, long index, gxFontScript *script,
                   gxFontLanguage *language)
     THREEWORDINLINE(0x303C, 0x021B, 0xA832);
@@ -400,7 +400,7 @@ GXGetFontEncoding(gxFont fontID, long index, gxFontScript *script,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXFindFontEncoding(gxFont fontID, gxFontPlatform platform, gxFontScript script,
                    gxFontLanguage language)
     THREEWORDINLINE(0x303C, 0x021C, 0xA832);
@@ -413,7 +413,7 @@ GXFindFontEncoding(gxFont fontID, gxFontPlatform platform, gxFontScript script,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXApplyFontEncoding(gxFont fontID, long index, long *length,
                     const unsigned char text[], long count,
                     unsigned short glyphs[], char was16Bit[])
@@ -427,7 +427,7 @@ GXApplyFontEncoding(gxFont fontID, long index, long *length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontVariations(gxFont fontID) THREEWORDINLINE(0x303C, 0x021E, 0xA832);
 
 /**
@@ -438,7 +438,7 @@ GXCountFontVariations(gxFont fontID) THREEWORDINLINE(0x303C, 0x021E, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXFindFontVariation(gxFont fontID, gxFontVariationTag variationTag,
                     Fixed *minValue, Fixed *defaultValue, Fixed *maxValue,
                     gxFontName *name) THREEWORDINLINE(0x303C, 0x021F, 0xA832);
@@ -451,7 +451,7 @@ GXFindFontVariation(gxFont fontID, gxFontVariationTag variationTag,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontVariationTag)
+gxFontVariationTag
 GXGetFontVariation(gxFont fontID, long index, Fixed *minValue,
                    Fixed *defaultValue, Fixed *maxValue, gxFontName *name)
     THREEWORDINLINE(0x303C, 0x0220, 0xA832);
@@ -464,7 +464,7 @@ GXGetFontVariation(gxFont fontID, long index, Fixed *minValue,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontInstances(gxFont fontID) THREEWORDINLINE(0x303C, 0x0221, 0xA832);
 
 /**
@@ -475,7 +475,7 @@ GXCountFontInstances(gxFont fontID) THREEWORDINLINE(0x303C, 0x0221, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontName)
+gxFontName
 GXGetFontInstance(gxFont fontID, long index, gxFontVariation variation[])
     THREEWORDINLINE(0x303C, 0x0222, 0xA832);
 
@@ -487,7 +487,7 @@ GXGetFontInstance(gxFont fontID, long index, gxFontVariation variation[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXSetFontInstance(gxFont fontID, long index, gxFontName name,
                   const gxFontVariation variation[])
     THREEWORDINLINE(0x303C, 0x0223, 0xA832);
@@ -500,7 +500,7 @@ GXSetFontInstance(gxFont fontID, long index, gxFontName name,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXDeleteFontInstance(gxFont fontID, long index, gxFontName name)
     THREEWORDINLINE(0x303C, 0x0224, 0xA832);
 
@@ -512,7 +512,7 @@ GXDeleteFontInstance(gxFont fontID, long index, gxFontName name)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontDescriptors(gxFont fontID) THREEWORDINLINE(0x303C, 0x0225, 0xA832);
 
 /**
@@ -523,7 +523,7 @@ GXCountFontDescriptors(gxFont fontID) THREEWORDINLINE(0x303C, 0x0225, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontDescriptorTag)
+gxFontDescriptorTag
 GXGetFontDescriptor(gxFont fontID, long index, Fixed *descriptorValue)
     THREEWORDINLINE(0x303C, 0x0226, 0xA832);
 
@@ -535,7 +535,7 @@ GXGetFontDescriptor(gxFont fontID, long index, Fixed *descriptorValue)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXFindFontDescriptor(gxFont fontID, gxFontDescriptorTag descriptorTag,
                      Fixed *descriptorValue)
     THREEWORDINLINE(0x303C, 0x0227, 0xA832);
@@ -548,7 +548,7 @@ GXFindFontDescriptor(gxFont fontID, gxFontDescriptorTag descriptorTag,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXSetFontDescriptor(gxFont fontID, long index,
                     gxFontDescriptorTag descriptorTag, Fixed descriptorValue)
     THREEWORDINLINE(0x303C, 0x0228, 0xA832);
@@ -561,7 +561,7 @@ GXSetFontDescriptor(gxFont fontID, long index,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXDeleteFontDescriptor(gxFont fontID, long index,
                        gxFontDescriptorTag descriptorTag)
     THREEWORDINLINE(0x303C, 0x0229, 0xA832);
@@ -574,7 +574,7 @@ GXDeleteFontDescriptor(gxFont fontID, long index,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountFontFeatures(gxFont fontID) THREEWORDINLINE(0x303C, 0x022A, 0xA832);
 
 /**
@@ -585,7 +585,7 @@ GXCountFontFeatures(gxFont fontID) THREEWORDINLINE(0x303C, 0x022A, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontName)
+gxFontName
 GXGetFontFeature(gxFont fontID, long index, gxFontFeatureFlag *flags,
                  long *settingCount, gxFontFeatureSetting settings[],
                  gxFontFeature *feature)
@@ -599,7 +599,7 @@ GXGetFontFeature(gxFont fontID, long index, gxFontFeatureFlag *flags,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontName)
+gxFontName
 GXFindFontFeature(gxFont fontID, gxFontFeature feature,
                   gxFontFeatureFlag *flags, long *settingCount,
                   gxFontFeatureSetting settings[], long *index)
@@ -613,7 +613,7 @@ GXFindFontFeature(gxFont fontID, gxFontFeature feature,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetFontDefaultFeatures(gxFont fontID, gxRunFeature features[])
     THREEWORDINLINE(0x303C, 0x0274, 0xA832);
 
@@ -625,7 +625,7 @@ GXGetFontDefaultFeatures(gxFont fontID, gxRunFeature features[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXFlattenFont(gxFont source, scalerStream *stream, gxSpoolBlock *block)
     THREEWORDINLINE(0x303C, 0x022D, 0xA832);
 

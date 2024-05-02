@@ -56,7 +56,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SynchronizeIO(void) ONEWORDINLINE(0x4E71);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -69,7 +69,7 @@ SynchronizeIO(void) ONEWORDINLINE(0x4E71);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 CompareAndSwap(UInt32 oldVvalue, UInt32 newValue, UInt32 *OldValueAdr);
 
 /**
@@ -80,7 +80,7 @@ CompareAndSwap(UInt32 oldVvalue, UInt32 newValue, UInt32 *OldValueAdr);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 TestAndClear(UInt32 bit, UInt8 *startAddress);
 
 /**
@@ -91,7 +91,7 @@ TestAndClear(UInt32 bit, UInt8 *startAddress);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 TestAndSet(UInt32 bit, UInt8 *startAddress);
 
 /**
@@ -102,7 +102,7 @@ TestAndSet(UInt32 bit, UInt8 *startAddress);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt8)
+SInt8
 IncrementAtomic8(SInt8 *value);
 
 /**
@@ -113,7 +113,7 @@ IncrementAtomic8(SInt8 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt8)
+SInt8
 DecrementAtomic8(SInt8 *value);
 
 /**
@@ -124,7 +124,7 @@ DecrementAtomic8(SInt8 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt8)
+SInt8
 AddAtomic8(SInt32 amount, SInt8 *value);
 
 /**
@@ -135,7 +135,7 @@ AddAtomic8(SInt32 amount, SInt8 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt8)
+UInt8
 BitAndAtomic8(UInt32 mask, UInt8 *value);
 
 /**
@@ -146,7 +146,7 @@ BitAndAtomic8(UInt32 mask, UInt8 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt8)
+UInt8
 BitOrAtomic8(UInt32 mask, UInt8 *value);
 
 /**
@@ -157,7 +157,7 @@ BitOrAtomic8(UInt32 mask, UInt8 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt8)
+UInt8
 BitXorAtomic8(UInt32 mask, UInt8 *value);
 
 /**
@@ -168,7 +168,7 @@ BitXorAtomic8(UInt32 mask, UInt8 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt16)
+SInt16
 IncrementAtomic16(SInt16 *value);
 
 /**
@@ -179,7 +179,7 @@ IncrementAtomic16(SInt16 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt16)
+SInt16
 DecrementAtomic16(SInt16 *value);
 
 /**
@@ -190,7 +190,7 @@ DecrementAtomic16(SInt16 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt16)
+SInt16
 AddAtomic16(SInt32 amount, SInt16 *value);
 
 /**
@@ -201,7 +201,7 @@ AddAtomic16(SInt32 amount, SInt16 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt16)
+UInt16
 BitAndAtomic16(UInt32 mask, UInt16 *value);
 
 /**
@@ -212,7 +212,7 @@ BitAndAtomic16(UInt32 mask, UInt16 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt16)
+UInt16
 BitOrAtomic16(UInt32 mask, UInt16 *value);
 
 /**
@@ -223,7 +223,7 @@ BitOrAtomic16(UInt32 mask, UInt16 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt16)
+UInt16
 BitXorAtomic16(UInt32 mask, UInt16 *value);
 
 /**
@@ -234,7 +234,7 @@ BitXorAtomic16(UInt32 mask, UInt16 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 IncrementAtomic(SInt32 *value);
 
 /**
@@ -245,7 +245,7 @@ IncrementAtomic(SInt32 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 DecrementAtomic(SInt32 *value);
 
 /**
@@ -256,7 +256,7 @@ DecrementAtomic(SInt32 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 AddAtomic(SInt32 amount, SInt32 *value);
 
 /**
@@ -267,7 +267,7 @@ AddAtomic(SInt32 amount, SInt32 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 BitAndAtomic(UInt32 mask, UInt32 *value);
 
 /**
@@ -278,7 +278,7 @@ BitAndAtomic(UInt32 mask, UInt32 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 BitOrAtomic(UInt32 mask, UInt32 *value);
 
 /**
@@ -289,7 +289,7 @@ BitOrAtomic(UInt32 mask, UInt32 *value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 BitXorAtomic(UInt32 mask, UInt32 *value);
 
 #if PRAGMA_STRUCT_ALIGN

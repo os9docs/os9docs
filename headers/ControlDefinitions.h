@@ -1458,7 +1458,7 @@ typedef STACK_UPP_TYPE(ControlUserPaneBackgroundProcPtr)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneDrawUPP)
+ControlUserPaneDrawUPP
 NewControlUserPaneDrawUPP(ControlUserPaneDrawProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1487,7 +1487,7 @@ NewControlUserPaneDrawUPP(ControlUserPaneDrawProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneHitTestUPP)
+ControlUserPaneHitTestUPP
 NewControlUserPaneHitTestUPP(ControlUserPaneHitTestProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1516,7 +1516,7 @@ NewControlUserPaneHitTestUPP(ControlUserPaneHitTestProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneTrackingUPP)
+ControlUserPaneTrackingUPP
 NewControlUserPaneTrackingUPP(ControlUserPaneTrackingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1545,7 +1545,7 @@ NewControlUserPaneTrackingUPP(ControlUserPaneTrackingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneIdleUPP)
+ControlUserPaneIdleUPP
 NewControlUserPaneIdleUPP(ControlUserPaneIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1574,7 +1574,7 @@ NewControlUserPaneIdleUPP(ControlUserPaneIdleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneKeyDownUPP)
+ControlUserPaneKeyDownUPP
 NewControlUserPaneKeyDownUPP(ControlUserPaneKeyDownProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1603,7 +1603,7 @@ NewControlUserPaneKeyDownUPP(ControlUserPaneKeyDownProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneActivateUPP)
+ControlUserPaneActivateUPP
 NewControlUserPaneActivateUPP(ControlUserPaneActivateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1632,7 +1632,7 @@ NewControlUserPaneActivateUPP(ControlUserPaneActivateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneFocusUPP)
+ControlUserPaneFocusUPP
 NewControlUserPaneFocusUPP(ControlUserPaneFocusProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1661,7 +1661,7 @@ NewControlUserPaneFocusUPP(ControlUserPaneFocusProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneBackgroundUPP)
+ControlUserPaneBackgroundUPP
 NewControlUserPaneBackgroundUPP(ControlUserPaneBackgroundProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1690,7 +1690,7 @@ NewControlUserPaneBackgroundUPP(ControlUserPaneBackgroundProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneDrawUPP(ControlUserPaneDrawUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1710,7 +1710,7 @@ inline void DisposeControlUserPaneDrawUPP(ControlUserPaneDrawUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneHitTestUPP(ControlUserPaneHitTestUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1732,7 +1732,7 @@ DisposeControlUserPaneHitTestUPP(ControlUserPaneHitTestUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneTrackingUPP(ControlUserPaneTrackingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1754,7 +1754,7 @@ DisposeControlUserPaneTrackingUPP(ControlUserPaneTrackingUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneIdleUPP(ControlUserPaneIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1774,7 +1774,7 @@ inline void DisposeControlUserPaneIdleUPP(ControlUserPaneIdleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneKeyDownUPP(ControlUserPaneKeyDownUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1796,7 +1796,7 @@ DisposeControlUserPaneKeyDownUPP(ControlUserPaneKeyDownUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneActivateUPP(ControlUserPaneActivateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1818,7 +1818,7 @@ DisposeControlUserPaneActivateUPP(ControlUserPaneActivateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneFocusUPP(ControlUserPaneFocusUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1839,7 +1839,7 @@ inline void DisposeControlUserPaneFocusUPP(ControlUserPaneFocusUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneBackgroundUPP(ControlUserPaneBackgroundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1861,7 +1861,7 @@ DisposeControlUserPaneBackgroundUPP(ControlUserPaneBackgroundUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneDrawUPP(ControlRef control, SInt16 part,
                              ControlUserPaneDrawUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1886,7 +1886,7 @@ inline void InvokeControlUserPaneDrawUPP(ControlRef control, SInt16 part,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneHitTestUPP(ControlRef control, Point where,
                                 ControlUserPaneHitTestUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1912,7 +1912,7 @@ InvokeControlUserPaneHitTestUPP(ControlRef control, Point where,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneTrackingUPP(ControlRef control, Point startPt,
                                  ControlActionUPP actionProc,
                                  ControlUserPaneTrackingUPP userUPP);
@@ -1943,7 +1943,7 @@ InvokeControlUserPaneTrackingUPP(ControlRef control, Point startPt,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneIdleUPP(ControlRef control,
                              ControlUserPaneIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1966,7 +1966,7 @@ inline void InvokeControlUserPaneIdleUPP(ControlRef control,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneKeyDownUPP(ControlRef control, SInt16 keyCode,
                                 SInt16 charCode, SInt16 modifiers,
                                 ControlUserPaneKeyDownUPP userUPP);
@@ -1997,7 +1997,7 @@ InvokeControlUserPaneKeyDownUPP(ControlRef control, SInt16 keyCode,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneActivateUPP(ControlRef control, Boolean activating,
                                  ControlUserPaneActivateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2023,7 +2023,7 @@ InvokeControlUserPaneActivateUPP(ControlRef control, Boolean activating,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneFocusUPP(ControlRef control, ControlFocusPart action,
                               ControlUserPaneFocusUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2049,7 +2049,7 @@ InvokeControlUserPaneFocusUPP(ControlRef control, ControlFocusPart action,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneBackgroundUPP(ControlRef control,
                                    ControlBackgroundPtr info,
                                    ControlUserPaneBackgroundUPP userUPP);
@@ -2202,7 +2202,7 @@ typedef STACK_UPP_TYPE(ControlEditTextValidationProcPtr)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlEditTextValidationUPP)
+ControlEditTextValidationUPP
 NewControlEditTextValidationUPP(ControlEditTextValidationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2231,7 +2231,7 @@ NewControlEditTextValidationUPP(ControlEditTextValidationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlEditTextValidationUPP(ControlEditTextValidationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2253,7 +2253,7 @@ DisposeControlEditTextValidationUPP(ControlEditTextValidationUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlEditTextValidationUPP(ControlRef control,
                                    ControlEditTextValidationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3366,7 +3366,7 @@ typedef STACK_UPP_TYPE(DataBrowserItemProcPtr) DataBrowserItemUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemUPP)
+DataBrowserItemUPP
 NewDataBrowserItemUPP(DataBrowserItemProcPtr userRoutine);
 
 /**
@@ -3377,7 +3377,7 @@ NewDataBrowserItemUPP(DataBrowserItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemUPP(DataBrowserItemUPP userUPP);
 
 /**
@@ -3388,7 +3388,7 @@ DisposeDataBrowserItemUPP(DataBrowserItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemUPP(DataBrowserItemID item, DataBrowserItemState state,
                          void *clientData, DataBrowserItemUPP userUPP);
 
@@ -4399,7 +4399,7 @@ typedef STACK_UPP_TYPE(DataBrowserItemHelpContentProcPtr)
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemDataUPP)
+DataBrowserItemDataUPP
 NewDataBrowserItemDataUPP(DataBrowserItemDataProcPtr userRoutine);
 
 /**
@@ -4410,7 +4410,7 @@ NewDataBrowserItemDataUPP(DataBrowserItemDataProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemCompareUPP)
+DataBrowserItemCompareUPP
 NewDataBrowserItemCompareUPP(DataBrowserItemCompareProcPtr userRoutine);
 
 /**
@@ -4421,7 +4421,7 @@ NewDataBrowserItemCompareUPP(DataBrowserItemCompareProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemNotificationWithItemUPP)
+DataBrowserItemNotificationWithItemUPP
 NewDataBrowserItemNotificationWithItemUPP(
     DataBrowserItemNotificationWithItemProcPtr userRoutine);
 
@@ -4433,7 +4433,7 @@ NewDataBrowserItemNotificationWithItemUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemNotificationUPP)
+DataBrowserItemNotificationUPP
 NewDataBrowserItemNotificationUPP(
     DataBrowserItemNotificationProcPtr userRoutine);
 
@@ -4445,7 +4445,7 @@ NewDataBrowserItemNotificationUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserAddDragItemUPP)
+DataBrowserAddDragItemUPP
 NewDataBrowserAddDragItemUPP(DataBrowserAddDragItemProcPtr userRoutine);
 
 /**
@@ -4456,7 +4456,7 @@ NewDataBrowserAddDragItemUPP(DataBrowserAddDragItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserAcceptDragUPP)
+DataBrowserAcceptDragUPP
 NewDataBrowserAcceptDragUPP(DataBrowserAcceptDragProcPtr userRoutine);
 
 /**
@@ -4467,7 +4467,7 @@ NewDataBrowserAcceptDragUPP(DataBrowserAcceptDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserReceiveDragUPP)
+DataBrowserReceiveDragUPP
 NewDataBrowserReceiveDragUPP(DataBrowserReceiveDragProcPtr userRoutine);
 
 /**
@@ -4478,7 +4478,7 @@ NewDataBrowserReceiveDragUPP(DataBrowserReceiveDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserPostProcessDragUPP)
+DataBrowserPostProcessDragUPP
 NewDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragProcPtr userRoutine);
 
 /**
@@ -4489,7 +4489,7 @@ NewDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserGetContextualMenuUPP)
+DataBrowserGetContextualMenuUPP
 NewDataBrowserGetContextualMenuUPP(
     DataBrowserGetContextualMenuProcPtr userRoutine);
 
@@ -4501,7 +4501,7 @@ NewDataBrowserGetContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserSelectContextualMenuUPP)
+DataBrowserSelectContextualMenuUPP
 NewDataBrowserSelectContextualMenuUPP(
     DataBrowserSelectContextualMenuProcPtr userRoutine);
 
@@ -4513,7 +4513,7 @@ NewDataBrowserSelectContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemHelpContentUPP)
+DataBrowserItemHelpContentUPP
 NewDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentProcPtr userRoutine);
 
 /**
@@ -4524,7 +4524,7 @@ NewDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemDataUPP(DataBrowserItemDataUPP userUPP);
 
 /**
@@ -4535,7 +4535,7 @@ DisposeDataBrowserItemDataUPP(DataBrowserItemDataUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemCompareUPP(DataBrowserItemCompareUPP userUPP);
 
 /**
@@ -4546,7 +4546,7 @@ DisposeDataBrowserItemCompareUPP(DataBrowserItemCompareUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemNotificationWithItemUPP(
     DataBrowserItemNotificationWithItemUPP userUPP);
 
@@ -4558,7 +4558,7 @@ DisposeDataBrowserItemNotificationWithItemUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemNotificationUPP(DataBrowserItemNotificationUPP userUPP);
 
 /**
@@ -4569,7 +4569,7 @@ DisposeDataBrowserItemNotificationUPP(DataBrowserItemNotificationUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserAddDragItemUPP(DataBrowserAddDragItemUPP userUPP);
 
 /**
@@ -4580,7 +4580,7 @@ DisposeDataBrowserAddDragItemUPP(DataBrowserAddDragItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserAcceptDragUPP(DataBrowserAcceptDragUPP userUPP);
 
 /**
@@ -4591,7 +4591,7 @@ DisposeDataBrowserAcceptDragUPP(DataBrowserAcceptDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserReceiveDragUPP(DataBrowserReceiveDragUPP userUPP);
 
 /**
@@ -4602,7 +4602,7 @@ DisposeDataBrowserReceiveDragUPP(DataBrowserReceiveDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragUPP userUPP);
 
 /**
@@ -4613,7 +4613,7 @@ DisposeDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserGetContextualMenuUPP(DataBrowserGetContextualMenuUPP userUPP);
 
 /**
@@ -4624,7 +4624,7 @@ DisposeDataBrowserGetContextualMenuUPP(DataBrowserGetContextualMenuUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserSelectContextualMenuUPP(
     DataBrowserSelectContextualMenuUPP userUPP);
 
@@ -4636,7 +4636,7 @@ DisposeDataBrowserSelectContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentUPP userUPP);
 
 /**
@@ -4647,7 +4647,7 @@ DisposeDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeDataBrowserItemDataUPP(ControlRef browser, DataBrowserItemID item,
                              DataBrowserPropertyID property,
                              DataBrowserItemDataRef itemData, Boolean setValue,
@@ -4661,7 +4661,7 @@ InvokeDataBrowserItemDataUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserItemCompareUPP(ControlRef browser, DataBrowserItemID itemOne,
                                 DataBrowserItemID itemTwo,
                                 DataBrowserPropertyID sortProperty,
@@ -4675,7 +4675,7 @@ InvokeDataBrowserItemCompareUPP(ControlRef browser, DataBrowserItemID itemOne,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemNotificationWithItemUPP(
     ControlRef browser, DataBrowserItemID item,
     DataBrowserItemNotification message, DataBrowserItemDataRef itemData,
@@ -4689,7 +4689,7 @@ InvokeDataBrowserItemNotificationWithItemUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemNotificationUPP(ControlRef browser, DataBrowserItemID item,
                                      DataBrowserItemNotification message,
                                      DataBrowserItemNotificationUPP userUPP);
@@ -4702,7 +4702,7 @@ InvokeDataBrowserItemNotificationUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserAddDragItemUPP(ControlRef browser, DragReference theDrag,
                                 DataBrowserItemID item, ItemReference *itemRef,
                                 DataBrowserAddDragItemUPP userUPP);
@@ -4715,7 +4715,7 @@ InvokeDataBrowserAddDragItemUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserAcceptDragUPP(ControlRef browser, DragReference theDrag,
                                DataBrowserItemID item,
                                DataBrowserAcceptDragUPP userUPP);
@@ -4728,7 +4728,7 @@ InvokeDataBrowserAcceptDragUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserReceiveDragUPP(ControlRef browser, DragReference theDrag,
                                 DataBrowserItemID item,
                                 DataBrowserReceiveDragUPP userUPP);
@@ -4741,7 +4741,7 @@ InvokeDataBrowserReceiveDragUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserPostProcessDragUPP(ControlRef browser, DragReference theDrag,
                                     OSStatus trackDragResult,
                                     DataBrowserPostProcessDragUPP userUPP);
@@ -4754,7 +4754,7 @@ InvokeDataBrowserPostProcessDragUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserGetContextualMenuUPP(ControlRef browser, MenuRef *menu,
                                       UInt32 *helpType,
                                       CFStringRef *helpItemString,
@@ -4769,7 +4769,7 @@ InvokeDataBrowserGetContextualMenuUPP(ControlRef browser, MenuRef *menu,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserSelectContextualMenuUPP(
     ControlRef browser, MenuRef menu, UInt32 selectionType, SInt16 menuID,
     MenuItemIndex menuItem, DataBrowserSelectContextualMenuUPP userUPP);
@@ -4782,7 +4782,7 @@ InvokeDataBrowserSelectContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemHelpContentUPP(ControlRef browser, DataBrowserItemID item,
                                     DataBrowserPropertyID property,
                                     HMContentRequest inRequest,
@@ -4906,7 +4906,7 @@ typedef STACK_UPP_TYPE(DataBrowserItemReceiveDragProcPtr)
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserDrawItemUPP)
+DataBrowserDrawItemUPP
 NewDataBrowserDrawItemUPP(DataBrowserDrawItemProcPtr userRoutine);
 
 /**
@@ -4917,7 +4917,7 @@ NewDataBrowserDrawItemUPP(DataBrowserDrawItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserEditItemUPP)
+DataBrowserEditItemUPP
 NewDataBrowserEditItemUPP(DataBrowserEditItemProcPtr userRoutine);
 
 /**
@@ -4928,7 +4928,7 @@ NewDataBrowserEditItemUPP(DataBrowserEditItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserHitTestUPP)
+DataBrowserHitTestUPP
 NewDataBrowserHitTestUPP(DataBrowserHitTestProcPtr userRoutine);
 
 /**
@@ -4939,7 +4939,7 @@ NewDataBrowserHitTestUPP(DataBrowserHitTestProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserTrackingUPP)
+DataBrowserTrackingUPP
 NewDataBrowserTrackingUPP(DataBrowserTrackingProcPtr userRoutine);
 
 /**
@@ -4950,7 +4950,7 @@ NewDataBrowserTrackingUPP(DataBrowserTrackingProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemDragRgnUPP)
+DataBrowserItemDragRgnUPP
 NewDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnProcPtr userRoutine);
 
 /**
@@ -4961,7 +4961,7 @@ NewDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemAcceptDragUPP)
+DataBrowserItemAcceptDragUPP
 NewDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragProcPtr userRoutine);
 
 /**
@@ -4972,7 +4972,7 @@ NewDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemReceiveDragUPP)
+DataBrowserItemReceiveDragUPP
 NewDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragProcPtr userRoutine);
 
 /**
@@ -4983,7 +4983,7 @@ NewDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserDrawItemUPP(DataBrowserDrawItemUPP userUPP);
 
 /**
@@ -4994,7 +4994,7 @@ DisposeDataBrowserDrawItemUPP(DataBrowserDrawItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserEditItemUPP(DataBrowserEditItemUPP userUPP);
 
 /**
@@ -5005,7 +5005,7 @@ DisposeDataBrowserEditItemUPP(DataBrowserEditItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserHitTestUPP(DataBrowserHitTestUPP userUPP);
 
 /**
@@ -5016,7 +5016,7 @@ DisposeDataBrowserHitTestUPP(DataBrowserHitTestUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserTrackingUPP(DataBrowserTrackingUPP userUPP);
 
 /**
@@ -5027,7 +5027,7 @@ DisposeDataBrowserTrackingUPP(DataBrowserTrackingUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnUPP userUPP);
 
 /**
@@ -5038,7 +5038,7 @@ DisposeDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragUPP userUPP);
 
 /**
@@ -5049,7 +5049,7 @@ DisposeDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragUPP userUPP);
 
 /**
@@ -5060,7 +5060,7 @@ DisposeDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserDrawItemUPP(ControlRef browser, DataBrowserItemID item,
                              DataBrowserPropertyID property,
                              DataBrowserItemState itemState,
@@ -5076,7 +5076,7 @@ InvokeDataBrowserDrawItemUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserEditItemUPP(ControlRef browser, DataBrowserItemID item,
                              DataBrowserPropertyID property,
                              CFStringRef theString, Rect *maxEditTextRect,
@@ -5091,7 +5091,7 @@ InvokeDataBrowserEditItemUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserHitTestUPP(ControlRef browser, DataBrowserItemID itemID,
                             DataBrowserPropertyID property, const Rect *theRect,
                             const Rect *mouseRect,
@@ -5105,7 +5105,7 @@ InvokeDataBrowserHitTestUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserTrackingResult)
+DataBrowserTrackingResult
 InvokeDataBrowserTrackingUPP(ControlRef browser, DataBrowserItemID itemID,
                              DataBrowserPropertyID property,
                              const Rect *theRect, Point startPt,
@@ -5120,7 +5120,7 @@ InvokeDataBrowserTrackingUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemDragRgnUPP(ControlRef browser, DataBrowserItemID itemID,
                                 DataBrowserPropertyID property,
                                 const Rect *theRect, RgnHandle dragRgn,
@@ -5134,7 +5134,7 @@ InvokeDataBrowserItemDragRgnUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserDragFlags)
+DataBrowserDragFlags
 InvokeDataBrowserItemAcceptDragUPP(ControlRef browser, DataBrowserItemID itemID,
                                    DataBrowserPropertyID property,
                                    const Rect *theRect, DragReference theDrag,
@@ -5148,7 +5148,7 @@ InvokeDataBrowserItemAcceptDragUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserItemReceiveDragUPP(ControlRef browser,
                                     DataBrowserItemID itemID,
                                     DataBrowserPropertyID property,
@@ -5736,7 +5736,7 @@ typedef STACK_UPP_TYPE(EditUnicodePostUpdateProcPtr) EditUnicodePostUpdateUPP;
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EditUnicodePostUpdateUPP)
+EditUnicodePostUpdateUPP
 NewEditUnicodePostUpdateUPP(EditUnicodePostUpdateProcPtr userRoutine);
 
 /**
@@ -5747,7 +5747,7 @@ NewEditUnicodePostUpdateUPP(EditUnicodePostUpdateProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEditUnicodePostUpdateUPP(EditUnicodePostUpdateUPP userUPP);
 
 /**
@@ -5758,7 +5758,7 @@ DisposeEditUnicodePostUpdateUPP(EditUnicodePostUpdateUPP userUPP);
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeEditUnicodePostUpdateUPP(UniCharArrayHandle uniText,
                                UniCharCount uniTextLength,
                                UniCharArrayOffset iStartOffset,

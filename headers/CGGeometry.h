@@ -137,7 +137,7 @@ extern const CGRect CGRectNull;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGPoint)
+CGPoint
 CGPointMake(float x, float y);
 
 /* Make a size from `(width, height)'. */
@@ -149,7 +149,7 @@ CGPointMake(float x, float y);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGSize)
+CGSize
 CGSizeMake(float width, float height);
 
 /* Make a rect from `(x, y; width, height)'. */
@@ -161,7 +161,7 @@ CGSizeMake(float width, float height);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGRectMake(float x, float y, float width, float height);
 
 /* Return the leftmost x-value of `rect'. */
@@ -173,7 +173,7 @@ CGRectMake(float x, float y, float width, float height);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetMinX(CGRect rect);
 
 /* Return the midpoint x-value of `rect'. */
@@ -185,7 +185,7 @@ CGRectGetMinX(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetMidX(CGRect rect);
 
 /* Return the rightmost x-value of `rect'. */
@@ -197,7 +197,7 @@ CGRectGetMidX(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetMaxX(CGRect rect);
 
 /* Return the bottommost y-value of `rect'. */
@@ -209,7 +209,7 @@ CGRectGetMaxX(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetMinY(CGRect rect);
 
 /* Return the midpoint y-value of `rect'. */
@@ -221,7 +221,7 @@ CGRectGetMinY(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetMidY(CGRect rect);
 
 /* Return the topmost y-value of `rect'. */
@@ -233,7 +233,7 @@ CGRectGetMidY(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetMaxY(CGRect rect);
 
 /* Return the width of `rect'. */
@@ -245,7 +245,7 @@ CGRectGetMaxY(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetWidth(CGRect rect);
 
 /* Return the height of `rect'. */
@@ -257,7 +257,7 @@ CGRectGetWidth(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 CGRectGetHeight(CGRect rect);
 
 /* Return 1 if `point1' and `point2' are the same, 0 otherwise. */
@@ -269,7 +269,7 @@ CGRectGetHeight(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGPointEqualToPoint(CGPoint point1, CGPoint point2);
 
 /* Return 1 if `size1' and `size2' are the same, 0 otherwise. */
@@ -281,7 +281,7 @@ CGPointEqualToPoint(CGPoint point1, CGPoint point2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGSizeEqualToSize(CGSize size1, CGSize size2);
 
 /* Return 1 if `rect1' and `rect2' are the same, 0 otherwise. */
@@ -293,7 +293,7 @@ CGSizeEqualToSize(CGSize size1, CGSize size2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGRectEqualToRect(CGRect rect1, CGRect rect2);
 
 /* Standardize `rect' -- i.e., convert it to an equivalent rect which has
@@ -306,7 +306,7 @@ CGRectEqualToRect(CGRect rect1, CGRect rect2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGRectStandardize(CGRect rect);
 
 /* Return 1 if `rect' is empty -- i.e., if it has zero width or height.  A
@@ -319,7 +319,7 @@ CGRectStandardize(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGRectIsEmpty(CGRect rect);
 
 /* Return 1 if `rect' is null -- e.g., the result of intersecting two
@@ -332,7 +332,7 @@ CGRectIsEmpty(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGRectIsNull(CGRect rect);
 
 /* Inset `rect' by `(dx, dy)' -- i.e., offset its origin by `(dx, dy)', and
@@ -345,7 +345,7 @@ CGRectIsNull(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGRectInset(CGRect rect, float dx, float dy);
 
 /* Expand `rect' to the smallest rect containing it with integral origin
@@ -358,7 +358,7 @@ CGRectInset(CGRect rect, float dx, float dy);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGRectIntegral(CGRect rect);
 
 /* Return the union of `r1' and `r2'. */
@@ -370,7 +370,7 @@ CGRectIntegral(CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGRectUnion(CGRect r1, CGRect r2);
 
 /* Return the intersection of `r1' and `r2'.  This may return a null
@@ -383,7 +383,7 @@ CGRectUnion(CGRect r1, CGRect r2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGRectIntersection(CGRect r1, CGRect r2);
 
 /* Offset `rect' by `(dx, dy)'. */
@@ -395,7 +395,7 @@ CGRectIntersection(CGRect r1, CGRect r2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGRectOffset(CGRect rect, float dx, float dy);
 
 /* Make two new rectangles, `slice' and `remainder', by dividing `rect'
@@ -411,7 +411,7 @@ CGRectOffset(CGRect rect, float dx, float dy);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGRectDivide(CGRect rect, CGRect *slice, CGRect *remainder, float amount,
              CGRectEdge edge);
 
@@ -424,7 +424,7 @@ CGRectDivide(CGRect rect, CGRect *slice, CGRect *remainder, float amount,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGRectContainsPoint(CGRect rect, CGPoint point);
 
 /* Return 1 if `rect2' is contained in `rect1', 0 otherwise.  `rect2' is
@@ -438,7 +438,7 @@ CGRectContainsPoint(CGRect rect, CGPoint point);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGRectContainsRect(CGRect rect1, CGRect rect2);
 
 /* Return 1 if `rect1' intersects `rect2', 0 otherwise.  `rect1' intersects
@@ -452,7 +452,7 @@ CGRectContainsRect(CGRect rect1, CGRect rect2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGRectIntersectsRect(CGRect rect1, CGRect rect2);
 
 #ifdef __MWERKS__

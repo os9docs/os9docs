@@ -310,7 +310,7 @@ typedef STACK_UPP_TYPE(DragReceiveHandlerProcPtr) DragReceiveHandlerUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DragTrackingHandlerUPP)
+DragTrackingHandlerUPP
 NewDragTrackingHandlerUPP(DragTrackingHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -339,7 +339,7 @@ NewDragTrackingHandlerUPP(DragTrackingHandlerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DragReceiveHandlerUPP)
+DragReceiveHandlerUPP
 NewDragReceiveHandlerUPP(DragReceiveHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -368,7 +368,7 @@ NewDragReceiveHandlerUPP(DragReceiveHandlerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDragTrackingHandlerUPP(DragTrackingHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -388,7 +388,7 @@ inline void DisposeDragTrackingHandlerUPP(DragTrackingHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDragReceiveHandlerUPP(DragReceiveHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -408,7 +408,7 @@ inline void DisposeDragReceiveHandlerUPP(DragReceiveHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDragTrackingHandlerUPP(DragTrackingMessage message, WindowRef theWindow,
                              void *handlerRefCon, DragRef theDrag,
                              DragTrackingHandlerUPP userUPP);
@@ -439,7 +439,7 @@ inline OSErr InvokeDragTrackingHandlerUPP(DragTrackingMessage message,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDragReceiveHandlerUPP(WindowRef theWindow, void *handlerRefCon,
                             DragRef theDrag, DragReceiveHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -503,7 +503,7 @@ typedef STACK_UPP_TYPE(DragDrawingProcPtr) DragDrawingUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DragSendDataUPP)
+DragSendDataUPP
 NewDragSendDataUPP(DragSendDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -531,7 +531,7 @@ inline DragSendDataUPP NewDragSendDataUPP(DragSendDataProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DragInputUPP)
+DragInputUPP
 NewDragInputUPP(DragInputProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -557,7 +557,7 @@ inline DragInputUPP NewDragInputUPP(DragInputProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DragDrawingUPP)
+DragDrawingUPP
 NewDragDrawingUPP(DragDrawingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -585,7 +585,7 @@ inline DragDrawingUPP NewDragDrawingUPP(DragDrawingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDragSendDataUPP(DragSendDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -605,7 +605,7 @@ inline void DisposeDragSendDataUPP(DragSendDataUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDragInputUPP(DragInputUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -625,7 +625,7 @@ inline void DisposeDragInputUPP(DragInputUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDragDrawingUPP(DragDrawingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -645,7 +645,7 @@ inline void DisposeDragDrawingUPP(DragDrawingUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDragSendDataUPP(FlavorType theType, void *dragSendRefCon,
                       DragItemRef theItemRef, DragRef theDrag,
                       DragSendDataUPP userUPP);
@@ -675,7 +675,7 @@ inline OSErr InvokeDragSendDataUPP(FlavorType theType, void *dragSendRefCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDragInputUPP(Point *mouse, SInt16 *modifiers, void *dragInputRefCon,
                    DragRef theDrag, DragInputUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -702,7 +702,7 @@ inline OSErr InvokeDragInputUPP(Point *mouse, SInt16 *modifiers,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDragDrawingUPP(DragRegionMessage message, RgnHandle showRegion,
                      Point showOrigin, RgnHandle hideRegion, Point hideOrigin,
                      void *dragDrawingRefCon, DragRef theDrag,
@@ -1231,7 +1231,7 @@ GetDragModifiers(DragRef theDrag, SInt16 *modifiers, SInt16 *mouseDownModifiers,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetDragAllowableActions(DragRef theDrag, DragActions *outActions);
 
 /**
@@ -1266,7 +1266,7 @@ GetDragAllowableActions(DragRef theDrag, DragActions *outActions);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetDragAllowableActions(DragRef theDrag, DragActions inActions,
                         Boolean isLocal);
 
@@ -1295,7 +1295,7 @@ SetDragAllowableActions(DragRef theDrag, DragActions inActions,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetDragDropAction(DragRef theDrag, DragActions *outAction);
 
 /**
@@ -1322,7 +1322,7 @@ GetDragDropAction(DragRef theDrag, DragActions *outAction);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetDragDropAction(DragRef theDrag, DragActions inAction);
 
 /**

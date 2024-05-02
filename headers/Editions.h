@@ -288,7 +288,7 @@ typedef STACK_UPP_TYPE(ExpDlgHookProcPtr) ExpDlgHookUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ExpModalFilterUPP)
+ExpModalFilterUPP
 NewExpModalFilterUPP(ExpModalFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -317,7 +317,7 @@ NewExpModalFilterUPP(ExpModalFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ExpDlgHookUPP)
+ExpDlgHookUPP
 NewExpDlgHookUPP(ExpDlgHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -343,7 +343,7 @@ inline ExpDlgHookUPP NewExpDlgHookUPP(ExpDlgHookProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeExpModalFilterUPP(ExpModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -363,7 +363,7 @@ inline void DisposeExpModalFilterUPP(ExpModalFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeExpDlgHookUPP(ExpDlgHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -383,7 +383,7 @@ inline void DisposeExpDlgHookUPP(ExpDlgHookUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeExpModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
                         short itemOffset, short *itemHit, Ptr yourDataPtr,
                         ExpModalFilterUPP userUPP);
@@ -414,7 +414,7 @@ inline Boolean InvokeExpModalFilterUPP(DialogRef theDialog,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeExpDlgHookUPP(short itemOffset, short itemHit, DialogRef theDialog,
                     Ptr yourDataPtr, ExpDlgHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -503,7 +503,7 @@ struct EditionOpenerParamBlock {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FormatIOUPP)
+FormatIOUPP
 NewFormatIOUPP(FormatIOProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -529,7 +529,7 @@ inline FormatIOUPP NewFormatIOUPP(FormatIOProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(EditionOpenerUPP)
+EditionOpenerUPP
 NewEditionOpenerUPP(EditionOpenerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {

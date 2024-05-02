@@ -195,7 +195,7 @@ struct TermRecord {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalSendUPP)
+TerminalSendUPP
 NewTerminalSendUPP(TerminalSendProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -223,7 +223,7 @@ inline TerminalSendUPP NewTerminalSendUPP(TerminalSendProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalBreakUPP)
+TerminalBreakUPP
 NewTerminalBreakUPP(TerminalBreakProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -251,7 +251,7 @@ inline TerminalBreakUPP NewTerminalBreakUPP(TerminalBreakProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalCacheUPP)
+TerminalCacheUPP
 NewTerminalCacheUPP(TerminalCacheProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -279,7 +279,7 @@ inline TerminalCacheUPP NewTerminalCacheUPP(TerminalCacheProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalSearchCallBackUPP)
+TerminalSearchCallBackUPP
 NewTerminalSearchCallBackUPP(TerminalSearchCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -308,7 +308,7 @@ NewTerminalSearchCallBackUPP(TerminalSearchCallBackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalClikLoopUPP)
+TerminalClikLoopUPP
 NewTerminalClikLoopUPP(TerminalClikLoopProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -337,7 +337,7 @@ NewTerminalClikLoopUPP(TerminalClikLoopProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalEnvironsUPP)
+TerminalEnvironsUPP
 NewTerminalEnvironsUPP(TerminalEnvironsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -366,7 +366,7 @@ NewTerminalEnvironsUPP(TerminalEnvironsProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalChooseIdleUPP)
+TerminalChooseIdleUPP
 NewTerminalChooseIdleUPP(TerminalChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -395,7 +395,7 @@ NewTerminalChooseIdleUPP(TerminalChooseIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalToolDefUPP)
+TerminalToolDefUPP
 NewTerminalToolDefUPP(TerminalToolDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -424,7 +424,7 @@ NewTerminalToolDefUPP(TerminalToolDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalSendUPP(TerminalSendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -444,7 +444,7 @@ inline void DisposeTerminalSendUPP(TerminalSendUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalBreakUPP(TerminalBreakUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -464,7 +464,7 @@ inline void DisposeTerminalBreakUPP(TerminalBreakUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalCacheUPP(TerminalCacheUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -484,7 +484,7 @@ inline void DisposeTerminalCacheUPP(TerminalCacheUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalSearchCallBackUPP(TerminalSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -506,7 +506,7 @@ DisposeTerminalSearchCallBackUPP(TerminalSearchCallBackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalClikLoopUPP(TerminalClikLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -526,7 +526,7 @@ inline void DisposeTerminalClikLoopUPP(TerminalClikLoopUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalEnvironsUPP(TerminalEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -546,7 +546,7 @@ inline void DisposeTerminalEnvironsUPP(TerminalEnvironsUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -566,7 +566,7 @@ inline void DisposeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalToolDefUPP(TerminalToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -586,7 +586,7 @@ inline void DisposeTerminalToolDefUPP(TerminalToolDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeTerminalSendUPP(Ptr thePtr, long theSize, long refCon, CMFlags flags,
                       TerminalSendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -611,7 +611,7 @@ inline long InvokeTerminalSendUPP(Ptr thePtr, long theSize, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTerminalBreakUPP(long duration, long refCon, TerminalBreakUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -634,7 +634,7 @@ inline void InvokeTerminalBreakUPP(long duration, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeTerminalCacheUPP(long refCon, TermDataBlockPtr theTermData,
                        TerminalCacheUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -659,7 +659,7 @@ inline long InvokeTerminalCacheUPP(long refCon, TermDataBlockPtr theTermData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTerminalSearchCallBackUPP(TermHandle hTerm, short refNum, Rect *foundRect,
                                 TerminalSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -685,7 +685,7 @@ inline void InvokeTerminalSearchCallBackUPP(TermHandle hTerm, short refNum,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeTerminalClikLoopUPP(long refCon, TerminalClikLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -709,7 +709,7 @@ inline Boolean InvokeTerminalClikLoopUPP(long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(CMErr)
+CMErr
 InvokeTerminalEnvironsUPP(long refCon, ConnEnvironRec *theEnvirons,
                           TerminalEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -734,7 +734,7 @@ inline CMErr InvokeTerminalEnvironsUPP(long refCon, ConnEnvironRec *theEnvirons,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -755,7 +755,7 @@ inline void InvokeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeTerminalToolDefUPP(TermHandle hTerm, short msg, long p1, long p2, long p3,
                          TerminalToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES

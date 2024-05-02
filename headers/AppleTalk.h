@@ -1052,7 +1052,7 @@ union ATPParamBlock  {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ATalkTransitionEventUPP)
+ATalkTransitionEventUPP
 NewATalkTransitionEventUPP(ATalkTransitionEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1081,7 +1081,7 @@ NewATalkTransitionEventUPP(ATalkTransitionEventProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MPPCompletionUPP)
+MPPCompletionUPP
 NewMPPCompletionUPP(MPPCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1109,7 +1109,7 @@ inline MPPCompletionUPP NewMPPCompletionUPP(MPPCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ATPCompletionUPP)
+ATPCompletionUPP
 NewATPCompletionUPP(ATPCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1137,7 +1137,7 @@ inline ATPCompletionUPP NewATPCompletionUPP(ATPCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(XPPCompletionUPP)
+XPPCompletionUPP
 NewXPPCompletionUPP(XPPCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1165,7 +1165,7 @@ inline XPPCompletionUPP NewXPPCompletionUPP(XPPCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(AttnRoutineUPP)
+AttnRoutineUPP
 NewAttnRoutineUPP(AttnRoutineProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1192,7 +1192,7 @@ inline AttnRoutineUPP NewAttnRoutineUPP(AttnRoutineProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MPPProtocolHandlerUPP)
+MPPProtocolHandlerUPP
 NewMPPProtocolHandlerUPP(MPPProtocolHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1221,7 +1221,7 @@ NewMPPProtocolHandlerUPP(MPPProtocolHandlerProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DDPSocketListenerUPP)
+DDPSocketListenerUPP
 NewDDPSocketListenerUPP(DDPSocketListenerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1250,7 +1250,7 @@ NewDDPSocketListenerUPP(DDPSocketListenerProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeATalkTransitionEventUPP(ATalkTransitionEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1271,7 +1271,7 @@ inline void DisposeATalkTransitionEventUPP(ATalkTransitionEventUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMPPCompletionUPP(MPPCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1291,7 +1291,7 @@ inline void DisposeMPPCompletionUPP(MPPCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeATPCompletionUPP(ATPCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1311,7 +1311,7 @@ inline void DisposeATPCompletionUPP(ATPCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeXPPCompletionUPP(XPPCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1331,7 +1331,7 @@ inline void DisposeXPPCompletionUPP(XPPCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeAttnRoutineUPP(AttnRoutineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1351,7 +1351,7 @@ inline void DisposeAttnRoutineUPP(AttnRoutineUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMPPProtocolHandlerUPP(MPPProtocolHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1371,7 +1371,7 @@ inline void DisposeMPPProtocolHandlerUPP(MPPProtocolHandlerUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDDPSocketListenerUPP(DDPSocketListenerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1391,7 +1391,7 @@ inline void DisposeDDPSocketListenerUPP(DDPSocketListenerUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeATalkTransitionEventUPP(long eventCode, ATQEntryPtr qElem,
                               void *eventParameter,
                               ATalkTransitionEventUPP userUPP);
@@ -1423,7 +1423,7 @@ inline long InvokeATalkTransitionEventUPP(long eventCode, ATQEntryPtr qElem,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeMPPCompletionUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeMPPCompletionUPP(MPPPBPtr thePBptr, MPPCompletionUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -1450,7 +1450,7 @@ inline void InvokeMPPCompletionUPP(MPPPBPtr thePBptr,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeATPCompletionUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeATPCompletionUPP(ATPPBPtr thePBptr, ATPCompletionUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -1477,7 +1477,7 @@ inline void InvokeATPCompletionUPP(ATPPBPtr thePBptr,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeXPPCompletionUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeXPPCompletionUPP(XPPParmBlkPtr thePBptr, XPPCompletionUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -1504,7 +1504,7 @@ inline void InvokeXPPCompletionUPP(XPPParmBlkPtr thePBptr,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeAttnRoutineUPP(__D0, __D1, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeAttnRoutineUPP(short sessRefnum, short attnBytes, AttnRoutineUPP userUPP)
     ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -1530,7 +1530,7 @@ inline void InvokeAttnRoutineUPP(short sessRefnum, short attnBytes,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeMPPProtocolHandlerUPP(Ptr SCCAddr1, Ptr SCCAddr2, Ptr MPPLocalVars,
                             Ptr nextFreeByteInRHA, Ptr ReadPacketAndReadRestPtr,
                             short numBytesLeftToReadInPacket,
@@ -1567,7 +1567,7 @@ inline Boolean InvokeMPPProtocolHandlerUPP(Ptr SCCAddr1, Ptr SCCAddr2,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDDPSocketListenerUPP(Ptr SCCAddr1, Ptr SCCAddr2, Ptr MPPLocalVars,
                            Ptr nextFreeByteInRHA, Ptr ReadPacketAndReadRestPtr,
                            UInt8 packetDestinationNumber,

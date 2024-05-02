@@ -225,7 +225,7 @@ typedef enum JMRuntimeOptions JMRuntimeOptions;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 JMGetVersion(void);
 
 /**
@@ -242,7 +242,7 @@ JMGetVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 JMGetMRJRuntimeVersion(void);
 
 /**
@@ -263,7 +263,7 @@ JMGetMRJRuntimeVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMOpenSession(JMSessionRef *session, JMRuntimeOptions runtimeOptions,
               JMVerifierOptions verifyMode, const JMSessionCallbacks *callbacks,
               JMTextEncoding desiredEncoding, JMClientData data);
@@ -276,7 +276,7 @@ JMOpenSession(JMSessionRef *session, JMRuntimeOptions runtimeOptions,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMCloseSession(JMSessionRef session);
 
 /**
@@ -290,7 +290,7 @@ JMCloseSession(JMSessionRef session);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetSessionData(JMSessionRef session, JMClientData *data);
 
 /**
@@ -301,7 +301,7 @@ JMGetSessionData(JMSessionRef session, JMClientData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetSessionData(JMSessionRef session, JMClientData data);
 
 /**
@@ -316,7 +316,7 @@ JMSetSessionData(JMSessionRef session, JMClientData data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMAddToClassPath(JMSessionRef session, const FSSpec *spec);
 
 /**
@@ -331,7 +331,7 @@ JMAddToClassPath(JMSessionRef session, const FSSpec *spec);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Handle)
+Handle
 JMFSSToURL(JMSessionRef session, const FSSpec *spec);
 
 /**
@@ -345,7 +345,7 @@ JMFSSToURL(JMSessionRef session, const FSSpec *spec);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMURLToFSS(JMSessionRef session, JMTextRef urlString, FSSpec *spec);
 
 /**
@@ -361,7 +361,7 @@ JMURLToFSS(JMSessionRef session, JMTextRef urlString, FSSpec *spec);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMIdle(JMSessionRef session, UInt32 jmTimeMillis);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -382,7 +382,7 @@ JMIdle(JMSessionRef session, UInt32 jmTimeMillis);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(JRIRuntimeInstance *)
+JRIRuntimeInstance *
 JMGetJRIRuntimeInstance(JMSessionRef session);
 
 /**
@@ -393,7 +393,7 @@ JMGetJRIRuntimeInstance(JMSessionRef session);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(JRIEnv *)
+JRIEnv *
 JMGetCurrentJRIEnv(JMSessionRef session);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -413,7 +413,7 @@ JMGetCurrentJRIEnv(JMSessionRef session);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(JNIEnv *)
+JNIEnv *
 JMGetCurrentEnv(JMSessionRef session);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -435,7 +435,7 @@ JMGetCurrentEnv(JMSessionRef session);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jobject)
+jobject
 JMJRIRefToJNIObject(JMSessionRef session, JNIEnv *env, jref jriRef);
 
 /**
@@ -446,7 +446,7 @@ JMJRIRefToJNIObject(JMSessionRef session, JNIEnv *env, jref jriRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMJNIObjectToJRIRef(JMSessionRef session, JNIEnv *env, jobject jniObject);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -468,7 +468,7 @@ JMJNIObjectToJRIRef(JMSessionRef session, JNIEnv *env, jobject jniObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetSessionProperty(JMSessionRef session, JMTextRef propertyName,
                      JMTextRef *propertyValue);
 
@@ -480,7 +480,7 @@ JMGetSessionProperty(JMSessionRef session, JMTextRef propertyName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMPutSessionProperty(JMSessionRef session, JMTextRef propertyName,
                      JMTextRef propertyValue);
 
@@ -499,7 +499,7 @@ JMPutSessionProperty(JMSessionRef session, JMTextRef propertyName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jobject)
+jobject
 JMGetSessionJNIObject(JMSessionRef session, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -516,7 +516,7 @@ JMGetSessionJNIObject(JMSessionRef session, JNIEnv *env);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMGetSessionObject(JMSessionRef session);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -554,7 +554,7 @@ JMGetSessionObject(JMSessionRef session);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMNewTextRef(JMSessionRef session, JMTextRef *textRef, JMTextEncoding encoding,
              const void *charBuffer, UInt32 bufferLengthInBytes);
 
@@ -569,7 +569,7 @@ JMNewTextRef(JMSessionRef session, JMTextRef *textRef, JMTextEncoding encoding,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMCopyTextRef(JMTextRef textRefSrc, JMTextRef *textRefDst);
 
 /**
@@ -584,7 +584,7 @@ JMCopyTextRef(JMTextRef textRefSrc, JMTextRef *textRefDst);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMDisposeTextRef(JMTextRef textRef);
 
 /**
@@ -598,7 +598,7 @@ JMDisposeTextRef(JMTextRef textRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetTextLength(JMTextRef textRef, UInt32 *textLengthInCharacters);
 
 /**
@@ -612,7 +612,7 @@ JMGetTextLength(JMTextRef textRef, UInt32 *textLengthInCharacters);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetTextLengthInBytes(JMTextRef textRef, JMTextEncoding dstEncoding,
                        UInt32 *textLengthInBytes);
 
@@ -628,7 +628,7 @@ JMGetTextLengthInBytes(JMTextRef textRef, JMTextEncoding dstEncoding,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetTextBytes(JMTextRef textRef, JMTextEncoding dstEncoding, void *textBuffer,
                UInt32 textBufferLength, UInt32 *numCharsCopied);
 
@@ -649,7 +649,7 @@ JMGetTextBytes(JMTextRef textRef, JMTextEncoding dstEncoding, void *textBuffer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jstring)
+jstring
 JMTextToJNIJavaString(JMTextRef textRef, JMSessionRef session, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -666,7 +666,7 @@ JMTextToJNIJavaString(JMTextRef textRef, JMSessionRef session, JNIEnv *env);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMTextToJavaString(JMTextRef textRef);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -687,7 +687,7 @@ JMTextToJavaString(JMTextRef textRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Handle)
+Handle
 JMTextToMacOSCStringHandle(JMTextRef textRef);
 
 /**
@@ -716,7 +716,7 @@ typedef enum JMProxyType JMProxyType;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetProxyInfo(JMSessionRef session, JMProxyType proxyType,
                JMProxyInfo *proxyInfo);
 
@@ -728,7 +728,7 @@ JMGetProxyInfo(JMSessionRef session, JMProxyType proxyType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetProxyInfo(JMSessionRef session, JMProxyType proxyType,
                const JMProxyInfo *proxyInfo);
 
@@ -745,7 +745,7 @@ JMSetProxyInfo(JMSessionRef session, JMProxyType proxyType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetVerifyMode(JMSessionRef session, JMVerifierOptions *verifierOptions);
 
 /**
@@ -756,7 +756,7 @@ JMGetVerifyMode(JMSessionRef session, JMVerifierOptions *verifierOptions);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetVerifyMode(JMSessionRef session, JMVerifierOptions verifierOptions);
 
 /**
@@ -842,7 +842,7 @@ typedef struct JMFrameCallbacks JMFrameCallbacks;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetFrameVisibility(JMFrameRef frame, GrafPtr famePort, Point frameOrigin,
                      RgnHandle frameClip);
 
@@ -854,7 +854,7 @@ JMSetFrameVisibility(JMFrameRef frame, GrafPtr famePort, Point frameOrigin,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetFrameData(JMFrameRef frame, JMClientData *data);
 
 /**
@@ -865,7 +865,7 @@ JMGetFrameData(JMFrameRef frame, JMClientData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetFrameData(JMFrameRef frame, JMClientData data);
 
 /**
@@ -876,7 +876,7 @@ JMSetFrameData(JMFrameRef frame, JMClientData data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetFrameSize(JMFrameRef frame, Rect *result);
 
 /* note that the top left indicates the "global" position of this frame */
@@ -889,7 +889,7 @@ JMGetFrameSize(JMFrameRef frame, Rect *result);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetFrameSize(JMFrameRef frame, const Rect *newSize);
 
 /**
@@ -903,7 +903,7 @@ JMSetFrameSize(JMFrameRef frame, const Rect *newSize);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameClickWithEventRecord(JMFrameRef frame, Point localPos,
                             const EventRecord *event);
 
@@ -915,7 +915,7 @@ JMFrameClickWithEventRecord(JMFrameRef frame, Point localPos,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameKey(JMFrameRef frame, char asciiChar, char keyCode, short modifiers);
 
 /**
@@ -926,7 +926,7 @@ JMFrameKey(JMFrameRef frame, char asciiChar, char keyCode, short modifiers);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameKeyRelease(JMFrameRef frame, char asciiChar, char keyCode,
                   short modifiers);
 
@@ -938,7 +938,7 @@ JMFrameKeyRelease(JMFrameRef frame, char asciiChar, char keyCode,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameUpdate(JMFrameRef frame, RgnHandle updateRgn);
 
 /**
@@ -949,7 +949,7 @@ JMFrameUpdate(JMFrameRef frame, RgnHandle updateRgn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameActivate(JMFrameRef frame, Boolean activate);
 
 /**
@@ -960,7 +960,7 @@ JMFrameActivate(JMFrameRef frame, Boolean activate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameResume(JMFrameRef frame, Boolean resume);
 
 /**
@@ -971,7 +971,7 @@ JMFrameResume(JMFrameRef frame, Boolean resume);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameMouseOver(JMFrameRef frame, Point localPos, short modifiers);
 
 /**
@@ -982,7 +982,7 @@ JMFrameMouseOver(JMFrameRef frame, Point localPos, short modifiers);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameShowHide(JMFrameRef frame, Boolean showFrame);
 
 /**
@@ -993,7 +993,7 @@ JMFrameShowHide(JMFrameRef frame, Boolean showFrame);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameGoAway(JMFrameRef frame);
 
 /**
@@ -1004,7 +1004,7 @@ JMFrameGoAway(JMFrameRef frame);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(JMAWTContextRef)
+JMAWTContextRef
 JMGetFrameContext(JMFrameRef frame);
 
 /**
@@ -1015,7 +1015,7 @@ JMGetFrameContext(JMFrameRef frame);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameDragTracking(JMFrameRef frame, DragTrackingMessage message,
                     DragReference theDragRef);
 
@@ -1027,7 +1027,7 @@ JMFrameDragTracking(JMFrameRef frame, DragTrackingMessage message,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameDragReceive(JMFrameRef frame, DragReference theDragRef);
 
 /**
@@ -1041,7 +1041,7 @@ JMFrameDragReceive(JMFrameRef frame, DragReference theDragRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameClick(JMFrameRef frame, Point localPos, short modifiers);
 
 /**
@@ -1060,7 +1060,7 @@ JMFrameClick(JMFrameRef frame, Point localPos, short modifiers);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMFrameFocus(JMFrameRef frame, Boolean gotFocus);
 
 /**
@@ -1078,7 +1078,7 @@ JMFrameFocus(JMFrameRef frame, Boolean gotFocus);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMDrawFrameInPort(JMFrameRef frame, GrafPtr framePort, Point frameOrigin,
                   RgnHandle clipRgn, Boolean callPaintAsOpposedToPrint);
 
@@ -1097,7 +1097,7 @@ JMDrawFrameInPort(JMFrameRef frame, GrafPtr framePort, Point frameOrigin,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jobject)
+jobject
 JMGetAWTFrameJNIObject(JMFrameRef frame, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1114,7 +1114,7 @@ JMGetAWTFrameJNIObject(JMFrameRef frame, JNIEnv *env);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMGetAWTFrameObject(JMFrameRef frame);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1134,7 +1134,7 @@ JMGetAWTFrameObject(JMFrameRef frame);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jobject)
+jobject
 JMGetJMFrameJNIObject(JMFrameRef frame, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1151,7 +1151,7 @@ JMGetJMFrameJNIObject(JMFrameRef frame, JNIEnv *env);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMGetJMFrameObject(JMFrameRef frame);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1183,7 +1183,7 @@ typedef enum JMFrameKind JMFrameKind;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMNewAppletPage(JMAppletPageRef *page, JMSessionRef session);
 
 /**
@@ -1194,7 +1194,7 @@ JMNewAppletPage(JMAppletPageRef *page, JMSessionRef session);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMDisposeAppletPage(JMAppletPageRef page);
 
 /* JMAWTContext -
@@ -1240,7 +1240,7 @@ typedef struct JMAWTContextCallbacks JMAWTContextCallbacks;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMNewAWTContext(JMAWTContextRef *context, JMSessionRef session,
                 const JMAWTContextCallbacks *callbacks, JMClientData data);
 
@@ -1252,7 +1252,7 @@ JMNewAWTContext(JMAWTContextRef *context, JMSessionRef session,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMNewAWTContextInPage(JMAWTContextRef *context, JMSessionRef session,
                       JMAppletPageRef page,
                       const JMAWTContextCallbacks *callbacks,
@@ -1266,7 +1266,7 @@ JMNewAWTContextInPage(JMAWTContextRef *context, JMSessionRef session,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMDisposeAWTContext(JMAWTContextRef context);
 
 /**
@@ -1277,7 +1277,7 @@ JMDisposeAWTContext(JMAWTContextRef context);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAWTContextData(JMAWTContextRef context, JMClientData *data);
 
 /**
@@ -1288,7 +1288,7 @@ JMGetAWTContextData(JMAWTContextRef context, JMClientData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetAWTContextData(JMAWTContextRef context, JMClientData data);
 
 /**
@@ -1299,7 +1299,7 @@ JMSetAWTContextData(JMAWTContextRef context, JMClientData data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMCountAWTContextFrames(JMAWTContextRef context, UInt32 *frameCount);
 
 /**
@@ -1310,7 +1310,7 @@ JMCountAWTContextFrames(JMAWTContextRef context, UInt32 *frameCount);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAWTContextFrame(JMAWTContextRef context, UInt32 frameIndex,
                      JMFrameRef *frame);
 
@@ -1326,7 +1326,7 @@ JMGetAWTContextFrame(JMAWTContextRef context, UInt32 frameIndex,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMMenuSelected(JMAWTContextRef context, MenuRef hMenu, short menuItem);
 
 /**
@@ -1341,7 +1341,7 @@ JMMenuSelected(JMAWTContextRef context, MenuRef hMenu, short menuItem);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMMenuSelectedWithModifiers(JMAWTContextRef context, MenuRef hMenu,
                             short menuItem, short modifiers);
 
@@ -1360,7 +1360,7 @@ JMMenuSelectedWithModifiers(JMAWTContextRef context, MenuRef hMenu,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMExecMethodInContext(JMAWTContextRef context, jref objref,
                       JRIMethodID methodID, UInt32 argCount, JRIValue args[]);
 
@@ -1372,7 +1372,7 @@ JMExecMethodInContext(JMAWTContextRef context, jref objref,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMExecStaticMethodInContext(JMAWTContextRef context, JRIClassID classID,
                             JRIMethodID methodID, UInt32 argCount,
                             JRIValue args[]);
@@ -1395,7 +1395,7 @@ JMExecStaticMethodInContext(JMAWTContextRef context, JRIClassID classID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMExecJNIMethodInContext(JMAWTContextRef context, JNIEnv *env, jobject objref,
                          jmethodID methodID, UInt32 argCount, jvalue args[]);
 
@@ -1407,7 +1407,7 @@ JMExecJNIMethodInContext(JMAWTContextRef context, JNIEnv *env, jobject objref,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMExecJNIStaticMethodInContext(JMAWTContextRef context, JNIEnv *env,
                                jclass classID, jmethodID methodID,
                                UInt32 argCount, jvalue args[]);
@@ -1429,7 +1429,7 @@ JMExecJNIStaticMethodInContext(JMAWTContextRef context, JNIEnv *env,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jobject)
+jobject
 JMGetAwtContextJNIObject(JMAWTContextRef context, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1446,7 +1446,7 @@ JMGetAwtContextJNIObject(JMAWTContextRef context, JNIEnv *env);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMGetAwtContextObject(JMAWTContextRef context);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1467,7 +1467,7 @@ JMGetAwtContextObject(JMAWTContextRef context);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(JMAWTContextRef)
+JMAWTContextRef
 JMJNIToAWTContext(JMSessionRef session, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1540,7 +1540,7 @@ typedef struct JMLocatorInfoBlock JMLocatorInfoBlock;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMNewAppletLocator(JMAppletLocatorRef *locatorRef, JMSessionRef session,
                    const JMAppletLocatorCallbacks *callbacks, JMTextRef url,
                    JMTextRef htmlText, JMClientData data);
@@ -1553,7 +1553,7 @@ JMNewAppletLocator(JMAppletLocatorRef *locatorRef, JMSessionRef session,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMNewAppletLocatorFromInfo(JMAppletLocatorRef *locatorRef, JMSessionRef session,
                            const JMLocatorInfoBlock *info, JMClientData data);
 
@@ -1565,7 +1565,7 @@ JMNewAppletLocatorFromInfo(JMAppletLocatorRef *locatorRef, JMSessionRef session,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMDisposeAppletLocator(JMAppletLocatorRef locatorRef);
 
 /**
@@ -1576,7 +1576,7 @@ JMDisposeAppletLocator(JMAppletLocatorRef locatorRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData *data);
 
 /**
@@ -1587,7 +1587,7 @@ JMGetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData data);
 
 /**
@@ -1598,7 +1598,7 @@ JMSetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMCountApplets(JMAppletLocatorRef locatorRef, UInt32 *appletCount);
 
 /**
@@ -1609,7 +1609,7 @@ JMCountApplets(JMAppletLocatorRef locatorRef, UInt32 *appletCount);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAppletDimensions(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
                       UInt32 *width, UInt32 *height);
 
@@ -1621,7 +1621,7 @@ JMGetAppletDimensions(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAppletTag(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
                JMTextRef *tagRef);
 
@@ -1633,7 +1633,7 @@ JMGetAppletTag(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAppletName(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
                 JMTextRef *nameRef);
 
@@ -1728,7 +1728,7 @@ typedef struct JMAppletSecurity JMAppletSecurity;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMNewAppletViewer(JMAppletViewerRef *viewer, JMAWTContextRef context,
                   JMAppletLocatorRef locatorRef, UInt32 appletIndex,
                   const JMAppletSecurity *security,
@@ -1742,7 +1742,7 @@ JMNewAppletViewer(JMAppletViewerRef *viewer, JMAWTContextRef context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMDisposeAppletViewer(JMAppletViewerRef viewer);
 
 /**
@@ -1753,7 +1753,7 @@ JMDisposeAppletViewer(JMAppletViewerRef viewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAppletViewerData(JMAppletViewerRef viewer, JMClientData *data);
 
 /**
@@ -1764,7 +1764,7 @@ JMGetAppletViewerData(JMAppletViewerRef viewer, JMClientData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetAppletViewerData(JMAppletViewerRef viewer, JMClientData data);
 
 /**
@@ -1778,7 +1778,7 @@ JMSetAppletViewerData(JMAppletViewerRef viewer, JMClientData data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetAppletViewerSecurity(JMAppletViewerRef viewer, JMAppletSecurity *data);
 
 /**
@@ -1789,7 +1789,7 @@ JMGetAppletViewerSecurity(JMAppletViewerRef viewer, JMAppletSecurity *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSetAppletViewerSecurity(JMAppletViewerRef viewer,
                           const JMAppletSecurity *data);
 
@@ -1805,7 +1805,7 @@ JMSetAppletViewerSecurity(JMAppletViewerRef viewer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMReloadApplet(JMAppletViewerRef viewer);
 
 /**
@@ -1816,7 +1816,7 @@ JMReloadApplet(JMAppletViewerRef viewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMRestartApplet(JMAppletViewerRef viewer);
 
 /**
@@ -1831,7 +1831,7 @@ JMRestartApplet(JMAppletViewerRef viewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMSuspendApplet(JMAppletViewerRef viewer);
 
 /**
@@ -1842,7 +1842,7 @@ JMSuspendApplet(JMAppletViewerRef viewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMResumeApplet(JMAppletViewerRef viewer);
 
 /**
@@ -1858,7 +1858,7 @@ JMResumeApplet(JMAppletViewerRef viewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetFrameViewer(JMFrameRef frame, JMAppletViewerRef *viewer,
                  JMFrameRef *parentFrame);
 
@@ -1873,7 +1873,7 @@ JMGetFrameViewer(JMFrameRef frame, JMAppletViewerRef *viewer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 JMGetViewerFrame(JMAppletViewerRef viewer, JMFrameRef *frame);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1891,7 +1891,7 @@ JMGetViewerFrame(JMAppletViewerRef viewer, JMFrameRef *frame);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jobject)
+jobject
 JMGetAppletViewerJNIObject(JMAppletViewerRef viewer, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1908,7 +1908,7 @@ JMGetAppletViewerJNIObject(JMAppletViewerRef viewer, JNIEnv *env);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMGetAppletViewerObject(JMAppletViewerRef viewer);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1928,7 +1928,7 @@ JMGetAppletViewerObject(JMAppletViewerRef viewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jobject)
+jobject
 JMGetAppletJNIObject(JMAppletViewerRef viewer, JNIEnv *env);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1945,7 +1945,7 @@ JMGetAppletJNIObject(JMAppletViewerRef viewer, JNIEnv *env);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(jref)
+jref
 JMGetAppletObject(JMAppletViewerRef viewer);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1974,7 +1974,7 @@ JMGetAppletObject(JMAppletViewerRef viewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 JMRegisterLibrary(JMSessionRef session, ConstStr63Param libraryName,
                   CFragConnectionID connID, Boolean javaShouldClose);
 

@@ -94,7 +94,7 @@ typedef STACK_UPP_TYPE(CMProfileAccessProcPtr) CMProfileAccessUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMFlattenUPP)
+CMFlattenUPP
 NewCMFlattenUPP(CMFlattenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -120,7 +120,7 @@ inline CMFlattenUPP NewCMFlattenUPP(CMFlattenProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMBitmapCallBackUPP)
+CMBitmapCallBackUPP
 NewCMBitmapCallBackUPP(CMBitmapCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -149,7 +149,7 @@ NewCMBitmapCallBackUPP(CMBitmapCallBackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMConcatCallBackUPP)
+CMConcatCallBackUPP
 NewCMConcatCallBackUPP(CMConcatCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -178,7 +178,7 @@ NewCMConcatCallBackUPP(CMConcatCallBackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMProfileFilterUPP)
+CMProfileFilterUPP
 NewCMProfileFilterUPP(CMProfileFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -207,7 +207,7 @@ NewCMProfileFilterUPP(CMProfileFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMProfileAccessUPP)
+CMProfileAccessUPP
 NewCMProfileAccessUPP(CMProfileAccessProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -236,7 +236,7 @@ NewCMProfileAccessUPP(CMProfileAccessProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCMFlattenUPP(CMFlattenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -256,7 +256,7 @@ inline void DisposeCMFlattenUPP(CMFlattenUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCMBitmapCallBackUPP(CMBitmapCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -276,7 +276,7 @@ inline void DisposeCMBitmapCallBackUPP(CMBitmapCallBackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCMConcatCallBackUPP(CMConcatCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -296,7 +296,7 @@ inline void DisposeCMConcatCallBackUPP(CMConcatCallBackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCMProfileFilterUPP(CMProfileFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -316,7 +316,7 @@ inline void DisposeCMProfileFilterUPP(CMProfileFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCMProfileAccessUPP(CMProfileAccessUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -336,7 +336,7 @@ inline void DisposeCMProfileAccessUPP(CMProfileAccessUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCMFlattenUPP(long command, long *size, void *data, void *refCon,
                    CMFlattenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -361,7 +361,7 @@ inline OSErr InvokeCMFlattenUPP(long command, long *size, void *data,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeCMBitmapCallBackUPP(long progress, void *refCon,
                           CMBitmapCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -386,7 +386,7 @@ inline Boolean InvokeCMBitmapCallBackUPP(long progress, void *refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeCMConcatCallBackUPP(long progress, void *refCon,
                           CMConcatCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -411,7 +411,7 @@ inline Boolean InvokeCMConcatCallBackUPP(long progress, void *refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeCMProfileFilterUPP(CMProfileRef prof, void *refCon,
                          CMProfileFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -436,7 +436,7 @@ inline Boolean InvokeCMProfileFilterUPP(CMProfileRef prof, void *refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCMProfileAccessUPP(long command, long offset, long *size, void *data,
                          void *refCon, CMProfileAccessUPP userUPP);
 #if !OPAQUE_UPP_TYPES

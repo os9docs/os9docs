@@ -879,7 +879,7 @@ typedef STACK_UPP_TYPE(TelephoneChooseIdleProcPtr) TelephoneChooseIdleUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TelephoneTermMsgUPP)
+TelephoneTermMsgUPP
 NewTelephoneTermMsgUPP(TelephoneTermMsgProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -909,7 +909,7 @@ NewTelephoneTermMsgUPP(TelephoneTermMsgProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TelephoneDNMsgUPP)
+TelephoneDNMsgUPP
 NewTelephoneDNMsgUPP(TelephoneDNMsgProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -939,7 +939,7 @@ NewTelephoneDNMsgUPP(TelephoneDNMsgProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TelephoneCAMsgUPP)
+TelephoneCAMsgUPP
 NewTelephoneCAMsgUPP(TelephoneCAMsgProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -969,7 +969,7 @@ NewTelephoneCAMsgUPP(TelephoneCAMsgProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TelephoneChooseIdleUPP)
+TelephoneChooseIdleUPP
 NewTelephoneChooseIdleUPP(TelephoneChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -998,7 +998,7 @@ NewTelephoneChooseIdleUPP(TelephoneChooseIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTelephoneTermMsgUPP(TelephoneTermMsgUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1018,7 +1018,7 @@ inline void DisposeTelephoneTermMsgUPP(TelephoneTermMsgUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTelephoneDNMsgUPP(TelephoneDNMsgUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1038,7 +1038,7 @@ inline void DisposeTelephoneDNMsgUPP(TelephoneDNMsgUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTelephoneCAMsgUPP(TelephoneCAMsgUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1058,7 +1058,7 @@ inline void DisposeTelephoneCAMsgUPP(TelephoneCAMsgUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTelephoneChooseIdleUPP(TelephoneChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1078,7 +1078,7 @@ inline void DisposeTelephoneChooseIdleUPP(TelephoneChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTelephoneTermMsgUPP(TELHandle hTEL, long msg, short mtype, short value,
                           long globals, TelephoneTermMsgUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1104,7 +1104,7 @@ inline void InvokeTelephoneTermMsgUPP(TELHandle hTEL, long msg, short mtype,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTelephoneDNMsgUPP(TELDNHandle hTELDN, long Msg, short mtype, short value,
                         ConstStr255Param rmtDN, ConstStr255Param rmtName,
                         ConstStr255Param rmtSubaddress, long globals,
@@ -1137,7 +1137,7 @@ inline void InvokeTelephoneDNMsgUPP(TELDNHandle hTELDN, long Msg, short mtype,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTelephoneCAMsgUPP(TELCAHandle hTELCA, long Msg, short mtype, short value,
                         Ptr Msginfo, long globals, TelephoneCAMsgUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1164,7 +1164,7 @@ inline void InvokeTelephoneCAMsgUPP(TELCAHandle hTELCA, long Msg, short mtype,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTelephoneChooseIdleUPP(TelephoneChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

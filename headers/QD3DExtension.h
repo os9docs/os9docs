@@ -172,7 +172,7 @@ typedef CALLBACK_API_C(TQ3Status, TQ3XSharedLibraryRegister)(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3XObjectClass)
+TQ3XObjectClass
 Q3XObjectHierarchy_RegisterClass(TQ3ObjectType parentType,
                                  TQ3ObjectType *objectType, char *objectName,
                                  TQ3XMetaHandler metaHandler,
@@ -194,7 +194,7 @@ Q3XObjectHierarchy_RegisterClass(TQ3ObjectType parentType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XObjectHierarchy_UnregisterClass(TQ3XObjectClass objectClass);
 
 /**
@@ -210,7 +210,7 @@ Q3XObjectHierarchy_UnregisterClass(TQ3XObjectClass objectClass);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3XFunctionPointer)
+TQ3XFunctionPointer
 Q3XObjectClass_GetMethod(TQ3XObjectClass objectClass,
                          TQ3XMethodType methodType);
 
@@ -228,7 +228,7 @@ Q3XObjectClass_GetMethod(TQ3XObjectClass objectClass,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Object)
+TQ3Object
 Q3XObjectHierarchy_NewObject(TQ3XObjectClass objectClass, void *parameters);
 
 /**
@@ -244,7 +244,7 @@ Q3XObjectHierarchy_NewObject(TQ3XObjectClass objectClass, void *parameters);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3XObjectClass_GetLeafType(TQ3XObjectClass objectClass);
 
 /**
@@ -261,7 +261,7 @@ Q3XObjectClass_GetLeafType(TQ3XObjectClass objectClass);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XObjectHierarchy_GetClassVersion(TQ3ObjectType objectClassType,
                                    TQ3XObjectClassVersion *version);
 
@@ -284,7 +284,7 @@ Q3XObjectHierarchy_GetClassVersion(TQ3ObjectType objectClassType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XObjectClass_GetType(TQ3XObjectClass objectClass, TQ3ObjectType *theType);
 
 /**
@@ -295,7 +295,7 @@ Q3XObjectClass_GetType(TQ3XObjectClass objectClass, TQ3ObjectType *theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3XObjectClass)
+TQ3XObjectClass
 Q3XObjectHierarchy_FindClassByType(TQ3ObjectType theType);
 
 /**
@@ -314,7 +314,7 @@ Q3XObjectHierarchy_FindClassByType(TQ3ObjectType theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 Q3XObjectClass_GetPrivate(TQ3XObjectClass objectClass, TQ3Object targetObject);
 
 /**
@@ -328,7 +328,7 @@ Q3XObjectClass_GetPrivate(TQ3XObjectClass objectClass, TQ3Object targetObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3XObjectClass)
+TQ3XObjectClass
 Q3XObject_GetClass(TQ3Object object);
 
 /******************************************************************************
@@ -352,7 +352,7 @@ typedef struct TQ3XSharedLibraryInfo TQ3XSharedLibraryInfo;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XSharedLibrary_Register(TQ3XSharedLibraryInfo *sharedLibraryInfo);
 
 /**
@@ -363,7 +363,7 @@ Q3XSharedLibrary_Register(TQ3XSharedLibraryInfo *sharedLibraryInfo);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XSharedLibrary_Unregister(unsigned long sharedLibrary);
 
 /******************************************************************************
@@ -386,7 +386,7 @@ Q3XSharedLibrary_Unregister(unsigned long sharedLibrary);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 Q3XError_Post(TQ3Error error);
 
 /**
@@ -403,7 +403,7 @@ Q3XError_Post(TQ3Error error);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 Q3XWarning_Post(TQ3Warning warning);
 
 /**
@@ -420,7 +420,7 @@ Q3XWarning_Post(TQ3Warning warning);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 Q3XNotice_Post(TQ3Notice notice);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -441,7 +441,7 @@ Q3XNotice_Post(TQ3Notice notice);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 Q3XMacintoshError_Post(OSErr macOSErr);
 
 #endif /* CALL_NOT_IN_CARBON */

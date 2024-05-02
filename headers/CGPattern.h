@@ -110,7 +110,7 @@ typedef struct CGPatternCallbacks CGPatternCallbacks;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CGPatternRef)
+CGPatternRef
 CGPatternCreate(void *info, CGRect bounds, CGAffineTransform matrix,
                 float xStep, float yStep, CGPatternTiling tiling, int isColored,
                 const CGPatternCallbacks *callbacks);
@@ -125,7 +125,7 @@ CGPatternCreate(void *info, CGRect bounds, CGAffineTransform matrix,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CGPatternRef)
+CGPatternRef
 CGPatternRetain(CGPatternRef pattern);
 
 /** Decrement the retain count of `pattern'.  If the retain count reaches 0,
@@ -138,7 +138,7 @@ CGPatternRetain(CGPatternRef pattern);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 CGPatternRelease(CGPatternRef pattern);
 
 #if PRAGMA_ENUM_ALWAYSINT

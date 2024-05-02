@@ -164,7 +164,7 @@ typedef STACK_UPP_TYPE(OSASendProcPtr) OSASendUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSACreateAppleEventUPP)
+OSACreateAppleEventUPP
 NewOSACreateAppleEventUPP(OSACreateAppleEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -194,7 +194,7 @@ NewOSACreateAppleEventUPP(OSACreateAppleEventProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSASendUPP)
+OSASendUPP
 NewOSASendUPP(OSASendProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -221,7 +221,7 @@ inline OSASendUPP NewOSASendUPP(OSASendProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSACreateAppleEventUPP(OSACreateAppleEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -241,7 +241,7 @@ inline void DisposeOSACreateAppleEventUPP(OSACreateAppleEventUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSASendUPP(OSASendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -261,7 +261,7 @@ inline void DisposeOSASendUPP(OSASendUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSACreateAppleEventUPP(AEEventClass theAEEventClass,
                              AEEventID theAEEventID,
                              const AEAddressDesc *target, short returnID,
@@ -298,7 +298,7 @@ inline OSErr InvokeOSACreateAppleEventUPP(AEEventClass theAEEventClass,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSASendUPP(const AppleEvent *theAppleEvent, AppleEvent *reply,
                  AESendMode sendMode, AESendPriority sendPriority,
                  long timeOutInTicks, AEIdleUPP idleProc,
@@ -918,7 +918,7 @@ typedef STACK_UPP_TYPE(OSAActiveProcPtr) OSAActiveUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSAActiveUPP)
+OSAActiveUPP
 NewOSAActiveUPP(OSAActiveProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppOSAActiveProcInfo = 0x000000E0 }; /** pascal 2_bytes Func(4_bytes) */
@@ -942,7 +942,7 @@ inline OSAActiveUPP NewOSAActiveUPP(OSAActiveProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOSAActiveUPP(OSAActiveUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -962,7 +962,7 @@ inline void DisposeOSAActiveUPP(OSAActiveUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOSAActiveUPP(long refCon, OSAActiveUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

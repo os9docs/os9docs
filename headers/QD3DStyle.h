@@ -72,7 +72,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Style_GetType(TQ3StyleObject style);
 
 /**
@@ -83,7 +83,7 @@ Q3Style_GetType(TQ3StyleObject style);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Style_Submit(TQ3StyleObject style, TQ3ViewObject view);
 
 /*******************************************************************************
@@ -115,7 +115,7 @@ typedef struct TQ3SubdivisionStyleData TQ3SubdivisionStyleData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3SubdivisionStyle_New(const TQ3SubdivisionStyleData *data);
 
 /**
@@ -126,7 +126,7 @@ Q3SubdivisionStyle_New(const TQ3SubdivisionStyleData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3SubdivisionStyle_Submit(const TQ3SubdivisionStyleData *data,
                           TQ3ViewObject view);
 
@@ -138,7 +138,7 @@ Q3SubdivisionStyle_Submit(const TQ3SubdivisionStyleData *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3SubdivisionStyle_SetData(TQ3StyleObject subdiv,
                            const TQ3SubdivisionStyleData *data);
 
@@ -150,7 +150,7 @@ Q3SubdivisionStyle_SetData(TQ3StyleObject subdiv,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3SubdivisionStyle_GetData(TQ3StyleObject subdiv,
                            TQ3SubdivisionStyleData *data);
 
@@ -167,7 +167,7 @@ Q3SubdivisionStyle_GetData(TQ3StyleObject subdiv,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3PickIDStyle_New(unsigned long id);
 
 /**
@@ -178,7 +178,7 @@ Q3PickIDStyle_New(unsigned long id);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PickIDStyle_Submit(unsigned long id, TQ3ViewObject view);
 
 /**
@@ -189,7 +189,7 @@ Q3PickIDStyle_Submit(unsigned long id, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PickIDStyle_Get(TQ3StyleObject pickIDObject, unsigned long *id);
 
 /**
@@ -200,7 +200,7 @@ Q3PickIDStyle_Get(TQ3StyleObject pickIDObject, unsigned long *id);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PickIDStyle_Set(TQ3StyleObject pickIDObject, unsigned long id);
 
 /*******************************************************************************
@@ -228,7 +228,7 @@ typedef unsigned long TQ3PickParts;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3PickPartsStyle_New(TQ3PickParts parts);
 
 /**
@@ -239,7 +239,7 @@ Q3PickPartsStyle_New(TQ3PickParts parts);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PickPartsStyle_Submit(TQ3PickParts parts, TQ3ViewObject view);
 
 /**
@@ -250,7 +250,7 @@ Q3PickPartsStyle_Submit(TQ3PickParts parts, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PickPartsStyle_Get(TQ3StyleObject pickPartsObject, TQ3PickParts *parts);
 
 /**
@@ -261,7 +261,7 @@ Q3PickPartsStyle_Get(TQ3StyleObject pickPartsObject, TQ3PickParts *parts);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PickPartsStyle_Set(TQ3StyleObject pickPartsObject, TQ3PickParts parts);
 
 /*******************************************************************************
@@ -277,7 +277,7 @@ Q3PickPartsStyle_Set(TQ3StyleObject pickPartsObject, TQ3PickParts parts);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3ReceiveShadowsStyle_New(TQ3Boolean receives);
 
 /**
@@ -288,7 +288,7 @@ Q3ReceiveShadowsStyle_New(TQ3Boolean receives);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ReceiveShadowsStyle_Submit(TQ3Boolean receives, TQ3ViewObject view);
 
 /**
@@ -299,7 +299,7 @@ Q3ReceiveShadowsStyle_Submit(TQ3Boolean receives, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ReceiveShadowsStyle_Get(TQ3StyleObject styleObject, TQ3Boolean *receives);
 
 /**
@@ -310,7 +310,7 @@ Q3ReceiveShadowsStyle_Get(TQ3StyleObject styleObject, TQ3Boolean *receives);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ReceiveShadowsStyle_Set(TQ3StyleObject styleObject, TQ3Boolean receives);
 
 /*******************************************************************************
@@ -336,7 +336,7 @@ typedef enum TQ3FillStyle TQ3FillStyle;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3FillStyle_New(TQ3FillStyle fillStyle);
 
 /**
@@ -347,7 +347,7 @@ Q3FillStyle_New(TQ3FillStyle fillStyle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3FillStyle_Submit(TQ3FillStyle fillStyle, TQ3ViewObject view);
 
 /**
@@ -358,7 +358,7 @@ Q3FillStyle_Submit(TQ3FillStyle fillStyle, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3FillStyle_Get(TQ3StyleObject styleObject, TQ3FillStyle *fillStyle);
 
 /**
@@ -369,7 +369,7 @@ Q3FillStyle_Get(TQ3StyleObject styleObject, TQ3FillStyle *fillStyle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3FillStyle_Set(TQ3StyleObject styleObject, TQ3FillStyle fillStyle);
 
 /*******************************************************************************
@@ -395,7 +395,7 @@ typedef enum TQ3BackfacingStyle TQ3BackfacingStyle;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3BackfacingStyle_New(TQ3BackfacingStyle backfacingStyle);
 
 /**
@@ -406,7 +406,7 @@ Q3BackfacingStyle_New(TQ3BackfacingStyle backfacingStyle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3BackfacingStyle_Submit(TQ3BackfacingStyle backfacingStyle,
                          TQ3ViewObject view);
 
@@ -418,7 +418,7 @@ Q3BackfacingStyle_Submit(TQ3BackfacingStyle backfacingStyle,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3BackfacingStyle_Get(TQ3StyleObject backfacingObject,
                       TQ3BackfacingStyle *backfacingStyle);
 
@@ -430,7 +430,7 @@ Q3BackfacingStyle_Get(TQ3StyleObject backfacingObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3BackfacingStyle_Set(TQ3StyleObject backfacingObject,
                       TQ3BackfacingStyle backfacingStyle);
 
@@ -457,7 +457,7 @@ typedef enum TQ3InterpolationStyle TQ3InterpolationStyle;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3InterpolationStyle_New(TQ3InterpolationStyle interpolationStyle);
 
 /**
@@ -468,7 +468,7 @@ Q3InterpolationStyle_New(TQ3InterpolationStyle interpolationStyle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3InterpolationStyle_Submit(TQ3InterpolationStyle interpolationStyle,
                             TQ3ViewObject view);
 
@@ -480,7 +480,7 @@ Q3InterpolationStyle_Submit(TQ3InterpolationStyle interpolationStyle,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3InterpolationStyle_Get(TQ3StyleObject interpolationObject,
                          TQ3InterpolationStyle *interpolationStyle);
 
@@ -492,7 +492,7 @@ Q3InterpolationStyle_Get(TQ3StyleObject interpolationObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3InterpolationStyle_Set(TQ3StyleObject interpolationObject,
                          TQ3InterpolationStyle interpolationStyle);
 
@@ -509,7 +509,7 @@ Q3InterpolationStyle_Set(TQ3StyleObject interpolationObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3HighlightStyle_New(TQ3AttributeSet highlightAttribute);
 
 /**
@@ -520,7 +520,7 @@ Q3HighlightStyle_New(TQ3AttributeSet highlightAttribute);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3HighlightStyle_Submit(TQ3AttributeSet highlightAttribute, TQ3ViewObject view);
 
 /**
@@ -531,7 +531,7 @@ Q3HighlightStyle_Submit(TQ3AttributeSet highlightAttribute, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3HighlightStyle_Get(TQ3StyleObject highlight,
                      TQ3AttributeSet *highlightAttribute);
 
@@ -543,7 +543,7 @@ Q3HighlightStyle_Get(TQ3StyleObject highlight,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3HighlightStyle_Set(TQ3StyleObject highlight,
                      TQ3AttributeSet highlightAttribute);
 
@@ -569,7 +569,7 @@ typedef enum TQ3OrientationStyle TQ3OrientationStyle;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3OrientationStyle_New(TQ3OrientationStyle frontFacingDirection);
 
 /**
@@ -580,7 +580,7 @@ Q3OrientationStyle_New(TQ3OrientationStyle frontFacingDirection);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrientationStyle_Submit(TQ3OrientationStyle frontFacingDirection,
                           TQ3ViewObject view);
 
@@ -592,7 +592,7 @@ Q3OrientationStyle_Submit(TQ3OrientationStyle frontFacingDirection,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrientationStyle_Get(TQ3StyleObject frontFacingDirectionObject,
                        TQ3OrientationStyle *frontFacingDirection);
 
@@ -604,7 +604,7 @@ Q3OrientationStyle_Get(TQ3StyleObject frontFacingDirectionObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrientationStyle_Set(TQ3StyleObject frontFacingDirectionObject,
                        TQ3OrientationStyle frontFacingDirection);
 
@@ -637,7 +637,7 @@ typedef struct TQ3AntiAliasStyleData TQ3AntiAliasStyleData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3AntiAliasStyle_New(const TQ3AntiAliasStyleData *data);
 
 /**
@@ -648,7 +648,7 @@ Q3AntiAliasStyle_New(const TQ3AntiAliasStyleData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AntiAliasStyle_Submit(const TQ3AntiAliasStyleData *data, TQ3ViewObject view);
 
 /**
@@ -659,7 +659,7 @@ Q3AntiAliasStyle_Submit(const TQ3AntiAliasStyleData *data, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AntiAliasStyle_GetData(TQ3StyleObject styleObject,
                          TQ3AntiAliasStyleData *data);
 
@@ -671,7 +671,7 @@ Q3AntiAliasStyle_GetData(TQ3StyleObject styleObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AntiAliasStyle_SetData(TQ3StyleObject styleObject,
                          const TQ3AntiAliasStyleData *data);
 
@@ -708,7 +708,7 @@ typedef struct TQ3FogStyleData TQ3FogStyleData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StyleObject)
+TQ3StyleObject
 Q3FogStyle_New(const TQ3FogStyleData *data);
 
 /**
@@ -719,7 +719,7 @@ Q3FogStyle_New(const TQ3FogStyleData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3FogStyle_Submit(const TQ3FogStyleData *data, TQ3ViewObject view);
 
 /**
@@ -730,7 +730,7 @@ Q3FogStyle_Submit(const TQ3FogStyleData *data, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3FogStyle_GetData(TQ3StyleObject styleObject, TQ3FogStyleData *data);
 
 /**
@@ -741,7 +741,7 @@ Q3FogStyle_GetData(TQ3StyleObject styleObject, TQ3FogStyleData *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3FogStyle_SetData(TQ3StyleObject styleObject, const TQ3FogStyleData *data);
 
 #endif /** CALL_NOT_IN_CARBON */

@@ -385,7 +385,7 @@ typedef USBHubPortStatus *USBHubPortStatusPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 HostToUSBWord(UInt16 value);
 
 /**
@@ -396,7 +396,7 @@ HostToUSBWord(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 USBToHostWord(UInt16 value);
 
 /**
@@ -407,7 +407,7 @@ USBToHostWord(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 HostToUSBLong(UInt32 value);
 
 /**
@@ -418,7 +418,7 @@ HostToUSBLong(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 USBToHostLong(UInt32 value);
 
 /* Main prototypes */
@@ -431,7 +431,7 @@ USBToHostLong(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBDeviceRequest(USBPB *pb);
 
 /**
@@ -442,7 +442,7 @@ USBDeviceRequest(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBBulkWrite(USBPB *pb);
 
 /**
@@ -453,7 +453,7 @@ USBBulkWrite(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBBulkRead(USBPB *pb);
 
 /**
@@ -464,7 +464,7 @@ USBBulkRead(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBIntRead(USBPB *pb);
 
 /**
@@ -475,7 +475,7 @@ USBIntRead(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBIntWrite(USBPB *pb);
 
 /**
@@ -486,7 +486,7 @@ USBIntWrite(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBIsocRead(USBPB *pb);
 
 /**
@@ -497,7 +497,7 @@ USBIsocRead(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBIsocWrite(USBPB *pb);
 
 /* Pipe state control */
@@ -509,7 +509,7 @@ USBIsocWrite(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBClearPipeStallByReference(USBPipeRef ref);
 
 /**
@@ -520,7 +520,7 @@ USBClearPipeStallByReference(USBPipeRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBAbortPipeByReference(USBReference ref);
 
 /**
@@ -531,7 +531,7 @@ USBAbortPipeByReference(USBReference ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBResetPipeByReference(USBReference ref);
 
 /**
@@ -542,7 +542,7 @@ USBResetPipeByReference(USBReference ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBSetPipeIdleByReference(USBPipeRef ref);
 
 /**
@@ -553,7 +553,7 @@ USBSetPipeIdleByReference(USBPipeRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBSetPipeActiveByReference(USBPipeRef ref);
 
 /**
@@ -564,7 +564,7 @@ USBSetPipeActiveByReference(USBPipeRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBClosePipeByReference(USBPipeRef ref);
 
 /**
@@ -575,7 +575,7 @@ USBClosePipeByReference(USBPipeRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetPipeStatusByReference(USBReference ref, USBPipeState *state);
 
 /* Configuration services */
@@ -587,7 +587,7 @@ USBGetPipeStatusByReference(USBReference ref, USBPipeState *state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBFindNextInterface(USBPB *pb);
 
 /**
@@ -598,7 +598,7 @@ USBFindNextInterface(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBOpenDevice(USBPB *pb);
 
 /**
@@ -609,7 +609,7 @@ USBOpenDevice(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBSetConfiguration(USBPB *pb);
 
 /**
@@ -620,7 +620,7 @@ USBSetConfiguration(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBNewInterfaceRef(USBPB *pb);
 
 /**
@@ -631,7 +631,7 @@ USBNewInterfaceRef(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBDisposeInterfaceRef(USBPB *pb);
 
 /**
@@ -642,7 +642,7 @@ USBDisposeInterfaceRef(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBConfigureInterface(USBPB *pb);
 
 /**
@@ -653,7 +653,7 @@ USBConfigureInterface(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBFindNextPipe(USBPB *pb);
 
 /**
@@ -664,7 +664,7 @@ USBFindNextPipe(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBSetPipePolicy(USBPB *pb);
 
 /* Dealing with descriptors. */
@@ -677,7 +677,7 @@ USBSetPipePolicy(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetConfigurationDescriptor(USBPB *pb);
 
 /**
@@ -688,7 +688,7 @@ USBGetConfigurationDescriptor(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetFullConfigurationDescriptor(USBPB *pb);
 
 /**
@@ -699,7 +699,7 @@ USBGetFullConfigurationDescriptor(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetStringDescriptor(USBPB *pb);
 
 /**
@@ -710,7 +710,7 @@ USBGetStringDescriptor(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBFindNextEndpointDescriptorImmediate(USBPB *pb);
 
 /**
@@ -721,7 +721,7 @@ USBFindNextEndpointDescriptorImmediate(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBFindNextInterfaceDescriptorImmediate(USBPB *pb);
 
 /**
@@ -732,7 +732,7 @@ USBFindNextInterfaceDescriptorImmediate(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBFindNextAssociatedDescriptor(USBPB *pb);
 
 /* Utility functions */
@@ -744,7 +744,7 @@ USBFindNextAssociatedDescriptor(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBResetDevice(USBPB *pb);
 
 /**
@@ -755,7 +755,7 @@ USBResetDevice(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBPortStatus(USBPB *pb);
 
 /**
@@ -766,7 +766,7 @@ USBPortStatus(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBSuspendDevice(USBPB *pb);
 
 /**
@@ -777,7 +777,7 @@ USBSuspendDevice(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBResumeDeviceByReference(USBReference refIn);
 
 /**
@@ -788,7 +788,7 @@ USBResumeDeviceByReference(USBReference refIn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetBandwidthAvailableByReference(USBReference ref, UInt32 *avail);
 
 /**
@@ -799,7 +799,7 @@ USBGetBandwidthAvailableByReference(USBReference ref, UInt32 *avail);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetFrameNumberImmediate(USBPB *pb);
 
 /**
@@ -810,7 +810,7 @@ USBGetFrameNumberImmediate(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBDelay(USBPB *pb);
 
 /**
@@ -821,7 +821,7 @@ USBDelay(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBSAbortQueuesByReference(USBReference ref);
 
 /**
@@ -832,7 +832,7 @@ USBSAbortQueuesByReference(USBReference ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBAllocMem(USBPB *pb);
 
 /**
@@ -843,7 +843,7 @@ USBAllocMem(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBDeallocMem(USBPB *pb);
 
 /* Expert interface functions */
@@ -855,7 +855,7 @@ USBDeallocMem(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertInstallInterfaceDriver(USBDeviceRef ref, USBDeviceDescriptorPtr desc,
                                 USBInterfaceDescriptorPtr interfacePtr,
                                 USBReference hubRef, UInt32 busPowerAvailable);
@@ -868,7 +868,7 @@ USBExpertInstallInterfaceDriver(USBDeviceRef ref, USBDeviceDescriptorPtr desc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertRemoveInterfaceDriver(USBDeviceRef ref);
 
 /**
@@ -879,7 +879,7 @@ USBExpertRemoveInterfaceDriver(USBDeviceRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertInstallDeviceDriver(USBDeviceRef ref, USBDeviceDescriptorPtr desc,
                              USBReference hubRef, UInt32 port,
                              UInt32 busPowerAvailable);
@@ -892,7 +892,7 @@ USBExpertInstallDeviceDriver(USBDeviceRef ref, USBDeviceDescriptorPtr desc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertRemoveDeviceDriver(USBDeviceRef ref);
 
 /**
@@ -903,7 +903,7 @@ USBExpertRemoveDeviceDriver(USBDeviceRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertStatus(USBDeviceRef ref, void *pointer, UInt32 value);
 
 /**
@@ -914,7 +914,7 @@ USBExpertStatus(USBDeviceRef ref, void *pointer, UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertFatalError(USBDeviceRef ref, OSStatus status, void *pointer,
                     UInt32 value);
 
@@ -926,7 +926,7 @@ USBExpertFatalError(USBDeviceRef ref, OSStatus status, void *pointer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertNotify(void *note);
 
 /**
@@ -937,7 +937,7 @@ USBExpertNotify(void *note);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertStatusLevel(UInt32 level, USBDeviceRef ref, StringPtr status,
                      UInt32 value);
 
@@ -949,7 +949,7 @@ USBExpertStatusLevel(UInt32 level, USBDeviceRef ref, StringPtr status,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 USBExpertGetStatusLevel(void);
 
 /**
@@ -960,7 +960,7 @@ USBExpertGetStatusLevel(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 USBExpertSetStatusLevel(UInt32 level);
 
 /**
@@ -971,7 +971,7 @@ USBExpertSetStatusLevel(UInt32 level);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertSetDevicePowerStatus(USBDeviceRef ref, UInt32 reserved1,
                               UInt32 reserved2, UInt32 powerStatus,
                               UInt32 busPowerAvailable, UInt32 busPowerNeeded);
@@ -1002,7 +1002,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHubAddDevice(USBPB *pb);
 
 /**
@@ -1013,7 +1013,7 @@ USBHubAddDevice(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHubConfigurePipeZero(USBPB *pb);
 
 /**
@@ -1024,7 +1024,7 @@ USBHubConfigurePipeZero(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHubSetAddress(USBPB *pb);
 
 /**
@@ -1035,7 +1035,7 @@ USBHubSetAddress(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHubDeviceRemoved(USBPB *pb);
 
 /**
@@ -1046,7 +1046,7 @@ USBHubDeviceRemoved(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt8)
+UInt8
 USBMakeBMRequestType(UInt8 direction, UInt8 reqtype, UInt8 recipient);
 
 /**
@@ -1057,7 +1057,7 @@ USBMakeBMRequestType(UInt8 direction, UInt8 reqtype, UInt8 recipient);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBControlRequest(USBPB *pb);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1178,7 +1178,7 @@ typedef CALLBACK_API_C(void, USBDriverNotificationCallbackPtr)(OSStatus status,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 USBGetVersion(void);
 
 /**
@@ -1189,7 +1189,7 @@ USBGetVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetNextDeviceByClass(USBDeviceRef *deviceRef, CFragConnectionID *connID,
                         UInt16 theClass, UInt16 theSubClass,
                         UInt16 theProtocol);
@@ -1202,7 +1202,7 @@ USBGetNextDeviceByClass(USBDeviceRef *deviceRef, CFragConnectionID *connID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetDeviceDescriptor(USBDeviceRef *deviceRef,
                        USBDeviceDescriptor *deviceDescriptor, UInt32 size);
 
@@ -1214,7 +1214,7 @@ USBGetDeviceDescriptor(USBDeviceRef *deviceRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetInterfaceDescriptor(USBInterfaceRef *interfaceRef,
                           USBInterfaceDescriptor *interfaceDescriptor,
                           UInt32 size);
@@ -1227,7 +1227,7 @@ USBGetInterfaceDescriptor(USBInterfaceRef *interfaceRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBGetDriverConnectionID(USBDeviceRef *deviceRef, CFragConnectionID *connID);
 
 /**
@@ -1238,7 +1238,7 @@ USBGetDriverConnectionID(USBDeviceRef *deviceRef, CFragConnectionID *connID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 USBInstallDeviceNotification(USBDeviceNotificationParameterBlock *pb);
 
 /**
@@ -1249,7 +1249,7 @@ USBInstallDeviceNotification(USBDeviceNotificationParameterBlock *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBRemoveDeviceNotification(UInt32 token);
 
 /**
@@ -1260,7 +1260,7 @@ USBRemoveDeviceNotification(UInt32 token);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBDeviceRefToBusRef(USBDeviceRef *deviceRef, USBBusRef *busRef);
 
 /**
@@ -1271,7 +1271,7 @@ USBDeviceRefToBusRef(USBDeviceRef *deviceRef, USBBusRef *busRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBDriverNotify(USBReference reference, USBDriverMessage mesg, UInt32 refcon,
                 USBDriverNotificationCallbackPtr callback);
 
@@ -1283,7 +1283,7 @@ USBDriverNotify(USBReference reference, USBDriverMessage mesg, UInt32 refcon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBExpertNotifyParent(USBReference reference, void *pointer);
 
 /**
@@ -1294,7 +1294,7 @@ USBExpertNotifyParent(USBReference reference, void *pointer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBAddDriverForFSSpec(USBReference reference, FSSpec *fileSpec);
 
 /**
@@ -1305,7 +1305,7 @@ USBAddDriverForFSSpec(USBReference reference, FSSpec *fileSpec);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBAddShimFromDisk(FSSpec *shimFilePtr);
 
 /**
@@ -1316,7 +1316,7 @@ USBAddShimFromDisk(FSSpec *shimFilePtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBReferenceToRegEntry(RegEntryID *parentEntry, USBDeviceRef parentDeviceRef);
 
 /**
@@ -1327,7 +1327,7 @@ USBReferenceToRegEntry(RegEntryID *parentEntry, USBDeviceRef parentDeviceRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBConfigureADBShim(UInt32 inCommandID, void *arg1, void *arg2);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1397,7 +1397,7 @@ typedef USBHIDModuleDispatchTable *USBHIDModuleDispatchTablePtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHIDInstallInterrupt(HIDInterruptProcPtr HIDInterruptFunction, UInt32 refcon);
 
 /**
@@ -1408,7 +1408,7 @@ USBHIDInstallInterrupt(HIDInterruptProcPtr HIDInterruptFunction, UInt32 refcon);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHIDPollDevice(void);
 
 /**
@@ -1419,7 +1419,7 @@ USBHIDPollDevice(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHIDControlDevice(UInt32 theControlSelector, void *theControlData);
 
 /**
@@ -1430,7 +1430,7 @@ USBHIDControlDevice(UInt32 theControlSelector, void *theControlData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHIDGetDeviceInfo(UInt32 theInfoSelector, void *theInfo);
 
 /**
@@ -1441,7 +1441,7 @@ USBHIDGetDeviceInfo(UInt32 theInfoSelector, void *theInfo);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHIDEnterPolledMode(void);
 
 /**
@@ -1452,7 +1452,7 @@ USBHIDEnterPolledMode(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHIDExitPolledMode(void);
 
 /**
@@ -1463,7 +1463,7 @@ USBHIDExitPolledMode(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 USBHIDInstallNotification(HIDNotificationProcPtr HIDNotificationFunction,
                           UInt32 refcon);
 
@@ -1475,7 +1475,7 @@ USBHIDInstallNotification(HIDNotificationProcPtr HIDNotificationFunction,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 HIDNotification(UInt32 devicetype, UInt8 NewHIDData[], UInt8 OldHIDData[]);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1568,7 +1568,7 @@ typedef USBHIDData *USBHIDDataPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 StartCompoundClassDriver(USBDeviceRef device, UInt16 classID, UInt16 subClass);
 
 #endif /* CALL_NOT_IN_CARBON */

@@ -653,7 +653,7 @@ typedef short TEIntHook;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HighHookUPP)
+HighHookUPP
 NewHighHookUPP(HighHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppHighHookProcInfo = 0x0000000F }; /* SPECIAL_CASE_PROCINFO(0) */
@@ -677,7 +677,7 @@ inline HighHookUPP NewHighHookUPP(HighHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EOLHookUPP)
+EOLHookUPP
 NewEOLHookUPP(EOLHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppEOLHookProcInfo = 0x0000001F }; /* SPECIAL_CASE_PROCINFO(1) */
@@ -701,7 +701,7 @@ inline EOLHookUPP NewEOLHookUPP(EOLHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CaretHookUPP)
+CaretHookUPP
 NewCaretHookUPP(CaretHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppCaretHookProcInfo = 0x0000000F }; /* SPECIAL_CASE_PROCINFO(0) */
@@ -725,7 +725,7 @@ inline CaretHookUPP NewCaretHookUPP(CaretHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WidthHookUPP)
+WidthHookUPP
 NewWidthHookUPP(WidthHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppWidthHookProcInfo = 0x0000002F }; /* SPECIAL_CASE_PROCINFO(2) */
@@ -749,7 +749,7 @@ inline WidthHookUPP NewWidthHookUPP(WidthHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TextWidthHookUPP)
+TextWidthHookUPP
 NewTextWidthHookUPP(TextWidthHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppTextWidthHookProcInfo = 0x0000002F }; /* SPECIAL_CASE_PROCINFO(2) */
@@ -775,7 +775,7 @@ inline TextWidthHookUPP NewTextWidthHookUPP(TextWidthHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(NWidthHookUPP)
+NWidthHookUPP
 NewNWidthHookUPP(NWidthHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppNWidthHookProcInfo = 0x0000003F }; /* SPECIAL_CASE_PROCINFO(3) */
@@ -799,7 +799,7 @@ inline NWidthHookUPP NewNWidthHookUPP(NWidthHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DrawHookUPP)
+DrawHookUPP
 NewDrawHookUPP(DrawHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppDrawHookProcInfo = 0x0000004F }; /* SPECIAL_CASE_PROCINFO(4) */
@@ -823,7 +823,7 @@ inline DrawHookUPP NewDrawHookUPP(DrawHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HitTestHookUPP)
+HitTestHookUPP
 NewHitTestHookUPP(HitTestHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppHitTestHookProcInfo = 0x0000005F }; /* SPECIAL_CASE_PROCINFO(5) */
@@ -848,7 +848,7 @@ inline HitTestHookUPP NewHitTestHookUPP(HitTestHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TEFindWordUPP)
+TEFindWordUPP
 NewTEFindWordUPP(TEFindWordProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppTEFindWordProcInfo = 0x0000006F }; /* SPECIAL_CASE_PROCINFO(6) */
@@ -872,7 +872,7 @@ inline TEFindWordUPP NewTEFindWordUPP(TEFindWordProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TERecalcUPP)
+TERecalcUPP
 NewTERecalcUPP(TERecalcProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppTERecalcProcInfo = 0x0000009F }; /* SPECIAL_CASE_PROCINFO(9) */
@@ -896,7 +896,7 @@ inline TERecalcUPP NewTERecalcUPP(TERecalcProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TEDoTextUPP)
+TEDoTextUPP
 NewTEDoTextUPP(TEDoTextProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppTEDoTextProcInfo = 0x000000AF }; /* SPECIAL_CASE_PROCINFO(10) */
@@ -920,7 +920,7 @@ inline TEDoTextUPP NewTEDoTextUPP(TEDoTextProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TEClickLoopUPP)
+TEClickLoopUPP
 NewTEClickLoopUPP(TEClickLoopProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -948,7 +948,7 @@ inline TEClickLoopUPP NewTEClickLoopUPP(TEClickLoopProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(WordBreakUPP)
+WordBreakUPP
 NewWordBreakUPP(WordBreakProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -976,7 +976,7 @@ inline WordBreakUPP NewWordBreakUPP(WordBreakProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHighHookUPP(HighHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -996,7 +996,7 @@ inline void DisposeHighHookUPP(HighHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEOLHookUPP(EOLHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1016,7 +1016,7 @@ inline void DisposeEOLHookUPP(EOLHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCaretHookUPP(CaretHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1036,7 +1036,7 @@ inline void DisposeCaretHookUPP(CaretHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeWidthHookUPP(WidthHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1056,7 +1056,7 @@ inline void DisposeWidthHookUPP(WidthHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTextWidthHookUPP(TextWidthHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1076,7 +1076,7 @@ inline void DisposeTextWidthHookUPP(TextWidthHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeNWidthHookUPP(NWidthHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1096,7 +1096,7 @@ inline void DisposeNWidthHookUPP(NWidthHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDrawHookUPP(DrawHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1116,7 +1116,7 @@ inline void DisposeDrawHookUPP(DrawHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHitTestHookUPP(HitTestHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1136,7 +1136,7 @@ inline void DisposeHitTestHookUPP(HitTestHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTEFindWordUPP(TEFindWordUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1156,7 +1156,7 @@ inline void DisposeTEFindWordUPP(TEFindWordUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTERecalcUPP(TERecalcUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1176,7 +1176,7 @@ inline void DisposeTERecalcUPP(TERecalcUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTEDoTextUPP(TEDoTextUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1196,7 +1196,7 @@ inline void DisposeTEDoTextUPP(TEDoTextUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTEClickLoopUPP(TEClickLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1217,7 +1217,7 @@ inline void DisposeTEClickLoopUPP(TEClickLoopUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeWordBreakUPP(WordBreakUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1239,7 +1239,7 @@ inline void DisposeWordBreakUPP(WordBreakUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeHighHookUPP(const Rect *r, TEPtr pTE, HighHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -1261,7 +1261,7 @@ inline void InvokeHighHookUPP(const Rect *r, TEPtr pTE, HighHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeEOLHookUPP(char theChar, TEPtr pTE, TEHandle hTE, EOLHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -1286,7 +1286,7 @@ inline Boolean InvokeEOLHookUPP(char theChar, TEPtr pTE, TEHandle hTE,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeCaretHookUPP(const Rect *r, TEPtr pTE, CaretHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -1308,7 +1308,7 @@ inline void InvokeCaretHookUPP(const Rect *r, TEPtr pTE, CaretHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(unsigned short)
+unsigned short
 InvokeWidthHookUPP(unsigned short textLen, unsigned short textOffset,
                    void *textBufferPtr, TEPtr pTE, TEHandle hTE,
                    WidthHookUPP userUPP);
@@ -1340,7 +1340,7 @@ inline unsigned short InvokeWidthHookUPP(unsigned short textLen,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(unsigned short)
+unsigned short
 InvokeTextWidthHookUPP(unsigned short textLen, unsigned short textOffset,
                        void *textBufferPtr, TEPtr pTE, TEHandle hTE,
                        TextWidthHookUPP userUPP);
@@ -1373,7 +1373,7 @@ inline unsigned short InvokeTextWidthHookUPP(unsigned short textLen,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(unsigned short)
+unsigned short
 InvokeNWidthHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
                     short slop, short direction, void *textBufferPtr,
                     short *lineStart, TEPtr pTE, TEHandle hTE,
@@ -1408,7 +1408,7 @@ inline unsigned short InvokeNWidthHookUPP(unsigned short styleRunLen,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDrawHookUPP(unsigned short textOffset, unsigned short drawLen,
                   void *textBufferPtr, TEPtr pTE, TEHandle hTE,
                   DrawHookUPP userUPP);
@@ -1437,7 +1437,7 @@ inline void InvokeDrawHookUPP(unsigned short textOffset, unsigned short drawLen,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeHitTestHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
                      unsigned short slop, void *textBufferPtr, TEPtr pTE,
                      TEHandle hTE, unsigned short *pixelWidth,
@@ -1475,7 +1475,7 @@ InvokeHitTestHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeTEFindWordUPP(unsigned short currentPos, short caller, TEPtr pTE,
                     TEHandle hTE, unsigned short *wordStart,
                     unsigned short *wordEnd, TEFindWordUPP userUPP);
@@ -1506,7 +1506,7 @@ inline void InvokeTEFindWordUPP(unsigned short currentPos, short caller,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeTERecalcUPP(TEPtr pTE, unsigned short changeLength,
                   unsigned short *lineStart, unsigned short *firstChar,
                   unsigned short *lastChar, TERecalcUPP userUPP);
@@ -1537,7 +1537,7 @@ inline void InvokeTERecalcUPP(TEPtr pTE, unsigned short changeLength,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeTEDoTextUPP(TEPtr pTE, unsigned short firstChar, unsigned short lastChar,
                   short selector, GrafPtr *currentGrafPort, short *charPosition,
                   TEDoTextUPP userUPP);
@@ -1568,7 +1568,7 @@ inline void InvokeTEDoTextUPP(TEPtr pTE, unsigned short firstChar,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeTEClickLoopUPP(TEPtr pTE, TEClickLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -1594,7 +1594,7 @@ inline Boolean InvokeTEClickLoopUPP(TEPtr pTE, TEClickLoopUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InvokeWordBreakUPP(__A0, __D0, __A1)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 InvokeWordBreakUPP(Ptr text, short charPos, WordBreakUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -2520,7 +2520,7 @@ LMSetWordRedraw(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BA5);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 teclick(Point *pt, Boolean fExtend, TEHandle h);
 
 #endif /* CALL_NOT_IN_CARBON */

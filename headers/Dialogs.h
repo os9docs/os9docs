@@ -240,7 +240,7 @@ typedef STACK_UPP_TYPE(UserItemProcPtr) UserItemUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SoundUPP)
+SoundUPP
 NewSoundUPP(SoundProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -268,7 +268,7 @@ inline SoundUPP NewSoundUPP(SoundProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ModalFilterUPP)
+ModalFilterUPP
 NewModalFilterUPP(ModalFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -295,7 +295,7 @@ inline ModalFilterUPP NewModalFilterUPP(ModalFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ModalFilterYDUPP)
+ModalFilterYDUPP
 NewModalFilterYDUPP(ModalFilterYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -323,7 +323,7 @@ inline ModalFilterYDUPP NewModalFilterYDUPP(ModalFilterYDProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UserItemUPP)
+UserItemUPP
 NewUserItemUPP(UserItemProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -350,7 +350,7 @@ inline UserItemUPP NewUserItemUPP(UserItemProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSoundUPP(SoundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -372,7 +372,7 @@ inline void DisposeSoundUPP(SoundUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeModalFilterUPP(ModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -392,7 +392,7 @@ inline void DisposeModalFilterUPP(ModalFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeModalFilterYDUPP(ModalFilterYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -412,7 +412,7 @@ inline void DisposeModalFilterYDUPP(ModalFilterYDUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeUserItemUPP(UserItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -433,7 +433,7 @@ inline void DisposeUserItemUPP(UserItemUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeSoundUPP(SInt16 soundNumber, SoundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -456,7 +456,7 @@ inline void InvokeSoundUPP(SInt16 soundNumber, SoundUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
                      DialogItemIndex *itemHit, ModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -482,7 +482,7 @@ inline Boolean InvokeModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeModalFilterYDUPP(DialogRef theDialog, EventRecord *theEvent,
                        short *itemHit, void *yourDataPtr,
                        ModalFilterYDUPP userUPP);
@@ -513,7 +513,7 @@ inline Boolean InvokeModalFilterYDUPP(DialogRef theDialog,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeUserItemUPP(DialogRef theDialog, DialogItemIndex itemNo,
                   UserItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1252,7 +1252,7 @@ GetParamText(StringPtr param0, StringPtr param1, StringPtr param2,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DialogRef)
+DialogRef
 newdialog(void *dStorage, const Rect *boundsRect, const char *title,
           Boolean visible, SInt16 procID, WindowRef behind, Boolean goAwayFlag,
           SInt32 refCon, Handle items);
@@ -1265,7 +1265,7 @@ newdialog(void *dStorage, const Rect *boundsRect, const char *title,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DialogRef)
+DialogRef
 newcolordialog(void *dStorage, const Rect *boundsRect, const char *title,
                Boolean visible, SInt16 procID, WindowRef behind,
                Boolean goAwayFlag, SInt32 refCon, Handle items);
@@ -1278,7 +1278,7 @@ newcolordialog(void *dStorage, const Rect *boundsRect, const char *title,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 paramtext(const char *param0, const char *param1, const char *param2,
           const char *param3);
 
@@ -1290,7 +1290,7 @@ paramtext(const char *param0, const char *param1, const char *param2,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getdialogitemtext(Handle item, char *text);
 
 /**
@@ -1301,7 +1301,7 @@ getdialogitemtext(Handle item, char *text);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 setdialogitemtext(Handle item, const char *text);
 
 /**
@@ -1312,7 +1312,7 @@ setdialogitemtext(Handle item, const char *text);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DialogItemIndexZeroBased)
+DialogItemIndexZeroBased
 finddialogitem(DialogRef theDialog, Point *thePt);
 
 #endif /** CALL_NOT_IN_CARBON */

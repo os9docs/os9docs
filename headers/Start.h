@@ -133,7 +133,7 @@ typedef STACK_UPP_TYPE(ExtensionTableHandlerProcPtr) ExtensionTableHandlerUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ExtensionNotificationUPP)
+ExtensionNotificationUPP
 NewExtensionNotificationUPP(ExtensionNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -162,7 +162,7 @@ NewExtensionNotificationUPP(ExtensionNotificationProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ExtensionTableHandlerUPP)
+ExtensionTableHandlerUPP
 NewExtensionTableHandlerUPP(ExtensionTableHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -191,7 +191,7 @@ NewExtensionTableHandlerUPP(ExtensionTableHandlerProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeExtensionNotificationUPP(ExtensionNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -212,7 +212,7 @@ inline void DisposeExtensionNotificationUPP(ExtensionNotificationUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeExtensionTableHandlerUPP(ExtensionTableHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -233,7 +233,7 @@ inline void DisposeExtensionTableHandlerUPP(ExtensionTableHandlerUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeExtensionNotificationUPP(UInt32 message, void *param,
                                ExtensionElementPtr extElement,
                                ExtensionNotificationUPP userUPP);
@@ -260,7 +260,7 @@ inline void InvokeExtensionNotificationUPP(UInt32 message, void *param,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeExtensionTableHandlerUPP(UInt32 message, void *param,
                                ExtensionTableHandle extTableHandle,
                                ExtensionTableHandlerUPP userUPP);
@@ -732,7 +732,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetSelectedStartupDevice(UInt16 *driveNum);
 
 /**
@@ -750,7 +750,7 @@ GetSelectedStartupDevice(UInt16 *driveNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetSelectedStartupDeviceType(OSType *interfaceType);
 
 /**
@@ -773,7 +773,7 @@ GetSelectedStartupDeviceType(OSType *interfaceType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetSelectedFirewireStartupDeviceInfo(UnsignedWide *GUID, UInt32 *mao,
                                      UInt32 *lun);
 
@@ -812,7 +812,7 @@ GetSelectedFirewireStartupDeviceInfo(UnsignedWide *GUID, UInt32 *mao,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetSelectedNetworkStartupDeviceInfo(char *protocol, char *siaddr,
                                     char *filename, char *ciaddr, char *giaddr,
                                     UInt32 *bootpRetries, UInt32 *tftpRetries,
@@ -833,7 +833,7 @@ GetSelectedNetworkStartupDeviceInfo(char *protocol, char *siaddr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsDriveSelectable(UInt16 driveNum);
 
 /**
@@ -850,7 +850,7 @@ IsDriveSelectable(UInt16 driveNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 SetSelectedStartupDevice(UInt16 driveNum);
 
 /**
@@ -890,7 +890,7 @@ SetSelectedStartupDevice(UInt16 driveNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 SetSelectedNetworkStartupDevice(char *protocol, char *siaddr, char *filename,
                                 char *ciaddr, char *giaddr, UInt32 bootpRetries,
                                 UInt32 tftpRetries, UInt32 reserved);

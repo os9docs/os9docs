@@ -272,7 +272,7 @@ typedef CALLBACK_API_C(TQAError,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QARegisterEngine(TQAEngineGetMethod engineGetMethod);
 
 /** QARegisterEngineWithRefCon parameter descriptions */
@@ -286,7 +286,7 @@ QARegisterEngine(TQAEngineGetMethod engineGetMethod);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QARegisterEngineWithRefCon(TQAEngineGetMethod engineGetMethod, long refCon);
 
 /** QAGetEngineRefCon parameter descriptions */
@@ -298,7 +298,7 @@ QARegisterEngineWithRefCon(TQAEngineGetMethod engineGetMethod, long refCon);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 QAGetCurrentEngineRefCon(void);
 
 /*************************************************************************************************
@@ -420,7 +420,7 @@ typedef enum TQADrawMethodTag TQADrawMethodTag;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QARegisterDrawMethod(TQADrawContext *drawContext, TQADrawMethodTag methodTag,
                      TQADrawMethod method);
 

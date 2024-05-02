@@ -75,7 +75,7 @@ extern const CGAffineTransform CGAffineTransformIdentity;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformMake(float a, float b, float c, float d, float tx, float ty);
 
 /** Return a transform which translates by `(tx, ty)':
@@ -88,7 +88,7 @@ CGAffineTransformMake(float a, float b, float c, float d, float tx, float ty);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformMakeTranslation(float tx, float ty);
 
 /** Return a transform which scales by `(sx, sy)':
@@ -101,7 +101,7 @@ CGAffineTransformMakeTranslation(float tx, float ty);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformMakeScale(float sx, float sy);
 
 /** Return a transform which rotates by `angle' radians:
@@ -114,7 +114,7 @@ CGAffineTransformMakeScale(float sx, float sy);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformMakeRotation(float angle);
 
 /** Translate `t' by `(tx, ty)' and return the result:
@@ -127,7 +127,7 @@ CGAffineTransformMakeRotation(float angle);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformTranslate(CGAffineTransform t, float tx, float ty);
 
 /** Scale `t' by `(sx, sy)' and return the result:
@@ -140,7 +140,7 @@ CGAffineTransformTranslate(CGAffineTransform t, float tx, float ty);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformScale(CGAffineTransform t, float sx, float sy);
 
 /** Rotate `t' by `angle' radians and return the result:
@@ -153,7 +153,7 @@ CGAffineTransformScale(CGAffineTransform t, float sx, float sy);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformRotate(CGAffineTransform t, float angle);
 
 /** Invert `t' and return the result.  If `t' has zero determinant, then `t'
@@ -166,7 +166,7 @@ CGAffineTransformRotate(CGAffineTransform t, float angle);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformInvert(CGAffineTransform t);
 
 /** Concatenate `t2' to `t1' and returne the result:
@@ -179,7 +179,7 @@ CGAffineTransformInvert(CGAffineTransform t);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGAffineTransformConcat(CGAffineTransform t1, CGAffineTransform t2);
 
 /** Transform `point' by `t' and return the result:
@@ -193,7 +193,7 @@ CGAffineTransformConcat(CGAffineTransform t1, CGAffineTransform t2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGPoint)
+CGPoint
 CGPointApplyAffineTransform(CGPoint point, CGAffineTransform t);
 
 /** Transform `size' by `t' and return the result:
@@ -207,7 +207,7 @@ CGPointApplyAffineTransform(CGPoint point, CGAffineTransform t);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGSize)
+CGSize
 CGSizeApplyAffineTransform(CGSize size, CGAffineTransform t);
 
 #ifdef __MWERKS__

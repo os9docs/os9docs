@@ -77,7 +77,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGContextRef)
+CGContextRef
 CGPDFContextCreate(CGDataConsumerRef consumer, const CGRect *mediaBox,
                    CFDictionaryRef auxiliaryInfo);
 
@@ -90,7 +90,7 @@ CGPDFContextCreate(CGDataConsumerRef consumer, const CGRect *mediaBox,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGContextRef)
+CGContextRef
 CGPDFContextCreateWithURL(CFURLRef url, const CGRect *mediaBox,
                           CFDictionaryRef auxiliaryInfo);
 

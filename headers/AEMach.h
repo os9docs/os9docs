@@ -99,7 +99,7 @@ enum { typeReplyPortAttr = FOUR_CHAR_CODE('repp') };
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(mach_port_t)
+mach_port_t
 AEGetRegisteredMachPort(void);
 
 /*-
@@ -121,7 +121,7 @@ AEGetRegisteredMachPort(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 AEDecodeMessage(mach_msg_header_t *header, AppleEvent *event,
                 AppleEvent *reply); /* can be NULL */
 
@@ -139,7 +139,7 @@ AEDecodeMessage(mach_msg_header_t *header, AppleEvent *event,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 AEProcessMessage(mach_msg_header_t *header);
 
 /*-
@@ -156,7 +156,7 @@ AEProcessMessage(mach_msg_header_t *header);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 AESendMessage(const AppleEvent *event, AppleEvent *reply, /* can be NULL */
               AESendMode sendMode, long timeOutInTicks);
 

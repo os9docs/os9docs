@@ -341,7 +341,7 @@ Microseconds(UnsignedWide *microTickCount)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TimerUPP)
+TimerUPP
 NewTimerUPP(TimerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -367,7 +367,7 @@ inline TimerUPP NewTimerUPP(TimerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTimerUPP(TimerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -390,7 +390,7 @@ inline void DisposeTimerUPP(TimerUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeTimerUPP(__A1, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP) ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)

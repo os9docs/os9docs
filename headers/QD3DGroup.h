@@ -95,7 +95,7 @@ typedef unsigned long TQ3DisplayGroupState;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3Group_New(void);
 
 /**
@@ -106,7 +106,7 @@ Q3Group_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Group_GetType(TQ3GroupObject group);
 
 /**
@@ -117,7 +117,7 @@ Q3Group_GetType(TQ3GroupObject group);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupPosition)
+TQ3GroupPosition
 Q3Group_AddObject(TQ3GroupObject group, TQ3Object object);
 
 /**
@@ -128,7 +128,7 @@ Q3Group_AddObject(TQ3GroupObject group, TQ3Object object);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupPosition)
+TQ3GroupPosition
 Q3Group_AddObjectBefore(TQ3GroupObject group, TQ3GroupPosition position,
                         TQ3Object object);
 
@@ -140,7 +140,7 @@ Q3Group_AddObjectBefore(TQ3GroupObject group, TQ3GroupPosition position,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupPosition)
+TQ3GroupPosition
 Q3Group_AddObjectAfter(TQ3GroupObject group, TQ3GroupPosition position,
                        TQ3Object object);
 
@@ -152,7 +152,7 @@ Q3Group_AddObjectAfter(TQ3GroupObject group, TQ3GroupPosition position,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetPositionObject(TQ3GroupObject group, TQ3GroupPosition position,
                           TQ3Object *object);
 
@@ -164,7 +164,7 @@ Q3Group_GetPositionObject(TQ3GroupObject group, TQ3GroupPosition position,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_SetPositionObject(TQ3GroupObject group, TQ3GroupPosition position,
                           TQ3Object object);
 
@@ -176,7 +176,7 @@ Q3Group_SetPositionObject(TQ3GroupObject group, TQ3GroupPosition position,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Object)
+TQ3Object
 Q3Group_RemovePosition(TQ3GroupObject group, TQ3GroupPosition position);
 
 /**
@@ -187,7 +187,7 @@ Q3Group_RemovePosition(TQ3GroupObject group, TQ3GroupPosition position);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetFirstPosition(TQ3GroupObject group, TQ3GroupPosition *position);
 
 /**
@@ -198,7 +198,7 @@ Q3Group_GetFirstPosition(TQ3GroupObject group, TQ3GroupPosition *position);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetLastPosition(TQ3GroupObject group, TQ3GroupPosition *position);
 
 /**
@@ -209,7 +209,7 @@ Q3Group_GetLastPosition(TQ3GroupObject group, TQ3GroupPosition *position);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetNextPosition(TQ3GroupObject group, TQ3GroupPosition *position);
 
 /**
@@ -220,7 +220,7 @@ Q3Group_GetNextPosition(TQ3GroupObject group, TQ3GroupPosition *position);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetPreviousPosition(TQ3GroupObject group, TQ3GroupPosition *position);
 
 /**
@@ -231,7 +231,7 @@ Q3Group_GetPreviousPosition(TQ3GroupObject group, TQ3GroupPosition *position);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_CountObjects(TQ3GroupObject group, unsigned long *nObjects);
 
 /**
@@ -242,7 +242,7 @@ Q3Group_CountObjects(TQ3GroupObject group, unsigned long *nObjects);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_EmptyObjects(TQ3GroupObject group);
 
 /**
@@ -256,7 +256,7 @@ Q3Group_EmptyObjects(TQ3GroupObject group);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetFirstPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
                                TQ3GroupPosition *position);
 
@@ -268,7 +268,7 @@ Q3Group_GetFirstPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetLastPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
                               TQ3GroupPosition *position);
 
@@ -280,7 +280,7 @@ Q3Group_GetLastPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetNextPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
                               TQ3GroupPosition *position);
 
@@ -292,7 +292,7 @@ Q3Group_GetNextPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetPreviousPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
                                   TQ3GroupPosition *position);
 
@@ -304,7 +304,7 @@ Q3Group_GetPreviousPositionOfType(TQ3GroupObject group, TQ3ObjectType isType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_CountObjectsOfType(TQ3GroupObject group, TQ3ObjectType isType,
                            unsigned long *nObjects);
 
@@ -316,7 +316,7 @@ Q3Group_CountObjectsOfType(TQ3GroupObject group, TQ3ObjectType isType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_EmptyObjectsOfType(TQ3GroupObject group, TQ3ObjectType isType);
 
 /**
@@ -330,7 +330,7 @@ Q3Group_EmptyObjectsOfType(TQ3GroupObject group, TQ3ObjectType isType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetFirstObjectPosition(TQ3GroupObject group, TQ3Object object,
                                TQ3GroupPosition *position);
 
@@ -342,7 +342,7 @@ Q3Group_GetFirstObjectPosition(TQ3GroupObject group, TQ3Object object,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetLastObjectPosition(TQ3GroupObject group, TQ3Object object,
                               TQ3GroupPosition *position);
 
@@ -354,7 +354,7 @@ Q3Group_GetLastObjectPosition(TQ3GroupObject group, TQ3Object object,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetNextObjectPosition(TQ3GroupObject group, TQ3Object object,
                               TQ3GroupPosition *position);
 
@@ -366,7 +366,7 @@ Q3Group_GetNextObjectPosition(TQ3GroupObject group, TQ3Object object,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Group_GetPreviousObjectPosition(TQ3GroupObject group, TQ3Object object,
                                   TQ3GroupPosition *position);
 
@@ -384,7 +384,7 @@ Q3Group_GetPreviousObjectPosition(TQ3GroupObject group, TQ3Object object,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3LightGroup_New(void);
 
 /* Must contain only strings */
@@ -396,7 +396,7 @@ Q3LightGroup_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3InfoGroup_New(void);
 
 /******************************************************************************
@@ -413,7 +413,7 @@ Q3InfoGroup_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3DisplayGroup_New(void);
 
 /**
@@ -424,7 +424,7 @@ Q3DisplayGroup_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3DisplayGroup_GetType(TQ3GroupObject group);
 
 /**
@@ -435,7 +435,7 @@ Q3DisplayGroup_GetType(TQ3GroupObject group);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DisplayGroup_GetState(TQ3GroupObject group, TQ3DisplayGroupState *state);
 
 /**
@@ -446,7 +446,7 @@ Q3DisplayGroup_GetState(TQ3GroupObject group, TQ3DisplayGroupState *state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DisplayGroup_SetState(TQ3GroupObject group, TQ3DisplayGroupState state);
 
 /**
@@ -457,7 +457,7 @@ Q3DisplayGroup_SetState(TQ3GroupObject group, TQ3DisplayGroupState state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DisplayGroup_Submit(TQ3GroupObject group, TQ3ViewObject view);
 
 /**
@@ -468,7 +468,7 @@ Q3DisplayGroup_Submit(TQ3GroupObject group, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DisplayGroup_SetAndUseBoundingBox(TQ3GroupObject group, TQ3BoundingBox *bBox);
 
 /**
@@ -479,7 +479,7 @@ Q3DisplayGroup_SetAndUseBoundingBox(TQ3GroupObject group, TQ3BoundingBox *bBox);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DisplayGroup_GetBoundingBox(TQ3GroupObject group, TQ3BoundingBox *bBox);
 
 /**
@@ -490,7 +490,7 @@ Q3DisplayGroup_GetBoundingBox(TQ3GroupObject group, TQ3BoundingBox *bBox);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DisplayGroup_RemoveBoundingBox(TQ3GroupObject group);
 
 /**
@@ -501,7 +501,7 @@ Q3DisplayGroup_RemoveBoundingBox(TQ3GroupObject group);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DisplayGroup_CalcAndUseBoundingBox(TQ3GroupObject group,
                                      TQ3ComputeBounds computeBounds,
                                      TQ3ViewObject view);
@@ -544,7 +544,7 @@ Q3DisplayGroup_CalcAndUseBoundingBox(TQ3GroupObject group,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3OrderedDisplayGroup_New(void);
 
 /******************************************************************************
@@ -574,7 +574,7 @@ Q3OrderedDisplayGroup_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3IOProxyDisplayGroup_New(void);
 
 /******************************************************************************
@@ -735,7 +735,7 @@ typedef CALLBACK_API_C(TQ3Status, TQ3XGroupEndReadMethod)(TQ3GroupObject group);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 Q3XGroup_GetPositionPrivate(TQ3GroupObject group, TQ3GroupPosition position);
 
 #endif /* CALL_NOT_IN_CARBON */

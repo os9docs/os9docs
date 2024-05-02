@@ -458,7 +458,7 @@ typedef STACK_UPP_TYPE(PickerGetColorProcPtr) PickerGetColorUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerOpenUPP)
+PickerOpenUPP
 NewPickerOpenUPP(PickerOpenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -484,7 +484,7 @@ inline PickerOpenUPP NewPickerOpenUPP(PickerOpenProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerCloseUPP)
+PickerCloseUPP
 NewPickerCloseUPP(PickerCloseProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -511,7 +511,7 @@ inline PickerCloseUPP NewPickerCloseUPP(PickerCloseProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerCanDoUPP)
+PickerCanDoUPP
 NewPickerCanDoUPP(PickerCanDoProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -538,7 +538,7 @@ inline PickerCanDoUPP NewPickerCanDoUPP(PickerCanDoProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerVersionUPP)
+PickerVersionUPP
 NewPickerVersionUPP(PickerVersionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -566,7 +566,7 @@ inline PickerVersionUPP NewPickerVersionUPP(PickerVersionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerRegisterUPP)
+PickerRegisterUPP
 NewPickerRegisterUPP(PickerRegisterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -595,7 +595,7 @@ NewPickerRegisterUPP(PickerRegisterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetTargetUPP)
+PickerSetTargetUPP
 NewPickerSetTargetUPP(PickerSetTargetProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -624,7 +624,7 @@ NewPickerSetTargetUPP(PickerSetTargetProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerInitUPP)
+PickerInitUPP
 NewPickerInitUPP(PickerInitProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -650,7 +650,7 @@ inline PickerInitUPP NewPickerInitUPP(PickerInitProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerTestGraphicsWorldUPP)
+PickerTestGraphicsWorldUPP
 NewPickerTestGraphicsWorldUPP(PickerTestGraphicsWorldProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -679,7 +679,7 @@ NewPickerTestGraphicsWorldUPP(PickerTestGraphicsWorldProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerGetDialogUPP)
+PickerGetDialogUPP
 NewPickerGetDialogUPP(PickerGetDialogProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -708,7 +708,7 @@ NewPickerGetDialogUPP(PickerGetDialogProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerGetItemListUPP)
+PickerGetItemListUPP
 NewPickerGetItemListUPP(PickerGetItemListProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -737,7 +737,7 @@ NewPickerGetItemListUPP(PickerGetItemListProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerGetColorUPP)
+PickerGetColorUPP
 NewPickerGetColorUPP(PickerGetColorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -766,7 +766,7 @@ NewPickerGetColorUPP(PickerGetColorProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerOpenUPP(PickerOpenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -786,7 +786,7 @@ inline void DisposePickerOpenUPP(PickerOpenUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerCloseUPP(PickerCloseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -806,7 +806,7 @@ inline void DisposePickerCloseUPP(PickerCloseUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerCanDoUPP(PickerCanDoUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -826,7 +826,7 @@ inline void DisposePickerCanDoUPP(PickerCanDoUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerVersionUPP(PickerVersionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -846,7 +846,7 @@ inline void DisposePickerVersionUPP(PickerVersionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerRegisterUPP(PickerRegisterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -866,7 +866,7 @@ inline void DisposePickerRegisterUPP(PickerRegisterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetTargetUPP(PickerSetTargetUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -886,7 +886,7 @@ inline void DisposePickerSetTargetUPP(PickerSetTargetUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerInitUPP(PickerInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -906,7 +906,7 @@ inline void DisposePickerInitUPP(PickerInitUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerTestGraphicsWorldUPP(PickerTestGraphicsWorldUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -928,7 +928,7 @@ DisposePickerTestGraphicsWorldUPP(PickerTestGraphicsWorldUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerGetDialogUPP(PickerGetDialogUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -948,7 +948,7 @@ inline void DisposePickerGetDialogUPP(PickerGetDialogUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerGetItemListUPP(PickerGetItemListUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -968,7 +968,7 @@ inline void DisposePickerGetItemListUPP(PickerGetItemListUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerGetColorUPP(PickerGetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -988,7 +988,7 @@ inline void DisposePickerGetColorUPP(PickerGetColorUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerOpenUPP(long storage, ComponentInstance self,
                     PickerOpenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1013,7 +1013,7 @@ inline ComponentResult InvokePickerOpenUPP(long storage, ComponentInstance self,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerCloseUPP(long storage, ComponentInstance self,
                      PickerCloseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1039,7 +1039,7 @@ inline ComponentResult InvokePickerCloseUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerCanDoUPP(long storage, short selector, PickerCanDoUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1063,7 +1063,7 @@ inline ComponentResult InvokePickerCanDoUPP(long storage, short selector,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerVersionUPP(long storage, PickerVersionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1087,7 +1087,7 @@ inline ComponentResult InvokePickerVersionUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerRegisterUPP(long storage, PickerRegisterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1111,7 +1111,7 @@ inline ComponentResult InvokePickerRegisterUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetTargetUPP(long storage, ComponentInstance topOfCallChain,
                          PickerSetTargetUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1137,7 +1137,7 @@ InvokePickerSetTargetUPP(long storage, ComponentInstance topOfCallChain,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerInitUPP(long storage, PickerInitData *data, PickerInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1161,7 +1161,7 @@ inline ComponentResult InvokePickerInitUPP(long storage, PickerInitData *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerTestGraphicsWorldUPP(long storage, PickerInitData *data,
                                  PickerTestGraphicsWorldUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1187,7 +1187,7 @@ InvokePickerTestGraphicsWorldUPP(long storage, PickerInitData *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerGetDialogUPP(long storage, PickerGetDialogUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1211,7 +1211,7 @@ inline ComponentResult InvokePickerGetDialogUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerGetItemListUPP(long storage, PickerGetItemListUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1235,7 +1235,7 @@ InvokePickerGetItemListUPP(long storage, PickerGetItemListUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerGetColorUPP(long storage, PickerColorType whichColor,
                         PMColorPtr color, PickerGetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1704,7 +1704,7 @@ typedef STACK_UPP_TYPE(PickerExtractHelpItemProcPtr) PickerExtractHelpItemUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetColorUPP)
+PickerSetColorUPP
 NewPickerSetColorUPP(PickerSetColorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1733,7 +1733,7 @@ NewPickerSetColorUPP(PickerSetColorProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerEventUPP)
+PickerEventUPP
 NewPickerEventUPP(PickerEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1760,7 +1760,7 @@ inline PickerEventUPP NewPickerEventUPP(PickerEventProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerEditUPP)
+PickerEditUPP
 NewPickerEditUPP(PickerEditProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1786,7 +1786,7 @@ inline PickerEditUPP NewPickerEditUPP(PickerEditProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetVisibilityUPP)
+PickerSetVisibilityUPP
 NewPickerSetVisibilityUPP(PickerSetVisibilityProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1815,7 +1815,7 @@ NewPickerSetVisibilityUPP(PickerSetVisibilityProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerDisplayUPP)
+PickerDisplayUPP
 NewPickerDisplayUPP(PickerDisplayProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1843,7 +1843,7 @@ inline PickerDisplayUPP NewPickerDisplayUPP(PickerDisplayProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerItemHitUPP)
+PickerItemHitUPP
 NewPickerItemHitUPP(PickerItemHitProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1871,7 +1871,7 @@ inline PickerItemHitUPP NewPickerItemHitUPP(PickerItemHitProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetBaseItemUPP)
+PickerSetBaseItemUPP
 NewPickerSetBaseItemUPP(PickerSetBaseItemProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1900,7 +1900,7 @@ NewPickerSetBaseItemUPP(PickerSetBaseItemProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerGetProfileUPP)
+PickerGetProfileUPP
 NewPickerGetProfileUPP(PickerGetProfileProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1929,7 +1929,7 @@ NewPickerGetProfileUPP(PickerGetProfileProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetProfileUPP)
+PickerSetProfileUPP
 NewPickerSetProfileUPP(PickerSetProfileProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1958,7 +1958,7 @@ NewPickerSetProfileUPP(PickerSetProfileProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerGetPromptUPP)
+PickerGetPromptUPP
 NewPickerGetPromptUPP(PickerGetPromptProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1987,7 +1987,7 @@ NewPickerGetPromptUPP(PickerGetPromptProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetPromptUPP)
+PickerSetPromptUPP
 NewPickerSetPromptUPP(PickerSetPromptProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2016,7 +2016,7 @@ NewPickerSetPromptUPP(PickerSetPromptProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerGetIconDataUPP)
+PickerGetIconDataUPP
 NewPickerGetIconDataUPP(PickerGetIconDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2045,7 +2045,7 @@ NewPickerGetIconDataUPP(PickerGetIconDataProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerGetEditMenuStateUPP)
+PickerGetEditMenuStateUPP
 NewPickerGetEditMenuStateUPP(PickerGetEditMenuStateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2074,7 +2074,7 @@ NewPickerGetEditMenuStateUPP(PickerGetEditMenuStateProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetOriginUPP)
+PickerSetOriginUPP
 NewPickerSetOriginUPP(PickerSetOriginProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2103,7 +2103,7 @@ NewPickerSetOriginUPP(PickerSetOriginProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerSetColorChangedProcUPP)
+PickerSetColorChangedProcUPP
 NewPickerSetColorChangedProcUPP(PickerSetColorChangedProcProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2132,7 +2132,7 @@ NewPickerSetColorChangedProcUPP(PickerSetColorChangedProcProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NPickerGetColorUPP)
+NPickerGetColorUPP
 NewNPickerGetColorUPP(NPickerGetColorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2161,7 +2161,7 @@ NewNPickerGetColorUPP(NPickerGetColorProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NPickerSetColorUPP)
+NPickerSetColorUPP
 NewNPickerSetColorUPP(NPickerSetColorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2190,7 +2190,7 @@ NewNPickerSetColorUPP(NPickerSetColorProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NPickerGetProfileUPP)
+NPickerGetProfileUPP
 NewNPickerGetProfileUPP(NPickerGetProfileProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2219,7 +2219,7 @@ NewNPickerGetProfileUPP(NPickerGetProfileProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NPickerSetProfileUPP)
+NPickerSetProfileUPP
 NewNPickerSetProfileUPP(NPickerSetProfileProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2248,7 +2248,7 @@ NewNPickerSetProfileUPP(NPickerSetProfileProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NPickerSetColorChangedProcUPP)
+NPickerSetColorChangedProcUPP
 NewNPickerSetColorChangedProcUPP(NPickerSetColorChangedProcProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2277,7 +2277,7 @@ inline NPickerSetColorChangedProcUPP NewNPickerSetColorChangedProcUPP(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PickerExtractHelpItemUPP)
+PickerExtractHelpItemUPP
 NewPickerExtractHelpItemUPP(PickerExtractHelpItemProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2306,7 +2306,7 @@ NewPickerExtractHelpItemUPP(PickerExtractHelpItemProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetColorUPP(PickerSetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2326,7 +2326,7 @@ inline void DisposePickerSetColorUPP(PickerSetColorUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerEventUPP(PickerEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2346,7 +2346,7 @@ inline void DisposePickerEventUPP(PickerEventUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerEditUPP(PickerEditUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2366,7 +2366,7 @@ inline void DisposePickerEditUPP(PickerEditUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetVisibilityUPP(PickerSetVisibilityUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2386,7 +2386,7 @@ inline void DisposePickerSetVisibilityUPP(PickerSetVisibilityUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerDisplayUPP(PickerDisplayUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2406,7 +2406,7 @@ inline void DisposePickerDisplayUPP(PickerDisplayUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerItemHitUPP(PickerItemHitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2426,7 +2426,7 @@ inline void DisposePickerItemHitUPP(PickerItemHitUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetBaseItemUPP(PickerSetBaseItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2446,7 +2446,7 @@ inline void DisposePickerSetBaseItemUPP(PickerSetBaseItemUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerGetProfileUPP(PickerGetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2466,7 +2466,7 @@ inline void DisposePickerGetProfileUPP(PickerGetProfileUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetProfileUPP(PickerSetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2486,7 +2486,7 @@ inline void DisposePickerSetProfileUPP(PickerSetProfileUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerGetPromptUPP(PickerGetPromptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2506,7 +2506,7 @@ inline void DisposePickerGetPromptUPP(PickerGetPromptUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetPromptUPP(PickerSetPromptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2526,7 +2526,7 @@ inline void DisposePickerSetPromptUPP(PickerSetPromptUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerGetIconDataUPP(PickerGetIconDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2546,7 +2546,7 @@ inline void DisposePickerGetIconDataUPP(PickerGetIconDataUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerGetEditMenuStateUPP(PickerGetEditMenuStateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2568,7 +2568,7 @@ DisposePickerGetEditMenuStateUPP(PickerGetEditMenuStateUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetOriginUPP(PickerSetOriginUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2588,7 +2588,7 @@ inline void DisposePickerSetOriginUPP(PickerSetOriginUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerSetColorChangedProcUPP(PickerSetColorChangedProcUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2610,7 +2610,7 @@ DisposePickerSetColorChangedProcUPP(PickerSetColorChangedProcUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeNPickerGetColorUPP(NPickerGetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2630,7 +2630,7 @@ inline void DisposeNPickerGetColorUPP(NPickerGetColorUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeNPickerSetColorUPP(NPickerSetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2650,7 +2650,7 @@ inline void DisposeNPickerSetColorUPP(NPickerSetColorUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeNPickerGetProfileUPP(NPickerGetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2670,7 +2670,7 @@ inline void DisposeNPickerGetProfileUPP(NPickerGetProfileUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeNPickerSetProfileUPP(NPickerSetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2690,7 +2690,7 @@ inline void DisposeNPickerSetProfileUPP(NPickerSetProfileUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeNPickerSetColorChangedProcUPP(NPickerSetColorChangedProcUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2712,7 +2712,7 @@ DisposeNPickerSetColorChangedProcUPP(NPickerSetColorChangedProcUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePickerExtractHelpItemUPP(PickerExtractHelpItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2733,7 +2733,7 @@ inline void DisposePickerExtractHelpItemUPP(PickerExtractHelpItemUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetColorUPP(long storage, PickerColorType whichColor,
                         PMColorPtr color, PickerSetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2760,7 +2760,7 @@ inline ComponentResult InvokePickerSetColorUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerEventUPP(long storage, PickerEventData *data,
                      PickerEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2785,7 +2785,7 @@ inline ComponentResult InvokePickerEventUPP(long storage, PickerEventData *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerEditUPP(long storage, PickerEditData *data, PickerEditUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2809,7 +2809,7 @@ inline ComponentResult InvokePickerEditUPP(long storage, PickerEditData *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetVisibilityUPP(long storage, Boolean visible,
                              PickerSetVisibilityUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2835,7 +2835,7 @@ InvokePickerSetVisibilityUPP(long storage, Boolean visible,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerDisplayUPP(long storage, PickerDisplayUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2859,7 +2859,7 @@ inline ComponentResult InvokePickerDisplayUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerItemHitUPP(long storage, PickerItemHitData *data,
                        PickerItemHitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2885,7 +2885,7 @@ inline ComponentResult InvokePickerItemHitUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetBaseItemUPP(long storage, short baseItem,
                            PickerSetBaseItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2911,7 +2911,7 @@ InvokePickerSetBaseItemUPP(long storage, short baseItem,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerGetProfileUPP(long storage, PickerGetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2935,7 +2935,7 @@ inline ComponentResult InvokePickerGetProfileUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetProfileUPP(long storage, CMProfileHandle profile,
                           PickerSetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2961,7 +2961,7 @@ inline ComponentResult InvokePickerSetProfileUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerGetPromptUPP(long storage, Str255 prompt,
                          PickerGetPromptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2986,7 +2986,7 @@ inline ComponentResult InvokePickerGetPromptUPP(long storage, Str255 prompt,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetPromptUPP(long storage, ConstStr255Param prompt,
                          PickerSetPromptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3012,7 +3012,7 @@ inline ComponentResult InvokePickerSetPromptUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerGetIconDataUPP(long storage, PickerIconData *data,
                            PickerGetIconDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3038,7 +3038,7 @@ InvokePickerGetIconDataUPP(long storage, PickerIconData *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerGetEditMenuStateUPP(long storage, PickerMenuState *mState,
                                 PickerGetEditMenuStateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3064,7 +3064,7 @@ InvokePickerGetEditMenuStateUPP(long storage, PickerMenuState *mState,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetOriginUPP(long storage, Point where, PickerSetOriginUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -3088,7 +3088,7 @@ inline ComponentResult InvokePickerSetOriginUPP(long storage, Point where,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerSetColorChangedProcUPP(long storage, NColorChangedUPP colorProc,
                                    long colorProcData,
                                    PickerSetColorChangedProcUPP userUPP);
@@ -3119,7 +3119,7 @@ InvokePickerSetColorChangedProcUPP(long storage, NColorChangedUPP colorProc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeNPickerGetColorUPP(long storage, PickerColorType whichColor,
                          NPMColor *color, NPickerGetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3146,7 +3146,7 @@ inline ComponentResult InvokeNPickerGetColorUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeNPickerSetColorUPP(long storage, PickerColorType whichColor,
                          NPMColor *color, NPickerSetColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3173,7 +3173,7 @@ inline ComponentResult InvokeNPickerSetColorUPP(long storage,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeNPickerGetProfileUPP(long storage, CMProfileRef *profile,
                            NPickerGetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3199,7 +3199,7 @@ InvokeNPickerGetProfileUPP(long storage, CMProfileRef *profile,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeNPickerSetProfileUPP(long storage, CMProfileRef profile,
                            NPickerSetProfileUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3225,7 +3225,7 @@ InvokeNPickerSetProfileUPP(long storage, CMProfileRef profile,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeNPickerSetColorChangedProcUPP(long storage, NColorChangedUPP colorProc,
                                     long colorProcData,
                                     NPickerSetColorChangedProcUPP userUPP);
@@ -3256,7 +3256,7 @@ InvokeNPickerSetColorChangedProcUPP(long storage, NColorChangedUPP colorProc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePickerExtractHelpItemUPP(long storage, short itemNo, short whichMsg,
                                PickerHelpItemInfo *helpInfo,
                                PickerExtractHelpItemUPP userUPP);

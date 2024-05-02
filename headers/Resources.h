@@ -92,7 +92,7 @@ typedef REGISTER_UPP_TYPE(ResErrProcPtr) ResErrUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ResErrUPP)
+ResErrUPP
 NewResErrUPP(ResErrProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -118,7 +118,7 @@ inline ResErrUPP NewResErrUPP(ResErrProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeResErrUPP(ResErrUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -141,7 +141,7 @@ inline void DisposeResErrUPP(ResErrUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeResErrUPP(__D0, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP) ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -1283,7 +1283,7 @@ GetNextFOND(Handle fondHandle) TWOWORDINLINE(0x700A, 0xA822);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 RegisterResourceEndianFilter(ResType theType,
                              ResourceEndianFilterPtr theFilterProc);
 
@@ -1440,7 +1440,7 @@ GetNextResourceFile(SInt16 curRefNum, SInt16 *nextRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Handle)
+Handle
 getnamedresource(ResType theType, const char *name);
 
 /**
@@ -1451,7 +1451,7 @@ getnamedresource(ResType theType, const char *name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Handle)
+Handle
 get1namedresource(ResType theType, const char *name);
 
 /**
@@ -1462,7 +1462,7 @@ get1namedresource(ResType theType, const char *name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 openrfperm(const char *fileName, short vRefNum, char permission);
 
 /**
@@ -1473,7 +1473,7 @@ openrfperm(const char *fileName, short vRefNum, char permission);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 openresfile(const char *fileName);
 
 /**
@@ -1484,7 +1484,7 @@ openresfile(const char *fileName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 createresfile(const char *fileName);
 
 /**
@@ -1495,7 +1495,7 @@ createresfile(const char *fileName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getresinfo(Handle theResource, short *theID, ResType *theType, char *name);
 
 /**
@@ -1506,7 +1506,7 @@ getresinfo(Handle theResource, short *theID, ResType *theType, char *name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 setresinfo(Handle theResource, short theID, const char *name);
 
 /**
@@ -1517,7 +1517,7 @@ setresinfo(Handle theResource, short theID, const char *name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 addresource(Handle theResource, ResType theType, short theID, const char *name);
 
 #endif /* CALL_NOT_IN_CARBON */

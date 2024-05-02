@@ -139,7 +139,7 @@ typedef STACK_UPP_TYPE(GetSpecificFilterProcPtr) GetSpecificFilterUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(GetSpecificFilterUPP)
+GetSpecificFilterUPP
 NewGetSpecificFilterUPP(GetSpecificFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -168,7 +168,7 @@ NewGetSpecificFilterUPP(GetSpecificFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeGetSpecificFilterUPP(GetSpecificFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -188,7 +188,7 @@ inline void DisposeGetSpecificFilterUPP(GetSpecificFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeGetSpecificFilterUPP(void *contextPtr, HighLevelEventMsgPtr msgBuff,
                            const TargetID *sender,
                            GetSpecificFilterUPP userUPP);

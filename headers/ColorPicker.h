@@ -380,7 +380,7 @@ NPickColor(NColorPickerInfo *theColorInfo)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ColorChangedUPP)
+ColorChangedUPP
 NewColorChangedUPP(ColorChangedProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -408,7 +408,7 @@ inline ColorChangedUPP NewColorChangedUPP(ColorChangedProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NColorChangedUPP)
+NColorChangedUPP
 NewNColorChangedUPP(NColorChangedProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -436,7 +436,7 @@ inline NColorChangedUPP NewNColorChangedUPP(NColorChangedProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UserEventUPP)
+UserEventUPP
 NewUserEventUPP(UserEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppUserEventProcInfo = 0x000000D0 }; /* pascal 1_byte Func(4_bytes) */
@@ -460,7 +460,7 @@ inline UserEventUPP NewUserEventUPP(UserEventProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeColorChangedUPP(ColorChangedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -480,7 +480,7 @@ inline void DisposeColorChangedUPP(ColorChangedUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeNColorChangedUPP(NColorChangedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -500,7 +500,7 @@ inline void DisposeNColorChangedUPP(NColorChangedUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeUserEventUPP(UserEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -520,7 +520,7 @@ inline void DisposeUserEventUPP(UserEventUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeColorChangedUPP(long userData, PMColor *newColor,
                       ColorChangedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -544,7 +544,7 @@ inline void InvokeColorChangedUPP(long userData, PMColor *newColor,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeNColorChangedUPP(long userData, NPMColor *newColor,
                        NColorChangedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -568,7 +568,7 @@ inline void InvokeNColorChangedUPP(long userData, NPMColor *newColor,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeUserEventUPP(EventRecord *event, UserEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

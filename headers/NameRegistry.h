@@ -228,7 +228,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryIDInit(RegEntryID *id) TWOWORDINLINE(0x7000, 0xABE9);
 
 /**
@@ -246,7 +246,7 @@ RegistryEntryIDInit(RegEntryID *id) TWOWORDINLINE(0x7000, 0xABE9);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 RegistryEntryIDCompare(const RegEntryID *id1, const RegEntryID *id2)
     TWOWORDINLINE(0x7001, 0xABE9);
 
@@ -261,7 +261,7 @@ RegistryEntryIDCompare(const RegEntryID *id1, const RegEntryID *id2)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryIDCopy(const RegEntryID *src, RegEntryID *dst)
     TWOWORDINLINE(0x7002, 0xABE9);
 
@@ -276,7 +276,7 @@ RegistryEntryIDCopy(const RegEntryID *src, RegEntryID *dst)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryIDDispose(RegEntryID *id) TWOWORDINLINE(0x7003, 0xABE9);
 
 /**-------------------------------
@@ -293,7 +293,7 @@ RegistryEntryIDDispose(RegEntryID *id) TWOWORDINLINE(0x7003, 0xABE9);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryCStrEntryCreate(const RegEntryID *parentEntry,
                         const RegCStrPathName *name, RegEntryID *newEntry)
     TWOWORDINLINE(0x7004, 0xABE9);
@@ -306,7 +306,7 @@ RegistryCStrEntryCreate(const RegEntryID *parentEntry,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryDelete(const RegEntryID *id) TWOWORDINLINE(0x7005, 0xABE9);
 
 /**
@@ -317,7 +317,7 @@ RegistryEntryDelete(const RegEntryID *id) TWOWORDINLINE(0x7005, 0xABE9);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryCopy(RegEntryID *parentEntryID, RegEntryID *sourceDevice,
                   RegEntryID *destDevice) TWOWORDINLINE(0x7006, 0xABE9);
 
@@ -367,7 +367,7 @@ typedef struct OpaqueRegEntryIter *RegEntryIter;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryIterateCreate(RegEntryIter *cookie) TWOWORDINLINE(0x7007, 0xABE9);
 
 /**
@@ -378,7 +378,7 @@ RegistryEntryIterateCreate(RegEntryIter *cookie) TWOWORDINLINE(0x7007, 0xABE9);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryIterateDispose(RegEntryIter *cookie) TWOWORDINLINE(0x7008, 0xABE9);
 
 /**
@@ -392,7 +392,7 @@ RegistryEntryIterateDispose(RegEntryIter *cookie) TWOWORDINLINE(0x7008, 0xABE9);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryIterateSet(RegEntryIter *cookie, const RegEntryID *startEntryID)
     TWOWORDINLINE(0x7009, 0xABE9);
 
@@ -410,7 +410,7 @@ RegistryEntryIterateSet(RegEntryIter *cookie, const RegEntryID *startEntryID)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryIterate(RegEntryIter *cookie, RegEntryIterationOp relationship,
                      RegEntryID *foundEntry, Boolean *done)
     TWOWORDINLINE(0x700A, 0xABE9);
@@ -429,7 +429,7 @@ RegistryEntryIterate(RegEntryIter *cookie, RegEntryIterationOp relationship,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntrySearch(RegEntryIter *cookie, RegEntryIterationOp relationship,
                     RegEntryID *foundEntry, Boolean *done,
                     const RegPropertyName *propertyName,
@@ -455,7 +455,7 @@ RegistryEntrySearch(RegEntryIter *cookie, RegEntryIterationOp relationship,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryCStrEntryLookup(const RegEntryID *searchPointID,
                         const RegCStrPathName *pathName, RegEntryID *foundEntry)
     TWOWORDINLINE(0x700C, 0xABE9);
@@ -474,7 +474,7 @@ RegistryCStrEntryLookup(const RegEntryID *searchPointID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryToPathSize(const RegEntryID *entryID, RegPathNameSize *pathSize)
     TWOWORDINLINE(0x700D, 0xABE9);
 
@@ -486,7 +486,7 @@ RegistryEntryToPathSize(const RegEntryID *entryID, RegPathNameSize *pathSize)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryCStrEntryToPath(const RegEntryID *entryID, RegCStrPathName *pathName,
                         RegPathNameSize pathSize) TWOWORDINLINE(0x700E, 0xABE9);
 
@@ -504,7 +504,7 @@ RegistryCStrEntryToPath(const RegEntryID *entryID, RegCStrPathName *pathName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryCStrEntryToName(const RegEntryID *entryID, RegEntryID *parentEntry,
                         RegCStrEntryName *nameComponent, Boolean *done)
     TWOWORDINLINE(0x700F, 0xABE9);
@@ -525,7 +525,7 @@ RegistryCStrEntryToName(const RegEntryID *entryID, RegEntryID *parentEntry,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyCreate(const RegEntryID *entryID,
                        const RegPropertyName *propertyName,
                        const void *propertyValue,
@@ -540,7 +540,7 @@ RegistryPropertyCreate(const RegEntryID *entryID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyDelete(const RegEntryID *entryID,
                        const RegPropertyName *propertyName)
     TWOWORDINLINE(0x7011, 0xABE9);
@@ -553,7 +553,7 @@ RegistryPropertyDelete(const RegEntryID *entryID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyRename(const RegEntryID *entry, const RegPropertyName *oldName,
                        const RegPropertyName *newName)
     TWOWORDINLINE(0x7012, 0xABE9);
@@ -574,7 +574,7 @@ typedef struct OpaqueRegPropertyIter *RegPropertyIter;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyIterateCreate(const RegEntryID *entry, RegPropertyIter *cookie)
     TWOWORDINLINE(0x7013, 0xABE9);
 
@@ -586,7 +586,7 @@ RegistryPropertyIterateCreate(const RegEntryID *entry, RegPropertyIter *cookie)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyIterateDispose(RegPropertyIter *cookie)
     TWOWORDINLINE(0x7014, 0xABE9);
 
@@ -598,7 +598,7 @@ RegistryPropertyIterateDispose(RegPropertyIter *cookie)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyIterate(RegPropertyIter *cookie, RegPropertyName *foundProperty,
                         Boolean *done) TWOWORDINLINE(0x7015, 0xABE9);
 
@@ -614,7 +614,7 @@ RegistryPropertyIterate(RegPropertyIter *cookie, RegPropertyName *foundProperty,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyGetSize(const RegEntryID *entryID,
                         const RegPropertyName *propertyName,
                         RegPropertyValueSize *propertySize)
@@ -633,7 +633,7 @@ RegistryPropertyGetSize(const RegEntryID *entryID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyGet(const RegEntryID *entryID,
                     const RegPropertyName *propertyName, void *propertyValue,
                     RegPropertyValueSize *propertySize)
@@ -647,7 +647,7 @@ RegistryPropertyGet(const RegEntryID *entryID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertySet(const RegEntryID *entryID,
                     const RegPropertyName *propertyName,
                     const void *propertyValue,
@@ -679,7 +679,7 @@ RegistryPropertySet(const RegEntryID *entryID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryGetMod(const RegEntryID *entry, RegEntryModifiers *modifiers)
     TWOWORDINLINE(0x7019, 0xABE9);
 
@@ -691,7 +691,7 @@ RegistryEntryGetMod(const RegEntryID *entry, RegEntryModifiers *modifiers)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntrySetMod(const RegEntryID *entry, RegEntryModifiers modifiers)
     TWOWORDINLINE(0x701A, 0xABE9);
 
@@ -706,7 +706,7 @@ RegistryEntrySetMod(const RegEntryID *entry, RegEntryModifiers modifiers)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertyGetMod(const RegEntryID *entry, const RegPropertyName *name,
                        RegPropertyModifiers *modifiers)
     TWOWORDINLINE(0x701B, 0xABE9);
@@ -719,7 +719,7 @@ RegistryPropertyGetMod(const RegEntryID *entry, const RegPropertyName *name,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryPropertySetMod(const RegEntryID *entry, const RegPropertyName *name,
                        RegPropertyModifiers modifiers)
     TWOWORDINLINE(0x701C, 0xABE9);
@@ -735,7 +735,7 @@ RegistryPropertySetMod(const RegEntryID *entry, const RegPropertyName *name,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryMod(RegEntryIter *cookie, RegEntryIterationOp relationship,
                  RegEntryID *foundEntry, Boolean *done,
                  RegEntryModifiers matchingModifiers)
@@ -753,7 +753,7 @@ RegistryEntryMod(RegEntryIter *cookie, RegEntryIterationOp relationship,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegistryEntryPropertyMod(RegEntryIter *cookie, RegEntryIterationOp relationship,
                          RegEntryID *foundEntry, Boolean *done,
                          RegPropertyModifiers matchingModifiers)

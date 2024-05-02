@@ -68,7 +68,7 @@ typedef REGISTER_UPP_TYPE(ShutDwnProcPtr) ShutDwnUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ShutDwnUPP)
+ShutDwnUPP
 NewShutDwnUPP(ShutDwnProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -94,7 +94,7 @@ inline ShutDwnUPP NewShutDwnUPP(ShutDwnProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeShutDwnUPP(ShutDwnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -117,7 +117,7 @@ inline void DisposeShutDwnUPP(ShutDwnUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeShutDwnUPP(__D0, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP) ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)

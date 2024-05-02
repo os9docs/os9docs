@@ -101,7 +101,7 @@ struct EParamBlock {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ENETCompletionUPP)
+ENETCompletionUPP
 NewENETCompletionUPP(ENETCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -130,7 +130,7 @@ NewENETCompletionUPP(ENETCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeENETCompletionUPP(ENETCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -153,7 +153,7 @@ inline void DisposeENETCompletionUPP(ENETCompletionUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeENETCompletionUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeENETCompletionUPP(EParamBlkPtr thePBPtr, ENETCompletionUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \

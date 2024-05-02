@@ -103,7 +103,7 @@ typedef enum _CGCommonWindowLevelKey _CGCommonWindowLevelKey;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGWindowLevel)
+CGWindowLevel
 CGWindowLevelForKey(CGWindowLevelKey key);
 
 /* number of levels above kCGMaximumWindowLevel reserved for internal use */

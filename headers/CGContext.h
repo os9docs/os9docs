@@ -144,7 +144,7 @@ typedef enum CGInterpolationQuality CGInterpolationQuality;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSaveGState(CGContextRef ctx);
 
 /* Restore the current graphics state from the one on the top of the
@@ -158,7 +158,7 @@ CGContextSaveGState(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextRestoreGState(CGContextRef ctx);
 
 /** Coordinate space transformations. **/
@@ -172,7 +172,7 @@ CGContextRestoreGState(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextScaleCTM(CGContextRef ctx, float sx, float sy);
 
 /* Translate the current graphics state's transformation matrix (the CTM)
@@ -185,7 +185,7 @@ CGContextScaleCTM(CGContextRef ctx, float sx, float sy);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextTranslateCTM(CGContextRef ctx, float tx, float ty);
 
 /* Rotate the current graphics state's transformation matrix (the CTM) by
@@ -198,7 +198,7 @@ CGContextTranslateCTM(CGContextRef ctx, float tx, float ty);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextRotateCTM(CGContextRef ctx, float angle);
 
 /* Concatenate the current graphics state's transformation matrix (the CTM)
@@ -211,7 +211,7 @@ CGContextRotateCTM(CGContextRef ctx, float angle);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextConcatCTM(CGContextRef ctx, CGAffineTransform transform);
 
 /* Return the current graphics state's transformation matrix. */
@@ -223,7 +223,7 @@ CGContextConcatCTM(CGContextRef ctx, CGAffineTransform transform);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGContextGetCTM(CGContextRef ctx);
 
 /** Drawing attribute functions. **/
@@ -236,7 +236,7 @@ CGContextGetCTM(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetLineWidth(CGContextRef ctx, float width);
 
 /* Set the line cap in the current graphics state to `cap'. */
@@ -248,7 +248,7 @@ CGContextSetLineWidth(CGContextRef ctx, float width);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetLineCap(CGContextRef ctx, CGLineCap cap);
 
 /* Set the line join in the current graphics state to `join'. */
@@ -260,7 +260,7 @@ CGContextSetLineCap(CGContextRef ctx, CGLineCap cap);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetLineJoin(CGContextRef ctx, CGLineJoin join);
 
 /* Set the miter limit in the current graphics state to `limit'. */
@@ -272,7 +272,7 @@ CGContextSetLineJoin(CGContextRef ctx, CGLineJoin join);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetMiterLimit(CGContextRef ctx, float limit);
 
 /* Set the line dash patttern in the current graphics state. */
@@ -284,7 +284,7 @@ CGContextSetMiterLimit(CGContextRef ctx, float limit);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetLineDash(CGContextRef ctx, float phase, const float lengths[],
                      size_t count);
 
@@ -298,7 +298,7 @@ CGContextSetLineDash(CGContextRef ctx, float phase, const float lengths[],
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetFlatness(CGContextRef ctx, float flatness);
 
 /* Set the alpha value in the current graphics state to `alpha'. */
@@ -310,7 +310,7 @@ CGContextSetFlatness(CGContextRef ctx, float flatness);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetAlpha(CGContextRef ctx, float alpha);
 
 /** Path construction functions. **/
@@ -325,7 +325,7 @@ CGContextSetAlpha(CGContextRef ctx, float alpha);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextBeginPath(CGContextRef ctx);
 
 /* Start a new subpath at point `(x, y)' in the context's path. */
@@ -337,7 +337,7 @@ CGContextBeginPath(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextMoveToPoint(CGContextRef ctx, float x, float y);
 
 /* Append a straight line segment from the current point to `(x, y)'. */
@@ -349,7 +349,7 @@ CGContextMoveToPoint(CGContextRef ctx, float x, float y);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddLineToPoint(CGContextRef ctx, float x, float y);
 
 /* Append a cubic Bezier curve from the current point to `(x,y)', with
@@ -362,7 +362,7 @@ CGContextAddLineToPoint(CGContextRef ctx, float x, float y);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddCurveToPoint(CGContextRef ctx, float cp1x, float cp1y, float cp2x,
                          float cp2y, float x, float y);
 
@@ -376,7 +376,7 @@ CGContextAddCurveToPoint(CGContextRef ctx, float cp1x, float cp1y, float cp2x,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddQuadCurveToPoint(CGContextRef ctx, float cpx, float cpy, float x,
                              float y);
 
@@ -389,7 +389,7 @@ CGContextAddQuadCurveToPoint(CGContextRef ctx, float cpx, float cpy, float x,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextClosePath(CGContextRef ctx);
 
 /** Path construction convenience functions. **/
@@ -402,7 +402,7 @@ CGContextClosePath(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddRect(CGContextRef ctx, CGRect rect);
 
 /* Add a set of rects to the context's path. */
@@ -414,7 +414,7 @@ CGContextAddRect(CGContextRef ctx, CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddRects(CGContextRef ctx, const CGRect rects[], size_t count);
 
 /* Add a set of lines to the context's path. */
@@ -426,7 +426,7 @@ CGContextAddRects(CGContextRef ctx, const CGRect rects[], size_t count);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddLines(CGContextRef ctx, const CGPoint points[], size_t count);
 
 /* Add an arc of a circle to the context's path, possibly preceded by a
@@ -443,7 +443,7 @@ CGContextAddLines(CGContextRef ctx, const CGPoint points[], size_t count);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddArc(CGContextRef ctx, float x, float y, float radius,
                 float startAngle, float endAngle, int clockwise);
 
@@ -459,7 +459,7 @@ CGContextAddArc(CGContextRef ctx, float x, float y, float radius,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextAddArcToPoint(CGContextRef ctx, float x1, float y1, float x2, float y2,
                        float radius);
 
@@ -473,7 +473,7 @@ CGContextAddArcToPoint(CGContextRef ctx, float x1, float y1, float x2, float y2,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 CGContextIsPathEmpty(CGContextRef ctx);
 
 /* Return the current point of the current subpath of the context's
@@ -486,7 +486,7 @@ CGContextIsPathEmpty(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGPoint)
+CGPoint
 CGContextGetPathCurrentPoint(CGContextRef ctx);
 
 /* Return the bounding box of the context's path.  The bounding box is the
@@ -500,7 +500,7 @@ CGContextGetPathCurrentPoint(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGRect)
+CGRect
 CGContextGetPathBoundingBox(CGContextRef ctx);
 
 /** Path drawing functions. **/
@@ -513,7 +513,7 @@ CGContextGetPathBoundingBox(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextDrawPath(CGContextRef ctx, CGPathDrawingMode mode);
 
 /** Path drawing convenience functions. **/
@@ -527,7 +527,7 @@ CGContextDrawPath(CGContextRef ctx, CGPathDrawingMode mode);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextFillPath(CGContextRef ctx);
 
 /* Fill the context's path using the even-odd fill rule.  Any open subpath
@@ -540,7 +540,7 @@ CGContextFillPath(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextEOFillPath(CGContextRef ctx);
 
 /* Stroke the context's path. */
@@ -552,7 +552,7 @@ CGContextEOFillPath(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextStrokePath(CGContextRef ctx);
 
 /* Fill `rect' with the current fill color. */
@@ -564,7 +564,7 @@ CGContextStrokePath(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextFillRect(CGContextRef ctx, CGRect rect);
 
 /* Fill `rects', an array of `count' CGRects, with the current fill
@@ -577,7 +577,7 @@ CGContextFillRect(CGContextRef ctx, CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextFillRects(CGContextRef ctx, const CGRect rects[], size_t count);
 
 /* Stroke `rect' with the current stroke color and the current linewidth. */
@@ -589,7 +589,7 @@ CGContextFillRects(CGContextRef ctx, const CGRect rects[], size_t count);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextStrokeRect(CGContextRef ctx, CGRect rect);
 
 /* Stroke `rect' with the current stroke color, using `width' as the the
@@ -602,7 +602,7 @@ CGContextStrokeRect(CGContextRef ctx, CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextStrokeRectWithWidth(CGContextRef ctx, CGRect rect, float width);
 
 /* Clear `rect' (that is, set the region within the rect to
@@ -615,7 +615,7 @@ CGContextStrokeRectWithWidth(CGContextRef ctx, CGRect rect, float width);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextClearRect(CGContextRef c, CGRect rect);
 
 /** Clipping functions. **/
@@ -630,7 +630,7 @@ CGContextClearRect(CGContextRef c, CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextClip(CGContextRef ctx);
 
 /* Intersect the context's path with the current clip path and use the
@@ -644,7 +644,7 @@ CGContextClip(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextEOClip(CGContextRef ctx);
 
 /** Clipping convenience functions. **/
@@ -658,7 +658,7 @@ CGContextEOClip(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextClipToRect(CGContextRef ctx, CGRect rect);
 
 /* Intersect the current clipping path with the clipping region formed by
@@ -672,7 +672,7 @@ CGContextClipToRect(CGContextRef ctx, CGRect rect);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextClipToRects(CGContextRef ctx, const CGRect rects[], size_t count);
 
 /** Colorspace functions. **/
@@ -689,7 +689,7 @@ CGContextClipToRects(CGContextRef ctx, const CGRect rects[], size_t count);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetFillColorSpace(CGContextRef ctx, CGColorSpaceRef colorspace);
 
 /* Set the components of the current fill color in the context `ctx' to the
@@ -705,7 +705,7 @@ CGContextSetFillColorSpace(CGContextRef ctx, CGColorSpaceRef colorspace);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetStrokeColorSpace(CGContextRef ctx, CGColorSpaceRef colorspace);
 
 /** Color functions. **/
@@ -722,7 +722,7 @@ CGContextSetStrokeColorSpace(CGContextRef ctx, CGColorSpaceRef colorspace);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetFillColor(CGContextRef c, const float components[]);
 
 /* Set the components of the current stroke color in the context `c' to the
@@ -738,7 +738,7 @@ CGContextSetFillColor(CGContextRef c, const float components[]);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetStrokeColor(CGContextRef c, const float components[]);
 
 /** Pattern functions. **/
@@ -756,7 +756,7 @@ CGContextSetStrokeColor(CGContextRef c, const float components[]);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetFillPattern(CGContextRef c, CGPatternRef pattern,
                         const float components[]);
 
@@ -774,7 +774,7 @@ CGContextSetFillPattern(CGContextRef c, CGPatternRef pattern,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetStrokePattern(CGContextRef c, CGPatternRef pattern,
                           const float components[]);
 
@@ -789,7 +789,7 @@ CGContextSetStrokePattern(CGContextRef c, CGPatternRef pattern,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetGrayFillColor(CGContextRef ctx, float gray, float alpha);
 
 /* Set the current stroke colorspace in the context `c' to `DeviceGray' and
@@ -802,7 +802,7 @@ CGContextSetGrayFillColor(CGContextRef ctx, float gray, float alpha);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetGrayStrokeColor(CGContextRef ctx, float gray, float alpha);
 
 /* Set the current fill colorspace in the context `c' to `DeviceRGB' and
@@ -816,7 +816,7 @@ CGContextSetGrayStrokeColor(CGContextRef ctx, float gray, float alpha);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetRGBFillColor(CGContextRef ctx, float red, float green, float blue,
                          float alpha);
 
@@ -831,7 +831,7 @@ CGContextSetRGBFillColor(CGContextRef ctx, float red, float green, float blue,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetRGBStrokeColor(CGContextRef ctx, float red, float green, float blue,
                            float alpha);
 
@@ -846,7 +846,7 @@ CGContextSetRGBStrokeColor(CGContextRef ctx, float red, float green, float blue,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetCMYKFillColor(CGContextRef ctx, float cyan, float magenta,
                           float yellow, float black, float alpha);
 
@@ -861,7 +861,7 @@ CGContextSetCMYKFillColor(CGContextRef ctx, float cyan, float magenta,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetCMYKStrokeColor(CGContextRef ctx, float cyan, float magenta,
                             float yellow, float black, float alpha);
 
@@ -875,7 +875,7 @@ CGContextSetCMYKStrokeColor(CGContextRef ctx, float cyan, float magenta,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetRenderingIntent(CGContextRef c, CGColorRenderingIntent intent);
 
 /** Image functions. **/
@@ -889,7 +889,7 @@ CGContextSetRenderingIntent(CGContextRef c, CGColorRenderingIntent intent);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextDrawImage(CGContextRef ctx, CGRect rect, CGImageRef image);
 
 /* Return the interpolation quality for image rendering of the context `c'.
@@ -905,7 +905,7 @@ CGContextDrawImage(CGContextRef ctx, CGRect rect, CGImageRef image);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CGInterpolationQuality)
+CGInterpolationQuality
 CGContextGetInterpolationQuality(CGContextRef c);
 
 /* Set the interpolation quality of the context `c' to `quality'. */
@@ -917,7 +917,7 @@ CGContextGetInterpolationQuality(CGContextRef c);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetInterpolationQuality(CGContextRef c,
                                  CGInterpolationQuality quality);
 
@@ -933,7 +933,7 @@ CGContextSetInterpolationQuality(CGContextRef c,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetCharacterSpacing(CGContextRef ctx, float spacing);
 
 /* Set the user-space point at which text will be drawn to (x,y). */
@@ -945,7 +945,7 @@ CGContextSetCharacterSpacing(CGContextRef ctx, float spacing);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetTextPosition(CGContextRef ctx, float x, float y);
 
 /* Return the current user-space point at which text will be drawn to (x,y). */
@@ -957,7 +957,7 @@ CGContextSetTextPosition(CGContextRef ctx, float x, float y);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGPoint)
+CGPoint
 CGContextGetTextPosition(CGContextRef ctx);
 
 /* Set the text matrix to `transform'. */
@@ -969,7 +969,7 @@ CGContextGetTextPosition(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetTextMatrix(CGContextRef ctx, CGAffineTransform transform);
 
 /* Return the text matrix. */
@@ -981,7 +981,7 @@ CGContextSetTextMatrix(CGContextRef ctx, CGAffineTransform transform);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGAffineTransform)
+CGAffineTransform
 CGContextGetTextMatrix(CGContextRef ctx);
 
 /* Set the text drawing mode to `mode'. */
@@ -993,7 +993,7 @@ CGContextGetTextMatrix(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetTextDrawingMode(CGContextRef ctx, CGTextDrawingMode mode);
 
 /* Set the current font to `font'. */
@@ -1005,7 +1005,7 @@ CGContextSetTextDrawingMode(CGContextRef ctx, CGTextDrawingMode mode);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetFont(CGContextRef ctx, CGFontRef font);
 
 /* Set the current font size to `size'. */
@@ -1017,7 +1017,7 @@ CGContextSetFont(CGContextRef ctx, CGFontRef font);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetFontSize(CGContextRef ctx, float size);
 
 /* Attempts to find the font named `name'.  If successful, scales it to
@@ -1031,7 +1031,7 @@ CGContextSetFontSize(CGContextRef ctx, float size);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSelectFont(CGContextRef ctx, const char *name, float size,
                     CGTextEncoding textEncoding);
 
@@ -1046,7 +1046,7 @@ CGContextSelectFont(CGContextRef ctx, const char *name, float size,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextShowText(CGContextRef ctx, const char *cstring, size_t length);
 
 /* Draw the glyphs pointed to by `g', an array of `count' glyphs, at the
@@ -1059,7 +1059,7 @@ CGContextShowText(CGContextRef ctx, const char *cstring, size_t length);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextShowGlyphs(CGContextRef ctx, const CGGlyph g[], size_t count);
 
 /** Text convenience functions. **/
@@ -1074,7 +1074,7 @@ CGContextShowGlyphs(CGContextRef ctx, const CGGlyph g[], size_t count);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextShowTextAtPoint(CGContextRef ctx, float x, float y,
                          const char *cstring, size_t length);
 
@@ -1088,7 +1088,7 @@ CGContextShowTextAtPoint(CGContextRef ctx, float x, float y,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextShowGlyphsAtPoint(CGContextRef ctx, float x, float y,
                            const CGGlyph g[], size_t count);
 
@@ -1104,7 +1104,7 @@ CGContextShowGlyphsAtPoint(CGContextRef ctx, float x, float y,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextDrawPDFDocument(CGContextRef ctx, CGRect rect,
                          CGPDFDocumentRef document, int page);
 
@@ -1118,7 +1118,7 @@ CGContextDrawPDFDocument(CGContextRef ctx, CGRect rect,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextBeginPage(CGContextRef ctx, const CGRect *mediaBox);
 
 /* End the current page. */
@@ -1130,7 +1130,7 @@ CGContextBeginPage(CGContextRef ctx, const CGRect *mediaBox);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextEndPage(CGContextRef ctx);
 
 /** Context functions. **/
@@ -1144,7 +1144,7 @@ CGContextEndPage(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGContextRef)
+CGContextRef
 CGContextRetain(CGContextRef ctx);
 
 /* Decrement the retain count of `ctx'.  If the retain count reaches 0,
@@ -1157,7 +1157,7 @@ CGContextRetain(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextRelease(CGContextRef ctx);
 
 /* Flush all drawing to the destination. */
@@ -1169,7 +1169,7 @@ CGContextRelease(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextFlush(CGContextRef ctx);
 
 /* Synchronized drawing. */
@@ -1181,7 +1181,7 @@ CGContextFlush(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSynchronize(CGContextRef ctx);
 
 /** Antialiasing functions. **/
@@ -1195,7 +1195,7 @@ CGContextSynchronize(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGContextSetShouldAntialias(CGContextRef ctx, int shouldAntialias);
 
 #if PRAGMA_ENUM_ALWAYSINT

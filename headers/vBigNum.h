@@ -292,7 +292,7 @@ typedef union vS1024 vS1024;
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256Divide(const vU256 *numerator, const vU256 *divisor, vU256 *result,
             vU256 *remainder);
 
@@ -304,7 +304,7 @@ vU256Divide(const vU256 *numerator, const vU256 *divisor, vU256 *result,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256Divide(const vS256 *numerator, const vS256 *divisor, vS256 *result,
             vS256 *remainder);
 
@@ -316,7 +316,7 @@ vS256Divide(const vS256 *numerator, const vS256 *divisor, vS256 *result,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512Divide(const vU512 *numerator, const vU512 *divisor, vU512 *result,
             vU512 *remainder);
 
@@ -328,7 +328,7 @@ vU512Divide(const vU512 *numerator, const vU512 *divisor, vU512 *result,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512Divide(const vS512 *numerator, const vS512 *divisor, vS512 *result,
             vS512 *remainder);
 
@@ -340,7 +340,7 @@ vS512Divide(const vS512 *numerator, const vS512 *divisor, vS512 *result,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024Divide(const vU1024 *numerator, const vU1024 *divisor, vU1024 *result,
              vU1024 *remainder);
 
@@ -352,7 +352,7 @@ vU1024Divide(const vU1024 *numerator, const vU1024 *divisor, vU1024 *result,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024Divide(const vS1024 *numerator, const vS1024 *divisor, vS1024 *result,
              vS1024 *remainder);
 
@@ -370,7 +370,7 @@ vS1024Divide(const vS1024 *numerator, const vS1024 *divisor, vS1024 *result,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU128FullMultiply(const vU128 *a, const vU128 *b, vU256 *result);
 
 /**
@@ -381,7 +381,7 @@ vU128FullMultiply(const vU128 *a, const vU128 *b, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS128FullMultiply(const vS128 *a, const vS128 *b, vS256 *result);
 
 /**
@@ -392,7 +392,7 @@ vS128FullMultiply(const vS128 *a, const vS128 *b, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256FullMultiply(const vU256 *a, const vU256 *b, vU512 *result);
 
 /**
@@ -403,7 +403,7 @@ vU256FullMultiply(const vU256 *a, const vU256 *b, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256FullMultiply(const vS256 *a, const vS256 *b, vS512 *result);
 
 /**
@@ -414,7 +414,7 @@ vS256FullMultiply(const vS256 *a, const vS256 *b, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512FullMultiply(const vU512 *a, const vU512 *b, vU1024 *result);
 
 /**
@@ -425,7 +425,7 @@ vU512FullMultiply(const vU512 *a, const vU512 *b, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512FullMultiply(const vS512 *a, const vS512 *b, vS1024 *result);
 
 /**
@@ -436,7 +436,7 @@ vS512FullMultiply(const vS512 *a, const vS512 *b, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256HalfMultiply(const vU256 *a, const vU256 *b, vU256 *result);
 
 /**
@@ -447,7 +447,7 @@ vU256HalfMultiply(const vU256 *a, const vU256 *b, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256HalfMultiply(const vS256 *a, const vS256 *b, vS256 *result);
 
 /**
@@ -458,7 +458,7 @@ vS256HalfMultiply(const vS256 *a, const vS256 *b, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512HalfMultiply(const vU512 *a, const vU512 *b, vU512 *result);
 
 /**
@@ -469,7 +469,7 @@ vU512HalfMultiply(const vU512 *a, const vU512 *b, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512HalfMultiply(const vS512 *a, const vS512 *b, vS512 *result);
 
 /**
@@ -480,7 +480,7 @@ vS512HalfMultiply(const vS512 *a, const vS512 *b, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024HalfMultiply(const vU1024 *a, const vU1024 *b, vU1024 *result);
 
 /**
@@ -491,7 +491,7 @@ vU1024HalfMultiply(const vU1024 *a, const vU1024 *b, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024HalfMultiply(const vS1024 *a, const vS1024 *b, vS1024 *result);
 
 /*************************************************************************************
@@ -508,7 +508,7 @@ vS1024HalfMultiply(const vS1024 *a, const vS1024 *b, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256Sub(const vU256 *a, const vU256 *b, vU256 *result);
 
 /**
@@ -519,7 +519,7 @@ vU256Sub(const vU256 *a, const vU256 *b, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256Sub(const vS256 *a, const vS256 *b, vS256 *result);
 
 /**
@@ -530,7 +530,7 @@ vS256Sub(const vS256 *a, const vS256 *b, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256SubS(const vU256 *a, const vU256 *b, vU256 *result);
 
 /**
@@ -541,7 +541,7 @@ vU256SubS(const vU256 *a, const vU256 *b, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256SubS(const vS256 *a, const vS256 *b, vS256 *result);
 
 /**
@@ -552,7 +552,7 @@ vS256SubS(const vS256 *a, const vS256 *b, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512Sub(const vU512 *a, const vU512 *b, vU512 *result);
 
 /**
@@ -563,7 +563,7 @@ vU512Sub(const vU512 *a, const vU512 *b, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512Sub(const vS512 *a, const vS512 *b, vS512 *result);
 
 /**
@@ -574,7 +574,7 @@ vS512Sub(const vS512 *a, const vS512 *b, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512SubS(const vU512 *a, const vU512 *b, vU512 *result);
 
 /**
@@ -585,7 +585,7 @@ vU512SubS(const vU512 *a, const vU512 *b, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512SubS(const vS512 *a, const vS512 *b, vS512 *result);
 
 /**
@@ -596,7 +596,7 @@ vS512SubS(const vS512 *a, const vS512 *b, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024Sub(const vU1024 *a, const vU1024 *b, vU1024 *result);
 
 /**
@@ -607,7 +607,7 @@ vU1024Sub(const vU1024 *a, const vU1024 *b, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024Sub(const vS1024 *a, const vS1024 *b, vS1024 *result);
 
 /**
@@ -618,7 +618,7 @@ vS1024Sub(const vS1024 *a, const vS1024 *b, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024SubS(const vU1024 *a, const vU1024 *b, vU1024 *result);
 
 /**
@@ -629,7 +629,7 @@ vU1024SubS(const vU1024 *a, const vU1024 *b, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024SubS(const vS1024 *a, const vS1024 *b, vS1024 *result);
 
 /*************************************************************************************
@@ -646,7 +646,7 @@ vS1024SubS(const vS1024 *a, const vS1024 *b, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256Neg(const vU256 *a, vU256 *result);
 
 /**
@@ -657,7 +657,7 @@ vU256Neg(const vU256 *a, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256Neg(const vS256 *a, vS256 *result);
 
 /**
@@ -668,7 +668,7 @@ vS256Neg(const vS256 *a, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512Neg(const vU512 *a, vU512 *result);
 
 /**
@@ -679,7 +679,7 @@ vU512Neg(const vU512 *a, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512Neg(const vS512 *a, vS512 *result);
 
 /**
@@ -690,7 +690,7 @@ vS512Neg(const vS512 *a, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024Neg(const vU1024 *a, vU1024 *result);
 
 /**
@@ -701,7 +701,7 @@ vU1024Neg(const vU1024 *a, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024Neg(const vS1024 *a, vS1024 *result);
 
 /*************************************************************************************
@@ -718,7 +718,7 @@ vS1024Neg(const vS1024 *a, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256Add(const vU256 *a, const vU256 *b, vU256 *result);
 
 /**
@@ -729,7 +729,7 @@ vU256Add(const vU256 *a, const vU256 *b, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256Add(const vS256 *a, const vS256 *b, vS256 *result);
 
 /**
@@ -740,7 +740,7 @@ vS256Add(const vS256 *a, const vS256 *b, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256AddS(const vU256 *a, const vU256 *b, vU256 *result);
 
 /**
@@ -751,7 +751,7 @@ vU256AddS(const vU256 *a, const vU256 *b, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256AddS(const vS256 *a, const vS256 *b, vS256 *result);
 
 /**
@@ -762,7 +762,7 @@ vS256AddS(const vS256 *a, const vS256 *b, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512Add(const vU512 *a, const vU512 *b, vU512 *result);
 
 /**
@@ -773,7 +773,7 @@ vU512Add(const vU512 *a, const vU512 *b, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512Add(const vS512 *a, const vS512 *b, vS512 *result);
 
 /**
@@ -784,7 +784,7 @@ vS512Add(const vS512 *a, const vS512 *b, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512AddS(const vU512 *a, const vU512 *b, vU512 *result);
 
 /**
@@ -795,7 +795,7 @@ vU512AddS(const vU512 *a, const vU512 *b, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512AddS(const vS512 *a, const vS512 *b, vS512 *result);
 
 /**
@@ -806,7 +806,7 @@ vS512AddS(const vS512 *a, const vS512 *b, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024Add(const vU1024 *a, const vU1024 *b, vU1024 *result);
 
 /**
@@ -817,7 +817,7 @@ vU1024Add(const vU1024 *a, const vU1024 *b, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024Add(const vS1024 *a, const vS1024 *b, vS1024 *result);
 
 /**
@@ -828,7 +828,7 @@ vS1024Add(const vS1024 *a, const vS1024 *b, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024AddS(const vU1024 *a, const vU1024 *b, vU1024 *result);
 
 /**
@@ -839,7 +839,7 @@ vU1024AddS(const vU1024 *a, const vU1024 *b, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024AddS(const vS1024 *a, const vS1024 *b, vS1024 *result);
 
 /*************************************************************************************
@@ -856,7 +856,7 @@ vS1024AddS(const vS1024 *a, const vS1024 *b, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU256Mod(const vU256 *numerator, const vU256 *divisor, vU256 *remainder);
 
 /**
@@ -867,7 +867,7 @@ vU256Mod(const vU256 *numerator, const vU256 *divisor, vU256 *remainder);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS256Mod(const vS256 *numerator, const vS256 *divisor, vS256 *remainder);
 
 /**
@@ -878,7 +878,7 @@ vS256Mod(const vS256 *numerator, const vS256 *divisor, vS256 *remainder);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU512Mod(const vU512 *numerator, const vU512 *divisor, vU512 *remainder);
 
 /**
@@ -889,7 +889,7 @@ vU512Mod(const vU512 *numerator, const vU512 *divisor, vU512 *remainder);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS512Mod(const vS512 *numerator, const vS512 *divisor, vS512 *remainder);
 
 /**
@@ -900,7 +900,7 @@ vS512Mod(const vS512 *numerator, const vS512 *divisor, vS512 *remainder);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vU1024Mod(const vU1024 *numerator, const vU1024 *divisor, vU1024 *remainder);
 
 /**
@@ -911,7 +911,7 @@ vU1024Mod(const vU1024 *numerator, const vU1024 *divisor, vU1024 *remainder);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vS1024Mod(const vS1024 *numerator, const vS1024 *divisor, vS1024 *remainder);
 
 /*************************************************************************************
@@ -928,7 +928,7 @@ vS1024Mod(const vS1024 *numerator, const vS1024 *divisor, vS1024 *remainder);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vLL256Shift(const vU256 *a, unsigned long shiftAmount, vU256 *result);
 
 /**
@@ -939,7 +939,7 @@ vLL256Shift(const vU256 *a, unsigned long shiftAmount, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vLL512Shift(const vU512 *a, unsigned long shiftAmount, vU512 *result);
 
 /**
@@ -950,7 +950,7 @@ vLL512Shift(const vU512 *a, unsigned long shiftAmount, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vLL1024Shift(const vU1024 *a, unsigned long shiftAmount, vU1024 *result);
 
 /**
@@ -961,7 +961,7 @@ vLL1024Shift(const vU1024 *a, unsigned long shiftAmount, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vLR256Shift(const vU256 *a, unsigned long shiftAmount, vU256 *result);
 
 /**
@@ -972,7 +972,7 @@ vLR256Shift(const vU256 *a, unsigned long shiftAmount, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vLR512Shift(const vU512 *a, unsigned long shiftAmount, vU512 *result);
 
 /**
@@ -983,7 +983,7 @@ vLR512Shift(const vU512 *a, unsigned long shiftAmount, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vLR1024Shift(const vU1024 *a, unsigned long shiftAmount, vU1024 *result);
 
 /**
@@ -994,7 +994,7 @@ vLR1024Shift(const vU1024 *a, unsigned long shiftAmount, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vA256Shift(const vS256 *a, unsigned long shiftAmount, vS256 *result);
 
 /**
@@ -1005,7 +1005,7 @@ vA256Shift(const vS256 *a, unsigned long shiftAmount, vS256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vA512Shift(const vS512 *a, unsigned long shiftAmount, vS512 *result);
 
 /**
@@ -1016,7 +1016,7 @@ vA512Shift(const vS512 *a, unsigned long shiftAmount, vS512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vA1024Shift(const vS1024 *a, unsigned long shiftAmount, vS1024 *result);
 
 /*************************************************************************************
@@ -1033,7 +1033,7 @@ vA1024Shift(const vS1024 *a, unsigned long shiftAmount, vS1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vL256Rotate(const vU256 *a, unsigned long rotateAmount, vU256 *result);
 
 /**
@@ -1044,7 +1044,7 @@ vL256Rotate(const vU256 *a, unsigned long rotateAmount, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vL512Rotate(const vU512 *a, unsigned long rotateAmount, vU512 *result);
 
 /**
@@ -1055,7 +1055,7 @@ vL512Rotate(const vU512 *a, unsigned long rotateAmount, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vL1024Rotate(const vU1024 *a, unsigned long rotateAmount, vU1024 *result);
 
 /**
@@ -1066,7 +1066,7 @@ vL1024Rotate(const vU1024 *a, unsigned long rotateAmount, vU1024 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vR256Rotate(const vU256 *a, unsigned long rotateAmount, vU256 *result);
 
 /**
@@ -1077,7 +1077,7 @@ vR256Rotate(const vU256 *a, unsigned long rotateAmount, vU256 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vR512Rotate(const vU512 *a, unsigned long rotateAmount, vU512 *result);
 
 /**
@@ -1088,7 +1088,7 @@ vR512Rotate(const vU512 *a, unsigned long rotateAmount, vU512 *result);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vR1024Rotate(const vU1024 *a, unsigned long rotateAmount, vU1024 *result);
 
 #endif /** defined(__VEC__) */

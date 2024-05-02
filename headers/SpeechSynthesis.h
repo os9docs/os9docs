@@ -223,7 +223,7 @@ typedef STACK_UPP_TYPE(SpeechWordProcPtr) SpeechWordUPP;
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SpeechTextDoneUPP)
+SpeechTextDoneUPP
 NewSpeechTextDoneUPP(SpeechTextDoneProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -253,7 +253,7 @@ NewSpeechTextDoneUPP(SpeechTextDoneProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SpeechDoneUPP)
+SpeechDoneUPP
 NewSpeechDoneUPP(SpeechDoneProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -279,7 +279,7 @@ inline SpeechDoneUPP NewSpeechDoneUPP(SpeechDoneProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SpeechSyncUPP)
+SpeechSyncUPP
 NewSpeechSyncUPP(SpeechSyncProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -305,7 +305,7 @@ inline SpeechSyncUPP NewSpeechSyncUPP(SpeechSyncProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SpeechErrorUPP)
+SpeechErrorUPP
 NewSpeechErrorUPP(SpeechErrorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -332,7 +332,7 @@ inline SpeechErrorUPP NewSpeechErrorUPP(SpeechErrorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SpeechPhonemeUPP)
+SpeechPhonemeUPP
 NewSpeechPhonemeUPP(SpeechPhonemeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -360,7 +360,7 @@ inline SpeechPhonemeUPP NewSpeechPhonemeUPP(SpeechPhonemeProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SpeechWordUPP)
+SpeechWordUPP
 NewSpeechWordUPP(SpeechWordProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -386,7 +386,7 @@ inline SpeechWordUPP NewSpeechWordUPP(SpeechWordProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -406,7 +406,7 @@ inline void DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSpeechDoneUPP(SpeechDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -426,7 +426,7 @@ inline void DisposeSpeechDoneUPP(SpeechDoneUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSpeechSyncUPP(SpeechSyncUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -446,7 +446,7 @@ inline void DisposeSpeechSyncUPP(SpeechSyncUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSpeechErrorUPP(SpeechErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -466,7 +466,7 @@ inline void DisposeSpeechErrorUPP(SpeechErrorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSpeechPhonemeUPP(SpeechPhonemeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -486,7 +486,7 @@ inline void DisposeSpeechPhonemeUPP(SpeechPhonemeUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSpeechWordUPP(SpeechWordUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -506,7 +506,7 @@ inline void DisposeSpeechWordUPP(SpeechWordUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSpeechTextDoneUPP(SpeechChannel chan, long refCon, const void **nextBuf,
                         unsigned long *byteLen, long *controlFlags,
                         SpeechTextDoneUPP userUPP);
@@ -535,7 +535,7 @@ inline void InvokeSpeechTextDoneUPP(SpeechChannel chan, long refCon,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSpeechDoneUPP(SpeechChannel chan, long refCon, SpeechDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -557,7 +557,7 @@ inline void InvokeSpeechDoneUPP(SpeechChannel chan, long refCon,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSpeechSyncUPP(SpeechChannel chan, long refCon, OSType syncMessage,
                     SpeechSyncUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -582,7 +582,7 @@ inline void InvokeSpeechSyncUPP(SpeechChannel chan, long refCon,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSpeechErrorUPP(SpeechChannel chan, long refCon, OSErr theError,
                      long bytePos, SpeechErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -608,7 +608,7 @@ inline void InvokeSpeechErrorUPP(SpeechChannel chan, long refCon,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSpeechPhonemeUPP(SpeechChannel chan, long refCon, short phonemeOpcode,
                        SpeechPhonemeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -634,7 +634,7 @@ inline void InvokeSpeechPhonemeUPP(SpeechChannel chan, long refCon,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSpeechWordUPP(SpeechChannel chan, long refCon, unsigned long wordPos,
                     unsigned short wordLen, SpeechWordUPP userUPP);
 #if !OPAQUE_UPP_TYPES

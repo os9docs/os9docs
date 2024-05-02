@@ -185,7 +185,7 @@ typedef STACK_UPP_TYPE(DisposeColorPickMethodProcPtr) DisposeColorPickMethodUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(InitPickMethodUPP)
+InitPickMethodUPP
 NewInitPickMethodUPP(InitPickMethodProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -214,7 +214,7 @@ NewInitPickMethodUPP(InitPickMethodProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(RecordColorsUPP)
+RecordColorsUPP
 NewRecordColorsUPP(RecordColorsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -242,7 +242,7 @@ inline RecordColorsUPP NewRecordColorsUPP(RecordColorsProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CalcColorTableUPP)
+CalcColorTableUPP
 NewCalcColorTableUPP(CalcColorTableProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -271,7 +271,7 @@ NewCalcColorTableUPP(CalcColorTableProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DisposeColorPickMethodUPP)
+DisposeColorPickMethodUPP
 NewDisposeColorPickMethodUPP(DisposeColorPickMethodProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -300,7 +300,7 @@ NewDisposeColorPickMethodUPP(DisposeColorPickMethodProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeInitPickMethodUPP(InitPickMethodUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -320,7 +320,7 @@ inline void DisposeInitPickMethodUPP(InitPickMethodUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeRecordColorsUPP(RecordColorsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -340,7 +340,7 @@ inline void DisposeRecordColorsUPP(RecordColorsUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCalcColorTableUPP(CalcColorTableUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -360,7 +360,7 @@ inline void DisposeCalcColorTableUPP(CalcColorTableUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDisposeColorPickMethodUPP(DisposeColorPickMethodUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -382,7 +382,7 @@ DisposeDisposeColorPickMethodUPP(DisposeColorPickMethodUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeInitPickMethodUPP(SInt16 colorsRequested, UInt32 *dataRef,
                         SInt16 *colorBankType, InitPickMethodUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -411,7 +411,7 @@ inline OSErr InvokeInitPickMethodUPP(SInt16 colorsRequested, UInt32 *dataRef,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeRecordColorsUPP(UInt32 dataRef, RGBColor *colorsArray, SInt32 colorCount,
                       SInt32 *uniqueColors, RecordColorsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -440,7 +440,7 @@ inline OSErr InvokeRecordColorsUPP(UInt32 dataRef, RGBColor *colorsArray,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCalcColorTableUPP(UInt32 dataRef, SInt16 colorsRequested,
                         void *colorBankPtr, CSpecArray resultPtr,
                         CalcColorTableUPP userUPP);
@@ -470,7 +470,7 @@ inline OSErr InvokeCalcColorTableUPP(UInt32 dataRef, SInt16 colorsRequested,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDisposeColorPickMethodUPP(UInt32 dataRef,
                                 DisposeColorPickMethodUPP userUPP);
 #if !OPAQUE_UPP_TYPES

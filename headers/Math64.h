@@ -58,7 +58,7 @@ extern "C" {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Max(void);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -84,7 +84,7 @@ inline SInt64 S64Max(void) { return 9223372036854775807LL; }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Min(void);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -107,7 +107,7 @@ inline SInt64 S64Min(void) { return -S64Max() - 1; }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Add(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -132,7 +132,7 @@ inline SInt64 S64Add(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Subtract(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -157,7 +157,7 @@ inline SInt64 S64Subtract(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Negate(SInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -182,7 +182,7 @@ inline SInt64 S64Negate(SInt64 value) { return -(SInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Absolute(SInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -208,7 +208,7 @@ inline SInt64 S64Absolute(SInt64 value) { return llabs((SInt64)value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Multiply(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -235,7 +235,7 @@ inline SInt64 S64Multiply(SInt64 left, SInt64 right) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Mod(SInt64 dividend, SInt64 divisor);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -267,7 +267,7 @@ inline SInt64 S64Mod(SInt64 dividend, SInt64 divisor) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Divide(SInt64 dividend, SInt64 divisor,
           SInt64 *remainder); /** can be NULL */
 #if TYPE_LONGLONG
@@ -308,7 +308,7 @@ inline SInt64 S64Div(SInt64 dividend, SInt64 divisor) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64Set(SInt32 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -329,7 +329,7 @@ inline SInt64 S64Set(SInt32 value) { return (SInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64SetU(UInt32 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -351,7 +351,7 @@ inline SInt64 S64SetU(UInt32 value) { return (SInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 S32Set(SInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -372,7 +372,7 @@ inline SInt32 S32Set(SInt64 value) { return (SInt32)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 S64And(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -395,7 +395,7 @@ inline Boolean S64And(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 S64Or(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -418,7 +418,7 @@ inline Boolean S64Or(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 S64Eor(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -442,7 +442,7 @@ inline Boolean S64Eor(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 S64Not(SInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -472,7 +472,7 @@ inline Boolean S64Not(SInt64 value) { return !((SInt64)(value)); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 S64Compare(SInt64 left, SInt64 right);
 
 /**
@@ -486,7 +486,7 @@ S64Compare(SInt64 left, SInt64 right);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64BitwiseAnd(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -509,7 +509,7 @@ inline SInt64 S64BitwiseAnd(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64BitwiseOr(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -532,7 +532,7 @@ inline SInt64 S64BitwiseOr(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64BitwiseEor(SInt64 left, SInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -555,7 +555,7 @@ inline SInt64 S64BitwiseEor(SInt64 left, SInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64BitwiseNot(SInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -576,7 +576,7 @@ inline SInt64 S64BitwiseNot(SInt64 value) { return ~((SInt64)(value)); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64ShiftRight(SInt64 value, UInt32 shift);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -599,7 +599,7 @@ inline SInt64 S64ShiftRight(SInt64 value, UInt32 shift) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 S64ShiftLeft(SInt64 value, UInt32 shift);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -628,7 +628,7 @@ inline SInt64 S64ShiftLeft(SInt64 value, UInt32 shift) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long double)
+long double
 SInt64ToLongDouble(SInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -656,7 +656,7 @@ inline long double SInt64ToLongDouble(SInt64 value) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 LongDoubleToSInt64(long double value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -679,7 +679,7 @@ inline SInt64 LongDoubleToSInt64(long double value) { return (SInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64Max(void);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -707,7 +707,7 @@ inline UInt64 U64Max(void) { return 0xffffffffffffffffULL; }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64Add(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -732,7 +732,7 @@ inline UInt64 U64Add(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64Subtract(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -758,7 +758,7 @@ inline UInt64 U64Subtract(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64Multiply(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -785,7 +785,7 @@ inline UInt64 U64Multiply(UInt64 left, UInt64 right) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64Mod(UInt64 dividend, UInt64 divisor);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -817,7 +817,7 @@ inline UInt64 U64Mod(UInt64 dividend, UInt64 divisor) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64Divide(UInt64 dividend, UInt64 divisor,
           UInt64 *remainder); /** can be NULL */
 #if TYPE_LONGLONG
@@ -858,7 +858,7 @@ inline UInt64 U64Div(UInt64 dividend, UInt64 divisor) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64Set(SInt32 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -879,7 +879,7 @@ inline UInt64 U64Set(SInt32 value) { return (UInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64SetU(UInt32 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -901,7 +901,7 @@ inline UInt64 U64SetU(UInt32 value) { return (UInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 U32SetU(UInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -922,7 +922,7 @@ inline UInt32 U32SetU(UInt64 value) { return (UInt32)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 U64And(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -945,7 +945,7 @@ inline Boolean U64And(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 U64Or(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -968,7 +968,7 @@ inline Boolean U64Or(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 U64Eor(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -992,7 +992,7 @@ inline Boolean U64Eor(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 U64Not(UInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1022,7 +1022,7 @@ inline Boolean U64Not(UInt64 value) { return !((UInt64)(value)); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 U64Compare(UInt64 left, UInt64 right);
 
 /**
@@ -1036,7 +1036,7 @@ U64Compare(UInt64 left, UInt64 right);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64BitwiseAnd(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1059,7 +1059,7 @@ inline UInt64 U64BitwiseAnd(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64BitwiseOr(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1082,7 +1082,7 @@ inline UInt64 U64BitwiseOr(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64BitwiseEor(UInt64 left, UInt64 right);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1105,7 +1105,7 @@ inline UInt64 U64BitwiseEor(UInt64 left, UInt64 right) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64BitwiseNot(UInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1126,7 +1126,7 @@ inline UInt64 U64BitwiseNot(UInt64 value) { return ~((UInt64)(value)); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64ShiftRight(UInt64 value, UInt32 shift);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1149,7 +1149,7 @@ inline UInt64 U64ShiftRight(UInt64 value, UInt32 shift) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 U64ShiftLeft(UInt64 value, UInt32 shift);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1174,7 +1174,7 @@ inline UInt64 U64ShiftLeft(UInt64 value, UInt32 shift) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long double)
+long double
 UInt64ToLongDouble(UInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1198,7 +1198,7 @@ inline long double UInt64ToLongDouble(UInt64 value) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 LongDoubleToUInt64(long double value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1221,7 +1221,7 @@ inline UInt64 LongDoubleToUInt64(long double value) { return (UInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt64)
+SInt64
 UInt64ToSInt64(UInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus
@@ -1242,7 +1242,7 @@ inline SInt64 UInt64ToSInt64(UInt64 value) { return (SInt64)(value); }
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt64)
+UInt64
 SInt64ToUInt64(SInt64 value);
 #if TYPE_LONGLONG
 #ifdef __cplusplus

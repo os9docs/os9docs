@@ -687,7 +687,7 @@ struct gxSpoolBlock {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxSpoolUPP)
+gxSpoolUPP
 NewgxSpoolUPP(gxSpoolProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppgxSpoolProcInfo = 0x000003F1 }; /** 4_bytes Func(4_bytes, 4_bytes) */
@@ -711,7 +711,7 @@ inline gxSpoolUPP NewgxSpoolUPP(gxSpoolProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxSpoolUPP(gxSpoolUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -731,7 +731,7 @@ inline void DisposegxSpoolUPP(gxSpoolUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokegxSpoolUPP(gxSpoolCommand command, gxSpoolBlock *block,
                  gxSpoolUPP userUPP);
 #if !OPAQUE_UPP_TYPES

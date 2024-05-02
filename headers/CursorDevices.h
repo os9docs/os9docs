@@ -138,7 +138,7 @@ typedef REGISTER_UPP_TYPE(CursorDeviceCustomButtonProcPtr)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(CursorDeviceCustomButtonUPP)
+CursorDeviceCustomButtonUPP
 NewCursorDeviceCustomButtonUPP(CursorDeviceCustomButtonProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -167,7 +167,7 @@ NewCursorDeviceCustomButtonUPP(CursorDeviceCustomButtonProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeCursorDeviceCustomButtonUPP(CursorDeviceCustomButtonUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -189,7 +189,7 @@ DisposeCursorDeviceCustomButtonUPP(CursorDeviceCustomButtonUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeCursorDeviceCustomButtonUPP(CursorDevicePtr ourDevice, short button,
                                   CursorDeviceCustomButtonUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \

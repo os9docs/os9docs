@@ -158,7 +158,7 @@ and puts the result in the associated data element of the destination register.
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned char)
+vector unsigned char
 vU8Divide(vector unsigned char vN, vector unsigned char vD,
           vector unsigned char *vRemainder);
 
@@ -170,7 +170,7 @@ vU8Divide(vector unsigned char vN, vector unsigned char vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed char)
+vector signed char
 vS8Divide(vector signed char vN, vector signed char vD,
           vector signed char *vRemainder);
 
@@ -182,7 +182,7 @@ vS8Divide(vector signed char vN, vector signed char vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned short)
+vector unsigned short
 vU16Divide(vector unsigned short vN, vector unsigned short vD,
            vector unsigned short *vRemainder);
 
@@ -194,7 +194,7 @@ vU16Divide(vector unsigned short vN, vector unsigned short vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed short)
+vector signed short
 vS16Divide(vector signed short vN, vector signed short vD,
            vector signed short *vRemainder);
 
@@ -206,7 +206,7 @@ vS16Divide(vector signed short vN, vector signed short vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU32Divide(vector unsigned int vN, vector unsigned int vD,
            vector unsigned int *vRemainder);
 
@@ -218,7 +218,7 @@ vU32Divide(vector unsigned int vN, vector unsigned int vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS32Divide(vector signed int vN, vector signed int vD,
            vector signed int *vRemainder);
 
@@ -230,7 +230,7 @@ vS32Divide(vector signed int vN, vector signed int vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64Divide(vector unsigned int vN, vector unsigned int vD,
            vector unsigned int *vRemainder);
 
@@ -242,7 +242,7 @@ vU64Divide(vector unsigned int vN, vector unsigned int vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64Divide(vector signed int vN, vector signed int vD,
            vector signed int *vRemainder);
 
@@ -254,7 +254,7 @@ vS64Divide(vector signed int vN, vector signed int vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU128Divide(vector unsigned int vN, vector unsigned int vD,
             vector unsigned int *vRemainder);
 
@@ -266,7 +266,7 @@ vU128Divide(vector unsigned int vN, vector unsigned int vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS128Divide(vector signed int vN, vector signed int vD,
             vector signed int *vRemainder);
 
@@ -278,7 +278,7 @@ vS128Divide(vector signed int vN, vector signed int vD,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned char)
+vector unsigned char
 vU8HalfMultiply(vector unsigned char vA, vector unsigned char vB);
 
 /**
@@ -289,7 +289,7 @@ vU8HalfMultiply(vector unsigned char vA, vector unsigned char vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed char)
+vector signed char
 vS8HalfMultiply(vector signed char vA, vector signed char vB);
 
 /**
@@ -300,7 +300,7 @@ vS8HalfMultiply(vector signed char vA, vector signed char vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned short)
+vector unsigned short
 vU16HalfMultiply(vector unsigned short vA, vector unsigned short vB);
 
 /**
@@ -311,7 +311,7 @@ vU16HalfMultiply(vector unsigned short vA, vector unsigned short vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed short)
+vector signed short
 vS16HalfMultiply(vector signed short vA, vector signed short vB);
 
 /**
@@ -322,7 +322,7 @@ vS16HalfMultiply(vector signed short vA, vector signed short vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU32HalfMultiply(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -333,7 +333,7 @@ vU32HalfMultiply(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS32HalfMultiply(vector signed int vA, vector signed int vB);
 
 /**
@@ -344,7 +344,7 @@ vS32HalfMultiply(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU32FullMulEven(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -355,7 +355,7 @@ vU32FullMulEven(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU32FullMulOdd(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -366,7 +366,7 @@ vU32FullMulOdd(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS32FullMulEven(vector signed int vA, vector signed int vB);
 
 /**
@@ -377,7 +377,7 @@ vS32FullMulEven(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS32FullMulOdd(vector signed int vA, vector signed int vB);
 
 /**
@@ -388,7 +388,7 @@ vS32FullMulOdd(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64FullMulEven(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -399,7 +399,7 @@ vU64FullMulEven(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64FullMulOdd(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -410,7 +410,7 @@ vU64FullMulOdd(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64HalfMultiply(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -421,7 +421,7 @@ vU64HalfMultiply(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64HalfMultiply(vector signed int vA, vector signed int vB);
 
 /**
@@ -432,7 +432,7 @@ vS64HalfMultiply(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64FullMulEven(vector signed int vA, vector signed int vB);
 
 /**
@@ -443,7 +443,7 @@ vS64FullMulEven(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64FullMulOdd(vector signed int vA, vector signed int vB);
 
 /**
@@ -454,7 +454,7 @@ vS64FullMulOdd(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU128HalfMultiply(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -465,7 +465,7 @@ vU128HalfMultiply(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS128HalfMultiply(vector signed int vA, vector signed int vB);
 
 /**
@@ -476,7 +476,7 @@ vS128HalfMultiply(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64Sub(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -487,7 +487,7 @@ vU64Sub(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64SubS(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -498,7 +498,7 @@ vU64SubS(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU128Sub(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -509,7 +509,7 @@ vU128Sub(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU128SubS(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -520,7 +520,7 @@ vU128SubS(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64Sub(vector signed int vA, vector signed int vB);
 
 /**
@@ -531,7 +531,7 @@ vS64Sub(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS128Sub(vector signed int vA, vector signed int vB);
 
 /**
@@ -542,7 +542,7 @@ vS128Sub(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64SubS(vector signed int vA, vector signed int vB);
 
 /**
@@ -553,7 +553,7 @@ vS64SubS(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS128SubS(vector signed int vA, vector signed int vB);
 
 /**
@@ -564,7 +564,7 @@ vS128SubS(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64Add(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -575,7 +575,7 @@ vU64Add(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU64AddS(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -586,7 +586,7 @@ vU64AddS(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU128Add(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -597,7 +597,7 @@ vU128Add(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vU128AddS(vector unsigned int vA, vector unsigned int vB);
 
 /**
@@ -608,7 +608,7 @@ vU128AddS(vector unsigned int vA, vector unsigned int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64Add(vector signed int vA, vector signed int vB);
 
 /**
@@ -619,7 +619,7 @@ vS64Add(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS64AddS(vector signed int vA, vector signed int vB);
 
 /**
@@ -630,7 +630,7 @@ vS64AddS(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS128Add(vector signed int vA, vector signed int vB);
 
 /**
@@ -641,7 +641,7 @@ vS128Add(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector signed int)
+vector signed int
 vS128AddS(vector signed int vA, vector signed int vB);
 
 /**
@@ -652,7 +652,7 @@ vS128AddS(vector signed int vA, vector signed int vB);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vLL64Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
 
 /**
@@ -663,7 +663,7 @@ vLL64Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vA64Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
 
 /**
@@ -674,7 +674,7 @@ vA64Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vLR64Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
 
 /**
@@ -685,7 +685,7 @@ vLR64Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vLL64Shift2(vector unsigned int vA, vector unsigned char vShiftFactor);
 
 /**
@@ -696,7 +696,7 @@ vLL64Shift2(vector unsigned int vA, vector unsigned char vShiftFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vA64Shift2(vector unsigned int vA, vector unsigned char vShiftFactor);
 
 /**
@@ -707,7 +707,7 @@ vA64Shift2(vector unsigned int vA, vector unsigned char vShiftFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vLR64Shift2(vector unsigned int vA, vector unsigned char vShiftFactor);
 
 /**
@@ -718,7 +718,7 @@ vLR64Shift2(vector unsigned int vA, vector unsigned char vShiftFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vA128Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
 
 /**
@@ -729,7 +729,7 @@ vA128Shift(vector unsigned int vA, vector unsigned char vShiftFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vL64Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
 
 /**
@@ -740,7 +740,7 @@ vL64Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vR64Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
 
 /**
@@ -751,7 +751,7 @@ vR64Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vL64Rotate2(vector unsigned int vA, vector unsigned char vRotateFactor);
 
 /**
@@ -762,7 +762,7 @@ vL64Rotate2(vector unsigned int vA, vector unsigned char vRotateFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vR64Rotate2(vector unsigned int vA, vector unsigned char vRotateFactor);
 
 /**
@@ -773,7 +773,7 @@ vR64Rotate2(vector unsigned int vA, vector unsigned char vRotateFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vL128Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
 
 /**
@@ -784,7 +784,7 @@ vL128Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(vector unsigned int)
+vector unsigned int
 vR128Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
 
 #endif /* defined(__VEC__) */

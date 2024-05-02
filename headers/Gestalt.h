@@ -197,7 +197,7 @@ DeleteGestaltValue(OSType selector) THREEWORDINLINE(0x303C, 0x0203, 0xABF1);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SelectorFunctionUPP)
+SelectorFunctionUPP
 NewSelectorFunctionUPP(SelectorFunctionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -226,7 +226,7 @@ NewSelectorFunctionUPP(SelectorFunctionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSelectorFunctionUPP(SelectorFunctionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -246,7 +246,7 @@ inline void DisposeSelectorFunctionUPP(SelectorFunctionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeSelectorFunctionUPP(OSType selector, long *response,
                           SelectorFunctionUPP userUPP);
 #if !OPAQUE_UPP_TYPES

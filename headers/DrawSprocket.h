@@ -155,7 +155,7 @@ typedef TVECTOR_UPP_TYPE(DSpCallbackProcPtr) DSpCallbackUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DSpEventUPP)
+DSpEventUPP
 NewDSpEventUPP(DSpEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppDSpEventProcInfo = 0x000000D1 }; /** 1_byte Func(4_bytes) */
@@ -176,7 +176,7 @@ inline DSpEventUPP NewDSpEventUPP(DSpEventProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DSpCallbackUPP)
+DSpCallbackUPP
 NewDSpCallbackUPP(DSpCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -199,7 +199,7 @@ inline DSpCallbackUPP NewDSpCallbackUPP(DSpCallbackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDSpEventUPP(DSpEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -217,7 +217,7 @@ inline void DisposeDSpEventUPP(DSpEventUPP) {}
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDSpCallbackUPP(DSpCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -235,7 +235,7 @@ inline void DisposeDSpCallbackUPP(DSpCallbackUPP) {}
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDSpEventUPP(EventRecord *inEvent, DSpEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -255,7 +255,7 @@ inline Boolean InvokeDSpEventUPP(EventRecord *inEvent, DSpEventUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDSpCallbackUPP(DSpContextReference inContext, void *inRefCon,
                      DSpCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -337,7 +337,7 @@ typedef DSpBlitInfo *DSpBlitInfoPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpStartup(void);
 
 /**
@@ -348,7 +348,7 @@ DSpStartup(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpShutdown(void);
 
 /**
@@ -359,7 +359,7 @@ DSpShutdown(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(NumVersion)
+NumVersion
 DSpGetVersion(void);
 
 /**
@@ -370,7 +370,7 @@ DSpGetVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpGetFirstContext(DisplayIDType inDisplayID, DSpContextReference *outContext);
 
 /**
@@ -381,7 +381,7 @@ DSpGetFirstContext(DisplayIDType inDisplayID, DSpContextReference *outContext);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpGetNextContext(DSpContextReference inCurrentContext,
                   DSpContextReference *outContext);
 
@@ -393,7 +393,7 @@ DSpGetNextContext(DSpContextReference inCurrentContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpGetCurrentContext(DisplayIDType inDisplayID,
                      DSpContextReference *outContext);
 
@@ -405,7 +405,7 @@ DSpGetCurrentContext(DisplayIDType inDisplayID,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpFindBestContext(DSpContextAttributesPtr inDesiredAttributes,
                    DSpContextReference *outContext);
 
@@ -417,7 +417,7 @@ DSpFindBestContext(DSpContextAttributesPtr inDesiredAttributes,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpFindBestContextOnDisplayID(DSpContextAttributesPtr inDesiredAttributes,
                               DSpContextReference *outContext,
                               DisplayIDType inDisplayID);
@@ -431,7 +431,7 @@ DSpFindBestContextOnDisplayID(DSpContextAttributesPtr inDesiredAttributes,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpCanUserSelectContext(DSpContextAttributesPtr inDesiredAttributes,
                         Boolean *outUserCanSelectContext);
 
@@ -443,7 +443,7 @@ DSpCanUserSelectContext(DSpContextAttributesPtr inDesiredAttributes,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpUserSelectContext(DSpContextAttributesPtr inDesiredAttributes,
                      DisplayIDType inDialogDisplayLocation,
                      DSpEventUPP inEventProc, DSpContextReference *outContext);
@@ -458,7 +458,7 @@ DSpUserSelectContext(DSpContextAttributesPtr inDesiredAttributes,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpProcessEvent(EventRecord *inEvent, Boolean *outEventWasProcessed);
 
 /**
@@ -469,7 +469,7 @@ DSpProcessEvent(EventRecord *inEvent, Boolean *outEventWasProcessed);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpSetBlankingColor(const RGBColor *inRGBColor);
 
 /**
@@ -480,7 +480,7 @@ DSpSetBlankingColor(const RGBColor *inRGBColor);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpSetDebugMode(Boolean inDebugMode);
 
 /**
@@ -491,7 +491,7 @@ DSpSetDebugMode(Boolean inDebugMode);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpFindContextFromPoint(Point inGlobalPoint, DSpContextReference *outContext);
 
 /**
@@ -502,7 +502,7 @@ DSpFindContextFromPoint(Point inGlobalPoint, DSpContextReference *outContext);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpGetMouse(Point *outGlobalPoint);
 
 /**
@@ -517,7 +517,7 @@ DSpGetMouse(Point *outGlobalPoint);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpAltBuffer_New(DSpContextReference inContext, Boolean inVRAMBuffer,
                  DSpAltBufferAttributes *inAttributes,
                  DSpAltBufferReference *outAltBuffer);
@@ -530,7 +530,7 @@ DSpAltBuffer_New(DSpContextReference inContext, Boolean inVRAMBuffer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpAltBuffer_Dispose(DSpAltBufferReference inAltBuffer);
 
 /**
@@ -541,7 +541,7 @@ DSpAltBuffer_Dispose(DSpAltBufferReference inAltBuffer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpAltBuffer_InvalRect(DSpAltBufferReference inAltBuffer,
                        const Rect *inInvalidRect);
 
@@ -553,7 +553,7 @@ DSpAltBuffer_InvalRect(DSpAltBufferReference inAltBuffer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpAltBuffer_GetCGrafPtr(DSpAltBufferReference inAltBuffer,
                          DSpBufferKind inBufferKind, CGrafPtr *outCGrafPtr,
                          GDHandle *outGDevice);
@@ -572,7 +572,7 @@ DSpAltBuffer_GetCGrafPtr(DSpAltBufferReference inAltBuffer,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetAttributes(DSpContextReferenceConst inContext,
                          DSpContextAttributesPtr outAttributes);
 
@@ -584,7 +584,7 @@ DSpContext_GetAttributes(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_Reserve(DSpContextReference inContext,
                    DSpContextAttributesPtr inDesiredAttributes);
 
@@ -596,7 +596,7 @@ DSpContext_Reserve(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_Queue(DSpContextReference inParentContext,
                  DSpContextReference inChildContext,
                  DSpContextAttributesPtr inDesiredAttributes);
@@ -609,7 +609,7 @@ DSpContext_Queue(DSpContextReference inParentContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_Switch(DSpContextReference inOldContext,
                   DSpContextReference inNewContext);
 
@@ -621,7 +621,7 @@ DSpContext_Switch(DSpContextReference inOldContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_Release(DSpContextReference inContext);
 
 /**
@@ -632,7 +632,7 @@ DSpContext_Release(DSpContextReference inContext);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_Dispose(DSpContextReference inContext);
 
 /**
@@ -643,7 +643,7 @@ DSpContext_Dispose(DSpContextReference inContext);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetDisplayID(DSpContextReferenceConst inContext,
                         DisplayIDType *outDisplayID);
 
@@ -655,7 +655,7 @@ DSpContext_GetDisplayID(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GlobalToLocal(DSpContextReferenceConst inContext, Point *ioPoint);
 
 /**
@@ -666,7 +666,7 @@ DSpContext_GlobalToLocal(DSpContextReferenceConst inContext, Point *ioPoint);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_LocalToGlobal(DSpContextReferenceConst inContext, Point *ioPoint);
 
 #if CALL_NOT_IN_CARBON
@@ -678,7 +678,7 @@ DSpContext_LocalToGlobal(DSpContextReferenceConst inContext, Point *ioPoint);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_SetVBLProc(DSpContextReference inContext, DSpCallbackUPP inProcPtr,
                       void *inRefCon);
 
@@ -690,7 +690,7 @@ DSpContext_SetVBLProc(DSpContextReference inContext, DSpCallbackUPP inProcPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetFlattenedSize(DSpContextReference inContext,
                             UInt32 *outFlatContextSize);
 
@@ -702,7 +702,7 @@ DSpContext_GetFlattenedSize(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_Flatten(DSpContextReference inContext, void *outFlatContext);
 
 /**
@@ -713,7 +713,7 @@ DSpContext_Flatten(DSpContextReference inContext, void *outFlatContext);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_Restore(void *inFlatContext,
                    DSpContextReference *outRestoredContext);
 
@@ -727,7 +727,7 @@ DSpContext_Restore(void *inFlatContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetMonitorFrequency(DSpContextReferenceConst inContext,
                                Fixed *outFrequency);
 
@@ -740,7 +740,7 @@ DSpContext_GetMonitorFrequency(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_SetMaxFrameRate(DSpContextReference inContext, UInt32 inMaxFPS);
 
 /**
@@ -751,7 +751,7 @@ DSpContext_SetMaxFrameRate(DSpContextReference inContext, UInt32 inMaxFPS);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetMaxFrameRate(DSpContextReferenceConst inContext,
                            UInt32 *outMaxFPS);
 
@@ -765,7 +765,7 @@ DSpContext_GetMaxFrameRate(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_SetState(DSpContextReference inContext, DSpContextState inState);
 
 /**
@@ -776,7 +776,7 @@ DSpContext_SetState(DSpContextReference inContext, DSpContextState inState);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetState(DSpContextReferenceConst inContext,
                     DSpContextState *outState);
 
@@ -788,7 +788,7 @@ DSpContext_GetState(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_IsBusy(DSpContextReferenceConst inContext, Boolean *outBusyFlag);
 
 /** dirty rectangles */
@@ -801,7 +801,7 @@ DSpContext_IsBusy(DSpContextReferenceConst inContext, Boolean *outBusyFlag);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_SetDirtyRectGridSize(DSpContextReference inContext,
                                 UInt32 inCellPixelWidth,
                                 UInt32 inCellPixelHeight);
@@ -814,7 +814,7 @@ DSpContext_SetDirtyRectGridSize(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetDirtyRectGridSize(DSpContextReferenceConst inContext,
                                 UInt32 *outCellPixelWidth,
                                 UInt32 *outCellPixelHeight);
@@ -827,7 +827,7 @@ DSpContext_GetDirtyRectGridSize(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetDirtyRectGridUnits(DSpContextReferenceConst inContext,
                                  UInt32 *outCellPixelWidth,
                                  UInt32 *outCellPixelHeight);
@@ -840,7 +840,7 @@ DSpContext_GetDirtyRectGridUnits(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_InvalBackBufferRect(DSpContextReference inContext,
                                const Rect *inRect);
 
@@ -853,7 +853,7 @@ DSpContext_InvalBackBufferRect(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_SetUnderlayAltBuffer(DSpContextReference inContext,
                                 DSpAltBufferReference inNewUnderlay);
 
@@ -865,7 +865,7 @@ DSpContext_SetUnderlayAltBuffer(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetUnderlayAltBuffer(DSpContextReferenceConst inContext,
                                 DSpAltBufferReference *outUnderlay);
 
@@ -880,7 +880,7 @@ DSpContext_GetUnderlayAltBuffer(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_FadeGammaOut(DSpContextReference inContext,
                         RGBColor *inZeroIntensityColor);
 
@@ -892,7 +892,7 @@ DSpContext_FadeGammaOut(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_FadeGammaIn(DSpContextReference inContext,
                        RGBColor *inZeroIntensityColor);
 
@@ -904,7 +904,7 @@ DSpContext_FadeGammaIn(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_FadeGamma(DSpContextReference inContext,
                      SInt32 inPercentOfOriginalIntensity,
                      RGBColor *inZeroIntensityColor);
@@ -918,7 +918,7 @@ DSpContext_FadeGamma(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_SwapBuffers(DSpContextReference inContext, DSpCallbackUPP inBusyProc,
                        void *inUserRefCon);
 
@@ -930,7 +930,7 @@ DSpContext_SwapBuffers(DSpContextReference inContext, DSpCallbackUPP inBusyProc,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetBackBuffer(DSpContextReference inContext,
                          DSpBufferKind inBufferKind, CGrafPtr *outBackBuffer);
 
@@ -942,7 +942,7 @@ DSpContext_GetBackBuffer(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetFrontBuffer(DSpContextReferenceConst inContext,
                           CGrafPtr *outFrontBuffer);
 
@@ -955,7 +955,7 @@ DSpContext_GetFrontBuffer(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_SetCLUTEntries(DSpContextReference inContext,
                           const ColorSpec *inEntries, UInt16 inStartingEntry,
                           UInt16 inLastEntry);
@@ -968,7 +968,7 @@ DSpContext_SetCLUTEntries(DSpContextReference inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpContext_GetCLUTEntries(DSpContextReferenceConst inContext,
                           ColorSpec *outEntries, UInt16 inStartingEntry,
                           UInt16 inLastEntry);
@@ -983,7 +983,7 @@ DSpContext_GetCLUTEntries(DSpContextReferenceConst inContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpBlit_Faster(DSpBlitInfoPtr inBlitInfo, Boolean inAsyncFlag);
 
 /**
@@ -994,7 +994,7 @@ DSpBlit_Faster(DSpBlitInfoPtr inBlitInfo, Boolean inAsyncFlag);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DSpBlit_Fastest(DSpBlitInfoPtr inBlitInfo, Boolean inAsyncFlag);
 
 #endif /** CALL_NOT_IN_CARBON */

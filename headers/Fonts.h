@@ -464,7 +464,7 @@ FlushFonts(void) TWOWORDINLINE(0x700C, 0xA854);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getfnum(const char *theName, short *familyID);
 
 /**
@@ -475,7 +475,7 @@ getfnum(const char *theName, short *familyID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getfontname(short familyID, char *theName);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -577,7 +577,7 @@ FetchFontInfo(SInt16 fontID, SInt16 fontSize, SInt16 fontStyle, FontInfo *info)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMCreateFontFamilyIterator(const FMFilter *iFilter, /** can be NULL */
                            void *iRefCon, OptionBits iOptions,
                            FMFontFamilyIterator *ioIterator);
@@ -590,7 +590,7 @@ FMCreateFontFamilyIterator(const FMFilter *iFilter, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMDisposeFontFamilyIterator(FMFontFamilyIterator *ioIterator);
 
 /**
@@ -601,7 +601,7 @@ FMDisposeFontFamilyIterator(FMFontFamilyIterator *ioIterator);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMResetFontFamilyIterator(const FMFilter *iFilter, /** can be NULL */
                           void *iRefCon, OptionBits iOptions,
                           FMFontFamilyIterator *ioIterator);
@@ -614,7 +614,7 @@ FMResetFontFamilyIterator(const FMFilter *iFilter, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetNextFontFamily(FMFontFamilyIterator *ioIterator,
                     FMFontFamily *oFontFamily);
 
@@ -626,7 +626,7 @@ FMGetNextFontFamily(FMFontFamilyIterator *ioIterator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMCreateFontIterator(const FMFilter *iFilter, /** can be NULL */
                      void *iRefCon, OptionBits iOptions,
                      FMFontIterator *ioIterator);
@@ -639,7 +639,7 @@ FMCreateFontIterator(const FMFilter *iFilter, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMDisposeFontIterator(FMFontIterator *ioIterator);
 
 /**
@@ -650,7 +650,7 @@ FMDisposeFontIterator(FMFontIterator *ioIterator);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMResetFontIterator(const FMFilter *iFilter, /** can be NULL */
                     void *iRefCon, OptionBits iOptions,
                     FMFontIterator *ioIterator);
@@ -663,7 +663,7 @@ FMResetFontIterator(const FMFilter *iFilter, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetNextFont(FMFontIterator *ioIterator, FMFont *oFont);
 
 /** Font families */
@@ -675,7 +675,7 @@ FMGetNextFont(FMFontIterator *ioIterator, FMFont *oFont);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMCreateFontFamilyInstanceIterator(FMFontFamily iFontFamily,
                                    FMFontFamilyInstanceIterator *ioIterator);
 
@@ -687,7 +687,7 @@ FMCreateFontFamilyInstanceIterator(FMFontFamily iFontFamily,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMDisposeFontFamilyInstanceIterator(FMFontFamilyInstanceIterator *ioIterator);
 
 /**
@@ -698,7 +698,7 @@ FMDisposeFontFamilyInstanceIterator(FMFontFamilyInstanceIterator *ioIterator);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMResetFontFamilyInstanceIterator(FMFontFamily iFontFamily,
                                   FMFontFamilyInstanceIterator *ioIterator);
 
@@ -710,7 +710,7 @@ FMResetFontFamilyInstanceIterator(FMFontFamily iFontFamily,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetNextFontFamilyInstance(FMFontFamilyInstanceIterator *ioIterator,
                             FMFont *oFont,
                             FMFontStyle *oStyle, /** can be NULL */
@@ -724,7 +724,7 @@ FMGetNextFontFamilyInstance(FMFontFamilyInstanceIterator *ioIterator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FMFontFamily)
+FMFontFamily
 FMGetFontFamilyFromName(ConstStr255Param iName);
 
 /**
@@ -735,7 +735,7 @@ FMGetFontFamilyFromName(ConstStr255Param iName);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontFamilyName(FMFontFamily iFontFamily, Str255 oName);
 
 /**
@@ -746,7 +746,7 @@ FMGetFontFamilyName(FMFontFamily iFontFamily, Str255 oName);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontFamilyTextEncoding(FMFontFamily iFontFamily,
                             TextEncoding *oTextEncoding);
 
@@ -758,7 +758,7 @@ FMGetFontFamilyTextEncoding(FMFontFamily iFontFamily,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontFamilyGeneration(FMFontFamily iFontFamily, FMGeneration *oGeneration);
 
 /** Fonts */
@@ -770,7 +770,7 @@ FMGetFontFamilyGeneration(FMFontFamily iFontFamily, FMGeneration *oGeneration);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontFormat(FMFont iFont, FourCharCode *oFormat);
 
 /**
@@ -781,7 +781,7 @@ FMGetFontFormat(FMFont iFont, FourCharCode *oFormat);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontTableDirectory(FMFont iFont, ByteCount iLength, void *iBuffer,
                         ByteCount *oActualLength); /** can be NULL */
 
@@ -793,7 +793,7 @@ FMGetFontTableDirectory(FMFont iFont, ByteCount iLength, void *iBuffer,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontTable(FMFont iFont, FourCharCode iTag, ByteOffset iOffset,
                ByteCount iLength, void *iBuffer,
                ByteCount *oActualLength); /** can be NULL */
@@ -806,7 +806,7 @@ FMGetFontTable(FMFont iFont, FourCharCode iTag, ByteOffset iOffset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontGeneration(FMFont iFont, FMGeneration *oGeneration);
 
 /**
@@ -817,7 +817,7 @@ FMGetFontGeneration(FMFont iFont, FMGeneration *oGeneration);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontContainer(FMFont iFont, FSSpec *oFontContainer);
 
 /** Conversion */
@@ -829,7 +829,7 @@ FMGetFontContainer(FMFont iFont, FSSpec *oFontContainer);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontFromFontFamilyInstance(
     FMFontFamily iFontFamily, FMFontStyle iStyle, FMFont *oFont,
     FMFontStyle *oIntrinsicStyle); /** can be NULL */
@@ -842,7 +842,7 @@ FMGetFontFromFontFamilyInstance(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontFamilyInstanceFromFont(FMFont iFont, FMFontFamily *oFontFamily,
                                 FMFontStyle *oStyle);
 
@@ -855,7 +855,7 @@ FMGetFontFamilyInstanceFromFont(FMFont iFont, FMFontFamily *oFontFamily,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(ATSFontRef)
+ATSFontRef
 FMGetATSFontRefFromFont(FMFont iFont);
 
 /**
@@ -867,7 +867,7 @@ FMGetATSFontRefFromFont(FMFont iFont);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(ATSFontFamilyRef)
+ATSFontFamilyRef
 FMGetATSFontFamilyRefFromFontFamily(FMFontFamily iFamily);
 
 /**
@@ -879,7 +879,7 @@ FMGetATSFontFamilyRefFromFontFamily(FMFontFamily iFamily);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(FMFont)
+FMFont
 FMGetFontFromATSFontRef(ATSFontRef iFont);
 
 /**
@@ -891,7 +891,7 @@ FMGetFontFromATSFontRef(ATSFontRef iFont);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(FMFontFamily)
+FMFontFamily
 FMGetFontFamilyFromATSFontFamilyRef(ATSFontFamilyRef iFamily);
 
 /** Activation */
@@ -903,7 +903,7 @@ FMGetFontFamilyFromATSFontFamilyRef(ATSFontFamilyRef iFamily);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMActivateFonts(const FSSpec *iFontContainer,
                 const FMFilter *iFilter, /** can be NULL */
                 void *iRefCon, OptionBits iOptions);
@@ -916,7 +916,7 @@ FMActivateFonts(const FSSpec *iFontContainer,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMDeactivateFonts(const FSSpec *iFontContainer,
                   const FMFilter *iFilter, /** can be NULL */
                   void *iRefCon, OptionBits iOptions);
@@ -929,7 +929,7 @@ FMDeactivateFonts(const FSSpec *iFontContainer,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FMGeneration)
+FMGeneration
 FMGetGeneration(void);
 
 /** Container Access */
@@ -941,7 +941,7 @@ FMGetGeneration(void);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontContainerFromFontFamilyInstance(FMFontFamily iFontFamily,
                                          FMFontStyle iStyle,
                                          FMFontSize iFontSize,
@@ -955,7 +955,7 @@ FMGetFontContainerFromFontFamilyInstance(FMFontFamily iFontFamily,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FMGetFontFamilyResource(FMFontFamily iFontFamily, FMFontStyle iFontStyle,
                         FMFontSize iFontSize, ByteCount iBufferSize,
                         void *ioBuffer, ByteCount *oSize); /** can be NULL */

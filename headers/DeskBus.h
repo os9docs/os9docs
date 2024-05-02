@@ -330,7 +330,7 @@ SetADBInfo(const ADBSetInfoBlock *info, ADBAddress adbAddr)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ADBCompletionUPP)
+ADBCompletionUPP
 NewADBCompletionUPP(ADBCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -358,7 +358,7 @@ inline ADBCompletionUPP NewADBCompletionUPP(ADBCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ADBDeviceDriverUPP)
+ADBDeviceDriverUPP
 NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -387,7 +387,7 @@ NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ADBServiceRoutineUPP)
+ADBServiceRoutineUPP
 NewADBServiceRoutineUPP(ADBServiceRoutineProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -417,7 +417,7 @@ NewADBServiceRoutineUPP(ADBServiceRoutineProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ADBInitUPP)
+ADBInitUPP
 NewADBInitUPP(ADBInitProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -443,7 +443,7 @@ inline ADBInitUPP NewADBInitUPP(ADBInitProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeADBCompletionUPP(ADBCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -463,7 +463,7 @@ inline void DisposeADBCompletionUPP(ADBCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeADBDeviceDriverUPP(ADBDeviceDriverUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -483,7 +483,7 @@ inline void DisposeADBDeviceDriverUPP(ADBDeviceDriverUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeADBServiceRoutineUPP(ADBServiceRoutineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -503,7 +503,7 @@ inline void DisposeADBServiceRoutineUPP(ADBServiceRoutineUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeADBInitUPP(ADBInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -523,7 +523,7 @@ inline void DisposeADBInitUPP(ADBInitUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeADBCompletionUPP(Ptr buffer, Ptr refCon, long command,
                        ADBCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -552,7 +552,7 @@ inline void InvokeADBCompletionUPP(Ptr buffer, Ptr refCon, long command,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeADBDeviceDriverUPP(__D0, __D1, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeADBDeviceDriverUPP(SInt8 devAddress, SInt8 devType,
                          ADBDeviceDriverUPP userUPP) ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -578,7 +578,7 @@ inline void InvokeADBDeviceDriverUPP(SInt8 devAddress, SInt8 devType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeADBServiceRoutineUPP(Ptr buffer, TempADBServiceRoutineUPP completionProc,
                            Ptr refCon, long command,
                            ADBServiceRoutineUPP userUPP);
@@ -611,7 +611,7 @@ inline void InvokeADBServiceRoutineUPP(Ptr buffer,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeADBInitUPP(__D0, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeADBInitUPP(SInt8 callOrder, ADBInitUPP userUPP) ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)

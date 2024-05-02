@@ -181,7 +181,7 @@ typedef VolumeVirtualMemoryInfo *VolumeVirtualMemoryInfoPtr;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(GrowZoneUPP)
+GrowZoneUPP
 NewGrowZoneUPP(GrowZoneProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppGrowZoneProcInfo = 0x000000F0 }; /* pascal 4_bytes Func(4_bytes) */
@@ -205,7 +205,7 @@ inline GrowZoneUPP NewGrowZoneUPP(GrowZoneProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(PurgeUPP)
+PurgeUPP
 NewPurgeUPP(PurgeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -231,7 +231,7 @@ inline PurgeUPP NewPurgeUPP(PurgeProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UserFnUPP)
+UserFnUPP
 NewUserFnUPP(UserFnProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -257,7 +257,7 @@ inline UserFnUPP NewUserFnUPP(UserFnProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeGrowZoneUPP(GrowZoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -277,7 +277,7 @@ inline void DisposeGrowZoneUPP(GrowZoneUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposePurgeUPP(PurgeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -297,7 +297,7 @@ inline void DisposePurgeUPP(PurgeUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeUserFnUPP(UserFnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -317,7 +317,7 @@ inline void DisposeUserFnUPP(UserFnUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(long)
+long
 InvokeGrowZoneUPP(Size cbNeeded, GrowZoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -338,7 +338,7 @@ inline long InvokeGrowZoneUPP(Size cbNeeded, GrowZoneUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokePurgeUPP(Handle blockToPurge, PurgeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -362,7 +362,7 @@ inline void InvokePurgeUPP(Handle blockToPurge, PurgeUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeUserFnUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeUserFnUPP(void *parameter, UserFnUPP userUPP) ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -1878,7 +1878,7 @@ BlockMoveData(const void *srcPtr, void *destPtr, Size byteCount)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 BlockMoveUncached(const void *srcPtr, void *destPtr, Size byteCount);
 
 /**
@@ -1889,7 +1889,7 @@ BlockMoveUncached(const void *srcPtr, void *destPtr, Size byteCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 BlockMoveDataUncached(const void *srcPtr, void *destPtr, Size byteCount);
 
 /**
@@ -1900,7 +1900,7 @@ BlockMoveDataUncached(const void *srcPtr, void *destPtr, Size byteCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 BlockZero(void *destPtr, Size byteCount);
 
 /**
@@ -1911,7 +1911,7 @@ BlockZero(void *destPtr, Size byteCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 BlockZeroUncached(void *destPtr, Size byteCount);
 
 #if CALL_NOT_IN_CARBON
@@ -1972,7 +1972,7 @@ MoreMasters(void) ONEWORDINLINE(0xA036);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 MoreMasterPointers(UInt32 inCount);
 
 #if CALL_NOT_IN_CARBON

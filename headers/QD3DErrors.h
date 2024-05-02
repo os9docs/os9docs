@@ -285,7 +285,7 @@ typedef CALLBACK_API_C(void, TQ3NoticeMethod)(TQ3Notice firstNotice,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Error_Register(TQ3ErrorMethod errorPost, long reference);
 
 /**
@@ -296,7 +296,7 @@ Q3Error_Register(TQ3ErrorMethod errorPost, long reference);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Warning_Register(TQ3WarningMethod warningPost, long reference);
 
 /**
@@ -307,7 +307,7 @@ Q3Warning_Register(TQ3WarningMethod warningPost, long reference);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Notice_Register(TQ3NoticeMethod noticePost, long reference);
 
 /**
@@ -324,7 +324,7 @@ Q3Notice_Register(TQ3NoticeMethod noticePost, long reference);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Error)
+TQ3Error
 Q3Error_Get(TQ3Error *firstError);
 
 /**
@@ -335,7 +335,7 @@ Q3Error_Get(TQ3Error *firstError);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Error_IsFatalError(TQ3Error error);
 
 /**
@@ -346,7 +346,7 @@ Q3Error_IsFatalError(TQ3Error error);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Warning)
+TQ3Warning
 Q3Warning_Get(TQ3Warning *firstWarning);
 
 /**
@@ -357,7 +357,7 @@ Q3Warning_Get(TQ3Warning *firstWarning);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Notice)
+TQ3Notice
 Q3Notice_Get(TQ3Notice *firstNotice);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -372,7 +372,7 @@ Q3Notice_Get(TQ3Notice *firstNotice);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3MacintoshError_Get(OSErr *firstMacErr);
 
 #endif /* CALL_NOT_IN_CARBON */

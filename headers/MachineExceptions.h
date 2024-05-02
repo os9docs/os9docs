@@ -229,7 +229,7 @@ typedef TVECTOR_UPP_TYPE(ExceptionHandlerProcPtr) ExceptionHandlerUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ExceptionHandlerUPP)
+ExceptionHandlerUPP
 NewExceptionHandlerUPP(ExceptionHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppExceptionHandlerProcInfo = 0x000000F1 }; /** 4_bytes Func(4_bytes) */
@@ -251,7 +251,7 @@ NewExceptionHandlerUPP(ExceptionHandlerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeExceptionHandlerUPP(ExceptionHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -269,7 +269,7 @@ inline void DisposeExceptionHandlerUPP(ExceptionHandlerUPP) {}
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeExceptionHandlerUPP(ExceptionInformation *theException,
                           ExceptionHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES

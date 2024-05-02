@@ -371,7 +371,7 @@ AESetTheCurrentEvent(const AppleEvent *theAppleEvent)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AEIdleUPP)
+AEIdleUPP
 NewAEIdleUPP(AEIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -397,7 +397,7 @@ inline AEIdleUPP NewAEIdleUPP(AEIdleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AEFilterUPP)
+AEFilterUPP
 NewAEFilterUPP(AEFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -423,7 +423,7 @@ inline AEFilterUPP NewAEFilterUPP(AEFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAEIdleUPP(AEIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -443,7 +443,7 @@ inline void DisposeAEIdleUPP(AEIdleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAEFilterUPP(AEFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -463,7 +463,7 @@ inline void DisposeAEFilterUPP(AEFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeAEIdleUPP(EventRecord *theEvent, long *sleepTime, RgnHandle *mouseRgn,
                 AEIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -488,7 +488,7 @@ inline Boolean InvokeAEIdleUPP(EventRecord *theEvent, long *sleepTime,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeAEFilterUPP(EventRecord *theEvent, long returnID, long transactionID,
                   const AEAddressDesc *sender, AEFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES

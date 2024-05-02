@@ -410,7 +410,7 @@ QuitEventLoop(EventLoopRef inEventLoop);
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.1 and later \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CFTypeRef)
+CFTypeRef
 GetCFRunLoopFromEventLoop(EventLoopRef inEventLoop);
 
 /*��������������������������������������������������������������������������������������*/
@@ -788,7 +788,7 @@ typedef STACK_UPP_TYPE(EventComparatorProcPtr) EventComparatorUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventComparatorUPP)
+EventComparatorUPP
 NewEventComparatorUPP(EventComparatorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -817,7 +817,7 @@ NewEventComparatorUPP(EventComparatorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEventComparatorUPP(EventComparatorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -837,7 +837,7 @@ inline void DisposeEventComparatorUPP(EventComparatorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeEventComparatorUPP(EventRef inEvent, void *inCompareData,
                          EventComparatorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1213,7 +1213,7 @@ TrackMouseLocation(GrafPtr inPort, /* can be NULL */
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TrackMouseLocationWithOptions(GrafPtr inPort, /* can be NULL */
                               OptionBits inOptions, EventTimeout inTimeout,
                               Point *outPt,
@@ -1364,7 +1364,7 @@ GetLastUserEventTime(void);
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.1 and later \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsMouseCoalescingEnabled(void);
 
 /**
@@ -1395,7 +1395,7 @@ IsMouseCoalescingEnabled(void);
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.1 and later \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetMouseCoalescingEnabled(Boolean inNewState,
                           Boolean *outOldState); /* can be NULL */
 
@@ -1461,7 +1461,7 @@ typedef STACK_UPP_TYPE(EventLoopTimerProcPtr) EventLoopTimerUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventLoopTimerUPP)
+EventLoopTimerUPP
 NewEventLoopTimerUPP(EventLoopTimerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1490,7 +1490,7 @@ NewEventLoopTimerUPP(EventLoopTimerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEventLoopTimerUPP(EventLoopTimerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1510,7 +1510,7 @@ inline void DisposeEventLoopTimerUPP(EventLoopTimerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeEventLoopTimerUPP(EventLoopTimerRef inTimer, void *inUserData,
                         EventLoopTimerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -4819,7 +4819,7 @@ typedef STACK_UPP_TYPE(EventHandlerProcPtr) EventHandlerUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventHandlerUPP)
+EventHandlerUPP
 NewEventHandlerUPP(EventHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -4847,7 +4847,7 @@ inline EventHandlerUPP NewEventHandlerUPP(EventHandlerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEventHandlerUPP(EventHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -4867,7 +4867,7 @@ inline void DisposeEventHandlerUPP(EventHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeEventHandlerUPP(EventHandlerCallRef inHandlerCallRef, EventRef inEvent,
                       void *inUserData, EventHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -5055,7 +5055,7 @@ GetUserFocusEventTarget(void);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventTargetRef)
+EventTargetRef
 GetEventDispatcherTarget(void);
 
 /**
@@ -5472,7 +5472,7 @@ QuitApplicationEventLoop(void);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RunAppModalLoopForWindow(WindowRef inWindow);
 
 /**
@@ -5498,7 +5498,7 @@ RunAppModalLoopForWindow(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 QuitAppModalLoopForWindow(WindowRef inWindow);
 
 /**
@@ -5531,7 +5531,7 @@ QuitAppModalLoopForWindow(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 BeginAppModalStateForWindow(WindowRef inWindow);
 
 /**
@@ -5554,7 +5554,7 @@ BeginAppModalStateForWindow(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 EndAppModalStateForWindow(WindowRef inWindow);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5728,7 +5728,7 @@ typedef struct OpaqueEventHotKeyRef *EventHotKeyRef;
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegisterEventHotKey(UInt32 inHotKeyCode, UInt32 inHotKeyModifiers,
                     EventHotKeyID inHotKeyID, EventTargetRef inTarget,
                     OptionBits inOptions, EventHotKeyRef *outRef);
@@ -5757,7 +5757,7 @@ RegisterEventHotKey(UInt32 inHotKeyCode, UInt32 inHotKeyModifiers,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UnregisterEventHotKey(EventHotKeyRef inHotKey);
 
 /* OBSOLETE CONSTANTS*/

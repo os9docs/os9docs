@@ -850,7 +850,7 @@ stream_write(int fd, void *buf, size_t len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(int)
+int
 stream_ioctl(int fd, unsigned long cmd, ...);
 
 /**

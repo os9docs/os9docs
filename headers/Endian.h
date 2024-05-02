@@ -99,7 +99,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 EndianS16_BtoN(SInt16 value);
 
 /**
@@ -110,7 +110,7 @@ EndianS16_BtoN(SInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 EndianS16_NtoB(SInt16 value);
 
 /**
@@ -121,7 +121,7 @@ EndianS16_NtoB(SInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 EndianS16_LtoN(SInt16 value);
 
 /**
@@ -132,7 +132,7 @@ EndianS16_LtoN(SInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 EndianS16_NtoL(SInt16 value);
 
 /**
@@ -143,7 +143,7 @@ EndianS16_NtoL(SInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 EndianS16_LtoB(SInt16 value);
 
 /**
@@ -154,7 +154,7 @@ EndianS16_LtoB(SInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 EndianS16_BtoL(SInt16 value);
 
 /**
@@ -165,7 +165,7 @@ EndianS16_BtoL(SInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 EndianU16_BtoN(UInt16 value);
 
 /**
@@ -176,7 +176,7 @@ EndianU16_BtoN(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 EndianU16_NtoB(UInt16 value);
 
 /**
@@ -187,7 +187,7 @@ EndianU16_NtoB(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 EndianU16_LtoN(UInt16 value);
 
 /**
@@ -198,7 +198,7 @@ EndianU16_LtoN(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 EndianU16_NtoL(UInt16 value);
 
 /**
@@ -209,7 +209,7 @@ EndianU16_NtoL(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 EndianU16_LtoB(UInt16 value);
 
 /**
@@ -220,7 +220,7 @@ EndianU16_LtoB(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt16)
+UInt16
 EndianU16_BtoL(UInt16 value);
 
 /**
@@ -231,7 +231,7 @@ EndianU16_BtoL(UInt16 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt32)
+SInt32
 EndianS32_BtoN(SInt32 value);
 
 /**
@@ -242,7 +242,7 @@ EndianS32_BtoN(SInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt32)
+SInt32
 EndianS32_NtoB(SInt32 value);
 
 /**
@@ -253,7 +253,7 @@ EndianS32_NtoB(SInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt32)
+SInt32
 EndianS32_LtoN(SInt32 value);
 
 /**
@@ -264,7 +264,7 @@ EndianS32_LtoN(SInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt32)
+SInt32
 EndianS32_NtoL(SInt32 value);
 
 /**
@@ -275,7 +275,7 @@ EndianS32_NtoL(SInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt32)
+SInt32
 EndianS32_LtoB(SInt32 value);
 
 /**
@@ -286,7 +286,7 @@ EndianS32_LtoB(SInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt32)
+SInt32
 EndianS32_BtoL(SInt32 value);
 
 /**
@@ -297,7 +297,7 @@ EndianS32_BtoL(SInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 EndianU32_BtoN(UInt32 value);
 
 /**
@@ -308,7 +308,7 @@ EndianU32_BtoN(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 EndianU32_NtoB(UInt32 value);
 
 /**
@@ -319,7 +319,7 @@ EndianU32_NtoB(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 EndianU32_LtoN(UInt32 value);
 
 /**
@@ -330,7 +330,7 @@ EndianU32_LtoN(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 EndianU32_NtoL(UInt32 value);
 
 /**
@@ -341,7 +341,7 @@ EndianU32_NtoL(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 EndianU32_LtoB(UInt32 value);
 
 /**
@@ -352,7 +352,7 @@ EndianU32_LtoB(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 EndianU32_BtoL(UInt32 value);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -372,7 +372,7 @@ EndianU32_BtoL(UInt32 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 EndianS64_BtoN(SInt64 value);
 
 /**
@@ -383,7 +383,7 @@ EndianS64_BtoN(SInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 EndianS64_NtoB(SInt64 value);
 
 /**
@@ -394,7 +394,7 @@ EndianS64_NtoB(SInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 EndianS64_LtoN(SInt64 value);
 
 /**
@@ -405,7 +405,7 @@ EndianS64_LtoN(SInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 EndianS64_NtoL(SInt64 value);
 
 /**
@@ -416,7 +416,7 @@ EndianS64_NtoL(SInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 EndianS64_LtoB(SInt64 value);
 
 /**
@@ -427,7 +427,7 @@ EndianS64_LtoB(SInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt64)
+SInt64
 EndianS64_BtoL(SInt64 value);
 
 /**
@@ -438,7 +438,7 @@ EndianS64_BtoL(SInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 EndianU64_BtoN(UInt64 value);
 
 /**
@@ -449,7 +449,7 @@ EndianU64_BtoN(UInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 EndianU64_NtoB(UInt64 value);
 
 /**
@@ -460,7 +460,7 @@ EndianU64_NtoB(UInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 EndianU64_LtoN(UInt64 value);
 
 /**
@@ -471,7 +471,7 @@ EndianU64_LtoN(UInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 EndianU64_NtoL(UInt64 value);
 
 /**
@@ -482,7 +482,7 @@ EndianU64_NtoL(UInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 EndianU64_LtoB(UInt64 value);
 
 /**
@@ -493,7 +493,7 @@ EndianU64_LtoB(UInt64 value);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 EndianU64_BtoL(UInt64 value);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -725,7 +725,7 @@ inline static UInt64 Endian64_Swap(UInt64 value) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt64)
+UInt64
 Endian64_Swap(UInt64 value);
 
 #endif /** CALL_NOT_IN_CARBON */

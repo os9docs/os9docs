@@ -191,7 +191,7 @@ typedef STACK_UPP_TYPE(ActivateYDProcPtr) ActivateYDUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DlgHookUPP)
+DlgHookUPP
 NewDlgHookUPP(DlgHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -217,7 +217,7 @@ inline DlgHookUPP NewDlgHookUPP(DlgHookProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileFilterUPP)
+FileFilterUPP
 NewFileFilterUPP(FileFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppFileFilterProcInfo = 0x000000D0 }; /* pascal 1_byte Func(4_bytes) */
@@ -241,7 +241,7 @@ inline FileFilterUPP NewFileFilterUPP(FileFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DlgHookYDUPP)
+DlgHookYDUPP
 NewDlgHookYDUPP(DlgHookYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -267,7 +267,7 @@ inline DlgHookYDUPP NewDlgHookYDUPP(DlgHookYDProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileFilterYDUPP)
+FileFilterYDUPP
 NewFileFilterYDUPP(FileFilterYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -295,7 +295,7 @@ inline FileFilterYDUPP NewFileFilterYDUPP(FileFilterYDProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ActivateYDUPP)
+ActivateYDUPP
 NewActivateYDUPP(ActivateYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -321,7 +321,7 @@ inline ActivateYDUPP NewActivateYDUPP(ActivateYDProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDlgHookUPP(DlgHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -341,7 +341,7 @@ inline void DisposeDlgHookUPP(DlgHookUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileFilterUPP(FileFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -361,7 +361,7 @@ inline void DisposeFileFilterUPP(FileFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDlgHookYDUPP(DlgHookYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -381,7 +381,7 @@ inline void DisposeDlgHookYDUPP(DlgHookYDUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileFilterYDUPP(FileFilterYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -401,7 +401,7 @@ inline void DisposeFileFilterYDUPP(FileFilterYDUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeActivateYDUPP(ActivateYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -421,7 +421,7 @@ inline void DisposeActivateYDUPP(ActivateYDUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeDlgHookUPP(short item, DialogRef theDialog, DlgHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -445,7 +445,7 @@ inline short InvokeDlgHookUPP(short item, DialogRef theDialog,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeFileFilterUPP(CInfoPBPtr pb, FileFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -466,7 +466,7 @@ inline Boolean InvokeFileFilterUPP(CInfoPBPtr pb, FileFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeDlgHookYDUPP(short item, DialogRef theDialog, void *yourDataPtr,
                    DlgHookYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -491,7 +491,7 @@ inline short InvokeDlgHookYDUPP(short item, DialogRef theDialog,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeFileFilterYDUPP(CInfoPBPtr pb, void *yourDataPtr,
                       FileFilterYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -516,7 +516,7 @@ inline Boolean InvokeFileFilterYDUPP(CInfoPBPtr pb, void *yourDataPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeActivateYDUPP(DialogRef theDialog, short itemNo, Boolean activating,
                     void *yourDataPtr, ActivateYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -713,7 +713,7 @@ StandardOpenDialog(StandardFileReply *reply);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 sfpputfile(Point *where, const char *prompt, const char *origName,
            DlgHookUPP dlgHook, /* can be NULL */
            SFReply *reply, short dlgID,
@@ -727,7 +727,7 @@ sfpputfile(Point *where, const char *prompt, const char *origName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 sfgetfile(Point *where, const char *prompt,
           FileFilterUPP fileFilter,                    /* can be NULL */
           short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
@@ -742,7 +742,7 @@ sfgetfile(Point *where, const char *prompt,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 sfpgetfile(Point *where, const char *prompt,
            FileFilterUPP fileFilter,                    /* can be NULL */
            short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
@@ -758,7 +758,7 @@ sfpgetfile(Point *where, const char *prompt,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 sfputfile(Point *where, const char *prompt, const char *origName,
           DlgHookUPP dlgHook, /* can be NULL */
           SFReply *reply);

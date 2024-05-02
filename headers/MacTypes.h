@@ -784,7 +784,7 @@ DebugStr(ConstStr255Param debuggerMsg) ONEWORDINLINE(0xABFF);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 debugstr(const char *debuggerMsg);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -800,7 +800,7 @@ debugstr(const char *debuggerMsg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SysDebug(void);
 
 /**
@@ -811,7 +811,7 @@ SysDebug(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SysDebugStr(ConstStr255Param str);
 
 #endif /** CALL_NOT_IN_CARBON */

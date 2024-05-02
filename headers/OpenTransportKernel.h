@@ -98,7 +98,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 allocb(OTByteCount size, OTInt32 pri);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -113,7 +113,7 @@ typedef CALLBACK_API_C(void, allocbiProc)(char *arg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 allocbi(OTByteCount size, OTInt32 pri, allocbiProc pfv, char *arg,
         unsigned char *base);
 
@@ -125,7 +125,7 @@ allocbi(OTByteCount size, OTInt32 pri, allocbiProc pfv, char *arg,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(queue_t *)
+queue_t *
 allocq(void);
 
 /**
@@ -136,7 +136,7 @@ allocq(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 adjmsg(mblk_t *mp, OTInt32 len_param);
 
 /**
@@ -147,7 +147,7 @@ adjmsg(mblk_t *mp, OTInt32 len_param);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(queue_t *)
+queue_t *
 backq(queue_t *q);
 
 /**
@@ -158,7 +158,7 @@ backq(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 bcanput(queue_t *q, OTUInt8Param pri);
 
 /**
@@ -169,7 +169,7 @@ bcanput(queue_t *q, OTUInt8Param pri);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 bcanputnext(queue_t *q, OTUInt8Param pri);
 
 /**
@@ -180,7 +180,7 @@ bcanputnext(queue_t *q, OTUInt8Param pri);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 bufcall(OTByteCount memNeeded, OTInt32 pri, bufcallp_t proc, long context);
 
 /**
@@ -191,7 +191,7 @@ bufcall(OTByteCount memNeeded, OTInt32 pri, bufcallp_t proc, long context);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 canput(queue_t *q);
 
 /**
@@ -202,7 +202,7 @@ canput(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 canputnext(queue_t *q);
 
 /**
@@ -213,7 +213,7 @@ canputnext(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 copyb(mblk_t *mp);
 
 /**
@@ -224,7 +224,7 @@ copyb(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 copymsg(mblk_t *mp);
 
 /**
@@ -235,7 +235,7 @@ copymsg(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 dupb(mblk_t *mp);
 
 /**
@@ -246,7 +246,7 @@ dupb(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 dupmsg(mblk_t *mp);
 
 /**
@@ -257,7 +257,7 @@ dupmsg(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 esballoc(unsigned char *base, OTByteCount size, OTInt32 pri, frtn_t *freeInfo);
 
 /**
@@ -268,7 +268,7 @@ esballoc(unsigned char *base, OTByteCount size, OTInt32 pri, frtn_t *freeInfo);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 esballoca(unsigned char *base, OTByteCount size, OTInt32 pri, frtn_t *freeInfo);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -283,7 +283,7 @@ typedef CALLBACK_API_C(void, esbbcallProc)(long arg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 esbbcall(OTInt32 pri, esbbcallProc func, long arg);
 
 /**
@@ -294,7 +294,7 @@ esbbcall(OTInt32 pri, esbbcallProc func, long arg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 flushband(queue_t *q, OTUInt8Param pri, OTInt32 flag);
 
 /**
@@ -305,7 +305,7 @@ flushband(queue_t *q, OTUInt8Param pri, OTInt32 flag);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 flushq(queue_t *q, OTInt32 flag);
 
 /**
@@ -316,7 +316,7 @@ flushq(queue_t *q, OTInt32 flag);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 freeb(mblk_t *mp);
 
 /**
@@ -327,7 +327,7 @@ freeb(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 freemsg(mblk_t *mp);
 
 /**
@@ -338,7 +338,7 @@ freemsg(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 freeq(queue_t *q);
 
 /**
@@ -349,7 +349,7 @@ freeq(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 freezestr(queue_t *q);
 
 /**
@@ -360,7 +360,7 @@ freezestr(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(admin_t)
+admin_t
 getadmin(OTUInt16Param mid);
 
 /**
@@ -371,7 +371,7 @@ getadmin(OTUInt16Param mid);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned short)
+unsigned short
 getmid(char *name);
 
 /**
@@ -382,7 +382,7 @@ getmid(char *name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 getq(queue_t *q);
 
 /**
@@ -393,7 +393,7 @@ getq(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 insq(queue_t *q, mblk_t *emp, mblk_t *nmp);
 
 /**
@@ -404,7 +404,7 @@ insq(queue_t *q, mblk_t *emp, mblk_t *nmp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 linkb(mblk_t *mp1, mblk_t *mp2);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -419,7 +419,7 @@ typedef CALLBACK_API_C(void, mpnotifyProc)(char *arg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 mpnotify(mblk_t *mp, mpnotifyProc pfv, char *arg);
 
 /**
@@ -430,7 +430,7 @@ mpnotify(mblk_t *mp, mpnotifyProc pfv, char *arg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 msgdsize(const mblk_t *mp);
 
 /**
@@ -441,7 +441,7 @@ msgdsize(const mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 msgpullup(mblk_t *mp, OTInt32 len);
 
 /**
@@ -452,7 +452,7 @@ msgpullup(mblk_t *mp, OTInt32 len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 pullupmsg(mblk_t *mp, OTInt32 len);
 
 /**
@@ -463,7 +463,7 @@ pullupmsg(mblk_t *mp, OTInt32 len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 put(queue_t *q, mblk_t *mp);
 
 /**
@@ -474,7 +474,7 @@ put(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putbq(queue_t *q, mblk_t *mp);
 
 /**
@@ -485,7 +485,7 @@ putbq(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putctl(queue_t *q, OTInt32 mType);
 
 /**
@@ -496,7 +496,7 @@ putctl(queue_t *q, OTInt32 mType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putnextctl(queue_t *q, OTInt32 mType);
 
 /**
@@ -507,7 +507,7 @@ putnextctl(queue_t *q, OTInt32 mType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putctl1(queue_t *q, OTInt32 mType, OTInt32 c);
 
 /**
@@ -518,7 +518,7 @@ putctl1(queue_t *q, OTInt32 mType, OTInt32 c);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putnextctl1(queue_t *q, OTInt32 mType, OTInt32 c);
 
 /**
@@ -529,7 +529,7 @@ putnextctl1(queue_t *q, OTInt32 mType, OTInt32 c);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putctl2(queue_t *q, OTInt32 mType, OTInt32 c1, OTInt32 c2);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -544,7 +544,7 @@ putctl2(queue_t *q, OTInt32 mType, OTInt32 c1, OTInt32 c2);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 puthere(queue_t *q, mblk_t *mp);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -560,7 +560,7 @@ puthere(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putnext(queue_t *q, mblk_t *mp);
 
 /**
@@ -571,7 +571,7 @@ putnext(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 putq(queue_t *q, mblk_t *mp);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -585,7 +585,7 @@ putq(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 qenable(queue_t *q);
 
 /**
@@ -596,7 +596,7 @@ qenable(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 qprocson(queue_t *q);
 
 /**
@@ -607,7 +607,7 @@ qprocson(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 qprocsoff(queue_t *q);
 
 /**
@@ -618,7 +618,7 @@ qprocsoff(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 qreply(queue_t *q, mblk_t *mp);
 
 /**
@@ -629,7 +629,7 @@ qreply(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 qsize(queue_t *q);
 
 /**
@@ -640,7 +640,7 @@ qsize(queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 rmvb(mblk_t *mp, mblk_t *bp);
 
 /**
@@ -651,7 +651,7 @@ rmvb(mblk_t *mp, mblk_t *bp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 rmvq(queue_t *q, mblk_t *mp);
 
 /* prototype for strlog in "strlog.h" section, below */
@@ -663,7 +663,7 @@ rmvq(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 strqget(queue_t *q, qfields_t what, OTUInt8Param pri, long *valp);
 
 /**
@@ -674,7 +674,7 @@ strqget(queue_t *q, qfields_t what, OTUInt8Param pri, long *valp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 strqset(queue_t *q, qfields_t what, OTUInt8Param pri, long val);
 
 /**
@@ -685,7 +685,7 @@ strqset(queue_t *q, qfields_t what, OTUInt8Param pri, long val);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 testb(OTByteCount size, OTInt32 pri);
 
 /**
@@ -696,7 +696,7 @@ testb(OTByteCount size, OTInt32 pri);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 unbufcall(OTInt32 id);
 
 /**
@@ -707,7 +707,7 @@ unbufcall(OTInt32 id);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 unfreezestr(queue_t *q, OTInt32 oldpri);
 
 /**
@@ -718,7 +718,7 @@ unfreezestr(queue_t *q, OTInt32 oldpri);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 unlinkb(mblk_t *mp);
 
 /* ***** From the Mentat "strlog.h" ******/
@@ -731,7 +731,7 @@ unlinkb(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 strlog(OTInt32 mid, OTInt32 sid, OTInt32 level, OTUInt32 flags, char *fmt, ...);
 
 /* ***** Printing Functions ******/
@@ -749,7 +749,7 @@ enum { kOTPrintOnly = 0, kOTPrintThenStop = 1 };
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 OTKernelPrintf(OTInt32 toDo, char *fmt, ...);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -770,7 +770,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 cmn_err(OTInt32 errType, char *fmt, ...);
 
 /**
@@ -781,7 +781,7 @@ cmn_err(OTInt32 errType, char *fmt, ...);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 mi_sprintf(char *buf, char *fmt, ...);
 
 /* Create sprintf and printf functions that will work in STREAM modules.*/
@@ -818,7 +818,7 @@ typedef long OTError;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTErrorToOSStatus(OTError err);
 
 /* ***** STREAMS Plug-in Interface *****/
@@ -949,7 +949,7 @@ enum { kFirstMinorNumber = 10 };
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTStrlog(queue_t *q, OTInt32 lvl, OTInt32 flags, const char *str);
 
 /* These are enums for the level value*/
@@ -1065,7 +1065,7 @@ typedef struct TPortRecord TPortRecord;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTRegisterPort(OTPortRecord *portInfo, void *ref);
 
 /**
@@ -1083,7 +1083,7 @@ OTRegisterPort(OTPortRecord *portInfo, void *ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTUnregisterPort(const char *portName, void **refPtr);
 
 /* Change the state of the port.*/
@@ -1095,7 +1095,7 @@ OTUnregisterPort(const char *portName, void **refPtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTChangePortState(OTPortRef portRef, OTEventCode theChange, OTResult why);
 
 /* Find the TPortRecord for a given Port Name*/
@@ -1107,7 +1107,7 @@ OTChangePortState(OTPortRef portRef, OTEventCode theChange, OTResult why);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TPortRecord *)
+TPortRecord *
 OTFindPort(const char *portName);
 
 /* Find the "nth" TPortRecord*/
@@ -1119,7 +1119,7 @@ OTFindPort(const char *portName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TPortRecord *)
+TPortRecord *
 OTGetIndexedPort(OTItemCount index);
 
 /**
@@ -1134,7 +1134,7 @@ OTGetIndexedPort(OTItemCount index);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TPortRecord *)
+TPortRecord *
 OTFindPortConflict(OTPortRef ref);
 
 /* Other ways of finding the port*/
@@ -1146,7 +1146,7 @@ OTFindPortConflict(OTPortRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TPortRecord *)
+TPortRecord *
 OTFindPortByRef(OTPortRef ref);
 
 /**
@@ -1157,7 +1157,7 @@ OTFindPortByRef(OTPortRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TPortRecord *)
+TPortRecord *
 OTFindPortByDev(dev_t dev);
 
 /* ***** Port Scanners ******/
@@ -1212,7 +1212,7 @@ typedef CALLBACK_API_C(void, PortScanProcPtr)(UInt32 scanType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTAllocPortMem(OTByteCount size);
 
 /**
@@ -1223,7 +1223,7 @@ OTAllocPortMem(OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTFreePortMem(void *mem);
 
 /* ***** Interrupt Control Functions *****/
@@ -1253,7 +1253,7 @@ typedef UInt8 MPS_INTR_STATE;
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter mps_intr_disable(__A0)
 #endif
-EXTERN_API_C(void)
+void
 mps_intr_disable(MPS_INTR_STATE *oldState)
     THIRTEENWORDINLINE(0x40C0, 0xE040, 0x007C, 0x0600, 0x027C, 0xFEFF, 0x1080,
                        0x0200, 0x0070, 0x0C00, 0x0070, 0x6602, 0xA9FF);
@@ -1273,7 +1273,7 @@ mps_intr_disable(MPS_INTR_STATE *oldState)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter mps_intr_disable(__A0)
 #endif
-EXTERN_API_C(void)
+void
 mps_intr_disable(MPS_INTR_STATE *oldState)
     SEVENWORDINLINE(0x40C0, 0xE040, 0x007C, 0x0600, 0x027C, 0xFEFF, 0x1080);
 
@@ -1308,7 +1308,7 @@ mps_intr_disable(MPS_INTR_STATE *oldState)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter mps_intr_enable(__A0)
 #endif
-EXTERN_API_C(void)
+void
 mps_intr_enable(MPS_INTR_STATE *oldState)
     WORDINLINE(0x40C0, 0x0240, 0x0700, 0x0C40, 0x0600, 0x6702, 0xA9FF, 0x1010,
                0x0200, 0x0070, 0x0C00, 0x0070, 0x6602, 0xA9FF, 0x1010, 0xE140,
@@ -1329,7 +1329,7 @@ mps_intr_enable(MPS_INTR_STATE *oldState)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter mps_intr_enable(__A0)
 #endif
-EXTERN_API_C(void)
+void
 mps_intr_enable(MPS_INTR_STATE *oldState)
     THREEWORDINLINE(0x1010, 0xE140, 0x46C0);
 
@@ -1367,7 +1367,7 @@ typedef UInt8 MPS_INTR_STATE;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mps_intr_disable(MPS_INTR_STATE *oldState);
 
 /**
@@ -1378,7 +1378,7 @@ mps_intr_disable(MPS_INTR_STATE *oldState);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mps_intr_enable(MPS_INTR_STATE *oldState);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1399,7 +1399,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_timer_alloc(queue_t *q, OTByteCount size);
 
 /**
@@ -1410,7 +1410,7 @@ mi_timer_alloc(queue_t *q, OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_timer_free(mblk_t *mp);
 
 /**
@@ -1421,7 +1421,7 @@ mi_timer_free(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_timer(mblk_t *mp, unsigned long milliSeconds);
 
 /**
@@ -1432,7 +1432,7 @@ mi_timer(mblk_t *mp, unsigned long milliSeconds);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 mi_timer_cancel(mblk_t *mp);
 
 /**
@@ -1443,7 +1443,7 @@ mi_timer_cancel(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 mi_timer_valid(mblk_t *mp);
 
 /**
@@ -1454,7 +1454,7 @@ mi_timer_valid(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_timer_q_switch(mblk_t *mp, queue_t *q, mblk_t *new_mp);
 
 /* ***** Driver Deferred Task Extras ******/
@@ -1471,7 +1471,7 @@ mi_timer_q_switch(mblk_t *mp, queue_t *q, mblk_t *new_mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTScheduleDriverDeferredTask(long dtCookie);
 
 /* ***** Driver Memory Routines ******/
@@ -1506,7 +1506,7 @@ typedef CALLBACK_API_C(void, EsbFreeProcPtr)(char *arg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 OTAllocMsg(void *buf, OTByteCount size, EsbFreeProcPtr func, void *arg);
 
 /**
@@ -1522,7 +1522,7 @@ OTAllocMsg(void *buf, OTByteCount size, EsbFreeProcPtr func, void *arg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTAllocMem(OTByteCount size);
 
 /**
@@ -1533,7 +1533,7 @@ OTAllocMem(OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 OTFreeMem(void *mem);
 
 /**
@@ -1544,7 +1544,7 @@ OTFreeMem(void *mem);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTReallocMem(void *ptr, OTByteCount newSize);
 
 /**
@@ -1567,7 +1567,7 @@ OTReallocMem(void *ptr, OTByteCount newSize);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 mi_bcmp(const char *first, const char *second, OTByteCount nBytes);
 
 /* Standard STREAMS memory utilities.*/
@@ -1619,7 +1619,7 @@ typedef CALLBACK_API_C(void, OTWriterProcPtr)(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mps_become_writer(queue_t *q, mblk_t *mp, OTWriterProcPtr proc);
 
 /**
@@ -1630,7 +1630,7 @@ mps_become_writer(queue_t *q, mblk_t *mp, OTWriterProcPtr proc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 drv_priv(cred *credp);
 
 /**
@@ -1641,7 +1641,7 @@ drv_priv(cred *credp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(queue_t *)
+queue_t *
 mi_allocq(streamtab *st);
 
 /**
@@ -1652,7 +1652,7 @@ mi_allocq(streamtab *st);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_ack_alloc(mblk_t *mp, OTByteCount size, long primType);
 
 /**
@@ -1663,7 +1663,7 @@ mi_tpi_ack_alloc(mblk_t *mp, OTByteCount size, long primType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_conn_con(mblk_t *trailer_mp, char *src, OTByteCount src_length,
                 char *opt, OTByteCount opt_length);
 
@@ -1675,7 +1675,7 @@ mi_tpi_conn_con(mblk_t *trailer_mp, char *src, OTByteCount src_length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_conn_ind(mblk_t *trailer_mp, char *src, OTByteCount src_length,
                 char *opt, OTByteCount opt_length, OTInt32 seqnum);
 
@@ -1687,7 +1687,7 @@ mi_tpi_conn_ind(mblk_t *trailer_mp, char *src, OTByteCount src_length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_conn_req(mblk_t *trailer_mp, char *dest, OTByteCount dest_length,
                 char *opt, OTByteCount opt_length);
 
@@ -1699,7 +1699,7 @@ mi_tpi_conn_req(mblk_t *trailer_mp, char *dest, OTByteCount dest_length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_data_ind(mblk_t *trailer_mp, OTInt32 flags, long ptype);
 
 /**
@@ -1710,7 +1710,7 @@ mi_tpi_data_ind(mblk_t *trailer_mp, OTInt32 flags, long ptype);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_data_req(mblk_t *trailer_mp, OTInt32 flags, long pttype);
 
 /**
@@ -1721,7 +1721,7 @@ mi_tpi_data_req(mblk_t *trailer_mp, OTInt32 flags, long pttype);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_discon_ind(mblk_t *trailer_mp, OTInt32 reason, OTInt32 seqnum);
 
 /**
@@ -1732,7 +1732,7 @@ mi_tpi_discon_ind(mblk_t *trailer_mp, OTInt32 reason, OTInt32 seqnum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_discon_req(mblk_t *trailer_mp, OTInt32 seqnum);
 
 /**
@@ -1743,7 +1743,7 @@ mi_tpi_discon_req(mblk_t *trailer_mp, OTInt32 seqnum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_err_ack_alloc(mblk_t *mp, OTInt32 tlierr, OTInt32 unixerr);
 
 /**
@@ -1754,7 +1754,7 @@ mi_tpi_err_ack_alloc(mblk_t *mp, OTInt32 tlierr, OTInt32 unixerr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_exdata_ind(mblk_t *trailer_mp, OTInt32 flags, long ptype);
 
 /**
@@ -1765,7 +1765,7 @@ mi_tpi_exdata_ind(mblk_t *trailer_mp, OTInt32 flags, long ptype);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_exdata_req(mblk_t *trailer_mp, OTInt32 flags, long ptype);
 
 /**
@@ -1776,7 +1776,7 @@ mi_tpi_exdata_req(mblk_t *trailer_mp, OTInt32 flags, long ptype);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_info_req(void);
 
 /**
@@ -1787,7 +1787,7 @@ mi_tpi_info_req(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_ok_ack_alloc(mblk_t *mp);
 
 /**
@@ -1798,7 +1798,7 @@ mi_tpi_ok_ack_alloc(mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_ordrel_ind(void);
 
 /**
@@ -1809,7 +1809,7 @@ mi_tpi_ordrel_ind(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_ordrel_req(void);
 
 /**
@@ -1820,7 +1820,7 @@ mi_tpi_ordrel_req(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_uderror_ind(char *dest, OTByteCount dest_length, char *opt,
                    OTByteCount opt_length, OTInt32 error);
 
@@ -1832,7 +1832,7 @@ mi_tpi_uderror_ind(char *dest, OTByteCount dest_length, char *opt,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_unitdata_ind(mblk_t *trailer_mp, char *src, OTByteCount src_length,
                     char *opt, OTByteCount opt_length);
 
@@ -1844,7 +1844,7 @@ mi_tpi_unitdata_ind(mblk_t *trailer_mp, char *src, OTByteCount src_length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_tpi_unitdata_req(mblk_t *trailer_mp, char *dst, OTByteCount dst_length,
                     char *opt, OTByteCount opt_length);
 
@@ -1856,7 +1856,7 @@ mi_tpi_unitdata_req(mblk_t *trailer_mp, char *dst, OTByteCount dst_length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_reuse_proto(mblk_t *toReuse, OTByteCount sizeDesired,
                OTBooleanParam keepOnError);
 
@@ -1868,7 +1868,7 @@ mi_reuse_proto(mblk_t *toReuse, OTByteCount sizeDesired,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_reallocb(mblk_t *old_mp, OTByteCount new_size);
 
 /**
@@ -1879,7 +1879,7 @@ mi_reallocb(mblk_t *old_mp, OTByteCount new_size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 mi_set_sth_hiwat(queue_t *q, OTByteCount size);
 
 /**
@@ -1890,7 +1890,7 @@ mi_set_sth_hiwat(queue_t *q, OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 mi_set_sth_lowat(queue_t *q, OTByteCount size);
 
 /**
@@ -1901,7 +1901,7 @@ mi_set_sth_lowat(queue_t *q, OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 mi_set_sth_maxblk(queue_t *q, OTByteCount size);
 
 /**
@@ -1912,7 +1912,7 @@ mi_set_sth_maxblk(queue_t *q, OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 mi_set_sth_wroff(queue_t *q, OTByteCount size);
 
 /**
@@ -1923,7 +1923,7 @@ mi_set_sth_wroff(queue_t *q, OTByteCount size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt8 *)
+UInt8 *
 mi_offset_param(mblk_t *mp, long offset, long len);
 
 /**
@@ -1934,7 +1934,7 @@ mi_offset_param(mblk_t *mp, long offset, long len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt8 *)
+UInt8 *
 mi_offset_paramc(mblk_t *mp, long offset, long len);
 
 /**
@@ -1945,7 +1945,7 @@ mi_offset_paramc(mblk_t *mp, long offset, long len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(char *)
+char *
 mi_open_detached(char **mi_opp_orig, OTByteCount size, dev_t *devp);
 
 /**
@@ -1956,7 +1956,7 @@ mi_open_detached(char **mi_opp_orig, OTByteCount size, dev_t *devp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 mi_open_comm(char **mi_opp_orig, OTByteCount size, queue_t *q, dev_t *dev,
              OTInt32 flag, OTInt32 sflag, cred_t *credp);
 
@@ -1968,7 +1968,7 @@ mi_open_comm(char **mi_opp_orig, OTByteCount size, queue_t *q, dev_t *dev,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 mi_close_comm(char **mi_opp_orig, queue_t *q);
 
 /**
@@ -1979,7 +1979,7 @@ mi_close_comm(char **mi_opp_orig, queue_t *q);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_bufcall(queue_t *q, OTByteCount size, OTInt32 pri);
 
 /**
@@ -1990,7 +1990,7 @@ mi_bufcall(queue_t *q, OTByteCount size, OTInt32 pri);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_detach(queue_t *q, char *ptr);
 
 /**
@@ -2001,7 +2001,7 @@ mi_detach(queue_t *q, char *ptr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_close_detached(char **mi_opp_orig, char *ptr);
 
 /**
@@ -2012,7 +2012,7 @@ mi_close_detached(char **mi_opp_orig, char *ptr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(char *)
+char *
 mi_next_ptr(char *ptr);
 
 /**
@@ -2023,7 +2023,7 @@ mi_next_ptr(char *ptr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_copyin(queue_t *q, mblk_t *mp, char *uaddr, OTByteCount len);
 
 /**
@@ -2034,7 +2034,7 @@ mi_copyin(queue_t *q, mblk_t *mp, char *uaddr, OTByteCount len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_copyout(queue_t *q, mblk_t *mp);
 
 /**
@@ -2045,7 +2045,7 @@ mi_copyout(queue_t *q, mblk_t *mp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(mblk_t *)
+mblk_t *
 mi_copyout_alloc(queue_t *q, mblk_t *mp, char *uaddr, OTByteCount len);
 
 /**
@@ -2056,7 +2056,7 @@ mi_copyout_alloc(queue_t *q, mblk_t *mp, char *uaddr, OTByteCount len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_copy_done(queue_t *q, mblk_t *mp, OTInt32 err);
 
 /**
@@ -2067,7 +2067,7 @@ mi_copy_done(queue_t *q, mblk_t *mp, OTInt32 err);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 mi_copy_set_rval(mblk_t *mp, OTInt32 rval);
 
 /**
@@ -2078,7 +2078,7 @@ mi_copy_set_rval(mblk_t *mp, OTInt32 rval);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTInt32)
+OTInt32
 mi_copy_state(queue_t *q, mblk_t *mp, mblk_t **mpp);
 
 /* ***** PCI-Specific Stuff*/

@@ -74,7 +74,7 @@ typedef struct CGDeviceByteColor CGDeviceByteColor;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDirectPaletteRef)
+CGDirectPaletteRef
 CGPaletteCreateDefaultColorPalette(void);
 
 /**
@@ -90,7 +90,7 @@ CGPaletteCreateDefaultColorPalette(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDirectPaletteRef)
+CGDirectPaletteRef
 CGPaletteCreateWithDisplay(CGDirectDisplayID display);
 
 /**
@@ -106,7 +106,7 @@ CGPaletteCreateWithDisplay(CGDirectDisplayID display);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDirectPaletteRef)
+CGDirectPaletteRef
 CGPaletteCreateWithCapacity(CGTableCount capacity);
 
 /**
@@ -121,7 +121,7 @@ CGPaletteCreateWithCapacity(CGTableCount capacity);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDirectPaletteRef)
+CGDirectPaletteRef
 CGPaletteCreateWithSamples(CGDeviceColor *sampleTable,
                            CGTableCount sampleCount);
 
@@ -138,7 +138,7 @@ CGPaletteCreateWithSamples(CGDeviceColor *sampleTable,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDirectPaletteRef)
+CGDirectPaletteRef
 CGPaletteCreateWithByteSamples(CGDeviceByteColor *sampleTable,
                                CGTableCount sampleCount);
 
@@ -153,7 +153,7 @@ CGPaletteCreateWithByteSamples(CGDeviceByteColor *sampleTable,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGPaletteRelease(CGDirectPaletteRef palette);
 
 /**
@@ -167,7 +167,7 @@ CGPaletteRelease(CGDirectPaletteRef palette);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDeviceColor)
+CGDeviceColor
 CGPaletteGetColorAtIndex(CGDirectPaletteRef palette, CGTableCount index);
 
 /**
@@ -183,7 +183,7 @@ CGPaletteGetColorAtIndex(CGDirectPaletteRef palette, CGTableCount index);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGTableCount)
+CGTableCount
 CGPaletteGetIndexForColor(CGDirectPaletteRef palette, CGDeviceColor color);
 
 /**
@@ -197,7 +197,7 @@ CGPaletteGetIndexForColor(CGDirectPaletteRef palette, CGDeviceColor color);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGTableCount)
+CGTableCount
 CGPaletteGetNumberOfSamples(CGDirectPaletteRef palette);
 
 /**
@@ -211,7 +211,7 @@ CGPaletteGetNumberOfSamples(CGDirectPaletteRef palette);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGPaletteSetColorAtIndex(CGDirectPaletteRef palette, CGDeviceColor color,
                          CGTableCount index);
 
@@ -226,7 +226,7 @@ CGPaletteSetColorAtIndex(CGDirectPaletteRef palette, CGDeviceColor color,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDirectPaletteRef)
+CGDirectPaletteRef
 CGPaletteCreateCopy(CGDirectPaletteRef palette);
 
 /**
@@ -240,7 +240,7 @@ CGPaletteCreateCopy(CGDirectPaletteRef palette);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 CGPaletteIsEqualToPalette(CGDirectPaletteRef palette1,
                           CGDirectPaletteRef palette2);
 
@@ -256,7 +256,7 @@ CGPaletteIsEqualToPalette(CGDirectPaletteRef palette1,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDirectPaletteRef)
+CGDirectPaletteRef
 CGPaletteCreateFromPaletteBlendedWithColor(CGDirectPaletteRef palette,
                                            CGPaletteBlendFraction fraction,
                                            CGDeviceColor color);

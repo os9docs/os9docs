@@ -434,7 +434,7 @@ IUEqualString(ConstStr255Param aStr, ConstStr255Param bStr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 iucomppstring(const char *aStr, const char *bStr, Handle intlHandle);
 
 /**
@@ -445,7 +445,7 @@ iucomppstring(const char *aStr, const char *bStr, Handle intlHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 iuequalpstring(const char *aStr, const char *bStr, Handle intlHandle);
 
 /**
@@ -456,7 +456,7 @@ iuequalpstring(const char *aStr, const char *bStr, Handle intlHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 iustringorder(const char *aStr, const char *bStr, ScriptCode aScript,
               ScriptCode bScript, LangCode aLang, LangCode bLang);
 
@@ -468,7 +468,7 @@ iustringorder(const char *aStr, const char *bStr, ScriptCode aScript,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 iucompstring(const char *aStr, const char *bStr);
 
 /**
@@ -479,7 +479,7 @@ iucompstring(const char *aStr, const char *bStr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 iuequalstring(const char *aStr, const char *bStr);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -583,7 +583,7 @@ EqualString(ConstStr255Param str1, ConstStr255Param str2, Boolean caseSensitive,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(short)
+short
 relstring(const char *str1, const char *str2, Boolean caseSensitive,
           Boolean diacSensitive);
 
@@ -596,7 +596,7 @@ relstring(const char *str1, const char *str2, Boolean caseSensitive,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 equalstring(const char *str1, const char *str2, Boolean caseSensitive,
             Boolean diacSensitive);
 

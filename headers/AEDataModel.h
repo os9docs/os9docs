@@ -309,7 +309,7 @@ on_car\carbon_libavailable as macro/inline
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AECoerceDescUPP)
+AECoerceDescUPP
 NewAECoerceDescUPP(AECoerceDescProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -337,7 +337,7 @@ inline AECoerceDescUPP NewAECoerceDescUPP(AECoerceDescProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AECoercePtrUPP)
+AECoercePtrUPP
 NewAECoercePtrUPP(AECoercePtrProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -365,7 +365,7 @@ inline AECoercePtrUPP NewAECoercePtrUPP(AECoercePtrProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAECoerceDescUPP(AECoerceDescUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -385,7 +385,7 @@ inline void DisposeAECoerceDescUPP(AECoerceDescUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAECoercePtrUPP(AECoercePtrUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -405,7 +405,7 @@ inline void DisposeAECoercePtrUPP(AECoercePtrUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeAECoerceDescUPP(const AEDesc *fromDesc, DescType toType,
                       long handlerRefcon, AEDesc *toDesc,
                       AECoerceDescUPP userUPP);
@@ -435,7 +435,7 @@ inline OSErr InvokeAECoerceDescUPP(const AEDesc *fromDesc, DescType toType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeAECoercePtrUPP(DescType typeCode, const void *dataPtr, Size dataSize,
                      DescType toType, long handlerRefcon, AEDesc *result,
                      AECoercePtrUPP userUPP);
@@ -565,7 +565,7 @@ AECoerceDesc(const AEDesc *theAEDesc, DescType toType, AEDesc *result)
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 AEInitializeDesc(AEDesc *desc);
 
 #ifdef \carbon_libus
@@ -780,7 +780,7 @@ AEDeleteItem(AEDescList *theAEDescList, long index)
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 AECheckIsRecord(const AEDesc *theDesc);
 
 /**
@@ -1015,7 +1015,7 @@ AEPutAttributeDesc(AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Size)
+Size
 AESizeOfFlattenedDesc(const AEDesc *theAEDesc);
 
 /**
@@ -1038,7 +1038,7 @@ AESizeOfFlattenedDesc(const AEDesc *theAEDesc);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 AEFlattenDesc(const AEDesc *theAEDesc, Ptr buffer, Size bufferSize,
               Size\carbon_lib actualSize);
 
@@ -1058,7 +1058,7 @@ AEFlattenDesc(const AEDesc *theAEDesc, Ptr buffer, Size bufferSize,
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 AEUnflattenDesc(Ptr buffer, AEDesc *result);
 
 /***************************************************************************
@@ -1124,7 +1124,7 @@ typedef STACK_UPP_TYPE(AEEventHandlerProcPtr) AEEventHandlerUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AEEventHandlerUPP)
+AEEventHandlerUPP
 NewAEEventHandlerUPP(AEEventHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1153,7 +1153,7 @@ NewAEEventHandlerUPP(AEEventHandlerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAEEventHandlerUPP(AEEventHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1173,7 +1173,7 @@ inline void DisposeAEEventHandlerUPP(AEEventHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeAEEventHandlerUPP(const AppleEvent *theAppleEvent, AppleEvent *reply,
                         long handlerRefcon, AEEventHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES

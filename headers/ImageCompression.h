@@ -530,7 +530,7 @@ typedef ICMFrameTimeRecord *ICMFrameTimePtr;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMDataUPP)
+ICMDataUPP
 NewICMDataUPP(ICMDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -556,7 +556,7 @@ inline ICMDataUPP NewICMDataUPP(ICMDataProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMFlushUPP)
+ICMFlushUPP
 NewICMFlushUPP(ICMFlushProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -582,7 +582,7 @@ inline ICMFlushUPP NewICMFlushUPP(ICMFlushProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMCompletionUPP)
+ICMCompletionUPP
 NewICMCompletionUPP(ICMCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -610,7 +610,7 @@ inline ICMCompletionUPP NewICMCompletionUPP(ICMCompletionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMProgressUPP)
+ICMProgressUPP
 NewICMProgressUPP(ICMProgressProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -637,7 +637,7 @@ inline ICMProgressUPP NewICMProgressUPP(ICMProgressProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(StdPixUPP)
+StdPixUPP
 NewStdPixUPP(StdPixProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -664,7 +664,7 @@ inline StdPixUPP NewStdPixUPP(StdPixProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QDPixUPP)
+QDPixUPP
 NewQDPixUPP(QDPixProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -691,7 +691,7 @@ inline QDPixUPP NewQDPixUPP(QDPixProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMAlignmentUPP)
+ICMAlignmentUPP
 NewICMAlignmentUPP(ICMAlignmentProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -719,7 +719,7 @@ inline ICMAlignmentUPP NewICMAlignmentUPP(ICMAlignmentProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMCursorShieldedUPP)
+ICMCursorShieldedUPP
 NewICMCursorShieldedUPP(ICMCursorShieldedProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -748,7 +748,7 @@ NewICMCursorShieldedUPP(ICMCursorShieldedProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMMemoryDisposedUPP)
+ICMMemoryDisposedUPP
 NewICMMemoryDisposedUPP(ICMMemoryDisposedProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -777,7 +777,7 @@ NewICMMemoryDisposedUPP(ICMMemoryDisposedProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ICMConvertDataFormatUPP)
+ICMConvertDataFormatUPP
 NewICMConvertDataFormatUPP(ICMConvertDataFormatProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -807,7 +807,7 @@ NewICMConvertDataFormatUPP(ICMConvertDataFormatProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMDataUPP(ICMDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -827,7 +827,7 @@ inline void DisposeICMDataUPP(ICMDataUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMFlushUPP(ICMFlushUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -847,7 +847,7 @@ inline void DisposeICMFlushUPP(ICMFlushUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMCompletionUPP(ICMCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -867,7 +867,7 @@ inline void DisposeICMCompletionUPP(ICMCompletionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMProgressUPP(ICMProgressUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -887,7 +887,7 @@ inline void DisposeICMProgressUPP(ICMProgressUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeStdPixUPP(StdPixUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -907,7 +907,7 @@ inline void DisposeStdPixUPP(StdPixUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQDPixUPP(QDPixUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -927,7 +927,7 @@ inline void DisposeQDPixUPP(QDPixUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMAlignmentUPP(ICMAlignmentUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -947,7 +947,7 @@ inline void DisposeICMAlignmentUPP(ICMAlignmentUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMCursorShieldedUPP(ICMCursorShieldedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -967,7 +967,7 @@ inline void DisposeICMCursorShieldedUPP(ICMCursorShieldedUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMMemoryDisposedUPP(ICMMemoryDisposedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -987,7 +987,7 @@ inline void DisposeICMMemoryDisposedUPP(ICMMemoryDisposedUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeICMConvertDataFormatUPP(ICMConvertDataFormatUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1008,7 +1008,7 @@ inline void DisposeICMConvertDataFormatUPP(ICMConvertDataFormatUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeICMDataUPP(Ptr *dataP, long bytesNeeded, long refcon, ICMDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1032,7 +1032,7 @@ inline OSErr InvokeICMDataUPP(Ptr *dataP, long bytesNeeded, long refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeICMFlushUPP(Ptr data, long bytesAdded, long refcon, ICMFlushUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1056,7 +1056,7 @@ inline OSErr InvokeICMFlushUPP(Ptr data, long bytesAdded, long refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeICMCompletionUPP(OSErr result, short flags, long refcon,
                        ICMCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1081,7 +1081,7 @@ inline void InvokeICMCompletionUPP(OSErr result, short flags, long refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeICMProgressUPP(short message, Fixed completeness, long refcon,
                      ICMProgressUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1106,7 +1106,7 @@ inline OSErr InvokeICMProgressUPP(short message, Fixed completeness,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeStdPixUPP(PixMap *src, Rect *srcRect, MatrixRecord *matrix, short mode,
                 RgnHandle mask, PixMap *matte, Rect *matteRect, short flags,
                 StdPixUPP userUPP);
@@ -1135,7 +1135,7 @@ inline void InvokeStdPixUPP(PixMap *src, Rect *srcRect, MatrixRecord *matrix,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeQDPixUPP(PixMap *src, Rect *srcRect, MatrixRecord *matrix, short mode,
                RgnHandle mask, PixMap *matte, Rect *matteRect, short flags,
                QDPixUPP userUPP);
@@ -1164,7 +1164,7 @@ inline void InvokeQDPixUPP(PixMap *src, Rect *srcRect, MatrixRecord *matrix,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeICMAlignmentUPP(Rect *rp, long refcon, ICMAlignmentUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1186,7 +1186,7 @@ inline void InvokeICMAlignmentUPP(Rect *rp, long refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeICMCursorShieldedUPP(const Rect *r, void *refcon, long flags,
                            ICMCursorShieldedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1211,7 +1211,7 @@ inline void InvokeICMCursorShieldedUPP(const Rect *r, void *refcon, long flags,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeICMMemoryDisposedUPP(Ptr memoryBlock, void *refcon,
                            ICMMemoryDisposedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1236,7 +1236,7 @@ inline void InvokeICMMemoryDisposedUPP(Ptr memoryBlock, void *refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeICMConvertDataFormatUPP(void *refCon, long flags, Handle desiredFormat,
                               Handle sourceDataFormat, void *srcData,
                               long srcDataSize, void **dstData,

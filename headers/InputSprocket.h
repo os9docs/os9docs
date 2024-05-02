@@ -475,7 +475,7 @@ enum {
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpStartup(void);
 
 /* 1.1 or later*/
@@ -487,7 +487,7 @@ ISpStartup(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpShutdown(void);
 
 /* 1.1 or later*/
@@ -504,7 +504,7 @@ ISpShutdown(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpTickle(void);
 
 /* 1.1 or later*/
@@ -518,7 +518,7 @@ ISpTickle(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(NumVersion)
+NumVersion
 ISpGetVersion(void);
 
 /**
@@ -534,7 +534,7 @@ ISpGetVersion(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_NewVirtual(UInt32 dataSize, ISpElementReference *outElement,
                       UInt32 flags);
 
@@ -552,7 +552,7 @@ ISpElement_NewVirtual(UInt32 dataSize, ISpElementReference *outElement,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_NewVirtualFromNeeds(UInt32 count, ISpNeed *needs,
                                ISpElementReference *outElements, UInt32 flags);
 
@@ -569,7 +569,7 @@ ISpElement_NewVirtualFromNeeds(UInt32 count, ISpNeed *needs,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_DisposeVirtual(UInt32 count, ISpElementReference *inElements);
 
 /**
@@ -584,7 +584,7 @@ ISpElement_DisposeVirtual(UInt32 count, ISpElementReference *inElements);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpInit(UInt32 count, ISpNeed *needs, ISpElementReference *inReferences,
         OSType appCreatorCode, OSType subCreatorCode, UInt32 flags,
         short setListResourceId, UInt32 reserved);
@@ -602,7 +602,7 @@ typedef CALLBACK_API_C(Boolean, ISpEventProcPtr)(EventRecord *inEvent);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpConfigure(ISpEventProcPtr inEventProcPtr);
 
 /**
@@ -618,7 +618,7 @@ ISpConfigure(ISpEventProcPtr inEventProcPtr);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpStop(void);
 
 /**
@@ -641,7 +641,7 @@ ISpStop(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpSuspend(void);
 
 /**
@@ -652,7 +652,7 @@ ISpSuspend(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpResume(void);
 
 /**
@@ -681,7 +681,7 @@ ISpResume(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevices_Extract(UInt32 inBufferCount, UInt32 *outCount,
                    ISpDeviceReference *buffer);
 
@@ -693,7 +693,7 @@ ISpDevices_Extract(UInt32 inBufferCount, UInt32 *outCount,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevices_ExtractByClass(ISpDeviceClass inClass, UInt32 inBufferCount,
                           UInt32 *outCount, ISpDeviceReference *buffer);
 
@@ -705,7 +705,7 @@ ISpDevices_ExtractByClass(ISpDeviceClass inClass, UInt32 inBufferCount,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevices_ExtractByIdentifier(ISpDeviceIdentifier inIdentifier,
                                UInt32 inBufferCount, UInt32 *outCount,
                                ISpDeviceReference *buffer);
@@ -740,7 +740,7 @@ ISpDevices_ExtractByIdentifier(ISpDeviceIdentifier inIdentifier,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevices_ActivateClass(ISpDeviceClass inClass);
 
 /* 1.1 or later*/
@@ -752,7 +752,7 @@ ISpDevices_ActivateClass(ISpDeviceClass inClass);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevices_DeactivateClass(ISpDeviceClass inClass);
 
 /* 1.1 or later*/
@@ -764,7 +764,7 @@ ISpDevices_DeactivateClass(ISpDeviceClass inClass);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevices_Activate(UInt32 inDeviceCount,
                     ISpDeviceReference *inDevicesToActivate);
 
@@ -776,7 +776,7 @@ ISpDevices_Activate(UInt32 inDeviceCount,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevices_Deactivate(UInt32 inDeviceCount,
                       ISpDeviceReference *inDevicesToDeactivate);
 
@@ -788,7 +788,7 @@ ISpDevices_Deactivate(UInt32 inDeviceCount,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevice_IsActive(ISpDeviceReference inDevice, Boolean *outIsActive);
 
 /**
@@ -811,7 +811,7 @@ ISpDevice_IsActive(ISpDeviceReference inDevice, Boolean *outIsActive);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevice_GetDefinition(ISpDeviceReference inDevice, UInt32 inBuflen,
                         ISpDeviceDefinition *outStruct);
 
@@ -834,7 +834,7 @@ ISpDevice_GetDefinition(ISpDeviceReference inDevice, UInt32 inBuflen,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevice_GetElementList(ISpDeviceReference inDevice,
                          ISpElementListReference *outElementList);
 
@@ -855,7 +855,7 @@ ISpDevice_GetElementList(ISpDeviceReference inDevice,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_GetGroup(ISpElementReference inElement, UInt32 *outGroup);
 
 /**
@@ -875,7 +875,7 @@ ISpElement_GetGroup(ISpElementReference inElement, UInt32 *outGroup);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_GetDevice(ISpElementReference inElement,
                      ISpDeviceReference *outDevice);
 
@@ -897,7 +897,7 @@ ISpElement_GetDevice(ISpElementReference inElement,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_GetInfo(ISpElementReference inElement, ISpElementInfoPtr outInfo);
 
 /**
@@ -923,7 +923,7 @@ ISpElement_GetInfo(ISpElementReference inElement, ISpElementInfoPtr outInfo);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_GetConfigurationInfo(ISpElementReference inElement, UInt32 buflen,
                                 void *configInfo);
 
@@ -949,7 +949,7 @@ ISpElement_GetConfigurationInfo(ISpElementReference inElement, UInt32 buflen,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_GetSimpleState(ISpElementReference inElement, UInt32 *state);
 
 /**
@@ -973,7 +973,7 @@ ISpElement_GetSimpleState(ISpElementReference inElement, UInt32 *state);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_GetComplexState(ISpElementReference inElement, UInt32 buflen,
                            void *state);
 
@@ -998,7 +998,7 @@ ISpElement_GetComplexState(ISpElementReference inElement, UInt32 buflen,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_GetNextEvent(ISpElementReference inElement, UInt32 bufSize,
                         ISpElementEventPtr event, Boolean *wasEvent);
 
@@ -1025,7 +1025,7 @@ ISpElement_GetNextEvent(ISpElementReference inElement, UInt32 bufSize,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_Flush(ISpElementReference inElement);
 
 /**
@@ -1059,7 +1059,7 @@ ISpElement_Flush(ISpElementReference inElement);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_New(UInt32 inCount, ISpElementReference *inElements,
                    ISpElementListReference *outElementList, UInt32 flags);
 
@@ -1086,7 +1086,7 @@ ISpElementList_New(UInt32 inCount, ISpElementReference *inElements,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_Dispose(ISpElementListReference inElementList);
 
 /**
@@ -1106,7 +1106,7 @@ ISpElementList_Dispose(ISpElementListReference inElementList);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpGetGlobalElementList(ISpElementListReference *outElementList);
 
 /**
@@ -1130,7 +1130,7 @@ ISpGetGlobalElementList(ISpElementListReference *outElementList);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_AddElements(ISpElementListReference inElementList, UInt32 refCon,
                            UInt32 count, ISpElementReference *newElements);
 
@@ -1155,7 +1155,7 @@ ISpElementList_AddElements(ISpElementListReference inElementList, UInt32 refCon,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_RemoveElements(ISpElementListReference inElementList,
                               UInt32 count, ISpElementReference *oldElement);
 
@@ -1183,7 +1183,7 @@ ISpElementList_RemoveElements(ISpElementListReference inElementList,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_Extract(ISpElementListReference inElementList,
                        UInt32 inBufferCount, UInt32 *outCount,
                        ISpElementReference *buffer);
@@ -1196,7 +1196,7 @@ ISpElementList_Extract(ISpElementListReference inElementList,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_ExtractByKind(ISpElementListReference inElementList,
                              ISpElementKind inKind, UInt32 inBufferCount,
                              UInt32 *outCount, ISpElementReference *buffer);
@@ -1209,7 +1209,7 @@ ISpElementList_ExtractByKind(ISpElementListReference inElementList,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_ExtractByLabel(ISpElementListReference inElementList,
                               ISpElementLabel inLabel, UInt32 inBufferCount,
                               UInt32 *outCount, ISpElementReference *buffer);
@@ -1235,7 +1235,7 @@ ISpElementList_ExtractByLabel(ISpElementListReference inElementList,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_GetNextEvent(ISpElementListReference inElementList,
                             UInt32 bufSize, ISpElementEventPtr event,
                             Boolean *wasEvent);
@@ -1263,7 +1263,7 @@ ISpElementList_GetNextEvent(ISpElementListReference inElementList,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElementList_Flush(ISpElementListReference inElementList);
 
 /**
@@ -1287,7 +1287,7 @@ ISpElementList_Flush(ISpElementListReference inElementList);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpTimeToMicroseconds(const AbsoluteTime *inTime,
                       UnsignedWide *outMicroseconds);
 
@@ -1309,7 +1309,7 @@ ISpTimeToMicroseconds(const AbsoluteTime *inTime,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 ISpUptime(void);
 
 /****************************************************************************/
@@ -1346,7 +1346,7 @@ enum {
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ISpPlotAppIconSuite(const Rect *theRect, IconAlignmentType align,
                     IconTransformType transform, short iconSuiteResourceId);
 
@@ -1472,7 +1472,7 @@ typedef CALLBACK_API_C(OSStatus,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDriver_CheckConfiguration(Boolean *validConfiguration);
 
 /**
@@ -1483,7 +1483,7 @@ ISpDriver_CheckConfiguration(Boolean *validConfiguration);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDriver_FindAndLoadDevices(Boolean *keepDriverLoaded);
 
 /**
@@ -1494,7 +1494,7 @@ ISpDriver_FindAndLoadDevices(Boolean *keepDriverLoaded);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDriver_DisposeDevices(void);
 
 /**
@@ -1505,7 +1505,7 @@ ISpDriver_DisposeDevices(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 ISpDriver_Tickle(void);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1540,7 +1540,7 @@ typedef CALLBACK_API_C(void, ISpDriver_TicklePtr)(void);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevice_New(const ISpDeviceDefinition *inStruct,
               ISpDriverFunctionPtr_MetaHandler metaHandler, UInt32 refCon,
               ISpDeviceReference *outReference);
@@ -1565,7 +1565,7 @@ ISpDevice_New(const ISpDeviceDefinition *inStruct,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpDevice_Dispose(ISpDeviceReference inReference);
 
 /**
@@ -1624,7 +1624,7 @@ typedef struct ISpElementDefinitionStruct ISpElementDefinitionStruct;
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_New(const ISpElementDefinitionStruct *inStruct,
                ISpElementReference *outElement);
 
@@ -1652,7 +1652,7 @@ ISpElement_New(const ISpElementDefinitionStruct *inStruct,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_Dispose(ISpElementReference inElement);
 
 /**
@@ -1677,7 +1677,7 @@ ISpElement_Dispose(ISpElementReference inElement);
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_PushSimpleData(ISpElementReference inElement, UInt32 data,
                           const AbsoluteTime *time);
 
@@ -1704,7 +1704,7 @@ ISpElement_PushSimpleData(ISpElementReference inElement, UInt32 data,
  *    \carbon_lib        not in Carbon, but InputSprocketLib is compatible with
  * Carbon \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ISpElement_PushComplexData(ISpElementReference inElement, UInt32 buflen,
                            void *state, const AbsoluteTime *time);
 
@@ -1726,7 +1726,7 @@ typedef CALLBACK_API_C(void, ISpADBDeferCallbackProcPtr)(UInt8 adbCommand,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ISpAllocateADBDeferBlock(ISpADBDeferRef *createBlock);
 
 /**
@@ -1737,7 +1737,7 @@ ISpAllocateADBDeferBlock(ISpADBDeferRef *createBlock);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ISpDisposeADBDeferBlock(ISpADBDeferRef disposeBlock);
 
 /**
@@ -1748,7 +1748,7 @@ ISpDisposeADBDeferBlock(ISpADBDeferRef disposeBlock);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ISpInstallADBDefer(ISpADBDeferRef refBlock, ADBAddress reqAddress,
                    ISpADBDeferCallbackProcPtr installProc, UInt32 clientRefCon,
                    ADBServiceRoutineUPP *prevRoutine, Ptr *prevDataArea);
@@ -1761,7 +1761,7 @@ ISpInstallADBDefer(ISpADBDeferRef refBlock, ADBAddress reqAddress,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ISpRemoveADBDefer(ISpADBDeferRef refBlock);
 
 #endif /* CALL_NOT_IN_CARBON */

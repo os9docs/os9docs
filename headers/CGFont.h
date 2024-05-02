@@ -72,7 +72,7 @@ typedef unsigned short CGGlyph;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGFontRef)
+CGFontRef
 CGFontCreateWithPlatformFont(void *platformFontReference);
 
 /**** Retain & release. ***/
@@ -86,7 +86,7 @@ CGFontCreateWithPlatformFont(void *platformFontReference);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGFontRef)
+CGFontRef
 CGFontRetain(CGFontRef font);
 
 /** Decrement the retain count of `font'.  If the retain count reaches 0,
@@ -99,7 +99,7 @@ CGFontRetain(CGFontRef font);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGFontRelease(CGFontRef font);
 
 #if PRAGMA_ENUM_ALWAYSINT

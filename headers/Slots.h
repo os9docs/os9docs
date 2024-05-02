@@ -96,7 +96,7 @@ typedef REGISTER_UPP_TYPE(SlotIntServiceProcPtr) SlotIntServiceUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SlotIntServiceUPP)
+SlotIntServiceUPP
 NewSlotIntServiceUPP(SlotIntServiceProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -125,7 +125,7 @@ NewSlotIntServiceUPP(SlotIntServiceProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSlotIntServiceUPP(SlotIntServiceUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -148,7 +148,7 @@ inline void DisposeSlotIntServiceUPP(SlotIntServiceUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InvokeSlotIntServiceUPP(__A1, __A0)
 #endif
-EXTERN_API_C(short)
+short
 InvokeSlotIntServiceUPP(long sqParameter, SlotIntServiceUPP userUPP)
     ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \

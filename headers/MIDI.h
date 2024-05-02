@@ -898,7 +898,7 @@ MDVRNotesOff(MDVRPtr portPtr, short mode)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MIDIReadHookUPP)
+MIDIReadHookUPP
 NewMIDIReadHookUPP(MIDIReadHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -926,7 +926,7 @@ inline MIDIReadHookUPP NewMIDIReadHookUPP(MIDIReadHookProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MIDITimeUPP)
+MIDITimeUPP
 NewMIDITimeUPP(MIDITimeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -952,7 +952,7 @@ inline MIDITimeUPP NewMIDITimeUPP(MIDITimeProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MIDIConnectionUPP)
+MIDIConnectionUPP
 NewMIDIConnectionUPP(MIDIConnectionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -982,7 +982,7 @@ NewMIDIConnectionUPP(MIDIConnectionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MDVRCommUPP)
+MDVRCommUPP
 NewMDVRCommUPP(MDVRCommProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1008,7 +1008,7 @@ inline MDVRCommUPP NewMDVRCommUPP(MDVRCommProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MDVRTimeCodeUPP)
+MDVRTimeCodeUPP
 NewMDVRTimeCodeUPP(MDVRTimeCodeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1036,7 +1036,7 @@ inline MDVRTimeCodeUPP NewMDVRTimeCodeUPP(MDVRTimeCodeProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(MDVRReadUPP)
+MDVRReadUPP
 NewMDVRReadUPP(MDVRReadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1062,7 +1062,7 @@ inline MDVRReadUPP NewMDVRReadUPP(MDVRReadProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMIDIReadHookUPP(MIDIReadHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1082,7 +1082,7 @@ inline void DisposeMIDIReadHookUPP(MIDIReadHookUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMIDITimeUPP(MIDITimeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1102,7 +1102,7 @@ inline void DisposeMIDITimeUPP(MIDITimeUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMIDIConnectionUPP(MIDIConnectionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1122,7 +1122,7 @@ inline void DisposeMIDIConnectionUPP(MIDIConnectionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMDVRCommUPP(MDVRCommUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1142,7 +1142,7 @@ inline void DisposeMDVRCommUPP(MDVRCommUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMDVRTimeCodeUPP(MDVRTimeCodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1162,7 +1162,7 @@ inline void DisposeMDVRTimeCodeUPP(MDVRTimeCodeUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeMDVRReadUPP(MDVRReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1182,7 +1182,7 @@ inline void DisposeMDVRReadUPP(MDVRReadUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeMIDIReadHookUPP(MIDIPacketPtr myPacket, long myRefCon,
                       MIDIReadHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1207,7 +1207,7 @@ inline short InvokeMIDIReadHookUPP(MIDIPacketPtr myPacket, long myRefCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeMIDITimeUPP(long curTime, long myRefCon, MIDITimeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1229,7 +1229,7 @@ inline void InvokeMIDITimeUPP(long curTime, long myRefCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeMIDIConnectionUPP(short refnum, long refcon, short portType,
                         OSType clientID, OSType portID, Boolean connect,
                         short direction, MIDIConnectionUPP userUPP);
@@ -1259,7 +1259,7 @@ inline void InvokeMIDIConnectionUPP(short refnum, long refcon, short portType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeMDVRCommUPP(short refnum, short request, long refCon,
                   MDVRCommUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1284,7 +1284,7 @@ inline long InvokeMDVRCommUPP(short refnum, short request, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeMDVRTimeCodeUPP(short refnum, short newFormat, long refCon,
                       MDVRTimeCodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1309,7 +1309,7 @@ inline void InvokeMDVRTimeCodeUPP(short refnum, short newFormat, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeMDVRReadUPP(char *midiChars, short length, long refCon,
                   MDVRReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES

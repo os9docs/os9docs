@@ -120,7 +120,7 @@ typedef FVector TripleInt[3];
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 stringtonum(const char *theString, long *theNum);
 
 /**
@@ -131,7 +131,7 @@ stringtonum(const char *theString, long *theNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 numtostring(long theNum, char *theString);
 
 #endif /** CALL_NOT_IN_CARBON */

@@ -249,7 +249,7 @@ typedef CALLBACK_API_C(void, TQ3XDataDeleteMethod)(void *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XView_SubmitWriteData(TQ3ViewObject view, TQ3Size size, void *data,
                         TQ3XDataDeleteMethod deleteData);
 
@@ -261,7 +261,7 @@ Q3XView_SubmitWriteData(TQ3ViewObject view, TQ3Size size, void *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XView_SubmitSubObjectData(TQ3ViewObject view, TQ3XObjectClass objectClass,
                             unsigned long size, void *data,
                             TQ3XDataDeleteMethod deleteData);
@@ -320,7 +320,7 @@ typedef unsigned long TQ3FileVersion;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3FileObject)
+TQ3FileObject
 Q3File_New(void);
 
 /**
@@ -331,7 +331,7 @@ Q3File_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_GetStorage(TQ3FileObject theFile, TQ3StorageObject *storage);
 
 /**
@@ -342,7 +342,7 @@ Q3File_GetStorage(TQ3FileObject theFile, TQ3StorageObject *storage);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_SetStorage(TQ3FileObject theFile, TQ3StorageObject storage);
 
 /**
@@ -356,7 +356,7 @@ Q3File_SetStorage(TQ3FileObject theFile, TQ3StorageObject storage);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_OpenRead(TQ3FileObject theFile, TQ3FileMode *mode);
 
 /**
@@ -367,7 +367,7 @@ Q3File_OpenRead(TQ3FileObject theFile, TQ3FileMode *mode);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_OpenWrite(TQ3FileObject theFile, TQ3FileMode mode);
 
 /**
@@ -378,7 +378,7 @@ Q3File_OpenWrite(TQ3FileObject theFile, TQ3FileMode mode);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_IsOpen(TQ3FileObject theFile, TQ3Boolean *isOpen);
 
 /**
@@ -389,7 +389,7 @@ Q3File_IsOpen(TQ3FileObject theFile, TQ3Boolean *isOpen);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_GetMode(TQ3FileObject theFile, TQ3FileMode *mode);
 
 /**
@@ -400,7 +400,7 @@ Q3File_GetMode(TQ3FileObject theFile, TQ3FileMode *mode);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_GetVersion(TQ3FileObject theFile, TQ3FileVersion *version);
 
 /**
@@ -411,7 +411,7 @@ Q3File_GetVersion(TQ3FileObject theFile, TQ3FileVersion *version);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_Close(TQ3FileObject theFile);
 
 /**
@@ -422,7 +422,7 @@ Q3File_Close(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_Cancel(TQ3FileObject theFile);
 
 /**
@@ -436,7 +436,7 @@ Q3File_Cancel(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3View_StartWriting(TQ3ViewObject view, TQ3FileObject theFile);
 
 /**
@@ -447,7 +447,7 @@ Q3View_StartWriting(TQ3ViewObject view, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ViewStatus)
+TQ3ViewStatus
 Q3View_EndWriting(TQ3ViewObject view);
 
 /**
@@ -461,7 +461,7 @@ Q3View_EndWriting(TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3File_GetNextObjectType(TQ3FileObject theFile);
 
 /**
@@ -472,7 +472,7 @@ Q3File_GetNextObjectType(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3File_IsNextObjectOfType(TQ3FileObject theFile, TQ3ObjectType ofType);
 
 /**
@@ -483,7 +483,7 @@ Q3File_IsNextObjectOfType(TQ3FileObject theFile, TQ3ObjectType ofType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Object)
+TQ3Object
 Q3File_ReadObject(TQ3FileObject theFile);
 
 /**
@@ -494,7 +494,7 @@ Q3File_ReadObject(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_SkipObject(TQ3FileObject theFile);
 
 /**
@@ -505,7 +505,7 @@ Q3File_SkipObject(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3File_IsEndOfData(TQ3FileObject theFile);
 
 /**
@@ -516,7 +516,7 @@ Q3File_IsEndOfData(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3File_IsEndOfContainer(TQ3FileObject theFile, TQ3Object rootObject);
 
 /**
@@ -527,7 +527,7 @@ Q3File_IsEndOfContainer(TQ3FileObject theFile, TQ3Object rootObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3File_IsEndOfFile(TQ3FileObject theFile);
 
 /**
@@ -541,7 +541,7 @@ Q3File_IsEndOfFile(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_MarkAsExternalReference(TQ3FileObject theFile,
                                TQ3SharedObject sharedObject);
 
@@ -553,7 +553,7 @@ Q3File_MarkAsExternalReference(TQ3FileObject theFile,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3File_GetExternalReferences(TQ3FileObject theFile);
 
 /**
@@ -567,7 +567,7 @@ Q3File_GetExternalReferences(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shared_ClearEditTracking(TQ3SharedObject sharedObject);
 
 /**
@@ -578,7 +578,7 @@ Q3Shared_ClearEditTracking(TQ3SharedObject sharedObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Shared_GetEditTrackingState(TQ3SharedObject sharedObject);
 
 /**
@@ -603,7 +603,7 @@ typedef unsigned long TQ3FileReadGroupState;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_SetReadInGroup(TQ3FileObject theFile,
                       TQ3FileReadGroupState readGroupState);
 
@@ -615,7 +615,7 @@ Q3File_SetReadInGroup(TQ3FileObject theFile,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_GetReadInGroup(TQ3FileObject theFile,
                       TQ3FileReadGroupState *readGroupState);
 
@@ -635,7 +635,7 @@ typedef CALLBACK_API_C(TQ3Status, TQ3FileIdleMethod)(TQ3FileObject theFile,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3File_SetIdleMethod(TQ3FileObject theFile, TQ3FileIdleMethod idle,
                      const void *idleData);
 
@@ -652,7 +652,7 @@ Q3File_SetIdleMethod(TQ3FileObject theFile, TQ3FileIdleMethod idle,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3NewLine_Write(TQ3FileObject theFile);
 
 /**
@@ -663,7 +663,7 @@ Q3NewLine_Write(TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns8_Read(TQ3Uns8 *data, TQ3FileObject theFile);
 
 /**
@@ -674,7 +674,7 @@ Q3Uns8_Read(TQ3Uns8 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns8_Write(TQ3Uns8 data, TQ3FileObject theFile);
 
 /**
@@ -685,7 +685,7 @@ Q3Uns8_Write(TQ3Uns8 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns16_Read(TQ3Uns16 *data, TQ3FileObject theFile);
 
 /**
@@ -696,7 +696,7 @@ Q3Uns16_Read(TQ3Uns16 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns16_Write(TQ3Uns16 data, TQ3FileObject theFile);
 
 /**
@@ -707,7 +707,7 @@ Q3Uns16_Write(TQ3Uns16 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns32_Read(TQ3Uns32 *data, TQ3FileObject theFile);
 
 /**
@@ -718,7 +718,7 @@ Q3Uns32_Read(TQ3Uns32 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns32_Write(TQ3Uns32 data, TQ3FileObject theFile);
 
 /**
@@ -729,7 +729,7 @@ Q3Uns32_Write(TQ3Uns32 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int8_Read(TQ3Int8 *data, TQ3FileObject theFile);
 
 /**
@@ -740,7 +740,7 @@ Q3Int8_Read(TQ3Int8 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int8_Write(TQ3Int8 data, TQ3FileObject theFile);
 
 /**
@@ -751,7 +751,7 @@ Q3Int8_Write(TQ3Int8 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int16_Read(TQ3Int16 *data, TQ3FileObject theFile);
 
 /**
@@ -762,7 +762,7 @@ Q3Int16_Read(TQ3Int16 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int16_Write(TQ3Int16 data, TQ3FileObject theFile);
 
 /**
@@ -773,7 +773,7 @@ Q3Int16_Write(TQ3Int16 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int32_Read(TQ3Int32 *data, TQ3FileObject theFile);
 
 /**
@@ -784,7 +784,7 @@ Q3Int32_Read(TQ3Int32 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int32_Write(TQ3Int32 data, TQ3FileObject theFile);
 
 /**
@@ -795,7 +795,7 @@ Q3Int32_Write(TQ3Int32 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns64_Read(TQ3Uns64 *data, TQ3FileObject theFile);
 
 /**
@@ -806,7 +806,7 @@ Q3Uns64_Read(TQ3Uns64 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Uns64_Write(TQ3Uns64 data, TQ3FileObject theFile);
 
 /**
@@ -817,7 +817,7 @@ Q3Uns64_Write(TQ3Uns64 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int64_Read(TQ3Int64 *data, TQ3FileObject theFile);
 
 /**
@@ -828,7 +828,7 @@ Q3Int64_Read(TQ3Int64 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Int64_Write(TQ3Int64 data, TQ3FileObject theFile);
 
 /**
@@ -839,7 +839,7 @@ Q3Int64_Write(TQ3Int64 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Float32_Read(TQ3Float32 *data, TQ3FileObject theFile);
 
 /**
@@ -850,7 +850,7 @@ Q3Float32_Read(TQ3Float32 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Float32_Write(TQ3Float32 data, TQ3FileObject theFile);
 
 /**
@@ -861,7 +861,7 @@ Q3Float32_Write(TQ3Float32 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Float64_Read(TQ3Float64 *data, TQ3FileObject theFile);
 
 /**
@@ -872,7 +872,7 @@ Q3Float64_Read(TQ3Float64 *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Float64_Write(TQ3Float64 data, TQ3FileObject theFile);
 
 /**
@@ -883,7 +883,7 @@ Q3Float64_Write(TQ3Float64 data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Size)
+TQ3Size
 Q3Size_Pad(TQ3Size size);
 
 /**
@@ -897,7 +897,7 @@ Q3Size_Pad(TQ3Size size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3String_Read(char *data, unsigned long *length, TQ3FileObject theFile);
 
 /**
@@ -908,7 +908,7 @@ Q3String_Read(char *data, unsigned long *length, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3String_Write(const char *data, TQ3FileObject theFile);
 
 /**
@@ -923,7 +923,7 @@ Q3String_Write(const char *data, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3RawData_Read(unsigned char *data, unsigned long size, TQ3FileObject theFile);
 
 /**
@@ -938,7 +938,7 @@ Q3RawData_Read(unsigned char *data, unsigned long size, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3RawData_Write(const unsigned char *data, unsigned long size,
                 TQ3FileObject theFile);
 
@@ -955,7 +955,7 @@ Q3RawData_Write(const unsigned char *data, unsigned long size,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Point2D_Read(TQ3Point2D *point2D, TQ3FileObject theFile);
 
 /**
@@ -966,7 +966,7 @@ Q3Point2D_Read(TQ3Point2D *point2D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Point2D_Write(const TQ3Point2D *point2D, TQ3FileObject theFile);
 
 /**
@@ -977,7 +977,7 @@ Q3Point2D_Write(const TQ3Point2D *point2D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Point3D_Read(TQ3Point3D *point3D, TQ3FileObject theFile);
 
 /**
@@ -988,7 +988,7 @@ Q3Point3D_Read(TQ3Point3D *point3D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Point3D_Write(const TQ3Point3D *point3D, TQ3FileObject theFile);
 
 /**
@@ -999,7 +999,7 @@ Q3Point3D_Write(const TQ3Point3D *point3D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3RationalPoint3D_Read(TQ3RationalPoint3D *point3D, TQ3FileObject theFile);
 
 /**
@@ -1010,7 +1010,7 @@ Q3RationalPoint3D_Read(TQ3RationalPoint3D *point3D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3RationalPoint3D_Write(const TQ3RationalPoint3D *point3D,
                         TQ3FileObject theFile);
 
@@ -1022,7 +1022,7 @@ Q3RationalPoint3D_Write(const TQ3RationalPoint3D *point3D,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3RationalPoint4D_Read(TQ3RationalPoint4D *point4D, TQ3FileObject theFile);
 
 /**
@@ -1033,7 +1033,7 @@ Q3RationalPoint4D_Read(TQ3RationalPoint4D *point4D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3RationalPoint4D_Write(const TQ3RationalPoint4D *point4D,
                         TQ3FileObject theFile);
 
@@ -1045,7 +1045,7 @@ Q3RationalPoint4D_Write(const TQ3RationalPoint4D *point4D,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Vector2D_Read(TQ3Vector2D *vector2D, TQ3FileObject theFile);
 
 /**
@@ -1056,7 +1056,7 @@ Q3Vector2D_Read(TQ3Vector2D *vector2D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Vector2D_Write(const TQ3Vector2D *vector2D, TQ3FileObject theFile);
 
 /**
@@ -1067,7 +1067,7 @@ Q3Vector2D_Write(const TQ3Vector2D *vector2D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Vector3D_Read(TQ3Vector3D *vector3D, TQ3FileObject theFile);
 
 /**
@@ -1078,7 +1078,7 @@ Q3Vector3D_Read(TQ3Vector3D *vector3D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Vector3D_Write(const TQ3Vector3D *vector3D, TQ3FileObject theFile);
 
 /**
@@ -1089,7 +1089,7 @@ Q3Vector3D_Write(const TQ3Vector3D *vector3D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Matrix4x4_Read(TQ3Matrix4x4 *matrix4x4, TQ3FileObject theFile);
 
 /**
@@ -1100,7 +1100,7 @@ Q3Matrix4x4_Read(TQ3Matrix4x4 *matrix4x4, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Matrix4x4_Write(const TQ3Matrix4x4 *matrix4x4, TQ3FileObject theFile);
 
 /**
@@ -1111,7 +1111,7 @@ Q3Matrix4x4_Write(const TQ3Matrix4x4 *matrix4x4, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tangent2D_Read(TQ3Tangent2D *tangent2D, TQ3FileObject theFile);
 
 /**
@@ -1122,7 +1122,7 @@ Q3Tangent2D_Read(TQ3Tangent2D *tangent2D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tangent2D_Write(const TQ3Tangent2D *tangent2D, TQ3FileObject theFile);
 
 /**
@@ -1133,7 +1133,7 @@ Q3Tangent2D_Write(const TQ3Tangent2D *tangent2D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tangent3D_Read(TQ3Tangent3D *tangent3D, TQ3FileObject theFile);
 
 /**
@@ -1144,7 +1144,7 @@ Q3Tangent3D_Read(TQ3Tangent3D *tangent3D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tangent3D_Write(const TQ3Tangent3D *tangent3D, TQ3FileObject theFile);
 
 /**  This call affects only text Files - it is a no-op in binary files */
@@ -1156,7 +1156,7 @@ Q3Tangent3D_Write(const TQ3Tangent3D *tangent3D, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Comment_Write(char *comment, TQ3FileObject theFile);
 
 /*******************************************************************************
@@ -1176,7 +1176,7 @@ Q3Comment_Write(char *comment, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Unknown_GetType(TQ3UnknownObject unknownObject);
 
 /**
@@ -1187,7 +1187,7 @@ Q3Unknown_GetType(TQ3UnknownObject unknownObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Unknown_GetDirtyState(TQ3UnknownObject unknownObject, TQ3Boolean *isDirty);
 
 /**
@@ -1198,7 +1198,7 @@ Q3Unknown_GetDirtyState(TQ3UnknownObject unknownObject, TQ3Boolean *isDirty);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Unknown_SetDirtyState(TQ3UnknownObject unknownObject, TQ3Boolean isDirty);
 
 /*******************************************************************************
@@ -1222,7 +1222,7 @@ typedef struct TQ3UnknownTextData TQ3UnknownTextData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3UnknownText_GetData(TQ3UnknownObject unknownObject,
                       TQ3UnknownTextData *unknownTextData);
 
@@ -1234,7 +1234,7 @@ Q3UnknownText_GetData(TQ3UnknownObject unknownObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3UnknownText_EmptyData(TQ3UnknownTextData *unknownTextData);
 
 /*******************************************************************************
@@ -1260,7 +1260,7 @@ typedef struct TQ3UnknownBinaryData TQ3UnknownBinaryData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3UnknownBinary_GetData(TQ3UnknownObject unknownObject,
                         TQ3UnknownBinaryData *unknownBinaryData);
 
@@ -1272,7 +1272,7 @@ Q3UnknownBinary_GetData(TQ3UnknownObject unknownObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3UnknownBinary_EmptyData(TQ3UnknownBinaryData *unknownBinaryData);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -1286,7 +1286,7 @@ Q3UnknownBinary_EmptyData(TQ3UnknownBinaryData *unknownBinaryData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3UnknownBinary_GetTypeString(TQ3UnknownObject unknownObject,
                               char **typeString);
 
@@ -1298,7 +1298,7 @@ Q3UnknownBinary_GetTypeString(TQ3UnknownObject unknownObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3UnknownBinary_EmptyTypeString(char **typeString);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -1324,7 +1324,7 @@ Q3UnknownBinary_EmptyTypeString(char **typeString);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ViewHintsObject)
+TQ3ViewHintsObject
 Q3ViewHints_New(TQ3ViewObject view);
 
 /**
@@ -1335,7 +1335,7 @@ Q3ViewHints_New(TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetRenderer(TQ3ViewHintsObject viewHints,
                         TQ3RendererObject renderer);
 
@@ -1347,7 +1347,7 @@ Q3ViewHints_SetRenderer(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetRenderer(TQ3ViewHintsObject viewHints,
                         TQ3RendererObject *renderer);
 
@@ -1359,7 +1359,7 @@ Q3ViewHints_GetRenderer(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetCamera(TQ3ViewHintsObject viewHints, TQ3CameraObject camera);
 
 /**
@@ -1370,7 +1370,7 @@ Q3ViewHints_SetCamera(TQ3ViewHintsObject viewHints, TQ3CameraObject camera);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetCamera(TQ3ViewHintsObject viewHints, TQ3CameraObject *camera);
 
 /**
@@ -1381,7 +1381,7 @@ Q3ViewHints_GetCamera(TQ3ViewHintsObject viewHints, TQ3CameraObject *camera);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetLightGroup(TQ3ViewHintsObject viewHints,
                           TQ3GroupObject lightGroup);
 
@@ -1393,7 +1393,7 @@ Q3ViewHints_SetLightGroup(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetLightGroup(TQ3ViewHintsObject viewHints,
                           TQ3GroupObject *lightGroup);
 
@@ -1405,7 +1405,7 @@ Q3ViewHints_GetLightGroup(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetAttributeSet(TQ3ViewHintsObject viewHints,
                             TQ3AttributeSet attributeSet);
 
@@ -1417,7 +1417,7 @@ Q3ViewHints_SetAttributeSet(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetAttributeSet(TQ3ViewHintsObject viewHints,
                             TQ3AttributeSet *attributeSet);
 
@@ -1429,7 +1429,7 @@ Q3ViewHints_GetAttributeSet(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetDimensionsState(TQ3ViewHintsObject viewHints,
                                TQ3Boolean isValid);
 
@@ -1441,7 +1441,7 @@ Q3ViewHints_SetDimensionsState(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetDimensionsState(TQ3ViewHintsObject viewHints,
                                TQ3Boolean *isValid);
 
@@ -1453,7 +1453,7 @@ Q3ViewHints_GetDimensionsState(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetDimensions(TQ3ViewHintsObject viewHints, unsigned long width,
                           unsigned long height);
 
@@ -1465,7 +1465,7 @@ Q3ViewHints_SetDimensions(TQ3ViewHintsObject viewHints, unsigned long width,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetDimensions(TQ3ViewHintsObject viewHints, unsigned long *width,
                           unsigned long *height);
 
@@ -1477,7 +1477,7 @@ Q3ViewHints_GetDimensions(TQ3ViewHintsObject viewHints, unsigned long *width,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetMaskState(TQ3ViewHintsObject viewHints, TQ3Boolean isValid);
 
 /**
@@ -1488,7 +1488,7 @@ Q3ViewHints_SetMaskState(TQ3ViewHintsObject viewHints, TQ3Boolean isValid);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetMaskState(TQ3ViewHintsObject viewHints, TQ3Boolean *isValid);
 
 /**
@@ -1499,7 +1499,7 @@ Q3ViewHints_GetMaskState(TQ3ViewHintsObject viewHints, TQ3Boolean *isValid);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetMask(TQ3ViewHintsObject viewHints, const TQ3Bitmap *mask);
 
 /**
@@ -1510,7 +1510,7 @@ Q3ViewHints_SetMask(TQ3ViewHintsObject viewHints, const TQ3Bitmap *mask);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetMask(TQ3ViewHintsObject viewHints, TQ3Bitmap *mask);
 
 /** Call Q3Bitmap_Empty when done with the mask  */
@@ -1522,7 +1522,7 @@ Q3ViewHints_GetMask(TQ3ViewHintsObject viewHints, TQ3Bitmap *mask);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetClearImageMethod(TQ3ViewHintsObject viewHints,
                                 TQ3DrawContextClearImageMethod clearMethod);
 
@@ -1534,7 +1534,7 @@ Q3ViewHints_SetClearImageMethod(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetClearImageMethod(TQ3ViewHintsObject viewHints,
                                 TQ3DrawContextClearImageMethod *clearMethod);
 
@@ -1546,7 +1546,7 @@ Q3ViewHints_GetClearImageMethod(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_SetClearImageColor(TQ3ViewHintsObject viewHints,
                                const TQ3ColorARGB *color);
 
@@ -1558,7 +1558,7 @@ Q3ViewHints_SetClearImageColor(TQ3ViewHintsObject viewHints,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewHints_GetClearImageColor(TQ3ViewHintsObject viewHints,
                                TQ3ColorARGB *color);
 

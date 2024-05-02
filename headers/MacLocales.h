@@ -101,7 +101,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleRefFromLangOrRegionCode(LangCode lang, RegionCode region,
                               LocaleRef *locale);
 
@@ -113,7 +113,7 @@ LocaleRefFromLangOrRegionCode(LangCode lang, RegionCode region,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleRefFromLocaleString(const char localeString[], LocaleRef *locale);
 
 /**
@@ -124,7 +124,7 @@ LocaleRefFromLocaleString(const char localeString[], LocaleRef *locale);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleRefGetPartString(LocaleRef locale, LocalePartMask partMask,
                        ByteCount maxStringLen, char partString[]);
 
@@ -136,7 +136,7 @@ LocaleRefGetPartString(LocaleRef locale, LocalePartMask partMask,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleStringToLangAndRegionCodes(const char localeString[], LangCode *lang,
                                  RegionCode *region);
 
@@ -149,7 +149,7 @@ LocaleStringToLangAndRegionCodes(const char localeString[], LangCode *lang,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleOperationCountLocales(LocaleOperationClass opClass,
                             ItemCount *localeCount);
 
@@ -161,7 +161,7 @@ LocaleOperationCountLocales(LocaleOperationClass opClass,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleOperationGetLocales(LocaleOperationClass opClass,
                           ItemCount maxLocaleCount,
                           ItemCount *actualLocaleCount,
@@ -177,7 +177,7 @@ LocaleOperationGetLocales(LocaleOperationClass opClass,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleGetName(LocaleRef locale, LocaleOperationVariant opVariant,
               LocaleNameMask nameMask, LocaleRef displayLocale,
               UniCharCount maxNameLen, UniCharCount *actualNameLen,
@@ -191,7 +191,7 @@ LocaleGetName(LocaleRef locale, LocaleOperationVariant opVariant,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleCountNames(LocaleRef locale, LocaleOperationVariant opVariant,
                  LocaleNameMask nameMask, ItemCount *nameCount);
 
@@ -203,7 +203,7 @@ LocaleCountNames(LocaleRef locale, LocaleOperationVariant opVariant,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleGetIndName(LocaleRef locale, LocaleOperationVariant opVariant,
                  LocaleNameMask nameMask, ItemCount nameIndex,
                  UniCharCount maxNameLen, UniCharCount *actualNameLen,
@@ -217,7 +217,7 @@ LocaleGetIndName(LocaleRef locale, LocaleOperationVariant opVariant,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleGetRegionLanguageName(RegionCode region, Str255 languageName);
 
 /** Get names for a LocaleOperationClass*/
@@ -229,7 +229,7 @@ LocaleGetRegionLanguageName(RegionCode region, Str255 languageName);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleOperationGetName(LocaleOperationClass opClass, LocaleRef displayLocale,
                        UniCharCount maxNameLen, UniCharCount *actualNameLen,
                        UniChar displayName[]);
@@ -242,7 +242,7 @@ LocaleOperationGetName(LocaleOperationClass opClass, LocaleRef displayLocale,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleOperationCountNames(LocaleOperationClass opClass, ItemCount *nameCount);
 
 /**
@@ -253,7 +253,7 @@ LocaleOperationCountNames(LocaleOperationClass opClass, ItemCount *nameCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 LocaleOperationGetIndName(LocaleOperationClass opClass, ItemCount nameIndex,
                           UniCharCount maxNameLen, UniCharCount *actualNameLen,
                           UniChar displayName[], LocaleRef *displayLocale);

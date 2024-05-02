@@ -72,7 +72,7 @@ typedef struct CGDataConsumerCallbacks CGDataConsumerCallbacks;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataConsumerRef)
+CGDataConsumerRef
 CGDataConsumerCreate(void *info, const CGDataConsumerCallbacks *callbacks);
 
 /* Create a data consumer which writes data to `url'. */
@@ -84,7 +84,7 @@ CGDataConsumerCreate(void *info, const CGDataConsumerCallbacks *callbacks);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataConsumerRef)
+CGDataConsumerRef
 CGDataConsumerCreateWithURL(CFURLRef url);
 
 /* Increment the retain count of `consumer' and return it.  All data
@@ -97,7 +97,7 @@ CGDataConsumerCreateWithURL(CFURLRef url);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataConsumerRef)
+CGDataConsumerRef
 CGDataConsumerRetain(CGDataConsumerRef consumer);
 
 /* Decrement the retain count of `consumer'.  If the retain count reaches
@@ -110,7 +110,7 @@ CGDataConsumerRetain(CGDataConsumerRef consumer);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGDataConsumerRelease(CGDataConsumerRef consumer);
 
 #if PRAGMA_STRUCT_ALIGN

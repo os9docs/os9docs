@@ -115,7 +115,7 @@ typedef CALLBACK_API_C(void, CGScreenRefreshCallback)(CGRectCount count,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGRegisterScreenRefreshCallback(CGScreenRefreshCallback callback,
                                 void *userParameter);
 
@@ -132,7 +132,7 @@ CGRegisterScreenRefreshCallback(CGScreenRefreshCallback callback,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGUnregisterScreenRefreshCallback(CGScreenRefreshCallback callback,
                                   void *userParameter);
 
@@ -156,7 +156,7 @@ CGUnregisterScreenRefreshCallback(CGScreenRefreshCallback callback,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGWaitForScreenRefreshRects(CGRect **pRectArray, CGRectCount *pCount);
 
 /**
@@ -170,7 +170,7 @@ CGWaitForScreenRefreshRects(CGRect **pRectArray, CGRectCount *pCount);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGReleaseScreenRefreshRects(CGRect *rectArray);
 
 /**
@@ -210,7 +210,7 @@ typedef u_int32_t CGButtonCount;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGPostMouseEvent(CGPoint mouseCursorPosition,
                  boolean_t updateMouseCursorPosition, CGButtonCount buttonCount,
                  boolean_t mouseButtonDown, ...);
@@ -239,7 +239,7 @@ typedef u_int32_t CGWheelCount;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGPostScrollWheelEvent(CGWheelCount wheelCount, int32_t wheel1, ...);
 
 /**
@@ -267,7 +267,7 @@ typedef u_int16_t CGKeyCode;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGPostKeyboardEvent(CGCharCode keyChar, CGKeyCode virtualKey,
                     boolean_t keyDown);
 
@@ -283,7 +283,7 @@ CGPostKeyboardEvent(CGCharCode keyChar, CGKeyCode virtualKey,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGWarpMouseCursorPosition(CGPoint newCursorPosition);
 
 /**
@@ -306,7 +306,7 @@ CGWarpMouseCursorPosition(CGPoint newCursorPosition);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGInhibitLocalEvents(boolean_t doInhibit);
 
 /**
@@ -321,7 +321,7 @@ CGInhibitLocalEvents(boolean_t doInhibit);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGSetLocalEventsSuppressionInterval(CFTimeInterval seconds);
 
 /**
@@ -351,7 +351,7 @@ CGSetLocalEventsSuppressionInterval(CFTimeInterval seconds);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGEnableEventStateCombining(boolean_t doCombineState);
 
 /**
@@ -396,7 +396,7 @@ typedef enum CGEventSupressionState CGEventSupressionState;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGSetLocalEventsFilterDuringSupressionState(CGEventFilterMask filter,
                                             CGEventSupressionState state);
 
@@ -430,7 +430,7 @@ CGSetLocalEventsFilterDuringSupressionState(CGEventFilterMask filter,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGEventErr)
+CGEventErr
 CGAssociateMouseAndMouseCursorPosition(boolean_t connected);
 
 /**

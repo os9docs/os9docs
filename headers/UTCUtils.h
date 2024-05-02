@@ -77,7 +77,7 @@ typedef LocalDateTimePtr *LocalDateTimeHandle;
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ConvertLocalTimeToUTC(UInt32 localSeconds, UInt32 *utcSeconds);
 
 /**
@@ -88,7 +88,7 @@ ConvertLocalTimeToUTC(UInt32 localSeconds, UInt32 *utcSeconds);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ConvertUTCToLocalTime(UInt32 utcSeconds, UInt32 *localSeconds);
 
 /** 64 bit clock conversion routines */
@@ -100,7 +100,7 @@ ConvertUTCToLocalTime(UInt32 utcSeconds, UInt32 *localSeconds);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ConvertUTCToLocalDateTime(const UTCDateTime *utcDateTime,
                           LocalDateTime *localDateTime);
 
@@ -112,7 +112,7 @@ ConvertUTCToLocalDateTime(const UTCDateTime *utcDateTime,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ConvertLocalToUTCDateTime(const LocalDateTime *localDateTime,
                           UTCDateTime *utcDateTime);
 
@@ -125,7 +125,7 @@ ConvertLocalToUTCDateTime(const LocalDateTime *localDateTime,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetUTCDateTime(UTCDateTime *utcDateTime, OptionBits options);
 
 /**
@@ -136,7 +136,7 @@ GetUTCDateTime(UTCDateTime *utcDateTime, OptionBits options);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetUTCDateTime(const UTCDateTime *utcDateTime, OptionBits options);
 
 /**
@@ -147,7 +147,7 @@ SetUTCDateTime(const UTCDateTime *utcDateTime, OptionBits options);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetLocalDateTime(LocalDateTime *localDateTime, OptionBits options);
 
 /**
@@ -158,7 +158,7 @@ GetLocalDateTime(LocalDateTime *localDateTime, OptionBits options);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetLocalDateTime(const LocalDateTime *localDateTime, OptionBits options);
 
 #if PRAGMA_STRUCT_ALIGN

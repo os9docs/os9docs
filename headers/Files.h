@@ -1567,7 +1567,7 @@ typedef DrvQEl *DrvQElPtr;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(IOCompletionUPP)
+IOCompletionUPP
 NewIOCompletionUPP(IOCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1595,7 +1595,7 @@ inline IOCompletionUPP NewIOCompletionUPP(IOCompletionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeIOCompletionUPP(IOCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1618,7 +1618,7 @@ inline void DisposeIOCompletionUPP(IOCompletionUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeIOCompletionUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeIOCompletionUPP(ParmBlkPtr paramBlock, IOCompletionUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -3440,7 +3440,7 @@ GetVRefNum(short fileRefNum, short *vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 fsopen(const char *fileName, short vRefNum, short *refNum);
 
 /**
@@ -3451,7 +3451,7 @@ fsopen(const char *fileName, short vRefNum, short *refNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 getvinfo(short drvNum, char *volName, short *vRefNum, long *freeBytes);
 
 /**
@@ -3462,7 +3462,7 @@ getvinfo(short drvNum, char *volName, short *vRefNum, long *freeBytes);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 getfinfo(const char *fileName, short vRefNum, FInfo *fndrInfo);
 
 /**
@@ -3473,7 +3473,7 @@ getfinfo(const char *fileName, short vRefNum, FInfo *fndrInfo);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 getvol(char *volName, short *vRefNum);
 
 /**
@@ -3484,7 +3484,7 @@ getvol(char *volName, short *vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 setvol(const char *volName, short vRefNum);
 
 /**
@@ -3495,7 +3495,7 @@ setvol(const char *volName, short vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 unmountvol(const char *volName, short vRefNum);
 
 /**
@@ -3506,7 +3506,7 @@ unmountvol(const char *volName, short vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 eject(const char *volName, short vRefNum);
 
 /**
@@ -3517,7 +3517,7 @@ eject(const char *volName, short vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 flushvol(const char *volName, short vRefNum);
 
 /**
@@ -3528,7 +3528,7 @@ flushvol(const char *volName, short vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 create(const char *fileName, short vRefNum, OSType creator, OSType fileType);
 
 /**
@@ -3539,7 +3539,7 @@ create(const char *fileName, short vRefNum, OSType creator, OSType fileType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 fsdelete(const char *fileName, short vRefNum);
 
 /**
@@ -3550,7 +3550,7 @@ fsdelete(const char *fileName, short vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 openrf(const char *fileName, short vRefNum, short *refNum);
 
 /**
@@ -3561,7 +3561,7 @@ openrf(const char *fileName, short vRefNum, short *refNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 fsrename(const char *oldName, short vRefNum, const char *newName);
 
 /**
@@ -3572,7 +3572,7 @@ fsrename(const char *oldName, short vRefNum, const char *newName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 setfinfo(const char *fileName, short vRefNum, const FInfo *fndrInfo);
 
 /**
@@ -3583,7 +3583,7 @@ setfinfo(const char *fileName, short vRefNum, const FInfo *fndrInfo);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 setflock(const char *fileName, short vRefNum);
 
 /**
@@ -3594,7 +3594,7 @@ setflock(const char *fileName, short vRefNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 rstflock(const char *fileName, short vRefNum);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -8887,7 +8887,7 @@ enum { kFNDirectoryModifiedMessage = 1 };
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNNotify(const FSRef *ref, FNMessage message, OptionBits flags);
 
 /**
@@ -8913,7 +8913,7 @@ FNNotify(const FSRef *ref, FNMessage message, OptionBits flags);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNNotifyByPath(const UInt8 *path, FNMessage message, OptionBits flags);
 
 /**
@@ -8938,7 +8938,7 @@ FNNotifyByPath(const UInt8 *path, FNMessage message, OptionBits flags);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNNotifyAll(FNMessage message, OptionBits flags);
 
 /**
@@ -9002,7 +9002,7 @@ typedef TVECTOR_UPP_TYPE(FNSubscriptionProcPtr) FNSubscriptionUPP;
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FNSubscriptionUPP)
+FNSubscriptionUPP
 NewFNSubscriptionUPP(FNSubscriptionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9026,7 +9026,7 @@ NewFNSubscriptionUPP(FNSubscriptionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeFNSubscriptionUPP(FNSubscriptionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9044,7 +9044,7 @@ inline void DisposeFNSubscriptionUPP(FNSubscriptionUPP) {}
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeFNSubscriptionUPP(FNMessage message, OptionBits flags, void *refcon,
                         FNSubscriptionRef subscription,
                         FNSubscriptionUPP userUPP);
@@ -9092,7 +9092,7 @@ inline void InvokeFNSubscriptionUPP(FNMessage message, OptionBits flags,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSubscribe(const FSRef *directoryRef, FNSubscriptionUPP callback, void *refcon,
             OptionBits flags, FNSubscriptionRef *subscription);
 
@@ -9126,7 +9126,7 @@ FNSubscribe(const FSRef *directoryRef, FNSubscriptionUPP callback, void *refcon,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSubscribeByPath(const UInt8 *directoryPath, FNSubscriptionUPP callback,
                   void *refcon, OptionBits flags,
                   FNSubscriptionRef *subscription);
@@ -9149,7 +9149,7 @@ FNSubscribeByPath(const UInt8 *directoryPath, FNSubscriptionUPP callback,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNUnsubscribe(FNSubscriptionRef subscription);
 
 /**
@@ -9177,7 +9177,7 @@ FNUnsubscribe(FNSubscriptionRef subscription);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 
 #if PRAGMA_STRUCT_ALIGN
@@ -9236,7 +9236,7 @@ typedef TVECTOR_UPP_TYPE(FNSubscriptionProcPtr) FNSubscriptionUPP;
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FNSubscriptionUPP)
+FNSubscriptionUPP
 NewFNSubscriptionUPP(FNSubscriptionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9260,7 +9260,7 @@ NewFNSubscriptionUPP(FNSubscriptionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeFNSubscriptionUPP(FNSubscriptionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9278,7 +9278,7 @@ inline void DisposeFNSubscriptionUPP(FNSubscriptionUPP) {}
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeFNSubscriptionUPP(FNMessage message, OptionBits flags, void *refcon,
                         FNSubscriptionRef subscription,
                         FNSubscriptionUPP userUPP);
@@ -9326,7 +9326,7 @@ inline void InvokeFNSubscriptionUPP(FNMessage message, OptionBits flags,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSubscribe(const FSRef *directoryRef, FNSubscriptionUPP callback, void *refcon,
             OptionBits flags, FNSubscriptionRef *subscription);
 
@@ -9360,7 +9360,7 @@ FNSubscribe(const FSRef *directoryRef, FNSubscriptionUPP callback, void *refcon,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSubscribeByPath(const UInt8 *directoryPath, FNSubscriptionUPP callback,
                   void *refcon, OptionBits flags,
                   FNSubscriptionRef *subscription);
@@ -9383,7 +9383,7 @@ FNSubscribeByPath(const UInt8 *directoryPath, FNSubscriptionUPP callback,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNUnsubscribe(FNSubscriptionRef subscription);
 
 /**
@@ -9411,7 +9411,7 @@ FNUnsubscribe(FNSubscriptionRef subscription);
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 
 #if PRAGMA_STRUCT_ALIGN

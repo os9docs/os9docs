@@ -217,7 +217,7 @@ typedef STACK_UPP_TYPE(DCMProgressFilterProcPtr) DCMProgressFilterUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DCMProgressFilterUPP)
+DCMProgressFilterUPP
 NewDCMProgressFilterUPP(DCMProgressFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -246,7 +246,7 @@ NewDCMProgressFilterUPP(DCMProgressFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDCMProgressFilterUPP(DCMProgressFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -266,7 +266,7 @@ inline void DisposeDCMProgressFilterUPP(DCMProgressFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDCMProgressFilterUPP(Boolean determinateProcess,
                            UInt16 percentageComplete, UInt32 callbackUD,
                            DCMProgressFilterUPP userUPP);

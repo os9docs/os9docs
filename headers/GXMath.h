@@ -85,7 +85,7 @@ typedef struct gxMapping gxMapping;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 CopyToMapping(gxMapping *target, const gxMapping *source)
     THREEWORDINLINE(0x303C, 0x0031, 0xA832);
 
@@ -97,7 +97,7 @@ CopyToMapping(gxMapping *target, const gxMapping *source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 InvertMapping(gxMapping *target, const gxMapping *source)
     THREEWORDINLINE(0x303C, 0x0032, 0xA832);
 
@@ -109,7 +109,7 @@ InvertMapping(gxMapping *target, const gxMapping *source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 MapMapping(gxMapping *target, const gxMapping *source)
     THREEWORDINLINE(0x303C, 0x0033, 0xA832);
 
@@ -121,7 +121,7 @@ MapMapping(gxMapping *target, const gxMapping *source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 MoveMapping(gxMapping *target, Fixed hOffset, Fixed vOffset)
     THREEWORDINLINE(0x303C, 0x0034, 0xA832);
 
@@ -133,7 +133,7 @@ MoveMapping(gxMapping *target, Fixed hOffset, Fixed vOffset)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 MoveMappingTo(gxMapping *target, Fixed hPosition, Fixed vPosition)
     THREEWORDINLINE(0x303C, 0x0035, 0xA832);
 
@@ -145,7 +145,7 @@ MoveMappingTo(gxMapping *target, Fixed hPosition, Fixed vPosition)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 NormalizeMapping(gxMapping *target) THREEWORDINLINE(0x303C, 0x0036, 0xA832);
 
 /**
@@ -156,7 +156,7 @@ NormalizeMapping(gxMapping *target) THREEWORDINLINE(0x303C, 0x0036, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 RotateMapping(gxMapping *target, Fixed angle, Fixed xCenter, Fixed yCenter)
     THREEWORDINLINE(0x303C, 0x0037, 0xA832);
 
@@ -168,7 +168,7 @@ RotateMapping(gxMapping *target, Fixed angle, Fixed xCenter, Fixed yCenter)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 ScaleMapping(gxMapping *target, Fixed hFactor, Fixed vFactor, Fixed xCenter,
              Fixed yCenter) THREEWORDINLINE(0x303C, 0x0038, 0xA832);
 
@@ -180,7 +180,7 @@ ScaleMapping(gxMapping *target, Fixed hFactor, Fixed vFactor, Fixed xCenter,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 ResetMapping(gxMapping *target) THREEWORDINLINE(0x303C, 0x0039, 0xA832);
 
 /**
@@ -191,7 +191,7 @@ ResetMapping(gxMapping *target) THREEWORDINLINE(0x303C, 0x0039, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 SkewMapping(gxMapping *target, Fixed skewX, Fixed skewY, Fixed xCenter,
             Fixed yCenter) THREEWORDINLINE(0x303C, 0x003A, 0xA832);
 
@@ -203,7 +203,7 @@ SkewMapping(gxMapping *target, Fixed skewX, Fixed skewY, Fixed xCenter,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 MapPoints(const gxMapping *source, long count, gxPoint theVector[])
     THREEWORDINLINE(0x303C, 0x003B, 0xA832);
 
@@ -215,7 +215,7 @@ MapPoints(const gxMapping *source, long count, gxPoint theVector[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 FirstBit(unsigned long x) THREEWORDINLINE(0x303C, 0x003C, 0xA832);
 
 /**
@@ -226,7 +226,7 @@ FirstBit(unsigned long x) THREEWORDINLINE(0x303C, 0x003C, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 WideScale(const wide *source) THREEWORDINLINE(0x303C, 0x003D, 0xA832);
 
 /**
@@ -237,7 +237,7 @@ WideScale(const wide *source) THREEWORDINLINE(0x303C, 0x003D, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 LinearRoot(Fixed first, Fixed last, Fract t[])
     THREEWORDINLINE(0x303C, 0x003E, 0xA832);
 
@@ -249,7 +249,7 @@ LinearRoot(Fixed first, Fixed last, Fract t[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 QuadraticRoot(Fixed first, Fixed control, Fixed last, Fract t[])
     THREEWORDINLINE(0x303C, 0x003F, 0xA832);
 
@@ -261,7 +261,7 @@ QuadraticRoot(Fixed first, Fixed control, Fixed last, Fract t[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPoint *)
+gxPoint *
 PolarToPoint(const gxPolar *ra, gxPoint *xy)
     THREEWORDINLINE(0x303C, 0x0040, 0xA832);
 
@@ -273,7 +273,7 @@ PolarToPoint(const gxPolar *ra, gxPoint *xy)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPolar *)
+gxPolar *
 PointToPolar(const gxPoint *xy, gxPolar *ra)
     THREEWORDINLINE(0x303C, 0x0041, 0xA832);
 
@@ -285,7 +285,7 @@ PointToPolar(const gxPoint *xy, gxPolar *ra)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fract)
+Fract
 FractCubeRoot(Fract source) THREEWORDINLINE(0x303C, 0x0042, 0xA832);
 
 /**
@@ -296,7 +296,7 @@ FractCubeRoot(Fract source) THREEWORDINLINE(0x303C, 0x0042, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fract)
+Fract
 FractDivide(Fract dividend, Fract divisor)
     THREEWORDINLINE(0x303C, 0x0043, 0xA832);
 
@@ -308,7 +308,7 @@ FractDivide(Fract dividend, Fract divisor)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fract)
+Fract
 FractMultiply(Fract multiplicand, Fract multiplier)
     THREEWORDINLINE(0x303C, 0x0044, 0xA832);
 
@@ -320,7 +320,7 @@ FractMultiply(Fract multiplicand, Fract multiplier)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fract)
+Fract
 FractSineCosine(Fixed degrees, Fract *cosine)
     THREEWORDINLINE(0x303C, 0x0045, 0xA832);
 
@@ -332,7 +332,7 @@ FractSineCosine(Fixed degrees, Fract *cosine)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fract)
+Fract
 FractSquareRoot(Fract source) THREEWORDINLINE(0x303C, 0x0046, 0xA832);
 
 /**
@@ -343,7 +343,7 @@ FractSquareRoot(Fract source) THREEWORDINLINE(0x303C, 0x0046, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 FixedDivide(Fixed dividend, Fixed divisor)
     THREEWORDINLINE(0x303C, 0x0047, 0xA832);
 
@@ -355,7 +355,7 @@ FixedDivide(Fixed dividend, Fixed divisor)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 FixedMultiply(Fixed multiplicand, Fixed multiplier)
     THREEWORDINLINE(0x303C, 0x0048, 0xA832);
 
@@ -369,7 +369,7 @@ FixedMultiply(Fixed multiplicand, Fixed multiplier)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 MultiplyDivide(long source, long multiplier, long divisor)
     THREEWORDINLINE(0x303C, 0x0049, 0xA832);
 
@@ -381,7 +381,7 @@ MultiplyDivide(long source, long multiplier, long divisor)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 Magnitude(long deltaX, long deltaY) THREEWORDINLINE(0x303C, 0x004A, 0xA832);
 
 /**
@@ -392,7 +392,7 @@ Magnitude(long deltaX, long deltaY) THREEWORDINLINE(0x303C, 0x004A, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 VectorMultiplyDivide(long count, const long *vector1, long step1,
                      const long *vector2, long step2, long divisor)
     THREEWORDINLINE(0x303C, 0x004B, 0xA832);
@@ -410,7 +410,7 @@ VectorMultiplyDivide(long count, const long *vector1, long step1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 WideAdd(wide *target, const wide *source)
     THREEWORDINLINE(0x303C, 0x004C, 0xA832);
 
@@ -422,7 +422,7 @@ WideAdd(wide *target, const wide *source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 WideCompare(const wide *target, const wide *source)
     THREEWORDINLINE(0x303C, 0x004D, 0xA832);
 
@@ -434,7 +434,7 @@ WideCompare(const wide *target, const wide *source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 WideNegate(wide *target) THREEWORDINLINE(0x303C, 0x004E, 0xA832);
 
 /**
@@ -445,7 +445,7 @@ WideNegate(wide *target) THREEWORDINLINE(0x303C, 0x004E, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 WideShift(wide *target, long shift) THREEWORDINLINE(0x303C, 0x004F, 0xA832);
 
 /**
@@ -456,7 +456,7 @@ WideShift(wide *target, long shift) THREEWORDINLINE(0x303C, 0x004F, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 WideSquareRoot(const wide *source) THREEWORDINLINE(0x303C, 0x0050, 0xA832);
 
 /**
@@ -467,7 +467,7 @@ WideSquareRoot(const wide *source) THREEWORDINLINE(0x303C, 0x0050, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 WideSubtract(wide *target, const wide *source)
     THREEWORDINLINE(0x303C, 0x0051, 0xA832);
 
@@ -479,7 +479,7 @@ WideSubtract(wide *target, const wide *source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 WideMultiply(long multiplicand, long multiplier, wide *target)
     THREEWORDINLINE(0x303C, 0x0052, 0xA832);
 
@@ -492,7 +492,7 @@ WideMultiply(long multiplicand, long multiplier, wide *target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 WideDivide(const wide *dividend, long divisor, long *remainder)
     THREEWORDINLINE(0x303C, 0x0053, 0xA832);
 
@@ -505,7 +505,7 @@ WideDivide(const wide *dividend, long divisor, long *remainder)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 WideWideDivide(wide *dividend, long divisor, long *remainder)
     THREEWORDINLINE(0x303C, 0x0055, 0xA832);
 
@@ -522,7 +522,7 @@ WideWideDivide(wide *dividend, long divisor, long *remainder)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 VectorMultiply(long count, const long *vector1, long step1, const long *vector2,
                long step2, wide *dot) THREEWORDINLINE(0x303C, 0x0054, 0xA832);
 
@@ -534,7 +534,7 @@ VectorMultiply(long count, const long *vector1, long step1, const long *vector2,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 RandomBits(long count, long focus) THREEWORDINLINE(0x303C, 0x0056, 0xA832);
 
 /**
@@ -545,7 +545,7 @@ RandomBits(long count, long focus) THREEWORDINLINE(0x303C, 0x0056, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SetRandomSeed(const wide *seed) THREEWORDINLINE(0x303C, 0x0057, 0xA832);
 
 /**
@@ -556,7 +556,7 @@ SetRandomSeed(const wide *seed) THREEWORDINLINE(0x303C, 0x0057, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 GetRandomSeed(wide *seed) THREEWORDINLINE(0x303C, 0x0058, 0xA832);
 
 #endif /** CALL_NOT_IN_CARBON */

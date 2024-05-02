@@ -76,7 +76,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorRGB *)
+TQ3ColorRGB *
 Q3ColorRGB_Set(TQ3ColorRGB *color, float r, float g, float b);
 
 /**
@@ -87,7 +87,7 @@ Q3ColorRGB_Set(TQ3ColorRGB *color, float r, float g, float b);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorARGB *)
+TQ3ColorARGB *
 Q3ColorARGB_Set(TQ3ColorARGB *color, float a, float r, float g, float b);
 
 /**
@@ -98,7 +98,7 @@ Q3ColorARGB_Set(TQ3ColorARGB *color, float a, float r, float g, float b);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorRGB *)
+TQ3ColorRGB *
 Q3ColorRGB_Add(const TQ3ColorRGB *c1, const TQ3ColorRGB *c2,
                TQ3ColorRGB *result);
 
@@ -110,7 +110,7 @@ Q3ColorRGB_Add(const TQ3ColorRGB *c1, const TQ3ColorRGB *c2,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorRGB *)
+TQ3ColorRGB *
 Q3ColorRGB_Subtract(const TQ3ColorRGB *c1, const TQ3ColorRGB *c2,
                     TQ3ColorRGB *result);
 
@@ -122,7 +122,7 @@ Q3ColorRGB_Subtract(const TQ3ColorRGB *c1, const TQ3ColorRGB *c2,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorRGB *)
+TQ3ColorRGB *
 Q3ColorRGB_Scale(const TQ3ColorRGB *color, float scale, TQ3ColorRGB *result);
 
 /**
@@ -133,7 +133,7 @@ Q3ColorRGB_Scale(const TQ3ColorRGB *color, float scale, TQ3ColorRGB *result);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorRGB *)
+TQ3ColorRGB *
 Q3ColorRGB_Clamp(const TQ3ColorRGB *color, TQ3ColorRGB *result);
 
 /**
@@ -144,7 +144,7 @@ Q3ColorRGB_Clamp(const TQ3ColorRGB *color, TQ3ColorRGB *result);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorRGB *)
+TQ3ColorRGB *
 Q3ColorRGB_Lerp(const TQ3ColorRGB *first, const TQ3ColorRGB *last, float alpha,
                 TQ3ColorRGB *result);
 
@@ -156,7 +156,7 @@ Q3ColorRGB_Lerp(const TQ3ColorRGB *first, const TQ3ColorRGB *last, float alpha,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ColorRGB *)
+TQ3ColorRGB *
 Q3ColorRGB_Accumulate(const TQ3ColorRGB *src, TQ3ColorRGB *result);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -170,7 +170,7 @@ Q3ColorRGB_Accumulate(const TQ3ColorRGB *src, TQ3ColorRGB *result);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(float *)
+float *
 Q3ColorRGB_Luminance(const TQ3ColorRGB *color, float *luminance);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -200,7 +200,7 @@ typedef enum TQ3ShaderUVBoundary TQ3ShaderUVBoundary;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Shader_GetType(TQ3ShaderObject shader);
 
 /**
@@ -211,7 +211,7 @@ Q3Shader_GetType(TQ3ShaderObject shader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shader_Submit(TQ3ShaderObject shader, TQ3ViewObject view);
 
 /**
@@ -222,7 +222,7 @@ Q3Shader_Submit(TQ3ShaderObject shader, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shader_SetUVTransform(TQ3ShaderObject shader,
                         const TQ3Matrix3x3 *uvTransform);
 
@@ -234,7 +234,7 @@ Q3Shader_SetUVTransform(TQ3ShaderObject shader,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shader_GetUVTransform(TQ3ShaderObject shader, TQ3Matrix3x3 *uvTransform);
 
 /**
@@ -245,7 +245,7 @@ Q3Shader_GetUVTransform(TQ3ShaderObject shader, TQ3Matrix3x3 *uvTransform);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shader_SetUBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary uBoundary);
 
 /**
@@ -256,7 +256,7 @@ Q3Shader_SetUBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary uBoundary);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shader_SetVBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary vBoundary);
 
 /**
@@ -267,7 +267,7 @@ Q3Shader_SetVBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary vBoundary);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shader_GetUBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary *uBoundary);
 
 /**
@@ -278,7 +278,7 @@ Q3Shader_GetUBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary *uBoundary);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shader_GetVBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary *vBoundary);
 
 /*******************************************************************************
@@ -294,7 +294,7 @@ Q3Shader_GetVBoundary(TQ3ShaderObject shader, TQ3ShaderUVBoundary *vBoundary);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3IlluminationShader_GetType(TQ3ShaderObject shader);
 
 /**
@@ -305,7 +305,7 @@ Q3IlluminationShader_GetType(TQ3ShaderObject shader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ShaderObject)
+TQ3ShaderObject
 Q3PhongIllumination_New(void);
 
 /**
@@ -316,7 +316,7 @@ Q3PhongIllumination_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ShaderObject)
+TQ3ShaderObject
 Q3LambertIllumination_New(void);
 
 /**
@@ -327,7 +327,7 @@ Q3LambertIllumination_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ShaderObject)
+TQ3ShaderObject
 Q3NULLIllumination_New(void);
 
 /*******************************************************************************
@@ -343,7 +343,7 @@ Q3NULLIllumination_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3SurfaceShader_GetType(TQ3SurfaceShaderObject shader);
 
 /*******************************************************************************
@@ -359,7 +359,7 @@ Q3SurfaceShader_GetType(TQ3SurfaceShaderObject shader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ShaderObject)
+TQ3ShaderObject
 Q3TextureShader_New(TQ3TextureObject texture);
 
 /**
@@ -370,7 +370,7 @@ Q3TextureShader_New(TQ3TextureObject texture);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3TextureShader_GetTexture(TQ3ShaderObject shader, TQ3TextureObject *texture);
 
 /**
@@ -381,7 +381,7 @@ Q3TextureShader_GetTexture(TQ3ShaderObject shader, TQ3TextureObject *texture);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3TextureShader_SetTexture(TQ3ShaderObject shader, TQ3TextureObject texture);
 
 /*******************************************************************************
@@ -397,7 +397,7 @@ Q3TextureShader_SetTexture(TQ3ShaderObject shader, TQ3TextureObject texture);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Texture_GetType(TQ3TextureObject texture);
 
 /**
@@ -408,7 +408,7 @@ Q3Texture_GetType(TQ3TextureObject texture);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Texture_GetWidth(TQ3TextureObject texture, unsigned long *width);
 
 /**
@@ -419,7 +419,7 @@ Q3Texture_GetWidth(TQ3TextureObject texture, unsigned long *width);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Texture_GetHeight(TQ3TextureObject texture, unsigned long *height);
 
 /*******************************************************************************
@@ -435,7 +435,7 @@ Q3Texture_GetHeight(TQ3TextureObject texture, unsigned long *height);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3TextureObject)
+TQ3TextureObject
 Q3PixmapTexture_New(const TQ3StoragePixmap *pixmap);
 
 /**
@@ -446,7 +446,7 @@ Q3PixmapTexture_New(const TQ3StoragePixmap *pixmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PixmapTexture_GetPixmap(TQ3TextureObject texture, TQ3StoragePixmap *pixmap);
 
 /**
@@ -457,7 +457,7 @@ Q3PixmapTexture_GetPixmap(TQ3TextureObject texture, TQ3StoragePixmap *pixmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PixmapTexture_SetPixmap(TQ3TextureObject texture,
                           const TQ3StoragePixmap *pixmap);
 
@@ -474,7 +474,7 @@ Q3PixmapTexture_SetPixmap(TQ3TextureObject texture,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3TextureObject)
+TQ3TextureObject
 Q3MipmapTexture_New(const TQ3Mipmap *mipmap);
 
 /**
@@ -485,7 +485,7 @@ Q3MipmapTexture_New(const TQ3Mipmap *mipmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MipmapTexture_GetMipmap(TQ3TextureObject texture, TQ3Mipmap *mipmap);
 
 /**
@@ -496,7 +496,7 @@ Q3MipmapTexture_GetMipmap(TQ3TextureObject texture, TQ3Mipmap *mipmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MipmapTexture_SetMipmap(TQ3TextureObject texture, const TQ3Mipmap *mipmap);
 
 /*******************************************************************************
@@ -512,7 +512,7 @@ Q3MipmapTexture_SetMipmap(TQ3TextureObject texture, const TQ3Mipmap *mipmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3TextureObject)
+TQ3TextureObject
 Q3CompressedPixmapTexture_New(const TQ3CompressedPixmap *compressedPixmap);
 
 /**
@@ -523,7 +523,7 @@ Q3CompressedPixmapTexture_New(const TQ3CompressedPixmap *compressedPixmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CompressedPixmapTexture_GetCompressedPixmap(
     TQ3TextureObject texture, TQ3CompressedPixmap *compressedPixmap);
 
@@ -535,7 +535,7 @@ Q3CompressedPixmapTexture_GetCompressedPixmap(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CompressedPixmapTexture_SetCompressedPixmap(
     TQ3TextureObject texture, const TQ3CompressedPixmap *compressedPixmap);
 
@@ -547,7 +547,7 @@ Q3CompressedPixmapTexture_SetCompressedPixmap(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CompressedPixmapTexture_CompressImage(TQ3CompressedPixmap *compressedPixmap,
                                         PixMapHandle sourcePixMap,
                                         CodecType codecType,

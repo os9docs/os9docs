@@ -82,7 +82,7 @@ typedef enum CGColorRenderingIntent CGColorRenderingIntent;
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateDeviceGray(void);
 
 /* Create a DeviceRGB colorspace. */
@@ -94,7 +94,7 @@ CGColorSpaceCreateDeviceGray(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateDeviceRGB(void);
 
 /* Create a DeviceCMYK colorspace. */
@@ -106,7 +106,7 @@ CGColorSpaceCreateDeviceRGB(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateDeviceCMYK(void);
 
 /** Device-independent color spaces. **/
@@ -123,7 +123,7 @@ CGColorSpaceCreateDeviceCMYK(void);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateCalibratedGray(const float whitePoint[3],
                                  const float blackPoint[3], float gamma);
 
@@ -144,7 +144,7 @@ CGColorSpaceCreateCalibratedGray(const float whitePoint[3],
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateCalibratedRGB(const float whitePoint[3],
                                 const float blackPoint[3], const float gamma[3],
                                 const float matrix[9]);
@@ -163,7 +163,7 @@ CGColorSpaceCreateCalibratedRGB(const float whitePoint[3],
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateLab(const float whitePoint[3], const float blackPoint[3],
                       const float range[4]);
 
@@ -188,7 +188,7 @@ CGColorSpaceCreateLab(const float whitePoint[3], const float blackPoint[3],
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateICCBased(size_t nComponents, const float *range,
                            CGDataProviderRef profile,
                            CGColorSpaceRef alternateSpace);
@@ -211,7 +211,7 @@ CGColorSpaceCreateICCBased(size_t nComponents, const float *range,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateIndexed(CGColorSpaceRef baseSpace, size_t lastIndex,
                           const unsigned char *colorTable);
 
@@ -227,7 +227,7 @@ CGColorSpaceCreateIndexed(CGColorSpaceRef baseSpace, size_t lastIndex,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreatePattern(CGColorSpaceRef baseSpace);
 
 /* Create a CGColorSpace using `platformColorSpaceReference', a pointer to
@@ -241,7 +241,7 @@ CGColorSpaceCreatePattern(CGColorSpaceRef baseSpace);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceCreateWithPlatformColorSpace(void *platformColorSpaceReference);
 
 /** Colorspace information. **/
@@ -254,7 +254,7 @@ CGColorSpaceCreateWithPlatformColorSpace(void *platformColorSpaceReference);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(size_t)
+size_t
 CGColorSpaceGetNumberOfComponents(CGColorSpaceRef cs);
 
 /** Retaining & releasing colorspaces. **/
@@ -268,7 +268,7 @@ CGColorSpaceGetNumberOfComponents(CGColorSpaceRef cs);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGColorSpaceRef)
+CGColorSpaceRef
 CGColorSpaceRetain(CGColorSpaceRef cs);
 
 /* Decrement the retain count of `cs'.  If the retain count reaches 0, then
@@ -281,7 +281,7 @@ CGColorSpaceRetain(CGColorSpaceRef cs);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGColorSpaceRelease(CGColorSpaceRef cs);
 
 #if PRAGMA_ENUM_ALWAYSINT

@@ -113,7 +113,7 @@ KCChangeSettings(KCRef keychain);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcunlock(KCRef keychain,        /** can be NULL */
          const char *password); /** can be NULL */
 
@@ -125,7 +125,7 @@ kcunlock(KCRef keychain,        /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kccreatekeychain(const char *password, /** can be NULL */
                  KCRef *keychain);     /** can be NULL */
 

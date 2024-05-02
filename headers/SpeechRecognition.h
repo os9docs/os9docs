@@ -148,7 +148,7 @@ typedef STACK_UPP_TYPE(SRCallBackProcPtr) SRCallBackUPP;
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SRCallBackUPP)
+SRCallBackUPP
 NewSRCallBackUPP(SRCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -174,7 +174,7 @@ inline SRCallBackUPP NewSRCallBackUPP(SRCallBackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSRCallBackUPP(SRCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -194,7 +194,7 @@ inline void DisposeSRCallBackUPP(SRCallBackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSRCallBackUPP(SRCallBackStruct *param, SRCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

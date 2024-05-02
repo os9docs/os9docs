@@ -821,7 +821,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Initialize(void);
 
 /**
@@ -832,7 +832,7 @@ Q3Initialize(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Exit(void);
 
 /**
@@ -843,7 +843,7 @@ Q3Exit(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3IsInitialized(void);
 
 /**
@@ -854,7 +854,7 @@ Q3IsInitialized(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3GetVersion(unsigned long *majorRevision, unsigned long *minorRevision);
 
 /**
@@ -870,7 +870,7 @@ Q3GetVersion(unsigned long *majorRevision, unsigned long *minorRevision);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3GetReleaseVersion(unsigned long *releaseRevision);
 
 /******************************************************************************
@@ -897,7 +897,7 @@ Q3GetReleaseVersion(unsigned long *releaseRevision);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ObjectHierarchy_GetTypeFromString(TQ3ObjectClassNameString objectClassString,
                                     TQ3ObjectType *objectClassType);
 
@@ -913,7 +913,7 @@ Q3ObjectHierarchy_GetTypeFromString(TQ3ObjectClassNameString objectClassString,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ObjectHierarchy_GetStringFromType(TQ3ObjectType objectClassType,
                                     TQ3ObjectClassNameString objectClassString);
 
@@ -928,7 +928,7 @@ Q3ObjectHierarchy_GetStringFromType(TQ3ObjectType objectClassType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3ObjectHierarchy_IsTypeRegistered(TQ3ObjectType objectClassType);
 
 /**
@@ -942,7 +942,7 @@ Q3ObjectHierarchy_IsTypeRegistered(TQ3ObjectType objectClassType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3ObjectHierarchy_IsNameRegistered(const char *objectClassName);
 
 /**
@@ -975,7 +975,7 @@ typedef struct TQ3SubClassData TQ3SubClassData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ObjectHierarchy_GetSubClassData(TQ3ObjectType objectClassType,
                                   TQ3SubClassData *subClassData);
 
@@ -994,7 +994,7 @@ Q3ObjectHierarchy_GetSubClassData(TQ3ObjectType objectClassType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ObjectHierarchy_EmptySubClassData(TQ3SubClassData *subClassData);
 
 /******************************************************************************
@@ -1010,7 +1010,7 @@ Q3ObjectHierarchy_EmptySubClassData(TQ3SubClassData *subClassData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Object_Dispose(TQ3Object object);
 
 /**
@@ -1021,7 +1021,7 @@ Q3Object_Dispose(TQ3Object object);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Object)
+TQ3Object
 Q3Object_Duplicate(TQ3Object object);
 
 /**
@@ -1032,7 +1032,7 @@ Q3Object_Duplicate(TQ3Object object);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Object_Submit(TQ3Object object, TQ3ViewObject view);
 
 /**
@@ -1043,7 +1043,7 @@ Q3Object_Submit(TQ3Object object, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Object_IsDrawable(TQ3Object object);
 
 /**
@@ -1054,7 +1054,7 @@ Q3Object_IsDrawable(TQ3Object object);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Object_IsWritable(TQ3Object object, TQ3FileObject theFile);
 
 /******************************************************************************
@@ -1070,7 +1070,7 @@ Q3Object_IsWritable(TQ3Object object, TQ3FileObject theFile);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Object_GetType(TQ3Object object);
 
 /**
@@ -1081,7 +1081,7 @@ Q3Object_GetType(TQ3Object object);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Object_GetLeafType(TQ3Object object);
 
 /**
@@ -1092,7 +1092,7 @@ Q3Object_GetLeafType(TQ3Object object);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Object_IsType(TQ3Object object, TQ3ObjectType theType);
 
 /******************************************************************************
@@ -1108,7 +1108,7 @@ Q3Object_IsType(TQ3Object object, TQ3ObjectType theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Shared_GetType(TQ3SharedObject sharedObject);
 
 /**
@@ -1119,7 +1119,7 @@ Q3Shared_GetType(TQ3SharedObject sharedObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3SharedObject)
+TQ3SharedObject
 Q3Shared_GetReference(TQ3SharedObject sharedObject);
 
 /**
@@ -1145,7 +1145,7 @@ Q3Shared_GetReference(TQ3SharedObject sharedObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Shared_IsReferenced(TQ3SharedObject sharedObject);
 
 /**
@@ -1172,7 +1172,7 @@ Q3Shared_IsReferenced(TQ3SharedObject sharedObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 Q3Shared_GetEditIndex(TQ3SharedObject sharedObject);
 
 /**
@@ -1192,7 +1192,7 @@ Q3Shared_GetEditIndex(TQ3SharedObject sharedObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shared_Edited(TQ3SharedObject sharedObject);
 
 /******************************************************************************
@@ -1273,7 +1273,7 @@ Q3Shared_Edited(TQ3SharedObject sharedObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Shape_GetType(TQ3ShapeObject shape);
 
 /**
@@ -1284,7 +1284,7 @@ Q3Shape_GetType(TQ3ShapeObject shape);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shape_GetSet(TQ3ShapeObject shape, TQ3SetObject *theSet);
 
 /**
@@ -1295,7 +1295,7 @@ Q3Shape_GetSet(TQ3ShapeObject shape, TQ3SetObject *theSet);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shape_SetSet(TQ3ShapeObject shape, TQ3SetObject theSet);
 
 /**
@@ -1306,7 +1306,7 @@ Q3Shape_SetSet(TQ3ShapeObject shape, TQ3SetObject theSet);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shape_AddElement(TQ3ShapeObject shape, TQ3ElementType theType,
                    const void *data);
 
@@ -1318,7 +1318,7 @@ Q3Shape_AddElement(TQ3ShapeObject shape, TQ3ElementType theType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shape_GetElement(TQ3ShapeObject shape, TQ3ElementType theType, void *data);
 
 /**
@@ -1329,7 +1329,7 @@ Q3Shape_GetElement(TQ3ShapeObject shape, TQ3ElementType theType, void *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Shape_ContainsElement(TQ3ShapeObject shape, TQ3ElementType theType);
 
 /**
@@ -1340,7 +1340,7 @@ Q3Shape_ContainsElement(TQ3ShapeObject shape, TQ3ElementType theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shape_GetNextElementType(TQ3ShapeObject shape, TQ3ElementType *theType);
 
 /**
@@ -1351,7 +1351,7 @@ Q3Shape_GetNextElementType(TQ3ShapeObject shape, TQ3ElementType *theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shape_EmptyElements(TQ3ShapeObject shape);
 
 /**
@@ -1362,7 +1362,7 @@ Q3Shape_EmptyElements(TQ3ShapeObject shape);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Shape_ClearElement(TQ3ShapeObject shape, TQ3ElementType theType);
 
 /******************************************************************************
@@ -1378,7 +1378,7 @@ Q3Shape_ClearElement(TQ3ShapeObject shape, TQ3ElementType theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Bitmap_Empty(TQ3Bitmap *bitmap);
 
 /**
@@ -1389,7 +1389,7 @@ Q3Bitmap_Empty(TQ3Bitmap *bitmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 Q3Bitmap_GetImageSize(unsigned long width, unsigned long height);
 
 #endif /* CALL_NOT_IN_CARBON */

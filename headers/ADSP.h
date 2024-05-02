@@ -283,7 +283,7 @@ on_car\carbon_libavailable as macro/inline
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ADSPConnectionEventUPP)
+ADSPConnectionEventUPP
 NewADSPConnectionEventUPP(ADSPConnectionEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -312,7 +312,7 @@ NewADSPConnectionEventUPP(ADSPConnectionEventProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ADSPCompletionUPP)
+ADSPCompletionUPP
 NewADSPCompletionUPP(ADSPCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -341,7 +341,7 @@ NewADSPCompletionUPP(ADSPCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeADSPConnectionEventUPP(ADSPConnectionEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -361,7 +361,7 @@ inline void DisposeADSPConnectionEventUPP(ADSPConnectionEventUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeADSPCompletionUPP(ADSPCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -384,7 +384,7 @@ inline void DisposeADSPCompletionUPP(ADSPCompletionUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeADSPConnectionEventUPP(__A1, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeADSPConnectionEventUPP(TPCCB sourceCCB, ADSPConnectionEventUPP userUPP)
     ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -411,7 +411,7 @@ inline void InvokeADSPConnectionEventUPP(TPCCB sourceCCB,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeADSPCompletionUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeADSPCompletionUPP(DSPPBPtr thePBPtr, ADSPCompletionUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \

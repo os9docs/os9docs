@@ -72,7 +72,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3String_GetType(TQ3StringObject stringObj);
 
 /******************************************************************************
@@ -88,7 +88,7 @@ Q3String_GetType(TQ3StringObject stringObj);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3StringObject)
+TQ3StringObject
 Q3CString_New(const char *str);
 
 /**
@@ -99,7 +99,7 @@ Q3CString_New(const char *str);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CString_GetLength(TQ3StringObject stringObj, unsigned long *length);
 
 /**
@@ -110,7 +110,7 @@ Q3CString_GetLength(TQ3StringObject stringObj, unsigned long *length);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CString_SetString(TQ3StringObject stringObj, const char *str);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -124,7 +124,7 @@ Q3CString_SetString(TQ3StringObject stringObj, const char *str);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CString_GetString(TQ3StringObject stringObj, char **str);
 
 /**
@@ -135,7 +135,7 @@ Q3CString_GetString(TQ3StringObject stringObj, char **str);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CString_EmptyData(char **str);
 
 #endif /* CALL_NOT_IN_CARBON */

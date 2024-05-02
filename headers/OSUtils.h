@@ -217,7 +217,7 @@ typedef REGISTER_UPP_TYPE(DeferredTaskProcPtr) DeferredTaskUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DeferredTaskUPP)
+DeferredTaskUPP
 NewDeferredTaskUPP(DeferredTaskProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -245,7 +245,7 @@ inline DeferredTaskUPP NewDeferredTaskUPP(DeferredTaskProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDeferredTaskUPP(DeferredTaskUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -268,7 +268,7 @@ inline void DisposeDeferredTaskUPP(DeferredTaskUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeDeferredTaskUPP(__A1, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeDeferredTaskUPP(long dtParam, DeferredTaskUPP userUPP)
     ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -936,7 +936,7 @@ TickCount(void) ONEWORDINLINE(0xA975);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFStringRef)
+CFStringRef
 CSCopyUserName(Boolean useShortName);
 
 /**
@@ -947,7 +947,7 @@ CSCopyUserName(Boolean useShortName);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CFStringRef)
+CFStringRef
 CSCopyMachineName(void);
 
 #if OLDROUTINENAMES

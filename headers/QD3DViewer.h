@@ -143,7 +143,7 @@ typedef enum TQ3ViewerCameraView TQ3ViewerCameraView;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetVersion(unsigned long *majorRevision, unsigned long *minorRevision);
 
 /******************************************************************************
@@ -160,7 +160,7 @@ Q3ViewerGetVersion(unsigned long *majorRevision, unsigned long *minorRevision);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetReleaseVersion(unsigned long *releaseRevision);
 
 /******************************************************************************
@@ -177,7 +177,7 @@ Q3ViewerGetReleaseVersion(unsigned long *releaseRevision);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ViewerObject)
+TQ3ViewerObject
 Q3ViewerNew(CGrafPtr port, Rect *rect, unsigned long flags);
 
 /**
@@ -188,7 +188,7 @@ Q3ViewerNew(CGrafPtr port, Rect *rect, unsigned long flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerDispose(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -204,7 +204,7 @@ Q3ViewerDispose(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerUseFile(TQ3ViewerObject theViewer, long refNum);
 
 /**
@@ -215,7 +215,7 @@ Q3ViewerUseFile(TQ3ViewerObject theViewer, long refNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerUseData(TQ3ViewerObject theViewer, void *data, long size);
 
 /******************************************************************************
@@ -231,7 +231,7 @@ Q3ViewerUseData(TQ3ViewerObject theViewer, void *data, long size);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerWriteFile(TQ3ViewerObject theViewer, long refNum);
 
 /**
@@ -242,7 +242,7 @@ Q3ViewerWriteFile(TQ3ViewerObject theViewer, long refNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 Q3ViewerWriteData(TQ3ViewerObject theViewer, Handle data);
 
 /******************************************************************************
@@ -258,7 +258,7 @@ Q3ViewerWriteData(TQ3ViewerObject theViewer, Handle data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerDraw(TQ3ViewerObject theViewer);
 
 /**
@@ -269,7 +269,7 @@ Q3ViewerDraw(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerDrawContent(TQ3ViewerObject theViewer);
 
 /**
@@ -280,7 +280,7 @@ Q3ViewerDrawContent(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerDrawControlStrip(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -296,7 +296,7 @@ Q3ViewerDrawControlStrip(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 Q3ViewerEvent(TQ3ViewerObject theViewer, EventRecord *evt);
 
 /******************************************************************************
@@ -313,7 +313,7 @@ Q3ViewerEvent(TQ3ViewerObject theViewer, EventRecord *evt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PicHandle)
+PicHandle
 Q3ViewerGetPict(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -329,7 +329,7 @@ Q3ViewerGetPict(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetButtonRect(TQ3ViewerObject theViewer, unsigned long button,
                       Rect *rect);
 
@@ -341,7 +341,7 @@ Q3ViewerGetButtonRect(TQ3ViewerObject theViewer, unsigned long button,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 Q3ViewerGetCurrentButton(TQ3ViewerObject theViewer);
 
 /**
@@ -352,7 +352,7 @@ Q3ViewerGetCurrentButton(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetCurrentButton(TQ3ViewerObject theViewer, unsigned long button);
 
 /******************************************************************************
@@ -368,7 +368,7 @@ Q3ViewerSetCurrentButton(TQ3ViewerObject theViewer, unsigned long button);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerUseGroup(TQ3ViewerObject theViewer, TQ3GroupObject group);
 
 /**
@@ -379,7 +379,7 @@ Q3ViewerUseGroup(TQ3ViewerObject theViewer, TQ3GroupObject group);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3GroupObject)
+TQ3GroupObject
 Q3ViewerGetGroup(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -395,7 +395,7 @@ Q3ViewerGetGroup(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetBackgroundColor(TQ3ViewerObject theViewer, TQ3ColorARGB *color);
 
 /**
@@ -406,7 +406,7 @@ Q3ViewerSetBackgroundColor(TQ3ViewerObject theViewer, TQ3ColorARGB *color);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetBackgroundColor(TQ3ViewerObject theViewer, TQ3ColorARGB *color);
 
 /******************************************************************************
@@ -422,7 +422,7 @@ Q3ViewerGetBackgroundColor(TQ3ViewerObject theViewer, TQ3ColorARGB *color);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ViewObject)
+TQ3ViewObject
 Q3ViewerGetView(TQ3ViewerObject theViewer);
 
 /**
@@ -433,7 +433,7 @@ Q3ViewerGetView(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerRestoreView(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -449,7 +449,7 @@ Q3ViewerRestoreView(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetFlags(TQ3ViewerObject theViewer, unsigned long flags);
 
 /**
@@ -460,7 +460,7 @@ Q3ViewerSetFlags(TQ3ViewerObject theViewer, unsigned long flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 Q3ViewerGetFlags(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -478,7 +478,7 @@ Q3ViewerGetFlags(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetBounds(TQ3ViewerObject theViewer, Rect *bounds);
 
 /**
@@ -489,7 +489,7 @@ Q3ViewerSetBounds(TQ3ViewerObject theViewer, Rect *bounds);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetBounds(TQ3ViewerObject theViewer, Rect *bounds);
 
 /**
@@ -500,7 +500,7 @@ Q3ViewerGetBounds(TQ3ViewerObject theViewer, Rect *bounds);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetDimension(TQ3ViewerObject theViewer, unsigned long width,
                      unsigned long height);
 
@@ -512,7 +512,7 @@ Q3ViewerSetDimension(TQ3ViewerObject theViewer, unsigned long width,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetDimension(TQ3ViewerObject theViewer, unsigned long *width,
                      unsigned long *height);
 
@@ -524,7 +524,7 @@ Q3ViewerGetDimension(TQ3ViewerObject theViewer, unsigned long *width,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetMinimumDimension(TQ3ViewerObject theViewer, unsigned long *width,
                             unsigned long *height);
 
@@ -541,7 +541,7 @@ Q3ViewerGetMinimumDimension(TQ3ViewerObject theViewer, unsigned long *width,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetPort(TQ3ViewerObject theViewer, CGrafPtr port);
 
 /**
@@ -552,7 +552,7 @@ Q3ViewerSetPort(TQ3ViewerObject theViewer, CGrafPtr port);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(CGrafPtr)
+CGrafPtr
 Q3ViewerGetPort(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -570,7 +570,7 @@ Q3ViewerGetPort(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 Q3ViewerAdjustCursor(TQ3ViewerObject theViewer, Point *pt);
 
 /**
@@ -581,7 +581,7 @@ Q3ViewerAdjustCursor(TQ3ViewerObject theViewer, Point *pt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerCursorChanged(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -598,7 +598,7 @@ Q3ViewerCursorChanged(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 Q3ViewerGetState(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -614,7 +614,7 @@ Q3ViewerGetState(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerClear(TQ3ViewerObject theViewer);
 
 /**
@@ -625,7 +625,7 @@ Q3ViewerClear(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerCut(TQ3ViewerObject theViewer);
 
 /**
@@ -636,7 +636,7 @@ Q3ViewerCut(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerCopy(TQ3ViewerObject theViewer);
 
 /**
@@ -647,7 +647,7 @@ Q3ViewerCopy(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerPaste(TQ3ViewerObject theViewer);
 
 /******************************************************************************
@@ -663,7 +663,7 @@ Q3ViewerPaste(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 Q3ViewerMouseDown(TQ3ViewerObject theViewer, long x, long y);
 
 /**
@@ -674,7 +674,7 @@ Q3ViewerMouseDown(TQ3ViewerObject theViewer, long x, long y);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 Q3ViewerContinueTracking(TQ3ViewerObject theViewer, long x, long y);
 
 /**
@@ -685,7 +685,7 @@ Q3ViewerContinueTracking(TQ3ViewerObject theViewer, long x, long y);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 Q3ViewerMouseUp(TQ3ViewerObject theViewer, long x, long y);
 
 /**
@@ -696,7 +696,7 @@ Q3ViewerMouseUp(TQ3ViewerObject theViewer, long x, long y);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 Q3ViewerHandleKeyEvent(TQ3ViewerObject theViewer, EventRecord *evt);
 
 /******************************************************************************
@@ -712,7 +712,7 @@ Q3ViewerHandleKeyEvent(TQ3ViewerObject theViewer, EventRecord *evt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetDrawingCallbackMethod(TQ3ViewerObject theViewer,
                                  TQ3ViewerDrawingCallbackMethod callbackMethod,
                                  const void *data);
@@ -725,7 +725,7 @@ Q3ViewerSetDrawingCallbackMethod(TQ3ViewerObject theViewer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetWindowResizeCallback(
     TQ3ViewerObject theViewer,
     TQ3ViewerWindowResizeCallbackMethod windowResizeCallbackMethod,
@@ -739,7 +739,7 @@ Q3ViewerSetWindowResizeCallback(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetPaneResizeNotifyCallback(
     TQ3ViewerObject theViewer,
     TQ3ViewerPaneResizeNotifyCallbackMethod paneResizeNotifyCallbackMethod,
@@ -758,7 +758,7 @@ Q3ViewerSetPaneResizeNotifyCallback(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerUndo(TQ3ViewerObject theViewer);
 
 /**
@@ -769,7 +769,7 @@ Q3ViewerUndo(TQ3ViewerObject theViewer);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 Q3ViewerGetUndoString(TQ3ViewerObject theViewer, char *str, unsigned long *cnt);
 
 /******************************************************************************
@@ -785,7 +785,7 @@ Q3ViewerGetUndoString(TQ3ViewerObject theViewer, char *str, unsigned long *cnt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetCameraCount(TQ3ViewerObject theViewer, unsigned long *cnt);
 
 /**
@@ -796,7 +796,7 @@ Q3ViewerGetCameraCount(TQ3ViewerObject theViewer, unsigned long *cnt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetCameraByNumber(TQ3ViewerObject theViewer, unsigned long cameraNo);
 
 /**
@@ -807,7 +807,7 @@ Q3ViewerSetCameraByNumber(TQ3ViewerObject theViewer, unsigned long cameraNo);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetCameraByView(TQ3ViewerObject theViewer,
                         TQ3ViewerCameraView viewType);
 
@@ -824,7 +824,7 @@ Q3ViewerSetCameraByView(TQ3ViewerObject theViewer,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetRendererType(TQ3ViewerObject theViewer, TQ3ObjectType rendererType);
 
 /**
@@ -835,7 +835,7 @@ Q3ViewerSetRendererType(TQ3ViewerObject theViewer, TQ3ObjectType rendererType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetRendererType(TQ3ViewerObject theViewer, TQ3ObjectType *rendererType);
 
 /**
@@ -846,7 +846,7 @@ Q3ViewerGetRendererType(TQ3ViewerObject theViewer, TQ3ObjectType *rendererType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerChangeBrightness(TQ3ViewerObject theViewer, float brightness);
 
 /**
@@ -857,7 +857,7 @@ Q3ViewerChangeBrightness(TQ3ViewerObject theViewer, float brightness);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetRemoveBackfaces(TQ3ViewerObject theViewer, TQ3Boolean remove);
 
 /**
@@ -868,7 +868,7 @@ Q3ViewerSetRemoveBackfaces(TQ3ViewerObject theViewer, TQ3Boolean remove);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetRemoveBackfaces(TQ3ViewerObject theViewer, TQ3Boolean *remove);
 
 /**
@@ -879,7 +879,7 @@ Q3ViewerGetRemoveBackfaces(TQ3ViewerObject theViewer, TQ3Boolean *remove);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerSetPhongShading(TQ3ViewerObject theViewer, TQ3Boolean phong);
 
 /**
@@ -890,7 +890,7 @@ Q3ViewerSetPhongShading(TQ3ViewerObject theViewer, TQ3Boolean phong);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 Q3ViewerGetPhongShading(TQ3ViewerObject theViewer, TQ3Boolean *phong);
 
 #endif /* CALL_NOT_IN_CARBON */

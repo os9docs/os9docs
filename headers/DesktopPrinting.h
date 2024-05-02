@@ -247,7 +247,7 @@ typedef STACK_UPP_TYPE(DTPStatusMessageProcPtr) DTPStatusMessageUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DTPAsyncErrorNotificationUPP)
+DTPAsyncErrorNotificationUPP
 NewDTPAsyncErrorNotificationUPP(DTPAsyncErrorNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -276,7 +276,7 @@ NewDTPAsyncErrorNotificationUPP(DTPAsyncErrorNotificationProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DTPEndNotificationUPP)
+DTPEndNotificationUPP
 NewDTPEndNotificationUPP(DTPEndNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -305,7 +305,7 @@ NewDTPEndNotificationUPP(DTPEndNotificationProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DTPInForegroundUPP)
+DTPInForegroundUPP
 NewDTPInForegroundUPP(DTPInForegroundProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppDTPInForegroundProcInfo = 0x00000010 }; /** pascal 1_byte Func() */
@@ -332,7 +332,7 @@ NewDTPInForegroundUPP(DTPInForegroundProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DTPStatusMessageUPP)
+DTPStatusMessageUPP
 NewDTPStatusMessageUPP(DTPStatusMessageProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -361,7 +361,7 @@ NewDTPStatusMessageUPP(DTPStatusMessageProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDTPAsyncErrorNotificationUPP(DTPAsyncErrorNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -383,7 +383,7 @@ DisposeDTPAsyncErrorNotificationUPP(DTPAsyncErrorNotificationUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDTPEndNotificationUPP(DTPEndNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -403,7 +403,7 @@ inline void DisposeDTPEndNotificationUPP(DTPEndNotificationUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDTPInForegroundUPP(DTPInForegroundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -423,7 +423,7 @@ inline void DisposeDTPInForegroundUPP(DTPInForegroundUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDTPStatusMessageUPP(DTPStatusMessageUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -443,7 +443,7 @@ inline void DisposeDTPStatusMessageUPP(DTPStatusMessageUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeDTPAsyncErrorNotificationUPP(StringHandle errStr,
                                    DTPAsyncErrorNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -468,7 +468,7 @@ InvokeDTPAsyncErrorNotificationUPP(StringHandle errStr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeDTPEndNotificationUPP(DTPEndNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -489,7 +489,7 @@ inline void InvokeDTPEndNotificationUPP(DTPEndNotificationUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDTPInForegroundUPP(DTPInForegroundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -510,7 +510,7 @@ inline Boolean InvokeDTPInForegroundUPP(DTPInForegroundUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeDTPStatusMessageUPP(StringHandle statusStr, DTPStatusMessageUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

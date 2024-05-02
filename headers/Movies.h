@@ -9361,7 +9361,7 @@ MusicMediaGetIndexedTunePlayer(ComponentInstance ti, long sampleDescIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MovieRgnCoverUPP)
+MovieRgnCoverUPP
 NewMovieRgnCoverUPP(MovieRgnCoverProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9389,7 +9389,7 @@ inline MovieRgnCoverUPP NewMovieRgnCoverUPP(MovieRgnCoverProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MovieProgressUPP)
+MovieProgressUPP
 NewMovieProgressUPP(MovieProgressProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9417,7 +9417,7 @@ inline MovieProgressUPP NewMovieProgressUPP(MovieProgressProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MovieDrawingCompleteUPP)
+MovieDrawingCompleteUPP
 NewMovieDrawingCompleteUPP(MovieDrawingCompleteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9446,7 +9446,7 @@ NewMovieDrawingCompleteUPP(MovieDrawingCompleteProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TrackTransferUPP)
+TrackTransferUPP
 NewTrackTransferUPP(TrackTransferProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9474,7 +9474,7 @@ inline TrackTransferUPP NewTrackTransferUPP(TrackTransferProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(GetMovieUPP)
+GetMovieUPP
 NewGetMovieUPP(GetMovieProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9500,7 +9500,7 @@ inline GetMovieUPP NewGetMovieUPP(GetMovieProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MoviePreviewCallOutUPP)
+MoviePreviewCallOutUPP
 NewMoviePreviewCallOutUPP(MoviePreviewCallOutProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9529,7 +9529,7 @@ NewMoviePreviewCallOutUPP(MoviePreviewCallOutProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TextMediaUPP)
+TextMediaUPP
 NewTextMediaUPP(TextMediaProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9555,7 +9555,7 @@ inline TextMediaUPP NewTextMediaUPP(TextMediaProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ActionsUPP)
+ActionsUPP
 NewActionsUPP(ActionsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9581,7 +9581,7 @@ inline ActionsUPP NewActionsUPP(ActionsProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DoMCActionUPP)
+DoMCActionUPP
 NewDoMCActionUPP(DoMCActionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9607,7 +9607,7 @@ inline DoMCActionUPP NewDoMCActionUPP(DoMCActionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MovieExecuteWiredActionsUPP)
+MovieExecuteWiredActionsUPP
 NewMovieExecuteWiredActionsUPP(MovieExecuteWiredActionsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9636,7 +9636,7 @@ NewMovieExecuteWiredActionsUPP(MovieExecuteWiredActionsProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MoviePrePrerollCompleteUPP)
+MoviePrePrerollCompleteUPP
 NewMoviePrePrerollCompleteUPP(MoviePrePrerollCompleteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9665,7 +9665,7 @@ NewMoviePrePrerollCompleteUPP(MoviePrePrerollCompleteProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MoviesErrorUPP)
+MoviesErrorUPP
 NewMoviesErrorUPP(MoviesErrorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9692,7 +9692,7 @@ inline MoviesErrorUPP NewMoviesErrorUPP(MoviesErrorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTCallBackUPP)
+QTCallBackUPP
 NewQTCallBackUPP(QTCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9718,7 +9718,7 @@ inline QTCallBackUPP NewQTCallBackUPP(QTCallBackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTSyncTaskUPP)
+QTSyncTaskUPP
 NewQTSyncTaskUPP(QTSyncTaskProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9744,7 +9744,7 @@ inline QTSyncTaskUPP NewQTSyncTaskUPP(QTSyncTaskProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TweenerDataUPP)
+TweenerDataUPP
 NewTweenerDataUPP(TweenerDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9772,7 +9772,7 @@ inline TweenerDataUPP NewTweenerDataUPP(TweenerDataProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTBandwidthNotificationUPP)
+QTBandwidthNotificationUPP
 NewQTBandwidthNotificationUPP(QTBandwidthNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9801,7 +9801,7 @@ NewQTBandwidthNotificationUPP(QTBandwidthNotificationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MCActionFilterUPP)
+MCActionFilterUPP
 NewMCActionFilterUPP(MCActionFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9830,7 +9830,7 @@ NewMCActionFilterUPP(MCActionFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MCActionFilterWithRefConUPP)
+MCActionFilterWithRefConUPP
 NewMCActionFilterWithRefConUPP(MCActionFilterWithRefConProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -9859,7 +9859,7 @@ NewMCActionFilterWithRefConUPP(MCActionFilterWithRefConProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMovieRgnCoverUPP(MovieRgnCoverUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9879,7 +9879,7 @@ inline void DisposeMovieRgnCoverUPP(MovieRgnCoverUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMovieProgressUPP(MovieProgressUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9899,7 +9899,7 @@ inline void DisposeMovieProgressUPP(MovieProgressUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMovieDrawingCompleteUPP(MovieDrawingCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9920,7 +9920,7 @@ inline void DisposeMovieDrawingCompleteUPP(MovieDrawingCompleteUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTrackTransferUPP(TrackTransferUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9940,7 +9940,7 @@ inline void DisposeTrackTransferUPP(TrackTransferUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeGetMovieUPP(GetMovieUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9960,7 +9960,7 @@ inline void DisposeGetMovieUPP(GetMovieUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMoviePreviewCallOutUPP(MoviePreviewCallOutUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9980,7 +9980,7 @@ inline void DisposeMoviePreviewCallOutUPP(MoviePreviewCallOutUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTextMediaUPP(TextMediaUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10000,7 +10000,7 @@ inline void DisposeTextMediaUPP(TextMediaUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeActionsUPP(ActionsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10020,7 +10020,7 @@ inline void DisposeActionsUPP(ActionsUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDoMCActionUPP(DoMCActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10040,7 +10040,7 @@ inline void DisposeDoMCActionUPP(DoMCActionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMovieExecuteWiredActionsUPP(MovieExecuteWiredActionsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10062,7 +10062,7 @@ DisposeMovieExecuteWiredActionsUPP(MovieExecuteWiredActionsUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMoviePrePrerollCompleteUPP(MoviePrePrerollCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10084,7 +10084,7 @@ DisposeMoviePrePrerollCompleteUPP(MoviePrePrerollCompleteUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMoviesErrorUPP(MoviesErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10104,7 +10104,7 @@ inline void DisposeMoviesErrorUPP(MoviesErrorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTCallBackUPP(QTCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10124,7 +10124,7 @@ inline void DisposeQTCallBackUPP(QTCallBackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTSyncTaskUPP(QTSyncTaskUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10144,7 +10144,7 @@ inline void DisposeQTSyncTaskUPP(QTSyncTaskUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTweenerDataUPP(TweenerDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10164,7 +10164,7 @@ inline void DisposeTweenerDataUPP(TweenerDataUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTBandwidthNotificationUPP(QTBandwidthNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10186,7 +10186,7 @@ DisposeQTBandwidthNotificationUPP(QTBandwidthNotificationUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMCActionFilterUPP(MCActionFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10206,7 +10206,7 @@ inline void DisposeMCActionFilterUPP(MCActionFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMCActionFilterWithRefConUPP(MCActionFilterWithRefConUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10228,7 +10228,7 @@ DisposeMCActionFilterWithRefConUPP(MCActionFilterWithRefConUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeMovieRgnCoverUPP(Movie theMovie, RgnHandle changedRgn, long refcon,
                        MovieRgnCoverUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10253,7 +10253,7 @@ inline OSErr InvokeMovieRgnCoverUPP(Movie theMovie, RgnHandle changedRgn,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeMovieProgressUPP(Movie theMovie, short message, short whatOperation,
                        Fixed percentDone, long refcon,
                        MovieProgressUPP userUPP);
@@ -10283,7 +10283,7 @@ inline OSErr InvokeMovieProgressUPP(Movie theMovie, short message,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeMovieDrawingCompleteUPP(Movie theMovie, long refCon,
                               MovieDrawingCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10308,7 +10308,7 @@ inline OSErr InvokeMovieDrawingCompleteUPP(Movie theMovie, long refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeTrackTransferUPP(Track t, long refCon, TrackTransferUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10332,7 +10332,7 @@ inline OSErr InvokeTrackTransferUPP(Track t, long refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeGetMovieUPP(long offset, long size, void *dataPtr, void *refCon,
                   GetMovieUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10357,7 +10357,7 @@ inline OSErr InvokeGetMovieUPP(long offset, long size, void *dataPtr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeMoviePreviewCallOutUPP(long refcon, MoviePreviewCallOutUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10381,7 +10381,7 @@ inline Boolean InvokeMoviePreviewCallOutUPP(long refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeTextMediaUPP(Handle theText, Movie theMovie, short *displayFlag,
                    long refcon, TextMediaUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10407,7 +10407,7 @@ inline OSErr InvokeTextMediaUPP(Handle theText, Movie theMovie,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeActionsUPP(void *refcon, Track targetTrack, long targetRefCon,
                  QTEventRecordPtr theEvent, ActionsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10433,7 +10433,7 @@ inline OSErr InvokeActionsUPP(void *refcon, Track targetTrack,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDoMCActionUPP(void *refcon, short action, void *params, Boolean *handled,
                     DoMCActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10458,7 +10458,7 @@ inline OSErr InvokeDoMCActionUPP(void *refcon, short action, void *params,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeMovieExecuteWiredActionsUPP(Movie theMovie, void *refcon, long flags,
                                   QTAtomContainer wiredActions,
                                   MovieExecuteWiredActionsUPP userUPP);
@@ -10489,7 +10489,7 @@ InvokeMovieExecuteWiredActionsUPP(Movie theMovie, void *refcon, long flags,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeMoviePrePrerollCompleteUPP(Movie theMovie, OSErr prerollErr, void *refcon,
                                  MoviePrePrerollCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10516,7 +10516,7 @@ InvokeMoviePrePrerollCompleteUPP(Movie theMovie, OSErr prerollErr, void *refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeMoviesErrorUPP(OSErr theErr, long refcon, MoviesErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10538,7 +10538,7 @@ inline void InvokeMoviesErrorUPP(OSErr theErr, long refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeQTCallBackUPP(QTCallBack cb, long refCon, QTCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10560,7 +10560,7 @@ inline void InvokeQTCallBackUPP(QTCallBack cb, long refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeQTSyncTaskUPP(void *task, QTSyncTaskUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10581,7 +10581,7 @@ inline void InvokeQTSyncTaskUPP(void *task, QTSyncTaskUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeTweenerDataUPP(TweenRecord *tr, void *tweenData, long tweenDataSize,
                      long dataDescriptionSeed, Handle dataDescription,
                      ICMCompletionProcRecordPtr asyncCompletionProc,
@@ -10619,7 +10619,7 @@ InvokeTweenerDataUPP(TweenRecord *tr, void *tweenData, long tweenDataSize,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeQTBandwidthNotificationUPP(long flags, void *reserved, void *refcon,
                                  QTBandwidthNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10646,7 +10646,7 @@ InvokeQTBandwidthNotificationUPP(long flags, void *reserved, void *refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeMCActionFilterUPP(MovieController mc, short *action, void *params,
                         MCActionFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10672,7 +10672,7 @@ inline Boolean InvokeMCActionFilterUPP(MovieController mc, short *action,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeMCActionFilterWithRefConUPP(MovieController mc, short action,
                                   void *params, long refCon,
                                   MCActionFilterWithRefConUPP userUPP);

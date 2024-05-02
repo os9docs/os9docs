@@ -84,7 +84,7 @@ typedef struct QTSSourcerInitParams QTSSourcerInitParams;
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSNewSourcer(void *params, const QTSSourcerInitParams *inInitParams,
               SInt32 inFlags, ComponentInstance *outSourcer);
 
@@ -642,7 +642,7 @@ enum { kRTPReassemblerInfoPadUpToBytes = 4 };
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSFindReassemblerForPayloadID(UInt8 inPayloadID,
                                RTPPayloadSortRequest *inSortInfo,
                                QTAtomContainer *outReassemblerList);
@@ -656,7 +656,7 @@ QTSFindReassemblerForPayloadID(UInt8 inPayloadID,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSFindReassemblerForPayloadName(const char *inPayloadName,
                                  RTPPayloadSortRequest *inSortInfo,
                                  QTAtomContainer *outReassemblerList);
@@ -1208,7 +1208,7 @@ enum { kMediaPacketizerInfoPadUpToBytes = 4 };
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSFindMediaPacketizer(MediaPacketizerRequirementsPtr inPacketizerinfo,
                        SampleDescriptionHandle inSampleDescription,
                        RTPPayloadSortRequestPtr inSortInfo,
@@ -1223,7 +1223,7 @@ QTSFindMediaPacketizer(MediaPacketizerRequirementsPtr inPacketizerinfo,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSFindMediaPacketizerForTrack(Track inTrack, long inSampleDescriptionIndex,
                                RTPPayloadSortRequestPtr inSortInfo,
                                QTAtomContainer *outPacketizerList);
@@ -1237,7 +1237,7 @@ QTSFindMediaPacketizerForTrack(Track inTrack, long inSampleDescriptionIndex,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSFindMediaPacketizerForPayloadID(long payloadID,
                                    RTPPayloadSortRequestPtr inSortInfo,
                                    QTAtomContainer *outPacketizerList);
@@ -1251,7 +1251,7 @@ QTSFindMediaPacketizerForPayloadID(long payloadID,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSFindMediaPacketizerForPayloadName(const char *payloadName,
                                      RTPPayloadSortRequestPtr inSortInfo,
                                      QTAtomContainer *outPacketizerList);
@@ -2135,7 +2135,7 @@ RTPPBGetSampleData(RTPPacketBuilder rtpb, RTPMPSampleDataParams *inParams,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(RTPMPDataReleaseUPP)
+RTPMPDataReleaseUPP
 NewRTPMPDataReleaseUPP(RTPMPDataReleaseProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2164,7 +2164,7 @@ NewRTPMPDataReleaseUPP(RTPMPDataReleaseProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(RTPPBCallbackUPP)
+RTPPBCallbackUPP
 NewRTPPBCallbackUPP(RTPPBCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2192,7 +2192,7 @@ inline RTPPBCallbackUPP NewRTPPBCallbackUPP(RTPPBCallbackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeRTPMPDataReleaseUPP(RTPMPDataReleaseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2212,7 +2212,7 @@ inline void DisposeRTPMPDataReleaseUPP(RTPMPDataReleaseUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeRTPPBCallbackUPP(RTPPBCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2232,7 +2232,7 @@ inline void DisposeRTPPBCallbackUPP(RTPPBCallbackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeRTPMPDataReleaseUPP(UInt8 *inData, void *inRefCon,
                           RTPMPDataReleaseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2257,7 +2257,7 @@ inline void InvokeRTPMPDataReleaseUPP(UInt8 *inData, void *inRefCon,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeRTPPBCallbackUPP(OSType inSelector, void *ioParams, void *inRefCon,
                        RTPPBCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES

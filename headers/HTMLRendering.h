@@ -1170,7 +1170,7 @@ HRUnregisterURLToFSRefUPP(HRReference hrRef);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HRWasURLVisitedUPP)
+HRWasURLVisitedUPP
 NewHRWasURLVisitedUPP(HRWasURLVisitedProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1199,7 +1199,7 @@ NewHRWasURLVisitedUPP(HRWasURLVisitedProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HRWasCFURLVisitedUPP)
+HRWasCFURLVisitedUPP
 NewHRWasCFURLVisitedUPP(HRWasCFURLVisitedProcPtr userRoutine);
 
 /**
@@ -1210,7 +1210,7 @@ NewHRWasCFURLVisitedUPP(HRWasCFURLVisitedProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HRNewURLUPP)
+HRNewURLUPP
 NewHRNewURLUPP(HRNewURLProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1236,7 +1236,7 @@ inline HRNewURLUPP NewHRNewURLUPP(HRNewURLProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HRNewCFURLUPP)
+HRNewCFURLUPP
 NewHRNewCFURLUPP(HRNewCFURLProcPtr userRoutine);
 
 /**
@@ -1247,7 +1247,7 @@ NewHRNewCFURLUPP(HRNewCFURLProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HRURLToFSSpecUPP)
+HRURLToFSSpecUPP
 NewHRURLToFSSpecUPP(HRURLToFSSpecProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1275,7 +1275,7 @@ inline HRURLToFSSpecUPP NewHRURLToFSSpecUPP(HRURLToFSSpecProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HRURLToFSRefUPP)
+HRURLToFSRefUPP
 NewHRURLToFSRefUPP(HRURLToFSRefProcPtr userRoutine);
 
 /**
@@ -1286,7 +1286,7 @@ NewHRURLToFSRefUPP(HRURLToFSRefProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHRWasURLVisitedUPP(HRWasURLVisitedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1306,7 +1306,7 @@ inline void DisposeHRWasURLVisitedUPP(HRWasURLVisitedUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHRWasCFURLVisitedUPP(HRWasCFURLVisitedUPP userUPP);
 
 /**
@@ -1317,7 +1317,7 @@ DisposeHRWasCFURLVisitedUPP(HRWasCFURLVisitedUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHRNewURLUPP(HRNewURLUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1337,7 +1337,7 @@ inline void DisposeHRNewURLUPP(HRNewURLUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHRNewCFURLUPP(HRNewCFURLUPP userUPP);
 
 /**
@@ -1348,7 +1348,7 @@ DisposeHRNewCFURLUPP(HRNewCFURLUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHRURLToFSSpecUPP(HRURLToFSSpecUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1368,7 +1368,7 @@ inline void DisposeHRURLToFSSpecUPP(HRURLToFSSpecUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHRURLToFSRefUPP(HRURLToFSRefUPP userUPP);
 
 /**
@@ -1379,7 +1379,7 @@ DisposeHRURLToFSRefUPP(HRURLToFSRefUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeHRWasURLVisitedUPP(const char *url, void *refCon,
                          HRWasURLVisitedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1404,7 +1404,7 @@ inline Boolean InvokeHRWasURLVisitedUPP(const char *url, void *refCon,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeHRWasCFURLVisitedUPP(CFURLRef url, void *refCon,
                            HRWasCFURLVisitedUPP userUPP);
 
@@ -1416,7 +1416,7 @@ InvokeHRWasCFURLVisitedUPP(CFURLRef url, void *refCon,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeHRNewURLUPP(const char *url, const char *targetFrame,
                   Boolean addToHistory, void *refCon, HRNewURLUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1442,7 +1442,7 @@ inline OSStatus InvokeHRNewURLUPP(const char *url, const char *targetFrame,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeHRNewCFURLUPP(CFURLRef url, CFStringRef targetString,
                     Boolean addToHistory, void *refCon, HRNewCFURLUPP userUPP);
 
@@ -1454,7 +1454,7 @@ InvokeHRNewCFURLUPP(CFURLRef url, CFStringRef targetString,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeHRURLToFSSpecUPP(const char *rootURL, const char *linkURL, FSSpec *fsspec,
                        URLSourceType urlSourceType, void *refCon,
                        HRURLToFSSpecUPP userUPP);
@@ -1485,7 +1485,7 @@ inline OSStatus InvokeHRURLToFSSpecUPP(const char *rootURL, const char *linkURL,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeHRURLToFSRefUPP(CFStringRef rootString, CFStringRef linkString,
                       FSRef *fref, URLSourceType urlSourceType, void *refCon,
                       HRURLToFSRefUPP userUPP);

@@ -1110,7 +1110,7 @@ CallComponentDispatch(ComponentParameters *cp);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentMPWorkFunctionUPP)
+ComponentMPWorkFunctionUPP
 NewComponentMPWorkFunctionUPP(ComponentMPWorkFunctionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1139,7 +1139,7 @@ NewComponentMPWorkFunctionUPP(ComponentMPWorkFunctionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentRoutineUPP)
+ComponentRoutineUPP
 NewComponentRoutineUPP(ComponentRoutineProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1168,7 +1168,7 @@ NewComponentRoutineUPP(ComponentRoutineProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(GetMissingComponentResourceUPP)
+GetMissingComponentResourceUPP
 NewGetMissingComponentResourceUPP(
     GetMissingComponentResourceProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
@@ -1198,7 +1198,7 @@ inline GetMissingComponentResourceUPP NewGetMissingComponentResourceUPP(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeComponentMPWorkFunctionUPP(ComponentMPWorkFunctionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1220,7 +1220,7 @@ DisposeComponentMPWorkFunctionUPP(ComponentMPWorkFunctionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeComponentRoutineUPP(ComponentRoutineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1240,7 +1240,7 @@ inline void DisposeComponentRoutineUPP(ComponentRoutineUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeGetMissingComponentResourceUPP(GetMissingComponentResourceUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1262,7 +1262,7 @@ DisposeGetMissingComponentResourceUPP(GetMissingComponentResourceUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeComponentMPWorkFunctionUPP(void *globalRefCon,
                                  ComponentMPWorkFunctionHeaderRecordPtr header,
                                  ComponentMPWorkFunctionUPP userUPP);
@@ -1290,7 +1290,7 @@ InvokeComponentMPWorkFunctionUPP(void *globalRefCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeComponentRoutineUPP(ComponentParameters *cp, Handle componentStorage,
                           ComponentRoutineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1316,7 +1316,7 @@ inline ComponentResult InvokeComponentRoutineUPP(ComponentParameters *cp,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeGetMissingComponentResourceUPP(Component c, OSType resType, short resID,
                                      void *refCon, Handle *resource,
                                      GetMissingComponentResourceUPP userUPP);

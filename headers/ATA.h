@@ -346,7 +346,7 @@ typedef STACK_UPP_TYPE(ATACallbackProcPtr) ATACallbackUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ATACallbackUPP)
+ATACallbackUPP
 NewATACallbackUPP(ATACallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -373,7 +373,7 @@ inline ATACallbackUPP NewATACallbackUPP(ATACallbackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeATACallbackUPP(ATACallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -393,7 +393,7 @@ inline void DisposeATACallbackUPP(ATACallbackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeATACallbackUPP(void *ataPB, ATACallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -825,7 +825,7 @@ typedef STACK_UPP_TYPE(ATAClientProcPtr) ATAClientUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ATAClientUPP)
+ATAClientUPP
 NewATAClientUPP(ATAClientProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppATAClientProcInfo = 0x000000E0 }; /** pascal 2_bytes Func(4_bytes) */
@@ -849,7 +849,7 @@ inline ATAClientUPP NewATAClientUPP(ATAClientProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeATAClientUPP(ATAClientUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -869,7 +869,7 @@ inline void DisposeATAClientUPP(ATAClientUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 InvokeATAClientUPP(ATAEventRecPtr ataERPtr, ATAClientUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1381,7 +1381,7 @@ typedef STACK_UPP_TYPE(ATADispatchProcPtr) ATADispatchUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ATADispatchUPP)
+ATADispatchUPP
 NewATADispatchUPP(ATADispatchProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1408,7 +1408,7 @@ inline ATADispatchUPP NewATADispatchUPP(ATADispatchProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeATADispatchUPP(ATADispatchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1428,7 +1428,7 @@ inline void DisposeATADispatchUPP(ATADispatchUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeATADispatchUPP(ataPB *pb, ATADispatchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1516,7 +1516,7 @@ typedef struct ATAPluginDispatchTable ATAPluginDispatchTable;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 ATAFamIODone(ATAReqBlock *theReq, OSStatus result);
 
 /**
@@ -1527,7 +1527,7 @@ ATAFamIODone(ATAReqBlock *theReq, OSStatus result);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 ATAFamBusEventForAIM(UInt32 busID, UInt32 busEvent);
 
 /**

@@ -103,7 +103,7 @@ typedef CALLBACK_API_C(CMError, SetIndImageProfileProcPtr)(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMValidImage(const FSSpec *spec);
 
 /**
@@ -114,7 +114,7 @@ CMValidImage(const FSSpec *spec);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMGetImageSpace(const FSSpec *spec, OSType *space);
 
 /**
@@ -125,7 +125,7 @@ CMGetImageSpace(const FSSpec *spec, OSType *space);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMEmbedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
              CMProfileRef embProf);
 
@@ -137,7 +137,7 @@ CMEmbedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMUnembedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl);
 
 /**
@@ -148,7 +148,7 @@ CMUnembedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMMatchImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
              UInt32 qual, CMProfileRef srcProf, UInt32 srcIntent,
              CMProfileRef dstProf);
@@ -161,7 +161,7 @@ CMMatchImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMProofImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
              UInt32 qual, CMProfileRef srcProf, UInt32 srcIntent,
              CMProfileRef dstProf, CMProfileRef prfProf);
@@ -174,7 +174,7 @@ CMProofImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMLinkImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
             UInt32 qual, CMProfileRef lnkProf, UInt32 lnkIntent);
 
@@ -186,7 +186,7 @@ CMLinkImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMCountImageProfiles(const FSSpec *spec, UInt32 *count);
 
 /**
@@ -197,7 +197,7 @@ CMCountImageProfiles(const FSSpec *spec, UInt32 *count);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMGetIndImageProfile(const FSSpec *spec, UInt32 index, CMProfileRef *prof);
 
 /**
@@ -208,7 +208,7 @@ CMGetIndImageProfile(const FSSpec *spec, UInt32 index, CMProfileRef *prof);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
  */
-EXTERN_API_C(CMError)
+CMError
 CMSetIndImageProfile(const FSSpec *specFrom, const FSSpec *specInto,
                      Boolean repl, UInt32 index, CMProfileRef prof);
 

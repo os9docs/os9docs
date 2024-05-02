@@ -167,7 +167,7 @@ typedef STACK_UPP_TYPE(CollectionExceptionProcPtr) CollectionExceptionUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CollectionFlattenUPP)
+CollectionFlattenUPP
 NewCollectionFlattenUPP(CollectionFlattenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -196,7 +196,7 @@ NewCollectionFlattenUPP(CollectionFlattenProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CollectionExceptionUPP)
+CollectionExceptionUPP
 NewCollectionExceptionUPP(CollectionExceptionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -225,7 +225,7 @@ NewCollectionExceptionUPP(CollectionExceptionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCollectionFlattenUPP(CollectionFlattenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -245,7 +245,7 @@ inline void DisposeCollectionFlattenUPP(CollectionFlattenUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCollectionExceptionUPP(CollectionExceptionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -265,7 +265,7 @@ inline void DisposeCollectionExceptionUPP(CollectionExceptionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCollectionFlattenUPP(SInt32 size, void *data, void *refCon,
                            CollectionFlattenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -290,7 +290,7 @@ inline OSErr InvokeCollectionFlattenUPP(SInt32 size, void *data, void *refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCollectionExceptionUPP(Collection c, OSErr status,
                              CollectionExceptionUPP userUPP);
 #if !OPAQUE_UPP_TYPES

@@ -185,7 +185,7 @@ typedef STACK_UPP_TYPE(UnicodeToTextFallbackProcPtr) UnicodeToTextFallbackUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UnicodeToTextFallbackUPP)
+UnicodeToTextFallbackUPP
 NewUnicodeToTextFallbackUPP(UnicodeToTextFallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -215,7 +215,7 @@ NewUnicodeToTextFallbackUPP(UnicodeToTextFallbackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeUnicodeToTextFallbackUPP(UnicodeToTextFallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -236,7 +236,7 @@ inline void DisposeUnicodeToTextFallbackUPP(UnicodeToTextFallbackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeUnicodeToTextFallbackUPP(UniChar *iSrcUniStr, ByteCount iSrcUniStrLen,
                                ByteCount *oSrcConvLen, TextPtr oDestStr,
                                ByteCount iDestStrLen, ByteCount *oDestConvLen,

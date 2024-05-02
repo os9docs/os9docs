@@ -122,7 +122,7 @@ TypeSelectCompare(const TypeSelectRecord *tsr, ScriptCode testStringScript,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(IndexToStringUPP)
+IndexToStringUPP
 NewIndexToStringUPP(IndexToStringProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -150,7 +150,7 @@ inline IndexToStringUPP NewIndexToStringUPP(IndexToStringProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeIndexToStringUPP(IndexToStringUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -170,7 +170,7 @@ inline void DisposeIndexToStringUPP(IndexToStringUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeIndexToStringUPP(short item, ScriptCode *itemsScript,
                        StringPtr *itemsStringPtr, void *yourDataPtr,
                        IndexToStringUPP userUPP);

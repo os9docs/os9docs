@@ -276,7 +276,7 @@ enum { kNSpAllPlayers = 0x00000000, kNSpHostOnly = (long)0xFFFFFFFF };
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpInitialize(UInt32 inStandardMessageSize, UInt32 inBufferSize,
               UInt32 inQElements, NSpGameID inGameID, UInt32 inTimeout);
 
@@ -291,7 +291,7 @@ NSpInitialize(UInt32 inStandardMessageSize, UInt32 inBufferSize,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpProtocol_New(const char *inDefinitionString,
                 NSpProtocolReference *outReference);
 
@@ -304,7 +304,7 @@ NSpProtocol_New(const char *inDefinitionString,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpProtocol_Dispose(NSpProtocolReference inProtocolRef);
 
 /**
@@ -316,7 +316,7 @@ NSpProtocol_Dispose(NSpProtocolReference inProtocolRef);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpProtocol_ExtractDefinitionString(NSpProtocolReference inProtocolRef,
                                     char *outDefinitionString);
 
@@ -330,7 +330,7 @@ NSpProtocol_ExtractDefinitionString(NSpProtocolReference inProtocolRef,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpProtocolList_New(NSpProtocolReference inProtocolRef,
                     NSpProtocolListReference *outList);
 
@@ -343,7 +343,7 @@ NSpProtocolList_New(NSpProtocolReference inProtocolRef,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpProtocolList_Dispose(NSpProtocolListReference inProtocolList);
 
 /**
@@ -355,7 +355,7 @@ NSpProtocolList_Dispose(NSpProtocolListReference inProtocolList);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpProtocolList_Append(NSpProtocolListReference inProtocolList,
                        NSpProtocolReference inProtocolRef);
 
@@ -368,7 +368,7 @@ NSpProtocolList_Append(NSpProtocolListReference inProtocolList,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpProtocolList_Remove(NSpProtocolListReference inProtocolList,
                        NSpProtocolReference inProtocolRef);
 
@@ -381,7 +381,7 @@ NSpProtocolList_Remove(NSpProtocolListReference inProtocolList,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpProtocolList_RemoveIndexed(NSpProtocolListReference inProtocolList,
                               UInt32 inIndex);
 
@@ -394,7 +394,7 @@ NSpProtocolList_RemoveIndexed(NSpProtocolListReference inProtocolList,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 NSpProtocolList_GetCount(NSpProtocolListReference inProtocolList);
 
 /**
@@ -406,7 +406,7 @@ NSpProtocolList_GetCount(NSpProtocolListReference inProtocolList);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NSpProtocolReference)
+NSpProtocolReference
 NSpProtocolList_GetIndexedRef(NSpProtocolListReference inProtocolList,
                               UInt32 inIndex);
 
@@ -420,7 +420,7 @@ NSpProtocolList_GetIndexedRef(NSpProtocolListReference inProtocolList,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NSpProtocolReference)
+NSpProtocolReference
 NSpProtocol_CreateAppleTalk(ConstStr31Param inNBPName,
                             ConstStr31Param inNBPType, UInt32 inMaxRTT,
                             UInt32 inMinThruput);
@@ -434,7 +434,7 @@ NSpProtocol_CreateAppleTalk(ConstStr31Param inNBPName,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NSpProtocolReference)
+NSpProtocolReference
 NSpProtocol_CreateIP(InetPort inPort, UInt32 inMaxRTT, UInt32 inMinThruput);
 
 /************************  Human Interface  ************************/
@@ -448,7 +448,7 @@ typedef CALLBACK_API(Boolean, NSpEventProcPtr)(EventRecord *inEvent);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NSpAddressReference)
+NSpAddressReference
 NSpDoModalJoinDialog(ConstStr31Param inGameType,
                      ConstStr255Param inEntityListLabel, Str31 ioName,
                      Str31 ioPassword, NSpEventProcPtr inEventProcPtr);
@@ -462,7 +462,7 @@ NSpDoModalJoinDialog(ConstStr31Param inGameType,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 NSpDoModalHostDialog(NSpProtocolListReference ioProtocolList, Str31 ioGameName,
                      Str31 ioPlayerName, Str31 ioPassword,
                      NSpEventProcPtr inEventProcPtr);
@@ -477,7 +477,7 @@ NSpDoModalHostDialog(NSpProtocolListReference ioProtocolList, Str31 ioGameName,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGame_Host(NSpGameReference *outGame, NSpProtocolListReference inProtocolList,
              UInt32 inMaxPlayers, ConstStr31Param inGameName,
              ConstStr31Param inPassword, ConstStr31Param inPlayerName,
@@ -493,7 +493,7 @@ NSpGame_Host(NSpGameReference *outGame, NSpProtocolListReference inProtocolList,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGame_Join(NSpGameReference *outGame, NSpAddressReference inAddress,
              ConstStr31Param inName, ConstStr31Param inPassword,
              NSpPlayerType inType, void *inCustomData, UInt32 inCustomDataLen,
@@ -508,7 +508,7 @@ NSpGame_Join(NSpGameReference *outGame, NSpAddressReference inAddress,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGame_EnableAdvertising(NSpGameReference inGame,
                           NSpProtocolReference inProtocol, Boolean inEnable);
 
@@ -521,7 +521,7 @@ NSpGame_EnableAdvertising(NSpGameReference inGame,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGame_Dispose(NSpGameReference inGame, NSpFlags inFlags);
 
 /**
@@ -533,7 +533,7 @@ NSpGame_Dispose(NSpGameReference inGame, NSpFlags inFlags);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGame_GetInfo(NSpGameReference inGame, NSpGameInfo *ioInfo);
 
 /***************************  Messaging  **************************/
@@ -546,7 +546,7 @@ NSpGame_GetInfo(NSpGameReference inGame, NSpGameInfo *ioInfo);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpMessage_Send(NSpGameReference inGame, NSpMessageHeader *inMessage,
                 NSpFlags inFlags);
 
@@ -559,7 +559,7 @@ NSpMessage_Send(NSpGameReference inGame, NSpMessageHeader *inMessage,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NSpMessageHeader *)
+NSpMessageHeader *
 NSpMessage_Get(NSpGameReference inGame);
 
 /**
@@ -571,7 +571,7 @@ NSpMessage_Get(NSpGameReference inGame);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpMessage_Release(NSpGameReference inGame, NSpMessageHeader *inMessage);
 
 /** Helpers */
@@ -584,7 +584,7 @@ NSpMessage_Release(NSpGameReference inGame, NSpMessageHeader *inMessage);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpMessage_SendTo(NSpGameReference inGame, NSpPlayerID inTo, SInt32 inWhat,
                   void *inData, UInt32 inDataLen, NSpFlags inFlags);
 
@@ -598,7 +598,7 @@ NSpMessage_SendTo(NSpGameReference inGame, NSpPlayerID inTo, SInt32 inWhat,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpPlayer_ChangeType(NSpGameReference inGame, NSpPlayerID inPlayerID,
                      NSpPlayerType inNewType);
 
@@ -611,7 +611,7 @@ NSpPlayer_ChangeType(NSpGameReference inGame, NSpPlayerID inPlayerID,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpPlayer_Remove(NSpGameReference inGame, NSpPlayerID inPlayerID);
 
 /**
@@ -623,7 +623,7 @@ NSpPlayer_Remove(NSpGameReference inGame, NSpPlayerID inPlayerID);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpPlayer_GetAddress(NSpGameReference inGame, NSpPlayerID inPlayerID,
                      OTAddress **outAddress);
 
@@ -636,7 +636,7 @@ NSpPlayer_GetAddress(NSpGameReference inGame, NSpPlayerID inPlayerID,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NSpPlayerID)
+NSpPlayerID
 NSpPlayer_GetMyID(NSpGameReference inGame);
 
 /**
@@ -648,7 +648,7 @@ NSpPlayer_GetMyID(NSpGameReference inGame);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpPlayer_GetInfo(NSpGameReference inGame, NSpPlayerID inPlayerID,
                   NSpPlayerInfoPtr *outInfo);
 
@@ -661,7 +661,7 @@ NSpPlayer_GetInfo(NSpGameReference inGame, NSpPlayerID inPlayerID,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpPlayer_ReleaseInfo(NSpGameReference inGame, NSpPlayerInfoPtr inInfo);
 
 /**
@@ -673,7 +673,7 @@ NSpPlayer_ReleaseInfo(NSpGameReference inGame, NSpPlayerInfoPtr inInfo);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpPlayer_GetEnumeration(NSpGameReference inGame,
                          NSpPlayerEnumerationPtr *outPlayers);
 
@@ -686,7 +686,7 @@ NSpPlayer_GetEnumeration(NSpGameReference inGame,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpPlayer_ReleaseEnumeration(NSpGameReference inGame,
                              NSpPlayerEnumerationPtr inPlayers);
 
@@ -699,7 +699,7 @@ NSpPlayer_ReleaseEnumeration(NSpGameReference inGame,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 NSpPlayer_GetRoundTripTime(NSpGameReference inGame, NSpPlayerID inPlayer);
 
 /**
@@ -711,7 +711,7 @@ NSpPlayer_GetRoundTripTime(NSpGameReference inGame, NSpPlayerID inPlayer);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 NSpPlayer_GetThruput(NSpGameReference inGame, NSpPlayerID inPlayer);
 
 /**********************  Group Management  **********************/
@@ -724,7 +724,7 @@ NSpPlayer_GetThruput(NSpGameReference inGame, NSpPlayerID inPlayer);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGroup_New(NSpGameReference inGame, NSpGroupID *outGroupID);
 
 /**
@@ -736,7 +736,7 @@ NSpGroup_New(NSpGameReference inGame, NSpGroupID *outGroupID);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGroup_Dispose(NSpGameReference inGame, NSpGroupID inGroupID);
 
 /**
@@ -748,7 +748,7 @@ NSpGroup_Dispose(NSpGameReference inGame, NSpGroupID inGroupID);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGroup_AddPlayer(NSpGameReference inGame, NSpGroupID inGroupID,
                    NSpPlayerID inPlayerID);
 
@@ -761,7 +761,7 @@ NSpGroup_AddPlayer(NSpGameReference inGame, NSpGroupID inGroupID,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGroup_RemovePlayer(NSpGameReference inGame, NSpGroupID inGroupID,
                       NSpPlayerID inPlayerID);
 
@@ -774,7 +774,7 @@ NSpGroup_RemovePlayer(NSpGameReference inGame, NSpGroupID inGroupID,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGroup_GetInfo(NSpGameReference inGame, NSpGroupID inGroupID,
                  NSpGroupInfoPtr *outInfo);
 
@@ -787,7 +787,7 @@ NSpGroup_GetInfo(NSpGameReference inGame, NSpGroupID inGroupID,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpGroup_ReleaseInfo(NSpGameReference inGame, NSpGroupInfoPtr inInfo);
 
 /**
@@ -799,7 +799,7 @@ NSpGroup_ReleaseInfo(NSpGameReference inGame, NSpGroupInfoPtr inInfo);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpGroup_GetEnumeration(NSpGameReference inGame,
                         NSpGroupEnumerationPtr *outGroups);
 
@@ -812,7 +812,7 @@ NSpGroup_GetEnumeration(NSpGameReference inGame,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpGroup_ReleaseEnumeration(NSpGameReference inGame,
                             NSpGroupEnumerationPtr inGroups);
 
@@ -826,7 +826,7 @@ NSpGroup_ReleaseEnumeration(NSpGameReference inGame,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NumVersion)
+NumVersion
 NSpGetVersion(void);
 
 /**
@@ -838,7 +838,7 @@ NSpGetVersion(void);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpSetConnectTimeout(UInt32 inSeconds);
 
 /**
@@ -850,7 +850,7 @@ NSpSetConnectTimeout(UInt32 inSeconds);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpClearMessageHeader(NSpMessageHeader *inMessage);
 
 /**
@@ -862,7 +862,7 @@ NSpClearMessageHeader(NSpMessageHeader *inMessage);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 NSpGetCurrentTimeStamp(NSpGameReference inGame);
 
 /**
@@ -874,7 +874,7 @@ NSpGetCurrentTimeStamp(NSpGameReference inGame);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NSpAddressReference)
+NSpAddressReference
 NSpConvertOTAddrToAddressReference(OTAddress *inAddress);
 
 /**
@@ -886,7 +886,7 @@ NSpConvertOTAddrToAddressReference(OTAddress *inAddress);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OTAddress *)
+OTAddress *
 NSpConvertAddressReferenceToOTAddr(NSpAddressReference inAddress);
 
 /**
@@ -898,7 +898,7 @@ NSpConvertAddressReferenceToOTAddr(NSpAddressReference inAddress);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 NSpReleaseAddressReference(NSpAddressReference inAddress);
 
 /************************* Advanced/Async routines ****************/
@@ -915,7 +915,7 @@ typedef CALLBACK_API(void,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpInstallCallbackHandler(NSpCallbackProcPtr inHandler, void *inContext);
 
 typedef CALLBACK_API(Boolean, NSpJoinRequestHandlerProcPtr)(
@@ -930,7 +930,7 @@ typedef CALLBACK_API(Boolean, NSpJoinRequestHandlerProcPtr)(
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpInstallJoinRequestHandler(NSpJoinRequestHandlerProcPtr inHandler,
                              void *inContext);
 
@@ -947,7 +947,7 @@ typedef CALLBACK_API(Boolean,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 NSpInstallAsyncMessageHandler(NSpMessageHandlerProcPtr inHandler,
                               void *inContext);
 

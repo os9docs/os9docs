@@ -123,7 +123,7 @@ typedef STACK_UPP_TYPE(FMFontCallbackFilterProcPtr) FMFontCallbackFilterUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FMFontFamilyCallbackFilterUPP)
+FMFontFamilyCallbackFilterUPP
 NewFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -152,7 +152,7 @@ inline FMFontFamilyCallbackFilterUPP NewFMFontFamilyCallbackFilterUPP(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FMFontCallbackFilterUPP)
+FMFontCallbackFilterUPP
 NewFMFontCallbackFilterUPP(FMFontCallbackFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -181,7 +181,7 @@ NewFMFontCallbackFilterUPP(FMFontCallbackFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -203,7 +203,7 @@ DisposeFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeFMFontCallbackFilterUPP(FMFontCallbackFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -224,7 +224,7 @@ inline void DisposeFMFontCallbackFilterUPP(FMFontCallbackFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeFMFontFamilyCallbackFilterUPP(FMFontFamily iFontFamily, void *iRefCon,
                                     FMFontFamilyCallbackFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -251,7 +251,7 @@ InvokeFMFontFamilyCallbackFilterUPP(FMFontFamily iFontFamily, void *iRefCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeFMFontCallbackFilterUPP(FMFont iFont, void *iRefCon,
                               FMFontCallbackFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES

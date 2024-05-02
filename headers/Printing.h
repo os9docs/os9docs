@@ -135,7 +135,7 @@ typedef STACK_UPP_TYPE(PItemProcPtr) PItemUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PrIdleUPP)
+PrIdleUPP
 NewPrIdleUPP(PrIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppPrIdleProcInfo = 0x00000000 }; /** pascal no_return_value Func() */
@@ -159,7 +159,7 @@ inline PrIdleUPP NewPrIdleUPP(PrIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PItemUPP)
+PItemUPP
 NewPItemUPP(PItemProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -185,7 +185,7 @@ inline PItemUPP NewPItemUPP(PItemProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePrIdleUPP(PrIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -205,7 +205,7 @@ inline void DisposePrIdleUPP(PrIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePItemUPP(PItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -225,7 +225,7 @@ inline void DisposePItemUPP(PItemUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokePrIdleUPP(PrIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -246,7 +246,7 @@ inline void InvokePrIdleUPP(PrIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokePItemUPP(DialogRef theDialog, short item, PItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -525,7 +525,7 @@ typedef STACK_UPP_TYPE(PDlgInitProcPtr) PDlgInitUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PDlgInitUPP)
+PDlgInitUPP
 NewPDlgInitUPP(PDlgInitProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppPDlgInitProcInfo = 0x000000F0 }; /** pascal 4_bytes Func(4_bytes) */
@@ -549,7 +549,7 @@ inline PDlgInitUPP NewPDlgInitUPP(PDlgInitProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePDlgInitUPP(PDlgInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -569,7 +569,7 @@ inline void DisposePDlgInitUPP(PDlgInitUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TPPrDlgRef)
+TPPrDlgRef
 InvokePDlgInitUPP(THPrint hPrint, PDlgInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

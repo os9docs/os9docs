@@ -803,7 +803,7 @@ typedef TVECTOR_UPP_TYPE(OTNotifyProcPtr) OTNotifyUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTNotifyUPP)
+OTNotifyUPP
 NewOTNotifyUPP(OTNotifyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -826,7 +826,7 @@ inline OTNotifyUPP NewOTNotifyUPP(OTNotifyProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOTNotifyUPP(OTNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -844,7 +844,7 @@ inline void DisposeOTNotifyUPP(OTNotifyUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeOTNotifyUPP(void *contextPtr, OTEventCode code, OTResult result,
                   void *cookie, OTNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1388,7 +1388,7 @@ OTFindPortByRef(OTPortRecord *portRecord, OTPortRef ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTRegisterPort(OTPortRecord *portRecord, void *ref);
 
 /**
@@ -1403,7 +1403,7 @@ OTRegisterPort(OTPortRecord *portRecord, void *ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTUnregisterPort(const char *portName, void **ref);
 
 /**
@@ -1421,7 +1421,7 @@ OTUnregisterPort(const char *portName, void **ref);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 OTChangePortState(OTPortRef portRef, OTEventCode theChange, OTResult why);
 
 /* Change the state of the port.*/
@@ -1870,7 +1870,7 @@ OTLeaveInterrupt(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTIsAtInterruptLevel(void);
 
 /**
@@ -1881,7 +1881,7 @@ OTIsAtInterruptLevel(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTCanLoadLibraries(void);
 
 /**
@@ -1901,7 +1901,7 @@ typedef TVECTOR_UPP_TYPE(OTProcessProcPtr) OTProcessUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTProcessUPP)
+OTProcessUPP
 NewOTProcessUPP(OTProcessProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1924,7 +1924,7 @@ inline OTProcessUPP NewOTProcessUPP(OTProcessProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOTProcessUPP(OTProcessUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1942,7 +1942,7 @@ inline void DisposeOTProcessUPP(OTProcessUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeOTProcessUPP(void *arg, OTProcessUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -3179,7 +3179,7 @@ OTDestroyConfiguration(OTConfigurationRef cfig);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void *)
+void *
 OTAllocMemInContext(OTByteCount size,
                     OTClientContextPtr clientContext); /* can be NULL */
 
@@ -3192,7 +3192,7 @@ OTAllocMemInContext(OTByteCount size,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 OTAllocMem(OTByteCount size);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -3205,7 +3205,7 @@ OTAllocMem(OTByteCount size);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTFreeMem(void *mem);
 
 #if OTCARBONAPPLICATION
@@ -3263,7 +3263,7 @@ OTIdle(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTMemcpy(void *dest, const void *src, OTByteCount nBytes);
 
 /**
@@ -3274,7 +3274,7 @@ OTMemcpy(void *dest, const void *src, OTByteCount nBytes);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTMemcmp(const void *mem1, const void *mem2, OTByteCount nBytes);
 
 /**
@@ -3285,7 +3285,7 @@ OTMemcmp(const void *mem1, const void *mem2, OTByteCount nBytes);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTMemmove(void *dest, const void *src, OTByteCount nBytes);
 
 /**
@@ -3296,7 +3296,7 @@ OTMemmove(void *dest, const void *src, OTByteCount nBytes);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTMemzero(void *dest, OTByteCount nBytes);
 
 /**
@@ -3307,7 +3307,7 @@ OTMemzero(void *dest, OTByteCount nBytes);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTMemset(void *dest, OTUInt8Param toSet, OTByteCount nBytes);
 
 /**
@@ -3318,7 +3318,7 @@ OTMemset(void *dest, OTUInt8Param toSet, OTByteCount nBytes);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTByteCount)
+OTByteCount
 OTStrLength(const char *str);
 
 /**
@@ -3329,7 +3329,7 @@ OTStrLength(const char *str);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTStrCopy(char *dest, const char *src);
 
 /**
@@ -3340,7 +3340,7 @@ OTStrCopy(char *dest, const char *src);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTStrCat(char *dest, const char *src);
 
 /**
@@ -3351,7 +3351,7 @@ OTStrCat(char *dest, const char *src);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTStrEqual(const char *src1, const char *src2);
 
 /* Timer Utilities*/
@@ -3375,7 +3375,7 @@ typedef UnsignedWide OTTimeStamp;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTGetTimeStamp(OTTimeStamp *currentTime);
 
 /**
@@ -3386,7 +3386,7 @@ OTGetTimeStamp(OTTimeStamp *currentTime);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTTimeStamp *)
+OTTimeStamp *
 OTSubtractTimeStamps(OTTimeStamp *result, OTTimeStamp *startTime,
                      OTTimeStamp *endEnd);
 
@@ -3398,7 +3398,7 @@ OTSubtractTimeStamps(OTTimeStamp *result, OTTimeStamp *startTime,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTTimeStampInMilliseconds(OTTimeStamp *delta);
 
 /**
@@ -3409,7 +3409,7 @@ OTTimeStampInMilliseconds(OTTimeStamp *delta);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTTimeStampInMicroseconds(OTTimeStamp *delta);
 
 /**
@@ -3420,7 +3420,7 @@ OTTimeStampInMicroseconds(OTTimeStamp *delta);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTElapsedMilliseconds(OTTimeStamp *startTime);
 
 /**
@@ -3431,7 +3431,7 @@ OTElapsedMilliseconds(OTTimeStamp *startTime);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTElapsedMicroseconds(OTTimeStamp *startTime);
 
 /**
@@ -3442,7 +3442,7 @@ OTElapsedMicroseconds(OTTimeStamp *startTime);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 OTGetClockTimeInSecs(void);
 
 /* ***** OT Link Element ******/
@@ -3510,7 +3510,7 @@ typedef struct OTLIFO OTLIFO;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTLIFOEnqueue(OTLIFO *list, OTLink *link);
 
 /**
@@ -3525,7 +3525,7 @@ OTLIFOEnqueue(OTLIFO *list, OTLink *link);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTLIFODequeue(OTLIFO *list);
 
 /**
@@ -3540,7 +3540,7 @@ OTLIFODequeue(OTLIFO *list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTLIFOStealList(OTLIFO *list);
 
 /**
@@ -3556,7 +3556,7 @@ OTLIFOStealList(OTLIFO *list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTReverseList(OTLink *list);
 
 #ifdef __cplusplus
@@ -3595,7 +3595,7 @@ typedef TVECTOR_UPP_TYPE(OTListSearchProcPtr) OTListSearchUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTListSearchUPP)
+OTListSearchUPP
 NewOTListSearchUPP(OTListSearchProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -3618,7 +3618,7 @@ inline OTListSearchUPP NewOTListSearchUPP(OTListSearchProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeOTListSearchUPP(OTListSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -3636,7 +3636,7 @@ inline void DisposeOTListSearchUPP(OTListSearchUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeOTListSearchUPP(const void *ref, OTLink *linkToCheck,
                       OTListSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -3682,7 +3682,7 @@ typedef struct OTList OTList;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTAddFirst(OTList *list, OTLink *link);
 
 /* Add the link to the list at the end*/
@@ -3694,7 +3694,7 @@ OTAddFirst(OTList *list, OTLink *link);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTAddLast(OTList *list, OTLink *link);
 
 /* Remove the first link from the list*/
@@ -3706,7 +3706,7 @@ OTAddLast(OTList *list, OTLink *link);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTRemoveFirst(OTList *list);
 
 /* Remove the last link from the list*/
@@ -3718,7 +3718,7 @@ OTRemoveFirst(OTList *list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTRemoveLast(OTList *list);
 
 /* Return the first link from the list*/
@@ -3730,7 +3730,7 @@ OTRemoveLast(OTList *list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTGetFirst(OTList *list);
 
 /* Return the last link from the list*/
@@ -3742,7 +3742,7 @@ OTGetFirst(OTList *list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTGetLast(OTList *list);
 
 /* Return true if the link is present in the list*/
@@ -3754,7 +3754,7 @@ OTGetLast(OTList *list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTIsInList(OTList *list, OTLink *link);
 
 /**
@@ -3772,7 +3772,7 @@ OTIsInList(OTList *list, OTLink *link);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTFindLink(OTList *list, OTListSearchUPP proc, const void *ref);
 
 /* Remove the specified link from the list, returning true if it was found*/
@@ -3784,7 +3784,7 @@ OTFindLink(OTList *list, OTListSearchUPP proc, const void *ref);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 OTRemoveLink(OTList *list, OTLink *link);
 
 /* Similar to OTFindLink, but it also removes it from the list.*/
@@ -3796,7 +3796,7 @@ OTRemoveLink(OTList *list, OTLink *link);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTFindAndRemoveLink(OTList *list, OTListSearchUPP proc, const void *ref);
 
 /* Return the "index"th link in the list*/
@@ -3808,7 +3808,7 @@ OTFindAndRemoveLink(OTList *list, OTListSearchUPP proc, const void *ref);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OTLink *)
+OTLink *
 OTGetIndexedLink(OTList *list, OTItemCount index);
 
 /* OTEnqueue/OTDequeue*/
@@ -3832,7 +3832,7 @@ OTGetIndexedLink(OTList *list, OTItemCount index);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 OTEnqueue(void **listHead, void *object, OTByteCount linkOffset);
 
 /**
@@ -3847,7 +3847,7 @@ OTEnqueue(void **listHead, void *object, OTByteCount linkOffset);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void *)
+void *
 OTDequeue(void **listHead, OTByteCount linkOffset);
 
 #ifdef __cplusplus
@@ -3903,7 +3903,7 @@ inline OTLink *OTList::GetIndexedLink(OTItemCount index) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTAtomicSetBit(__A0, __D0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 OTAtomicSetBit(UInt8 *bytePtr, OTByteCount bitNumber)
     FOURWORDINLINE(0x01D0, 0x56C0, 0x7201, 0xC081);
 
@@ -3924,7 +3924,7 @@ OTAtomicSetBit(UInt8 *bytePtr, OTByteCount bitNumber)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTAtomicClearBit(__A0, __D0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 OTAtomicClearBit(UInt8 *bytePtr, OTByteCount bitNumber)
     FOURWORDINLINE(0x0190, 0x56C0, 0x7201, 0xC081);
 
@@ -3945,7 +3945,7 @@ OTAtomicClearBit(UInt8 *bytePtr, OTByteCount bitNumber)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTAtomicTestBit(__A0, __D0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 OTAtomicTestBit(UInt8 *bytePtr, OTByteCount bitNumber)
     FOURWORDINLINE(0x0110, 0x56C0, 0x7201, 0xC081);
 
@@ -3966,7 +3966,7 @@ OTAtomicTestBit(UInt8 *bytePtr, OTByteCount bitNumber)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTCompareAndSwapPtr(__D0, __D1, __A0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 OTCompareAndSwapPtr(void *oldValue, void *newValue, void **dest)
     FIVEWORDINLINE(0x0ED0, 0x0040, 0x57C0, 0x7201, 0xC081);
 
@@ -3986,7 +3986,7 @@ OTCompareAndSwapPtr(void *oldValue, void *newValue, void **dest)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTCompareAndSwap32(__D0, __D1, __A0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 OTCompareAndSwap32(UInt32 oldValue, UInt32 newValue, UInt32 *dest)
     FIVEWORDINLINE(0x0ED0, 0x0040, 0x57C0, 0x7201, 0xC081);
 
@@ -4006,7 +4006,7 @@ OTCompareAndSwap32(UInt32 oldValue, UInt32 newValue, UInt32 *dest)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTCompareAndSwap16(__D0, __D1, __A0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 OTCompareAndSwap16(UInt32 oldValue, UInt32 newValue, UInt16 *dest)
     FIVEWORDINLINE(0x0CD0, 0x0040, 0x57C0, 0x7201, 0xC081);
 
@@ -4026,7 +4026,7 @@ OTCompareAndSwap16(UInt32 oldValue, UInt32 newValue, UInt16 *dest)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTCompareAndSwap8(__D0, __D1, __A0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 OTCompareAndSwap8(UInt32 oldValue, UInt32 newValue, UInt8 *dest)
     FIVEWORDINLINE(0x0AD0, 0x0040, 0x57C0, 0x7201, 0xC081);
 
@@ -4046,7 +4046,7 @@ OTCompareAndSwap8(UInt32 oldValue, UInt32 newValue, UInt8 *dest)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 OTAtomicAdd32(__D0, __A0)
 #endif
-EXTERN_API_C(SInt32)
+SInt32
 OTAtomicAdd32(SInt32 toAdd, SInt32 *dest)
     SEVENWORDINLINE(0x2240, 0x2210, 0x2001, 0xD089, 0x0ED0, 0x0001, 0x66F4);
 
@@ -4066,7 +4066,7 @@ OTAtomicAdd32(SInt32 toAdd, SInt32 *dest)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt16)
+SInt16
 OTAtomicAdd16(SInt32 toAdd, SInt16 *dest);
 
 /* Not used frequently enough to justify inlining.*/
@@ -4078,7 +4078,7 @@ OTAtomicAdd16(SInt32 toAdd, SInt16 *dest);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt8)
+SInt8
 OTAtomicAdd8(SInt32 toAdd, SInt8 *dest);
 
 /* Not used frequently enough to justify inlining.*/

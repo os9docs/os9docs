@@ -89,7 +89,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FNSMatchOptions)
+FNSMatchOptions
 FNSMatchDefaultsGet(void);
 
 /** Version control */
@@ -121,7 +121,7 @@ typedef struct FNSSysInfo FNSSysInfo;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 FNSSysInfoGet(FNSSysInfo *ioInfo);
 
 /** FontSync References */
@@ -134,7 +134,7 @@ typedef struct OpaqueFNSFontReference *FNSFontReference;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceGetVersion(FNSFontReference iReference, FNSObjectVersion *oVersion);
 
 /**
@@ -145,7 +145,7 @@ FNSReferenceGetVersion(FNSFontReference iReference, FNSObjectVersion *oVersion);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceDispose(FNSFontReference iReference);
 
 /**
@@ -156,7 +156,7 @@ FNSReferenceDispose(FNSFontReference iReference);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceMatch(FNSFontReference iReference1, FNSFontReference iReference2,
                   FNSMatchOptions iOptions,
                   FNSMatchOptions *oFailedMatchOptions); /** can be NULL */
@@ -169,7 +169,7 @@ FNSReferenceMatch(FNSFontReference iReference1, FNSFontReference iReference2,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceFlattenedSize(FNSFontReference iReference,
                           ByteCount *oFlattenedSize);
 
@@ -181,7 +181,7 @@ FNSReferenceFlattenedSize(FNSFontReference iReference,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceFlatten(FNSFontReference iReference,
                     void *oFlatReference,       /** can be NULL */
                     ByteCount *oFlattenedSize); /** can be NULL */
@@ -194,7 +194,7 @@ FNSReferenceFlatten(FNSFontReference iReference,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceUnflatten(const void *iFlatReference, ByteCount iFlattenedSize,
                       FNSFontReference *oReference);
 
@@ -210,7 +210,7 @@ typedef struct OpaqueFNSFontProfile *FNSFontProfile;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileCreate(const FSSpec *iFile, FourCharCode iCreator,
                  ItemCount iEstNumRefs, FNSObjectVersion iDesiredVersion,
                  FNSFontProfile *oProfile);
@@ -223,7 +223,7 @@ FNSProfileCreate(const FSSpec *iFile, FourCharCode iCreator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileOpen(const FSSpec *iFile, Boolean iOpenForWrite,
                FNSFontProfile *oProfile);
 
@@ -236,7 +236,7 @@ FNSProfileOpen(const FSSpec *iFile, Boolean iOpenForWrite,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileCreateWithFSRef(const FSRef *iParentDirectory,
                           UniCharCount iNameLength, const UniChar *iName,
                           FourCharCode iCreator, ItemCount iEstNumRefs,
@@ -252,7 +252,7 @@ FNSProfileCreateWithFSRef(const FSRef *iParentDirectory,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileOpenWithFSRef(const FSRef *iFile, Boolean iOpenForWrite,
                         FNSFontProfile *oProfile);
 
@@ -264,7 +264,7 @@ FNSProfileOpenWithFSRef(const FSRef *iFile, Boolean iOpenForWrite,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileGetVersion(FNSFontProfile iProfile, FNSObjectVersion *oVersion);
 
 /**
@@ -275,7 +275,7 @@ FNSProfileGetVersion(FNSFontProfile iProfile, FNSObjectVersion *oVersion);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileCompact(FNSFontProfile iProfile);
 
 /**
@@ -286,7 +286,7 @@ FNSProfileCompact(FNSFontProfile iProfile);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileClose(FNSFontProfile iProfile);
 
 /**
@@ -297,7 +297,7 @@ FNSProfileClose(FNSFontProfile iProfile);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileAddReference(FNSFontProfile iProfile, FNSFontReference iReference);
 
 /**
@@ -308,7 +308,7 @@ FNSProfileAddReference(FNSFontProfile iProfile, FNSFontReference iReference);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileRemoveReference(FNSFontProfile iProfile, FNSFontReference iReference);
 
 /**
@@ -319,7 +319,7 @@ FNSProfileRemoveReference(FNSFontProfile iProfile, FNSFontReference iReference);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileRemoveIndReference(FNSFontProfile iProfile, UInt32 iIndex);
 
 /**
@@ -330,7 +330,7 @@ FNSProfileRemoveIndReference(FNSFontProfile iProfile, UInt32 iIndex);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileClear(FNSFontProfile iProfile);
 
 /**
@@ -341,7 +341,7 @@ FNSProfileClear(FNSFontProfile iProfile);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileCountReferences(FNSFontProfile iProfile, ItemCount *oCount);
 
 /**
@@ -352,7 +352,7 @@ FNSProfileCountReferences(FNSFontProfile iProfile, ItemCount *oCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileGetIndReference(FNSFontProfile iProfile, UInt32 iWhichReference,
                           FNSFontReference *oReference);
 
@@ -364,7 +364,7 @@ FNSProfileGetIndReference(FNSFontProfile iProfile, UInt32 iWhichReference,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSProfileMatchReference(FNSFontProfile iProfile, FNSFontReference iReference,
                          FNSMatchOptions iMatchOptions, ItemCount iOutputSize,
                          UInt32 oIndices[],       /** can be NULL */
@@ -379,7 +379,7 @@ FNSProfileMatchReference(FNSFontProfile iProfile, FNSFontReference iReference,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceCreate(FMFont iFont, FNSObjectVersion iDesiredVersion,
                    FNSFontReference *oReference);
 
@@ -391,7 +391,7 @@ FNSReferenceCreate(FMFont iFont, FNSObjectVersion iDesiredVersion,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceMatchFonts(FNSFontReference iReference,
                        FNSMatchOptions iMatchOptions, ItemCount iOutputSize,
                        FMFont oFonts[],         /** can be NULL */
@@ -406,7 +406,7 @@ FNSReferenceMatchFonts(FNSFontReference iReference,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceCreateFromFamily(FMFontFamily iFamily, FMFontStyle iStyle,
                              FNSObjectVersion iDesiredVersion,
                              FNSFontReference *oReference, /** can be NULL */
@@ -420,7 +420,7 @@ FNSReferenceCreateFromFamily(FMFontFamily iFamily, FMFontStyle iStyle,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceMatchFamilies(FNSFontReference iReference,
                           FNSMatchOptions iMatchOptions, ItemCount iOutputSize,
                           FMFontFamilyInstance oFonts[], /** can be NULL */
@@ -435,7 +435,7 @@ FNSReferenceMatchFamilies(FNSFontReference iReference,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceGetFamilyInfo(FNSFontReference iReference,
                           Str255 oFamilyName,            /** can be NULL */
                           ScriptCode *oFamilyNameScript, /** can be NULL */
@@ -449,7 +449,7 @@ FNSReferenceGetFamilyInfo(FNSFontReference iReference,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceCountNames(FNSFontReference iReference, ItemCount *oNameCount);
 
 /**
@@ -460,7 +460,7 @@ FNSReferenceCountNames(FNSFontReference iReference, ItemCount *oNameCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceGetIndName(FNSFontReference iReference, ItemCount iFontNameIndex,
                        ByteCount iMaximumNameLength,
                        Ptr oName,                            /** can be NULL */
@@ -478,7 +478,7 @@ FNSReferenceGetIndName(FNSFontReference iReference, ItemCount iFontNameIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FNSReferenceFindName(FNSFontReference iReference, FontNameCode iFontNameCode,
                      FontPlatformCode iFontNamePlatform,
                      FontScriptCode iFontNameScript,
@@ -496,7 +496,7 @@ FNSReferenceFindName(FNSFontReference iReference, FontNameCode iFontNameCode,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 FNSEnabled(void);
 
 #if PRAGMA_STRUCT_ALIGN

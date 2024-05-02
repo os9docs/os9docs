@@ -143,7 +143,7 @@ typedef STACK_UPP_TYPE(AVLWalkProcPtr) AVLWalkUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AVLCompareItemsUPP)
+AVLCompareItemsUPP
 NewAVLCompareItemsUPP(AVLCompareItemsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -172,7 +172,7 @@ NewAVLCompareItemsUPP(AVLCompareItemsProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AVLItemSizeUPP)
+AVLItemSizeUPP
 NewAVLItemSizeUPP(AVLItemSizeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -199,7 +199,7 @@ inline AVLItemSizeUPP NewAVLItemSizeUPP(AVLItemSizeProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AVLDisposeItemUPP)
+AVLDisposeItemUPP
 NewAVLDisposeItemUPP(AVLDisposeItemProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -228,7 +228,7 @@ NewAVLDisposeItemUPP(AVLDisposeItemProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AVLWalkUPP)
+AVLWalkUPP
 NewAVLWalkUPP(AVLWalkProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -255,7 +255,7 @@ inline AVLWalkUPP NewAVLWalkUPP(AVLWalkProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAVLCompareItemsUPP(AVLCompareItemsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -275,7 +275,7 @@ inline void DisposeAVLCompareItemsUPP(AVLCompareItemsUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAVLItemSizeUPP(AVLItemSizeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -295,7 +295,7 @@ inline void DisposeAVLItemSizeUPP(AVLItemSizeUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAVLDisposeItemUPP(AVLDisposeItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -315,7 +315,7 @@ inline void DisposeAVLDisposeItemUPP(AVLDisposeItemUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAVLWalkUPP(AVLWalkUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -335,7 +335,7 @@ inline void DisposeAVLWalkUPP(AVLWalkUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 InvokeAVLCompareItemsUPP(AVLTreePtr tree, const void *i1, const void *i2,
                          AVLNodeType nd_typ, AVLCompareItemsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -361,7 +361,7 @@ inline SInt32 InvokeAVLCompareItemsUPP(AVLTreePtr tree, const void *i1,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 InvokeAVLItemSizeUPP(AVLTreePtr tree, const void *itemPtr,
                      AVLItemSizeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -386,7 +386,7 @@ inline UInt32 InvokeAVLItemSizeUPP(AVLTreePtr tree, const void *itemPtr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeAVLDisposeItemUPP(AVLTreePtr tree, const void *dataP,
                         AVLDisposeItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -409,7 +409,7 @@ inline void InvokeAVLDisposeItemUPP(AVLTreePtr tree, const void *dataP,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeAVLWalkUPP(AVLTreePtr tree, const void *dataP, AVLVisitStage visitStage,
                  AVLNodeType node, UInt32 level, SInt32 balance, void *refCon,
                  AVLWalkUPP userUPP);

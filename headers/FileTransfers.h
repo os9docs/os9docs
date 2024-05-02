@@ -214,7 +214,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferDefUPP)
+FileTransferDefUPP
 NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -243,7 +243,7 @@ NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferReadUPP)
+FileTransferReadUPP
 NewFileTransferReadUPP(FileTransferReadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -272,7 +272,7 @@ NewFileTransferReadUPP(FileTransferReadProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferWriteUPP)
+FileTransferWriteUPP
 NewFileTransferWriteUPP(FileTransferWriteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -301,7 +301,7 @@ NewFileTransferWriteUPP(FileTransferWriteProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferSendUPP)
+FileTransferSendUPP
 NewFileTransferSendUPP(FileTransferSendProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -330,7 +330,7 @@ NewFileTransferSendUPP(FileTransferSendProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferReceiveUPP)
+FileTransferReceiveUPP
 NewFileTransferReceiveUPP(FileTransferReceiveProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -359,7 +359,7 @@ NewFileTransferReceiveUPP(FileTransferReceiveProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferEnvironsUPP)
+FileTransferEnvironsUPP
 NewFileTransferEnvironsUPP(FileTransferEnvironsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -388,7 +388,7 @@ NewFileTransferEnvironsUPP(FileTransferEnvironsProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferNotificationUPP)
+FileTransferNotificationUPP
 NewFileTransferNotificationUPP(FileTransferNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -417,7 +417,7 @@ NewFileTransferNotificationUPP(FileTransferNotificationProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferChooseIdleUPP)
+FileTransferChooseIdleUPP
 NewFileTransferChooseIdleUPP(FileTransferChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -446,7 +446,7 @@ NewFileTransferChooseIdleUPP(FileTransferChooseIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferDefUPP(FileTransferDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -466,7 +466,7 @@ inline void DisposeFileTransferDefUPP(FileTransferDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferReadUPP(FileTransferReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -486,7 +486,7 @@ inline void DisposeFileTransferReadUPP(FileTransferReadUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferWriteUPP(FileTransferWriteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -506,7 +506,7 @@ inline void DisposeFileTransferWriteUPP(FileTransferWriteUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferSendUPP(FileTransferSendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -526,7 +526,7 @@ inline void DisposeFileTransferSendUPP(FileTransferSendUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferReceiveUPP(FileTransferReceiveUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -546,7 +546,7 @@ inline void DisposeFileTransferReceiveUPP(FileTransferReceiveUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferEnvironsUPP(FileTransferEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -567,7 +567,7 @@ inline void DisposeFileTransferEnvironsUPP(FileTransferEnvironsUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferNotificationUPP(FileTransferNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -589,7 +589,7 @@ DisposeFileTransferNotificationUPP(FileTransferNotificationUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferChooseIdleUPP(FileTransferChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -611,7 +611,7 @@ DisposeFileTransferChooseIdleUPP(FileTransferChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeFileTransferDefUPP(TermHandle hTerm, short msg, long p1, long p2, long p3,
                          FileTransferDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -637,7 +637,7 @@ inline long InvokeFileTransferDefUPP(TermHandle hTerm, short msg, long p1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeFileTransferReadUPP(unsigned long *count, Ptr pData, long refCon,
                           short fileMsg, FileTransferReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -663,7 +663,7 @@ inline OSErr InvokeFileTransferReadUPP(unsigned long *count, Ptr pData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeFileTransferWriteUPP(unsigned long *count, Ptr pData, long refCon,
                            short fileMsg, FileTransferWriteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -689,7 +689,7 @@ inline OSErr InvokeFileTransferWriteUPP(unsigned long *count, Ptr pData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Size)
+Size
 InvokeFileTransferSendUPP(Ptr thePtr, long theSize, long refCon,
                           CMChannel channel, CMFlags flag,
                           FileTransferSendUPP userUPP);
@@ -718,7 +718,7 @@ inline Size InvokeFileTransferSendUPP(Ptr thePtr, long theSize, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Size)
+Size
 InvokeFileTransferReceiveUPP(Ptr thePtr, long theSize, long refCon,
                              CMChannel channel, CMFlags *flag,
                              FileTransferReceiveUPP userUPP);
@@ -747,7 +747,7 @@ inline Size InvokeFileTransferReceiveUPP(Ptr thePtr, long theSize, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeFileTransferEnvironsUPP(long refCon, ConnEnvironRec *theEnvirons,
                               FileTransferEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -773,7 +773,7 @@ inline OSErr InvokeFileTransferEnvironsUPP(long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeFileTransferNotificationUPP(FTHandle hFT, const FSSpec *pFSSpec,
                                   FileTransferNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -799,7 +799,7 @@ InvokeFileTransferNotificationUPP(FTHandle hFT, const FSSpec *pFSSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeFileTransferChooseIdleUPP(FileTransferChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

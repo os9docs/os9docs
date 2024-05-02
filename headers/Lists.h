@@ -178,7 +178,7 @@ typedef STACK_UPP_TYPE(ListDefProcPtr) ListDefUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ListSearchUPP)
+ListSearchUPP
 NewListSearchUPP(ListSearchProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -204,7 +204,7 @@ inline ListSearchUPP NewListSearchUPP(ListSearchProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ListClickLoopUPP)
+ListClickLoopUPP
 NewListClickLoopUPP(ListClickLoopProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppListClickLoopProcInfo = 0x00000012 }; /** register 1_byte:D0 Func() */
@@ -230,7 +230,7 @@ inline ListClickLoopUPP NewListClickLoopUPP(ListClickLoopProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ListDefUPP)
+ListDefUPP
 NewListDefUPP(ListDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -257,7 +257,7 @@ inline ListDefUPP NewListDefUPP(ListDefProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeListSearchUPP(ListSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -277,7 +277,7 @@ inline void DisposeListSearchUPP(ListSearchUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeListClickLoopUPP(ListClickLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -297,7 +297,7 @@ inline void DisposeListClickLoopUPP(ListClickLoopUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeListDefUPP(ListDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -317,7 +317,7 @@ inline void DisposeListDefUPP(ListDefUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(short)
+short
 InvokeListSearchUPP(Ptr aPtr, Ptr bPtr, short aLen, short bLen,
                     ListSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -345,7 +345,7 @@ inline short InvokeListSearchUPP(Ptr aPtr, Ptr bPtr, short aLen, short bLen,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InvokeListClickLoopUPP(__A0)
 #endif
-EXTERN_API_C(Boolean)
+Boolean
 InvokeListClickLoopUPP(ListClickLoopUPP userUPP) ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
@@ -367,7 +367,7 @@ inline Boolean InvokeListClickLoopUPP(ListClickLoopUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeListDefUPP(short lMessage, Boolean lSelect, Rect *lRect, Cell lCell,
                  short lDataOffset, short lDataLen, ListHandle lHandle,
                  ListDefUPP userUPP);
@@ -448,7 +448,7 @@ typedef ListNotificationProcPtr ListNotificationUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 LSetNotificationCallback(ListNotificationProcPtr callBack, ListHandle lHandle);
 
 /**
@@ -459,7 +459,7 @@ LSetNotificationCallback(ListNotificationProcPtr callBack, ListHandle lHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetListVisibleBounds(ListHandle theList, Rect *visibleBounds);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -1483,7 +1483,7 @@ SetListDefinitionProc(SInt16 resID, ListDefUPP defProc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 LSetLDEF(ListDefProcPtr proc, ListRef lHandle);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -1499,7 +1499,7 @@ LSetLDEF(ListDefProcPtr proc, ListRef lHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 laddtocell(const void *dataPtr, short dataLen, const Cell *theCell,
            ListHandle lHandle);
 
@@ -1511,7 +1511,7 @@ laddtocell(const void *dataPtr, short dataLen, const Cell *theCell,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 lclrcell(const Cell *theCell, ListHandle lHandle);
 
 /**
@@ -1522,7 +1522,7 @@ lclrcell(const Cell *theCell, ListHandle lHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 lgetcelldatalocation(short *offset, short *len, const Cell *theCell,
                      ListHandle lHandle);
 
@@ -1534,7 +1534,7 @@ lgetcelldatalocation(short *offset, short *len, const Cell *theCell,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 lgetcell(void *dataPtr, short *dataLen, const Cell *theCell,
          ListHandle lHandle);
 
@@ -1546,7 +1546,7 @@ lgetcell(void *dataPtr, short *dataLen, const Cell *theCell,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ListHandle)
+ListHandle
 lnew(const Rect *rView, const ListBounds *dataBounds, Point *cSize,
      short theProc, WindowRef theWindow, Boolean drawIt, Boolean hasGrow,
      Boolean scrollHoriz, Boolean scrollVert);
@@ -1559,7 +1559,7 @@ lnew(const Rect *rView, const ListBounds *dataBounds, Point *cSize,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 lrect(Rect *cellRect, const Cell *theCell, ListHandle lHandle);
 
 /**
@@ -1570,7 +1570,7 @@ lrect(Rect *cellRect, const Cell *theCell, ListHandle lHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 lsetcell(const void *dataPtr, short dataLen, const Cell *theCell,
          ListHandle lHandle);
 
@@ -1582,7 +1582,7 @@ lsetcell(const void *dataPtr, short dataLen, const Cell *theCell,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 lsetselect(Boolean setIt, const Cell *theCell, ListHandle lHandle);
 
 /**
@@ -1593,7 +1593,7 @@ lsetselect(Boolean setIt, const Cell *theCell, ListHandle lHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 ldraw(const Cell *theCell, ListHandle lHandle);
 
 /**
@@ -1604,7 +1604,7 @@ ldraw(const Cell *theCell, ListHandle lHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 lclick(Point *pt, EventModifiers modifiers, ListHandle lHandle);
 
 /**
@@ -1615,7 +1615,7 @@ lclick(Point *pt, EventModifiers modifiers, ListHandle lHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 lcellsize(Point *cSize, ListHandle lHandle);
 
 #endif /** CALL_NOT_IN_CARBON */

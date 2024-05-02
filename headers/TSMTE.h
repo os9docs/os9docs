@@ -117,7 +117,7 @@ typedef TSMDialogPtr TSMDialogPeek;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TSMTEPreUpdateUPP)
+TSMTEPreUpdateUPP
 NewTSMTEPreUpdateUPP(TSMTEPreUpdateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -146,7 +146,7 @@ NewTSMTEPreUpdateUPP(TSMTEPreUpdateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TSMTEPostUpdateUPP)
+TSMTEPostUpdateUPP
 NewTSMTEPostUpdateUPP(TSMTEPostUpdateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -176,7 +176,7 @@ NewTSMTEPostUpdateUPP(TSMTEPostUpdateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTSMTEPreUpdateUPP(TSMTEPreUpdateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -196,7 +196,7 @@ inline void DisposeTSMTEPreUpdateUPP(TSMTEPreUpdateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeTSMTEPostUpdateUPP(TSMTEPostUpdateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -216,7 +216,7 @@ inline void DisposeTSMTEPostUpdateUPP(TSMTEPostUpdateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeTSMTEPreUpdateUPP(TEHandle textH, long refCon, TSMTEPreUpdateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -239,7 +239,7 @@ inline void InvokeTSMTEPreUpdateUPP(TEHandle textH, long refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeTSMTEPostUpdateUPP(TEHandle textH, long fixLen, long inputAreaStart,
                          long inputAreaEnd, long pinStart, long pinEnd,
                          long refCon, TSMTEPostUpdateUPP userUPP);

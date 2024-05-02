@@ -116,7 +116,7 @@ typedef STACK_UPP_TYPE(ALMNotificationProcPtr) ALMNotificationUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ALMNotificationUPP)
+ALMNotificationUPP
 NewALMNotificationUPP(ALMNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -145,7 +145,7 @@ NewALMNotificationUPP(ALMNotificationProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeALMNotificationUPP(ALMNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -165,7 +165,7 @@ inline void DisposeALMNotificationUPP(ALMNotificationUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeALMNotificationUPP(AppleEvent *theEvent, ALMNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

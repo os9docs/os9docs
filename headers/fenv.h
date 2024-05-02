@@ -167,7 +167,7 @@ extern fenv_t _FE_DFL_ENV;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void) feclearexcept(int excepts);
+void feclearexcept(int excepts);
 
 /*******************************************************************************
  *    The function "fegetexcept" stores a representation of the exception *
@@ -182,7 +182,7 @@ EXTERN_API_C(void) feclearexcept(int excepts);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void) fegetexcept(fexcept_t *flagp, int excepts);
+void fegetexcept(fexcept_t *flagp, int excepts);
 
 /*******************************************************************************
  *     The function "feraiseexcept" raises the supported exceptions *
@@ -196,7 +196,7 @@ EXTERN_API_C(void) fegetexcept(fexcept_t *flagp, int excepts);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void) feraiseexcept(int excepts);
+void feraiseexcept(int excepts);
 
 /*******************************************************************************
  *     The function "fesetexcept" sets or clears the exception flags indicated *
@@ -214,7 +214,7 @@ EXTERN_API_C(void) feraiseexcept(int excepts);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void) fesetexcept(const fexcept_t *flagp, int excepts);
+void fesetexcept(const fexcept_t *flagp, int excepts);
 
 /*******************************************************************************
  *     The function "fetestexcept" determines which of the specified subset of *
@@ -231,7 +231,7 @@ EXTERN_API_C(void) fesetexcept(const fexcept_t *flagp, int excepts);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int) fetestexcept(int excepts);
+int fetestexcept(int excepts);
 
 /*******************************************************************************
  *     The following functions provide control of rounding direction modes. *
@@ -248,7 +248,7 @@ EXTERN_API_C(int) fetestexcept(int excepts);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int) fegetround(void);
+int fegetround(void);
 
 /*******************************************************************************
  *     The function "fesetround" establishes the rounding direction represented
@@ -264,7 +264,7 @@ EXTERN_API_C(int) fegetround(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int) fesetround(int round);
+int fesetround(int round);
 
 /*******************************************************************************
  *    The following functions manage the floating-point environment, exception *
@@ -282,7 +282,7 @@ EXTERN_API_C(int) fesetround(int round);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void) fegetenv(fenv_t *envp);
+void fegetenv(fenv_t *envp);
 
 /*******************************************************************************
  *     The function "feholdexcept" saves the current environment in the object *
@@ -299,7 +299,7 @@ EXTERN_API_C(void) fegetenv(fenv_t *envp);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int) feholdexcept(fenv_t *envp);
+int feholdexcept(fenv_t *envp);
 
 /*******************************************************************************
  *     The function "fesetenv" installs the floating-point environment *
@@ -316,7 +316,7 @@ EXTERN_API_C(int) feholdexcept(fenv_t *envp);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void) fesetenv(const fenv_t *envp);
+void fesetenv(const fenv_t *envp);
 
 /*******************************************************************************
  *     The function "feupdateenv" saves the current exceptions into its *
@@ -334,7 +334,7 @@ EXTERN_API_C(void) fesetenv(const fenv_t *envp);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void) feupdateenv(const fenv_t *envp);
+void feupdateenv(const fenv_t *envp);
 
 #if TARGET_CPU_68K
 /*******************************************************************************
@@ -353,7 +353,7 @@ EXTERN_API_C(void) feupdateenv(const fenv_t *envp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(int) fegetprec(void);
+int fegetprec(void);
 
 /**
  *  fesetprec()
@@ -363,7 +363,7 @@ EXTERN_API_C(int) fegetprec(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(int) fesetprec(int precision);
+int fesetprec(int precision);
 
 #endif /* CALL_NOT_IN_CARBON */
 

@@ -251,7 +251,7 @@ typedef STACK_UPP_TYPE(TipFunctionProcPtr) TipFunctionUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TipFunctionUPP)
+TipFunctionUPP
 NewTipFunctionUPP(TipFunctionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -278,7 +278,7 @@ inline TipFunctionUPP NewTipFunctionUPP(TipFunctionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTipFunctionUPP(TipFunctionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -298,7 +298,7 @@ inline void DisposeTipFunctionUPP(TipFunctionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeTipFunctionUPP(Point tip, RgnHandle structure, Rect *r,
                      BalloonVariant *balloonVariant, TipFunctionUPP userUPP);
 #if !OPAQUE_UPP_TYPES

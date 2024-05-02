@@ -573,7 +573,7 @@ GetApplicationScript(void);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetProcessBundleLocation(const ProcessSerialNumber *psn, FSRef *location);
 
 /**
@@ -605,7 +605,7 @@ GetProcessBundleLocation(const ProcessSerialNumber *psn, FSRef *location);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CopyProcessName(const ProcessSerialNumber *psn, CFStringRef *name);
 
 /*************************************************************************
@@ -705,7 +705,7 @@ typedef STACK_UPP_TYPE(ControlPanelDefProcPtr) ControlPanelDefUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ControlPanelDefUPP)
+ControlPanelDefUPP
 NewControlPanelDefUPP(ControlPanelDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -735,7 +735,7 @@ NewControlPanelDefUPP(ControlPanelDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeControlPanelDefUPP(ControlPanelDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -755,7 +755,7 @@ inline void DisposeControlPanelDefUPP(ControlPanelDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeControlPanelDefUPP(short message, short item, short numItems,
                          short cPanelID, EventRecord *theEvent, long cdevValue,
                          DialogPtr cpDialog, ControlPanelDefUPP userUPP);

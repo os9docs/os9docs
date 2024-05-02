@@ -141,7 +141,7 @@ typedef STACK_UPP_TYPE(ZoneFilterProcPtr) ZoneFilterUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DialogHookUPP)
+DialogHookUPP
 NewDialogHookUPP(DialogHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -167,7 +167,7 @@ inline DialogHookUPP NewDialogHookUPP(DialogHookProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(NameFilterUPP)
+NameFilterUPP
 NewNameFilterUPP(NameFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppNameFilterProcInfo = 0x000000E0 }; /** pascal 2_bytes Func(4_bytes) */
@@ -191,7 +191,7 @@ inline NameFilterUPP NewNameFilterUPP(NameFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ZoneFilterUPP)
+ZoneFilterUPP
 NewZoneFilterUPP(ZoneFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppZoneFilterProcInfo = 0x000000E0 }; /** pascal 2_bytes Func(4_bytes) */
@@ -215,7 +215,7 @@ inline ZoneFilterUPP NewZoneFilterUPP(ZoneFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDialogHookUPP(DialogHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -235,7 +235,7 @@ inline void DisposeDialogHookUPP(DialogHookUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeNameFilterUPP(NameFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -255,7 +255,7 @@ inline void DisposeNameFilterUPP(NameFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeZoneFilterUPP(ZoneFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -275,7 +275,7 @@ inline void DisposeZoneFilterUPP(ZoneFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeDialogHookUPP(short item, DialogRef theDialog, DialogHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -299,7 +299,7 @@ inline short InvokeDialogHookUPP(short item, DialogRef theDialog,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeNameFilterUPP(const EntityName *theEntity, NameFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -322,7 +322,7 @@ inline short InvokeNameFilterUPP(const EntityName *theEntity,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokeZoneFilterUPP(ConstStr32Param theZone, ZoneFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

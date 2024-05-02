@@ -240,7 +240,7 @@ GetAppParms(Str255 apName, short *apRefNum, Handle *apParam)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getappparms(char *apName, short *apRefNum, Handle *apParam);
 
 #endif /* CALL_NOT_IN_CARBON */

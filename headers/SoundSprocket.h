@@ -146,7 +146,7 @@ typedef CALLBACK_API_C(Boolean, SSpEventProcPtr)(EventRecord *inEvent);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpConfigureSpeakerSetup(SSpEventProcPtr inEventProcPtr);
 
 /**
@@ -158,7 +158,7 @@ SSpConfigureSpeakerSetup(SSpEventProcPtr inEventProcPtr);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpGetCPULoadLimit(UInt32 *outCPULoadLimit);
 
 /********************************************************************************
@@ -174,7 +174,7 @@ typedef struct OpaqueSSpListenerReference *SSpListenerReference;
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_New(SSpListenerReference *outListenerReference);
 
 /**
@@ -186,7 +186,7 @@ SSpListener_New(SSpListenerReference *outListenerReference);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_Dispose(SSpListenerReference inListenerReference);
 
 /**
@@ -198,7 +198,7 @@ SSpListener_Dispose(SSpListenerReference inListenerReference);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetTransform(SSpListenerReference inListenerReference,
                          const TQ3Matrix4x4 *inTransform);
 
@@ -211,7 +211,7 @@ SSpListener_SetTransform(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetTransform(SSpListenerReference inListenerReference,
                          TQ3Matrix4x4 *outTransform);
 
@@ -224,7 +224,7 @@ SSpListener_GetTransform(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetPosition(SSpListenerReference inListenerReference,
                         const TQ3Point3D *inPosition);
 
@@ -237,7 +237,7 @@ SSpListener_SetPosition(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetPosition(SSpListenerReference inListenerReference,
                         TQ3Point3D *outPosition);
 
@@ -250,7 +250,7 @@ SSpListener_GetPosition(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetOrientation(SSpListenerReference inListenerReference,
                            const TQ3Vector3D *inOrientation);
 
@@ -263,7 +263,7 @@ SSpListener_SetOrientation(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetOrientation(SSpListenerReference inListenerReference,
                            TQ3Vector3D *outOrientation);
 
@@ -276,7 +276,7 @@ SSpListener_GetOrientation(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetUpVector(SSpListenerReference inListenerReference,
                         const TQ3Vector3D *inUpVector);
 
@@ -289,7 +289,7 @@ SSpListener_SetUpVector(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetUpVector(SSpListenerReference inListenerReference,
                         TQ3Vector3D *outUpVector);
 
@@ -302,7 +302,7 @@ SSpListener_GetUpVector(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetCameraPlacement(SSpListenerReference inListenerReference,
                                const TQ3CameraPlacement *inCameraPlacement);
 
@@ -315,7 +315,7 @@ SSpListener_SetCameraPlacement(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetCameraPlacement(SSpListenerReference inListenerReference,
                                TQ3CameraPlacement *outCameraPlacement);
 
@@ -328,7 +328,7 @@ SSpListener_GetCameraPlacement(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetVelocity(SSpListenerReference inListenerReference,
                         const TQ3Vector3D *inVelocity);
 
@@ -341,7 +341,7 @@ SSpListener_SetVelocity(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetVelocity(SSpListenerReference inListenerReference,
                         TQ3Vector3D *outVelocity);
 
@@ -354,7 +354,7 @@ SSpListener_GetVelocity(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetActualVelocity(SSpListenerReference inListenerReference,
                               TQ3Vector3D *outVelocity);
 
@@ -367,7 +367,7 @@ SSpListener_GetActualVelocity(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetMedium(SSpListenerReference inListenerReference, UInt32 inMedium,
                       float inHumidity);
 
@@ -380,7 +380,7 @@ SSpListener_SetMedium(SSpListenerReference inListenerReference, UInt32 inMedium,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetMedium(SSpListenerReference inListenerReference,
                       UInt32 *outMedium, float *outHumidity);
 
@@ -393,7 +393,7 @@ SSpListener_GetMedium(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetReverb(SSpListenerReference inListenerReference,
                       float inRoomSize, float inRoomReflectivity,
                       float inReverbAttenuation);
@@ -407,7 +407,7 @@ SSpListener_SetReverb(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetReverb(SSpListenerReference inListenerReference,
                       float *outRoomSize, float *outRoomReflectivity,
                       float *outReverbAttenuation);
@@ -421,7 +421,7 @@ SSpListener_GetReverb(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetMetersPerUnit(SSpListenerReference inListenerReference,
                              float inMetersPerUnit);
 
@@ -434,7 +434,7 @@ SSpListener_SetMetersPerUnit(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetMetersPerUnit(SSpListenerReference inListenerReference,
                              float *outMetersPerUnit);
 
@@ -451,7 +451,7 @@ typedef struct OpaqueSSpSourceReference *SSpSourceReference;
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_New(SSpSourceReference *outSourceReference);
 
 /**
@@ -463,7 +463,7 @@ SSpSource_New(SSpSourceReference *outSourceReference);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_Dispose(SSpSourceReference inSourceReference);
 
 /**
@@ -475,7 +475,7 @@ SSpSource_Dispose(SSpSourceReference inSourceReference);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_CalcLocalization(SSpSourceReference inSourceReference,
                            SSpListenerReference inListenerReference,
                            SSpLocalizationData *out3DInfo);
@@ -489,7 +489,7 @@ SSpSource_CalcLocalization(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetTransform(SSpSourceReference inSourceReference,
                        const TQ3Matrix4x4 *inTransform);
 
@@ -502,7 +502,7 @@ SSpSource_SetTransform(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetTransform(SSpSourceReference inSourceReference,
                        TQ3Matrix4x4 *outTransform);
 
@@ -515,7 +515,7 @@ SSpSource_GetTransform(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetPosition(SSpSourceReference inSourceReference,
                       const TQ3Point3D *inPosition);
 
@@ -528,7 +528,7 @@ SSpSource_SetPosition(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetPosition(SSpSourceReference inSourceReference,
                       TQ3Point3D *outPosition);
 
@@ -541,7 +541,7 @@ SSpSource_GetPosition(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetOrientation(SSpSourceReference inSourceReference,
                          const TQ3Vector3D *inOrientation);
 
@@ -554,7 +554,7 @@ SSpSource_SetOrientation(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetOrientation(SSpSourceReference inSourceReference,
                          TQ3Vector3D *outOrientation);
 
@@ -567,7 +567,7 @@ SSpSource_GetOrientation(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetUpVector(SSpSourceReference inSourceReference,
                       const TQ3Vector3D *inUpVector);
 
@@ -580,7 +580,7 @@ SSpSource_SetUpVector(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetUpVector(SSpSourceReference inSourceReference,
                       TQ3Vector3D *outUpVector);
 
@@ -593,7 +593,7 @@ SSpSource_GetUpVector(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetCameraPlacement(SSpSourceReference inSourceReference,
                              const TQ3CameraPlacement *inCameraPlacement);
 
@@ -606,7 +606,7 @@ SSpSource_SetCameraPlacement(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetCameraPlacement(SSpSourceReference inSourceReference,
                              TQ3CameraPlacement *outCameraPlacement);
 
@@ -619,7 +619,7 @@ SSpSource_GetCameraPlacement(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetVelocity(SSpSourceReference inSourceReference,
                       const TQ3Vector3D *inVelocity);
 
@@ -632,7 +632,7 @@ SSpSource_SetVelocity(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetVelocity(SSpSourceReference inSourceReference,
                       TQ3Vector3D *outVelocity);
 
@@ -645,7 +645,7 @@ SSpSource_GetVelocity(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetActualVelocity(SSpSourceReference inSourceReference,
                             TQ3Vector3D *outVelocity);
 
@@ -658,7 +658,7 @@ SSpSource_GetActualVelocity(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetCPULoad(SSpSourceReference inSourceReference, UInt32 inCPULoad);
 
 /**
@@ -670,7 +670,7 @@ SSpSource_SetCPULoad(SSpSourceReference inSourceReference, UInt32 inCPULoad);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetCPULoad(SSpSourceReference inSourceReference, UInt32 *outCPULoad);
 
 /**
@@ -682,7 +682,7 @@ SSpSource_GetCPULoad(SSpSourceReference inSourceReference, UInt32 *outCPULoad);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetMode(SSpSourceReference inSourceReference, UInt32 inMode);
 
 /**
@@ -694,7 +694,7 @@ SSpSource_SetMode(SSpSourceReference inSourceReference, UInt32 inMode);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetMode(SSpSourceReference inSourceReference, UInt32 *outMode);
 
 /**
@@ -706,7 +706,7 @@ SSpSource_GetMode(SSpSourceReference inSourceReference, UInt32 *outMode);
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetReferenceDistance(SSpSourceReference inSourceReference,
                                float inReferenceDistance);
 
@@ -719,7 +719,7 @@ SSpSource_SetReferenceDistance(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetReferenceDistance(SSpSourceReference inSourceReference,
                                float *outReferenceDistance);
 
@@ -732,7 +732,7 @@ SSpSource_GetReferenceDistance(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetSize(SSpSourceReference inSourceReference, float inLength,
                   float inWidth, float inHeight);
 
@@ -745,7 +745,7 @@ SSpSource_SetSize(SSpSourceReference inSourceReference, float inLength,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetSize(SSpSourceReference inSourceReference, float *outLength,
                   float *outWidth, float *outHeight);
 
@@ -758,7 +758,7 @@ SSpSource_GetSize(SSpSourceReference inSourceReference, float *outLength,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetAngularAttenuation(SSpSourceReference inSourceReference,
                                 float inConeAngle, float inConeAttenuation);
 
@@ -771,7 +771,7 @@ SSpSource_SetAngularAttenuation(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetAngularAttenuation(SSpSourceReference inSourceReference,
                                 float *outConeAngle, float *outConeAttenuation);
 
@@ -787,7 +787,7 @@ SSpSource_GetAngularAttenuation(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetTransformfv(SSpListenerReference inListenerReference,
                            const float *inTransform);
 
@@ -800,7 +800,7 @@ SSpListener_SetTransformfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetTransformfv(SSpListenerReference inListenerReference,
                            float *outTransform);
 
@@ -813,7 +813,7 @@ SSpListener_GetTransformfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetPosition3f(SSpListenerReference inListenerReference, float inX,
                           float inY, float inZ);
 
@@ -826,7 +826,7 @@ SSpListener_SetPosition3f(SSpListenerReference inListenerReference, float inX,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetPositionfv(SSpListenerReference inListenerReference,
                           const float *inPosition);
 
@@ -839,7 +839,7 @@ SSpListener_SetPositionfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetPositionfv(SSpListenerReference inListenerReference,
                           float *outPosition);
 
@@ -852,7 +852,7 @@ SSpListener_GetPositionfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetOrientation3f(SSpListenerReference inListenerReference,
                              float inX, float inY, float inZ);
 
@@ -865,7 +865,7 @@ SSpListener_SetOrientation3f(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetOrientationfv(SSpListenerReference inListenerReference,
                              const float *inOrientation);
 
@@ -878,7 +878,7 @@ SSpListener_SetOrientationfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetOrientationfv(SSpListenerReference inListenerReference,
                              float *outOrientation);
 
@@ -891,7 +891,7 @@ SSpListener_GetOrientationfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetUpVector3f(SSpListenerReference inListenerReference, float inX,
                           float inY, float inZ);
 
@@ -904,7 +904,7 @@ SSpListener_SetUpVector3f(SSpListenerReference inListenerReference, float inX,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetUpVectorfv(SSpListenerReference inListenerReference,
                           const float *inUpVector);
 
@@ -917,7 +917,7 @@ SSpListener_SetUpVectorfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetUpVectorfv(SSpListenerReference inListenerReference,
                           float *outUpVector);
 
@@ -930,7 +930,7 @@ SSpListener_GetUpVectorfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetCameraPlacementfv(SSpListenerReference inListenerReference,
                                  const float *inCameraLocation,
                                  const float *inPointOfInterest,
@@ -945,7 +945,7 @@ SSpListener_SetCameraPlacementfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetCameraPlacementfv(SSpListenerReference inListenerReference,
                                  float *outCameraPlacement,
                                  float *outPointOfInterest, float *outUpVector);
@@ -959,7 +959,7 @@ SSpListener_GetCameraPlacementfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetVelocity3f(SSpListenerReference inListenerReference, float inX,
                           float inY, float inZ);
 
@@ -972,7 +972,7 @@ SSpListener_SetVelocity3f(SSpListenerReference inListenerReference, float inX,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_SetVelocityfv(SSpListenerReference inListenerReference,
                           const float *inVelocity);
 
@@ -985,7 +985,7 @@ SSpListener_SetVelocityfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetVelocityfv(SSpListenerReference inListenerReference,
                           float *outVelocity);
 
@@ -998,7 +998,7 @@ SSpListener_GetVelocityfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpListener_GetActualVelocityfv(SSpListenerReference inListenerReference,
                                 float *outVelocity);
 
@@ -1011,7 +1011,7 @@ SSpListener_GetActualVelocityfv(SSpListenerReference inListenerReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetTransformfv(SSpSourceReference inSourceReference,
                          const float *inTransform);
 
@@ -1024,7 +1024,7 @@ SSpSource_SetTransformfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetTransformfv(SSpSourceReference inSourceReference,
                          float *outTransform);
 
@@ -1037,7 +1037,7 @@ SSpSource_GetTransformfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetPosition3f(SSpSourceReference inSourceReference, float inX,
                         float inY, float inZ);
 
@@ -1050,7 +1050,7 @@ SSpSource_SetPosition3f(SSpSourceReference inSourceReference, float inX,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetPositionfv(SSpSourceReference inSourceReference,
                         const float *inPosition);
 
@@ -1063,7 +1063,7 @@ SSpSource_SetPositionfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetPositionfv(SSpSourceReference inSourceReference,
                         float *outPosition);
 
@@ -1076,7 +1076,7 @@ SSpSource_GetPositionfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetOrientation3f(SSpSourceReference inSourceReference, float inX,
                            float inY, float inZ);
 
@@ -1089,7 +1089,7 @@ SSpSource_SetOrientation3f(SSpSourceReference inSourceReference, float inX,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetOrientationfv(SSpSourceReference inSourceReference,
                            const float *inOrientation);
 
@@ -1102,7 +1102,7 @@ SSpSource_SetOrientationfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetOrientationfv(SSpSourceReference inSourceReference,
                            float *outOrientation);
 
@@ -1115,7 +1115,7 @@ SSpSource_GetOrientationfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetUpVector3f(SSpSourceReference inSourceReference, float inX,
                         float inY, float inZ);
 
@@ -1128,7 +1128,7 @@ SSpSource_SetUpVector3f(SSpSourceReference inSourceReference, float inX,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetUpVectorfv(SSpSourceReference inSourceReference,
                         const float *inUpVector);
 
@@ -1141,7 +1141,7 @@ SSpSource_SetUpVectorfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetUpVectorfv(SSpSourceReference inSourceReference,
                         float *outUpVector);
 
@@ -1154,7 +1154,7 @@ SSpSource_GetUpVectorfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetCameraPlacementfv(SSpSourceReference inSourceReference,
                                const float *inCameraLocation,
                                const float *inPointOfInterest,
@@ -1169,7 +1169,7 @@ SSpSource_SetCameraPlacementfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetCameraPlacementfv(SSpSourceReference inSourceReference,
                                float *outCameraPlacement,
                                float *outPointOfInterest, float *outUpVector);
@@ -1183,7 +1183,7 @@ SSpSource_GetCameraPlacementfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetVelocity3f(SSpSourceReference inSourceReference, float inX,
                         float inY, float inZ);
 
@@ -1196,7 +1196,7 @@ SSpSource_SetVelocity3f(SSpSourceReference inSourceReference, float inX,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_SetVelocityfv(SSpSourceReference inSourceReference,
                         const float *inVelocity);
 
@@ -1209,7 +1209,7 @@ SSpSource_SetVelocityfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetVelocityfv(SSpSourceReference inSourceReference,
                         float *outVelocity);
 
@@ -1222,7 +1222,7 @@ SSpSource_GetVelocityfv(SSpSourceReference inSourceReference,
  Carbon
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SSpSource_GetActualVelocityfv(SSpSourceReference inSourceReference,
                               float *outVelocity);
 

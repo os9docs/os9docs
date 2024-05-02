@@ -189,7 +189,7 @@ struct ControlRecord  {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlActionUPP)
+ControlActionUPP
 NewControlActionUPP(ControlActionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -217,7 +217,7 @@ inline ControlActionUPP NewControlActionUPP(ControlActionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlActionUPP(ControlActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -237,7 +237,7 @@ inline void DisposeControlActionUPP(ControlActionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlActionUPP(ControlRef theControl, ControlPartCode partCode,
                        ControlActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -870,7 +870,7 @@ typedef STACK_UPP_TYPE(ControlDefProcPtr) ControlDefUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlDefUPP)
+ControlDefUPP
 NewControlDefUPP(ControlDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -896,7 +896,7 @@ inline ControlDefUPP NewControlDefUPP(ControlDefProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlDefUPP(ControlDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -916,7 +916,7 @@ inline void DisposeControlDefUPP(ControlDefUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SInt32)
+SInt32
 InvokeControlDefUPP(SInt16 varCode, ControlRef theControl,
                     ControlDefProcMessage message, SInt32 param,
                     ControlDefUPP userUPP);
@@ -972,7 +972,7 @@ typedef STACK_UPP_TYPE(ControlKeyFilterProcPtr) ControlKeyFilterUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlKeyFilterUPP)
+ControlKeyFilterUPP
 NewControlKeyFilterUPP(ControlKeyFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1001,7 +1001,7 @@ NewControlKeyFilterUPP(ControlKeyFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlKeyFilterUPP(ControlKeyFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1021,7 +1021,7 @@ inline void DisposeControlKeyFilterUPP(ControlKeyFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlKeyFilterResult)
+ControlKeyFilterResult
 InvokeControlKeyFilterUPP(ControlRef theControl, SInt16 *keyCode,
                           SInt16 *charCode, EventModifiers *modifiers,
                           ControlKeyFilterUPP userUPP);
@@ -1155,7 +1155,7 @@ typedef STACK_UPP_TYPE(ControlCNTLToCollectionProcPtr)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlCNTLToCollectionUPP)
+ControlCNTLToCollectionUPP
 NewControlCNTLToCollectionUPP(ControlCNTLToCollectionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1185,7 +1185,7 @@ NewControlCNTLToCollectionUPP(ControlCNTLToCollectionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlCNTLToCollectionUPP(ControlCNTLToCollectionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1207,7 +1207,7 @@ DisposeControlCNTLToCollectionUPP(ControlCNTLToCollectionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeControlCNTLToCollectionUPP(const Rect *bounds, SInt16 value,
                                  Boolean visible, SInt16 max, SInt16 min,
                                  SInt16 procID, SInt32 refCon,
@@ -1732,7 +1732,7 @@ typedef STACK_UPP_TYPE(ControlColorProcPtr) ControlColorUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlColorUPP)
+ControlColorUPP
 NewControlColorUPP(ControlColorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1760,7 +1760,7 @@ inline ControlColorUPP NewControlColorUPP(ControlColorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlColorUPP(ControlColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1780,7 +1780,7 @@ inline void DisposeControlColorUPP(ControlColorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeControlColorUPP(ControlRef inControl, SInt16 inMessage,
                       SInt16 inDrawDepth, Boolean inDrawInColor,
                       ControlColorUPP userUPP);
@@ -2977,7 +2977,7 @@ typedef CALLBACK_API_C(Boolean, PreFilterEventProc)(ControlRef theControl,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GetControlComponentInstance(ControlRef theControl);
 
 /**
@@ -2988,7 +2988,7 @@ GetControlComponentInstance(ControlRef theControl);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ControlRef)
+ControlRef
 GetControlHandleFromCookie(long cookie);
 
 #define GetControlRefFromCookie GetControlHandleFromCookie
@@ -3000,7 +3000,7 @@ GetControlHandleFromCookie(long cookie);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SetControlDefProc(short resID, ControlDefProcPtr proc);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -3021,7 +3021,7 @@ typedef ControlNotificationProcPtr ControlNotificationUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 dragcontrol(ControlRef theControl, Point *startPt, const Rect *limitRect,
             const Rect *slopRect, short axis);
 
@@ -3033,7 +3033,7 @@ dragcontrol(ControlRef theControl, Point *startPt, const Rect *limitRect,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ControlRef)
+ControlRef
 newcontrol(WindowRef theWindow, const Rect *boundsRect, const char *title,
            Boolean visible, short value, short min, short max, short procID,
            long refCon);
@@ -3046,7 +3046,7 @@ newcontrol(WindowRef theWindow, const Rect *boundsRect, const char *title,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 findcontrol(Point *thePoint, WindowRef theWindow, ControlRef *theControl);
 
 /**
@@ -3057,7 +3057,7 @@ findcontrol(Point *thePoint, WindowRef theWindow, ControlRef *theControl);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getcontroltitle(ControlRef theControl, char *title);
 
 /**
@@ -3068,7 +3068,7 @@ getcontroltitle(ControlRef theControl, char *title);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 setcontroltitle(ControlRef theControl, const char *title);
 
 /**
@@ -3079,7 +3079,7 @@ setcontroltitle(ControlRef theControl, const char *title);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 trackcontrol(ControlRef theControl, Point *thePoint,
              ControlActionUPP actionProc);
 
@@ -3091,7 +3091,7 @@ trackcontrol(ControlRef theControl, Point *thePoint,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 testcontrol(ControlRef theControl, Point *thePt);
 
 #endif /* CALL_NOT_IN_CARBON */

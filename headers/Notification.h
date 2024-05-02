@@ -131,7 +131,7 @@ struct NMRec {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(NMUPP)
+NMUPP
 NewNMUPP(NMProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppNMProcInfo = 0x000000C0 }; /** pascal no_return_value Func(4_bytes) */
@@ -155,7 +155,7 @@ inline NMUPP NewNMUPP(NMProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeNMUPP(NMUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -175,7 +175,7 @@ inline void DisposeNMUPP(NMUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

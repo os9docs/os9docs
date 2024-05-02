@@ -136,7 +136,7 @@ typedef InterruptServiceIDType *InterruptServiceIDPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 VSLNewInterruptService(RegEntryID *serviceDevice,
                        InterruptServiceType serviceType,
                        InterruptServiceIDPtr serviceID);
@@ -149,7 +149,7 @@ VSLNewInterruptService(RegEntryID *serviceDevice,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 VSLWaitOnInterruptService(InterruptServiceIDType serviceID, Duration timeout);
 
 /**
@@ -160,7 +160,7 @@ VSLWaitOnInterruptService(InterruptServiceIDType serviceID, Duration timeout);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 VSLDisposeInterruptService(InterruptServiceIDType serviceID);
 
 /**
@@ -171,7 +171,7 @@ VSLDisposeInterruptService(InterruptServiceIDType serviceID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 VSLDoInterruptService(InterruptServiceIDType serviceID);
 
 /**
@@ -182,7 +182,7 @@ VSLDoInterruptService(InterruptServiceIDType serviceID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 VSLPrepareCursorForHardwareCursor(
     void *cursorRef, HardwareCursorDescriptorPtr hardwareDescriptor,
     HardwareCursorInfoPtr hwCursorInfo);
@@ -195,7 +195,7 @@ VSLPrepareCursorForHardwareCursor(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 VSLSetDisplayConfiguration(RegEntryID *device, RegPropertyName *propertyName,
                            void *configData, long configDataSize);
 

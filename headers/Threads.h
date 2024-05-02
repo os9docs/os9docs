@@ -133,7 +133,7 @@ typedef TVECTOR_UPP_TYPE(DebuggerThreadSchedulerProcPtr)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThreadEntryUPP)
+ThreadEntryUPP
 NewThreadEntryUPP(ThreadEntryProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppThreadEntryProcInfo = 0x000000F0 }; /* pascal 4_bytes Func(4_bytes) */
@@ -154,7 +154,7 @@ inline ThreadEntryUPP NewThreadEntryUPP(ThreadEntryProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThreadSchedulerUPP)
+ThreadSchedulerUPP
 NewThreadSchedulerUPP(ThreadSchedulerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -178,7 +178,7 @@ NewThreadSchedulerUPP(ThreadSchedulerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThreadSwitchUPP)
+ThreadSwitchUPP
 NewThreadSwitchUPP(ThreadSwitchProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -201,7 +201,7 @@ inline ThreadSwitchUPP NewThreadSwitchUPP(ThreadSwitchProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThreadTerminationUPP)
+ThreadTerminationUPP
 NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -225,7 +225,7 @@ NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DebuggerNewThreadUPP)
+DebuggerNewThreadUPP
 NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -249,7 +249,7 @@ NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DebuggerDisposeThreadUPP)
+DebuggerDisposeThreadUPP
 NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -273,7 +273,7 @@ NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DebuggerThreadSchedulerUPP)
+DebuggerThreadSchedulerUPP
 NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -297,7 +297,7 @@ NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThreadEntryUPP(ThreadEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -315,7 +315,7 @@ inline void DisposeThreadEntryUPP(ThreadEntryUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThreadSchedulerUPP(ThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -333,7 +333,7 @@ inline void DisposeThreadSchedulerUPP(ThreadSchedulerUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThreadSwitchUPP(ThreadSwitchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -351,7 +351,7 @@ inline void DisposeThreadSwitchUPP(ThreadSwitchUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThreadTerminationUPP(ThreadTerminationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -369,7 +369,7 @@ inline void DisposeThreadTerminationUPP(ThreadTerminationUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDebuggerNewThreadUPP(DebuggerNewThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -387,7 +387,7 @@ inline void DisposeDebuggerNewThreadUPP(DebuggerNewThreadUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDebuggerDisposeThreadUPP(DebuggerDisposeThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -405,7 +405,7 @@ inline void DisposeDebuggerDisposeThreadUPP(DebuggerDisposeThreadUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -423,7 +423,7 @@ inline void DisposeDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(voidPtr)
+voidPtr
 InvokeThreadEntryUPP(void *threadParam, ThreadEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -443,7 +443,7 @@ inline voidPtr InvokeThreadEntryUPP(void *threadParam, ThreadEntryUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThreadID)
+ThreadID
 InvokeThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
                          ThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -466,7 +466,7 @@ inline ThreadID InvokeThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeThreadSwitchUPP(ThreadID threadBeingSwitched, void *switchProcParam,
                       ThreadSwitchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -490,7 +490,7 @@ inline void InvokeThreadSwitchUPP(ThreadID threadBeingSwitched,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeThreadTerminationUPP(ThreadID threadTerminated,
                            void *terminationProcParam,
                            ThreadTerminationUPP userUPP);
@@ -516,7 +516,7 @@ inline void InvokeThreadTerminationUPP(ThreadID threadTerminated,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDebuggerNewThreadUPP(ThreadID threadCreated,
                            DebuggerNewThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -539,7 +539,7 @@ inline void InvokeDebuggerNewThreadUPP(ThreadID threadCreated,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDebuggerDisposeThreadUPP(ThreadID threadDeleted,
                                DebuggerDisposeThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -562,7 +562,7 @@ inline void InvokeDebuggerDisposeThreadUPP(ThreadID threadDeleted,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThreadID)
+ThreadID
 InvokeDebuggerThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
                                  DebuggerThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES

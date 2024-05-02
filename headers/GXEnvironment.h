@@ -86,7 +86,7 @@ typedef STACK_UPP_TYPE(gxPollingHandlerProcPtr) gxPollingHandlerUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPollingHandlerUPP)
+gxPollingHandlerUPP
 NewgxPollingHandlerUPP(gxPollingHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -115,7 +115,7 @@ NewgxPollingHandlerUPP(gxPollingHandlerProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxPollingHandlerUPP(gxPollingHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -135,7 +135,7 @@ inline void DisposegxPollingHandlerUPP(gxPollingHandlerUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokegxPollingHandlerUPP(long reference, gxPollingHandlerFlags flags,
                           gxPollingHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -171,7 +171,7 @@ inline void InvokegxPollingHandlerUPP(long reference,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPollingHandlerUPP)
+gxPollingHandlerUPP
 GXGetGraphicsPollingHandler(long *reference)
     THREEWORDINLINE(0x303C, 0x0245, 0xA832);
 
@@ -183,7 +183,7 @@ GXGetGraphicsPollingHandler(long *reference)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetGraphicsPollingHandler(gxPollingHandlerUPP handler, long reference)
     THREEWORDINLINE(0x303C, 0x0246, 0xA832);
 
@@ -242,7 +242,7 @@ typedef struct gxQuickDrawPict gxQuickDrawPict;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewPort)
+gxViewPort
 GXNewWindowViewPort(WindowRef qdWindow) THREEWORDINLINE(0x303C, 0x0236, 0xA832);
 
 /**
@@ -253,7 +253,7 @@ GXNewWindowViewPort(WindowRef qdWindow) THREEWORDINLINE(0x303C, 0x0236, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewPort)
+gxViewPort
 GXGetWindowViewPort(WindowRef qdWindow) THREEWORDINLINE(0x303C, 0x0237, 0xA832);
 
 /**
@@ -264,7 +264,7 @@ GXGetWindowViewPort(WindowRef qdWindow) THREEWORDINLINE(0x303C, 0x0237, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(WindowRef)
+WindowRef
 GXGetViewPortWindow(gxViewPort portOrder)
     THREEWORDINLINE(0x303C, 0x0238, 0xA832);
 
@@ -277,7 +277,7 @@ GXGetViewPortWindow(gxViewPort portOrder)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(GDHandle)
+GDHandle
 GXGetViewDeviceGDevice(gxViewDevice theDevice)
     THREEWORDINLINE(0x303C, 0x0239, 0xA832);
 
@@ -289,7 +289,7 @@ GXGetViewDeviceGDevice(gxViewDevice theDevice)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewDevice)
+gxViewDevice
 GXGetGDeviceViewDevice(GDHandle qdGDevice)
     THREEWORDINLINE(0x303C, 0x023A, 0xA832);
 
@@ -302,7 +302,7 @@ GXGetGDeviceViewDevice(GDHandle qdGDevice)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXConvertQDPoint(const Point *shortPt, gxViewPort portOrder, gxPoint *fixedPt)
     THREEWORDINLINE(0x303C, 0x023B, 0xA832);
 
@@ -328,7 +328,7 @@ typedef STACK_UPP_TYPE(gxConvertQDFontProcPtr) gxConvertQDFontUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapeSpoolUPP)
+gxShapeSpoolUPP
 NewgxShapeSpoolUPP(gxShapeSpoolProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -356,7 +356,7 @@ inline gxShapeSpoolUPP NewgxShapeSpoolUPP(gxShapeSpoolProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserViewPortFilterUPP)
+gxUserViewPortFilterUPP
 NewgxUserViewPortFilterUPP(gxUserViewPortFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -385,7 +385,7 @@ NewgxUserViewPortFilterUPP(gxUserViewPortFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxConvertQDFontUPP)
+gxConvertQDFontUPP
 NewgxConvertQDFontUPP(gxConvertQDFontProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -414,7 +414,7 @@ NewgxConvertQDFontUPP(gxConvertQDFontProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxShapeSpoolUPP(gxShapeSpoolUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -434,7 +434,7 @@ inline void DisposegxShapeSpoolUPP(gxShapeSpoolUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxUserViewPortFilterUPP(gxUserViewPortFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -455,7 +455,7 @@ inline void DisposegxUserViewPortFilterUPP(gxUserViewPortFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxConvertQDFontUPP(gxConvertQDFontUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -475,7 +475,7 @@ inline void DisposegxConvertQDFontUPP(gxConvertQDFontUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokegxShapeSpoolUPP(gxShape toSpool, long refCon, gxShapeSpoolUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -499,7 +499,7 @@ inline OSErr InvokegxShapeSpoolUPP(gxShape toSpool, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokegxUserViewPortFilterUPP(gxShape toFilter, gxViewPort portOrder,
                               long refCon, gxUserViewPortFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -525,7 +525,7 @@ inline void InvokegxUserViewPortFilterUPP(gxShape toFilter,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokegxConvertQDFontUPP(gxStyle dst, long txFont, long txFace,
                          gxConvertQDFontUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -572,7 +572,7 @@ typedef gxConvertQDFontProcPtr gxConvertQDFontFunction;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetGlobalMouse(gxPoint *globalPt) THREEWORDINLINE(0x303C, 0x023C, 0xA832);
 
 /** return fixed-gxPoint local mouse (gxViewPort == 0 --> default) */
@@ -584,7 +584,7 @@ GXGetGlobalMouse(gxPoint *globalPt) THREEWORDINLINE(0x303C, 0x023C, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetViewPortMouse(gxViewPort portOrder, gxPoint *localPt)
     THREEWORDINLINE(0x303C, 0x023D, 0xA832);
 
@@ -597,7 +597,7 @@ GXGetViewPortMouse(gxViewPort portOrder, gxPoint *localPt)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserViewPortFilterUPP)
+gxUserViewPortFilterUPP
 GXGetViewPortFilter(gxViewPort portOrder, long *refCon)
     THREEWORDINLINE(0x303C, 0x025E, 0xA832);
 
@@ -609,7 +609,7 @@ GXGetViewPortFilter(gxViewPort portOrder, long *refCon)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortFilter(gxViewPort portOrder, gxUserViewPortFilterUPP filter,
                     long refCon) THREEWORDINLINE(0x303C, 0x023E, 0xA832);
 
@@ -622,7 +622,7 @@ GXSetViewPortFilter(gxViewPort portOrder, gxUserViewPortFilterUPP filter,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXInstallQDTranslator(GrafPtr port, gxTranslationOption options,
                       const Rect *srcRect, const Rect *dstRect,
                       Point styleStrech, gxShapeSpoolUPP userFunction,
@@ -636,7 +636,7 @@ GXInstallQDTranslator(GrafPtr port, gxTranslationOption options,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTranslationStatistic)
+gxTranslationStatistic
 GXRemoveQDTranslator(GrafPtr port, gxTranslationStatistic *statistic)
     THREEWORDINLINE(0x303C, 0x0240, 0xA832);
 
@@ -648,7 +648,7 @@ GXRemoveQDTranslator(GrafPtr port, gxTranslationStatistic *statistic)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXConvertPICTToShape(PicHandle pict, gxTranslationOption options,
                      const Rect *srcRect, const Rect *dstRect,
                      Point styleStretch, gxShape destination,
@@ -665,7 +665,7 @@ GXConvertPICTToShape(PicHandle pict, gxTranslationOption options,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXConvertQDFont(gxStyle theStyle, long txFont, long txFace)
     THREEWORDINLINE(0x303C, 0x0242, 0xA832);
 
@@ -677,7 +677,7 @@ GXConvertQDFont(gxStyle theStyle, long txFont, long txFace)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxConvertQDFontUPP)
+gxConvertQDFontUPP
 GXGetConvertQDFont(void) THREEWORDINLINE(0x303C, 0x0243, 0xA832);
 
 /**
@@ -688,7 +688,7 @@ GXGetConvertQDFont(void) THREEWORDINLINE(0x303C, 0x0243, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetConvertQDFont(gxConvertQDFontUPP userFunction)
     THREEWORDINLINE(0x303C, 0x0244, 0xA832);
 

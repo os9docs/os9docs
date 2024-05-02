@@ -166,7 +166,7 @@ typedef struct TQ3ViewAngleAspectCameraData TQ3ViewAngleAspectCameraData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Camera_GetType(TQ3CameraObject camera);
 
 /**
@@ -177,7 +177,7 @@ Q3Camera_GetType(TQ3CameraObject camera);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_SetData(TQ3CameraObject camera, const TQ3CameraData *cameraData);
 
 /**
@@ -188,7 +188,7 @@ Q3Camera_SetData(TQ3CameraObject camera, const TQ3CameraData *cameraData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_GetData(TQ3CameraObject camera, TQ3CameraData *cameraData);
 
 /**
@@ -199,7 +199,7 @@ Q3Camera_GetData(TQ3CameraObject camera, TQ3CameraData *cameraData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_SetPlacement(TQ3CameraObject camera,
                       const TQ3CameraPlacement *placement);
 
@@ -211,7 +211,7 @@ Q3Camera_SetPlacement(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_GetPlacement(TQ3CameraObject camera, TQ3CameraPlacement *placement);
 
 /**
@@ -222,7 +222,7 @@ Q3Camera_GetPlacement(TQ3CameraObject camera, TQ3CameraPlacement *placement);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_SetRange(TQ3CameraObject camera, const TQ3CameraRange *range);
 
 /**
@@ -233,7 +233,7 @@ Q3Camera_SetRange(TQ3CameraObject camera, const TQ3CameraRange *range);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_GetRange(TQ3CameraObject camera, TQ3CameraRange *range);
 
 /**
@@ -244,7 +244,7 @@ Q3Camera_GetRange(TQ3CameraObject camera, TQ3CameraRange *range);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_SetViewPort(TQ3CameraObject camera, const TQ3CameraViewPort *viewPort);
 
 /**
@@ -255,7 +255,7 @@ Q3Camera_SetViewPort(TQ3CameraObject camera, const TQ3CameraViewPort *viewPort);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_GetViewPort(TQ3CameraObject camera, TQ3CameraViewPort *viewPort);
 
 /**
@@ -266,7 +266,7 @@ Q3Camera_GetViewPort(TQ3CameraObject camera, TQ3CameraViewPort *viewPort);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_GetWorldToView(TQ3CameraObject camera, TQ3Matrix4x4 *worldToView);
 
 /**
@@ -277,7 +277,7 @@ Q3Camera_GetWorldToView(TQ3CameraObject camera, TQ3Matrix4x4 *worldToView);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_GetWorldToFrustum(TQ3CameraObject camera,
                            TQ3Matrix4x4 *worldToFrustum);
 
@@ -289,7 +289,7 @@ Q3Camera_GetWorldToFrustum(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Camera_GetViewToFrustum(TQ3CameraObject camera, TQ3Matrix4x4 *viewToFrustum);
 
 /******************************************************************************
@@ -310,7 +310,7 @@ Q3Camera_GetViewToFrustum(TQ3CameraObject camera, TQ3Matrix4x4 *viewToFrustum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3CameraObject)
+TQ3CameraObject
 Q3OrthographicCamera_New(const TQ3OrthographicCameraData *orthographicData);
 
 /**
@@ -321,7 +321,7 @@ Q3OrthographicCamera_New(const TQ3OrthographicCameraData *orthographicData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_GetData(TQ3CameraObject camera,
                              TQ3OrthographicCameraData *cameraData);
 
@@ -333,7 +333,7 @@ Q3OrthographicCamera_GetData(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_SetData(TQ3CameraObject camera,
                              const TQ3OrthographicCameraData *cameraData);
 
@@ -345,7 +345,7 @@ Q3OrthographicCamera_SetData(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_SetLeft(TQ3CameraObject camera, float left);
 
 /**
@@ -356,7 +356,7 @@ Q3OrthographicCamera_SetLeft(TQ3CameraObject camera, float left);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_GetLeft(TQ3CameraObject camera, float *left);
 
 /**
@@ -367,7 +367,7 @@ Q3OrthographicCamera_GetLeft(TQ3CameraObject camera, float *left);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_SetTop(TQ3CameraObject camera, float top);
 
 /**
@@ -378,7 +378,7 @@ Q3OrthographicCamera_SetTop(TQ3CameraObject camera, float top);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_GetTop(TQ3CameraObject camera, float *top);
 
 /**
@@ -389,7 +389,7 @@ Q3OrthographicCamera_GetTop(TQ3CameraObject camera, float *top);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_SetRight(TQ3CameraObject camera, float right);
 
 /**
@@ -400,7 +400,7 @@ Q3OrthographicCamera_SetRight(TQ3CameraObject camera, float right);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_GetRight(TQ3CameraObject camera, float *right);
 
 /**
@@ -411,7 +411,7 @@ Q3OrthographicCamera_GetRight(TQ3CameraObject camera, float *right);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_SetBottom(TQ3CameraObject camera, float bottom);
 
 /**
@@ -422,7 +422,7 @@ Q3OrthographicCamera_SetBottom(TQ3CameraObject camera, float bottom);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3OrthographicCamera_GetBottom(TQ3CameraObject camera, float *bottom);
 
 /******************************************************************************
@@ -438,7 +438,7 @@ Q3OrthographicCamera_GetBottom(TQ3CameraObject camera, float *bottom);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3CameraObject)
+TQ3CameraObject
 Q3ViewPlaneCamera_New(const TQ3ViewPlaneCameraData *cameraData);
 
 /**
@@ -449,7 +449,7 @@ Q3ViewPlaneCamera_New(const TQ3ViewPlaneCameraData *cameraData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_GetData(TQ3CameraObject camera,
                           TQ3ViewPlaneCameraData *cameraData);
 
@@ -461,7 +461,7 @@ Q3ViewPlaneCamera_GetData(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_SetData(TQ3CameraObject camera,
                           const TQ3ViewPlaneCameraData *cameraData);
 
@@ -473,7 +473,7 @@ Q3ViewPlaneCamera_SetData(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_SetViewPlane(TQ3CameraObject camera, float viewPlane);
 
 /**
@@ -484,7 +484,7 @@ Q3ViewPlaneCamera_SetViewPlane(TQ3CameraObject camera, float viewPlane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_GetViewPlane(TQ3CameraObject camera, float *viewPlane);
 
 /**
@@ -495,7 +495,7 @@ Q3ViewPlaneCamera_GetViewPlane(TQ3CameraObject camera, float *viewPlane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_SetHalfWidth(TQ3CameraObject camera,
                                float halfWidthAtViewPlane);
 
@@ -507,7 +507,7 @@ Q3ViewPlaneCamera_SetHalfWidth(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_GetHalfWidth(TQ3CameraObject camera,
                                float *halfWidthAtViewPlane);
 
@@ -519,7 +519,7 @@ Q3ViewPlaneCamera_GetHalfWidth(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_SetHalfHeight(TQ3CameraObject camera,
                                 float halfHeightAtViewPlane);
 
@@ -531,7 +531,7 @@ Q3ViewPlaneCamera_SetHalfHeight(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_GetHalfHeight(TQ3CameraObject camera,
                                 float *halfHeightAtViewPlane);
 
@@ -543,7 +543,7 @@ Q3ViewPlaneCamera_GetHalfHeight(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_SetCenterX(TQ3CameraObject camera, float centerXOnViewPlane);
 
 /**
@@ -554,7 +554,7 @@ Q3ViewPlaneCamera_SetCenterX(TQ3CameraObject camera, float centerXOnViewPlane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_GetCenterX(TQ3CameraObject camera, float *centerXOnViewPlane);
 
 /**
@@ -565,7 +565,7 @@ Q3ViewPlaneCamera_GetCenterX(TQ3CameraObject camera, float *centerXOnViewPlane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_SetCenterY(TQ3CameraObject camera, float centerYOnViewPlane);
 
 /**
@@ -576,7 +576,7 @@ Q3ViewPlaneCamera_SetCenterY(TQ3CameraObject camera, float centerYOnViewPlane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewPlaneCamera_GetCenterY(TQ3CameraObject camera, float *centerYOnViewPlane);
 
 /******************************************************************************
@@ -592,7 +592,7 @@ Q3ViewPlaneCamera_GetCenterY(TQ3CameraObject camera, float *centerYOnViewPlane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3CameraObject)
+TQ3CameraObject
 Q3ViewAngleAspectCamera_New(const TQ3ViewAngleAspectCameraData *cameraData);
 
 /**
@@ -603,7 +603,7 @@ Q3ViewAngleAspectCamera_New(const TQ3ViewAngleAspectCameraData *cameraData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewAngleAspectCamera_SetData(TQ3CameraObject camera,
                                 const TQ3ViewAngleAspectCameraData *cameraData);
 
@@ -615,7 +615,7 @@ Q3ViewAngleAspectCamera_SetData(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewAngleAspectCamera_GetData(TQ3CameraObject camera,
                                 TQ3ViewAngleAspectCameraData *cameraData);
 
@@ -627,7 +627,7 @@ Q3ViewAngleAspectCamera_GetData(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewAngleAspectCamera_SetFOV(TQ3CameraObject camera, float fov);
 
 /**
@@ -638,7 +638,7 @@ Q3ViewAngleAspectCamera_SetFOV(TQ3CameraObject camera, float fov);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewAngleAspectCamera_GetFOV(TQ3CameraObject camera, float *fov);
 
 /**
@@ -649,7 +649,7 @@ Q3ViewAngleAspectCamera_GetFOV(TQ3CameraObject camera, float *fov);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewAngleAspectCamera_SetAspectRatio(TQ3CameraObject camera,
                                        float aspectRatioXToY);
 
@@ -661,7 +661,7 @@ Q3ViewAngleAspectCamera_SetAspectRatio(TQ3CameraObject camera,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ViewAngleAspectCamera_GetAspectRatio(TQ3CameraObject camera,
                                        float *aspectRatioXToY);
 

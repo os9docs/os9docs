@@ -492,7 +492,7 @@ IDHGetDeviceTime(ComponentInstance idh, TimeRecord *deviceTime)
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IDHNotificationUPP)
+IDHNotificationUPP
 NewIDHNotificationUPP(IDHNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -516,7 +516,7 @@ NewIDHNotificationUPP(IDHNotificationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIDHNotificationUPP(IDHNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -534,7 +534,7 @@ inline void DisposeIDHNotificationUPP(IDHNotificationUPP) {}
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeIDHNotificationUPP(IDHGenericEvent *event, void *userData,
                          IDHNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES

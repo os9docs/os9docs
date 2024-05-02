@@ -66,7 +66,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGContextRef)
+CGContextRef
 CGBitmapContextCreate(void *data, size_t width, size_t height,
                       size_t bitsPerComponent, size_t bytesPerRow,
                       CGColorSpaceRef colorspace, CGImageAlphaInfo alphaInfo);

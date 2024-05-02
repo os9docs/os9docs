@@ -771,7 +771,7 @@ ResolveDefaultTextEncoding(TextEncoding encoding);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetTextEncodingName(TextEncoding iEncoding,
                     TextEncodingNameSelector iNamePartSelector,
                     RegionCode iPreferredRegion,
@@ -841,7 +841,7 @@ NearestMacTextEncodings(TextEncoding generalEncoding,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCGetCharProperty(const UniChar *charPtr, UniCharCount textLength,
                   UCCharPropertyType propType, UCCharPropertyValue *propValue);
 

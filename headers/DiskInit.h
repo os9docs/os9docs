@@ -211,7 +211,7 @@ DIReformat(short drvNum, short fsid, ConstStr255Param volName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 dibadmount(Point *where, long evtMessage);
 
 /**
@@ -222,7 +222,7 @@ dibadmount(Point *where, long evtMessage);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 dizero(short drvnum, const char *volName);
 
 #endif /** CALL_NOT_IN_CARBON */

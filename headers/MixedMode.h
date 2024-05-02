@@ -364,7 +364,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UniversalProcPtr)
+UniversalProcPtr
 NewRoutineDescriptor(ProcPtr theProc, ProcInfoType theProcInfo, ISAType theISA);
 #if !TARGET_OS_MAC || !TARGET_RT_MAC_CFM
 #ifdef __cplusplus
@@ -386,7 +386,7 @@ inline UniversalProcPtr NewRoutineDescriptor(ProcPtr theProc, ProcInfoType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeRoutineDescriptor(UniversalProcPtr theUPP);
 #if !TARGET_OS_MAC || !TARGET_RT_MAC_CFM
 #ifdef __cplusplus
@@ -475,7 +475,7 @@ NewFatRoutineDescriptorTrap(ProcPtr theM68kProc, ProcPtr thePowerPCProc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 CallUniversalProc(UniversalProcPtr theProcPtr, ProcInfoType procInfo, ...);
 
 /**
@@ -486,7 +486,7 @@ CallUniversalProc(UniversalProcPtr theProcPtr, ProcInfoType procInfo, ...);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 CallOSTrapUniversalProc(UniversalProcPtr theProcPtr, ProcInfoType procInfo,
                         ...);
 

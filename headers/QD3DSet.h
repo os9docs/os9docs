@@ -72,7 +72,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3SetObject)
+TQ3SetObject
 Q3Set_New(void);
 
 /**
@@ -83,7 +83,7 @@ Q3Set_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3Set_GetType(TQ3SetObject theSet);
 
 /**
@@ -94,7 +94,7 @@ Q3Set_GetType(TQ3SetObject theSet);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Set_Add(TQ3SetObject theSet, TQ3ElementType theType, const void *data);
 
 /**
@@ -105,7 +105,7 @@ Q3Set_Add(TQ3SetObject theSet, TQ3ElementType theType, const void *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Set_Get(TQ3SetObject theSet, TQ3ElementType theType, void *data);
 
 /**
@@ -116,7 +116,7 @@ Q3Set_Get(TQ3SetObject theSet, TQ3ElementType theType, void *data);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3Set_Contains(TQ3SetObject theSet, TQ3ElementType theType);
 
 /**
@@ -127,7 +127,7 @@ Q3Set_Contains(TQ3SetObject theSet, TQ3ElementType theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Set_Clear(TQ3SetObject theSet, TQ3ElementType theType);
 
 /**
@@ -138,7 +138,7 @@ Q3Set_Clear(TQ3SetObject theSet, TQ3ElementType theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Set_Empty(TQ3SetObject target);
 
 /**
@@ -155,7 +155,7 @@ Q3Set_Empty(TQ3SetObject target);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Set_GetNextElementType(TQ3SetObject theSet, TQ3ElementType *theType);
 
 /******************************************************************************
@@ -205,7 +205,7 @@ typedef TQ3ElementType TQ3AttributeType;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Attribute_Submit(TQ3AttributeType attributeType, const void *data,
                    TQ3ViewObject view);
 
@@ -222,7 +222,7 @@ Q3Attribute_Submit(TQ3AttributeType attributeType, const void *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3AttributeSet)
+TQ3AttributeSet
 Q3AttributeSet_New(void);
 
 /**
@@ -233,7 +233,7 @@ Q3AttributeSet_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AttributeSet_Add(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
                    const void *data);
 
@@ -245,7 +245,7 @@ Q3AttributeSet_Add(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Boolean)
+TQ3Boolean
 Q3AttributeSet_Contains(TQ3AttributeSet attributeSet,
                         TQ3AttributeType attributeType);
 
@@ -257,7 +257,7 @@ Q3AttributeSet_Contains(TQ3AttributeSet attributeSet,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AttributeSet_Get(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
                    void *data);
 
@@ -269,7 +269,7 @@ Q3AttributeSet_Get(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AttributeSet_Clear(TQ3AttributeSet attributeSet, TQ3AttributeType theType);
 
 /**
@@ -280,7 +280,7 @@ Q3AttributeSet_Clear(TQ3AttributeSet attributeSet, TQ3AttributeType theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AttributeSet_Empty(TQ3AttributeSet target);
 
 /**
@@ -297,7 +297,7 @@ Q3AttributeSet_Empty(TQ3AttributeSet target);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AttributeSet_GetNextAttributeType(TQ3AttributeSet source,
                                     TQ3AttributeType *theType);
 
@@ -309,7 +309,7 @@ Q3AttributeSet_GetNextAttributeType(TQ3AttributeSet source,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AttributeSet_Submit(TQ3AttributeSet attributeSet, TQ3ViewObject view);
 
 /**
@@ -325,7 +325,7 @@ Q3AttributeSet_Submit(TQ3AttributeSet attributeSet, TQ3ViewObject view);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3AttributeSet_Inherit(TQ3AttributeSet parent, TQ3AttributeSet child,
                        TQ3AttributeSet result);
 
@@ -404,7 +404,7 @@ typedef CALLBACK_API_C(TQ3Status,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3XObjectClass)
+TQ3XObjectClass
 Q3XElementClass_Register(TQ3ElementType *elementType, const char *name,
                          unsigned long sizeOfElement,
                          TQ3XMetaHandler metaHandler);
@@ -417,7 +417,7 @@ Q3XElementClass_Register(TQ3ElementType *elementType, const char *name,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XElementType_GetElementSize(TQ3ElementType elementType,
                               unsigned long *sizeOfElement);
 
@@ -443,7 +443,7 @@ typedef CALLBACK_API_C(TQ3Status, TQ3XAttributeCopyInheritMethod)(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3XObjectClass)
+TQ3XObjectClass
 Q3XAttributeClass_Register(TQ3AttributeType *attributeType,
                            const char *creatorName, unsigned long sizeOfElement,
                            TQ3XMetaHandler metaHandler);

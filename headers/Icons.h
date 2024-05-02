@@ -360,7 +360,7 @@ typedef STACK_UPP_TYPE(IconGetterProcPtr) IconGetterUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(IconActionUPP)
+IconActionUPP
 NewIconActionUPP(IconActionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -386,7 +386,7 @@ inline IconActionUPP NewIconActionUPP(IconActionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(IconGetterUPP)
+IconGetterUPP
 NewIconGetterUPP(IconGetterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -412,7 +412,7 @@ inline IconGetterUPP NewIconGetterUPP(IconGetterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeIconActionUPP(IconActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -432,7 +432,7 @@ inline void DisposeIconActionUPP(IconActionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeIconGetterUPP(IconGetterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -452,7 +452,7 @@ inline void DisposeIconGetterUPP(IconGetterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeIconActionUPP(ResType theType, Handle *theIcon, void *yourDataPtr,
                     IconActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -477,7 +477,7 @@ inline OSErr InvokeIconActionUPP(ResType theType, Handle *theIcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Handle)
+Handle
 InvokeIconGetterUPP(ResType theType, void *yourDataPtr, IconGetterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

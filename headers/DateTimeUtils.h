@@ -764,7 +764,7 @@ IULTimeString(LongDateTime *dateTime, Boolean wantSeconds, Str255 result,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 iudatestring(long dateTime, DateForm longFlag, char *result);
 
 /**
@@ -775,7 +775,7 @@ iudatestring(long dateTime, DateForm longFlag, char *result);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 iudatepstring(long dateTime, DateForm longFlag, char *result,
               Handle intlHandle);
 
@@ -787,7 +787,7 @@ iudatepstring(long dateTime, DateForm longFlag, char *result,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 iutimestring(long dateTime, Boolean wantSeconds, char *result);
 
 /**
@@ -798,7 +798,7 @@ iutimestring(long dateTime, Boolean wantSeconds, char *result);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 iutimepstring(long dateTime, Boolean wantSeconds, char *result,
               Handle intlHandle);
 
@@ -810,7 +810,7 @@ iutimepstring(long dateTime, Boolean wantSeconds, char *result,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 iuldatestring(LongDateTime *dateTime, DateForm longFlag, char *result,
               Handle intlHandle);
 
@@ -822,7 +822,7 @@ iuldatestring(LongDateTime *dateTime, DateForm longFlag, char *result,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 iultimestring(LongDateTime *dateTime, Boolean wantSeconds, char *result,
               Handle intlHandle);
 

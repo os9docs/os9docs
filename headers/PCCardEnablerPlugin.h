@@ -78,7 +78,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSGetCardServicesInfo(UInt32 *socketCount, UInt32 *complianceLevel,
                       UInt32 *version);
 
@@ -92,7 +92,7 @@ CSGetCardServicesInfo(UInt32 *socketCount, UInt32 *complianceLevel,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSGetFirstTuple(PCCardSocket socket, UInt32 device,
                 PCCardTupleIterator tupleIterator, Byte desiredTuple,
                 void *tupleData, ByteCount *tupleBufferSize, Byte *foundTuple);
@@ -105,7 +105,7 @@ CSGetFirstTuple(PCCardSocket socket, UInt32 device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSGetNextTuple(PCCardTupleIterator tupleIterator, Byte desiredTuple,
                void *tupleData, ByteCount *tupleBufferSize, Byte *foundTuple);
 
@@ -119,7 +119,7 @@ CSGetNextTuple(PCCardTupleIterator tupleIterator, Byte desiredTuple,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSRequestWindow(PCCardSocket vSocket, UInt32 device,
                 PCCardWindowAttributes windowAttributes,
                 PCCardAccessSpeed windowSpeed, LogicalAddress *windowBase,
@@ -134,7 +134,7 @@ CSRequestWindow(PCCardSocket vSocket, UInt32 device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSReleaseWindow(PCCardWindowID windowToRelease);
 
 /**
@@ -145,7 +145,7 @@ CSReleaseWindow(PCCardWindowID windowToRelease);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSModifyWindow(PCCardWindowID windowToModify, PCCardWindowType windowAttributes,
                PCCardAccessSpeed memorySpeed, PCCardWindowOffset *windowOffset);
 
@@ -157,7 +157,7 @@ CSModifyWindow(PCCardWindowID windowToModify, PCCardWindowType windowAttributes,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSGetWindowBaseAddress(PCCardWindowID window, LogicalAddress *baseAddress);
 
 /**
@@ -168,7 +168,7 @@ CSGetWindowBaseAddress(PCCardWindowID window, LogicalAddress *baseAddress);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSInquireWindow(PCCardSocket vSocket, UInt32 device, PCCardWindowID windowID,
                 PCCardWindowAttributes *windowAttributes,
                 PCCardAccessSpeed *windowParam, UInt32 *windowBase,
@@ -184,7 +184,7 @@ CSInquireWindow(PCCardSocket vSocket, UInt32 device, PCCardWindowID windowID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSValidateCIS(PCCardSocket vSocket, UInt32 device, UInt32 *cisChainCount);
 
 /**
@@ -195,7 +195,7 @@ CSValidateCIS(PCCardSocket vSocket, UInt32 device, UInt32 *cisChainCount);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSGetDeviceCount(PCCardSocket vSocket, UInt32 *deviceCount);
 
 /* Function prototypes for Status calls*/
@@ -208,7 +208,7 @@ CSGetDeviceCount(PCCardSocket vSocket, UInt32 *deviceCount);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSGetStatus(PCCardSocket vSocket, UInt32 *currentState, UInt32 *changedState,
             PCCardVoltage *Vcc, PCCardVoltage *Vpp);
 
@@ -222,7 +222,7 @@ CSGetStatus(PCCardSocket vSocket, UInt32 *currentState, UInt32 *changedState,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSRequestConfiguration(PCCardSocket vSocket, UInt32 device,
                        PCCardConfigOptions configOptions,
                        PCCardInterfaceType socketInterface,
@@ -240,7 +240,7 @@ CSRequestConfiguration(PCCardSocket vSocket, UInt32 device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSModifyConfiguration(PCCardSocket vSocket, UInt32 device,
                       PCCardConfigOptions modifyAttributes, PCCardIRQ IRQ,
                       PCCardDMA DMA, PCCardVoltage Vpp);
@@ -253,7 +253,7 @@ CSModifyConfiguration(PCCardSocket vSocket, UInt32 device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSReleaseConfiguration(PCCardSocket vSocket, UInt32 device);
 
 /**
@@ -264,7 +264,7 @@ CSReleaseConfiguration(PCCardSocket vSocket, UInt32 device);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSSetRingIndicate(PCCardSocket vSocket, Boolean setRingIndicate);
 
 /**
@@ -275,7 +275,7 @@ CSSetRingIndicate(PCCardSocket vSocket, Boolean setRingIndicate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSResetFunction(PCCardSocket vSocket, UInt32 device);
 
 /**
@@ -286,7 +286,7 @@ CSResetFunction(PCCardSocket vSocket, UInt32 device);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSReadConfigurationRegister(PCCardSocket vSocket, UInt32 device,
                             PCCardConfigPresentMask whichRegister,
                             UInt32 configRegBaseAddress, UInt8 *registerValue);
@@ -299,7 +299,7 @@ CSReadConfigurationRegister(PCCardSocket vSocket, UInt32 device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSWriteConfigurationRegister(PCCardSocket vSocket, UInt32 device,
                              PCCardConfigPresentMask whichRegister,
                              UInt32 configRegBaseAddress, UInt8 registerValue);
@@ -313,7 +313,7 @@ CSWriteConfigurationRegister(PCCardSocket vSocket, UInt32 device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSRegisterClient(PCCardSocket vSocket, PCCardEventMask eventMask,
                  PCCardEventHandler clientCallBack, void *clientParam,
                  PCCardClientID *newClientID);
@@ -326,7 +326,7 @@ CSRegisterClient(PCCardSocket vSocket, PCCardEventMask eventMask,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSDeRegisterClient(PCCardClientID theClientID);
 
 /**
@@ -337,7 +337,7 @@ CSDeRegisterClient(PCCardClientID theClientID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSSetEventMask(PCCardClientID theClientID, PCCardEventMask newEventMask);
 
 /**
@@ -348,7 +348,7 @@ CSSetEventMask(PCCardClientID theClientID, PCCardEventMask newEventMask);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSGetEventMask(PCCardClientID theClientID, PCCardEventMask *newEventMask);
 
 /**
@@ -359,7 +359,7 @@ CSGetEventMask(PCCardClientID theClientID, PCCardEventMask *newEventMask);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSRegisterTimer(PCCardClientID registeredClientID, PCCardTimerID *lpNewTimerID,
                 long delay);
 
@@ -371,7 +371,7 @@ CSRegisterTimer(PCCardClientID registeredClientID, PCCardTimerID *lpNewTimerID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSDeRegisterTimer(PCCardTimerID timerID);
 
 /* Function prototypes for CardBus Config Space access*/
@@ -383,7 +383,7 @@ CSDeRegisterTimer(PCCardTimerID timerID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSReadCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
                          UInt32 configOffset, Byte *data, UInt32 dataSize);
 
@@ -395,7 +395,7 @@ CSReadCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CSWriteCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
                           UInt32 configOffset, Byte *data, UInt32 dataSize);
 
@@ -586,7 +586,7 @@ typedef PCCardEnablerPluginDispatchTable *PCCardEnablerPluginDispatchTablePtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEInitializeCard(const RegEntryID *cardRef, Boolean replacingOld);
 
 /**
@@ -597,7 +597,7 @@ CEInitializeCard(const RegEntryID *cardRef, Boolean replacingOld);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEFinalizeCard(const RegEntryID *cardRef, Boolean beingReplaced);
 
 /**
@@ -608,7 +608,7 @@ CEFinalizeCard(const RegEntryID *cardRef, Boolean beingReplaced);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEPowerManagement(const RegEntryID *lpParentID, PCCardPowerOptions powerLevel);
 
 /**
@@ -619,7 +619,7 @@ CEPowerManagement(const RegEntryID *lpParentID, PCCardPowerOptions powerLevel);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEHandleCardEvent(const RegEntryID *cardRef, PCCardEvent lTheCardEvent);
 
 /**
@@ -630,7 +630,7 @@ CEHandleCardEvent(const RegEntryID *cardRef, PCCardEvent lTheCardEvent);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetCardInfo(const RegEntryID *cardRef, PCCardDevType *cardType,
               PCCardSubType *cardSubType, StringPtr cardName,
               StringPtr vendorName);
@@ -643,7 +643,7 @@ CEGetCardInfo(const RegEntryID *cardRef, PCCardDevType *cardType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEAddCardProperties(const RegEntryID *cardRef);
 
 /**
@@ -654,7 +654,7 @@ CEAddCardProperties(const RegEntryID *cardRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetDeviceCount(const RegEntryID *cardRef, ItemCount *numberOfDevices);
 
 /* device functions*/
@@ -666,7 +666,7 @@ CEGetDeviceCount(const RegEntryID *cardRef, ItemCount *numberOfDevices);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetDeviceName(UInt32 socketNumber, UInt32 deviceNumber, char *deviceName);
 
 /**
@@ -677,7 +677,7 @@ CEGetDeviceName(UInt32 socketNumber, UInt32 deviceNumber, char *deviceName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetDeviceCompatibleNames(const RegEntryID *deviceRef, UInt32 socketNumber,
                            UInt32 deviceNumber, char *name);
 
@@ -689,7 +689,7 @@ CEGetDeviceCompatibleNames(const RegEntryID *deviceRef, UInt32 socketNumber,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetDeviceType(const RegEntryID *deviceRef, UInt32 socketNumber,
                 UInt32 deviceNumber, PCDeviceType *lpDeviceType);
 
@@ -701,7 +701,7 @@ CEGetDeviceType(const RegEntryID *deviceRef, UInt32 socketNumber,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetDeviceTypeName(const RegEntryID *deviceRef, UInt32 socketNumber,
                     UInt32 deviceNumber, char *name);
 
@@ -713,7 +713,7 @@ CEGetDeviceTypeName(const RegEntryID *deviceRef, UInt32 socketNumber,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEAddDeviceProperties(const RegEntryID *deviceRef, UInt32 deviceNumber);
 
 /**
@@ -724,7 +724,7 @@ CEAddDeviceProperties(const RegEntryID *deviceRef, UInt32 deviceNumber);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEConfigureDevice(const RegEntryID *deviceRef, UInt32 deviceNumber);
 
 /**
@@ -735,7 +735,7 @@ CEConfigureDevice(const RegEntryID *deviceRef, UInt32 deviceNumber);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEFinalizeDevice(UInt32 socket, UInt32 device, const RegEntryID *deviceRef);
 
 /*  RegEntryID <-> socket number mapping functions*/
@@ -747,7 +747,7 @@ CEFinalizeDevice(UInt32 socket, UInt32 device, const RegEntryID *deviceRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetSocketAndDeviceFromRegEntry(const RegEntryID *lpNode, UInt32 *lpSocket,
                                  UInt32 *lpDevice);
 
@@ -759,7 +759,7 @@ CEGetSocketAndDeviceFromRegEntry(const RegEntryID *lpNode, UInt32 *lpSocket,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEGetPhysicalSocketNumber(const RegEntryID *socketRef,
                           const RegEntryID *lpDeviceEntry,
                           UInt32 *lpPhysicalSocketNumber);
@@ -773,7 +773,7 @@ CEGetPhysicalSocketNumber(const RegEntryID *socketRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CECompareCISTPL_VERS_1(const RegEntryID *cardRef, Byte majorVersion,
                        Byte minorVersion, const char *manufacturer,
                        const char *productName, const char *info1,
@@ -787,7 +787,7 @@ CECompareCISTPL_VERS_1(const RegEntryID *cardRef, Byte majorVersion,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CECompareCISTPL_MANFID(const RegEntryID *cardRef, UInt16 manufacturerCode,
                        UInt16 manufacturerInfo, Boolean *identical);
 
@@ -799,7 +799,7 @@ CECompareCISTPL_MANFID(const RegEntryID *cardRef, UInt16 manufacturerCode,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CECompareMemory(const RegEntryID *cardRef, PCCardMemoryType memType,
                 ByteCount offset, ByteCount length, Byte *dataToCompare,
                 Boolean *identical);
@@ -812,7 +812,7 @@ CECompareMemory(const RegEntryID *cardRef, PCCardMemoryType memType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CEValidateCIS(UInt32 socket, UInt32 device, UInt32 *lpCISChainCount);
 
 /**
@@ -823,7 +823,7 @@ CEValidateCIS(UInt32 socket, UInt32 device, UInt32 *lpCISChainCount);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(InterruptMemberNumber)
+InterruptMemberNumber
 CEDefaultInterruptHandler(InterruptSetMember ISTmember, void *refCon,
                           UInt32 theIntCount);
 

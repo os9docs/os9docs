@@ -186,7 +186,7 @@ GetIndString(Str255 theString, short strListID, short index);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 setstring(StringHandle theString, const char *strNew);
 
 /**
@@ -197,7 +197,7 @@ setstring(StringHandle theString, const char *strNew);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(StringHandle)
+StringHandle
 newstring(const char *theString);
 
 /**
@@ -208,7 +208,7 @@ newstring(const char *theString);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getindstring(char *theString, short strListID, short index);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -417,7 +417,7 @@ UpperString(Str255 theString, Boolean diacSensitive);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 upperstring(char *theString, Boolean diacSensitive);
 
 /** The following are macros which map old names to the names exported by
@@ -471,7 +471,7 @@ UprText(Ptr textPtr, short len) ONEWORDINLINE(0xA054);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 c2pstrcpy(Str255 dst, const char *src);
 
 /**
@@ -482,7 +482,7 @@ c2pstrcpy(Str255 dst, const char *src);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 p2cstrcpy(char *dst, ConstStr255Param src);
 
 /**
@@ -493,7 +493,7 @@ p2cstrcpy(char *dst, ConstStr255Param src);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CopyPascalStringToC(ConstStr255Param src, char *dst);
 
 /**
@@ -504,7 +504,7 @@ CopyPascalStringToC(ConstStr255Param src, char *dst);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CopyCStringToPascal(const char *src, Str255 dst);
 
 #if CALL_NOT_IN_CARBON
@@ -516,7 +516,7 @@ CopyCStringToPascal(const char *src, Str255 dst);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(StringPtr)
+StringPtr
 c2pstr(char *aStr);
 
 /**
@@ -538,7 +538,7 @@ C2PStr(Ptr cString);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(char *)
+char *
 p2cstr(StringPtr aStr);
 
 /**

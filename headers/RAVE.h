@@ -1576,7 +1576,7 @@ struct TQADrawContext {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QADrawContextNew(const TQADevice *device, const TQARect *rect,
                  const TQAClip *clip, const TQAEngine *engine,
                  unsigned long flags, TQADrawContext **newDrawContext);
@@ -1589,7 +1589,7 @@ QADrawContextNew(const TQADevice *device, const TQARect *rect,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 QADrawContextDelete(TQADrawContext *drawContext);
 
 /**
@@ -1600,7 +1600,7 @@ QADrawContextDelete(TQADrawContext *drawContext);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAColorTableNew(const TQAEngine *engine, TQAColorTableType tableType,
                 void *pixelData, long transparentIndexFlag,
                 TQAColorTable **newTable);
@@ -1613,7 +1613,7 @@ QAColorTableNew(const TQAEngine *engine, TQAColorTableType tableType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 QAColorTableDelete(const TQAEngine *engine, TQAColorTable *colorTable);
 
 /**
@@ -1624,7 +1624,7 @@ QAColorTableDelete(const TQAEngine *engine, TQAColorTable *colorTable);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QATextureNew(const TQAEngine *engine, unsigned long flags,
              TQAImagePixelType pixelType, const TQAImage images[],
              TQATexture **newTexture);
@@ -1637,7 +1637,7 @@ QATextureNew(const TQAEngine *engine, unsigned long flags,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QATextureDetach(const TQAEngine *engine, TQATexture *texture);
 
 /**
@@ -1648,7 +1648,7 @@ QATextureDetach(const TQAEngine *engine, TQATexture *texture);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 QATextureDelete(const TQAEngine *engine, TQATexture *texture);
 
 /**
@@ -1659,7 +1659,7 @@ QATextureDelete(const TQAEngine *engine, TQATexture *texture);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QATextureBindColorTable(const TQAEngine *engine, TQATexture *texture,
                         TQAColorTable *colorTable);
 
@@ -1671,7 +1671,7 @@ QATextureBindColorTable(const TQAEngine *engine, TQATexture *texture,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QABitmapNew(const TQAEngine *engine, unsigned long flags,
             TQAImagePixelType pixelType, const TQAImage *image,
             TQABitmap **newBitmap);
@@ -1684,7 +1684,7 @@ QABitmapNew(const TQAEngine *engine, unsigned long flags,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QABitmapDetach(const TQAEngine *engine, TQABitmap *bitmap);
 
 /**
@@ -1695,7 +1695,7 @@ QABitmapDetach(const TQAEngine *engine, TQABitmap *bitmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 QABitmapDelete(const TQAEngine *engine, TQABitmap *bitmap);
 
 /**
@@ -1706,7 +1706,7 @@ QABitmapDelete(const TQAEngine *engine, TQABitmap *bitmap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QABitmapBindColorTable(const TQAEngine *engine, TQABitmap *bitmap,
                        TQAColorTable *colorTable);
 
@@ -1718,7 +1718,7 @@ QABitmapBindColorTable(const TQAEngine *engine, TQABitmap *bitmap,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAEngine *)
+TQAEngine *
 QADeviceGetFirstEngine(const TQADevice *device);
 
 /**
@@ -1729,7 +1729,7 @@ QADeviceGetFirstEngine(const TQADevice *device);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAEngine *)
+TQAEngine *
 QADeviceGetNextEngine(const TQADevice *device, const TQAEngine *currentEngine);
 
 /**
@@ -1740,7 +1740,7 @@ QADeviceGetNextEngine(const TQADevice *device, const TQAEngine *currentEngine);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAEngineCheckDevice(const TQAEngine *engine, const TQADevice *device);
 
 /**
@@ -1751,7 +1751,7 @@ QAEngineCheckDevice(const TQAEngine *engine, const TQADevice *device);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAEngineGestalt(const TQAEngine *engine, TQAGestaltSelector selector,
                 void *response);
 
@@ -1763,7 +1763,7 @@ QAEngineGestalt(const TQAEngine *engine, TQAGestaltSelector selector,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAEngineEnable(long vendorID, long engineID);
 
 /**
@@ -1774,7 +1774,7 @@ QAEngineEnable(long vendorID, long engineID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAEngineDisable(long vendorID, long engineID);
 
 /**
@@ -1785,7 +1785,7 @@ QAEngineDisable(long vendorID, long engineID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAAccessTexture(const TQAEngine *engine, TQATexture *texture, long mipmapLevel,
                 long flags, TQAPixelBuffer *buffer);
 
@@ -1797,7 +1797,7 @@ QAAccessTexture(const TQAEngine *engine, TQATexture *texture, long mipmapLevel,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAAccessTextureEnd(const TQAEngine *engine, TQATexture *texture,
                    const TQARect *dirtyRect);
 
@@ -1809,7 +1809,7 @@ QAAccessTextureEnd(const TQAEngine *engine, TQATexture *texture,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAAccessBitmap(const TQAEngine *engine, TQABitmap *bitmap, long flags,
                TQAPixelBuffer *buffer);
 
@@ -1821,7 +1821,7 @@ QAAccessBitmap(const TQAEngine *engine, TQABitmap *bitmap, long flags,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAAccessBitmapEnd(const TQAEngine *engine, TQABitmap *bitmap,
                   const TQARect *dirtyRect);
 
@@ -1837,7 +1837,7 @@ QAAccessBitmapEnd(const TQAEngine *engine, TQABitmap *bitmap,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QARegisterDrawNotificationProc(Rect *globalRect,
                                TQADrawNotificationProcPtr proc, long refCon,
                                TQADrawNotificationProcRefNum *refNum);
@@ -1850,7 +1850,7 @@ QARegisterDrawNotificationProc(Rect *globalRect,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAUnregisterDrawNotificationProc(TQADrawNotificationProcRefNum refNum);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1895,7 +1895,7 @@ QAUnregisterDrawNotificationProc(TQADrawNotificationProcRefNum refNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QARegisterDrawNotificationProc(Rect *globalRect,
                                TQADrawNotificationProcPtr proc, long refCon,
                                TQADrawNotificationProcRefNum *refNum);
@@ -1908,7 +1908,7 @@ QARegisterDrawNotificationProc(Rect *globalRect,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQAError)
+TQAError
 QAUnregisterDrawNotificationProc(TQADrawNotificationProcRefNum refNum);
 
 #endif /* CALL_NOT_IN_CARBON */

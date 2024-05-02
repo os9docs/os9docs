@@ -326,7 +326,7 @@ typedef STACK_UPP_TYPE(PCCardSSEntryProcPtr) PCCardSSEntryUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PCCardSSEntryUPP)
+PCCardSSEntryUPP
 NewPCCardSSEntryUPP(PCCardSSEntryProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -354,7 +354,7 @@ inline PCCardSSEntryUPP NewPCCardSSEntryUPP(PCCardSSEntryProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePCCardSSEntryUPP(PCCardSSEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -374,7 +374,7 @@ inline void DisposePCCardSSEntryUPP(PCCardSSEntryUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 InvokePCCardSSEntryUPP(UInt16 fnCode, Ptr callPB, Ptr dataPtr,
                        PCCardSSEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -423,7 +423,7 @@ typedef STACK_UPP_TYPE(PCCardCSEntryProcPtr) PCCardCSEntryUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PCCardCSEntryUPP)
+PCCardCSEntryUPP
 NewPCCardCSEntryUPP(PCCardCSEntryProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -451,7 +451,7 @@ inline PCCardCSEntryUPP NewPCCardCSEntryUPP(PCCardCSEntryProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePCCardCSEntryUPP(PCCardCSEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -471,7 +471,7 @@ inline void DisposePCCardCSEntryUPP(PCCardCSEntryUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokePCCardCSEntryUPP(CSEventEntryPB *pb, PCCardCSEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

@@ -95,7 +95,7 @@ typedef struct TQ3ControllerData TQ3ControllerData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetListChanged(TQ3Boolean *listChanged,
                             unsigned long *serialNumber);
 
@@ -107,7 +107,7 @@ Q3Controller_GetListChanged(TQ3Boolean *listChanged,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_Next(TQ3ControllerRef controllerRef,
                   TQ3ControllerRef *nextControllerRef);
 
@@ -119,7 +119,7 @@ Q3Controller_Next(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ControllerRef)
+TQ3ControllerRef
 Q3Controller_New(const TQ3ControllerData *controllerData);
 
 /**
@@ -130,7 +130,7 @@ Q3Controller_New(const TQ3ControllerData *controllerData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_Decommission(TQ3ControllerRef controllerRef);
 
 /**
@@ -141,7 +141,7 @@ Q3Controller_Decommission(TQ3ControllerRef controllerRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_SetActivation(TQ3ControllerRef controllerRef, TQ3Boolean active);
 
 /**
@@ -152,7 +152,7 @@ Q3Controller_SetActivation(TQ3ControllerRef controllerRef, TQ3Boolean active);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetActivation(TQ3ControllerRef controllerRef, TQ3Boolean *active);
 
 /**
@@ -163,7 +163,7 @@ Q3Controller_GetActivation(TQ3ControllerRef controllerRef, TQ3Boolean *active);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetSignature(TQ3ControllerRef controllerRef, char *signature,
                           unsigned long numChars);
 
@@ -175,7 +175,7 @@ Q3Controller_GetSignature(TQ3ControllerRef controllerRef, char *signature,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_SetChannel(TQ3ControllerRef controllerRef, unsigned long channel,
                         const void *data, unsigned long dataSize);
 
@@ -187,7 +187,7 @@ Q3Controller_SetChannel(TQ3ControllerRef controllerRef, unsigned long channel,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetChannel(TQ3ControllerRef controllerRef, unsigned long channel,
                         void *data, unsigned long *dataSize);
 
@@ -199,7 +199,7 @@ Q3Controller_GetChannel(TQ3ControllerRef controllerRef, unsigned long channel,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetValueCount(TQ3ControllerRef controllerRef,
                            unsigned long *valueCount);
 
@@ -211,7 +211,7 @@ Q3Controller_GetValueCount(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_SetTracker(TQ3ControllerRef controllerRef,
                         TQ3TrackerObject tracker);
 
@@ -223,7 +223,7 @@ Q3Controller_SetTracker(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_HasTracker(TQ3ControllerRef controllerRef, TQ3Boolean *hasTracker);
 
 /**
@@ -234,7 +234,7 @@ Q3Controller_HasTracker(TQ3ControllerRef controllerRef, TQ3Boolean *hasTracker);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_Track2DCursor(TQ3ControllerRef controllerRef,
                            TQ3Boolean *track2DCursor);
 
@@ -246,7 +246,7 @@ Q3Controller_Track2DCursor(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_Track3DCursor(TQ3ControllerRef controllerRef,
                            TQ3Boolean *track3DCursor);
 
@@ -258,7 +258,7 @@ Q3Controller_Track3DCursor(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetButtons(TQ3ControllerRef controllerRef, unsigned long *buttons);
 
 /**
@@ -269,7 +269,7 @@ Q3Controller_GetButtons(TQ3ControllerRef controllerRef, unsigned long *buttons);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_SetButtons(TQ3ControllerRef controllerRef, unsigned long buttons);
 
 /**
@@ -280,7 +280,7 @@ Q3Controller_SetButtons(TQ3ControllerRef controllerRef, unsigned long buttons);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetTrackerPosition(TQ3ControllerRef controllerRef,
                                 TQ3Point3D *position);
 
@@ -292,7 +292,7 @@ Q3Controller_GetTrackerPosition(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_SetTrackerPosition(TQ3ControllerRef controllerRef,
                                 const TQ3Point3D *position);
 
@@ -304,7 +304,7 @@ Q3Controller_SetTrackerPosition(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_MoveTrackerPosition(TQ3ControllerRef controllerRef,
                                  const TQ3Vector3D *delta);
 
@@ -316,7 +316,7 @@ Q3Controller_MoveTrackerPosition(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetTrackerOrientation(TQ3ControllerRef controllerRef,
                                    TQ3Quaternion *orientation);
 
@@ -328,7 +328,7 @@ Q3Controller_GetTrackerOrientation(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_SetTrackerOrientation(TQ3ControllerRef controllerRef,
                                    const TQ3Quaternion *orientation);
 
@@ -340,7 +340,7 @@ Q3Controller_SetTrackerOrientation(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_MoveTrackerOrientation(TQ3ControllerRef controllerRef,
                                     const TQ3Quaternion *delta);
 
@@ -352,7 +352,7 @@ Q3Controller_MoveTrackerOrientation(TQ3ControllerRef controllerRef,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_GetValues(TQ3ControllerRef controllerRef, unsigned long valueCount,
                        float *values, TQ3Boolean *changed,
                        unsigned long *serialNumber);
@@ -365,7 +365,7 @@ Q3Controller_GetValues(TQ3ControllerRef controllerRef, unsigned long valueCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Controller_SetValues(TQ3ControllerRef controllerRef, const float *values,
                        unsigned long valueCount);
 
@@ -382,7 +382,7 @@ Q3Controller_SetValues(TQ3ControllerRef controllerRef, const float *values,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ControllerStateObject)
+TQ3ControllerStateObject
 Q3ControllerState_New(TQ3ControllerRef controllerRef);
 
 /**
@@ -393,7 +393,7 @@ Q3ControllerState_New(TQ3ControllerRef controllerRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ControllerState_SaveAndReset(TQ3ControllerStateObject controllerStateObject);
 
 /**
@@ -404,7 +404,7 @@ Q3ControllerState_SaveAndReset(TQ3ControllerStateObject controllerStateObject);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3ControllerState_Restore(TQ3ControllerStateObject controllerStateObject);
 
 /******************************************************************************
@@ -431,7 +431,7 @@ typedef CALLBACK_API_C(TQ3Status,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3TrackerObject)
+TQ3TrackerObject
 Q3Tracker_New(TQ3TrackerNotifyFunc notifyFunc);
 
 /**
@@ -442,7 +442,7 @@ Q3Tracker_New(TQ3TrackerNotifyFunc notifyFunc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_SetNotifyThresholds(TQ3TrackerObject trackerObject,
                               float positionThresh, float orientationThresh);
 
@@ -454,7 +454,7 @@ Q3Tracker_SetNotifyThresholds(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_GetNotifyThresholds(TQ3TrackerObject trackerObject,
                               float *positionThresh, float *orientationThresh);
 
@@ -466,7 +466,7 @@ Q3Tracker_GetNotifyThresholds(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_SetActivation(TQ3TrackerObject trackerObject, TQ3Boolean active);
 
 /**
@@ -477,7 +477,7 @@ Q3Tracker_SetActivation(TQ3TrackerObject trackerObject, TQ3Boolean active);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_GetActivation(TQ3TrackerObject trackerObject, TQ3Boolean *active);
 
 /**
@@ -488,7 +488,7 @@ Q3Tracker_GetActivation(TQ3TrackerObject trackerObject, TQ3Boolean *active);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_GetButtons(TQ3TrackerObject trackerObject, unsigned long *buttons);
 
 /**
@@ -499,7 +499,7 @@ Q3Tracker_GetButtons(TQ3TrackerObject trackerObject, unsigned long *buttons);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_ChangeButtons(TQ3TrackerObject trackerObject,
                         TQ3ControllerRef controllerRef, unsigned long buttons,
                         unsigned long buttonMask);
@@ -512,7 +512,7 @@ Q3Tracker_ChangeButtons(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_GetPosition(TQ3TrackerObject trackerObject, TQ3Point3D *position,
                       TQ3Vector3D *delta, TQ3Boolean *changed,
                       unsigned long *serialNumber);
@@ -525,7 +525,7 @@ Q3Tracker_GetPosition(TQ3TrackerObject trackerObject, TQ3Point3D *position,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_SetPosition(TQ3TrackerObject trackerObject,
                       TQ3ControllerRef controllerRef,
                       const TQ3Point3D *position);
@@ -538,7 +538,7 @@ Q3Tracker_SetPosition(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_MovePosition(TQ3TrackerObject trackerObject,
                        TQ3ControllerRef controllerRef,
                        const TQ3Vector3D *delta);
@@ -551,7 +551,7 @@ Q3Tracker_MovePosition(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_GetOrientation(TQ3TrackerObject trackerObject,
                          TQ3Quaternion *orientation, TQ3Quaternion *delta,
                          TQ3Boolean *changed, unsigned long *serialNumber);
@@ -564,7 +564,7 @@ Q3Tracker_GetOrientation(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_SetOrientation(TQ3TrackerObject trackerObject,
                          TQ3ControllerRef controllerRef,
                          const TQ3Quaternion *orientation);
@@ -577,7 +577,7 @@ Q3Tracker_SetOrientation(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_MoveOrientation(TQ3TrackerObject trackerObject,
                           TQ3ControllerRef controllerRef,
                           const TQ3Quaternion *delta);
@@ -590,7 +590,7 @@ Q3Tracker_MoveOrientation(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_SetEventCoordinates(TQ3TrackerObject trackerObject,
                               unsigned long timeStamp, unsigned long buttons,
                               const TQ3Point3D *position,
@@ -604,7 +604,7 @@ Q3Tracker_SetEventCoordinates(TQ3TrackerObject trackerObject,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Tracker_GetEventCoordinates(TQ3TrackerObject trackerObject,
                               unsigned long timeStamp, unsigned long *buttons,
                               TQ3Point3D *position, TQ3Quaternion *orientation);
@@ -631,7 +631,7 @@ typedef CALLBACK_API_C(void, TQ3CursorTrackerNotifyFunc)(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CursorTracker_PrepareTracking(void);
 
 /**
@@ -642,7 +642,7 @@ Q3CursorTracker_PrepareTracking(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CursorTracker_SetTrackDeltas(TQ3Boolean trackDeltas);
 
 /**
@@ -653,7 +653,7 @@ Q3CursorTracker_SetTrackDeltas(TQ3Boolean trackDeltas);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CursorTracker_GetAndClearDeltas(float *depth, TQ3Quaternion *orientation,
                                   TQ3Boolean *hasOrientation,
                                   TQ3Boolean *changed,
@@ -667,7 +667,7 @@ Q3CursorTracker_GetAndClearDeltas(float *depth, TQ3Quaternion *orientation,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CursorTracker_SetNotifyFunc(TQ3CursorTrackerNotifyFunc notifyFunc);
 
 /**
@@ -678,7 +678,7 @@ Q3CursorTracker_SetNotifyFunc(TQ3CursorTrackerNotifyFunc notifyFunc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3CursorTracker_GetNotifyFunc(TQ3CursorTrackerNotifyFunc *notifyFunc);
 
 #endif /* CALL_NOT_IN_CARBON */

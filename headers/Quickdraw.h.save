@@ -6796,7 +6796,7 @@ EXTERN_API(short)
 QDError(void) ONEWORDINLINE(0xAA40);
 
 /**
- *  CopyDeepMask()
+ *  0;32;25M0;32;25mCopyDeepMask()
  *
  *  Availability:
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later

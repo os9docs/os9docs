@@ -86,7 +86,7 @@ enum { kFFTRadix2 = 0, kFFTRadix3 = 1, kFFTRadix5 = 2 };
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FFTSetup)
+FFTSetup
 create_fftsetup(UInt32 log2n, FFTRadix radix);
 
 /**
@@ -97,7 +97,7 @@ create_fftsetup(UInt32 log2n, FFTRadix radix);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 destroy_fftsetup(FFTSetup setup);
 
 /**
@@ -125,7 +125,7 @@ destroy_fftsetup(FFTSetup setup);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 ctoz(const DSPComplex C[], SInt32 strideC, DSPSplitComplex *Z, SInt32 strideZ,
      UInt32 size);
 
@@ -137,7 +137,7 @@ ctoz(const DSPComplex C[], SInt32 strideC, DSPSplitComplex *Z, SInt32 strideZ,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 ztoc(const DSPSplitComplex *Z, SInt32 strideZ, DSPComplex C[], SInt32 strideC,
      UInt32 size);
 
@@ -168,7 +168,7 @@ ztoc(const DSPSplitComplex *Z, SInt32 strideZ, DSPComplex C[], SInt32 strideC,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride, UInt32 log2n,
         FFTDirection direction);
 
@@ -180,7 +180,7 @@ fft_zip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride, UInt32 log2n,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
          DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
 
@@ -214,7 +214,7 @@ fft_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
         DSPSplitComplex *result, SInt32 strideResult, UInt32 log2n,
         FFTDirection direction);
@@ -227,7 +227,7 @@ fft_zop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
          DSPSplitComplex *result, SInt32 strideResult,
          DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
@@ -258,7 +258,7 @@ fft_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zrip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride, UInt32 log2n,
          FFTDirection direction);
 
@@ -270,7 +270,7 @@ fft_zrip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride, UInt32 log2n,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
           DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
 
@@ -302,7 +302,7 @@ fft_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 stride,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zrop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
          DSPSplitComplex *result, SInt32 strideResult, UInt32 log2n,
          FFTDirection direction);
@@ -315,7 +315,7 @@ fft_zrop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
           DSPSplitComplex *result, SInt32 strideResult,
           DSPSplitComplex *bufferTemp, UInt32 log2n, FFTDirection direction);
@@ -349,7 +349,7 @@ fft_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStride,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
           SInt32 strideInCol, UInt32 log2nInCol, UInt32 log2nInRow,
           FFTDirection direction);
@@ -362,7 +362,7 @@ fft2d_zip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
            SInt32 strideInCol, DSPSplitComplex *bufferTemp, UInt32 log2nInCol,
            UInt32 log2nInRow, FFTDirection direction);
@@ -400,7 +400,7 @@ fft2d_zipt(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
           SInt32 signalStrideInCol, DSPSplitComplex *result,
           SInt32 strideResultInRow, SInt32 strideResultInCol, UInt32 log2nInCol,
@@ -414,7 +414,7 @@ fft2d_zop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
            SInt32 signalStrideInCol, DSPSplitComplex *result,
            SInt32 strideResultInRow, SInt32 strideResultInCol,
@@ -450,7 +450,7 @@ fft2d_zopt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zrip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
            SInt32 strideInCol, UInt32 log2nInCol, UInt32 log2nInRow,
            FFTDirection direction);
@@ -463,7 +463,7 @@ fft2d_zrip(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
             SInt32 strideInCol, DSPSplitComplex *bufferTemp, UInt32 log2nInCol,
             UInt32 log2nInRow, FFTDirection direction);
@@ -500,7 +500,7 @@ fft2d_zript(FFTSetup setup, DSPSplitComplex *ioData, SInt32 strideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zrop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
            SInt32 signalStrideInCol, DSPSplitComplex *result,
            SInt32 strideResultInRow, SInt32 strideResultInCol,
@@ -514,7 +514,7 @@ fft2d_zrop(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 fft2d_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
             SInt32 signalStrideInCol, DSPSplitComplex *result,
             SInt32 strideResultInRow, SInt32 strideResultInCol,
@@ -547,7 +547,7 @@ fft2d_zropt(FFTSetup setup, DSPSplitComplex *signal, SInt32 signalStrideInRow,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 conv(const float signal[], SInt32 signalStride, const float filter[],
      SInt32 strideFilter, float result[], SInt32 strideResult, SInt32 lenResult,
      SInt32 lenFilter);
@@ -577,7 +577,7 @@ conv(const float signal[], SInt32 signalStride, const float filter[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vadd(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
      float result[], SInt32 strideResult, UInt32 size);
 
@@ -606,7 +606,7 @@ vadd(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vsub(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
      float result[], SInt32 strideResult, UInt32 size);
 
@@ -635,7 +635,7 @@ vsub(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vmul(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
      float result[], SInt32 strideResult, UInt32 size);
 
@@ -663,7 +663,7 @@ vmul(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vsmul(const float input1[], SInt32 stride1, const float *input2, float result[],
       SInt32 strideResult, UInt32 size);
 
@@ -691,7 +691,7 @@ vsmul(const float input1[], SInt32 stride1, const float *input2, float result[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vsq(const float input[], SInt32 strideInput, float result[],
     SInt32 strideResult, UInt32 size);
 
@@ -719,7 +719,7 @@ vsq(const float input[], SInt32 strideInput, float result[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vssq(const float input[], SInt32 strideInput, float result[],
      SInt32 strideResult, UInt32 size);
 
@@ -747,7 +747,7 @@ vssq(const float input[], SInt32 strideInput, float result[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 dotpr(const float input1[], SInt32 stride1, const float input2[],
       SInt32 stride2, float *result, UInt32 size);
 
@@ -777,7 +777,7 @@ dotpr(const float input1[], SInt32 stride1, const float input2[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vam(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
     const float input3[], SInt32 stride3, float result[], SInt32 strideResult,
     UInt32 size);
@@ -809,7 +809,7 @@ vam(const float input1[], SInt32 stride1, const float input2[], SInt32 stride2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zconv(DSPSplitComplex *signal, SInt32 signalStride, DSPSplitComplex *filter,
       SInt32 strideFilter, DSPSplitComplex *result, SInt32 strideResult,
       SInt32 lenResult, SInt32 lenFilter);
@@ -840,7 +840,7 @@ zconv(DSPSplitComplex *signal, SInt32 signalStride, DSPSplitComplex *filter,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zvadd(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       SInt32 stride2, DSPSplitComplex *result, SInt32 strideResult,
       UInt32 size);
@@ -871,7 +871,7 @@ zvadd(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zvsub(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       SInt32 stride2, DSPSplitComplex *result, SInt32 strideResult,
       UInt32 size);
@@ -902,7 +902,7 @@ zvsub(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zvmul(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       SInt32 stride2, DSPSplitComplex *result, SInt32 strideResult, UInt32 size,
       SInt32 conjugate);
@@ -932,7 +932,7 @@ zvmul(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zdotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
        SInt32 stride2, DSPSplitComplex *result, UInt32 size);
 
@@ -961,7 +961,7 @@ zdotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zidotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
         SInt32 stride2, DSPSplitComplex *result, UInt32 size);
 
@@ -989,7 +989,7 @@ zidotpr(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zrdotpr(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
         SInt32 stride2, DSPSplitComplex *result, UInt32 size);
 
@@ -1021,7 +1021,7 @@ zrdotpr(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zvcma(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
       SInt32 stride2, DSPSplitComplex *input3, SInt32 stride3,
       DSPSplitComplex *result, SInt32 strideResult, UInt32 size);
@@ -1052,7 +1052,7 @@ zvcma(DSPSplitComplex *input1, SInt32 stride1, DSPSplitComplex *input2,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zrvadd(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
        SInt32 stride2, DSPSplitComplex *result, SInt32 strideResult,
        UInt32 size);
@@ -1083,7 +1083,7 @@ zrvadd(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zrvsub(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
        SInt32 stride2, DSPSplitComplex *result, SInt32 strideResult,
        UInt32 size);
@@ -1114,7 +1114,7 @@ zrvsub(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 zrvmul(DSPSplitComplex *input1, SInt32 stride1, const float input2[],
        SInt32 stride2, DSPSplitComplex *result, SInt32 strideResult,
        UInt32 size);

@@ -595,7 +595,7 @@ typedef STACK_UPP_TYPE(SCSIInterruptProcPtr) SCSIInterruptUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(AENCallbackUPP)
+AENCallbackUPP
 NewAENCallbackUPP(AENCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppAENCallbackProcInfo = 0x00000001 }; /* no_return_value Func() */
@@ -620,7 +620,7 @@ inline AENCallbackUPP NewAENCallbackUPP(AENCallbackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SIMInitUPP)
+SIMInitUPP
 NewSIMInitUPP(SIMInitProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppSIMInitProcInfo = 0x000000E1 }; /* 2_bytes Func(4_bytes) */
@@ -644,7 +644,7 @@ inline SIMInitUPP NewSIMInitUPP(SIMInitProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SIMActionUPP)
+SIMActionUPP
 NewSIMActionUPP(SIMActionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -670,7 +670,7 @@ inline SIMActionUPP NewSIMActionUPP(SIMActionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SCSIUPP)
+SCSIUPP
 NewSCSIUPP(SCSIProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppSCSIProcInfo = 0x00000001 }; /* no_return_value Func() */
@@ -694,7 +694,7 @@ inline SCSIUPP NewSCSIUPP(SCSIProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SCSIMakeCallbackUPP)
+SCSIMakeCallbackUPP
 NewSCSIMakeCallbackUPP(SCSIMakeCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -723,7 +723,7 @@ NewSCSIMakeCallbackUPP(SCSIMakeCallbackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SCSIInterruptPollUPP)
+SCSIInterruptPollUPP
 NewSCSIInterruptPollUPP(SCSIInterruptPollProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppSCSIInterruptPollProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
@@ -750,7 +750,7 @@ NewSCSIInterruptPollUPP(SCSIInterruptPollProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SCSIInterruptUPP)
+SCSIInterruptUPP
 NewSCSIInterruptUPP(SCSIInterruptProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppSCSIInterruptProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
@@ -776,7 +776,7 @@ inline SCSIInterruptUPP NewSCSIInterruptUPP(SCSIInterruptProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeAENCallbackUPP(AENCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -796,7 +796,7 @@ inline void DisposeAENCallbackUPP(AENCallbackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSIMInitUPP(SIMInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -816,7 +816,7 @@ inline void DisposeSIMInitUPP(SIMInitUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSIMActionUPP(SIMActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -836,7 +836,7 @@ inline void DisposeSIMActionUPP(SIMActionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSCSIUPP(SCSIUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -856,7 +856,7 @@ inline void DisposeSCSIUPP(SCSIUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSCSIMakeCallbackUPP(SCSIMakeCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -876,7 +876,7 @@ inline void DisposeSCSIMakeCallbackUPP(SCSIMakeCallbackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSCSIInterruptPollUPP(SCSIInterruptPollUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -896,7 +896,7 @@ inline void DisposeSCSIInterruptPollUPP(SCSIInterruptPollUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSCSIInterruptUPP(SCSIInterruptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -916,7 +916,7 @@ inline void DisposeSCSIInterruptUPP(SCSIInterruptUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeAENCallbackUPP(AENCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -937,7 +937,7 @@ inline void InvokeAENCallbackUPP(AENCallbackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeSIMInitUPP(Ptr SIMinfoPtr, SIMInitUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -958,7 +958,7 @@ inline OSErr InvokeSIMInitUPP(Ptr SIMinfoPtr, SIMInitUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeSIMActionUPP(void *scsiPB, Ptr SIMGlobals, SIMActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -981,7 +981,7 @@ inline void InvokeSIMActionUPP(void *scsiPB, Ptr SIMGlobals,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeSCSIUPP(SCSIUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1002,7 +1002,7 @@ inline void InvokeSCSIUPP(SCSIUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeSCSIMakeCallbackUPP(void *scsiPB, SCSIMakeCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1024,7 +1024,7 @@ inline void InvokeSCSIMakeCallbackUPP(void *scsiPB,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeSCSIInterruptPollUPP(Ptr SIMGlobals, SCSIInterruptPollUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1048,7 +1048,7 @@ inline long InvokeSCSIInterruptPollUPP(Ptr SIMGlobals,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeSCSIInterruptUPP(Ptr SIMGlobals, SCSIInterruptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1102,7 +1102,7 @@ typedef STACK_UPP_TYPE(SCSICallbackProcPtr) SCSICallbackUPP;
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SCSICallbackUPP)
+SCSICallbackUPP
 NewSCSICallbackUPP(SCSICallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1130,7 +1130,7 @@ inline SCSICallbackUPP NewSCSICallbackUPP(SCSICallbackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSCSICallbackUPP(SCSICallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1150,7 +1150,7 @@ inline void DisposeSCSICallbackUPP(SCSICallbackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSCSICallbackUPP(void *scsiPB, SCSICallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

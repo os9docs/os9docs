@@ -83,7 +83,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CENameElement_SetData(TQ3Object object, const char *name);
 
 /**
@@ -94,7 +94,7 @@ CENameElement_SetData(TQ3Object object, const char *name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CENameElement_GetData(TQ3Object object, char **name);
 
 /**
@@ -105,7 +105,7 @@ CENameElement_GetData(TQ3Object object, char **name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CENameElement_EmptyData(char **name);
 
 /*******************************************************************************
@@ -139,7 +139,7 @@ typedef struct TCEUrlData TCEUrlData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CEUrlElement_SetData(TQ3Object object, TCEUrlData *urlData);
 
 /**
@@ -150,7 +150,7 @@ CEUrlElement_SetData(TQ3Object object, TCEUrlData *urlData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CEUrlElement_GetData(TQ3Object object, TCEUrlData **urlData);
 
 /**
@@ -161,7 +161,7 @@ CEUrlElement_GetData(TQ3Object object, TCEUrlData **urlData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CEUrlElement_EmptyData(TCEUrlData **urlData);
 
 /*******************************************************************************
@@ -184,7 +184,7 @@ CEUrlElement_EmptyData(TCEUrlData **urlData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CEWireElement_SetData(TQ3Object object, QTAtomContainer wireData);
 
 /**
@@ -195,7 +195,7 @@ CEWireElement_SetData(TQ3Object object, QTAtomContainer wireData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CEWireElement_GetData(TQ3Object object, QTAtomContainer *wireData);
 
 /**
@@ -206,7 +206,7 @@ CEWireElement_GetData(TQ3Object object, QTAtomContainer *wireData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 CEWireElement_EmptyData(QTAtomContainer *wireData);
 
 #endif /** CALL_NOT_IN_CARBON */

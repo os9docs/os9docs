@@ -742,7 +742,7 @@ struct SndChannel  {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SndCallBackUPP)
+SndCallBackUPP
 NewSndCallBackUPP(SndCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -769,7 +769,7 @@ inline SndCallBackUPP NewSndCallBackUPP(SndCallBackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSndCallBackUPP(SndCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -789,7 +789,7 @@ inline void DisposeSndCallBackUPP(SndCallBackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSndCallBackUPP(SndChannelPtr chan, SndCommand *cmd,
                      SndCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1325,7 +1325,7 @@ typedef STACK_UPP_TYPE(SndDoubleBackProcPtr) SndDoubleBackUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SndDoubleBackUPP)
+SndDoubleBackUPP
 NewSndDoubleBackUPP(SndDoubleBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1353,7 +1353,7 @@ inline SndDoubleBackUPP NewSndDoubleBackUPP(SndDoubleBackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSndDoubleBackUPP(SndDoubleBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1373,7 +1373,7 @@ inline void DisposeSndDoubleBackUPP(SndDoubleBackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeSndDoubleBackUPP(SndChannelPtr channel,
                        SndDoubleBufferPtr doubleBufferPtr,
                        SndDoubleBackUPP userUPP);
@@ -1709,7 +1709,7 @@ struct SPB {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SoundParamUPP)
+SoundParamUPP
 NewSoundParamUPP(SoundParamProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppSoundParamProcInfo = 0x000000D0 }; /** pascal 1_byte Func(4_bytes) */
@@ -1733,7 +1733,7 @@ inline SoundParamUPP NewSoundParamUPP(SoundParamProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SoundConverterFillBufferDataUPP)
+SoundConverterFillBufferDataUPP
 NewSoundConverterFillBufferDataUPP(
     SoundConverterFillBufferDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
@@ -1763,7 +1763,7 @@ inline SoundConverterFillBufferDataUPP NewSoundConverterFillBufferDataUPP(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SIInterruptUPP)
+SIInterruptUPP
 NewSIInterruptUPP(SIInterruptProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1791,7 +1791,7 @@ inline SIInterruptUPP NewSIInterruptUPP(SIInterruptProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SICompletionUPP)
+SICompletionUPP
 NewSICompletionUPP(SICompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1819,7 +1819,7 @@ inline SICompletionUPP NewSICompletionUPP(SICompletionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSoundParamUPP(SoundParamUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1839,7 +1839,7 @@ inline void DisposeSoundParamUPP(SoundParamUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSoundConverterFillBufferDataUPP(SoundConverterFillBufferDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1861,7 +1861,7 @@ inline void DisposeSoundConverterFillBufferDataUPP(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSIInterruptUPP(SIInterruptUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1881,7 +1881,7 @@ inline void DisposeSIInterruptUPP(SIInterruptUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSICompletionUPP(SICompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1901,7 +1901,7 @@ inline void DisposeSICompletionUPP(SICompletionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeSoundParamUPP(SoundParamBlockPtr *pb, SoundParamUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1923,7 +1923,7 @@ inline Boolean InvokeSoundParamUPP(SoundParamBlockPtr *pb,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeSoundConverterFillBufferDataUPP(SoundComponentDataPtr *data, void *refCon,
                                       SoundConverterFillBufferDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1949,7 +1949,7 @@ InvokeSoundConverterFillBufferDataUPP(SoundComponentDataPtr *data, void *refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSIInterruptUPP(SPBPtr inParamPtr, Ptr dataBuffer, short peakAmplitude,
                      long sampleSize, SIInterruptUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -1977,7 +1977,7 @@ inline void InvokeSIInterruptUPP(SPBPtr inParamPtr, Ptr dataBuffer,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeSICompletionUPP(SPBPtr inParamPtr, SICompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2019,7 +2019,7 @@ typedef STACK_UPP_TYPE(FilePlayCompletionProcPtr) FilePlayCompletionUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FilePlayCompletionUPP)
+FilePlayCompletionUPP
 NewFilePlayCompletionUPP(FilePlayCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2048,7 +2048,7 @@ NewFilePlayCompletionUPP(FilePlayCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFilePlayCompletionUPP(FilePlayCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2068,7 +2068,7 @@ inline void DisposeFilePlayCompletionUPP(FilePlayCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeFilePlayCompletionUPP(SndChannelPtr chan, FilePlayCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

@@ -350,7 +350,7 @@ typedef FileBasedDriverDetailed *FileBasedDriverDetailedPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 HigherDriverVersion(const NumVersion *driverVersion1,
                     const NumVersion *driverVersion2);
 
@@ -362,7 +362,7 @@ HigherDriverVersion(const NumVersion *driverVersion1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 VerifyFragmentAsDriver(CFragConnectionID fragmentConnID,
                        DriverEntryPointPtr *fragmentMain,
                        DriverDescriptionPtr *driverDesc);
@@ -375,7 +375,7 @@ VerifyFragmentAsDriver(CFragConnectionID fragmentConnID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetDriverMemoryFragment(Ptr memAddr, long length, ConstStr63Param fragName,
                         CFragConnectionID *fragmentConnID,
                         DriverEntryPointPtr *fragmentMain,
@@ -389,7 +389,7 @@ GetDriverMemoryFragment(Ptr memAddr, long length, ConstStr63Param fragName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetDriverDiskFragment(FSSpecPtr fragmentSpec, CFragConnectionID *fragmentConnID,
                       DriverEntryPointPtr *fragmentMain,
                       DriverDescriptionPtr *driverDesc);
@@ -402,7 +402,7 @@ GetDriverDiskFragment(FSSpecPtr fragmentSpec, CFragConnectionID *fragmentConnID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetNamedDriverDiskFragment(FSSpecPtr fragmentSpec, ConstStr63Param fragName,
                            CFragConnectionID *fragmentConnID,
                            DriverEntryPointPtr *fragmentMain,
@@ -416,7 +416,7 @@ GetNamedDriverDiskFragment(FSSpecPtr fragmentSpec, ConstStr63Param fragName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InstallDriverFromFragment(CFragConnectionID fragmentConnID, RegEntryID *device,
                           UnitNumber beginningUnit, UnitNumber endingUnit,
                           DriverRefNum *refNum);
@@ -429,7 +429,7 @@ InstallDriverFromFragment(CFragConnectionID fragmentConnID, RegEntryID *device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InstallDriverFromFile(FSSpecPtr fragmentSpec, RegEntryID *device,
                       UnitNumber beginningUnit, UnitNumber endingUnit,
                       DriverRefNum *refNum);
@@ -442,7 +442,7 @@ InstallDriverFromFile(FSSpecPtr fragmentSpec, RegEntryID *device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InstallDriverFromMemory(Ptr memory, long length, ConstStr63Param fragName,
                         RegEntryID *device, UnitNumber beginningUnit,
                         UnitNumber endingUnit, DriverRefNum *refNum);
@@ -455,7 +455,7 @@ InstallDriverFromMemory(Ptr memory, long length, ConstStr63Param fragName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InstallDriverFromResource(SInt16 theRsrcID, ConstStr255Param theRsrcName,
                           RegEntryIDPtr theDevice, UnitNumber theBeginningUnit,
                           UnitNumber theEndingUnit, DriverRefNum *theRefNum);
@@ -468,7 +468,7 @@ InstallDriverFromResource(SInt16 theRsrcID, ConstStr255Param theRsrcName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InstallDriverFromDisk(Ptr theDriverName, RegEntryID *theDevice,
                       UnitNumber theBeginningUnit, UnitNumber theEndingUnit,
                       DriverRefNum *theRefNum);
@@ -481,7 +481,7 @@ InstallDriverFromDisk(Ptr theDriverName, RegEntryID *theDevice,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 FindDriversForDevice(RegEntryID *device, FSSpec *fragmentSpec,
                      DriverDescription *fileDriverDesc, Ptr *memAddr,
                      long *length, StringPtr fragName,
@@ -495,7 +495,7 @@ FindDriversForDevice(RegEntryID *device, FSSpec *fragmentSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 FindDriverForDeviceFromFile(RegEntryID *device, FSSpec *fragmentSpec,
                             DriverDescription *driverDesc, StringPtr fragName);
 
@@ -507,7 +507,7 @@ FindDriverForDeviceFromFile(RegEntryID *device, FSSpec *fragmentSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 FindDriverCandidates(RegEntryID *deviceID, Ptr *propBasedDriver,
                      RegPropertyValueSize *propBasedDriverSize,
                      StringPtr deviceName, MacDriverType *propBasedDriverType,
@@ -523,7 +523,7 @@ FindDriverCandidates(RegEntryID *deviceID, Ptr *propBasedDriver,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 FindDriverCandidatesDetailed(RegEntryIDPtr deviceID, Ptr *propBasedDriver,
                              RegPropertyValueSize *propBasedDriverSize,
                              StringPtr deviceName,
@@ -540,7 +540,7 @@ FindDriverCandidatesDetailed(RegEntryIDPtr deviceID, Ptr *propBasedDriver,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ScanDriverCandidates(RegEntryID *deviceID,
                      FileBasedDriverRecordPtr fileBasedDrivers,
                      ItemCount nFileBasedDrivers,
@@ -555,7 +555,7 @@ ScanDriverCandidates(RegEntryID *deviceID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ScanDriverCandidatesDetailed(RegEntryID *deviceID,
                              FileBasedDriverDetailedPtr fileBasedDrivers,
                              ItemCount nFileBasedDrivers,
@@ -570,7 +570,7 @@ ScanDriverCandidatesDetailed(RegEntryID *deviceID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 CompareFileCandToPropCand(RegEntryID *device, StringPtr deviceName,
                           DriverTypePtr propBasedCandidate,
                           FileBasedDriverRecordPtr fileBasedCandidate);
@@ -583,7 +583,7 @@ CompareFileCandToPropCand(RegEntryID *device, StringPtr deviceName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetCompatibleProperty(RegEntryID *device, StringPtr *compatibleNames,
                       ItemCount *nCompatibleNames);
 
@@ -595,7 +595,7 @@ GetCompatibleProperty(RegEntryID *device, StringPtr *compatibleNames,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 CompatibleDriverNames(StringPtr nameInfoStr, StringPtr compatibleNames,
                       ItemCount nCompatibleNames, long *nameCount);
 
@@ -607,7 +607,7 @@ CompatibleDriverNames(StringPtr nameInfoStr, StringPtr compatibleNames,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetDriverForDevice(RegEntryID *device, CFragConnectionID *fragmentConnID,
                    DriverEntryPointPtr *fragmentMain,
                    DriverDescriptionPtr *driverDesc);
@@ -620,7 +620,7 @@ GetDriverForDevice(RegEntryID *device, CFragConnectionID *fragmentConnID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InstallDriverForDevice(RegEntryID *device, UnitNumber beginningUnit,
                        UnitNumber endingUnit, DriverRefNum *refNum);
 
@@ -632,7 +632,7 @@ InstallDriverForDevice(RegEntryID *device, UnitNumber beginningUnit,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetDriverInformation(DriverRefNum refNum, UnitNumber *unitNum,
                      DriverFlags *flags, DriverOpenCount *count, StringPtr name,
                      RegEntryID *device,
@@ -649,7 +649,7 @@ GetDriverInformation(DriverRefNum refNum, UnitNumber *unitNum,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetDriverDescription(LogicalAddress fragmentPtr,
                      DriverDescriptionPtr *theDriverDesc);
 
@@ -661,7 +661,7 @@ GetDriverDescription(LogicalAddress fragmentPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetNamedDriverDescFromFSSpec(FSSpecPtr fragmentSpec, StringPtr fragName,
                              DriverDescriptionPtr *driverDesc);
 
@@ -673,7 +673,7 @@ GetNamedDriverDescFromFSSpec(FSSpecPtr fragmentSpec, StringPtr fragName,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 SetDriverClosureMemory(CFragConnectionID fragmentConnID,
                        Boolean holdDriverMemory);
 
@@ -685,7 +685,7 @@ SetDriverClosureMemory(CFragConnectionID fragmentConnID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 ReplaceDriverWithFragment(DriverRefNum theRefNum,
                           CFragConnectionID fragmentConnID);
 
@@ -697,7 +697,7 @@ ReplaceDriverWithFragment(DriverRefNum theRefNum,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 OpenInstalledDriver(DriverRefNum refNum, SInt8 ioPermission);
 
 /**
@@ -708,7 +708,7 @@ OpenInstalledDriver(DriverRefNum refNum, SInt8 ioPermission);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 RenameDriver(DriverRefNum refNum, StringPtr newDriverName);
 
 /**
@@ -719,7 +719,7 @@ RenameDriver(DriverRefNum refNum, StringPtr newDriverName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 RemoveDriver(DriverRefNum refNum, Boolean immediate);
 
 /**
@@ -730,7 +730,7 @@ RemoveDriver(DriverRefNum refNum, Boolean immediate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 LookupDrivers(UnitNumber beginningUnit, UnitNumber endingUnit,
               Boolean emptyUnits, ItemCount *returnedRefNums,
               DriverRefNum *refNums);
@@ -743,7 +743,7 @@ LookupDrivers(UnitNumber beginningUnit, UnitNumber endingUnit,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UnitNumber)
+UnitNumber
 HighestUnitNumber(void);
 
 /**
@@ -754,7 +754,7 @@ HighestUnitNumber(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 DriverGestaltOn(DriverRefNum refNum);
 
 /**
@@ -765,7 +765,7 @@ DriverGestaltOn(DriverRefNum refNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 DriverGestaltOff(DriverRefNum refNum);
 
 /**
@@ -776,7 +776,7 @@ DriverGestaltOff(DriverRefNum refNum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 DriverGestaltIsOn(DriverFlags flags);
 
 /**
@@ -1374,7 +1374,7 @@ CloseDeskAcc(short refNum) ONEWORDINLINE(0xA9B7);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 opendeskacc(const char *deskAccName);
 
 /**
@@ -1385,7 +1385,7 @@ opendeskacc(const char *deskAccName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 opendriver(const char *driverName, short *refNum);
 
 #endif /* CALL_NOT_IN_CARBON */

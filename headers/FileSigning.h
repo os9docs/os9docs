@@ -99,7 +99,7 @@ typedef STACK_UPP_TYPE(SecProgressCallbackProcPtr) SecProgressCallbackUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SecProgressCallbackUPP)
+SecProgressCallbackUPP
 NewSecProgressCallbackUPP(SecProgressCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -128,7 +128,7 @@ NewSecProgressCallbackUPP(SecProgressCallbackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSecProgressCallbackUPP(SecProgressCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -148,7 +148,7 @@ inline void DisposeSecProgressCallbackUPP(SecProgressCallbackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeSecProgressCallbackUPP(SecProgressCallbackInfo *callbackInfo,
                              void *userContext, SecProgressCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES

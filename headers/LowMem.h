@@ -3790,7 +3790,7 @@ EXTERN_API(void) LMSetMouseLocation(Point value) TWOWORDINLINE(0x21DF, 0x0830);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void) LMGetTheCursor(Cursor *currentCursor);
+void LMGetTheCursor(Cursor *currentCursor);
 
 /**
  *  LMSetTheCursor()
@@ -3800,7 +3800,7 @@ EXTERN_API_C(void) LMGetTheCursor(Cursor *currentCursor);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void) LMSetTheCursor(const Cursor *newCursor);
+void LMSetTheCursor(const Cursor *newCursor);
 
 /** accesses "HiHeapMark"*/
 #endif /** CALL_NOT_IN_CARBON */

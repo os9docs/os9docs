@@ -509,7 +509,7 @@ typedef STACK_UPP_TYPE(KCCallbackProcPtr) KCCallbackUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(KCCallbackUPP)
+KCCallbackUPP
 NewKCCallbackUPP(KCCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -535,7 +535,7 @@ inline KCCallbackUPP NewKCCallbackUPP(KCCallbackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeKCCallbackUPP(KCCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -555,7 +555,7 @@ inline void DisposeKCCallbackUPP(KCCallbackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeKCCallbackUPP(KCEvent keychainEvent, KCCallbackInfo *info,
                     void *userContext, KCCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -728,7 +728,7 @@ KCReleaseSearch(KCSearchRef *search);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcgetkeychainname(KCRef keychain, char *keychainName);
 
 /** Managing keychain items */
@@ -902,7 +902,7 @@ KCLock(KCRef keychain);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcaddapplesharepassword(AFPServerSignature *serverSignature,
                         const char *serverAddress, const char *serverName,
                         const char *volumeName, const char *accountName,
@@ -917,7 +917,7 @@ kcaddapplesharepassword(AFPServerSignature *serverSignature,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcfindapplesharepassword(AFPServerSignature *serverSignature, /** can be NULL */
                          const char *serverAddress,           /** can be NULL */
                          const char *serverName,              /** can be NULL */
@@ -935,7 +935,7 @@ kcfindapplesharepassword(AFPServerSignature *serverSignature, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcaddinternetpassword(const char *serverName, const char *securityDomain,
                       const char *accountName, UInt16 port, OSType protocol,
                       OSType authType, UInt32 passwordLength,
@@ -950,7 +950,7 @@ kcaddinternetpassword(const char *serverName, const char *securityDomain,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcaddinternetpasswordwithpath(const char *serverName,
                               const char *securityDomain,
                               const char *accountName, const char *path,
@@ -966,7 +966,7 @@ kcaddinternetpasswordwithpath(const char *serverName,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcfindinternetpassword(const char *serverName,     /** can be NULL */
                        const char *securityDomain, /** can be NULL */
                        const char *accountName,    /** can be NULL */
@@ -983,7 +983,7 @@ kcfindinternetpassword(const char *serverName,     /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcfindinternetpasswordwithpath(const char *serverName,     /** can be NULL */
                                const char *securityDomain, /** can be NULL */
                                const char *accountName,    /** can be NULL */
@@ -1001,7 +1001,7 @@ kcfindinternetpasswordwithpath(const char *serverName,     /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcaddgenericpassword(const char *serviceName, const char *accountName,
                      UInt32 passwordLength, const void *passwordData,
                      KCItemRef *item); /** can be NULL */
@@ -1014,7 +1014,7 @@ kcaddgenericpassword(const char *serviceName, const char *accountName,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcfindgenericpassword(const char *serviceName, /** can be NULL */
                       const char *accountName, /** can be NULL */
                       UInt32 maxLength, void *passwordData,

@@ -1503,7 +1503,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PrePrerollCompleteUPP)
+PrePrerollCompleteUPP
 NewPrePrerollCompleteUPP(PrePrerollCompleteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1532,7 +1532,7 @@ NewPrePrerollCompleteUPP(PrePrerollCompleteProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePrePrerollCompleteUPP(PrePrerollCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1552,7 +1552,7 @@ inline void DisposePrePrerollCompleteUPP(PrePrerollCompleteUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokePrePrerollCompleteUPP(MediaHandler mh, OSErr err, void *refcon,
                             PrePrerollCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES

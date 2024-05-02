@@ -93,7 +93,7 @@ struct VBLTask  {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(VBLUPP)
+VBLUPP
 NewVBLUPP(VBLProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -119,7 +119,7 @@ inline VBLUPP NewVBLUPP(VBLProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeVBLUPP(VBLUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -142,7 +142,7 @@ inline void DisposeVBLUPP(VBLUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeVBLUPP(__A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP) ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)

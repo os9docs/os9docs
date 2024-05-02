@@ -154,7 +154,7 @@ typedef TVECTOR_UPP_TYPE(FBCCallbackProcPtr) FBCCallbackUPP;
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FBCCallbackUPP)
+FBCCallbackUPP
 NewFBCCallbackUPP(FBCCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -177,7 +177,7 @@ inline FBCCallbackUPP NewFBCCallbackUPP(FBCCallbackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeFBCCallbackUPP(FBCCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -195,7 +195,7 @@ inline void DisposeFBCCallbackUPP(FBCCallbackUPP) {}
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeFBCCallbackUPP(UInt16 phase, float percentDone, void *data,
                      FBCCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -225,7 +225,7 @@ inline Boolean InvokeFBCCallbackUPP(UInt16 phase, float percentDone, void *data,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 FBCSetCallback(FBCCallbackUPP fn, void *data);
 
 /**
@@ -236,7 +236,7 @@ FBCSetCallback(FBCCallbackUPP fn, void *data);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 FBCSetHeapReservation(UInt32 bytes);
 
 /**
@@ -254,7 +254,7 @@ FBCSetHeapReservation(UInt32 bytes);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 FBCVolumeIsIndexed(SInt16 theVRefNum);
 
 /**
@@ -265,7 +265,7 @@ FBCVolumeIsIndexed(SInt16 theVRefNum);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 FBCVolumeIsRemote(SInt16 theVRefNum);
 
 /**
@@ -276,7 +276,7 @@ FBCVolumeIsRemote(SInt16 theVRefNum);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCVolumeIndexTimeStamp(SInt16 theVRefNum, UInt32 *timeStamp);
 
 /**
@@ -287,7 +287,7 @@ FBCVolumeIndexTimeStamp(SInt16 theVRefNum, UInt32 *timeStamp);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCVolumeIndexPhysicalSize(SInt16 theVRefNum, UInt32 *size);
 
 /**
@@ -304,7 +304,7 @@ FBCVolumeIndexPhysicalSize(SInt16 theVRefNum, UInt32 *size);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCCreateSearchSession(FBCSearchSession *searchSession);
 
 /**
@@ -315,7 +315,7 @@ FBCCreateSearchSession(FBCSearchSession *searchSession);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCAddAllVolumesToSession(FBCSearchSession theSession, Boolean includeRemote);
 
 /**
@@ -326,7 +326,7 @@ FBCAddAllVolumesToSession(FBCSearchSession theSession, Boolean includeRemote);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCSetSessionVolumes(FBCSearchSession theSession, const SInt16 vRefNums[],
                      UInt16 numVolumes);
 
@@ -338,7 +338,7 @@ FBCSetSessionVolumes(FBCSearchSession theSession, const SInt16 vRefNums[],
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCAddVolumeToSession(FBCSearchSession theSession, SInt16 vRefNum);
 
 /**
@@ -349,7 +349,7 @@ FBCAddVolumeToSession(FBCSearchSession theSession, SInt16 vRefNum);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCRemoveVolumeFromSession(FBCSearchSession theSession, SInt16 vRefNum);
 
 /**
@@ -360,7 +360,7 @@ FBCRemoveVolumeFromSession(FBCSearchSession theSession, SInt16 vRefNum);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetSessionVolumeCount(FBCSearchSession theSession, UInt16 *count);
 
 /**
@@ -371,7 +371,7 @@ FBCGetSessionVolumeCount(FBCSearchSession theSession, UInt16 *count);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetSessionVolumes(FBCSearchSession theSession, SInt16 vRefNums[],
                      UInt16 *numVolumes);
 
@@ -383,7 +383,7 @@ FBCGetSessionVolumes(FBCSearchSession theSession, SInt16 vRefNums[],
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCCloneSearchSession(FBCSearchSession original, FBCSearchSession *clone);
 
 /**
@@ -400,7 +400,7 @@ FBCCloneSearchSession(FBCSearchSession original, FBCSearchSession *clone);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCDoQuerySearch(FBCSearchSession theSession, char *queryText,
                  const FSSpec targetDirs[], UInt32 numTargets, UInt32 maxHits,
                  UInt32 maxHitWords);
@@ -413,7 +413,7 @@ FBCDoQuerySearch(FBCSearchSession theSession, char *queryText,
  *    \carbon_lib        not available in CarbonLib 1.x
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCDoCFStringSearch(FBCSearchSession theSession, CFStringRef queryString,
                     const FSSpec targetDirs[], UInt32 numTargets,
                     UInt32 maxHits, UInt32 maxHitWords);
@@ -426,7 +426,7 @@ FBCDoCFStringSearch(FBCSearchSession theSession, CFStringRef queryString,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCDoExampleSearch(FBCSearchSession theSession, const UInt32 *exampleHitNums,
                    UInt32 numExamples, const FSSpec targetDirs[],
                    UInt32 numTargets, UInt32 maxHits, UInt32 maxHitWords);
@@ -439,7 +439,7 @@ FBCDoExampleSearch(FBCSearchSession theSession, const UInt32 *exampleHitNums,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCBlindExampleSearch(FSSpec examples[], UInt32 numExamples,
                       const FSSpec targetDirs[], UInt32 numTargets,
                       UInt32 maxHits, UInt32 maxHitWords, Boolean allIndexes,
@@ -459,7 +459,7 @@ FBCBlindExampleSearch(FSSpec examples[], UInt32 numExamples,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetHitCount(FBCSearchSession theSession, UInt32 *count);
 
 /**
@@ -470,7 +470,7 @@ FBCGetHitCount(FBCSearchSession theSession, UInt32 *count);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetHitDocument(FBCSearchSession theSession, UInt32 hitNumber,
                   FSSpec *theDocument);
 
@@ -482,7 +482,7 @@ FBCGetHitDocument(FBCSearchSession theSession, UInt32 hitNumber,
  *    \carbon_lib        not available in CarbonLib 1.x
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetHitDocumentRef(FBCSearchSession theSession, UInt32 hitNumber,
                      FSRef *theDocument);
 
@@ -494,7 +494,7 @@ FBCGetHitDocumentRef(FBCSearchSession theSession, UInt32 hitNumber,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetHitScore(FBCSearchSession theSession, UInt32 hitNumber, float *score);
 
 /**
@@ -505,7 +505,7 @@ FBCGetHitScore(FBCSearchSession theSession, UInt32 hitNumber, float *score);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetMatchedWords(FBCSearchSession theSession, UInt32 hitNumber,
                    UInt32 *wordCount, FBCWordList *list);
 
@@ -517,7 +517,7 @@ FBCGetMatchedWords(FBCSearchSession theSession, UInt32 hitNumber,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCGetTopicWords(FBCSearchSession theSession, UInt32 hitNumber,
                  UInt32 *wordCount, FBCWordList *list);
 
@@ -535,7 +535,7 @@ FBCGetTopicWords(FBCSearchSession theSession, UInt32 hitNumber,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCSummarize(void *inBuf, UInt32 inLength, void *outBuf, UInt32 *outLength,
              UInt32 *numSentences);
 
@@ -553,7 +553,7 @@ FBCSummarize(void *inBuf, UInt32 inLength, void *outBuf, UInt32 *outLength,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCReleaseSessionHits(FBCSearchSession theSession);
 
 /**
@@ -564,7 +564,7 @@ FBCReleaseSessionHits(FBCSearchSession theSession);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCDestroyWordList(FBCWordList theList, UInt32 wordCount);
 
 /**
@@ -575,7 +575,7 @@ FBCDestroyWordList(FBCWordList theList, UInt32 wordCount);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCDestroySearchSession(FBCSearchSession theSession);
 
 /**
@@ -592,7 +592,7 @@ FBCDestroySearchSession(FBCSearchSession theSession);
  *    \carbon_lib        not available in CarbonLib 1.x
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCIndexItems(FSSpecArrayPtr theItems, UInt32 itemCount);
 
 /**
@@ -603,7 +603,7 @@ FBCIndexItems(FSSpecArrayPtr theItems, UInt32 itemCount);
  *    \carbon_lib        not available in CarbonLib 1.x
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCIndexItemsInLanguages(FSSpecArrayPtr theItems, UInt32 itemCount,
                          UInt32 languageHighBits, UInt32 languageLowBits);
 
@@ -622,7 +622,7 @@ FBCIndexItemsInLanguages(FSSpecArrayPtr theItems, UInt32 itemCount,
  *    \carbon_lib        not available in CarbonLib 1.x
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCFindIndexFileFolderForFolder(FSRef *inFolder, FSRef *outFolder);
 
 /**
@@ -639,7 +639,7 @@ FBCFindIndexFileFolderForFolder(FSRef *inFolder, FSRef *outFolder);
  *    \carbon_lib        not available in CarbonLib 1.x
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 FBCDeleteIndexFileForFolder(const FSRef *folder);
 
 #if PRAGMA_STRUCT_ALIGN

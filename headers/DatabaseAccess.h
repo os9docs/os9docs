@@ -339,7 +339,7 @@ typedef STACK_UPP_TYPE(DBResultHandlerProcPtr) DBResultHandlerUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DBCompletionUPP)
+DBCompletionUPP
 NewDBCompletionUPP(DBCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -367,7 +367,7 @@ inline DBCompletionUPP NewDBCompletionUPP(DBCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DBQueryDefUPP)
+DBQueryDefUPP
 NewDBQueryDefUPP(DBQueryDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -393,7 +393,7 @@ inline DBQueryDefUPP NewDBQueryDefUPP(DBQueryDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DBStatusUPP)
+DBStatusUPP
 NewDBStatusUPP(DBStatusProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -420,7 +420,7 @@ inline DBStatusUPP NewDBStatusUPP(DBStatusProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DBResultHandlerUPP)
+DBResultHandlerUPP
 NewDBResultHandlerUPP(DBResultHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -450,7 +450,7 @@ NewDBResultHandlerUPP(DBResultHandlerProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDBCompletionUPP(DBCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -470,7 +470,7 @@ inline void DisposeDBCompletionUPP(DBCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDBQueryDefUPP(DBQueryDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -490,7 +490,7 @@ inline void DisposeDBQueryDefUPP(DBQueryDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDBStatusUPP(DBStatusUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -510,7 +510,7 @@ inline void DisposeDBStatusUPP(DBStatusUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDBResultHandlerUPP(DBResultHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -533,7 +533,7 @@ inline void DisposeDBResultHandlerUPP(DBResultHandlerUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeDBCompletionUPP(__A1, __A0)
 #endif
-EXTERN_API_C(void)
+void
 InvokeDBCompletionUPP(DBAsyncParmBlkPtr pb, DBCompletionUPP userUPP)
     ONEWORDINLINE(0x4E90);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -557,7 +557,7 @@ inline void InvokeDBCompletionUPP(DBAsyncParmBlkPtr pb,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDBQueryDefUPP(long *sessID, QueryHandle query, DBQueryDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -581,7 +581,7 @@ inline OSErr InvokeDBQueryDefUPP(long *sessID, QueryHandle query,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDBStatusUPP(short message, OSErr result, short dataLen, short dataPlaces,
                   short dataFlags, DBType dataType, Ptr dataPtr,
                   DBStatusUPP userUPP);
@@ -612,7 +612,7 @@ inline Boolean InvokeDBStatusUPP(short message, OSErr result, short dataLen,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeDBResultHandlerUPP(DBType dataType, short theLen, short thePlaces,
                          short theFlags, Ptr theData, Handle theText,
                          DBResultHandlerUPP userUPP);

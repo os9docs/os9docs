@@ -505,7 +505,7 @@ typedef struct QTSExportParams QTSExportParams;
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InitializeQTS(void);
 
 /**
@@ -517,7 +517,7 @@ InitializeQTS(void);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 TerminateQTS(void);
 
 /*-----------------------------------------
@@ -532,7 +532,7 @@ TerminateQTS(void);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSNewPresentation(const QTSNewPresentationParams *inParams,
                    QTSPresentation *outPresentation);
 
@@ -545,7 +545,7 @@ QTSNewPresentation(const QTSNewPresentationParams *inParams,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSNewPresentationFromData(OSType inDataType, const void *inData,
                            const SInt64 *inDataLength,
                            const QTSPresParams *inPresParams,
@@ -560,7 +560,7 @@ QTSNewPresentationFromData(OSType inDataType, const void *inData,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSNewPresentationFromFile(const FSSpec *inFileSpec,
                            const QTSPresParams *inPresParams,
                            QTSPresentation *outPresentation);
@@ -574,7 +574,7 @@ QTSNewPresentationFromFile(const FSSpec *inFileSpec,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSNewPresentationFromDataRef(Handle inDataRef, OSType inDataRefType,
                               const QTSPresParams *inPresParams,
                               QTSPresentation *outPresentation);
@@ -588,7 +588,7 @@ QTSNewPresentationFromDataRef(Handle inDataRef, OSType inDataRefType,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSDisposePresentation(QTSPresentation inPresentation, SInt32 inFlags);
 
 /**
@@ -600,7 +600,7 @@ QTSDisposePresentation(QTSPresentation inPresentation, SInt32 inFlags);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresExport(QTSPresentation inPresentation, QTSStream inStream,
               QTSExportParams *inExportParams);
 
@@ -613,7 +613,7 @@ QTSPresExport(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(void)
+void
 QTSPresIdle(QTSPresentation inPresentation, QTSPresIdleParams *ioParams);
 
 /**
@@ -625,7 +625,7 @@ QTSPresIdle(QTSPresentation inPresentation, QTSPresIdleParams *ioParams);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresInvalidateRegion(QTSPresentation inPresentation, RgnHandle inRegion);
 
 /*-----------------------------------------
@@ -640,7 +640,7 @@ QTSPresInvalidateRegion(QTSPresentation inPresentation, RgnHandle inRegion);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetFlags(QTSPresentation inPresentation, SInt32 inFlags,
                 SInt32 inFlagsMask);
 
@@ -653,7 +653,7 @@ QTSPresSetFlags(QTSPresentation inPresentation, SInt32 inFlags,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetFlags(QTSPresentation inPresentation, SInt32 *outFlags);
 
 /**
@@ -665,7 +665,7 @@ QTSPresGetFlags(QTSPresentation inPresentation, SInt32 *outFlags);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetTimeBase(QTSPresentation inPresentation, TimeBase *outTimeBase);
 
 /**
@@ -677,7 +677,7 @@ QTSPresGetTimeBase(QTSPresentation inPresentation, TimeBase *outTimeBase);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetTimeScale(QTSPresentation inPresentation, TimeScale *outTimeScale);
 
 /**
@@ -689,7 +689,7 @@ QTSPresGetTimeScale(QTSPresentation inPresentation, TimeScale *outTimeScale);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetInfo(QTSPresentation inPresentation, QTSStream inStream,
                OSType inSelector, void *ioParam);
 
@@ -702,7 +702,7 @@ QTSPresSetInfo(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetInfo(QTSPresentation inPresentation, QTSStream inStream,
                OSType inSelector, void *ioParam);
 
@@ -715,7 +715,7 @@ QTSPresGetInfo(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresHasCharacteristic(QTSPresentation inPresentation, QTSStream inStream,
                          OSType inCharacteristic, Boolean *outHasIt);
 
@@ -728,7 +728,7 @@ QTSPresHasCharacteristic(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetNotificationProc(QTSPresentation inPresentation,
                            QTSNotificationUPP inNotificationProc,
                            void *inRefCon);
@@ -742,7 +742,7 @@ QTSPresSetNotificationProc(QTSPresentation inPresentation,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetNotificationProc(QTSPresentation inPresentation,
                            QTSNotificationUPP *outNotificationProc,
                            void **outRefCon);
@@ -758,7 +758,7 @@ QTSPresGetNotificationProc(QTSPresentation inPresentation,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresPreview(QTSPresentation inPresentation, QTSStream inStream,
                const TimeValue64 *inTimeValue, Fixed inRate, SInt32 inFlags);
 
@@ -771,7 +771,7 @@ QTSPresPreview(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresPreroll(QTSPresentation inPresentation, QTSStream inStream,
                UInt32 inTimeValue, Fixed inRate, SInt32 inFlags);
 
@@ -784,7 +784,7 @@ QTSPresPreroll(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresPreroll64(QTSPresentation inPresentation, QTSStream inStream,
                  const TimeValue64 *inPrerollTime, Fixed inRate,
                  SInt32 inFlags);
@@ -798,7 +798,7 @@ QTSPresPreroll64(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresStart(QTSPresentation inPresentation, QTSStream inStream,
              SInt32 inFlags);
 
@@ -811,7 +811,7 @@ QTSPresStart(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSkipTo(QTSPresentation inPresentation, UInt32 inTimeValue);
 
 /**
@@ -823,7 +823,7 @@ QTSPresSkipTo(QTSPresentation inPresentation, UInt32 inTimeValue);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSkipTo64(QTSPresentation inPresentation, const TimeValue64 *inTimeValue);
 
 /**
@@ -835,7 +835,7 @@ QTSPresSkipTo64(QTSPresentation inPresentation, const TimeValue64 *inTimeValue);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresStop(QTSPresentation inPresentation, QTSStream inStream, SInt32 inFlags);
 
 /*============================================================================
@@ -853,7 +853,7 @@ QTSPresStop(QTSPresentation inPresentation, QTSStream inStream, SInt32 inFlags);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresNewStream(QTSPresentation inPresentation, OSType inDataType,
                  const void *inData, UInt32 inDataLength, SInt32 inFlags,
                  QTSStream *outStream);
@@ -867,7 +867,7 @@ QTSPresNewStream(QTSPresentation inPresentation, OSType inDataType,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSDisposeStream(QTSStream inStream, SInt32 inFlags);
 
 /**
@@ -879,7 +879,7 @@ QTSDisposeStream(QTSStream inStream, SInt32 inFlags);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTSPresGetNumStreams(QTSPresentation inPresentation);
 
 /**
@@ -891,7 +891,7 @@ QTSPresGetNumStreams(QTSPresentation inPresentation);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(QTSStream)
+QTSStream
 QTSPresGetIndStream(QTSPresentation inPresentation, UInt32 inIndex);
 
 /**
@@ -903,7 +903,7 @@ QTSPresGetIndStream(QTSPresentation inPresentation, UInt32 inIndex);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(QTSPresentation)
+QTSPresentation
 QTSGetStreamPresentation(QTSStream inStream);
 
 /**
@@ -915,7 +915,7 @@ QTSGetStreamPresentation(QTSStream inStream);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetPreferredRate(QTSPresentation inPresentation, Fixed inRate,
                         SInt32 inFlags);
 
@@ -928,7 +928,7 @@ QTSPresSetPreferredRate(QTSPresentation inPresentation, Fixed inRate,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetPreferredRate(QTSPresentation inPresentation, Fixed *outRate);
 
 /**
@@ -940,7 +940,7 @@ QTSPresGetPreferredRate(QTSPresentation inPresentation, Fixed *outRate);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetEnable(QTSPresentation inPresentation, QTSStream inStream,
                  Boolean inEnableMode);
 
@@ -953,7 +953,7 @@ QTSPresSetEnable(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetEnable(QTSPresentation inPresentation, QTSStream inStream,
                  Boolean *outEnableMode);
 
@@ -966,7 +966,7 @@ QTSPresGetEnable(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetPresenting(QTSPresentation inPresentation, QTSStream inStream,
                      Boolean inPresentingMode);
 
@@ -979,7 +979,7 @@ QTSPresSetPresenting(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetPresenting(QTSPresentation inPresentation, QTSStream inStream,
                      Boolean *outPresentingMode);
 
@@ -992,7 +992,7 @@ QTSPresGetPresenting(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetActiveSegment(QTSPresentation inPresentation, QTSStream inStream,
                         const TimeValue64 *inStartTime,
                         const TimeValue64 *inDuration);
@@ -1006,7 +1006,7 @@ QTSPresSetActiveSegment(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetActiveSegment(QTSPresentation inPresentation, QTSStream inStream,
                         TimeValue64 *outStartTime, TimeValue64 *outDuration);
 
@@ -1019,7 +1019,7 @@ QTSPresGetActiveSegment(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetPlayHints(QTSPresentation inPresentation, QTSStream inStream,
                     SInt32 inFlags, SInt32 inFlagsMask);
 
@@ -1032,7 +1032,7 @@ QTSPresSetPlayHints(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetPlayHints(QTSPresentation inPresentation, QTSStream inStream,
                     SInt32 *outFlags);
 
@@ -1048,7 +1048,7 @@ QTSPresGetPlayHints(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetGWorld(QTSPresentation inPresentation, QTSStream inStream,
                  CGrafPtr inGWorld, GDHandle inGDHandle);
 
@@ -1061,7 +1061,7 @@ QTSPresSetGWorld(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetGWorld(QTSPresentation inPresentation, QTSStream inStream,
                  CGrafPtr *outGWorld, GDHandle *outGDHandle);
 
@@ -1074,7 +1074,7 @@ QTSPresGetGWorld(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetClip(QTSPresentation inPresentation, QTSStream inStream,
                RgnHandle inClip);
 
@@ -1087,7 +1087,7 @@ QTSPresSetClip(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetClip(QTSPresentation inPresentation, QTSStream inStream,
                RgnHandle *outClip);
 
@@ -1100,7 +1100,7 @@ QTSPresGetClip(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetMatrix(QTSPresentation inPresentation, QTSStream inStream,
                  const MatrixRecord *inMatrix);
 
@@ -1113,7 +1113,7 @@ QTSPresSetMatrix(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetMatrix(QTSPresentation inPresentation, QTSStream inStream,
                  MatrixRecord *outMatrix);
 
@@ -1126,7 +1126,7 @@ QTSPresGetMatrix(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetDimensions(QTSPresentation inPresentation, QTSStream inStream,
                      Fixed inWidth, Fixed inHeight);
 
@@ -1139,7 +1139,7 @@ QTSPresSetDimensions(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetDimensions(QTSPresentation inPresentation, QTSStream inStream,
                      Fixed *outWidth, Fixed *outHeight);
 
@@ -1152,7 +1152,7 @@ QTSPresGetDimensions(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetGraphicsMode(QTSPresentation inPresentation, QTSStream inStream,
                        short inMode, const RGBColor *inOpColor);
 
@@ -1165,7 +1165,7 @@ QTSPresSetGraphicsMode(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetGraphicsMode(QTSPresentation inPresentation, QTSStream inStream,
                        short *outMode, RGBColor *outOpColor);
 
@@ -1178,7 +1178,7 @@ QTSPresGetGraphicsMode(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetPicture(QTSPresentation inPresentation, QTSStream inStream,
                   PicHandle *outPicture);
 
@@ -1194,7 +1194,7 @@ QTSPresGetPicture(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetVolumes(QTSPresentation inPresentation, QTSStream inStream,
                   short inLeftVolume, short inRightVolume);
 
@@ -1207,7 +1207,7 @@ QTSPresSetVolumes(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetVolumes(QTSPresentation inPresentation, QTSStream inStream,
                   short *outLeftVolume, short *outRightVolume);
 
@@ -1223,7 +1223,7 @@ QTSPresGetVolumes(QTSPresentation inPresentation, QTSStream inStream,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetSettingsAsText(QTSPresentation inPresentation, QTSStream inStream,
                          SInt32 inFlags, OSType inSettingsType, Handle *outText,
                          QTSPanelFilterUPP inPanelFilterProc,
@@ -1237,7 +1237,7 @@ QTSPresGetSettingsAsText(QTSPresentation inPresentation, QTSStream inStream,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSettingsDialog(QTSPresentation inPresentation, QTSStream inStream,
                       SInt32 inFlags, QTSModalFilterUPP inFilterProc,
                       void *inFilterProcRefCon);
@@ -1251,7 +1251,7 @@ QTSPresSettingsDialog(QTSPresentation inPresentation, QTSStream inStream,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSettingsDialogWithFilters(QTSPresentation inPresentation,
                                  QTSStream inStream, SInt32 inFlags,
                                  QTSModalFilterUPP inFilterProc,
@@ -1267,7 +1267,7 @@ QTSPresSettingsDialogWithFilters(QTSPresentation inPresentation,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresSetSettings(QTSPresentation inPresentation, QTSStream inStream,
                    QTAtomSpecPtr inSettings, SInt32 inFlags);
 
@@ -1279,7 +1279,7 @@ QTSPresSetSettings(QTSPresentation inPresentation, QTSStream inStream,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetSettings(QTSPresentation inPresentation, QTSStream inStream,
                    QTAtomContainer *outSettings, SInt32 inFlags);
 
@@ -1291,7 +1291,7 @@ QTSPresGetSettings(QTSPresentation inPresentation, QTSStream inStream,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresAddSourcer(QTSPresentation inPresentation, QTSStream inStream,
                   ComponentInstance inSourcer, SInt32 inFlags);
 
@@ -1303,7 +1303,7 @@ QTSPresAddSourcer(QTSPresentation inPresentation, QTSStream inStream,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresRemoveSourcer(QTSPresentation inPresentation, QTSStream inStream,
                      ComponentInstance inSourcer, SInt32 inFlags);
 
@@ -1315,7 +1315,7 @@ QTSPresRemoveSourcer(QTSPresentation inPresentation, QTSStream inStream,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTSPresGetNumSourcers(QTSPresentation inPresentation, QTSStream inStream);
 
 /**
@@ -1326,7 +1326,7 @@ QTSPresGetNumSourcers(QTSPresentation inPresentation, QTSStream inStream);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPresGetIndSourcer(QTSPresentation inPresentation, QTSStream inStream,
                      UInt32 inIndex, ComponentInstance *outSourcer);
 
@@ -1345,7 +1345,7 @@ enum { kQTSNetworkAppNameIsFullNameFlag = 0x00000001 };
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSSetNetworkAppName(const char *inAppName, SInt32 inFlags);
 
 /**
@@ -1357,7 +1357,7 @@ QTSSetNetworkAppName(const char *inAppName, SInt32 inFlags);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSGetNetworkAppName(SInt32 inFlags, char **outCStringPtr);
 
 /*-----------------------------------------
@@ -1459,7 +1459,7 @@ enum {
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSNewStatHelper(QTSPresentation inPresentation, QTSStream inStream,
                  OSType inStatType, SInt32 inFlags,
                  QTSStatHelper *outStatHelper);
@@ -1473,7 +1473,7 @@ QTSNewStatHelper(QTSPresentation inPresentation, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSDisposeStatHelper(QTSStatHelper inStatHelper);
 
 /**
@@ -1485,7 +1485,7 @@ QTSDisposeStatHelper(QTSStatHelper inStatHelper);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSStatHelperGetStats(QTSStatHelper inStatHelper);
 
 /**
@@ -1497,7 +1497,7 @@ QTSStatHelperGetStats(QTSStatHelper inStatHelper);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSStatHelperResetIter(QTSStatHelper inStatHelper);
 
 /**
@@ -1509,7 +1509,7 @@ QTSStatHelperResetIter(QTSStatHelper inStatHelper);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 QTSStatHelperNext(QTSStatHelper inStatHelper,
                   QTSStatHelperNextParams *ioParams);
 
@@ -1522,7 +1522,7 @@ QTSStatHelperNext(QTSStatHelper inStatHelper,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTSStatHelperGetNumStats(QTSStatHelper inStatHelper);
 
 /* used by components to put statistics into the atom container */
@@ -1535,7 +1535,7 @@ QTSStatHelperGetNumStats(QTSStatHelper inStatHelper);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSGetOrMakeStatAtomForStream(QTAtomContainer inContainer, QTSStream inStream,
                               QTAtom *outParentAtom);
 
@@ -1548,7 +1548,7 @@ QTSGetOrMakeStatAtomForStream(QTAtomContainer inContainer, QTSStream inStream,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSInsertStatistic(QTAtomContainer inContainer, QTAtom inParentAtom,
                    OSType inStatType, void *inStatData, UInt32 inStatDataLength,
                    OSType inStatDataFormat, SInt32 inFlags);
@@ -1562,7 +1562,7 @@ QTSInsertStatistic(QTAtomContainer inContainer, QTAtom inParentAtom,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSInsertStatisticName(QTAtomContainer inContainer, QTAtom inParentAtom,
                        OSType inStatType, const char *inStatName,
                        UInt32 inStatNameLength);
@@ -1576,7 +1576,7 @@ QTSInsertStatisticName(QTAtomContainer inContainer, QTAtom inParentAtom,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSInsertStatisticUnits(QTAtomContainer inContainer, QTAtom inParentAtom,
                         OSType inStatType, OSType inUnitsType,
                         const char *inUnitsName, UInt32 inUnitsNameLength);
@@ -1781,7 +1781,7 @@ enum {
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsAddProxySetting(OSType proxyType, SInt32 portID, UInt32 flags,
                         UInt32 seed, Str255 srvrURL);
 
@@ -1794,7 +1794,7 @@ QTSPrefsAddProxySetting(OSType proxyType, SInt32 portID, UInt32 flags,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsFindProxyByType(OSType proxyType, UInt32 flags, UInt32 flagsMask,
                         QTSProxyPref **proxyHndl, SInt16 *count);
 
@@ -1807,7 +1807,7 @@ QTSPrefsFindProxyByType(OSType proxyType, UInt32 flags, UInt32 flagsMask,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsAddConnectionSetting(OSType protocol, SInt32 portID, UInt32 flags,
                              UInt32 seed);
 
@@ -1820,7 +1820,7 @@ QTSPrefsAddConnectionSetting(OSType protocol, SInt32 portID, UInt32 flags,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsFindConnectionByType(OSType protocol, UInt32 flags, UInt32 flagsMask,
                              QTSTransportPref **connectionHndl, SInt16 *count);
 
@@ -1833,7 +1833,7 @@ QTSPrefsFindConnectionByType(OSType protocol, UInt32 flags, UInt32 flagsMask,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsGetActiveConnection(OSType protocol, QTSTransportPref *connectInfo);
 
 /**
@@ -1845,7 +1845,7 @@ QTSPrefsGetActiveConnection(OSType protocol, QTSTransportPref *connectInfo);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsGetNoProxyURLs(QTSNoProxyPref **noProxyHndl);
 
 /**
@@ -1857,7 +1857,7 @@ QTSPrefsGetNoProxyURLs(QTSNoProxyPref **noProxyHndl);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsSetNoProxyURLs(char *urls, UInt32 flags, UInt32 seed);
 
 /**
@@ -1870,7 +1870,7 @@ QTSPrefsSetNoProxyURLs(char *urls, UInt32 flags, UInt32 seed);
  *    \mac_os_x         in version 10.1 and later
  *    Windows:          in QTSClient.lib 5.0.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsAddProxyUserInfo(OSType proxyType, SInt32 flags, SInt32 flagsMask,
                          StringPtr username, StringPtr password);
 
@@ -1884,7 +1884,7 @@ QTSPrefsAddProxyUserInfo(OSType proxyType, SInt32 flags, SInt32 flagsMask,
  *    \mac_os_x         in version 10.1 and later
  *    Windows:          in QTSClient.lib 5.0.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSPrefsFindProxyUserInfoByType(OSType proxyType, SInt32 flags,
                                 SInt32 flagsMask, StringPtr username,
                                 StringPtr password);
@@ -1909,7 +1909,7 @@ QTSPrefsFindProxyUserInfoByType(OSType proxyType, SInt32 flags,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(Ptr)
+Ptr
 QTSNewPtr(UInt32 inByteCount, SInt32 inFlags, SInt32 *outFlags);
 
 /**
@@ -1921,7 +1921,7 @@ QTSNewPtr(UInt32 inByteCount, SInt32 inFlags, SInt32 *outFlags);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(Handle)
+Handle
 QTSNewHandle(UInt32 inByteCount, SInt32 inFlags, SInt32 *outFlags);
 
 #define QTSNewPtrClear(_s) QTSNewPtr((_s), kQTSMemAllocClearMem, NULL)
@@ -1960,7 +1960,7 @@ typedef struct OpaqueQTSMemPtr *QTSMemPtr;
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(QTSMemPtr)
+QTSMemPtr
 QTSAllocMemPtr(UInt32 inByteCount, SInt32 inFlags);
 
 /**
@@ -1972,7 +1972,7 @@ QTSAllocMemPtr(UInt32 inByteCount, SInt32 inFlags);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(void)
+void
 QTSReleaseMemPtr(QTSMemPtr inMemPtr, SInt32 inFlags);
 
 /*============================================================================
@@ -2012,7 +2012,7 @@ enum {
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSNewStreamBuffer(UInt32 inDataSize, SInt32 inFlags,
                    QTSStreamBuffer **outStreamBuffer);
 
@@ -2025,7 +2025,7 @@ QTSNewStreamBuffer(UInt32 inDataSize, SInt32 inFlags,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(void)
+void
 QTSFreeMessage(QTSStreamBuffer *inMessage);
 
 /**
@@ -2042,7 +2042,7 @@ QTSFreeMessage(QTSStreamBuffer *inMessage);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 5.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSDuplicateMessage(QTSStreamBuffer *inMessage, SInt32 inFlags,
                     QTSStreamBuffer **outDuplicatedMessage);
 
@@ -2055,7 +2055,7 @@ QTSDuplicateMessage(QTSStreamBuffer *inMessage, SInt32 inFlags,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(UInt32)
+UInt32
 QTSMessageLength(QTSStreamBuffer *inMessage);
 
 /**
@@ -2067,7 +2067,7 @@ QTSMessageLength(QTSStreamBuffer *inMessage);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 5.0 and later
  */
-EXTERN_API_C(void)
+void
 QTSStreamBufferDataInfo(QTSStreamBuffer *inStreamBuffer,
                         unsigned char **outDataStart, UInt32 *outDataMaxLength);
 
@@ -2082,7 +2082,7 @@ QTSStreamBufferDataInfo(QTSStreamBuffer *inStreamBuffer,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(QTSStreamBuffer *)
+QTSStreamBuffer *
 QTSAllocBuffer(SInt32 inSize);
 
 /**
@@ -2094,7 +2094,7 @@ QTSAllocBuffer(SInt32 inSize);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(QTSStreamBuffer *)
+QTSStreamBuffer *
 QTSDupMessage(QTSStreamBuffer *inMessage);
 
 /**
@@ -2106,7 +2106,7 @@ QTSDupMessage(QTSStreamBuffer *inMessage);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(QTSStreamBuffer *)
+QTSStreamBuffer *
 QTSCopyMessage(QTSStreamBuffer *inMessage);
 
 /**
@@ -2118,7 +2118,7 @@ QTSCopyMessage(QTSStreamBuffer *inMessage);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(QTSStreamBuffer *)
+QTSStreamBuffer *
 QTSFlattenMessage(QTSStreamBuffer *inMessage);
 
 /*============================================================================
@@ -2133,7 +2133,7 @@ QTSFlattenMessage(QTSStreamBuffer *inMessage);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 QTSGetErrorString(SInt32 inErrorCode, UInt32 inMaxErrorStringLength,
                   char *outErrorString, SInt32 inFlags);
 
@@ -2147,7 +2147,7 @@ QTSGetErrorString(SInt32 inErrorCode, UInt32 inMaxErrorStringLength,
  *    \mac_os_x         in version 10.1 and later
  *    Windows:          in QTSClient.lib 5.0.1 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 QTSInitializeMediaParams(QTSMediaParams *inMediaParams);
 
 /* UPP call backs */
@@ -2159,7 +2159,7 @@ QTSInitializeMediaParams(QTSMediaParams *inMediaParams);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTSNotificationUPP)
+QTSNotificationUPP
 NewQTSNotificationUPP(QTSNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2188,7 +2188,7 @@ NewQTSNotificationUPP(QTSNotificationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(QTSPanelFilterUPP)
+QTSPanelFilterUPP
 NewQTSPanelFilterUPP(QTSPanelFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2217,7 +2217,7 @@ NewQTSPanelFilterUPP(QTSPanelFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(QTSModalFilterUPP)
+QTSModalFilterUPP
 NewQTSModalFilterUPP(QTSModalFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2246,7 +2246,7 @@ NewQTSModalFilterUPP(QTSModalFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTSNotificationUPP(QTSNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2266,7 +2266,7 @@ inline void DisposeQTSNotificationUPP(QTSNotificationUPP userUPP) {
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTSPanelFilterUPP(QTSPanelFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2286,7 +2286,7 @@ inline void DisposeQTSPanelFilterUPP(QTSPanelFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeQTSModalFilterUPP(QTSModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2306,7 +2306,7 @@ inline void DisposeQTSModalFilterUPP(QTSModalFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeQTSNotificationUPP(ComponentResult inErr, OSType inNotificationType,
                          void *inNotificationParams, void *inRefCon,
                          QTSNotificationUPP userUPP);
@@ -2338,7 +2338,7 @@ inline ComponentResult InvokeQTSNotificationUPP(ComponentResult inErr,
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeQTSPanelFilterUPP(QTSPanelFilterParams *inParams, void *inRefCon,
                         QTSPanelFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2364,7 +2364,7 @@ inline Boolean InvokeQTSPanelFilterUPP(QTSPanelFilterParams *inParams,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeQTSModalFilterUPP(DialogPtr inDialog, const EventRecord *inEvent,
                         SInt16 *ioItemHit, void *inRefCon,
                         QTSModalFilterUPP userUPP);

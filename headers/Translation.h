@@ -347,7 +347,7 @@ typedef STACK_UPP_TYPE(GetScrapDataProcPtr) GetScrapDataUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(GetScrapDataUPP)
+GetScrapDataUPP
 NewGetScrapDataUPP(GetScrapDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -375,7 +375,7 @@ inline GetScrapDataUPP NewGetScrapDataUPP(GetScrapDataProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeGetScrapDataUPP(GetScrapDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -395,7 +395,7 @@ inline void DisposeGetScrapDataUPP(GetScrapDataUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeGetScrapDataUPP(ScrapType requestedFormat, Handle dataH,
                       void *srcDataGetterRefCon, GetScrapDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES

@@ -1323,7 +1323,7 @@ typedef STACK_UPP_TYPE(MovieExportGetPropertyProcPtr) MovieExportGetPropertyUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SCModalFilterUPP)
+SCModalFilterUPP
 NewSCModalFilterUPP(SCModalFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1351,7 +1351,7 @@ inline SCModalFilterUPP NewSCModalFilterUPP(SCModalFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SCModalHookUPP)
+SCModalHookUPP
 NewSCModalHookUPP(SCModalHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1378,7 +1378,7 @@ inline SCModalHookUPP NewSCModalHookUPP(SCModalHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MovieExportGetDataUPP)
+MovieExportGetDataUPP
 NewMovieExportGetDataUPP(MovieExportGetDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1407,7 +1407,7 @@ NewMovieExportGetDataUPP(MovieExportGetDataProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MovieExportGetPropertyUPP)
+MovieExportGetPropertyUPP
 NewMovieExportGetPropertyUPP(MovieExportGetPropertyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1436,7 +1436,7 @@ NewMovieExportGetPropertyUPP(MovieExportGetPropertyProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSCModalFilterUPP(SCModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1456,7 +1456,7 @@ inline void DisposeSCModalFilterUPP(SCModalFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSCModalHookUPP(SCModalHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1476,7 +1476,7 @@ inline void DisposeSCModalHookUPP(SCModalHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMovieExportGetDataUPP(MovieExportGetDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1496,7 +1496,7 @@ inline void DisposeMovieExportGetDataUPP(MovieExportGetDataUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMovieExportGetPropertyUPP(MovieExportGetPropertyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1518,7 +1518,7 @@ DisposeMovieExportGetPropertyUPP(MovieExportGetPropertyUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeSCModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
                        short *itemHit, long refcon, SCModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1545,7 +1545,7 @@ inline Boolean InvokeSCModalFilterUPP(DialogRef theDialog,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(short)
+short
 InvokeSCModalHookUPP(DialogRef theDialog, short itemHit, void *params,
                      long refcon, SCModalHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1571,7 +1571,7 @@ inline short InvokeSCModalHookUPP(DialogRef theDialog, short itemHit,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeMovieExportGetDataUPP(void *refCon, MovieExportGetDataParams *params,
                             MovieExportGetDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1597,7 +1597,7 @@ inline OSErr InvokeMovieExportGetDataUPP(void *refCon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeMovieExportGetPropertyUPP(void *refcon, long trackID, OSType propertyType,
                                 void *propertyValue,
                                 MovieExportGetPropertyUPP userUPP);
@@ -8279,7 +8279,7 @@ QTVideoOutputGetIndImageDecompressor(QTVideoOutputComponent vo, long index,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataHCompletionUPP)
+DataHCompletionUPP
 NewDataHCompletionUPP(DataHCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8308,7 +8308,7 @@ NewDataHCompletionUPP(DataHCompletionProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(VdigIntUPP)
+VdigIntUPP
 NewVdigIntUPP(VdigIntProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8334,7 +8334,7 @@ inline VdigIntUPP NewVdigIntUPP(VdigIntProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(StartDocumentHandlerUPP)
+StartDocumentHandlerUPP
 NewStartDocumentHandlerUPP(StartDocumentHandler userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8363,7 +8363,7 @@ NewStartDocumentHandlerUPP(StartDocumentHandler userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EndDocumentHandlerUPP)
+EndDocumentHandlerUPP
 NewEndDocumentHandlerUPP(EndDocumentHandler userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8392,7 +8392,7 @@ NewEndDocumentHandlerUPP(EndDocumentHandler userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(StartElementHandlerUPP)
+StartElementHandlerUPP
 NewStartElementHandlerUPP(StartElementHandler userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8421,7 +8421,7 @@ NewStartElementHandlerUPP(StartElementHandler userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EndElementHandlerUPP)
+EndElementHandlerUPP
 NewEndElementHandlerUPP(EndElementHandler userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8450,7 +8450,7 @@ NewEndElementHandlerUPP(EndElementHandler userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CharDataHandlerUPP)
+CharDataHandlerUPP
 NewCharDataHandlerUPP(CharDataHandler userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8478,7 +8478,7 @@ inline CharDataHandlerUPP NewCharDataHandlerUPP(CharDataHandler userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(PreprocessInstructionHandlerUPP)
+PreprocessInstructionHandlerUPP
 NewPreprocessInstructionHandlerUPP(PreprocessInstructionHandler userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8507,7 +8507,7 @@ NewPreprocessInstructionHandlerUPP(PreprocessInstructionHandler userRoutine) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CommentHandlerUPP)
+CommentHandlerUPP
 NewCommentHandlerUPP(CommentHandler userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8535,7 +8535,7 @@ inline CommentHandlerUPP NewCommentHandlerUPP(CommentHandler userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGDataUPP)
+SGDataUPP
 NewSGDataUPP(SGDataProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8562,7 +8562,7 @@ inline SGDataUPP NewSGDataUPP(SGDataProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGModalFilterUPP)
+SGModalFilterUPP
 NewSGModalFilterUPP(SGModalFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8590,7 +8590,7 @@ inline SGModalFilterUPP NewSGModalFilterUPP(SGModalFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGGrabBottleUPP)
+SGGrabBottleUPP
 NewSGGrabBottleUPP(SGGrabBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8618,7 +8618,7 @@ inline SGGrabBottleUPP NewSGGrabBottleUPP(SGGrabBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGGrabCompleteBottleUPP)
+SGGrabCompleteBottleUPP
 NewSGGrabCompleteBottleUPP(SGGrabCompleteBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8647,7 +8647,7 @@ NewSGGrabCompleteBottleUPP(SGGrabCompleteBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGDisplayBottleUPP)
+SGDisplayBottleUPP
 NewSGDisplayBottleUPP(SGDisplayBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8676,7 +8676,7 @@ NewSGDisplayBottleUPP(SGDisplayBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGCompressBottleUPP)
+SGCompressBottleUPP
 NewSGCompressBottleUPP(SGCompressBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8705,7 +8705,7 @@ NewSGCompressBottleUPP(SGCompressBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGCompressCompleteBottleUPP)
+SGCompressCompleteBottleUPP
 NewSGCompressCompleteBottleUPP(SGCompressCompleteBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8734,7 +8734,7 @@ NewSGCompressCompleteBottleUPP(SGCompressCompleteBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGAddFrameBottleUPP)
+SGAddFrameBottleUPP
 NewSGAddFrameBottleUPP(SGAddFrameBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8764,7 +8764,7 @@ NewSGAddFrameBottleUPP(SGAddFrameBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGTransferFrameBottleUPP)
+SGTransferFrameBottleUPP
 NewSGTransferFrameBottleUPP(SGTransferFrameBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8793,7 +8793,7 @@ NewSGTransferFrameBottleUPP(SGTransferFrameBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGGrabCompressCompleteBottleUPP)
+SGGrabCompressCompleteBottleUPP
 NewSGGrabCompressCompleteBottleUPP(
     SGGrabCompressCompleteBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
@@ -8823,7 +8823,7 @@ inline SGGrabCompressCompleteBottleUPP NewSGGrabCompressCompleteBottleUPP(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SGDisplayCompressBottleUPP)
+SGDisplayCompressBottleUPP
 NewSGDisplayCompressBottleUPP(SGDisplayCompressBottleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -8853,7 +8853,7 @@ NewSGDisplayCompressBottleUPP(SGDisplayCompressBottleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataHCompletionUPP(DataHCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -8873,7 +8873,7 @@ inline void DisposeDataHCompletionUPP(DataHCompletionUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeVdigIntUPP(VdigIntUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -8893,7 +8893,7 @@ inline void DisposeVdigIntUPP(VdigIntUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeStartDocumentHandlerUPP(StartDocumentHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -8914,7 +8914,7 @@ inline void DisposeStartDocumentHandlerUPP(StartDocumentHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEndDocumentHandlerUPP(EndDocumentHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -8934,7 +8934,7 @@ inline void DisposeEndDocumentHandlerUPP(EndDocumentHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeStartElementHandlerUPP(StartElementHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -8954,7 +8954,7 @@ inline void DisposeStartElementHandlerUPP(StartElementHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEndElementHandlerUPP(EndElementHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -8974,7 +8974,7 @@ inline void DisposeEndElementHandlerUPP(EndElementHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCharDataHandlerUPP(CharDataHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -8994,7 +8994,7 @@ inline void DisposeCharDataHandlerUPP(CharDataHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposePreprocessInstructionHandlerUPP(PreprocessInstructionHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9016,7 +9016,7 @@ inline void DisposePreprocessInstructionHandlerUPP(
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCommentHandlerUPP(CommentHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9036,7 +9036,7 @@ inline void DisposeCommentHandlerUPP(CommentHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGDataUPP(SGDataUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9056,7 +9056,7 @@ inline void DisposeSGDataUPP(SGDataUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGModalFilterUPP(SGModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9076,7 +9076,7 @@ inline void DisposeSGModalFilterUPP(SGModalFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGGrabBottleUPP(SGGrabBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9096,7 +9096,7 @@ inline void DisposeSGGrabBottleUPP(SGGrabBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGGrabCompleteBottleUPP(SGGrabCompleteBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9117,7 +9117,7 @@ inline void DisposeSGGrabCompleteBottleUPP(SGGrabCompleteBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGDisplayBottleUPP(SGDisplayBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9137,7 +9137,7 @@ inline void DisposeSGDisplayBottleUPP(SGDisplayBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGCompressBottleUPP(SGCompressBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9157,7 +9157,7 @@ inline void DisposeSGCompressBottleUPP(SGCompressBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGCompressCompleteBottleUPP(SGCompressCompleteBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9179,7 +9179,7 @@ DisposeSGCompressCompleteBottleUPP(SGCompressCompleteBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGAddFrameBottleUPP(SGAddFrameBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9199,7 +9199,7 @@ inline void DisposeSGAddFrameBottleUPP(SGAddFrameBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGTransferFrameBottleUPP(SGTransferFrameBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9220,7 +9220,7 @@ inline void DisposeSGTransferFrameBottleUPP(SGTransferFrameBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGGrabCompressCompleteBottleUPP(SGGrabCompressCompleteBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9242,7 +9242,7 @@ inline void DisposeSGGrabCompressCompleteBottleUPP(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSGDisplayCompressBottleUPP(SGDisplayCompressBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9264,7 +9264,7 @@ DisposeSGDisplayCompressBottleUPP(SGDisplayCompressBottleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataHCompletionUPP(Ptr request, long refcon, OSErr err,
                          DataHCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9289,7 +9289,7 @@ inline void InvokeDataHCompletionUPP(Ptr request, long refcon, OSErr err,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeVdigIntUPP(long flags, long refcon, VdigIntUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9310,7 +9310,7 @@ inline void InvokeVdigIntUPP(long flags, long refcon, VdigIntUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeStartDocumentHandlerUPP(long refcon, StartDocumentHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9334,7 +9334,7 @@ InvokeStartDocumentHandlerUPP(long refcon, StartDocumentHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeEndDocumentHandlerUPP(long refcon, EndDocumentHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -9358,7 +9358,7 @@ InvokeEndDocumentHandlerUPP(long refcon, EndDocumentHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeStartElementHandlerUPP(const char *name, const char **atts, long refcon,
                              StartElementHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9384,7 +9384,7 @@ InvokeStartElementHandlerUPP(const char *name, const char **atts, long refcon,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeEndElementHandlerUPP(const char *name, long refcon,
                            EndElementHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9410,7 +9410,7 @@ InvokeEndElementHandlerUPP(const char *name, long refcon,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeCharDataHandlerUPP(const char *charData, long refcon,
                          CharDataHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9436,7 +9436,7 @@ inline ComponentResult InvokeCharDataHandlerUPP(const char *charData,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokePreprocessInstructionHandlerUPP(const char *name, const char **atts,
                                       long refcon,
                                       PreprocessInstructionHandlerUPP userUPP);
@@ -9465,7 +9465,7 @@ InvokePreprocessInstructionHandlerUPP(const char *name, const char **atts,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeCommentHandlerUPP(const char *comment, long refcon,
                         CommentHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9490,7 +9490,7 @@ inline ComponentResult InvokeCommentHandlerUPP(const char *comment, long refcon,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeSGDataUPP(SGChannel c, Ptr p, long len, long *offset, long chRefCon,
                 TimeValue time, short writeType, long refCon,
                 SGDataUPP userUPP);
@@ -9520,7 +9520,7 @@ inline OSErr InvokeSGDataUPP(SGChannel c, Ptr p, long len, long *offset,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeSGModalFilterUPP(DialogRef theDialog, const EventRecord *theEvent,
                        short *itemHit, long refCon, SGModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9548,7 +9548,7 @@ inline Boolean InvokeSGModalFilterUPP(DialogRef theDialog,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGGrabBottleUPP(SGChannel c, short bufferNum, long refCon,
                       SGGrabBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9574,7 +9574,7 @@ inline ComponentResult InvokeSGGrabBottleUPP(SGChannel c, short bufferNum,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGGrabCompleteBottleUPP(SGChannel c, short bufferNum, Boolean *done,
                               long refCon, SGGrabCompleteBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9601,7 +9601,7 @@ InvokeSGGrabCompleteBottleUPP(SGChannel c, short bufferNum, Boolean *done,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGDisplayBottleUPP(SGChannel c, short bufferNum, MatrixRecord *mp,
                          RgnHandle clipRgn, long refCon,
                          SGDisplayBottleUPP userUPP);
@@ -9630,7 +9630,7 @@ inline ComponentResult InvokeSGDisplayBottleUPP(SGChannel c, short bufferNum,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGCompressBottleUPP(SGChannel c, short bufferNum, long refCon,
                           SGCompressBottleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -9656,7 +9656,7 @@ inline ComponentResult InvokeSGCompressBottleUPP(SGChannel c, short bufferNum,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGCompressCompleteBottleUPP(SGChannel c, short bufferNum, Boolean *done,
                                   SGCompressInfo *ci, long refCon,
                                   SGCompressCompleteBottleUPP userUPP);
@@ -9687,7 +9687,7 @@ InvokeSGCompressCompleteBottleUPP(SGChannel c, short bufferNum, Boolean *done,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGAddFrameBottleUPP(SGChannel c, short bufferNum, TimeValue atTime,
                           TimeScale scale, const SGCompressInfo *ci,
                           long refCon, SGAddFrameBottleUPP userUPP);
@@ -9718,7 +9718,7 @@ InvokeSGAddFrameBottleUPP(SGChannel c, short bufferNum, TimeValue atTime,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGTransferFrameBottleUPP(SGChannel c, short bufferNum, MatrixRecord *mp,
                                RgnHandle clipRgn, long refCon,
                                SGTransferFrameBottleUPP userUPP);
@@ -9749,7 +9749,7 @@ InvokeSGTransferFrameBottleUPP(SGChannel c, short bufferNum, MatrixRecord *mp,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGGrabCompressCompleteBottleUPP(SGChannel c, Boolean *done,
                                       SGCompressInfo *ci, TimeRecord *t,
                                       long refCon,
@@ -9778,7 +9778,7 @@ inline ComponentResult InvokeSGGrabCompressCompleteBottleUPP(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ComponentResult)
+ComponentResult
 InvokeSGDisplayCompressBottleUPP(SGChannel c, Ptr dataPtr,
                                  ImageDescriptionHandle desc, MatrixRecord *mp,
                                  RgnHandle clipRgn, long refCon,

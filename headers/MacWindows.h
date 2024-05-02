@@ -977,7 +977,7 @@ typedef STACK_UPP_TYPE(WindowPaintProcPtr) WindowPaintUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowDefUPP)
+WindowDefUPP
 NewWindowDefUPP(WindowDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1004,7 +1004,7 @@ inline WindowDefUPP NewWindowDefUPP(WindowDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(DeskHookUPP)
+DeskHookUPP
 NewDeskHookUPP(DeskHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1032,7 +1032,7 @@ inline DeskHookUPP NewDeskHookUPP(DeskHookProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowPaintUPP)
+WindowPaintUPP
 NewWindowPaintUPP(WindowPaintProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1060,7 +1060,7 @@ inline WindowPaintUPP NewWindowPaintUPP(WindowPaintProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeWindowDefUPP(WindowDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1081,7 +1081,7 @@ inline void DisposeWindowDefUPP(WindowDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeDeskHookUPP(DeskHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1103,7 +1103,7 @@ inline void DisposeDeskHookUPP(DeskHookUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeWindowPaintUPP(WindowPaintUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1123,7 +1123,7 @@ inline void DisposeWindowPaintUPP(WindowPaintUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(long)
+long
 InvokeWindowDefUPP(short varCode, WindowRef window, short message, long param,
                    WindowDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1152,7 +1152,7 @@ inline long InvokeWindowDefUPP(short varCode, WindowRef window, short message,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeDeskHookUPP(__D0, __A0, __A1)
 #endif
-EXTERN_API_C(void)
+void
 InvokeDeskHookUPP(Boolean mouseClick, EventRecord *theEvent,
                   DeskHookUPP userUPP) ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -1179,7 +1179,7 @@ inline void InvokeDeskHookUPP(Boolean mouseClick, EventRecord *theEvent,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeWindowPaintUPP(GDHandle device, GrafPtr qdContext, WindowRef window,
                      RgnHandle inClientPaintRgn, RgnHandle outSystemPaintRgn,
                      void *refCon, WindowPaintUPP userUPP);
@@ -1564,7 +1564,7 @@ GetWindowWidgetHilite(WindowRef inWindow, WindowDefPartCode *outHilite);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsValidWindowClass(WindowClass inClass);
 
 /**
@@ -1596,7 +1596,7 @@ IsValidWindowClass(WindowClass inClass);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(WindowAttributes)
+WindowAttributes
 GetAvailableWindowAttributes(WindowClass inClass);
 
 /**
@@ -2011,7 +2011,7 @@ enum {
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CreateWindowGroup(WindowGroupAttributes inAttributes, WindowGroupRef *outGroup);
 
 /**
@@ -2030,7 +2030,7 @@ CreateWindowGroup(WindowGroupAttributes inAttributes, WindowGroupRef *outGroup);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RetainWindowGroup(WindowGroupRef inGroup);
 
 /**
@@ -2051,7 +2051,7 @@ RetainWindowGroup(WindowGroupRef inGroup);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ReleaseWindowGroup(WindowGroupRef inGroup);
 
 /**
@@ -2070,7 +2070,7 @@ ReleaseWindowGroup(WindowGroupRef inGroup);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(ItemCount)
+ItemCount
 GetWindowGroupRetainCount(WindowGroupRef inGroup);
 
 /**
@@ -2100,7 +2100,7 @@ GetWindowGroupRetainCount(WindowGroupRef inGroup);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowGroupRef)
+WindowGroupRef
 GetWindowGroupOfClass(WindowClass windowClass);
 
 /**----------------------------------------------------------------------------------*/
@@ -2132,7 +2132,7 @@ GetWindowGroupOfClass(WindowClass windowClass);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetWindowGroupName(WindowGroupRef inGroup, CFStringRef inName);
 
 /**
@@ -2156,7 +2156,7 @@ SetWindowGroupName(WindowGroupRef inGroup, CFStringRef inName);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CopyWindowGroupName(WindowGroupRef inGroup, CFStringRef *outName);
 
 /**
@@ -2179,7 +2179,7 @@ CopyWindowGroupName(WindowGroupRef inGroup, CFStringRef *outName);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetWindowGroupAttributes(WindowGroupRef inGroup,
                          WindowGroupAttributes *outAttributes);
 
@@ -2206,7 +2206,7 @@ GetWindowGroupAttributes(WindowGroupRef inGroup,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ChangeWindowGroupAttributes(WindowGroupRef inGroup,
                             WindowGroupAttributes setTheseAttributes,
                             WindowGroupAttributes clearTheseAttributes);
@@ -2250,7 +2250,7 @@ ChangeWindowGroupAttributes(WindowGroupRef inGroup,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetWindowGroupLevel(WindowGroupRef inGroup, SInt32 inLevel);
 
 /**
@@ -2273,7 +2273,7 @@ SetWindowGroupLevel(WindowGroupRef inGroup, SInt32 inLevel);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetWindowGroupLevel(WindowGroupRef inGroup, SInt32 *outLevel);
 
 /**----------------------------------------------------------------------------------*/
@@ -2304,7 +2304,7 @@ GetWindowGroupLevel(WindowGroupRef inGroup, SInt32 *outLevel);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SendWindowGroupBehind(WindowGroupRef inGroup, WindowGroupRef behindGroup);
 
 /**----------------------------------------------------------------------------------*/
@@ -2331,7 +2331,7 @@ SendWindowGroupBehind(WindowGroupRef inGroup, WindowGroupRef behindGroup);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowGroupRef)
+WindowGroupRef
 GetWindowGroup(WindowRef inWindow);
 
 /**
@@ -2362,7 +2362,7 @@ GetWindowGroup(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetWindowGroup(WindowRef inWindow, WindowGroupRef inNewGroup);
 
 /**
@@ -2385,7 +2385,7 @@ SetWindowGroup(WindowRef inWindow, WindowGroupRef inNewGroup);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsWindowContainedInGroup(WindowRef inWindow, WindowGroupRef inGroup);
 
 /**
@@ -2410,7 +2410,7 @@ IsWindowContainedInGroup(WindowRef inWindow, WindowGroupRef inGroup);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowGroupRef)
+WindowGroupRef
 GetWindowGroupParent(WindowGroupRef inGroup);
 
 /**
@@ -2437,7 +2437,7 @@ GetWindowGroupParent(WindowGroupRef inGroup);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetWindowGroupParent(WindowGroupRef inGroup, WindowGroupRef inNewGroup);
 
 /**
@@ -2461,7 +2461,7 @@ SetWindowGroupParent(WindowGroupRef inGroup, WindowGroupRef inNewGroup);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowGroupRef)
+WindowGroupRef
 GetWindowGroupSibling(WindowGroupRef inGroup, Boolean inNextGroup);
 
 /**
@@ -2487,7 +2487,7 @@ GetWindowGroupSibling(WindowGroupRef inGroup, Boolean inNextGroup);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowRef)
+WindowRef
 GetWindowGroupOwner(WindowGroupRef inGroup);
 
 /**
@@ -2515,7 +2515,7 @@ GetWindowGroupOwner(WindowGroupRef inGroup);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetWindowGroupOwner(WindowGroupRef inGroup, WindowRef inWindow);
 
 /**----------------------------------------------------------------------------------*/
@@ -2541,7 +2541,7 @@ SetWindowGroupOwner(WindowGroupRef inGroup, WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ItemCount)
+ItemCount
 CountWindowGroupContents(WindowGroupRef inGroup,
                          WindowGroupContentOptions inOptions);
 
@@ -2579,7 +2579,7 @@ CountWindowGroupContents(WindowGroupRef inGroup,
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetWindowGroupContents(WindowGroupRef inGroup,
                        WindowGroupContentOptions inOptions,
                        ItemCount inAllowedItems,
@@ -2623,7 +2623,7 @@ GetWindowGroupContents(WindowGroupRef inGroup,
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetIndexedWindow(WindowGroupRef inGroup, UInt32 inIndex,
                  WindowGroupContentOptions inOptions, WindowRef *outWindow);
 
@@ -2662,7 +2662,7 @@ GetIndexedWindow(WindowGroupRef inGroup, UInt32 inIndex,
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetWindowIndex(WindowRef inWindow, WindowGroupRef inStartGroup,
                WindowGroupContentOptions inOptions, UInt32 *outIndex);
 
@@ -2694,7 +2694,7 @@ GetWindowIndex(WindowRef inWindow, WindowGroupRef inStartGroup,
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowRef)
+WindowRef
 ActiveNonFloatingWindow(void);
 
 /**
@@ -2719,7 +2719,7 @@ ActiveNonFloatingWindow(void);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsWindowActive(WindowRef inWindow);
 
 /**
@@ -2750,7 +2750,7 @@ IsWindowActive(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ActivateWindow(WindowRef inWindow, Boolean inActivate);
 
 /**
@@ -2772,7 +2772,7 @@ ActivateWindow(WindowRef inWindow, Boolean inActivate);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetWindowActivationScope(WindowRef inWindow, WindowActivationScope *outScope);
 
 /**
@@ -2794,7 +2794,7 @@ GetWindowActivationScope(WindowRef inWindow, WindowActivationScope *outScope);
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetWindowActivationScope(WindowRef inWindow, WindowActivationScope inScope);
 
 /**----------------------------------------------------------------------------------*/
@@ -2817,7 +2817,7 @@ SetWindowActivationScope(WindowRef inWindow, WindowActivationScope inScope);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DebugPrintWindowGroup(WindowGroupRef inGroup);
 
 /**
@@ -2833,7 +2833,7 @@ DebugPrintWindowGroup(WindowGroupRef inGroup);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DebugPrintAllWindowGroups(void);
 
 /** SetWinColor is not available in Carbon.*/
@@ -4273,7 +4273,7 @@ CollapseAllWindows(Boolean collapse) THREEWORDINLINE(0x303C, 0x0012, 0xAA74);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CreateQDContextForCollapsedWindowDockTile(WindowRef inWindow,
                                           CGrafPtr *outContext);
 
@@ -4303,7 +4303,7 @@ CreateQDContextForCollapsedWindowDockTile(WindowRef inWindow,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ReleaseQDContextForCollapsedWindowDockTile(WindowRef inWindow,
                                            CGrafPtr inContext);
 
@@ -4331,7 +4331,7 @@ ReleaseQDContextForCollapsedWindowDockTile(WindowRef inWindow,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UpdateCollapsedWindowDockTile(WindowRef inWindow);
 
 /**
@@ -4751,7 +4751,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsWindowLatentVisible(
     WindowRef inWindow,
     WindowLatentVisibility *outLatentVisible); /** can be NULL */
@@ -5206,7 +5206,7 @@ GetAuxWin(WindowRef window, AuxWinHandle *awHndl) ONEWORDINLINE(0xAA42);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 setwtitle(WindowRef window, const char *title);
 
 /**
@@ -5217,7 +5217,7 @@ setwtitle(WindowRef window, const char *title);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 trackgoaway(WindowRef window, Point *thePt);
 
 /**
@@ -5228,7 +5228,7 @@ trackgoaway(WindowRef window, Point *thePt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(short)
+short
 findwindow(Point *thePoint, WindowRef *window);
 
 /**
@@ -5239,7 +5239,7 @@ findwindow(Point *thePoint, WindowRef *window);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 getwtitle(WindowRef window, char *title);
 
 /**
@@ -5250,7 +5250,7 @@ getwtitle(WindowRef window, char *title);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 growwindow(WindowRef window, Point *startPt, const Rect *bBox);
 
 /**
@@ -5261,7 +5261,7 @@ growwindow(WindowRef window, Point *startPt, const Rect *bBox);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(WindowRef)
+WindowRef
 newwindow(void *wStorage, const Rect *boundsRect, const char *title,
           Boolean visible, short theProc, WindowRef behind, Boolean goAwayFlag,
           long refCon);
@@ -5274,7 +5274,7 @@ newwindow(void *wStorage, const Rect *boundsRect, const char *title,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(WindowRef)
+WindowRef
 newcwindow(void *wStorage, const Rect *boundsRect, const char *title,
            Boolean visible, short procID, WindowRef behind, Boolean goAwayFlag,
            long refCon);
@@ -5287,7 +5287,7 @@ newcwindow(void *wStorage, const Rect *boundsRect, const char *title,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 pinrect(const Rect *theRect, Point *thePt);
 
 /**
@@ -5298,7 +5298,7 @@ pinrect(const Rect *theRect, Point *thePt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 trackbox(WindowRef window, Point *thePt, short partCode);
 
 /**
@@ -5309,7 +5309,7 @@ trackbox(WindowRef window, Point *thePt, short partCode);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 draggrayrgn(RgnHandle theRgn, Point *startPt, const Rect *boundsRect,
             const Rect *slopRect, short axis, DragGrayRgnUPP actionProc);
 
@@ -5321,7 +5321,7 @@ draggrayrgn(RgnHandle theRgn, Point *startPt, const Rect *boundsRect,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 dragwindow(WindowRef window, Point *startPt, const Rect *boundsRect);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -5715,7 +5715,7 @@ inline DEFINE_API(WindowRef) GetWindowFromPort(CGrafPtr port) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Handle)
+Handle
 GetWindowDataHandle(WindowRef window);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5735,7 +5735,7 @@ inline Handle GetWindowDataHandle(WindowRef window) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SetWindowDataHandle(WindowRef window, Handle data);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5756,7 +5756,7 @@ inline void SetWindowDataHandle(WindowRef window, Handle data) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GetWindowZoomFlag(WindowRef window);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5776,7 +5776,7 @@ inline Boolean GetWindowZoomFlag(WindowRef window) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetWindowStructureRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5797,7 +5797,7 @@ inline void GetWindowStructureRgn(WindowRef window, RgnHandle r) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetWindowContentRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5818,7 +5818,7 @@ inline void GetWindowContentRgn(WindowRef window, RgnHandle r) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetWindowUpdateRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5839,7 +5839,7 @@ inline void GetWindowUpdateRgn(WindowRef window, RgnHandle r) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 GetWindowTitleWidth(WindowRef window);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5898,7 +5898,7 @@ inline Handle GetWindowDataHandle(WindowRef window) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 SetWindowDataHandle(WindowRef window, Handle data);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5919,7 +5919,7 @@ inline void SetWindowDataHandle(WindowRef window, Handle data) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GetWindowZoomFlag(WindowRef window);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5939,7 +5939,7 @@ inline Boolean GetWindowZoomFlag(WindowRef window) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetWindowStructureRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5960,7 +5960,7 @@ inline void GetWindowStructureRgn(WindowRef window, RgnHandle r) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetWindowContentRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -5981,7 +5981,7 @@ inline void GetWindowContentRgn(WindowRef window, RgnHandle r) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetWindowUpdateRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
@@ -6002,7 +6002,7 @@ inline void GetWindowUpdateRgn(WindowRef window, RgnHandle r) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 GetWindowTitleWidth(WindowRef window);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus

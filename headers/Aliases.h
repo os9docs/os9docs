@@ -328,7 +328,7 @@ typedef STACK_UPP_TYPE(AliasFilterProcPtr) AliasFilterUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AliasFilterUPP)
+AliasFilterUPP
 NewAliasFilterUPP(AliasFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -355,7 +355,7 @@ inline AliasFilterUPP NewAliasFilterUPP(AliasFilterProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeAliasFilterUPP(AliasFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -375,7 +375,7 @@ inline void DisposeAliasFilterUPP(AliasFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeAliasFilterUPP(CInfoPBPtr cpbPtr, Boolean *quitFlag, Ptr myDataPtr,
                      AliasFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES

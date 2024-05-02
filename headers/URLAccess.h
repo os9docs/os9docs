@@ -235,7 +235,7 @@ typedef TVECTOR_UPP_TYPE(URLSystemEventProcPtr) URLSystemEventUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(URLNotifyUPP)
+URLNotifyUPP
 NewURLNotifyUPP(URLNotifyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -258,7 +258,7 @@ inline URLNotifyUPP NewURLNotifyUPP(URLNotifyProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(URLSystemEventUPP)
+URLSystemEventUPP
 NewURLSystemEventUPP(URLSystemEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -282,7 +282,7 @@ NewURLSystemEventUPP(URLSystemEventProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeURLNotifyUPP(URLNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -300,7 +300,7 @@ inline void DisposeURLNotifyUPP(URLNotifyUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeURLSystemEventUPP(URLSystemEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -318,7 +318,7 @@ inline void DisposeURLSystemEventUPP(URLSystemEventUPP) {}
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeURLNotifyUPP(void *userContext, URLEvent event,
                    URLCallbackInfo *callbackInfo, URLNotifyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -342,7 +342,7 @@ inline OSStatus InvokeURLNotifyUPP(void *userContext, URLEvent event,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeURLSystemEventUPP(void *userContext, EventRecord *event,
                         URLSystemEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES

@@ -1277,7 +1277,7 @@ typedef STACK_UPP_TYPE(ThemeIteratorProcPtr) ThemeIteratorUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThemeTabTitleDrawUPP)
+ThemeTabTitleDrawUPP
 NewThemeTabTitleDrawUPP(ThemeTabTitleDrawProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1307,7 +1307,7 @@ NewThemeTabTitleDrawUPP(ThemeTabTitleDrawProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThemeEraseUPP)
+ThemeEraseUPP
 NewThemeEraseUPP(ThemeEraseProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1333,7 +1333,7 @@ inline ThemeEraseUPP NewThemeEraseUPP(ThemeEraseProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThemeButtonDrawUPP)
+ThemeButtonDrawUPP
 NewThemeButtonDrawUPP(ThemeButtonDrawProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1363,7 +1363,7 @@ NewThemeButtonDrawUPP(ThemeButtonDrawProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(WindowTitleDrawingUPP)
+WindowTitleDrawingUPP
 NewWindowTitleDrawingUPP(WindowTitleDrawingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1392,7 +1392,7 @@ NewWindowTitleDrawingUPP(WindowTitleDrawingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ThemeIteratorUPP)
+ThemeIteratorUPP
 NewThemeIteratorUPP(ThemeIteratorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1420,7 +1420,7 @@ inline ThemeIteratorUPP NewThemeIteratorUPP(ThemeIteratorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThemeTabTitleDrawUPP(ThemeTabTitleDrawUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1440,7 +1440,7 @@ inline void DisposeThemeTabTitleDrawUPP(ThemeTabTitleDrawUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThemeEraseUPP(ThemeEraseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1460,7 +1460,7 @@ inline void DisposeThemeEraseUPP(ThemeEraseUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThemeButtonDrawUPP(ThemeButtonDrawUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1480,7 +1480,7 @@ inline void DisposeThemeButtonDrawUPP(ThemeButtonDrawUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeWindowTitleDrawingUPP(WindowTitleDrawingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1500,7 +1500,7 @@ inline void DisposeWindowTitleDrawingUPP(WindowTitleDrawingUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeThemeIteratorUPP(ThemeIteratorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1520,7 +1520,7 @@ inline void DisposeThemeIteratorUPP(ThemeIteratorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeThemeTabTitleDrawUPP(const Rect *bounds, ThemeTabStyle style,
                            ThemeTabDirection direction, SInt16 depth,
                            Boolean isColorDev, UInt32 userData,
@@ -1552,7 +1552,7 @@ inline void InvokeThemeTabTitleDrawUPP(const Rect *bounds, ThemeTabStyle style,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeThemeEraseUPP(const Rect *bounds, UInt32 eraseData, SInt16 depth,
                     Boolean isColorDev, ThemeEraseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1578,7 +1578,7 @@ inline void InvokeThemeEraseUPP(const Rect *bounds, UInt32 eraseData,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeThemeButtonDrawUPP(const Rect *bounds, ThemeButtonKind kind,
                          const ThemeButtonDrawInfo *info, UInt32 userData,
                          SInt16 depth, Boolean isColorDev,
@@ -1609,7 +1609,7 @@ inline void InvokeThemeButtonDrawUPP(const Rect *bounds, ThemeButtonKind kind,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeWindowTitleDrawingUPP(const Rect *bounds, SInt16 depth,
                             Boolean colorDevice, UInt32 userData,
                             WindowTitleDrawingUPP userUPP);
@@ -1637,7 +1637,7 @@ inline void InvokeWindowTitleDrawingUPP(const Rect *bounds, SInt16 depth,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeThemeIteratorUPP(ConstStr255Param inFileName, SInt16 resID,
                        Collection inThemeSettings, void *inUserData,
                        ThemeIteratorUPP userUPP);
@@ -1709,7 +1709,7 @@ typedef STACK_UPP_TYPE(MenuItemDrawingProcPtr) MenuItemDrawingUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MenuTitleDrawingUPP)
+MenuTitleDrawingUPP
 NewMenuTitleDrawingUPP(MenuTitleDrawingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1738,7 +1738,7 @@ NewMenuTitleDrawingUPP(MenuTitleDrawingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(MenuItemDrawingUPP)
+MenuItemDrawingUPP
 NewMenuItemDrawingUPP(MenuItemDrawingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1767,7 +1767,7 @@ NewMenuItemDrawingUPP(MenuItemDrawingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMenuTitleDrawingUPP(MenuTitleDrawingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1787,7 +1787,7 @@ inline void DisposeMenuTitleDrawingUPP(MenuTitleDrawingUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeMenuItemDrawingUPP(MenuItemDrawingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1807,7 +1807,7 @@ inline void DisposeMenuItemDrawingUPP(MenuItemDrawingUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeMenuTitleDrawingUPP(const Rect *inBounds, SInt16 inDepth,
                           Boolean inIsColorDevice, SInt32 inUserData,
                           MenuTitleDrawingUPP userUPP);
@@ -1836,7 +1836,7 @@ inline void InvokeMenuTitleDrawingUPP(const Rect *inBounds, SInt16 inDepth,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeMenuItemDrawingUPP(const Rect *inBounds, SInt16 inDepth,
                          Boolean inIsColorDevice, SInt32 inUserData,
                          MenuItemDrawingUPP userUPP);
@@ -3324,7 +3324,7 @@ GetTextAndEncodingFromCFString(CFStringRef inString, BytePtr outText,
  *    \carbon_lib        in CarbonLib 1.4 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CopyThemeIdentifier(CFStringRef *outIdentifier);
 
 /*��������������������������������������������������������������������������������������������������*/

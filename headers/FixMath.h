@@ -610,7 +610,7 @@ X2Frac(double x);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(short)
+short
 WideCompare(const wide *target, const wide *source);
 
 /**
@@ -621,7 +621,7 @@ WideCompare(const wide *target, const wide *source);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(wide *)
+wide *
 WideAdd(wide *target, const wide *source);
 
 /**
@@ -632,7 +632,7 @@ WideAdd(wide *target, const wide *source);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(wide *)
+wide *
 WideSubtract(wide *target, const wide *source);
 
 /**
@@ -643,7 +643,7 @@ WideSubtract(wide *target, const wide *source);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(wide *)
+wide *
 WideNegate(wide *target);
 
 /**
@@ -654,7 +654,7 @@ WideNegate(wide *target);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(wide *)
+wide *
 WideShift(wide *target, long shift);
 
 /**
@@ -665,7 +665,7 @@ WideShift(wide *target, long shift);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(unsigned long)
+unsigned long
 WideSquareRoot(const wide *source);
 
 /**
@@ -676,7 +676,7 @@ WideSquareRoot(const wide *source);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(wide *)
+wide *
 WideMultiply(long multiplicand, long multiplier, wide *target);
 
 /** returns the quotient */
@@ -688,7 +688,7 @@ WideMultiply(long multiplicand, long multiplier, wide *target);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(long)
+long
 WideDivide(const wide *dividend, long divisor, long *remainder);
 
 /** quotient replaces dividend */
@@ -700,7 +700,7 @@ WideDivide(const wide *dividend, long divisor, long *remainder);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(wide *)
+wide *
 WideWideDivide(wide *dividend, long divisor, long *remainder);
 
 /**
@@ -711,7 +711,7 @@ WideWideDivide(wide *dividend, long divisor, long *remainder);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(wide *)
+wide *
 WideBitShift(wide *src, long shift);
 
 #endif /** TARGET_CPU_PPC || !TARGET_OS_MAC */

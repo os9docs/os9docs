@@ -228,7 +228,7 @@ typedef STACK_UPP_TYPE(FKEYProcPtr) FKEYUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FKEYUPP)
+FKEYUPP
 NewFKEYUPP(FKEYProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppFKEYProcInfo = 0x00000000 }; /** pascal no_return_value Func() */
@@ -252,7 +252,7 @@ inline FKEYUPP NewFKEYUPP(FKEYProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFKEYUPP(FKEYUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -272,7 +272,7 @@ inline void DisposeFKEYUPP(FKEYUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeFKEYUPP(FKEYUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -449,7 +449,7 @@ typedef REGISTER_UPP_TYPE(GetNextEventFilterProcPtr) GetNextEventFilterUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(GetNextEventFilterUPP)
+GetNextEventFilterUPP
 NewGetNextEventFilterUPP(GetNextEventFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -478,7 +478,7 @@ NewGetNextEventFilterUPP(GetNextEventFilterProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeGetNextEventFilterUPP(GetNextEventFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -498,7 +498,7 @@ inline void DisposeGetNextEventFilterUPP(GetNextEventFilterUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeGetNextEventFilterUPP(EventRecord *theEvent, Boolean *result,
                             GetNextEventFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES &&                                                       \

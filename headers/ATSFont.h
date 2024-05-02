@@ -147,7 +147,7 @@ typedef struct ATSFontFilter ATSFontFilter;
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSGeneration)
+ATSGeneration
 ATSGetGeneration(void);
 
 /**
@@ -159,7 +159,7 @@ ATSGetGeneration(void);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontActivateFromFileSpecification(const FSSpec *iFile,
                                      ATSFontContext iContext,
                                      ATSFontFormat iFormat, void *iReserved,
@@ -175,7 +175,7 @@ ATSFontActivateFromFileSpecification(const FSSpec *iFile,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontActivateFromMemory(LogicalAddress iData, ByteCount iLength,
                           ATSFontContext iContext, ATSFontFormat iFormat,
                           void *iReserved, ATSOptionFlags iOptions,
@@ -190,7 +190,7 @@ ATSFontActivateFromMemory(LogicalAddress iData, ByteCount iLength,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontDeactivate(ATSFontContainerRef iContainer, void *iRefCon,
                   ATSOptionFlags iOptions);
 
@@ -208,7 +208,7 @@ ATSFontDeactivate(ATSFontContainerRef iContainer, void *iRefCon,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFamilyApplyFunction(ATSFontFamilyApplierFunction iFunction,
                            void *iRefCon);
 
@@ -221,7 +221,7 @@ ATSFontFamilyApplyFunction(ATSFontFamilyApplierFunction iFunction,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFamilyIteratorCreate(ATSFontContext iContext,
                             const ATSFontFilter *iFilter, /* can be NULL */
                             void *iRefCon, ATSOptionFlags iOptions,
@@ -236,7 +236,7 @@ ATSFontFamilyIteratorCreate(ATSFontContext iContext,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFamilyIteratorRelease(ATSFontFamilyIterator *ioIterator);
 
 /**
@@ -248,7 +248,7 @@ ATSFontFamilyIteratorRelease(ATSFontFamilyIterator *ioIterator);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFamilyIteratorReset(ATSFontContext iContext,
                            const ATSFontFilter *iFilter, /* can be NULL */
                            void *iRefCon, ATSOptionFlags iOptions,
@@ -263,7 +263,7 @@ ATSFontFamilyIteratorReset(ATSFontContext iContext,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFamilyIteratorNext(ATSFontFamilyIterator iIterator,
                           ATSFontFamilyRef *oFamily);
 
@@ -276,7 +276,7 @@ ATSFontFamilyIteratorNext(ATSFontFamilyIterator iIterator,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSFontFamilyRef)
+ATSFontFamilyRef
 ATSFontFamilyFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
 
 /**
@@ -288,7 +288,7 @@ ATSFontFamilyFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSGeneration)
+ATSGeneration
 ATSFontFamilyGetGeneration(ATSFontFamilyRef iFamily);
 
 /**
@@ -300,7 +300,7 @@ ATSFontFamilyGetGeneration(ATSFontFamilyRef iFamily);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFamilyGetName(ATSFontFamilyRef iFamily, ATSOptionFlags iOptions,
                      CFStringRef *oName);
 
@@ -313,7 +313,7 @@ ATSFontFamilyGetName(ATSFontFamilyRef iFamily, ATSOptionFlags iOptions,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(TextEncoding)
+TextEncoding
 ATSFontFamilyGetEncoding(ATSFontFamilyRef iFamily);
 
 /* -----------------------------------------------------------------------------------------
@@ -330,7 +330,7 @@ ATSFontFamilyGetEncoding(ATSFontFamilyRef iFamily);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontApplyFunction(ATSFontApplierFunction iFunction, void *iRefCon);
 
 /**
@@ -342,7 +342,7 @@ ATSFontApplyFunction(ATSFontApplierFunction iFunction, void *iRefCon);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontIteratorCreate(ATSFontContext iContext,
                       const ATSFontFilter *iFilter, /* can be NULL */
                       void *iRefCon, ATSOptionFlags iOptions,
@@ -357,7 +357,7 @@ ATSFontIteratorCreate(ATSFontContext iContext,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontIteratorRelease(ATSFontIterator *ioIterator);
 
 /**
@@ -369,7 +369,7 @@ ATSFontIteratorRelease(ATSFontIterator *ioIterator);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontIteratorReset(ATSFontContext iContext,
                      const ATSFontFilter *iFilter, /* can be NULL */
                      void *iRefCon, ATSOptionFlags iOptions,
@@ -384,7 +384,7 @@ ATSFontIteratorReset(ATSFontContext iContext,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontIteratorNext(ATSFontIterator iIterator, ATSFontRef *oFont);
 
 /**
@@ -396,7 +396,7 @@ ATSFontIteratorNext(ATSFontIterator iIterator, ATSFontRef *oFont);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSFontRef)
+ATSFontRef
 ATSFontFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
 
 /**
@@ -408,7 +408,7 @@ ATSFontFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSFontRef)
+ATSFontRef
 ATSFontFindFromPostScriptName(CFStringRef iName, ATSOptionFlags iOptions);
 
 /**
@@ -420,7 +420,7 @@ ATSFontFindFromPostScriptName(CFStringRef iName, ATSOptionFlags iOptions);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFindFromContainer(ATSFontContainerRef iContainer,
                          ATSOptionFlags iOptions, ItemCount iCount,
                          ATSFontRef ioArray[], ItemCount *oCount);
@@ -434,7 +434,7 @@ ATSFontFindFromContainer(ATSFontContainerRef iContainer,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSGeneration)
+ATSGeneration
 ATSFontGetGeneration(ATSFontRef iFont);
 
 /**
@@ -446,7 +446,7 @@ ATSFontGetGeneration(ATSFontRef iFont);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetName(ATSFontRef iFont, ATSOptionFlags iOptions, CFStringRef *oName);
 
 /**
@@ -458,7 +458,7 @@ ATSFontGetName(ATSFontRef iFont, ATSOptionFlags iOptions, CFStringRef *oName);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetPostScriptName(ATSFontRef iFont, ATSOptionFlags iOptions,
                          CFStringRef *oName);
 
@@ -471,7 +471,7 @@ ATSFontGetPostScriptName(ATSFontRef iFont, ATSOptionFlags iOptions,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetTableDirectory(ATSFontRef iFont, ByteCount iBufferSize,
                          void *ioBuffer, ByteCount *oSize); /* can be NULL */
 
@@ -484,7 +484,7 @@ ATSFontGetTableDirectory(ATSFontRef iFont, ByteCount iBufferSize,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetTable(ATSFontRef iFont, FourCharCode iTag, ByteOffset iOffset,
                 ByteCount iBufferSize, void *ioBuffer,
                 ByteCount *oSize); /* can be NULL */
@@ -498,7 +498,7 @@ ATSFontGetTable(ATSFontRef iFont, FourCharCode iTag, ByteOffset iOffset,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetHorizontalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
                             ATSFontMetrics *oMetrics);
 
@@ -511,7 +511,7 @@ ATSFontGetHorizontalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetVerticalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
                           ATSFontMetrics *oMetrics);
 
@@ -529,7 +529,7 @@ ATSFontGetVerticalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ATSFontFamilyRef)
+ATSFontFamilyRef
 ATSFontFamilyFindFromQuickDrawName(ConstStr255Param iName);
 
 /**
@@ -541,7 +541,7 @@ ATSFontFamilyFindFromQuickDrawName(ConstStr255Param iName);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontFamilyGetQuickDrawName(ATSFontFamilyRef iFamily, Str255 oName);
 
 /**
@@ -553,7 +553,7 @@ ATSFontFamilyGetQuickDrawName(ATSFontFamilyRef iFamily, Str255 oName);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetFileSpecification(ATSFontRef iFont, FSSpec *oFile);
 
 /**
@@ -565,7 +565,7 @@ ATSFontGetFileSpecification(ATSFontRef iFont, FSSpec *oFile);
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ATSFontGetFontFamilyResource(ATSFontRef iFont, ByteCount iBufferSize,
                              void *ioBuffer,
                              ByteCount *oSize); /* can be NULL */

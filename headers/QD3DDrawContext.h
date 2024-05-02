@@ -129,7 +129,7 @@ typedef struct TQ3DrawContextData TQ3DrawContextData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3ObjectType)
+TQ3ObjectType
 Q3DrawContext_GetType(TQ3DrawContextObject drawContext);
 
 /**
@@ -140,7 +140,7 @@ Q3DrawContext_GetType(TQ3DrawContextObject drawContext);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetData(TQ3DrawContextObject context,
                       const TQ3DrawContextData *contextData);
 
@@ -152,7 +152,7 @@ Q3DrawContext_SetData(TQ3DrawContextObject context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetData(TQ3DrawContextObject context,
                       TQ3DrawContextData *contextData);
 
@@ -164,7 +164,7 @@ Q3DrawContext_GetData(TQ3DrawContextObject context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetClearImageColor(TQ3DrawContextObject context,
                                  const TQ3ColorARGB *color);
 
@@ -176,7 +176,7 @@ Q3DrawContext_SetClearImageColor(TQ3DrawContextObject context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetClearImageColor(TQ3DrawContextObject context,
                                  TQ3ColorARGB *color);
 
@@ -188,7 +188,7 @@ Q3DrawContext_GetClearImageColor(TQ3DrawContextObject context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetPane(TQ3DrawContextObject context, const TQ3Area *pane);
 
 /**
@@ -199,7 +199,7 @@ Q3DrawContext_SetPane(TQ3DrawContextObject context, const TQ3Area *pane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetPane(TQ3DrawContextObject context, TQ3Area *pane);
 
 /**
@@ -210,7 +210,7 @@ Q3DrawContext_GetPane(TQ3DrawContextObject context, TQ3Area *pane);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetPaneState(TQ3DrawContextObject context, TQ3Boolean state);
 
 /**
@@ -221,7 +221,7 @@ Q3DrawContext_SetPaneState(TQ3DrawContextObject context, TQ3Boolean state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetPaneState(TQ3DrawContextObject context, TQ3Boolean *state);
 
 /**
@@ -232,7 +232,7 @@ Q3DrawContext_GetPaneState(TQ3DrawContextObject context, TQ3Boolean *state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetClearImageMethod(TQ3DrawContextObject context,
                                   TQ3DrawContextClearImageMethod method);
 
@@ -244,7 +244,7 @@ Q3DrawContext_SetClearImageMethod(TQ3DrawContextObject context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetClearImageMethod(TQ3DrawContextObject context,
                                   TQ3DrawContextClearImageMethod *method);
 
@@ -256,7 +256,7 @@ Q3DrawContext_GetClearImageMethod(TQ3DrawContextObject context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetMask(TQ3DrawContextObject context, const TQ3Bitmap *mask);
 
 /**
@@ -267,7 +267,7 @@ Q3DrawContext_SetMask(TQ3DrawContextObject context, const TQ3Bitmap *mask);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetMask(TQ3DrawContextObject context, TQ3Bitmap *mask);
 
 /**
@@ -278,7 +278,7 @@ Q3DrawContext_GetMask(TQ3DrawContextObject context, TQ3Bitmap *mask);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetMaskState(TQ3DrawContextObject context, TQ3Boolean state);
 
 /**
@@ -289,7 +289,7 @@ Q3DrawContext_SetMaskState(TQ3DrawContextObject context, TQ3Boolean state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetMaskState(TQ3DrawContextObject context, TQ3Boolean *state);
 
 /**
@@ -300,7 +300,7 @@ Q3DrawContext_GetMaskState(TQ3DrawContextObject context, TQ3Boolean *state);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_SetDoubleBufferState(TQ3DrawContextObject context,
                                    TQ3Boolean state);
 
@@ -312,7 +312,7 @@ Q3DrawContext_SetDoubleBufferState(TQ3DrawContextObject context,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DrawContext_GetDoubleBufferState(TQ3DrawContextObject context,
                                    TQ3Boolean *state);
 
@@ -342,7 +342,7 @@ typedef struct TQ3PixmapDrawContextData TQ3PixmapDrawContextData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3DrawContextObject)
+TQ3DrawContextObject
 Q3PixmapDrawContext_New(const TQ3PixmapDrawContextData *contextData);
 
 /**
@@ -353,7 +353,7 @@ Q3PixmapDrawContext_New(const TQ3PixmapDrawContextData *contextData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PixmapDrawContext_SetPixmap(TQ3DrawContextObject drawContext,
                               const TQ3Pixmap *pixmap);
 
@@ -365,7 +365,7 @@ Q3PixmapDrawContext_SetPixmap(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3PixmapDrawContext_GetPixmap(TQ3DrawContextObject drawContext,
                               TQ3Pixmap *pixmap);
 
@@ -406,7 +406,7 @@ typedef struct TQ3MacDrawContextData TQ3MacDrawContextData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3DrawContextObject)
+TQ3DrawContextObject
 Q3MacDrawContext_New(const TQ3MacDrawContextData *drawContextData);
 
 /**
@@ -417,7 +417,7 @@ Q3MacDrawContext_New(const TQ3MacDrawContextData *drawContextData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_SetWindow(TQ3DrawContextObject drawContext, CWindowPtr window);
 
 /**
@@ -428,7 +428,7 @@ Q3MacDrawContext_SetWindow(TQ3DrawContextObject drawContext, CWindowPtr window);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_GetWindow(TQ3DrawContextObject drawContext,
                            CWindowPtr *window);
 
@@ -440,7 +440,7 @@ Q3MacDrawContext_GetWindow(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_SetGXViewPort(TQ3DrawContextObject drawContext,
                                gxViewPort viewPort);
 
@@ -452,7 +452,7 @@ Q3MacDrawContext_SetGXViewPort(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_GetGXViewPort(TQ3DrawContextObject drawContext,
                                gxViewPort *viewPort);
 
@@ -464,7 +464,7 @@ Q3MacDrawContext_GetGXViewPort(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_SetGrafPort(TQ3DrawContextObject drawContext,
                              CGrafPtr grafPort);
 
@@ -476,7 +476,7 @@ Q3MacDrawContext_SetGrafPort(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_GetGrafPort(TQ3DrawContextObject drawContext,
                              CGrafPtr *grafPort);
 
@@ -488,7 +488,7 @@ Q3MacDrawContext_GetGrafPort(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_Set2DLibrary(TQ3DrawContextObject drawContext,
                               TQ3MacDrawContext2DLibrary library);
 
@@ -500,7 +500,7 @@ Q3MacDrawContext_Set2DLibrary(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3MacDrawContext_Get2DLibrary(TQ3DrawContextObject drawContext,
                               TQ3MacDrawContext2DLibrary *library);
 
@@ -549,7 +549,7 @@ typedef struct TQ3XDrawContextData TQ3XDrawContextData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3DrawContextObject)
+TQ3DrawContextObject
 Q3XDrawContext_New(void);
 
 /**
@@ -560,7 +560,7 @@ Q3XDrawContext_New(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 Q3XDrawContext_Set(TQ3DrawContextObject drawContext, unsigned long flag,
                    void *data);
 
@@ -572,7 +572,7 @@ Q3XDrawContext_Set(TQ3DrawContextObject drawContext, unsigned long flag,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 Q3XDrawContext_Get(TQ3DrawContextObject drawContext, unsigned long flag,
                    void *data);
 
@@ -589,7 +589,7 @@ Q3XDrawContext_Get(TQ3DrawContextObject drawContext, unsigned long flag,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3XBufferObject)
+TQ3XBufferObject
 Q3XBuffers_New(Display *dpy, unsigned long numBuffers, Window window);
 
 /**
@@ -600,7 +600,7 @@ Q3XBuffers_New(Display *dpy, unsigned long numBuffers, Window window);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 Q3XBuffers_Swap(Display *dpy, TQ3XBufferObject buffers);
 
 /**
@@ -611,7 +611,7 @@ Q3XBuffers_Swap(Display *dpy, TQ3XBufferObject buffers);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(XVisualInfo *)
+XVisualInfo *
 Q3X_GetVisualInfo(Display *dpy, Screen *screen);
 
 /**
@@ -622,7 +622,7 @@ Q3X_GetVisualInfo(Display *dpy, Screen *screen);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3DrawContextObject)
+TQ3DrawContextObject
 Q3XDrawContext_New(const TQ3XDrawContextData *xContextData);
 
 /**
@@ -633,7 +633,7 @@ Q3XDrawContext_New(const TQ3XDrawContextData *xContextData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_SetDisplay(TQ3DrawContextObject drawContext,
                           const Display *display);
 
@@ -645,7 +645,7 @@ Q3XDrawContext_SetDisplay(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_GetDisplay(TQ3DrawContextObject drawContext, Display **display);
 
 /**
@@ -656,7 +656,7 @@ Q3XDrawContext_GetDisplay(TQ3DrawContextObject drawContext, Display **display);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_SetDrawable(TQ3DrawContextObject drawContext, Drawable drawable);
 
 /**
@@ -667,7 +667,7 @@ Q3XDrawContext_SetDrawable(TQ3DrawContextObject drawContext, Drawable drawable);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_GetDrawable(TQ3DrawContextObject drawContext,
                            Drawable *drawable);
 
@@ -679,7 +679,7 @@ Q3XDrawContext_GetDrawable(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_SetVisual(TQ3DrawContextObject drawContext,
                          const Visual *visual);
 
@@ -691,7 +691,7 @@ Q3XDrawContext_SetVisual(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_GetVisual(TQ3DrawContextObject drawContext, Visual **visual);
 
 /**
@@ -702,7 +702,7 @@ Q3XDrawContext_GetVisual(TQ3DrawContextObject drawContext, Visual **visual);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_SetColormap(TQ3DrawContextObject drawContext, Colormap colormap);
 
 /**
@@ -713,7 +713,7 @@ Q3XDrawContext_SetColormap(TQ3DrawContextObject drawContext, Colormap colormap);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_GetColormap(TQ3DrawContextObject drawContext,
                            Colormap *colormap);
 
@@ -725,7 +725,7 @@ Q3XDrawContext_GetColormap(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_SetColormapData(TQ3DrawContextObject drawContext,
                                const TQ3XColormapData *colormapData);
 
@@ -737,7 +737,7 @@ Q3XDrawContext_SetColormapData(TQ3DrawContextObject drawContext,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3XDrawContext_GetColormapData(TQ3DrawContextObject drawContext,
                                TQ3XColormapData *colormapData);
 
@@ -806,7 +806,7 @@ typedef struct TQ3DDSurfaceDrawContextData TQ3DDSurfaceDrawContextData;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3DrawContextObject)
+TQ3DrawContextObject
 Q3Win32DCDrawContext_New(const TQ3Win32DCDrawContextData *drawContextData);
 
 /**
@@ -817,7 +817,7 @@ Q3Win32DCDrawContext_New(const TQ3Win32DCDrawContextData *drawContextData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Win32DCDrawContext_SetDC(TQ3DrawContextObject drawContext, HDC newHDC);
 
 /**
@@ -828,7 +828,7 @@ Q3Win32DCDrawContext_SetDC(TQ3DrawContextObject drawContext, HDC newHDC);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3Win32DCDrawContext_GetDC(TQ3DrawContextObject drawContext, HDC *curHDC);
 
 /******************************************************************************
@@ -848,7 +848,7 @@ Q3Win32DCDrawContext_GetDC(TQ3DrawContextObject drawContext, HDC *curHDC);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3DrawContextObject)
+TQ3DrawContextObject
 Q3DDSurfaceDrawContext_New(const TQ3DDSurfaceDrawContextData *drawContextData);
 
 /**
@@ -859,7 +859,7 @@ Q3DDSurfaceDrawContext_New(const TQ3DDSurfaceDrawContextData *drawContextData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DDSurfaceDrawContext_SetDirectDrawSurface(
     TQ3DrawContextObject drawContext,
     const TQ3DDSurfaceDescriptor *ddSurfaceDescriptor);
@@ -872,7 +872,7 @@ Q3DDSurfaceDrawContext_SetDirectDrawSurface(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TQ3Status)
+TQ3Status
 Q3DDSurfaceDrawContext_GetDirectDrawSurface(
     TQ3DrawContextObject drawContext,
     TQ3DDSurfaceDescriptor *ddSurfaceDescriptor);

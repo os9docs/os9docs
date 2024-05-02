@@ -167,7 +167,7 @@ ReleaseFolder(short vRefNum, OSType folderType) TWOWORDINLINE(0x700B, 0xA823);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 FindFolderEx(short vRefNum, OSType folderType, Boolean createFolder,
              short *foundVRefNum, long *foundDirID, char *foundFolder);
 
@@ -599,7 +599,7 @@ typedef STACK_UPP_TYPE(FolderManagerNotificationProcPtr)
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(FolderManagerNotificationUPP)
+FolderManagerNotificationUPP
 NewFolderManagerNotificationUPP(FolderManagerNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -628,7 +628,7 @@ NewFolderManagerNotificationUPP(FolderManagerNotificationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeFolderManagerNotificationUPP(FolderManagerNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -650,7 +650,7 @@ DisposeFolderManagerNotificationUPP(FolderManagerNotificationUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeFolderManagerNotificationUPP(OSType message, void *arg, void *userRefCon,
                                    FolderManagerNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES

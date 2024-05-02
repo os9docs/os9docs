@@ -73,7 +73,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxGraphicsClient)
+gxGraphicsClient
 GXNewGraphicsClient(void *memoryStart, long memoryLength,
                     gxClientAttribute attributes)
     THREEWORDINLINE(0x303C, 0x0059, 0xA832);
@@ -86,7 +86,7 @@ GXNewGraphicsClient(void *memoryStart, long memoryLength,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxGraphicsClient)
+gxGraphicsClient
 GXGetGraphicsClient(void) THREEWORDINLINE(0x303C, 0x005A, 0xA832);
 
 /**
@@ -97,7 +97,7 @@ GXGetGraphicsClient(void) THREEWORDINLINE(0x303C, 0x005A, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetGraphicsClient(gxGraphicsClient client)
     THREEWORDINLINE(0x303C, 0x005B, 0xA832);
 
@@ -109,7 +109,7 @@ GXSetGraphicsClient(gxGraphicsClient client)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeGraphicsClient(gxGraphicsClient client)
     THREEWORDINLINE(0x303C, 0x005C, 0xA832);
 
@@ -125,7 +125,7 @@ GXDisposeGraphicsClient(gxGraphicsClient client)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetGraphicsClients(long index, long count, gxGraphicsClient clients[])
     THREEWORDINLINE(0x303C, 0x005E, 0xA832);
 
@@ -137,7 +137,7 @@ GXGetGraphicsClients(long index, long count, gxGraphicsClient clients[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXEnterGraphics(void) THREEWORDINLINE(0x303C, 0x005F, 0xA832);
 
 /**
@@ -148,7 +148,7 @@ GXEnterGraphics(void) THREEWORDINLINE(0x303C, 0x005F, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXExitGraphics(void) THREEWORDINLINE(0x303C, 0x0060, 0xA832);
 
 /**
@@ -159,7 +159,7 @@ GXExitGraphics(void) THREEWORDINLINE(0x303C, 0x0060, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxGraphicsError)
+gxGraphicsError
 GXGetGraphicsError(gxGraphicsError *stickyError)
     THREEWORDINLINE(0x303C, 0x0061, 0xA832);
 
@@ -171,7 +171,7 @@ GXGetGraphicsError(gxGraphicsError *stickyError)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxGraphicsNotice)
+gxGraphicsNotice
 GXGetGraphicsNotice(gxGraphicsNotice *stickyNotice)
     THREEWORDINLINE(0x303C, 0x0062, 0xA832);
 
@@ -183,7 +183,7 @@ GXGetGraphicsNotice(gxGraphicsNotice *stickyNotice)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxGraphicsWarning)
+gxGraphicsWarning
 GXGetGraphicsWarning(gxGraphicsWarning *stickyWarning)
     THREEWORDINLINE(0x303C, 0x0063, 0xA832);
 
@@ -195,7 +195,7 @@ GXGetGraphicsWarning(gxGraphicsWarning *stickyWarning)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXPostGraphicsError(gxGraphicsError error)
     THREEWORDINLINE(0x303C, 0x0064, 0xA832);
 
@@ -207,7 +207,7 @@ GXPostGraphicsError(gxGraphicsError error)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXPostGraphicsWarning(gxGraphicsWarning warning)
     THREEWORDINLINE(0x303C, 0x0066, 0xA832);
 
@@ -219,7 +219,7 @@ GXPostGraphicsWarning(gxGraphicsWarning warning)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserErrorUPP)
+gxUserErrorUPP
 GXGetUserGraphicsError(long *reference) THREEWORDINLINE(0x303C, 0x0067, 0xA832);
 
 /**
@@ -230,7 +230,7 @@ GXGetUserGraphicsError(long *reference) THREEWORDINLINE(0x303C, 0x0067, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserNoticeUPP)
+gxUserNoticeUPP
 GXGetUserGraphicsNotice(long *reference)
     THREEWORDINLINE(0x303C, 0x0068, 0xA832);
 
@@ -242,7 +242,7 @@ GXGetUserGraphicsNotice(long *reference)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserWarningUPP)
+gxUserWarningUPP
 GXGetUserGraphicsWarning(long *reference)
     THREEWORDINLINE(0x303C, 0x0069, 0xA832);
 
@@ -254,7 +254,7 @@ GXGetUserGraphicsWarning(long *reference)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetUserGraphicsError(gxUserErrorUPP userFunction, long reference)
     THREEWORDINLINE(0x303C, 0x006A, 0xA832);
 
@@ -266,7 +266,7 @@ GXSetUserGraphicsError(gxUserErrorUPP userFunction, long reference)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetUserGraphicsNotice(gxUserNoticeUPP userFunction, long reference)
     THREEWORDINLINE(0x303C, 0x006B, 0xA832);
 
@@ -278,7 +278,7 @@ GXSetUserGraphicsNotice(gxUserNoticeUPP userFunction, long reference)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetUserGraphicsWarning(gxUserWarningUPP userFunction, long reference)
     THREEWORDINLINE(0x303C, 0x006C, 0xA832);
 
@@ -290,7 +290,7 @@ GXSetUserGraphicsWarning(gxUserWarningUPP userFunction, long reference)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXIgnoreGraphicsWarning(gxGraphicsWarning warning)
     THREEWORDINLINE(0x303C, 0x006F, 0xA832);
 
@@ -302,7 +302,7 @@ GXIgnoreGraphicsWarning(gxGraphicsWarning warning)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXPopGraphicsWarning(void) THREEWORDINLINE(0x303C, 0x0070, 0xA832);
 
 /**
@@ -313,7 +313,7 @@ GXPopGraphicsWarning(void) THREEWORDINLINE(0x303C, 0x0070, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewShapeVector(gxShapeType aType, const Fixed vector[])
     THREEWORDINLINE(0x303C, 0x0071, 0xA832);
 
@@ -325,7 +325,7 @@ GXNewShapeVector(gxShapeType aType, const Fixed vector[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeVector(gxShape target, const Fixed vector[])
     THREEWORDINLINE(0x303C, 0x0072, 0xA832);
 
@@ -337,7 +337,7 @@ GXSetShapeVector(gxShape target, const Fixed vector[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewBitmap(const gxBitmap *data, const gxPoint *position)
     THREEWORDINLINE(0x303C, 0x0073, 0xA832);
 
@@ -349,7 +349,7 @@ GXNewBitmap(const gxBitmap *data, const gxPoint *position)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewCurve(const gxCurve *data) THREEWORDINLINE(0x303C, 0x0074, 0xA832);
 
 /**
@@ -360,7 +360,7 @@ GXNewCurve(const gxCurve *data) THREEWORDINLINE(0x303C, 0x0074, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewGlyphs(long charCount, const unsigned char text[],
             const gxPoint positions[], const long advance[],
             const gxPoint tangents[], const short styleRuns[],
@@ -375,7 +375,7 @@ GXNewGlyphs(long charCount, const unsigned char text[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewLine(const gxLine *data) THREEWORDINLINE(0x303C, 0x0076, 0xA832);
 
 /**
@@ -386,7 +386,7 @@ GXNewLine(const gxLine *data) THREEWORDINLINE(0x303C, 0x0076, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewPaths(const gxPaths *data) THREEWORDINLINE(0x303C, 0x0077, 0xA832);
 
 /**
@@ -397,7 +397,7 @@ GXNewPaths(const gxPaths *data) THREEWORDINLINE(0x303C, 0x0077, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewPicture(long count, const gxShape shapes[], const gxStyle styles[],
              const gxInk inks[], const gxTransform transforms[])
     THREEWORDINLINE(0x303C, 0x0078, 0xA832);
@@ -410,7 +410,7 @@ GXNewPicture(long count, const gxShape shapes[], const gxStyle styles[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewPoint(const gxPoint *data) THREEWORDINLINE(0x303C, 0x0079, 0xA832);
 
 /**
@@ -421,7 +421,7 @@ GXNewPoint(const gxPoint *data) THREEWORDINLINE(0x303C, 0x0079, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewPolygons(const gxPolygons *data) THREEWORDINLINE(0x303C, 0x007A, 0xA832);
 
 /**
@@ -432,7 +432,7 @@ GXNewPolygons(const gxPolygons *data) THREEWORDINLINE(0x303C, 0x007A, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewRectangle(const gxRectangle *data) THREEWORDINLINE(0x303C, 0x007B, 0xA832);
 
 /**
@@ -443,7 +443,7 @@ GXNewRectangle(const gxRectangle *data) THREEWORDINLINE(0x303C, 0x007B, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewText(long charCount, const unsigned char text[], const gxPoint *position)
     THREEWORDINLINE(0x303C, 0x007C, 0xA832);
 
@@ -455,7 +455,7 @@ GXNewText(long charCount, const unsigned char text[], const gxPoint *position)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxBitmap *)
+gxBitmap *
 GXGetBitmap(gxShape source, gxBitmap *data, gxPoint *position)
     THREEWORDINLINE(0x303C, 0x007D, 0xA832);
 
@@ -467,7 +467,7 @@ GXGetBitmap(gxShape source, gxBitmap *data, gxPoint *position)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxCurve *)
+gxCurve *
 GXGetCurve(gxShape source, gxCurve *data)
     THREEWORDINLINE(0x303C, 0x007E, 0xA832);
 
@@ -480,7 +480,7 @@ GXGetCurve(gxShape source, gxCurve *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetGlyphs(gxShape source, long *charCount, unsigned char text[],
             gxPoint positions[], long advance[], gxPoint tangents[],
             long *runCount, short styleRuns[], gxStyle glyphStyles[])
@@ -494,7 +494,7 @@ GXGetGlyphs(gxShape source, long *charCount, unsigned char text[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxLine *)
+gxLine *
 GXGetLine(gxShape source, gxLine *data) THREEWORDINLINE(0x303C, 0x0080, 0xA832);
 
 /* returns byte length */
@@ -506,7 +506,7 @@ GXGetLine(gxShape source, gxLine *data) THREEWORDINLINE(0x303C, 0x0080, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetPaths(gxShape source, gxPaths *data)
     THREEWORDINLINE(0x303C, 0x0081, 0xA832);
 
@@ -519,7 +519,7 @@ GXGetPaths(gxShape source, gxPaths *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetPicture(gxShape source, gxShape shapes[], gxStyle styles[], gxInk inks[],
              gxTransform transforms[]) THREEWORDINLINE(0x303C, 0x0082, 0xA832);
 
@@ -531,7 +531,7 @@ GXGetPicture(gxShape source, gxShape shapes[], gxStyle styles[], gxInk inks[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPoint *)
+gxPoint *
 GXGetPoint(gxShape source, gxPoint *data)
     THREEWORDINLINE(0x303C, 0x0083, 0xA832);
 
@@ -544,7 +544,7 @@ GXGetPoint(gxShape source, gxPoint *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetPolygons(gxShape source, gxPolygons *data)
     THREEWORDINLINE(0x303C, 0x0084, 0xA832);
 
@@ -556,7 +556,7 @@ GXGetPolygons(gxShape source, gxPolygons *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxRectangle *)
+gxRectangle *
 GXGetRectangle(gxShape source, gxRectangle *data)
     THREEWORDINLINE(0x303C, 0x0085, 0xA832);
 
@@ -569,7 +569,7 @@ GXGetRectangle(gxShape source, gxRectangle *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetText(gxShape source, long *charCount, unsigned char text[],
           gxPoint *position) THREEWORDINLINE(0x303C, 0x0086, 0xA832);
 
@@ -581,7 +581,7 @@ GXGetText(gxShape source, long *charCount, unsigned char text[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetBitmap(gxShape target, const gxBitmap *data, const gxPoint *position)
     THREEWORDINLINE(0x303C, 0x0087, 0xA832);
 
@@ -593,7 +593,7 @@ GXSetBitmap(gxShape target, const gxBitmap *data, const gxPoint *position)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetCurve(gxShape target, const gxCurve *data)
     THREEWORDINLINE(0x303C, 0x0088, 0xA832);
 
@@ -605,7 +605,7 @@ GXSetCurve(gxShape target, const gxCurve *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetGlyphs(gxShape target, long charCount, const unsigned char text[],
             const gxPoint positions[], const long advance[],
             const gxPoint tangents[], const short styleRuns[],
@@ -620,7 +620,7 @@ GXSetGlyphs(gxShape target, long charCount, const unsigned char text[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetLine(gxShape target, const gxLine *data)
     THREEWORDINLINE(0x303C, 0x008A, 0xA832);
 
@@ -632,7 +632,7 @@ GXSetLine(gxShape target, const gxLine *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetPaths(gxShape target, const gxPaths *data)
     THREEWORDINLINE(0x303C, 0x008B, 0xA832);
 
@@ -644,7 +644,7 @@ GXSetPaths(gxShape target, const gxPaths *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetPicture(gxShape target, long count, const gxShape shapes[],
              const gxStyle styles[], const gxInk inks[],
              const gxTransform transforms[])
@@ -658,7 +658,7 @@ GXSetPicture(gxShape target, long count, const gxShape shapes[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetPoint(gxShape target, const gxPoint *data)
     THREEWORDINLINE(0x303C, 0x008D, 0xA832);
 
@@ -670,7 +670,7 @@ GXSetPoint(gxShape target, const gxPoint *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetPolygons(gxShape target, const gxPolygons *data)
     THREEWORDINLINE(0x303C, 0x008E, 0xA832);
 
@@ -682,7 +682,7 @@ GXSetPolygons(gxShape target, const gxPolygons *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetRectangle(gxShape target, const gxRectangle *data)
     THREEWORDINLINE(0x303C, 0x008F, 0xA832);
 
@@ -694,7 +694,7 @@ GXSetRectangle(gxShape target, const gxRectangle *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetText(gxShape target, long charCount, const unsigned char text[],
           const gxPoint *position) THREEWORDINLINE(0x303C, 0x0090, 0xA832);
 
@@ -706,7 +706,7 @@ GXSetText(gxShape target, long charCount, const unsigned char text[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawBitmap(const gxBitmap *data, const gxPoint *position)
     THREEWORDINLINE(0x303C, 0x0091, 0xA832);
 
@@ -718,7 +718,7 @@ GXDrawBitmap(const gxBitmap *data, const gxPoint *position)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawCurve(const gxCurve *data) THREEWORDINLINE(0x303C, 0x0092, 0xA832);
 
 /**
@@ -729,7 +729,7 @@ GXDrawCurve(const gxCurve *data) THREEWORDINLINE(0x303C, 0x0092, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawGlyphs(long charCount, const unsigned char text[],
              const gxPoint positions[], const long advance[],
              const gxPoint tangents[], const short styleRuns[],
@@ -744,7 +744,7 @@ GXDrawGlyphs(long charCount, const unsigned char text[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawLine(const gxLine *data) THREEWORDINLINE(0x303C, 0x0094, 0xA832);
 
 /**
@@ -755,7 +755,7 @@ GXDrawLine(const gxLine *data) THREEWORDINLINE(0x303C, 0x0094, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawPaths(const gxPaths *data, gxShapeFill fill)
     THREEWORDINLINE(0x303C, 0x0095, 0xA832);
 
@@ -767,7 +767,7 @@ GXDrawPaths(const gxPaths *data, gxShapeFill fill)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawPicture(long count, const gxShape shapes[], const gxStyle styles[],
               const gxInk inks[], const gxTransform transforms[])
     THREEWORDINLINE(0x303C, 0x0096, 0xA832);
@@ -780,7 +780,7 @@ GXDrawPicture(long count, const gxShape shapes[], const gxStyle styles[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawPoint(const gxPoint *data) THREEWORDINLINE(0x303C, 0x0097, 0xA832);
 
 /**
@@ -791,7 +791,7 @@ GXDrawPoint(const gxPoint *data) THREEWORDINLINE(0x303C, 0x0097, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawPolygons(const gxPolygons *data, gxShapeFill fill)
     THREEWORDINLINE(0x303C, 0x0098, 0xA832);
 
@@ -803,7 +803,7 @@ GXDrawPolygons(const gxPolygons *data, gxShapeFill fill)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawRectangle(const gxRectangle *data, gxShapeFill fill)
     THREEWORDINLINE(0x303C, 0x0099, 0xA832);
 
@@ -815,7 +815,7 @@ GXDrawRectangle(const gxRectangle *data, gxShapeFill fill)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawText(long charCount, const unsigned char text[], const gxPoint *position)
     THREEWORDINLINE(0x303C, 0x009A, 0xA832);
 
@@ -827,7 +827,7 @@ GXDrawText(long charCount, const unsigned char text[], const gxPoint *position)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorProfile)
+gxColorProfile
 GXNewColorProfile(long size, void *colorProfileData)
     THREEWORDINLINE(0x303C, 0x009B, 0xA832);
 
@@ -839,7 +839,7 @@ GXNewColorProfile(long size, void *colorProfileData)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorSet)
+gxColorSet
 GXNewColorSet(gxColorSpace space, long count, const gxSetColor colors[])
     THREEWORDINLINE(0x303C, 0x009C, 0xA832);
 
@@ -851,7 +851,7 @@ GXNewColorSet(gxColorSpace space, long count, const gxSetColor colors[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxInk)
+gxInk
 GXNewInk(void) THREEWORDINLINE(0x303C, 0x009D, 0xA832);
 
 /**
@@ -862,7 +862,7 @@ GXNewInk(void) THREEWORDINLINE(0x303C, 0x009D, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewShape(gxShapeType aType) THREEWORDINLINE(0x303C, 0x009E, 0xA832);
 
 /**
@@ -873,7 +873,7 @@ GXNewShape(gxShapeType aType) THREEWORDINLINE(0x303C, 0x009E, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxStyle)
+gxStyle
 GXNewStyle(void) THREEWORDINLINE(0x303C, 0x009F, 0xA832);
 
 /**
@@ -884,7 +884,7 @@ GXNewStyle(void) THREEWORDINLINE(0x303C, 0x009F, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTag)
+gxTag
 GXNewTag(long tagType, long length, const void *data)
     THREEWORDINLINE(0x303C, 0x00A0, 0xA832);
 
@@ -896,7 +896,7 @@ GXNewTag(long tagType, long length, const void *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTransform)
+gxTransform
 GXNewTransform(void) THREEWORDINLINE(0x303C, 0x00A1, 0xA832);
 
 /**
@@ -907,7 +907,7 @@ GXNewTransform(void) THREEWORDINLINE(0x303C, 0x00A1, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewDevice)
+gxViewDevice
 GXNewViewDevice(gxViewGroup group, gxShape bitmapShape)
     THREEWORDINLINE(0x303C, 0x00A2, 0xA832);
 
@@ -919,7 +919,7 @@ GXNewViewDevice(gxViewGroup group, gxShape bitmapShape)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewGroup)
+gxViewGroup
 GXNewViewGroup(void) THREEWORDINLINE(0x303C, 0x00A3, 0xA832);
 
 /**
@@ -930,7 +930,7 @@ GXNewViewGroup(void) THREEWORDINLINE(0x303C, 0x00A3, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewPort)
+gxViewPort
 GXNewViewPort(gxViewGroup group) THREEWORDINLINE(0x303C, 0x00A4, 0xA832);
 
 /**
@@ -941,7 +941,7 @@ GXNewViewPort(gxViewGroup group) THREEWORDINLINE(0x303C, 0x00A4, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeColorProfile(gxColorProfile target)
     THREEWORDINLINE(0x303C, 0x00A5, 0xA832);
 
@@ -953,7 +953,7 @@ GXDisposeColorProfile(gxColorProfile target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x00A6, 0xA832);
 
 /**
@@ -964,7 +964,7 @@ GXDisposeColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x00A6, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeInk(gxInk target) THREEWORDINLINE(0x303C, 0x00A7, 0xA832);
 
 /**
@@ -975,7 +975,7 @@ GXDisposeInk(gxInk target) THREEWORDINLINE(0x303C, 0x00A7, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeShape(gxShape target) THREEWORDINLINE(0x303C, 0x00A8, 0xA832);
 
 /**
@@ -986,7 +986,7 @@ GXDisposeShape(gxShape target) THREEWORDINLINE(0x303C, 0x00A8, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00A9, 0xA832);
 
 /**
@@ -997,7 +997,7 @@ GXDisposeStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00A9, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeTag(gxTag target) THREEWORDINLINE(0x303C, 0x00AA, 0xA832);
 
 /**
@@ -1008,7 +1008,7 @@ GXDisposeTag(gxTag target) THREEWORDINLINE(0x303C, 0x00AA, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00AB, 0xA832);
 
 /**
@@ -1019,7 +1019,7 @@ GXDisposeTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00AB, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeViewDevice(gxViewDevice target)
     THREEWORDINLINE(0x303C, 0x00AC, 0xA832);
 
@@ -1031,7 +1031,7 @@ GXDisposeViewDevice(gxViewDevice target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeViewGroup(gxViewGroup target) THREEWORDINLINE(0x303C, 0x00AD, 0xA832);
 
 /**
@@ -1042,7 +1042,7 @@ GXDisposeViewGroup(gxViewGroup target) THREEWORDINLINE(0x303C, 0x00AD, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeViewPort(gxViewPort target) THREEWORDINLINE(0x303C, 0x00AE, 0xA832);
 
 /**
@@ -1053,7 +1053,7 @@ GXDisposeViewPort(gxViewPort target) THREEWORDINLINE(0x303C, 0x00AE, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorProfile)
+gxColorProfile
 GXCloneColorProfile(gxColorProfile source)
     THREEWORDINLINE(0x303C, 0x00AF, 0xA832);
 
@@ -1065,7 +1065,7 @@ GXCloneColorProfile(gxColorProfile source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorSet)
+gxColorSet
 GXCloneColorSet(gxColorSet source) THREEWORDINLINE(0x303C, 0x00B0, 0xA832);
 
 /**
@@ -1076,7 +1076,7 @@ GXCloneColorSet(gxColorSet source) THREEWORDINLINE(0x303C, 0x00B0, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxInk)
+gxInk
 GXCloneInk(gxInk source) THREEWORDINLINE(0x303C, 0x00B1, 0xA832);
 
 /**
@@ -1087,7 +1087,7 @@ GXCloneInk(gxInk source) THREEWORDINLINE(0x303C, 0x00B1, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXCloneShape(gxShape source) THREEWORDINLINE(0x303C, 0x00B2, 0xA832);
 
 /**
@@ -1098,7 +1098,7 @@ GXCloneShape(gxShape source) THREEWORDINLINE(0x303C, 0x00B2, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxStyle)
+gxStyle
 GXCloneStyle(gxStyle source) THREEWORDINLINE(0x303C, 0x00B3, 0xA832);
 
 /**
@@ -1109,7 +1109,7 @@ GXCloneStyle(gxStyle source) THREEWORDINLINE(0x303C, 0x00B3, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTag)
+gxTag
 GXCloneTag(gxTag source) THREEWORDINLINE(0x303C, 0x00B4, 0xA832);
 
 /**
@@ -1120,7 +1120,7 @@ GXCloneTag(gxTag source) THREEWORDINLINE(0x303C, 0x00B4, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTransform)
+gxTransform
 GXCloneTransform(gxTransform source) THREEWORDINLINE(0x303C, 0x00B5, 0xA832);
 
 /**
@@ -1131,7 +1131,7 @@ GXCloneTransform(gxTransform source) THREEWORDINLINE(0x303C, 0x00B5, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorProfile)
+gxColorProfile
 GXCopyToColorProfile(gxColorProfile target, gxColorProfile source)
     THREEWORDINLINE(0x303C, 0x00B6, 0xA832);
 
@@ -1143,7 +1143,7 @@ GXCopyToColorProfile(gxColorProfile target, gxColorProfile source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorSet)
+gxColorSet
 GXCopyToColorSet(gxColorSet target, gxColorSet source)
     THREEWORDINLINE(0x303C, 0x00B7, 0xA832);
 
@@ -1155,7 +1155,7 @@ GXCopyToColorSet(gxColorSet target, gxColorSet source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxInk)
+gxInk
 GXCopyToInk(gxInk target, gxInk source) THREEWORDINLINE(0x303C, 0x00B8, 0xA832);
 
 /**
@@ -1166,7 +1166,7 @@ GXCopyToInk(gxInk target, gxInk source) THREEWORDINLINE(0x303C, 0x00B8, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXCopyToShape(gxShape target, gxShape source)
     THREEWORDINLINE(0x303C, 0x00B9, 0xA832);
 
@@ -1178,7 +1178,7 @@ GXCopyToShape(gxShape target, gxShape source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxStyle)
+gxStyle
 GXCopyToStyle(gxStyle target, gxStyle source)
     THREEWORDINLINE(0x303C, 0x00BA, 0xA832);
 
@@ -1190,7 +1190,7 @@ GXCopyToStyle(gxStyle target, gxStyle source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTag)
+gxTag
 GXCopyToTag(gxTag target, gxTag source) THREEWORDINLINE(0x303C, 0x00BB, 0xA832);
 
 /**
@@ -1201,7 +1201,7 @@ GXCopyToTag(gxTag target, gxTag source) THREEWORDINLINE(0x303C, 0x00BB, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTransform)
+gxTransform
 GXCopyToTransform(gxTransform target, gxTransform source)
     THREEWORDINLINE(0x303C, 0x00BC, 0xA832);
 
@@ -1213,7 +1213,7 @@ GXCopyToTransform(gxTransform target, gxTransform source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewDevice)
+gxViewDevice
 GXCopyToViewDevice(gxViewDevice target, gxViewDevice source)
     THREEWORDINLINE(0x303C, 0x00BD, 0xA832);
 
@@ -1225,7 +1225,7 @@ GXCopyToViewDevice(gxViewDevice target, gxViewDevice source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewPort)
+gxViewPort
 GXCopyToViewPort(gxViewPort target, gxViewPort source)
     THREEWORDINLINE(0x303C, 0x00BE, 0xA832);
 
@@ -1237,7 +1237,7 @@ GXCopyToViewPort(gxViewPort target, gxViewPort source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualColorProfile(gxColorProfile one, gxColorProfile two)
     THREEWORDINLINE(0x303C, 0x00BF, 0xA832);
 
@@ -1249,7 +1249,7 @@ GXEqualColorProfile(gxColorProfile one, gxColorProfile two)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualColorSet(gxColorSet one, gxColorSet two)
     THREEWORDINLINE(0x303C, 0x00C0, 0xA832);
 
@@ -1261,7 +1261,7 @@ GXEqualColorSet(gxColorSet one, gxColorSet two)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualInk(gxInk one, gxInk two) THREEWORDINLINE(0x303C, 0x00C1, 0xA832);
 
 /**
@@ -1272,7 +1272,7 @@ GXEqualInk(gxInk one, gxInk two) THREEWORDINLINE(0x303C, 0x00C1, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualShape(gxShape one, gxShape two) THREEWORDINLINE(0x303C, 0x00C2, 0xA832);
 
 /**
@@ -1283,7 +1283,7 @@ GXEqualShape(gxShape one, gxShape two) THREEWORDINLINE(0x303C, 0x00C2, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualStyle(gxStyle one, gxStyle two) THREEWORDINLINE(0x303C, 0x00C3, 0xA832);
 
 /**
@@ -1294,7 +1294,7 @@ GXEqualStyle(gxStyle one, gxStyle two) THREEWORDINLINE(0x303C, 0x00C3, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualTag(gxTag one, gxTag two) THREEWORDINLINE(0x303C, 0x00C4, 0xA832);
 
 /**
@@ -1305,7 +1305,7 @@ GXEqualTag(gxTag one, gxTag two) THREEWORDINLINE(0x303C, 0x00C4, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualTransform(gxTransform one, gxTransform two)
     THREEWORDINLINE(0x303C, 0x00C5, 0xA832);
 
@@ -1317,7 +1317,7 @@ GXEqualTransform(gxTransform one, gxTransform two)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualViewDevice(gxViewDevice one, gxViewDevice two)
     THREEWORDINLINE(0x303C, 0x00C6, 0xA832);
 
@@ -1329,7 +1329,7 @@ GXEqualViewDevice(gxViewDevice one, gxViewDevice two)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXEqualViewPort(gxViewPort one, gxViewPort two)
     THREEWORDINLINE(0x303C, 0x00C7, 0xA832);
 
@@ -1341,7 +1341,7 @@ GXEqualViewPort(gxViewPort one, gxViewPort two)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXResetInk(gxInk target) THREEWORDINLINE(0x303C, 0x00C8, 0xA832);
 
 /**
@@ -1352,7 +1352,7 @@ GXResetInk(gxInk target) THREEWORDINLINE(0x303C, 0x00C8, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXResetShape(gxShape target) THREEWORDINLINE(0x303C, 0x00C9, 0xA832);
 
 /**
@@ -1363,7 +1363,7 @@ GXResetShape(gxShape target) THREEWORDINLINE(0x303C, 0x00C9, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXResetStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00CA, 0xA832);
 
 /**
@@ -1374,7 +1374,7 @@ GXResetStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00CA, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXResetTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00CB, 0xA832);
 
 /**
@@ -1385,7 +1385,7 @@ GXResetTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00CB, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLoadColorProfile(gxColorProfile target)
     THREEWORDINLINE(0x303C, 0x00CC, 0xA832);
 
@@ -1397,7 +1397,7 @@ GXLoadColorProfile(gxColorProfile target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLoadColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x00CD, 0xA832);
 
 /**
@@ -1408,7 +1408,7 @@ GXLoadColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x00CD, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLoadInk(gxInk target) THREEWORDINLINE(0x303C, 0x00CE, 0xA832);
 
 /**
@@ -1419,7 +1419,7 @@ GXLoadInk(gxInk target) THREEWORDINLINE(0x303C, 0x00CE, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLoadShape(gxShape target) THREEWORDINLINE(0x303C, 0x00CF, 0xA832);
 
 /**
@@ -1430,7 +1430,7 @@ GXLoadShape(gxShape target) THREEWORDINLINE(0x303C, 0x00CF, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLoadStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00D0, 0xA832);
 
 /**
@@ -1441,7 +1441,7 @@ GXLoadStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00D0, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLoadTag(gxTag target) THREEWORDINLINE(0x303C, 0x00D1, 0xA832);
 
 /**
@@ -1452,7 +1452,7 @@ GXLoadTag(gxTag target) THREEWORDINLINE(0x303C, 0x00D1, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLoadTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00D2, 0xA832);
 
 /**
@@ -1463,7 +1463,7 @@ GXLoadTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00D2, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnloadColorProfile(gxColorProfile target)
     THREEWORDINLINE(0x303C, 0x00D3, 0xA832);
 
@@ -1475,7 +1475,7 @@ GXUnloadColorProfile(gxColorProfile target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnloadColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x00D4, 0xA832);
 
 /**
@@ -1486,7 +1486,7 @@ GXUnloadColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x00D4, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnloadInk(gxInk target) THREEWORDINLINE(0x303C, 0x00D5, 0xA832);
 
 /**
@@ -1497,7 +1497,7 @@ GXUnloadInk(gxInk target) THREEWORDINLINE(0x303C, 0x00D5, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnloadShape(gxShape target) THREEWORDINLINE(0x303C, 0x00D6, 0xA832);
 
 /**
@@ -1508,7 +1508,7 @@ GXUnloadShape(gxShape target) THREEWORDINLINE(0x303C, 0x00D6, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnloadStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00D7, 0xA832);
 
 /**
@@ -1519,7 +1519,7 @@ GXUnloadStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x00D7, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnloadTag(gxTag target) THREEWORDINLINE(0x303C, 0x00D8, 0xA832);
 
 /**
@@ -1530,7 +1530,7 @@ GXUnloadTag(gxTag target) THREEWORDINLINE(0x303C, 0x00D8, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnloadTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00D9, 0xA832);
 
 /**
@@ -1541,7 +1541,7 @@ GXUnloadTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x00D9, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXCacheShape(gxShape source) THREEWORDINLINE(0x303C, 0x00DA, 0xA832);
 
 /**
@@ -1552,7 +1552,7 @@ GXCacheShape(gxShape source) THREEWORDINLINE(0x303C, 0x00DA, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXCopyDeepToShape(gxShape target, gxShape source)
     THREEWORDINLINE(0x303C, 0x00DB, 0xA832);
 
@@ -1564,7 +1564,7 @@ GXCopyDeepToShape(gxShape target, gxShape source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawShape(gxShape source) THREEWORDINLINE(0x303C, 0x00DC, 0xA832);
 
 /**
@@ -1575,7 +1575,7 @@ GXDrawShape(gxShape source) THREEWORDINLINE(0x303C, 0x00DC, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDisposeShapeCache(gxShape target) THREEWORDINLINE(0x303C, 0x00DD, 0xA832);
 
 /**
@@ -1586,7 +1586,7 @@ GXDisposeShapeCache(gxShape target) THREEWORDINLINE(0x303C, 0x00DD, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorProfile)
+gxColorProfile
 GXGetDefaultColorProfile(void) THREEWORDINLINE(0x303C, 0x00DE, 0xA832);
 
 /**
@@ -1597,7 +1597,7 @@ GXGetDefaultColorProfile(void) THREEWORDINLINE(0x303C, 0x00DE, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetDefaultShape(gxShapeType aType) THREEWORDINLINE(0x303C, 0x00DF, 0xA832);
 
 /**
@@ -1608,7 +1608,7 @@ GXGetDefaultShape(gxShapeType aType) THREEWORDINLINE(0x303C, 0x00DF, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorSet)
+gxColorSet
 GXGetDefaultColorSet(long pixelDepth) THREEWORDINLINE(0x303C, 0x00E0, 0xA832);
 
 /**
@@ -1619,7 +1619,7 @@ GXGetDefaultColorSet(long pixelDepth) THREEWORDINLINE(0x303C, 0x00E0, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetDefaultShape(gxShape target) THREEWORDINLINE(0x303C, 0x00E1, 0xA832);
 
 /**
@@ -1630,7 +1630,7 @@ GXSetDefaultShape(gxShape target) THREEWORDINLINE(0x303C, 0x00E1, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetDefaultColorSet(gxColorSet target, long pixelDepth)
     THREEWORDINLINE(0x303C, 0x00E2, 0xA832);
 
@@ -1642,7 +1642,7 @@ GXSetDefaultColorSet(gxColorSet target, long pixelDepth)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetTag(gxTag source, long *tagType, void *data)
     THREEWORDINLINE(0x303C, 0x00E3, 0xA832);
 
@@ -1654,7 +1654,7 @@ GXGetTag(gxTag source, long *tagType, void *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetTag(gxTag target, long tagType, long length, const void *data)
     THREEWORDINLINE(0x303C, 0x00E4, 0xA832);
 
@@ -1666,7 +1666,7 @@ GXSetTag(gxTag target, long tagType, long length, const void *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxRectangle *)
+gxRectangle *
 GXGetShapeBounds(gxShape source, long index, gxRectangle *bounds)
     THREEWORDINLINE(0x303C, 0x00E5, 0xA832);
 
@@ -1678,7 +1678,7 @@ GXGetShapeBounds(gxShape source, long index, gxRectangle *bounds)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapeFill)
+gxShapeFill
 GXGetShapeFill(gxShape source) THREEWORDINLINE(0x303C, 0x00E6, 0xA832);
 
 /**
@@ -1689,7 +1689,7 @@ GXGetShapeFill(gxShape source) THREEWORDINLINE(0x303C, 0x00E6, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxInk)
+gxInk
 GXGetShapeInk(gxShape source) THREEWORDINLINE(0x303C, 0x00E7, 0xA832);
 
 /**
@@ -1700,7 +1700,7 @@ GXGetShapeInk(gxShape source) THREEWORDINLINE(0x303C, 0x00E7, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapePixel(gxShape source, long x, long y, gxColor *data, long *index)
     THREEWORDINLINE(0x303C, 0x00E8, 0xA832);
 
@@ -1712,7 +1712,7 @@ GXGetShapePixel(gxShape source, long x, long y, gxColor *data, long *index)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxStyle)
+gxStyle
 GXGetShapeStyle(gxShape source) THREEWORDINLINE(0x303C, 0x00E9, 0xA832);
 
 /**
@@ -1723,7 +1723,7 @@ GXGetShapeStyle(gxShape source) THREEWORDINLINE(0x303C, 0x00E9, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTransform)
+gxTransform
 GXGetShapeTransform(gxShape source) THREEWORDINLINE(0x303C, 0x00EA, 0xA832);
 
 /**
@@ -1734,7 +1734,7 @@ GXGetShapeTransform(gxShape source) THREEWORDINLINE(0x303C, 0x00EA, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapeType)
+gxShapeType
 GXGetShapeType(gxShape source) THREEWORDINLINE(0x303C, 0x00EB, 0xA832);
 
 /**
@@ -1745,7 +1745,7 @@ GXGetShapeType(gxShape source) THREEWORDINLINE(0x303C, 0x00EB, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxRectangle *)
+gxRectangle *
 GXGetShapeTypographicBounds(gxShape source, gxRectangle *bounds)
     THREEWORDINLINE(0x303C, 0x00EC, 0xA832);
 
@@ -1757,7 +1757,7 @@ GXGetShapeTypographicBounds(gxShape source, gxRectangle *bounds)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetBitmapParts(gxShape source, const gxLongRectangle *bounds)
     THREEWORDINLINE(0x303C, 0x00ED, 0xA832);
 
@@ -1769,7 +1769,7 @@ GXGetBitmapParts(gxShape source, const gxLongRectangle *bounds)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetStyleFontMetrics(gxStyle sourceStyle, gxPoint *before, gxPoint *after,
                       gxPoint *caretAngle, gxPoint *caretOffset)
     THREEWORDINLINE(0x303C, 0x00EE, 0xA832);
@@ -1782,7 +1782,7 @@ GXGetStyleFontMetrics(gxStyle sourceStyle, gxPoint *before, gxPoint *after,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetShapeFontMetrics(gxShape source, gxPoint *before, gxPoint *after,
                       gxPoint *caretAngle, gxPoint *caretOffset)
     THREEWORDINLINE(0x303C, 0x00EF, 0xA832);
@@ -1795,7 +1795,7 @@ GXGetShapeFontMetrics(gxShape source, gxPoint *before, gxPoint *after,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeBounds(gxShape target, const gxRectangle *newBounds)
     THREEWORDINLINE(0x303C, 0x00F0, 0xA832);
 
@@ -1807,7 +1807,7 @@ GXSetShapeBounds(gxShape target, const gxRectangle *newBounds)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeFill(gxShape target, gxShapeFill newFill)
     THREEWORDINLINE(0x303C, 0x00F1, 0xA832);
 
@@ -1819,7 +1819,7 @@ GXSetShapeFill(gxShape target, gxShapeFill newFill)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeInk(gxShape target, gxInk newInk)
     THREEWORDINLINE(0x303C, 0x00F2, 0xA832);
 
@@ -1831,7 +1831,7 @@ GXSetShapeInk(gxShape target, gxInk newInk)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapePixel(gxShape target, long x, long y, const gxColor *newColor,
                 long newIndex) THREEWORDINLINE(0x303C, 0x00F3, 0xA832);
 
@@ -1843,7 +1843,7 @@ GXSetShapePixel(gxShape target, long x, long y, const gxColor *newColor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeStyle(gxShape target, gxStyle newStyle)
     THREEWORDINLINE(0x303C, 0x00F4, 0xA832);
 
@@ -1855,7 +1855,7 @@ GXSetShapeStyle(gxShape target, gxStyle newStyle)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeTransform(gxShape target, gxTransform newTransform)
     THREEWORDINLINE(0x303C, 0x00F5, 0xA832);
 
@@ -1867,7 +1867,7 @@ GXSetShapeTransform(gxShape target, gxTransform newTransform)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeType(gxShape target, gxShapeType newType)
     THREEWORDINLINE(0x303C, 0x00F6, 0xA832);
 
@@ -1879,7 +1879,7 @@ GXSetShapeType(gxShape target, gxShapeType newType)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetBitmapParts(gxShape target, const gxLongRectangle *bounds,
                  gxShape bitmapShape) THREEWORDINLINE(0x303C, 0x00F7, 0xA832);
 
@@ -1891,7 +1891,7 @@ GXSetBitmapParts(gxShape target, const gxLongRectangle *bounds,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeGeometry(gxShape target, gxShape geometry)
     THREEWORDINLINE(0x303C, 0x00F8, 0xA832);
 
@@ -1903,7 +1903,7 @@ GXSetShapeGeometry(gxShape target, gxShape geometry)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetShapeCurveError(gxShape source) THREEWORDINLINE(0x303C, 0x00F9, 0xA832);
 
 /**
@@ -1914,7 +1914,7 @@ GXGetShapeCurveError(gxShape source) THREEWORDINLINE(0x303C, 0x00F9, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxDashRecord *)
+gxDashRecord *
 GXGetShapeDash(gxShape source, gxDashRecord *dash)
     THREEWORDINLINE(0x303C, 0x00FA, 0xA832);
 
@@ -1926,7 +1926,7 @@ GXGetShapeDash(gxShape source, gxDashRecord *dash)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxCapRecord *)
+gxCapRecord *
 GXGetShapeCap(gxShape source, gxCapRecord *cap)
     THREEWORDINLINE(0x303C, 0x00FB, 0xA832);
 
@@ -1939,7 +1939,7 @@ GXGetShapeCap(gxShape source, gxCapRecord *cap)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeFace(gxShape source, gxTextFace *face)
     THREEWORDINLINE(0x303C, 0x00FC, 0xA832);
 
@@ -1951,7 +1951,7 @@ GXGetShapeFace(gxShape source, gxTextFace *face)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFont)
+gxFont
 GXGetShapeFont(gxShape source) THREEWORDINLINE(0x303C, 0x00FD, 0xA832);
 
 /**
@@ -1962,7 +1962,7 @@ GXGetShapeFont(gxShape source) THREEWORDINLINE(0x303C, 0x00FD, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxJoinRecord *)
+gxJoinRecord *
 GXGetShapeJoin(gxShape source, gxJoinRecord *join)
     THREEWORDINLINE(0x303C, 0x00FE, 0xA832);
 
@@ -1974,7 +1974,7 @@ GXGetShapeJoin(gxShape source, gxJoinRecord *join)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fract)
+Fract
 GXGetShapeJustification(gxShape source) THREEWORDINLINE(0x303C, 0x00FF, 0xA832);
 
 /**
@@ -1985,7 +1985,7 @@ GXGetShapeJustification(gxShape source) THREEWORDINLINE(0x303C, 0x00FF, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPatternRecord *)
+gxPatternRecord *
 GXGetShapePattern(gxShape source, gxPatternRecord *pattern)
     THREEWORDINLINE(0x303C, 0x0100, 0xA832);
 
@@ -1997,7 +1997,7 @@ GXGetShapePattern(gxShape source, gxPatternRecord *pattern)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetShapePen(gxShape source) THREEWORDINLINE(0x303C, 0x0101, 0xA832);
 
 /**
@@ -2008,7 +2008,7 @@ GXGetShapePen(gxShape source) THREEWORDINLINE(0x303C, 0x0101, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontPlatform)
+gxFontPlatform
 GXGetShapeEncoding(gxShape source, gxFontScript *script,
                    gxFontLanguage *language)
     THREEWORDINLINE(0x303C, 0x0102, 0xA832);
@@ -2021,7 +2021,7 @@ GXGetShapeEncoding(gxShape source, gxFontScript *script,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetShapeTextSize(gxShape source) THREEWORDINLINE(0x303C, 0x0103, 0xA832);
 
 /**
@@ -2032,7 +2032,7 @@ GXGetShapeTextSize(gxShape source) THREEWORDINLINE(0x303C, 0x0103, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeFontVariations(gxShape source, gxFontVariation variations[])
     THREEWORDINLINE(0x303C, 0x0104, 0xA832);
 
@@ -2044,7 +2044,7 @@ GXGetShapeFontVariations(gxShape source, gxFontVariation variations[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeFontVariationSuite(gxShape source, gxFontVariation variations[])
     THREEWORDINLINE(0x303C, 0x0105, 0xA832);
 
@@ -2056,7 +2056,7 @@ GXGetShapeFontVariationSuite(gxShape source, gxFontVariation variations[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetStyleCurveError(gxStyle source) THREEWORDINLINE(0x303C, 0x0106, 0xA832);
 
 /**
@@ -2067,7 +2067,7 @@ GXGetStyleCurveError(gxStyle source) THREEWORDINLINE(0x303C, 0x0106, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxDashRecord *)
+gxDashRecord *
 GXGetStyleDash(gxStyle source, gxDashRecord *dash)
     THREEWORDINLINE(0x303C, 0x0107, 0xA832);
 
@@ -2079,7 +2079,7 @@ GXGetStyleDash(gxStyle source, gxDashRecord *dash)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxCapRecord *)
+gxCapRecord *
 GXGetStyleCap(gxStyle source, gxCapRecord *cap)
     THREEWORDINLINE(0x303C, 0x0108, 0xA832);
 
@@ -2092,7 +2092,7 @@ GXGetStyleCap(gxStyle source, gxCapRecord *cap)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleFace(gxStyle source, gxTextFace *face)
     THREEWORDINLINE(0x303C, 0x0109, 0xA832);
 
@@ -2104,7 +2104,7 @@ GXGetStyleFace(gxStyle source, gxTextFace *face)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFont)
+gxFont
 GXGetStyleFont(gxStyle source) THREEWORDINLINE(0x303C, 0x010A, 0xA832);
 
 /**
@@ -2115,7 +2115,7 @@ GXGetStyleFont(gxStyle source) THREEWORDINLINE(0x303C, 0x010A, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxJoinRecord *)
+gxJoinRecord *
 GXGetStyleJoin(gxStyle source, gxJoinRecord *join)
     THREEWORDINLINE(0x303C, 0x010B, 0xA832);
 
@@ -2127,7 +2127,7 @@ GXGetStyleJoin(gxStyle source, gxJoinRecord *join)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fract)
+Fract
 GXGetStyleJustification(gxStyle source) THREEWORDINLINE(0x303C, 0x010C, 0xA832);
 
 /**
@@ -2138,7 +2138,7 @@ GXGetStyleJustification(gxStyle source) THREEWORDINLINE(0x303C, 0x010C, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPatternRecord *)
+gxPatternRecord *
 GXGetStylePattern(gxStyle source, gxPatternRecord *pattern)
     THREEWORDINLINE(0x303C, 0x010D, 0xA832);
 
@@ -2150,7 +2150,7 @@ GXGetStylePattern(gxStyle source, gxPatternRecord *pattern)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetStylePen(gxStyle source) THREEWORDINLINE(0x303C, 0x010E, 0xA832);
 
 /**
@@ -2161,7 +2161,7 @@ GXGetStylePen(gxStyle source) THREEWORDINLINE(0x303C, 0x010E, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxFontPlatform)
+gxFontPlatform
 GXGetStyleEncoding(gxStyle source, gxFontScript *script,
                    gxFontLanguage *language)
     THREEWORDINLINE(0x303C, 0x010F, 0xA832);
@@ -2174,7 +2174,7 @@ GXGetStyleEncoding(gxStyle source, gxFontScript *script,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetStyleTextSize(gxStyle source) THREEWORDINLINE(0x303C, 0x0110, 0xA832);
 
 /**
@@ -2185,7 +2185,7 @@ GXGetStyleTextSize(gxStyle source) THREEWORDINLINE(0x303C, 0x0110, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleFontVariations(gxStyle source, gxFontVariation variations[])
     THREEWORDINLINE(0x303C, 0x0111, 0xA832);
 
@@ -2197,7 +2197,7 @@ GXGetStyleFontVariations(gxStyle source, gxFontVariation variations[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleFontVariationSuite(gxStyle source, gxFontVariation variations[])
     THREEWORDINLINE(0x303C, 0x0112, 0xA832);
 
@@ -2209,7 +2209,7 @@ GXGetStyleFontVariationSuite(gxStyle source, gxFontVariation variations[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeCurveError(gxShape target, Fixed error)
     THREEWORDINLINE(0x303C, 0x0113, 0xA832);
 
@@ -2221,7 +2221,7 @@ GXSetShapeCurveError(gxShape target, Fixed error)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeDash(gxShape target, const gxDashRecord *dash)
     THREEWORDINLINE(0x303C, 0x0114, 0xA832);
 
@@ -2233,7 +2233,7 @@ GXSetShapeDash(gxShape target, const gxDashRecord *dash)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeCap(gxShape target, const gxCapRecord *cap)
     THREEWORDINLINE(0x303C, 0x0115, 0xA832);
 
@@ -2245,7 +2245,7 @@ GXSetShapeCap(gxShape target, const gxCapRecord *cap)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeFace(gxShape target, const gxTextFace *face)
     THREEWORDINLINE(0x303C, 0x0116, 0xA832);
 
@@ -2257,7 +2257,7 @@ GXSetShapeFace(gxShape target, const gxTextFace *face)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeFont(gxShape target, gxFont aFont)
     THREEWORDINLINE(0x303C, 0x0117, 0xA832);
 
@@ -2269,7 +2269,7 @@ GXSetShapeFont(gxShape target, gxFont aFont)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeJoin(gxShape target, const gxJoinRecord *join)
     THREEWORDINLINE(0x303C, 0x0118, 0xA832);
 
@@ -2281,7 +2281,7 @@ GXSetShapeJoin(gxShape target, const gxJoinRecord *join)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeJustification(gxShape target, Fract justify)
     THREEWORDINLINE(0x303C, 0x0119, 0xA832);
 
@@ -2293,7 +2293,7 @@ GXSetShapeJustification(gxShape target, Fract justify)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapePattern(gxShape target, const gxPatternRecord *pattern)
     THREEWORDINLINE(0x303C, 0x011A, 0xA832);
 
@@ -2305,7 +2305,7 @@ GXSetShapePattern(gxShape target, const gxPatternRecord *pattern)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapePen(gxShape target, Fixed pen)
     THREEWORDINLINE(0x303C, 0x011B, 0xA832);
 
@@ -2317,7 +2317,7 @@ GXSetShapePen(gxShape target, Fixed pen)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeEncoding(gxShape target, gxFontPlatform platform, gxFontScript script,
                    gxFontLanguage language)
     THREEWORDINLINE(0x303C, 0x011C, 0xA832);
@@ -2330,7 +2330,7 @@ GXSetShapeEncoding(gxShape target, gxFontPlatform platform, gxFontScript script,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeTextSize(gxShape target, Fixed size)
     THREEWORDINLINE(0x303C, 0x011D, 0xA832);
 
@@ -2342,7 +2342,7 @@ GXSetShapeTextSize(gxShape target, Fixed size)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeFontVariations(gxShape target, long count,
                          const gxFontVariation variations[])
     THREEWORDINLINE(0x303C, 0x011E, 0xA832);
@@ -2355,7 +2355,7 @@ GXSetShapeFontVariations(gxShape target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleCurveError(gxStyle target, Fixed error)
     THREEWORDINLINE(0x303C, 0x011F, 0xA832);
 
@@ -2367,7 +2367,7 @@ GXSetStyleCurveError(gxStyle target, Fixed error)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleDash(gxStyle target, const gxDashRecord *dash)
     THREEWORDINLINE(0x303C, 0x0120, 0xA832);
 
@@ -2379,7 +2379,7 @@ GXSetStyleDash(gxStyle target, const gxDashRecord *dash)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleCap(gxStyle target, const gxCapRecord *cap)
     THREEWORDINLINE(0x303C, 0x0121, 0xA832);
 
@@ -2391,7 +2391,7 @@ GXSetStyleCap(gxStyle target, const gxCapRecord *cap)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleFace(gxStyle target, const gxTextFace *face)
     THREEWORDINLINE(0x303C, 0x0122, 0xA832);
 
@@ -2403,7 +2403,7 @@ GXSetStyleFace(gxStyle target, const gxTextFace *face)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleFont(gxStyle target, gxFont aFont)
     THREEWORDINLINE(0x303C, 0x0123, 0xA832);
 
@@ -2415,7 +2415,7 @@ GXSetStyleFont(gxStyle target, gxFont aFont)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleJoin(gxStyle target, const gxJoinRecord *join)
     THREEWORDINLINE(0x303C, 0x0124, 0xA832);
 
@@ -2427,7 +2427,7 @@ GXSetStyleJoin(gxStyle target, const gxJoinRecord *join)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleJustification(gxStyle target, Fract justify)
     THREEWORDINLINE(0x303C, 0x0125, 0xA832);
 
@@ -2439,7 +2439,7 @@ GXSetStyleJustification(gxStyle target, Fract justify)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStylePattern(gxStyle target, const gxPatternRecord *pattern)
     THREEWORDINLINE(0x303C, 0x0126, 0xA832);
 
@@ -2451,7 +2451,7 @@ GXSetStylePattern(gxStyle target, const gxPatternRecord *pattern)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStylePen(gxStyle target, Fixed pen)
     THREEWORDINLINE(0x303C, 0x0127, 0xA832);
 
@@ -2463,7 +2463,7 @@ GXSetStylePen(gxStyle target, Fixed pen)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleEncoding(gxStyle target, gxFontPlatform platform, gxFontScript script,
                    gxFontLanguage language)
     THREEWORDINLINE(0x303C, 0x0128, 0xA832);
@@ -2476,7 +2476,7 @@ GXSetStyleEncoding(gxStyle target, gxFontPlatform platform, gxFontScript script,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleTextSize(gxStyle target, Fixed size)
     THREEWORDINLINE(0x303C, 0x0129, 0xA832);
 
@@ -2488,7 +2488,7 @@ GXSetStyleTextSize(gxStyle target, Fixed size)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleFontVariations(gxStyle target, long count,
                          const gxFontVariation variations[])
     THREEWORDINLINE(0x303C, 0x012A, 0xA832);
@@ -2501,7 +2501,7 @@ GXSetStyleFontVariations(gxStyle target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColor *)
+gxColor *
 GXGetShapeColor(gxShape source, gxColor *data)
     THREEWORDINLINE(0x303C, 0x012B, 0xA832);
 
@@ -2513,7 +2513,7 @@ GXGetShapeColor(gxShape source, gxColor *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTransferMode *)
+gxTransferMode *
 GXGetShapeTransfer(gxShape source, gxTransferMode *data)
     THREEWORDINLINE(0x303C, 0x012C, 0xA832);
 
@@ -2525,7 +2525,7 @@ GXGetShapeTransfer(gxShape source, gxTransferMode *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColor *)
+gxColor *
 GXGetInkColor(gxInk source, gxColor *data)
     THREEWORDINLINE(0x303C, 0x012D, 0xA832);
 
@@ -2537,7 +2537,7 @@ GXGetInkColor(gxInk source, gxColor *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTransferMode *)
+gxTransferMode *
 GXGetInkTransfer(gxInk source, gxTransferMode *data)
     THREEWORDINLINE(0x303C, 0x012E, 0xA832);
 
@@ -2549,7 +2549,7 @@ GXGetInkTransfer(gxInk source, gxTransferMode *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeColor(gxShape target, const gxColor *data)
     THREEWORDINLINE(0x303C, 0x012F, 0xA832);
 
@@ -2561,7 +2561,7 @@ GXSetShapeColor(gxShape target, const gxColor *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeTransfer(gxShape target, const gxTransferMode *data)
     THREEWORDINLINE(0x303C, 0x0130, 0xA832);
 
@@ -2573,7 +2573,7 @@ GXSetShapeTransfer(gxShape target, const gxTransferMode *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetInkColor(gxInk target, const gxColor *data)
     THREEWORDINLINE(0x303C, 0x0131, 0xA832);
 
@@ -2585,7 +2585,7 @@ GXSetInkColor(gxInk target, const gxColor *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetInkTransfer(gxInk target, const gxTransferMode *data)
     THREEWORDINLINE(0x303C, 0x0132, 0xA832);
 
@@ -2597,7 +2597,7 @@ GXSetInkTransfer(gxInk target, const gxTransferMode *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetShapeClip(gxShape source) THREEWORDINLINE(0x303C, 0x0133, 0xA832);
 
 /**
@@ -2608,7 +2608,7 @@ GXGetShapeClip(gxShape source) THREEWORDINLINE(0x303C, 0x0133, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapeType)
+gxShapeType
 GXGetShapeClipType(gxShape source) THREEWORDINLINE(0x303C, 0x0276, 0xA832);
 
 /**
@@ -2619,7 +2619,7 @@ GXGetShapeClipType(gxShape source) THREEWORDINLINE(0x303C, 0x0276, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 GXGetShapeMapping(gxShape source, gxMapping *map)
     THREEWORDINLINE(0x303C, 0x0134, 0xA832);
 
@@ -2631,7 +2631,7 @@ GXGetShapeMapping(gxShape source, gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapePart)
+gxShapePart
 GXGetShapeHitTest(gxShape source, Fixed *tolerance)
     THREEWORDINLINE(0x303C, 0x0135, 0xA832);
 
@@ -2643,7 +2643,7 @@ GXGetShapeHitTest(gxShape source, Fixed *tolerance)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeViewPorts(gxShape source, gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x0136, 0xA832);
 
@@ -2655,7 +2655,7 @@ GXGetShapeViewPorts(gxShape source, gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetTransformClip(gxTransform source) THREEWORDINLINE(0x303C, 0x0137, 0xA832);
 
 /**
@@ -2666,7 +2666,7 @@ GXGetTransformClip(gxTransform source) THREEWORDINLINE(0x303C, 0x0137, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapeType)
+gxShapeType
 GXGetTransformClipType(gxTransform source)
     THREEWORDINLINE(0x303C, 0x0277, 0xA832);
 
@@ -2678,7 +2678,7 @@ GXGetTransformClipType(gxTransform source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 GXGetTransformMapping(gxTransform source, gxMapping *map)
     THREEWORDINLINE(0x303C, 0x0138, 0xA832);
 
@@ -2690,7 +2690,7 @@ GXGetTransformMapping(gxTransform source, gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapePart)
+gxShapePart
 GXGetTransformHitTest(gxTransform source, Fixed *tolerance)
     THREEWORDINLINE(0x303C, 0x0139, 0xA832);
 
@@ -2702,7 +2702,7 @@ GXGetTransformHitTest(gxTransform source, Fixed *tolerance)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetTransformViewPorts(gxTransform source, gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x013A, 0xA832);
 
@@ -2714,7 +2714,7 @@ GXGetTransformViewPorts(gxTransform source, gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeClip(gxShape target, gxShape clip)
     THREEWORDINLINE(0x303C, 0x013B, 0xA832);
 
@@ -2726,7 +2726,7 @@ GXSetShapeClip(gxShape target, gxShape clip)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeMapping(gxShape target, const gxMapping *map)
     THREEWORDINLINE(0x303C, 0x013C, 0xA832);
 
@@ -2738,7 +2738,7 @@ GXSetShapeMapping(gxShape target, const gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeHitTest(gxShape target, gxShapePart mask, Fixed tolerance)
     THREEWORDINLINE(0x303C, 0x013D, 0xA832);
 
@@ -2750,7 +2750,7 @@ GXSetShapeHitTest(gxShape target, gxShapePart mask, Fixed tolerance)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeViewPorts(gxShape target, long count, const gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x013E, 0xA832);
 
@@ -2762,7 +2762,7 @@ GXSetShapeViewPorts(gxShape target, long count, const gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetTransformClip(gxTransform target, gxShape clip)
     THREEWORDINLINE(0x303C, 0x013F, 0xA832);
 
@@ -2774,7 +2774,7 @@ GXSetTransformClip(gxTransform target, gxShape clip)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetTransformMapping(gxTransform target, const gxMapping *map)
     THREEWORDINLINE(0x303C, 0x0140, 0xA832);
 
@@ -2786,7 +2786,7 @@ GXSetTransformMapping(gxTransform target, const gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetTransformHitTest(gxTransform target, gxShapePart mask, Fixed tolerance)
     THREEWORDINLINE(0x303C, 0x0141, 0xA832);
 
@@ -2798,7 +2798,7 @@ GXSetTransformHitTest(gxTransform target, gxShapePart mask, Fixed tolerance)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetTransformViewPorts(gxTransform target, long count, const gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x0142, 0xA832);
 
@@ -2810,7 +2810,7 @@ GXSetTransformViewPorts(gxTransform target, long count, const gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetColorSet(gxColorSet source, gxColorSpace *space, gxSetColor colors[])
     THREEWORDINLINE(0x303C, 0x0143, 0xA832);
 
@@ -2822,7 +2822,7 @@ GXGetColorSet(gxColorSet source, gxColorSpace *space, gxSetColor colors[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetColorProfile(gxColorProfile source, void *colorProfileData)
     THREEWORDINLINE(0x303C, 0x0144, 0xA832);
 
@@ -2834,7 +2834,7 @@ GXGetColorProfile(gxColorProfile source, void *colorProfileData)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetColorSet(gxColorSet target, gxColorSpace space, long count,
               const gxSetColor colors[])
     THREEWORDINLINE(0x303C, 0x0145, 0xA832);
@@ -2847,7 +2847,7 @@ GXSetColorSet(gxColorSet target, gxColorSpace space, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetColorProfile(gxColorProfile target, long size, void *colorProfileData)
     THREEWORDINLINE(0x303C, 0x0146, 0xA832);
 
@@ -2859,7 +2859,7 @@ GXSetColorProfile(gxColorProfile target, long size, void *colorProfileData)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetViewDeviceBitmap(gxViewDevice source)
     THREEWORDINLINE(0x303C, 0x0147, 0xA832);
 
@@ -2871,7 +2871,7 @@ GXGetViewDeviceBitmap(gxViewDevice source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetViewDeviceClip(gxViewDevice source)
     THREEWORDINLINE(0x303C, 0x0148, 0xA832);
 
@@ -2883,7 +2883,7 @@ GXGetViewDeviceClip(gxViewDevice source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 GXGetViewDeviceMapping(gxViewDevice source, gxMapping *map)
     THREEWORDINLINE(0x303C, 0x0149, 0xA832);
 
@@ -2895,7 +2895,7 @@ GXGetViewDeviceMapping(gxViewDevice source, gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewGroup)
+gxViewGroup
 GXGetViewDeviceViewGroup(gxViewDevice source)
     THREEWORDINLINE(0x303C, 0x014A, 0xA832);
 
@@ -2907,7 +2907,7 @@ GXGetViewDeviceViewGroup(gxViewDevice source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewDeviceBitmap(gxViewDevice target, gxShape bitmapShape)
     THREEWORDINLINE(0x303C, 0x014B, 0xA832);
 
@@ -2919,7 +2919,7 @@ GXSetViewDeviceBitmap(gxViewDevice target, gxShape bitmapShape)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewDeviceClip(gxViewDevice target, gxShape clip)
     THREEWORDINLINE(0x303C, 0x014C, 0xA832);
 
@@ -2931,7 +2931,7 @@ GXSetViewDeviceClip(gxViewDevice target, gxShape clip)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewDeviceMapping(gxViewDevice target, const gxMapping *map)
     THREEWORDINLINE(0x303C, 0x014D, 0xA832);
 
@@ -2943,7 +2943,7 @@ GXSetViewDeviceMapping(gxViewDevice target, const gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewDeviceViewGroup(gxViewDevice target, gxViewGroup group)
     THREEWORDINLINE(0x303C, 0x014E, 0xA832);
 
@@ -2955,7 +2955,7 @@ GXSetViewDeviceViewGroup(gxViewDevice target, gxViewGroup group)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewPortChildren(gxViewPort source, gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x014F, 0xA832);
 
@@ -2967,7 +2967,7 @@ GXGetViewPortChildren(gxViewPort source, gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetViewPortClip(gxViewPort source) THREEWORDINLINE(0x303C, 0x0150, 0xA832);
 
 /**
@@ -2978,7 +2978,7 @@ GXGetViewPortClip(gxViewPort source) THREEWORDINLINE(0x303C, 0x0150, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewPortDither(gxViewPort source) THREEWORDINLINE(0x303C, 0x0151, 0xA832);
 
 /**
@@ -2989,7 +2989,7 @@ GXGetViewPortDither(gxViewPort source) THREEWORDINLINE(0x303C, 0x0151, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXGetViewPortHalftone(gxViewPort source, gxHalftone *data)
     THREEWORDINLINE(0x303C, 0x0152, 0xA832);
 
@@ -3001,7 +3001,7 @@ GXGetViewPortHalftone(gxViewPort source, gxHalftone *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 GXGetViewPortMapping(gxViewPort source, gxMapping *map)
     THREEWORDINLINE(0x303C, 0x0153, 0xA832);
 
@@ -3013,7 +3013,7 @@ GXGetViewPortMapping(gxViewPort source, gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewPort)
+gxViewPort
 GXGetViewPortParent(gxViewPort source) THREEWORDINLINE(0x303C, 0x0154, 0xA832);
 
 /**
@@ -3024,7 +3024,7 @@ GXGetViewPortParent(gxViewPort source) THREEWORDINLINE(0x303C, 0x0154, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxViewGroup)
+gxViewGroup
 GXGetViewPortViewGroup(gxViewPort source)
     THREEWORDINLINE(0x303C, 0x0155, 0xA832);
 
@@ -3036,7 +3036,7 @@ GXGetViewPortViewGroup(gxViewPort source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewPortHalftoneMatrix(gxViewPort source, gxViewDevice sourceDevice,
                             gxHalftoneMatrix *theMatrix)
     THREEWORDINLINE(0x303C, 0x0273, 0xA832);
@@ -3049,7 +3049,7 @@ GXGetViewPortHalftoneMatrix(gxViewPort source, gxViewDevice sourceDevice,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortChildren(gxViewPort target, long count, const gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x0156, 0xA832);
 
@@ -3061,7 +3061,7 @@ GXSetViewPortChildren(gxViewPort target, long count, const gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortClip(gxViewPort target, gxShape clip)
     THREEWORDINLINE(0x303C, 0x0157, 0xA832);
 
@@ -3073,7 +3073,7 @@ GXSetViewPortClip(gxViewPort target, gxShape clip)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortDither(gxViewPort target, long level)
     THREEWORDINLINE(0x303C, 0x0158, 0xA832);
 
@@ -3085,7 +3085,7 @@ GXSetViewPortDither(gxViewPort target, long level)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortHalftone(gxViewPort target, const gxHalftone *data)
     THREEWORDINLINE(0x303C, 0x0159, 0xA832);
 
@@ -3097,7 +3097,7 @@ GXSetViewPortHalftone(gxViewPort target, const gxHalftone *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortMapping(gxViewPort target, const gxMapping *map)
     THREEWORDINLINE(0x303C, 0x015A, 0xA832);
 
@@ -3109,7 +3109,7 @@ GXSetViewPortMapping(gxViewPort target, const gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortParent(gxViewPort target, gxViewPort parent)
     THREEWORDINLINE(0x303C, 0x015B, 0xA832);
 
@@ -3121,7 +3121,7 @@ GXSetViewPortParent(gxViewPort target, gxViewPort parent)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortViewGroup(gxViewPort target, gxViewGroup group)
     THREEWORDINLINE(0x303C, 0x015C, 0xA832);
 
@@ -3133,7 +3133,7 @@ GXSetViewPortViewGroup(gxViewPort target, gxViewGroup group)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetColorProfileTags(gxColorProfile source, long tagType, long index,
                       long count, gxTag items[])
     THREEWORDINLINE(0x303C, 0x015D, 0xA832);
@@ -3146,7 +3146,7 @@ GXGetColorProfileTags(gxColorProfile source, long tagType, long index,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetColorSetTags(gxColorSet source, long tagType, long index, long count,
                   gxTag items[]) THREEWORDINLINE(0x303C, 0x015E, 0xA832);
 
@@ -3158,7 +3158,7 @@ GXGetColorSetTags(gxColorSet source, long tagType, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetInkTags(gxInk source, long tagType, long index, long count, gxTag items[])
     THREEWORDINLINE(0x303C, 0x015F, 0xA832);
 
@@ -3170,7 +3170,7 @@ GXGetInkTags(gxInk source, long tagType, long index, long count, gxTag items[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeTags(gxShape source, long tagType, long index, long count,
                gxTag items[]) THREEWORDINLINE(0x303C, 0x0160, 0xA832);
 
@@ -3182,7 +3182,7 @@ GXGetShapeTags(gxShape source, long tagType, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleTags(gxStyle source, long tagType, long index, long count,
                gxTag items[]) THREEWORDINLINE(0x303C, 0x0161, 0xA832);
 
@@ -3194,7 +3194,7 @@ GXGetStyleTags(gxStyle source, long tagType, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetTransformTags(gxTransform source, long tagType, long index, long count,
                    gxTag items[]) THREEWORDINLINE(0x303C, 0x0162, 0xA832);
 
@@ -3206,7 +3206,7 @@ GXGetTransformTags(gxTransform source, long tagType, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewDeviceTags(gxViewDevice source, long tagType, long index, long count,
                     gxTag items[]) THREEWORDINLINE(0x303C, 0x0163, 0xA832);
 
@@ -3218,7 +3218,7 @@ GXGetViewDeviceTags(gxViewDevice source, long tagType, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewPortTags(gxViewPort source, long tagType, long index, long count,
                   gxTag items[]) THREEWORDINLINE(0x303C, 0x0164, 0xA832);
 
@@ -3230,7 +3230,7 @@ GXGetViewPortTags(gxViewPort source, long tagType, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetColorProfileTags(gxColorProfile target, long tagType, long index,
                       long oldCount, long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x0165, 0xA832);
@@ -3243,7 +3243,7 @@ GXSetColorProfileTags(gxColorProfile target, long tagType, long index,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetColorSetTags(gxColorSet target, long tagType, long index, long oldCount,
                   long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x0166, 0xA832);
@@ -3256,7 +3256,7 @@ GXSetColorSetTags(gxColorSet target, long tagType, long index, long oldCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetInkTags(gxInk target, long tagType, long index, long oldCount,
              long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x0167, 0xA832);
@@ -3269,7 +3269,7 @@ GXSetInkTags(gxInk target, long tagType, long index, long oldCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeTags(gxShape target, long tagType, long index, long oldCount,
                long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x0168, 0xA832);
@@ -3282,7 +3282,7 @@ GXSetShapeTags(gxShape target, long tagType, long index, long oldCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleTags(gxStyle target, long tagType, long index, long oldCount,
                long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x0169, 0xA832);
@@ -3295,7 +3295,7 @@ GXSetStyleTags(gxStyle target, long tagType, long index, long oldCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetTransformTags(gxTransform target, long tagType, long index, long oldCount,
                    long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x016A, 0xA832);
@@ -3308,7 +3308,7 @@ GXSetTransformTags(gxTransform target, long tagType, long index, long oldCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewDeviceTags(gxViewDevice target, long tagType, long index,
                     long oldCount, long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x016B, 0xA832);
@@ -3321,7 +3321,7 @@ GXSetViewDeviceTags(gxViewDevice target, long tagType, long index,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortTags(gxViewPort target, long tagType, long index, long oldCount,
                   long newCount, const gxTag items[])
     THREEWORDINLINE(0x303C, 0x016C, 0xA832);
@@ -3334,7 +3334,7 @@ GXSetViewPortTags(gxViewPort target, long tagType, long index, long oldCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxInkAttribute)
+gxInkAttribute
 GXGetInkAttributes(gxInk source) THREEWORDINLINE(0x303C, 0x016D, 0xA832);
 
 /**
@@ -3345,7 +3345,7 @@ GXGetInkAttributes(gxInk source) THREEWORDINLINE(0x303C, 0x016D, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapeAttribute)
+gxShapeAttribute
 GXGetShapeAttributes(gxShape source) THREEWORDINLINE(0x303C, 0x016E, 0xA832);
 
 /**
@@ -3356,7 +3356,7 @@ GXGetShapeAttributes(gxShape source) THREEWORDINLINE(0x303C, 0x016E, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxInkAttribute)
+gxInkAttribute
 GXGetShapeInkAttributes(gxShape source) THREEWORDINLINE(0x303C, 0x016F, 0xA832);
 
 /**
@@ -3367,7 +3367,7 @@ GXGetShapeInkAttributes(gxShape source) THREEWORDINLINE(0x303C, 0x016F, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxStyleAttribute)
+gxStyleAttribute
 GXGetShapeStyleAttributes(gxShape source)
     THREEWORDINLINE(0x303C, 0x0170, 0xA832);
 
@@ -3379,7 +3379,7 @@ GXGetShapeStyleAttributes(gxShape source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxStyleAttribute)
+gxStyleAttribute
 GXGetStyleAttributes(gxStyle source) THREEWORDINLINE(0x303C, 0x0171, 0xA832);
 
 /**
@@ -3390,7 +3390,7 @@ GXGetStyleAttributes(gxStyle source) THREEWORDINLINE(0x303C, 0x0171, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTextAttribute)
+gxTextAttribute
 GXGetShapeTextAttributes(gxShape source)
     THREEWORDINLINE(0x303C, 0x0172, 0xA832);
 
@@ -3402,7 +3402,7 @@ GXGetShapeTextAttributes(gxShape source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxTextAttribute)
+gxTextAttribute
 GXGetStyleTextAttributes(gxStyle source)
     THREEWORDINLINE(0x303C, 0x0173, 0xA832);
 
@@ -3414,7 +3414,7 @@ GXGetStyleTextAttributes(gxStyle source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxDeviceAttribute)
+gxDeviceAttribute
 GXGetViewDeviceAttributes(gxViewDevice source)
     THREEWORDINLINE(0x303C, 0x0174, 0xA832);
 
@@ -3426,7 +3426,7 @@ GXGetViewDeviceAttributes(gxViewDevice source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPortAttribute)
+gxPortAttribute
 GXGetViewPortAttributes(gxViewPort source)
     THREEWORDINLINE(0x303C, 0x0175, 0xA832);
 
@@ -3438,7 +3438,7 @@ GXGetViewPortAttributes(gxViewPort source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetInkAttributes(gxInk target, gxInkAttribute attributes)
     THREEWORDINLINE(0x303C, 0x0176, 0xA832);
 
@@ -3450,7 +3450,7 @@ GXSetInkAttributes(gxInk target, gxInkAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeAttributes(gxShape target, gxShapeAttribute attributes)
     THREEWORDINLINE(0x303C, 0x0177, 0xA832);
 
@@ -3462,7 +3462,7 @@ GXSetShapeAttributes(gxShape target, gxShapeAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeInkAttributes(gxShape target, gxInkAttribute attributes)
     THREEWORDINLINE(0x303C, 0x0178, 0xA832);
 
@@ -3474,7 +3474,7 @@ GXSetShapeInkAttributes(gxShape target, gxInkAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeStyleAttributes(gxShape target, gxStyleAttribute attributes)
     THREEWORDINLINE(0x303C, 0x0179, 0xA832);
 
@@ -3486,7 +3486,7 @@ GXSetShapeStyleAttributes(gxShape target, gxStyleAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleAttributes(gxStyle target, gxStyleAttribute attributes)
     THREEWORDINLINE(0x303C, 0x017A, 0xA832);
 
@@ -3498,7 +3498,7 @@ GXSetStyleAttributes(gxStyle target, gxStyleAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeTextAttributes(gxShape target, gxTextAttribute attributes)
     THREEWORDINLINE(0x303C, 0x017B, 0xA832);
 
@@ -3510,7 +3510,7 @@ GXSetShapeTextAttributes(gxShape target, gxTextAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleTextAttributes(gxStyle target, gxTextAttribute attributes)
     THREEWORDINLINE(0x303C, 0x017C, 0xA832);
 
@@ -3522,7 +3522,7 @@ GXSetStyleTextAttributes(gxStyle target, gxTextAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewDeviceAttributes(gxViewDevice target, gxDeviceAttribute attributes)
     THREEWORDINLINE(0x303C, 0x017D, 0xA832);
 
@@ -3534,7 +3534,7 @@ GXSetViewDeviceAttributes(gxViewDevice target, gxDeviceAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetViewPortAttributes(gxViewPort target, gxPortAttribute attributes)
     THREEWORDINLINE(0x303C, 0x017E, 0xA832);
 
@@ -3546,7 +3546,7 @@ GXSetViewPortAttributes(gxViewPort target, gxPortAttribute attributes)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetColorProfileOwners(gxColorProfile source)
     THREEWORDINLINE(0x303C, 0x017F, 0xA832);
 
@@ -3558,7 +3558,7 @@ GXGetColorProfileOwners(gxColorProfile source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetColorSetOwners(gxColorSet source) THREEWORDINLINE(0x303C, 0x0180, 0xA832);
 
 /**
@@ -3569,7 +3569,7 @@ GXGetColorSetOwners(gxColorSet source) THREEWORDINLINE(0x303C, 0x0180, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetInkOwners(gxInk source) THREEWORDINLINE(0x303C, 0x0181, 0xA832);
 
 /**
@@ -3580,7 +3580,7 @@ GXGetInkOwners(gxInk source) THREEWORDINLINE(0x303C, 0x0181, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeOwners(gxShape source) THREEWORDINLINE(0x303C, 0x0182, 0xA832);
 
 /**
@@ -3591,7 +3591,7 @@ GXGetShapeOwners(gxShape source) THREEWORDINLINE(0x303C, 0x0182, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleOwners(gxStyle source) THREEWORDINLINE(0x303C, 0x0183, 0xA832);
 
 /**
@@ -3602,7 +3602,7 @@ GXGetStyleOwners(gxStyle source) THREEWORDINLINE(0x303C, 0x0183, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetTagOwners(gxTag source) THREEWORDINLINE(0x303C, 0x0184, 0xA832);
 
 /**
@@ -3613,7 +3613,7 @@ GXGetTagOwners(gxTag source) THREEWORDINLINE(0x303C, 0x0184, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetTransformOwners(gxTransform source)
     THREEWORDINLINE(0x303C, 0x0185, 0xA832);
 
@@ -3625,7 +3625,7 @@ GXGetTransformOwners(gxTransform source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLockShape(gxShape target) THREEWORDINLINE(0x303C, 0x0186, 0xA832);
 
 /**
@@ -3636,7 +3636,7 @@ GXLockShape(gxShape target) THREEWORDINLINE(0x303C, 0x0186, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLockTag(gxTag target) THREEWORDINLINE(0x303C, 0x0187, 0xA832);
 
 /**
@@ -3647,7 +3647,7 @@ GXLockTag(gxTag target) THREEWORDINLINE(0x303C, 0x0187, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnlockShape(gxShape target) THREEWORDINLINE(0x303C, 0x0188, 0xA832);
 
 /**
@@ -3658,7 +3658,7 @@ GXUnlockShape(gxShape target) THREEWORDINLINE(0x303C, 0x0188, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnlockTag(gxTag target) THREEWORDINLINE(0x303C, 0x0189, 0xA832);
 
 /**
@@ -3669,7 +3669,7 @@ GXUnlockTag(gxTag target) THREEWORDINLINE(0x303C, 0x0189, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 GXGetShapeStructure(gxShape source, long *length)
     THREEWORDINLINE(0x303C, 0x018A, 0xA832);
 
@@ -3681,7 +3681,7 @@ GXGetShapeStructure(gxShape source, long *length)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 GXGetTagStructure(gxTag source, long *length)
     THREEWORDINLINE(0x303C, 0x018B, 0xA832);
 
@@ -3693,7 +3693,7 @@ GXGetTagStructure(gxTag source, long *length)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetColorDistance(const gxColor *target, const gxColor *source)
     THREEWORDINLINE(0x303C, 0x018C, 0xA832);
 
@@ -3705,7 +3705,7 @@ GXGetColorDistance(const gxColor *target, const gxColor *source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPoint *)
+gxPoint *
 GXShapeLengthToPoint(gxShape target, long index, Fixed length,
                      gxPoint *location, gxPoint *tangent)
     THREEWORDINLINE(0x303C, 0x018D, 0xA832);
@@ -3718,7 +3718,7 @@ GXShapeLengthToPoint(gxShape target, long index, Fixed length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 GXGetShapeArea(gxShape source, long index, wide *area)
     THREEWORDINLINE(0x303C, 0x018E, 0xA832);
 
@@ -3730,7 +3730,7 @@ GXGetShapeArea(gxShape source, long index, wide *area)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeCacheSize(gxShape source) THREEWORDINLINE(0x303C, 0x018F, 0xA832);
 
 /**
@@ -3741,7 +3741,7 @@ GXGetShapeCacheSize(gxShape source) THREEWORDINLINE(0x303C, 0x018F, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxPoint *)
+gxPoint *
 GXGetShapeCenter(gxShape source, long index, gxPoint *center)
     THREEWORDINLINE(0x303C, 0x0190, 0xA832);
 
@@ -3753,7 +3753,7 @@ GXGetShapeCenter(gxShape source, long index, gxPoint *center)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxContourDirection)
+gxContourDirection
 GXGetShapeDirection(gxShape source, long contour)
     THREEWORDINLINE(0x303C, 0x0191, 0xA832);
 
@@ -3765,7 +3765,7 @@ GXGetShapeDirection(gxShape source, long contour)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeIndex(gxShape source, long contour, long vector)
     THREEWORDINLINE(0x303C, 0x0192, 0xA832);
 
@@ -3777,7 +3777,7 @@ GXGetShapeIndex(gxShape source, long contour, long vector)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(wide *)
+wide *
 GXGetShapeLength(gxShape source, long index, wide *length)
     THREEWORDINLINE(0x303C, 0x0193, 0xA832);
 
@@ -3789,7 +3789,7 @@ GXGetShapeLength(gxShape source, long index, wide *length)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeSize(gxShape source) THREEWORDINLINE(0x303C, 0x0194, 0xA832);
 
 /**
@@ -3800,7 +3800,7 @@ GXGetShapeSize(gxShape source) THREEWORDINLINE(0x303C, 0x0194, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountShapeContours(gxShape source) THREEWORDINLINE(0x303C, 0x0195, 0xA832);
 
 /**
@@ -3811,7 +3811,7 @@ GXCountShapeContours(gxShape source) THREEWORDINLINE(0x303C, 0x0195, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXCountShapePoints(gxShape source, long contour)
     THREEWORDINLINE(0x303C, 0x0196, 0xA832);
 
@@ -3824,7 +3824,7 @@ GXCountShapePoints(gxShape source, long contour)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeDashPositions(gxShape source, gxMapping dashMappings[])
     THREEWORDINLINE(0x303C, 0x0197, 0xA832);
 
@@ -3836,7 +3836,7 @@ GXGetShapeDashPositions(gxShape source, gxMapping dashMappings[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeDeviceArea(gxShape source, gxViewPort port, gxViewDevice device)
     THREEWORDINLINE(0x303C, 0x0198, 0xA832);
 
@@ -3848,7 +3848,7 @@ GXGetShapeDeviceArea(gxShape source, gxViewPort port, gxViewDevice device)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXGetShapeDeviceBounds(gxShape source, gxViewPort port, gxViewDevice device,
                        gxRectangle *bounds)
     THREEWORDINLINE(0x303C, 0x0199, 0xA832);
@@ -3861,7 +3861,7 @@ GXGetShapeDeviceBounds(gxShape source, gxViewPort port, gxViewDevice device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColorSet)
+gxColorSet
 GXGetShapeDeviceColors(gxShape source, gxViewPort port, gxViewDevice device,
                        long *width) THREEWORDINLINE(0x303C, 0x019A, 0xA832);
 
@@ -3873,7 +3873,7 @@ GXGetShapeDeviceColors(gxShape source, gxViewPort port, gxViewDevice device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXGetShapeGlobalBounds(gxShape source, gxViewPort port, gxViewGroup group,
                        gxRectangle *bounds)
     THREEWORDINLINE(0x303C, 0x019B, 0xA832);
@@ -3886,7 +3886,7 @@ GXGetShapeGlobalBounds(gxShape source, gxViewPort port, gxViewGroup group,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeGlobalViewDevices(gxShape source, gxViewPort port,
                             gxViewDevice list[])
     THREEWORDINLINE(0x303C, 0x019C, 0xA832);
@@ -3899,7 +3899,7 @@ GXGetShapeGlobalViewDevices(gxShape source, gxViewPort port,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeGlobalViewPorts(gxShape source, gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x019D, 0xA832);
 
@@ -3911,7 +3911,7 @@ GXGetShapeGlobalViewPorts(gxShape source, gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxRectangle *)
+gxRectangle *
 GXGetShapeLocalBounds(gxShape source, gxRectangle *bounds)
     THREEWORDINLINE(0x303C, 0x019E, 0xA832);
 
@@ -3924,7 +3924,7 @@ GXGetShapeLocalBounds(gxShape source, gxRectangle *bounds)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapePatternPositions(gxShape source, gxPoint positions[])
     THREEWORDINLINE(0x303C, 0x019F, 0xA832);
 
@@ -3936,7 +3936,7 @@ GXGetShapePatternPositions(gxShape source, gxPoint positions[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetShapeLocalFontMetrics(gxShape sourceShape, gxPoint *before, gxPoint *after,
                            gxPoint *caretAngle, gxPoint *caretOffset)
     THREEWORDINLINE(0x303C, 0x01A0, 0xA832);
@@ -3949,7 +3949,7 @@ GXGetShapeLocalFontMetrics(gxShape sourceShape, gxPoint *before, gxPoint *after,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetShapeDeviceFontMetrics(gxShape sourceShape, gxViewPort port,
                             gxViewDevice device, gxPoint *before,
                             gxPoint *after, gxPoint *caretAngle,
@@ -3964,7 +3964,7 @@ GXGetShapeDeviceFontMetrics(gxShape sourceShape, gxViewPort port,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewGroupViewDevices(gxViewGroup source, gxViewDevice list[])
     THREEWORDINLINE(0x303C, 0x01A2, 0xA832);
 
@@ -3976,7 +3976,7 @@ GXGetViewGroupViewDevices(gxViewGroup source, gxViewDevice list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewGroupViewPorts(gxViewGroup source, gxViewPort list[])
     THREEWORDINLINE(0x303C, 0x01A3, 0xA832);
 
@@ -3988,7 +3988,7 @@ GXGetViewGroupViewPorts(gxViewGroup source, gxViewPort list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxMapping *)
+gxMapping *
 GXGetViewPortGlobalMapping(gxViewPort source, gxMapping *map)
     THREEWORDINLINE(0x303C, 0x01A4, 0xA832);
 
@@ -4000,7 +4000,7 @@ GXGetViewPortGlobalMapping(gxViewPort source, gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetViewPortViewDevices(gxViewPort source, gxViewDevice list[])
     THREEWORDINLINE(0x303C, 0x01A5, 0xA832);
 
@@ -4012,7 +4012,7 @@ GXGetViewPortViewDevices(gxViewPort source, gxViewDevice list[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXHitTestPicture(gxShape target, const gxPoint *test, gxHitTestInfo *result,
                  long level, long depth)
     THREEWORDINLINE(0x303C, 0x01A6, 0xA832);
@@ -4025,7 +4025,7 @@ GXHitTestPicture(gxShape target, const gxPoint *test, gxHitTestInfo *result,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXIntersectRectangle(gxRectangle *target, const gxRectangle *source,
                      const gxRectangle *operand)
     THREEWORDINLINE(0x303C, 0x01A7, 0xA832);
@@ -4038,7 +4038,7 @@ GXIntersectRectangle(gxRectangle *target, const gxRectangle *source,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxRectangle *)
+gxRectangle *
 GXUnionRectangle(gxRectangle *target, const gxRectangle *source,
                  const gxRectangle *operand)
     THREEWORDINLINE(0x303C, 0x01A8, 0xA832);
@@ -4051,7 +4051,7 @@ GXUnionRectangle(gxRectangle *target, const gxRectangle *source,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXTouchesRectanglePoint(const gxRectangle *target, const gxPoint *test)
     THREEWORDINLINE(0x303C, 0x01A9, 0xA832);
 
@@ -4063,7 +4063,7 @@ GXTouchesRectanglePoint(const gxRectangle *target, const gxPoint *test)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXTouchesShape(gxShape target, gxShape test)
     THREEWORDINLINE(0x303C, 0x01AA, 0xA832);
 
@@ -4075,7 +4075,7 @@ GXTouchesShape(gxShape target, gxShape test)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXTouchesBoundsShape(const gxRectangle *target, gxShape test)
     THREEWORDINLINE(0x303C, 0x01AB, 0xA832);
 
@@ -4087,7 +4087,7 @@ GXTouchesBoundsShape(const gxRectangle *target, gxShape test)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXContainsRectangle(const gxRectangle *container, const gxRectangle *test)
     THREEWORDINLINE(0x303C, 0x01AC, 0xA832);
 
@@ -4099,7 +4099,7 @@ GXContainsRectangle(const gxRectangle *container, const gxRectangle *test)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXContainsShape(gxShape container, gxShape test)
     THREEWORDINLINE(0x303C, 0x01AD, 0xA832);
 
@@ -4111,7 +4111,7 @@ GXContainsShape(gxShape container, gxShape test)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXContainsBoundsShape(const gxRectangle *container, gxShape test, long index)
     THREEWORDINLINE(0x303C, 0x01AE, 0xA832);
 
@@ -4123,7 +4123,7 @@ GXContainsBoundsShape(const gxRectangle *container, gxShape test, long index)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColor *)
+gxColor *
 GXConvertColor(gxColor *target, gxColorSpace space, gxColorSet aSet,
                gxColorProfile profile) THREEWORDINLINE(0x303C, 0x01AF, 0xA832);
 
@@ -4135,7 +4135,7 @@ GXConvertColor(gxColor *target, gxColorSpace space, gxColorSet aSet,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxColor *)
+gxColor *
 GXCombineColor(gxColor *target, gxInk operand)
     THREEWORDINLINE(0x303C, 0x01B0, 0xA832);
 
@@ -4147,7 +4147,7 @@ GXCombineColor(gxColor *target, gxInk operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 GXCheckColor(const gxColor *source, gxColorSpace space, gxColorSet aSet,
              gxColorProfile profile) THREEWORDINLINE(0x303C, 0x01B1, 0xA832);
 
@@ -4159,7 +4159,7 @@ GXCheckColor(const gxColor *source, gxColorSpace space, gxColorSet aSet,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXCheckBitmapColor(gxShape source, const gxLongRectangle *area,
                    gxColorSpace space, gxColorSet aSet, gxColorProfile profile)
     THREEWORDINLINE(0x303C, 0x01B2, 0xA832);
@@ -4172,7 +4172,7 @@ GXCheckBitmapColor(gxShape source, const gxLongRectangle *area,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetHalftoneDeviceAngle(gxViewDevice source, const gxHalftone *data)
     THREEWORDINLINE(0x303C, 0x01B3, 0xA832);
 
@@ -4184,7 +4184,7 @@ GXGetHalftoneDeviceAngle(gxViewDevice source, const gxHalftone *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetColorSetParts(gxColorSet source, long index, long count,
                    gxColorSpace *space, gxSetColor data[])
     THREEWORDINLINE(0x303C, 0x01B4, 0xA832);
@@ -4198,7 +4198,7 @@ GXGetColorSetParts(gxColorSet source, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetGlyphParts(gxShape source, long index, long charCount, long *byteLength,
                 unsigned char text[], gxPoint positions[], long advanceBits[],
                 gxPoint tangents[], long *runCount, short styleRuns[],
@@ -4212,7 +4212,7 @@ GXGetGlyphParts(gxShape source, long index, long charCount, long *byteLength,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetPathParts(gxShape source, long index, long count, gxPaths *data)
     THREEWORDINLINE(0x303C, 0x01B6, 0xA832);
 
@@ -4224,7 +4224,7 @@ GXGetPathParts(gxShape source, long index, long count, gxPaths *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetPictureParts(gxShape source, long index, long count, gxShape shapes[],
                   gxStyle styles[], gxInk inks[], gxTransform transforms[])
     THREEWORDINLINE(0x303C, 0x01B7, 0xA832);
@@ -4237,7 +4237,7 @@ GXGetPictureParts(gxShape source, long index, long count, gxShape shapes[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetPolygonParts(gxShape source, long index, long count, gxPolygons *data)
     THREEWORDINLINE(0x303C, 0x01B8, 0xA832);
 
@@ -4249,7 +4249,7 @@ GXGetPolygonParts(gxShape source, long index, long count, gxPolygons *data)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetShapeParts(gxShape source, long index, long count, gxShape destination)
     THREEWORDINLINE(0x303C, 0x01B9, 0xA832);
 
@@ -4261,7 +4261,7 @@ GXGetShapeParts(gxShape source, long index, long count, gxShape destination)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetTextParts(gxShape source, long index, long charCount, unsigned char text[])
     THREEWORDINLINE(0x303C, 0x01BA, 0xA832);
 
@@ -4273,7 +4273,7 @@ GXGetTextParts(gxShape source, long index, long charCount, unsigned char text[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetColorSetParts(gxColorSet target, long index, long oldCount, long newCount,
                    const gxSetColor data[])
     THREEWORDINLINE(0x303C, 0x01BB, 0xA832);
@@ -4286,7 +4286,7 @@ GXSetColorSetParts(gxColorSet target, long index, long oldCount, long newCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetGlyphParts(gxShape source, long index, long oldCharCount,
                 long newCharCount, const unsigned char text[],
                 const gxPoint positions[], const long advanceBits[],
@@ -4301,7 +4301,7 @@ GXSetGlyphParts(gxShape source, long index, long oldCharCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetPathParts(gxShape target, long index, long count, const gxPaths *data,
                gxEditShapeFlag flags) THREEWORDINLINE(0x303C, 0x01BD, 0xA832);
 
@@ -4313,7 +4313,7 @@ GXSetPathParts(gxShape target, long index, long count, const gxPaths *data,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetPictureParts(gxShape target, long index, long oldCount, long newCount,
                   const gxShape shapes[], const gxStyle styles[],
                   const gxInk inks[], const gxTransform transforms[])
@@ -4327,7 +4327,7 @@ GXSetPictureParts(gxShape target, long index, long oldCount, long newCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetPolygonParts(gxShape target, long index, long count,
                   const gxPolygons *data, gxEditShapeFlag flags)
     THREEWORDINLINE(0x303C, 0x01BF, 0xA832);
@@ -4340,7 +4340,7 @@ GXSetPolygonParts(gxShape target, long index, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeParts(gxShape target, long index, long count, gxShape insert,
                 gxEditShapeFlag flags) THREEWORDINLINE(0x303C, 0x01C0, 0xA832);
 
@@ -4352,7 +4352,7 @@ GXSetShapeParts(gxShape target, long index, long count, gxShape insert,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetTextParts(gxShape target, long index, long oldCharCount, long newCharCount,
                const unsigned char text[])
     THREEWORDINLINE(0x303C, 0x01C1, 0xA832);
@@ -4365,7 +4365,7 @@ GXSetTextParts(gxShape target, long index, long oldCharCount, long newCharCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapePoints(gxShape source, long index, long count, gxPoint data[])
     THREEWORDINLINE(0x303C, 0x01C2, 0xA832);
 
@@ -4377,7 +4377,7 @@ GXGetShapePoints(gxShape source, long index, long count, gxPoint data[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapePoints(gxShape target, long index, long count, const gxPoint data[])
     THREEWORDINLINE(0x303C, 0x01C3, 0xA832);
 
@@ -4389,7 +4389,7 @@ GXSetShapePoints(gxShape target, long index, long count, const gxPoint data[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetGlyphPositions(gxShape source, long index, long charCount, long advance[],
                     gxPoint positions[])
     THREEWORDINLINE(0x303C, 0x01C4, 0xA832);
@@ -4402,7 +4402,7 @@ GXGetGlyphPositions(gxShape source, long index, long charCount, long advance[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetGlyphTangents(gxShape source, long index, long charCount,
                    gxPoint tangents[]) THREEWORDINLINE(0x303C, 0x01C5, 0xA832);
 
@@ -4414,7 +4414,7 @@ GXGetGlyphTangents(gxShape source, long index, long charCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetGlyphPositions(gxShape target, long index, long charCount,
                     const long advance[], const gxPoint positions[])
     THREEWORDINLINE(0x303C, 0x01C6, 0xA832);
@@ -4427,7 +4427,7 @@ GXSetGlyphPositions(gxShape target, long index, long charCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetGlyphTangents(gxShape target, long index, long charCount,
                    const gxPoint tangents[])
     THREEWORDINLINE(0x303C, 0x01C7, 0xA832);
@@ -4440,7 +4440,7 @@ GXSetGlyphTangents(gxShape target, long index, long charCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetGlyphMetrics(gxShape source, gxPoint glyphOrigins[],
                   gxRectangle boundingBoxes[], gxPoint sideBearings[])
     THREEWORDINLINE(0x303C, 0x01C8, 0xA832);
@@ -4453,7 +4453,7 @@ GXGetGlyphMetrics(gxShape source, gxPoint glyphOrigins[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDifferenceShape(gxShape target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01C9, 0xA832);
 
@@ -4465,7 +4465,7 @@ GXDifferenceShape(gxShape target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXExcludeShape(gxShape target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01CA, 0xA832);
 
@@ -4477,7 +4477,7 @@ GXExcludeShape(gxShape target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXIntersectShape(gxShape target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01CB, 0xA832);
 
@@ -4489,7 +4489,7 @@ GXIntersectShape(gxShape target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXMapShape(gxShape target, const gxMapping *map)
     THREEWORDINLINE(0x303C, 0x01CC, 0xA832);
 
@@ -4501,7 +4501,7 @@ GXMapShape(gxShape target, const gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXMoveShape(gxShape target, Fixed deltaX, Fixed deltaY)
     THREEWORDINLINE(0x303C, 0x01CD, 0xA832);
 
@@ -4513,7 +4513,7 @@ GXMoveShape(gxShape target, Fixed deltaX, Fixed deltaY)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXMoveShapeTo(gxShape target, Fixed x, Fixed y)
     THREEWORDINLINE(0x303C, 0x01CE, 0xA832);
 
@@ -4525,7 +4525,7 @@ GXMoveShapeTo(gxShape target, Fixed x, Fixed y)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXReverseDifferenceShape(gxShape target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01CF, 0xA832);
 
@@ -4537,7 +4537,7 @@ GXReverseDifferenceShape(gxShape target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXRotateShape(gxShape target, Fixed degrees, Fixed xOffset, Fixed yOffset)
     THREEWORDINLINE(0x303C, 0x01D0, 0xA832);
 
@@ -4549,7 +4549,7 @@ GXRotateShape(gxShape target, Fixed degrees, Fixed xOffset, Fixed yOffset)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXScaleShape(gxShape target, Fixed hScale, Fixed vScale, Fixed xOffset,
              Fixed yOffset) THREEWORDINLINE(0x303C, 0x01D1, 0xA832);
 
@@ -4561,7 +4561,7 @@ GXScaleShape(gxShape target, Fixed hScale, Fixed vScale, Fixed xOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSkewShape(gxShape target, Fixed xSkew, Fixed ySkew, Fixed xOffset,
             Fixed yOffset) THREEWORDINLINE(0x303C, 0x01D2, 0xA832);
 
@@ -4573,7 +4573,7 @@ GXSkewShape(gxShape target, Fixed xSkew, Fixed ySkew, Fixed xOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnionShape(gxShape target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01D3, 0xA832);
 
@@ -4585,7 +4585,7 @@ GXUnionShape(gxShape target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDifferenceTransform(gxTransform target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01D4, 0xA832);
 
@@ -4597,7 +4597,7 @@ GXDifferenceTransform(gxTransform target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXExcludeTransform(gxTransform target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01D5, 0xA832);
 
@@ -4609,7 +4609,7 @@ GXExcludeTransform(gxTransform target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXIntersectTransform(gxTransform target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01D6, 0xA832);
 
@@ -4621,7 +4621,7 @@ GXIntersectTransform(gxTransform target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXMapTransform(gxTransform target, const gxMapping *map)
     THREEWORDINLINE(0x303C, 0x01D7, 0xA832);
 
@@ -4633,7 +4633,7 @@ GXMapTransform(gxTransform target, const gxMapping *map)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXMoveTransform(gxTransform target, Fixed deltaX, Fixed deltaY)
     THREEWORDINLINE(0x303C, 0x01D8, 0xA832);
 
@@ -4645,7 +4645,7 @@ GXMoveTransform(gxTransform target, Fixed deltaX, Fixed deltaY)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXMoveTransformTo(gxTransform target, Fixed x, Fixed y)
     THREEWORDINLINE(0x303C, 0x01D9, 0xA832);
 
@@ -4657,7 +4657,7 @@ GXMoveTransformTo(gxTransform target, Fixed x, Fixed y)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXReverseDifferenceTransform(gxTransform target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01DA, 0xA832);
 
@@ -4669,7 +4669,7 @@ GXReverseDifferenceTransform(gxTransform target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXRotateTransform(gxTransform target, Fixed degrees, Fixed xOffset,
                   Fixed yOffset) THREEWORDINLINE(0x303C, 0x01DB, 0xA832);
 
@@ -4681,7 +4681,7 @@ GXRotateTransform(gxTransform target, Fixed degrees, Fixed xOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXScaleTransform(gxTransform target, Fixed hScale, Fixed vScale, Fixed xOffset,
                  Fixed yOffset) THREEWORDINLINE(0x303C, 0x01DC, 0xA832);
 
@@ -4693,7 +4693,7 @@ GXScaleTransform(gxTransform target, Fixed hScale, Fixed vScale, Fixed xOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSkewTransform(gxTransform target, Fixed xSkew, Fixed ySkew, Fixed xOffset,
                 Fixed yOffset) THREEWORDINLINE(0x303C, 0x01DD, 0xA832);
 
@@ -4705,7 +4705,7 @@ GXSkewTransform(gxTransform target, Fixed xSkew, Fixed ySkew, Fixed xOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnionTransform(gxTransform target, gxShape operand)
     THREEWORDINLINE(0x303C, 0x01DE, 0xA832);
 
@@ -4717,7 +4717,7 @@ GXUnionTransform(gxTransform target, gxShape operand)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXBreakShape(gxShape target, long index)
     THREEWORDINLINE(0x303C, 0x01DF, 0xA832);
 
@@ -4729,7 +4729,7 @@ GXBreakShape(gxShape target, long index)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXChangedShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E0, 0xA832);
 
 /**
@@ -4740,7 +4740,7 @@ GXChangedShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E0, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShapePart)
+gxShapePart
 GXHitTestShape(gxShape target, const gxPoint *test, gxHitTestInfo *result)
     THREEWORDINLINE(0x303C, 0x01E1, 0xA832);
 
@@ -4752,7 +4752,7 @@ GXHitTestShape(gxShape target, const gxPoint *test, gxHitTestInfo *result)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXHitTestDevice(gxShape target, gxViewPort port, gxViewDevice device,
                 const gxPoint *test, const gxPoint *tolerance)
     THREEWORDINLINE(0x303C, 0x01E2, 0xA832);
@@ -4765,7 +4765,7 @@ GXHitTestDevice(gxShape target, gxViewPort port, gxViewDevice device,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXInsetShape(gxShape target, Fixed inset)
     THREEWORDINLINE(0x303C, 0x01E3, 0xA832);
 
@@ -4777,7 +4777,7 @@ GXInsetShape(gxShape target, Fixed inset)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXInvertShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E4, 0xA832);
 
 /**
@@ -4788,7 +4788,7 @@ GXInvertShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E4, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXPrimitiveShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E5, 0xA832);
 
 /**
@@ -4799,7 +4799,7 @@ GXPrimitiveShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E5, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXReduceShape(gxShape target, long contour)
     THREEWORDINLINE(0x303C, 0x01E6, 0xA832);
 
@@ -4811,7 +4811,7 @@ GXReduceShape(gxShape target, long contour)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXReverseShape(gxShape target, long contour)
     THREEWORDINLINE(0x303C, 0x01E7, 0xA832);
 
@@ -4823,7 +4823,7 @@ GXReverseShape(gxShape target, long contour)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSimplifyShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E8, 0xA832);
 
 /**
@@ -4834,7 +4834,7 @@ GXSimplifyShape(gxShape target) THREEWORDINLINE(0x303C, 0x01E8, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXLockColorProfile(gxColorProfile source)
     THREEWORDINLINE(0x303C, 0x01E9, 0xA832);
 
@@ -4846,7 +4846,7 @@ GXLockColorProfile(gxColorProfile source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXUnlockColorProfile(gxColorProfile source)
     THREEWORDINLINE(0x303C, 0x01EA, 0xA832);
 
@@ -4858,7 +4858,7 @@ GXUnlockColorProfile(gxColorProfile source)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 GXGetColorProfileStructure(gxColorProfile source, long *length)
     THREEWORDINLINE(0x303C, 0x01EB, 0xA832);
 
@@ -4870,7 +4870,7 @@ GXGetColorProfileStructure(gxColorProfile source, long *length)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXFlattenShape(gxShape source, gxFlattenFlag flags, gxSpoolBlock *block)
     THREEWORDINLINE(0x303C, 0x01EC, 0xA832);
 
@@ -4882,7 +4882,7 @@ GXFlattenShape(gxShape source, gxFlattenFlag flags, gxSpoolBlock *block)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXUnflattenShape(gxSpoolBlock *block, long count, const gxViewPort portList[])
     THREEWORDINLINE(0x303C, 0x01ED, 0xA832);
 
@@ -4894,7 +4894,7 @@ GXUnflattenShape(gxSpoolBlock *block, long count, const gxViewPort portList[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXPostGraphicsNotice(gxGraphicsNotice notice)
     THREEWORDINLINE(0x303C, 0x0065, 0xA832);
 
@@ -4906,7 +4906,7 @@ GXPostGraphicsNotice(gxGraphicsNotice notice)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXIgnoreGraphicsNotice(gxGraphicsNotice notice)
     THREEWORDINLINE(0x303C, 0x006D, 0xA832);
 
@@ -4918,7 +4918,7 @@ GXIgnoreGraphicsNotice(gxGraphicsNotice notice)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXPopGraphicsNotice(void) THREEWORDINLINE(0x303C, 0x006E, 0xA832);
 
 #endif /* CALL_NOT_IN_CARBON */

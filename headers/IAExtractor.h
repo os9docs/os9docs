@@ -85,7 +85,7 @@ typedef STACK_UPP_TYPE(IAIdleProcPtr) IAIdleUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IAAllocUPP)
+IAAllocUPP
 NewIAAllocUPP(IAAllocProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppIAAllocProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
@@ -109,7 +109,7 @@ inline IAAllocUPP NewIAAllocUPP(IAAllocProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IAFreeUPP)
+IAFreeUPP
 NewIAFreeUPP(IAFreeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppIAFreeProcInfo = 0x000000C1 }; /* no_return_value Func(4_bytes) */
@@ -133,7 +133,7 @@ inline IAFreeUPP NewIAFreeUPP(IAFreeProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IAIdleUPP)
+IAIdleUPP
 NewIAIdleUPP(IAIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppIAIdleProcInfo = 0x00000011 }; /* 1_byte Func() */
@@ -157,7 +157,7 @@ inline IAIdleUPP NewIAIdleUPP(IAIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIAAllocUPP(IAAllocUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -177,7 +177,7 @@ inline void DisposeIAAllocUPP(IAAllocUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIAFreeUPP(IAFreeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -197,7 +197,7 @@ inline void DisposeIAFreeUPP(IAFreeUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIAIdleUPP(IAIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -217,7 +217,7 @@ inline void DisposeIAIdleUPP(IAIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void *)
+void *
 InvokeIAAllocUPP(UInt32 inSize, IAAllocUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -238,7 +238,7 @@ inline void *InvokeIAAllocUPP(UInt32 inSize, IAAllocUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeIAFreeUPP(void *inObject, IAFreeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -259,7 +259,7 @@ inline void InvokeIAFreeUPP(void *inObject, IAFreeUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt8)
+UInt8
 InvokeIAIdleUPP(IAIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -325,7 +325,7 @@ typedef STACK_UPP_TYPE(IAGetDocAccessorEOFProcPtr) IAGetDocAccessorEOFUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IADocAccessorOpenUPP)
+IADocAccessorOpenUPP
 NewIADocAccessorOpenUPP(IADocAccessorOpenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppIADocAccessorOpenProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
@@ -352,7 +352,7 @@ NewIADocAccessorOpenUPP(IADocAccessorOpenProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IADocAccessorCloseUPP)
+IADocAccessorCloseUPP
 NewIADocAccessorCloseUPP(IADocAccessorCloseProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppIADocAccessorCloseProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
@@ -379,7 +379,7 @@ NewIADocAccessorCloseUPP(IADocAccessorCloseProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IADocAccessorReadUPP)
+IADocAccessorReadUPP
 NewIADocAccessorReadUPP(IADocAccessorReadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -408,7 +408,7 @@ NewIADocAccessorReadUPP(IADocAccessorReadProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IASetDocAccessorReadPositionUPP)
+IASetDocAccessorReadPositionUPP
 NewIASetDocAccessorReadPositionUPP(
     IASetDocAccessorReadPositionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
@@ -438,7 +438,7 @@ inline IASetDocAccessorReadPositionUPP NewIASetDocAccessorReadPositionUPP(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IAGetDocAccessorReadPositionUPP)
+IAGetDocAccessorReadPositionUPP
 NewIAGetDocAccessorReadPositionUPP(
     IAGetDocAccessorReadPositionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
@@ -468,7 +468,7 @@ inline IAGetDocAccessorReadPositionUPP NewIAGetDocAccessorReadPositionUPP(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(IAGetDocAccessorEOFUPP)
+IAGetDocAccessorEOFUPP
 NewIAGetDocAccessorEOFUPP(IAGetDocAccessorEOFProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -497,7 +497,7 @@ NewIAGetDocAccessorEOFUPP(IAGetDocAccessorEOFProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIADocAccessorOpenUPP(IADocAccessorOpenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -517,7 +517,7 @@ inline void DisposeIADocAccessorOpenUPP(IADocAccessorOpenUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIADocAccessorCloseUPP(IADocAccessorCloseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -537,7 +537,7 @@ inline void DisposeIADocAccessorCloseUPP(IADocAccessorCloseUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIADocAccessorReadUPP(IADocAccessorReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -557,7 +557,7 @@ inline void DisposeIADocAccessorReadUPP(IADocAccessorReadUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIASetDocAccessorReadPositionUPP(IASetDocAccessorReadPositionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -579,7 +579,7 @@ inline void DisposeIASetDocAccessorReadPositionUPP(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIAGetDocAccessorReadPositionUPP(IAGetDocAccessorReadPositionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -601,7 +601,7 @@ inline void DisposeIAGetDocAccessorReadPositionUPP(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeIAGetDocAccessorEOFUPP(IAGetDocAccessorEOFUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -621,7 +621,7 @@ inline void DisposeIAGetDocAccessorEOFUPP(IAGetDocAccessorEOFUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeIADocAccessorOpenUPP(IADocAccessorRef inAccessor,
                            IADocAccessorOpenUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -646,7 +646,7 @@ inline OSStatus InvokeIADocAccessorOpenUPP(IADocAccessorRef inAccessor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeIADocAccessorCloseUPP(IADocAccessorRef inAccessor,
                             IADocAccessorCloseUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -671,7 +671,7 @@ inline OSStatus InvokeIADocAccessorCloseUPP(IADocAccessorRef inAccessor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeIADocAccessorReadUPP(IADocAccessorRef inAccessor, void *buffer,
                            UInt32 *ioSize, IADocAccessorReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -697,7 +697,7 @@ inline OSStatus InvokeIADocAccessorReadUPP(IADocAccessorRef inAccessor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeIASetDocAccessorReadPositionUPP(IADocAccessorRef inAccessor,
                                       SInt32 inMode, SInt32 inOffset,
                                       IASetDocAccessorReadPositionUPP userUPP);
@@ -728,7 +728,7 @@ InvokeIASetDocAccessorReadPositionUPP(IADocAccessorRef inAccessor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeIAGetDocAccessorReadPositionUPP(IADocAccessorRef inAccessor,
                                       SInt32 *outPostion,
                                       IAGetDocAccessorReadPositionUPP userUPP);
@@ -757,7 +757,7 @@ InvokeIAGetDocAccessorReadPositionUPP(IADocAccessorRef inAccessor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeIAGetDocAccessorEOFUPP(IADocAccessorRef inAccessor, SInt32 *outEOF,
                              IAGetDocAccessorEOFUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -853,7 +853,7 @@ typedef IADocAccessorRecord *IADocAccessorPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IAPluginInit(IAPluginInitBlockPtr initBlock, IAPluginRef *outPluginRef);
 
 /**
@@ -869,7 +869,7 @@ IAPluginInit(IAPluginInitBlockPtr initBlock, IAPluginRef *outPluginRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IAPluginTerm(IAPluginRef inPluginRef);
 
 /**
@@ -884,7 +884,7 @@ IAPluginTerm(IAPluginRef inPluginRef);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IAGetExtractorVersion(IAPluginRef inPluginRef, UInt32 *outPluginVersion);
 
 /**
@@ -899,7 +899,7 @@ IAGetExtractorVersion(IAPluginRef inPluginRef, UInt32 *outPluginVersion);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IACountSupportedDocTypes(IAPluginRef inPluginRef, UInt32 *outCount);
 
 /**
@@ -915,7 +915,7 @@ IACountSupportedDocTypes(IAPluginRef inPluginRef, UInt32 *outCount);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IAGetIndSupportedDocType(IAPluginRef inPluginRef, UInt32 inIndex,
                          char **outMIMEType);
 
@@ -933,7 +933,7 @@ IAGetIndSupportedDocType(IAPluginRef inPluginRef, UInt32 inIndex,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IAOpenDocument(IAPluginRef inPluginRef, IADocAccessorRecord *inDoc,
                IADocRef *outDoc);
 
@@ -949,7 +949,7 @@ IAOpenDocument(IAPluginRef inPluginRef, IADocAccessorRecord *inDoc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IACloseDocument(IADocRef inDoc);
 
 /**
@@ -965,7 +965,7 @@ IACloseDocument(IADocRef inDoc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IAGetNextTextRun(IADocRef inDoc, void *buffer, UInt32 *ioSize);
 
 /**
@@ -984,7 +984,7 @@ IAGetNextTextRun(IADocRef inDoc, void *buffer, UInt32 *ioSize);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 IAGetTextRunInfo(IADocRef inDoc, char **outEncoding, char **outLanguage);
 
 #if BUILDING_IAEXTRACTOR

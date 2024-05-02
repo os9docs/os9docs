@@ -392,7 +392,7 @@ UCKeyTranslate(const UCKeyboardLayout *keyLayoutPtr, UInt16 virtualKeyCode,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCCreateCollator(LocaleRef locale, LocaleOperationVariant opVariant,
                  UCCollateOptions options, CollatorRef *collatorRef);
 
@@ -404,7 +404,7 @@ UCCreateCollator(LocaleRef locale, LocaleOperationVariant opVariant,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCGetCollationKey(CollatorRef collatorRef, const UniChar *textPtr,
                   UniCharCount textLength, ItemCount maxKeySize,
                   ItemCount *actualKeySize, UCCollationValue collationKey[]);
@@ -417,7 +417,7 @@ UCGetCollationKey(CollatorRef collatorRef, const UniChar *textPtr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCCompareCollationKeys(const UCCollationValue *key1Ptr, ItemCount key1Length,
                        const UCCollationValue *key2Ptr, ItemCount key2Length,
                        Boolean *equivalent, SInt32 *order);
@@ -430,7 +430,7 @@ UCCompareCollationKeys(const UCCollationValue *key1Ptr, ItemCount key1Length,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCCompareText(CollatorRef collatorRef, const UniChar *text1Ptr,
               UniCharCount text1Length, const UniChar *text2Ptr,
               UniCharCount text2Length, Boolean *equivalent, SInt32 *order);
@@ -443,7 +443,7 @@ UCCompareText(CollatorRef collatorRef, const UniChar *text1Ptr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCDisposeCollator(CollatorRef *collatorRef);
 
 /** Simple collation using default locale*/
@@ -456,7 +456,7 @@ UCDisposeCollator(CollatorRef *collatorRef);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCCompareTextDefault(UCCollateOptions options, const UniChar *text1Ptr,
                      UniCharCount text1Length, const UniChar *text2Ptr,
                      UniCharCount text2Length, Boolean *equivalent,
@@ -472,7 +472,7 @@ UCCompareTextDefault(UCCollateOptions options, const UniChar *text1Ptr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCCompareTextNoLocale(UCCollateOptions options, const UniChar *text1Ptr,
                       UniCharCount text1Length, const UniChar *text2Ptr,
                       UniCharCount text2Length, Boolean *equivalent,
@@ -487,7 +487,7 @@ UCCompareTextNoLocale(UCCollateOptions options, const UniChar *text1Ptr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCCreateTextBreakLocator(LocaleRef locale, LocaleOperationVariant opVariant,
                          UCTextBreakType breakTypes,
                          TextBreakLocatorRef *breakRef);
@@ -500,7 +500,7 @@ UCCreateTextBreakLocator(LocaleRef locale, LocaleOperationVariant opVariant,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCFindTextBreak(TextBreakLocatorRef breakRef, UCTextBreakType breakType,
                 UCTextBreakOptions options, const UniChar *textPtr,
                 UniCharCount textLength, UniCharArrayOffset startOffset,
@@ -514,7 +514,7 @@ UCFindTextBreak(TextBreakLocatorRef breakRef, UCTextBreakType breakType,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UCDisposeTextBreakLocator(TextBreakLocatorRef *breakRef);
 
 #if PRAGMA_STRUCT_ALIGN

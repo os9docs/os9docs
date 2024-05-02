@@ -192,7 +192,7 @@ typedef STACK_UPP_TYPE(PowerHandlerProcPtr) PowerHandlerUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(PowerHandlerUPP)
+PowerHandlerUPP
 NewPowerHandlerUPP(PowerHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -220,7 +220,7 @@ inline PowerHandlerUPP NewPowerHandlerUPP(PowerHandlerProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposePowerHandlerUPP(PowerHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -240,7 +240,7 @@ inline void DisposePowerHandlerUPP(PowerHandlerUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokePowerHandlerUPP(UInt32 message, void *param, UInt32 refCon,
                       RegEntryID *regEntryID, PowerHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1807,7 +1807,7 @@ NumBatteriesInstalled(void) TWOWORDINLINE(0x7035, 0xA09E);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsPCIPowerOffDisabled(void);
 
 /**
@@ -1818,7 +1818,7 @@ IsPCIPowerOffDisabled(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 EnablePCIPowerOff(Boolean inEnable);
 
 /**
@@ -1829,7 +1829,7 @@ EnablePCIPowerOff(Boolean inEnable);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 AddDevicePowerHandler(RegEntryIDPtr regEntryID, PowerHandlerProcPtr handler,
                       UInt32 refCon, char *deviceType);
 
@@ -1841,7 +1841,7 @@ AddDevicePowerHandler(RegEntryIDPtr regEntryID, PowerHandlerProcPtr handler,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RemoveDevicePowerHandler(RegEntryIDPtr regEntryID);
 
 /**
@@ -1852,7 +1852,7 @@ RemoveDevicePowerHandler(RegEntryIDPtr regEntryID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RemoveDevicePowerHandlerForProc(PowerHandlerProcPtr proc);
 
 /**
@@ -1863,7 +1863,7 @@ RemoveDevicePowerHandlerForProc(PowerHandlerProcPtr proc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetDevicePowerLevel(RegEntryIDPtr regEntryID, PowerLevel *devicePowerLevel);
 
 /**
@@ -1874,7 +1874,7 @@ GetDevicePowerLevel(RegEntryIDPtr regEntryID, PowerLevel *devicePowerLevel);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetDevicePowerLevel(RegEntryIDPtr regEntryID, PowerLevel devicePowerLevel);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -1887,7 +1887,7 @@ SetDevicePowerLevel(RegEntryIDPtr regEntryID, PowerLevel devicePowerLevel);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(SleepQUPP)
+SleepQUPP
 NewSleepQUPP(SleepQProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1913,7 +1913,7 @@ inline SleepQUPP NewSleepQUPP(SleepQProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(HDSpindownUPP)
+HDSpindownUPP
 NewHDSpindownUPP(HDSpindownProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1939,7 +1939,7 @@ inline HDSpindownUPP NewHDSpindownUPP(HDSpindownProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(PMgrStateChangeUPP)
+PMgrStateChangeUPP
 NewPMgrStateChangeUPP(PMgrStateChangeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1968,7 +1968,7 @@ NewPMgrStateChangeUPP(PMgrStateChangeProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeSleepQUPP(SleepQUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1988,7 +1988,7 @@ inline void DisposeSleepQUPP(SleepQUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeHDSpindownUPP(HDSpindownUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2008,7 +2008,7 @@ inline void DisposeHDSpindownUPP(HDSpindownUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposePMgrStateChangeUPP(PMgrStateChangeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2031,7 +2031,7 @@ inline void DisposePMgrStateChangeUPP(PMgrStateChangeUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InvokeSleepQUPP(__D0, __A0, __A1)
 #endif
-EXTERN_API_C(long)
+long
 InvokeSleepQUPP(long message, SleepQRecPtr qRecPtr, SleepQUPP userUPP)
     ONEWORDINLINE(0x4E91);
 #if !OPAQUE_UPP_TYPES &&                                                       \
@@ -2057,7 +2057,7 @@ inline long InvokeSleepQUPP(long message, SleepQRecPtr qRecPtr,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeHDSpindownUPP(HDQueueElement *theElement, HDSpindownUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2079,7 +2079,7 @@ inline void InvokeHDSpindownUPP(HDQueueElement *theElement,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokePMgrStateChangeUPP(PMgrQueueElement *theElement, long stateBits,
                          PMgrStateChangeUPP userUPP);
 #if !OPAQUE_UPP_TYPES

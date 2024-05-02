@@ -184,7 +184,7 @@ typedef enum CBLAS_SIDE CBLAS_SIDE;
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 cblas_sdot(int N, const float *X, int incX, const float *Y, int incY);
 
 /**
@@ -195,7 +195,7 @@ cblas_sdot(int N, const float *X, int incX, const float *Y, int incY);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 cblas_snrm2(int N, const float *X, int incX);
 
 /**
@@ -206,7 +206,7 @@ cblas_snrm2(int N, const float *X, int incX);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(float)
+float
 cblas_sasum(int N, const float *X, int incX);
 
 /**
@@ -217,7 +217,7 @@ cblas_sasum(int N, const float *X, int incX);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(int)
+int
 cblas_isamax(int N, const float *X, int incX);
 
 /**
@@ -228,7 +228,7 @@ cblas_isamax(int N, const float *X, int incX);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 cblas_sswap(int N, float *X, int incX, float *Y, int incY);
 
 /**
@@ -239,7 +239,7 @@ cblas_sswap(int N, float *X, int incX, float *Y, int incY);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 cblas_scopy(int N, const float *X, int incX, float *Y, int incY);
 
 /**
@@ -250,7 +250,7 @@ cblas_scopy(int N, const float *X, int incX, float *Y, int incY);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 cblas_saxpy(int N, float alpha, const float *X, int incX, float *Y, int incY);
 
 /**
@@ -261,7 +261,7 @@ cblas_saxpy(int N, float alpha, const float *X, int incX, float *Y, int incY);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 cblas_srot(int N, float *X, int incX, float *Y, int incY, float c, float s);
 
 /**
@@ -272,7 +272,7 @@ cblas_srot(int N, float *X, int incX, float *Y, int incY, float c, float s);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 cblas_sscal(int N, float alpha, float *X, int incX);
 
 /**
@@ -305,7 +305,7 @@ cblas_sscal(int N, float alpha, float *X, int incX);
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 cblas_sgemv(CBLAS_ORDER order, CBLAS_TRANSPOSE transA, int M, int N,
             float alpha, const float *A, int lda, const float *X, int incX,
             float beta, float *Y, int incY);
@@ -340,7 +340,7 @@ cblas_sgemv(CBLAS_ORDER order, CBLAS_TRANSPOSE transA, int M, int N,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 cblas_sgemm(CBLAS_ORDER order, CBLAS_TRANSPOSE transA, CBLAS_TRANSPOSE transB,
             int M, int N, int K, float alpha, const float *A, int lda,
             const float *B, int ldb, float beta, float *C, int ldc);
@@ -399,7 +399,7 @@ typedef vector float ConstVectorFloat;
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultVecMat_4x4(ConstVectorFloat X[1], ConstVectorFloat A[4][1],
                 vector float Y[1]);
 
@@ -411,7 +411,7 @@ vMultVecMat_4x4(ConstVectorFloat X[1], ConstVectorFloat A[4][1],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatVec_4x4(ConstVectorFloat A[4][1], ConstVectorFloat X[1],
                 vector float Y[1]);
 
@@ -423,7 +423,7 @@ vMultMatVec_4x4(ConstVectorFloat A[4][1], ConstVectorFloat X[1],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatMat_4x4(ConstVectorFloat A[4][1], ConstVectorFloat B[4][1],
                 vector float C[4][1]);
 
@@ -435,7 +435,7 @@ vMultMatMat_4x4(ConstVectorFloat A[4][1], ConstVectorFloat B[4][1],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultVecMat_8x8(ConstVectorFloat X[2], ConstVectorFloat A[8][2],
                 vector float Y[2]);
 
@@ -447,7 +447,7 @@ vMultVecMat_8x8(ConstVectorFloat X[2], ConstVectorFloat A[8][2],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatVec_8x8(ConstVectorFloat A[8][2], ConstVectorFloat X[2],
                 vector float Y[2]);
 
@@ -459,7 +459,7 @@ vMultMatVec_8x8(ConstVectorFloat A[8][2], ConstVectorFloat X[2],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatMat_8x8(ConstVectorFloat A[8][2], ConstVectorFloat B[8][2],
                 vector float C[8][2]);
 
@@ -471,7 +471,7 @@ vMultMatMat_8x8(ConstVectorFloat A[8][2], ConstVectorFloat B[8][2],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultVecMat_16x16(ConstVectorFloat X[4], ConstVectorFloat A[16][4],
                   vector float Y[4]);
 
@@ -483,7 +483,7 @@ vMultVecMat_16x16(ConstVectorFloat X[4], ConstVectorFloat A[16][4],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatVec_16x16(ConstVectorFloat A[16][4], ConstVectorFloat X[4],
                   vector float Y[4]);
 
@@ -495,7 +495,7 @@ vMultMatVec_16x16(ConstVectorFloat A[16][4], ConstVectorFloat X[4],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatMat_16x16(ConstVectorFloat A[16][4], ConstVectorFloat B[16][4],
                   vector float C[16][4]);
 
@@ -507,7 +507,7 @@ vMultMatMat_16x16(ConstVectorFloat A[16][4], ConstVectorFloat B[16][4],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultVecMat_32x32(ConstVectorFloat X[8], ConstVectorFloat A[32][8],
                   vector float Y[8]);
 
@@ -519,7 +519,7 @@ vMultVecMat_32x32(ConstVectorFloat X[8], ConstVectorFloat A[32][8],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatVec_32x32(ConstVectorFloat A[32][8], ConstVectorFloat X[8],
                   vector float Y[8]);
 
@@ -531,7 +531,7 @@ vMultMatVec_32x32(ConstVectorFloat A[32][8], ConstVectorFloat X[8],
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 vMultMatMat_32x32(ConstVectorFloat A[32][8], ConstVectorFloat B[32][8],
                   vector float C[32][8]);
 
@@ -576,7 +576,7 @@ typedef CALLBACK_API_C(void, BLASParamErrorProc)(const char *funcName,
  *    \carbon_lib        not in Carbon, but vecLib is compatible with Carbon
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 SetBLASParamErrorProc(BLASParamErrorProc ErrorProc);
 
 /* ==========================================================================================================================*/

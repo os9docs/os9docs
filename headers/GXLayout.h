@@ -61,7 +61,7 @@ extern "C" {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewLayout(long textRunCount, const short textRunLengths[], const void *text[],
             long styleRunCount, const short styleRunLengths[],
             const gxStyle styles[], long levelRunCount,
@@ -77,7 +77,7 @@ GXNewLayout(long textRunCount, const short textRunLengths[], const void *text[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetLayout(gxShape layout, void *text, long *styleRunCount,
             short styleRunLengths[], gxStyle styles[], long *levelRunCount,
             short levelRunLengths[], short levels[],
@@ -92,7 +92,7 @@ GXGetLayout(gxShape layout, void *text, long *styleRunCount,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetLayout(gxShape layout, long textRunCount, const short textRunLengths[],
             const void *text[], long styleRunCount,
             const short styleRunLengths[], const gxStyle styles[],
@@ -108,7 +108,7 @@ GXSetLayout(gxShape layout, long textRunCount, const short textRunLengths[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXDrawLayout(long textRunCount, const short textRunLengths[],
              const void *text[], long styleRunCount,
              const short styleRunLengths[], const gxStyle styles[],
@@ -124,7 +124,7 @@ GXDrawLayout(long textRunCount, const short textRunLengths[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetLayoutParts(gxShape layout, gxByteOffset oldStartOffset,
                  gxByteOffset oldEndOffset, long newTextRunCount,
                  const short newTextRunLengths[], const void *newText[],
@@ -141,7 +141,7 @@ GXSetLayoutParts(gxShape layout, gxByteOffset oldStartOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetLayoutShapeParts(gxShape layout, gxByteOffset startOffset,
                       gxByteOffset endOffset, gxShape insert)
     THREEWORDINLINE(0x303C, 0x0005, 0xA832);
@@ -154,7 +154,7 @@ GXSetLayoutShapeParts(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetLayoutParts(gxShape layout, gxByteOffset startOffset,
                  gxByteOffset endOffset, void *text, long *styleRunCount,
                  short styleRunLengths[], gxStyle styles[], long *levelRunCount,
@@ -169,7 +169,7 @@ GXGetLayoutParts(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetLayoutShapeParts(gxShape layout, gxByteOffset startOffset,
                       gxByteOffset endOffset, gxShape dest)
     THREEWORDINLINE(0x303C, 0x0007, 0xA832);
@@ -182,7 +182,7 @@ GXGetLayoutShapeParts(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetLayoutGlyphs(gxShape layout, gxGlyphcode *glyphs, gxPoint positions[],
                   long advance[], gxPoint tangents[], long *runCount,
                   short styleRuns[], gxStyle glyphStyles[])
@@ -196,7 +196,7 @@ GXGetLayoutGlyphs(gxShape layout, gxGlyphcode *glyphs, gxPoint positions[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxByteOffset)
+gxByteOffset
 GXHitTestLayout(gxShape layout, const gxPoint *hitDown,
                 gxHighlightType highlightType, gxLayoutHitInfo *hitInfo,
                 gxShape hitTrackingArea)
@@ -210,7 +210,7 @@ GXHitTestLayout(gxShape layout, const gxPoint *hitDown,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetLayoutHighlight(gxShape layout, gxByteOffset startOffset,
                      gxByteOffset endOffset, gxHighlightType highlightType,
                      gxShape highlight) THREEWORDINLINE(0x303C, 0x000A, 0xA832);
@@ -223,7 +223,7 @@ GXGetLayoutHighlight(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetLayoutVisualHighlight(gxShape layout, gxByteOffset startOffset,
                            long startLeadingEdge, gxByteOffset endOffset,
                            long endLeadingEdge, gxHighlightType highlightType,
@@ -238,7 +238,7 @@ GXGetLayoutVisualHighlight(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetLayoutCaret(gxShape layout, gxByteOffset offset,
                  gxHighlightType highlightType, gxCaretType caretType,
                  gxShape caret) THREEWORDINLINE(0x303C, 0x000C, 0xA832);
@@ -251,7 +251,7 @@ GXGetLayoutCaret(gxShape layout, gxByteOffset offset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxByteOffset)
+gxByteOffset
 GXGetLayoutBreakOffset(gxShape layout, gxByteOffset startOffset,
                        Fixed lineWidth, long hyphenationCount,
                        const gxByteOffset hyphenationPoints[],
@@ -267,7 +267,7 @@ GXGetLayoutBreakOffset(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetLayoutRangeWidth(gxShape layout, gxByteOffset startOffset,
                       gxByteOffset endOffset, gxShape supplementaryText)
     THREEWORDINLINE(0x303C, 0x000E, 0xA832);
@@ -280,7 +280,7 @@ GXGetLayoutRangeWidth(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXNewLayoutFromRange(gxShape layout, gxByteOffset startOffset,
                      gxByteOffset endOffset,
                      const gxLayoutOptions *layoutOptions,
@@ -295,7 +295,7 @@ GXNewLayoutFromRange(gxShape layout, gxByteOffset startOffset,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxShape)
+gxShape
 GXGetCaretAngleArea(gxShape layout, const gxPoint *hitPoint,
                     gxHighlightType highlightType, gxShape caretArea,
                     short *returnedRise, short *returnedRun)
@@ -309,7 +309,7 @@ GXGetCaretAngleArea(gxShape layout, const gxPoint *hitPoint,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetStyleBaselineDeltas(gxStyle baseStyle, gxBaselineType baseType,
                          gxBaselineDeltas returnedDeltas)
     THREEWORDINLINE(0x303C, 0x0011, 0xA832);
@@ -322,7 +322,7 @@ GXGetStyleBaselineDeltas(gxStyle baseStyle, gxBaselineType baseType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxByteOffset)
+gxByteOffset
 GXGetRightVisualOffset(gxShape layout, gxByteOffset currentOffset)
     THREEWORDINLINE(0x303C, 0x0012, 0xA832);
 
@@ -334,7 +334,7 @@ GXGetRightVisualOffset(gxShape layout, gxByteOffset currentOffset)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxByteOffset)
+gxByteOffset
 GXGetLeftVisualOffset(gxShape layout, gxByteOffset currentOffset)
     THREEWORDINLINE(0x303C, 0x0013, 0xA832);
 
@@ -346,7 +346,7 @@ GXGetLeftVisualOffset(gxShape layout, gxByteOffset currentOffset)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetCompoundCharacterLimits(gxShape layout, gxByteOffset trial,
                              gxByteOffset *minOffset, gxByteOffset *maxOffset,
                              Boolean *onBoundary)
@@ -360,7 +360,7 @@ GXGetCompoundCharacterLimits(gxShape layout, gxByteOffset trial,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetOffsetGlyphs(gxShape layout, gxByteOffset trial, long leadingEdge,
                   gxLayoutOffsetState *offsetState, unsigned short *firstGlyph,
                   unsigned short *secondGlyph)
@@ -374,7 +374,7 @@ GXGetOffsetGlyphs(gxShape layout, gxByteOffset trial, long leadingEdge,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetGlyphOffset(gxShape layout, long trial, long onLeftTop,
                  gxByteOffset *offset, Boolean *leadingEdge,
                  Boolean *wasRealCharacter)
@@ -388,7 +388,7 @@ GXGetGlyphOffset(gxShape layout, long trial, long onLeftTop,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetLayoutSpan(gxShape layout, Fixed *lineAscent, Fixed *lineDescent)
     THREEWORDINLINE(0x303C, 0x0017, 0xA832);
 
@@ -400,7 +400,7 @@ GXGetLayoutSpan(gxShape layout, Fixed *lineAscent, Fixed *lineDescent)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetLayoutSpan(gxShape layout, Fixed lineAscent, Fixed lineDescent)
     THREEWORDINLINE(0x303C, 0x0018, 0xA832);
 
@@ -412,7 +412,7 @@ GXSetLayoutSpan(gxShape layout, Fixed lineAscent, Fixed lineDescent)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Fixed)
+Fixed
 GXGetLayoutJustificationGap(gxShape layout)
     THREEWORDINLINE(0x303C, 0x0279, 0xA832);
 
@@ -424,7 +424,7 @@ GXGetLayoutJustificationGap(gxShape layout)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXGetLayoutJustificationFactors(gxShape layout, Fixed constrainedFactors[],
                                 Fixed unconstrainedFactors[])
     THREEWORDINLINE(0x303C, 0x027A, 0xA832);
@@ -437,7 +437,7 @@ GXGetLayoutJustificationFactors(gxShape layout, Fixed constrainedFactors[],
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleRunControls(gxStyle target, const gxRunControls *runControls)
     THREEWORDINLINE(0x303C, 0x0019, 0xA832);
 
@@ -449,7 +449,7 @@ GXSetStyleRunControls(gxStyle target, const gxRunControls *runControls)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleRunPriorityJustOverride(
     gxStyle target,
     const gxPriorityJustificationOverride *priorityJustificationOverride)
@@ -463,7 +463,7 @@ GXSetStyleRunPriorityJustOverride(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleRunGlyphJustOverrides(
     gxStyle target, long count,
     const gxGlyphJustificationOverride glyphJustificationOverrides[])
@@ -477,7 +477,7 @@ GXSetStyleRunGlyphJustOverrides(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleRunGlyphSubstitutions(gxStyle target, long count,
                                 const gxGlyphSubstitution glyphSubstitutions[])
     THREEWORDINLINE(0x303C, 0x001C, 0xA832);
@@ -490,7 +490,7 @@ GXSetStyleRunGlyphSubstitutions(gxStyle target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleRunFeatures(gxStyle target, long count,
                       const gxRunFeature runFeatures[])
     THREEWORDINLINE(0x303C, 0x001D, 0xA832);
@@ -503,7 +503,7 @@ GXSetStyleRunFeatures(gxStyle target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetStyleRunKerningAdjustments(gxStyle target, long count,
                                 const gxKerningAdjustment kerningAdjustments[])
     THREEWORDINLINE(0x303C, 0x001E, 0xA832);
@@ -516,7 +516,7 @@ GXSetStyleRunKerningAdjustments(gxStyle target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeRunControls(gxShape target, const gxRunControls *runControls)
     THREEWORDINLINE(0x303C, 0x001F, 0xA832);
 
@@ -528,7 +528,7 @@ GXSetShapeRunControls(gxShape target, const gxRunControls *runControls)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeRunPriorityJustOverride(
     gxShape target,
     const gxPriorityJustificationOverride *priorityJustificationOverride)
@@ -542,7 +542,7 @@ GXSetShapeRunPriorityJustOverride(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeRunGlyphJustOverrides(
     gxShape target, long count,
     const gxGlyphJustificationOverride glyphJustificationOverrides[])
@@ -556,7 +556,7 @@ GXSetShapeRunGlyphJustOverrides(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeRunGlyphSubstitutions(gxShape target, long count,
                                 const gxGlyphSubstitution glyphSubstitutions[])
     THREEWORDINLINE(0x303C, 0x0022, 0xA832);
@@ -569,7 +569,7 @@ GXSetShapeRunGlyphSubstitutions(gxShape target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeRunFeatures(gxShape target, long count,
                       const gxRunFeature runFeatures[])
     THREEWORDINLINE(0x303C, 0x0023, 0xA832);
@@ -582,7 +582,7 @@ GXSetShapeRunFeatures(gxShape target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetShapeRunKerningAdjustments(gxShape target, long count,
                                 const gxKerningAdjustment kerningAdjustments[])
     THREEWORDINLINE(0x303C, 0x0024, 0xA832);
@@ -595,7 +595,7 @@ GXSetShapeRunKerningAdjustments(gxShape target, long count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleRunControls(gxStyle source, gxRunControls *runControls)
     THREEWORDINLINE(0x303C, 0x0025, 0xA832);
 
@@ -607,7 +607,7 @@ GXGetStyleRunControls(gxStyle source, gxRunControls *runControls)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleRunPriorityJustOverride(
     gxStyle source,
     gxPriorityJustificationOverride *priorityJustificationOverride)
@@ -621,7 +621,7 @@ GXGetStyleRunPriorityJustOverride(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleRunGlyphJustOverrides(
     gxStyle source, gxGlyphJustificationOverride glyphJustificationOverrides[])
     THREEWORDINLINE(0x303C, 0x0027, 0xA832);
@@ -634,7 +634,7 @@ GXGetStyleRunGlyphJustOverrides(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleRunGlyphSubstitutions(gxStyle source,
                                 gxGlyphSubstitution glyphSubstitutions[])
     THREEWORDINLINE(0x303C, 0x0028, 0xA832);
@@ -647,7 +647,7 @@ GXGetStyleRunGlyphSubstitutions(gxStyle source,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleRunFeatures(gxStyle source, gxRunFeature runFeatures[])
     THREEWORDINLINE(0x303C, 0x0029, 0xA832);
 
@@ -659,7 +659,7 @@ GXGetStyleRunFeatures(gxStyle source, gxRunFeature runFeatures[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetStyleRunKerningAdjustments(gxStyle source,
                                 gxKerningAdjustment kerningAdjustments[])
     THREEWORDINLINE(0x303C, 0x002A, 0xA832);
@@ -672,7 +672,7 @@ GXGetStyleRunKerningAdjustments(gxStyle source,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeRunControls(gxShape source, gxRunControls *runControls)
     THREEWORDINLINE(0x303C, 0x002B, 0xA832);
 
@@ -684,7 +684,7 @@ GXGetShapeRunControls(gxShape source, gxRunControls *runControls)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeRunPriorityJustOverride(
     gxShape source,
     gxPriorityJustificationOverride *priorityJustificationOverride)
@@ -698,7 +698,7 @@ GXGetShapeRunPriorityJustOverride(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeRunGlyphJustOverrides(
     gxShape source, gxGlyphJustificationOverride glyphJustificationOverrides[])
     THREEWORDINLINE(0x303C, 0x002D, 0xA832);
@@ -711,7 +711,7 @@ GXGetShapeRunGlyphJustOverrides(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeRunGlyphSubstitutions(gxShape source,
                                 gxGlyphSubstitution glyphSubstitutions[])
     THREEWORDINLINE(0x303C, 0x002E, 0xA832);
@@ -724,7 +724,7 @@ GXGetShapeRunGlyphSubstitutions(gxShape source,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeRunFeatures(gxShape source, gxRunFeature runFeatures[])
     THREEWORDINLINE(0x303C, 0x002F, 0xA832);
 
@@ -736,7 +736,7 @@ GXGetShapeRunFeatures(gxShape source, gxRunFeature runFeatures[])
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetShapeRunKerningAdjustments(gxShape source,
                                 gxKerningAdjustment kerningAdjustments[])
     THREEWORDINLINE(0x303C, 0x0030, 0xA832);

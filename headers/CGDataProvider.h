@@ -104,7 +104,7 @@ typedef CALLBACK_API_C(void, CGReleaseDataProcPtr)(void *info, const void *data,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataProviderRef)
+CGDataProviderRef
 CGDataProviderCreate(void *info, const CGDataProviderCallbacks *callbacks);
 
 /** Create a direct-access data provider using `callbacks' to supply `size'
@@ -117,7 +117,7 @@ CGDataProviderCreate(void *info, const CGDataProviderCallbacks *callbacks);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataProviderRef)
+CGDataProviderRef
 CGDataProviderCreateDirectAccess(
     void *info, size_t size,
     const CGDataProviderDirectAccessCallbacks *callbacks);
@@ -133,7 +133,7 @@ CGDataProviderCreateDirectAccess(
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataProviderRef)
+CGDataProviderRef
 CGDataProviderCreateWithData(void *info, const void *data, size_t size,
                              CGReleaseDataProcPtr releaseData);
 
@@ -146,7 +146,7 @@ CGDataProviderCreateWithData(void *info, const void *data, size_t size,
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataProviderRef)
+CGDataProviderRef
 CGDataProviderCreateWithURL(CFURLRef url);
 
 /** Increment the retain count of `provider' and return it.  All data
@@ -159,7 +159,7 @@ CGDataProviderCreateWithURL(CFURLRef url);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CGDataProviderRef)
+CGDataProviderRef
 CGDataProviderRetain(CGDataProviderRef provider);
 
 /** Decrement the retain count of `provider'.  If the retain count reaches
@@ -172,7 +172,7 @@ CGDataProviderRetain(CGDataProviderRef provider);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 CGDataProviderRelease(CGDataProviderRef provider);
 
 #if PRAGMA_STRUCT_ALIGN

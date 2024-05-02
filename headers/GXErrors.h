@@ -692,7 +692,7 @@ typedef STACK_UPP_TYPE(gxUserNoticeProcPtr) gxUserNoticeUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserErrorUPP)
+gxUserErrorUPP
 NewgxUserErrorUPP(gxUserErrorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -719,7 +719,7 @@ inline gxUserErrorUPP NewgxUserErrorUPP(gxUserErrorProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserWarningUPP)
+gxUserWarningUPP
 NewgxUserWarningUPP(gxUserWarningProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -747,7 +747,7 @@ inline gxUserWarningUPP NewgxUserWarningUPP(gxUserWarningProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxUserNoticeUPP)
+gxUserNoticeUPP
 NewgxUserNoticeUPP(gxUserNoticeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -775,7 +775,7 @@ inline gxUserNoticeUPP NewgxUserNoticeUPP(gxUserNoticeProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxUserErrorUPP(gxUserErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -795,7 +795,7 @@ inline void DisposegxUserErrorUPP(gxUserErrorUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxUserWarningUPP(gxUserWarningUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -815,7 +815,7 @@ inline void DisposegxUserWarningUPP(gxUserWarningUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposegxUserNoticeUPP(gxUserNoticeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -835,7 +835,7 @@ inline void DisposegxUserNoticeUPP(gxUserNoticeUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokegxUserErrorUPP(gxGraphicsError status, long refcon,
                      gxUserErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -858,7 +858,7 @@ inline void InvokegxUserErrorUPP(gxGraphicsError status, long refcon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokegxUserWarningUPP(gxGraphicsWarning status, long refcon,
                        gxUserWarningUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -882,7 +882,7 @@ inline void InvokegxUserWarningUPP(gxGraphicsWarning status, long refcon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokegxUserNoticeUPP(gxGraphicsNotice status, long refcon,
                       gxUserNoticeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1069,7 +1069,7 @@ typedef long gxDrawError;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxDrawError)
+gxDrawError
 GXGetShapeDrawError(gxShape source) THREEWORDINLINE(0x303C, 0x01EE, 0xA832);
 
 /**
@@ -1080,7 +1080,7 @@ GXGetShapeDrawError(gxShape source) THREEWORDINLINE(0x303C, 0x01EE, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateAll(void) THREEWORDINLINE(0x303C, 0x01EF, 0xA832);
 
 /**
@@ -1091,7 +1091,7 @@ GXValidateAll(void) THREEWORDINLINE(0x303C, 0x01EF, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x01F0, 0xA832);
 
 /**
@@ -1102,7 +1102,7 @@ GXValidateColorSet(gxColorSet target) THREEWORDINLINE(0x303C, 0x01F0, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateColorProfile(gxColorProfile target)
     THREEWORDINLINE(0x303C, 0x01F1, 0xA832);
 
@@ -1114,7 +1114,7 @@ GXValidateColorProfile(gxColorProfile target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateGraphicsClient(gxGraphicsClient target)
     THREEWORDINLINE(0x303C, 0x01F2, 0xA832);
 
@@ -1126,7 +1126,7 @@ GXValidateGraphicsClient(gxGraphicsClient target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateInk(gxInk target) THREEWORDINLINE(0x303C, 0x01F3, 0xA832);
 
 /**
@@ -1137,7 +1137,7 @@ GXValidateInk(gxInk target) THREEWORDINLINE(0x303C, 0x01F3, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateShape(gxShape target) THREEWORDINLINE(0x303C, 0x01F4, 0xA832);
 
 /**
@@ -1148,7 +1148,7 @@ GXValidateShape(gxShape target) THREEWORDINLINE(0x303C, 0x01F4, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x01F5, 0xA832);
 
 /**
@@ -1159,7 +1159,7 @@ GXValidateStyle(gxStyle target) THREEWORDINLINE(0x303C, 0x01F5, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateTag(gxTag target) THREEWORDINLINE(0x303C, 0x01F6, 0xA832);
 
 /**
@@ -1170,7 +1170,7 @@ GXValidateTag(gxTag target) THREEWORDINLINE(0x303C, 0x01F6, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x01F7, 0xA832);
 
 /**
@@ -1181,7 +1181,7 @@ GXValidateTransform(gxTransform target) THREEWORDINLINE(0x303C, 0x01F7, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateViewDevice(gxViewDevice target)
     THREEWORDINLINE(0x303C, 0x01F8, 0xA832);
 
@@ -1193,7 +1193,7 @@ GXValidateViewDevice(gxViewDevice target)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateViewPort(gxViewPort target) THREEWORDINLINE(0x303C, 0x01F9, 0xA832);
 
 /**
@@ -1204,7 +1204,7 @@ GXValidateViewPort(gxViewPort target) THREEWORDINLINE(0x303C, 0x01F9, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXValidateViewGroup(gxViewGroup target) THREEWORDINLINE(0x303C, 0x01FA, 0xA832);
 
 /**
@@ -1215,7 +1215,7 @@ GXValidateViewGroup(gxViewGroup target) THREEWORDINLINE(0x303C, 0x01FA, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(gxValidationLevel)
+gxValidationLevel
 GXGetValidation(void) THREEWORDINLINE(0x303C, 0x01FB, 0xA832);
 
 /**
@@ -1226,7 +1226,7 @@ GXGetValidation(void) THREEWORDINLINE(0x303C, 0x01FB, 0xA832);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GXSetValidation(gxValidationLevel level)
     THREEWORDINLINE(0x303C, 0x01FC, 0xA832);
 
@@ -1238,7 +1238,7 @@ GXSetValidation(gxValidationLevel level)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 GXGetValidationError(char *procedureName, void **argument, long *argumentNumber)
     THREEWORDINLINE(0x303C, 0x01FD, 0xA832);
 

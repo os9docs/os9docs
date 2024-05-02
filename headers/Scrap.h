@@ -524,7 +524,7 @@ typedef STACK_UPP_TYPE(ScrapPromiseKeeperProcPtr) ScrapPromiseKeeperUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ScrapPromiseKeeperUPP)
+ScrapPromiseKeeperUPP
 NewScrapPromiseKeeperUPP(ScrapPromiseKeeperProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -553,7 +553,7 @@ NewScrapPromiseKeeperUPP(ScrapPromiseKeeperProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeScrapPromiseKeeperUPP(ScrapPromiseKeeperUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -573,7 +573,7 @@ inline void DisposeScrapPromiseKeeperUPP(ScrapPromiseKeeperUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeScrapPromiseKeeperUPP(ScrapRef scrap, ScrapFlavorType flavorType,
                             void *userData, ScrapPromiseKeeperUPP userUPP);
 #if !OPAQUE_UPP_TYPES

@@ -224,7 +224,7 @@ typedef PageInformation *PageInformationPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ExecutionLevel)
+ExecutionLevel
 CurrentExecutionLevel(void);
 
 /**
@@ -235,7 +235,7 @@ CurrentExecutionLevel(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TaskID)
+TaskID
 CurrentTaskID(void);
 
 /**
@@ -246,7 +246,7 @@ CurrentTaskID(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DelayFor(Duration delayDuration);
 
 /**
@@ -257,7 +257,7 @@ DelayFor(Duration delayDuration);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InPrivilegedMode(void);
 
 /**  Software Interrupts  */
@@ -269,7 +269,7 @@ InPrivilegedMode(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CreateSoftwareInterrupt(SoftwareInterruptHandler handler, TaskID task, void *p1,
                         Boolean persistent,
                         SoftwareInterruptID *theSoftwareInterrupt);
@@ -282,7 +282,7 @@ CreateSoftwareInterrupt(SoftwareInterruptHandler handler, TaskID task, void *p1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SendSoftwareInterrupt(SoftwareInterruptID theSoftwareInterrupt, void *p2);
 
 /**
@@ -293,7 +293,7 @@ SendSoftwareInterrupt(SoftwareInterruptID theSoftwareInterrupt, void *p2);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DeleteSoftwareInterrupt(SoftwareInterruptID theSoftwareInterrupt);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -309,7 +309,7 @@ DeleteSoftwareInterrupt(SoftwareInterruptID theSoftwareInterrupt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CallSecondaryInterruptHandler2(SecondaryInterruptHandler2 theHandler,
                                ExceptionHandler exceptionHandler, void *p1,
                                void *p2);
@@ -322,7 +322,7 @@ CallSecondaryInterruptHandler2(SecondaryInterruptHandler2 theHandler,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 QueueSecondaryInterruptHandler(SecondaryInterruptHandler2 theHandler,
                                ExceptionHandler exceptionHandler, void *p1,
                                void *p2);
@@ -341,7 +341,7 @@ QueueSecondaryInterruptHandler(SecondaryInterruptHandler2 theHandler,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetInterruptTimer(const AbsoluteTime *expirationTime,
                   SecondaryInterruptHandler2 handler, void *p1,
                   TimerID *theTimer);
@@ -354,7 +354,7 @@ SetInterruptTimer(const AbsoluteTime *expirationTime,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetPersistentTimer(Duration frequency, SecondaryInterruptHandler2 theHandler,
                    void *p1, TimerID *theTimer);
 
@@ -366,7 +366,7 @@ SetPersistentTimer(Duration frequency, SecondaryInterruptHandler2 theHandler,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CancelTimer(TimerID theTimer, AbsoluteTime *timeRemaining);
 
 /**  I/O related Operations  */
@@ -378,7 +378,7 @@ CancelTimer(TimerID theTimer, AbsoluteTime *timeRemaining);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 PrepareMemoryForIO(IOPreparationTable *theIOPreparationTable);
 
 /**
@@ -389,7 +389,7 @@ PrepareMemoryForIO(IOPreparationTable *theIOPreparationTable);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CheckpointIO(IOPreparationID theIOPreparation, IOCheckpointOptions options);
 
 /**  Memory Operations  */
@@ -401,7 +401,7 @@ CheckpointIO(IOPreparationID theIOPreparation, IOCheckpointOptions options);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetPageInformation(AddressSpaceID addressSpace, ConstLogicalAddress base,
                    ByteCount length, PBVersion version,
                    PageInformation *thePageInfo);
@@ -415,7 +415,7 @@ GetPageInformation(AddressSpaceID addressSpace, ConstLogicalAddress base,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetProcessorCacheMode(AddressSpaceID addressSpace, ConstLogicalAddress base,
                       ByteCount length, ProcessorCacheMode cacheMode);
 
@@ -456,7 +456,7 @@ typedef UnsignedWide Nanoseconds;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 IOCommandIsComplete(IOCommandID theID, OSErr theResult);
 
 /**
@@ -467,7 +467,7 @@ IOCommandIsComplete(IOCommandID theID, OSErr theResult);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 GetIOCommandInfo(IOCommandID theID, IOCommandContents *theContents,
                  IOCommandCode *theCommand, IOCommandKind *theKind);
 
@@ -479,7 +479,7 @@ GetIOCommandInfo(IOCommandID theID, IOCommandContents *theContents,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 UpdateDeviceActivity(RegEntryID *deviceEntry);
 
 /**
@@ -490,7 +490,7 @@ UpdateDeviceActivity(RegEntryID *deviceEntry);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 BlockCopy(const void *srcPtr, void *destPtr, Size byteCount);
 
 /**
@@ -501,7 +501,7 @@ BlockCopy(const void *srcPtr, void *destPtr, Size byteCount);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(LogicalAddress)
+LogicalAddress
 PoolAllocateResident(ByteCount byteSize, Boolean clear);
 
 /**
@@ -512,7 +512,7 @@ PoolAllocateResident(ByteCount byteSize, Boolean clear);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 PoolDeallocate(LogicalAddress address);
 
 /**
@@ -523,7 +523,7 @@ PoolDeallocate(LogicalAddress address);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ByteCount)
+ByteCount
 GetLogicalPageSize(void);
 
 /**
@@ -534,7 +534,7 @@ GetLogicalPageSize(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ByteCount)
+ByteCount
 GetDataCacheLineSize(void);
 
 /**
@@ -545,7 +545,7 @@ GetDataCacheLineSize(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 FlushProcessorCache(AddressSpaceID spaceID, LogicalAddress base,
                     ByteCount length);
 
@@ -557,7 +557,7 @@ FlushProcessorCache(AddressSpaceID spaceID, LogicalAddress base,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(LogicalAddress)
+LogicalAddress
 MemAllocatePhysicallyContiguous(ByteCount byteSize, Boolean clear);
 
 /**
@@ -568,7 +568,7 @@ MemAllocatePhysicallyContiguous(ByteCount byteSize, Boolean clear);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 MemDeallocatePhysicallyContiguous(LogicalAddress address);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -581,7 +581,7 @@ MemDeallocatePhysicallyContiguous(LogicalAddress address);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 UpTime(void);
 
 #if CALL_NOT_IN_CARBON
@@ -593,7 +593,7 @@ UpTime(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 GetTimeBaseInfo(UInt32 *minAbsoluteTimeDelta,
                 UInt32 *theAbsoluteTimeToNanosecondNumerator,
                 UInt32 *theAbsoluteTimeToNanosecondDenominator,
@@ -610,7 +610,7 @@ GetTimeBaseInfo(UInt32 *minAbsoluteTimeDelta,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Nanoseconds)
+Nanoseconds
 AbsoluteToNanoseconds(AbsoluteTime absoluteTime);
 
 /**
@@ -621,7 +621,7 @@ AbsoluteToNanoseconds(AbsoluteTime absoluteTime);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Duration)
+Duration
 AbsoluteToDuration(AbsoluteTime absoluteTime);
 
 /**
@@ -632,7 +632,7 @@ AbsoluteToDuration(AbsoluteTime absoluteTime);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 NanosecondsToAbsolute(Nanoseconds nanoseconds);
 
 /**
@@ -643,7 +643,7 @@ NanosecondsToAbsolute(Nanoseconds nanoseconds);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 DurationToAbsolute(Duration duration);
 
 /**
@@ -654,7 +654,7 @@ DurationToAbsolute(Duration duration);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 AddAbsoluteToAbsolute(AbsoluteTime absoluteTime1, AbsoluteTime absoluteTime2);
 
 /**
@@ -665,7 +665,7 @@ AddAbsoluteToAbsolute(AbsoluteTime absoluteTime1, AbsoluteTime absoluteTime2);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 SubAbsoluteFromAbsolute(AbsoluteTime leftAbsoluteTime,
                         AbsoluteTime rightAbsoluteTime);
 
@@ -677,7 +677,7 @@ SubAbsoluteFromAbsolute(AbsoluteTime leftAbsoluteTime,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 AddNanosecondsToAbsolute(Nanoseconds nanoseconds, AbsoluteTime absoluteTime);
 
 /**
@@ -688,7 +688,7 @@ AddNanosecondsToAbsolute(Nanoseconds nanoseconds, AbsoluteTime absoluteTime);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 AddDurationToAbsolute(Duration duration, AbsoluteTime absoluteTime);
 
 /**
@@ -699,7 +699,7 @@ AddDurationToAbsolute(Duration duration, AbsoluteTime absoluteTime);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 SubNanosecondsFromAbsolute(Nanoseconds nanoseconds, AbsoluteTime absoluteTime);
 
 /**
@@ -710,7 +710,7 @@ SubNanosecondsFromAbsolute(Nanoseconds nanoseconds, AbsoluteTime absoluteTime);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(AbsoluteTime)
+AbsoluteTime
 SubDurationFromAbsolute(Duration duration, AbsoluteTime absoluteTime);
 
 /**
@@ -721,7 +721,7 @@ SubDurationFromAbsolute(Duration duration, AbsoluteTime absoluteTime);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Nanoseconds)
+Nanoseconds
 AbsoluteDeltaToNanoseconds(AbsoluteTime leftAbsoluteTime,
                            AbsoluteTime rightAbsoluteTime);
 
@@ -733,7 +733,7 @@ AbsoluteDeltaToNanoseconds(AbsoluteTime leftAbsoluteTime,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Duration)
+Duration
 AbsoluteDeltaToDuration(AbsoluteTime leftAbsoluteTime,
                         AbsoluteTime rightAbsoluteTime);
 
@@ -745,7 +745,7 @@ AbsoluteDeltaToDuration(AbsoluteTime leftAbsoluteTime,
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Nanoseconds)
+Nanoseconds
 DurationToNanoseconds(Duration theDuration);
 
 /**
@@ -756,7 +756,7 @@ DurationToNanoseconds(Duration theDuration);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Duration)
+Duration
 NanosecondsToDuration(Nanoseconds theNanoseconds);
 
 #if CALL_NOT_IN_CARBON
@@ -768,7 +768,7 @@ NanosecondsToDuration(Nanoseconds theNanoseconds);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 PBQueueInit(QHdrPtr qHeader);
 
 /**
@@ -779,7 +779,7 @@ PBQueueInit(QHdrPtr qHeader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 PBQueueCreate(QHdrPtr *qHeader);
 
 /**
@@ -790,7 +790,7 @@ PBQueueCreate(QHdrPtr *qHeader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 PBQueueDelete(QHdrPtr qHeader);
 
 /**
@@ -801,7 +801,7 @@ PBQueueDelete(QHdrPtr qHeader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 PBEnqueue(QElemPtr qElement, QHdrPtr qHeader);
 
 /**
@@ -812,7 +812,7 @@ PBEnqueue(QElemPtr qElement, QHdrPtr qHeader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 PBEnqueueLast(QElemPtr qElement, QHdrPtr qHeader);
 
 /**
@@ -823,7 +823,7 @@ PBEnqueueLast(QElemPtr qElement, QHdrPtr qHeader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 PBDequeue(QElemPtr qElement, QHdrPtr qHeader);
 
 /**
@@ -834,7 +834,7 @@ PBDequeue(QElemPtr qElement, QHdrPtr qHeader);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 PBDequeueFirst(QHdrPtr qHeader, QElemPtr *theFirstqElem);
 
 /**
@@ -845,7 +845,7 @@ PBDequeueFirst(QHdrPtr qHeader, QElemPtr *theFirstqElem);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 PBDequeueLast(QHdrPtr qHeader, QElemPtr *theLastqElem);
 
 /**
@@ -856,7 +856,7 @@ PBDequeueLast(QHdrPtr qHeader, QElemPtr *theLastqElem);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(char *)
+char *
 CStrCopy(char *dst, const char *src);
 
 /**
@@ -867,7 +867,7 @@ CStrCopy(char *dst, const char *src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(StringPtr)
+StringPtr
 PStrCopy(StringPtr dst, ConstStr255Param src);
 
 /**
@@ -878,7 +878,7 @@ PStrCopy(StringPtr dst, ConstStr255Param src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(char *)
+char *
 CStrNCopy(char *dst, const char *src, UInt32 max);
 
 /**
@@ -889,7 +889,7 @@ CStrNCopy(char *dst, const char *src, UInt32 max);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(StringPtr)
+StringPtr
 PStrNCopy(StringPtr dst, ConstStr255Param src, UInt32 max);
 
 /**
@@ -900,7 +900,7 @@ PStrNCopy(StringPtr dst, ConstStr255Param src, UInt32 max);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(char *)
+char *
 CStrCat(char *dst, const char *src);
 
 /**
@@ -911,7 +911,7 @@ CStrCat(char *dst, const char *src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(StringPtr)
+StringPtr
 PStrCat(StringPtr dst, ConstStr255Param src);
 
 /**
@@ -922,7 +922,7 @@ PStrCat(StringPtr dst, ConstStr255Param src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(char *)
+char *
 CStrNCat(char *dst, const char *src, UInt32 max);
 
 /**
@@ -933,7 +933,7 @@ CStrNCat(char *dst, const char *src, UInt32 max);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(StringPtr)
+StringPtr
 PStrNCat(StringPtr dst, ConstStr255Param src, UInt32 max);
 
 /**
@@ -944,7 +944,7 @@ PStrNCat(StringPtr dst, ConstStr255Param src, UInt32 max);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 PStrToCStr(char *dst, ConstStr255Param src);
 
 /**
@@ -955,7 +955,7 @@ PStrToCStr(char *dst, ConstStr255Param src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 CStrToPStr(Str255 dst, const char *src);
 
 /**
@@ -966,7 +966,7 @@ CStrToPStr(Str255 dst, const char *src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 CStrCmp(const char *s1, const char *s2);
 
 /**
@@ -977,7 +977,7 @@ CStrCmp(const char *s1, const char *s2);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 PStrCmp(ConstStr255Param str1, ConstStr255Param str2);
 
 /**
@@ -988,7 +988,7 @@ PStrCmp(ConstStr255Param str1, ConstStr255Param str2);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 CStrNCmp(const char *s1, const char *s2, UInt32 max);
 
 /**
@@ -999,7 +999,7 @@ CStrNCmp(const char *s1, const char *s2, UInt32 max);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SInt16)
+SInt16
 PStrNCmp(ConstStr255Param str1, ConstStr255Param str2, UInt32 max);
 
 /**
@@ -1010,7 +1010,7 @@ PStrNCmp(ConstStr255Param str1, ConstStr255Param str2, UInt32 max);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 CStrLen(const char *src);
 
 /**
@@ -1021,7 +1021,7 @@ CStrLen(const char *src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(UInt32)
+UInt32
 PStrLen(ConstStr255Param src);
 
 /**
@@ -1032,7 +1032,7 @@ PStrLen(ConstStr255Param src);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DeviceProbe(void *theSrc, void *theDest, UInt32 AccessType);
 
 /**
@@ -1043,7 +1043,7 @@ DeviceProbe(void *theSrc, void *theDest, UInt32 AccessType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 DelayForHardware(AbsoluteTime absoluteTime);
 
 /*******************************************************************
@@ -1106,7 +1106,7 @@ typedef OptionBits InterruptSetOptions;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 CreateInterruptSet(InterruptSetID parentSet, InterruptMemberNumber parentMember,
                    InterruptMemberNumber setSize, InterruptSetID *setID,
                    InterruptSetOptions options);
@@ -1119,7 +1119,7 @@ CreateInterruptSet(InterruptSetID parentSet, InterruptMemberNumber parentMember,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InstallInterruptFunctions(InterruptSetID setID, InterruptMemberNumber member,
                           void *refCon, InterruptHandler handlerFunction,
                           InterruptEnabler enableFunction,
@@ -1133,7 +1133,7 @@ InstallInterruptFunctions(InterruptSetID setID, InterruptMemberNumber member,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetInterruptFunctions(InterruptSetID setID, InterruptMemberNumber member,
                       void **refCon, InterruptHandler *handlerFunction,
                       InterruptEnabler *enableFunction,
@@ -1147,7 +1147,7 @@ GetInterruptFunctions(InterruptSetID setID, InterruptMemberNumber member,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 ChangeInterruptSetOptions(InterruptSetID setID, InterruptSetOptions options);
 
 /**
@@ -1158,7 +1158,7 @@ ChangeInterruptSetOptions(InterruptSetID setID, InterruptSetOptions options);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 GetInterruptSetOptions(InterruptSetID setID, InterruptSetOptions *options);
 
 #endif /** CALL_NOT_IN_CARBON */
