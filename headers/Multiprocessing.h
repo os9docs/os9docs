@@ -193,9 +193,9 @@ extern "C"
    enum
    {
       MPLibrary_MajorVersion =
-          2, /*< ! When these change be sure to update the build versions*/
+          2, // < ! When these change be sure to update the build versions
       MPLibrary_MinorVersion =
-          4, /*< !  used in the startup check in MPInitializeAPI!*/
+          4, // < !  used in the startup check in MPInitializeAPI!
       MPLibrary_Release = 1,
       MPLibrary_DevelopmentRevision = 1
    };
@@ -714,7 +714,7 @@ extern "C"
    OSStatus
    MPDelayUntilSys(AbsoluteTime *expirationTime);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
    /**
     *  MPCreateTimer()
     *
@@ -785,24 +785,24 @@ extern "C"
       kMPAllocate32ByteAligned = 5,
       kMPAllocate1024ByteAligned = 10,
       kMPAllocate4096ByteAligned = 12,
-      kMPAllocateMaxAlignment = 16,                         /*< Somewhat arbitrary limit on expectations.*/
-      kMPAllocateAltiVecAligned = kMPAllocate16ByteAligned, /*< The P.C. name.*/
+      kMPAllocateMaxAlignment = 16,                         // < Somewhat arbitrary limit on expectations.
+      kMPAllocateAltiVecAligned = kMPAllocate16ByteAligned, // < The P.C. name.
       kMPAllocateVMXAligned =
-          kMPAllocateAltiVecAligned,    /*< The older, common name.*/
-      kMPAllocateVMPageAligned = 254,   /*< Pseudo value, converted at runtime.*/
-      kMPAllocateInterlockAligned = 255 /*< Pseudo value, converted at runtime.*/
+          kMPAllocateAltiVecAligned,    // < The older, common name.
+      kMPAllocateVMPageAligned = 254,   // < Pseudo value, converted at runtime.
+      kMPAllocateInterlockAligned = 255 // < Pseudo value, converted at runtime.
    };
 
    /** Values for the options parameter to MPAllocateAligned.*/
    enum
    {
-      kMPAllocateClearMask = 0x0001, /*< Zero the allocated block.*/
+      kMPAllocateClearMask = 0x0001, // < Zero the allocated block.
       kMPAllocateGloballyMask =
-          0x0002,                       /*< Allocate from the globally visible pool.*/
-      kMPAllocateResidentMask = 0x0004, /*< Allocate from the RAM-resident pool.*/
-      kMPAllocateNoGrowthMask = 0x0010, /*< Do not attempt to grow the pool.*/
+          0x0002,                       // < Allocate from the globally visible pool.
+      kMPAllocateResidentMask = 0x0004, // < Allocate from the RAM-resident pool.
+      kMPAllocateNoGrowthMask = 0x0010, // < Do not attempt to grow the pool.
       kMPAllocateNoCreateMask =
-          0x0020 /*< Do not attempt to create the pool if it doesn't exist yet.*/
+          0x0020 // < Do not attempt to create the pool if it doesn't exist yet.
    };
 
    /**
@@ -889,28 +889,28 @@ extern "C"
    /** Values for the TaskStateKind to MPExtractTaskState and MPSetTaskState.*/
    enum
    {
-      kMPTaskStateRegisters = 0, /*< The task general registers.*/
-      kMPTaskStateFPU = 1,       /*< The task floating point registers*/
-      kMPTaskStateVectors = 2,   /*< The task vector registers*/
-      kMPTaskStateMachine = 3,   /*< The task machine registers*/
+      kMPTaskStateRegisters = 0, // < The task general registers.
+      kMPTaskStateFPU = 1,       // < The task floating point registers
+      kMPTaskStateVectors = 2,   // < The task vector registers
+      kMPTaskStateMachine = 3,   // < The task machine registers
       kMPTaskState32BitMemoryException =
-          4,                   /*< The task memory exception information for 32-bit CPUs.*/
-      kMPTaskStateTaskInfo = 5 /*< Static and dynamic information about the task.*/
+          4,                   // < The task memory exception information for 32-bit CPUs.
+      kMPTaskStateTaskInfo = 5 // < Static and dynamic information about the task.
    };
 
    /** Option bits and numbers for MPDisposeTaskException.*/
    enum
    {
-      kMPTaskPropagate = 0,  /*< The exception is propagated.*/
-      kMPTaskResumeStep = 1, /*< The task is resumed and single step is enabled.*/
+      kMPTaskPropagate = 0,  // < The exception is propagated.
+      kMPTaskResumeStep = 1, // < The task is resumed and single step is enabled.
       kMPTaskResumeBranch =
-          2,                      /*< The task is resumed and branch stepping is enabled.*/
-      kMPTaskResumeMask = 0x0000, /*< The task is resumed.*/
+          2,                      // < The task is resumed and branch stepping is enabled.
+      kMPTaskResumeMask = 0x0000, // < The task is resumed.
       kMPTaskPropagateMask =
-          1 << kMPTaskPropagate, /*< The exception is propagated.*/
+          1 << kMPTaskPropagate, // < The exception is propagated.
       kMPTaskResumeStepMask =
           1
-          << kMPTaskResumeStep, /*< The task is resumed and single step is enabled.*/
+          << kMPTaskResumeStep, // < The task is resumed and single step is enabled.
       kMPTaskResumeBranchMask =
           1 << kMPTaskResumeBranch /*< The task is resumed and branch stepping is
                                       enabled.*/
@@ -919,9 +919,9 @@ extern "C"
    /** For kMPTaskStateTaskInfo, the task's runState*/
    enum
    {
-      kMPTaskBlocked = 0, /*< Task is blocked (queued on resource)*/
-      kMPTaskReady = 1,   /*< Task is runnable*/
-      kMPTaskRunning = 2  /*< Task is running*/
+      kMPTaskBlocked = 0, // < Task is blocked (queued on resource)
+      kMPTaskReady = 1,   // < Task is runnable
+      kMPTaskRunning = 2  // < Task is running
    };
 
    /*< For kMPTaskStateTaskInfo, the version of the MPTaskInfo structure
@@ -941,32 +941,32 @@ extern "C"
    */
    struct MPTaskInfo
    {
-      PBVersion version; /*< Version 3 of the data structure requested*/
+      PBVersion version; // < Version 3 of the data structure requested
 
-      OSType name; /*< Task name*/
+      OSType name; // < Task name
 
-      OSType queueName; /*< Task's queue owner name*/
-      UInt16 runState;  /*< Running, ready, blocked*/
-      UInt16 lastCPU;   /*< Address of CPU where task previously ran*/
-      UInt32 weight;    /*< Processing weight: 1 - 10,000*/
+      OSType queueName; // < Task's queue owner name
+      UInt16 runState;  // < Running, ready, blocked
+      UInt16 lastCPU;   // < Address of CPU where task previously ran
+      UInt32 weight;    // < Processing weight: 1 - 10,000
 
-      MPProcessID processID; /*< Owning process ID*/
+      MPProcessID processID; // < Owning process ID
 
-      AbsoluteTime cpuTime;      /*< Accumulated task time*/
-      AbsoluteTime schedTime;    /*< Time when last scheduled*/
-      AbsoluteTime creationTime; /*< Time when task created*/
+      AbsoluteTime cpuTime;      // < Accumulated task time
+      AbsoluteTime schedTime;    // < Time when last scheduled
+      AbsoluteTime creationTime; // < Time when task created
 
-      ItemCount codePageFaults; /*< Page faults from code execution*/
-      ItemCount dataPageFaults; /*< Page faults from data access*/
-      ItemCount preemptions;    /*< Number of times task was preempted*/
+      ItemCount codePageFaults; // < Page faults from code execution
+      ItemCount dataPageFaults; // < Page faults from data access
+      ItemCount preemptions;    // < Number of times task was preempted
 
-      MPCpuID cpuID;            /*< ID of CPU where task previously ran.*/
-      MPOpaqueID blockedObject; /*< ID of blocked object.*/
-      MPAddressSpaceID spaceID; /*< Address space ID of this task.*/
+      MPCpuID cpuID;            // < ID of CPU where task previously ran.
+      MPOpaqueID blockedObject; // < ID of blocked object.
+      MPAddressSpaceID spaceID; // < Address space ID of this task.
 
-      LogicalAddress stackBase;  /*< Base of stack (lowest address).*/
-      LogicalAddress stackLimit; /*< Stack limit (highest address).*/
-      LogicalAddress stackCurr;  /*< Current stack address.*/
+      LogicalAddress stackBase;  // < Base of stack (lowest address).
+      LogicalAddress stackLimit; // < Stack limit (highest address).
+      LogicalAddress stackCurr;  // < Current stack address.
    };
 
    typedef struct MPTaskInfo MPTaskInfo;
@@ -1028,9 +1028,9 @@ extern "C"
    typedef UInt32 MPDebuggerLevel;
    enum
    {
-      kMPLowLevelDebugger = 0x00000000, /*< MacsBug-like*/
-      kMPMidLevelDebugger = 0x10000000, /*< Jasik-like*/
-      kMPHighLevelDebugger = 0x20000000 /*< Metrowerks-like*/
+      kMPLowLevelDebugger = 0x00000000, // < MacsBug-like
+      kMPMidLevelDebugger = 0x10000000, // < Jasik-like
+      kMPHighLevelDebugger = 0x20000000 // < Metrowerks-like
    };
 
    /**
@@ -1113,11 +1113,11 @@ extern "C"
     *    \carbon_lib        in CarbonLib 1.0 and later
     *    \mac_os_x         in version 10.0 and later
     */
-   void _MPLibraryVersion(const char **versionCString, /*< can be NULL */
-                          UInt32 *major,               /*< can be NULL */
-                          UInt32 *minor,               /*< can be NULL */
-                          UInt32 *release,             /*< can be NULL */
-                          UInt32 *revision);           /*< can be NULL */
+   void _MPLibraryVersion(const char **versionCString, // < can be NULL
+                          UInt32 *major,               // < can be NULL
+                          UInt32 *minor,               // < can be NULL
+                          UInt32 *release,             // < can be NULL
+                          UInt32 *revision);           // < can be NULL
 
    /**
       \name Unofficial Services
@@ -1162,10 +1162,10 @@ extern "C"
     */
    Boolean _MPTaskIsToolboxSafe(MPTaskID task);
 
-#endif // CALL_NOT_IN_CARBON 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON
    /**
-    *  // CALL_NOT_IN_CARBON 
+    *  // CALL_NOT_IN_CARBON
     *
     *  Availability:
     *    \non_carbon_cfm   in MPLibrary 1.0 and later
@@ -1185,18 +1185,13 @@ extern "C"
 #if CALL_NOT_IN_CARBON
 #ifndef MPIncludeDefunctServices
 #define MPIncludeDefunctServices 1
-#endif // !defined(MPIncludeDefunctServices) 
+#endif // !defined(MPIncludeDefunctServices)
 #if MPIncludeDefunctServices
 #if CALL_NOT_IN_CARBON
-   /**// !defined(MPIncludeDefunctServices) 
-    *  _MPDebugStr()
-    *
-    *  Availability:
-    *    \non_carbon_cfm   in MPLibraryObsolete 1.0 and later
-    *    \carbon_lib        not available
-    *    \mac_os_x         not available
-    */
-   void _MPDebugStr(ConstStr255Param msg);
+   /**/ / !defined(MPIncludeDefunctServices) * _MPDebugStr() *
+           *Availability : *    \non_carbon_cfm in MPLibraryObsolete 1.0 and
+       later *    \carbon_lib not available *    \mac_os_x not available * /
+           void _MPDebugStr(ConstStr255Param msg);
 
    /**
     *  _MPStatusPString()
@@ -1218,11 +1213,11 @@ extern "C"
     */
    const char *_MPStatusCString(OSStatus status);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #include <stdarg.h>
    typedef CALLBACK_API_C(void, MPPrintfHandler)(MPTaskID taskID,
                                                  const char *format, va_list args);
-#if CAL// CALL_NOT_IN_CARBON 
+#if CAL // CALL_NOT_IN_CARBON
    /**
     *  _MPInitializePrintf()
     *
@@ -1243,16 +1238,16 @@ extern "C"
     */
    void _MPPrintf(const char *format, ...);
 
-#endif // CALL_NOT_IN_CARBON 
-#endif // MPIncludeDefunctServices 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
+#endif // MPIncludeDefunctServices
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif P// CALL_NOT_IN_CARBON 
+#elif P // CALL_NOT_IN_CARBON
 #pragma pack(pop)
-#elif P// MPIncludeDefunctServices 
+#elif P // MPIncludeDefunctServices
 #pragma pack()
-#endif// CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
@@ -1264,7 +1259,7 @@ extern "C"
 }
 #endif
 
-#endif // __MULTIPROCESSING__ 
+#endif // __MULTIPROCESSING__
 /**
    \section CheckingAPIAvailability
 
@@ -1272,7 +1267,7 @@ extern "C"
 
    You must properly check the availability of MP services before calling them!
 
-   Chec// __MULTIPROCESSING__ 
+   Chec// __MULTIPROCESSING__
 
    The end result is that the MP API library may get prepared by CFM but be totally unusable. This means that if you import from the MP API library, you cannot simply check for a resolved import to decide if MP services are available.  Worse, if you explicitly prepare the MP API library you cannot assume that a noErr result from GetSharedLibrary means that MP services are available.
 

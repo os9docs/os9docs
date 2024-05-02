@@ -55,8 +55,8 @@ extern "C"
    */
    enum
    {
-      appOpen = 0, /*Open the Document (s)*/
-      appPrint = 1 /*Print the Document (s)*/
+      appOpen = 0, // Open the Document (s)
+      appPrint = 1 // Print the Document (s)
    };
 
    /**
@@ -118,24 +118,24 @@ Example
 #include <stdio.h>
 shortfileCnt, doWhat, index;
 AppFile fileStuff;
-char*cp = (char *)&fileStuff.ftype;  // ease handling of file type 
+char*cp = (char *)&fileStuff.ftype;  // ease handling of file type
    CountAppFiles(&doWhat, &fileCnt);
    for (index = 1; index <= fileCnt; index++)
    {
       GetAppFiles(index, &fileStuff);
       /* --- normally you'd open or print the file here ---
        */
-      </ pre>
-              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-                                                            *    \non_carbon_cfm not available *    \carbon_lib not available *    \mac_os_x not available *
-                                                        /
-                                                        void
-                                                        CountAppFiles(short *message, short *count);
+   </ pre>
+           * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                         *    \non_carbon_cfm not available *    \carbon_lib not available *    \mac_os_x not available *
+                                                     /
+                                                     void
+                                                     CountAppFiles(short *message, short *count);
 
-      /**
-      \brief Get information about files selected in the Finder
+   /**
+   \brief Get information about files selected in the Finder
 
-      <pre>GetAppFiles obtains the filename, type, and volume of one of the files
+   <pre>GetAppFiles obtains the filename, type, and volume of one of the files
 selected by the user when the Finder started your application.
 indexspecifies which file you want to query. It should range from 1 to the
 fileCnt value obtained through a previous call to CountAppFiles .
@@ -159,17 +159,17 @@ GetAppParms returns a handle to a block of data that contains this same
 application file information - in a slightly different form.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-       *    \non_carbon_cfm   not available
+    *    \non_carbon_cfm   not available
 *    \carbon_lib        not available
 *    \mac_os_x         not available
 */
-      void
-      GetAppFiles(short index, AppFile *theFile);
+   void
+   GetAppFiles(short index, AppFile *theFile);
 
-      /**
-      \brief Let the Finder know have processed a file
+   /**
+   \brief Let the Finder know have processed a file
 
-      <pre>via GetAppFiles , call ClrAppFiles to mark it as having been processed.
+   <pre>via GetAppFiles , call ClrAppFiles to mark it as having been processed.
 indexspecifies which file you want to "clear". It should range from 1 to
 the fileCnt value obtained through a previous call to
 CountAppFiles .
@@ -185,17 +185,17 @@ make multiple passes at the file list. For instance, you could process all
 cleared, the file's type won't match with any subsequently-compared type.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-       *    \non_carbon_cfm   not available
+    *    \non_carbon_cfm   not available
 *    \carbon_lib        not available
 *    \mac_os_x         not available
 */
-      void
-      ClrAppFiles(short index);
+   void
+   ClrAppFiles(short index);
 
-      /**
-      \brief Get application name, resource file reference, et.al.
+   /**
+   \brief Get application name, resource file reference, et.al.
 
-      <pre>You can use GetAppParms to obtain your application's filename, your
+   <pre>You can use GetAppParms to obtain your application's filename, your
 resource fork's file reference number, and a handle. The handle leads to the list
 of Finder file information about documents that were selected when your
 program was launched.
@@ -220,31 +220,31 @@ Furthermore, you can examine the global variables CurApName (at
 0x0910), CurApRefNum (at 0x0900), and AppParmHandle (at 0x0AEC).
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-       *    \non_carbon_cfm   not available
+    *    \non_carbon_cfm   not available
 *    \carbon_lib        not available
 *    \mac_os_x         not available
 */
-      void
-      GetAppParms(Str255 apName, short *apRefNum, Handle *apParam)
-          ONEWORDINLINE(0xA9F5);
+   void
+   GetAppParms(Str255 apName, short *apRefNum, Handle *apParam)
+       ONEWORDINLINE(0xA9F5);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON
-      /**
-       *  getappparms()
-       *
+   /**
+    *  getappparms()
+    *
 
-       *    \non_carbon_cfm   not available
-       *    \carbon_lib        not available
-       *    \mac_os_x         not available
-       */
-      void
-      getappparms(char *apName, short *apRefNum, Handle *apParam);
+    *    \non_carbon_cfm   not available
+    *    \carbon_lib        not available
+    *    \mac_os_x         not available
+    */
+   void
+   getappparms(char *apName, short *apRefNum, Handle *apParam);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 
-#endif // TARGET_CPU_68K && !TARGET_RT_MAC_CFM || !TARGET_OS_MAC 
+#endif // TARGET_CPU_68K && !TARGET_RT_MAC_CFM || !TARGET_OS_MAC
 
 /**
    Because PowerPC applications don©t have segments.
@@ -253,24 +253,24 @@ Furthermore, you can examine the global variables CurApName (at
 */
 #if TARGET_CPU_68K
 #if CALL_NOT_IN_CARBON
-      /**
-       *  UnloadSeg()
-       *
+   /**
+    *  UnloadSeg()
+    *
 
-       *    \non_carbon_cfm   not available
-       *    \carbon_lib        not available
-       *    \mac_os_x         not available
-       */
-      void
-      UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
+    *    \non_carbon_cfm   not available
+    *    \carbon_lib        not available
+    *    \mac_os_x         not available
+    */
+   void
+   UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 
 #else
 #define UnloadSeg(x)
-#endif // TARGET_CPU_68K 
+#endif // TARGET_CPU_68K
 
-      // ExitToShell() has moved to Process.h
+   // ExitToShell() has moved to Process.h
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -287,8 +287,8 @@ Furthermore, you can examine the global variables CurApName (at
 #endif
 
 #ifdef __cplusplus
-   }
+}
 #endif
 
-#endif // __SEGLOAD__ 
- */*/*/ * /
+#endif // __SEGLOAD__
+* /*/*/ * /

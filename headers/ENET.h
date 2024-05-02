@@ -50,20 +50,20 @@ extern "C"
 
   enum
   {
-    ENetSetGeneral = 253, /*Set "general" mode*/
-    ENetGetInfo = 252,    /*Get info*/
-    ENetRdCancel = 251,   /*Cancel read*/
-    ENetRead = 250,       /*Read*/
-    ENetWrite = 249,      /*Write*/
-    ENetDetachPH = 248,   /*Detach protocol handler*/
-    ENetAttachPH = 247,   /*Attach protocol handler*/
-    ENetAddMulti = 246,   /*Add a multicast address*/
-    ENetDelMulti = 245    /*Delete a multicast address*/
+    ENetSetGeneral = 253, // Set "general" mode
+    ENetGetInfo = 252,    // Get info
+    ENetRdCancel = 251,   // Cancel read
+    ENetRead = 250,       // Read
+    ENetWrite = 249,      // Write
+    ENetDetachPH = 248,   // Detach protocol handler
+    ENetAttachPH = 247,   // Attach protocol handler
+    ENetAddMulti = 246,   // Add a multicast address
+    ENetDelMulti = 245    // Delete a multicast address
   };
 
   enum
   {
-    EAddrRType = FOUR_CHAR_CODE('eadr') /*Alternate address resource type*/
+    EAddrRType = FOUR_CHAR_CODE('eadr') // Alternate address resource type
   };
 
   typedef struct EParamBlock EParamBlock;
@@ -73,28 +73,28 @@ extern "C"
   typedef REGISTER_UPP_TYPE(ENETCompletionProcPtr) ENETCompletionUPP;
   struct EParamBlock
   {
-    QElem *qLink;                   /*General EParams*/
-    short qType;                    /*queue type*/
-    short ioTrap;                   /*routine trap*/
-    Ptr ioCmdAddr;                  /*routine address*/
-    ENETCompletionUPP ioCompletion; /*completion routine*/
-    OSErr ioResult;                 /*result code*/
-    StringPtr ioNamePtr;            /*->filename*/
-    short ioVRefNum;                /*volume reference or drive number*/
-    short ioRefNum;                 /*driver reference number*/
-    short csCode;                   /*Call command code*/
+    QElem *qLink;                   // General EParams
+    short qType;                    // queue type
+    short ioTrap;                   // routine trap
+    Ptr ioCmdAddr;                  // routine address
+    ENETCompletionUPP ioCompletion; // completion routine
+    OSErr ioResult;                 // result code
+    StringPtr ioNamePtr;            // ->filename
+    short ioVRefNum;                // volume reference or drive number
+    short ioRefNum;                 // driver reference number
+    short csCode;                   // Call command code
     union
     {
       struct
       {
-        short eProtType; /*Ethernet protocol type*/
-        Ptr ePointer;    /*No support for PowerPC code*/
-        short eBuffSize; /*buffer size*/
-        short eDataSize; /*number of bytes read*/
+        short eProtType; // Ethernet protocol type
+        Ptr ePointer;    // No support for PowerPC code
+        short eBuffSize; // buffer size
+        short eDataSize; // number of bytes read
       } EParms1;
       struct
       {
-        Byte eMultiAddr[6]; /*Multicast Address*/
+        Byte eMultiAddr[6]; // Multicast Address
       } EParms2;
     } u;
   };
@@ -179,12 +179,12 @@ extern "C"
 #endif
 #endif
 
-#endif // CALL_NOT_IN_CARBON 
-#if CAL// CALL_NOT_IN_CARBON 
+#endif  // CALL_NOT_IN_CARBON
+#if CAL // CALL_NOT_IN_CARBON
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewENETCompletionProc(userRoutine) NewENETCompletionUPP(userRoutine)
 #define CallENETCompletionProc(userRoutine, thePBPtr) \
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
-#endif // CALL_NOT_IN_CARBON 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 
   /**// CALL_NOT_IN_CARBON 
@@ -586,11 +586,11 @@ ENetDelMulti for this function.
   OSErr
   EDelMulti(EParamBlkPtr thePBptr, Boolean async);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
-#pragma// CALL_NOT_IN_CARBON 
+#pragma // CALL_NOT_IN_CARBON
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
@@ -605,4 +605,4 @@ ENetDelMulti for this function.
 }
 #endif
 
-#endif            // __ENET__ * /*/*/ * /*/*/ * /*/*/// __ENET__ 
+#endif // __ENET__ * /*/*/ * /*/*/ * /*/*/// __ENET__

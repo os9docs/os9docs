@@ -58,7 +58,7 @@ extern "C"
 
   enum
   {
-    /*Maximum small fract value, as long*/
+    // Maximum small fract value, as long
     kMaximumSmallFract = 0x0000FFFF
   };
 
@@ -95,7 +95,7 @@ extern "C"
 #if OLDROUTINENAMES
   enum
   {
-    /*Maximum small fract value, as long*/
+    // Maximum small fract value, as long
     MaxSmallFract = 0x0000FFFF
   };
 
@@ -121,25 +121,26 @@ extern "C"
     CallColorProcLive = 512
   };
 
-#endif // OLDROUTINENAMES 
+#endif // OLDROUTINENAMES
   /* A SmallFract value is just the fractional part of a Fixed number,
   which is the low order word.  SmallFracts are used to save room,
   and to be compatible with Quickdraw's RGBColor.  They can be
   assigned directly to and from INTEGERs. */
   // Unsigned fraction between 0 and 1   typedef unsigned short SmallFract;
-  // Unsigned fraction between 0 and 1 
-  models, HLS is reordered into HSL. Thus both models start with
-  hue and saturation values; value/lightness/brightness is last. */
+  // Unsigned fraction between 0 and 1
+  models, HLS is reordered into HSL.Thus both models start with
+              hue and saturation values;
+  value / lightness / brightness is last.* /
 
-  /**
-  <pre>
-   * \note <pre> For developmental simplicity in switching between the HLS and
-  HSVmodels, HLS is reordered into HSL. Thus both models start with hue and
-  saturation values; value/lightness/brightness is last.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct HSVColor
+      /**
+      <pre>
+       * \note <pre> For developmental simplicity in switching between the HLS and
+      HSVmodels, HLS is reordered into HSL. Thus both models start with hue and
+      saturation values; value/lightness/brightness is last.
+      </pre>
+       * \copyright THINK Reference © 1991-1992 Symantec Corporation
+      */
+      struct HSVColor
   {
     SmallFract hue;        /**< Fraction of circle, red at */
     SmallFract saturation; /**< -,  for gray,  for pure color*/
@@ -208,7 +209,7 @@ extern "C"
     short undoItem;
   };
   typedef struct PickerMenuItemInfo PickerMenuItemInfo;
-  // Structs related to deprecated API's have been pulled from this file.   // Those structs necessary for developers writing their own color pickers...   // have been moved to ColorPickerComponents.h. 
+  // Structs related to deprecated API's have been pulled from this file.   // Those structs necessary for developers writing their own color pickers...   // have been moved to ColorPickerComponents.h.
   typedef CALLBACK_API(void, ColorChangedProcPtr)(long userData,
   // Structs related to deprecated API's have been pulled from this file. 
   // Those structs necessary for developers writing their own color pickers... 
@@ -248,7 +249,7 @@ extern "C"
     Str255 prompt;
     PickerMenuItemInfo mInfo;
     Boolean newColorChosen;
-    UInt8 reserved; /*Must be 0*/
+    UInt8 reserved; // Must be 0
   };
   typedef struct NColorPickerInfo NColorPickerInfo;
 
@@ -391,9 +392,9 @@ extern "C"
    *    \mac_os_x         not available
    */
   ColorChangedUPP
-  // A suite of mid-level API calls have been deprecated.  Likely you never...  
-#i// used them anyway.  They were removed from this file and should not be... 
-  // used in the future as they are not gauranteed to be supported. 
+  // A suite of mid-level API calls have been deprecated.  Likely you never...
+#i // used them anyway.  They were removed from this file and should not be...
+   // used in the future as they are not gauranteed to be supported. 
   {
     uppColorChangedProcInfo = 0x000003C0
   }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
@@ -408,7 +409,7 @@ extern "C"
   (ColorChangedUPP)                                                         \
       NewRoutineDescriptor((ProcPtr)(userRoutine), uppColorChangedProcInfo, \
                            GetCurrentArchitecture())
-#endi// pascal no_return_value Func(4_bytes, 4_bytes) 
+#endi // pascal no_return_value Func(4_bytes, 4_bytes)
 #endif
 
   /**
@@ -438,7 +439,7 @@ extern "C"
       NewRoutineDescriptor((ProcPtr)(userRoutine), uppNColorChangedProcInfo, \
                            GetCurrentArchitecture())
 #endif
-#endi// pascal no_return_value Func(4_bytes, 4_bytes) 
+#endi // pascal no_return_value Func(4_bytes, 4_bytes) 
 
   /**
    *  NewUserEventUPP()
@@ -612,13 +613,13 @@ extern "C"
   InvokeNColorChangedUPP(userData, newColor, userRoutine)
 #define CallUserEventProc(userRoutine, event) \
   InvokeUserEventUPP(event, userRoutine)
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #endif
 
 #ifdef PRAGMA_IMPORT_OFF
@@ -628,7 +629,7 @@ extern "C"
 #endif
 
 #ifdef __cplusplus
-}// CALL_NOT_IN_CARBON 
+} // CALL_NOT_IN_CARBON
 #endif
 
 #endif // __COLORPICKER__ gma options align = reset
@@ -648,5 +649,5 @@ extern "C"
 }
 #endif
 
-#endif // __COLORPICKER__ 
-// __COLORPICKER__ 
+#endif // __COLORPICKER__
+// __COLORPICKER__

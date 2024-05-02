@@ -9,7 +9,7 @@
     \copyright � 1986-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Hardware
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,41 +48,43 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  mBaseOffset = 1,   /*Id of mBaseOffset.*/
-  mRowBytes = 2,     /*Video sResource parameter Id's */
-  mBounds = 3,       /*Video sResource parameter Id's */
-  mVersion = 4,      /*Video sResource parameter Id's */
-  mHRes = 5,         /*Video sResource parameter Id's */
-  mVRes = 6,         /*Video sResource parameter Id's */
-  mPixelType = 7,    /*Video sResource parameter Id's */
-  mPixelSize = 8,    /*Video sResource parameter Id's */
-  mCmpCount = 9,     /*Video sResource parameter Id's */
-  mCmpSize = 10,     /*Video sResource parameter Id's */
-  mPlaneBytes = 11,  /*Video sResource parameter Id's */
-  mVertRefRate = 14, /*Video sResource parameter Id's */
-  mVidParams = 1,    /*Video parameter block id.*/
-  mTable = 2,        /*Offset to the table.*/
-  mPageCnt = 3,      /*Number of pages*/
-  mDevType = 4,      /*Device Type*/
-  oneBitMode = 128,  /*Id of OneBitMode Parameter list.*/
-  twoBitMode = 129,  /*Id of TwoBitMode Parameter list.*/
-  fourBitMode = 130, /*Id of FourBitMode Parameter list.*/
-  eightBitMode = 131 /*Id of EightBitMode Parameter list.*/
-};
+  enum
+  {
+    mBaseOffset = 1,   // Id of mBaseOffset.
+    mRowBytes = 2,     // Video sResource parameter Id's
+    mBounds = 3,       // Video sResource parameter Id's
+    mVersion = 4,      // Video sResource parameter Id's
+    mHRes = 5,         // Video sResource parameter Id's
+    mVRes = 6,         // Video sResource parameter Id's
+    mPixelType = 7,    // Video sResource parameter Id's
+    mPixelSize = 8,    // Video sResource parameter Id's
+    mCmpCount = 9,     // Video sResource parameter Id's
+    mCmpSize = 10,     // Video sResource parameter Id's
+    mPlaneBytes = 11,  // Video sResource parameter Id's
+    mVertRefRate = 14, // Video sResource parameter Id's
+    mVidParams = 1,    // Video parameter block id.
+    mTable = 2,        // Offset to the table.
+    mPageCnt = 3,      // Number of pages
+    mDevType = 4,      // Device Type
+    oneBitMode = 128,  // Id of OneBitMode Parameter list.
+    twoBitMode = 129,  // Id of TwoBitMode Parameter list.
+    fourBitMode = 130, // Id of FourBitMode Parameter list.
+    eightBitMode = 131 // Id of EightBitMode Parameter list.
+  };
 
-enum {
-  sixteenBitMode = 132,   /*Id of SixteenBitMode Parameter list.*/
-  thirtyTwoBitMode = 133, /*Id of ThirtyTwoBitMode Parameter list.*/
-  firstVidMode = 128,     /*The new, better way to do the above. */
-  secondVidMode = 129,    // QuickDraw only supports six video   thirdVidMode = 130,     // at this time.        fourthVidMode = 131,
-  fifthVidMode = 132,
-  sixthVidMode = 133,
-  spGammaDir = 64,
-  spVidNamesDir = 65
-};
+  enum
+  {
+    sixteenBitMode = 132,   // Id of SixteenBitMode Parameter list.
+    thirtyTwoBitMode = 133, // Id of ThirtyTwoBitMode Parameter list.
+    firstVidMode = 128,     // The new, better way to do the above.
+    secondVidMode = 129,    // QuickDraw only supports six video   thirdVidMode = 130,     // at this time.        fourthVidMode = 131,
+    fifthVidMode = 132,
+    sixthVidMode = 133,
+    spGammaDir = 64,
+    spVidNamesDir = 65
+  };
 
-// csTimingFormat values in VDTimingInfo // look in the declaration rom for timing info enum {
+  // csTimingFormat values in VDTimingInfo // look in the declaration rom for timing info enum {
   kDeclROMtables = FOUR_CHAR_CODE('decl'),
 // csTimingFormat values in VDTimingInfo 
 // look in the declaration rom for timing info 
@@ -191,7 +194,7 @@ enum {// Mask for kddcForceReadBit.
             DDC will be up to date w/o force read) */
 };
 
-// csDisplayType values in VDDisplayConnectInfo enum {
+  // csDisplayType values in VDDisplayConnectInfo enum {
   kUnknownConnect =
       1, // Not sure how we�ll use this, but seems like a good idea.   kPanelConnect = 2,    // For use with fixed-in-place LCD panels.   kPanelTFTConnect = 2, // Alias for kPanelConnect   kFixedModeCRTConnect =
       3, //  For use with fixed-mode (i.e., very limited range) displays.   kMultiModeCRT1Connect = 4, /* 320x200 maybe, 12" maybe, 13" (default), 16"
@@ -345,24 +348,24 @@ enum {
 };
 
 struct VPBlock {
-  long vpBaseOffset; /*Offset to page zero of video RAM (From minorBaseOS).*/
-  short vpRowBytes;  /*Width of each row of video memory.*/
-  Rect vpBounds;     /*BoundsRect for the video display (gives dimensions).*/
-  short vpVersion;   /*PixelMap version number.*/
+  long vpBaseOffset; // Offset to page zero of video RAM (From minorBaseOS).
+  short vpRowBytes;  // Width of each row of video memory.
+  Rect vpBounds;     // BoundsRect for the video display (gives dimensions).
+  short vpVersion;   // PixelMap version number.
   short vpPackType;
   long vpPackSize;
-  long vpHRes;       /*Horizontal resolution of the device (pixels per inch).*/
-  long vpVRes;       /*Vertical resolution of the device (pixels per inch).*/
-  short vpPixelType; /*Defines the pixel type.*/
-  short vpPixelSize; /*Number of bits in pixel.*/
-  short vpCmpCount;  /*Number of components in pixel.*/
+  long vpHRes;       // Horizontal resolution of the device (pixels per inch).
+  long vpVRes;       // Vertical resolution of the device (pixels per inch).
+  short vpPixelType; // Defines the pixel type.
+  short vpPixelSize; // Number of bits in pixel.
+  short vpCmpCount;  // Number of components in pixel.
   //    Power Mode masks and bits for VDPowerStateRec.powerFlags.  
-  long vpPlaneBytes; /*Offset from one plane to the next.*/
+  long vpPlaneBytes; // Offset from one plane to the next.
 };// When leaving this power mode, a display will need refreshing   
 typedef struct VPBlock VPBlock;
 typedef VPBlock *VPBlockPtr;
 struct VDEntryRecord {
-  Ptr csTable; /*(long) pointer to color table entry=value, r,g,b:INTEGER*/
+  Ptr csTable; // (long) pointer to color table entry=value, r,g,b:INTEGER
 };
 typedef struct VDEntryRecord VDEntryRecord;
 typedef V// supports power down sleep (ie PCI power off)
@@ -379,14 +382,14 @@ typedef VDGrayRecord *VDGrayPtr;
 typedef struct VDFlagRecord VDFlagRecord;
 typedef VDFlagRecord *VDFlagRecPtr;
 //// Control Codes 
-  ColorSpec *csTable; /*Pointer to an array of color specs*/
-  short csStart;      /*Which spec in array to start with, or -1*/
-  short csCount;      /*Number of color spec entries to set*/
+  ColorSpec *csTable; // Pointer to an array of color specs
+  short csStart;      // Which spec in array to start with, or -1
+  short csCount;      // Number of color spec entries to set
 };
 typedef struct VDSetEntryRecord VDSetEntryRecord;
 typedef VDSetEntryRecord *VDSetEntryPtr;
 // Parm block for SetGamma control call struct VDGammaRecord {
-  Ptr csGTable; /*pointer to gamma table*/
+  Ptr csGTable; // pointer to gamma table
 };
 typedef struct VDGammaRecord VDGammaRecord;
 typedef VDGammaRecord *VDGamRecPtr;
@@ -507,39 +510,39 @@ enum {
 };
 
 struct VDPageInfo {
-  short csMode;   /*(word) mode within device*/
-  long csData;    /*(long) data supplied by driver*/
-  short csPage;   /*(word) page to switch in*/
-  Ptr csBaseAddr; /*(long) base address of page*/
+  short csMode;   // (word) mode within device
+  long csData;    // (long) data supplied by driver
+  short csPage;   // (word) page to switch in
+  Ptr csBaseAddr; // (long) base address of page
 // Parm block for SetGray control call 
 typedef struct VDPageInfo VDPageInfo;
 typedef VDPageInfo *VDPgInfoPtr;
 struct VDSizeInfo {
-  short csHSize; /*(word) desired/returned h size*/
-  short csHPos;  /*(word) desired/returned h position*/
-  short csVSize; /*(word) desired/returned v size*/
+  short csHSize; // (word) desired/returned h size
+  short csHPos;  // (word) desired/returned h position
+  short csVSize; // (word) desired/returned v size
 // Parm block for SetInterrupt call 
 };
 typedef struct VDSizeInfo VDSizeInfo;
 typedef VDSizeInfo *VDSzInfoPtr;
 struct VDSettings {
-  short csParamCnt;  /*(word) number of params*/
-  short csBrightMax; /*(word) max brightness*/
+  short csParamCnt;  // (word) number of params
+  short csBrightMax; // (word) max brightness
 // Parm block for SetEntries control call 
-  short csBrightVal; /*(word) current brightness*/
-  short csCntrstMax; /*(word) max contrast*/
-  short csCntrstDef; /*(word) default contrast*/
-  short csCntrstVal; /*(word) current contrast*/
-  short csTintMax;   /*(word) max tint*/
-  short csTintDef;   /*(word) default tint*/
-  short csTintVal;   /*(word) current tint*/
+  short csBrightVal; // (word) current brightness
+  short csCntrstMax; // (word) max contrast
+  short csCntrstDef; // (word) default contrast
+  short csCntrstVal; // (word) current contrast
+  short csTintMax;   // (word) max tint
+  short csTintDef;   // (word) default tint
+  short csTintVal;   // (word) current tint
 // Parm block for SetGamma control call 
-  short csHueDef;    /*(word) default hue*/
-  short csHueVal;    /*(word) current hue*/
-  short csHorizDef;  /*(word) default horizontal*/
-  short csHorizVal;  /*(word) current horizontal*/
-  short csHorizMax;  /*(word) max horizontal*/
-  short csVertDef;   /*(word) default vertical*/
+  short csHueDef;    // (word) default hue
+  short csHueVal;    // (word) current hue
+  short csHorizDef;  // (word) default horizontal
+  short csHorizVal;  // (word) current horizontal
+  short csHorizMax;  // (word) max horizontal
+  short csVertDef;   // (word) default vertical
   short csVertVal;   /*(// LONGINT - (long) timing mode 
   short csVertMax;   /*(// LONGINT - (long) base address of the mode 
 };// INTEGER - (short) will some day be the depth 
@@ -971,163 +974,163 @@ typedef VDMirrorRec *VDMirrorPtr;
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
-#elif PRAGMA_IMPORT// Init to sizeof(VDDisplayTimingRangeRec) 
-#pragma import reset// Init to 0 
-#endif// Init to 0 
-// Init to 0 
+#elif PRAGMA_IMPORT  // Init to sizeof(VDDisplayTimingRangeRec)
+#pragma import reset // Init to 0
+#endif               // Init to 0
+  // Init to 0
 #ifdef __cplusplus
 }// Requested block (first index is 0)
-#endif// set to 0 
-// # blocks 
-#endif // __VIDEO__ // dependent video 
-// Min dot clock in Hz 
-// Max dot clock in Hz 
-// Max dot clock error 
-// Hz 
-// Hz 
-// Hz 
-// Hz 
-// Clocks - Maximum total (active + blanking) 
-// Clocks - Maximum total (active + blanking) 
-// Reserved 
-// Reserved 
-// Some cards require that some timing elements
-// be multiples of a "character size" (often 8
-// clocks).  The "xxxxCharSize" fields document
-// those requirements.
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size 
-// Character size for active + blanking 
-// Character size for active + blanking 
-// Reserved (Init to 0) 
-// Reserved (Init to 0)
-// Reserved (Init to 0)
-// Reserved (Init to 0)
-// Reserved (Init to 0)
-// Reserved (Init to 0)
-// Reserved (Init to 0)
-// Reserved (Init to 0)
-// Reserved (Init to 0)
-// csDisplayModeState
-// Display Mode ID is configured and ready
-// Display Mode ID is is being programmed
-// Display Mode ID is not associated with a timing
-// Video driver Errors -10930 to -10959 
-// csTimingRangeSignalLevels
-// csSignalConfig
-// csSignalLevels for analog
-// csTimingRangeSyncFlags
-// csHorizontalSyncConfig and csVerticalSyncConfig
-// For timings with kDetailedTimingFormat.
-// Init to sizeof(VDDetailedTimingRec)
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// 
-// Display Mode state
-// Mode to use when programmed.
-// Hz
-// Hz - With error what is slowest actual clock 
-// Hz - With error what is fasted actual clock 
-// Pixels
-// Pixels
-// Pixels
-// Pixels
-// Lines
-// Lines
-// Lines
-// Lines
-// Pixels
-// Pixels
-// Lines
-// Lines
-// Future use (init to 0)
-// Future use (init to 0)
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// csScalerFeatures
-// csScalerFlags
-// SetEntries behavior is to update clut during SetEntries call
-// SetEntries behavior is to upate clut at next vbl
-// kVideoDefaultBus for single headed cards.
-// Always zero
-// Always zero
-// Usually I2C address (eg 0x6E)
-// See kVideoSimpleI2CType etc.
-// Pointer to the send buffer
-// Number of bytes to send
-// See kVideoDDCciReplyType etc.
-// Pointer to the reply buffer
-// Max bytes to reply (size of csReplyBuffer)
-// Always zero
-// Always zero
-// kVideoDefaultBus for single headed cards. 
-// See kVideoBusI2C etc.
-// Always zero
-// Always zero
-// Always zero
-// Always zero
-// Always zero
-// Always zero
-// Init to sizeof(VDScalerRec)
-// Init to 0
-// Init to 0
-// Init to 0
-// Display Mode ID modified by this call.
-// 
-// Display Mode state
-// Init to 0
-// Init to 0
-// Graphics system addressable pixels
-// Graphics system addressable lines
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to sizeof(VDScalerInfoRec)
-// Init to 0
-// Init to 0
-// Init to 0
-// Feature flags
-// limit to horizontal scaled pixels
-// limit to vertical scaled pixels
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// csMirrorFeatures
-// Sometimes true - Only one gamma correction LUT.
-// csMirrorSupportedFlags and csMirrorFlags
-// Set means we can HW mirrored right now (uses csMirrorEntryID)
-// Set means we are HW mirrored right now (uses csMirrorEntryID)
-// Set means mirrored displays can/should be centered vertically
-// Init to sizeof(VDMirrorRec)
-// Init to 0
-// Output RegEntryID of the next mirrored device
-// Output summary features of the driver
-// Output configuration options active now
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// Init to 0
-// __VIDEO__ 
+#endif // set to 0
+  // # blocks
+#endif // __VIDEO__ // dependent video
+    // Min dot clock in Hz
+    // Max dot clock in Hz
+    // Max dot clock error
+    // Hz
+    // Hz
+    // Hz
+    // Hz
+    // Clocks - Maximum total (active + blanking)
+    // Clocks - Maximum total (active + blanking)
+    // Reserved
+    // Reserved
+    // Some cards require that some timing elements
+    // be multiples of a "character size" (often 8
+    // clocks).  The "xxxxCharSize" fields document
+    // those requirements.
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size
+    // Character size for active + blanking
+    // Character size for active + blanking
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // Reserved (Init to 0)
+    // csDisplayModeState
+    // Display Mode ID is configured and ready
+    // Display Mode ID is is being programmed
+    // Display Mode ID is not associated with a timing
+    // Video driver Errors -10930 to -10959
+    // csTimingRangeSignalLevels
+    // csSignalConfig
+    // csSignalLevels for analog
+    // csTimingRangeSyncFlags
+    // csHorizontalSyncConfig and csVerticalSyncConfig
+    // For timings with kDetailedTimingFormat.
+    // Init to sizeof(VDDetailedTimingRec)
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    //
+    // Display Mode state
+    // Mode to use when programmed.
+    // Hz
+    // Hz - With error what is slowest actual clock
+    // Hz - With error what is fasted actual clock
+    // Pixels
+    // Pixels
+    // Pixels
+    // Pixels
+    // Lines
+    // Lines
+    // Lines
+    // Lines
+    // Pixels
+    // Pixels
+    // Lines
+    // Lines
+    // Future use (init to 0)
+    // Future use (init to 0)
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // csScalerFeatures
+    // csScalerFlags
+    // SetEntries behavior is to update clut during SetEntries call
+    // SetEntries behavior is to upate clut at next vbl
+    // kVideoDefaultBus for single headed cards.
+    // Always zero
+    // Always zero
+    // Usually I2C address (eg 0x6E)
+    // See kVideoSimpleI2CType etc.
+    // Pointer to the send buffer
+    // Number of bytes to send
+    // See kVideoDDCciReplyType etc.
+    // Pointer to the reply buffer
+    // Max bytes to reply (size of csReplyBuffer)
+    // Always zero
+    // Always zero
+    // kVideoDefaultBus for single headed cards.
+    // See kVideoBusI2C etc.
+    // Always zero
+    // Always zero
+    // Always zero
+    // Always zero
+    // Always zero
+    // Always zero
+    // Init to sizeof(VDScalerRec)
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Display Mode ID modified by this call.
+    //
+    // Display Mode state
+    // Init to 0
+    // Init to 0
+    // Graphics system addressable pixels
+    // Graphics system addressable lines
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to sizeof(VDScalerInfoRec)
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Feature flags
+    // limit to horizontal scaled pixels
+    // limit to vertical scaled pixels
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // csMirrorFeatures
+    // Sometimes true - Only one gamma correction LUT.
+    // csMirrorSupportedFlags and csMirrorFlags
+    // Set means we can HW mirrored right now (uses csMirrorEntryID)
+    // Set means we are HW mirrored right now (uses csMirrorEntryID)
+    // Set means mirrored displays can/should be centered vertically
+    // Init to sizeof(VDMirrorRec)
+    // Init to 0
+    // Output RegEntryID of the next mirrored device
+    // Output summary features of the driver
+    // Output configuration options active now
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // Init to 0
+    // __VIDEO__

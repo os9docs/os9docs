@@ -379,7 +379,7 @@ extern "C"
         searchTextEnabledTracksOnly = 1L << 19
     };
 
-    /*use these with the text property routines*/
+    // use these with the text property routines
     enum// 'musi' 
     {
         // set property parameter / get property parameter        kTextTextHandle = 1,      // Handle / preallocated Handle        kTextTextPtr = 2,         // Pointer        kTextTEStyle = 3,         // TextStyle * / TextStyle *        kTextSelection = 4,       // long [2] / long [2]        kTextBackColor = 5,       // RGBColor * / RGBColor *        kTextForeColor = 6,       // RGBColor * / RGBColor *        kTextFace = 7,            // long / long *        kTextFont = 8,            // long / long *        kTextSize = 9,            // long / long *        kTextAlignment = 10,      // short * / short *        kTextHilite = 11,         // hiliteRecord * / hiliteRecord *        kTextDropShadow = 12,     // dropShadowRecord * / dropShadowRecord *        kTextDisplayFlags = 13,   // long / long *        kTextScroll = 14,         // TimeValue * / TimeValue *        kTextRelativeScroll = 15, // Point *        kTextHyperTextFace = 16,  // hyperTextSetFace * / hyperTextSetFace *        kTextHyperTextColor = 17, // hyperTextSetColor * / hyperTextSetColor *        kTextKeyEntry = 18,       // short        kTextMouseDown = 19,      // Point *        kTextTextBox = 20,        // Rect * / Rect *        kTextEditState = 21,      // short / short *        kTextLength = 22          //       / long *    };

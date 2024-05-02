@@ -54,36 +54,36 @@ extern "C"
 
   enum
   {
-    resSysHeap = 64,   /*System or application heap?*/
-    resPurgeable = 32, /*Purgeable resource?*/
-    resLocked = 16,    /*Load it in locked?*/
-    resProtected = 8,  /*Protected?*/
-    resPreload = 4,    /*Load in on OpenResFile?*/
-    resChanged = 2,    /*Resource changed?*/
-    mapReadOnly = 128, /*Resource file read-only*/
-    mapCompact = 64,   /*Compact resource file*/
-    mapChanged = 32    /*Write map out at update*/
+    resSysHeap = 64,   // System or application heap?
+    resPurgeable = 32, // Purgeable resource?
+    resLocked = 16,    // Load it in locked?
+    resProtected = 8,  // Protected?
+    resPreload = 4,    // Load in on OpenResFile?
+    resChanged = 2,    // Resource changed?
+    mapReadOnly = 128, // Resource file read-only
+    mapCompact = 64,   // Compact resource file
+    mapChanged = 32    // Write map out at update
   };
 
   enum
   {
-    resSysRefBit = 7,    /*reference to system/local reference*/
-    resSysHeapBit = 6,   /*In system/in application heap*/
-    resPurgeableBit = 5, /*Purgeable/not purgeable*/
-    resLockedBit = 4,    /*Locked/not locked*/
-    resProtectedBit = 3, /*Protected/not protected*/
-    resPreloadBit = 2,   /*Read in at OpenResource?*/
-    resChangedBit = 1,   /*Existing resource changed since last update*/
-    mapReadOnlyBit = 7,  /*is this file read-only?*/
-    mapCompactBit = 6,   /*Is a compact necessary?*/
-    mapChangedBit = 5    /*Is it necessary to write map?*/
+    resSysRefBit = 7,    // reference to system/local reference
+    resSysHeapBit = 6,   // In system/in application heap
+    resPurgeableBit = 5, // Purgeable/not purgeable
+    resLockedBit = 4,    // Locked/not locked
+    resProtectedBit = 3, // Protected/not protected
+    resPreloadBit = 2,   // Read in at OpenResource?
+    resChangedBit = 1,   // Existing resource changed since last update
+    mapReadOnlyBit = 7,  // is this file read-only?
+    mapCompactBit = 6,   // Is a compact necessary?
+    mapChangedBit = 5    // Is it necessary to write map?
   };
 
   enum
   {
     kResFileNotOpened =
-        -1,            /*ref num return as error when opening a resource file*/
-    kSystemResFile = 0 /*this is the default ref num to the system file*/
+        -1,            // ref num return as error when opening a resource file
+    kSystemResFile = 0 // this is the default ref num to the system file
   };
 
   typedef CALLBACK_API_REGISTER68K(void, ResErrProcPtr, (OSErr thErr));
@@ -165,378 +165,378 @@ extern "C"
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewResErrProc(userRoutine) NewResErrUPP(userRoutine)
 #define CallResErrProc(userRoutine, thErr) InvokeResErrUPP(thErr, userRoutine)
-#endif // CALL_NOT_IN_CARBON 
-  // QuickTime 3.0  typedef CALLBACK_API(OSErr,
+#endif // CALL_NOT_IN_CARBON
+       // QuickTime 3.0  typedef CALLBACK_API(OSErr,
                        ResourceEndianFilterPtr)(Handle theResource,
                                                 Boolean currentlyNativeEndian);
 #if CALL_NOT_IN_CARBON
-  /**
-   *  InitResources()
-   *
+                       /**
+                        *  InitResources()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  short
-  InitResources(void) ONEWORDINLINE(0xA995);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        not available
+                        *    \mac_os_x         not available
+                        */
+                       short
+                       InitResources(void) ONEWORDINLINE(0xA995);
 
-  /**
-   *  RsrcZoneInit()
-   *
+                       /**
+                        *  RsrcZoneInit()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
-  RsrcZoneInit(void) ONEWORDINLINE(0xA996);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        not available
+                        *    \mac_os_x         not available
+                        */
+                       void
+                       RsrcZoneInit(void) ONEWORDINLINE(0xA996);
 
-#endif // CALL_NOT_IN_CARBON 
-  /**
-   *  CloseResFile()
-   *
+#endif // CALL_NOT_IN_CARBON
+                       /**
+                        *  CloseResFile()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
-  CloseResFile(short refNum) ONEWORDINLINE(0xA99A);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       void
+                       CloseResFile(short refNum) ONEWORDINLINE(0xA99A);
 
-  /**
-  \brief Find if an error occurred in a resource operation
+                       /**
+                       \brief Find if an error occurred in a resource operation
 
-  <pre>You can use ResError to read that code and see if the most recent operation
-caused an error, and if so, what the error was.
-</pre>
-* \returns <pre>an integer; the Error Code of the most recent resource-related
-operation. It may be a file system error or one of the following
-resource error constants:
-noErr(0)No Error (this constant is defined in MacTypes.h)
-resNotFound (-192)Resource not found
-resFNotFound (-193)Resource file not found
-addResFailed (-194)AddResource failed
-rmvResFailed (-196)RmveResource failed
-(-197)(not used)
-resAttrErr (-198)Attribute does not permit operation
-mapReadErr (-199)Error reading resource map
-</pre>
-* \note <pre>ResError is functionally equivalent to reading the low-memory global,
-ResErr; i.e., the following are the same, except the latter generates less
-code and is faster:
-if ( ResError () ){ ... an error occurred ... }
-if ( ResErr ) { ... an error occurred ... }
-ResError may return other system errors, for instance, dskFulErr or
-memFullErr . See Error Codes for a full list.
-A few Resource Manager functions indicate errors by returning a NIL
-handle (e.g., GetResource ). When these calls fail, ResError returns
-noErr, so be sure to check for NIL handles!
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  OSErr
-  ResError(void) ONEWORDINLINE(0xA9AF);
+                       <pre>You can use ResError to read that code and see if the most recent operation
+                     caused an error, and if so, what the error was.
+                     </pre>
+                     * \returns <pre>an integer; the Error Code of the most recent resource-related
+                     operation. It may be a file system error or one of the following
+                     resource error constants:
+                     noErr(0)No Error (this constant is defined in MacTypes.h)
+                     resNotFound (-192)Resource not found
+                     resFNotFound (-193)Resource file not found
+                     addResFailed (-194)AddResource failed
+                     rmvResFailed (-196)RmveResource failed
+                     (-197)(not used)
+                     resAttrErr (-198)Attribute does not permit operation
+                     mapReadErr (-199)Error reading resource map
+                     </pre>
+                     * \note <pre>ResError is functionally equivalent to reading the low-memory global,
+                     ResErr; i.e., the following are the same, except the latter generates less
+                     code and is faster:
+                     if ( ResError () ){ ... an error occurred ... }
+                     if ( ResErr ) { ... an error occurred ... }
+                     ResError may return other system errors, for instance, dskFulErr or
+                     memFullErr . See Error Codes for a full list.
+                     A few Resource Manager functions indicate errors by returning a NIL
+                     handle (e.g., GetResource ). When these calls fail, ResError returns
+                     noErr, so be sure to check for NIL handles!
+                     </pre>
+                     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                     *    \carbon_lib        in CarbonLib 1.0 and later
+                     *    \mac_os_x         in version 10.0 and later
+                     */
+                       OSErr
+                       ResError(void) ONEWORDINLINE(0xA9AF);
 
-  /**
-  \brief Get reference number of current resource file
+                       /**
+                       \brief Get reference number of current resource file
 
-  <pre>CurResFile returns the file reference number of the "current resource
-file" - the first file searched during a resource request.
-</pre>
-* \returns <pre>an integer; the reference number of the current resource file.
-</pre>
-* \note <pre>You can use this function early in an application to determine the reference
-number of the application's resource file.
-The global variable CurMap (at 0x0A5A) contains the same information
-that this call returns. Thus, the following are the same except that the
-latter generates less code:
-fRef= CurResFile ();
-fRef= CurMap;
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  short
-  CurResFile(void) ONEWORDINLINE(0xA994);
+                       <pre>CurResFile returns the file reference number of the "current resource
+                     file" - the first file searched during a resource request.
+                     </pre>
+                     * \returns <pre>an integer; the reference number of the current resource file.
+                     </pre>
+                     * \note <pre>You can use this function early in an application to determine the reference
+                     number of the application's resource file.
+                     The global variable CurMap (at 0x0A5A) contains the same information
+                     that this call returns. Thus, the following are the same except that the
+                     latter generates less code:
+                     fRef= CurResFile ();
+                     fRef= CurMap;
+                     </pre>
+                     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                     *    \carbon_lib        in CarbonLib 1.0 and later
+                     *    \mac_os_x         in version 10.0 and later
+                     */
+                       short
+                       CurResFile(void) ONEWORDINLINE(0xA994);
 
-  /**
-  \brief Given a resource handle, return a file reference number
-  \param    rHandle generic Handle of resource of interest
-  <pre>In the 64K ROMs, HomeResFile can be used to make sure a resource is
-from the application's resource file. The "one-deep" functions
-(Get1Resource , Get1IndResource , etc.) of the 128K ROMs make this
-usage unnecessary.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  short
-  HomeResFile(Handle theResource) ONEWORDINLINE(0xA9A4);
+                       /**
+                       \brief Given a resource handle, return a file reference number
+                       \param    rHandle generic Handle of resource of interest
+                       <pre>In the 64K ROMs, HomeResFile can be used to make sure a resource is
+                     from the application's resource file. The "one-deep" functions
+                     (Get1Resource , Get1IndResource , etc.) of the 128K ROMs make this
+                     usage unnecessary.
+                     </pre>
+                     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                     *    \carbon_lib        in CarbonLib 1.0 and later
+                     *    \mac_os_x         in version 10.0 and later
+                     */
+                       short
+                       HomeResFile(Handle theResource) ONEWORDINLINE(0xA9A4);
 
 #if CALL_NOT_IN_CARBON
-  /**
-   *  CreateResFile()
-   *
+                       /**
+                        *  CreateResFile()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
-  CreateResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA9B1);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        not available
+                        *    \mac_os_x         not available
+                        */
+                       void
+                       CreateResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA9B1);
 
-  /**
-   *  OpenResFile()
-   *
+                       /**
+                        *  OpenResFile()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  short
-  OpenResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA997);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        not available
+                        *    \mac_os_x         not available
+                        */
+                       short
+                       OpenResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA997);
 
-#endif // CALL_NOT_IN_CARBON 
-  /**
-  \brief Make specified resource file the "current file".
+#endif // CALL_NOT_IN_CARBON
+                       /**
+                       \brief Make specified resource file the "current file".
 
-  <pre>UseResFile selects a different file (already open) as the current resource
-file. On subsequent resource requests, the specified file will be searched first
-and none of the more recently opened resource files will be searched.
-rfRefNum is a resource file reference number; typically a value obtained from
-OpenResFile , HomeResFile , or CurResFile . Use 0 to specify
-the system resource file.
-</pre>
-* \returns <pre>none (use ResError to determine success/failure)
-</pre>
-* \note <pre>Open resource files are arranged as a linked list; the most recently opened
-file is at the end of the list and is the first one the Resource Manager
-searches when looking for a resource. UseResFile lets you start the search
-with a file opened earlier; the file(s) following it in the list are then left out
-of the search process. When a new resource file is opened, it's added to the
-end of the list; this overrides any previous calls to UseResFile , causing
-the entire list of open resource files to be searched. For example, assume
-that there are four open resource files (R0 through R3) and the search
-order is R3, R2, R1, R0. If you call UseResFile (R2), the search order
-becomes R2, R1, R0. Note that R3 is no longer searched. If you then open a
-fifth resource file (R4), it is added to the end of the list and the search
-order becomes R4, R3, R2, R1, R0.
-UseResFile does not re-order the resource file list; it causes resource
-searching to start at a specified file and work backwards (chronologically)
-down the list if it fails to find a resource in the current file.
-For instance, after UseResFile (0), calls such as GetResource or
-GetPicture will search only the system resource file.
-The application's resource file is implicitly set as the current file when an
-application is started. The OpenResFile function also sets the current
-resource file, thereby overriding any previous call to UseResFile .
-The resource search order is affected by the setting of the low-memory
-globals RomMapInsert and TmpResLoad . These affect whether ROM-based
-resources are considered to be in the normal lookup list.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  void
-  UseResFile(short refNum) ONEWORDINLINE(0xA998);
+                       <pre>UseResFile selects a different file (already open) as the current resource
+                     file. On subsequent resource requests, the specified file will be searched first
+                     and none of the more recently opened resource files will be searched.
+                     rfRefNum is a resource file reference number; typically a value obtained from
+                     OpenResFile , HomeResFile , or CurResFile . Use 0 to specify
+                     the system resource file.
+                     </pre>
+                     * \returns <pre>none (use ResError to determine success/failure)
+                     </pre>
+                     * \note <pre>Open resource files are arranged as a linked list; the most recently opened
+                     file is at the end of the list and is the first one the Resource Manager
+                     searches when looking for a resource. UseResFile lets you start the search
+                     with a file opened earlier; the file(s) following it in the list are then left out
+                     of the search process. When a new resource file is opened, it's added to the
+                     end of the list; this overrides any previous calls to UseResFile , causing
+                     the entire list of open resource files to be searched. For example, assume
+                     that there are four open resource files (R0 through R3) and the search
+                     order is R3, R2, R1, R0. If you call UseResFile (R2), the search order
+                     becomes R2, R1, R0. Note that R3 is no longer searched. If you then open a
+                     fifth resource file (R4), it is added to the end of the list and the search
+                     order becomes R4, R3, R2, R1, R0.
+                     UseResFile does not re-order the resource file list; it causes resource
+                     searching to start at a specified file and work backwards (chronologically)
+                     down the list if it fails to find a resource in the current file.
+                     For instance, after UseResFile (0), calls such as GetResource or
+                     GetPicture will search only the system resource file.
+                     The application's resource file is implicitly set as the current file when an
+                     application is started. The OpenResFile function also sets the current
+                     resource file, thereby overriding any previous call to UseResFile .
+                     The resource search order is affected by the setting of the low-memory
+                     globals RomMapInsert and TmpResLoad . These affect whether ROM-based
+                     resources are considered to be in the normal lookup list.
+                     </pre>
+                     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                     *    \carbon_lib        in CarbonLib 1.0 and later
+                     *    \mac_os_x         in version 10.0 and later
+                     */
+                       void
+                       UseResFile(short refNum) ONEWORDINLINE(0xA998);
 
-  /**
-  \brief Get total number of resource types in open files
+                       /**
+                       \brief Get total number of resource types in open files
 
-  <pre>CountTypes returns the total number of resource types in all
-currently-opened resource files. It can be used as a first step in a
-system-wide examination of resources.
-</pre>
-* \returns <pre>a positive integer; it is the total number of distinct resource types
-in all open resource files.
-</pre>
-* \note <pre>CountTypes is only needed by resource-management utilities such as
-ResEdit or Resorcerer. This function is the first step in generating a list of
-all the different resource types, thus making it possible to look up each
-individual resource. Subsequent calls to GetIndType will return the
-ResType value for types from 1 to the return value of this call.
-This function operates across all open resource files while the similar
-Count1Types function counts just the resource types in the current
-resource file.
-The following example displays a list of resource types along with the
-number of such resources, contained in all open resource files.
-Example
-#include < Resources.h >
-#include <stdio.h> // for printf()   short rTotal, j;
-  ResType rt;
-  char *rtp;
-  rTotal = CountTypes();
-  for (j = 1; j <= rTotal; j++)
-  {
-    GetIndType(&rt, j);
-    rtp = &rt;
-    printf("Type '%c%c%c%c' has %d resources\n",
-           rtp[0], rtp[1], rtp[2], rtp[3], CountResources(rt));
-  }
-  </ pre>
-              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
-      later
-          *    \carbon_lib in CarbonLib 1.0 and
-      later
-          *    \mac_os_x in version 10.0 and
-      later
-            */
-          short
-          CountTypes(void) ONEWORDINLINE(0xA99E);
+                       <pre>CountTypes returns the total number of resource types in all
+                     currently-opened resource files. It can be used as a first step in a
+                     system-wide examination of resources.
+                     </pre>
+                     * \returns <pre>a positive integer; it is the total number of distinct resource types
+                     in all open resource files.
+                     </pre>
+                     * \note <pre>CountTypes is only needed by resource-management utilities such as
+                     ResEdit or Resorcerer. This function is the first step in generating a list of
+                     all the different resource types, thus making it possible to look up each
+                     individual resource. Subsequent calls to GetIndType will return the
+                     ResType value for types from 1 to the return value of this call.
+                     This function operates across all open resource files while the similar
+                     Count1Types function counts just the resource types in the current
+                     resource file.
+                     The following example displays a list of resource types along with the
+                     number of such resources, contained in all open resource files.
+                     Example
+                     #include < Resources.h >
+                     #include <stdio.h> // for printf()   short rTotal, j;
+                       ResType rt;
+                       char *rtp;
+                       rTotal = CountTypes();
+                       for (j = 1; j <= rTotal; j++)
+                       {
+                         GetIndType(&rt, j);
+                         rtp = &rt;
+                         printf("Type '%c%c%c%c' has %d resources\n",
+                                rtp[0], rtp[1], rtp[2], rtp[3], CountResources(rt));
+                       }
+                       </ pre>
+                                   * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                                             *    \non_carbon_cfm in InterfaceLib 7.1 and
+                           later
+                               *    \carbon_lib in CarbonLib 1.0 and
+                           later
+                               *    \mac_os_x in version 10.0 and
+                           later
+                                 */
+                       short
+                       CountTypes(void) ONEWORDINLINE(0xA99E);
 
-  /**
-  \brief Get total number of resource types in current file
+                       /**
+                       \brief Get total number of resource types in current file
 
-  <pre>Count1Types returns the number of resource types in the current resource
-file. It can be used as a first step in "1-deep" examination of resources.
-</pre>
-* \returns <pre>a positive integer; it is the total number of distinct resource types
-in the current resource file.
-</pre>
-* \note <pre>Count1Types works exactly like CountTypes except that it limits the
-type search to the current resource file.  This is normally followed by a
-series of calls to Get1IndType .
-Refer to CountTypes for related details.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  short
-  Count1Types(void) ONEWORDINLINE(0xA81C);
+                       <pre>Count1Types returns the number of resource types in the current resource
+                     file. It can be used as a first step in "1-deep" examination of resources.
+                     </pre>
+                     * \returns <pre>a positive integer; it is the total number of distinct resource types
+                     in the current resource file.
+                     </pre>
+                     * \note <pre>Count1Types works exactly like CountTypes except that it limits the
+                     type search to the current resource file.  This is normally followed by a
+                     series of calls to Get1IndType .
+                     Refer to CountTypes for related details.
+                     </pre>
+                     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                     *    \carbon_lib        in CarbonLib 1.0 and later
+                     *    \mac_os_x         in version 10.0 and later
+                     */
+                       short
+                       Count1Types(void) ONEWORDINLINE(0xA81C);
 
-  /**
-  \brief Get the ResType of a resource, given its index
+                       /**
+                       \brief Get the ResType of a resource, given its index
 
-  <pre>GetIndType obtains the 4-byte ResType of a resource, given an
-arbitrarily-defined index number.
-rTypeis the address of a 4-byte ResType value. Upon return, it will
-contain the resource type code associated with the resource identified
-by index ; e.g., 'FONT', 'ICON', 'ICN#', etc. A value of 0 (four ASCII
-NULs) indicates that index was an invalid value.
-indexis a positive integer. It should range from 1 to the total number of
-distinct resources available (see CountTypes ).
-</pre>
-* \returns <pre>none
-</pre>
-* \note <pre>GetIndType is usually only needed by resource-management utilities
-such as ResEdit. This function is the second step (following CountTypes )
-in generating a list of all the different resource types, thus making it
-possible to look up each individual resource.
-Note: All the types obtained via this call are not necessarily available for
-access. The "indexed ResType list" contains ALL resource types while calls
-such as GetResource may search a subset of this list (i.e., the list of files
-starting with the current resource file and working chronologically
-backward toward the system file).
-See CountTypes for an example of usage.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  void
-  GetIndType(ResType *theType, short index) ONEWORDINLINE(0xA99F);
+                       <pre>GetIndType obtains the 4-byte ResType of a resource, given an
+                     arbitrarily-defined index number.
+                     rTypeis the address of a 4-byte ResType value. Upon return, it will
+                     contain the resource type code associated with the resource identified
+                     by index ; e.g., 'FONT', 'ICON', 'ICN#', etc. A value of 0 (four ASCII
+                     NULs) indicates that index was an invalid value.
+                     indexis a positive integer. It should range from 1 to the total number of
+                     distinct resources available (see CountTypes ).
+                     </pre>
+                     * \returns <pre>none
+                     </pre>
+                     * \note <pre>GetIndType is usually only needed by resource-management utilities
+                     such as ResEdit. This function is the second step (following CountTypes )
+                     in generating a list of all the different resource types, thus making it
+                     possible to look up each individual resource.
+                     Note: All the types obtained via this call are not necessarily available for
+                     access. The "indexed ResType list" contains ALL resource types while calls
+                     such as GetResource may search a subset of this list (i.e., the list of files
+                     starting with the current resource file and working chronologically
+                     backward toward the system file).
+                     See CountTypes for an example of usage.
+                     </pre>
+                     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                     *    \carbon_lib        in CarbonLib 1.0 and later
+                     *    \mac_os_x         in version 10.0 and later
+                     */
+                       void
+                       GetIndType(ResType *theType, short index) ONEWORDINLINE(0xA99F);
 
-  /**
-   *  Get1IndType()
-   *
+                       /**
+                        *  Get1IndType()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
-  Get1IndType(ResType *theType, short index) ONEWORDINLINE(0xA80F);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       void
+                       Get1IndType(ResType *theType, short index) ONEWORDINLINE(0xA80F);
 
-  /**
-  \brief Set state of automatic resource loading
+                       /**
+                       \brief Set state of automatic resource loading
 
-  <pre>After using SetResLoad (FALSE), be sure to use SetResLoad (TRUE) as
-soon as possible. Some toolbox calls malfunction when resources do not
-automatically load. Furthermore, remember to use SetResLoad (TRUE)
-before exiting from your application; otherwise the Finder's code resource
-will not be loaded.
-The low-memory global variable ResLoad echoes the status of this call, but
-remember that any non-zero value indicates that resource loading is
-disabled.
-The following calls set ResLoad to TRUE (enable auto-loading) as a
-side-effect: GetFNum , GetFontName , RealFont and AddResMenu .
-See CountResources for an example of usage.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  void
-  SetResLoad(Boolean load) ONEWORDINLINE(0xA99B);
+                       <pre>After using SetResLoad (FALSE), be sure to use SetResLoad (TRUE) as
+                     soon as possible. Some toolbox calls malfunction when resources do not
+                     automatically load. Furthermore, remember to use SetResLoad (TRUE)
+                     before exiting from your application; otherwise the Finder's code resource
+                     will not be loaded.
+                     The low-memory global variable ResLoad echoes the status of this call, but
+                     remember that any non-zero value indicates that resource loading is
+                     disabled.
+                     The following calls set ResLoad to TRUE (enable auto-loading) as a
+                     side-effect: GetFNum , GetFontName , RealFont and AddResMenu .
+                     See CountResources for an example of usage.
+                     </pre>
+                     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                     *    \carbon_lib        in CarbonLib 1.0 and later
+                     *    \mac_os_x         in version 10.0 and later
+                     */
+                       void
+                       SetResLoad(Boolean load) ONEWORDINLINE(0xA99B);
 
-  /**
-  \brief Find how many of a selected resource type exist
+                       /**
+                       \brief Find how many of a selected resource type exist
 
-  <pre>CountResources returns the number of resources of a specified resource
-type that exist among the currently-open resource files.
-rTypeis a 4-byte ResType value identifying the resource type you wish to
-count (e.g. 'FONT', 'MENU', etc.).
-</pre>
-* \returns <pre>a positive integer; the number of resources of the specified type
-contained in all currently-open resource files. Returns 0 if none are
-found.
-</pre>
-* \note <pre>This function is used as the first step in generating a list of
-currently-available resources of a particular type. To generate the list,
-use GetIndResource with an index ranging from 1 to the
-CountResources return value.
-Use Count1Types and Get1IndResource to count and access only the
-resources in the current resource file.
-The following example prints a list of the names of all resources of type
-'DRVR' (i.e., desk accessories).
-Example
-#include < Resources.h >
-short rCount, rID, j;
-Handle rHandle;
-ResType rType;
-Str255 rName;
-printf("\n"); // ensure printf can get fonts   // before calling SetResLoad   rCount = CountResources('DRVR');
-  SetResLoad(FALSE); // do not need resource, just info   for (j = 1; j <= rCount; j++)
-  {
-    rHandle = GetIndResource('DRVR', j);
-    GetResInfo(rHandle, &rID, &rType, rName);
-    printf(" 'DRVR' Rsrc ID: %6d, Name: %s\n", rID, PtoCstr(rName) + 1);
-  }
-  SetResLoad(TRUE); // better do this!   </ pre>
-              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
-      later
-          *    \carbon_lib in CarbonLib 1.0 and
-      later
-          *    \mac_os_x in version 10.0 and
-      later
-            */
-          short
-          CountResources(ResType theType) ONEWORDINLINE(0xA99C);
+                       <pre>CountResources returns the number of resources of a specified resource
+                     type that exist among the currently-open resource files.
+                     rTypeis a 4-byte ResType value identifying the resource type you wish to
+                     count (e.g. 'FONT', 'MENU', etc.).
+                     </pre>
+                     * \returns <pre>a positive integer; the number of resources of the specified type
+                     contained in all currently-open resource files. Returns 0 if none are
+                     found.
+                     </pre>
+                     * \note <pre>This function is used as the first step in generating a list of
+                     currently-available resources of a particular type. To generate the list,
+                     use GetIndResource with an index ranging from 1 to the
+                     CountResources return value.
+                     Use Count1Types and Get1IndResource to count and access only the
+                     resources in the current resource file.
+                     The following example prints a list of the names of all resources of type
+                     'DRVR' (i.e., desk accessories).
+                     Example
+                     #include < Resources.h >
+                     short rCount, rID, j;
+                     Handle rHandle;
+                     ResType rType;
+                     Str255 rName;
+                     printf("\n"); // ensure printf can get fonts   // before calling SetResLoad   rCount = CountResources('DRVR');
+                       SetResLoad(FALSE); // do not need resource, just info   for (j = 1; j <= rCount; j++)
+                       {
+                         rHandle = GetIndResource('DRVR', j);
+                         GetResInfo(rHandle, &rID, &rType, rName);
+                         printf(" 'DRVR' Rsrc ID: %6d, Name: %s\n", rID, PtoCstr(rName) + 1);
+                       }
+                       SetResLoad(TRUE); // better do this!   </ pre>
+                                   * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                                             *    \non_carbon_cfm in InterfaceLib 7.1 and
+                           later
+                               *    \carbon_lib in CarbonLib 1.0 and
+                           later
+                               *    \mac_os_x in version 10.0 and
+                           later
+                                 */
+                       short
+                       CountResources(ResType theType) ONEWORDINLINE(0xA99C);
 
-  /**
-  \brief Get "1-deep" count of resources of selected type
+                       /**
+                       \brief Get "1-deep" count of resources of selected type
 
-  <pre>Count1Resources returns the number of resources of a specified type
-which exist in the current resource file.
-rTypeis a 4-byte ResType value identifying the resource type you wish to
-count (e.g. 'FONT', 'MENU', etc.).
-</pre>*/
-* \returns <pre>a positive integer; the number of resources of the specified type in
+                       <pre>Count1Resources returns the number of resources of a specified type
+                     which exist in the current resource file.
+                     rTypeis a 4-byte ResType value identifying the resource type you wish to
+                     count (e.g. 'FONT', 'MENU', etc.).
+                     </pre>*/
+                       * \returns<pre> a positive integer; the number of resources of the specified type in
 the current resource file. Returns 0 if none found.
 </pre>
 * \note <pre>This function is the "1-deep" version of CountResources . To generate a
@@ -553,71 +553,71 @@ Refer to CountTypes and GetIndResource for related details.
   short
   Count1Resources(ResType theType) ONEWORDINLINE(0xA80D);
 
-  /**
-   *  GetIndResource()
-   *
+                       /**
+                        *  GetIndResource()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  Handle
-  GetIndResource(ResType theType, short index) ONEWORDINLINE(0xA99D);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       Handle
+                       GetIndResource(ResType theType, short index) ONEWORDINLINE(0xA99D);
 
-  /**
-   *  Get1IndResource()
-   *
+                       /**
+                        *  Get1IndResource()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  Handle
-  Get1IndResource(ResType theType, short index) ONEWORDINLINE(0xA80E);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       Handle
+                       Get1IndResource(ResType theType, short index) ONEWORDINLINE(0xA80E);
 
-  /**
-   *  GetResource()
-   *
+                       /**
+                        *  GetResource()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  Handle
-  GetResource(ResType theType, short theID) ONEWORDINLINE(0xA9A0);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       Handle
+                       GetResource(ResType theType, short theID) ONEWORDINLINE(0xA9A0);
 
-  /**
-   *  Get1Resource()
-   *
+                       /**
+                        *  Get1Resource()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  Handle
-  Get1Resource(ResType theType, short theID) ONEWORDINLINE(0xA81F);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       Handle
+                       Get1Resource(ResType theType, short theID) ONEWORDINLINE(0xA81F);
 
-  /**
-   *  GetNamedResource()
-   *
+                       /**
+                        *  GetNamedResource()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  Handle
-  GetNamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA9A1);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       Handle
+                       GetNamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA9A1);
 
-  /**
-   *  Get1NamedResource()
-   *
+                       /**
+                        *  Get1NamedResource()
+                        *
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  Handle
-  Get1NamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA820);
+                        *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+                        *    \carbon_lib        in CarbonLib 1.0 and later
+                        *    \mac_os_x         in version 10.0 and later
+                        */
+                       Handle
+                       Get1NamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA820);
 
 /**
  *  [Mac]LoadResource()
@@ -845,7 +845,7 @@ leading to the start of the resource map of the current resource file.
   long
   RsrcMapEntry(Handle theResource) ONEWORDINLINE(0xA9C5);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
   /**
   \brief Set resource attributes (purgeable, locked, etc.)
 
@@ -970,7 +970,7 @@ Remember that if a resource has been purged, these file operations will
 write a 0-length resource to the file. Thus, a typical use of this function is
 in a sequence that locks a resource, changes it, writes the changes, and
 unlocks the resource:
-HNoPurge ( rHandle ); // inhibit purging   /*... modify the handle data... */
+HNoPurge ( rHandle ); // inhibit purging   // ... modify the handle data...
   ChangedResource(rHandle); // tag as changed   if (ResError() == noErr)
   {                         // always check this!     WriteResource(rHandle); // record changes to disk   }
   HPurge(rHandle); // allow purge   Make sure you check ResError after calling ChangedResource(or
@@ -985,7 +985,7 @@ HNoPurge ( rHandle ); // inhibit purging   /*... modify the handle data... */
           *    \mac_os_x in version 10.0 and
       later
             */
-          void WriteResource(Handle theResource) ONEWORDINLINE(0xA9B0);
+  void WriteResource(Handle theResource) ONEWORDINLINE(0xA9B0);
 
   /**
   \brief Force resource changes to be written before purge
@@ -1144,7 +1144,7 @@ resource file attributes.
   Handle
   RGetResource(ResType theType, short theID) ONEWORDINLINE(0xA80C);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
   /**
    *  HOpenResFile()
    *
@@ -1253,7 +1253,7 @@ number returned is -1. Call the ResError function to check for errors.
   Handle
   GetNextFOND(Handle fondHandle) TWOWORDINLINE(0x700A, 0xA822);
 
-// QuickTime 3.0#if CALL_NOT_IN_CARBON
+  // QuickTime 3.0#if CALL_NOT_IN_CARBON
   /**
    *  RegisterResourceEndianFilter()
    *
@@ -1292,7 +1292,7 @@ number returned is -1. Call the ResError function to check for errors.
     _________________________________________________________________________________________________________
   */
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
   typedef SInt16 RsrcChainLocation;
   enum
   {
@@ -1495,7 +1495,7 @@ number returned is -1. Call the ResError function to check for errors.
   void
   addresource(Handle theResource, ResType theType, short theID, const char *name);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if OLDROUTINENAMES
 #define SizeResource(theResource) GetResourceSizeOnDisk(theResource)
 #define MaxSizeRsrc(theResource) GetMaxResourceSize(theResource)

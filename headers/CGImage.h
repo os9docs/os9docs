@@ -248,7 +248,7 @@ extern "C"
   CGImageAlphaInfo
   CGImageGetAlphaInfo(CGImageRef image);
 
-  /*Return the data provider of `image'. */
+  // Return the data provider of `image'.
   /**
    *  CGImageGetDataProvider()
    *

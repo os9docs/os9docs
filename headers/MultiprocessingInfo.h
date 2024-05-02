@@ -102,7 +102,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   MPPageSizeClass MPGetPageSizeClasses(void);
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
   /**
    *  MPGetPageSize()
@@ -114,21 +114,20 @@ extern "C"
    */
   ByteCount MPGetPageSize(MPPageSizeClass pageClass);
 
-#endif // CALL_NOT_IN_CARBON 
-  /**// CALL_NOT_IN_CARBON 
-     \section ID Iterator Services
-     ========*/
+#endif // CALL_NOT_IN_CARBON
+  /**/ / CALL_NOT_IN_CARBON 
+     \section ID Iterator Services == == == == * /
 
 #if CALL_NOT_IN_CARBON
-  /**
-   *  MPGetNextCoherenceID()
-   *
+                                                    /**
+                                                     *  MPGetNextCoherenceID()
+                                                     *
 
-   *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  OSStatus MPGetNextCoherenceID(MPCoherenceID *coherenceID);
+                                                     *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
+                                                     *    \carbon_lib        not available
+                                                     *    \mac_os_x         not available
+                                                     */
+                                                    OSStatus MPGetNextCoherenceID(MPCoherenceID *coherenceID);
 
   /**
    *  MPGetNextCpuID()
@@ -232,23 +231,22 @@ extern "C"
   OSStatus MPGetNextNotificationID(MPProcessID owningProcessID,
                                    MPNotificationID *notificationID);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
-  /**// CALL_NOT_IN_CARBON 
-   *  MPGetNextAreaID()
-   *
+  /**/ / CALL_NOT_IN_CARBON *MPGetNextAreaID() *
 
-   *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  OSStatus
-  MPGetNextAreaID(MPAddressSpaceID owningSpaceID, MPAreaID *areaID);
+          *    \non_carbon_cfm in MPDiagnostics 2.3 and
+      later
+              *    \carbon_lib not available
+          *    \mac_os_x not available
+          * /
+          OSStatus
+          MPGetNextAreaID(MPAddressSpaceID owningSpaceID, MPAreaID *areaID);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
   /**
-   *  M// CALL_NOT_IN_CARBON 
+   *  M// CALL_NOT_IN_CARBON
    *
 
    *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
@@ -272,12 +270,12 @@ extern "C"
      \warning The implementation of MPGetObjectInfo assumes that all info records are in 4 byte multiples.
   */
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
   enum
   {
     // The version of the MPAreaInfo structure requested.    kMPQueueInfoVersion = 1L | (kOpaqueQueueID << 16),
-    kMP// CALL_NOT_IN_CARBON 
-    kMPEventInfoVersion = 1L | (kOpaqueEventID << 16),
+    kMP // CALL_NOT_IN_CARBON
+        kMPEventInfoVersion = 1L | (kOpaqueEventID << 16),
     kMPCriticalRegionInfoVersion = 1L | (kOpaqueCriticalRegionID << 16),
     kMPNotificationInfoVersion = 1L | (kOpaqueNotificationID << 16),
     // The version of the MPAreaInfo structure requested.
@@ -285,27 +283,27 @@ extern "C"
 
   struct MPQueueInfo
   {
-    PBVersion version; // Version of the data structure requested
+    PBVersion version;     // Version of the data structure requested
     MPProcessID processID; // Owning process ID    OSType queueName;      // Queue name
     ItemCount nWaiting;
     MPTaskID waitingTaskID; // First waiting task.
     ItemCount nMessages;
     ItemCount nReserved;
-// Version of the data structure requested
-    void *p1; /*< First message parameters...*/
-    void *p2;// Owning process ID
-    void *p3;// Queue name
+    // Version of the data structure requested
+    void *p1; // < First message parameters...
+    void *p2; // Owning process ID
+    void *p3; // Queue name
   };
   typedef struct MPQueueInfo MPQueueInfo;
-  struct MPSemaphoreInfo// First waiting task.
+  struct MPSemaphoreInfo // First waiting task.
   {
-    PBVersion version; /*< Version of the data structure requested*/
+    PBVersion version; // < Version of the data structure requested
 
-    MPProcessID processID; /*< Owning process ID*/
-    OSType semaphoreName;  /*< Semaphore name*/
+    MPProcessID processID; // < Owning process ID
+    OSType semaphoreName;  // < Semaphore name
 
     ItemCount nWaiting;
-    MPTaskID waitingTaskID; /*< First waiting task.*/
+    MPTaskID waitingTaskID; // < First waiting task.
 
     ItemCount maximum;
     ItemCount count;
@@ -313,26 +311,26 @@ extern "C"
   typedef struct MPSemaphoreInfo MPSemaphoreInfo;
   struct MPEventInfo
   {
-    PBVersion version; /*< Version of the data structure requested*/
+    PBVersion version; // < Version of the data structure requested
 
-    MPProcessID processID; /*< Owning process ID*/
-    OSType eventName;      /*< Event name*/
+    MPProcessID processID; // < Owning process ID
+    OSType eventName;      // < Event name
 
     ItemCount nWaiting;
-    MPTaskID waitingTaskID; /*< First waiting task.*/
+    MPTaskID waitingTaskID; // < First waiting task.
 
     MPEventFlags events;
   };
   typedef struct MPEventInfo MPEventInfo;
   struct MPCriticalRegionInfo
   {
-    PBVersion version; /*< Version of the data structure requested*/
+    PBVersion version; // < Version of the data structure requested
 
-    MPProcessID processID; /*< Owning process ID*/
-    OSType regionName;     /*< Critical region name*/
+    MPProcessID processID; // < Owning process ID
+    OSType regionName;     // < Critical region name
 
     ItemCount nWaiting;
-    MPTaskID waitingTaskID; /*< First waiting task.*/
+    MPTaskID waitingTaskID; // < First waiting task.
 
     MPTaskID owningTask;
     ItemCount count;
@@ -340,30 +338,30 @@ extern "C"
   typedef struct MPCriticalRegionInfo MPCriticalRegionInfo;
   struct MPNotificationInfo
   {
-    PBVersion version; /*< Version of the data structure requested*/
+    PBVersion version; // < Version of the data structure requested
 
-    MPProcessID processID;   /*< Owning process ID*/
-    OSType notificationName; /*< Notification name*/
+    MPProcessID processID;   // < Owning process ID
+    OSType notificationName; // < Notification name
 
-    MPQueueID queueID; /*< Queue to notify.*/
+    MPQueueID queueID; // < Queue to notify.
     void *p1;
     void *p2;
     void *p3;
 
-    MPEventID eventID; /*< Event to set.*/
+    MPEventID eventID; // < Event to set.
     MPEventFlags events;
 
-    MPSemaphoreID semaphoreID; /*< Sempahore to signal.   */
+    MPSemaphoreID semaphoreID; // < Sempahore to signal.
   };
   typedef struct MPNotificationInfo MPNotificationInfo;
   struct MPAddressSpaceInfo
   {
-    PBVersion version; /*< Version of the data structure requested*/
+    PBVersion version; // < Version of the data structure requested
 
-    MPProcessID processID; /*< Owning process ID*/
-    MPCoherenceID groupID; /*< Related coherence group.*/
-    ItemCount nTasks;      /*< Number of tasks in this space.*/
-    UInt32 vsid[16];       /*< Segment register VSIDs.*/
+    MPProcessID processID; // < Owning process ID
+    MPCoherenceID groupID; // < Related coherence group.
+    ItemCount nTasks;      // < Number of tasks in this space.
+    UInt32 vsid[16];       // < Segment register VSIDs.
   };
   typedef struct MPAddressSpaceInfo MPAddressSpaceInfo;
   // *** We should put the task info call here instead of in MPExtractTaskState.
@@ -432,7 +430,7 @@ extern "C"
   OSStatus MPGetAddressSpaceInfo(MPAddressSpaceID id, PBVersion version,
                                  MPAddressSpaceInfo *info_o);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -443,7 +441,7 @@ extern "C"
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
-#elif P// CALL_NOT_IN_CARBON 
+#elif P // CALL_NOT_IN_CARBON
 #pragma import reset
 #endif
 
@@ -451,4 +449,4 @@ extern "C"
 }
 #endif
 
-#endif // __MULTIPROCESSINGINFO__ // __MULTIPROCESSINGINFO__ 
+#endif // __MULTIPROCESSINGINFO__ // __MULTIPROCESSINGINFO__

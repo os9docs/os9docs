@@ -59,12 +59,12 @@ extern "C" {
 #endif
 
 enum {
-  invalColReq = -1 /*invalid color table request*/
+  invalColReq = -1 // invalid color table request
 };
 
 enum {
   // transfer modes 
-  srcCopy = 0, /*the 16 transfer modes*/
+  srcCopy = 0, // the 16 transfer modes
   srcOr = 1,
   srcXor = 2,
   srcBic = 3,
@@ -106,19 +106,19 @@ enum {
 
 enum {
   // QuickDraw color separation constants 
-  normalBit = 0,  /*normal screen mapping*/
-  inverseBit = 1, /*inverse screen mapping*/
-  redBit = 4,     /*RGB additive mapping*/
+  normalBit = 0,  // normal screen mapping
+  inverseBit = 1, // inverse screen mapping
+  redBit = 4,     // RGB additive mapping
   greenBit = 3,
   blueBit = 2,
-  cyanBit = 8, /*CMYBk subtractive mapping*/
+  cyanBit = 8, // CMYBk subtractive mapping
   magentaBit = 7,
   yellowBit = 6,
   blackBit = 5
 };
 
 enum {
-  blackColor = 33, /*colors expressed in these mappings*/
+  blackColor = 33, // colors expressed in these mappings
   whiteColor = 30,
   redColor = 205,
   greenColor = 341,
@@ -129,12 +129,12 @@ enum {
 };
 
 enum {
-  picLParen = 0, /*standard picture comments*/
+  picLParen = 0, // standard picture comments
   picRParen = 1,
-  clutType = 0,   /*0 if lookup table*/
-  fixedType = 1,  /*1 if fixed table*/
-  directType = 2, /*2 if direct values*/
-  gdDevType = 0   /*0 = monochrome 1 = color*/
+  clutType = 0,   // 0 if lookup table
+  fixedType = 1,  // 1 if fixed table
+  directType = 2, // 2 if direct values
+  gdDevType = 0   // 0 = monochrome 1 = color
 };
 
 enum {
@@ -144,19 +144,19 @@ enum {
   hasAuxMenuBar = 6, // 1 if device has an aux menu bar on it 
   burstDevice = 7,
   ext32Device = 8,
-  ramInit = 10,      /*1 if initialized from 'scrn' resource*/
+  ramInit = 10,      // 1 if initialized from 'scrn' resource
   mainScreen = 11,   // 1 if main screen 
   allInit = 12,      // 1 if all devices initialized 
-  screenDevice = 13, /*1 if screen device [not used]*/
+  screenDevice = 13, // 1 if screen device [not used]
   noDriver = 14,     // 1 if no driver for this GDevice 
-  screenActive = 15, /*1 if in use*/
-  hiliteBit = 7,     /*flag bit in LMGet/SetHiliteMode*/
-  pHiliteBit = 0,    /*flag bit in LMGet/SetHiliteMode when used with BitClr*/
-  defQDColors = 127, /*resource ID of clut for default QDColors*/
+  screenActive = 15, // 1 if in use
+  hiliteBit = 7,     // flag bit in LMGet/SetHiliteMode
+  pHiliteBit = 0,    // flag bit in LMGet/SetHiliteMode when used with BitClr
+  defQDColors = 127, // resource ID of clut for default QDColors
                      // pixel type 
   RGBDirect = 16,    // 16 & 32 bits/pixel pixelType value 
                      // pmVersion values 
-  baseAddr32 = 4     /*pixmap base address is 32-bit address*/
+  baseAddr32 = 4     // pixmap base address is 32-bit address
 };
 
 enum {
@@ -1933,8 +1933,8 @@ typedef struct ColorTable ColorTable;
 typedef ColorTable *CTabPtr;
 typedef CTabPtr *CTabHandle;
 struct xColorSpec {
-  short value;  /*index or other value*/
-  RGBColor rgb; /*true color*/
+  short value;  // index or other value
+  RGBColor rgb; // true color
   short xalpha;
 };
 typedef struct xColorSpec xColorSpec;
@@ -2184,8 +2184,8 @@ typedef struct ITab ITab;
 typedef ITab *ITabPtr;
 typedef ITabPtr *ITabHandle;
 struct SProcRec {
-  Handle nxtSrch;          /*SProcHndl Handle to next SProcRec*/
-  ColorSearchUPP srchProc; /*search procedure proc ptr*/
+  Handle nxtSrch;          // SProcHndl Handle to next SProcRec
+  ColorSearchUPP srchProc; // search procedure proc ptr
 };
 typedef struct SProcRec SProcRec;
 typedef SProcRec *SProcPtr;
@@ -4773,7 +4773,7 @@ if ( myEvent.what ) == mouseDown {
 GlobalToLocal ( &myEvent. where );// get local equivalent 
 ctlCode=FindControl ( myEvent. where, myWindow, &myCtl );
 if ( ctlCode == inThumb )
-/*. . . etc. . . */
+// . . . etc. . . 
 }
 This function is also used as an intermediate step in converting between
 coordinates of two different grafPorts (e.g., windows). For instance, to

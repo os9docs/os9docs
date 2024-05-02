@@ -9,7 +9,7 @@
     \copyright © 1990-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup File
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -43,7 +44,7 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-// Creator and type of clipping files enum {
+  // Creator and type of clipping files enum {
   kClippingCreator = FOUR_CHAR_CODE('drag'),
   kClippingPictureType = FOUR_CHAR_CODE('clpp'),
   kClippingTextType = FOUR_CHAR_CODE('clpt'),
@@ -52,17 +53,18 @@ extern "C" {
 };
 
 // Creator and type of Internet Location files enum {
-// Creator and type of Internet Location files 
-  kInternetLocationHTTP = FOUR_CHAR_CODE('ilht'),
-  kInternetLocationFTP = FOUR_CHAR_CODE('ilft'),
-  kInternetLocationFile = FOUR_CHAR_CODE('ilfi'),
-  kInternetLocationMail = FOUR_CHAR_CODE('ilma'),
-  kInternetLocationNNTP = FOUR_CHAR_CODE('ilnw'),
-  kInternetLocationAFP = FOUR_CHAR_CODE('ilaf'),
-  kInternetLocationAppleTalk = FOUR_CHAR_CODE('ilat'),
-  kInternetLocationNSL = FOUR_CHAR_CODE('ilns'),
-  kInternetLocationGeneric = FOUR_CHAR_CODE('ilge')
-};
+// Creator and type of Internet Location files
+kInternetLocationHTTP = FOUR_CHAR_CODE('ilht'),
+    kInternetLocationFTP = FOUR_CHAR_CODE('ilft'),
+    kInternetLocationFile = FOUR_CHAR_CODE('ilfi'),
+    kInternetLocationMail = FOUR_CHAR_CODE('ilma'),
+    kInternetLocationNNTP = FOUR_CHAR_CODE('ilnw'),
+    kInternetLocationAFP = FOUR_CHAR_CODE('ilaf'),
+    kInternetLocationAppleTalk = FOUR_CHAR_CODE('ilat'),
+    kInternetLocationNSL = FOUR_CHAR_CODE('ilns'),
+    kInternetLocationGeneric = FOUR_CHAR_CODE('ilge')
+}
+;
 
 enum {
   kCustomIconResource = -16455 // Custom icon family resource ID };
@@ -126,15 +128,16 @@ typedef RoutingResourcePtr *RoutingResourceHandle;
 // Types for special container aliases 
   kExtensionFolderAliasType = FOUR_CHAR_CODE('faex')
 };
-// type for folder aliases 
+// type for folder aliases
 // Types for AppleShare folder aliases enum {
-  kExportedFolderAliasType = F// type for trash folder aliases 
-  kDropFolderAliasType = FOUR_CHAR_CODE('fadr'),
-  kSharedFolderAliasType = FOU// type for hard disk aliases 
-  kMountedFolderAliasType = FOUR_CHAR_CODE('famn')
-};// type for floppy aliases 
+kExportedFolderAliasType = F // type for trash folder aliases
+    kDropFolderAliasType = FOUR_CHAR_CODE('fadr'),
+    kSharedFolderAliasType = FOU // type for hard disk aliases
+        kMountedFolderAliasType = FOUR_CHAR_CODE('famn')
+}
+; // type for floppy aliases
 
-// Finder flags (finderFlags, // type for server aliases 
+// Finder flags (finderFlags, // type for server aliases
  * ioDirMask) == 0) */
 enum {// type for application aliases 
   kIsOnDesk = 0x0001, // Files and folders (System 6)   kColor = 0x000E,    // Files and folders   // bit 0x0020 was kRequireSwitchLaunch, but is now reserved for future use  kIsShared = 0x0040,      // Files only (Applications only)                            // If clear, the application needs to write to                            // its resource fork, and therefore cannot be                            // shared on a server   kHasNoINITs = 0x0080,    // Files only (Extensions/Control Panels only)                            // This file contains no INIT resource   kHasBeenInited = 0x0100, // Files only                            // Clear if the file contains desktop database                            // resources ('BNDL', 'FREF', 'open', 'kind'...)   // that have not been added yet. Set only by the Finder   // Reserved for folders - make sure this bit is cleared for folders   /* bit 0x0200 was the letter bit for AOCE, but is now reserved for future use
@@ -145,28 +148,32 @@ enum {// type for application aliases
   fOnDesk = kIsOnDesk,
   fHasBundle = kHasBundle,// type for application control panel alias 
   fInvisible = kIsInvisible
-};// type for application DA alias 
-// type for plain package alias 
-// Obsolete enum { fTrash = -3, fDesktop = -2, fDisk = 0 };
-// type for application package alias 
+};// type for application DA alias
+ // type for plain package alias
+ // Obsolete enum { fTrash = -3, fDesktop = -2, fDisk = 0 };
+ // type for application package alias
 #if OLDROUTINENAMES
-enum { kIsStationary = kIsStationery };
-// Types for Special folder aliases 
-#endif // OLDROUTINENAMES 
-// Extended flags (extendedFinderFlags, fdXFlags and frXFlags) // Any flag not specified should be set to 0. enum {
-  kExtendedFlagsAreInvalid =
-      0x8000, // If set the other extended flags are ignored   kExtendedFlagHasCustomBadge =
-      0x0100, // Set if the file or folder has a badge resource   kExtendedFlagHasRoutingInfo =
-      0x0004 // Set if the file contains routing info resource };
+ enum
+ {
+   kIsStationary = kIsStationery
+ };
+ // Types for Special folder aliases
+#endif // OLDROUTINENAMES
+        // Extended flags (extendedFinderFlags, fdXFlags and frXFlags) // Any flag not specified should be set to 0. enum {
+ kExtendedFlagsAreInvalid =
+     0x8000, // If set the other extended flags are ignored   kExtendedFlagHasCustomBadge =
+     0x0100, // Set if the file or folder has a badge resource   kExtendedFlagHasRoutingInfo =
+     0x0004  // Set if the file contains routing info resource };
 
-// Use a filetype in this range to indicate that a file is temporarily busy // (while it is being downloaded or installed, for example).  This prevents // Finder 8.5 and later from trying to change the item's attributes before it /* is fully created. -- If you provide a series of 'BNDL' icons for your creator
- */
-// and some of these filetypes, you can achieve limited icon animation while // the file creation progresses. enum {
-// Types for AppleShare folder aliases 
-  kLastMagicBusyFiletype = FOUR_CHAR_CODE('bzy?')
-};
+             // Use a filetype in this range to indicate that a file is temporarily busy // (while it is being downloaded or installed, for example).  This prevents // Finder 8.5 and later from trying to change the item's attributes before it /* is fully created. -- If you provide a series of 'BNDL' icons for your creator
+             * /
+         // and some of these filetypes, you can achieve limited icon animation while // the file creation progresses. enum {
+         // Types for AppleShare folder aliases
+         kLastMagicBusyFiletype = FOUR_CHAR_CODE('bzy?')
+ }
+ ;
 
-// Use this date as a file's or folder's creation date to indicate that it is // temporarily busy (while it is being downloaded or installed, for example). // This prevents Finder from trying to change the item's attributes before it /* is fully created (Finder 8.5 and 8.6 check file creation dates; later Finders
+ // Use this date as a file's or folder's creation date to indicate that it is // temporarily busy (while it is being downloaded or installed, for example). // This prevents Finder from trying to change the item's attributes before it /* is fully created (Finder 8.5 and 8.6 check file creation dates; later Finders
  */
 // may check folder creation dates as well). enum { kMagicBusyCreationDate = 0x4F3AFDB0 };
 
@@ -198,7 +205,7 @@ typedef struct ExtendedFolderInfo ExtendedFolderInfo;
    Use the new data structu// Files only 
    instead of FInfo, etc...// Files and folders 
 */// Files only 
-/*------------------------------------------------------------------------*/
+// ------------------------------------------------------------------------
 // File info /**
 // Obsolete. Use names defined above. 
      In MacOS 8, the fdFldr field has become reserved for the Finder.
@@ -222,17 +229,18 @@ The new fdFlags word is a set of bit flags, formatted as follows:
 </pre>// If set the other extended flags are ignored 
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
 */// Set if the file or folder has a badge resource 
-struct FInfo {
-	OSType fdTyp// Set if the file contains routing info resource 
-	OSType fdCreator;/**< File creator's signature;/**< eg,'MSWD'*/
-	unsigned short  fdFlags;/**< Flag bits used by Finder (see Notes)*/
-// Use a filetype in this range to indicate that a file is temporarily busy 
-// (while it is being downloaded or installed, for example).  This prevents 
-// Finder 8.5 and later from trying to change the item's attributes before it 
+struct FInfo
+ {
+   OSType fdTyp            // Set if the file contains routing info resource
+       OSType fdCreator;   /**< File creator's signature;/**< eg,'MSWD'*/
+   unsigned short fdFlags; /**< Flag bits used by Finder (see Notes)*/
+   // Use a filetype in this range to indicate that a file is temporarily busy
+   // (while it is being downloaded or installed, for example).  This prevents
+   // Finder 8.5 and later from trying to change the item's attributes before it
 
-typedef struct FInfo FInfo;
-// and some of these filetypes, you can achieve limited icon animation while 
-// the file creation progresses. 
+   typedef struct FInfo FInfo;
+   // and some of these filetypes, you can achieve limited icon animation while
+   // the file creation progresses.
      In MacOS 8, the fdIconID and fdComment fields were changed
      to become reserved fields for the Finder.
      The fdScript has become an extended flag.
@@ -254,55 +262,59 @@ this field to implement its "Put Away" menu item.
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
 */
-struct FXInfo {
-	short fdIconID;/**< F// The type of the file 
-	short fdUnused[];/**<// The file's creator 
-	char fdScript;/**< */// ex: kHasBundle, kIsInvisible... 
-	char fdXFlags;/**< */// File's location in the folder 
-	s// If set to {0, 0}, the Finder will place the item automatically 
-	long fdPutAway;/**< Dir// (set to 0) 
-	} FXInfo;/**< */
+struct FXInfo
+     {
+       short fdIconID;        /**< F// The type of the file
+               short fdUnused[];/**<// The file's creator
+               char fdScript;/**< */
+                              // ex: kHasBundle, kIsInvisible...
+       char fdXFlags; /**< */ // File's location in the folder
+       s                      // If set to {0, 0}, the Finder will place the item automatically
+           long fdPutAway;    /**< Dir// (set to 0)
+               } FXInfo;/**< */
 
-typedef struct FXInfo FXInfo;
-// Folder info /**// The position and dimension of the folder's window 
-     IMPORTANT:// ex. kIsInvisible, kNameLocked, etc.
-     In MacOS 8, the f// Folder's location in the parent folder 
-  // If set to {0, 0}, the Finder will place the item automatically 
-*/// (set to 0) 
-/**
-<pre>
- * \note <pre>A DInfo structure named ioDrUsrWds is embedded in the DirInfo structure
-obtained by PBGetCatInf// Reserved (set to 0) 
-PBSetCatInfo .
-The frFlags field has the s// Extended flags (custom badge, routing info...) 
-Many of the bits don// Reserved (set to 0). Comment ID if high-bit is clear 
-apply. See FInfo.// Put away folder ID 
-The frRect field identifies where the folder's window goes when the folder
-is opened. Additional information is found in the FXInfo structure.
-The content of the frView field is not documented, the high byte of this field
-is one of:// Scroll position (for icon views) 
-1By Icon// Reserved (set to 0) 
-2By Name
-3By Date// Extended flags (custom badge, routing info...) 
-4By Size// Reserved (set to 0). Comment ID if high-bit is clear 
-5By Kind// Put away folder ID 
-6By Color
-Since the Finder performs its own internal caching, changes made to these
-fields may not be noticed for some time (you may need to use the Finder's
-Get Info command or manually close and reopen the the folder). Also, when
-the Finder ejects a disk, it may overwrite your changes anyway.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct DInfo {
-// File info 
-	short frFlags;/**< Bit flags (fOnDesk, et al.)  See FInfo*/
-	Point frLocation;/**< Top-left corner for folder's icon*/
-	short frView;/**< Folder view*/
-	} DInfo;/**< */
+       typedef struct FXInfo FXInfo;
+       // Folder info /**// The position and dimension of the folder's window
+       IMPORTANT : // ex. kIsInvisible, kNameLocked, etc.
+                   In MacOS 8,
+                   the f // Folder's location in the parent folder
+                       // If set to {0, 0}, the Finder will place the item automatically
+                       * /// (set to 0)
+                   /**
+                   <pre>
+                    * \note <pre>A DInfo structure named ioDrUsrWds is embedded in the DirInfo structure
+                   obtained by PBGetCatInf// Reserved (set to 0)
+                   PBSetCatInfo .
+                   The frFlags field has the s// Extended flags (custom badge, routing info...)
+                   Many of the bits don// Reserved (set to 0). Comment ID if high-bit is clear
+                   apply. See FInfo.// Put away folder ID
+                   The frRect field identifies where the folder's window goes when the folder
+                   is opened. Additional information is found in the FXInfo structure.
+                   The content of the frView field is not documented, the high byte of this field
+                   is one of:// Scroll position (for icon views)
+                   1By Icon// Reserved (set to 0)
+                   2By Name
+                   3By Date// Extended flags (custom badge, routing info...)
+                   4By Size// Reserved (set to 0). Comment ID if high-bit is clear
+                   5By Kind// Put away folder ID
+                   6By Color
+                   Since the Finder performs its own internal caching, changes made to these
+                   fields may not be noticed for some time (you may need to use the Finder's
+                   Get Info command or manually close and reopen the the folder). Also, when
+                   the Finder ejects a disk, it may overwrite your changes anyway.
+                   </pre>
+                    * \copyright THINK Reference © 1991-1992 Symantec Corporation
+                   */
+                   struct DInfo
+       {
+         // File info
+         short frFlags;    /**< Bit flags (fOnDesk, et al.)  See FInfo*/
+         Point frLocation; /**< Top-left corner for folder's icon*/
+         short frView;     /**< Folder view*/
+       } DInfo;            /**< */
 
-typedef struct DInfo DInfo;
-// Extended folder info /**
+       typedef struct DInfo DInfo;
+       // Extended folder info /**
      IMPORTANT:
      In MacOS 8, the frOpenChain and frComment fields were changed
      to become reserved fields for the Finder.
@@ -324,17 +336,18 @@ Finder uses this field to implement its "Put Away" menu item.
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
 */
-struct DXInfo {
-	Point frScroll;/**< Currently scrolled by this horiz and*/
-	long frOpenChain;/**< Directory ID in the chain of open*/
-	short frUnused;/**< (reserved)*/
-// Extended file info 
-	long frPutAway;/**< Dir ID of folder's home directory*/
-	} DXInfo;/**< */
+struct DXInfo
+     {
+       Point frScroll;   /**< Currently scrolled by this horiz and*/
+       long frOpenChain; /**< Directory ID in the chain of open*/
+       short frUnused;   /**< (reserved)*/
+                         // Extended file info
+       long frPutAway;   /**< Dir ID of folder's home directory*/
+     } DXInfo;           /**< */
 
-typedef struct DXInfo DXInfo;
-/* ControlPanelDefProcPtr and cdev constants have all been moved to
- * Processes.i*/
+     typedef struct DXInfo DXInfo;
+     /* ControlPanelDefProcPtr and cdev constants have all been moved to
+      * Processes.i*/
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -351,9 +364,9 @@ typedef struct DXInfo DXInfo;
 #endif
 
 #ifdef __cplusplus
-}
+     }
 #endif
 
-#endif // __FINDER__ // Folder info 
-// Extended folder info 
-// __FINDER__ 
+#endif // __FINDER__ // Folder info
+     // Extended folder info
+     // __FINDER__

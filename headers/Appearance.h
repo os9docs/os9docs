@@ -55,8 +55,8 @@
 #include <CFString.h>
 #endif
 
-/*����������������������������������������������������������������������������������*/
-// Appearance Manager constants, etc. /*����������������������������������������������������������������������������������*/
+// ����������������������������������������������������������������������������������
+// Appearance Manager constants, etc. // ����������������������������������������������������������������������������������
 // Appearance Manager Apple Events (1.1 and later)
 #if PRAGMA_ONCE
 #pragma once
@@ -85,8 +85,8 @@ extern "C"
         'thme'),                                   // Appearance changed (e.g. platinum to hi-tech)     kAESystemFontChanged = FOUR_CHAR_CODE('sysf'), // system font changed     kAESmallSystemFontChanged =
         FOUR_CHAR_CODE('ssfn'),                  // small system font changed     kAEViewsFontChanged = FOUR_CHAR_CODE('vfnt') // views font changed   };
 
-  /*����������������������������������������������������������������������������������*/
-  // Appearance Manager file types   /*����������������������������������������������������������������������������������*/
+  // ����������������������������������������������������������������������������������
+  // Appearance Manager file types   // ����������������������������������������������������������������������������������
   enum
   {
     kThemeDataFileType = FOUR_CHAR_CODE('thme'), // file type for theme files     kThemePlatinumFileType =
@@ -94,8 +94,8 @@ extern "C"
         FOUR_CHAR_CODE('scen'), // file type for user themes     kThemeSoundTrackFileType = FOUR_CHAR_CODE('tsnd')
   };
 
-  /*����������������������������������������������������������������������������������*/
-  // Appearance Manager Supported Themes   // Use CopyThemeIdentifier to get the current theme ID   /*����������������������������������������������������������������������������������*/
+  // ����������������������������������������������������������������������������������
+  // Appearance Manager Supported Themes   // Use CopyThemeIdentifier to get the current theme ID   // ����������������������������������������������������������������������������������
 
 #define kThemeAppearancePlatinum CFSTR("com.apple.theme.appearance.platinum")
 #define kThemeAppearanceAqua CFSTR("com.apple.theme.appearance.aqua")
@@ -271,8 +271,8 @@ extern "C"
         3 // draw with down pressed (increment/decrement buttons)   };
 
   typedef UInt32 ThemeDrawState;
-  /*����������������������������������������������������������������������������������*/
-  // Theme cursor selectors available in Appearance 1.1 or later   /*����������������������������������������������������������������������������������*/
+  // ����������������������������������������������������������������������������������
+  // Theme cursor selectors available in Appearance 1.1 or later   // ����������������������������������������������������������������������������������
   enum
   {
     kThemeArrowCursor = 0,
@@ -291,8 +291,8 @@ extern "C"
   };
 
   typedef UInt32 ThemeCursor;
-  /*����������������������������������������������������������������������������������*/
-  // Theme menu bar drawing states   /*����������������������������������������������������������������������������������*/
+  // ����������������������������������������������������������������������������������
+  // Theme menu bar drawing states   // ����������������������������������������������������������������������������������
   enum
   {
     kThemeMenuBarNormal = 0,
@@ -305,8 +305,8 @@ extern "C"
     kThemeMenuSquareMenuBar = (1 << 0)
   };
 
-  /*����������������������������������������������������������������������������������*/
-  // Theme menu drawing states   /*����������������������������������������������������������������������������������*/
+  // ����������������������������������������������������������������������������������
+  // Theme menu drawing states   // ����������������������������������������������������������������������������������
   enum
   {
     kThemeMenuActive = 0,
@@ -315,10 +315,10 @@ extern "C"
   };
 
   typedef UInt16 ThemeMenuState;
-  /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
   /* MenuType: add kThemeMenuTypeInactive to menu type for DrawThemeMenuBackground
    * if entire  */
-  // menu is inactive   /*������������������������������������������������������������������������������������������*/
+  // menu is inactive   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeMenuTypePullDown = 0,
@@ -340,8 +340,8 @@ extern "C"
   };
 
   typedef UInt16 ThemeMenuItemType;
-  /*������������������������������������������������������������������������������������������*/
-  // Theme Backgrounds   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Theme Backgrounds   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeBackgroundTabPane = 1,
@@ -352,14 +352,14 @@ extern "C"
   };
 
   typedef UInt32 ThemeBackgroundKind;
-  /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
   // Theme Collection tags for Get/SetTheme   //                                                                                            /*  X ALERT: Please note that Get/SetTheme are severely neutered under Mac OS X
    * at present. */
   /*           The first group of tags below are available to get under both 9 and
    * X. The     */
   /*           second group is 9 only. None of the tags can be used in SetTheme on
    * X, as it   */
-  //           is completely inert on X, and will return unimpErr.   /*������������������������������������������������������������������������������������������*/
+  //           is completely inert on X, and will return unimpErr.   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeNameTag = FOUR_CHAR_CODE('name'),        // Str255    kThemeVariantNameTag = FOUR_CHAR_CODE('varn'), // Str255    kThemeVariantBaseTintTag =
@@ -387,8 +387,8 @@ extern "C"
                             picture based on picture and monitor sizes*/
   };
 
-  /*������������������������������������������������������������������������������������������*/
-  // Theme Control Settings   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Theme Control Settings   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeCheckBoxClassicX = 0, // check box with an 'X'    kThemeCheckBoxCheckMark = 1 // check box with a real check mark  };
@@ -404,8 +404,8 @@ extern "C"
     kThemeScrollBarThumbNormal = 0,      // normal, classic thumb size    kThemeScrollBarThumbProportional = 1 // proportional thumbs  };
 
   typedef UInt16 ThemeScrollBarThumbStyle;
-  /*������������������������������������������������������������������������������������������*/
-  // Font constants   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Font constants   // ������������������������������������������������������������������������������������������
 
   /**
    *  Summary:
@@ -550,8 +550,8 @@ extern "C"
   };
 
   typedef UInt16 ThemeFontID;
-  /*������������������������������������������������������������������������������������������*/
-  // Tab constants   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Tab constants   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeTabNonFront = 0,
@@ -585,8 +585,8 @@ extern "C"
   {
     kThemeSmallTabHeight = 16,    // amount small tabs protrude from frame.    kThemeLargeTabHeight = 21,    // amount large tabs protrude from frame.    kThemeTabPaneOverlap = 3,     // amount tabs overlap frame.    kThemeSmallTabHeightMax = 19, // small tab height + overlap    kThemeLargeTabHeightMax = 24  // large tab height + overlap  };
 
-  /*������������������������������������������������������������������������������������������*/
-  // Track kinds   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Track kinds   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeMediumScrollBar = 0,
@@ -601,8 +601,8 @@ extern "C"
   };
 
   typedef UInt16 ThemeTrackKind;
-  /*������������������������������������������������������������������������������������������*/
-  // Track enable states   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Track enable states   // ������������������������������������������������������������������������������������������
   enum
   {
     // track states     kThemeTrackActive = 0,
@@ -612,8 +612,8 @@ extern "C"
   };
 
   typedef UInt8 ThemeTrackEnableState;
-  /*������������������������������������������������������������������������������������������*/
-  // Track pressed states   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Track pressed states   // ������������������������������������������������������������������������������������������
   enum
   {
     // press states (ignored unless track is active)     kThemeLeftOutsideArrowPressed = 0x01,
@@ -632,8 +632,8 @@ extern "C"
   };
 
   typedef UInt8 ThemeTrackPressState;
-  /*������������������������������������������������������������������������������������������*/
-  // Thumb directions   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Thumb directions   // ������������������������������������������������������������������������������������������
   enum
   {
     // thumb direction     kThemeThumbPlain = 0,
@@ -642,8 +642,8 @@ extern "C"
   };
 
   typedef UInt8 ThemeThumbDirection;
-  /*������������������������������������������������������������������������������������������*/
-  // Track attributes   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Track attributes   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeTrackHorizontal = (1 << 0),  // track is drawn horizontally    kThemeTrackRightToLeft = (1 << 1), // track progresses from right to left    kThemeTrackShowThumb = (1 << 2),   // track's thumb should be drawn    kThemeTrackThumbRgnIsNotGhost =
@@ -652,8 +652,8 @@ extern "C"
         (1 << 4) // the scroll bar doesn't have arrows  };
 
   typedef UInt16 ThemeTrackAttributes;
-  /*������������������������������������������������������������������������������������������*/
-  // Track info block   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Track info block   // ������������������������������������������������������������������������������������������
   struct ScrollBarTrackInfo
   {
     SInt32 viewsize;                 // current view range size     ThemeTrackPressState pressState; // pressed parts state   };
@@ -681,8 +681,8 @@ extern "C"
   trackInfo;
 };
 typedef struct ThemeTrackDrawInfo ThemeTrackDrawInfo;
-/*������������������������������������������������������������������������������������������*/
-// ThemeWindowAttributes   /*������������������������������������������������������������������������������������������*/
+// ������������������������������������������������������������������������������������������
+// ThemeWindowAttributes   // ������������������������������������������������������������������������������������������
 enum
 {
   kThemeWindowHasGrow =
@@ -693,8 +693,8 @@ enum
 };
 
 typedef UInt32 ThemeWindowAttributes;
-/*������������������������������������������������������������������������������������������*/
-// Window Types Supported by the Appearance Manager   /*������������������������������������������������������������������������������������������*/
+// ������������������������������������������������������������������������������������������
+// Window Types Supported by the Appearance Manager   // ������������������������������������������������������������������������������������������
 enum
 {
   kThemeDocumentWindow = 0,
@@ -711,8 +711,8 @@ enum
 };
 
 typedef UInt16 ThemeWindowType;
-/*������������������������������������������������������������������������������������������*/
-// Window Widgets Supported by the Appearance Manager   /*������������������������������������������������������������������������������������������*/
+// ������������������������������������������������������������������������������������������
+// Window Widgets Supported by the Appearance Manager   // ������������������������������������������������������������������������������������������
 enum
 {
   kThemeWidgetCloseBox = 0,
@@ -722,8 +722,8 @@ enum
 };
 
 typedef UInt16 ThemeTitleBarWidget;
-/*������������������������������������������������������������������������������������������*/
-// Popup arrow orientations   /*������������������������������������������������������������������������������������������*/
+// ������������������������������������������������������������������������������������������
+// Popup arrow orientations   // ������������������������������������������������������������������������������������������
 enum
 {
   kThemeArrowLeft = 0,
@@ -733,8 +733,8 @@ enum
 };
 
 typedef UInt16 ThemeArrowOrientation;
-/*������������������������������������������������������������������������������������������*/
-// Popup arrow sizes   /*������������������������������������������������������������������������������������������*/
+// ������������������������������������������������������������������������������������������
+// Popup arrow sizes   // ������������������������������������������������������������������������������������������
 enum
 {
   kThemeArrow3pt = 0,
@@ -744,15 +744,15 @@ enum
 };
 
 typedef UInt16 ThemePopupArrowSize;
-/*������������������������������������������������������������������������������������������*/
-// Grow box directions   /*������������������������������������������������������������������������������������������*/
+// ������������������������������������������������������������������������������������������
+// Grow box directions   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeGrowLeft = (1 << 0),  // can grow to the left     kThemeGrowRight = (1 << 1), // can grow to the right     kThemeGrowUp = (1 << 2),    // can grow up     kThemeGrowDown = (1 << 3)   // can grow down   };
 
   typedef UInt16 ThemeGrowDirection;
-  /*������������������������������������������������������������������������������������������*/
-  // Button kinds   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Button kinds   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemePushButton = 0,
@@ -766,8 +766,8 @@ typedef UInt16 ThemePopupArrowSize;
   };
 
   typedef UInt16 ThemeButtonKind;
-  /*������������������������������������������������������������������������������������������*/
-  // Common button values   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Common button values   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeButtonOff = 0,
@@ -779,8 +779,8 @@ typedef UInt16 ThemePopupArrowSize;
   };
 
   typedef UInt16 ThemeButtonValue;
-  /*������������������������������������������������������������������������������������������*/
-  // Button adornment types   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Button adornment types   // ������������������������������������������������������������������������������������������
   enum
   {
     kThemeAdornmentNone = 0,
@@ -813,10 +813,10 @@ typedef UInt16 ThemePopupArrowSize;
         (1 << 7), // If set, draw a down arrow on the arrow button     kThemeAdornmentArrowDoubleArrow =
         (1 << 8), // If set, draw a double arrow on the arrow button     kThemeAdornmentArrowUpArrow =
         (1 << 9) // If set, draw a up arrow on the arrow button   };
-
+  }
   typedef UInt16 ThemeButtonAdornment;
-  /*������������������������������������������������������������������������������������������*/
-  // Button drawing info block   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Button drawing info block   // ������������������������������������������������������������������������������������������
   struct ThemeButtonDrawInfo
   {
     ThemeDrawState state;
@@ -825,14 +825,14 @@ typedef UInt16 ThemePopupArrowSize;
   };
   typedef struct ThemeButtonDrawInfo ThemeButtonDrawInfo;
   typedef ThemeButtonDrawInfo *ThemeButtonDrawInfoPtr;
-  /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
   // Sound Support   //                                                                                            /*  X ALERT: Please note that none of the theme sound APIs currently function on
   *X.*/
-      /*������������������������������������������������������������������������������������������*/
-      /*������������������������������������������������������������������������������������������*/
+      // ������������������������������������������������������������������������������������������
+      // ������������������������������������������������������������������������������������������
       // Sound classes   //                                                                                            /* You can use the constants below to set what sounds are active using the
       *SetTheme API.*/
-      // Use these with the kThemeSoundMask tag.   /*������������������������������������������������������������������������������������������*/
+      // Use these with the kThemeSoundMask tag.   // ������������������������������������������������������������������������������������������
       enum {
         kThemeNoSounds = 0,
         kThemeWindowSoundsMask = (1 << 0),
@@ -841,12 +841,12 @@ typedef UInt16 ThemePopupArrowSize;
         kThemeFinderSoundsMask = (1 << 3)
       };
 
-  /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
   // Drag Sounds   //                                                                                            // Drag sounds are looped for the duration of the drag.   //                                                                                            // Call BeginThemeDragSound at the start of the drag.   // Call EndThemeDragSound when the drag has finished.   //                                                                                            /* Note that in order to maintain a consistent user experience, only one drag
   *sound may * /
       /* occur at a time.  The sound should be attached to a mouse action, start after
        * the        */
-      // mouse goes down and stop when the mouse is released.   /*������������������������������������������������������������������������������������������*/
+      // mouse goes down and stop when the mouse is released.   // ������������������������������������������������������������������������������������������
       enum {
         kThemeDragSoundNone = 0,
         kThemeDragSoundMoveWindow = FOUR_CHAR_CODE('wmov'),
@@ -866,8 +866,8 @@ typedef UInt16 ThemePopupArrowSize;
       };
 
   typedef OSType ThemeDragSoundKind;
-  /*��������������������������������������������������������������������������*/
-  // State-change sounds                                                        //                                                                            // State-change sounds are played asynchonously as a one-shot.                //                                                                            // Call PlayThemeSound to play the sound.  The sound will play                // asynchronously until complete, then stop automatically.                    /*��������������������������������������������������������������������������*/
+  // ��������������������������������������������������������������������������
+  // State-change sounds                                                        //                                                                            // State-change sounds are played asynchonously as a one-shot.                //                                                                            // Call PlayThemeSound to play the sound.  The sound will play                // asynchronously until complete, then stop automatically.                    // ��������������������������������������������������������������������������
   enum
   {
     kThemeSoundNone = 0,
@@ -973,8 +973,8 @@ typedef UInt16 ThemePopupArrowSize;
   };
 
   typedef OSType ThemeSoundKind;
-  /*������������������������������������������������������������������������������������������*/
-  // Window Metrics   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Window Metrics   // ������������������������������������������������������������������������������������������
   /*  Window metrics are used by the Appearance manager to fill in the blanks
    * necessary to    */
   /*  draw windows. If a value is not appropriate for the type of window, be sure
@@ -1010,8 +1010,8 @@ typedef UInt16 ThemePopupArrowSize;
   };
   typedef struct ThemeWindowMetrics ThemeWindowMetrics;
   typedef ThemeWindowMetrics *ThemeWindowMetricsPtr;
-  /*������������������������������������������������������������������������������������������*/
-  // Theme Metrics   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Theme Metrics   // ������������������������������������������������������������������������������������������
 
   /**
    *  Discussion:
@@ -1104,11 +1104,11 @@ typedef UInt16 ThemePopupArrowSize;
   };
 
   typedef UInt32 ThemeMetric;
-  /*������������������������������������������������������������������������������������������*/
-  // Drawing State   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Drawing State   // ������������������������������������������������������������������������������������������
   typedef struct OpaqueThemeDrawingState *ThemeDrawingState;
-  /*������������������������������������������������������������������������������������������*/
-  // Callback procs   /*������������������������������������������������������������������������������������������*/
+  // ������������������������������������������������������������������������������������������
+  // Callback procs   // ������������������������������������������������������������������������������������������
   typedef CALLBACK_API(void, ThemeTabTitleDrawProcPtr)(
       const Rect *bounds, ThemeTabStyle style, ThemeTabDirection direction,
       SInt16 depth, Boolean isColorDev, UInt32 userData);
@@ -1565,8 +1565,8 @@ typedef UInt16 ThemePopupArrowSize;
     InvokeThemeIteratorUPP(inFileName, resID, inThemeSettings, inUserData,       \
                            userRoutine)
 #endif // CALL_NOT_IN_CARBON
-  /*����������������������������������������������������������������������������������*/
-  // Menu Drawing callbacks   /*����������������������������������������������������������������������������������*/
+  // ����������������������������������������������������������������������������������
+  // Menu Drawing callbacks   // ����������������������������������������������������������������������������������
   typedef CALLBACK_API(void, MenuTitleDrawingProcPtr)(const Rect *inBounds,
                                                       SInt16 inDepth,
                                                       Boolean inIsColorDevice,
@@ -1750,8 +1750,8 @@ typedef UInt16 ThemePopupArrowSize;
     InvokeMenuItemDrawingUPP(inBounds, inDepth, inIsColorDevice, inUserData, \
                              userRoutine)
 #endif // CALL_NOT_IN_CARBON
-         /*����������������������������������������������������������������������������������*/
-         //  Appearance Manager APIs   /*����������������������������������������������������������������������������������*/
+         // ����������������������������������������������������������������������������������
+         //  Appearance Manager APIs   // ����������������������������������������������������������������������������������
          // Registering Appearance-Savvy Applications   /**
   *RegisterAppearanceClient() *
 
@@ -3178,8 +3178,8 @@ typedef UInt16 ThemePopupArrowSize;
   OSStatus
   CopyThemeIdentifier(CFStringRef *outIdentifier);
 
-  /*��������������������������������������������������������������������������������������������������*/
-  // Obsolete symbolic names   /*��������������������������������������������������������������������������������������������������*/
+  // ��������������������������������������������������������������������������������������������������
+  // Obsolete symbolic names   // ��������������������������������������������������������������������������������������������������
   // Obsolete error codes - use the new ones, s'il vous plait / kudasai   enum
   {
     appearanceBadBrushIndexErr = themeInvalidBrushErr, // pattern index invalid     appearanceProcessRegisteredErr = themeProcessRegisteredErr,

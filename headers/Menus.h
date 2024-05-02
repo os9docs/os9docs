@@ -87,8 +87,8 @@ extern "C"
   /**
    *  Menu Manager
    */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  © Menu Constants   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  © Menu Constants   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   enum
   {
     noMark = 0 /* mark symbol for SetItemMark; other mark symbols are defined in
@@ -460,11 +460,11 @@ extern "C"
   enum
   {
     textMenuProc = 0,
-    hMenuCmd = 27,                /*itemCmd == 0x001B ==> hierarchical menu*/
-    hierMenu = -1,                /*a hierarchical menu - for InsertMenu call*/
-    kInsertHierarchicalMenu = -1, /*a better name for hierMenu */
-    mctAllItems = -98,            /*search for all Items for the given ID*/
-    mctLastIDIndic = -99          /*last color table entry has this in ID field*/
+    hMenuCmd = 27,                // itemCmd == 0x001B ==> hierarchical menu
+    hierMenu = -1,                // a hierarchical menu - for InsertMenu call
+    kInsertHierarchicalMenu = -1, // a better name for hierMenu 
+    mctAllItems = -98,            // search for all Items for the given ID
+    mctLastIDIndic = -99          // last color table entry has this in ID field
   };
 
   // Constants for use with MacOS 8.0 (Appearance 1.0) and later  enum
@@ -662,8 +662,8 @@ extern "C"
     kMenuEventDontCheckSubmenus = 0x0004
   };
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  © Menu Types   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  © Menu Types   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   typedef SInt16 MenuID;
   typedef UInt16 MenuItemIndex;
   typedef UInt32 MenuCommand;
@@ -701,13 +701,13 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   typedef Handle MenuBarHandle;
   struct MCEntry
   {
-    MenuID mctID;      /*menu ID.  ID = 0 is the menu bar*/
-    short mctItem;     /*menu Item. Item = 0 is a title*/
-    RGBColor mctRGB1;  /*usage depends on ID and Item*/
-    RGBColor mctRGB2;  /*usage depends on ID and Item*/
-    RGBColor mctRGB3;  /*usage depends on ID and Item*/
-    RGBColor mctRGB4;  /*usage depends on ID and Item*/
-    short mctReserved; /*reserved for internal use*/
+    MenuID mctID;      // menu ID.  ID = 0 is the menu bar
+    short mctItem;     // menu Item. Item = 0 is a title
+    RGBColor mctRGB1;  // usage depends on ID and Item
+    RGBColor mctRGB2;  // usage depends on ID and Item
+    RGBColor mctRGB3;  // usage depends on ID and Item
+    RGBColor mctRGB4;  // usage depends on ID and Item
+    short mctReserved; // reserved for internal use
   };
   typedef struct MCEntry MCEntry;
   typedef MCEntry *MCEntryPtr;
@@ -1088,10 +1088,10 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   typedef struct MenuItemDataRec MenuItemDataRec;
   typedef MenuItemDataRec *MenuItemDataPtr;
   typedef UInt32 MenuItemID;
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © Menu ProcPtrs   //                                                                                        /*  All of these procs are considered deprecated.  Developers interested in
    * portability */
-  //  to Carbon should avoid them entirely, if at all possible.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  to Carbon should avoid them entirely, if at all possible.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   typedef CALLBACK_API(void, MenuDefProcPtr)(short message, MenuRef theMenu,
                                              Rect *menuRect, Point hitPt,
                                              short *whichItem);
@@ -1432,8 +1432,8 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   };
   typedef struct MenuDefSpec MenuDefSpec;
   typedef MenuDefSpec *MenuDefSpecPtr;
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-//  © Menu Manager Initialization /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+// ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+//  © Menu Manager Initialization // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 #if CALL_NOT_IN_CARBON
   /**
    *  InitProcMenu()
@@ -1457,8 +1457,8 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   void
   InitMenus(void) ONEWORDINLINE(0xA930);
 
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-//  © Menu Manipulation /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+// ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+//  © Menu Manipulation // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 #endif // CALL_NOT_IN_CARBON 
   /**
    *  NewMenu()
@@ -2003,8 +2003,8 @@ See GetItem for an example of usage.
   Boolean
   IsMenuSizeInvalid(MenuRef inMenu);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  ©©MDEF support   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  ©©MDEF support   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  EraseMenuBackground()
    *
@@ -2080,8 +2080,8 @@ See GetItem for an example of usage.
   OSStatus
   ScrollMenuImage(MenuRef inMenu, const Rect *inScrollRect, int inHScroll,
                   int inVScroll, CGContextRef inContext); // can be NULL 
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-//  © Menu Item Insertion /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+// ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+//  © Menu Item Insertion // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 /**
  *  [Mac]AppendMenu()
  *
@@ -2342,8 +2342,8 @@ See GetItem for an example of usage.
                                  MenuItemAttributes inAttributes,
                                  MenuCommand inCommandID);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  © Menu Events   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  © Menu Events   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  MenuKey()
    *
@@ -2492,8 +2492,8 @@ garbage unless your custom code puts the information into that variable.
   OSStatus
   InvalidateMenuEnabling(MenuRef inMenu);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  © Menu Bar   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  © Menu Bar   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
   /**
   \brief Fetch the height of the menu bar
@@ -2862,8 +2862,8 @@ MenuFlash =blinkCount ;
   OSStatus
   SetRootMenu(MenuRef inMenu);
 
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-//  © Menu Item Accessors /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+// ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+//  © Menu Item Accessors // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 #if CALL_NOT_IN_CARBON
   /**
    *  CheckItem()
@@ -3815,10 +3815,10 @@ EnableItem ( myMenu, 2 );
   SetMenuItemCommandKey(MenuRef inMenu, MenuItemIndex inItem,
                         Boolean inSetVirtualKey, UInt16 inKey);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © Menu Item Color Tables   //                                                                                        /*  Menu color manipulation is considered deprecated with the advent of the
    * Appearance  */
-  //  Manager.  Avoid using these routines if possible   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  Manager.  Avoid using these routines if possible   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  DeleteMCEntries()
    *
@@ -3907,12 +3907,12 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
   void
   SetMCEntries(short numEntries, MCTablePtr menuCEntries) ONEWORDINLINE(0xAA65);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   // © Properties  (Mac OS 8.5 and later)   //                                                                                        /* With the following property APIs, you can attach any piece of data you'd like
    * to a   */
   /* menu or menu item. Passing zero for the item number parameter indicates you'd
    * like   */
-  // to attach the data to the menu itself, and not to any specific menu item.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // to attach the data to the menu itself, and not to any specific menu item.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   enum
   {
     kMenuPropertyPersistent =
@@ -4039,8 +4039,8 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
                                    UInt32 attributesToSet,
                                    UInt32 attributesToClear);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  © Attributes (Carbon and later)   //                                                                                        //  Each menu and menu item has attribute flags.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  © Attributes (Carbon and later)   //                                                                                        //  Each menu and menu item has attribute flags.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  GetMenuAttributes()
    *
@@ -4145,8 +4145,8 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
                            MenuItemAttributes setTheseAttributes,
                            MenuItemAttributes clearTheseAttributes);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  © Mass menu item enabling and disabling (Carbon and later)   //                                                                                        //  Useful when rewriting code that modifies the enableFlags field directly.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  © Mass menu item enabling and disabling (Carbon and later)   //                                                                                        //  Useful when rewriting code that modifies the enableFlags field directly.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  DisableAllMenuItems()
    *
@@ -4223,10 +4223,10 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
   Boolean
   MenuHasEnabledItems(MenuRef theMenu);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © Menu tracking status (Carbon and later)   //                                                                                        /*  Get info about the selected menu item during menu tracking. Replaces direct
    * access  */
-  //  to low-mem globals that previously held this info.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  to low-mem globals that previously held this info.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  GetMenuTrackingData()
    *
@@ -4293,10 +4293,10 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
   OSStatus
   GetMenuType(MenuRef theMenu, UInt16 *outType);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  ©©Universal command ID access (Carbon and later)   //                                                                                        /*  These APIs allow you to operate on menu items strictly by command ID, with
    * no       */
-  //  knowledge of a menu item's index.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  knowledge of a menu item's index.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  CountMenuItemsWithCommandID()
    *
@@ -4693,7 +4693,7 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
   SetMenuItemData(MenuRef menu, MenuItemID item, Boolean isCommandID,
                   const MenuItemDataRec *data);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /*  © Dynamic menu item support (CarbonLib 1.1 and Carbon for Mac OS X, and
    * later)      */
   //                                                                                        /*  Dynamic menu item support allows a menu item to be redrawn while the menu is
@@ -4746,7 +4746,7 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
    * kEventRawKeyModifiersChanged]    */
   /*  event. Modifier key events are passed to the currently open menu before
    * being sent  */
-  //  to the user focus target.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  to the user focus target.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   /**
    *  IsMenuItemInvalid()
    *
@@ -4829,8 +4829,8 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
   OSStatus
   UpdateInvalidMenuItems(MenuRef menu);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  ©©Standard font menu (Carbon and later)   //                                                                                        //  These APIs allow you to create and use the standard font menu.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  ©©Standard font menu (Carbon and later)   //                                                                                        //  These APIs allow you to create and use the standard font menu.   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   enum
   {
     kHierarchicalFontMenuOption = 0x00000001
@@ -4873,8 +4873,8 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
                                  FMFontFamily *outFontFamily,
                                  FMFontStyle *outStyle);
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  //  © Contextual Menu routines and constants   //  available with Conxtextual Menu extension 1.0 and later   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
+  //  © Contextual Menu routines and constants   //  available with Conxtextual Menu extension 1.0 and later   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   // Gestalt Selector for classic 68K apps only.   // CFM apps should weak link and check the symbols.   enum
   {
     gestaltContextualMenuAttr = FOUR_CHAR_CODE('cmnu'),
@@ -4956,14 +4956,14 @@ myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change som
   ProcessIsContextualMenuClient(ProcessSerialNumber *inPSN)
       TWOWORDINLINE(0x7004, 0xAA72);
 
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+// ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 //  Contextual Menu Plugin Interface //                                                                                      /*  For Mac OS X, we will support a new type of Contextual Menu Plugin: the
  * CFPlugIn    */
 /*  based plugin.  Each plugin must be in a CFPlugIn in the Contextual Menu
  * Items       */
 //  folder in one of these paths: //      /System/Library/Contextual Menu Items/ //      /Library/Contextual Menu Items/ //      ~/Library/Contextual Menu Items/ //                                                                                      /*  It must export the following functions using the following interface or a
  * C++       */
-//  interface inheriting from IUnknown and including similar functions. /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+//  interface inheriting from IUnknown and including similar functions. // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
 
 /* The Contextual Menu Manager will only load CFPlugIns of type
  * kContextualMenuTypeID */

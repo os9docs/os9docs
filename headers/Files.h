@@ -39,7 +39,7 @@
 #include <UTCUtils.h>
 #endif
 
-/* Finder constants were moved to Finder.© */
+//  Finder constants were moved to Finder.©
 #ifndef __FINDER__
 #include <Finder.h>
 #endif
@@ -65,923 +65,924 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  /* HFSUniStr255 is the Unicode equivalent of Str255 */
-  struct HFSUniStr255
-  {
-    UInt16 length;        /* number of unicode characters */
-    UniChar unicode[255]; /* unicode characters */
-  };
-  typedef struct HFSUniStr255 HFSUniStr255;
-  typedef const HFSUniStr255 *ConstHFSUniStr255Param;
-  enum
-  {
-    fsCurPerm = 0x00, /* open access permissions in ioPermssn */
-    fsRdPerm = 0x01,
-    fsWrPerm = 0x02,
-    fsRdWrPerm = 0x03,
-    fsRdWrShPerm = 0x04,
-    fsRdDenyPerm = 0x10, /* for use with OpenDeny and OpenRFDeny */
-    fsWrDenyPerm = 0x20  /* for use with OpenDeny and OpenRFDeny */
-  };
+    //  HFSUniStr255 is the Unicode equivalent of Str255
+    struct HFSUniStr255
+    {
+        UInt16 length;        //  number of unicode characters
+        UniChar unicode[255]; //  unicode characters
+    };
+    typedef struct HFSUniStr255 HFSUniStr255;
+    typedef const HFSUniStr255 *ConstHFSUniStr255Param;
+    enum
+    {
+        fsCurPerm = 0x00, //  open access permissions in ioPermssn
+        fsRdPerm = 0x01,
+        fsWrPerm = 0x02,
+        fsRdWrPerm = 0x03,
+        fsRdWrShPerm = 0x04,
+        fsRdDenyPerm = 0x10, //  for use with OpenDeny and OpenRFDeny
+        fsWrDenyPerm = 0x20  //  for use with OpenDeny and OpenRFDeny
+    };
 
-  enum
-  {
-    fsRtParID = 1,
-    fsRtDirID = 2
-  };
+    enum
+    {
+        fsRtParID = 1,
+        fsRtDirID = 2
+    };
 
-  enum
-  {
-    fsAtMark = 0, /* positioning modes in ioPosMode */
-    fsFromStart = 1,
-    fsFromLEOF = 2,
-    fsFromMark = 3
-  };
+    enum
+    {
+        fsAtMark = 0, //  positioning modes in ioPosMode
+        fsFromStart = 1,
+        fsFromLEOF = 2,
+        fsFromMark = 3
+    };
 
-  enum
-  {
-    /* ioPosMode flags */
-    pleaseCacheBit = 4, /* please cache this request */
-    pleaseCacheMask = 0x0010,
-    noCacheBit = 5, /* please don't cache this request */
-    noCacheMask = 0x0020,
-    rdVerifyBit = 6, /* read verify mode */
-    rdVerifyMask = 0x0040,
-    rdVerify = 64, /* old name of rdVerifyMask */
-    forceReadBit = 6,
-    forceReadMask = 0x0040,
-    newLineBit = 7, /* newline mode */
-    newLineMask = 0x0080,
-    newLineCharMask = 0xFF00 /* newline character */
-  };
+    enum
+    {
+        //  ioPosMode flags
+        pleaseCacheBit = 4, //  please cache this request
+        pleaseCacheMask = 0x0010,
+        noCacheBit = 5, //  please don't cache this request
+        noCacheMask = 0x0020,
+        rdVerifyBit = 6, //  read verify mode
+        rdVerifyMask = 0x0040,
+        rdVerify = 64, //  old name of rdVerifyMask
+        forceReadBit = 6,
+        forceReadMask = 0x0040,
+        newLineBit = 7, //  newline mode
+        newLineMask = 0x0080,
+        newLineCharMask = 0xFF00 //  newline character
+    };
 
-  enum
-  {
-    /* CatSearch Search bitmask Constants */
-    fsSBPartialName = 1,
-    fsSBFullName = 2,
-    fsSBFlAttrib = 4,
-    fsSBFlFndrInfo = 8,
-    fsSBFlLgLen = 32,
-    fsSBFlPyLen = 64,
-    fsSBFlRLgLen = 128,
-    fsSBFlRPyLen = 256,
-    fsSBFlCrDat = 512,
-    fsSBFlMdDat = 1024,
-    fsSBFlBkDat = 2048,
-    fsSBFlXFndrInfo = 4096,
-    fsSBFlParID = 8192,
-    fsSBNegate = 16384,
-    fsSBDrUsrWds = 8,
-    fsSBDrNmFls = 16,
-    fsSBDrCrDat = 512,
-    fsSBDrMdDat = 1024,
-    fsSBDrBkDat = 2048,
-    fsSBDrFndrInfo = 4096,
-    fsSBDrParID = 8192
-  };
+    enum
+    {
+        //  CatSearch Search bitmask Constants
+        fsSBPartialName = 1,
+        fsSBFullName = 2,
+        fsSBFlAttrib = 4,
+        fsSBFlFndrInfo = 8,
+        fsSBFlLgLen = 32,
+        fsSBFlPyLen = 64,
+        fsSBFlRLgLen = 128,
+        fsSBFlRPyLen = 256,
+        fsSBFlCrDat = 512,
+        fsSBFlMdDat = 1024,
+        fsSBFlBkDat = 2048,
+        fsSBFlXFndrInfo = 4096,
+        fsSBFlParID = 8192,
+        fsSBNegate = 16384,
+        fsSBDrUsrWds = 8,
+        fsSBDrNmFls = 16,
+        fsSBDrCrDat = 512,
+        fsSBDrMdDat = 1024,
+        fsSBDrBkDat = 2048,
+        fsSBDrFndrInfo = 4096,
+        fsSBDrParID = 8192
+    };
 
-  enum
-  {
-    /* CatSearch Search bit value Constants */
-    fsSBPartialNameBit = 0,  /*ioFileName points to a substring*/
-    fsSBFullNameBit = 1,     /*ioFileName points to a match string*/
-    fsSBFlAttribBit = 2,     /*search includes file attributes*/
-    fsSBFlFndrInfoBit = 3,   /*search includes finder info*/
-    fsSBFlLgLenBit = 5,      /*search includes data logical length*/
-    fsSBFlPyLenBit = 6,      /*search includes data physical length*/
-    fsSBFlRLgLenBit = 7,     /*search includes resource logical length*/
-    fsSBFlRPyLenBit = 8,     /*search includes resource physical length*/
-    fsSBFlCrDatBit = 9,      /*search includes create date*/
-    fsSBFlMdDatBit = 10,     /*search includes modification date*/
-    fsSBFlBkDatBit = 11,     /*search includes backup date*/
-    fsSBFlXFndrInfoBit = 12, /*search includes extended finder info*/
-    fsSBFlParIDBit = 13,     /*search includes file's parent ID*/
-    fsSBNegateBit = 14,      /*return all non-matches*/
-    fsSBDrUsrWdsBit = 3,     /*search includes directory finder info*/
-    fsSBDrNmFlsBit = 4,      /*search includes directory valence*/
-    fsSBDrCrDatBit = 9,      /*directory-named version of fsSBFlCrDatBit*/
-    fsSBDrMdDatBit = 10,     /*directory-named version of fsSBFlMdDatBit*/
-    fsSBDrBkDatBit = 11,     /*directory-named version of fsSBFlBkDatBit*/
-    fsSBDrFndrInfoBit = 12,  /*directory-named version of fsSBFlXFndrInfoBit*/
-    fsSBDrParIDBit = 13      /*directory-named version of fsSBFlParIDBit*/
-  };
+    enum
+    {
+        //  CatSearch Search bit value Constants
+        fsSBPartialNameBit = 0,  // ioFileName points to a substring
+        fsSBFullNameBit = 1,     // ioFileName points to a match string
+        fsSBFlAttribBit = 2,     // search includes file attributes
+        fsSBFlFndrInfoBit = 3,   // search includes finder info
+        fsSBFlLgLenBit = 5,      // search includes data logical length
+        fsSBFlPyLenBit = 6,      // search includes data physical length
+        fsSBFlRLgLenBit = 7,     // search includes resource logical length
+        fsSBFlRPyLenBit = 8,     // search includes resource physical length
+        fsSBFlCrDatBit = 9,      // search includes create date
+        fsSBFlMdDatBit = 10,     // search includes modification date
+        fsSBFlBkDatBit = 11,     // search includes backup date
+        fsSBFlXFndrInfoBit = 12, // search includes extended finder info
+        fsSBFlParIDBit = 13,     // search includes file's parent ID
+        fsSBNegateBit = 14,      // return all non-matches
+        fsSBDrUsrWdsBit = 3,     // search includes directory finder info
+        fsSBDrNmFlsBit = 4,      // search includes directory valence
+        fsSBDrCrDatBit = 9,      // directory-named version of fsSBFlCrDatBit
+        fsSBDrMdDatBit = 10,     // directory-named version of fsSBFlMdDatBit
+        fsSBDrBkDatBit = 11,     // directory-named version of fsSBFlBkDatBit
+        fsSBDrFndrInfoBit = 12,  // directory-named version of fsSBFlXFndrInfoBit
+        fsSBDrParIDBit = 13      // directory-named version of fsSBFlParIDBit
+    };
 
-  enum
-  {
-    /* vMAttrib (GetVolParms) bit position constants */
-    bLimitFCBs = 31,
-    bLocalWList = 30,
-    bNoMiniFndr = 29,
-    bNoVNEdit = 28,
-    bNoLclSync = 27,
-    bTrshOffLine = 26,
-    bNoSwitchTo = 25,
-    bDontShareIt = 21, /* this volume should not be shared by Macintosh File
-                          Sharing (see Technical Note NW 29) */
-    bNoDeskItems = 20,
-    bNoBootBlks = 19,
-    bAccessCntl = 18,
-    bNoSysDir = 17,
-    bHasExtFSVol = 16,
-    bHasOpenDeny = 15,
-    bHasCopyFile = 14,
-    bHasMoveRename = 13,
-    bHasDesktopMgr = 12,
-    bHasShortName = 11,
-    bHasFolderLock = 10,
-    bHasPersonalAccessPrivileges = 9,
-    bHasUserGroupList = 8,
-    bHasCatSearch = 7,
-    bHasFileIDs = 6,
-    bHasBTreeMgr = 5,
-    bHasBlankAccessPrivileges = 4,
-    bSupportsAsyncRequests = 3, /* asynchronous requests to this volume are
-                                   handled correctly at any time*/
-    bSupportsTrashVolumeCache = 2
-  };
+    enum
+    {
+        //  vMAttrib (GetVolParms) bit position constants
+        bLimitFCBs = 31,
+        bLocalWList = 30,
+        bNoMiniFndr = 29,
+        bNoVNEdit = 28,
+        bNoLclSync = 27,
+        bTrshOffLine = 26,
+        bNoSwitchTo = 25,
+        bDontShareIt = 21, /* this volume should not be shared by Macintosh File
+                              Sharing (see Technical Note NW 29) */
+        bNoDeskItems = 20,
+        bNoBootBlks = 19,
+        bAccessCntl = 18,
+        bNoSysDir = 17,
+        bHasExtFSVol = 16,
+        bHasOpenDeny = 15,
+        bHasCopyFile = 14,
+        bHasMoveRename = 13,
+        bHasDesktopMgr = 12,
+        bHasShortName = 11,
+        bHasFolderLock = 10,
+        bHasPersonalAccessPrivileges = 9,
+        bHasUserGroupList = 8,
+        bHasCatSearch = 7,
+        bHasFileIDs = 6,
+        bHasBTreeMgr = 5,
+        bHasBlankAccessPrivileges = 4,
+        bSupportsAsyncRequests = 3, /* asynchronous requests to this volume are
+                                       handled correctly at any time*/
+        bSupportsTrashVolumeCache = 2
+    };
 
-  enum
-  {
-    /* vMExtendedAttributes (GetVolParms) bit position constants */
-    bIsEjectable = 0,               /* volume is in an ejectable disk drive */
-    bSupportsHFSPlusAPIs = 1,       /* volume supports HFS Plus APIs directly (not
-                                       through compatibility layer) */
-    bSupportsFSCatalogSearch = 2,   /* volume supports FSCatalogSearch */
-    bSupportsFSExchangeObjects = 3, /* volume supports FSExchangeObjects */
-    bSupports2TBFiles = 4,          /* volume supports supports 2 terabyte files */
-    bSupportsLongNames = 5,         /* volume supports file/directory/volume names longer
-                                       than 31 characters */
-    bSupportsMultiScriptNames =
-        6, /* volume supports file/directory/volume names with characters from
-              multiple script systems */
-    bSupportsNamedForks =
-        7, /* volume supports forks beyond the data and resource forks */
-    bSupportsSubtreeIterators =
-        8,                   /* volume supports recursive iterators not at the volume root */
-    bL2PCanMapFileBlocks = 9 /* volume supports Lg2Phys SPI correctly */
-  };
+    enum
+    {
+        //  vMExtendedAttributes (GetVolParms) bit position constants
+        bIsEjectable = 0,               //  volume is in an ejectable disk drive
+        bSupportsHFSPlusAPIs = 1,       /* volume supports HFS Plus APIs directly (not
+                                           through compatibility layer) */
+        bSupportsFSCatalogSearch = 2,   //  volume supports FSCatalogSearch
+        bSupportsFSExchangeObjects = 3, //  volume supports FSExchangeObjects
+        bSupports2TBFiles = 4,          //  volume supports supports 2 terabyte files
+        bSupportsLongNames = 5,         /* volume supports file/directory/volume names longer
+                                           than 31 characters */
+        bSupportsMultiScriptNames =
+            6, /* volume supports file/directory/volume names with characters from
+                  multiple script systems */
+        bSupportsNamedForks =
+            7, //  volume supports forks beyond the data and resource forks
+        bSupportsSubtreeIterators =
+            8,                   //  volume supports recursive iterators not at the volume root
+        bL2PCanMapFileBlocks = 9 //  volume supports Lg2Phys SPI correctly
+    };
 
-  enum
-  {
-    /* vMExtendedAttributes (GetVolParms) bit position constants */
-    bParentModDateChanges =
-        10, /* Changing a file or folder causes its parent's mod date to change */
-    bAncestorModDateChanges =
-        11 /* Changing a file or folder causes all ancestor mod dates to change */
-  };
+    enum
+    {
+        //  vMExtendedAttributes (GetVolParms) bit position constants
+        bParentModDateChanges =
+            10, //  Changing a file or folder causes its parent's mod date to change
+        bAncestorModDateChanges =
+            11 //  Changing a file or folder causes all ancestor mod dates to change
+    };
 
-  enum
-  {
-    /* vMExtendedAttributes (GetVolParms) bit position constants */
-    bSupportsSymbolicLinks = 13, /* volume supports the creation and use of
-                                    symbolic links (Mac OS X only) */
-    bIsAutoMounted = 14,         /* volume was mounted automatically (Mac OS X only) */
-    bAllowCDiDataHandler =
-        17 /* allow QuickTime's CDi data handler to examine this volume */
-  };
+    enum
+    {
+        //  vMExtendedAttributes (GetVolParms) bit position constants
+        bSupportsSymbolicLinks = 13, /* volume supports the creation and use of
+                                        symbolic links (Mac OS X only) */
+        bIsAutoMounted = 14,         //  volume was mounted automatically (Mac OS X only)
+        bAllowCDiDataHandler =
+            17 //  allow QuickTime's CDi data handler to examine this volume
+    };
 
-  enum
-  {
-    /* Desktop Database, ffsGetIconMessage and fsmGetFSIconMessage icon type and
-       size Constants */
-    kLargeIcon = 1,
-    kLarge4BitIcon = 2,
-    kLarge8BitIcon = 3,
-    kSmallIcon = 4,
-    kSmall4BitIcon = 5,
-    kSmall8BitIcon = 6,
-    kicnsIconFamily =
-        239 /* Note: The 'icns' icon family record is variable sized. */
-  };
+    enum
+    {
+        /* Desktop Database, ffsGetIconMessage and fsmGetFSIconMessage icon type and
+           size Constants */
+        kLargeIcon = 1,
+        kLarge4BitIcon = 2,
+        kLarge8BitIcon = 3,
+        kSmallIcon = 4,
+        kSmall4BitIcon = 5,
+        kSmall8BitIcon = 6,
+        kicnsIconFamily =
+            239 //  Note: The 'icns' icon family record is variable sized.
+    };
 
-  enum
-  {
-    kLargeIconSize = 256,
-    kLarge4BitIconSize = 512,
-    kLarge8BitIconSize = 1024,
-    kSmallIconSize = 64,
-    kSmall4BitIconSize = 128,
-    kSmall8BitIconSize = 256
-  };
+    enum
+    {
+        kLargeIconSize = 256,
+        kLarge4BitIconSize = 512,
+        kLarge8BitIconSize = 1024,
+        kSmallIconSize = 64,
+        kSmall4BitIconSize = 128,
+        kSmall8BitIconSize = 256
+    };
 
-  enum
-  {
-    /* Large Volume Constants */
-    kWidePosOffsetBit = 8,
-    kUseWidePositioning = (1 << kWidePosOffsetBit),
-    kMaximumBlocksIn4GB = 0x007FFFFF
-  };
+    enum
+    {
+        //  Large Volume Constants
+        kWidePosOffsetBit = 8,
+        kUseWidePositioning = (1 << kWidePosOffsetBit),
+        kMaximumBlocksIn4GB = 0x007FFFFF
+    };
 
-  enum
-  {
-    /* Foreign Privilege Model Identifiers */
-    fsUnixPriv = 1
-  };
+    enum
+    {
+        //  Foreign Privilege Model Identifiers
+        fsUnixPriv = 1
+    };
 
-  enum
-  {
-    /* Authentication Constants */
-    kNoUserAuthentication = 1,
-    kPassword = 2,
-    kEncryptPassword = 3,
-    kTwoWayEncryptPassword = 6
-  };
+    enum
+    {
+        //  Authentication Constants
+        kNoUserAuthentication = 1,
+        kPassword = 2,
+        kEncryptPassword = 3,
+        kTwoWayEncryptPassword = 6
+    };
 
-  /* mapping codes (ioObjType) for MapName & MapID */
-  enum
-  {
-    kOwnerID2Name = 1,
-    kGroupID2Name = 2,
-    kOwnerName2ID = 3,
-    kGroupName2ID =
-        4, /* types of oj object to be returned (ioObjType) for _GetUGEntry */
-    kReturnNextUser = 1,
-    kReturnNextGroup = 2,
-    kReturnNextUG = 3
-  };
+    //  mapping codes (ioObjType) for MapName & MapID
+    enum
+    {
+        kOwnerID2Name = 1,
+        kGroupID2Name = 2,
+        kOwnerName2ID = 3,
+        kGroupName2ID =
+            4, //  types of oj object to be returned (ioObjType) for _GetUGEntry
+        kReturnNextUser = 1,
+        kReturnNextGroup = 2,
+        kReturnNextUG = 3
+    };
 
-  /* vcbFlags bits */
-  enum
-  {
-    kVCBFlagsIdleFlushBit = 3, /* Set if volume should be flushed at idle time */
-    kVCBFlagsIdleFlushMask = 0x0008,
-    kVCBFlagsHFSPlusAPIsBit =
-        4, /* Set if volume implements HFS Plus APIs itself (not via emulation) */
-    kVCBFlagsHFSPlusAPIsMask = 0x0010,
-    kVCBFlagsHardwareGoneBit =
-        5, /* Set if disk driver returned a hardwareGoneErr to Read or Write */
-    kVCBFlagsHardwareGoneMask = 0x0020,
-    kVCBFlagsVolumeDirtyBit =
-        15, /* Set if volume information has changed since the last FlushVol */
-    kVCBFlagsVolumeDirtyMask = 0x8000
-  };
+    //  vcbFlags bits
+    enum
+    {
+        kVCBFlagsIdleFlushBit = 3, //  Set if volume should be flushed at idle time
+        kVCBFlagsIdleFlushMask = 0x0008,
+        kVCBFlagsHFSPlusAPIsBit =
+            4, //  Set if volume implements HFS Plus APIs itself (not via emulation)
+        kVCBFlagsHFSPlusAPIsMask = 0x0010,
+        kVCBFlagsHardwareGoneBit =
+            5, //  Set if disk driver returned a hardwareGoneErr to Read or Write
+        kVCBFlagsHardwareGoneMask = 0x0020,
+        kVCBFlagsVolumeDirtyBit =
+            15, //  Set if volume information has changed since the last FlushVol
+        kVCBFlagsVolumeDirtyMask = 0x8000
+    };
 
-  /* ioVAtrb bits returned by PBHGetVInfo and PBXGetVolInfo */
-  enum
-  {
-    kioVAtrbDefaultVolumeBit = 5, /* Set if the volume is the default volume */
-    kioVAtrbDefaultVolumeMask = 0x0020,
-    kioVAtrbFilesOpenBit = 6, /* Set if there are open files or iterators */
-    kioVAtrbFilesOpenMask = 0x0040,
-    kioVAtrbHardwareLockedBit =
-        7, /* Set if volume is locked by a hardware setting */
-    kioVAtrbHardwareLockedMask = 0x0080,
-    kioVAtrbSoftwareLockedBit = 15, /* Set if volume is locked by software */
-    kioVAtrbSoftwareLockedMask = 0x8000
-  };
+    //  ioVAtrb bits returned by PBHGetVInfo and PBXGetVolInfo
+    enum
+    {
+        kioVAtrbDefaultVolumeBit = 5, //  Set if the volume is the default volume
+        kioVAtrbDefaultVolumeMask = 0x0020,
+        kioVAtrbFilesOpenBit = 6, //  Set if there are open files or iterators
+        kioVAtrbFilesOpenMask = 0x0040,
+        kioVAtrbHardwareLockedBit =
+            7, //  Set if volume is locked by a hardware setting
+        kioVAtrbHardwareLockedMask = 0x0080,
+        kioVAtrbSoftwareLockedBit = 15, //  Set if volume is locked by software
+        kioVAtrbSoftwareLockedMask = 0x8000
+    };
 
-  /* ioFlAttrib bits returned by PBGetCatInfo */
-  enum
-  {
-    /* file and directory attributes in ioFlAttrib */
-    kioFlAttribLockedBit = 0, /* Set if file or directory is locked */
-    kioFlAttribLockedMask = 0x01,
-    kioFlAttribResOpenBit = 2, /* Set if resource fork is open */
-    kioFlAttribResOpenMask = 0x04,
-    kioFlAttribDataOpenBit = 3, /* Set if data fork is open */
-    kioFlAttribDataOpenMask = 0x08,
-    kioFlAttribDirBit = 4, /* Set if this is a directory */
-    kioFlAttribDirMask = 0x10,
-    ioDirFlg = 4, /* Set if this is a directory (old name) */
-    ioDirMask = 0x10,
-    kioFlAttribCopyProtBit =
-        6, /* Set if AppleShare server "copy-protects" the file */
-    kioFlAttribCopyProtMask = 0x40,
-    kioFlAttribFileOpenBit = 7,     /* Set if file (either fork) is open */
-    kioFlAttribFileOpenMask = 0x80, /* ioFlAttrib for directories only */
-    kioFlAttribInSharedBit = 2,     /* Set if the directory is within a shared area of
-                                       the directory hierarchy */
-    kioFlAttribInSharedMask = 0x04,
-    kioFlAttribMountedBit = 3, /* Set if the directory is a share point that is
-                                  mounted by some user */
-    kioFlAttribMountedMask = 0x08,
-    kioFlAttribSharePointBit = 5, /* Set if the directory is a share point */
-    kioFlAttribSharePointMask = 0x20
-  };
+    //  ioFlAttrib bits returned by PBGetCatInfo
+    enum
+    {
+        //  file and directory attributes in ioFlAttrib
+        kioFlAttribLockedBit = 0, //  Set if file or directory is locked
+        kioFlAttribLockedMask = 0x01,
+        kioFlAttribResOpenBit = 2, //  Set if resource fork is open
+        kioFlAttribResOpenMask = 0x04,
+        kioFlAttribDataOpenBit = 3, //  Set if data fork is open
+        kioFlAttribDataOpenMask = 0x08,
+        kioFlAttribDirBit = 4, //  Set if this is a directory
+        kioFlAttribDirMask = 0x10,
+        ioDirFlg = 4, //  Set if this is a directory (old name)
+        ioDirMask = 0x10,
+        kioFlAttribCopyProtBit =
+            6, //  Set if AppleShare server "copy-protects" the file
+        kioFlAttribCopyProtMask = 0x40,
+        kioFlAttribFileOpenBit = 7,     //  Set if file (either fork) is open
+        kioFlAttribFileOpenMask = 0x80, //  ioFlAttrib for directories only
+        kioFlAttribInSharedBit = 2,     /* Set if the directory is within a shared area of
+                                           the directory hierarchy */
+        kioFlAttribInSharedMask = 0x04,
+        kioFlAttribMountedBit = 3, /* Set if the directory is a share point that is
+                                      mounted by some user */
+        kioFlAttribMountedMask = 0x08,
+        kioFlAttribSharePointBit = 5, //  Set if the directory is a share point
+        kioFlAttribSharePointMask = 0x20
+    };
 
-  /* ioFCBFlags bits returned by PBGetFCBInfo */
-  enum
-  {
-    kioFCBWriteBit = 8, /* Data can be written to this file */
-    kioFCBWriteMask = 0x0100,
-    kioFCBResourceBit = 9, /* This file is a resource fork */
-    kioFCBResourceMask = 0x0200,
-    kioFCBWriteLockedBit = 10, /* File has a locked byte range */
-    kioFCBWriteLockedMask = 0x0400,
-    kioFCBLargeFileBit =
-        11, /* File may grow beyond 2GB; cache uses file blocks, not bytes */
-    kioFCBLargeFileMask = 0x0800,
-    kioFCBSharedWriteBit = 12, /* File is open for shared write access */
-    kioFCBSharedWriteMask = 0x1000,
-    kioFCBFileLockedBit = 13, /* File is locked (write-protected) */
-    kioFCBFileLockedMask = 0x2000,
-    kioFCBOwnClumpBit = 14, /* File has clump size specified in FCB */
-    kioFCBOwnClumpMask = 0x4000,
-    kioFCBModifiedBit = 15, /* File has changed since it was last flushed */
-    kioFCBModifiedMask = 0x8000
-  };
+    //  ioFCBFlags bits returned by PBGetFCBInfo
+    enum
+    {
+        kioFCBWriteBit = 8, //  Data can be written to this file
+        kioFCBWriteMask = 0x0100,
+        kioFCBResourceBit = 9, //  This file is a resource fork
+        kioFCBResourceMask = 0x0200,
+        kioFCBWriteLockedBit = 10, //  File has a locked byte range
+        kioFCBWriteLockedMask = 0x0400,
+        kioFCBLargeFileBit =
+            11, //  File may grow beyond 2GB; cache uses file blocks, not bytes
+        kioFCBLargeFileMask = 0x0800,
+        kioFCBSharedWriteBit = 12, //  File is open for shared write access
+        kioFCBSharedWriteMask = 0x1000,
+        kioFCBFileLockedBit = 13, //  File is locked (write-protected)
+        kioFCBFileLockedMask = 0x2000,
+        kioFCBOwnClumpBit = 14, //  File has clump size specified in FCB
+        kioFCBOwnClumpMask = 0x4000,
+        kioFCBModifiedBit = 15, //  File has changed since it was last flushed
+        kioFCBModifiedMask = 0x8000
+    };
 
-  /* ioACUser bits returned by PBGetCatInfo */
-  /* Note: you must clear ioACUser before calling PBGetCatInfo because some file
-   * systems do not use this field */
-  enum
-  {
-    kioACUserNoSeeFolderBit =
-        0, /* Set if user does not have See Folder privileges */
-    kioACUserNoSeeFolderMask = 0x01,
-    kioACUserNoSeeFilesBit =
-        1, /* Set if user does not have See Files privileges */
-    kioACUserNoSeeFilesMask = 0x02,
-    kioACUserNoMakeChangesBit =
-        2, /* Set if user does not have Make Changes privileges */
-    kioACUserNoMakeChangesMask = 0x04,
-    kioACUserNotOwnerBit = 7, /* Set if user is not owner of the directory */
-    kioACUserNotOwnerMask = 0x80
-  };
+    //  ioACUser bits returned by PBGetCatInfo
+    /* Note: you must clear ioACUser before calling PBGetCatInfo because some file
+     * systems do not use this field */
+    enum
+    {
+        kioACUserNoSeeFolderBit =
+            0, //  Set if user does not have See Folder privileges
+        kioACUserNoSeeFolderMask = 0x01,
+        kioACUserNoSeeFilesBit =
+            1, //  Set if user does not have See Files privileges
+        kioACUserNoSeeFilesMask = 0x02,
+        kioACUserNoMakeChangesBit =
+            2, //  Set if user does not have Make Changes privileges
+        kioACUserNoMakeChangesMask = 0x04,
+        kioACUserNotOwnerBit = 7, //  Set if user is not owner of the directory
+        kioACUserNotOwnerMask = 0x80
+    };
 
-  /* Folder and File values of access privileges in ioACAccess */
-  enum
-  {
-    kioACAccessOwnerBit = 31, /* User is owner of directory */
-    kioACAccessOwnerMask = (long)0x80000000,
-    kioACAccessBlankAccessBit = 28, /* Directory has blank access privileges */
-    kioACAccessBlankAccessMask = 0x10000000,
-    kioACAccessUserWriteBit = 26, /* User has write privileges */
-    kioACAccessUserWriteMask = 0x04000000,
-    kioACAccessUserReadBit = 25, /* User has read privileges */
-    kioACAccessUserReadMask = 0x02000000,
-    kioACAccessUserSearchBit = 24, /* User has search privileges */
-    kioACAccessUserSearchMask = 0x01000000,
-    kioACAccessEveryoneWriteBit = 18, /* Everyone has write privileges */
-    kioACAccessEveryoneWriteMask = 0x00040000,
-    kioACAccessEveryoneReadBit = 17, /* Everyone has read privileges */
-    kioACAccessEveryoneReadMask = 0x00020000,
-    kioACAccessEveryoneSearchBit = 16, /* Everyone has search privileges */
-    kioACAccessEveryoneSearchMask = 0x00010000,
-    kioACAccessGroupWriteBit = 10, /* Group has write privileges */
-    kioACAccessGroupWriteMask = 0x00000400,
-    kioACAccessGroupReadBit = 9, /* Group has read privileges */
-    kioACAccessGroupReadMask = 0x00000200,
-    kioACAccessGroupSearchBit = 8, /* Group has search privileges */
-    kioACAccessGroupSearchMask = 0x00000100,
-    kioACAccessOwnerWriteBit = 2, /* Owner has write privileges */
-    kioACAccessOwnerWriteMask = 0x00000004,
-    kioACAccessOwnerReadBit = 1, /* Owner has read privileges */
-    kioACAccessOwnerReadMask = 0x00000002,
-    kioACAccessOwnerSearchBit = 0, /* Owner has search privileges */
-    kioACAccessOwnerSearchMask = 0x00000001,
-    kfullPrivileges = 0x00070007, /* all privileges for everybody and owner*/
-    kownerPrivileges = 0x00000007 /* all privileges for owner only*/
-  };
+    //  Folder and File values of access privileges in ioACAccess
+    enum
+    {
+        kioACAccessOwnerBit = 31, //  User is owner of directory
+        kioACAccessOwnerMask = (long)0x80000000,
+        kioACAccessBlankAccessBit = 28, //  Directory has blank access privileges
+        kioACAccessBlankAccessMask = 0x10000000,
+        kioACAccessUserWriteBit = 26, //  User has write privileges
+        kioACAccessUserWriteMask = 0x04000000,
+        kioACAccessUserReadBit = 25, //  User has read privileges
+        kioACAccessUserReadMask = 0x02000000,
+        kioACAccessUserSearchBit = 24, //  User has search privileges
+        kioACAccessUserSearchMask = 0x01000000,
+        kioACAccessEveryoneWriteBit = 18, //  Everyone has write privileges
+        kioACAccessEveryoneWriteMask = 0x00040000,
+        kioACAccessEveryoneReadBit = 17, //  Everyone has read privileges
+        kioACAccessEveryoneReadMask = 0x00020000,
+        kioACAccessEveryoneSearchBit = 16, //  Everyone has search privileges
+        kioACAccessEveryoneSearchMask = 0x00010000,
+        kioACAccessGroupWriteBit = 10, //  Group has write privileges
+        kioACAccessGroupWriteMask = 0x00000400,
+        kioACAccessGroupReadBit = 9, //  Group has read privileges
+        kioACAccessGroupReadMask = 0x00000200,
+        kioACAccessGroupSearchBit = 8, //  Group has search privileges
+        kioACAccessGroupSearchMask = 0x00000100,
+        kioACAccessOwnerWriteBit = 2, //  Owner has write privileges
+        kioACAccessOwnerWriteMask = 0x00000004,
+        kioACAccessOwnerReadBit = 1, //  Owner has read privileges
+        kioACAccessOwnerReadMask = 0x00000002,
+        kioACAccessOwnerSearchBit = 0, //  Owner has search privileges
+        kioACAccessOwnerSearchMask = 0x00000001,
+        kfullPrivileges = 0x00070007, //  all privileges for everybody and owner
+        kownerPrivileges = 0x00000007 //  all privileges for owner only
+    };
 
-  /* values of user IDs and group IDs */
-  enum
-  {
-    knoUser = 0,
-    kadministratorUser = 1
-  };
+    //  values of user IDs and group IDs
+    enum
+    {
+        knoUser = 0,
+        kadministratorUser = 1
+    };
 
-  enum
-  {
-    knoGroup = 0
-  };
+    enum
+    {
+        knoGroup = 0
+    };
 
-  /**
-  <pre>
-   * \note <pre>The first four fields are the same as those in the original
-  PBHGetVolParms attributes buffer, introduced with the network
-  software described in the File Manager Extensions . The last two fields
-  are new in system software version 7.0.
-  Offset Field Size Meaning
-  14 vMVolumeGrade long Relative speed rating of volume. This
-  scale is currently uncalibrated.
-  Generally, lower values represent
-  faster speeds. A value of 0 means the
-  volume is unrated.
-  18 vMForeignPrivID shortCode for the privilege model
-  supported by the volume. This field
-  now has two possible values: 0
-  represents a standard HFS volume,
-  which might or might not support the
-  AFP privilege model; fsUnixPriv
-  represents an A/UX volume.
-  To determine whether the functions for manipulating privilege
-  information in foreign file systems are available on a volume, check the
-  vMForeignPrivID field in the attributes buffer. If this field contains a
-  nonzero value, the functions are available.
-  PBHGetVolParms returns the bulk of its volume description in the
-  vMAttrib field of the attributes buffer. Version 7.0 has defined additional
-  bits in the vMAttrib field to signal whether the following features are
-  present.
-  Feature Constant
-  Volume supports PBCatSearch bHasCatSearch
-  Volume supports the file ID functions, bHasFileIDs
-  including PBExchangeFiles
-  Volume supports inherited access bHasBlankAccessPrivileges
-  privileges for folders
-  Volume supports the Desk Manager bHasDesktopMgr
-  functions, described in the
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct GetVolParmsInfoBuffer
-  {
-    short vMVersion;       /**< version number*/
-    long vMAttrib;         /**< bit vector of attributes;/**<*/
-    Handle vMLocalHand;    /**< handle to private data*/
-    long vMServerAdr;      /**< network server address*/
-    long vMVolumeGrade;    /**< relative speed rating*/
-    short vMForeignPrivID; /**< access privilege model*/
-  } GetVolParmsInfoBuffer; /**< */
+    /**
+    <pre>
+     * \note <pre>The first four fields are the same as those in the original
+    PBHGetVolParms attributes buffer, introduced with the network
+    software described in the File Manager Extensions . The last two fields
+    are new in system software version 7.0.
+    Offset Field Size Meaning
+    14 vMVolumeGrade long Relative speed rating of volume. This
+    scale is currently uncalibrated.
+    Generally, lower values represent
+    faster speeds. A value of 0 means the
+    volume is unrated.
+    18 vMForeignPrivID shortCode for the privilege model
+    supported by the volume. This field
+    now has two possible values: 0
+    represents a standard HFS volume,
+    which might or might not support the
+    AFP privilege model; fsUnixPriv
+    represents an A/UX volume.
+    To determine whether the functions for manipulating privilege
+    information in foreign file systems are available on a volume, check the
+    vMForeignPrivID field in the attributes buffer. If this field contains a
+    nonzero value, the functions are available.
+    PBHGetVolParms returns the bulk of its volume description in the
+    vMAttrib field of the attributes buffer. Version 7.0 has defined additional
+    bits in the vMAttrib field to signal whether the following features are
+    present.
+    Feature Constant
+    Volume supports PBCatSearch bHasCatSearch
+    Volume supports the file ID functions, bHasFileIDs
+    including PBExchangeFiles
+    Volume supports inherited access bHasBlankAccessPrivileges
+    privileges for folders
+    Volume supports the Desk Manager bHasDesktopMgr
+    functions, described in the
+    </pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct GetVolParmsInfoBuffer
+    {
+        short vMVersion;       /**< version number*/
+        long vMAttrib;         /**< bit vector of attributes;/**<*/
+        Handle vMLocalHand;    /**< handle to private data*/
+        long vMServerAdr;      /**< network server address*/
+        long vMVolumeGrade;    /**< relative speed rating*/
+        short vMForeignPrivID; /**< access privilege model*/
+    } GetVolParmsInfoBuffer;   /**< */
 
-  typedef struct GetVolParmsInfoBuffer GetVolParmsInfoBuffer;
-  typedef union ParamBlockRec ParamBlockRec;
+    typedef struct GetVolParmsInfoBuffer GetVolParmsInfoBuffer;
+    typedef union ParamBlockRec ParamBlockRec;
 
-  typedef ParamBlockRec *ParmBlkPtr;
-  typedef CALLBACK_API_REGISTER68K(void, IOCompletionProcPtr,
-                                   (ParmBlkPtr paramBlock));
-  typedef REGISTER_UPP_TYPE(IOCompletionProcPtr) IOCompletionUPP;
-  struct IOParam
-  {
-    QElemPtr qLink;               /*queue link in header*/
-    short qType;                  /*type byte for safety check*/
-    short ioTrap;                 /*FS: the Trap*/
-    Ptr ioCmdAddr;                /*FS: address to dispatch to*/
-    IOCompletionUPP ioCompletion; /*completion routine addr (0 for synch calls)*/
-    volatile OSErr ioResult;      /*result code*/
-    StringPtr ioNamePtr;          /*ptr to Vol:FileName string*/
-    short ioVRefNum;              /*volume refnum (DrvNum for Eject and MountVol)*/
-    short ioRefNum;               /*refNum for I/O operation*/
-    SInt8 ioVersNum;              /*version number*/
-    SInt8 ioPermssn;              /*Open: permissions (byte)*/
-    Ptr ioMisc;                   /*Rename: new name (GetEOF,SetEOF: logical end of file) (Open:
-                                     optional ptr to buffer) (SetFileType: new type)*/
-    Ptr ioBuffer;                 /*data buffer Ptr*/
-    long ioReqCount;              /*requested byte count; also = ioNewDirID*/
-    long ioActCount;              /*actual byte count completed*/
-    short ioPosMode;              /*initial file positioning*/
-    long ioPosOffset;             /*file position offset*/
-  };
-  typedef struct IOParam IOParam;
-  typedef IOParam *IOParamPtr;
-  /**
-  <pre>
-   * \note <pre>This structure is used in PBxxx calls which typically operate on unopened
-  files:
-  PBCreate PBGetFInfo PBSetFInfo
-  PBDelete PBRstFLock PBSetFLock
-  Functions vary as to which fields are required on entry and which fields
-  are defined upon return. Some fields take on different meanings or even
-  data types in certain cases. Refer to the function in question for additional
-  information on fields.
-  The most common way to use this structure is to allocate a union which is
-  an aggregate. Then create and initialize a pointer to the desired data type.
-  See ParamBlockRec for an example.
-  The HFileParam structure is similar but has been modernized for use with
-  HFS-specific calls ( PBHxxx).
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct FileParam
-  {
-    short ioFRefNum;           /**< File reference number*/
-    SignedByte ioFVersNum;     /**< Version (use  for HFS)*/
-    SignedByte filler;         /**< (unused)*/
-    short ioFDirIndex;         /**< Index*/
-    unsigned char ioFlAttrib;  /**< File Attribute  bits*/
-    unsigned char ioFlVersNum; /**< File version (always set to )*/
-    FInfo ioFlFndrInfo;        /**< File type, creator, flags, etc. (see*/
-    unsigned long ioFlNum;     /**< File number*/
-    unsigned short ioFlStBlk;  /**< First allocation block of data fork*/
-    long ioFlLgLen;            /**< Logical end-of-file of data fork*/
-    long ioFlPyLen;            /**< Physical end-of-file of data fork*/
-    unsigned short ioFlRStBlk; /**< First allocation block of resource*/
-    long ioFlRLgLen;           /**< Logical end-of-file of resource fork*/
-    long ioFlRPyLen;           /**< Physical end-of-file of resource*/
-    unsigned long ioFlCrDat;   /**< Date/time of creation (seconds since*/
-    unsigned long ioFlMdDat;   /**< Date/Time of last modification*/
-  } FileParam;                 /**< */
+    typedef ParamBlockRec *ParmBlkPtr;
+    typedef CALLBACK_API_REGISTER68K(void, IOCompletionProcPtr,
+                                     (ParmBlkPtr paramBlock));
+    typedef REGISTER_UPP_TYPE(IOCompletionProcPtr) IOCompletionUPP;
+    struct IOParam
+    {
+        QElemPtr qLink;               // queue link in header
+        short qType;                  // type byte for safety check
+        short ioTrap;                 // FS: the Trap
+        Ptr ioCmdAddr;                // FS: address to dispatch to
+        IOCompletionUPP ioCompletion; // completion routine addr (0 for synch calls)
+        volatile OSErr ioResult;      // result code
+        StringPtr ioNamePtr;          // ptr to Vol:FileName string
+        short ioVRefNum;              // volume refnum (DrvNum for Eject and MountVol)
+        short ioRefNum;               // refNum for I/O operation
+        SInt8 ioVersNum;              // version number
+        SInt8 ioPermssn;              // Open: permissions (byte)
+        Ptr ioMisc;                   /*Rename: new name (GetEOF,SetEOF: logical end of file) (Open:
+                                         optional ptr to buffer) (SetFileType: new type)*/
+        Ptr ioBuffer;                 // data buffer Ptr
+        long ioReqCount;              // requested byte count; also = ioNewDirID
+        long ioActCount;              // actual byte count completed
+        short ioPosMode;              // initial file positioning
+        long ioPosOffset;             // file position offset
+    };
+    typedef struct IOParam IOParam;
+    typedef IOParam *IOParamPtr;
+    /**
+    <pre>
+     * \note <pre>This structure is used in PBxxx calls which typically operate on unopened
+    files:
+    PBCreate PBGetFInfo PBSetFInfo
+    PBDelete PBRstFLock PBSetFLock
+    Functions vary as to which fields are required on entry and which fields
+    are defined upon return. Some fields take on different meanings or even
+    data types in certain cases. Refer to the function in question for additional
+    information on fields.
+    The most common way to use this structure is to allocate a union which is
+    an aggregate. Then create and initialize a pointer to the desired data type.
+    See ParamBlockRec for an example.
+    The HFileParam structure is similar but has been modernized for use with
+    HFS-specific calls ( PBHxxx).
+    </pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct FileParam
+    {
+        short ioFRefNum;           /**< File reference number*/
+        SignedByte ioFVersNum;     /**< Version (use  for HFS)*/
+        SignedByte filler;         /**< (unused)*/
+        short ioFDirIndex;         /**< Index*/
+        unsigned char ioFlAttrib;  /**< File Attribute  bits*/
+        unsigned char ioFlVersNum; /**< File version (always set to )*/
+        FInfo ioFlFndrInfo;        /**< File type, creator, flags, etc. (see*/
+        unsigned long ioFlNum;     /**< File number*/
+        unsigned short ioFlStBlk;  /**< First allocation block of data fork*/
+        long ioFlLgLen;            /**< Logical end-of-file of data fork*/
+        long ioFlPyLen;            /**< Physical end-of-file of data fork*/
+        unsigned short ioFlRStBlk; /**< First allocation block of resource*/
+        long ioFlRLgLen;           /**< Logical end-of-file of resource fork*/
+        long ioFlRPyLen;           /**< Physical end-of-file of resource*/
+        unsigned long ioFlCrDat;   /**< Date/time of creation (seconds since*/
+        unsigned long ioFlMdDat;   /**< Date/Time of last modification*/
+    } FileParam;                   /**< */
 
-  typedef struct FileParam FileParam;
-  typedef FileParam *FileParamPtr;
-  /**
-  <pre>
-   * \note <pre>This structure is used in PBxxx calls which operate on entire volumes:
-  PBEject PBGetVol PBSetVInfo
-  PBFlushVol PBMountVol PBSetVol
-  PBGetVInfo PBOffLine PBUnmountVol
-  Functions vary as to which fields are required on entry and which fields
-  are defined upon return. Some fields take on different meanings or even
-  data types in certain cases. Refer to the function in question for additional
-  information on fields.
-  The ioVLsBkUp field is misnamed. It contains the date/time when the file
-  was last modified (Note: data may have actually been flushed to disk
-  somewhat later).
-  The ioVAtrb field is a set of bit flags. See Volume Attributes .
-  The ioVClpSiz field is the default allocation "clump" size for files on this
-  volume. If the file's clump size is 0 (see CInfoPBRec ), then when a file is
-  extended, ioVClpSiz bytes are appended to the file's physical length.
-  The most common way to use this structure is to allocate a union which is
-  an aggregate and create and initialize a pointer to the desired data type. See
-  ParamBlockRec for examples.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct VolumeParam
-  {
-    long filler;                /**< (reserved)*/
-    short ioVolIndex;           /**< (>: index, <: use name/num, :*/
-    unsigned long ioVCrDate;    /**< Date/time volume created*/
-    unsigned long ioVLsBkUp;    /**< Date/time volume information was*/
-    unsigned short ioVAtrb;     /**< Volume Attributes*/
-    unsigned short ioVNmFls;    /**< Count of files in the root directory*/
-    unsigned short ioVDirSt;    /**< First allocation block of directory*/
-    short ioVBlLn;              /**< Length of directory in blocks*/
-    unsigned short ioVNmAlBlks; /**< Count of all allocation blocks*/
-    long ioVAlBlkSiz;           /**< Allocation block size, in bytes*/
-    long ioVClpSiz;             /**< Number of bytes to allocate*/
-    unsigned short ioAlBlSt;    /**< First block in volume block map*/
-    unsigned long ioVNxtFNum;   /**< Next unused file number*/
-    unsigned short ioVFrBlk;    /**< Count of free allocation blocks*/
-  } VolumeParam;                /**< */
+    typedef struct FileParam FileParam;
+    typedef FileParam *FileParamPtr;
+    /**
+    <pre>
+     * \note <pre>This structure is used in PBxxx calls which operate on entire volumes:
+    PBEject PBGetVol PBSetVInfo
+    PBFlushVol PBMountVol PBSetVol
+    PBGetVInfo PBOffLine PBUnmountVol
+    Functions vary as to which fields are required on entry and which fields
+    are defined upon return. Some fields take on different meanings or even
+    data types in certain cases. Refer to the function in question for additional
+    information on fields.
+    The ioVLsBkUp field is misnamed. It contains the date/time when the file
+    was last modified (Note: data may have actually been flushed to disk
+    somewhat later).
+    The ioVAtrb field is a set of bit flags. See Volume Attributes .
+    The ioVClpSiz field is the default allocation "clump" size for files on this
+    volume. If the file's clump size is 0 (see CInfoPBRec ), then when a file is
+    extended, ioVClpSiz bytes are appended to the file's physical length.
+    The most common way to use this structure is to allocate a union which is
+    an aggregate and create and initialize a pointer to the desired data type. See
+    ParamBlockRec for examples.
+    </pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct VolumeParam
+    {
+        long filler;                /**< (reserved)*/
+        short ioVolIndex;           /**< (>: index, <: use name/num, :*/
+        unsigned long ioVCrDate;    /**< Date/time volume created*/
+        unsigned long ioVLsBkUp;    /**< Date/time volume information was*/
+        unsigned short ioVAtrb;     /**< Volume Attributes*/
+        unsigned short ioVNmFls;    /**< Count of files in the root directory*/
+        unsigned short ioVDirSt;    /**< First allocation block of directory*/
+        short ioVBlLn;              /**< Length of directory in blocks*/
+        unsigned short ioVNmAlBlks; /**< Count of all allocation blocks*/
+        long ioVAlBlkSiz;           /**< Allocation block size, in bytes*/
+        long ioVClpSiz;             /**< Number of bytes to allocate*/
+        unsigned short ioAlBlSt;    /**< First block in volume block map*/
+        unsigned long ioVNxtFNum;   /**< Next unused file number*/
+        unsigned short ioVFrBlk;    /**< Count of free allocation blocks*/
+    } VolumeParam;                  /**< */
 
-  typedef struct VolumeParam VolumeParam;
-  typedef VolumeParam *VolumeParamPtr;
-  /**
-  <pre>
-   * \note <pre>This structure is used in Device Manager calls that request and provide
-  control and status information:
-  PBStatus PBControl
-  The most common way to use this structure is to allocate a union which is
-  an aggregate and create and initialize a pointer to the desired data type. See
-  ParamBlockRec for examples.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct CntrlParam
-  {
-    short ioCRefNum; /**< Device driver reference*/
-    short csCode;    /**< Type of Control or Status call*/
-    short csParam[]; /**< Control or status information*/
-  } CntrlParam;      /**< */
+    typedef struct VolumeParam VolumeParam;
+    typedef VolumeParam *VolumeParamPtr;
+    /**
+    <pre>
+     * \note <pre>This structure is used in Device Manager calls that request and provide
+    control and status information:
+    PBStatus PBControl
+    The most common way to use this structure is to allocate a union which is
+    an aggregate and create and initialize a pointer to the desired data type. See
+    ParamBlockRec for examples.
+    </pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct CntrlParam
+    {
+        short ioCRefNum; /**< Device driver reference*/
+        short csCode;    /**< Type of Control or Status call*/
+        short csParam[]; /**< Control or status information*/
+    } CntrlParam;        /**< */
 
-  typedef struct CntrlParam CntrlParam;
-  typedef CntrlParam *CntrlParamPtr;
-  /**
-  <pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct SlotDevParam
-  {
-    short ioRefNum; /**<  */
-    char ioVersNum; /**<  */
-    char ioPermssn; /**<  */
-    Ptr ioMix;      /**<  */
-    short ioFlags;  /**<  */
-    char ioSlot;    /**<  */
-    char ioID;      /**<  */
-  } SlotDevParam;   /**< */
+    typedef struct CntrlParam CntrlParam;
+    typedef CntrlParam *CntrlParamPtr;
+    /**
+    <pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct SlotDevParam
+    {
+        short ioRefNum; /**<  */
+        char ioVersNum; /**<  */
+        char ioPermssn; /**<  */
+        Ptr ioMix;      /**<  */
+        short ioFlags;  /**<  */
+        char ioSlot;    /**<  */
+        char ioID;      /**<  */
+    } SlotDevParam;     /**< */
 
-  typedef struct SlotDevParam SlotDevParam;
-  typedef SlotDevParam *SlotDevParamPtr;
-  /**
-  <pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct MultiDevParam
-  {
-    short ioRefNum; /**<  */
-    char ioVersNum; /**<  */
-    char ioPermssn; /**<  */
-    Ptr ioMix;      /**<  */
-    short ioFlags;  /**<  */
-    Ptr ioSEBlkPtr; /**<  */
-  } MultiDevParam;  /**< */
+    typedef struct SlotDevParam SlotDevParam;
+    typedef SlotDevParam *SlotDevParamPtr;
+    /**
+    <pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct MultiDevParam
+    {
+        short ioRefNum; /**<  */
+        char ioVersNum; /**<  */
+        char ioPermssn; /**<  */
+        Ptr ioMix;      /**<  */
+        short ioFlags;  /**<  */
+        Ptr ioSEBlkPtr; /**<  */
+    } MultiDevParam;    /**< */
 
-  typedef struct MultiDevParam MultiDevParam;
-  typedef MultiDevParam *MultiDevParamPtr;
-  /**
-  <pre>
-   * \note <pre>All six structures on this union share the same names for the first eight
-  fields (the first 24 bytes). These common fields are defined in a macro
-  called the ParamBlockHeader .
-  In lieu of Pascal's system of records and variants, C programmers can use
-  predefined unions to access the various parts of the file system parameter
-  blocks. There are several options, but a common way to access the data is by
-  allocating a union (ie, storage for the largest of the union-member
-  structures) and creating pointers which refer to the relevant structure
-  data types:
-  ParamBlockRec pb; // allocate a union
-  ioParam *ipb=(IOParam *)&pb; // and structure ptrs
-  fileParam *fpb=(FileParam *)&pb; // all pointing same addr
-  volumeParam *vpb=(VolumeParam *)&pb;
-  pb.ioParam.ioVRefNum = 2; // as union member field
-  pb.fileParam. ioFlFndrInfo .fdType = 'TEXT';
-  pb.volumeParam. ioVolIndex = 0;
-  ipb->ioVRefNum = 2; // or as a structure field
-  fpb->ioFlFndrInfo .fdType = 'TEXT';
-  vpb->ioVolIndex = 0;
-  You can also do ad hoc type coercion:
-  unsigned char pb[80]; // big enough to hold a FileParam or IOParam
-  short theVRef;
-  theVRef = (( IOParam *)pb)->ioVRefNum;
-  ((FileParam *)pb)-> ioFlLgLen = 1000L;
-  printf("File type is '%c%c%c%c'\n",pb[32],pb[33],pb[34],pb[35]);
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  union ParamBlockRec
-  {
-    IOParam ioParam;             /**< Generally used in I/O for open files*/
-    FileParam fileParam;         /**< Used for unopened files*/
-    VolumeParam volumeParam;     /**< Used in volume-specific functions*/
-    CntrlParam cntrlParam;       /**< */
-    SlotDevParam slotDevParam;   /**< */
-    MultiDevParam multiDevParam; /**< */
-  } ParamBlockRec;               /**< (size of aggregate)*/
+    typedef struct MultiDevParam MultiDevParam;
+    typedef MultiDevParam *MultiDevParamPtr;
+    /**
+    <pre>
+     * \note <pre>All six structures on this union share the same names for the first eight
+    fields (the first 24 bytes). These common fields are defined in a macro
+    called the ParamBlockHeader .
+    In lieu of Pascal's system of records and variants, C programmers can use
+    predefined unions to access the various parts of the file system parameter
+    blocks. There are several options, but a common way to access the data is by
+    allocating a union (ie, storage for the largest of the union-member
+    structures) and creating pointers which refer to the relevant structure
+    data types:
+    ParamBlockRec pb; // allocate a union
+    ioParam *ipb=(IOParam *)&pb; // and structure ptrs
+    fileParam *fpb=(FileParam *)&pb; // all pointing same addr
+    volumeParam *vpb=(VolumeParam *)&pb;
+    pb.ioParam.ioVRefNum = 2; // as union member field
+    pb.fileParam. ioFlFndrInfo .fdType = 'TEXT';
+    pb.volumeParam. ioVolIndex = 0;
+    ipb->ioVRefNum = 2; // or as a structure field
+    fpb->ioFlFndrInfo .fdType = 'TEXT';
+    vpb->ioVolIndex = 0;
+    You can also do ad hoc type coercion:
+    unsigned char pb[80]; // big enough to hold a FileParam or IOParam
+    short theVRef;
+    theVRef = (( IOParam *)pb)->ioVRefNum;
+    ((FileParam *)pb)-> ioFlLgLen = 1000L;
+    printf("File type is '%c%c%c%c'\n",pb[32],pb[33],pb[34],pb[35]);
+    </pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    union ParamBlockRec
+    {
+        IOParam ioParam;             /**< Generally used in I/O for open files*/
+        FileParam fileParam;         /**< Used for unopened files*/
+        VolumeParam volumeParam;     /**< Used in volume-specific functions*/
+        CntrlParam cntrlParam;       /**< */
+        SlotDevParam slotDevParam;   /**< */
+        MultiDevParam multiDevParam; /**< */
+    } ParamBlockRec;                 /**< (size of aggregate)*/
 
-  /**
-  <pre>
-   * \note <pre>Use this HFileInfo structure in calls to PBGetCatInfo and
-  PBSetCatInfo when you access information about a file.
-  Wherever a function exists to modify one of the values in this structure,
-  you should use that function. For instance, don't use PBSetCatInfo to set
-  the lock bit; instead call PBSetFLock .
-  A common way to use this structure is to allocate a CInfoPBRec union
-  which is an aggregate of HFileInfo and DirInfo. Create and initialize a
-  pointer to each data type and use either structure in the call to
-  PBGetCatInfo . Upon return, check bit 4 of ioFlAttrib. If bit 4 is set,
-  then the return data is about a directory and you should use the DirInfo
-  structure; otherwise, use HFileInfo. See CInfoPBRec for examples.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct HFileInfo
-  {
-    short ioFRefNum;           /**< File reference number*/
-    char ioFVersNum;           /**< Version (best to use )*/
-    char filler;               /**< (unused)*/
-    short ioFDirIndex;         /**< Index*/
-    char ioFlAttrib;           /**< File Attribute  bits (bit  set if*/
-    char filler;               /**< (unused)*/
-    FInfo ioFlFndrInfo;        /**< (File type, creator, flags, icon*/
-    long ioDirID;              /**< 'Hard' Directory ID or file number*/
-    unsigned short ioFlStBlk;  /**< First allocation block of data fork*/
-    long ioFlLgLen;            /**< Logical end-of-file of data fork*/
-    long ioFlPyLen;            /**< Physical end-of-file of data fork*/
-    unsigned short ioFlRStBlk; /**< First allocation block of resource*/
-    long ioFlRLgLen;           /**< Logical end-of-file of resource fork*/
-    long ioFlRPyLen;           /**< Physical end-of-file of resource*/
-    unsigned long ioFlCrDat;   /**< Date/Time of creation*/
-    unsigned long ioFlMdDat;   /**< Date/Time of last modification*/
-    unsigned long ioFlBkDat;   /**< Date/Time last backed up*/
-    FXInfo ioFlXFndrInfo;      /**< (icon ID, comment, put-away dir)*/
-    long ioFlParID;            /**< 'Hard' ID of this dir's parent*/
-    long ioFlClpSiz;           /**< Allocation block size (=use volume*/
-  } HFileInfo;                 /**< */
+    /**
+    <pre>
+     * \note <pre>Use this HFileInfo structure in calls to PBGetCatInfo and
+    PBSetCatInfo when you access information about a file.
+    Wherever a function exists to modify one of the values in this structure,
+    you should use that function. For instance, don't use PBSetCatInfo to set
+    the lock bit; instead call PBSetFLock .
+    A common way to use this structure is to allocate a CInfoPBRec union
+    which is an aggregate of HFileInfo and DirInfo. Create and initialize a
+    pointer to each data type and use either structure in the call to
+    PBGetCatInfo . Upon return, check bit 4 of ioFlAttrib. If bit 4 is set,
+    then the return data is about a directory and you should use the DirInfo
+    structure; otherwise, use HFileInfo. See CInfoPBRec for examples.
+    </pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct HFileInfo
+    {
+        short ioFRefNum;           /**< File reference number*/
+        char ioFVersNum;           /**< Version (best to use )*/
+        char filler;               /**< (unused)*/
+        short ioFDirIndex;         /**< Index*/
+        char ioFlAttrib;           /**< File Attribute  bits (bit  set if*/
+        char filler;               /**< (unused)*/
+        FInfo ioFlFndrInfo;        /**< (File type, creator, flags, icon*/
+        long ioDirID;              /**< 'Hard' Directory ID or file number*/
+        unsigned short ioFlStBlk;  /**< First allocation block of data fork*/
+        long ioFlLgLen;            /**< Logical end-of-file of data fork*/
+        long ioFlPyLen;            /**< Physical end-of-file of data fork*/
+        unsigned short ioFlRStBlk; /**< First allocation block of resource*/
+        long ioFlRLgLen;           /**< Logical end-of-file of resource fork*/
+        long ioFlRPyLen;           /**< Physical end-of-file of resource*/
+        unsigned long ioFlCrDat;   /**< Date/Time of creation*/
+        unsigned long ioFlMdDat;   /**< Date/Time of last modification*/
+        unsigned long ioFlBkDat;   /**< Date/Time last backed up*/
+        FXInfo ioFlXFndrInfo;      /**< (icon ID, comment, put-away dir)*/
+        long ioFlParID;            /**< 'Hard' ID of this dir's parent*/
+        long ioFlClpSiz;           /**< Allocation block size (=use volume*/
+    } HFileInfo;                   /**< */
 
-  typedef struct HFileInfo HFileInfo;
-  /**
-  <pre>
-   * \note <pre>Use this DirInfo structure in calls to PBGetCatInfo and PBSetCatInfo
-  when you access information about a directory.
-  A common way to use this structure is to allocate a CInfoPBRec union
-  which is an aggregate of HFileInfo and DirInfo. Create and initialize a
-  pointer to each data type and use either structure in the call to
-  PBGetCatInfo . Upon return, check bit 4 of ioFlAttrib. If bit 4 is set,
-  then the return data is about a directory and you should use the DirInfo
-  structure; otherwise, use HFileInfo . See CInfoPBRec for examples.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct DirInfo
-  {
-    short ioFRefNum;          /**< File reference number*/
-    short filler;             /**< (unused)*/
-    short ioFDirIndex;        /**< Index*/
-    char ioFlAttrib;          /**< File Attribute  bits (locked,*/
-    char filler;              /**< (unused)*/
-    DInfo ioDrUsrWds;         /**< (Folder rectangle, location, flags,*/
-    long ioDrDirID;           /**< 'Hard' directory ID*/
-    unsigned short ioDrNmFls; /**< Number of files and directories in*/
-    short filler[];           /**< (unused)*/
-    unsigned long ioDrCrDat;  /**< Date/Time of creation*/
-    unsigned long ioDrMdDat;  /**< Date/Time of last modification*/
-    unsigned long ioDrBkDat;  /**< Date/Time last backed up*/
-    DXInfo ioDrFndrInfo;      /**< (Scroll point, put-away dir,*/
-    long ioDrParID;           /**< 'Hard' ID of this dir's parent*/
-  } DirInfo;                  /**< */
+    typedef struct HFileInfo HFileInfo;
+    /**
+    <pre>
+     * \note <pre>Use this DirInfo structure in calls to PBGetCatInfo and PBSetCatInfo
+    when you access information about a directory.
+    A common way to use this structure is to allocate a CInfoPBRec union
+    which is an aggregate of HFileInfo and DirInfo. Create and initialize a
+    pointer to each data type and use either structure in the call to
+    PBGetCatInfo . Upon return, check bit 4 of ioFlAttrib. If bit 4 is set,
+    then the return data is about a directory and you should use the DirInfo
+    structure; otherwise, use HFileInfo . See CInfoPBRec for examples.
+    </pre>
+     * \copyright THINK Reference © 1991-1992 Symantec Corporation
+    */
+    struct DirInfo
+    {
+        short ioFRefNum;          /**< File reference number*/
+        short filler;             /**< (unused)*/
+        short ioFDirIndex;        /**< Index*/
+        char ioFlAttrib;          /**< File Attribute  bits (locked,*/
+        char filler;              /**< (unused)*/
+        DInfo ioDrUsrWds;         /**< (Folder rectangle, location, flags,*/
+        long ioDrDirID;           /**< 'Hard' directory ID*/
+        unsigned short ioDrNmFls; /**< Number of files and directories in*/
+        short filler[];           /**< (unused)*/
+        unsigned long ioDrCrDat;  /**< Date/Time of creation*/
+        unsigned long ioDrMdDat;  /**< Date/Time of last modification*/
+        unsigned long ioDrBkDat;  /**< Date/Time last backed up*/
+        DXInfo ioDrFndrInfo;      /**< (Scroll point, put-away dir,*/
+        long ioDrParID;           /**< 'Hard' ID of this dir's parent*/
+    } DirInfo;                    /**< */
 
-  typedef struct DirInfo DirInfo;
-  /**
-  <pre>
-   * \note <pre>This union (or either of the HFileInfo or DirInfo structures) is used in
-  calls to PBGetCatInfo and PBSetCatInfo . Note that the return value of
-  the ioFlAttrib field (of either member structure) identifies which type of
-  information is returned (see PBGetCatInfo for details).
-  A handy technique is to allocate the CInfoPBRec union and create pointers
-  which refer to each data type:
-  CInfoPBRec cipb; /* allocate a union */
-  HFileInfo *hfipb = (HFileInfo *)&cipb; /* and separate struc ptrs */
-  DirInfo *dipb = (DirInfo *)&cipb;      /* pointing same address */
-  cipb.hFileInfo.vRefNum = 2;            /* as a union member field */
-  cipb.dirInfo.ioDrFndrInfo.frLocation.h = 100;
-  hfipb->vRefNum = 2; /* or as a structure field */
-  dipb->ioDrFndrInfo.frLocation.h = 100;
-  You can also perform ad hoc type coercion : unsigned char pb[108]; /* big enough to hold either struct */
-  short theVRef;
-  theVRef = ((HFileInfo *)pb)->ioVRefNum; /* fetch 1 field */
-  ((HFileParam *)pb)->ioFlLgLen = 1000L;  /* change some fields */
-  ((HFileInfo *)pb)->ioFlClpSiz = 2048;
-  GetDateTime(&((HFileInfo *)pb)->ioFlMdDat);
-  /* access chars of a long */
-  printf("File type is '%c%c%c%c'\n", pb[32], pb[33], pb[34], pb[35]);
-  </ pre>
-          * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-                                                        * /
-                                                    union CInfoPBRec
-  {
-    HFileInfo hFileInfo; /**< Use for files*/
-    DirInfo dirInfo;     /**< Use for directories*/
-  } CInfoPBRec;          /**< (size of aggregate)*/
+    typedef struct DirInfo DirInfo;
+    /**
+    <pre>
+     * \note <pre>This union (or either of the HFileInfo or DirInfo structures) is used in
+    calls to PBGetCatInfo and PBSetCatInfo . Note that the return value of
+    the ioFlAttrib field (of either member structure) identifies which type of
+    information is returned (see PBGetCatInfo for details).
+    A handy technique is to allocate the CInfoPBRec union and create pointers
+    which refer to each data type:
+    CInfoPBRec cipb; //  allocate a union
+    HFileInfo *hfipb = (HFileInfo *)&cipb; //  and separate struc ptrs
+    DirInfo *dipb = (DirInfo *)&cipb;      //  pointing same address
+    cipb.hFileInfo.vRefNum = 2;            //  as a union member field
+    cipb.dirInfo.ioDrFndrInfo.frLocation.h = 100;
+    hfipb->vRefNum = 2; //  or as a structure field
+    dipb->ioDrFndrInfo.frLocation.h = 100;
+    You can also perform ad hoc type coercion : unsigned char pb[108]; //  big enough to hold either struct
+    short theVRef;
+    theVRef = ((HFileInfo *)pb)->ioVRefNum; //  fetch 1 field
+    ((HFileParam *)pb)->ioFlLgLen = 1000L;  //  change some fields
+    ((HFileInfo *)pb)->ioFlClpSiz = 2048;
+    GetDateTime(&((HFileInfo *)pb)->ioFlMdDat);
+    //  access chars of a long
+    printf("File type is '%c%c%c%c'\n", pb[32], pb[33], pb[34], pb[35]);
+    </ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                          * /
+                                                      union CInfoPBRec
+    {
+      HFileInfo hFileInfo; /**< Use for files*/
+    DirInfo dirInfo; /**< Use for directories*/
+}
+CInfoPBRec; /**< (size of aggregate)*/
 
-  typedef union CInfoPBRec CInfoPBRec;
-  typedef CInfoPBRec *CInfoPBPtr;
-  struct XCInfoPBRec
-  {
+typedef union CInfoPBRec CInfoPBRec;
+typedef CInfoPBRec *CInfoPBPtr;
+struct XCInfoPBRec
+{
     QElemPtr qLink;
     short qType;
     short ioTrap;
     Ptr ioCmdAddr;
-    ProcPtr ioCompletion;    /* --> A pointer to a completion routine */
-    volatile OSErr ioResult; /* --> The result code of the function */
-    StringPtr ioNamePtr;     /* --> Pointer to pathname to object */
-    short ioVRefNum;         /* --> A volume specification */
+    ProcPtr ioCompletion;    //  --> A pointer to a completion routine
+    volatile OSErr ioResult; //  --> The result code of the function
+    StringPtr ioNamePtr;     //  --> Pointer to pathname to object
+    short ioVRefNum;         //  --> A volume specification
     long filler1;
     StringPtr ioShortNamePtr; /* <-> A pointer to the short name string buffer -
                                  required! */
     short filler2;
-    short ioPDType;   /* <-- The ProDOS file type */
-    long ioPDAuxType; /* <-- The ProDOS aux type */
+    short ioPDType;   //  <-- The ProDOS file type
+    long ioPDAuxType; //  <-- The ProDOS aux type
     long filler3[2];
-    long ioDirID; /* --> A directory ID */
-  };
-  typedef struct XCInfoPBRec XCInfoPBRec;
-  typedef XCInfoPBRec *XCInfoPBPtr;
-  /* Catalog position record */
-  /**
-  <pre>
-   * \note <pre>To start a search at the beginning of the catalog, set the initialization field
-  to 0. When it exits because of a timeout, PBCatSearch updates the record
-  so that it describes the next entry to be searched. When you call
-  PBCatSearch to resume the search after a timeout, pass the entire
-  record that was returned by the last call. PBCatSearch returns a list of the
-  names and parent directories of all files and directories that match the
-  criteria you specify. It places the list in an array pointed to by the
-  FSSpecPtr field. The array contains FSSpec records.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct CatPositionRec
-  {
+    long ioDirID; //  --> A directory ID
+};
+typedef struct XCInfoPBRec XCInfoPBRec;
+typedef XCInfoPBRec *XCInfoPBPtr;
+//  Catalog position record
+/**
+<pre>
+ * \note <pre>To start a search at the beginning of the catalog, set the initialization field
+to 0. When it exits because of a timeout, PBCatSearch updates the record
+so that it describes the next entry to be searched. When you call
+PBCatSearch to resume the search after a timeout, pass the entire
+record that was returned by the last call. PBCatSearch returns a list of the
+names and parent directories of all files and directories that match the
+criteria you specify. It places the list in an array pointed to by the
+FSSpecPtr field. The array contains FSSpec records.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct CatPositionRec
+{
     long initialize; /**< starting point*/
     short priv[];    /**< private data*/
-  } CatPositionRec;  /**< */
+} CatPositionRec;    /**< */
 
-  typedef struct CatPositionRec CatPositionRec;
-  /**
-  <pre>
-   * \note <pre>The FSSpec record can describe only a file or a directory, not a volume. A
-  volume can be identified by its root directory, although the system software
-  never uses an FSSpec record to describe a volume. (The directory ID of the
-  root's parent directory is fsRtParID, defined in the interface files. The name
-  of the root directory is the same as the name of the volume.) Some of the
-  system software uses arrays of FSSpec records.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct FSSpec
-  {
+typedef struct CatPositionRec CatPositionRec;
+/**
+<pre>
+ * \note <pre>The FSSpec record can describe only a file or a directory, not a volume. A
+volume can be identified by its root directory, although the system software
+never uses an FSSpec record to describe a volume. (The directory ID of the
+root's parent directory is fsRtParID, defined in the interface files. The name
+of the root directory is the same as the name of the volume.) Some of the
+system software uses arrays of FSSpec records.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FSSpec
+{
     short vRefNum; /**< volume reference number*/
     long parID;    /**< directory ID of parent directory*/
     Str name;      /**< filename or directory name*/
-  } FSSpec;        /**< */
+} FSSpec;          /**< */
 
-  typedef struct FSSpec FSSpec;
-  typedef FSSpec *FSSpecPtr;
-  typedef FSSpecPtr *FSSpecHandle;
-  /* pointer to array of FSSpecs */
-  typedef FSSpecPtr FSSpecArrayPtr;
-  /**
-      The only difference between "const FSSpec*" and "ConstFSSpecPtr" is
-      that as a parameter, ConstFSSpecPtr is allowed to be NULL
-  */
-  typedef const FSSpec *ConstFSSpecPtr;
-  /**
-      The following are structures to be filled out with the _PBGetVolMountInfo
-     call and passed back into the _PBVolumeMount call for external file system
-     mounts.
-  */
-  /* the "signature" of the file system */
-  typedef OSType VolumeType;
-  enum
-  {
-    /* the signature for AppleShare */
+typedef struct FSSpec FSSpec;
+typedef FSSpec *FSSpecPtr;
+typedef FSSpecPtr *FSSpecHandle;
+//  pointer to array of FSSpecs
+typedef FSSpecPtr FSSpecArrayPtr;
+/**
+    The only difference between "const FSSpec*" and "ConstFSSpecPtr" is
+    that as a parameter, ConstFSSpecPtr is allowed to be NULL
+*/
+typedef const FSSpec *ConstFSSpecPtr;
+/**
+    The following are structures to be filled out with the _PBGetVolMountInfo
+   call and passed back into the _PBVolumeMount call for external file system
+   mounts.
+*/
+//  the "signature" of the file system
+typedef OSType VolumeType;
+enum
+{
+    //  the signature for AppleShare
     AppleShareMediaType = FOUR_CHAR_CODE('afpm')
-  };
+};
 
-  /**
-      VolMount stuff was once in FSM.©
-  */
-  /**
-  <pre>
-   * \note <pre>The size and contents of the record can vary, depending on the external file
-  system that's handling the particular volume.
-  The length field contains the length of the structure (that is, the total
-  length of the structure header described here plus the variable-length
-  location data). The length of the record is flexible so that non-Macintosh
-  file systems can store whatever information they need for volume
-  mounting.
-  The media field identifies the volume type of the remote volume. The value
-  AppleShareMediaType (a constant that translates to 'afpm') represents an
-  AppleShare volume. If you are adding support for the programmatic
-  mounting functions to a non-Macintosh file system, you should register a
-  four-character identifier for your volumes with Macintosh Developer
-  Technical Support at Apple.
-  The only volumes that currently support the programmatic mounting
-  functions are AppleShare servers, which use this volume mounting record.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct VolMountInfoHeader
-  {
-    short length;       /**<  length of mounting*/
-    VolumeType media;   /**< n type of volume,*/
-  } VolMountInfoHeader; /**< +n*/
+/**
+    VolMount stuff was once in FSM.©
+*/
+/**
+<pre>
+ * \note <pre>The size and contents of the record can vary, depending on the external file
+system that's handling the particular volume.
+The length field contains the length of the structure (that is, the total
+length of the structure header described here plus the variable-length
+location data). The length of the record is flexible so that non-Macintosh
+file systems can store whatever information they need for volume
+mounting.
+The media field identifies the volume type of the remote volume. The value
+AppleShareMediaType (a constant that translates to 'afpm') represents an
+AppleShare volume. If you are adding support for the programmatic
+mounting functions to a non-Macintosh file system, you should register a
+four-character identifier for your volumes with Macintosh Developer
+Technical Support at Apple.
+The only volumes that currently support the programmatic mounting
+functions are AppleShare servers, which use this volume mounting record.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct VolMountInfoHeader
+{
+    short length;     /**<  length of mounting*/
+    VolumeType media; /**< n type of volume,*/
+} VolMountInfoHeader; /**< +n*/
 
-  typedef struct VolMountInfoHeader VolMountInfoHeader;
-  typedef VolMountInfoHeader *VolMountInfoPtr;
-  /* The new volume mount info record.  The old one is included for compatibility.
-      the new record allows access by foriegn filesystems writers to the flags
-      portion of the record. This portion is now public.
-  */
-  struct VolumeMountInfoHeader
-  {
-    short length;     /* length of location data (including self) */
-    VolumeType media; /* type of media (must be registered with Apple) */
-    short flags;      /* volume mount flags. Variable length data follows */
-  };
-  typedef struct VolumeMountInfoHeader VolumeMountInfoHeader;
-  typedef VolumeMountInfoHeader *VolumeMountInfoHeaderPtr;
-  /* volume mount flags */
-  enum
-  {
+typedef struct VolMountInfoHeader VolMountInfoHeader;
+typedef VolMountInfoHeader *VolMountInfoPtr;
+/* The new volume mount info record.  The old one is included for compatibility.
+    the new record allows access by foriegn filesystems writers to the flags
+    portion of the record. This portion is now public.
+*/
+struct VolumeMountInfoHeader
+{
+    short length;     //  length of location data (including self)
+    VolumeType media; //  type of media (must be registered with Apple)
+    short flags;      //  volume mount flags. Variable length data follows
+};
+typedef struct VolumeMountInfoHeader VolumeMountInfoHeader;
+typedef VolumeMountInfoHeader *VolumeMountInfoHeaderPtr;
+//  volume mount flags
+enum
+{
     volMountNoLoginMsgFlagBit =
-        0, /* Input to VolumeMount: If set, the file system */
+        0, //  Input to VolumeMount: If set, the file system
     volMountNoLoginMsgFlagMask =
-        0x0001, /*  should suppresss any log-in message/greeting dialog */
+        0x0001, //   should suppresss any log-in message/greeting dialog
     volMountExtendedFlagsBit =
-        7, /* Input to VolumeMount: If set, the mount info is a */
+        7, //  Input to VolumeMount: If set, the mount info is a
     volMountExtendedFlagsMask =
-        0x0080, /*  AFPXVolMountInfo record for 3.7 AppleShare Client */
+        0x0080, //   AFPXVolMountInfo record for 3.7 AppleShare Client
     volMountInteractBit =
-        15, /* Input to VolumeMount: If set, it's OK for the file system */
+        15, //  Input to VolumeMount: If set, it's OK for the file system
     volMountInteractMask =
-        0x8000, /*  to perform user interaction to mount the volume */
+        0x8000, //   to perform user interaction to mount the volume
     volMountChangedBit =
-        14, /* Output from VoumeMount: If set, the volume was mounted, but */
+        14, //  Output from VoumeMount: If set, the volume was mounted, but
     volMountChangedMask =
-        0x4000, /*  the volume mounting information record needs to be updated. */
+        0x4000, //   the volume mounting information record needs to be updated.
     volMountFSReservedMask =
-        0x00FF, /* bits 0-7 are defined by each file system for its own use */
+        0x00FF, //  bits 0-7 are defined by each file system for its own use
     volMountSysReservedMask =
-        0xFF00 /* bits 8-15 are reserved for Apple system use */
-  };
+        0xFF00 //  bits 8-15 are reserved for Apple system use
+};
 
-  /**
-  <pre>
-   * \note <pre>The length and media fields in the AFP volume mounting record are the
-  same as the length and media fields in the generic volume mounting record.
-  The nbpInterval and nbpCount fields are used by the AppleTalk
-  Name-Binding Protocol (NBP). Their functions are described in the
-  AppleTalk Manager .
-  The uamType field specifies the access-control method used by the remote
-  volume. AppleShare uses four methods:
-  kNoUserAuthentication guest status; no password needed
-  kPassword 8-byte password
-  kEncryptPassword encrypted 8-byte password
-  kTwoWayEncryptPassword two-way random encryption; authenticate both
-  user and server
-  The six offset fields contain the offsets from the beginning of the record, in
-  bytes, to the entries in the data field of the volume's AppleShare zone and
-  server name, the volume name, the name of the user, the user's password,
-  and the volume password.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct AFPVolMountInfo
-  {
+/**
+<pre>
+ * \note <pre>The length and media fields in the AFP volume mounting record are the
+same as the length and media fields in the generic volume mounting record.
+The nbpInterval and nbpCount fields are used by the AppleTalk
+Name-Binding Protocol (NBP). Their functions are described in the
+AppleTalk Manager .
+The uamType field specifies the access-control method used by the remote
+volume. AppleShare uses four methods:
+kNoUserAuthentication guest status; no password needed
+kPassword 8-byte password
+kEncryptPassword encrypted 8-byte password
+kTwoWayEncryptPassword two-way random encryption; authenticate both
+user and server
+The six offset fields contain the offsets from the beginning of the record, in
+bytes, to the entries in the data field of the volume's AppleShare zone and
+server name, the volume name, the name of the user, the user's password,
+and the volume password.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct AFPVolMountInfo
+{
     short length;             /**< length of mounting*/
     VolumeType media;         /**< type of volume,*/
     short flags;              /**< reserved;/**< must be set to */
@@ -995,91 +996,91 @@ extern "C"
     short userPassWordOffset; /**<  offset from start of record to*/
     short volPassWordOffset;  /**<  offset from start of record to*/
     char AFPData[];           /**<  standard AFP mounting info,*/
-  } AFPVolMountInfo;          /**<*/
+} AFPVolMountInfo;            /**<*/
 
-  typedef struct AFPVolMountInfo AFPVolMountInfo;
-  typedef AFPVolMountInfo *AFPVolMountInfoPtr;
+typedef struct AFPVolMountInfo AFPVolMountInfo;
+typedef AFPVolMountInfo *AFPVolMountInfoPtr;
 
-  /* AFPXVolMountInfo is the new AFP volume mount info record, requires the 3.7
-   * AppleShare Client */
-  struct AFPXVolMountInfo
-  {
-    short length;                 /* length of location data (including self) */
-    VolumeType media;             /* type of media */
-    short flags;                  /* bits for no messages, no reconnect */
-    SInt8 nbpInterval;            /* NBP Interval parameter (IM2, p.322) */
-    SInt8 nbpCount;               /* NBP Interval parameter (IM2, p.322) */
-    short uamType;                /* User Authentication Method type */
+/* AFPXVolMountInfo is the new AFP volume mount info record, requires the 3.7
+ * AppleShare Client */
+struct AFPXVolMountInfo
+{
+    short length;                 //  length of location data (including self)
+    VolumeType media;             //  type of media
+    short flags;                  //  bits for no messages, no reconnect
+    SInt8 nbpInterval;            //  NBP Interval parameter (IM2, p.322)
+    SInt8 nbpCount;               //  NBP Interval parameter (IM2, p.322)
+    short uamType;                //  User Authentication Method type
     short zoneNameOffset;         /* short positive offset from start of struct to Zone
                                      Name */
-    short serverNameOffset;       /* offset to pascal Server Name string */
-    short volNameOffset;          /* offset to pascal Volume Name string */
-    short userNameOffset;         /* offset to pascal User Name string */
-    short userPasswordOffset;     /* offset to pascal User Password string */
-    short volPasswordOffset;      /* offset to pascal Volume Password string */
-    short extendedFlags;          /* extended flags word */
-    short uamNameOffset;          /* offset to a pascal UAM name string */
+    short serverNameOffset;       //  offset to pascal Server Name string
+    short volNameOffset;          //  offset to pascal Volume Name string
+    short userNameOffset;         //  offset to pascal User Name string
+    short userPasswordOffset;     //  offset to pascal User Password string
+    short volPasswordOffset;      //  offset to pascal Volume Password string
+    short extendedFlags;          //  extended flags word
+    short uamNameOffset;          //  offset to a pascal UAM name string
     short alternateAddressOffset; /* offset to Alternate Addresses in tagged
                                      format */
-    char AFPData[176];            /* variable length data may follow */
-  };
-  typedef struct AFPXVolMountInfo AFPXVolMountInfo;
-  typedef AFPXVolMountInfo *AFPXVolMountInfoPtr;
-  enum
-  {
+    char AFPData[176];            //  variable length data may follow
+};
+typedef struct AFPXVolMountInfo AFPXVolMountInfo;
+typedef AFPXVolMountInfo *AFPXVolMountInfoPtr;
+enum
+{
     kAFPExtendedFlagsAlternateAddressMask =
         1 /*  bit in AFPXVolMountInfo.extendedFlags that means
              alternateAddressOffset is used*/
-  };
+};
 
-  enum
-  {
-    /* constants for use in AFPTagData.fType field*/
-    kAFPTagTypeIP = 0x01,     /* 4 byte IP address (MSB first)            */
-    kAFPTagTypeIPPort = 0x02, /* 4 byte IP address, 2 byte port (MSB first)     */
+enum
+{
+    //  constants for use in AFPTagData.fType field
+    kAFPTagTypeIP = 0x01,     //  4 byte IP address (MSB first)
+    kAFPTagTypeIPPort = 0x02, //  4 byte IP address, 2 byte port (MSB first)
     kAFPTagTypeDDP = 0x03,    /* Net,Node,Socket Sent by the server, currently unused
                                  by the client */
     kAFPTagTypeDNS = 0x04     /* DNS name in  address:port format   (total length
                                  variable up to 254 chars of dns name)          */
-  };
+};
 
-  enum
-  {
-    /* constants for use in AFPTagData.fLength field*/
+enum
+{
+    //  constants for use in AFPTagData.fLength field
     kAFPTagLengthIP = 0x06,
     kAFPTagLengthIPPort = 0x08,
     kAFPTagLengthDDP = 0x06
-  };
+};
 
-  struct AFPTagData
-  {
-    UInt8 fLength; /* length of this data tag including the fLength field */
+struct AFPTagData
+{
+    UInt8 fLength; //  length of this data tag including the fLength field
     UInt8 fType;
-    UInt8 fData[1]; /* variable length data */
-  };
-  typedef struct AFPTagData AFPTagData;
-  struct AFPAlternateAddress
-  {
-    /* ©©©©NOTE: fVersion was missing in 3.2 Universal Interfaces*/
-    UInt8 fVersion; /* version of the structure (currently 0x00)*/
+    UInt8 fData[1]; //  variable length data
+};
+typedef struct AFPTagData AFPTagData;
+struct AFPAlternateAddress
+{
+    //  ©©©©NOTE: fVersion was missing in 3.2 Universal Interfaces
+    UInt8 fVersion; //  version of the structure (currently 0x00)
     UInt8 fAddressCount;
-    UInt8 fAddressList[1]; /* actually variable length packed set of AFPTagData */
-  };
-  typedef struct AFPAlternateAddress AFPAlternateAddress;
-  /**
-  <pre>
-   * \note <pre>This structure is used in calls that manipulate the desktop database:
-  PBDTAddAPPL PBDTGetComment PBDTRemoveAPPL
-  PBDTAddIcon PBDTGetIcon PBDTRemoveComment
-  PBDTCloseDown PBDTGetIconInfo PBDTReset
-  PBDTDelete PBDTGetInfo PBDTSetComment
-  PBDTFlush PBDTGetPath
-  PBDTGetAPPL PBDTOpenInform
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct DTPBRec
-  {
+    UInt8 fAddressList[1]; //  actually variable length packed set of AFPTagData
+};
+typedef struct AFPAlternateAddress AFPAlternateAddress;
+/**
+<pre>
+ * \note <pre>This structure is used in calls that manipulate the desktop database:
+PBDTAddAPPL PBDTGetComment PBDTRemoveAPPL
+PBDTAddIcon PBDTGetIcon PBDTRemoveComment
+PBDTCloseDown PBDTGetIconInfo PBDTReset
+PBDTDelete PBDTGetInfo PBDTSetComment
+PBDTFlush PBDTGetPath
+PBDTGetAPPL PBDTOpenInform
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct DTPBRec
+{
     short ioDTRefNum;     /**< desktop refnum*/
     short ioIndex;        /**< */
     long ioTagInfo;       /**< */
@@ -1097,21 +1098,21 @@ extern "C"
     long ioDTPyLen;       /**< */
     short ioFiller[];     /**< */
     long ioAPPLParID;     /**< */
-  } DTPBRec;              /**< */
+} DTPBRec;                /**< */
 
-  typedef struct DTPBRec DTPBRec;
-  typedef DTPBRec *DTPBPtr;
+typedef struct DTPBRec DTPBRec;
+typedef DTPBRec *DTPBPtr;
 
-  struct HIOParam
-  {
-    QElemPtr qLink;               /*queue link in header*/
-    short qType;                  /*type byte for safety check*/
-    short ioTrap;                 /*FS: the Trap*/
-    Ptr ioCmdAddr;                /*FS: address to dispatch to*/
-    IOCompletionUPP ioCompletion; /*completion routine addr (0 for synch calls)*/
-    volatile OSErr ioResult;      /*result code*/
-    StringPtr ioNamePtr;          /*ptr to Vol:FileName string*/
-    short ioVRefNum;              /*volume refnum (DrvNum for Eject and MountVol)*/
+struct HIOParam
+{
+    QElemPtr qLink;               // queue link in header
+    short qType;                  // type byte for safety check
+    short ioTrap;                 // FS: the Trap
+    Ptr ioCmdAddr;                // FS: address to dispatch to
+    IOCompletionUPP ioCompletion; // completion routine addr (0 for synch calls)
+    volatile OSErr ioResult;      // result code
+    StringPtr ioNamePtr;          // ptr to Vol:FileName string
+    short ioVRefNum;              // volume refnum (DrvNum for Eject and MountVol)
     short ioRefNum;
     SInt8 ioVersNum;
     SInt8 ioPermssn;
@@ -1121,26 +1122,26 @@ extern "C"
     long ioActCount;
     short ioPosMode;
     long ioPosOffset;
-  };
-  typedef struct HIOParam HIOParam;
-  typedef HIOParam *HIOParamPtr;
-  /**
-  <pre>
-   * \note <pre>The HFileParam structure is used HFS-specific calls ( PBHxxx) calls
-  which typically operate on closed files:
-  PBDirCreate PBHGetFInfo PBHRename PBHSetFLock
-  PBHCreate PBHOpen PBHRstFLock
-  PBHDelete PBHOpenRF PBHSetFInfo
-  It is identical to FileParam in length, but the ioDirID field at offset 48 has
-  changed names and meanings. Use this to specify a 'Hard' directory ID if you
-  happen to have one. Use 0 to use the normal volume or working directory
-  reference number in ioVRefNum.
-  The most common way to use this structure is to allocate a union which is
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct HFileParam
-  {
+};
+typedef struct HIOParam HIOParam;
+typedef HIOParam *HIOParamPtr;
+/**
+<pre>
+ * \note <pre>The HFileParam structure is used HFS-specific calls ( PBHxxx) calls
+which typically operate on closed files:
+PBDirCreate PBHGetFInfo PBHRename PBHSetFLock
+PBHCreate PBHOpen PBHRstFLock
+PBHDelete PBHOpenRF PBHSetFInfo
+It is identical to FileParam in length, but the ioDirID field at offset 48 has
+changed names and meanings. Use this to specify a 'Hard' directory ID if you
+happen to have one. Use 0 to use the normal volume or working directory
+reference number in ioVRefNum.
+The most common way to use this structure is to allocate a union which is
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct HFileParam
+{
     struct QElem *qLink;       /**< Address of next queue element*/
     short qType;               /**< Always ioQType ()*/
     short ioTrap;              /**< (used internally by File Manager)*/
@@ -1165,21 +1166,21 @@ extern "C"
     long ioFlRPyLen;           /**< Physical end-of-file of resource*/
     unsigned long ioFlCrDat;   /**< Date/time of creation (seconds since*/
     unsigned long ioFlMdDat;   /**< Date/Time of last modification*/
-  } HFileParam;                /**< */
+} HFileParam;                  /**< */
 
-  typedef struct HFileParam HFileParam;
-  typedef HFileParam *HFileParamPtr;
-  /**
-  <pre>
-   * \note <pre>The HVolumeParam structure is used specifically in only the
-  PBHGetVInfo and PBSetVInfo functions which query or change
-  information about HFS volumes.
-  Some fields match up with fields from the older VolumeParam structure
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct HVolumeParam
-  {
+typedef struct HFileParam HFileParam;
+typedef HFileParam *HFileParamPtr;
+/**
+<pre>
+ * \note <pre>The HVolumeParam structure is used specifically in only the
+PBHGetVInfo and PBSetVInfo functions which query or change
+information about HFS volumes.
+Some fields match up with fields from the older VolumeParam structure
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct HVolumeParam
+{
     long filler;                /**< (reserved)*/
     short ioVolIndex;           /**< (>: index, <: use name/num, :*/
     unsigned long ioVCrDate;    /**< Date/time volume created*/
@@ -1204,12 +1205,12 @@ extern "C"
     long ioVFilCnt;             /**< Total number of files on the volume*/
     long ioVDirCnt;             /**< Total number of directories on the*/
     long ioVFndrInfo[];         /**< Data used by Finder (mostly*/
-  } HVolumeParam;               /**< */
+} HVolumeParam;                 /**< */
 
-  typedef struct HVolumeParam HVolumeParam;
-  typedef HVolumeParam *HVolumeParamPtr;
-  struct XIOParam
-  {
+typedef struct HVolumeParam HVolumeParam;
+typedef HVolumeParam *HVolumeParamPtr;
+struct XIOParam
+{
     QElemPtr qLink;
     short qType;
     short ioTrap;
@@ -1225,13 +1226,13 @@ extern "C"
     Ptr ioBuffer;
     long ioReqCount;
     long ioActCount;
-    short ioPosMode;   /* must have kUseWidePositioning bit set */
-    wide ioWPosOffset; /* wide positioning offset */
-  };
-  typedef struct XIOParam XIOParam;
-  typedef XIOParam *XIOParamPtr;
-  struct XVolumeParam
-  {
+    short ioPosMode;   //  must have kUseWidePositioning bit set
+    wide ioWPosOffset; //  wide positioning offset
+};
+typedef struct XIOParam XIOParam;
+typedef XIOParam *XIOParamPtr;
+struct XVolumeParam
+{
     QElemPtr qLink;
     short qType;
     short ioTrap;
@@ -1240,7 +1241,7 @@ extern "C"
     volatile OSErr ioResult;
     StringPtr ioNamePtr;
     short ioVRefNum;
-    unsigned long ioXVersion; /* this XVolumeParam version (0) */
+    unsigned long ioXVersion; //  this XVolumeParam version (0)
     short ioVolIndex;
     unsigned long ioVCrDate;
     unsigned long ioVLsMod;
@@ -1264,31 +1265,31 @@ extern "C"
     unsigned long ioVFilCnt;
     unsigned long ioVDirCnt;
     long ioVFndrInfo[8];
-    UInt64 ioVTotalBytes; /* total number of bytes on volume */
-    UInt64 ioVFreeBytes;  /* number of free bytes on volume */
-  };
-  typedef struct XVolumeParam XVolumeParam;
-  typedef XVolumeParam *XVolumeParamPtr;
-  /**
-  <pre>
-   * \note <pre> The AccessParam structure is used in shared environments to define
-  the extent of access privileges for specific files, volumes and
-  directories.
-  The most common way to use this structure is to allocate a union that
-  is an aggregate and create and initialize a pointer to the desired data
-  type. See HParamBlockRec for an example.
-  The ioACAccess field consists of a long integer with the format:
-  uueeggoo. uu represents the user's rights, ee represents everyone's
-  rights, gg represents the group's rights and oo represents the owner's
-  rights. It can be represented as:
-  From left to right,
-  bit 7 is set if the user is not the directory's owner
-  bits 6-5 are reserved and are returned set to 0
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct AccessParam
-  {
+    UInt64 ioVTotalBytes; //  total number of bytes on volume
+    UInt64 ioVFreeBytes;  //  number of free bytes on volume
+};
+typedef struct XVolumeParam XVolumeParam;
+typedef XVolumeParam *XVolumeParamPtr;
+/**
+<pre>
+ * \note <pre> The AccessParam structure is used in shared environments to define
+the extent of access privileges for specific files, volumes and
+directories.
+The most common way to use this structure is to allocate a union that
+is an aggregate and create and initialize a pointer to the desired data
+type. See HParamBlockRec for an example.
+The ioACAccess field consists of a long integer with the format:
+uueeggoo. uu represents the user's rights, ee represents everyone's
+rights, gg represents the group's rights and oo represents the owner's
+rights. It can be represented as:
+From left to right,
+bit 7 is set if the user is not the directory's owner
+bits 6-5 are reserved and are returned set to 0
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct AccessParam
+{
     short filler;      /**< */
     short ioDenyModes; /**< access rights data*/
     short filler;      /**< */
@@ -1298,31 +1299,31 @@ extern "C"
     long ioACOwnerID;  /**< owner ID*/
     long ioACGroupID;  /**< group ID*/
     long ioACAccess;   /**< access rights*/
-  } AccessParam;       /**< */
+} AccessParam;         /**< */
 
-  typedef struct AccessParam AccessParam;
-  typedef AccessParam *AccessParamPtr;
-  /**
-  <pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct ObjParam
-  {
+typedef struct AccessParam AccessParam;
+typedef AccessParam *AccessParamPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ObjParam
+{
     short filler;     /**< */
     short ioObjType;  /**< function code*/
     Ptr ioObjNamePtr; /**< pointer to returned creator/group*/
     long ioReqCount;  /**< size of buffer area*/
     long ioActCount;  /**< length of volume parameter data*/
-  } ObjParam;         /**< */
+} ObjParam;           /**< */
 
-  typedef struct ObjParam ObjParam;
-  typedef ObjParam *ObjParamPtr;
-  /**
-  <pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct CopyParam
-  {
+typedef struct ObjParam ObjParam;
+typedef ObjParam *ObjParamPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct CopyParam
+{
     short ioDstVRefNum;   /**< destination volume identifier*/
     short filler;         /**< */
     StringPtr ioNewName;  /**< pointer to destination pathname*/
@@ -1331,16 +1332,16 @@ extern "C"
     long filler;          /**< */
     long filler;          /**< */
     long ioDirID;         /**< source directory ID*/
-  } CopyParam;            /**< */
+} CopyParam;              /**< */
 
-  typedef struct CopyParam CopyParam;
-  typedef CopyParam *CopyParamPtr;
-  /**
-  <pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct WDParam
-  {
+typedef struct CopyParam CopyParam;
+typedef CopyParam *CopyParamPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct WDParam
+{
     short filler;      /**< */
     short ioWDIndex;   /**< */
     long ioWDProcID;   /**< */
@@ -1350,25 +1351,25 @@ extern "C"
     long filler;       /**< */
     long filler;       /**< */
     long ioWDDirID;    /**< */
-  } WDParam;           /**< */
+} WDParam;             /**< */
 
-  typedef struct WDParam WDParam;
-  typedef WDParam *WDParamPtr;
-  /**
-  <pre>
-   * \note <pre>This structure is used in procedures that manipulate file id's:
-  PBCreateFileIDRef PBDeleteFileIDRef
-  PBExchangeFiles PBResolveFileIDRef
-  The ioDestNamePtr and ioDestDirID fields are used only with the
-  PBExchangeFiles function.
-  The most common way to use this structure is to allocate a union which is
-  an aggregate and create and initialize a pointer to the desired data type. See
-  HParamBlockRec for examples.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct FIDParam
-  {
+typedef struct WDParam WDParam;
+typedef WDParam *WDParamPtr;
+/**
+<pre>
+ * \note <pre>This structure is used in procedures that manipulate file id's:
+PBCreateFileIDRef PBDeleteFileIDRef
+PBExchangeFiles PBResolveFileIDRef
+The ioDestNamePtr and ioDestDirID fields are used only with the
+PBExchangeFiles function.
+The most common way to use this structure is to allocate a union which is
+an aggregate and create and initialize a pointer to the desired data type. See
+HParamBlockRec for examples.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FIDParam
+{
     long filler;             /**< filler*/
     StringPtr ioDestNamePtr; /**< pointer to destination filename*/
     long filler;             /**< filler*/
@@ -1377,26 +1378,26 @@ extern "C"
     long;                    /**< filler;/**< filler*/
     long ioSrcDirID;         /**< source parent directory ID*/
     short filler;            /**< filler*/
-  } FIDParam;                /**< */
+} FIDParam;                  /**< */
 
-  typedef struct FIDParam FIDParam;
-  typedef FIDParam *FIDParamPtr;
-  /**
-  <pre>
-   * \note <pre>The File Manager provides two functions ( PBGetForeignPrivs and
-  PBSetForeignPrivs ) that an application or shell program can use to
-  communicate with a foreign file system about its native access-control
-  system. The functions retrieve and set access permissions on the foreign
-  file system. The access-control functions use the new
-  ForeignPrivParam parameter block variant.
-  The most common way to use this structure is to allocate a union that is an
-  aggregate and create and initialize a pointer to the desired data type. See
-  HParamBlockRec for an example.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct ForeignPrivParam
-  {
+typedef struct FIDParam FIDParam;
+typedef FIDParam *FIDParamPtr;
+/**
+<pre>
+ * \note <pre>The File Manager provides two functions ( PBGetForeignPrivs and
+PBSetForeignPrivs ) that an application or shell program can use to
+communicate with a foreign file system about its native access-control
+system. The functions retrieve and set access permissions on the foreign
+file system. The access-control functions use the new
+ForeignPrivParam parameter block variant.
+The most common way to use this structure is to allocate a union that is an
+aggregate and create and initialize a pointer to the desired data type. See
+HParamBlockRec for an example.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ForeignPrivParam
+{
     long filler;                /**< filler*/
     long filler;                /**< filler*/
     Ptr ioForeignPrivBuffer;    /**< privileges data*/
@@ -1408,22 +1409,22 @@ extern "C"
     long ioForeignPrivInfo;     /**< privileges data*/
     long ioForeignPrivInfo;     /**< privileges data*/
     long ioForeignPrivInfo;     /**< privileges data*/
-  } ForeignPrivParam;           /**< */
+} ForeignPrivParam;             /**< */
 
-  typedef struct ForeignPrivParam ForeignPrivParam;
-  typedef ForeignPrivParam *ForeignPrivParamPtr;
-  /**
-  <pre>
-   * \note <pre>This structure is used in the File Manager call PBCatSearch which
-  provides a way to efficiently search a volume's catalog.:
-  The most common way to use this structure is to allocate a union which is
-  an aggregate and create and initialize a pointer to the desired data type. See
-  HParamBlockRec for examples.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct CSParam
-  {
+typedef struct ForeignPrivParam ForeignPrivParam;
+typedef ForeignPrivParam *ForeignPrivParamPtr;
+/**
+<pre>
+ * \note <pre>This structure is used in the File Manager call PBCatSearch which
+provides a way to efficiently search a volume's catalog.:
+The most common way to use this structure is to allocate a union which is
+an aggregate and create and initialize a pointer to the desired data type. See
+HParamBlockRec for examples.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct CSParam
+{
     FSSpecPtr ioMatchPtr;         /**< match array*/
     long ioReqMatchCount;         /**< maximum allowable matches*/
     long ioActMatchCount;         /**< actual match count*/
@@ -1434,75 +1435,76 @@ extern "C"
     CatPositionRec ioCatPosition; /**< current position in catalog*/
     Ptr ioOptBuffer;              /**< optional performance enhancement*/
     long ioOptBufSize;            /**< size of buffer pointed to by*/
-  } CSParam;                      /**< */
+} CSParam;                        /**< */
 
-  typedef struct CSParam CSParam;
-  typedef CSParam *CSParamPtr;
-  /**
-  <pre>union structure)
-  convention
-  </pre>
-   * \note <pre>All ten structures on this union share the same names for the first eight
-  fields (the first 24 bytes). These fields are also the same in the flat file
-  system version ParamBlockRec . These common fields are defined in a
-  macro as the ParamBlockHeader .
-  This is the HFS variation of the ParamBlockRec . It should be used in
-  HFS-specific calls ( PBHxxx).  A typical technique for using parameter
-  blocks is to allocate the HParamBlockRec union and create pointers that
-  refer to the relevant structure data types:
-  HParamBlockRec hpb; /* allocate a union */
-  HIOParam *hipb = (HIOParam *)&hpb;     /* and struc ptrs */
-  HFileParam *hfpb = (HFileParam *)&hpb; /* all point same addr */
-  HVolumeParam *hvpb = (HVolumeParam *)&hpb;
-  AccessParam *hapb = (AccessParam *)&hpb;
-  ObjParam *hopb = (ObjParam *)&hpb;
-  CopyParam *hcpb = (CopyParam *)&hpb;
-  WDParam *hwpb = (WDParam *)&hpb;
-  hpb.ioParam.ioVRefNum = 2; /* as a union member */
-  hpb.fileParam.ioFlFndrInfo.fdType = 'TEXT';
-  hpb.volumeParam.ioVolIndex = 0;
-  hpb.accessParam.ioDenyModes = 0;
-  hpb.objParam.ioObjType = 2;
-  hpb.copyParam.ioDstVRefNum = 1;
-  hpb.wdParam.ioWDIndex = 1;
-  hipb->ioVRefNum = 2; /* or as a structure field */
-  hfpb->ioFlFndrInfo.fdType = 'TEXT';
-  </ pre>
-          * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-                                                        * /
-                                                    union HParamBlockRec
-  {
-    HIOParam ioParam;                  /**< Generally used in I/O for open files*/
-    HFileParam fileParam;              /**< Used for unopened files*/
-    HVolumeParam volumeParam;          /**< Used in volume-specific functions*/
-    AccessParam accessParam;           /**< Used in shared environment calls*/
-    ObjParam objParam;                 /**< Used in shared environment calls*/
-    CopyParam copyParam;               /**< Used in shared environment calls*/
-    WDParam wdParam;                   /**< Used in shared environment calls*/
-    FIDParam fidParam;                 /**< Used in calls which manipulate File*/
-    CSParam csParam;                   /**< Used by PBCatSearch*/
-    ForeignPrivParam foreignPrivParam; /**< Used for communication with foreign*/
-  } HParamBlockRec;                    /**< (size of aggregate - largest struct in*/
+typedef struct CSParam CSParam;
+typedef CSParam *CSParamPtr;
+/**
+<pre>union structure)
+convention
+</pre>
+ * \note <pre>All ten structures on this union share the same names for the first eight
+fields (the first 24 bytes). These fields are also the same in the flat file
+system version ParamBlockRec . These common fields are defined in a
+macro as the ParamBlockHeader .
+This is the HFS variation of the ParamBlockRec . It should be used in
+HFS-specific calls ( PBHxxx).  A typical technique for using parameter
+blocks is to allocate the HParamBlockRec union and create pointers that
+refer to the relevant structure data types:
+HParamBlockRec hpb; //  allocate a union
+HIOParam *hipb = (HIOParam *)&hpb;     //  and struc ptrs
+HFileParam *hfpb = (HFileParam *)&hpb; //  all point same addr
+HVolumeParam *hvpb = (HVolumeParam *)&hpb;
+AccessParam *hapb = (AccessParam *)&hpb;
+ObjParam *hopb = (ObjParam *)&hpb;
+CopyParam *hcpb = (CopyParam *)&hpb;
+WDParam *hwpb = (WDParam *)&hpb;
+hpb.ioParam.ioVRefNum = 2; //  as a union member
+hpb.fileParam.ioFlFndrInfo.fdType = 'TEXT';
+hpb.volumeParam.ioVolIndex = 0;
+hpb.accessParam.ioDenyModes = 0;
+hpb.objParam.ioObjType = 2;
+hpb.copyParam.ioDstVRefNum = 1;
+hpb.wdParam.ioWDIndex = 1;
+hipb->ioVRefNum = 2; //  or as a structure field
+hfpb->ioFlFndrInfo.fdType = 'TEXT';
+</ pre>
+        * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                      * /
+                                                  union HParamBlockRec
+{
+  HIOParam ioParam;                  /**< Generally used in I/O for open files*/
+HFileParam fileParam;              /**< Used for unopened files*/
+HVolumeParam volumeParam;          /**< Used in volume-specific functions*/
+AccessParam accessParam;           /**< Used in shared environment calls*/
+ObjParam objParam;                 /**< Used in shared environment calls*/
+CopyParam copyParam;               /**< Used in shared environment calls*/
+WDParam wdParam;                   /**< Used in shared environment calls*/
+FIDParam fidParam;                 /**< Used in calls which manipulate File*/
+CSParam csParam;                   /**< Used by PBCatSearch*/
+ForeignPrivParam foreignPrivParam; /**< Used for communication with foreign*/
+}
+HParamBlockRec; /**< (size of aggregate - largest struct in*/
 
-  typedef union HParamBlockRec HParamBlockRec;
+typedef union HParamBlockRec HParamBlockRec;
 
-  typedef HParamBlockRec *HParmBlkPtr;
+typedef HParamBlockRec *HParmBlkPtr;
 
-  /**
-  <pre>
-   * \note <pre>Use this CMovePBRec structure in calls to PBCatMove .
-  The original name is specified in ioVRefNum and ioNamePtr and ioDirID (if
-  ioDirID is 0, the directory must be identified in ioVRefNum and/or
-  ioNamePtr).
-  The file's directory entry is moved into the ioNewDirID directory (unless
-  it is 0, in which case ioNewName must contain the full path and filename).
-  The file's one-element filename (ie, the last part of the string) must be the
-  same in both ioNamePtr and ioNewName.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct CMovePBRec
-  {
+/**
+<pre>
+ * \note <pre>Use this CMovePBRec structure in calls to PBCatMove .
+The original name is specified in ioVRefNum and ioNamePtr and ioDirID (if
+ioDirID is 0, the directory must be identified in ioVRefNum and/or
+ioNamePtr).
+The file's directory entry is moved into the ioNewDirID directory (unless
+it is 0, in which case ioNewName must contain the full path and filename).
+The file's one-element filename (ie, the last part of the string) must be the
+same in both ioNamePtr and ioNewName.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct CMovePBRec
+{
     struct QElem *qLink;  /**< Address of next queue element*/
     short qType;          /**< Always ioQType ()*/
     short ioTrap;         /**< (used internally by File Manager)*/
@@ -1516,12 +1518,12 @@ extern "C"
     long filler;          /**< (unused)*/
     long filler[];        /**< (unused)*/
     long ioDirID;         /**< 'Hard' ID of destination directory*/
-  } CMovePBRec;           /**< */
+} CMovePBRec;             /**< */
 
-  typedef struct CMovePBRec CMovePBRec;
-  typedef CMovePBRec *CMovePBPtr;
-  struct WDPBRec
-  {
+typedef struct CMovePBRec CMovePBRec;
+typedef CMovePBRec *CMovePBPtr;
+struct WDPBRec
+{
     QElemPtr qLink;
     short qType;
     short ioTrap;
@@ -1536,26 +1538,26 @@ extern "C"
     short ioWDVRefNum;
     short filler2[7];
     long ioWDDirID;
-  };
-  typedef struct WDPBRec WDPBRec;
-  typedef WDPBRec *WDPBPtr;
-  /**
-  <pre>
-   * \note <pre>Use this FCBPBRec structure in calls to PBGetFCBInfo (or to examine
-  data starting 2 bytes beyond the address in the global variable FCBSPtr ).
-  Note that ioVRefNum has an unusual meaning when ioFCBIndx is non-zero
-  (i.e., when you want to index through FCBs of open files). It identifies
-  where to search and may be a volume or working directory number, a drive
-  number, or 0 (which indicates to index through all open files, no matter
-  where they are).
-  IM IV-180 defines ioFCBFlags masks as bits 0, 1, and 7, but that is based
-  on a 1 byte value. If your compiler's headers lay this field out as an short,
-  then use masks of 0x0100, 0x0200, and 0x8000, respectively.
-  </pre>
-   * \copyright THINK Reference © 1991-1992 Symantec Corporation
-  */
-  struct FCBPBRec
-  {
+};
+typedef struct WDPBRec WDPBRec;
+typedef WDPBRec *WDPBPtr;
+/**
+<pre>
+ * \note <pre>Use this FCBPBRec structure in calls to PBGetFCBInfo (or to examine
+data starting 2 bytes beyond the address in the global variable FCBSPtr ).
+Note that ioVRefNum has an unusual meaning when ioFCBIndx is non-zero
+(i.e., when you want to index through FCBs of open files). It identifies
+where to search and may be a volume or working directory number, a drive
+number, or 0 (which indicates to index through all open files, no matter
+where they are).
+IM IV-180 defines ioFCBFlags masks as bits 0, 1, and 7, but that is based
+on a 1 byte value. If your compiler's headers lay this field out as an short,
+then use masks of 0x0100, 0x0200, and 0x8000, respectively.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FCBPBRec
+{
     struct QElem *qLink;  /**< Address of next queue element*/
     short qType;          /**< Always ioQType ()*/
     short ioTrap;         /**< (used internally by File Manager)*/
@@ -1577,14 +1579,14 @@ extern "C"
     short ioFCBVRefNum;   /**< 'Hard' volume reference number*/
     long ioFCBClpSiz;     /**< File clump size (minimum allocation*/
     long ioFCBParID;      /**< Parent's 'Hard' Directory ID*/
-  } FCBPBRec;             /**< */
+} FCBPBRec;               /**< */
 
-  typedef struct FCBPBRec FCBPBRec;
-  typedef FCBPBRec *FCBPBPtr;
-  /**
-  <pre>*/
-  struct VCB
-  {
+typedef struct FCBPBRec FCBPBRec;
+typedef FCBPBRec *FCBPBPtr;
+/**
+<pre>*/
+struct VCB
+{
     struct QElem *qLink;        /**< Address of next queue element*/
     short qType;                /**< Always fsQType ()*/
     short vcbFlags;             /**< Bit = when volume needs*/
@@ -1625,13 +1627,13 @@ extern "C"
     typedef VCB *VCBPtr;
     struct DrvQEl
     {
-      QElemPtr qLink;
-      short qType;
-      short dQDrive;
-      short dQRefNum;
-      short dQFSID;
-      unsigned short dQDrvSz;
-      unsigned short dQDrvSz2;
+        QElemPtr qLink;
+        short qType;
+        short dQDrive;
+        short dQRefNum;
+        short dQFSID;
+        unsigned short dQDrvSz;
+        unsigned short dQDrvSz2;
     };
     typedef struct DrvQEl DrvQEl;
     typedef DrvQEl *DrvQElPtr;
@@ -1648,20 +1650,20 @@ extern "C"
 #if !OPAQUE_UPP_TYPES
     enum
     {
-      uppIOCompletionProcInfo = 0x00009802
-    }; /* register no_return_value Func(4_bytes:A0) */
+        uppIOCompletionProcInfo = 0x00009802
+    }; //  register no_return_value Func(4_bytes:A0)
 #ifdef __cplusplus
     inline IOCompletionUPP NewIOCompletionUPP(IOCompletionProcPtr userRoutine)
     {
-      return (IOCompletionUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                   uppIOCompletionProcInfo,
-                                                   GetCurrentArchitecture());
+        return (IOCompletionUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                     uppIOCompletionProcInfo,
+                                                     GetCurrentArchitecture());
     }
 #else
-#define NewIOCompletionUPP(userRoutine)                                     \
-  (IOCompletionUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppIOCompletionProcInfo, \
-                           GetCurrentArchitecture())
+#define NewIOCompletionUPP(userRoutine)                                       \
+    (IOCompletionUPP)                                                         \
+        NewRoutineDescriptor((ProcPtr)(userRoutine), uppIOCompletionProcInfo, \
+                             GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1679,7 +1681,7 @@ extern "C"
 #ifdef __cplusplus
     inline void DisposeIOCompletionUPP(IOCompletionUPP userUPP)
     {
-      DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+        DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
     }
 #else
 #define DisposeIOCompletionUPP(userUPP) DisposeRoutineDescriptor(userUPP)
@@ -1706,20 +1708,20 @@ extern "C"
     inline void InvokeIOCompletionUPP(ParmBlkPtr paramBlock,
                                       IOCompletionUPP userUPP)
     {
-      CALL_ONE_PARAMETER_UPP(userUPP, uppIOCompletionProcInfo, paramBlock);
+        CALL_ONE_PARAMETER_UPP(userUPP, uppIOCompletionProcInfo, paramBlock);
     }
 #else
 #define InvokeIOCompletionUPP(paramBlock, userUPP) \
-  CALL_ONE_PARAMETER_UPP((userUPP), uppIOCompletionProcInfo, (paramBlock))
+    CALL_ONE_PARAMETER_UPP((userUPP), uppIOCompletionProcInfo, (paramBlock))
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+//  support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #define NewIOCompletionProc(userRoutine) NewIOCompletionUPP(userRoutine)
 #define CallIOCompletionProc(userRoutine, paramBlock) \
-  InvokeIOCompletionUPP(paramBlock, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+    InvokeIOCompletionUPP(paramBlock, userRoutine)
+#endif //  CALL_NOT_IN_CARBON
 
     /**
        PBOpenSync(), PBOpenAsync(), PBOpenImmed() were moved to Devices.h
@@ -1755,7 +1757,7 @@ extern "C"
 #endif
     OSErr PBGetVInfoAsync(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA407);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 /**
  *  PBXGetVolInfoSync()
@@ -1838,7 +1840,7 @@ extern "C"
 #endif
     OSErr PBSetVolAsync(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA415);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 /**
  *  PBFlushVolSync()
@@ -2143,7 +2145,7 @@ extern "C"
 #endif
     OSErr PBSetFVersAsync(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA443);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 /**
  *  PBAllocateSync()
@@ -2315,7 +2317,7 @@ extern "C"
 #endif
     OSErr PBMountVol(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA00F);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
     /**
     \brief Flush volume, close its files, release its memory
@@ -2408,7 +2410,7 @@ Manager, when needed.
 #endif
     OSErr PBOffLine(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA035);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 /**
  *  PBCatSearchSync()
@@ -2465,18 +2467,18 @@ return a volume reference indicating where a file is (or where the user
 wants it to go).
 You can specify the desired volume by either a single name or a volume
 reference number; e.g.:
-err = SetVol( 0, theRefNum ); /* set by reference number */
-    err = SetVol("\pMy HardDisk:", 0); /* set by name */
+err = SetVol( 0, theRefNum ); //  set by reference number
+    err = SetVol("\pMy HardDisk:", 0); //  set by name
     The volName string should NOT be a multiple - name pathname(such as
                                                                 "\pHardDisk:Ltrs:Old") nor should it be an empty string(i.e., "\p");
     this parameter is checked first and anything but a valid name(except a NIL
                                                                       pointer) is rejected as an error.PBHSetVol lets you select both the default volume and default directory(see the second example, below)
         .You can pass a working directory number(i.e., the value of ioVRefNum after a call to PBOpenWD, or a volume reference returned by Standard
                                                                                                                 File),
-        but only if volName is NIL on entry(see the third example).Also, if you do use a working directory reference, a subsequent call to GetVol will return that number, rather than a "hard" volume ID.</ pre> * \copyright THINK Reference © 1991 - 1992 Symantec Corporation *    \non_carbon_cfm in InterfaceLib 7.1 and later *    \carbon_lib not available *    \mac_os_x not available * / OSErr SetVol(ConstStr63Param volName, /* can be NULL */
+        but only if volName is NIL on entry(see the third example).Also, if you do use a working directory reference, a subsequent call to GetVol will return that number, rather than a "hard" volume ID.</ pre> * \copyright THINK Reference © 1991 - 1992 Symantec Corporation *    \non_carbon_cfm in InterfaceLib 7.1 and later *    \carbon_lib not available *    \mac_os_x not available * / OSErr SetVol(ConstStr63Param volName, //  can be NULL
                                                                                                                                                                                                                                                                                                                                                                                                                   short vRefNum);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
     /**
     \brief Flush volume, close its files, release its memory
@@ -2497,7 +2499,7 @@ when needed.
 *    \mac_os_x         in version 10.0 and later
 */
     OSErr
-    UnmountVol(ConstStr63Param volName, /* can be NULL */
+    UnmountVol(ConstStr63Param volName, //  can be NULL
                short vRefNum);
 
 #if CALL_NOT_IN_CARBON
@@ -2510,10 +2512,10 @@ when needed.
      *    \mac_os_x         not available
      */
     OSErr
-    Eject(ConstStr63Param volName, /* can be NULL */
+    Eject(ConstStr63Param volName, //  can be NULL
           short vRefNum);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
     /**
      *  FlushVol()
@@ -2524,7 +2526,7 @@ when needed.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    FlushVol(ConstStr63Param volName, /* can be NULL */
+    FlushVol(ConstStr63Param volName, //  can be NULL
              short vRefNum);
 
     /**
@@ -2574,10 +2576,10 @@ PBSetVol .
 *    \mac_os_x         in version 10.0 and later
 */
     OSErr
-    HSetVol(ConstStr63Param volName, /* can be NULL */
+    HSetVol(ConstStr63Param volName, //  can be NULL
             short vRefNum, long dirID);
 
-    /* AddDrive() was moved to Devices.h*/
+    //  AddDrive() was moved to Devices.h
 
 #if CALL_NOT_IN_CARBON
 
@@ -2643,7 +2645,7 @@ of the HVolumeParam structure returned by a call to PBHGetVInfo ).
     OSErr
     OpenDF(ConstStr255Param fileName, short vRefNum, short *refNum);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
     /**
     \brief Close a file
@@ -2816,7 +2818,7 @@ on the system.  Use indexing techniques with PBGetVInfo to learn about
 all mounted volumes.
 Example
 #include < Files.h>
-#include <pascal.h> /* for PtoCstr() */
+#include <pascal.h> //  for PtoCstr()
     Str255 volName;
     short vRef, rc;
     long avail;
@@ -3014,13 +3016,13 @@ file data as long as no new data is written over it.
 Example
 #include < Files.h>
 shortrc;
-rc = FSDelete ( "\pHardDisk:Ltrs:Smith", 0 ); /* delete file */
+rc = FSDelete ( "\pHardDisk:Ltrs:Smith", 0 ); //  delete file
     if (rc)
-    { /* . . . handle the error . . . */
+    { //  . . . handle the error . . .
     }
-    rc = FSDelete("\pHardDisk:Ltrs:", 0); /* delete directory */
+    rc = FSDelete("\pHardDisk:Ltrs:", 0); //  delete directory
     if (rc)
-    { /* . . . handle the error . . . */
+    { //  . . . handle the error . . .
     }
     </ pre>
                 * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -3232,7 +3234,7 @@ PBLockRange . Use PBGetFInfo to see if a file is currently locked
     OSErr
     RstFLock(ConstStr255Param fileName, short vRefNum);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
     /**
     \brief Increase the physical size of an open file
@@ -3268,7 +3270,7 @@ logical EOF. For instance:
 longbyteCount;
 shortfRef;
 byteCount = 1;
-Allocate ( fRef, &byteCount ); /* add 1 byte to the file */
+Allocate ( fRef, &byteCount ); //  add 1 byte to the file
 This attempts to extend the file by 1 byte, but it will always eat up one full
 allocation unit (e.g., 512 or 1K) of disk space. Before using Allocate , you
 may wish to learn the current physical file length by examining the
@@ -3278,368 +3280,368 @@ blocks to the file (for fastest I/O) SetEOF can also be used to increase file
 size.
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+             *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-OSErr
-Allocate(short refNum, long *count);
+    OSErr
+    Allocate(short refNum, long *count);
 
-/**
-\brief Obtain the size of an open file (logical EOF)
+    /**
+    \brief Obtain the size of an open file (logical EOF)
 
-<pre>Use GetEOF to find the current size of a file (its logical end-of-file
-position).
-fRefNum is the reference number of an open file. See FSOpen and OpenRF .
-curEOFis the address of long integer. Upon return, it will contain the file
-position of the logical end-of-file; i.e., the size of the file, in bytes.
-</pre>
-* \returns <pre>an operating system Error Code . It will be one of:
-noErr(0) No error
-extFSErr (-58) External file system
-fnOpnErr (-38) File not open
-ioErr(-36) I/O error
-rfNumErr (-51) Bad fRefNum
-</pre>
-* \note <pre>Use GetEOF to learn the size of file. This and all high-level file
-operations refer to the logical end-of-file, as opposed to the physical EOF.
-Note: The physical EOF is always greater than or equal to the logical
-EOF, is a multiple of the size of an allocation unit (usually 1K), and has no
-significance for most applications.
-The following example opens a file, allocates a memory buffer to hold all of
-its data, and reads the data into the buffer. See OpenRF for an example
-program that copies the contents of both forks of one file to another and uses
-this function to learn the size of the file.
-Example
-#include < Files.h>
-#include < Memory.h >
-short fRef, rc;
-long fileSize;
-Handle hData; /* handle to buffer to be allocated */
-rc = FSOpen("\pHardDisk:MyFile", 0, &fRef);
-if (rc)
-{ /* . . . handle the error . . . */
-}
-rc = GetEOF(fRef, &fileSize); /* get file size */
-if (rc)
-{ /* . . . handle the error . . . */
-}
-hData = NewHandle(fileSize); /* allocate enough RAM */
-if (hData == 0)
-{ /* . . . handle the error . . . */
-}
-rc = FSRead(fRef, &fileSize, *hData); /* read it in */
-</ pre>
-            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
-    later
-        *    \carbon_lib in CarbonLib 1.0 and
-    later
-        *    \mac_os_x in version 10.0 and
-    later
-            * /
-        OSErr
-        GetEOF(short refNum, long *logEOF);
+    <pre>Use GetEOF to find the current size of a file (its logical end-of-file
+    position).
+    fRefNum is the reference number of an open file. See FSOpen and OpenRF .
+    curEOFis the address of long integer. Upon return, it will contain the file
+    position of the logical end-of-file; i.e., the size of the file, in bytes.
+    </pre>
+    * \returns <pre>an operating system Error Code . It will be one of:
+    noErr(0) No error
+    extFSErr (-58) External file system
+    fnOpnErr (-38) File not open
+    ioErr(-36) I/O error
+    rfNumErr (-51) Bad fRefNum
+    </pre>
+    * \note <pre>Use GetEOF to learn the size of file. This and all high-level file
+    operations refer to the logical end-of-file, as opposed to the physical EOF.
+    Note: The physical EOF is always greater than or equal to the logical
+    EOF, is a multiple of the size of an allocation unit (usually 1K), and has no
+    significance for most applications.
+    The following example opens a file, allocates a memory buffer to hold all of
+    its data, and reads the data into the buffer. See OpenRF for an example
+    program that copies the contents of both forks of one file to another and uses
+    this function to learn the size of the file.
+    Example
+    #include < Files.h>
+    #include < Memory.h >
+    short fRef, rc;
+    long fileSize;
+    Handle hData; //  handle to buffer to be allocated
+    rc = FSOpen("\pHardDisk:MyFile", 0, &fRef);
+    if (rc)
+    { //  . . . handle the error . . .
+    }
+    rc = GetEOF(fRef, &fileSize); //  get file size
+    if (rc)
+    { //  . . . handle the error . . .
+    }
+    hData = NewHandle(fileSize); //  allocate enough RAM
+    if (hData == 0)
+    { //  . . . handle the error . . .
+    }
+    rc = FSRead(fRef, &fileSize, *hData); //  read it in
+    </ pre>
+                * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                          *    \non_carbon_cfm in InterfaceLib 7.1 and
+        later
+            *    \carbon_lib in CarbonLib 1.0 and
+        later
+            *    \mac_os_x in version 10.0 and
+        later
+                * /
+            OSErr
+            GetEOF(short refNum, long *logEOF);
 
-/**
-\brief Increase or decrease the logical size of a file
+    /**
+    \brief Increase or decrease the logical size of a file
 
-<pre>Use SetEOF to change the size of a file to any arbitrary length. Disk blocks
-are allocated or released to accommodate the request.
-fRefNum is the reference number of an open file. See FSOpen and OpenRF .
-newEOF is the desired new size of the file, in bytes.
-</pre>
-* \returns <pre>an operating system Error Code . It will be one of:
-noErr(0) No error
-dskFulErr (-34) Disk full (partial allocation made)
-extFSErr (-58) External file system
-fLckdErr (-45) File is locked
-fnOpnErr (-38) File not open
-ioErr(-36) I/O error
-rfNumErr (-51) Bad fRefNum
-vLckdErr (-46) Volume is locked
-wPrErr (-44) Diskette is write-protected
-wrPermErr (-61) Write permissions error
-</pre>
-* \note <pre>If newEOF is larger than the current file size (see GetEOF), the file size
-is increased by allocating additional disk blocks to the physical EOF (if
-needed). If there is not enough available disk space to satisfy the entire
-request the dskFulErr is returned and no new space is allocated.
-You can also use Allocate to increase the size of a file. The
-PBAllocContig function may be preferable since it attempts to allocate
-contiguous blocks (for best read/write performance).
-If newEOF is smaller than the current size and if the new size is small
-enough to fit in fewer allocation blocks, disk blocks will be released as the
-file is truncated. For instance,
-SetEOF( fRef, 0 );
-sets the logical end-of-file to 0 and releases all the disk blocks allocated to
-the file (thus, freeing up space on the disk).
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-OSErr SetEOF(short refNum, long logEOF);
+    <pre>Use SetEOF to change the size of a file to any arbitrary length. Disk blocks
+    are allocated or released to accommodate the request.
+    fRefNum is the reference number of an open file. See FSOpen and OpenRF .
+    newEOF is the desired new size of the file, in bytes.
+    </pre>
+    * \returns <pre>an operating system Error Code . It will be one of:
+    noErr(0) No error
+    dskFulErr (-34) Disk full (partial allocation made)
+    extFSErr (-58) External file system
+    fLckdErr (-45) File is locked
+    fnOpnErr (-38) File not open
+    ioErr(-36) I/O error
+    rfNumErr (-51) Bad fRefNum
+    vLckdErr (-46) Volume is locked
+    wPrErr (-44) Diskette is write-protected
+    wrPermErr (-61) Write permissions error
+    </pre>
+    * \note <pre>If newEOF is larger than the current file size (see GetEOF), the file size
+    is increased by allocating additional disk blocks to the physical EOF (if
+    needed). If there is not enough available disk space to satisfy the entire
+    request the dskFulErr is returned and no new space is allocated.
+    You can also use Allocate to increase the size of a file. The
+    PBAllocContig function may be preferable since it attempts to allocate
+    contiguous blocks (for best read/write performance).
+    If newEOF is smaller than the current size and if the new size is small
+    enough to fit in fewer allocation blocks, disk blocks will be released as the
+    file is truncated. For instance,
+    SetEOF( fRef, 0 );
+    sets the logical end-of-file to 0 and releases all the disk blocks allocated to
+    the file (thus, freeing up space on the disk).
+    </pre>
+    * \copyright THINK Reference © 1991-1992 Symantec Corporation
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+    *    \carbon_lib        in CarbonLib 1.0 and later
+    *    \mac_os_x         in version 10.0 and later
+    */
+    OSErr SetEOF(short refNum, long logEOF);
 
-/**
-\brief Obtain position of the file mark of an open file
+    /**
+    \brief Obtain position of the file mark of an open file
 
-<pre>GetFPos returns the current position of the file mark (the file address at
-which the next read or write will begin).
-fRefNum is the reference number of an open file. See FSOpen and OpenRF .
-filePosis the address of a 32-bit long integer. Upon return, it will contain
-the current value of the file's mark; i.e., an offset in bytes from the
-start of the file.
-</pre>
-* \returns <pre>an operating system Error Code . It will be one of:
-noErr(0) No error
-eofErr (-39) End of file
-extFSErr (-58) External file system
-fnOpnErr (-38) File not open
-ioErr(-36) I/O error
-rfNumErr (-51) fRefNum  is invalid
-</pre>
-* \note <pre>You can use GetFPos before attempting a read, and compare the return
-value of filePos to the location of file's logical end-of-file (see GetEOF).
-See OpenRF for an example usage of this function.
-The SetFPos function performs the complementary function of setting the
-file mark, in preparation for reading from or writing to the file at that
-position.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-OSErr GetFPos(short refNum, long *filePos);
+    <pre>GetFPos returns the current position of the file mark (the file address at
+    which the next read or write will begin).
+    fRefNum is the reference number of an open file. See FSOpen and OpenRF .
+    filePosis the address of a 32-bit long integer. Upon return, it will contain
+    the current value of the file's mark; i.e., an offset in bytes from the
+    start of the file.
+    </pre>
+    * \returns <pre>an operating system Error Code . It will be one of:
+    noErr(0) No error
+    eofErr (-39) End of file
+    extFSErr (-58) External file system
+    fnOpnErr (-38) File not open
+    ioErr(-36) I/O error
+    rfNumErr (-51) fRefNum  is invalid
+    </pre>
+    * \note <pre>You can use GetFPos before attempting a read, and compare the return
+    value of filePos to the location of file's logical end-of-file (see GetEOF).
+    See OpenRF for an example usage of this function.
+    The SetFPos function performs the complementary function of setting the
+    file mark, in preparation for reading from or writing to the file at that
+    position.
+    </pre>
+    * \copyright THINK Reference © 1991-1992 Symantec Corporation
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+    *    \carbon_lib        in CarbonLib 1.0 and later
+    *    \mac_os_x         in version 10.0 and later
+    */
+    OSErr GetFPos(short refNum, long *filePos);
 
-/**
-\brief Position file mark for random-access read/write
+    /**
+    \brief Position file mark for random-access read/write
 
-<pre>SetFPos sets the position of the file mark (the file position at which the next
-read or write operation will start).
-fRefNum is the reference number of an open file. See FSOpen and OpenRF .
-posMode specifies the method by which the file pointer will be moved. The
-following constants are defined in Files.h:
-fsAtMark 0Remain at current mark ( posOffset  is ignored)
-fsFromStart 1Move to absolute file position in posOffset
-fsFromLEOF 2Move posOffset  bytes from logical end of file
-fsFromMark 3Move posOffset  bytes from current position
-posOffset is a signed long integer (positive or negative); it identifies how far
-to move the file mark. The resulting absolute file position will
-depend upon the method specified by posMode.
-</pre>
-* \returns <pre>an operating system Error Code . It will be one of:
-noErr(0) No error
-eofErr (-39) Attempt tp position past the end-of-file
-extFSErr (-58) External file system
-fnOpnErr (-38) File not open
-ioErr(-36) I/O error
-posErr (-40) Can't position to before start of file
-rfNumErr (-51) Bad fRefNum
-</pre>
-* \note <pre>SetFPos (LSEEK to UNIX fans) is used in random-access disk operations
-to position the file mark to a specified position in order to read from or
-write to a selected position in the file. This function is not needed in
-sequential file I/O, since the file mark is updated automatically via FSRead
-and FSWrite .
-The posOffset  parameter may be positive or negative. If the combination
-of posMode and a positive posOffset  would move past the end of the file, the
-mark is set to the EOF and eofErr is returned. If you attempt to position the
-file mark before the start of the file (i.e., while using a negative value in
-posOffset ) posErr is returned.
-If you wish to append records to the end of the file, simply use
-posMode=fsFromLEOF and posOffset =0 (see FSWrite for an example). If
-you need to seek beyond the end of the file, you can use Allocate or SetEOF
-to add empty space to the end of the file before using SetFPos .
-Some examples:
-FSOpen( "\pHardDisk:MyFile", 0, &fRef );
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-OSErr SetFPos(short refNum, short posMode, long posOff);
+    <pre>SetFPos sets the position of the file mark (the file position at which the next
+    read or write operation will start).
+    fRefNum is the reference number of an open file. See FSOpen and OpenRF .
+    posMode specifies the method by which the file pointer will be moved. The
+    following constants are defined in Files.h:
+    fsAtMark 0Remain at current mark ( posOffset  is ignored)
+    fsFromStart 1Move to absolute file position in posOffset
+    fsFromLEOF 2Move posOffset  bytes from logical end of file
+    fsFromMark 3Move posOffset  bytes from current position
+    posOffset is a signed long integer (positive or negative); it identifies how far
+    to move the file mark. The resulting absolute file position will
+    depend upon the method specified by posMode.
+    </pre>
+    * \returns <pre>an operating system Error Code . It will be one of:
+    noErr(0) No error
+    eofErr (-39) Attempt tp position past the end-of-file
+    extFSErr (-58) External file system
+    fnOpnErr (-38) File not open
+    ioErr(-36) I/O error
+    posErr (-40) Can't position to before start of file
+    rfNumErr (-51) Bad fRefNum
+    </pre>
+    * \note <pre>SetFPos (LSEEK to UNIX fans) is used in random-access disk operations
+    to position the file mark to a specified position in order to read from or
+    write to a selected position in the file. This function is not needed in
+    sequential file I/O, since the file mark is updated automatically via FSRead
+    and FSWrite .
+    The posOffset  parameter may be positive or negative. If the combination
+    of posMode and a positive posOffset  would move past the end of the file, the
+    mark is set to the EOF and eofErr is returned. If you attempt to position the
+    file mark before the start of the file (i.e., while using a negative value in
+    posOffset ) posErr is returned.
+    If you wish to append records to the end of the file, simply use
+    posMode=fsFromLEOF and posOffset =0 (see FSWrite for an example). If
+    you need to seek beyond the end of the file, you can use Allocate or SetEOF
+    to add empty space to the end of the file before using SetFPos .
+    Some examples:
+    FSOpen( "\pHardDisk:MyFile", 0, &fRef );
+    </pre>
+    * \copyright THINK Reference © 1991-1992 Symantec Corporation
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+    *    \carbon_lib        in CarbonLib 1.0 and later
+    *    \mac_os_x         in version 10.0 and later
+    */
+    OSErr SetFPos(short refNum, short posMode, long posOff);
 
-/**
-\brief Get volume reference number of an open file
+    /**
+    \brief Get volume reference number of an open file
 
-<pre>Given the reference number of an open file, GetVRefNum returns the
-reference number of the volume on which the file resides.
-fRefNum identifies the file whose volume reference you wish to query. This
-is normally a value obtained via FSOpen, or SFGetFile , et al.
-vRefNum is the address of an unsigned short. Upon return it will contain the
-volume reference number of the volume containing the file identified
-in fRefNum .
-</pre>
-* \returns <pre>an operating system Error Code . It will be one of:
-noErr(0) No error
-rfNumErr (-51) Bad refNum
-</pre>
-* \note <pre>You can use the low-level PBGetFCBInfo function to obtain additional
-information about any open file.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-OSErr GetVRefNum(short fileRefNum, short *vRefNum);
+    <pre>Given the reference number of an open file, GetVRefNum returns the
+    reference number of the volume on which the file resides.
+    fRefNum identifies the file whose volume reference you wish to query. This
+    is normally a value obtained via FSOpen, or SFGetFile , et al.
+    vRefNum is the address of an unsigned short. Upon return it will contain the
+    volume reference number of the volume containing the file identified
+    in fRefNum .
+    </pre>
+    * \returns <pre>an operating system Error Code . It will be one of:
+    noErr(0) No error
+    rfNumErr (-51) Bad refNum
+    </pre>
+    * \note <pre>You can use the low-level PBGetFCBInfo function to obtain additional
+    information about any open file.
+    </pre>
+    * \copyright THINK Reference © 1991-1992 Symantec Corporation
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+    *    \carbon_lib        in CarbonLib 1.0 and later
+    *    \mac_os_x         in version 10.0 and later
+    */
+    OSErr GetVRefNum(short fileRefNum, short *vRefNum);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  fsopen()
- *
+    /**
+     *  fsopen()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr fsopen(const char *fileName, short vRefNum, short *refNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr fsopen(const char *fileName, short vRefNum, short *refNum);
 
-/**
- *  getvinfo()
- *
+    /**
+     *  getvinfo()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr getvinfo(short drvNum, char *volName, short *vRefNum, long *freeBytes);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr getvinfo(short drvNum, char *volName, short *vRefNum, long *freeBytes);
 
-/**
- *  getfinfo()
- *
+    /**
+     *  getfinfo()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr getfinfo(const char *fileName, short vRefNum, FInfo *fndrInfo);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr getfinfo(const char *fileName, short vRefNum, FInfo *fndrInfo);
 
-/**
- *  getvol()
- *
+    /**
+     *  getvol()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr getvol(char *volName, short *vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr getvol(char *volName, short *vRefNum);
 
-/**
- *  setvol()
- *
+    /**
+     *  setvol()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr setvol(const char *volName, short vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr setvol(const char *volName, short vRefNum);
 
-/**
- *  unmountvol()
- *
+    /**
+     *  unmountvol()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr unmountvol(const char *volName, short vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr unmountvol(const char *volName, short vRefNum);
 
-/**
- *  eject()
- *
+    /**
+     *  eject()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr eject(const char *volName, short vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr eject(const char *volName, short vRefNum);
 
-/**
- *  flushvol()
- *
+    /**
+     *  flushvol()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr flushvol(const char *volName, short vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr flushvol(const char *volName, short vRefNum);
 
-/**
- *  create()
- *
+    /**
+     *  create()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr create(const char *fileName, short vRefNum, OSType creator, OSType fileType);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr create(const char *fileName, short vRefNum, OSType creator, OSType fileType);
 
-/**
- *  fsdelete()
- *
+    /**
+     *  fsdelete()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr fsdelete(const char *fileName, short vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr fsdelete(const char *fileName, short vRefNum);
 
-/**
- *  openrf()
- *
+    /**
+     *  openrf()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr openrf(const char *fileName, short vRefNum, short *refNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr openrf(const char *fileName, short vRefNum, short *refNum);
 
-/**
- *  fsrename()
- *
+    /**
+     *  fsrename()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr fsrename(const char *oldName, short vRefNum, const char *newName);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr fsrename(const char *oldName, short vRefNum, const char *newName);
 
-/**
- *  setfinfo()
- *
+    /**
+     *  setfinfo()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr setfinfo(const char *fileName, short vRefNum, const FInfo *fndrInfo);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr setfinfo(const char *fileName, short vRefNum, const FInfo *fndrInfo);
 
-/**
- *  setflock()
- *
+    /**
+     *  setflock()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr setflock(const char *fileName, short vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr setflock(const char *fileName, short vRefNum);
 
-/**
- *  rstflock()
- *
+    /**
+     *  rstflock()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr rstflock(const char *fileName, short vRefNum);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr rstflock(const char *fileName, short vRefNum);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -3698,7 +3700,7 @@ OSErr rstflock(const char *fileName, short vRefNum);
     OSErr
     PBCloseWDAsync(WDPBPtr paramBlock) TWOWORDINLINE(0x7002, 0xA660);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 /**
  *  PBHSetVolSync()
@@ -3837,7 +3839,7 @@ OSErr rstflock(const char *fileName, short vRefNum);
     OSErr
     PBGetWDInfoAsync(WDPBPtr paramBlock) TWOWORDINLINE(0x7007, 0xA660);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 /**
  *  PBGetFCBInfoSync()
@@ -4377,7 +4379,7 @@ avoid having to handle the errors that are sure to occur.
 */
     void FInitQueue(void) ONEWORDINLINE(0xA016);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON
 
@@ -4443,12 +4445,12 @@ Example
 #include < OSUtils.h >
 QHdrPtr qhp;
 VCB *vcbp;
-qhp= GetVCBQHdr (); /* address of queue header */
+qhp= GetVCBQHdr (); //  address of queue header
     printf("First vcb is at = %lx\n", qhp->qHead);
-    vcbp = (VCB *)qhp->qHead; /* address of a queue element */
+    vcbp = (VCB *)qhp->qHead; //  address of a queue element
     printf("Volume's drive # is: %d\n", vcbp->vcbDrvNum);
     printf("number of files in root = %d\n", vcbp->vcbNmFls);
-    printf("Next vcb is at = %lx\n", vcbp->qLink); /* 0 means no more */
+    printf("Next vcb is at = %lx\n", vcbp->qLink); //  0 means no more
     </ pre>
                 * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
                                                           *    \non_carbon_cfm in InterfaceLib 7.1 and
@@ -4458,9 +4460,9 @@ qhp= GetVCBQHdr (); /* address of queue header */
             QHdrPtr
             GetVCBQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x0356);
 
-    /* GetDrvQHdr was moved to Devices.h*/
+    //  GetDrvQHdr was moved to Devices.h
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
     /**
     \brief Obtain default volume/directory name and reference
@@ -4985,8 +4987,8 @@ nsvErr (-35) No such volume
     OSErr
     GetWDInfo(short wdRefNum, short *vRefNum, long *dirID, long *procID);
 
-/*  shared environment  */
-#endif /* CALL_NOT_IN_CARBON */
+//   shared environment
+#endif //  CALL_NOT_IN_CARBON
 
 /**
  *  PBHGetVolParmsSync()
@@ -5464,7 +5466,7 @@ nsvErr (-35) No such volume
     OSErr
     PBSetForeignPrivsAsync(HParmBlkPtr paramBlock) TWOWORDINLINE(0x7061, 0xA660);
 
-/*  Desktop Manager  */
+//   Desktop Manager
 /**
  *  PBDTGetPath()
  *
@@ -5870,7 +5872,7 @@ nsvErr (-35) No such volume
     OSErr
     PBDTDeleteAsync(DTPBPtr paramBlock) TWOWORDINLINE(0x702F, 0xA460);
 
-    /*  VolumeMount traps  */
+    //   VolumeMount traps
 
     /**
     \brief PBGetVolMountInfoSize Determine space  allocation for volume-mounting record
@@ -5966,7 +5968,7 @@ the remote volume.
     OSErr
     PBVolumeMount(ParmBlkPtr paramBlock) TWOWORDINLINE(0x7041, 0xA260);
 
-    /*  FSp traps  */
+    //   FSp traps
 
     /**
     \brief Convert a file or directory spec into an FSSpec record
@@ -6518,13 +6520,13 @@ exchanged.
     OSErr
     PBSetAltAccessAsync(HParmBlkPtr paramBlock) TWOWORDINLINE(0x7061, 0xA460);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 #define PBSetAltAccess(pb, async) \
-  ((async) ? PBSetAltAccessAsync(pb) : PBSetAltAccessSync(pb))
+    ((async) ? PBSetAltAccessAsync(pb) : PBSetAltAccessSync(pb))
 #define PBGetAltAccess(pb, async) \
-  ((async) ? PBGetAltAccessAsync(pb) : PBGetAltAccessSync(pb))
-#endif /* TARGET_CPU_68K */
+    ((async) ? PBGetAltAccessAsync(pb) : PBGetAltAccessSync(pb))
+#endif //  TARGET_CPU_68K
 
 /**
     The PBxxx() routines are obsolete.
@@ -6532,63 +6534,63 @@ exchanged.
     Use the PBxxxSync() or PBxxxAsync() version instead.
 */
 #define PBGetVInfo(pb, async) \
-  ((async) ? PBGetVInfoAsync(pb) : PBGetVInfoSync(pb))
+    ((async) ? PBGetVInfoAsync(pb) : PBGetVInfoSync(pb))
 #define PBXGetVolInfo(pb, async) \
-  ((async) ? PBXGetVolInfoAsync(pb) : PBXGetVolInfoSync(pb))
+    ((async) ? PBXGetVolInfoAsync(pb) : PBXGetVolInfoSync(pb))
 #define PBGetVol(pb, async) ((async) ? PBGetVolAsync(pb) : PBGetVolSync(pb))
 #define PBSetVol(pb, async) ((async) ? PBSetVolAsync(pb) : PBSetVolSync(pb))
 #define PBFlushVol(pb, async) \
-  ((async) ? PBFlushVolAsync(pb) : PBFlushVolSync(pb))
+    ((async) ? PBFlushVolAsync(pb) : PBFlushVolSync(pb))
 #define PBCreate(pb, async) ((async) ? PBCreateAsync(pb) : PBCreateSync(pb))
 #define PBDelete(pb, async) ((async) ? PBDeleteAsync(pb) : PBDeleteSync(pb))
 #define PBOpenDF(pb, async) ((async) ? PBOpenDFAsync(pb) : PBOpenDFSync(pb))
 #define PBOpenRF(pb, async) ((async) ? PBOpenRFAsync(pb) : PBOpenRFSync(pb))
 #define PBRename(pb, async) ((async) ? PBRenameAsync(pb) : PBRenameSync(pb))
 #define PBGetFInfo(pb, async) \
-  ((async) ? PBGetFInfoAsync(pb) : PBGetFInfoSync(pb))
+    ((async) ? PBGetFInfoAsync(pb) : PBGetFInfoSync(pb))
 #define PBSetFInfo(pb, async) \
-  ((async) ? PBSetFInfoAsync(pb) : PBSetFInfoSync(pb))
+    ((async) ? PBSetFInfoAsync(pb) : PBSetFInfoSync(pb))
 #define PBSetFLock(pb, async) \
-  ((async) ? PBSetFLockAsync(pb) : PBSetFLockSync(pb))
+    ((async) ? PBSetFLockAsync(pb) : PBSetFLockSync(pb))
 #define PBRstFLock(pb, async) \
-  ((async) ? PBRstFLockAsync(pb) : PBRstFLockSync(pb))
+    ((async) ? PBRstFLockAsync(pb) : PBRstFLockSync(pb))
 #define PBSetFVers(pb, async) \
-  ((async) ? PBSetFVersAsync(pb) : PBSetFVersSync(pb))
+    ((async) ? PBSetFVersAsync(pb) : PBSetFVersSync(pb))
 #define PBAllocate(pb, async) \
-  ((async) ? PBAllocateAsync(pb) : PBAllocateSync(pb))
+    ((async) ? PBAllocateAsync(pb) : PBAllocateSync(pb))
 #define PBGetEOF(pb, async) ((async) ? PBGetEOFAsync(pb) : PBGetEOFSync(pb))
 #define PBSetEOF(pb, async) ((async) ? PBSetEOFAsync(pb) : PBSetEOFSync(pb))
 #define PBGetFPos(pb, async) ((async) ? PBGetFPosAsync(pb) : PBGetFPosSync(pb))
 #define PBSetFPos(pb, async) ((async) ? PBSetFPosAsync(pb) : PBSetFPosSync(pb))
 #define PBFlushFile(pb, async) \
-  ((async) ? PBFlushFileAsync(pb) : PBFlushFileSync(pb))
+    ((async) ? PBFlushFileAsync(pb) : PBFlushFileSync(pb))
 #define PBCatSearch(pb, async) \
-  ((async) ? PBCatSearchAsync(pb) : PBCatSearchSync(pb))
+    ((async) ? PBCatSearchAsync(pb) : PBCatSearchSync(pb))
 #define PBOpenWD(pb, async) ((async) ? PBOpenWDAsync(pb) : PBOpenWDSync(pb))
 #define PBCloseWD(pb, async) ((async) ? PBCloseWDAsync(pb) : PBCloseWDSync(pb))
 #define PBHSetVol(pb, async) ((async) ? PBHSetVolAsync(pb) : PBHSetVolSync(pb))
 #define PBHGetVol(pb, async) ((async) ? PBHGetVolAsync(pb) : PBHGetVolSync(pb))
 #define PBCatMove(pb, async) ((async) ? PBCatMoveAsync(pb) : PBCatMoveSync(pb))
 #define PBDirCreate(pb, async) \
-  ((async) ? PBDirCreateAsync(pb) : PBDirCreateSync(pb))
+    ((async) ? PBDirCreateAsync(pb) : PBDirCreateSync(pb))
 #define PBGetWDInfo(pb, async) \
-  ((async) ? PBGetWDInfoAsync(pb) : PBGetWDInfoSync(pb))
+    ((async) ? PBGetWDInfoAsync(pb) : PBGetWDInfoSync(pb))
 #define PBGetFCBInfo(pb, async) \
-  ((async) ? PBGetFCBInfoAsync(pb) : PBGetFCBInfoSync(pb))
+    ((async) ? PBGetFCBInfoAsync(pb) : PBGetFCBInfoSync(pb))
 #define PBGetCatInfo(pb, async) \
-  ((async) ? PBGetCatInfoAsync(pb) : PBGetCatInfoSync(pb))
+    ((async) ? PBGetCatInfoAsync(pb) : PBGetCatInfoSync(pb))
 #define PBSetCatInfo(pb, async) \
-  ((async) ? PBSetCatInfoAsync(pb) : PBSetCatInfoSync(pb))
+    ((async) ? PBSetCatInfoAsync(pb) : PBSetCatInfoSync(pb))
 #define PBAllocContig(pb, async) \
-  ((async) ? PBAllocContigAsync(pb) : PBAllocContigSync(pb))
+    ((async) ? PBAllocContigAsync(pb) : PBAllocContigSync(pb))
 #define PBLockRange(pb, async) \
-  ((async) ? PBLockRangeAsync(pb) : PBLockRangeSync(pb))
+    ((async) ? PBLockRangeAsync(pb) : PBLockRangeSync(pb))
 #define PBUnlockRange(pb, async) \
-  ((async) ? PBUnlockRangeAsync(pb) : PBUnlockRangeSync(pb))
+    ((async) ? PBUnlockRangeAsync(pb) : PBUnlockRangeSync(pb))
 #define PBSetVInfo(pb, async) \
-  ((async) ? PBSetVInfoAsync(pb) : PBSetVInfoSync(pb))
+    ((async) ? PBSetVInfoAsync(pb) : PBSetVInfoSync(pb))
 #define PBHGetVInfo(pb, async) \
-  ((async) ? PBHGetVInfoAsync(pb) : PBHGetVInfoSync(pb))
+    ((async) ? PBHGetVInfoAsync(pb) : PBHGetVInfoSync(pb))
 #define PBHOpen(pb, async) ((async) ? PBHOpenAsync(pb) : PBHOpenSync(pb))
 #define PBHOpenRF(pb, async) ((async) ? PBHOpenRFAsync(pb) : PBHOpenRFSync(pb))
 #define PBHOpenDF(pb, async) ((async) ? PBHOpenDFAsync(pb) : PBHOpenDFSync(pb))
@@ -6596,80 +6598,80 @@ exchanged.
 #define PBHDelete(pb, async) ((async) ? PBHDeleteAsync(pb) : PBHDeleteSync(pb))
 #define PBHRename(pb, async) ((async) ? PBHRenameAsync(pb) : PBHRenameSync(pb))
 #define PBHRstFLock(pb, async) \
-  ((async) ? PBHRstFLockAsync(pb) : PBHRstFLockSync(pb))
+    ((async) ? PBHRstFLockAsync(pb) : PBHRstFLockSync(pb))
 #define PBHSetFLock(pb, async) \
-  ((async) ? PBHSetFLockAsync(pb) : PBHSetFLockSync(pb))
+    ((async) ? PBHSetFLockAsync(pb) : PBHSetFLockSync(pb))
 #define PBHGetFInfo(pb, async) \
-  ((async) ? PBHGetFInfoAsync(pb) : PBHGetFInfoSync(pb))
+    ((async) ? PBHGetFInfoAsync(pb) : PBHGetFInfoSync(pb))
 #define PBHSetFInfo(pb, async) \
-  ((async) ? PBHSetFInfoAsync(pb) : PBHSetFInfoSync(pb))
+    ((async) ? PBHSetFInfoAsync(pb) : PBHSetFInfoSync(pb))
 #define PBMakeFSSpec(pb, async) \
-  ((async) ? PBMakeFSSpecAsync(pb) : PBMakeFSSpecSync(pb))
+    ((async) ? PBMakeFSSpecAsync(pb) : PBMakeFSSpecSync(pb))
 #define PBHGetVolParms(pb, async) \
-  ((async) ? PBHGetVolParmsAsync(pb) : PBHGetVolParmsSync(pb))
+    ((async) ? PBHGetVolParmsAsync(pb) : PBHGetVolParmsSync(pb))
 #define PBHGetLogInInfo(pb, async) \
-  ((async) ? PBHGetLogInInfoAsync(pb) : PBHGetLogInInfoSync(pb))
+    ((async) ? PBHGetLogInInfoAsync(pb) : PBHGetLogInInfoSync(pb))
 #define PBHGetDirAccess(pb, async) \
-  ((async) ? PBHGetDirAccessAsync(pb) : PBHGetDirAccessSync(pb))
+    ((async) ? PBHGetDirAccessAsync(pb) : PBHGetDirAccessSync(pb))
 #define PBHSetDirAccess(pb, async) \
-  ((async) ? PBHSetDirAccessAsync(pb) : PBHSetDirAccessSync(pb))
+    ((async) ? PBHSetDirAccessAsync(pb) : PBHSetDirAccessSync(pb))
 #define PBHMapID(pb, async) ((async) ? PBHMapIDAsync(pb) : PBHMapIDSync(pb))
 #define PBHMapName(pb, async) \
-  ((async) ? PBHMapNameAsync(pb) : PBHMapNameSync(pb))
+    ((async) ? PBHMapNameAsync(pb) : PBHMapNameSync(pb))
 #define PBHCopyFile(pb, async) \
-  ((async) ? PBHCopyFileAsync(pb) : PBHCopyFileSync(pb))
+    ((async) ? PBHCopyFileAsync(pb) : PBHCopyFileSync(pb))
 #define PBHMoveRename(pb, async) \
-  ((async) ? PBHMoveRenameAsync(pb) : PBHMoveRenameSync(pb))
+    ((async) ? PBHMoveRenameAsync(pb) : PBHMoveRenameSync(pb))
 #define PBHOpenDeny(pb, async) \
-  ((async) ? PBHOpenDenyAsync(pb) : PBHOpenDenySync(pb))
+    ((async) ? PBHOpenDenyAsync(pb) : PBHOpenDenySync(pb))
 #define PBHOpenRFDeny(pb, async) \
-  ((async) ? PBHOpenRFDenyAsync(pb) : PBHOpenRFDenySync(pb))
+    ((async) ? PBHOpenRFDenyAsync(pb) : PBHOpenRFDenySync(pb))
 #define PBExchangeFiles(pb, async) \
-  ((async) ? PBExchangeFilesAsync(pb) : PBExchangeFilesSync(pb))
+    ((async) ? PBExchangeFilesAsync(pb) : PBExchangeFilesSync(pb))
 #define PBCreateFileIDRef(pb, async) \
-  ((async) ? PBCreateFileIDRefAsync(pb) : PBCreateFileIDRefSync(pb))
+    ((async) ? PBCreateFileIDRefAsync(pb) : PBCreateFileIDRefSync(pb))
 #define PBResolveFileIDRef(pb, async) \
-  ((async) ? PBResolveFileIDRefAsync(pb) : PBResolveFileIDRefSync(pb))
+    ((async) ? PBResolveFileIDRefAsync(pb) : PBResolveFileIDRefSync(pb))
 #define PBDeleteFileIDRef(pb, async) \
-  ((async) ? PBDeleteFileIDRefAsync(pb) : PBDeleteFileIDRefSync(pb))
+    ((async) ? PBDeleteFileIDRefAsync(pb) : PBDeleteFileIDRefSync(pb))
 #define PBGetForeignPrivs(pb, async) \
-  ((async) ? PBGetForeignPrivsAsync(pb) : PBGetForeignPrivsSync(pb))
+    ((async) ? PBGetForeignPrivsAsync(pb) : PBGetForeignPrivsSync(pb))
 #define PBSetForeignPrivs(pb, async) \
-  ((async) ? PBSetForeignPrivsAsync(pb) : PBSetForeignPrivsSync(pb))
+    ((async) ? PBSetForeignPrivsAsync(pb) : PBSetForeignPrivsSync(pb))
 #define PBDTAddIcon(pb, async) \
-  ((async) ? PBDTAddIconAsync(pb) : PBDTAddIconSync(pb))
+    ((async) ? PBDTAddIconAsync(pb) : PBDTAddIconSync(pb))
 #define PBDTGetIcon(pb, async) \
-  ((async) ? PBDTGetIconAsync(pb) : PBDTGetIconSync(pb))
+    ((async) ? PBDTGetIconAsync(pb) : PBDTGetIconSync(pb))
 #define PBDTGetIconInfo(pb, async) \
-  ((async) ? PBDTGetIconInfoAsync(pb) : PBDTGetIconInfoSync(pb))
+    ((async) ? PBDTGetIconInfoAsync(pb) : PBDTGetIconInfoSync(pb))
 #define PBDTAddAPPL(pb, async) \
-  ((async) ? PBDTAddAPPLAsync(pb) : PBDTAddAPPLSync(pb))
+    ((async) ? PBDTAddAPPLAsync(pb) : PBDTAddAPPLSync(pb))
 #define PBDTRemoveAPPL(pb, async) \
-  ((async) ? PBDTRemoveAPPLAsync(pb) : PBDTRemoveAPPLSync(pb))
+    ((async) ? PBDTRemoveAPPLAsync(pb) : PBDTRemoveAPPLSync(pb))
 #define PBDTGetAPPL(pb, async) \
-  ((async) ? PBDTGetAPPLAsync(pb) : PBDTGetAPPLSync(pb))
+    ((async) ? PBDTGetAPPLAsync(pb) : PBDTGetAPPLSync(pb))
 #define PBDTSetComment(pb, async) \
-  ((async) ? PBDTSetCommentAsync(pb) : PBDTSetCommentSync(pb))
+    ((async) ? PBDTSetCommentAsync(pb) : PBDTSetCommentSync(pb))
 #define PBDTRemoveComment(pb, async) \
-  ((async) ? PBDTRemoveCommentAsync(pb) : PBDTRemoveCommentSync(pb))
+    ((async) ? PBDTRemoveCommentAsync(pb) : PBDTRemoveCommentSync(pb))
 #define PBDTGetComment(pb, async) \
-  ((async) ? PBDTGetCommentAsync(pb) : PBDTGetCommentSync(pb))
+    ((async) ? PBDTGetCommentAsync(pb) : PBDTGetCommentSync(pb))
 #define PBDTFlush(pb, async) ((async) ? PBDTFlushAsync(pb) : PBDTFlushSync(pb))
 #define PBDTReset(pb, async) ((async) ? PBDTResetAsync(pb) : PBDTResetSync(pb))
 #define PBDTGetInfo(pb, async) \
-  ((async) ? PBDTGetInfoAsync(pb) : PBDTGetInfoSync(pb))
+    ((async) ? PBDTGetInfoAsync(pb) : PBDTGetInfoSync(pb))
 #define PBDTDelete(pb, async) \
-  ((async) ? PBDTDeleteAsync(pb) : PBDTDeleteSync(pb))
+    ((async) ? PBDTDeleteAsync(pb) : PBDTDeleteSync(pb))
 
     typedef SInt16 FSVolumeRefNum;
     enum
     {
-      kFSInvalidVolumeRefNum = 0
+        kFSInvalidVolumeRefNum = 0
     };
 
     struct FSRef
     {
-      UInt8 hidden[80]; /* private to File Manager; ©© need symbolic constant */
+        UInt8 hidden[80]; //  private to File Manager; ©© need symbolic constant
     };
     typedef struct FSRef FSRef;
     typedef FSRef *FSRefPtr;
@@ -6687,12 +6689,12 @@ exchanged.
      */
     struct FSPermissionInfo
     {
-      UInt32 userID;
-      UInt32 groupID;
-      UInt8 reserved1;
-      UInt8 userAccess;
-      UInt16 mode;
-      UInt32 reserved2;
+        UInt32 userID;
+        UInt32 groupID;
+        UInt8 reserved1;
+        UInt8 userAccess;
+        UInt16 mode;
+        UInt32 reserved2;
     };
     typedef struct FSPermissionInfo FSPermissionInfo;
     /*  CatalogInfoBitmap describes which fields of the CatalogInfo you wish to get
@@ -6701,355 +6703,355 @@ exchanged.
     typedef UInt32 FSCatalogInfoBitmap;
     enum
     {
-      kFSCatInfoNone = 0x00000000,
-      kFSCatInfoTextEncoding = 0x00000001,
-      kFSCatInfoNodeFlags =
-          0x00000002, /* Locked (bit 0) and directory (bit 4) only */
-      kFSCatInfoVolume = 0x00000004,
-      kFSCatInfoParentDirID = 0x00000008,
-      kFSCatInfoNodeID = 0x00000010,
-      kFSCatInfoCreateDate = 0x00000020,
-      kFSCatInfoContentMod = 0x00000040,
-      kFSCatInfoAttrMod = 0x00000080,
-      kFSCatInfoAccessDate = 0x00000100,
-      kFSCatInfoBackupDate = 0x00000200,
-      kFSCatInfoPermissions = 0x00000400, /* Should this be finer granularity? */
-      kFSCatInfoFinderInfo = 0x00000800,
-      kFSCatInfoFinderXInfo = 0x00001000,
-      kFSCatInfoValence = 0x00002000,   /* Folders only, zero for files */
-      kFSCatInfoDataSizes = 0x00004000, /* Data fork logical and physical size */
-      kFSCatInfoRsrcSizes =
-          0x00008000,                      /* Resource fork logical and physical size */
-      kFSCatInfoSharingFlags = 0x00010000, /* sharingFlags: kioFlAttribMountedBit,
-                                              kioFlAttribSharePointBit */
-      kFSCatInfoUserPrivs = 0x00020000,    /* userPrivileges */
-      kFSCatInfoUserAccess = 0x00080000,   /* (OS X only) */
-      kFSCatInfoAllDates = 0x000003E0,
-      kFSCatInfoGettableInfo = 0x0003FFFF,
-      kFSCatInfoSettableInfo =
-          0x00001FE3,                       /* flags, dates, permissions, Finder info, text encoding */
-      kFSCatInfoReserved = (long)0xFFFC0000 /* bits that are currently reserved */
+        kFSCatInfoNone = 0x00000000,
+        kFSCatInfoTextEncoding = 0x00000001,
+        kFSCatInfoNodeFlags =
+            0x00000002, //  Locked (bit 0) and directory (bit 4) only
+        kFSCatInfoVolume = 0x00000004,
+        kFSCatInfoParentDirID = 0x00000008,
+        kFSCatInfoNodeID = 0x00000010,
+        kFSCatInfoCreateDate = 0x00000020,
+        kFSCatInfoContentMod = 0x00000040,
+        kFSCatInfoAttrMod = 0x00000080,
+        kFSCatInfoAccessDate = 0x00000100,
+        kFSCatInfoBackupDate = 0x00000200,
+        kFSCatInfoPermissions = 0x00000400, //  Should this be finer granularity?
+        kFSCatInfoFinderInfo = 0x00000800,
+        kFSCatInfoFinderXInfo = 0x00001000,
+        kFSCatInfoValence = 0x00002000,   //  Folders only, zero for files
+        kFSCatInfoDataSizes = 0x00004000, //  Data fork logical and physical size
+        kFSCatInfoRsrcSizes =
+            0x00008000,                      //  Resource fork logical and physical size
+        kFSCatInfoSharingFlags = 0x00010000, /* sharingFlags: kioFlAttribMountedBit,
+                                                kioFlAttribSharePointBit */
+        kFSCatInfoUserPrivs = 0x00020000,    //  userPrivileges
+        kFSCatInfoUserAccess = 0x00080000,   //  (OS X only)
+        kFSCatInfoAllDates = 0x000003E0,
+        kFSCatInfoGettableInfo = 0x0003FFFF,
+        kFSCatInfoSettableInfo =
+            0x00001FE3,                       //  flags, dates, permissions, Finder info, text encoding
+        kFSCatInfoReserved = (long)0xFFFC0000 //  bits that are currently reserved
     };
 
-    /*  Constants for nodeFlags field of FSCatalogInfo */
+    //   Constants for nodeFlags field of FSCatalogInfo
     enum
     {
-      kFSNodeLockedBit = 0, /* Set if file or directory is locked */
-      kFSNodeLockedMask = 0x0001,
-      kFSNodeResOpenBit = 2, /* Set if the resource fork is open */
-      kFSNodeResOpenMask = 0x0004,
-      kFSNodeDataOpenBit = 3, /* Set if the data fork is open */
-      kFSNodeDataOpenMask = 0x0008,
-      kFSNodeIsDirectoryBit = 4, /* Set if the object is a directory */
-      kFSNodeIsDirectoryMask = 0x0010,
-      kFSNodeCopyProtectBit = 6,
-      kFSNodeCopyProtectMask = 0x0040,
-      kFSNodeForkOpenBit = 7, /* Set if the file or directory has any open fork */
-      kFSNodeForkOpenMask = 0x0080
+        kFSNodeLockedBit = 0, //  Set if file or directory is locked
+        kFSNodeLockedMask = 0x0001,
+        kFSNodeResOpenBit = 2, //  Set if the resource fork is open
+        kFSNodeResOpenMask = 0x0004,
+        kFSNodeDataOpenBit = 3, //  Set if the data fork is open
+        kFSNodeDataOpenMask = 0x0008,
+        kFSNodeIsDirectoryBit = 4, //  Set if the object is a directory
+        kFSNodeIsDirectoryMask = 0x0010,
+        kFSNodeCopyProtectBit = 6,
+        kFSNodeCopyProtectMask = 0x0040,
+        kFSNodeForkOpenBit = 7, //  Set if the file or directory has any open fork
+        kFSNodeForkOpenMask = 0x0080
     };
 
-    /*  Constants for sharingFlags field of FSCatalogInfo */
+    //   Constants for sharingFlags field of FSCatalogInfo
     enum
     {
-      kFSNodeInSharedBit = 2, /* Set if a directory is within a share point */
-      kFSNodeInSharedMask = 0x0004,
-      kFSNodeIsMountedBit = 3, /* Set if a directory is a share point currently
-                                  mounted by some user */
-      kFSNodeIsMountedMask = 0x0008,
-      kFSNodeIsSharePointBit =
-          5, /* Set if a directory is a share point (exported volume) */
-      kFSNodeIsSharePointMask = 0x0020
+        kFSNodeInSharedBit = 2, //  Set if a directory is within a share point
+        kFSNodeInSharedMask = 0x0004,
+        kFSNodeIsMountedBit = 3, /* Set if a directory is a share point currently
+                                    mounted by some user */
+        kFSNodeIsMountedMask = 0x0008,
+        kFSNodeIsSharePointBit =
+            5, //  Set if a directory is a share point (exported volume)
+        kFSNodeIsSharePointMask = 0x0020
     };
 
     struct FSCatalogInfo
     {
-      UInt16 nodeFlags;      /* node flags */
-      FSVolumeRefNum volume; /* object's volume ref */
-      UInt32 parentDirID;    /* parent directory's ID */
-      UInt32 nodeID;         /* file/directory ID */
-      UInt8 sharingFlags;    /* kioFlAttribMountedBit and kioFlAttribSharePointBit */
-      UInt8 userPrivileges;  /* user's effective AFP privileges (same as ioACUser) */
-      UInt8 reserved1;
-      UInt8 reserved2;
-      UTCDateTime createDate;     /* date and time of creation */
-      UTCDateTime contentModDate; /* date and time of last fork modification */
-      UTCDateTime
-          attributeModDate;   /* date and time of last attribute modification */
-      UTCDateTime accessDate; /* date and time of last access (for Mac OS X) */
-      UTCDateTime backupDate; /* date and time of last backup */
+        UInt16 nodeFlags;      //  node flags
+        FSVolumeRefNum volume; //  object's volume ref
+        UInt32 parentDirID;    //  parent directory's ID
+        UInt32 nodeID;         //  file/directory ID
+        UInt8 sharingFlags;    //  kioFlAttribMountedBit and kioFlAttribSharePointBit
+        UInt8 userPrivileges;  //  user's effective AFP privileges (same as ioACUser)
+        UInt8 reserved1;
+        UInt8 reserved2;
+        UTCDateTime createDate;     //  date and time of creation
+        UTCDateTime contentModDate; //  date and time of last fork modification
+        UTCDateTime
+            attributeModDate;   //  date and time of last attribute modification
+        UTCDateTime accessDate; //  date and time of last access (for Mac OS X)
+        UTCDateTime backupDate; //  date and time of last backup
 
-      UInt32 permissions[4]; /* permissions (for Mac OS X) */
+        UInt32 permissions[4]; //  permissions (for Mac OS X)
 
-      UInt8 finderInfo[16];    /* Finder information part 1 */
-      UInt8 extFinderInfo[16]; /* Finder information part 2 */
+        UInt8 finderInfo[16];    //  Finder information part 1
+        UInt8 extFinderInfo[16]; //  Finder information part 2
 
-      UInt64 dataLogicalSize;  /* files only */
-      UInt64 dataPhysicalSize; /* files only */
-      UInt64 rsrcLogicalSize;  /* files only */
-      UInt64 rsrcPhysicalSize; /* files only */
+        UInt64 dataLogicalSize;  //  files only
+        UInt64 dataPhysicalSize; //  files only
+        UInt64 rsrcLogicalSize;  //  files only
+        UInt64 rsrcPhysicalSize; //  files only
 
-      UInt32 valence; /* folders only */
-      TextEncoding textEncodingHint;
+        UInt32 valence; //  folders only
+        TextEncoding textEncodingHint;
     };
     typedef struct FSCatalogInfo FSCatalogInfo;
     typedef FSCatalogInfo *FSCatalogInfoPtr;
     struct FSRefParam
     {
-      QElemPtr qLink;               /*queue link in header*/
-      short qType;                  /*type byte for safety check*/
-      short ioTrap;                 /*FS: the Trap*/
-      Ptr ioCmdAddr;                /*FS: address to dispatch to*/
-      IOCompletionUPP ioCompletion; /*completion routine addr (0 for synch calls)*/
-      volatile OSErr ioResult;      /*result code*/
-      ConstStringPtr ioNamePtr;     /*ptr to Vol:FileName string*/
-      short ioVRefNum;              /*volume refnum (DrvNum for Eject and MountVol)*/
+        QElemPtr qLink;               // queue link in header
+        short qType;                  // type byte for safety check
+        short ioTrap;                 // FS: the Trap
+        Ptr ioCmdAddr;                // FS: address to dispatch to
+        IOCompletionUPP ioCompletion; // completion routine addr (0 for synch calls)
+        volatile OSErr ioResult;      // result code
+        ConstStringPtr ioNamePtr;     // ptr to Vol:FileName string
+        short ioVRefNum;              // volume refnum (DrvNum for Eject and MountVol)
 
-      SInt16 reserved1; /* was ioRefNum */
-      UInt8 reserved2;  /* was ioVersNum */
-      UInt8 reserved3;  /* was ioPermssn */
+        SInt16 reserved1; //  was ioRefNum
+        UInt8 reserved2;  //  was ioVersNum
+        UInt8 reserved3;  //  was ioPermssn
 
-      const FSRef *ref; /* Input ref; the target of the call */
-      FSCatalogInfoBitmap whichInfo;
-      FSCatalogInfo *catInfo;
-      UniCharCount nameLength; /* input name length for create/rename */
-      const UniChar *name;     /* input name for create/rename */
-      long ioDirID;
-      FSSpec *spec;
-      FSRef *parentRef;              /* ref of directory to move another ref to */
-      FSRef *newRef;                 /* Output ref */
-      TextEncoding textEncodingHint; /* for Rename, MakeFSRefUnicode */
-      HFSUniStr255 *outName;         /* Output name for GetCatalogInfo */
+        const FSRef *ref; //  Input ref; the target of the call
+        FSCatalogInfoBitmap whichInfo;
+        FSCatalogInfo *catInfo;
+        UniCharCount nameLength; //  input name length for create/rename
+        const UniChar *name;     //  input name for create/rename
+        long ioDirID;
+        FSSpec *spec;
+        FSRef *parentRef;              //  ref of directory to move another ref to
+        FSRef *newRef;                 //  Output ref
+        TextEncoding textEncodingHint; //  for Rename, MakeFSRefUnicode
+        HFSUniStr255 *outName;         //  Output name for GetCatalogInfo
     };
     typedef struct FSRefParam FSRefParam;
     typedef FSRefParam *FSRefParamPtr;
     typedef struct OpaqueFSIterator *FSIterator;
     enum
     {
-      kFSIterateFlat = 0,    /* Immediate children of container only */
-      kFSIterateSubtree = 1, /* Entire subtree rooted at container */
-      kFSIterateDelete = 2,
-      kFSIterateReserved = (long)0xFFFFFFFC
+        kFSIterateFlat = 0,    //  Immediate children of container only
+        kFSIterateSubtree = 1, //  Entire subtree rooted at container
+        kFSIterateDelete = 2,
+        kFSIterateReserved = (long)0xFFFFFFFC
     };
 
     typedef OptionBits FSIteratorFlags;
     enum
     {
-      /* CatalogSearch constants */
-      fsSBNodeID = 0x00008000,           /* search by range of nodeID */
-      fsSBAttributeModDate = 0x00010000, /* search by range of attributeModDate */
-      fsSBAccessDate = 0x00020000,       /* search by range of accessDate */
-      fsSBPermissions = 0x00040000,      /* search by value/mask of permissions */
-      fsSBNodeIDBit = 15,
-      fsSBAttributeModDateBit = 16,
-      fsSBAccessDateBit = 17,
-      fsSBPermissionsBit = 18
+        //  CatalogSearch constants
+        fsSBNodeID = 0x00008000,           //  search by range of nodeID
+        fsSBAttributeModDate = 0x00010000, //  search by range of attributeModDate
+        fsSBAccessDate = 0x00020000,       //  search by range of accessDate
+        fsSBPermissions = 0x00040000,      //  search by value/mask of permissions
+        fsSBNodeIDBit = 15,
+        fsSBAttributeModDateBit = 16,
+        fsSBAccessDateBit = 17,
+        fsSBPermissionsBit = 18
     };
 
     struct FSSearchParams
     {
-      Duration searchTime;   /* a Time Manager duration */
-      OptionBits searchBits; /* which fields to search on */
-      UniCharCount searchNameLength;
-      const UniChar *searchName;
-      FSCatalogInfo *searchInfo1; /* values and lower bounds */
-      FSCatalogInfo *searchInfo2; /* masks and upper bounds */
+        Duration searchTime;   //  a Time Manager duration
+        OptionBits searchBits; //  which fields to search on
+        UniCharCount searchNameLength;
+        const UniChar *searchName;
+        FSCatalogInfo *searchInfo1; //  values and lower bounds
+        FSCatalogInfo *searchInfo2; //  masks and upper bounds
     };
     typedef struct FSSearchParams FSSearchParams;
     typedef FSSearchParams *FSSearchParamsPtr;
     struct FSCatalogBulkParam
     {
-      QElemPtr qLink;               /*queue link in header*/
-      short qType;                  /*type byte for safety check*/
-      short ioTrap;                 /*FS: the Trap*/
-      Ptr ioCmdAddr;                /*FS: address to dispatch to*/
-      IOCompletionUPP ioCompletion; /*completion routine addr (0 for synch calls)*/
-      volatile OSErr ioResult;      /*result code*/
-      Boolean containerChanged;     /* true if container changed since last iteration */
-      UInt8 reserved;               /* make following fields 4-byte aligned */
+        QElemPtr qLink;               // queue link in header
+        short qType;                  // type byte for safety check
+        short ioTrap;                 // FS: the Trap
+        Ptr ioCmdAddr;                // FS: address to dispatch to
+        IOCompletionUPP ioCompletion; // completion routine addr (0 for synch calls)
+        volatile OSErr ioResult;      // result code
+        Boolean containerChanged;     //  true if container changed since last iteration
+        UInt8 reserved;               //  make following fields 4-byte aligned
 
-      FSIteratorFlags iteratorFlags;
-      FSIterator iterator;
-      const FSRef *container; /* directory/volume to iterate */
-      ItemCount maximumItems;
-      ItemCount actualItems;
-      FSCatalogInfoBitmap whichInfo;
-      FSCatalogInfo *catalogInfo; /* returns an array */
-      FSRef *refs;                /* returns an array */
-      FSSpec *specs;              /* returns an array */
-      HFSUniStr255 *names;        /* returns an array */
-      const FSSearchParams *searchParams;
+        FSIteratorFlags iteratorFlags;
+        FSIterator iterator;
+        const FSRef *container; //  directory/volume to iterate
+        ItemCount maximumItems;
+        ItemCount actualItems;
+        FSCatalogInfoBitmap whichInfo;
+        FSCatalogInfo *catalogInfo; //  returns an array
+        FSRef *refs;                //  returns an array
+        FSSpec *specs;              //  returns an array
+        HFSUniStr255 *names;        //  returns an array
+        const FSSearchParams *searchParams;
     };
     typedef struct FSCatalogBulkParam FSCatalogBulkParam;
     typedef FSCatalogBulkParam *FSCatalogBulkParamPtr;
     typedef UInt16 FSAllocationFlags;
     enum
     {
-      kFSAllocDefaultFlags = 0x0000,     /* as much as possible, not contiguous */
-      kFSAllocAllOrNothingMask = 0x0001, /* allocate all of the space, or nothing */
-      kFSAllocContiguousMask = 0x0002,   /* new space must be one contiguous piece */
-      kFSAllocNoRoundUpMask = 0x0004,    /* don't round up allocation to clump size */
-      kFSAllocReservedMask =
-          0xFFF8 /* these bits are reserved and must not be set */
+        kFSAllocDefaultFlags = 0x0000,     //  as much as possible, not contiguous
+        kFSAllocAllOrNothingMask = 0x0001, //  allocate all of the space, or nothing
+        kFSAllocContiguousMask = 0x0002,   //  new space must be one contiguous piece
+        kFSAllocNoRoundUpMask = 0x0004,    //  don't round up allocation to clump size
+        kFSAllocReservedMask =
+            0xFFF8 //  these bits are reserved and must not be set
     };
 
     struct FSForkIOParam
     {
-      QElemPtr qLink;               /*queue link in header*/
-      short qType;                  /*type byte for safety check*/
-      short ioTrap;                 /*FS: the Trap*/
-      Ptr ioCmdAddr;                /*FS: address to dispatch to*/
-      IOCompletionUPP ioCompletion; /*completion routine addr (0 for synch calls)*/
-      volatile OSErr ioResult;      /*result code*/
-      void *reserved1;              /* was ioNamePtr */
-      SInt16 reserved2;             /* was ioVRefNum */
-      SInt16 forkRefNum;            /* same as ioRefNum */
-      UInt8 reserved3;              /* was ioVersNum */
-      SInt8 permissions;            /* desired access to the fork */
-      const FSRef *ref;             /* which object to open */
+        QElemPtr qLink;               // queue link in header
+        short qType;                  // type byte for safety check
+        short ioTrap;                 // FS: the Trap
+        Ptr ioCmdAddr;                // FS: address to dispatch to
+        IOCompletionUPP ioCompletion; // completion routine addr (0 for synch calls)
+        volatile OSErr ioResult;      // result code
+        void *reserved1;              //  was ioNamePtr
+        SInt16 reserved2;             //  was ioVRefNum
+        SInt16 forkRefNum;            //  same as ioRefNum
+        UInt8 reserved3;              //  was ioVersNum
+        SInt8 permissions;            //  desired access to the fork
+        const FSRef *ref;             //  which object to open
 
-      Ptr buffer;            /*data buffer Ptr*/
-      UInt32 requestCount;   /*requested byte count*/
-      UInt32 actualCount;    /*actual byte count completed*/
-      UInt16 positionMode;   /*initial file positioning*/
-      SInt64 positionOffset; /*file position offset*/
+        Ptr buffer;            // data buffer Ptr
+        UInt32 requestCount;   // requested byte count
+        UInt32 actualCount;    // actual byte count completed
+        UInt16 positionMode;   // initial file positioning
+        SInt64 positionOffset; // file position offset
 
-      FSAllocationFlags allocationFlags;
-      UInt64 allocationAmount;
+        FSAllocationFlags allocationFlags;
+        UInt64 allocationAmount;
 
-      UniCharCount forkNameLength; /* input; length of fork name */
-      const UniChar *forkName;     /* input; name of fork */
+        UniCharCount forkNameLength; //  input; length of fork name
+        const UniChar *forkName;     //  input; name of fork
 
-      CatPositionRec forkIterator;
-      HFSUniStr255 *outForkName; /* output; name of fork */
+        CatPositionRec forkIterator;
+        HFSUniStr255 *outForkName; //  output; name of fork
     };
     typedef struct FSForkIOParam FSForkIOParam;
     typedef FSForkIOParam *FSForkIOParamPtr;
     struct FSForkInfo
     {
-      SInt8 flags; /* copy of FCB flags */
-      SInt8 permissions;
-      FSVolumeRefNum volume;
-      UInt32 reserved2;
-      UInt32 nodeID; /* file or directory ID */
-      UInt32 forkID; /* fork ID */
-      UInt64 currentPosition;
-      UInt64 logicalEOF;
-      UInt64 physicalEOF;
-      UInt64 process; /* should be ProcessSerialNumber */
+        SInt8 flags; //  copy of FCB flags
+        SInt8 permissions;
+        FSVolumeRefNum volume;
+        UInt32 reserved2;
+        UInt32 nodeID; //  file or directory ID
+        UInt32 forkID; //  fork ID
+        UInt64 currentPosition;
+        UInt64 logicalEOF;
+        UInt64 physicalEOF;
+        UInt64 process; //  should be ProcessSerialNumber
     };
     typedef struct FSForkInfo FSForkInfo;
     typedef FSForkInfo *FSForkInfoPtr;
     struct FSForkCBInfoParam
     {
-      QElemPtr qLink;               /*queue link in header*/
-      short qType;                  /*type byte for safety check*/
-      short ioTrap;                 /*FS: the Trap*/
-      Ptr ioCmdAddr;                /*FS: address to dispatch to*/
-      IOCompletionUPP ioCompletion; /*completion routine addr (0 for synch calls)*/
-      volatile OSErr ioResult;      /*result code*/
-      SInt16 desiredRefNum;         /* 0 to iterate, non-0 for specific refnum */
-      SInt16 volumeRefNum;          /* volume to match, or 0 for all volumes */
-      SInt16 iterator;              /* 0 to start iteration */
-      SInt16 actualRefNum;          /* actual refnum found */
+        QElemPtr qLink;               // queue link in header
+        short qType;                  // type byte for safety check
+        short ioTrap;                 // FS: the Trap
+        Ptr ioCmdAddr;                // FS: address to dispatch to
+        IOCompletionUPP ioCompletion; // completion routine addr (0 for synch calls)
+        volatile OSErr ioResult;      // result code
+        SInt16 desiredRefNum;         //  0 to iterate, non-0 for specific refnum
+        SInt16 volumeRefNum;          //  volume to match, or 0 for all volumes
+        SInt16 iterator;              //  0 to start iteration
+        SInt16 actualRefNum;          //  actual refnum found
 
-      FSRef *ref;
-      FSForkInfo *forkInfo;
-      HFSUniStr255 *forkName;
+        FSRef *ref;
+        FSForkInfo *forkInfo;
+        HFSUniStr255 *forkName;
     };
     typedef struct FSForkCBInfoParam FSForkCBInfoParam;
     typedef FSForkCBInfoParam *FSForkCBInfoParamPtr;
     typedef UInt32 FSVolumeInfoBitmap;
     enum
     {
-      kFSVolInfoNone = 0x0000,
-      kFSVolInfoCreateDate = 0x0001,
-      kFSVolInfoModDate = 0x0002,
-      kFSVolInfoBackupDate = 0x0004,
-      kFSVolInfoCheckedDate = 0x0008,
-      kFSVolInfoFileCount = 0x0010,
-      kFSVolInfoDirCount = 0x0020,
-      kFSVolInfoSizes = 0x0040,  /* totalBytes and freeBytes */
-      kFSVolInfoBlocks = 0x0080, /* blockSize, totalBlocks, freeBlocks */
-      kFSVolInfoNextAlloc = 0x0100,
-      kFSVolInfoRsrcClump = 0x0200,
-      kFSVolInfoDataClump = 0x0400,
-      kFSVolInfoNextID = 0x0800,
-      kFSVolInfoFinderInfo = 0x1000,
-      kFSVolInfoFlags = 0x2000,
-      kFSVolInfoFSInfo = 0x4000,    /* filesystemID, signature */
-      kFSVolInfoDriveInfo = 0x8000, /* driveNumber, driverRefNum */
-      kFSVolInfoGettableInfo =
-          0xFFFF,                     /* This seems like it is here just for completeness */
-      kFSVolInfoSettableInfo = 0x3004 /* backup date, Finder info, flags */
+        kFSVolInfoNone = 0x0000,
+        kFSVolInfoCreateDate = 0x0001,
+        kFSVolInfoModDate = 0x0002,
+        kFSVolInfoBackupDate = 0x0004,
+        kFSVolInfoCheckedDate = 0x0008,
+        kFSVolInfoFileCount = 0x0010,
+        kFSVolInfoDirCount = 0x0020,
+        kFSVolInfoSizes = 0x0040,  //  totalBytes and freeBytes
+        kFSVolInfoBlocks = 0x0080, //  blockSize, totalBlocks, freeBlocks
+        kFSVolInfoNextAlloc = 0x0100,
+        kFSVolInfoRsrcClump = 0x0200,
+        kFSVolInfoDataClump = 0x0400,
+        kFSVolInfoNextID = 0x0800,
+        kFSVolInfoFinderInfo = 0x1000,
+        kFSVolInfoFlags = 0x2000,
+        kFSVolInfoFSInfo = 0x4000,    //  filesystemID, signature
+        kFSVolInfoDriveInfo = 0x8000, //  driveNumber, driverRefNum
+        kFSVolInfoGettableInfo =
+            0xFFFF,                     //  This seems like it is here just for completeness
+        kFSVolInfoSettableInfo = 0x3004 //  backup date, Finder info, flags
     };
 
     /* FSVolumeInfo.flags bits.  These are the same as for ioVAtrb, but with nicer
      * names. */
     enum
     {
-      kFSVolFlagDefaultVolumeBit = 5, /* Set if the volume is the default volume */
-      kFSVolFlagDefaultVolumeMask = 0x0020,
-      kFSVolFlagFilesOpenBit = 6, /* Set if there are open files or iterators */
-      kFSVolFlagFilesOpenMask = 0x0040,
-      kFSVolFlagHardwareLockedBit =
-          7, /* Set if volume is locked by a hardware setting */
-      kFSVolFlagHardwareLockedMask = 0x0080,
-      kFSVolFlagSoftwareLockedBit = 15, /* Set if volume is locked by software */
-      kFSVolFlagSoftwareLockedMask = 0x8000
+        kFSVolFlagDefaultVolumeBit = 5, //  Set if the volume is the default volume
+        kFSVolFlagDefaultVolumeMask = 0x0020,
+        kFSVolFlagFilesOpenBit = 6, //  Set if there are open files or iterators
+        kFSVolFlagFilesOpenMask = 0x0040,
+        kFSVolFlagHardwareLockedBit =
+            7, //  Set if volume is locked by a hardware setting
+        kFSVolFlagHardwareLockedMask = 0x0080,
+        kFSVolFlagSoftwareLockedBit = 15, //  Set if volume is locked by software
+        kFSVolFlagSoftwareLockedMask = 0x8000
     };
 
     struct FSVolumeInfo
     {
-      /* Dates -- zero means "never" or "unknown" */
-      UTCDateTime createDate;
-      UTCDateTime modifyDate;
-      UTCDateTime backupDate;
-      UTCDateTime checkedDate;
+        //  Dates -- zero means "never" or "unknown"
+        UTCDateTime createDate;
+        UTCDateTime modifyDate;
+        UTCDateTime backupDate;
+        UTCDateTime checkedDate;
 
-      /* File/Folder counts -- return zero if unknown */
-      UInt32 fileCount;   /* total files on volume */
-      UInt32 folderCount; /* total folders on volume */
-                          /* Note: no root directory counts */
+        //  File/Folder counts -- return zero if unknown
+        UInt32 fileCount;   //  total files on volume
+        UInt32 folderCount; //  total folders on volume
+                            //  Note: no root directory counts
 
-      UInt64 totalBytes; /* total number of bytes on volume */
-      UInt64 freeBytes;  /* number of free bytes on volume */
+        UInt64 totalBytes; //  total number of bytes on volume
+        UInt64 freeBytes;  //  number of free bytes on volume
 
-      /* HFS and HFS Plus specific.  Set fields to zero if not appropriate */
-      UInt32 blockSize;      /* size (in bytes) of allocation blocks */
-      UInt32 totalBlocks;    /* number of allocation blocks in volume */
-      UInt32 freeBlocks;     /* number of unused allocation blocks */
-      UInt32 nextAllocation; /* start of next allocation search */
-      UInt32 rsrcClumpSize;  /* default resource fork clump size */
-      UInt32 dataClumpSize;  /* default data fork clump size */
-      UInt32 nextCatalogID;  /* next unused catalog node ID ©©© OYG ©©© need to make
-                                HFSVolumes.h work Should be HFSCatalogNodeID*/
-      UInt8 finderInfo[32];  /* information used by Finder */
+        //  HFS and HFS Plus specific.  Set fields to zero if not appropriate
+        UInt32 blockSize;      //  size (in bytes) of allocation blocks
+        UInt32 totalBlocks;    //  number of allocation blocks in volume
+        UInt32 freeBlocks;     //  number of unused allocation blocks
+        UInt32 nextAllocation; //  start of next allocation search
+        UInt32 rsrcClumpSize;  //  default resource fork clump size
+        UInt32 dataClumpSize;  //  default data fork clump size
+        UInt32 nextCatalogID;  /* next unused catalog node ID ©©© OYG ©©© need to make
+                                  HFSVolumes.h work Should be HFSCatalogNodeID*/
+        UInt8 finderInfo[32];  //  information used by Finder
 
-      /* Identifying information */
-      UInt16 flags;        /* ioVAtrb */
-      UInt16 filesystemID; /* ioVFSID */
-      UInt16 signature;    /* ioVSigWord, unique within an FSID */
-      UInt16 driveNumber;  /* ioVDrvInfo */
-      short driverRefNum;  /* ioVDRefNum */
+        //  Identifying information
+        UInt16 flags;        //  ioVAtrb
+        UInt16 filesystemID; //  ioVFSID
+        UInt16 signature;    //  ioVSigWord, unique within an FSID
+        UInt16 driveNumber;  //  ioVDrvInfo
+        short driverRefNum;  //  ioVDRefNum
     };
     typedef struct FSVolumeInfo FSVolumeInfo;
     typedef FSVolumeInfo *FSVolumeInfoPtr;
     struct FSVolumeInfoParam
     {
-      QElemPtr qLink;               /*queue link in header*/
-      short qType;                  /*type byte for safety check*/
-      short ioTrap;                 /*FS: the Trap*/
-      Ptr ioCmdAddr;                /*FS: address to dispatch to*/
-      IOCompletionUPP ioCompletion; /*completion routine addr (0 for synch calls)*/
-      volatile OSErr ioResult;      /*result code*/
-      StringPtr ioNamePtr;          /* unused */
-      FSVolumeRefNum ioVRefNum;     /* volume refnum */
+        QElemPtr qLink;               // queue link in header
+        short qType;                  // type byte for safety check
+        short ioTrap;                 // FS: the Trap
+        Ptr ioCmdAddr;                // FS: address to dispatch to
+        IOCompletionUPP ioCompletion; // completion routine addr (0 for synch calls)
+        volatile OSErr ioResult;      // result code
+        StringPtr ioNamePtr;          //  unused
+        FSVolumeRefNum ioVRefNum;     //  volume refnum
 
-      UInt32 volumeIndex;           /* index, or 0 to use ioVRefNum */
-      FSVolumeInfoBitmap whichInfo; /* which volumeInfo fields to get/set */
-      FSVolumeInfo *volumeInfo;     /* information about the volume */
-      HFSUniStr255 *volumeName;     /* output; pointer to volume name */
-      FSRef *ref;                   /* volume's FSRef */
+        UInt32 volumeIndex;           //  index, or 0 to use ioVRefNum
+        FSVolumeInfoBitmap whichInfo; //  which volumeInfo fields to get/set
+        FSVolumeInfo *volumeInfo;     //  information about the volume
+        HFSUniStr255 *volumeName;     //  output; pointer to volume name
+        FSRef *ref;                   //  volume's FSRef
     };
     typedef struct FSVolumeInfoParam FSVolumeInfoParam;
     typedef FSVolumeInfoParam *FSVolumeInfoParamPtr;
@@ -7233,8 +7235,8 @@ exchanged.
     OSErr
     FSCreateFileUnicode(const FSRef *parentRef, UniCharCount nameLength,
                         const UniChar *name, FSCatalogInfoBitmap whichInfo,
-                        const FSCatalogInfo *catalogInfo, /* can be NULL */
-                        FSRef *newRef,                    /* can be NULL */
+                        const FSCatalogInfo *catalogInfo, //  can be NULL
+                        FSRef *newRef,                    //  can be NULL
                         FSSpec *newSpec) /* can be NULL */ THREEWORDINLINE(0x303C,
                                                                            0x0E1C,
                                                                            0xAA52);
@@ -7297,9 +7299,9 @@ exchanged.
     FSCreateDirectoryUnicode(
         const FSRef *parentRef, UniCharCount nameLength, const UniChar *name,
         FSCatalogInfoBitmap whichInfo,
-        const FSCatalogInfo *catalogInfo, /* can be NULL */
-        FSRef *newRef,                    /* can be NULL */
-        FSSpec *newSpec,                  /* can be NULL */
+        const FSCatalogInfo *catalogInfo, //  can be NULL
+        FSRef *newRef,                    //  can be NULL
+        FSSpec *newSpec,                  //  can be NULL
         UInt32 *newDirID) /* can be NULL */ THREEWORDINLINE(0x303C, 0x101D, 0xAA52);
 
 /**
@@ -7568,9 +7570,9 @@ exchanged.
      */
     OSErr
     FSGetCatalogInfo(const FSRef *ref, FSCatalogInfoBitmap whichInfo,
-                     FSCatalogInfo *catalogInfo, /* can be NULL */
-                     HFSUniStr255 *outName,      /* can be NULL */
-                     FSSpec *fsSpec,             /* can be NULL */
+                     FSCatalogInfo *catalogInfo, //  can be NULL
+                     HFSUniStr255 *outName,      //  can be NULL
+                     FSSpec *fsSpec,             //  can be NULL
                      FSRef *parentRef) /* can be NULL */ THREEWORDINLINE(0x303C,
                                                                          0x0C22,
                                                                          0xAA52);
@@ -7789,11 +7791,11 @@ exchanged.
     OSErr
     FSGetCatalogInfoBulk(
         FSIterator iterator, ItemCount maximumObjects, ItemCount *actualObjects,
-        Boolean *containerChanged, /* can be NULL */
+        Boolean *containerChanged, //  can be NULL
         FSCatalogInfoBitmap whichInfo,
-        FSCatalogInfo *catalogInfos, /* can be NULL */
-        FSRef *refs,                 /* can be NULL */
-        FSSpec *specs,               /* can be NULL */
+        FSCatalogInfo *catalogInfos, //  can be NULL
+        FSRef *refs,                 //  can be NULL
+        FSSpec *specs,               //  can be NULL
         HFSUniStr255 *names) /* can be NULL */ THREEWORDINLINE(0x303C, 0x1226,
                                                                0xAA52);
 
@@ -7861,11 +7863,11 @@ exchanged.
     OSErr
     FSCatalogSearch(FSIterator iterator, const FSSearchParams *searchCriteria,
                     ItemCount maximumObjects, ItemCount *actualObjects,
-                    Boolean *containerChanged, /* can be NULL */
+                    Boolean *containerChanged, //  can be NULL
                     FSCatalogInfoBitmap whichInfo,
-                    FSCatalogInfo *catalogInfos, /* can be NULL */
-                    FSRef *refs,                 /* can be NULL */
-                    FSSpec *specs,               /* can be NULL */
+                    FSCatalogInfo *catalogInfos, //  can be NULL
+                    FSRef *refs,                 //  can be NULL
+                    FSSpec *specs,               //  can be NULL
                     HFSUniStr255 *names) /* can be NULL */ THREEWORDINLINE(0x303C,
                                                                            0x1427,
                                                                            0xAA52);
@@ -8026,8 +8028,8 @@ exchanged.
     OSErr
     FSIterateForks(
         const FSRef *ref, CatPositionRec *forkIterator,
-        HFSUniStr255 *forkName, /* can be NULL */
-        SInt64 *forkSize,       /* can be NULL */
+        HFSUniStr255 *forkName, //  can be NULL
+        SInt64 *forkSize,       //  can be NULL
         UInt64 *forkPhysicalSize) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0A38,
                                                                     0xAA52);
 
@@ -8083,7 +8085,7 @@ exchanged.
      */
     OSErr
     FSOpenFork(const FSRef *ref, UniCharCount forkNameLength,
-               const UniChar *forkName, /* can be NULL */
+               const UniChar *forkName, //  can be NULL
                SInt8 permissions, SInt16 *forkRefNum)
         THREEWORDINLINE(0x303C, 0x0928, 0xAA52);
 
@@ -8623,10 +8625,10 @@ exchanged.
     OSErr
     FSGetForkCBInfo(
         SInt16 desiredRefNum, FSVolumeRefNum volume,
-        SInt16 *iterator,     /* can be NULL */
-        SInt16 *actualRefNum, /* can be NULL */
-        FSForkInfo *forkInfo, /* can be NULL */
-        FSRef *ref,           /* can be NULL */
+        SInt16 *iterator,     //  can be NULL
+        SInt16 *actualRefNum, //  can be NULL
+        FSForkInfo *forkInfo, //  can be NULL
+        FSRef *ref,           //  can be NULL
         HFSUniStr255 *outForkName) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0C32,
                                                                      0xAA52);
 
@@ -8687,10 +8689,10 @@ exchanged.
      */
     OSErr
     FSGetVolumeInfo(FSVolumeRefNum volume, ItemCount volumeIndex,
-                    FSVolumeRefNum *actualVolume, /* can be NULL */
+                    FSVolumeRefNum *actualVolume, //  can be NULL
                     FSVolumeInfoBitmap whichInfo,
-                    FSVolumeInfo *info,       /* can be NULL */
-                    HFSUniStr255 *volumeName, /* can be NULL */
+                    FSVolumeInfo *info,       //  can be NULL
+                    HFSUniStr255 *volumeName, //  can be NULL
                     FSRef *rootDirectory) /* can be NULL */ THREEWORDINLINE(0x303C,
                                                                             0x0D33,
                                                                             0xAA52);
@@ -8889,7 +8891,7 @@ exchanged.
      */
     OSStatus
     FSPathMakeRef(const UInt8 *path, FSRef *ref,
-                  Boolean *isDirectory); /* can be NULL */
+                  Boolean *isDirectory); //  can be NULL
 
     /**
      *  FNMessage
@@ -8903,7 +8905,7 @@ exchanged.
     typedef UInt32 FNMessage;
     enum
     {
-      kFNDirectoryModifiedMessage = 1
+        kFNDirectoryModifiedMessage = 1
     };
 
     /**
@@ -9002,13 +9004,13 @@ exchanged.
     enum
     {
 
-      /**
-       * Specify this option if you do not want to receive notifications on
-       * this subscription when FNNotifyAll is called; by default any
-       * subscription is also implicitly a subscription to wildcard
-       * notifications
-       */
-      kFNNoImplicitAllSubscription = (1 << 0)
+        /**
+         * Specify this option if you do not want to receive notifications on
+         * this subscription when FNNotifyAll is called; by default any
+         * subscription is also implicitly a subscription to wildcard
+         * notifications
+         */
+        kFNNoImplicitAllSubscription = (1 << 0)
     };
 
     /**
@@ -9050,13 +9052,13 @@ exchanged.
 #if !OPAQUE_UPP_TYPES
     enum
     {
-      uppFNSubscriptionProcInfo = 0x00003FC1
-    }; /* no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+        uppFNSubscriptionProcInfo = 0x00003FC1
+    }; //  no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes)
 #ifdef __cplusplus
     inline FNSubscriptionUPP
     NewFNSubscriptionUPP(FNSubscriptionProcPtr userRoutine)
     {
-      return userRoutine;
+        return userRoutine;
     }
 #else
 #define NewFNSubscriptionUPP(userRoutine) (userRoutine)
@@ -9100,11 +9102,11 @@ exchanged.
                                         FNSubscriptionRef subscription,
                                         FNSubscriptionUPP userUPP)
     {
-      (*userUPP)(message, flags, refcon, subscription);
+        (*userUPP)(message, flags, refcon, subscription);
     }
 #else
 #define InvokeFNSubscriptionUPP(message, flags, refcon, subscription, userUPP) \
-  (*userUPP)(message, flags, refcon, subscription)
+    (*userUPP)(message, flags, refcon, subscription)
 #endif
 #endif
 
@@ -9244,9 +9246,10 @@ exchanged.
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__ 
 */< 0)
-};
+}
+;
 
 /**
  *  FNSubscriptionProcPtr
@@ -9287,13 +9290,13 @@ NewFNSubscriptionUPP(FNSubscriptionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum
 {
-  uppFNSubscriptionProcInfo = 0x00003FC1
-}; /* no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+    uppFNSubscriptionProcInfo = 0x00003FC1
+}; //  no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes)
 #ifdef __cplusplus
 inline FNSubscriptionUPP
 NewFNSubscriptionUPP(FNSubscriptionProcPtr userRoutine)
 {
-  return userRoutine;
+    return userRoutine;
 }
 #else
 #define NewFNSubscriptionUPP(userRoutine) (userRoutine)
@@ -9335,11 +9338,11 @@ inline void InvokeFNSubscriptionUPP(FNMessage message, OptionBits flags,
                                     FNSubscriptionRef subscription,
                                     FNSubscriptionUPP userUPP)
 {
-  (*userUPP)(message, flags, refcon, subscription);
+    (*userUPP)(message, flags, refcon, subscription);
 }
 #else
 #define InvokeFNSubscriptionUPP(message, flags, refcon, subscription, userUPP) \
-  (*userUPP)(message, flags, refcon, subscription)
+    (*userUPP)(message, flags, refcon, subscription)
 #endif
 #endif
 
@@ -9479,7 +9482,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -9497,7 +9500,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -9515,7 +9518,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ ma import reset
 #endif
 
@@ -9523,7 +9526,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ ort reset
 #endif
 
@@ -9531,7 +9534,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ ma import reset
 #endif
 
@@ -9539,7 +9542,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ /*/*/ ort reset
 #endif
 
@@ -9547,7 +9550,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ ma import reset
 #endif
 
@@ -9555,7 +9558,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ / ort reset
 #endif
 
@@ -9563,7 +9566,7 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif /* __FILES__ */
+#endif //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ ma import reset
 #endif
 
@@ -9571,5 +9574,5 @@ FNGetDirectoryForSubscription(FNSubscriptionRef subscription, FSRef *ref);
 }
 #endif
 
-#endif                                                                                                                                                                                                                                           /* __FILES__ */
+#endif                                                                                                                                                                                                                                           //  __FILES__
 * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*//*/ * /*/*/

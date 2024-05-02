@@ -81,7 +81,7 @@ extern "C"
   OSErr
   AESend(const AppleEvent *theAppleEvent, AppleEvent *reply, AESendMode sendMode,
          AESendPriority sendPriority, long timeOutInTicks,
-         AEIdleUPP idleProc, /* can be NULL */
+         AEIdleUPP idleProc, //  can be NULL
          AEFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0D17,
                                                                    0xA816);
 
@@ -255,26 +255,26 @@ noErr(0)No error
   {
     kAEDoNotIgnoreHandler = 0x00000000,
     kAEIgnoreAppPhacHandler =
-        0x00000001, /* available only in vers 1.0.1 and greater */
+        0x00000001, //  available only in vers 1.0.1 and greater
     kAEIgnoreAppEventHandler =
-        0x00000002, /* available only in vers 1.0.1 and greater */
+        0x00000002, //  available only in vers 1.0.1 and greater
     kAEIgnoreSysPhacHandler =
-        0x00000004, /* available only in vers 1.0.1 and greater */
+        0x00000004, //  available only in vers 1.0.1 and greater
     kAEIgnoreSysEventHandler =
-        0x00000008, /* available only in vers 1.0.1 and greater */
+        0x00000008, //  available only in vers 1.0.1 and greater
     kAEIngoreBuiltInEventHandler =
-        0x00000010, /* available only in vers 1.0.1 and greater */
+        0x00000010, //  available only in vers 1.0.1 and greater
     kAEDontDisposeOnResume =
-        (long)0x80000000 /* available only in vers 1.0.1 and greater */
+        (long)0x80000000 //  available only in vers 1.0.1 and greater
   };
 
-  /* Constants for AEResumeTheCurrentEvent */
+  //  Constants for AEResumeTheCurrentEvent
   enum
   {
     kAENoDispatch = 0, /* dispatch parameter to AEResumeTheCurrentEvent takes a
                           pointer to a dispatch */
     kAEUseStandardDispatch =
-        (long)0xFFFFFFFF /* table, or one of these two constants */
+        (long)0xFFFFFFFF //  table, or one of these two constants
   };
 
   /**
@@ -288,7 +288,7 @@ noErr(0)No error
   OSErr
   AEResumeTheCurrentEvent(const AppleEvent *theAppleEvent,
                           const AppleEvent *reply,
-                          AEEventHandlerUPP dispatcher, /* can be NULL */
+                          AEEventHandlerUPP dispatcher, //  can be NULL
                           long handlerRefcon)
       THREEWORDINLINE(0x303C, 0x0818, 0xA816);
 
@@ -378,7 +378,7 @@ noErr(0)No error
   enum
   {
     uppAEIdleProcInfo = 0x00000FD0
-  }; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
+  }; //  pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes)
 #ifdef __cplusplus
   inline AEIdleUPP NewAEIdleUPP(AEIdleProcPtr userRoutine)
   {
@@ -406,7 +406,7 @@ noErr(0)No error
   enum
   {
     uppAEFilterProcInfo = 0x00003FD0
-  }; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  }; //  pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes)
 #ifdef __cplusplus
   inline AEFilterUPP NewAEFilterUPP(AEFilterProcPtr userRoutine)
   {
@@ -518,7 +518,7 @@ noErr(0)No error
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+//  support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #define NewAEIdleProc(userRoutine) NewAEIdleUPP(userRoutine)
 #define NewAEFilterProc(userRoutine) NewAEFilterUPP(userRoutine)
 #define CallAEIdleProc(userRoutine, theEvent, sleepTime, mouseRgn) \
@@ -526,7 +526,7 @@ noErr(0)No error
 #define CallAEFilterProc(userRoutine, theEvent, returnID, transactionID, \
                          sender)                                         \
   InvokeAEFilterUPP(theEvent, returnID, transactionID, sender, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif //  CALL_NOT_IN_CARBON
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -546,5 +546,5 @@ noErr(0)No error
 }
 #endif
 
-#endif /* __AEINTERACTION__ */
+#endif //  __AEINTERACTION__
 * /*/*/ * /

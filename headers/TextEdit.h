@@ -314,65 +314,65 @@ extern "C"
     teJustCenter = 1,
     teJustRight = -1,
     teForceLeft =
-        -2,            // new names for the Justification (word alignment) styles     teFlushDefault = 0, /*flush according to the line direction */
-    teCenter = 1,      /*center justify (word alignment) */
-    teFlushRight = -1, /*flush right for all scripts */
-    teFlushLeft = -2   /*flush left for all scripts */
+        -2,            // new names for the Justification (word alignment) styles     teFlushDefault = 0, // flush according to the line direction
+    teCenter = 1,      // center justify (word alignment)
+    teFlushRight = -1, // flush right for all scripts
+    teFlushLeft = -2   // flush left for all scripts
   };
 
   enum
   {
-    // Set/Replace style modes     fontBit = 0,    /*set font*/
-    faceBit = 1,    /*set face*/
-    sizeBit = 2,    /*set size*/
-    clrBit = 3,     /*set color*/
-    addSizeBit = 4, /*add size mode*/
-    toggleBit = 5   /*set faces in toggle mode*/
+    // Set/Replace style modes     fontBit = 0,    // set font
+    faceBit = 1,    // set face
+    sizeBit = 2,    // set size
+    clrBit = 3,     // set color
+    addSizeBit = 4, // add size mode
+    toggleBit = 5   // set faces in toggle mode
   };
 
   enum
   {
-    // TESetStyle/TEContinuousStyle modes     doFont = 1,   // set font (family) number    doFace = 2,   /*set character style*/
-    doSize = 4,   /*set type size*/
-    doColor = 8,  /*set color*/
-    doAll = 15,   /*set all attributes*/
-    addSize = 16, /*adjust type size*/
-    doToggle = 32 /*toggle mode for TESetStyle*/
+    // TESetStyle/TEContinuousStyle modes     doFont = 1,   // set font (family) number    doFace = 2,   // set character style
+    doSize = 4,   // set type size
+    doColor = 8,  // set color
+    doAll = 15,   // set all attributes
+    addSize = 16, // adjust type size
+    doToggle = 32 // toggle mode for TESetStyle
   };
 
   enum
   {
-    // offsets into TEDispatchRec     EOLHook = 0,       /*[UniversalProcPtr] TEEOLHook*/
-    DRAWHook = 4,      /*[UniversalProcPtr] TEWidthHook*/
-    WIDTHHook = 8,     /*[UniversalProcPtr] TEDrawHook*/
-    HITTESTHook = 12,  /*[UniversalProcPtr] TEHitTestHook*/
-    nWIDTHHook = 24,   /*[UniversalProcPtr] nTEWidthHook*/
-    TextWidthHook = 28 /*[UniversalProcPtr] TETextWidthHook*/
+    // offsets into TEDispatchRec     EOLHook = 0,       // [UniversalProcPtr] TEEOLHook
+    DRAWHook = 4,      // [UniversalProcPtr] TEWidthHook
+    WIDTHHook = 8,     // [UniversalProcPtr] TEDrawHook
+    HITTESTHook = 12,  // [UniversalProcPtr] TEHitTestHook
+    nWIDTHHook = 24,   // [UniversalProcPtr] nTEWidthHook
+    TextWidthHook = 28 // [UniversalProcPtr] TETextWidthHook
   };
 
   enum
   {
-    // selectors for TECustomHook     intEOLHook = 0,       /*TEIntHook value*/
-    intDrawHook = 1,      /*TEIntHook value*/
-    intWidthHook = 2,     /*TEIntHook value*/
-    intHitTestHook = 3,   /*TEIntHook value*/
-    intNWidthHook = 6,    /*TEIntHook value for new version of WidthHook*/
-    intTextWidthHook = 7, /*TEIntHook value for new TextWidthHook*/
+    // selectors for TECustomHook     intEOLHook = 0,       // TEIntHook value
+    intDrawHook = 1,      // TEIntHook value
+    intWidthHook = 2,     // TEIntHook value
+    intHitTestHook = 3,   // TEIntHook value
+    intNWidthHook = 6,    // TEIntHook value for new version of WidthHook
+    intTextWidthHook = 7, // TEIntHook value for new TextWidthHook
     intInlineInputTSMTEPreUpdateHook =
-        8, /*TEIntHook value for TSMTEPreUpdateProcPtr callback*/
+        8, // TEIntHook value for TSMTEPreUpdateProcPtr callback
     intInlineInputTSMTEPostUpdateHook =
-        9 /*TEIntHook value for TSMTEPostUpdateProcPtr callback*/
+        9 // TEIntHook value for TSMTEPostUpdateProcPtr callback
   };
 
   enum
   {
-    // feature or bit definitions for TEFeatureFlag     teFAutoScroll = 0,           /*00000001b*/
-    teFTextBuffering = 1,        /*00000010b*/
-    teFOutlineHilite = 2,        /*00000100b*/
-    teFInlineInput = 3,          /*00001000b */
-    teFUseWhiteBackground = 4,   /*00010000b */
-    teFUseInlineInput = 5,       /*00100000b */
-    teFInlineInputAutoScroll = 6 /*01000000b */
+    // feature or bit definitions for TEFeatureFlag     teFAutoScroll = 0,           // 00000001b
+    teFTextBuffering = 1,        // 00000010b
+    teFOutlineHilite = 2,        // 00000100b
+    teFInlineInput = 3,          // 00001000b
+    teFUseWhiteBackground = 4,   // 00010000b
+    teFUseInlineInput = 5,       // 00100000b
+    teFInlineInputAutoScroll = 6 // 01000000b
   };
 
   enum
@@ -381,32 +381,32 @@ extern "C"
     activated * /
     /* via the following feature flag, but you must ensure that the destRect
        and/or     */
-    // GrafPort's origin be setup properly for drawing in a given TERec when     // the timer fires.    When this feature flag is set, TEIdle is a noop.     // Activate this feature flag before calling TEActivate.                     teFIdleWithEventLoopTimer = 7 /*10000000b */
+    // GrafPort's origin be setup properly for drawing in a given TERec when     // the timer fires.    When this feature flag is set, TEIdle is a noop.     // Activate this feature flag before calling TEActivate.                     teFIdleWithEventLoopTimer = 7 // 10000000b
   };
 
   enum
   {
     // action for the new "bit (un)set" interface, TEFeatureFlag     teBitClear = 0,
-    teBitSet = 1,  /*set the selector bit*/
-    teBitTest = -1 /*no change; just return the current setting*/
+    teBitSet = 1,  // set the selector bit
+    teBitTest = -1 // no change; just return the current setting
   };
 
   enum
   {
-    /*constants for identifying the routine that called FindWord */
-    teWordSelect = 4, /*clickExpand to select word*/
-    teWordDrag = 8,   /*clickExpand to drag new word*/
-    teFromFind = 12,  /*FindLine called it ($0C)*/
-    teFromRecal = 16  /*RecalLines called it ($10)      obsolete */
+    // constants for identifying the routine that called FindWord
+    teWordSelect = 4, // clickExpand to select word
+    teWordDrag = 8,   // clickExpand to drag new word
+    teFromFind = 12,  // FindLine called it ($0C)
+    teFromRecal = 16  // RecalLines called it ($10)      obsolete
   };
 
   enum
   {
-    /*constants for identifying TEDoText selectors */
-    teFind = 0,      /*TEDoText called for searching*/
-    teHighlight = 1, /*TEDoText called for highlighting*/
-    teDraw = -1,     /*TEDoText called for drawing text*/
-    teCaret = -2     /*TEDoText called for drawing the caret*/
+    // constants for identifying TEDoText selectors
+    teFind = 0,      // TEDoText called for searching
+    teHighlight = 1, // TEDoText called for highlighting
+    teDraw = -1,     // TEDoText called for drawing text
+    teCaret = -2     // TEDoText called for drawing the caret
   };
 
   typedef char Chars[32001];
@@ -1735,7 +1735,7 @@ extern "C"
 #endif // CALL_NOT_IN_CARBON
   enum
   {
-    // feature bit 4 for TEFeatureFlag no longer in use     teFUseTextServices = 4 /*00010000b */
+    // feature bit 4 for TEFeatureFlag no longer in use     teFUseTextServices = 4 // 00010000b
   };
 
 #if OLDROUTINENAMES
@@ -2362,203 +2362,203 @@ bit, either TEBitSet or TEBitClear .
 Note that there is also a constant named TEFeatureFlag which has the following
 values:
 The feature or bit definitions for TEFeatureFlag are:
-teFAutoScr = 0, /*00000001b*/
-teFTextBuffering = 1, /*00000010b*/
-teFOutlineHilite = 2, /*00000100b*/
-teFInlineInput = 3, /*00001000b*/
-teFUseTextServices = 4, /*00010000b*/
+teFAutoScr = 0, // 00000001b
+teFTextBuffering = 1, // 00000010b
+teFOutlineHilite = 2, // 00000100b
+teFInlineInput = 3, // 00001000b
+teFUseTextServices = 4, // 00010000b
 The action for the new "bit (un)set" interface, TEFeatureFlag is:
 TEBitClear = 0,
-TEBitSet = 1/*set the selector bit*/
+TEBitSet = 1// set the selector bit
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+       *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-short
-TEFeatureFlag(short feature, short action, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000E, 0xA83D);
+  short
+  TEFeatureFlag(short feature, short action, TEHandle hTE)
+      THREEWORDINLINE(0x3F3C, 0x000E, 0xA83D);
 
-/**
- *  TEGetHiliteRgn()
- *
+  /**
+   *  TEGetHiliteRgn()
+   *
 
- *    \non_carbon_cfm   in DragLib 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr TEGetHiliteRgn(RgnHandle region, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000F, 0xA83D);
+   *    \non_carbon_cfm   in DragLib 1.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr TEGetHiliteRgn(RgnHandle region, TEHandle hTE)
+      THREEWORDINLINE(0x3F3C, 0x000F, 0xA83D);
 
-/**
- *  TESetScrapLength()
- *
+  /**
+   *  TESetScrapLength()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void TESetScrapLength(long length);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void TESetScrapLength(long length);
 
-/**
- *  TEFromScrap()
- *
+  /**
+   *  TEFromScrap()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr TEFromScrap(void);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr TEFromScrap(void);
 
-/**
- *  TEToScrap()
- *
+  /**
+   *  TEToScrap()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr TEToScrap(void);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr TEToScrap(void);
 
-/**
- *  TESetClickLoop()
- *
+  /**
+   *  TESetClickLoop()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void TESetClickLoop(TEClickLoopUPP clikProc, TEHandle hTE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void TESetClickLoop(TEClickLoopUPP clikProc, TEHandle hTE);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  TESetWordBreak()
- *
+  /**
+   *  TESetWordBreak()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void TESetWordBreak(WordBreakUPP wBrkProc, TEHandle hTE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void TESetWordBreak(WordBreakUPP wBrkProc, TEHandle hTE);
 
 #endif // CALL_NOT_IN_CARBON
-/**
- *  TEGetDoTextHook()
- *
+  /**
+   *  TEGetDoTextHook()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-TEDoTextUPP
-TEGetDoTextHook(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEDoTextUPP
+  TEGetDoTextHook(void);
 
-/**
- *  TESetDoTextHook()
- *
+  /**
+   *  TESetDoTextHook()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void TESetDoTextHook(TEDoTextUPP value);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void TESetDoTextHook(TEDoTextUPP value);
 
-/**
- *  TEGetRecalcHook()
- *
+  /**
+   *  TEGetRecalcHook()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-TERecalcUPP
-TEGetRecalcHook(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TERecalcUPP
+  TEGetRecalcHook(void);
 
-/**
- *  TESetRecalcHook()
- *
+  /**
+   *  TESetRecalcHook()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void TESetRecalcHook(TERecalcUPP value);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void TESetRecalcHook(TERecalcUPP value);
 
-/**
- *  TEGetFindWordHook()
- *
+  /**
+   *  TEGetFindWordHook()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-TEFindWordUPP
-TEGetFindWordHook(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEFindWordUPP
+  TEGetFindWordHook(void);
 
-/**
- *  TESetFindWordHook()
- *
+  /**
+   *  TESetFindWordHook()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void TESetFindWordHook(TEFindWordUPP value);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void TESetFindWordHook(TEFindWordUPP value);
 
-/**
- *  TEGetScrapHandle()
- *
+  /**
+   *  TEGetScrapHandle()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Handle
-TEGetScrapHandle(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  TEGetScrapHandle(void);
 
-/**
- *  TESetScrapHandle()
- *
+  /**
+   *  TESetScrapHandle()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void TESetScrapHandle(Handle value);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void TESetScrapHandle(Handle value);
 
-// LMGetWordRedraw and LMSetWordRedraw were previously in LowMem.h  // Deprecated for Carbon on MacOS X                                 // This lomem is no longer used by the implementation of TextEdit   // on MacOS X, so setting it will have no effect.                   /**
-*LMGetWordRedraw() *
+  // LMGetWordRedraw and LMSetWordRedraw were previously in LowMem.h  // Deprecated for Carbon on MacOS X                                 // This lomem is no longer used by the implementation of TextEdit   // on MacOS X, so setting it will have no effect.                   /**
+  *LMGetWordRedraw() *
 
-        *    \non_carbon_cfm in InterfaceLib 7.1 and
-    later
-        *    \carbon_lib in CarbonLib 1.0 and
-    later
-        *    \mac_os_x in version 10.0 and
-    later
-            * /
-        UInt8 LMGetWordRedraw(void) TWOWORDINLINE(0x1EB8, 0x0BA5);
+          *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          UInt8 LMGetWordRedraw(void) TWOWORDINLINE(0x1EB8, 0x0BA5);
 
-/**
- *  LMSetWordRedraw()
- *
+  /**
+   *  LMSetWordRedraw()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void LMSetWordRedraw(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BA5);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetWordRedraw(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BA5);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  teclick()
- *
+  /**
+   *  teclick()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void teclick(Point *pt, Boolean fExtend, TEHandle h);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void teclick(Point *pt, Boolean fExtend, TEHandle h);
 
 #endif // CALL_NOT_IN_CARBON
 #if OLDROUTINENAMES
@@ -2574,11 +2574,11 @@ void teclick(Point *pt, Boolean fExtend, TEHandle h);
 #define GetStylScrap(hTE) TEGetStyleScrapHandle(hTE)
 #define GetStyleScrap(hTE) TEGetStyleScrapHandle(hTE)
 #define SetStylScrap(rangeStart, rangeEnd, newStyles, redraw, hTE) \
-TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
+  TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
 #define SetStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE) \
-TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
+  TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
 #define TEStylInsert(text, length, hST, hTE) \
-TEStyleInsert(text, length, hST, hTE)
+  TEStyleInsert(text, length, hST, hTE)
 #define TESetScrapLen(length) TESetScrapLength(length)
 #define TEGetScrapLen() TEGetScrapLength()
 #define SetClikLoop(clikProc, hTE) TESetClickLoop(clikProc, hTE)
