@@ -167,28 +167,77 @@ enum {
   kSERDGetDCD = 256    /** get instantaneous state of DCD (GPi) */
 };
 
+/**
+<pre>
+ * \note <pre> This structure represents the contents of the flags parameter in the
+SerHShake procedure and addresses the input and output drivers as
+identified by the call's refNum field. It is used to set handshaking and
+control parameters as follows:
+Output flow control is enabled when fXOn is set, disabled when cleared to
+zero. The same holds true for FInX (as regard input flow control.  The xOn
+and xOff fields specify XOn and XOff characters for flow control. Setting
+the fCTS enables the Clear to Send (CTS) hardware handshake.
+ The errs field shows the values:
+parityErr (16)set if a parity error has occurred
+hwOverrunErr (32)set in the event of a hardware overrun
+error
+framingErr (64)set in the event of a framing error
+Any one of these errors will cause input requests to abort.
+The evts field shows whether or not changes in Clear to Send or Break
+status will make the Serial Driver post a device driver event as follows:
+ctsEvent (32)set if Clear to Send change will post an event
+breakEvent (128)set if Break status change will post an event
+Your applications can use these constants to set or test the value of the
+evts field but we're warned against it because posting events disables
+interrupts for an inordinately long time.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct SerShk {
-  Byte fXOn;          /** XOn/XOff output flow control flag */
-  Byte fCTS;          /** hardware output flow control flags */
-  unsigned char xOn;  /** XOn character */
-  unsigned char xOff; /** XOff character */
-  Byte errs;          /** errors mask bits */
-  Byte evts;          /** event enable mask bits */
-  Byte fInX;          /** XOn/XOff input flow control flag */
-  Byte fDTR;          /** hardware input flow control flags */
-};
+	char fXOn;/**< XOn/XOff output flow control*/
+	char fCTS;/**< Clear to Send hardware handshake*/
+	char xOn;/**< XOn character*/
+	char xOff;/**< XOff character*/
+	char errs;/**< Errors resulting in abort*/
+	char evts;/**< Status changes that cause events*/
+	char fInX;/**< XOn/XOff input flow control*/
+	char fDTR;/**< Data Terminal Ready input flow*/
+	} SerShk;/**< */
+
 typedef struct SerShk SerShk;
-struct SerStaRec {
-  Byte cumErrs;     /** errors accumulated since last SerStatus() call */
-  Byte xOffSent;    /** input (requested to be) held off by xOffWasSent or
-                       dtrNegated or rtsNegated */
-  Byte rdPend;      /** incomplete read pending in I/O queue */
-  Byte wrPend;      /** incomplete write pending in I/O queue */
-  Byte ctsHold;     /** transmit disabled by hardware handshaking */
-  Byte xOffHold;    /** transmit disabled by XOn/XOff handshaking */
-  Byte dsrHold;     /** transmit disabled: external device not ready */
-  Byte modemStatus; /** reports modem status according to SerShk.evts */
-};
+/**
+<pre>
+ * \note <pre> This structure represents the contents of the serSta field in the SerStatus
+procedure and addresses the input and output drivers as identified by the
+call's refNum field. It is used to by the driver to deliver status
+information as follows:
+The Cumerrs field shows the values:
+swOverrunErr (1)set if a software overrun error has
+occurred
+parityErr (16)set if a parity error has occurred
+hwOverrunErr (32)set in the event of a hardware overrun
+errorframingErr (64)set in the event of a framing error
+When the driver sends an XOff character, the xOffSent field will contain
+the predefined constant:
+xOffWasSent 0x080 XOff character sent
+A pending Read or Write will set the rdPend and wrPend parameters;
+when no Read or Write is pending they will both be zero.
+CtsHold is set when output is suspended because the hardware handshake
+was disabled: otherwise it is zero.
+XOffHold will be set if output was suspended due to receipt of an XOff
+character.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct SerStaRec  {
+	char cumErrs;/**< Accumulated errors*/
+	char xOffSent;/**< Input flow control XOff message*/
+	char rdPend;/**< Flags a pending Read*/
+	char wrPend;/**< Flags a pending Write*/
+	char ctsHold;/**< Flags a Clear to Send flow control*/
+	char xOffHold;/**< Flags an XOff flow control Hold*/
+	} SerStaRec ;/**< */
+
 typedef struct SerStaRec SerStaRec;
 #if OLDROUTINENAMES
 /** ********************************************************************************************* */
@@ -309,11 +358,24 @@ SerSetBrk(short refNum);
 EXTERN_API(OSErr)
 SerClrBrk(short refNum);
 
-/**
- *  SerGetBuf()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get the number of bytes in an input driver's buffer 
+			
+			<pre>SerGetBuf gets the number of bytes in the buffer for the specified input
+driver.
+refNum is the parameter that identifies the input driver with the buffer that
+is being counted.
+countis the total number of bytes in the buffer.
+</pre>
+ * \returns <pre>an operating system Error Code .
+noErr(0) No error
+</pre>
+ * \note <pre> This call is equivalent to a Device Manager Status call with csCode=2
+and with the count returned as a long in csParam.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -352,3 +414,4 @@ SerStatus(short refNum, SerStaRec *serSta);
 #endif
 
 #endif /** __SERIAL__ */
+*/

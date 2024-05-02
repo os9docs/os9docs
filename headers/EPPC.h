@@ -88,27 +88,39 @@ enum {
   msgWasNotAccepted = 0
 };
 
+/**
+<pre>
+ * \note <pre>The TargetID structure is used in calls to AcceptHighLevelEvent .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TargetID {
-  long sessionID;
-  PPCPortRec name;
-  LocationNameRec location;
-  PPCPortRec recvrName;
-};
+	long sessionID;/**<   Session reference number*/
+	PPCPortRec name;/**<   Sender's port name*/
+	LocationNameRec location;/**<   Sender's port location*/
+	PPCPortRec recvrName;/**<   Reserved*/
+	} TargetID ;/**< */
+
 typedef struct TargetID TargetID;
 typedef TargetID *TargetIDPtr;
 typedef TargetIDPtr *TargetIDHandle;
 typedef TargetIDHandle TargetIDHdl;
 typedef TargetID SenderID;
 typedef SenderID *SenderIDPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct HighLevelEventMsg {
-  unsigned short HighLevelEventMsgHeaderLength;
-  unsigned short version;
-  unsigned long reserved1;
-  EventRecord theMsgEvent;
-  unsigned long userRefcon;
-  unsigned long postingOptions;
-  unsigned long msgLength;
-};
+	short HighLevelEventMsgHeaderLength;/**< Header size*/
+	short version;/**< Version #*/
+	long reserved;/**< reserved*/
+	EventRecord theMsgEvent;/**< Event Record*/
+	long msgRefCon;/**< Event ID #*/
+	long;/**< postingOptions;/**< Post Options*/
+	long msgLength;/**< Message length*/
+	} HighLevelEventMsg ;/**<*/
+
 typedef struct HighLevelEventMsg HighLevelEventMsg;
 typedef HighLevelEventMsg *HighLevelEventMsgPtr;
 typedef HighLevelEventMsgPtr *HighLevelEventMsgHandle;
@@ -247,11 +259,12 @@ AcceptHighLevelEvent(TargetID *sender, unsigned long *msgRefcon, void *msgBuff,
 
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
-/**
- *  GetProcessSerialNumberFromPortName()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetProcessSerialNumberFromPortName Get the serial number of a process. 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -266,11 +279,12 @@ GetProcessSerialNumberFromPortName(const PPCPortRec *portName,
 
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
-/**
- *  GetPortNameFromProcessSerialNumber()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetPortNameFromProcessSerialNumber Get the port name of a process. 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -320,3 +334,22 @@ GetSpecificHighLevelEvent(GetSpecificFilterUPP aFilter, void *contextPtr,
 #endif
 
 #endif /* __EPPC__ */
+*/align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __EPPC__ */
+*/

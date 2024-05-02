@@ -174,15 +174,29 @@ struct DateCacheRecord {
 };
 typedef struct DateCacheRecord DateCacheRecord;
 typedef DateCacheRecord *DateCachePtr;
+/**
+<pre>
+ * \note <pre>The DateTimeRec structure is used in calls to Date2Secs , Secs2Date ,
+GetTime and SetTime .
+When using Date2Secs , you need not maintain valid values in the fields of
+the DateTimeRec. For instance, you can add 14 to the day field (making it,
+say, 43), convert it to seconds and back to DateTimeRec to find what the date
+will be in a fortnight.
+The IUDateString and IUTimeString functions may be what you need:
+they convert raw seconds into a human-readable text string of the date or
+time.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct DateTimeRec {
-  short year;
-  short month;
-  short day;
-  short hour;
-  short minute;
-  short second;
-  short dayOfWeek;
-};
+	short year;/**< Year (...)*/
+	short month;/**< Month (=January...=December)*/
+	short day;/**< Day (...)*/
+	short hour;/**< Hour (...)*/
+	short minute;/**< Minute (...)*/
+	short second;/**< Second (...)*/
+	short dayOfWeek;/**< Week day (=Sunday...=Saturday)*/
+
 typedef struct DateTimeRec DateTimeRec;
 
 typedef SInt64 LongDateTime;
@@ -194,29 +208,31 @@ union LongDateCvt {
   } hl;
 };
 typedef union LongDateCvt LongDateCvt;
+/**
+<pre>short list[14]; 280Index by LongDateField
+struct {
+short eraAlt; 20
+DateTimeRec oldDate; 142
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 union LongDateRec {
-  struct {
-    short era;
-    short year;
-    short month;
-    short day;
-    short hour;
-    short minute;
-    short second;
-    short dayOfWeek;
-    short dayOfYear;
-    short weekOfYear;
-    short pm;
-    short res1;
-    short res2;
-    short res3;
-  } ld;
-  short list[14]; /**Index by LongDateField!*/
-  struct {
-    short eraAlt;
-    DateTimeRec oldDate;
-  } od;
-};
+	short era;/**< */
+	short year;/**< */
+	short month;/**< */
+	short day;/**< */
+	short hour;/**< */
+	short minute;/**< */
+	short second;/**< */
+	short dayOfWeek;/**< */
+	short dayOfYear;/**< */
+	short weekOfYear;/**< */
+	short pm;/**< */
+	short res;/**< */
+	short res;/**< */
+	short res;/**< */
+	} ld;/**<*/
+
 typedef union LongDateRec LongDateRec;
 
 typedef SInt8 DateDelta;
@@ -343,11 +359,19 @@ EXTERN_API(void)
 LongSecondsToDate(const LongDateTime *lSecs, LongDateRec *lDate)
     FOURWORDINLINE(0x2F3C, 0x8008, 0xFFF0, 0xA8B5);
 
-/**
- *  ToggleDate()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Modify a LongDateTime parameter 
+			
+			<pre>The ToggleDate function modifies a LongDateTime parameter by toggling one
+of the corresponding fields of the long date record up or down or by setting it
+explicitly.For more information see, Macintosh Worldwide Development: Guide
+to System Software
+</pre>
+ * \returns <pre>a ToggleResults
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -356,11 +380,17 @@ ToggleDate(LongDateTime *lSecs, LongDateField field, DateDelta delta, short ch,
            const TogglePB *params)
     FOURWORDINLINE(0x2F3C, 0x820E, 0xFFEE, 0xA8B5);
 
-/**
- *  ValidDate()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Check the validity of a long date record 
+			
+			<pre>The ValidDate function checks the validity of a long date record For more
+information see, Macintosh Worldwide Development: Guide to System Software.
+</pre>
+ * \returns <pre>a short
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -368,11 +398,31 @@ EXTERN_API(short)
 ValidDate(const LongDateRec *vDate, long flags, LongDateTime *newSecs)
     FOURWORDINLINE(0x2F3C, 0x820C, 0xFFE4, 0xA8B5);
 
-/**
- *  ReadDateTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Copy clock-chip time to Time variable 
+			
+			<pre>ReadDateTime accesses the clock chip directly and stores its return value
+into the low-memory variable Time (at 0x020C) and into the specified
+variable. Applications normally use GetDateTime or GetTime .
+secsis the address of a 4-byte variable. Upon return, it contains the
+number of seconds since January 1, 1904 (as tracked by the
+real-time clock hardware).
+</pre>
+ * \returns <pre>an OSErr; an integer Error Code . It will be one of:
+noErr(0) No error
+clkRdErr (-85) Clock read error
+</pre>
+ * \note <pre>You can convert the secs value to a more easily understood value (i.e., a
+DateTimeRec ) via Secs2Date .
+You can set the clock-chip to a new time/date using SetDateTime ; though
+this is normally performed via the Control Panel DA.
+Since the base date for the any "raw seconds" value is 1/1/1904 and since
+secs is a 32-bit value, you won't be able to calculate with dates beyond
+February 6, 2040.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -382,11 +432,38 @@ ValidDate(const LongDateRec *vDate, long flags, LongDateTime *newSecs)
 EXTERN_API(OSErr)
 ReadDateTime(unsigned long *time) ONEWORDINLINE(0xA039);
 
-/**
- *  GetDateTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain "raw seconds" value of Time variable 
+			
+			<pre>GetDateTime obtains the "raw" seconds value, as known to the system.
+secsis the address of a 4-byte variable. Upon return, it contains the
+number of seconds since Midnight, January 1, 1904 (as read from
+the real-time clock hardware at startup and updated periodically by
+the Time Manager ).
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>GetDateTime simply copies the value of the low-memory variable Time
+(at 0x020C) and into the specified variable. Thus, the following are
+functionally equivalent:
+unsigned long secs;
+GetDateTime ( &secs); /* is the same as . . . */
+secs = Time;
+It is recommended that you obtain the value using the GetDateTime trap
+rather than using the low-memory variable however, as it is possible that
+low-memory variables may change in the future.
+You can convert the secs value to a more understandable value (i.e., a
+DateTimeRec ) via Secs2Date .
+The ReadDateTime function may return a slightly more accurate value
+since it is possible for the Time variable to lose seconds when interrupts
+get disabled for very long.
+Since the base date for the "raw seconds" value is 1/1/1904 and since secs
+is a 32-bit value, you won't be able to calculate with dates beyond February
+6, 2040.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -396,11 +473,30 @@ ReadDateTime(unsigned long *time) ONEWORDINLINE(0xA039);
 EXTERN_API(void)
 GetDateTime(unsigned long *secs) TWOWORDINLINE(0x20B8, 0x020C);
 
-/**
- *  SetDateTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set system date and time in "raw" seconds 
+			
+			<pre>SetDateTime sets the system data and time by writing a "raw" seconds value
+to both the low-memory variable Time and the real-time clock chip. It also
+verifies that the clock chip accepted the change without error.
+secsspecifies the desired time. It is a count of seconds since Midnight,
+January 1, 1904.
+</pre>
+ * \returns <pre>an OSErr; an integer Error Code . It will be one of:
+noErr(0) No error
+clkWrErr (-86) Clock write error
+clkRdErr (-85) Clock read error
+</pre>
+ * \note <pre>The system time needs to be changed only rarely (e.g, on switching to
+Daylight Savings Time) and is normally set by the user via the Control
+Panel DA.
+The Date2Secs function can be used to convert a DateTimeRec into a "raw"
+seconds value. You could also use SetTime , which performs the conversion
+automatically.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -410,11 +506,26 @@ GetDateTime(unsigned long *secs) TWOWORDINLINE(0x20B8, 0x020C);
 EXTERN_API(OSErr)
 SetDateTime(unsigned long time) ONEWORDINLINE(0xA03A);
 
-/**
- *  SetTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set system date/time, using DateTimeRec  format 
+			
+			<pre>SetTime sets the system date and time, using the fields of a DateTimeRec
+structure. The clock/calendar hardware and the global variable Time are
+updated.
+dtrpis the address of a 14-byte DateTimeRec structure. Its fields should
+contain the current year, month, day, etc.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>SetTime converts dtrp to "raw" seconds and calls SetDateTime to store
+the converted value into the clock chip and the Time variable.
+The system time needs to be changed only rarely (e.g, on switching to or
+from daylight savings time) and is normally set by the user via the Control
+Panel DA.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -424,11 +535,26 @@ SetDateTime(unsigned long time) ONEWORDINLINE(0xA03A);
 EXTERN_API(void)
 SetTime(const DateTimeRec *d) TWOWORDINLINE(0xA9C7, 0xA03A);
 
-/**
- *  GetTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get current date and time in DateTimeRec format 
+			
+			<pre>GetTime obtains the current date and time in the form a DateTimeRec
+structure.
+dtrpis the address of a 14-byte DateTimeRec structure. Upon return,
+its fields contain the current year, month, day, etc.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>GetTime calls GetDateTime and converts its "raw" seconds value into
+corresponding DateTimeRec . For example:
+DateTimeRec now; /* create a 14-byte record */
+GetTime ( &now );
+printf("Today is %d/%d/%d\n", now.month, now.day, now.year );
+printf("The first day of the rest of your life. . . ");
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -480,11 +606,42 @@ EXTERN_API(void)
 IUDateString(long dateTime, DateForm longFlag, Str255 result)
     TWOWORDINLINE(0x4267, 0xA9ED);
 
-/**
- *  IUTimeString()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Convert "raw" seconds into ASCII time string 
+			
+			<pre>IUTimeString converts a binary date/time value into a string of text
+identifying the corresponding time of day. International styles are taken into
+consideration for the output.
+rawSecs is a long integer; the number of seconds since Midnight, 1/1/1904.
+You can use any time value obtained from a file or catalog information
+block (see PBGetCatInfo ) or a value obtained via GetDateTime .
+wantSecs specifies whether to include the seconds (as well as the hour and
+minute) in the output. It is one of:
+FALSEDiscard seconds: 12:05 AM
+TRUEInclude seconds: 12:05:09 AM
+resultStr is the address of a buffer. Upon return, it will contain the text of
+the time as a pascal-style, length-prefixed string in the layout
+identified by 'INTL' resource 0.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>Use IUDateString and IUTimeString to prepare date and time
+information for display. These functions rely on information from 'INTL'
+resources 0 and 1 in determining how to layout the text of the output string.
+A "programmer's" variation, IUTimePString provides a way to modify
+the output. For instance, you can force the output into 24-hr format or add
+leading zeros to the hour.
+Example
+#include < Packages.h >
+long nowNum;
+Str255 nowStr;
+GetDateTime ( &nowNum ); /* or today = Time */
+IUTimeString ( nowNum, TRUE, nowStr ); /* exclude seconds */
+DrawString ( "\pThe time is: " );  DrawString ( nowStr );
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -504,11 +661,46 @@ EXTERN_API(void)
 IUDatePString(long dateTime, DateForm longFlag, Str255 result,
               Handle intlHandle) THREEWORDINLINE(0x3F3C, 0x000E, 0xA9ED);
 
-/**
- *  IUTimePString()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Convert "raw" seconds to time string (with parm) 
+			
+			<pre>IUTimePString converts a binary date/time value into a string of text
+describing the time of day, exactly as described in IUTimeString except that
+you can specify a custom data structure to override normal output formatting.
+rawSecs is a long integer; the number of seconds since Midnight, 1/1/1904.
+You can use any date/time value obtained from a catalog information
+block (see PBGetCatInfo ) or a value obtained via GetDateTime .
+wantSecs specifies whether to include the seconds (as well as the hour and
+minute) in the output. It is one of:
+FALSEDiscard seconds: 1:05 AM
+TRUEInclude seconds: 1:05:09 AM
+resultStr is the address of a buffer. Upon return, it will contain the text of
+the time as a pascal-style length-prefixed string in the layout
+identified by flags in 'INTL' resource 0.
+intlHndl is a Handle leading to either a 32-byte Intl0Rec structure. This is
+normally a handle obtained via IUGetIntl (0) with selected fields
+modified.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>IUTimePString and IUDatePString provide flexibility in how to
+format the output of time and date strings.
+Normal usage is to call IUGetIntl (0), modify one or more fields of the
+Intl0Rec structure, and call IUTimePString , as in the example, below.
+Example
+#include < Packages.h >
+/* outputs time in 24-hr format with leading 0s in all fields; e.g.: 13:04:02
+*/
+long nowNum;
+Str255 nowStr;
+Intl0Hndl i0h; /* handle to an Intl0Rec */
+i0h = (Intl0Hndl )IUGetIntl ( 0 ); /* get current settings */
+(*i0h)->timeCycle=0; /* 24-hr format */
+(*i0h)->timeFmt |= secLeadingZ | minLeadingZ | hrLeadingZ ;
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -655,3 +847,4 @@ iultimestring(LongDateTime *dateTime, Boolean wantSeconds, char *result,
 #endif
 
 #endif /** __DATETIMEUTILS__ */
+*/*/*/*/*/*/*/*/*/

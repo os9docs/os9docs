@@ -71,55 +71,93 @@ enum {
 };
 
 typedef long PictInfoID;
-struct CommentSpec {
-  short count; /** number of occurrances of this comment ID */
-  short ID;    /** ID for the comment in the picture */
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct CommentSpec  {
+	short count;/**<   number of occurrances of*/
+	short ID;/**<   ID for the comment in the*/
+	} CommentSpec ;/**<*/
+
 typedef struct CommentSpec CommentSpec;
 typedef CommentSpec *CommentSpecPtr;
 typedef CommentSpecPtr *CommentSpecHandle;
-struct FontSpec {
-  short pictFontID; /** ID of the font in the picture */
-  short sysFontID;  /** ID of the same font in the current system file */
-  long size[4];     /** bit array of all the sizes found (1..127) (bit 0 means >
-                       127) */
-  short style;      /** combined style of all occurrances of the font */
-  long
-      nameOffset; /** offset into the fontNamesHdl handle for the font©s name */
-};
+/**
+<pre><table><tbody>
+<tr>
+	<td>pictFontID</td>
+	<td><pre>The pictFontID field contains the ID number of the font as it is stored
+the picture.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>sysFontID</td>
+	<td><pre>The sysFontID field contains the ID number of the font as it is stored
+the current System file.
+The size field contains 128 bits, in which a bit is set for each point
+encountered, from 1 to 127 points. Bit 0 is set if a size larger
+127 is found.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>style</td>
+	<td><pre>The style field indicates the text styles (such as bold or italic) that
+encountered for this font at any of its sizes. The style field is
+by the StyleItem data type, described in the QuickDraw
+The nameOffset field contains the offset into the list of font names
+to by the fontNamesHandle field of the picture information
+at which this font name is stored.
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
+struct FontSpec  {
+	short pictFontID;/**< ID of the font in the picture*/
+	short sysFontID;/**< ID of the same font in the current system*/
+	long size[];/**< bit array of all the sizes found (..)*/
+	short style;/**< combined style of all occurrances of the font*/
+	long nameOffset;/**< offset into the fontNamesHdl handle for the*/
+	} FontSpec ;/**< */
+
 typedef struct FontSpec FontSpec;
 typedef FontSpec *FontSpecPtr;
 typedef FontSpecPtr *FontSpecHandle;
-struct PictInfo {
-  short version;     /** this is always zero, for now */
-  long uniqueColors; /** the number of actual colors in the picture(s)/pixmap(s)
-                      */
-  PaletteHandle thePalette; /** handle to the palette information */
-  CTabHandle theColorTable; /** handle to the color table */
-  Fixed hRes;          /** maximum horizontal resolution for all the pixmaps */
-  Fixed vRes;          /** maximum vertical resolution for all the pixmaps */
-  short depth;         /** maximum depth for all the pixmaps (in the picture) */
-  Rect sourceRect;     /** the picture frame rectangle (this contains the entire
-                          picture) */
-  long textCount;      /** total number of text strings in the picture */
-  long lineCount;      /** total number of lines in the picture */
-  long rectCount;      /** total number of rectangles in the picture */
-  long rRectCount;     /** total number of round rectangles in the picture */
-  long ovalCount;      /** total number of ovals in the picture */
-  long arcCount;       /** total number of arcs in the picture */
-  long polyCount;      /** total number of polygons in the picture */
-  long regionCount;    /** total number of regions in the picture */
-  long bitMapCount;    /** total number of bitmaps in the picture */
-  long pixMapCount;    /** total number of pixmaps in the picture */
-  long commentCount;   /** total number of comments in the picture */
-  long uniqueComments; /** the number of unique comments in the picture */
-  CommentSpecHandle commentHandle; /** handle to all the comment information */
-  long uniqueFonts;          /** the number of unique fonts in the picture */
-  FontSpecHandle fontHandle; /** handle to the FontSpec information */
-  Handle fontNamesHandle;    /** handle to the font names */
-  long reserved1;
-  long reserved2;
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct PictInfo  {
+	short version;/**< this is always zero, for now*/
+	long uniqueColors;/**< the number of actual colors in*/
+	PaletteHandle thePalette;/**< handle to the palette information*/
+	CTabHandle theColorTable;/**< handle to the color table*/
+	Fixed hRes;/**< maximum horizontal resolution*/
+	Fixed vRes;/**< maximum vertical resolution for*/
+	short depth;/**< maximum depth for all the*/
+	Rect sourceRect;/**< the picture frame rectangle (this*/
+	long textCount;/**< total number of text strings in*/
+	long lineCount;/**< total number of lines in the*/
+	long rectCount;/**< total number of rectangles in the*/
+	long rRectCount;/**< total number of round rectangles*/
+	long ovalCount;/**< total number of ovals in the*/
+	long arcCount;/**< total number of arcs in the*/
+	long polyCount;/**< total number of polygons in the*/
+	long regionCount;/**< total number of regions in the*/
+	long bitMapCount;/**< total number of bitmaps in the*/
+	long pixMapCount;/**< total number of pixmaps in the*/
+	long commentCount;/**< total number of comments in the*/
+	long uniqueComments;/**< the number of unique comments*/
+	CommentSpecHandle commentHandle;/**< handle to all the comment*/
+	long uniqueFonts;/**< the number of unique fonts in the*/
+	FontSpecHandle fontHandle;/**< handle to the FontSpec*/
+	Handle fontNamesHandle;/**< handle to the font names*/
+	long reserved;/**< */
+	long reserved;/**< */
+	} PictInfo ;/**< */
+
 typedef struct PictInfo PictInfo;
 typedef PictInfo *PictInfoPtr;
 typedef PictInfoPtr *PictInfoHandle;
@@ -561,6 +599,28 @@ DisposePictInfo(PictInfoID thePictInfoID)
 
 #if OLDROUTINENAMES
 #define DisposPictInfo(thePictInfoID) DisposePictInfo(thePictInfoID)
+#endif /** OLDROUTINENAMES */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __PICTUTILS__ */
+PictInfoID)
 #endif /** OLDROUTINENAMES */
 
 #if PRAGMA_STRUCT_ALIGN

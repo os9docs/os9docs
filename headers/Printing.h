@@ -271,16 +271,31 @@ inline void InvokePItemUPP(DialogRef theDialog, short item, PItemUPP userUPP) {
 #endif /** CALL_NOT_IN_CARBON */
 
 #if !OPAQUE_TOOLBOX_STRUCTS
-struct TPrPort {
-  GrafPort gPort; /**The Printer's graf port.*/
-  QDProcs gProcs; /**..and its procs*/
-  long lGParam1;  /**16 bytes for private parameter storage.*/
-  long lGParam2;
-  long lGParam3;
-  long lGParam4;
-  Boolean fOurPtr;  /**Whether the PrPort allocation was done by us.*/
-  Boolean fOurBits; /**Whether the BitMap allocation was done by us.*/
-};
+/**
+<pre>
+ * \note <pre>TPrPort is a sort of "Printer Port Peek" structure. As with a
+WindowRecord , its first 108 bytes contain the fields of a GrafPort into
+which all drawing will occur.
+This structure is used internally by the Printing Manager. A pointer to a
+TPrPort is obtained via PrOpenDoc , and a is used directly in calls to
+PrCloseDoc PrOpenDoc PrPicFile
+PrClosePage PrOpenPage
+Subfields of the gProcs field can be modified to provide custom routines for
+text-measuring, line-drawing, etc.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TPrPort  {
+	GrafPort gPort;/**<  portBits, portRect , pnSize, txFont,*/
+	QDProcs gProcs;/**<  Specialized printer drawing hooks*/
+	long lGParam;/**<  Private storage ...*/
+	long lGParam;/**<  ... for the driver*/
+	long lGParam;/**< */
+	long lGParam ;/**< */
+	Boolean fOurPtr;/**<  Was this port allocated by the*/
+	Boolean fOurBits;/**<  Was the bit map allocated by the*/
+	} TPrPort ;/**< */
+
 typedef struct TPrPort TPrPort;
 typedef TPrPort *TPPrPort;
 #else
@@ -290,51 +305,115 @@ typedef struct OpaqueTPPrPort *TPPrPort;
 typedef TPPrPort TPPrPortRef;
 /** Printing Graf Port. All printer imaging, whether spooling, banding, etc,
   happens "thru" a GrafPort. This is the "PrPeek" record. */
+/**
+<pre>
+ * \note <pre>TPrInfo defines the printer information subfield of the TPrint structure
+(ie TPrint.prInfo). Its fields are set according to selections made in the
+print dialogs.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TPrInfo {
-  short iDev;  /**Font mgr/QuickDraw device code*/
-  short iVRes; /**Resolution of device, in device coordinates*/
-  short iHRes; /**..note: V before H => compatable with Point.*/
-  Rect rPage;  /**The page (printable) rectangle in device coordinates.*/
-};
+	short iDev;/**< Device code used by Font Mgr and Quickdraw*/
+	short iVRes;/**< Vert resolution of device (dots per inch)*/
+	short iHRes;/**< Horizontal resolution of device (dpi)*/
+	Rect rPage;/**< Printable page size ( top and left are usually*/
+	;/**<  physical paper size is in TPrint.rPaper)*/
+	} TPrInfo ;/**< */
+
 typedef struct TPrInfo TPrInfo;
 typedef TPrInfo *TPPrInfo;
 /** Print Info Record: The parameters needed for page composition. */
+/**
+<pre>
+ * \note <pre>TPrStl gets set according to selections made in the print dialogs, especially
+the style dialog presented via PrStlDialog . It is not used directly in any
+Printing Manager functions, but it defines a subrecord of the TPrint
+structure (ie, TPrint.prStl) which is used in many Printing Manager calls.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TPrStl {
-  short wDev;
-  short iPageV;
-  short iPageH;
-  SInt8 bPort;
-  TFeed feed;
-};
+	short wDev;/**<  Device number.  Hi byte is refNum*/
+	short iPageV;/**<  Paper height in /th-inch units*/
+	short iPageH;/**<  Paper width*/
+	char bPort;/**<  I/O port number*/
+	unsigned char  feed;/**<  Type of paper feed:*/
+	} TPrStl;/**< */
+
 typedef struct TPrStl TPrStl;
 typedef TPrStl *TPPrStl;
-struct TPrXInfo {
-  short iRowBytes;
-  short iBandV;
-  short iBandH;
-  short iDevBytes;
-  short iBands;
-  SInt8 bPatScale;
-  SInt8 bUlThick;
-  SInt8 bUlOffset;
-  SInt8 bUlShadow;
-  TScan scan;
-  SInt8 bXInfoX;
-};
+/**
+<pre>
+ * \note <pre>TPrXInfo defines a subrecord of the TPrint structure (ie, TPrint.prXInfo)
+which is used in many Printing Manager calls. The fields of this structure
+are set according to the type of printer being used and the style of the
+output.
+If you decide to allocate your own device buffer when you call PrPicFile ,
+that buffer must be at least TPrXInfo.iDevBytes large.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TPrXInfo  {
+	short iRowBytes;/**<  rowBytes (as in a bitMap) for a band*/
+	short iBandV;/**<  Height of a band, in printer dots*/
+	short iBandH;/**<  Width of a band*/
+	short iDevBytes;/**<  Size of buffer needed by PrPicFile*/
+	short iBands;/**<  Number of bands per page*/
+	SignedByte bPatScale;/**<  Pattern scaling factor*/
+	SignedByte bUlThick;/**<  Underlining parameters*/
+	SignedByte bUlOffset;/**< */
+	SignedByte bUlShadow;/**< */
+	SignedByte scan;/**<  Band-scanning direction code:*/
+	SignedByte XInfoX;/**<  (not used)*/
+	} TPrXInfo ;/**< */
+
 typedef struct TPrXInfo TPrXInfo;
 typedef TPrXInfo *TPPrXInfo;
-struct TPrJob {
-  short iFstPage; /**Page Range.*/
-  short iLstPage;
-  short iCopies;       /**No. copies.*/
-  SInt8 bJDocLoop;     /**The Doc style: Draft, Spool, .., and ..*/
-  Boolean fFromUsr;    /**Printing from an User's App (not PrApp) flag*/
-  PrIdleUPP pIdleProc; /**The Proc called while waiting on IO etc.*/
-  StringPtr pFileName; /**Spool File Name: NIL for default.*/
-  short iFileVol;      /**Spool File vol, set to 0 initially*/
-  SInt8 bFileVers;     /**Spool File version, set to 0 initially*/
-  SInt8 bJobX;         /**An eXtra byte.*/
-};
+/**
+<pre>
+ * \note <pre>TPrJob gets set according to selections made in the print dialogs,
+especially the job dialog presented via PrJobDialog . It is not used
+directly in any Printing Manager functions, but it defines a subrecord of the
+TPrint structure (ie, TPrint.prJob) which is used in many Printing
+Manager calls.
+The iFstPage and iLstPage fields define the range of pages which will be
+printed. Calls to PrOpenPage are counted as they are made (starting from
+1) and if the current page number falls in this range, it is printed.
+Otherwise, the page is not output. To avoid time-consuming drawing of
+pages which will be skipped, you will want to set this range yourself. See
+PrOpenPage .
+It is important to check the bJDocLoop flag after you close a document. If it
+has been set to 1, then the print job has been spooled and you must call
+PrPicFile to actually output the print image (see PrOpenDoc for an
+example).
+Background Processing
+If you leave pIdle procedure as 0, then the default background task will
+check for the press of -. (Cmd-period) and abort the printing if that
+occurs.
+You might want to provide a user-friendly dialog window with some sort of
+Cancel button. Another common enhancement is to display some sort of
+status as to which page is being printed, etc.
+To do so, you must draw the dialog before starting to print. As the last step
+before printing the first page, store the address of your background routine
+into pIdleProc (note this gets set back to 0 by PrValidate , PrOpenDoc ,
+PrStlDialog , and PrJobDialog ). Your routine should be declared as:
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TPrJob  {
+	short iFstPage;/**< Page number of first page to print*/
+	short iLstPage;/**< Last page to print*/
+	short iCopies;/**< Number of copies to print*/
+	char bJDocLoop;/**< Print method;/**< =draft, =spooled*/
+	Boolean fFromUsr;/**< (used internally)*/
+	PrIdleProcPtr pIdleProc;/**< Address of background routine;/**< =use*/
+	StringPtr pFileName;/**< Addr of spool filename;/**< =default "\pPrint*/
+	short iFileVol;/**< Spool volume reference number*/
+	char bFileVers;/**< Spool file version number (use  here)*/
+	char bJobX;/**< (not used)*/
+	} TPrJob ;/**< */
+
 typedef struct TPrJob TPrJob;
 typedef TPrJob *TPPrJob;
 /** Print Job: Print "form" for a single print request. */
@@ -352,28 +431,44 @@ struct TPrint {
 typedef struct TPrint TPrint;
 typedef TPrint *TPPrint;
 typedef TPPrint *THPrint;
-struct TPrStatus {
-  short iTotPages;  /**Total pages in Print File.*/
-  short iCurPage;   /**Current page number*/
-  short iTotCopies; /**Total copies requested*/
-  short iCurCopy;   /**Current copy number*/
-  short iTotBands;  /**Total bands per page.*/
-  short iCurBand;   /**Current band number*/
-  Boolean fPgDirty; /**True if current page has been written to.*/
-  Boolean fImaging; /**Set while in band's DrawPic call.*/
-  THPrint hPrint;   /**Handle to the active Printer record*/
-  TPPrPort pPrPort; /**Ptr to the active PrPort*/
-  PicHandle hPic;   /**Handle to the active Picture*/
-};
+/**
+<pre>
+ * \note <pre>A pointer to a TPrStatus structure is used in calls to PrPicFile . If you
+employ a background procedure while printing a spooled file, you can
+examine this structure to inform the user of the printing progress. The
+structure will be updated as the printing progresses.
+See PrPicFile and TPrJob for related information.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TPrStatus  {
+	short iTotPages;/**<  Total pages in spool file*/
+	short iCurPage;/**<  Page currently being printed*/
+	short iTotCopies;/**<  Total copies requested*/
+	short iCurCopy;/**<  Current copy (-based)*/
+	short iTotBands;/**<  Total bands per page*/
+	short iCurBand;/**<  Band currently being printed*/
+	Boolean fPgDirty;/**<  TRUE if printing has started for this*/
+	Boolean fImaging;/**<  TRUE while in banded DrawPicture*/
+	THPrint hPrint;/**<  Leads to active print record. See*/
+	TPPrPort pPrPort;/**<  Addr of active printer port.  See*/
+	PicHandle hPic;/**<  Leads to active Picture structure*/
+	} TPrStatus ;/**< */
+
 typedef struct TPrStatus TPrStatus;
 typedef TPrStatus *TPPrStatus;
 typedef TPPrStatus TPPrStatusRef;
 
 /** Print Status: Print information during printing. */
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TPfPgDir {
-  short iPages;
-  long iPgPos[129]; /**ARRAY [0..iPfMaxPgs] OF LONGINT*/
-};
+	short iPages;/**< */
+	long iPgPos[];/**< array [.. iPfMaxPgs ]*/
+	} TPfPgDir ;/**< */
+
 typedef struct TPfPgDir TPfPgDir;
 typedef TPfPgDir *TPPfPgDir;
 typedef TPPfPgDir *THPfPgDir;
@@ -382,18 +477,36 @@ typedef TPPfPgDir *THPfPgDir;
 /** This is the Printing Dialog Record. Only used by folks appending their own
    DITLs to the print dialogs.  Print Dialog: The Dialog Stream object. */
 #if !OPAQUE_TOOLBOX_STRUCTS
+/**
+<pre>
+ * \note <pre>A TPrDlg structure is used by applications which need to add items to the
+standard print dialogs. For instance, if you want the user to be able to
+renumber printed pages or to set the paper size in some reasonable manner,
+then you may want to modify the standard "Page Setup..." dialog which is
+used by PrStlDialog .
+The technique is rather complex and is explained in Apple Technical Note
+#95. It involves calling PrJobInit (or PrStlInit ) to obtain the address
+of an initialized TPrDlg structure. Then store the address of a custom
+routine into pItemProc (and possibly pFltrProc) and append your custom
+items to the dialog. Next call PrDlgMain , passing it the address of a
+custom dialog initialization procedure. For more detailed information, see
+Adding Items to the Print Dialogs .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TPrDlg {
-  DialogRecord Dlg;         /**The Dialog window*/
-  ModalFilterUPP pFltrProc; /**The Filter Proc.*/
-  PItemUPP pItemProc;       /**The Item evaluating proc.*/
-  THPrint hPrintUsr;        /**The user's print record.*/
-  Boolean fDoIt;
-  Boolean fDone;
-  long lUser1; /**Four longs for apps to hang global data.*/
-  long lUser2; /**Plus more stuff needed by the particular*/
-  long lUser3; /**printing dialog.*/
-  long lUser4;
-};
+	DialogRecord dlg;/**< Dialog info: window, items, editField, ...*/
+	ProcPtr pFltrProc;/**< Addr of modal Dialog filter proc*/
+	ProcPtr pItemProc;/**< Addr of item evaluation proc*/
+	THPrint hPrintUsr;/**< Handle to user's print record.  See TPrint*/
+	Boolean fDoIt;/**< (used internally)*/
+	Boolean fDone;/**< (used internally)*/
+	long lUser;/**< (reserved)*/
+	long lUser;/**< (reserved)*/
+	long lUser;/**< (reserved)*/
+	long lUser ;/**< (reserved)*/
+	} TPrDlg;/**< +n*/
+
 typedef struct TPrDlg TPrDlg;
 typedef TPrDlg *TPPrDlg;
 #else
@@ -479,57 +592,189 @@ inline TPPrDlgRef InvokePDlgInitUPP(THPrint hPrint, PDlgInitUPP userUPP) {
   InvokePDlgInitUPP(hPrint, userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 
-struct TGnlData {
-  short iOpCode;
-  short iError;
-  long lReserved; /**more fields here depending on call*/
-};
+/**
+<pre>
+ * \note <pre>TGnlData defines a record used in PrGeneral calls. The fields of this
+structure are set according to the type of printer being used and the style
+and resolution of the output.
+The first field specifies an opcode that serves as a routine selector for
+subsidiary data blocks and can be:
+iOpCode (4) GetRsl (TGetRslBlk )
+iOpCode (5) SetRsl (TSetRslBlk )
+iOpCode (6) DraftBits ( TDftBitsBlk )
+iOpCode (7) NoDraftBits ( TDftBitsBlk )
+iOpCode (8) GetRotn ( TGetRotnBlk )
+When either opcode 4 or opcode 5 occupies the first field of the TGnlData
+record you are letting the application know what resolutions the printer
+supports -- and then specifying the desired resolution. Opcodes 6 and 7
+tell you whether or not you can print bitmaps in draft mode on the
+ImageWriter. Opcode 8 informs the application that the page has been
+rotated to print sideways.
+The iError field only returns the result produced by the print code and
+only reflects conditions that occur during a PrGeneral call.
+ It will be one of:
+noErr(0) No error
+noSuchRsl (1) Specified resolution not available
+opNotImpl (2) Printer driver doesn't support this opcode
+After the four-byte reserved field, the rest of the data block will be filled
+in with one or another of the subsidiary data blocks specified by the opcode
+listed in the first field (iOpCode).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TGnlData  {
+	short iOpCode;/**< One of  possible subsidiary data*/
+	short iError;/**< =noErr;/**< =noSuchRsl;/**<*/
+	long lReserved;/**< (not used )*/
+	} TGnlData ;/**< +n*/
+
 typedef struct TGnlData TGnlData;
+/**
+<pre>
+ * \note <pre>The values specified by iMin and iMax show the range of resolutions
+achievable by a particular printer. There is a TRslRg given for each axis,
+oriented on the printer rather than the document--as when a document is
+set to print in a sideways or "landscape" mode.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRslRg {
-  short iMin;
-  short iMax;
-};
+	short iMin;/**<  = discrete resolution printer*/
+	short iMax;/**<  = discrete resolution printer*/
+	} TRslRg;/**< */
+
 typedef struct TRslRg TRslRg;
-struct TRslRec {
-  short iXRsl;
-  short iYRsl;
-};
+/**
+<pre>
+ * \note <pre>The values specified by iXRsl and iYRsl show actual dot densities in the
+horizontal and vertical axes. Depending on the number of discrete
+resolutions the printer can achieve, there can be up to 27 records in an
+array of TRslRec (called a RgRslRec) for each printer.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TRslRec  {
+	short iXRsl;/**< Particular X resolution value*/
+	short iYRsl;/**< Particular Y resolution value*/
+	} TRslRec ;/**< */
+
 typedef struct TRslRec TRslRec;
-struct TGetRslBlk {
-  short iOpCode;
-  short iError;
-  long lReserved;
-  short iRgType;
-  TRslRg xRslRg;
-  TRslRg yRslRg;
-  short iRslRecCnt;
-  TRslRec rgRslRec[27];
-};
+/**
+<pre>
+ * \note <pre>TGetRslBlk defines a subsidiary record used by the TGnlData record in
+PrGeneral calls. The first 8 bytes are common for all PrGeneral calls
+and, in fact, constitute the TGnlData record.
+Once the application knows what resolutions the printer supports, it can
+then use SetRsl to pick among the various choices available, as specified in
+the array of resolution records rgRslRec.
+Laser printers, with their variable resolution, use the XRslRg and YRslRg
+fields (pointed to by TRslRg) to show the different minimum and maximum
+dot densities they can achieve in both the X and Y axes. Dot matrix printers,
+like the ImageWriter, are called discrete-resolution printers because only
+specific resolutions can be stipulated and return zeros in the X and Y
+resolution range fields.
+For resolution records (pointed to by TRslRec) a LaserWriter will show
+only one (300 x 300) while an ImageWriter will go ahead and give a
+resolution record for each of the discrete physical resolutions it can achieve
+(72 x 72; 144 x 144; 80 x 72; and 160 x 144)
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TGetRslBlk  {
+	short iOpCode;/**<  = opcode for GetRslData*/
+	short iError;/**< =noErr;/**< =noSuchRsl;/**<*/
+	long lReserved;/**< (not used )*/
+	short iRgType;/**< Range type;/**< = ImageWriter,*/
+	TRslRg XRslRg;/**< Ptr to record of Min and Max X*/
+	TRslRg YRslRg;/**< Ptr to record of Min and Max Y*/
+	short iRslRecCnt;/**< Number of resolution records to*/
+	TRslRec rgRslRec[];/**< Array of printer's resolution*/
+	} TGetRslBlk ;/**< */
+
 typedef struct TGetRslBlk TGetRslBlk;
-struct TSetRslBlk {
-  short iOpCode;
-  short iError;
-  long lReserved;
-  THPrint hPrint;
-  short iXRsl;
-  short iYRsl;
-};
+/**
+<pre>
+ * \note <pre>TSetRslBlk defines a subsidiary record used by the TGnlData record in
+PrGeneral calls. The first 8 bytes are common for all PrGeneral calls
+and, in fact, constitute the TGnlData record. HPrint is the handle to a
+TPrint structure that has already been passed by PrValidate . If the call
+succeeds, TPrint is updated with the resolution requested in iXRsl and
+iYRsl, a 0=noErr is returned. If the request can't be satisfied, an error
+code is returned (1=noSuchRsl) and the resolution fields take the values of
+the printer's default resolution
+(default = 0 x 0 ).
+Purposely specifying an invalid resolution can be used to undo the effect of
+a previous PrGeneral call since the effect will be to force the printer back
+to its default.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TSetRslBlk  {
+	short iOpCode;/**<  = opcode for SetRsl*/
+	short iError ;/**< =noErr;/**< =noSuchRsl;/**<*/
+	long lReserved;/**< (not used )*/
+	THPrint hPrint;/**< Handle  to a valid print record*/
+	short iXRsl;/**< Requested X-axis resolution*/
+	short iYRsl;/**< Requested Y-axis resolution*/
+	} TSetRslBlk ;/**< */
+
 typedef struct TSetRslBlk TSetRslBlk;
-struct TDftBitsBlk {
-  short iOpCode;
-  short iError;
-  long lReserved;
-  THPrint hPrint;
-};
+/**
+<pre>
+ * \note <pre>TDftBlk defines a subsidiary record used by the TGnlData record in
+PrGeneral calls. The first 8 bytes are common for all PrGeneral calls
+and, in fact, constitute the TGnlData record. It forces draft-mode printing
+and allows screen dumps through a call to CopyBits . DraftBits printing
+is immediate, thereby avoiding print spooling and producing faster results.
+While it is implemented on the LaserWriter, the call does nothing.
+LaserWriters are always in draft mode and always capable of printing
+screen dumps.
+HPrint is the handle to a TPrint structure that has already been passed by
+PrValidate .
+Although speedy and versatile, certain caveats apply when you use
+TDftBlk. For example, make this call before bringing up dialog boxes as
+it affects their appearance. Also, on the ImageWriter, it disables the
+Landscape icon in the Style dialog (Landscape format is not supported) and
+the Best, Faster and Draft buttons in the Job dialog.
+TDftBlk will do nothing if the printer doesn't have a draft mode, already
+prints screen dumps in draft mode, or doesn't print them at all.
+You can't use it to print anything but text and screen dumps and everything
+on the page has to be oriented along the Y-axis (meaning that you can't go
+back over an area, you can't have two objects next to each other, and the top
+of one object can't intrude into the bottom of the preceding object.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TDftBitsBlk  {
+	short iOpCode;/**< = opcode for DraftBits*/
+	short iError;/**< =noErr;/**< =noSuchRsl;/**<*/
+	long lReserved;/**< (not used )*/
+	THPrint hPrint;/**< Handle  to a valid print record*/
+	} TDftBitsBlk ;/**< */
+
 typedef struct TDftBitsBlk TDftBitsBlk;
-struct TGetRotnBlk {
-  short iOpCode;
-  short iError;
-  long lReserved;
-  THPrint hPrint;
-  Boolean fLandscape;
-  SInt8 bXtra;
-};
+/**
+<pre>
+ * \note <pre>TGetRotnBlk defines a subsidiary record used by the TGnlData record in
+PrGeneral calls. The first 8 bytes are common for all PrGeneral calls
+and, in fact, constitute the TGnlData record. fLandscape is TRUE when the
+printer is set to produce a sideways-rotated page.
+HPrint is the handle to a TPrint structure that has already been passed by
+PrValidate .
+TGetRotnBlk will do nothing if the printer doesn't have a draft mode or if
+there was no preceding DraftBits call.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TGetRotnBlk  {
+	short iOpCode;/**< = opcode for GetRotn*/
+	short iError;/**< =noErr;/**< =noSuchRsl;/**<*/
+	long lReserved;/**< (not used )*/
+	THPrint hPrint;/**< Handle  to a valid print record*/
+	Boolean fLandscape;/**< Was landscape orientation selected?*/
+	SignedByte bXtra;/**< (not used)*/
+	} TGetRotnBlk ;/**< */
+
 typedef struct TGetRotnBlk TGetRotnBlk;
 #if CALL_NOT_IN_CARBON
 /**
@@ -620,22 +865,56 @@ PrStlDialog(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x2A04, 0x0484, 0xA8FD);
 EXTERN_API(Boolean)
 PrJobDialog(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x3204, 0x0488, 0xA8FD);
 
-/**
- *  PrStlInit()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain address of an initialized TPrDlg structure 
+			
+			<pre>PrStlInit is called automatically by the Printing Manager when you call
+PrStlDialog . Applications may call it as part of a complicated kludge to
+modify the standard "Page Setup..." dialog. There is a detailed discussion of this
+in Adding Items to the Print Dialogs .
+hPrtRec is a handle leading to a 120-byte TPrint structure, as previously
+prepared by a call to PrintDefault or PrValidate .
+</pre>
+ * \returns <pre>the address of a TPrDlg structure. The structure includes a
+DialogRecord and other fields previously initialized for a call to
+ModalDialog .
+</pre>
+ * \note <pre>This function is documented in Macintosh Technical Note #95, which
+describes a technique for adding items to the standard "Print..." and "Page
+Setup..." dialogs.
+See PrDlgMain and TPrDlg for related information.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 EXTERN_API(TPPrDlgRef)
 PrStlInit(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x3C04, 0x040C, 0xA8FD);
 
-/**
- *  PrJobInit()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain address of an initialized TPrDlg structure 
+			
+			<pre>PrJobInit is called automatically by the Printing Manager when you call
+PrJobDialog . Applications may call it as part of a complicated kludge to
+modify the standard "Print..." dialog. See Adding Items to the Print Dialogs for
+more information.
+hPrtRec is a handle leading to a 120-byte TPrint structure, as previously
+prepared by a call to PrintDefault or PrValidate .
+</pre>
+ * \returns <pre>the address of a TPrDlg structure. The structure includes a
+DialogRecord and other fields that have been initialized for a call to
+ModalDialog .
+</pre>
+ * \note <pre>This function is documented in Macintosh Technical Note #95, which
+describes a technique with which you can add items to the standard "Print..."
+and "Page Setup..." dialogs.
+See PrDlgMain and TPrDlg for related information.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -654,11 +933,32 @@ EXTERN_API(void)
 PrJobMerge(THPrint hPrintSrc, THPrint hPrintDst)
     FOURWORDINLINE(0x2F3C, 0x5804, 0x089C, 0xA8FD);
 
-/**
- *  PrDlgMain()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Initialize for and execute a print dialog 
+			
+			<pre>PrDlgMain is called automatically by PrJobDialog and PrStlDialog .
+Applications may call it to modify the standard print dialogs.
+hPrtRec is a handle leading to a 120-byte TPrint structure, as previously
+prepared by a call to PrintDefault or PrValidate .
+pDlgInit is the address of a special dialog initialization routine. When called
+by the Print Manager (i.e., in the normal course of events), this
+value is the address of the code handling PrJobInit or PrStlInit .
+</pre>
+ * \returns <pre>a Boolean; it indicates whether the user has approved the contents of
+hPrtRec as reflected in the dialog. It is one of:
+FALSEThe user selected Cancel; no fields were changed.
+TRUEThe user selected OK and the print record is valid.
+</pre>
+ * \note <pre>PrDlgMain is documented in Technical Note #95, which describes a
+technique with which you can add items to the standard "Print..." and "Page
+Setup..." dialogs. See Adding Items to the Print Dialogs for more information.
+PrDlgMain calls pDlgInit to setup a TPrDlg structure, then displays the
+dialog obtained thereby and calls ModalDialog .
+See PrJobInit , PrStlInit , and TPrDlg for related information
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -851,3 +1151,4 @@ PrLoadDriver(void) FOURWORDINLINE(0x2F3C, 0xD800, 0x0000, 0xA8FD);
 #endif
 
 #endif /** __PRINTING__ */
+*/*/*/

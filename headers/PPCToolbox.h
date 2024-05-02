@@ -167,194 +167,161 @@ typedef STACK_UPP_TYPE(PPCCompProcPtr) PPCCompUPP;
   volatile OSErr ioResult;   /* 16 <-- Command Result Code */                  \
   unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
 
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCOpenPBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  PPCPortRefNum portRefNum;  /* 38 <--   Port Reference */
-  long filler1;
-  PPCServiceType serviceType;   /* 44 -->    Bit field describing the requested
-                                   port service */
-  UInt8 resFlag;                /* Must be set to 0 */
-  PPCPortPtr portName;          /* 46 -->   PortName for PPC */
-  LocationNamePtr locationName; /* 50 -->   If NBP Registration is required */
-  Boolean networkVisible; /* 54 -->   make this network visible on network */
-  Boolean nbpRegistered;  /* 55 <--   The given location name was registered on
-                             the network */
-};
+	PPCPortRefNum portRefNum;/**<  Port Reference*/
+	long filler;/**<  Filler*/
+	PPCServiceType serviceType;/**<  Bit field describing the*/
+	unsigned char resFlag;/**<  Must be set to */
+	PPCPortPtr portName;/**<  PortName for PPC*/
+	LocationNamePtr locationName;/**<  If NBP Registration is*/
+	Boolean networkVisible;/**<  Make this network visible*/
+	Boolean nbpRegistered;/**<  The given location name*/
+	}PPCOpenPBRec ;/**< */
+
 typedef struct PPCOpenPBRec PPCOpenPBRec;
 typedef PPCOpenPBRec *PPCOpenPBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCInformPBRec {
-  Ptr qLink;                  /* PPC's Internal Use */
-  unsigned short csCode;      /* Requested PPC command */
-  unsigned short intUse;      /* Internal Use */
-  Ptr intUsePtr;              /* Internal Use */
-  PPCCompUPP ioCompletion;    /* 12 --> Completion Routine */
-  volatile OSErr ioResult;    /* 16 <--     Command Result Code */
-  unsigned long Reserved[5];  /* Reserved for PPC, Don't use */
-  PPCPortRefNum portRefNum;   /* 38 -->   Port Identifier */
-  PPCSessRefNum sessRefNum;   /* 40 <--   Session Reference */
-  PPCServiceType serviceType; /* 44 <--   Status Flags for type of session,
-                                 local, remote */
-  Boolean
-      autoAccept; /* 45 -->   if true session will be accepted automatically */
-  PPCPortPtr portName;          /* 46 -->   Buffer for Source PPCPortRec */
-  LocationNamePtr locationName; /* 50 -->   Buffer for Source LocationNameRec */
-  StringPtr
-      userName; /* 54 -->   Buffer for Soure user's name trying to link. */
-  unsigned long userData; /* 58 <--   value included in PPCStart's userData */
-  PPCSessionOrigin requestType; /* 62 <--   Local or Network */
-  SInt8 filler;
-};
+	unsigned long Reserved[];/**< Reserved for PPC, Don't use*/
+	PPCPortRefNum portRefNum;/**< Port reference number of this*/
+	PPCSessRefNum sessRefNum;/**< Session reference number of*/
+	PPCServiceType serviceType;/**< Service type of this session*/
+	Boolean autoAccept;/**< If TRUE, session is accepted*/
+	PPCPortPtr portName;/**< Pointer to PPCPortRec , may be*/
+	LocationNamePtr locationName;/**< Pointer to LocationNameRec ,*/
+	StringPtr userName;/**< pointer to Str, may be NIL*/
+	unsigned long userData;/**< application-specific data*/
+	PPCSessionOrigin requestType;/**< network or local request*/
+	} PPCInformPBRec ;/**< */
+
 typedef struct PPCInformPBRec PPCInformPBRec;
 typedef PPCInformPBRec *PPCInformPBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCStartPBRec {
-  Ptr qLink;                  /* PPC's Internal Use */
-  unsigned short csCode;      /* Requested PPC command */
-  unsigned short intUse;      /* Internal Use */
-  Ptr intUsePtr;              /* Internal Use */
-  PPCCompUPP ioCompletion;    /* 12 --> Completion Routine */
-  volatile OSErr ioResult;    /* 16 <--     Command Result Code */
-  unsigned long Reserved[5];  /* Reserved for PPC, Don't use */
-  PPCPortRefNum portRefNum;   /* 38 -->   Port Identifier */
-  PPCSessRefNum sessRefNum;   /* 40 <--   Session Reference */
-  PPCServiceType serviceType; /* 44 <--   Actual service method (realTime) */
-  UInt8 resFlag;              /* 45 -->   Must be set to 0  */
-  PPCPortPtr portName;        /* 46 -->   Destination portName */
-  LocationNamePtr
-      locationName; /* 50 -->   NBP or NAS style service location name */
-  unsigned long
-      rejectInfo; /* 54 <--   reason for rejecting the session request */
-  unsigned long
-      userData; /* 58 -->   Copied to destination PPCInform parameter block */
-  unsigned long
-      userRefNum; /* 62 -->   userRefNum (obtained during login process)  */
-};
+	PPCPortRefNum portRefNum;/**< Port reference number of this*/
+	PPCSessRefNum sessRefNum;/**< Session reference number of this*/
+	PPCServiceType serviceType;/**< Service type requested-must be*/
+	unsigned char resFlag;/**< Reserved field-must be */
+	PPCPortPtr portName;/**< Pointer to PPCPortRec*/
+	LocationNamePtr locationName;/**< Pointer to LocationNameRec*/
+	unsigned long rejectInfo;/**< Value from PPCReject if session*/
+	unsigned long userData;/**< Application-specific data*/
+	unsigned long userRefNum;/**< User reference number*/
+	} PPCStartPBRec ;/**< */
+
 typedef struct PPCStartPBRec PPCStartPBRec;
 typedef PPCStartPBRec *PPCStartPBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCAcceptPBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  short filler1;
-  PPCSessRefNum sessRefNum; /* 40 -->   Session Reference */
-};
+	short filler;/**< Port reference number of this*/
+	PPCSessRefNum sessRefNum;/**< Session reference number of this*/
+	} PPCAcceptPBRec ;/**< */
+
 typedef struct PPCAcceptPBRec PPCAcceptPBRec;
 typedef PPCAcceptPBRec *PPCAcceptPBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCRejectPBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  short filler1;
-  PPCSessRefNum sessRefNum; /* 40 -->   Session Reference */
-  short filler2;
-  long filler3;
-  long filler4;
-  unsigned long
-      rejectInfo; /* 54 -->   reason for rejecting the session request  */
-};
+	short filler;/**< Port reference number of this*/
+	PPCSessRefNum sessRefNum;/**< Session reference number of this*/
+	short filler;/**< Filler*/
+	}PPCRejectPBRec ;/**< */
+
 typedef struct PPCRejectPBRec PPCRejectPBRec;
 typedef PPCRejectPBRec *PPCRejectPBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCWritePBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  short filler1;
-  PPCSessRefNum sessRefNum; /* 40 -->   Session Reference */
-  Size bufferLength;        /* 44 -->   Length of the message buffer */
-  Size actualLength;        /* 48 <--   Actual Length Written */
-  Ptr bufferPtr;            /* 52 -->   Pointer to message buffer */
-  Boolean more; /* 56 -->   if more data in this block will be written */
-  SInt8 filler2;
-  unsigned long
-      userData; /* 58 -->   Message block userData Uninterpreted by PPC */
-  OSType blockCreator; /* 62 -->   Message block creator Uninterpreted by PPC */
-  OSType blockType;    /* 66 -->   Message block type Uninterpreted by PPC */
-};
+	short filler;/**< Port reference number of this*/
+	PPCSessRefNum sessRefNum;/**< Session reference number*/
+	Size bufferLength;/**< Length of data buffer*/
+	Size actualLength;/**< Actual length of data written*/
+	Ptr bufferPtr;/**< Pointer to data buffer*/
+	Boolean more;/**< TRUE if more data in this block to be*/
+	unsigned char filler;/**< Filler*/
+	unsigned long userData;/**< Application-specific data*/
+	OSType blockCreator;/**< Creator of block read*/
+	OSType blockType;/**< Type of block read*/
+	}PPCWritePBRec ;/**< */
+
 typedef struct PPCWritePBRec PPCWritePBRec;
 typedef PPCWritePBRec *PPCWritePBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCReadPBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  short filler1;
-  PPCSessRefNum sessRefNum; /* 40 -->   Session Reference */
-  Size bufferLength;        /* 44 -->   Length of the message buffer */
-  Size actualLength;        /* 48 <--   Actual length read */
-  Ptr bufferPtr;            /* 52 -->   Pointer to message buffer */
-  Boolean more; /* 56 <--   if true more data in this block to be read */
-  SInt8 filler2;
-  unsigned long
-      userData; /* 58 <--   Message block userData Uninterpreted by PPC */
-  OSType blockCreator; /* 62 <--   Message block creator Uninterpreted by PPC */
-  OSType blockType;    /* 66 <--   Message block type Uninterpreted by PPC */
-};
+	short filler;/**< Port reference number of this*/
+	PPCSessRefNum sessRefNum;/**< Session reference number*/
+	Size bufferLength;/**< Length of data buffer*/
+	Size actualLength;/**< Actual length of data written*/
+	Ptr bufferPtr;/**< Pointer to data buffer*/
+	Boolean more;/**< TRUE if more data in this block to be*/
+	unsigned char filler;/**< Filler*/
+	unsigned long userData;/**< Application-specific data*/
+	OSType blockCreator;/**< Creator of block read*/
+	OSType blockType;/**< Type of block read*/
+	}PPCReadPBRec ;/**< */
+
 typedef struct PPCReadPBRec PPCReadPBRec;
 typedef PPCReadPBRec *PPCReadPBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCEndPBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  short filler1;
-  PPCSessRefNum sessRefNum; /* 40 -->   Session Reference */
-};
+	PPCSessRefNum sessRefNum;/**< Session reference number*/
+	} PPCEndPBRec ;/**< */
+
 typedef struct PPCEndPBRec PPCEndPBRec;
 typedef PPCEndPBRec *PPCEndPBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct PPCClosePBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  PPCPortRefNum portRefNum;  /* 38 -->   Port Identifier */
-};
+	PPCPortRefNum portRefNum;/**< Session reference number*/
+	} PPCClosePBRec ;/**< */
+
 typedef struct PPCClosePBRec PPCClosePBRec;
 typedef PPCClosePBRec *PPCClosePBPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct IPCListPortsPBRec {
-  Ptr qLink;                 /* PPC's Internal Use */
-  unsigned short csCode;     /* Requested PPC command */
-  unsigned short intUse;     /* Internal Use */
-  Ptr intUsePtr;             /* Internal Use */
-  PPCCompUPP ioCompletion;   /* 12 --> Completion Routine */
-  volatile OSErr ioResult;   /* 16 <--     Command Result Code */
-  unsigned long Reserved[5]; /* Reserved for PPC, Don't use */
-  short filler1;
-  unsigned short startIndex;   /* 40 -->   Start Index */
-  unsigned short requestCount; /* 42 -->   Number of entries to be returned */
-  unsigned short
-      actualCount;     /* 44 <--   Actual Number of entries to be returned */
-  PPCPortPtr portName; /* 46 -->   PortName Match */
-  LocationNamePtr locationName; /* 50 -->   NBP or NAS type name to locate the
-                                   Port Location */
-  PortInfoArrayPtr bufferPtr;   /* 54 -->   Pointer to a buffer
-                                   requestCount*sizeof(PortInfo) bytes big */
-};
+	unsigned short csCode;/**<  Requested PPC command*/
+	unsigned short intUse;/**< Internal Use*/
+	Ptr intUsePtr;/**<  Internal Use*/
+	PPCCompProcPtr ioCompletion;/**<  Completion Routine*/
+	OSErr ioResult;/**< Command Result Code*/
+	unsigned long Reserved[];/**< Reserved for PPC, Don't use*/
+	short filler;/**< Port reference number of this*/
+	unsigned short startIndex;/**< Index to port entry list*/
+	unsigned short requestCount;/**< Number of port names*/
+	unsigned short actualCount;/**< Number of port names*/
+	PPCPortPtr portName;/**< Pointer to PPCPortRec*/
+	LocationNamePtr locationName;/**< Pointer to LocationNameRec*/
+	PortInfoArrayPtr bufferPtr;/**< Pointer to array of PortInfoRec*/
+	}IPCListPortsPBRec ;/**< */
+
 typedef struct IPCListPortsPBRec IPCListPortsPBRec;
 typedef IPCListPortsPBRec *IPCListPortsPBPtr;
 union PPCParamBlockRec {
@@ -906,6 +873,294 @@ PPCBrowser(ConstStr255Param prompt, ConstStr255Param applListLabel,
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+Sync(pb))
+#define PPCInform(pb, async) ((async) ? PPCInformAsync(pb) : PPCInformSync(pb))
+#define PPCStart(pb, async) ((async) ? PPCStartAsync(pb) : PPCStartSync(pb))
+#define PPCAccept(pb, async) ((async) ? PPCAcceptAsync(pb) : PPCAcceptSync(pb))
+#define PPCReject(pb, async) ((async) ? PPCRejectAsync(pb) : PPCRejectSync(pb))
+#define PPCWrite(pb, async) ((async) ? PPCWriteAsync(pb) : PPCWriteSync(pb))
+#define PPCRead(pb, async) ((async) ? PPCReadAsync(pb) : PPCReadSync(pb))
+#define PPCEnd(pb, async) ((async) ? PPCEndAsync(pb) : PPCEndSync(pb))
+#define PPCClose(pb, async) ((async) ? PPCCloseAsync(pb) : PPCCloseSync(pb))
+#define IPCListPorts(pb, async)                                                \
+  ((async) ? IPCListPortsAsync(pb) : IPCListPortsSync(pb))
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+seAsync(pb) : PPCCloseSync(pb))
+#define IPCListPorts(pb, async)                                                \
+  ((async) ? IPCListPortsAsync(pb) : IPCListPortsSync(pb))
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+CListPortsSync(pb))
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+ma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+dif /* __PPCTOOLBOX__ */
+ma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+ import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+agma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+ import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+
+}
+#endif
+
+#endif /* __PPCTOOLBOX__ */
+align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK

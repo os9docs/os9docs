@@ -141,22 +141,36 @@ inline void InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP) {
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  ShutDwnPower()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Perform housekeeping and turn off the power 
+			
+			<pre>ShutDwnPower executes system and application-specific housekeeping and
+turns off the computer.
+</pre>
+ * \note <pre>If the system must be manually toggled off, ShutDwnPower presents the
+user with an alert.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 EXTERN_API(void)
 ShutDwnPower(void) THREEWORDINLINE(0x3F3C, 0x0001, 0xA895);
 
-/**
- *  ShutDwnStart()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Perform housekeeping and reboot 
+			
+			<pre>ShutDwnStart executes system and application-specific housekeeping and
+reboots the computer.
+</pre>
+ * \note <pre>ShutDwnStart results in a Reset instruction and a jump to ROM boot
+code.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -207,3 +221,4 @@ ShutDwnRemove(ShutDwnUPP shutDownProc) THREEWORDINLINE(0x3F3C, 0x0004, 0xA895);
 #endif
 
 #endif /** __SHUTDOWN__ */
+*/*/

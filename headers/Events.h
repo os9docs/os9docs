@@ -349,11 +349,26 @@ EXTERN_API(UInt32)
 KeyTranslate(const void *transData, UInt16 keycode, UInt32 *state)
     ONEWORDINLINE(0xA9C3);
 
-/**
- *  GetCaretTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain insertion-point cursor blink interval 
+			
+			<pre>GetCaretTime returns the amount of time, in 1/60-th second ( 16.66 ms)
+ticks, between blinks of the text-editing insertion point caret (normally a
+vertical bar).
+</pre>
+ * \returns <pre>a 32-bit long; the caret blink interval, as set by the user via the
+Control Panel DA.
+</pre>
+ * \note <pre>Another way to access this information is by reading the global variable
+CaretTime (at 0x02F4).
+If you use TextEdit, the caret blinking is automatic (if you call TEIdle
+appropriately). Otherwise, you should check the elapsed ticks at each pass
+through your main event loop, and toggle the display on or off as each
+CaretTime -tick interval elapses.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -401,16 +416,25 @@ enum {
   app4Mask = 0x8000
 };
 
+/**
+<pre>
+ * \note <pre>The first two fields are as maintained by all standard Operating System
+queues (see Enqueue and Dequeue and the QElem and QHdr structures).
+The final five fields contain information exactly as described in
+EventRecord and GetNextEvent .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct EvQEl {
-  QElemPtr qLink;
-  SInt16 qType;
-  EventKind evtQWhat; /** this part is identical to the EventRecord as defined
-                         above */
-  UInt32 evtQMessage;
-  UInt32 evtQWhen;
-  Point evtQWhere;
-  EventModifiers evtQModifiers;
-};
+	struct QElem *qLink;/**< Address of next queue element;/**<*/
+	short qType;/**< Always evType ()*/
+	short evtQWhat;/**< Type of event (see Event Types )*/
+	long evtQMessage;/**< Additional information (see*/
+	long evtQWhen;/**< Event timestamp (ticks since start*/
+	Point evtQWhere;/**< Mouse position*/
+	short evtQModifiers;/**< Activate, cmd, option, shift, etc.*/
+	} EvQEl;/**< */
+
 typedef struct EvQEl EvQEl;
 typedef EvQEl *EvQElPtr;
 typedef CALLBACK_API_REGISTER68K(void, GetNextEventFilterProcPtr,
@@ -503,22 +527,86 @@ inline void InvokeGetNextEventFilterUPP(EventRecord *theEvent, Boolean *result,
 #endif /** CALL_NOT_IN_CARBON */
 
 typedef GetNextEventFilterUPP GNEFilterUPP;
-/**
- *  GetDblTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Find max delay between clicks of a double click 
+			
+			<pre>GetDblTime returns an interval of time, in ticks. If two mouseDown events
+occur within this interval and are close together, the combined events should
+be considered a double click.
+</pre>
+ * \returns <pre>a 32-bit long; the suggested maximum interval, in 1/60th-second
+ticks, between a mouse up and the following mouseDown , that should
+constitute a double click.
+</pre>
+ * \note <pre>Another way to get this information is to access the global variable
+DoubleTime directly.  The interval is adjustable by the user via the
+Control Panel DA.
+If you compare the EventRecord .when and the EventRecord .where of any
+two mouseDown events and the second is less than DoubleTime ticks older
+than the first and the points of occurrence are within 5 pixels, it should be
+considered a double click. The following example illustrates how to detect a
+double click.
+Example
+#include < Events.h>
+#include <stdlib.h>
+void DoDoubleClick ( EventRecord *theEvent);
+long lastWhen = 0;
+Point lastWhere = {0,0};
+EventRecord theEvent;
+while (TRUE) {
+GetNextEvent ( everyEvent , &theEvent );
+if ( theEvent.what == mouseDown ) {
+if ( ( (theEvent.when - lastWhen) < DoubleTime )
+&& ( abs(theEvent.where.h-lastWhere.h) < 5 )
+&& ( abs(theEvent.where.v-lastWhere.v) < 5 ) ) {
+DoDoubleClick( &theEvent ); // process the double click
+}
+lastWhen = theEvent.when;
+lastWhere = theEvent.where;
+/* ... handle other mouseDown events ... */
+}
+if (theEvent.what == keyDown ) {
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(UInt32)
 GetDblTime(void) TWOWORDINLINE(0x2EB8, 0x02F0);
 
-/**
- *  SetEventMask()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set the system event mask 
+			
+			<pre>SetEventMask sets the low-level mask used by the system to determine
+which events it should post to the event queue.
+eventMask is a 16-bit binary mask describing which events to include or
+exclude. The normal value is 0xFFEF (which excludes only keyUp
+events). Use eventMask =everyEvent (defined in Events.h as 0xFFFF)
+to include all events. See Event Mask for named constants you can
+use in this value.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>The preferred way to access the system event mask is by reading or storing
+the global variable SysEvtMask (at 0x0144).
+Indiscriminately changing this mask can cause problems. The only
+legitimate use is to allow enqueuing of keyUp events, i.e.:
+SetEventMask ( everyEvent ); // or SysEvtMask |= keyUpMask
+Applications making this call during initialization must save the event
+mask prior to calling SetEventMask and restore the event mask when
+quitting.
+If, under Finder, an application fails to restore the event mask before
+quitting and it was set to mask out mouseUp events, all mouseUp events
+would continue to be masked out. The user would then notice that the Finder
+no longer recognizes double clicks. There are other anomalies associated
+with MultiFinder ; to get a summary of these see the entry
+About MultiFinder .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -526,11 +614,24 @@ EXTERN_API(void)
 SetEventMask(EventMask value) TWOWORDINLINE(0x31DF, 0x0144);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  GetEvQHdr()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get address of event queue header 
+			
+			<pre>GetEvQHdr returns the address of the event queue header. This gives you
+direct access to the event queue, in case you want more complete control than
+provided by PostEvent and GetNextEvent .
+</pre>
+ * \returns <pre>a QHdrPtr; the address of the queue header of the system event
+queue.
+</pre>
+ * \note <pre>This simply returns the value 0x014A - the address of the global variable
+EventQueue .
+See Enqueue and Dequeue for information on how to access elements of a
+queue.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -540,11 +641,42 @@ GetEvQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x014A);
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  PPostEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Enqueue an event and get its address 
+			
+			<pre>PPostEvent works like PostEvent (it stores an entry into the
+event queue) except that it returns, via its third parameter, the physical
+address of the stored queue element. This provides access so you can modify the
+contents of that element.
+eventWhat specifies which type of event should be posted. It should be one of
+the event types listed in GetNextEvent .
+eventMsg specifies the value to be placed in the message field of the
+EventRecord . It should correspond in type to the meaning of
+eventWhat .
+qElPtris the address of an EvQElPtr . Upon return, it contains the address
+of a 22-byte evQEl structure. See Notes, below for an example of
+how to access that record.
+</pre>
+ * \returns <pre>an Error Code . The following are possible:
+noErr(0)worked without error
+evtNotEnb (1)eventWhat  is currently disabled. See SetEventMask
+</pre>
+ * \note <pre>The less-flexible PostEvent function lets you specify values for only two
+of the five EventRecord fields. By using PPostEvent , you can follow up by
+changing the where, when, and modifiers fields.
+For instance, you could use PPostEvent to enqueue a command-key
+shifted mouseDown event with selected coordinates as follows:
+EvQEl*myQElPtr;
+PPostEvent ( mouseDown , 0, &myQElPtr );
+myQElPtr-> evtQModifiers = cmdKey;
+SetPt( &(myQElPtr->evtQWhere), 100,100);
+See EvQEl for the layout of event queue elements.
+It is also possible to build a queue element from scratch and use Enqueue
+to insert it into the event queue. See GetEvQHdr .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -591,11 +723,44 @@ WaitNextEvent(EventMask eventMask, EventRecord *theEvent, UInt32 sleep,
 EXTERN_API(Boolean)
 EventAvail(EventMask eventMask, EventRecord *theEvent) ONEWORDINLINE(0xA971);
 
-/**
- *  PostEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Place an EventRecord in the event queue 
+			
+			<pre>PostEvent stores an EventRecord into the event queue where it can be read
+via GetNextEvent , EventAvail or WaitNextEvent .
+eventWhat specifies which type of event should be posted. It should be one of
+the event types listed in Event Types . Typically, this will be the
+app3Evt event
+eventMsg specifies the value to be placed in the message field of the
+EventRecord . It should correspond in type to the meaning of
+eventWhat . For instance, in keyUp and keyDown events, the high
+word is 0, and the low word is a scan code and character code. For
+application-defined events, this can be any 32-bit value, such as a
+handle to a bunch of data.
+</pre>
+ * \returns <pre>a System Error Code . The following are possible:
+noErr(0)worked without error
+evtNotEnb (1)eventWhat  is disabled. See SetEventMask
+</pre>
+ * \note <pre>PostEvent creates the EventRecord using the current time, modifiers ,
+and mouse position. If you need to control these values, you may have to
+modify the queue itself. See PPostEvent for a way to alter the EventRecord
+after it is enqueued and see GetEvQHdr for additional information.
+It is probably unwise to post window update and activate events ( updateEvt
+or activateEvt ) since these are actually generated by the Event Manager
+at the time of the GetNextEvent request, and are never actually stored in
+the queue.
+An example of usage might be to post a menu-changing event. For instance,
+define an app3Evt to be one that causes a window name to be added or
+removed from your application's Window menu. You could use
+PostEvent (app3Evt, windowID ) whenever the user opens or closes a
+document window. That way, you can handle all window-related menu
+manipulation as a function of your main event loop . Note: This is not
+necessarily a better way to do it, just an alternative.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -613,11 +778,33 @@ PostEvent(EventKind eventNum, UInt32 eventMsg) ONEWORDINLINE(0xA02F);
 */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  OSEventAvail()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Low-level read event without dequeuing it 
+			
+			<pre>OSEventAvail is identical to GetOSEvent except that it does not remove the
+event from the event queue. This lets you check for the occurrence of a
+specific event (or any event) but leave it in the queue for later processing.
+eventMask is a 16-bit binary mask describing which events to
+include/exclude. Use eventMask =everyEvent (defined as -1) to
+include all events. See Event Mask for the layout.
+Some events (e.g., keyUp events) may never make it into the event
+queue. See SetEventMask .
+theEvent is the address of a 16-byte EventRecord . Upon return, it is filled
+with an event description. See GetNextEvent .
+</pre>
+ * \returns <pre>a Boolean value; it identifies whether a requested event was found.
+It will be one of:
+FALSEThis is a null event or one you did not request. Ignore it.
+TRUEThis event is intended for you. Examine and respond.
+</pre>
+ * \note <pre>In a busy system, it is possible that an event read via this call will be
+discarded before it can be processed. The Event Manager usually keeps
+only 20 events, scrapping the oldest unread events to make room for new
+ones.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -628,11 +815,34 @@ EXTERN_API(Boolean)
 OSEventAvail(EventMask mask, EventRecord *theEvent)
     TWOWORDINLINE(0xA030, 0x5240);
 
-/**
- *  GetOSEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Low-level read event and remove event from event queue 
+			
+			<pre>GetOSEvent is identical to OSEventAvail except that removes the event
+from the event queue. Unlike GetNextEvent or WaitNextEvent ,
+GetOSEvent doesn't call the Desk Manager to see if the system wants to
+intercept and respond to the event, nor does it perform GetNextEvent 's or
+WaitNextEvent 's processing of the alarm and Command-Shift-number
+combinations.
+eventMask is a 16-bit binary mask describing which events to
+include/exclude. Use eventMask =everyEvent (defined as -1) to
+include all events. See GetNextEvent for the layout.
+Some events (e.g., keyUp events) may never make it into the
+event queue. See SetEventMask .
+theEvent is the address of a 16-byte EventRecord . Upon return, it is filled
+with an event description. See GetNextEvent or WaitNextEvent .
+</pre>
+ * \returns <pre>a Boolean value; it identifies whether a requested event was found.
+It will be one of:
+FALSEThis is a null event or one you did not request. Ignore it.
+TRUEThis event is intended for you. Examine and respond.
+</pre>
+ * \note <pre>The Event Manager usually keeps only 20 events, scrapping the oldest
+unread events to make room for new ones.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -644,11 +854,30 @@ GetOSEvent(EventMask mask, EventRecord *theEvent) TWOWORDINLINE(0xA031, 0x5240);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  FlushEvents()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Discard all or selected events from event queue 
+			
+			<pre>FlushEvents discards all (or selected) events chronologically, until it hits
+a specified event type . It is often used at the beginning of a program to empty
+the event queue of spurious keystrokes or clicks left over from the Finder.
+eventMask specifies which event(s) should be flushed. It is a 16-bit binary
+mask where a 1 elects to flush an event and a 0 keeps the event. The
+most common usage is to use eventMask =everyEvent , defined in
+Events.h as 0xFFFF. See Event Mask for details.
+stopMask specifies which events (if any) should stop the flushing process.
+For instance, if you want to discard all events up to the next
+keystroke, use stopMask = keyDown . A value of 0 means to keep
+flushing to the end of the queue.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>To purge all events from the queue, use:
+FlushEvents ( everyEvent , 0 );
+Note: FlushEvents will not remove pending highLevelEvents.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -669,22 +898,97 @@ EXTERN_API(void)
 SystemClick(const EventRecord *theEvent, WindowRef theWindow)
     ONEWORDINLINE(0xA9B3);
 
-/**
- *  SystemTask()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Give DAs a chance to perform periodic actions 
+			
+			<pre>Call SystemTask at least once each time through your event loop. It lets the
+Desk Manager process such periodic DA events as updating the display of a
+clock.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>SystemTask should be called at least once every 17ms (1/60-th of a
+second).  Normal usage is to put it inside a part of the event loop that
+always gets executed:
+main()
+{
+InitGraf ();
+.
+.... initialize other stuff ...
+.
+while (TRUE) /* Loop forever; terminate via */
+EventLoop(); /* ExitToShell elsewhere */
+}
+EventLoop()
+{
+MaintainCursor();
+MaintainMenus();
+SystemTask ();
+if ( GetNextEvent ( everyEvent , &theEvent) ) {
+.
+.... process events ...
+.
+}
+}
+DAs wanting a timeslice every so often should set bit 5 of the drvrFlags
+word and a tick count in drvrDelay in the driver header. You should not
+depend on any particular accuracy, since an application may fail to call
+SystemTask often enough (e.g., when saving a file). To receive periodic
+timeslices with more accuracy, install a vertical retrace task via VInstall
+or a timer interrupt task via InsTime .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 EXTERN_API(void)
 SystemTask(void) ONEWORDINLINE(0xA9B4);
 
-/**
- *  SystemEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Used internally by Event Manager 
+			
+			<pre>SystemEvent is called by the Event Manager as a way to watch for certain
+events and pass some of them directly to DAs, without bothering your
+application. This function should not be called by applications.
+theEvent is the address of a 16-byte EventRecord . It contains information
+received from a previous call to GetNextEvent .
+</pre>
+ * \returns <pre>A Boolean; it identifies whether the event should be handled by an
+application or a DA. It is one of:
+FALSE (0)This event should be passed to the application. It may be a
+system event the application should handle by calling
+SystemClick .
+TRUE (1)This event should be handled by the system (i.e., a DA). It will
+not be forwarded to the application.
+</pre>
+ * \note <pre>SystemEvent is called internally by the GetNextEvent function. The
+idea is to avoid clogging up your event loop; let the system handle such
+events as keystrokes, mouse-ups, updates, and activate events occuring in a
+DA window.
+If you want to get a look at all events, you can store a 0 in the 1-byte
+global variable SEvtEnb (at 0x015c). This will cause GetNextEvent to
+forward all unmasked events to you.
+When a DA creates a window (including a modeless dialog) it must set the
+windowKind to its refnum, which is a negative number. When the
+application calls GetNextEvent , as explained above, the Event Manager
+calls SystemEvent . If it returns TRUE then your DA gets the event. Since
+your window is a modeless dialog you would call IsDialogEvent , which
+returns FALSE What is going on is that IsDialogEvent (like
+SystemEvent) checks the windowKind looking for a value of 2 (for
+dialogs). Since your dialog's windowKind is a negative number, the DA's
+refnum, IsDialogEvent does nothing. The solution is to change the
+windowKind of your window to 2 before calling IsDialogEvent . This
+allows the Dialog Manager to recognize and handle the event properly. Be
+sure to restore the windowKind to its former value before returning to
+SystemEvent . That way, when the application calls the Dialog Manager
+with the same event (it should pass all events to the Dialog Manager if it has
+any modeless dialogs), the Dialog Manager will ignore it.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -897,3 +1201,4 @@ LMSetKbdType(UInt8 value) TWOWORDINLINE(0x11DF, 0x021E);
 #endif
 
 #endif /** __EVENTS__ */
+*/*/*/*/*/*/*/*/*/*/*/

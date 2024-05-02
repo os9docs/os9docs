@@ -1307,11 +1307,22 @@ EXTERN_API(void)
 SetIntlResource(short refNum, short theID, Handle intlHandle)
     THREEWORDINLINE(0x3F3C, 0x0008, 0xA9ED);
 
-/**
- *  CharByte()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Check character type of byte at given offset 
+			
+			<pre>CharByte checks the character type of the specified byte at the given offset
+textBufis the address of a text buffer where the character is stored.
+textOffset is the location of the specified byte.
+</pre>
+ * \returns <pre>a short, indicating:
+-1First byte of a multibyte character
+0Single byte character
+1Last byte of a multibyte character
+2Middle byte of a multibyte character
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -1319,11 +1330,45 @@ EXTERN_API(short)
 CharByte(Ptr textBuf, short textOffset)
     FOURWORDINLINE(0x2F3C, 0x8206, 0x0010, 0xA8B5);
 
-/**
- *  CharType()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Check character type of byte at given offset 
+			
+			<pre>CharType is an extension of CharByte, giving more information.
+textBufis the address of a text buffer where the character is stored.
+textOffset is the location of the specified byte.
+</pre>
+ * \returns <pre>a short, whose bits indicate:
+0-3Character type
+4-7Reserved
+8-11Character class (subset of type)
+12Reserved
+13Direction
+14Character case
+15Character size
+</pre>
+ * \note <pre> Each Script Interface System defines constants for the different types of
+characters. These are the predefined constants for the Roman script:
+smCharPunct =0
+smCharAscii =1
+smCharEuro =7
+(CharType character classes)
+smPunctNormal =0x00000
+smPunctNumber =0x00100
+smPunctSymbol =0x00200
+smPunctBlank =0x00300
+(CharType directions)
+smCharLeft =0x00000
+smCharRight =0x02000
+(CharType character case)
+smCharLower =0x00000
+smCharUpper =0x04000
+(CharType character size (1 or 2 bytes))
+smChar1byte =0x00000
+smChar2byte =0x08000
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -1343,11 +1388,20 @@ EXTERN_API(OSErr)
 Transliterate(Handle srcHandle, Handle dstHandle, short target, long srcMask)
     FOURWORDINLINE(0x2F3C, 0x820E, 0x0018, 0xA8B5);
 
-/**
- *  ParseTable()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Check for additional byte in character 
+			
+			<pre>ParseTable Returns a 256-byte table that indicates for each byte value,
+when it appears as the first byte of a character, whether there is an additional
+byte in the character (in the script of thePort->txFont)
+tableis the address of a text buffer where the character is stored.
+</pre>
+ * \returns <pre>a Boolean value indicating whether or not there is an additional byte
+in the character.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -1403,3 +1457,26 @@ IntlTokenize(TokenBlockPtr tokenParam)
 #endif
 
 #endif /** __SCRIPT__ */
+*/ndle, offset, length)
+#endif /** OLDROUTINENAMES */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __SCRIPT__ */
+*/*/

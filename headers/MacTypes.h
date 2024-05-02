@@ -498,12 +498,51 @@ struct Point {
 };
 typedef struct Point Point;
 typedef Point *PointPtr;
+/**
+<pre>#define topLeft( r) (((Point *) &(r))[0])  handy macros
+#define botRight ( r) (((Point *) &(r))[1])
+</pre>
+ * \note <pre>The Rect structure defines a rectangular area of a window. Use SetRect to
+initialize a rectangle; or simply set its fields directly (to avoid the system
+overhead).
+A valid rectangle should enclose some pixels; thus if top >= bottom or
+left >= right, then the system will generally treat is as an "empty
+rectangle" - one whose coordinates are (0,0)-(0,0) (see EmptyRect ).
+Mathematical Operations
+EmptyRect OffsetRect RectInRgn UnionRect
+EqualRect Pt2Rect RectRgn
+InsetRect PtInRect SectRect
+MapRect PinRect SetRect
+Drawing Operations
+EraseRect FillRect FrameRect InvertRect
+Other Fns Using a Rect parameter
+ClipRect FrameOval NewControl ShieldCursor
+CopyBits FrameRoundRect NewDialog StdArc
+CopyMask GrowWindow NewWindow StdBits
+DragWindow InvalRect OpenPicture StdOval
+DrawPicture InvertArc PaintOval StdRRect
+EraseArc InvertOval PaintRect TENew
+EraseOval InvertRoundRect PaintRoundRect TEUpdate
+EraseRoundRect LNew PlotIcon TextBox
+FillArc LRect PrOpenPage ValidRect
+FillOval MapPoly PtToAngle
+FillRoundRect MapPt ScalePt
+FrameArc MapRgn ScrollRect
+Note: Always pass the address of a Rect to functions. All examples in
+this Guide use: FooFn( &r,... ) to make this clear, and function
+prototypes correctly refer to the parameter as a Rect *. Of course,
+Apple documentation (with its Pascal bias) assumes you will mentally
+convert "Rect" to "&Rect".
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct Rect {
-  short top;
-  short left;
-  short bottom;
-  short right;
-};
+	short top;/**< Top edge of rectangle*/
+	short left;/**< Left edge*/
+	short bottom;/**< Bottom edge*/
+	short right;/**< Rightmost edge*/
+	} Rect ;/**< */
+
 typedef struct Rect Rect;
 typedef Rect *RectPtr;
 struct FixedPoint {
@@ -590,13 +629,18 @@ a RoutineDescriptor
 
 *********************************************************************************/
 #if TARGET_RT_BIG_ENDIAN
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct NumVersion {
-  /** Numeric version part of 'vers' resource */
-  UInt8 majorRev;       /**1st part of version number in BCD*/
-  UInt8 minorAndBugRev; /**2nd & 3rd part of version number share a byte*/
-  UInt8 stage;          /**stage code: dev, alpha, beta, final*/
-  UInt8 nonRelRev;      /**revision level of non-released version*/
-};
+	unsigned char majorRev;/**< st part of version number in BCD*/
+	unsigned char minorRev: ;/**< nd part is  nibble in BCD*/
+	unsigned char bugFixRev: ;/**< rd part is  nibble in BCD*/
+	unsigned char stage;/**< stage code: dev, alpha, beta, final*/
+	unsigned char nonRelRev;/**< revision level of non-released version*/
+	} NumVersion ;/**< */
+
 typedef struct NumVersion NumVersion;
 #else
 struct NumVersion {
@@ -627,13 +671,17 @@ union NumVersionVariant {
 typedef union NumVersionVariant NumVersionVariant;
 typedef NumVersionVariant *NumVersionVariantPtr;
 typedef NumVersionVariantPtr *NumVersionVariantHandle;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct VersRec {
-  /** 'vers' resource format */
-  NumVersion numericVersion; /**encoded version number*/
-  short countryCode;         /**country code from intl utilities*/
-  Str255 shortVersion;       /**version number string - worst case*/
-  Str255 reserved;           /**longMessage string packed after shortVersion*/
-};
+	NumVersion numericVersion;/**< encoded version number*/
+	short countryCode;/**< country code from intl utilities*/
+	Str shortVersion;/**< version number string - worst case*/
+	Str reserved;/**< longMessage string packed after*/
+	} VersRec ;/**< */
+
 typedef struct VersRec VersRec;
 typedef VersRec *VersRecPtr;
 typedef VersRecPtr *VersRecHndl;
@@ -654,22 +702,72 @@ typedef SInt8 VHSelect;
     Debugger functions
 
 *********************************************************************************/
-/**
- *  Debugger()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Invoke the debugging program 
+			
+			<pre>Debugger can be inserted at any point in your program to break into the
+debugger.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>Be sure to remove this function before shipping your application!  A
+typical setup for C programmers is to use the preprocessor:
+#define DEBUGGING TRUE /* in header file */
+...
+#ifdef DEBUGGING
+Debugger ();
+#endif
+...
+The DebugStr function does the same thing, but passes a string to the
+debugger (which then displays the message).
+Remember that Debugger will crash the system with an ID 12 System
+Error if no debugger is installed when it is invoked. This is the real reason
+why not to ship with debug traps in your code - most end users do not have
+debuggers installed.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 Debugger(void) ONEWORDINLINE(0xA9FF);
 
-/**
- *  DebugStr()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Invoke the debugging program; pass string to display 
+			
+			<pre>DebugStr can be inserted at any point in your program to break into the
+debugger, passing the address of a string to be displayed.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>Be sure to remove this function before shipping your application!  A
+typical setup for C programmers is to use the preprocessor:
+#define DEBUGGING TRUE /* in header file */
+...
+#ifdef DEBUGGING
+DebugStr ( "\pGot an invalid Menu command." );
+#endif
+...
+The Debugger function also activates the debugger, but does not pass any
+information to it.
+Remember that Debugger will crash the system with an ID 12 System
+Error if no debugger is installed when it is invoked. This is the real reason
+why not to ship with debug traps in your code - most end users do not have
+debuggers installed.
+A real handy feature of using DebugStr is the ";" feature. You can issue
+Macsbug commands from inside your program by embedding the commands in
+a pascal string, prefixing each command with the ";" character. For
+example:
+DebugStr ("\p ;hs ;g");
+Would toggle heap scrambling. You can use this for any Macsbug command
+such as logging files, toggling heap scrambling and doing heap displays
+during execution of your program for later review.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -782,3 +880,4 @@ SysBreakFunc(ConstStr255Param debuggerMsg)
 #endif
 
 #endif /** __MACTYPES__ */
+*/*/

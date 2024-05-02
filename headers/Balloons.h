@@ -210,24 +210,32 @@ enum {
       'hfdr') /* ResType of help resource for custom balloon in Finder */
 };
 
-struct HMStringResType {
-  short hmmResID;
-  short hmmIndex;
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct HMStringResType  {
+	shorthmmResID;/**< res ID of 'STR#' resource*/
+	shorthmmIndex;/**< index of string*/
+	}HMStringResType ;/**< */
+
 typedef struct HMStringResType HMStringResType;
-struct HMMessageRecord {
-  SInt16 hmmHelpType;
-  union {
-    Str255 hmmString;
-    SInt16 hmmPict;
-    TEHandle hmmTEHandle;
-    HMStringResType hmmStringRes;
-    SInt16 hmmPictRes;
-    PicHandle hmmPictHandle;
-    SInt16 hmmTERes;
-    SInt16 hmmSTRRes;
-  } u;
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct HMMessageRecord  {
+	short hmmHelpType;/**<  data type of the next field*/
+	char hmmString[];/**<  Pascal string*/
+	short hmmPict;/**<  'PICT' resource ID*/
+	Handle hmmTEHandle;/**<  styled text handle*/
+	HMStringResType hmmStringRes;/**<  'STR#' resID and index*/
+	short hmmPictRes;/**<  */
+	Handle hmmPictHandle;/**<  picture handle*/
+	short hmmTERes;/**<  'styl'and 'TEXT' res ID*/
+	short hmmSTRRes;/**<  'STR'resource ID*/
+	} u;/**<*/
+
 typedef struct HMMessageRecord HMMessageRecord;
 typedef HMMessageRecord *HMMessageRecPtr;
 typedef CALLBACK_API(OSErr, TipFunctionProcPtr)(Point tip, RgnHandle structure,
@@ -400,11 +408,31 @@ HMGetIndHelpMsg(ResType inWhichResType, SInt16 inWhichResID,
 EXTERN_API(Boolean)
 HMIsBalloon(void) THREEWORDINLINE(0x303C, 0x0007, 0xA830);
 
-/**
- *  HMGetBalloons()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Is Balloon Help on or off? 
+			
+			<pre>Returns: The HMGetBalloons function returns TRUE if help is currently
+enabled and FALSE if help is currently not enabled. Because this
+function does not load the Help Manager package into memory, it is
+a very fast way to determine whether help is enabled.
+</pre>
+ * \note <pre>If you only want to provide help balloons for the menus, alert boxes, and
+dialog boxes of your application, you only need to create the resources
+containing the descriptive information. Using the Help Manager and its
+subsections give details on how to create these resources.
+If help is not enabled, most Help Manager routines do nothing and return
+the hmHelpDisabled result code.
+The user turns Balloon Help assistance on by choosing Show Balloons
+from the Help menu. You can use the HMGetBalloons function to
+determine whether help is currently enabled. If you display your own help
+balloons using the HMShowBalloon function, you should use the
+HMGetBalloons function to determine whether help is enabled before
+displaying a help balloon. If help is not enabled, you cannot display any help
+balloons.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -593,3 +621,4 @@ HMGetBalloonWindow(WindowRef *window) THREEWORDINLINE(0x303C, 0x0215, 0xA830);
 #endif
 
 #endif /* __BALLOONS__ */
+*/

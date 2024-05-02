@@ -351,11 +351,16 @@ EXTERN_API(void)
 MeasureJust(Ptr textPtr, short textLength, short slop, Ptr charLocs)
     FOURWORDINLINE(0x2F3C, 0x800C, 0x0020, 0xA8B5);
 
-/**
- *  PortionText()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Determine how to distribute the slop value for a line 
+			\param    textPtr a pointer to the text to be justified
+			<pre>The PortionText procedure indicates the correct proportion of justification
+to be allocated to given text when compared to other text; used to determine
+how to distribute the slop of a line among the style runs on the line
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -390,55 +395,191 @@ GetFormatOrder(FormatOrderPtr ordering, short firstFormat, short lastFormat,
                Boolean lineRight, StyleRunDirectionUPP rlDirProc, Ptr dirParam)
     FOURWORDINLINE(0x2F3C, 0x8012, 0xFFFC, 0xA8B5);
 
-/**
- *  TextFont()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Select font for subsequent text drawing 
+			
+			<pre>TextFont sets the txFont field of the current GrafPort . Subsequent text
+drawing will use the specified font.
+fontNois a font number. The following Standard Fonts are available as
+system-defined constants:
+systemFont 0System default font; "Chicago"
+applFont 1default application font; initially "Geneva"
+newYork 2
+geneva3
+monaco 4
+venice5
+london6
+athens7
+sanFran 8
+toronto 9
+cairo 11
+losAngeles 12
+times20These are all
+helvetica 21 designed for
+courier 22  use on the
+symbol 23   LaserWriter
+mobile 24
+See Standard Fonts for a graphic depiction of these fonts. Use
+GetFNum if you know the font's name, but not its number.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>Be sure to call InitFonts (once, early in the program, after InitGraf and
+before InitWindows ). This ensures that the Font Manager is properly
+initialized for text drawing.
+The initial value for txFont is 0, specifying the system font, Chicago. You
+can read the current value from the GrafPort structure:
+curFont = thePort->txFont;
+The appearance of the text is also affected by the txFace, txSize, and txMode
+fields of the current GrafPort . Refer to TextFace , TextMode , and
+TextSize .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 TextFont(short font) ONEWORDINLINE(0xA887);
 
-/**
- *  TextFace()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Select a style for subsequent text drawing 
+			
+			<pre>TextFace selects the test-style variation(s) (bold, italic, underline, etc.)
+for the current GrafPort .
+newStyle is an integer value (declared as an enum with a typedef of Style). A
+value 0 indicates a "plain" unmodified version of the current font.
+You can use bit-manipulation operations to combine any of the
+following styles using the constants defined in Quickdraw.h:
+bold1increased width on vertical strokes
+italic2slanted toward the right
+underline 4underscored, with breaks on descending letters
+outline 8outlined
+shadow 16Shadowed (outlined, heavier on right bottom)
+condense 32less space between characters
+extend64more space between characters
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>TextFace modifies the txFace field of the current GrafPort . It is initially
+set to 0 (plain text). The variation you select affects all subsequent text
+drawing and text measuring.
+You can read the current style setting by accessing the txFace field of the
+current GrafPort :
+curStyle = thePort -> txFace;
+Here are some examples of usage:
+TextFace ( bold ); /* set to bold */
+TextFace ( bold | italic ); /* set to bold and italic */
+TextFace ( thePort->txFace | bold );/* add bolding */
+TextFace ( thePort->txFace & ~bold );/* remove bolding */
+TextFace ( 0 ); /* set to plain text */
+The "condense" and "extend" variations change the spacing between
+characters to an arbitrary value set by the Font Manager. Another way to
+compress expand text is to call SetFScaleDisable and use a smaller or
+larger font. You may use SpaceExtra for spacing control; e.g., as an aid in
+displaying right-justified text.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 TextFace(StyleParameter face) ONEWORDINLINE(0xA888);
 
-/**
- *  TextMode()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set text-drawing transfer mode 
+			
+			<pre>TextMode selects the bit-transfer mode to be used in subsequent
+text-drawing. Used for writing white characters on a black background, etc.
+newMode selects the transfer mode. It must be one of the " srcXxx" modes.
+Use one of the following constants, as defined in Quickdraw.h :
+srcCopy 0overwrite background entirely
+srcOr1overwrite where character is black
+srcXor 2invert where character is black
+srcBic3force white where character is black
+notSrcCopy 4invert character, then srcCopy
+notSrcOr 5invert character, then srcOr
+notSrcXor 6invert character, then srcXor
+notSrcBic 7invert character, then srcBic
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>TextMode changes the txMode field of the current GrafPort structure.
+See Transfer Modes  for a graphical representation of the effects of the
+various modes.
+The default mode is srcOr, which causes characters to be drawn over the
+background, while allowing the background pattern to show through in the
+empty parts of each letter.
+The original Mac toolbox supported only srcOr, srcXor, and srcBic.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 TextMode(short mode) ONEWORDINLINE(0xA889);
 
-/**
- *  TextSize()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set the point size for subsequent text drawing 
+			
+			<pre>TextSize selects the size, in points, for subsequently-drawn text.
+newSize is the desired size, in typographical points. Values from 1 to 127
+are allowed. A value of 0 specifies the system font size (12 points).
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>TextSize sets the txSize field of the current GrafPort structure. The
+initial value is 0, specifying the system font size (12-point).
+If the font used in subsequent text drawing is not available in size points,
+the Font Manager will use a font it does have, scaling it to the desired size.
+Such "scaled" fonts have a jagged look to them. See SetFScaleDisable for
+more information font scaling.
+You may use SetFScaleDisable to space text as if it were a different
+point size, while continuing to use a “real” (unscaled) font.
+To see if an unscaled version of a font exists as a system resource, use
+GetFNum to learn its font reference number, then call RealFont .
+A typographical point is approximately 1/72 of an inch; very nearly the
+size of a pixel on the Mac screen.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 TextSize(short size) ONEWORDINLINE(0xA88A);
 
-/**
- *  SpaceExtra()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Space out text for left/right justification 
+			
+			<pre>SpaceExtra tells the Font Manager how much additional space to add when
+displaying the space character (ASCII 0x20). It can be useful in
+fully-justifying text.
+extraSpace is a 4-byte Fixed value, specifying the average number of pixels and
+fractional pixels to be added to each space character (ASCII 0x32).
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>SpaceExtra modifies the spExtra field of the current GrafPort structure.
+The initial value of this field is 0.
+To justify a given text string to a specific line width:
+1Use StringWidth to get the unadjusted size of the string.
+2Subtract the returned value from the width between the margins; the
+difference is the amount of adjustment needed.
+3Count the number of spaces in the line.
+4Use FixRatio to find the ratio between the results of steps 2 and 3.
+5Call SpaceExtra , specifying the ratio returned from step 4.
+6Position the pen ( MoveTo ) and draw the text ( DrawString ).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -539,11 +680,23 @@ MeasureText(short count, const void *textAddr, void *charLocs)
 EXTERN_API(void)
 GetFontInfo(FontInfo *info) ONEWORDINLINE(0xA88B);
 
-/**
- *  CharExtra()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Space to widen all text characters, excluding space band 
+			
+			<pre>CharExtra specifies how much additional width to give all characters .
+extrais a Fixed value, specifying the average number of pixels and
+fractional pixels to be added to each non-space character
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>This modifies the charExtra field of the current CGrafPort structure. The
+initial value of this field is 0, but both positive and negative number can be
+used. This is a cGrafPort-specific procedure and has no effect when used in
+conjunction with an old-style grafPort.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -686,3 +839,5 @@ stdtext(short count, const void *textAddr, const Point *numer,
 #endif
 
 #endif /** __QUICKDRAWTEXT__ */
+*/endif /** __QUICKDRAWTEXT__ */
+*/*/*/*/*/*/

@@ -89,40 +89,60 @@ enum {
     need to compensate for that.
 
 */
+/**
+<pre>
+ * \note <pre>This structure is used in the Disk Driver's DriveStatus call to return
+information about the internal and external drives. The diskInPlace field is
+0 when there is no disk and a 1 or a 2 for internal and external drives,
+respectively. A value of -4 to -1 indicates that the disk was ejected in the
+last one-and-a-half seconds. The installed field is 1 if the drive is
+connected, -1 if not connected, and 0 if the drive might be connected. The
+value for the twoSideFmt field is valid only if diskInPlace equals 2. The
+count in diskErrs is incremented every time an error occurs internally
+within the Disk Driver.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct DrvSts {
-  short track;      /* current track */
-  char writeProt;   /* bit 7 = 1 if volume is locked */
-  char diskInPlace; /* disk in drive */
-  char installed;   /* drive installed */
-  char sides;       /* -1 for 2-sided, 0 for 1-sided */
-  QElemPtr qLink;   /* next queue entry */
-  short qType;      /* 1 for HD20 */
-  short dQDrive;    /* drive number */
-  short dQRefNum;   /* driver reference number */
-  short dQFSID;     /* file system ID */
-  char twoSideFmt;  /* after 1st rd/wrt: 0=1 side, -1=2 side */
-  char needsFlush;  /* -1 for MacPlus drive */
-  short diskErrs;   /* soft error count */
-};
+	short track;/**< Current track*/
+	SignedByte writeProt;/**<  Bit  is  if volume is locked*/
+	SignedByte diskInPlace;/**< Disk in place*/
+	SignedByte installed;/**< Drive installed*/
+	SignedByte sides;/**< Bit  is  is the disk is single-sided*/
+	QElemPtr qLink;/**< Address of next queue element*/
+	short qType;/**< Reserved*/
+	short dQDrive;/**< Drive number*/
+	short dQRefNum;/**< Drive reference number*/
+	short dQFSID;/**< File system identifier*/
+	SignedByte twoSideFmt;/**< - if double-sided disk*/
+	SignedByte needsFlush;/**< Reserved*/
+	short diskErrs;/**< Error count*/
+	} DrvSts;/**< */
+
 typedef struct DrvSts DrvSts;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct DrvSts2 {
-  short track;
-  char writeProt;
-  char diskInPlace;
-  char installed;
-  char sides;
-  QElemPtr qLink;
-  short qType;
-  short dQDrive;
-  short dQRefNum;
-  short dQFSID;
-  short driveSize;
-  short driveS1;
-  short driveType;
-  short driveManf;
-  short driveChar;
-  char driveMisc;
-};
+	short track;/**< Current track*/
+	SignedByte writeProt;/**<  Bit  is  if volume is locked*/
+	SignedByte diskInPlace;/**< Disk in place*/
+	SignedByte installed;/**< Drive installed*/
+	SignedByte sides;/**< Bit  is  is the disk is single-sided*/
+	QElemPtr qLink;/**< Address of next queue element*/
+	short qType;/**< Reserved*/
+	short dQDrive;/**< Drive number*/
+	short dQRefNum;/**< Drive reference number*/
+	short dQFSID;/**< File system identifier*/
+	short driveSize;/**< */
+	short driveS;/**< */
+	short driveType;/**< */
+	short driveManf;/**< */
+	short driveChar;/**< */
+	char driveMisc;/**< */
+	} DrvSts ;/**< */
+
 typedef struct DrvSts2 DrvSts2;
 /* Macros to get a DrvSts pointer or a DrvSts2 pointer from a DrvQEl pointer. */
 /* Note: If you use these macros, your source file must include stddef.h to get
@@ -173,11 +193,19 @@ DriveStatus(short drvNum, DrvSts *status);
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  AddDrive()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Add a drive to the drive queue 
+			
+			<pre>AddDrive adds a drive to the drive queue.
+drvrRefNum driver reference number
+drvNum drive number being added
+qElpointer to DrvQEl structure
+</pre>
+ * \returns <pre>an operating system Error Code .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -188,11 +216,52 @@ AddDrive(short drvrRefNum, short drvNum, DrvQElPtr qEl);
 
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
-/**
- *  GetDrvQHdr()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain pointer to the drive queue header 
+			
+			<pre>GetDrvQHdr returns the address of the header of the standard Operating
+System queue used to maintain the linked-list of disk drive information
+records. There is one DrvQEl entry for each physical drive attached to the Mac.
+</pre>
+ * \returns <pre>a 32-bit QHdrPtr; the address of the 10-byte QHdr structure whose
+qLink field points to the first DrvQEl structure in the queue.
+</pre>
+ * \note <pre>C programmers may prefer to get this address from the global variable
+DrvQHdr (at 0x0308).
+You can use this function to obtain information about drives attached to the
+system; it may be the only way to get this collection of information. If you
+need to monkey with this queue, you can use Enqueue and Dequeue .
+In addition to the information in the DrvQEl structure, there are four
+bytes of additional data that precede each element. The following describes
+these prefix bytes:
+OffsetDescription
+-4(bit 7 set) = disk is locked (write-protected)
+-30 = no disk in drive
+1 or 2 = disk is in drive
+8 = non-ejectable disk
+FCh...FFh = disk was ejected within last 1.5 seconds
+48h = non-ejectable disk, but driver expects a call
+-2(used internally during system startup)
+-1(bit 7 clear) = drive supports only single-sided media
+The following example reads the elements of the drive queue and displays
+information about all drives attached to the system.
+Example
+#include < Files.h>
+#include < OSUtils.h >
+QHdrPtr qhp; /* address of a QHdr structure */
+DrvQEl *qep;
+Byte *bp; /* helps to decode prefix bytes */
+long totBlks;
+Boolean locked, oneSide, empty;
+qhp= GetDrvQHdr (); /* address of queue header */
+qep = (DrvQEl *)qhp->qHead; /* address of a queue element */
+printf("Drv# FileSys Blocks locked 1-sided empty\n");
+do {
+bp=(Byte *)qep; bp -=4; /* point to structure prefix bytes */
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -245,3 +314,4 @@ enum { VerifyCmd = kVerify, FormatCmd = kFormat, EjectCmd = kEject };
 #endif
 
 #endif /* __DISKS__ */
+*/*/

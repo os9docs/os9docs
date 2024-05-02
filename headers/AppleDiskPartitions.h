@@ -59,19 +59,24 @@ enum {
 };
 
 /** Driver Descriptor Map */
-struct Block0 {
-  UInt16 sbSig;       /** unique value for SCSI block 0 */
-  UInt16 sbBlkSize;   /** block size of device */
-  UInt32 sbBlkCount;  /** number of blocks on device */
-  UInt16 sbDevType;   /** device type */
-  UInt16 sbDevId;     /** device id */
-  UInt32 sbData;      /** not used */
-  UInt16 sbDrvrCount; /** driver descriptor count */
-  UInt32 ddBlock;     /** 1st driver's starting block */
-  UInt16 ddSize;      /** size of 1st driver (512-byte blks) */
-  UInt16 ddType;      /** system type (1 for Mac+) */
-  UInt16 ddPad[243];  /** ARRAY[0..242] OF INTEGER; not used */
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct Block {
+	unsigned short sbSig;/**< unique value for SCSI block */
+	unsigned short sbBlkSize;/**< block size of device*/
+	unsigned long sbBlkCount;/**< number of blocks on device*/
+	unsigned short sbDevType;/**< device type*/
+	unsigned short sbDevId;/**< device id*/
+	unsigned long sbData;/**< not used*/
+	unsigned short sbDrvrCount;/**< driver descriptor count*/
+	unsigned long ddBlock;/**< st driver's starting block*/
+	unsigned short ddSize;/**< size of st driver (-byte*/
+	unsigned short ddType;/**< system type ( for Mac+)*/
+	unsigned short ddPad[];/**< not used*/
+	} Block;/**< */
+*/
 typedef struct Block0 Block0;
 /** Driver descriptor */
 struct DDMap {
@@ -89,27 +94,32 @@ enum {
 };
 
 /** Partition Map Entry */
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct Partition {
-  UInt16 pmSig;          /** unique value for map entry blk */
-  UInt16 pmSigPad;       /** currently unused */
-  UInt32 pmMapBlkCnt;    /** # of blks in partition map */
-  UInt32 pmPyPartStart;  /** physical start blk of partition */
-  UInt32 pmPartBlkCnt;   /** # of blks in this partition */
-  UInt8 pmPartName[32];  /** ASCII partition name */
-  UInt8 pmParType[32];   /** ASCII partition type */
-  UInt32 pmLgDataStart;  /** log. # of partition's 1st data blk */
-  UInt32 pmDataCnt;      /** # of blks in partition's data area */
-  UInt32 pmPartStatus;   /** bit field for partition status */
-  UInt32 pmLgBootStart;  /** log. blk of partition's boot code */
-  UInt32 pmBootSize;     /** number of bytes in boot code */
-  UInt32 pmBootAddr;     /** memory load address of boot code */
-  UInt32 pmBootAddr2;    /** currently unused */
-  UInt32 pmBootEntry;    /** entry point of boot code */
-  UInt32 pmBootEntry2;   /** currently unused */
-  UInt32 pmBootCksum;    /** checksum of boot code */
-  UInt8 pmProcessor[16]; /** ASCII for the processor type */
-  UInt16 pmPad[188];     /** ARRAY[0..187] OF INTEGER; not used */
-};
+	unsigned short pmSig;/**< Unique value for map entry blk*/
+	unsigned short pmSigPad;/**< currently unused*/
+	unsigned long pmMapBlkCnt;/**< # of blks in partition map*/
+	unsigned long pmPyPartStart;/**< physical start blk of partition*/
+	unsigned long pmPartBlkCnt;/**< # of blks in this partition*/
+	unsigned char pmPartName[];/**< ASCII partition name*/
+	unsigned char pmParType[];/**< ASCII partition type*/
+	unsigned long pmLgDataStart;/**< log. # of partition's st data blk*/
+	unsigned long pmDataCnt;/**< # of blks in partition's data area*/
+	unsigned long pmPartStatus;/**< bit field for partition status*/
+	unsigned long pmLgBootStart;/**< log. blk of partition's boot code*/
+	unsigned long pmBootSize;/**< number of bytes in boot code*/
+	unsigned long pmBootAddr;/**< memory load address of boot code*/
+	unsigned long pmBootAddr;/**< currently unused*/
+	unsigned long pmBootEntry;/**< entry point of boot code*/
+	unsigned long pmBootEntry;/**< currently unused*/
+	unsigned long pmBootCksum;/**< checksum of boot code*/
+	unsigned char pmProcessor[];/**< ASCII for the processor type*/
+	unsigned short pmPad[];/**<  bytes long currently unused*/
+	} Partition ;/**< */
+
 typedef struct Partition Partition;
 
 /** Flags for the pmPartStatus field of the Partition data structure. */
@@ -154,6 +164,13 @@ enum {
 #elif PRAGMA_IMPORT
 #pragma import reset
 #endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __APPLEDISKPARTITIONS__ */
+*/endif
 
 #ifdef __cplusplus
 }

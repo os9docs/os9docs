@@ -128,24 +128,58 @@ UnloadScrap(void) ONEWORDINLINE(0xA9FA);
     Inside Mac covers them in detail.
     ________________________________________________________________
 */
-struct ScrapStuff {
-  SInt32 scrapSize;
-  Handle scrapHandle;
-  SInt16 scrapCount;
-  SInt16 scrapState;
-  StringPtr scrapName;
-};
+/**
+<pre>
+ * \note <pre>The ScrapStuff structure is used indirectly in all Scrap Manager calls and
+some TextEdit calls (eg, TEFromScrap ). A PScrapStuff pointer is used
+directly only in calls to InfoScrap .
+The global variable ScrapInfo (at 0x0960) contains a ScrapStuff
+structure containing the current values.
+The scrapName field normally points to the string "\pClipboard File".
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ScrapStuff  {
+	long scrapSize;/**< Total size of desk scrap, in bytes*/
+	Handle scrapHandle;/**< Handle leading to scrap data*/
+	short scrapCount;/**< Number of items in the desk scrap*/
+	short scrapState;/**< > if in memory,  if on disk, < if uninitialized*/
+	StringPtr scrapName;/**< Address of pstring of scrap filename*/
+	} ScrapStuff ;/**< */
+
 typedef struct ScrapStuff ScrapStuff;
 typedef ScrapStuff *PScrapStuff;
 typedef ScrapStuff *ScrapStuffPtr;
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  InfoScrap()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get information about the desk scrap 
+			
+			<pre>Use InfoScrap to learn the size of the desk scrap, whether it is currently in
+memory or on disk, and other information.
+</pre>
+ * \returns <pre>a pointer to the global scrap information packet (a 16-byte
+ScrapStuff structure).
+</pre>
+ * \note <pre>In the 128K ROMs, InfoScrap performs the additional function of calling
+ZeroScrap if the scrap is uninitialized.
+C programmers may prefer to access the global variable ScrapInfo (a
+ScrapStuff structure starting at 0x0960), e.g.,
+if ( ScrapStuff .scrapState > 0 ) {
+... scrap is currently in memory ...
+}
+Note that this technique does not automatically call ZeroScrap -something
+you should do if ScrapStuff .scrapState is negative (uninitialized).
+If your application displays the Clipboard or uses a private scrap, you may
+wish to check the value of the scrapCount field on each pass through the main
+event loop. If this value changes, it is a pretty good indication that some
+new data has been placed into the scrap (since applications and DAs usually
+call ZeroScrap before calling PutScrap ).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -672,3 +706,4 @@ CallInScrapPromises(void);
 #endif
 
 #endif /** __SCRAP__ */
+*/

@@ -60,10 +60,15 @@ extern "C" {
 #endif
 
 /* type for unique process identifier */
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ProcessSerialNumber {
-  unsigned long highLongOfPSN;
-  unsigned long lowLongOfPSN;
-};
+	unsigned long highLongOfPSN;/**< */
+	unsigned long lowLongOfPSN;/**< */
+	} ProcessSerialNumber ;/**< */
+
 typedef struct ProcessSerialNumber ProcessSerialNumber;
 typedef ProcessSerialNumber *ProcessSerialNumberPtr;
 enum {
@@ -149,21 +154,58 @@ enum {
     will very likely write data to whatever random location in memory
     these happen to point to, which is not a good thing.
 */
+/**
+<pre>
+ * \note <pre>You specify the values for three fields of the process information record:
+processInfoLength , processName and processAppSpec . You must either set
+the processName and processAppSpec fields to NIL or set these fields to
+point to storage that you have allocated for them. The
+GetProcessInformation function returns information in all other fields
+of the process information record.
+The processInfoLength field is the number of bytes in the process
+information record. For compatibility, you should specify the length of the
+record in this field. The name returned in the processName field is the name
+of the application or desk accessory. For applications, this field contains the
+name of the application as designated by the user at the time the application
+was opened. For example, for foreground applications, the processName field
+is the name as it appears in the Application menu. For desk accessories, the
+processName field contains the name of the 'DRVR' resource. You must
+specify NIL in the processName field if you do not want the application name
+or the desk accessory name returned. Otherwise, you should allocate at least
+32 bytes of storage for the string pointed to by the processName field. Note
+that the processName field specifies the name of either the application or
+the 'DRVR' resource, whereas the processAppSpec field specifies the
+location of the file.
+The processNumber field specifies the process serial number. The process
+serial number is a 64-bit number; the meaning of these bits is internal to
+the Process Manager . You should not interpret the value of the process
+serial number.
+The processType field indicates the file type of the application, generally
+'APPL' for applications, and 'appe' for background-only applications
+launched at startup. If the process is a desk accessory, the processType field
+is the type of the file containing the 'DRVR' resource.
+The processSignature field indicates the signature of the file containing the
+application or the 'DRVR' resource (for example, the signature of the
+TeachText application is 'ttxt').
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ProcessInfoRec {
-  unsigned long processInfoLength;
-  StringPtr processName;
-  ProcessSerialNumber processNumber;
-  unsigned long processType;
-  OSType processSignature;
-  unsigned long processMode;
-  Ptr processLocation;
-  unsigned long processSize;
-  unsigned long processFreeMem;
-  ProcessSerialNumber processLauncher;
-  unsigned long processLaunchDate;
-  unsigned long processActiveTime;
-  FSSpecPtr processAppSpec;
-};
+	unsigned long processInfoLength;/**< length of record*/
+	StringPtr processName;/**< name of process*/
+	ProcessSerialNumber processNumber;/**< psn of the process*/
+	unsigned long processType;/**< file type of app file*/
+	OSType processSignature;/**< signature of app file*/
+	unsigned long processMode;/**< 'SIZE' resource flags*/
+	Ptr processLocation;/**< address of partition*/
+	unsigned long processSize;/**< partition size*/
+	unsigned long processFreeMem;/**< free bytes in heap*/
+	ProcessSerialNumber processLauncher;/**<  process that launched*/
+	unsigned long processLaunchDate;/**< time when launched*/
+	unsigned long processActiveTime;/**< accumulated CPU time*/
+	FSSpecPtr processAppSpec;/**< location of the file*/
+	} ProcessInfoRec ;/**< */
+
 typedef struct ProcessInfoRec ProcessInfoRec;
 typedef ProcessInfoRec *ProcessInfoRecPtr;
 /**
@@ -266,11 +308,15 @@ EXTERN_API(OSErr)
 MacGetCurrentProcess(ProcessSerialNumber *PSN)
     THREEWORDINLINE(0x3F3C, 0x0037, 0xA88F);
 
-/**
- *  GetFrontProcess()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get serial number of foreground process 
+			
+			<pre>If no process is running in the foreground, GetFrontProcess returns the
+result code procNotFound.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -278,11 +324,28 @@ EXTERN_API(OSErr)
 GetFrontProcess(ProcessSerialNumber *PSN)
     FIVEWORDINLINE(0x70FF, 0x2F00, 0x3F3C, 0x0039, 0xA88F);
 
-/**
- *  GetNextProcess()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get the process serial number of the next process 
+			
+			<pre>You use the GetNextProcess to get the process serial number of the next
+process
+PSN is a pointer to a valid process serial number returned from
+LaunchApplication , GetNextProcess , GetFrontProcess , or
+GetCurrentProcess , or the defined constant kNoProcess.
+Returns: an operating system Error Code .
+noErr(0)No error
+paramErr (-50)Process serial number is invalid
+procNotFound (-600)No process in the process list following the specified
+process
+</pre>
+ * \note <pre>You can use the returned process serial number from this function in
+other Process Manager routines. You can also use this process serial
+number to specify a target application when your application sends a
+high-level event.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -302,11 +365,38 @@ EXTERN_API(OSErr)
 GetProcessInformation(const ProcessSerialNumber *PSN, ProcessInfoRec *info)
     THREEWORDINLINE(0x3F3C, 0x003A, 0xA88F);
 
-/**
- *  SetFrontProcess()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Make a process the foreground process 
+			
+			<pre>You use the SetFrontProcess to schedule the specified process to become
+the foreground process.
+PSN is a pointer to a the process serial number of the process running in
+the foreground
+Returns: an operating system Error Code .
+noErr(0)No error
+procNotFound (-600)Process with specified process serial number does not
+exist or process is suspended by high-level debugger
+appIsDaemon (-606)Specified process is background-only
+</pre>
+ * \note <pre>The specified process becomes the foreground process after the current
+foreground process makes a subsequent call to WaitNextEvent or
+EventAvail .
+The process serial number in the PSN parameter should be a valid process
+serial number returned from LaunchApplication , GetNextProcess ,
+SetFrontProcess , GetCurrentProcess , or a high-level event. You
+can also use the constant kCurrentProcess to refer to the current process.
+If the specified process serial number is invalid or if the specified process
+is a background-only application, SetFrontProcess returns a nonzero
+result code and does not change the current foreground process.
+If a modal dialog box is the frontmost window, the specified process does
+not become the foreground process until after the user dismisses the modal
+dialog box.
+Note: Do not call SetFrontProcess from a routine that executes
+at interrupt time.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -314,11 +404,36 @@ EXTERN_API(OSErr)
 SetFrontProcess(const ProcessSerialNumber *PSN)
     THREEWORDINLINE(0x3F3C, 0x003B, 0xA88F);
 
-/**
- *  WakeUpProcess()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Make a process eligible to receive CPU time 
+			
+			<pre>You use the WakeUpProcess to makes a process suspended by
+WaitNextEvent eligible to receive CPU time.
+PSN is a pointer to the process serial number of the process designated to
+receive CPU time.
+Returns: an operating system Error Code .
+noErr(0)No error
+procNotFound (-600)Suspended process with specified process serial
+number does not exist
+</pre>
+ * \note <pre>When a process specifies a nonzero value for the sleep parameter in the
+WaitNextEvent function, and there are no events for that process
+pending in the event queue, the process is suspended. This process remains
+suspended until the time specified in the sleep parameter expires or an
+event becomes available for that process. You can use WakeUpProcess to
+make the process eligible for execution before the time specified in the sleep
+parameter expires.
+The WakeUpProcess function does not change the order of the processes
+scheduled for execution; it only makes the specified process eligible for
+execution.
+The process serial number specified in the PSN parameter should be a
+valid process serial number returned from LaunchApplication ,
+GetNextProcess , GetFrontProcess , GetCurrentProcess , or a
+high-level event.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -326,11 +441,34 @@ EXTERN_API(OSErr)
 WakeUpProcess(const ProcessSerialNumber *PSN)
     THREEWORDINLINE(0x3F3C, 0x003C, 0xA88F);
 
-/**
- *  SameProcess()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Compare two process serial numbers 
+			
+			<pre>You use SameProcess to compare two process serial numbers and to
+determine whether they refer to the same process.
+PSN1 is a pointer to a valid process serial number returned from
+LaunchApplication , GetNextProcess , GetFrontProcess , or
+GetCurrentProcess , or a high level event. You can also use the
+constant kCurrentProcess to return to the current process.
+PSN2 is a valid process serial number returned from
+LaunchApplication , GetNextProcess , GetFrontProcess , or
+GetCurrentProcess , or a high level event. You can also use the
+constant kCurrentProcess to return to the current process.
+result is a pointer to a Boolean value. If the process serial numbers
+specified in the PSN1 and PSN2 parameters refer to the same
+process, the SameProcess function returns TRUE in the result
+parameter; otherwise, it returns FALSE in the result parameter.
+Returns: an operating system Error Code .
+noErr(0)No error
+paramErr (-50)Process serial number is invalid
+</pre>
+ * \note <pre>When you compare two process serial numbers, use the SameProcess
+function rather than any other means, because the interpretation of the bits
+in a process serial number is internal to the Process Manager .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -670,3 +808,4 @@ inline long InvokeControlPanelDefUPP(short message, short item, short numItems,
 #endif
 
 #endif /* __PROCESSES__ */
+*/*/*/*/*/

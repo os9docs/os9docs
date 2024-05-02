@@ -87,10 +87,15 @@ extern "C" {
 
 /** TruncCode, StyledLineBreakCode, and truncation constants moved to
  * QuickDrawText.i */
-struct ScriptRunStatus {
-  SInt8 script;
-  SInt8 runVariant;
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ScriptRunStatus  {
+	char script;/**< */
+	char variant;/**< */
+	}ScriptRunStatus;/**< */
+
 typedef struct ScriptRunStatus ScriptRunStatus;
 struct BreakTable {
   char charTypes[256];
@@ -424,11 +429,12 @@ upperstring(char *theString, Boolean diacSensitive);
 
 /** Old routine name but no new names are mapped to it:*/
 #if CALL_NOT_IN_CARBON
-/**
- *  UprText()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Provide non-localizable uppercasing 
+			\param    textPtr a pointer to the text to be upper cased
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -561,6 +567,31 @@ P2CStr(StringPtr pString);
 /** conversion routines to compiler for carbon */
 #define p2cstr(aStr) (p2cstrcpy((char *)aStr, aStr), (char *)aStr)
 #define c2pstr(aStr) (c2pstrcpy((StringPtr)aStr, aStr), (StringPtr)aStr)
+
+#define C2PStr(a) (StringPtr) c2pstr((Ptr)(a))
+#define P2CStr(a) (Ptr) p2cstr(a)
+#endif
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __TEXTUTILS__ */
+*/ine c2pstr(aStr) (c2pstrcpy((StringPtr)aStr, aStr), (StringPtr)aStr)
 
 #define C2PStr(a) (StringPtr) c2pstr((Ptr)(a))
 #define P2CStr(a) (Ptr) p2cstr(a)

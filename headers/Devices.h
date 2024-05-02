@@ -184,42 +184,67 @@ struct DRVRHeader {
 typedef struct DRVRHeader DRVRHeader;
 typedef DRVRHeader *DRVRHeaderPtr;
 typedef DRVRHeaderPtr *DRVRHeaderHandle;
-struct DCtlEntry {
-  Ptr dCtlDriver;
-  volatile short dCtlFlags;
-  QHdr dCtlQHdr;
-  volatile long dCtlPosition;
-  Handle dCtlStorage;
-  short dCtlRefNum;
-  long dCtlCurTicks;
-  GrafPtr dCtlWindow;
-  short dCtlDelay;
-  short dCtlEMask;
-  short dCtlMenu;
-};
+/**
+<pre>
+ * \note <pre>When a driver serves a slot device the Device Control Entry has six
+additional fields added to the end and is known as an AuxDCE .
+The low-order byte of the dCtlFlags word contains the following flags:
+Bit Number Meaning
+5Set if driver is open
+6Set if driver is RAM-based
+7Set if driver is currently executing
+The high-order byte of the dCtlFlags word contains flags copied from
+the drvrFlags word of the driver.
+DCtlQHdr contains the header of the driver's I/O queue. DCtlPosition is
+used only by drivers of block devices, and indicates the current source or
+destination position of a read or write call. The position is given as a
+number of bytes beyond the physical beginning of the medium used by the
+device. For example, if one logical block of data has just been read from a 3
+1/2" disk via the Disk Driver, dCtlPosition will be 512.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct DCtlEntry  {
+	Ptr dCtlDriver;/**< pointer to ROM driver or handle to*/
+	short dCtlFlags;/**< flags*/
+	QHdr dCtlQHdr;/**< driver I/O queue header*/
+	long dCtlPosition;/**< byte position used by read and write*/
+	Handle dCtlStorage;/**< handle to RAM driver's private*/
+	short dCtlRefNum;/**< driver reference number*/
+	long dCtlCurTicks;/**< used internally*/
+	WindowPtr dCtlWindow;/**< pointer to driver's window*/
+	short dCtlDelay;/**< number of ticks between periodic*/
+	short dCtlEMask;/**< desk accessory event mask*/
+	short dCtlMenu;/**< menu ID of menu associated with*/
+	} DCtlEntry ;/**< */
+
 typedef struct DCtlEntry DCtlEntry;
 typedef DCtlEntry *DCtlPtr;
 typedef DCtlPtr *DCtlHandle;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct AuxDCE {
-  Ptr dCtlDriver;
-  volatile short dCtlFlags;
-  QHdr dCtlQHdr;
-  long dCtlPosition;
-  Handle dCtlStorage;
-  short dCtlRefNum;
-  long dCtlCurTicks;
-  GrafPtr dCtlWindow;
-  short dCtlDelay;
-  short dCtlEMask;
-  short dCtlMenu;
-  SInt8 dCtlSlot;
-  SInt8 dCtlSlotId;
-  long dCtlDevBase;
-  Ptr dCtlOwner;
-  SInt8 dCtlExtDev;
-  SInt8 fillByte;
-  UInt32 dCtlNodeID;
-};
+	Ptr dCtlDriver;/**< Address of either RAM or ROM*/
+	short dCtlFlags;/**< If set, Bit =driver open, Bit*/
+	QHdr dCtlQhdr;/**< Address of queue header*/
+	long dCtlPosition;/**< Current source or destination of a*/
+	Handle dCtlStorage;/**< Handle to private storage for RAM*/
+	short dCtlRefNum;/**< Device driver reference number*/
+	long dCtlCurTicks;/**< For internal use*/
+	WindowPtr dCtlWindow;/**< Address of driver's window*/
+	short dCtlDelay;/**< Time (in ticks) between actions*/
+	short dCtlEMask;/**< Event mask for desk accessory*/
+	short dCtlMenu;/**< ID for menu associated with device*/
+	SignedByte dCtlSlot;/**< Slot number*/
+	SignedByte dCtlSlotID;/**< Resource directory ID for the slot*/
+	long dCtlDevBase;/**< Points to add-in card's base address*/
+	long reserved;/**< For future use*/
+	short dCtlExtDev;/**< External device ID*/
+	short fillByte;/**< */
+	} AuxDCE ;/**< */
+
 typedef struct AuxDCE AuxDCE;
 typedef AuxDCE *AuxDCEPtr;
 typedef AuxDCEPtr *AuxDCEHandle;
@@ -1082,11 +1107,23 @@ Control(short refNum, short csCode, const void *csParamPtr);
 EXTERN_API(OSErr)
 Status(short refNum, short csCode, void *csParamPtr);
 
-/**
- *  KillIO()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Terminate all current and pending device driver reads and writes 
+			
+			<pre>KillIO immediately terminates all communication with the device driver
+indicated by the reference number. Unlike CloseDriver , it does NOT wait to
+complete any pending I/O.
+refNum is the reference number of an open device driver. See OpenDriver
+.
+</pre>
+ * \returns <pre>an operating system Error Code . It will be one of:
+noErr(0) No error
+badUnitErr (-21) refNum doesn't match unit table
+unitEmptyErr (-22) refnum specifies NIL handle in unit table
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -1275,11 +1312,51 @@ PBKillIOImmed(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA206);
 EXTERN_API(short)
 OpenDeskAcc(ConstStr255Param deskAccName) ONEWORDINLINE(0xA9B6);
 
-/**
- *  CloseDeskAcc()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Close a desk accessory 
+			
+			<pre>Call CloseDeskAcc when the user selects the Close item of your File menu
+and the frontmost window is that of a DA. The DA window is removed from the
+screen and the next-to-frontmost window is reactivated.
+daRefNum identifies the DA to close. The value to use is stored in the
+windowKind field of the DA's window (see the example, below).
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>There is no need to use this call when the user closes a DA by clicking its
+Close box; in that case the Desk Manager takes care of it. Use
+CloseDeskAcc only when a system window is frontmost and the user
+picks Close from your File menu.
+It is incorrect to use the daRefNum  returned from a previous call to
+OpenDeskAcc . The DA reference number is stored in the DA's
+WindowRecord . It is a negative number in the windowKind field. This has
+ramifications for DAs (see IsDialogEvent ). For non-DA applications, a
+typical sequence might include:
+Boolean isMyWindow ( WindowPtr theWindow);
+WindowPeek wPeek;
+long mr;
+EventRecord theEvent;
+WindowRecord whichWindow;
+if(WaitNextEvent (everyEvent , &theEvent, 0, nil)) {
+if ( theEvent. what == mouseDown ) {
+switch ( FindWindow ( theEvent. where, &whichWindow ) ) {
+case inMenuBar :
+mr = MenuSelect ( theEvent. where );/* user interaction*/
+if ( HiWord ( mr ) == FILE_MENU ) { /* in File menu? */
+if ( LoWord ( mr ) == CLOSE_ITM ) {/* Close Item ? */
+if ( isMyWindow( FrontWindow ()) ) {
+/* if it's mine */
+/* ... close one of my application's windows ..*/
+}
+else { /* must be a DA window */
+wPeek = ( WindowPeek )FrontWindow ();
+CloseDeskAcc ( wPeek->windowKind );
+}
+}
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -1346,3 +1423,4 @@ opendriver(const char *driverName, short *refNum);
 #endif
 
 #endif /* __DEVICES__ */
+*/*/

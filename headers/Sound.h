@@ -694,11 +694,16 @@ enum {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-struct SndCommand {
-  unsigned short cmd;
-  short param1;
-  long param2;
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct SndCommand  {
+	unsigned short cmd;/**< command number*/
+	short param;/**< first parameter*/
+	long param;/**< second parameter*/
+	} SndCommand ;/**< */
+
 typedef struct SndCommand SndCommand;
 typedef struct SndChannel SndChannel;
 
@@ -706,19 +711,28 @@ typedef SndChannel *SndChannelPtr;
 typedef CALLBACK_API(void, SndCallBackProcPtr)(SndChannelPtr chan,
                                                SndCommand *cmd);
 typedef STACK_UPP_TYPE(SndCallBackProcPtr) SndCallBackUPP;
-struct SndChannel {
-  SndChannelPtr nextChan;
-  Ptr firstMod; /** reserved for the Sound Manager */
-  SndCallBackUPP callBack;
-  long userInfo;
-  long wait; /** The following is for internal Sound Manager use only.*/
-  SndCommand cmdInProgress;
-  short flags;
-  short qLength;
-  short qHead;
-  short qTail;
-  SndCommand queue[128];
-};
+/**
+<pre>Most applications do not need to worry about creating or disposing of sound
+channels because the high-level Sound Manager routines take care of these
+automatically. If you are using low-level Sound Manager routines, you can
+create your own sound channels (with the SndNewChannel function).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct SndChannel  {
+	struct SndChannel *nextChan;/**< */
+	Ptr firstMod;/**< reserved for the*/
+	SndCallBackProcPtr callBack;/**< pointer to callback proc*/
+	long userInfo;/**< free for application's use*/
+	long wait;/**< The following is for*/
+	SndCommand  cmdInProgress;/**< */
+	short flags;/**< */
+	short qLength;/**< */
+	short qHead;/**< next spot to read or - if*/
+	short qTail;/**< next spot to write = qHead*/
+	SndCommand queue[stdQLength];/**< */
+	}SndChannel ;/**< */
+
 
 /**
  *  NewSndCallBackUPP()
@@ -798,30 +812,50 @@ inline void InvokeSndCallBackUPP(SndChannelPtr chan, SndCommand *cmd,
 #endif /** CALL_NOT_IN_CARBON */
 
 /**MACE structures*/
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct StateBlock {
-  short stateVar[64];
-};
+	short stateVar[ stateBlockSize ];/**<  */
+	} StateBlock ;/**< */
+
 typedef struct StateBlock StateBlock;
 typedef StateBlock *StateBlockPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct LeftOverBlock {
-  unsigned long count;
-  SInt8 sampleArea[32];
-};
+	unsigned long count;/**<  */
+	char sampleArea[ leftOverBlockSize ];/**< */
+	}LeftOverBlock ;/**< */
+
 typedef struct LeftOverBlock LeftOverBlock;
 typedef LeftOverBlock *LeftOverBlockPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ModRef {
-  unsigned short modNumber;
-  long modInit;
-};
+	unsigned short modNumber;/**<  */
+	long modInit;/**<  */
+	}ModRef;/**< */
+
 typedef struct ModRef ModRef;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct SndListResource {
-  short format;
-  short numModifiers;
-  ModRef modifierPart[1];
-  short numCommands;
-  SndCommand commandPart[1];
-  UInt8 dataPart[1];
-};
+	short format;/**< */
+	short numModifiers;/**< */
+	ModRef modifierParts[];/**< This is a variable length array*/
+	short numCommands;/**< */
+	SndCommand commandPart[];/**< This is a variable length array*/
+	char datatPart[];/**< This is a variable length array*/
+	} SndListResource ;/**< */
+
 typedef struct SndListResource SndListResource;
 typedef SndListResource *SndListPtr;
 typedef SndListPtr *SndListHandle;
@@ -838,66 +872,195 @@ typedef struct Snd2ListResource Snd2ListResource;
 typedef Snd2ListResource *Snd2ListPtr;
 typedef Snd2ListPtr *Snd2ListHandle;
 typedef Snd2ListHandle Snd2ListHndl;
-struct SoundHeader {
-  Ptr samplePtr;            /**if NIL then samples are in sampleArea*/
-  unsigned long length;     /**length of sound in bytes*/
-  UnsignedFixed sampleRate; /**sample rate for this sound*/
-  unsigned long loopStart;  /**start of looping portion*/
-  unsigned long loopEnd;    /**end of looping portion*/
-  UInt8 encode;             /**header encoding*/
-  UInt8 baseFrequency;      /**baseFrequency value*/
-  UInt8 sampleArea[1];      /**space for when samples follow directly*/
-};
+/**
+<pre><table><tbody>
+<tr>
+	<td>samplePtr</td>
+	<td><pre>A pointer to the sampled sound data. If the sampled sound is
+in memory immediately after the baseFrequency field,
+this field should be set to NULL. Otherwise, this field is a
+to the memory location of the sampled sound data.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>length</td>
+	<td><pre>The number of bytes in the sampled sound data.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>sampleRate</td>
+	<td><pre>The rate at which the sample was originally recorded. The
+sample rates are shown in theTable below. Note
+the sample rate is declared as a Fixed data type, but the
+significant bit is not treated as a sign bit; instead, that bit
+interpreted as having the value 32,768.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>loopStart</td>
+	<td><pre>The starting point of the portion of the sampled sound header
+is to be used by the Sound Manager when determining
+duration of freqDurationCmd . These loop points specify the
+numbers in the sampled data to be used as the beginning
+end points to cycle through when playing the sound.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>loopEnd</td>
+	<td><pre>The end point of the portion of the sampled sound header that
+to be used by the Sound Manager when determining the
+of freqDurationCmd . If no looping is desired, set both
+and loopEnd to 0.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>encode</td>
+	<td><pre>The method of encoding used to generate the sampled sound
+The current encoding option values are
+standard sound header
+extended sound header
+compressed sound header
+a standard sound header, you should specify the constant
+Encode option values in the ranges 0 through 63 and
+to 255 are reserved for use by Apple. You are free to use
+in the range 64 through 127 for your own encode
+options.
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
+struct SoundHeader  {
+	Ptr samplePtr;/**< if NULL then samples are in*/
+	unsigned long  length;/**< length of sound in bytes*/
+	Fixed sampleRate;/**< sample rate for this sound*/
+	unsigned long loopStart;/**< start of looping portion*/
+	unsigned long  loopEnd;/**< end of looping portion*/
+	unsigned char encode;/**< header encoding*/
+	unsigned char baseFrequency;/**< baseFrequency value*/
+	char sampleArea[];/**< */
+
 typedef struct SoundHeader SoundHeader;
 typedef SoundHeader *SoundHeaderPtr;
-struct CmpSoundHeader {
-  Ptr samplePtr;             /**if nil then samples are in sample area*/
-  unsigned long numChannels; /**number of channels i.e. mono = 1*/
-  UnsignedFixed
-      sampleRate;          /**sample rate in Apples Fixed point representation*/
-  unsigned long loopStart; /**loopStart of sound before compression*/
-  unsigned long loopEnd;   /**loopEnd of sound before compression*/
-  UInt8 encode;            /**data structure used , stdSH, extSH, or cmpSH*/
-  UInt8 baseFrequency;     /**same meaning as regular SoundHeader*/
-  unsigned long
-      numFrames; /**length in frames ( packetFrames or sampleFrames )*/
-  extended80 AIFFSampleRate;        /**IEEE sample rate*/
-  Ptr markerChunk;                  /**sync track*/
-  OSType format;                    /**data format type, was futureUse1*/
-  unsigned long futureUse2;         /**reserved by Apple*/
-  StateBlockPtr stateVars;          /**pointer to State Block*/
-  LeftOverBlockPtr leftOverSamples; /**used to save truncated samples between
-                                       compression calls*/
-  short compressionID; /**0 means no compression, non zero means compressionID*/
-  unsigned short packetSize; /**number of bits in compressed sample packet*/
-  unsigned short
-      snthID; /**resource ID of Sound Manager snth that contains NRT C/E*/
-  unsigned short sampleSize; /**number of bits in non-compressed sample*/
-  UInt8 sampleArea[1];       /**space for when samples follow directly*/
-};
+/**
+<pre><table><tbody>
+<tr>
+	<td>samplePtr</td>
+	<td><pre>Indicates the location of the compressed sound frames.
+samplePtr is NIL, then the frames are located in the
+field of the
+sound header. Otherwise, samplePtr
+to a buffer that contains the frames.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>numChannels</td>
+	<td><pre>Indicates how many channels are in the sample.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>sampleRate</td>
+	<td><pre>Indicates the sample rate at which the frames were
+before compression. The approximate sample
+are shown in the Table "Sample Rates". under the
+ entry. Note that the sample rate is
+as a Fixed data type, but the most significant
+is not treated as a sign bit; instead, that bit is
+as having the value 32,768.
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
+struct CmpSoundHeader  {
+	Ptr samplePtr;/**< if NIL then samples are in*/
+	unsigned long  numChannels;/**< number of channels in sample*/
+	Fixed sampleRate;/**< sample rate in Fixed point*/
+	unsigned long  loopStart;/**< start of looping portion*/
+	unsigned long  loopEnd;/**< end of looping portion*/
+	unsigned char encode;/**< data structure used , stdSH,*/
+	unsigned char baseFrequency;/**< baseFrequency value*/
+	unsigned long numFrames;/**< length in total number of frames*/
+	extended AIFFSampleRate;/**< IEEE sample rate*/
+	Ptr markerChunk;/**< sync track*/
+	Ptr futureUse;/**< reserved by Apple*/
+	Ptr futureUse;/**< reserved by Apple*/
+	StateBlockPtr stateVars;/**< pointer to StateBlock*/
+	LeftOverBlockPtr leftOverSamples;/**< used to save truncated samples*/
+	unsigned short compressionID;/**<  means no compression, non*/
+	unsigned short packetSize;/**< number of bits in compressed*/
+	unsigned short snthID;/**< resource ID of*/
+	unsigned short sampleSize;/**< number of bits in*/
+	char sampleArea[];/**< space for when samples follow*/
+	} CmpSoundHeader ;/**< */
+
 typedef struct CmpSoundHeader CmpSoundHeader;
 typedef CmpSoundHeader *CmpSoundHeaderPtr;
-struct ExtSoundHeader {
-  Ptr samplePtr;             /**if nil then samples are in sample area*/
-  unsigned long numChannels; /**number of channels,  ie mono = 1*/
-  UnsignedFixed
-      sampleRate;          /**sample rate in Apples Fixed point representation*/
-  unsigned long loopStart; /**same meaning as regular SoundHeader*/
-  unsigned long loopEnd;   /**same meaning as regular SoundHeader*/
-  UInt8 encode;            /**data structure used , stdSH, extSH, or cmpSH*/
-  UInt8 baseFrequency;     /**same meaning as regular SoundHeader*/
-  unsigned long numFrames; /**length in total number of frames*/
-  extended80 AIFFSampleRate; /**IEEE sample rate*/
-  Ptr markerChunk;           /**sync track*/
-  Ptr instrumentChunks;      /**AIFF instrument chunks*/
-  Ptr AESRecording;
-  unsigned short sampleSize; /**number of bits in sample*/
-  unsigned short futureUse1; /**reserved by Apple*/
-  unsigned long futureUse2;  /**reserved by Apple*/
-  unsigned long futureUse3;  /**reserved by Apple*/
-  unsigned long futureUse4;  /**reserved by Apple*/
-  UInt8 sampleArea[1];       /**space for when samples follow directly*/
-};
+/**
+<pre><table><tbody>
+<tr>
+	<td>samplePtr</td>
+	<td><pre>A pointer to the sampled sound data. If the sampled
+is located in memory immediately after the
+field, then this field should be set to NIL.
+this field is a pointer to the memory
+of the sampled sound data.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>numChannels</td>
+	<td><pre>The number of channels in the sampled sound data.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>sampleRate</td>
+	<td><pre>The rate at which the sample was originally recorded.
+approximate sample rates are shown in the Table
+Rates". Note that the sample rate is declared as
+Fixed data type, but the most significant bit is not
+as a sign bit; instead, that bit is interpreted as
+the value 32,768.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>sampleRate</td>
+	<td><pre>sampleRate
+(kHz) Rate (Hz) value (Fixed)
+kHzH5563.6363 0x15BBA2E8
+kHzH7418.1818 0x1CFA2E8B
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
+struct ExtSoundHeader  {
+	Ptr samplePtr;/**<  if NIL then samples are in*/
+	unsigned long  numChannels;/**< number of channels,  ie mono = */
+	Fixed sampleRate;/**< sample rate in Fixed point*/
+	unsigned long  loopStart;/**< start of looping portion*/
+	unsigned long  loopEnd;/**< end of looping portion*/
+	unsigned char encode;/**< data structure used , stdSH,*/
+	unsigned char baseFrequency;/**< baseFrequency value*/
+	unsigned long numFrames;/**< length in total number of frames*/
+	extended AIFFSampleRate;/**< IEEE sample rate*/
+	Ptr markerChunk;/**< sync track*/
+	Ptr instrumentChunks;/**< AIFF instrument chunks*/
+	Ptr AESRecording;/**< */
+	unsigned short sampleSize;/**< number of bits in sample*/
+	unsigned short futureUse;/**< reserved by Apple*/
+	unsigned long futureUse;/**< reserved by Apple*/
+	unsigned long futureUse;/**< reserved by Apple*/
+	unsigned long futureUse;/**< reserved by Apple*/
+	char sampleArea[];/**< space for when samples follow*/
+	} ExtSoundHeader ;/**< */
+
 typedef struct ExtSoundHeader ExtSoundHeader;
 typedef ExtSoundHeader *ExtSoundHeaderPtr;
 union SoundHeaderUnion {
@@ -906,12 +1069,17 @@ union SoundHeaderUnion {
   ExtSoundHeader extHeader;
 };
 typedef union SoundHeaderUnion SoundHeaderUnion;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ConversionBlock {
-  short destination;
-  short unused;
-  CmpSoundHeaderPtr inputPtr;
-  CmpSoundHeaderPtr outputPtr;
-};
+	short destination;/**<  */
+	short unused;/**<  */
+	CmpSoundHeaderPtr inputPtr;/**<  */
+	CmpSoundHeaderPtr outputPtr;/**<  */
+	} ConversionBlock ;/**< */
+
 typedef struct ConversionBlock ConversionBlock;
 typedef ConversionBlock *ConversionBlockPtr;
 /** ScheduledSoundHeader flags*/
@@ -944,40 +1112,203 @@ struct ExtendedScheduledSoundHeader {
 };
 typedef struct ExtendedScheduledSoundHeader ExtendedScheduledSoundHeader;
 typedef ExtendedScheduledSoundHeader *ExtendedScheduledSoundHeaderPtr;
+/**
+<pre><table><tbody>
+<tr>
+	<td>smMaxCPULoad</td>
+	<td><pre>The maximum load that the Sound Manager will not
+when allocating channels. The smMaxCPULoad field
+set to a default value of 100 when the system starts
+up.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>smNumChannels</td>
+	<td><pre>The number of sound channels that are currently
+by all applications. This does not mean that the
+allocated are being used, only that they have
+allocated and that CPU loading is being reserved for
+channels.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>smCurCPULoad</td>
+	<td><pre>The CPU load that is being taken up by currently
+channels.
+code in Obtaining Information About Sound Features illustrates
+use of SndManagerStatus . It defines a function that returns the number
+sound channels currently allocated by all applications.
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
 struct SMStatus {
-  short smMaxCPULoad;
-  short smNumChannels;
-  short smCurCPULoad;
-};
+	short smMaxCPULoad;/**< maximum load on all channels*/
+	short smNumChannels;/**< number of allocated channels*/
+	short smCurCPULoad;/**< current load on all channels*/
+	} SMStatus ;/**< */
+
 typedef struct SMStatus SMStatus;
 typedef SMStatus *SMStatusPtr;
+/**
+<pre><table><tbody>
+<tr>
+	<td>scStartTime</td>
+	<td><pre>If scChannelBusy is TRUE, then scStartTime is the
+time in seconds for a play from disk on the
+channel. If scChannelBusy is FALSE, then
+is 0.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scEndTime</td>
+	<td><pre>If scChannelBusy is TRUE, then scEndTime is the
+time in seconds for a play from disk on the
+channel. If scChannelBusy is FALSE, then
+ is 0.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scCurrentTime</td>
+	<td><pre>If scChannelBusy is TRUE, then scCurrentTime is the
+time in seconds for a play from disk on the
+channel. If scChannelBusy is FALSE, then
+ is 0.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scChannelBusy</td>
+	<td><pre>If the specified channel is currently making sound,
+scChannelBusy is TRUE; otherwise,
+ is FALSE.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scChannelDisposed</td>
+	<td><pre>Reserved for use by Apple.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scChannelPaused</td>
+	<td><pre>If the specified channel is paused, then
+ is TRUE; otherwise, scChannelPaused
+FALSE.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scUnused</td>
+	<td><pre>Reserved for use by Apple.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scChannelAttributes</td>
+	<td><pre>The current attributes of the specified channel. These
+are in the channel initialization parameters
+format.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>scCPULoad</td>
+	<td><pre>The CPU load for the specified channel.
+can mask out certain values in the scChannelAttributes field to how a
+has been initialized.
+mask for right/left pan values
+mask for sample rate values
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
 struct SCStatus {
-  UnsignedFixed scStartTime;
-  UnsignedFixed scEndTime;
-  UnsignedFixed scCurrentTime;
-  Boolean scChannelBusy;
-  Boolean scChannelDisposed;
-  Boolean scChannelPaused;
-  Boolean scUnused;
-  unsigned long scChannelAttributes;
-  long scCPULoad;
-};
+	Fixed scStartTime;/**< starting time for play from disk*/
+	Fixed scEndTime;/**< ending time for play from disk*/
+	Fixed scCurrentTime;/**< current time for play from disk*/
+	Boolean scChannelBusy;/**< TRUE if channel is making sound*/
+	Boolean scChannelDisposed;/**< reserved*/
+	Boolean scChannelPaused;/**< TRUE if channel is paused*/
+	Boolean scUnused;/**< unused*/
+	unsigned long scChannelAttributes;/**< attributes of this channel*/
+	long scCPULoad;/**< CPU load for this channel*/
+	} SCStatus ;/**< */
+
 typedef struct SCStatus SCStatus;
 typedef SCStatus *SCStatusPtr;
-struct AudioSelection {
-  long unitType;
-  UnsignedFixed selStart;
-  UnsignedFixed selEnd;
-};
+/**
+<pre><table><tbody>
+<tr>
+	<td>unitType</td>
+	<td><pre>The type of unit of time used in the start and end fields. You
+set this to seconds by specifying the constant
+.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>selStart</td>
+	<td><pre>The starting point in seconds of the sound to play.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>selEnd</td>
+	<td><pre>The ending point in seconds of the sound to play.
+a constant to specify the unit type.
+seconds
+no selection
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
+struct AudioSelection  {
+	long unitType;/**< type of time unit*/
+	Fixed selStart;/**< starting point of selection*/
+	Fixed selEnd;/**< ending point of selection*/
+	} AudioSelection ;/**< */
+
 typedef struct AudioSelection AudioSelection;
 typedef AudioSelection *AudioSelectionPtr;
 #if CALL_NOT_IN_CARBON
+/**
+<pre><table><tbody>
+<tr>
+	<td>dbNumFrames</td>
+	<td><pre>The number of frames in the dbSoundData array.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>dbFlags</td>
+	<td><pre>Buffer status flags.
+Two long words into which you can place information that you
+to access in your doubleback procedure.
+A variable-length array. You write samples into this array,
+the synthesizer reads samples out of this array.
+buffer status flags field for each of the two buffers may contain either of
+values:
+dbBufferReady
+dbLastBuffer
+other bits in the dbFlags field are reserved by Apple, and your application
+not modify them.
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
 struct SndDoubleBuffer {
-  long dbNumFrames;
-  long dbFlags;
-  long dbUserInfo[2];
-  SInt8 dbSoundData[1];
-};
+	long dbNumFrames;/**<  number of frames in buffer*/
+	long dbFlags;/**<  buffer status flags*/
+	long dbUserInfo[];/**<  for application's use*/
+	char dbSoundData[];/**<  array of data*/
+	} SndDoubleBuffer ;/**< */
+
 typedef struct SndDoubleBuffer SndDoubleBuffer;
 typedef SndDoubleBuffer *SndDoubleBufferPtr;
 
@@ -1070,15 +1401,75 @@ inline void InvokeSndDoubleBackUPP(SndChannelPtr channel,
   InvokeSndDoubleBackUPP(channel, doubleBufferPtr, userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 
+/**
+<pre><table><tbody>
+<tr>
+	<td>dbhNumChannels</td>
+	<td><pre>Indicates the number of channels for the sound (1 for
+sound, 2 for stereo).
+	</pre></td>
+</tr>
+
+<tr>
+	<td>dbhSampleSize</td>
+	<td><pre>Indicates the sample size for the sound if the sound is
+compressed. If the sound is compressed,
+ should be set to 0. Samples that are
+bits have a dbhSampleSize value of 8; samples that
+9-16 bits have a dbhSampleSize value of 16.
+only 8-bit samples are supported. For
+information on sample sizes, refer to the AIFF
+specification.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>dbhCompressionID</td>
+	<td><pre>Indicates the compression identification number of the
+algorithm, if the sound is compressed. If
+sound is not compressed, dbhCompressionID should
+set to 0.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>dbhPacketSize</td>
+	<td><pre>Indicates the packet size for the compression
+specified by dbhCompressionID , if the sound
+compressed.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>dbhSampleRate</td>
+	<td><pre>Indicates the sample rate for the sound. Note that the
+rate is declared as a Fixed data type, but the
+significant bit is not treated as a sign bit; instead,
+bit is interpreted as having the value 32,768.
+Indicates an array of two pointers, each of which
+point to a valid SndDoubleBuffer record.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>dbhDoubleBack</td>
+	<td><pre>Points to the application-defined routine that is called
+the double buffers are switched and the exhausted
+needs to be refilled.
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
 struct SndDoubleBufferHeader {
-  short dbhNumChannels;
-  short dbhSampleSize;
-  short dbhCompressionID;
-  short dbhPacketSize;
-  UnsignedFixed dbhSampleRate;
-  SndDoubleBufferPtr dbhBufferPtr[2];
-  SndDoubleBackUPP dbhDoubleBack;
-};
+	short dbhNumChannels;/**< number of sound*/
+	short dbhSampleSize;/**< sample size, if*/
+	short dbhCompressionID;/**< ID of compression*/
+	short dbhPacketSize;/**< number of bits per*/
+	Fixed dbhSampleRate;/**< sample rate*/
+	SndDoubleBufferPtr dbhBufferPtr[];/**< pointers to*/
+	SndDoubleBackProcPtr dbhDoubleBack;/**< pointer to doubleback*/
+	} SndDoubleBufferHeader ;/**< */
+
 typedef struct SndDoubleBufferHeader SndDoubleBufferHeader;
 typedef SndDoubleBufferHeader *SndDoubleBufferHeaderPtr;
 struct SndDoubleBufferHeader2 {
@@ -1243,18 +1634,72 @@ typedef REGISTER_UPP_TYPE(SIInterruptProcPtr) SIInterruptUPP;
 typedef STACK_UPP_TYPE(SICompletionProcPtr) SICompletionUPP;
 
 /**Sound Input Parameter Block*/
+/**
+<pre><table><tbody>
+<tr>
+	<td>inRefNum</td>
+	<td><pre>The reference number of the sound input device (as
+from SPBOpenDevice ) from which the
+is to occur.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>count</td>
+	<td><pre>On input, the number of bytes to record. On output, the
+of bytes actually recorded. If this field
+a longer recording time than the milliseconds
+then the milliseconds field is ignored on input.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>milliseconds</td>
+	<td><pre>On input, the number of milliseconds to record. On
+the number of milliseconds actually recorded. If
+field specifies a longer recording time than the
+field, then the count field is ignored on input.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>bufferLength</td>
+	<td><pre>The length of the buffer into which recorded sound data
+placed. The recording time specified by the count or
+field is truncated to fit into this length, if
+necessary.
+A pointer to the buffer into which recorded data is
+If this field is NULL, then the count,
+and bufferLength fields are ignored and the
+will continue indefinitely until
+ is called. However, the data is
+stored anywhere, so setting this field to NULL is
+only if you want to do something in your
+routine but do not want to save the recorded
+sound.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>completionRoutine</td>
+	<td><pre>A pointer to a completion routine that is called when
+recording terminates as a result of your calling
+ or when the limit specified by
+count or milliseconds field is reached. The
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
 struct SPB {
-  long inRefNum;                     /**reference number of sound input device*/
-  unsigned long count;               /**number of bytes to record*/
-  unsigned long milliseconds;        /**number of milliseconds to record*/
-  unsigned long bufferLength;        /**length of buffer in bytes*/
-  Ptr bufferPtr;                     /**buffer to store sound data in*/
-  SICompletionUPP completionRoutine; /**completion routine*/
-  SIInterruptUPP interruptRoutine;   /**interrupt routine*/
-  long userLong;                     /**user-defined field*/
-  OSErr error;                       /**error*/
-  long unused1;                      /**reserved - must be zero*/
-};
+	long inRefNum;/**< reference number of input device*/
+	unsigned long count;/**< number of bytes to record*/
+	unsigned long milliseconds;/**< number of milliseconds to record*/
+	unsigned long bufferLength;/**< length of buffer to record into*/
+	ProcPtr completionRoutine;/**< pointer to a completion routine*/
+	ProcPtr interruptRoutine;/**< pointer to an interrupt routine*/
+	long userLong;/**< for application's use*/
+	} SPB;/**< */
+
 
 /**
  *  NewSoundParamUPP()
@@ -1756,11 +2201,25 @@ SndControl(short id, SndCommand *cmd) ONEWORDINLINE(0xA806);
 /** Sound Manager 2.0 and later, uses _SoundDispatch */
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  SndSoundManagerVersion()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SndSoundManagerVersion Determine the version of the Sound Manager 
+			
+			<pre>You can use SndSoundManagerVersion to determine the version of the
+Sound Manager tools available on a machine.
+Returns: a version number that contains the same information as in
+the first 4 bytes of a 'vers' resource.
+</pre>
+ * \note <pre>You can call SndSoundManagerVersion at interrupt time.
+You can obtain information about a sound channel and about the
+Sound Manager itself by calling the SndControl , SndChannelStatus ,
+and SndManagerStatus functions. You can obtain the version numbers of
+the Sound Manager , the MACE tools, and the sound input routines by
+calling the SndSoundManagerVersion , MACEVersion , and
+SPBVersion functions, respectively.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1783,11 +2242,31 @@ SndStartFilePlay(SndChannelPtr chan, short fRefNum, short resNum,
                  FilePlayCompletionUPP theCompletion, Boolean async)
     FOURWORDINLINE(0x203C, 0x0D00, 0x0008, 0xA800);
 
-/**
- *  SndPauseFilePlay()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SndPauseFilePlay Suspend asynchronous play from disk 
+			
+			<pre>You can use SndPauseFilePlay in conjunction with SndStopFilePlay to
+control play from disk on a sound channel. Note that this call can be made only
+if your application has already called SndStartFilePlay with a valid sound
+channel. This function cannot be used with a synchronous SndStartFilePlay
+because, by definition, program control does not return to the caller until
+after the sound has completely finished playing.
+chan should be a pointer to a valid sound channel. If the channel is not
+being used for play from disk, then SndPauseFilePlay returns the
+result code channelNotBusy. If the channel is busy and paused, then
+play from disk is resumed. If the channel is busy and the channel is
+not paused, then play from disk is suspended..
+Returns: an operating system Error Code .
+noErr(0)No error
+queueFull (-203)No room in the queue
+badChannel (-205)Channel is corrupt or unusable
+channelNotBusy (-211)Channel not currently used
+</pre>
+ * \note <pre>You can call SndPauseFilePlay at interrupt time.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -1821,11 +2300,29 @@ EXTERN_API(OSErr)
 SndChannelStatus(SndChannelPtr chan, short theLength, SCStatusPtr theStatus)
     FOURWORDINLINE(0x203C, 0x0510, 0x0008, 0xA800);
 
-/**
- *  SndManagerStatus()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SndManagerStatus Determine information about the Sound Manager 
+			
+			<pre>You can use SndManagerStatus to determine the status of the
+Sound Manager sound channel.
+theLength should be the size in bytes of the SMStatus structure that
+theStatus points to.
+theStatus should be a pointer to an SMStatus structure which is filled out
+with the status information.
+Returns: an operating system Error Code .
+noErr(0)No error
+</pre>
+ * \note <pre>You can call SndManagerStatus at interrupt time.
+You can obtain information about a sound channel and about the
+Sound Manager itself by calling the SndControl , SndChannelStatus ,
+and SndManagerStatus functions. You can obtain the version numbers of
+the Sound Manager , the MACE tools, and the sound input routines by
+calling the SndSoundManagerVersion , MACEVersion , and
+SPBVersion functions, respectively.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1833,11 +2330,18 @@ EXTERN_API(OSErr)
 SndManagerStatus(short theLength, SMStatusPtr theStatus)
     FOURWORDINLINE(0x203C, 0x0314, 0x0008, 0xA800);
 
-/**
- *  SndGetSysBeepState()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SndGetSysBeepState Determine whether SysBeep is enabled 
+			
+			<pre>The SndGetSysBeepState procedure is used to determine whether SysBeep
+is enabled.
+sysBeepState is one of two states , either the sysBeepDisable or the
+sysBeepEnable constant.
+Returns: none
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1845,11 +2349,19 @@ EXTERN_API(void)
 SndGetSysBeepState(short *sysBeepState)
     FOURWORDINLINE(0x203C, 0x0218, 0x0008, 0xA800);
 
-/**
- *  SndSetSysBeepState()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SndSetSysBeepState Set the state of the system alert sound.. 
+			
+			<pre>You can use SndSetSysBeepState to set the state of the system alert sound.
+sysBeepState is one of two states , either the sysBeepDisable or the
+sysBeepEnable constant.
+Returns: an operating system Error Code .
+noErr(0)No error
+paramErr (-50)A parameter is incorrect
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1871,11 +2383,25 @@ SndPlayDoubleBuffer(SndChannelPtr chan, SndDoubleBufferHeaderPtr theParams)
     FOURWORDINLINE(0x203C, 0x0420, 0x0008, 0xA800);
 
 /** MACE compression routines, uses _SoundDispatch */
-/**
- *  MACEVersion()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Determine the version of the MACE tools 
+			
+			<pre>You can use MACEVersion to determine the version of the MACE tools
+available on a machine.
+Returns: a version number that contains the same information as in the
+first 4 bytes of a 'vers' resource.
+</pre>
+ * \note <pre> You can call MACEVersion at interrupt time.
+You can obtain information about a sound channel and about the
+Sound Manager itself by calling the SndControl , SndChannelStatus ,
+and SndManagerStatus functions. You can obtain the version numbers of
+the Sound Manager , the MACE tools, and the sound input routines by
+calling the SndSoundManagerVersion , MACEVersion , and
+SPBVersion functions, respectively.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -2656,11 +3182,25 @@ enum {
 enum { kDelegatedSoundComponentSelectors = 0x0100 };
 
 /** Sound Input Manager routines, uses _SoundDispatch */
-/**
- *  SPBVersion()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Determine the version of the sound input routines 
+			
+			<pre>You can use SPBVersion to determine the version of the sound input
+routines available on a machine.
+Returns: a version number that contains the same information as in the
+first 4 bytes of a 'vers' resource.
+</pre>
+ * \note <pre>You can call SPBVersion at interrupt time.
+You can obtain information about a sound channel and about the
+Sound Manager itself by calling the SndControl , SndChannelStatus ,
+and SndManagerStatus functions. You can obtain the version numbers of
+the Sound Manager , the MACE tools, and the sound input routines by
+calling the SndSoundManagerVersion , MACEVersion , and
+SPBVersion functions, respectively.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2781,22 +3321,40 @@ SPBRecordToFile(short fRefNum, SPBPtr inParamPtr, Boolean asynchFlag)
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  SPBPauseRecording()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SPBPauseRecording Pause recording from the specified device 
+			
+			<pre>The SPBPauseRecording function pauses recording from the device
+specified by the inRefNum parameter. The recording must be asynchronous for
+this call to have any effect
+inRefNum must contain a valid reference number for an input device
+Returns: an operating system Error Code .
+noErr(0)No error
+siBadSoundInDevice (-221)Invalid sound input device
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(OSErr)
 SPBPauseRecording(long inRefNum) FOURWORDINLINE(0x203C, 0x0228, 0x0014, 0xA800);
 
-/**
- *  SPBResumeRecording()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SPBResumeRecording Resume recording from the specified device 
+			
+			<pre>The SPBResumeRecording function resumes recording from the device
+specified by the inRefNum parameter. The recording must be asynchronous for
+this call to have any effect.
+inRefNum must contain a valid reference number for an input device
+Returns: an operating system Error Code .
+noErr(0)No error
+siBadSoundInDevice (-221)Invalid sound input device
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2804,22 +3362,56 @@ EXTERN_API(OSErr)
 SPBResumeRecording(long inRefNum)
     FOURWORDINLINE(0x203C, 0x022C, 0x0014, 0xA800);
 
-/**
- *  SPBStopRecording()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SPBStopRecording Resume recording from the specified device 
+			
+			<pre>The SPBStopRecording function stops recording from the device specified
+by the inRefNum parameter. The recording must be asynchronous for this call
+to have any effect. When you call SPBStopRecording , the completion routine
+specified in the completionRoutine field of the sound input parameter block ,
+SPB, is called and the error field of that parameter block is set to abortErr .
+inRefNum must contain a valid reference number for an input device
+Returns: an operating system Error Code .
+noErr(0)No error
+siBadSoundInDevice (-221)Invalid sound input device
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(OSErr)
 SPBStopRecording(long inRefNum) FOURWORDINLINE(0x203C, 0x0230, 0x0014, 0xA800);
 
-/**
- *  SPBGetRecordingStatus()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SPBGetRecordingStatus Obtain recording status information 
+			
+			<pre>You can use SPBGetRecordingStatus to obtain recording status
+information about a sound input device.
+inRefNum the reference number of a sound input device
+recordingStatus While the input device is recording, recordingStatus is
+greater than 0. When the recording terminates without an
+error, recordingStatus is equal to 0. If any error occurs
+during the recording, recordingStatus is less than 0 and
+contains an error code. If the recording is terminated by
+calling SPBStopRecording , then recordingStatus
+contains the abortErr result code.
+meterLevel gives the current input signal level. Values returned are
+in the range 0 to 255.
+totalSamplesToRecord gives an indication of the total to record.
+numberOfSamplesRecorded gives an indication of how many samples have been
+recorded out of the total to record.
+totalMsecsToRecord gives an indication of the total time to record
+numberOfMsecsRecorded gives an indication of how much time has been recorded
+out of the total to record
+Returns: an operating system Error Code .
+noErr(0)No error
+siBadSoundInDevice (-221)Invalid sound input device
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2879,11 +3471,41 @@ EXTERN_API(OSErr)
 SPBBytesToMilliseconds(long inRefNum, long *byteCount)
     FOURWORDINLINE(0x203C, 0x0444, 0x0014, 0xA800);
 
-/**
- *  SetupSndHeader()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set up headers for 'snd ' resources 
+			
+			<pre>You can use SetupSndHeader to construct a sampled sound header that can
+be passed to SndPlay or stored as an 'snd ' resource. SetupSndHeader
+creates a format 1 'snd ' resource header for a sampled sound only, containing
+one synthesizer field (the sampled synthesizer) and one sound command (a
+bufferCmd command to play the accompanying data). A sampled sound header
+is stored immediately following the sound command and is in one of three
+formats depending on several of the parameters passed. The Table below shows
+how SetupSndHeader determines what kind of sound header to create
+sndHandle is a handle that is at least large enough to store the 'snd ' header
+information. The handle is not resized in any way upon successful
+completion of SetupSndHeader . SetupSndHeader simply fills the
+beginning of the handle with the header information needed for a
+format 1 'snd ' resource. It is your application's responsibility to
+append the desired sampled sound data.
+numChannels specifies the number of channels for the sound .
+sampleRate specifies the sampling rate for the sound (that is, samples per
+second). Note that the most significant bit of this value is interpreted
+as having the value 32,768 (not as a sign bit)
+sampleSize specifies the sample size for the sound (that is, bits per sample)
+compressionType specifies the compression type for the sound ('NONE', 'MAC3',
+'MAC6', or other third-party types)
+baseFrequency specifies the base frequency for the sound
+numBytes specifies the number of bytes of audio data that are to be stored in
+the handle. (This value is not necessarily the same as the number of
+samples in the sound.)
+headerLen returns the size of the 'snd ' resource header that is created, in
+bytes. This allows you to put the audio data right after the header in
+the handle. The value returned depends on the type of sound header
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2893,11 +3515,40 @@ SetupSndHeader(SndListHandle sndHandle, short numChannels,
                OSType compressionType, short baseNote, unsigned long numBytes,
                short *headerLen) FOURWORDINLINE(0x203C, 0x0D48, 0x0014, 0xA800);
 
-/**
- *  SetupAIFFHeader()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set up a file that can be played by SndStartFilePlay 
+			
+			<pre>Depending on the parameters passed, SetupAIFFHeader creates an AIFF or
+AIFF-C file header:
+•Uncompressed sounds of any type are stored in AIFF format (that is,
+compressionType is 'NONE').
+•Compressed sounds of any type are stored in AIFF-C format (that is,
+compressionType is different from 'NONE').
+fRefNum contains a file reference number for a file that is open for
+writing.The AIFF header information is written starting at the
+current file position, and the file position is left at the end of the
+header upon completion.
+numChannels specifies the number of channels for the sound .
+sampleRate specifies the sampling rate for the sound (that is, samples per
+second). Note that the most significant bit of this value is interpreted
+as having the value 32,768 (not as a sign bit)
+sampleSize specifies the sample size for the sound (that is, bits per sample)
+compressionType specifies the compression type for the sound ('NONE', 'MAC3',
+'MAC6', or other third-party types)
+baseFrequency specifies the base frequency for the sound
+numBytes specifies the number of bytes of audio data that are to be stored in
+the Common Chunk of the AIFF or AIFF-C file. This data should be
+stored right after the sound header in the file. (This value is not
+necessarily the same as the number of samples in the sound.)
+numFrames specifies the number of sample frames for the sound. A value needs
+to be passed here only for third-party compression types. If you are
+using 'NONE', 'MAC3', or 'MAC6' compression types, you can pass a 0
+in this field, and SetupAIFFHeader will calculate the number of
+sample frames and store it in the header..
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -3098,3 +3749,56 @@ enum {
 #endif
 
 #endif /** __SOUND__ */
+*/t available
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(ComponentResult)
+SndInputSetDeviceInfo(ComponentInstance self, OSType infoType, void *infoData)
+    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0008, 0x7000, 0xA82A);
+
+/**
+ *  SndInputInitHardware()
+ *
+
+ *    \non_carbon_cfm   not available
+ *    \carbon_lib        not available
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(ComponentResult)
+SndInputInitHardware(ComponentInstance self)
+    FIVEWORDINLINE(0x2F3C, 0x0000, 0x0009, 0x7000, 0xA82A);
+
+/** selectors for component calls */
+enum {
+  kSndInputReadAsyncSelect = 0x0001,
+  kSndInputReadSyncSelect = 0x0002,
+  kSndInputPauseRecordingSelect = 0x0003,
+  kSndInputResumeRecordingSelect = 0x0004,
+  kSndInputStopRecordingSelect = 0x0005,
+  kSndInputGetStatusSelect = 0x0006,
+  kSndInputGetDeviceInfoSelect = 0x0007,
+  kSndInputSetDeviceInfoSelect = 0x0008,
+  kSndInputInitHardwareSelect = 0x0009
+};
+#endif /** !TARGET_OS_MAC || TARGET_API_MAC_CARBON */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __SOUND__ */
+*/*/*/*/*/*/*/*/*/*/*/*/

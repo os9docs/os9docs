@@ -50,11 +50,56 @@ extern "C" {
 typedef CALLBACK_API(OSErr, SelectorFunctionProcPtr)(OSType selector,
                                                      long *response);
 typedef STACK_UPP_TYPE(SelectorFunctionProcPtr) SelectorFunctionUPP;
-/**
- *  Gestalt()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get information about the operating environment 
+			
+			<pre>OSType selector ;Gestalt selector code
+long *response ;4-byte return result
+returns Error Code ; 0=no error
+Gestalt provides your application with information about specific hardware
+and software features.
+selector is either a predefined code or an application-defined code
+requesting information on a specific hardware or software feature
+(see Using the Gestalt Manager for a list of selector codes).
+response is the return value that provides the requested
+information. Gestalt must already recognize the selector parameter
+in order to return a response.
+</pre>
+ * \returns <pre>an operating system Error Code .
+It will be one of:
+noErr(0) No error
+gestaltUnknown (-5550) Could not obtain the response
+gestaltUndefSelectorErr (-5551) Undefined selector
+</pre>
+ * \note <pre>Gestalt returns the results from all function selectors in a 4-byte long
+integer. Where not all 4 bytes are needed, the result is expressed in the
+low-order bytes.
+Being passed a predefined selector code doesn't cause Gestalt to move or
+purge memory and therefore may be called even at interrupt time.
+However, application-defined selector codes may move or purge memory
+and applications can alter Gestalt's predefined selector functions. Given
+all of that, you should always assume that Gestalt might always move or
+purge memory.
+THINK C 5.0 or later, THINK Pascal 4.0 or later and MPW 3.2 or later
+contain glue that make it possible to call Gestalt under System versions
+which do not support Gestalt (earlier than System 6.0.4). When possible,
+the glue will call other traps in order to obtain the information requested.
+If the selector is not available, a gestaltUndefSelectorErr will be returned.
+Note that if you are programming in assembly language, this glue is not
+provided. The following selectors are made available by this glue:
+gestaltVersion
+gestaltMachineType
+gestaltSystemVersion
+gestaltProcessorType
+gestaltFPUType
+gestaltQuickdrawVersion
+gestaltKeyboardType
+gestaltAppleTalkVersion
+gestaltMMUType
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2309,6 +2354,21 @@ enum {
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __GESTALT__ */
+*/MA_STRUCT_PACK
 #pragma pack()
 #endif
 

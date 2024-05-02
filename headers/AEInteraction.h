@@ -125,11 +125,37 @@ enum {
   kAEInteractWithAll = 2
 };
 
-/**
- *  AEGetInteractionAllowed()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief AEGetInteractionAllowed Get user interaction preferences 
+			
+			<pre>You can use the AEGetInteractionAllowed function to get the current user
+interaction preferences for responding to an Apple event.
+The AEGetInteractionAllowed function returns a value in the level
+paramter that indicates the user interaction preferences for responding to an
+Apple event.
+The value returned is the interaction level set by a previous call to
+AESetInteractionAllowed . The default value of kAEInteractWithLocal is
+returned if your application has not used AESetInteractionAllowed to
+explicitly set the interaction level.
+The level parameter returns one of the following flags: kAEInteractWithSelf ,
+kAEInteractWithLocal , or kAEInteractWithAll .
+The kAEInteractWithSelf flag indicates that the server application may
+interact with the user in response to an Apple event only when the client
+application and server application are the same-that is, only when the
+application is sending the Apple event to itself.
+The kAEInteractWithLocal flag indicates that the server application may
+interact with the user in response to an Apple event only if the client
+application is on the same computer as the server application. This is the
+default if your application has not used the AESetInteractionAllowed
+function to explicitly set the interaction level.
+The kAEInteractWithAll flag indicates that the server application may
+interact with the user in response to an Apple event sent from any client
+Result codes
+noErr (0)No error
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -170,11 +196,38 @@ AEInteractWithUser(long timeOutInTicks, NMRecPtr nmReqPtr, AEIdleUPP idleProc)
  disposing of the AppleEvent when the handler returns. They can be used to
  asynchronously process the event (as MacApp does).
 **************************************************************************/
-/**
- *  AESuspendTheCurrentEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief AESuspendTheCurrentEvent Suspend Apple Event processing 
+			
+			<pre>You can use the AESuspendTheCurrentEvent function to suspend the
+processing of an Apple event that is currently being handled.
+The AESuspendTheCurrentEvent function suspends the processing of the
+Apple event that is currently being handled.
+The parameter theAppleEvent is the Apple event whose handling is to be
+suspended. Although the Apple Event Manager doesn't need the parameter
+theAppleEvent to identify the Apple event currently being handled, providing
+this parameter is a safeguard that ensures that you are suspending the correct
+Apple event.
+After a server application makes a successful call to the function
+AESuspendTheCurrentEvent , it is no longer required to return a result
+or a reply for the Apple event that was being handled. It can, however, return a
+result if it later calls the AEResumeTheCurrentEvent function to resume
+event processing.
+The Apple Event Manager does not automatically dispose of Apple events
+that have been suspended or of their default replies. (The Apple Event
+Manager does, however, automatically dispose of a previously suspended Apple
+event and its default reply if the server later resumes processing of the Apple
+event by calling the AEResumeTheCurrentEvent function.) If your server
+application does not resume processing of a suspended
+Apple event, it is responsible for using the AEDisposeDesc function to
+dispose of both the Apple event and its default reply when you are finished with
+them.
+Result codes
+noErr(0)No error
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -236,11 +289,33 @@ AEResumeTheCurrentEvent(const AppleEvent *theAppleEvent,
                         long handlerRefcon)
     THREEWORDINLINE(0x303C, 0x0818, 0xA816);
 
-/**
- *  AEGetTheCurrentEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief AEGetTheCurrentEvent Return the Apple Event currently being handled 
+			
+			<pre>You can use the AEGetTheCurrentEvent function to get the Apple event that
+is currently being handled.
+The AEGetTheCurrentEvent function returns the Apple event that is
+currently being handled. In many applications, the handling of an
+Apple event involves one or more long chains of calls to routines within the
+application. The AEGetTheCurrentEvent function makes it unnecessary for
+these calls to include the current Apple event as a parameter; the routines can
+simply call AEGetTheCurrentEvent to get the current Apple event when it
+is needed.
+You can also use the AEGetTheCurrentEvent function to make sure that no
+Apple event is currently being handled. For example, if your application
+always uses an application-defined routine to delete a file, that routine can
+determine whether an Apple event is currently being handled by calling
+AEGetTheCurrentEvent , and delete the file only if
+AEGetTheCurrentEvent returns a null descriptor record, indicating that
+no Apple event is currently being handled.
+This function returns the Apple event that is currently being handled in the
+parameter theAppleEvent .
+Result codes
+noErr(0)No error
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -248,11 +323,36 @@ EXTERN_API(OSErr)
 AEGetTheCurrentEvent(AppleEvent *theAppleEvent)
     THREEWORDINLINE(0x303C, 0x021A, 0xA816);
 
-/**
- *  AESetTheCurrentEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief AESetTheCurrentEvent Specify Apple Event to be handled 
+			
+			<pre>You can use the AESetTheCurrentEvent function to specify the Apple event
+to be handled.
+The AESetTheCurrentEvent function specifies the Apple event to be
+handled. There is generally no reason for your application to use this function.
+Instead of calling this function, your application should let the
+Apple Event Manager go through the dispatch tables to set the current
+Apple event.
+The parameter theAppleEvent is the Apple event that is to be handled.
+The AESetTheCurrentEvent function is used only to avoid going through
+the dispatch tables, and is used only in the following way:
+1.An application suspends handling of an Apple event by calling the
+AESuspendTheCurrentEvent function.
+2.The application calls the AESetTheCurrentEvent function to
+inform the Apple Event Manager that it is handling the Apple event that
+was previously suspended. It thereby makes the identity of the Apple event
+currently being handled available to routines that call the
+AEGetTheCurrentEvent function.
+3.The application handles the Apple event. When it is finished, it calls
+the AEResumeTheCurrentEvent function with the value kAENoDispatch to
+tell the Apple Event Manager that the processing of the event is complete
+and that the Apple event does not need to be dispatched.
+Result codes
+noErr(0)No error
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -438,3 +538,4 @@ inline Boolean InvokeAEFilterUPP(EventRecord *theEvent, long returnID,
 #endif
 
 #endif /* __AEINTERACTION__ */
+*/*/*/*/

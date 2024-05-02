@@ -124,51 +124,73 @@ struct OffPair {
 };
 typedef struct OffPair OffPair;
 typedef OffPair OffsetTable[3];
-struct Intl0Rec {
-  char decimalPt; /*decimal point character*/
-  char thousSep;  /*thousands separator character*/
-  char listSep;   /*list separator character*/
-  char currSym1;  /*currency symbol*/
-  char currSym2;
-  char currSym3;
-  UInt8 currFmt;     /*currency format flags*/
-  UInt8 dateOrder;   /*order of short date elements: mdy, dmy, etc.*/
-  UInt8 shrtDateFmt; /*format flags for each short date element*/
-  char dateSep;      /*date separator character*/
-  UInt8 timeCycle;   /*specifies time cycle: 0..23, 1..12, or 0..11*/
-  UInt8 timeFmt;     /*format flags for each time element*/
-  char mornStr[4];   /*trailing string for AM if 12-hour cycle*/
-  char eveStr[4];    /*trailing string for PM if 12-hour cycle*/
-  char timeSep;      /*time separator character*/
-  char time1Suff;    /*trailing string for AM if 24-hour cycle*/
-  char time2Suff;
-  char time3Suff;
-  char time4Suff;
-  char time5Suff; /*trailing string for PM if 24-hour cycle*/
-  char time6Suff;
-  char time7Suff;
-  char time8Suff;
-  UInt8 metricSys; /*255 if metric, 0 if inches etc.*/
-  short intl0Vers; /*region code (hi byte) and version (lo byte)*/
-};
+/**
+<pre>
+ * \note <pre>Use Intl0Rec in calls to IUGetIntl (0), IUSetIntl (...,0,...),
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct Intl0Rec  {
+	char decimalPt;/**< Decimal point character;/**< eg, '.'*/
+	char thousSep;/**< Thousands separator;/**< eg, ',' (ASCII*/
+	char listSep;/**< List separator*/
+	char currSym;/**< Currency symbol (up to three*/
+	char currSym;/**< */
+	char currSym;/**< */
+	unsigned char currFmt;/**< Currency format flags*/
+	unsigned char dateOrder;/**< Order of short dates:*/
+	unsigned char shrtDateFmt;/**< Short format date options:*/
+	unsigned char dateSep;/**< Short date separator;/**< eg,'/' or '-'*/
+	unsigned char timeCycle;/**< = hr, = hr,  uses :*/
+	unsigned char timeFmt;/**< Time format options:*/
+	char mornStr[];/**< Morning text;/**< eg, "AM\\"*/
+	char eveStr[];/**< Evening text;/**< eg, "PM\\"*/
+	char timeSep;/**< Time separator;/**< eg, ':' (ASCII xA)*/
+	char timeSuff;/**< -hr time suffix characters ...*/
+	char timeSuff;/**<    Example: "O'Clock"*/
+	char timeSuff;/**< */
+	char timeSuff;/**< */
+	char timeSuff;/**< */
+	char timeSuff;/**< */
+	char timeSuff;/**< */
+	char timeSuff;/**< */
+	unsigned char metricSys;/**< =not metric, = use metric*/
+	short intlVers;/**< Version and country code*/
+	} IntlRec ;/**< */
+
 typedef struct Intl0Rec Intl0Rec;
 typedef Intl0Rec *Intl0Ptr;
 typedef Intl0Ptr *Intl0Hndl;
-struct Intl1Rec {
-  Str15 days[7];     /*day names*/
-  Str15 months[12];  /*month names*/
-  UInt8 suppressDay; /*255 for no day, or flags to suppress any element*/
-  UInt8 lngDateFmt;  /*order of long date elements*/
-  UInt8 dayLeading0; /*255 for leading 0 in day number*/
-  UInt8 abbrLen;     /*length for abbreviating names*/
-  char st0[4];       /*separator strings for long date format*/
-  char st1[4];
-  char st2[4];
-  char st3[4];
-  char st4[4];
-  short intl1Vers;   /*region code (hi byte) and version (lo byte)*/
-  short localRtn[1]; /*now a flag for opt extension*/
-};
+/**
+<pre>
+ * \note <pre>Use Intl1Rec in calls to IUGetIntl (1), IUSetIntl (...,1,...), and
+IUDatePString .  Values in the current version of this structure are also
+used internally by IUDateString .
+The localRtn field is actually a variable-length piece of code which gets
+executed when you call any of the International Utilities Package string
+comparison routines (e.g., IUCompString ).
+This structure echoes the contents of the 'INTL' resource whose ID is 1.
+The Intl0Rec structure contains additional information used in formatting
+time and date output in the International Utilities Package .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct Intl1Rec  {
+	char days[];/**< Seven p-strings: "\pSunday",*/
+	char months[];/**< Twelve p-strings: "\pJanuary",...*/
+	unsigned char suppressDay;/**< =use day name, =suppress;/**<*/
+	unsigned char lngDateFmt;/**< =dmy, =mdy;/**<  Otherwise :*/
+	unsigned char dayleading;/**< =leading  in day number*/
+	unsigned char abbrLen;/**< Length for abbreviating names;/**< eg, */
+	char st[];/**< Text separators ... before text*/
+	char st[];/**<   ... between day name and day*/
+	char st[];/**<   ... between day number and month*/
+	char st[];/**<   ... between month and year*/
+	char st[];/**<   ... after text*/
+	short intlVers;/**< Version and country code*/
+	short localRtn;/**< nStart of code for string comparison*/
+	} IntlRec ;/**< +n*/
+
 typedef struct Intl1Rec Intl1Rec;
 typedef Intl1Rec *Intl1Ptr;
 typedef Intl1Ptr *Intl1Hndl;
@@ -221,53 +243,74 @@ struct NumberParts {
 typedef struct NumberParts NumberParts;
 typedef NumberParts *NumberPartsPtr;
 
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct Itl4Rec {
-  short flags;         /*reserved*/
-  long resourceType;   /*contains 'itl4'*/
-  short resourceNum;   /*resource ID*/
-  short version;       /*version number*/
-  long resHeader1;     /*reserved*/
-  long resHeader2;     /*reserved*/
-  short numTables;     /*number of tables, one-based*/
-  long mapOffset;      /*offset to table that maps byte to token*/
-  long strOffset;      /*offset to routine that copies canonical string*/
-  long fetchOffset;    /*offset to routine that gets next byte of character*/
-  long unTokenOffset;  /*offset to table that maps token to canonical string*/
-  long defPartsOffset; /*offset to default number parts table*/
-  long resOffset6;     /*reserved*/
-  long resOffset7;     /*reserved*/
-  long resOffset8;     /*reserved*/
-};
+	short flags;/**<  reserved*/
+	long resourceType;/**<  contains 'itl'*/
+	short resourceNum;/**<  resource ID*/
+	short version;/**<  version number*/
+	short format;/**<  format code*/
+	short resHeader;/**<  reserved*/
+	long resHeader;/**<  reserved*/
+	short numTables;/**<  number of tables, one-based*/
+	long mapOffset;/**<  *offsets are from record start*/
+	long strOffset;/**<  offset to routine that  copies*/
+	long fetchOffset;/**<  offset to routine that gets next byte*/
+	long unTokenOffset;/**<  offset to untoken table, maps  token*/
+	long defPartsOffset;/**<  offset to default number parts*/
+	long resOffset;/**<  reserved*/
+	long resOffset;/**<  reserved*/
+	long resOffset;/**<  reserved*/
+	} ItlRec ;/**< */
+
 typedef struct Itl4Rec Itl4Rec;
 typedef Itl4Rec *Itl4Ptr;
 typedef Itl4Ptr *Itl4Handle;
 /* New NItl4Rec for System 7.0: */
+/**
+<pre>A new section of the 'itl4' resource contains a table of white space characters
+in the script. A formerly reserved field in the header specifies the offset to
+this whiteSpaceList table, and a new field specifies its length. The format of
+the table defined by whiteSpaceList is similar to the format of the untoken
+table:
+dc.w (length of whiteSpaceList in bytes)
+dc.w (number of entries)
+dc.w (offset from beginning of whiteSpaceList to first entry)
+dc.w (offset from beginning of whiteSpaceList to second entry)
+.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct NItl4Rec {
-  short flags;           /*reserved*/
-  long resourceType;     /*contains 'itl4'*/
-  short resourceNum;     /*resource ID*/
-  short version;         /*version number*/
-  short format;          /*format code*/
-  short resHeader;       /*reserved*/
-  long resHeader2;       /*reserved*/
-  short numTables;       /*number of tables, one-based*/
-  long mapOffset;        /*offset to table that maps byte to token*/
-  long strOffset;        /*offset to routine that copies canonical string*/
-  long fetchOffset;      /*offset to routine that gets next byte of character*/
-  long unTokenOffset;    /*offset to table that maps token to canonical string*/
-  long defPartsOffset;   /*offset to default number parts table*/
-  long whtSpListOffset;  /*offset to white space code list*/
-  long resOffset7;       /*reserved*/
-  long resOffset8;       /*reserved*/
-  short resLength1;      /*reserved*/
-  short resLength2;      /*reserved*/
-  short resLength3;      /*reserved*/
-  short unTokenLength;   /*length of untoken table*/
-  short defPartsLength;  /*length of default number parts table*/
-  short whtSpListLength; /*length of white space code list*/
-  short resLength7;      /*reserved*/
-  short resLength8;      /*reserved*/
-};
+	shortflags;/**<  reserved*/
+	longresourceType;/**<  contains 'itl'*/
+	shortresourceNum;/**<  resource ID*/
+	shortversion;/**<  version number*/
+	shortformat;/**<  format code*/
+	shortresHeader;/**<  reserved*/
+	longresHeader;/**<  reserved*/
+	shortnumTables;/**<  number of tables, one-based*/
+	longmapOffset;/**<  offset to table that maps byte to*/
+	longstrOffset;/**<  offset to routine that  copies*/
+	longfetchOffset;/**<  offset to routine that gets next byte*/
+	longunTokenOffset;/**<  offset to untoken table, maps  token*/
+	longdefPartsOffset;/**<  offset to default number parts*/
+	longwhtSpListOffset;/**<  offset to white space code list*/
+	longresOffset;/**<  reserved*/
+	longresOffset;/**<  reserved*/
+	shortresLength;/**<  reserved*/
+	shortresLength;/**<  reserved*/
+	shortresLength;/**<  reserved*/
+	shortunTokenLength;/**<  length of untoken table*/
+	shortdefPartsLength;/**<  length of default number parts*/
+	shortwhtSpListLength;/**<  length of white space code list*/
+	shortresLength;/**<  reserved*/
+	shortresLength;/**<  reserved*/
+	} NItlRec ;/**< */
+
 typedef struct NItl4Rec NItl4Rec;
 typedef NItl4Rec *NItl4Ptr;
 typedef NItl4Ptr *NItl4Handle;
@@ -295,54 +338,78 @@ struct RuleBasedTrslRecord {
 };
 typedef struct RuleBasedTrslRecord RuleBasedTrslRecord;
 
-struct ItlcRecord {
-  short itlcSystem;        /*default system script*/
-  short itlcReserved;      /*reserved*/
-  SInt8 itlcFontForce;     /*default font force flag*/
-  SInt8 itlcIntlForce;     /*default intl force flag*/
-  SInt8 itlcOldKybd;       /*MacPlus intl keybd flag*/
-  SInt8 itlcFlags;         /*general flags*/
-  short itlcIconOffset;    /*keyboard icon offset; not used in 7.0*/
-  SInt8 itlcIconSide;      /*keyboard icon side; not used in 7.0*/
-  SInt8 itlcIconRsvd;      /*rsvd for other icon info*/
-  short itlcRegionCode;    /*preferred verXxx code*/
-  short itlcSysFlags;      /*flags for setting system globals*/
-  SInt8 itlcReserved4[32]; /*for future use*/
-};
+/**
+<pre>If you do not have access to the Rez file SysTypes.r, which contains the Rez
+type definition of the 'itlc' resource, consult with Macintosh Developer
+Technical Support for details.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ItlcRecord  {
+	shortitlcSystem;/**<  default system script*/
+	shortitlcReserved;/**<  reserved*/
+	charitlcFontForce;/**<  default font force flag*/
+	charitlcIntlForce;/**<  default intl force flag*/
+	charitlcOldKybd;/**<  old keyboard*/
+	chartlcFlags;/**<  general flags*/
+	shortitlcIconOffset;/**<  script icon offset*/
+	charitlcIconSide;/**<  con side*/
+	charitlcIconRsvd;/**<  rsvd for other icon info*/
+	shortitlcRegionCode;/**<  preferred verXxx code*/
+	charitlcReserved[];/**<  for future use*/
+	} ItlcRecord ;/**< */
+
 typedef struct ItlcRecord ItlcRecord;
-struct ItlbRecord {
-  short itlbNumber;   /*itl0 id number*/
-  short itlbDate;     /*itl1 id number*/
-  short itlbSort;     /*itl2 id number*/
-  short itlbFlags;    /*Script flags*/
-  short itlbToken;    /*itl4 id number*/
-  short itlbEncoding; /*itl5 ID # (optional; char encoding)*/
-  short itlbLang;     /*current language for script */
-  SInt8 itlbNumRep;   /*number representation code*/
-  SInt8 itlbDateRep;  /*date representation code */
-  short itlbKeys;     /*KCHR id number*/
-  short itlbIcon;     /*ID # of SICN or kcs#/kcs4/kcs8 suite.*/
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ItlbRecord  {
+	shortitlbNumber ;/**<  itl id number*/
+	shortitlbDate ;/**<  itl id number*/
+	shortitlbSort;/**<  itl id number*/
+	shortitlbFlags;/**<  Script flags*/
+	shortitlbToken;/**<  itl id number*/
+	shortitlbEncoding;/**<  itl ID # (optional;/**< char*/
+	shortitlbLang;/**<  cur language for script*/
+	charitlbNumRep;/**<  number representation code*/
+	charitlbDateRep;/**<  date representation code*/
+	shortitlbKeys;/**<  KCHR id number*/
+	shortitlbIcon;/**<  ID # of SICN or kcs#/kcs/kcs*/
+	} ItlbRecord ;/**< */
+
 typedef struct ItlbRecord ItlbRecord;
 /* New ItlbExtRecord structure for System 7.0 */
-struct ItlbExtRecord {
-  ItlbRecord base;       /*un-extended ItlbRecord*/
-  long itlbLocalSize;    /*size of script's local record*/
-  short itlbMonoFond;    /*default monospace FOND ID*/
-  short itlbMonoSize;    /*default monospace font size*/
-  short itlbPrefFond;    /*preferred FOND ID*/
-  short itlbPrefSize;    /*preferred font size*/
-  short itlbSmallFond;   /*default small FOND ID*/
-  short itlbSmallSize;   /*default small font size*/
-  short itlbSysFond;     /*default system FOND ID*/
-  short itlbSysSize;     /*default system font size*/
-  short itlbAppFond;     /*default application FOND ID*/
-  short itlbAppSize;     /*default application font size*/
-  short itlbHelpFond;    /*default Help Mgr FOND ID*/
-  short itlbHelpSize;    /*default Help Mgr font size*/
-  Style itlbValidStyles; /*set of valid styles for script*/
-  Style itlbAliasStyle;  /*style (set) to mark aliases*/
-};
+/**
+<pre>The new bit flag, defined for the script flags word, is located in the itlbFlags
+field in the 'itlb' record data structure. Set the smsfAutoInit bit in a script's
+'itlb' to instruct the Script Manager to initialize the script system
+automatically. (See Creating Simple Script Systems for details.)
+If you do not have access to the Rez file SysTypes.r, which contains the Rez
+type for the 'itlb' resource, consult Macintosh Developer Technical Support
+for details.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ItlbExtRecord  {
+	ItlbRecord   base;/**< un-extended ItlbRecord*/
+	longItlbLocalSize;/**< size of script's local record*/
+	shortItlbMonoFond;/**< default monospace FOND ID*/
+	shortItlbMonoSize;/**< default monospace font size*/
+	shortItlbPrefFond;/**< preferred FOND ID*/
+	shortItlbPrefSize;/**< preferred font size*/
+	shortItlbSmallFond;/**< default small FOND ID*/
+	shortItlbSmallSize;/**< default small font size*/
+	shortItlbSysFond;/**< default system FOND ID*/
+	shortItlbSysSize;/**< default system font size*/
+	shortItlbAppFond;/**< default application FOND ID*/
+	shortItlbAppSize;/**< default application font size*/
+	shortItlbHelpFond;/**< default Help Mgr FOND ID*/
+	shortItlbHelpSize;/**< default Help Mgr font size*/
+	StyleItlbValidStyles;/**< set of valid styles for script*/
+	StyleItlbAliasStyle;/**< style (set) to mark aliases*/
+	} ItlbExtRecord ;/**< */
+
 typedef struct ItlbExtRecord ItlbExtRecord;
 
 #if PRAGMA_STRUCT_ALIGN

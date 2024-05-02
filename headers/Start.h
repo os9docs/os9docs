@@ -323,11 +323,36 @@ struct DefOSRec {
 typedef struct DefOSRec DefOSRec;
 typedef DefOSRec *DefOSPtr;
 #if CALL_NOT_IN_CARBON
-/**
- *  GetDefaultStartup()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetDefaultStartup Get default startup device name and reference 
+			
+			<pre>GetDefaultStartup obtains information from parameter RAM concerning
+what kind of default startup device is being used.
+pbis the address of an 8-byte DefStartRec parameter block structure.
+It contains the following fields:
+Out-In Name Type SizeOffsetDescription
+ <-sdExtDevID SignedByte 10External device ID
+ <-sdPartition SignedByte 11Reserved for the future
+ <-sdSlotNum SignedByte 12Slot number
+ <-sdSRsrc SignedByte 13Slot resource ID
+OR
+ <-sdReserved1 SignedByte 10Reserved for the future
+ <-sdReserved2 SignedByte 11Reserved for the future
+ <-sdRefNum short 22Negative = SCSI, Positive = Slot
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>Deciding which variant to use depends on the content of the sdRefNum field.
+A negative number means the driver reference of a SCSI device (scsiDev)
+and no further information is needed, while a positive number means you'll
+have to access the information in the slotDev variant.  If you have to access
+the information in slotDev, only sdExtDevID (the slot's driver), sdSlotNum
+(the slot number) and sdSRsrcID (the slot resource ID) will contain
+pertinent data. sdPartition is a reserved field.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -337,11 +362,36 @@ typedef DefOSRec *DefOSPtr;
 EXTERN_API(void)
 GetDefaultStartup(DefStartPtr paramBlock) ONEWORDINLINE(0xA07D);
 
-/**
- *  SetDefaultStartup()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SetDefaultStartup Specify default startup device 
+			
+			<pre>SetDefaultStartup defines the kind of default startup device being used.
+pbis the address of an 8-byte DefStartRec parameter block structure.
+It contains the following fields:
+Out-In Name Type SizeOffsetDescription
+ ->sdExtDevID SignedByte 10External device ID
+ ->sdPartition SignedByte 11Reserved for the future
+ ->sdSlotNum SignedByte 12Slot number
+ ->sdSRsrc SignedByte 13Slot resource ID
+OR
+ ->sdReserved1 SignedByte 10Reserved for the future
+ ->sdReserved2 SignedByte 11Reserved for the future
+ ->sdRefNum short 22Negative = SCSI, Positive = Slot
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>If the default startup device is a slotDev, put its identification number in
+the sdExtDevID field, specify the slot number in sdSlotNum, and fill the
+sdSRsrcID field with the slot resource ID.
+If the default startup device is a scsiDev, put its reference number in the
+sdRefNum field.
+If you're not specifying a default startup device, pass a 0 in the sdRefNum
+field.
+Reserved fields sdReserved1 and sdReserved2 should both be 0.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -351,11 +401,25 @@ GetDefaultStartup(DefStartPtr paramBlock) ONEWORDINLINE(0xA07D);
 EXTERN_API(void)
 SetDefaultStartup(DefStartPtr paramBlock) ONEWORDINLINE(0xA07E);
 
-/**
- *  GetVideoDefault()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get default video device location and resource number 
+			
+			<pre>GetVideoDefault obtains information from parameter RAM concerning what
+kind of default video device is being used.
+pbis the address of a 2-byte DefVideoRec  structure. It contains the
+following fields:
+Out-In Name Type SizeOffsetDescription
+ <-sdSlot SignedByte 10Slot number; 0 = no default video
+ <-sdSResource SignedByte 11Slot resource ID
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>If there is no default video and sdSlot is 0, the system will choose the first
+available monitor.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -365,11 +429,22 @@ SetDefaultStartup(DefStartPtr paramBlock) ONEWORDINLINE(0xA07E);
 EXTERN_API(void)
 GetVideoDefault(DefVideoPtr paramBlock) ONEWORDINLINE(0xA080);
 
-/**
- *  SetVideoDefault()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set default video device location and resource number 
+			
+			<pre>SetVideoDefault turns the device specified by the slot number and the
+resource ID into the default video device.
+pbis the address of a 2-byte DefVideoRec  structure. It contains the
+following fields:
+Out-In Name Type SizeOffsetDescription
+ ->sdSlot SignedByte 10Slot number; 0 = no default video
+ ->sdSResource SignedByte 11Slot resource ID
+</pre>
+ * \returns <pre>none
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -379,11 +454,25 @@ GetVideoDefault(DefVideoPtr paramBlock) ONEWORDINLINE(0xA080);
 EXTERN_API(void)
 SetVideoDefault(DefVideoPtr paramBlock) ONEWORDINLINE(0xA081);
 
-/**
- *  GetOSDefault()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get default video device location and resource number 
+			
+			<pre>GetOSDefault obtains information from parameter RAM concerning what
+operating system is the default.
+pbis the address of a 2-byte DefOSRec  structure. It contains the
+following fields:
+Out-In Name Type SizeOffsetDescription
+ <-sdReserved SignedByte 10Not in use, returns a 0
+ <-sdOSTtype SignedByte 11Operating system ID
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>The general application of this call is when a partitioned drive is loaded
+with more than one operating system.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -393,11 +482,24 @@ SetVideoDefault(DefVideoPtr paramBlock) ONEWORDINLINE(0xA081);
 EXTERN_API(void)
 GetOSDefault(DefOSPtr paramBlock) ONEWORDINLINE(0xA084);
 
-/**
- *  SetOSDefault()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set default operating system 
+			
+			<pre>SetOSDefault specifies what operating system is the default.
+pbis the address of a 2-byte DefOSRec  structure. It contains the
+following fields:
+Out-In Name Type SizeOffsetDescription
+ ->sdReserved SignedByte 10Not in use, use a 0
+ ->sdOSTtype SignedByte 11Operating system ID
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>The general application of this call is when a partitioned drive is loaded
+with more than one operating system.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -410,22 +512,39 @@ SetOSDefault(DefOSPtr paramBlock) ONEWORDINLINE(0xA083);
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  SetTimeout()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief How long you want the system to wait for a hard disk response 
+			
+			<pre>SetTimeout lets you tell the system how long to wait for a hard disk
+response.
+countis the number of seconds you specify that the system should wait on
+the hard disk. A zero in count specifies the default limit of 15
+seconds. 31 seconds is maximum.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 EXTERN_API(void)
 SetTimeout(short count);
 
-/**
- *  GetTimeout()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Number of seconds the system wait for a hard disk 
+			
+			<pre>GetTimeout specifies how long the system will wait for a hard disk
+response.
+countis the number of seconds the system will wait on the hard disk. A
+zero in count specifies the default limit of 15 seconds.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -797,3 +916,21 @@ SetSelectedNetworkStartupDevice(char *protocol, char *siaddr, char *filename,
 #endif
 
 #endif /** __START__ */
+*/AGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __START__ */
+*/*/*/*/*/*/*/

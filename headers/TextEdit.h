@@ -267,41 +267,45 @@ typedef REGISTER_UPP_TYPE(TERecalcProcPtr) TERecalcUPP;
 typedef REGISTER_UPP_TYPE(TEDoTextProcPtr) TEDoTextUPP;
 typedef REGISTER_UPP_TYPE(TEClickLoopProcPtr) TEClickLoopUPP;
 typedef REGISTER_UPP_TYPE(WordBreakProcPtr) WordBreakUPP;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TERec {
-  Rect destRect;
-  Rect viewRect;
-  Rect selRect;
-  short lineHeight;
-  short fontAscent;
-  Point selPoint;
-  short selStart;
-  short selEnd;
-  short active;
-  WordBreakUPP wordBreak; /* NOTE: This field is ignored on non-Roman systems
-                             and on Carbon (see IM-Text 2-60) */
-  TEClickLoopUPP clickLoop;
-  long clickTime;
-  short clickLoc;
-  long caretTime;
-  short caretState;
-  short just;
-  short teLength;
-  Handle hText;
-  long hDispatchRec; /* added to replace recalBack & recalLines.  it's a handle
-                        anyway */
-  short clikStuff;
-  short crOnly;
-  short txFont;
-  StyleField
-      txFace; /*StyleField occupies 16-bits, but only first 8-bits are used*/
-  short txMode;
-  short txSize;
-  GrafPtr inPort;
-  HighHookUPP highHook;
-  CaretHookUPP caretHook;
-  short nLines;
-  short lineStarts[16001];
-};
+	Rect destRect;/**<  Rectangle in which text is drawn*/
+	Rect viewRect;/**<  Rectangle in which text is visible*/
+	Rect selRect;/**<  Selection rectangle (undocumented)*/
+	short lineHeight;/**<  Distance between lines (see "style"*/
+	short fontAscent;/**<  Max distance above baseline for*/
+	Point selPoint;/**<  Point selected with mouse, in local*/
+	short selStart;/**<  Offset in hText of char at start of*/
+	short selEnd;/**<  Offset in hText of character at end of*/
+	short active;/**<  (used internally)*/
+	ProcPtr wordBreak;/**<  Routine handles word breaks*/
+	ProcPtr clikLoop;/**<  Rtn gets control while mouse down*/
+	long clickTime;/**<  (used internally)*/
+	short clickLoc;/**<  (used internally)*/
+	long caretTime;/**<  (used internally)*/
+	short caretState;/**<  (used internally)*/
+	short just;/**<  =justify left, =center,*/
+	short teLength;/**<  Number of characters in hText*/
+	Handle hText;/**<  Leads to characters to be edited*/
+	short recalBack;/**<  (used internally)*/
+	short recalLines;/**<  (used internally)*/
+	short clikStuff;/**<  (used internally)*/
+	short crOnly;/**<  > for word wrap, < for newline*/
+	short txFont;/**<  Font to be used  (See Notes on*/
+	Style txFace;/**<  Text Style to be used;/**< eg, bold, italic,*/
+	char filler;/**<  (unused)*/
+	short txMode;/**<  Transfer Mode ;/**< eg, srcCopy, srcOr,*/
+	short txSize;/**<  Size, in points, to use (< means*/
+	GrafPtr inPort;/**<  GrafPort  in which text is*/
+	ProcPtr highHook;/**<  Routine to perform highlighting*/
+	ProcPtr caretHook;/**<  Routine to display caret*/
+	short nLines;/**<  Number of lines of text in hText*/
+	short lineStarts[];/**< n Array of offsets to start of each line*/
+	} TERec ;/**< +n(n  is nLines * )*/
+
 
 enum {
   /* Justification (word alignment) styles */
@@ -410,79 +414,233 @@ enum {
 typedef char Chars[32001];
 typedef char *CharsPtr;
 typedef CharsPtr *CharsHandle;
-struct StyleRun {
-  short startChar;  /*starting character position*/
-  short styleIndex; /*index in style table*/
-};
+/**
+<pre>
+ * \note <pre>At the end of the TEStyleRec structure is a variable-length data area
+composed of one or more of these StyleRun structures. Each element of that
+array describes a "run" of characters which all have the same attributes
+(font, face, size, etc.). The run ends at the offset identified by the startChar
+field in the next structure. This structure is not used directly in any
+system function.
+The startChar field identifies an offset into the edit text.  The edit text
+begins at the address lead to by the hText field of the TERec
+The styleIndex field identifies which element of the style table applies to
+theis run of text. The style table is made up of a series of 18-byte
+STElement structures. It begins at the address lead to by the styleTab field
+of the TEStyleRec (whose handle may be obtained by GetStylHandle .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct StyleRun  {
+	short startChar;/**< Offset within the data lead to by TERec.htext*/
+	short styleIndex;/**< Index into style table at*/
+	} StyleRun ;/**< */
+
 typedef struct StyleRun StyleRun;
+/**
+<pre>
+ * \note <pre>This structure defines a single "style", as used in TextEdit. The STElement
+structure is not used directly in any TextEdit function, but all functions
+which modify styles affect the elements of the "style table".
+The "style table" is a list of these 18-byte STElement structures. Such a
+table may be found at the addesss lead to by the styleTab field of the
+TEStyleRec structure whose address may be obtained via GetStylHandle .
+There are TEStyleRec .nStyles elements in the style table.
+The stCount fields identifies in how many runs this style is used. If, for
+example, you were to delete all text which was in a particular style, then
+the stCount would go to 0, and would be removed from the table in a memory
+crunch.
+As with all TextEdit height values, stHeight refers to a line height, in
+points. Elements of the line height table ( LHTable) contain the maximum
+value in the stHeight field of each style run in a line.
+When the question of color is moot, the stColor field contains zero's in all
+three fields of the RGBColor structure.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct STElement {
-  short stCount;  /*number of runs in this style*/
-  short stHeight; /*line height*/
-  short stAscent; /*font ascent*/
-  short stFont;   /*font (family) number*/
-  StyleField
-      stFace;   /*StyleField occupies 16-bits, but only first 8-bits are used */
-  short stSize; /*size in points*/
-  RGBColor stColor; /*absolute (RGB) color*/
-};
+	short stCount;/**<  Number of runs which use this style*/
+	short stHeight;/**<  Line height for this style, in points*/
+	short stAscent;/**<  Ascent above the baseline for this*/
+	short stFont;/**<  Font/family number.  For more*/
+	Style stFace;/**<  Font face for this style.  For more*/
+	short stSize;/**<  Font size, in points*/
+	RGBColor  stColor;/**<  Color used in this style*/
+	} STElement ;/**< */
+
 typedef struct STElement STElement;
 typedef STElement TEStyleTable[1777];
 typedef STElement *STPtr;
 typedef STPtr *STHandle;
-struct LHElement {
-  short lhHeight; /*maximum height in line*/
-  short lhAscent; /*maximum ascent in line*/
-};
+/**
+<pre>
+ * \note <pre>The LHElement structure describes the height of a single line of edit text.
+The data lead to by the lhTab field of the TEStyleRec structure is a list of
+these LHElements. The list parallels the data in the lineStarts array which
+is part of the TERec structure. It is not used directly in any TextEdit
+function, but it is used to derive values returned by TEGetHeight .
+When a font size changes the height of some text on a particular line (e.g.,
+via TESetStyle ), then the new maximum is calculated for that line and
+stored in the line height table.
+It is permitted to manipulate this table youself, overriding the normal
+height calculations. When the high bit of lhHeight is set, then TextEdit will
+use the low 15 bits as a "fixed height" and will not perform calculations to
+modify it. For instance:
+LHHandle hLH;
+LHPtr pLH;
+TEStyleHandle hTEStyle;
+TEHandle hTE;
+hTEStyle = GetStylHandle ( hTE);
+hLH = (*hTEStyle)->lhTab;
+pLH = *hLH;
+pLH[17].lhHeight = 22 | 0x8000; // fix line height at 22 points
+This technique is handy for lines which will not be changed. If the line
+grows in length or is otherwised forced to wrap, TextEdit will not honor
+your setting (it will calculate the height if the "wrapped" portion).
+Note that the line-height table is used only when TERec.lineHeight and
+TERec.fontAscent are -1 (as set by TEStylNew ).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct LHElement  {
+	short lhHeight;/**<  Height of this line, in points (bit */
+	short lhAscent;/**<  Ascent of tallest character in this line*/
+	} LHElement ;/**< */
+
 typedef struct LHElement LHElement;
 typedef LHElement LHTable[8001];
 typedef LHElement *LHPtr;
 typedef LHPtr *LHHandle;
+/**
+<pre>
+ * \note <pre>This structure defines a single style, for a run of text as used by TextEdit
+in the desk scrap. A list of these records, i.e., a ScrpSTTable, is at the tail
+of the StScrpRec structure used in TexTedit cut-and-paste operations. This
+structure in not used directly in any TextEdit function.
+The scrpStartChar field specifies where in the text (usually a 'TEXT'
+element in the desk scrap) to begin applying this combination of attributes.
+This style applies to all text up to the offset indicated by the scrpStartChar
+field in the following table element. There is no overlap or reuse of styles.
+You may want to call TENumStyles to see how much space will be used in a
+TECut or TECopy operation.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ScrpSTElement {
-  long scrpStartChar; /*starting character position*/
-  short scrpHeight;
-  short scrpAscent;
-  short scrpFont;
-  StyleField
-      scrpFace; /*StyleField occupies 16-bits, but only first 8-bits are used*/
-  short scrpSize;
-  RGBColor scrpColor;
-};
+	long scrpStartChar;/**< Offset in data to which this style*/
+	short scrpHeight;/**< Line height for this style, in points*/
+	short scrpAscent;/**< Ascent above the baseline for this*/
+	short scrpFont;/**< Font/family number.  For more*/
+	Style scrpFace;/**< Font face for this style.  For more*/
+	short scrpSize;/**< Font size, in points*/
+	RGBColor scrpColor;/**< Color used in this style*/
+	} ScrpSTElement ;/**< */
+
 typedef struct ScrpSTElement ScrpSTElement;
 /* ARRAY [0..1600] OF ScrpSTElement */
 typedef ScrpSTElement ScrpSTTable[1601];
-struct StScrpRec {
-  short scrpNStyles;        /*number of styles in scrap*/
-  ScrpSTTable scrpStyleTab; /*table of styles for scrap*/
-};
+/**
+<pre>
+ * \note <pre>This variable-length StScrpRec is known as the "style scrap" record. It
+contains style-definition data which applies textual data.  A structure of this
+format is stored into the desk scrap as 'styl' element, along with the 'TEXT'
+element, when you use TECut and TECopy on a style-aware edit record.
+An StScrpHandle is used in calls to GetStylScrap , SetStylScrap ,
+TEStylInsert , and indirectly in TECut, TECopy, and TEStylPaste .
+Note that scrpStyleTab is not a Handle; it is a variable-length table of data (a
+ScrpSTTable ). That makes this a "portable" piece of style information - it is
+all in one packet and not spread around in different tables.
+When your application places text data into the desk scrap, it's wise to create
+one of these records and store it as well, just in case the app which reads the
+scrap knows what to do with it (see PutScrap ).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct StScrpRec  {
+	short scrpNStyles;/**< number of elements in scrpStyleTab*/
+	ScrpSTTable scrpStyleTab;/**< n*leads to a list of text offsets and style*/
+	} StScrpRec  ;/**<+(n *) (n = scrpNStyles )*/
+
 typedef struct StScrpRec StScrpRec;
 typedef StScrpRec *StScrpPtr;
 typedef StScrpPtr *StScrpHandle;
-struct NullStRec {
-  long teReserved;        /*reserved for future expansion*/
-  StScrpHandle nullScrap; /*handle to scrap style table*/
-};
+/**
+<pre>
+ * \note <pre>The NullStRec structure is maintained to describe the default format for
+text which is added when the selection range is an insertion point. It is not
+used directly in any TextEdit function.
+The nullScrap field leads to an StScrpRec which eventually leads to a
+ScrpSTElement defining the "null style" style.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct NullStRec  {
+	long teReserved;/**< Height of this line, in points (bit */
+	StScrpHandle nullScrap;/**< Ascent of tallest character/face in this*/
+	} NullStRec ;/**< */
+
 typedef struct NullStRec NullStRec;
 typedef NullStRec *NullStPtr;
 typedef NullStPtr *NullStHandle;
-struct TEStyleRec {
-  short nRuns;            /*number of style runs*/
-  short nStyles;          /*size of style table*/
-  STHandle styleTab;      /*handle to style table*/
-  LHHandle lhTab;         /*handle to line-height table*/
-  long teRefCon;          /*reserved for application use*/
-  NullStHandle nullStyle; /*Handle to style set at null selection*/
-  StyleRun runs[8001];    /*ARRAY [0..8000] OF StyleRun*/
-};
+/**
+<pre>
+ * \note <pre>In the new style-aware TERec, the fields at offsets 74-77 (the txFont and
+txFace and the 1-byte filler) contain a 4-byte TEStyleHandle which leads
+to this data structure, also known as the "style record".
+Although all TextEdit style-related functions depend on it, a TEStyleHandle
+is used in only two functions directly ( SetStylHandle and
+GetStylHandle ). It is the starting point for a complex set of
+inter-dependent records.
+The amount of data in the line-height table (at lhTab) depends on the value
+of TERec.nLines. There is one LHElement for each line in the edit record.
+The nullStyle handle eventually leads to an STScrpRec . It defines the font,
+face, etc. for text which is inserted via TEKey when the selection range is
+an insertion point.
+The runs field is variable length, but always contains at least one 4-byte
+StyleRun with an index to the first style in the style table lead to by
+styleTab (which gets initialized to the TextEdit defaults for font, face, etc.).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct TEStyleRec  {
+	short nRuns;/**< Number of elements in runs*/
+	short nStyles;/**< Number of elements in handle at styleTab*/
+	STHandle styleTab;/**< Handle to style table*/
+	LHHandle lhTab;/**< Handle to line-height table*/
+	long teRefCon;/**< Available for use by applications*/
+	NullSTHandle  nullStyle;/**< Handle to styles for null selection*/
+	StyleRun runs[];/**< nList of offsets and style table indexes*/
+	} TEStyleRec ;/**< +n (n  is nRuns * )*/
+
 typedef struct TEStyleRec TEStyleRec;
 typedef TEStyleRec *TEStylePtr;
 typedef TEStylePtr *TEStyleHandle;
+/**
+<pre>
+ * \note <pre>This structure defines components of a TextEdit style which you can set,
+replace, or check via TESetStyle , TEReplaceStyle , TEGetStyle , and
+TEContinuousStyle .
+The the address of this structure is always passed to the above functions;
+however, there is no standard name for such an address. TextStylePtr might
+be a good choice...
+Note that all functions which use this structure actually read information
+from the style table, composed of STElement records. The relevant data is
+shuffled into and out of or compared against data in the style table. TextEdit
+does not maintain any TextStyle records, per se.
+In each case where TextStyle is used, you are required to pass a mode value
+to specify how much of this record to use or ignore. For more informationl,
+see Style Mode .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TextStyle {
-  short tsFont; /*font (family) number*/
-  StyleField
-      tsFace;   /*StyleField occupies 16-bits, but only first 8-bits are used*/
-  short tsSize; /*size in point*/
-  RGBColor tsColor; /*absolute (RGB) color*/
-};
+	short tsFont;/**< Font number.  See Standard Fonts .*/
+	Style tsFace;/**< Stylistic variation.  See Text Styles .*/
+	char filler;/**< */
+	short tsSize;/**< Font size, in points*/
+	RGBColor tsColor;/**< Color components*/
+	} TextStyle ;/**< */
+
 typedef struct TextStyle TextStyle;
 typedef TextStyle *TextStylePtr;
 typedef TextStylePtr *TextStyleHandle;
@@ -1528,11 +1686,22 @@ enum {
 #define toglBit toggleBit
 #endif /* OLDROUTINENAMES */
 
-/**
- *  TEScrapHandle()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain handle leading to TextEdit scrap 
+			
+			<pre>TEScrapHandle returns a handle leading to the TextEdit internal scrap.
+On systems later than 4.1, TextEdit uses the desk scrap.
+</pre>
+ * \returns <pre>a 32-bit Handle; the handle leading to the TextEdit scrap.
+</pre>
+ * \note <pre>The global variable TEScrpHandle (at 0x0AB4) contains this
+same information.
+Probably better than working with the TE scrap itself, you should stick to
+calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1961,11 +2130,45 @@ EXTERN_API(long)
 TEGetHeight(long endLine, long startLine, TEHandle hTE)
     THREEWORDINLINE(0x3F3C, 0x0009, 0xA83D);
 
-/**
- *  TEContinuousStyle()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief TEContinuousStyle Check if a style element is continuous across selection 
+			
+			<pre>The TEContinuousStyle function, new with System 6.0, gives you
+information about the attributes of the current selection.
+TEContinuousStyle examines the current selection range and checks if a
+specified style attribute is continuous across the current selection range. You
+can use this as an aid in toggling styles (see TESetStyle ) or to determine
+which, if any, items in your Style... menu should have a check mark.
+modeis the address of a short. On entry, it specifies a style operation
+mode (see Style Mode ). Bits of this value specify which
+characteristics of the selected text should be examined.
+Upon return, each bit that was set on entry is been cleared if that
+style element was not continuous.
+theStyle is the address of a 12-byte TextStyle structure. On entry, it
+identifies which characteristics to examine. Upon exit, fields
+corresponding to set-bits in mode are filled-in to reflect the values
+of any attributes which are continuous.
+hTEis a handle leading to an edit record created via TEStylNew .
+The mode parameter, which takes the same values as in TESetStyle ,
+specifies which attributes should be checked. When TEContinuousStyle
+returns, the mode parameter indicates which of the checked attributes is
+continuous over the selection range, and the aStyle parameter reflects the
+continuous attributes.
+TEContinuousStyle returns TRUE if all of the attributes to be checked are
+continuous and returns FALSE if they are not. In other words, if the mode
+parameter is the same before and after the call, then TEContinuousStyle
+returns TRUE.
+Listing below illustrates how TEContinuousStyle is useful for marking
+the Style menu items so they correspond to the current selection.
+Marking the Style menu items so they correspond to the current selection
+shortmode;
+TextStyle aStyle;
+TEHandle myTE;
+MenuHandle styleMenu;
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1986,11 +2189,50 @@ TEUseStyleScrap(long rangeStart, long rangeEnd, StScrpHandle newStyles,
                 Boolean fRedraw, TEHandle hTE)
     THREEWORDINLINE(0x3F3C, 0x000B, 0xA83D);
 
-/**
- *  TECustomHook()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Install custom handlers for TextEdit bottleneck routines 
+			
+			<pre>The TECustomHook procedure lets your application customize the features
+of TextEdit by setting the TextEdit hooks .
+TECustomHook installs a custom routine for TextEdit EOL handling, text
+drawing, text measuring, and hit-testing.  It returns the address of the
+original handler to provide a way to chain functions.
+whichspecifies which bottleneck routine to install. It is one of:
+intEOLHook 0Calculates text width
+intDrawHook 1Draws text
+intWidthHook 2Measures text
+intHitTestHook 3See which character corresponds to a screen pixel
+intNWidthHook 6Width measurement hook nWIDTHHook
+intTextWidthHook 7Width measurement hook TextWidthHook
+addris the address of a ProcPtr. On entry, it is the address of your
+custom routine to take over the function identified by whichHook .
+Upon return, it will contain the address of the routine that normally
+handles the function.
+hTEis a handle leading to an edit record created via TEStylNew .
+You specify your customized hook in the addr parameter. When
+TECustomHook returns, the addr parameter contains the address of the
+previous hook specified by the which parameter. This address is returned so
+that hooks can be daisy-chained. The two new hooks, nWIDTHHook and
+TextWidthHook , specified by the intNWidthHook and intTextWidthHook
+constants, are described in “TextEdit Width Hooks ”.
+Two integer fields of the edit record , not used for their original purposes but
+still named recalBack and recalLines , combine to hold a handle to the
+TextEdit dispatch record , which contains a list of TextEdit hooks . (See the
+figure in the TextEdit Data Structures description for an illustration of the
+edit record , the dispatch record, and all the TextEdit data structures.) Each
+edit record has its own set of such routines to provide for maximum
+flexibility. You should always use the TECustomHook procedure to change
+these hooks instead of modifying the edit record directly.
+Warning: Do not simply copy the recalBack and recalLines fields to
+another edit record . If you do, a duplicate handle to the initial
+TextEdit dispatch record is stored in recalBack and recalLines in your copy
+of the record. When one of the edit record s is disposed, the handle stored in
+the copy becomes invalid, and TextEdit can crash if the copy is used.
+EOLHook, WIDTHHook , nWIDTHHook , TextWidthHook , DRAWHook , and
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1998,11 +2240,38 @@ EXTERN_API(void)
 TECustomHook(TEIntHook which, UniversalProcPtr *addr, TEHandle hTE)
     THREEWORDINLINE(0x3F3C, 0x000C, 0xA83D);
 
-/**
- *  TENumStyles()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtains a count of style runs in a range of text 
+			
+			<pre>The TENumStyles function returns the number of style changes contained in
+the given range, counting one for the start of the range. Note that this number
+does not necessarily represent the number of unique styles for the range
+because some styles may be repeated. For unstyled edit record s,
+TENumStyles always returns 1.
+TENumStyles returns the count of style changes (including one for the
+initial style) existing across the specified range. Use this to calculate the
+amount of memory that will be needed in a large TECut or TECopy operation.
+rangeStart and...
+rangeEnd identify which text to examine.
+hTEis a handle leading to an edit record created via TENew or
+TEStylNew .
+The rangeStart and rangeEnd parameters indicate the range. The text
+containing the range is specified by the hTE parameter, a handle to the
+edit record .
+You can use TENumStyles to calculate the amount of memory that would be
+required if TECut or TECopy were called. Since the style scrap record is
+linear in nature, with one element for each style change, you can multiply the
+result that TENumStyles returns by SizeOf( ScrpSTElement ) and add 2 to get
+the amount of memory needed.
+</pre>
+ * \returns <pre>a long integer; the number of style changes across the range.
+</pre>
+ * \note <pre>The actual amount of memory used by styles in a Cut or Copy
+operation will be the return value * sizeof( ScrpSTElement ) +2.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2010,11 +2279,47 @@ EXTERN_API(long)
 TENumStyles(long rangeStart, long rangeEnd, TEHandle hTE)
     THREEWORDINLINE(0x3F3C, 0x000D, 0xA83D);
 
-/**
- *  TEFeatureFlag()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Return last setting of a specified feature's bit 
+			\param    feature enable/disable inline input
+	\param    action like feature, using bit constants
+			<pre>The TEFeatureFlag function allows you to enable outline highlighting and
+text buffering in your application. You can also use this function to disable
+inline input in a particular edit record and to enable several new features that
+have been provided so that inline input works correctly with TextEdit .
+Note: To test for the availability of these features, you can call the Gestalt
+function with the gestaltTextEditVersion selector. A result of gestaltTE4 or
+greater returned in the response parameter indicates that outline highlighting
+and text buffering are available. A result of gestaltTE5 or greater returned in
+the response parameter indicates that the two inline input features are
+available. (For details, see the description about
+Determining the Version of TextEdit .
+The inline input features are also available on version 6.0.7 systems with
+non-Roman script systems installed. However, there is no Gestalt constant
+that indicates this availability.
+The feature parameter allows you to disable inline input in a particular
+edit record or to specify the features you want to enable-outline highlighting,
+text buffering, and features provided for inline input in TextEdit . The action
+parameter lets you enable and disable these features by using the TEBitSet and
+TEBitClear constants and lets you test the settings of these feature bits by
+using the TEBitTest constant. The hTE parameter is a handle to the edit record .
+The TEFeatureFlag function returns the previous setting of the feature's
+bit, either TEBitSet or TEBitClear .
+Note that there is also a constant named TEFeatureFlag which has the following
+values:
+The feature or bit definitions for TEFeatureFlag are:
+teFAutoScr = 0, /*00000001b*/
+teFTextBuffering = 1, /*00000010b*/
+teFOutlineHilite = 2, /*00000100b*/
+teFInlineInput = 3, /*00001000b*/
+teFUseTextServices = 4, /*00010000b*/
+The action for the new "bit (un)set" interface, TEFeatureFlag is:
+TEBitClear = 0,
+TEBitSet = 1/*set the selector bit*/
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2264,3 +2569,4 @@ teclick(Point *pt, Boolean fExtend, TEHandle h);
 #endif
 
 #endif /* __TEXTEDIT__ */
+*/*/*/*/*/

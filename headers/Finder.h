@@ -300,14 +300,33 @@ typedef struct ExtendedFolderInfo ExtendedFolderInfo;
      IMPORTANT:
      In MacOS 8, the fdFldr field has become reserved for the Finder.
 */
+/**
+<pre>
+ * \note <pre>The fdType field helps applications figure out what to do with a file. It is
+also used by SFGetFile et al. to let Standard File show a subset of files in a
+directory. The 'APPL' (executable application) and 'TEXT' (CR-delimited
+text file) are standard types; others are defined by applications and can be
+any 32-bit value.
+The fdCreator field specifies which application should be executed when the
+file's icon is double clicked. a value of '????' indicates it is not to be
+opened that way. Other values identify the application by its
+Apple-approved unique application signature. See SetFInfo .
+The meaning of the flag bits in this structure have changed significantly
+in System 7.0. Make sure you look at both diagrams below. The first one
+shows the old flags, and the second shows the new flags.
+The old fdFlags word is a set of bit flags, formatted as follows:
+The new fdFlags word is a set of bit flags, formatted as follows:
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct FInfo {
-  OSType fdType;    /* The type of the file */
-  OSType fdCreator; /* The file's creator */
-  UInt16 fdFlags;   /* Flags ex. kHasBundle, kIsInvisible, etc. */
-  Point fdLocation; /* File's location in folder. */
-  /* If set to {0, 0}, the Finder will place the item automatically */
-  SInt16 fdFldr; /* Reserved (set to 0) */
-};
+	OSType fdType;/**< File type, eg 'TEXT'*/
+	OSType fdCreator;/**< File creator's signature;/**< eg,'MSWD'*/
+	unsigned short  fdFlags;/**< Flag bits used by Finder (see Notes)*/
+	Point fdLocation;/**< Position of top-left corner of file's*/
+	short fdFldr;/**< Folder number or other code (not*/
+	} FInfo;/**< */
+
 typedef struct FInfo FInfo;
 /* Extended file info */
 /**
@@ -316,14 +335,32 @@ typedef struct FInfo FInfo;
      to become reserved fields for the Finder.
      The fdScript has become an extended flag.
 */
+/**
+<pre>
+ * \note <pre>An FXInfo named ioFlXFndrInfo is embedded in the HFileInfo structure
+obtained by PBGetCatInfo . Field values in it can be set via
+PBSetCatInfo .
+The fdIconID field may be related to icons in some indirect way. However,
+it is NOT the resource ID of any 'ICN#' resource in the desktop file.
+The fdComment field contains the resource ID of an 'FCMT' in the Desktop
+file. It identifies a p-string displayed/modified in the Finder's "Get Info"
+menu item dialog.  See PBSetCatInfo for an example which changes a file's
+comment.
+The fdPutAway field is a 'hard' directory ID of the folder in which the file
+is normally displayed. If the file gets moved to the desktop, the Finder uses
+this field to implement its "Put Away" menu item.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct FXInfo {
-  SInt16 fdIconID;      /* Reserved (set to 0) */
-  SInt16 fdReserved[3]; /* Reserved (set to 0) */
-  SInt8 fdScript;       /* Extended flags. Script code if high-bit is set */
-  SInt8 fdXFlags;       /* Extended flags */
-  SInt16 fdComment; /* Reserved (set to 0). Comment ID if high-bit is clear */
-  SInt32 fdPutAway; /* Put away folder ID */
-};
+	short fdIconID;/**< File's icon resource (see Notes)*/
+	short fdUnused[];/**< (reserved)*/
+	char fdScript;/**< */
+	char fdXFlags;/**< */
+	short fdComment;/**< Resource ID of file comment (type*/
+	long fdPutAway;/**< Dir ID of file's home directory*/
+	} FXInfo;/**< */
+
 typedef struct FXInfo FXInfo;
 /* Folder info */
 /**
@@ -331,13 +368,38 @@ typedef struct FXInfo FXInfo;
      In MacOS 8, the frView field was changed to become reserved
      field for the Finder.
 */
+/**
+<pre>
+ * \note <pre>A DInfo structure named ioDrUsrWds is embedded in the DirInfo structure
+obtained by PBGetCatInfo and field values in it can be set via
+PBSetCatInfo .
+The frFlags field has the same layout as the fdFlags in an FInfo structure.
+Many of the bits don't apply to directories, but fOnDesk and fInvisible do
+apply. See FInfo.
+The frRect field identifies where the folder's window goes when the folder
+is opened. Additional information is found in the FXInfo structure.
+The content of the frView field is not documented, the high byte of this field
+is one of:
+1By Icon
+2By Name
+3By Date
+4By Size
+5By Kind
+6By Color
+Since the Finder performs its own internal caching, changes made to these
+fields may not be noticed for some time (you may need to use the Finder's
+Get Info command or manually close and reopen the the folder). Also, when
+the Finder ejects a disk, it may overwrite your changes anyway.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct DInfo {
-  Rect frRect;      /* Folder's window bounds */
-  UInt16 frFlags;   /* Flags ex. kIsInvisible, kNameLocked, etc.*/
-  Point frLocation; /* Folder's location in parent folder */
-  /* If set to {0, 0}, the Finder will place the item automatically */
-  SInt16 frView; /* Reserved (set to 0) */
-};
+	Rect frRect;/**< Size and location for folder's window*/
+	short frFlags;/**< Bit flags (fOnDesk, et al.)  See FInfo*/
+	Point frLocation;/**< Top-left corner for folder's icon*/
+	short frView;/**< Folder view*/
+	} DInfo;/**< */
+
 typedef struct DInfo DInfo;
 /* Extended folder info */
 /**
@@ -346,14 +408,30 @@ typedef struct DInfo DInfo;
      to become reserved fields for the Finder.
      The frScript has become an extended flag.
 */
+/**
+<pre>
+ * \note <pre>A DXInfo structure named ioDrFndrInfo is embedded in the DirInfo
+structure obtained by PBGetCatInfo . Field values in it can be set via
+PBSetCatInfo .
+The frScroll field is the horizontal and vertical distance by which the
+contents of the folder are currently scrolled.
+The frComment field contains the resource ID of an 'FCMT' in the Desktop
+file. It is a Pascal string which gets displayed/modified in the Finder's "Get
+Info" menu item dialog.
+The frPutAway field is a 'hard' directory ID of the folder in which this
+folder is normally displayed. When a folder gets moved to the desktop, the
+Finder uses this field to implement its "Put Away" menu item.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct DXInfo {
-  Point frScroll;     /* Scroll position */
-  SInt32 frOpenChain; /* Reserved (set to 0) */
-  SInt8 frScript;     /* Extended flags. Script code if high-bit is set */
-  SInt8 frXFlags;     /* Extended flags */
-  SInt16 frComment;   /* Reserved (set to 0). Comment ID if high-bit is clear */
-  SInt32 frPutAway;   /* Put away folder ID */
-};
+	Point frScroll;/**< Currently scrolled by this horiz and*/
+	long frOpenChain;/**< Directory ID in the chain of open*/
+	short frUnused;/**< (reserved)*/
+	short frComment;/**< Resource ID of folder's comment*/
+	long frPutAway;/**< Dir ID of folder's home directory*/
+	} DXInfo;/**< */
+
 typedef struct DXInfo DXInfo;
 /* ControlPanelDefProcPtr and cdev constants have all been moved to
  * Processes.i*/

@@ -81,11 +81,53 @@ enum {
  * AppleDiskPartitions.h/p/a files.
  */
 /* TIB instruction */
-struct SCSIInstr {
-  unsigned short scOpcode;
-  long scParam1;
-  long scParam2;
-};
+/**
+<pre>A transfer instructions block tells the SCSI Manager what to do with
+the data bytes transferred during the data phase. A transfer instruction block
+contains a pseudo-program consisting of a variable number of instructions;
+it's similar to a subroutine except that the instructions are provided and
+interpreted by the SCSI Manager itself. The instructions are of a fixed size
+and are of type SCSIInstr .
+Eight instructions are available; their operation codes are specified with the
+following predefined constants:
+scInc SCINC instruction
+scNoInc SCNOINC instruction
+scAdd SCADD instruction
+scMove SCMOVE instruction
+scLoop SCLOOP instruction
+scNOp SCNOP instruction
+scStop SCSTOP instruction
+A description of the instructions is given below:
+scOpcode = scInc scParam1 = buffer scParam2 = count
+The SCINC instruction moves count bytes to or from buffer, incrementing
+buffer by count when done.
+scOpcode = scNoInc scParam1 = buffer scParam2 = count
+The SCNOINC instruction moves count data bytes to or from buffer, leaving
+buffer unmodified.
+scOpcode = scAdd scParam1 = addr scParam2 = value
+The SCADD instruction adds the given value to the address in addr. (The
+addition is performed as an MC68000 operation.)
+scOpcode = scMove scParam1 = addr1 scParam2 = addr2
+The SCMOVE instruction moves the value pointed to by addr1 to the location
+pointed to by addr2. (The move is an MC68000 long operation)
+scOpcode = scLoop param1 = relAddr param2 = count
+The SCLOOP instruction decrements count by 1. If the result is greater than
+0, pseudo-program execution resumes at the current address+relAddr. If the
+result is 0, pseudo-program execution resumes at the next instruction.
+RelAddr should be a signed multiple of the instruction size (10 bytes). For
+example, to loop to the immediately preceding instruction, the relAddr field
+would contain -10. To loop forward by three instructions, it would contain 30.
+scOpcode = scNOp scParam1 = NIL scParam2 = NIL
+The SCNOP instruction does nothing.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct SCSIInstr  {
+	unsigned short scOpcode;/**<}  operation code*/
+	unsigned long scParam;/**<  first parameter*/
+	unsigned long scParam;/**<  second parameter*/
+	} SCSIInstr ;/**< */
+
 typedef struct SCSIInstr SCSIInstr;
 /* SCSI Phases (used by SIMs to support the Original SCSI Manager */
 enum {
@@ -104,10 +146,24 @@ enum {
 };
 
 #if CALL_NOT_IN_CARBON
-/**
- *  SCSIReset()
- *
- *  Availability:
+
+			/** 
+			\brief Reset the SCSI bus 
+			
+			<pre>SCSIReset resets the SCSI bus.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0) No error
+scCommErr (2) Breakdown in SCSI protocols
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -115,10 +171,24 @@ enum {
 EXTERN_API(OSErr)
 SCSIReset(void) TWOWORDINLINE(0x4267, 0xA815);
 
-/**
- *  SCSIGet()
- *
- *  Availability:
+
+			/** 
+			\brief Arbitrate for use of the SCSI bus 
+			
+			<pre>SCSIGet arbitrates for use of the SCSI bus.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0) No error
+scCommErr (2) Breakdown in SCSI protocols
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -126,10 +196,24 @@ SCSIReset(void) TWOWORDINLINE(0x4267, 0xA815);
 EXTERN_API(OSErr)
 SCSIGet(void) THREEWORDINLINE(0x3F3C, 0x0001, 0xA815);
 
-/**
- *  SCSISelect()
- *
- *  Availability:
+
+			/** 
+			\brief Select a SCSI device with a specific ID 
+			
+			<pre>SCSISelect selects the device whose ID is targetID.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0) No error
+scCommErr (2) Breakdown in SCSI protocols
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -137,10 +221,30 @@ SCSIGet(void) THREEWORDINLINE(0x3F3C, 0x0001, 0xA815);
 EXTERN_API(OSErr)
 SCSISelect(short targetID) THREEWORDINLINE(0x3F3C, 0x0002, 0xA815);
 
-/**
- *  SCSICmd()
- *
- *  Availability:
+
+			/** 
+			\brief Send a command to the selected target device 
+			
+			<pre>SCSICmd sends the command pointed to by buffer to the selected target
+device. The size of the command in bytes is specified in count.
+bufferis a pointer to a command descriptor block; the SCSI command
+structure is outlined in ANSC document X3T0.2/82-2.
+countis the size of the command descriptor block pointer to by buffer.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0) No error
+scCommErr (2) Breakdown in SCSI protocols
+scPhaseErr (5) Phase error
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+Use SCSISelect to specify the target device.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -148,10 +252,37 @@ SCSISelect(short targetID) THREEWORDINLINE(0x3F3C, 0x0002, 0xA815);
 EXTERN_API(OSErr)
 SCSICmd(Ptr buffer, short count) THREEWORDINLINE(0x3F3C, 0x0003, 0xA815);
 
-/**
- *  SCSIRead()
- *
- *  Availability:
+
+			/** 
+			\brief Transfer data from the target to the initiator 
+			
+			<pre>SCSIRead transfers data from the target to the initiator, as specified by the
+transfer instructions block pointed to by tibPtr.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0)No error
+scBadParmsErr (4)Unrecognized instruction in transfer instruction block
+scCommErr (2)Breakdown in SCSI protocols
+scCompareErr (6)Data comparison error (with scComp command in
+tranfer instruction block)
+scPhaseErr (5)Phase error
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+A transfer instructions block tells the SCSI Manager what to do
+with the data bytes transferred during the data phase. A transfer instruction
+block contains a pseudo-program consisting of a variable number of
+instructions; it's similar to a subroutine except that the instructions are
+provided and interpreted by the SCSI Manager itself. The instructions are
+of a fixed size and are of type SCSIInstr . See SCSIInstr for more
+information on the the instructions that are available.
+Use SCSISelect to specify the target device.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -159,10 +290,46 @@ SCSICmd(Ptr buffer, short count) THREEWORDINLINE(0x3F3C, 0x0003, 0xA815);
 EXTERN_API(OSErr)
 SCSIRead(Ptr tibPtr) THREEWORDINLINE(0x3F3C, 0x0005, 0xA815);
 
-/**
- *  SCSIRBlind()
- *
- *  Availability:
+
+			/** 
+			\brief Transfer data without polling and waiting for /REQ line 
+			
+			<pre>SCSIRBlind transfers data from the target to the initiator, as specified by
+the transfer instructions block pointed to by tibPtr. It is functionally
+equivalent to SCSIRead , but it does not poll and wait for the /REQ line on each
+data byte. Rather the /REQ line is polled only for the first byte transferred by
+each scInc, scNoInc or scComp instruction.
+Given the following instruction block:
+scOpcode scParam1 scParam2
+scInc 0x67B50 512
+scLoop -10 6
+scStop
+SCSIRBlind polls and wait only for the first byte of each 512-byte block
+transferred.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0)No error
+scBadParmsErr (4)Unrecognized instruction in transfer instruction block
+scCommErr (2)Breakdown in SCSI protocols
+scCompareErr (6)Data comparison error
+scPhaseErr (5)Phase error
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+A transfer instructions block tells the SCSI Manager what to do
+with the data bytes transferred during the data phase. A transfer instruction
+block contains a pseudo-program consisting of a variable number of
+instructions; it's similar to a subroutine except that the instructions are
+provided and interpreted by the SCSI Manager itself. The instructions are
+of a fixed size and are of type SCSIInstr . See SCSIInstr for more
+information on the the instructions that are available.
+Use SCSISelect to specify the target device.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -170,10 +337,35 @@ SCSIRead(Ptr tibPtr) THREEWORDINLINE(0x3F3C, 0x0005, 0xA815);
 EXTERN_API(OSErr)
 SCSIRBlind(Ptr tibPtr) THREEWORDINLINE(0x3F3C, 0x0008, 0xA815);
 
-/**
- *  SCSIWrite()
- *
- *  Availability:
+
+			/** 
+			\brief Transfer data from the initiator to the target 
+			
+			<pre>SCSIWrite transfers data from the initiator to the target, as specified by
+the transfer instructions block pointed to by tibPtr.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0)No error
+scBadParmsErr (4)Unrecognized instruction in transfer instruction block
+scCommErr (2)Breakdown in SCSI protocols
+scPhaseErr (5)Phase error
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+A transfer instructions block tells the SCSI Manager what to do
+with the data bytes transferred during the data phase. A transfer instruction
+block contains a pseudo-program consisting of a variable number of
+instructions; it's similar to a subroutine except that the instructions are
+provided and interpreted by the SCSI Manager itself. The instructions are
+of a fixed size and are of type SCSIInstr . See SCSIInstr for more
+information on the the instructions that are available.
+Use SCSISelect to specify the target device.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -181,10 +373,39 @@ SCSIRBlind(Ptr tibPtr) THREEWORDINLINE(0x3F3C, 0x0008, 0xA815);
 EXTERN_API(OSErr)
 SCSIWrite(Ptr tibPtr) THREEWORDINLINE(0x3F3C, 0x0006, 0xA815);
 
-/**
- *  SCSIWBlind()
- *
- *  Availability:
+
+			/** 
+			\brief Transfer data without polling and waiting for /REQ line 
+			
+			<pre>SCSIWBlind transfers data from the initiator to the target, as specified by
+the transfer instructions block pointed to by tibPtr. SCSIWBlind is
+functionally identical to SCSIWrite , but does not poll and wait for the /REQ
+line on each data byte. As with SCSIRBlind , SCSIWBlind polls the /REQ
+line only for the first byte transferred by each scInc, scNoInc, or scComp
+instruction.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0)No error
+scBadParmsErr (4)Unrecognized instruction in transfer instruction block
+scCommErr (2)Breakdown in SCSI protocols
+scPhaseErr (5)Phase error
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+A transfer instructions block tells the SCSI Manager what to do
+with the data bytes transferred during the data phase. A transfer instruction
+block contains a pseudo-program consisting of a variable number of
+instructions; it's similar to a subroutine except that the instructions are
+provided and interpreted by the SCSI Manager itself. The instructions are
+of a fixed size and are of type SCSIInstr . See SCSIInstr for more
+information on the the instructions that are available.
+Use SCSISelect to specify the target device.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -192,10 +413,26 @@ SCSIWrite(Ptr tibPtr) THREEWORDINLINE(0x3F3C, 0x0006, 0xA815);
 EXTERN_API(OSErr)
 SCSIWBlind(Ptr tibPtr) THREEWORDINLINE(0x3F3C, 0x0009, 0xA815);
 
-/**
- *  SCSIComplete()
- *
- *  Availability:
+
+			/** 
+			\brief Give current command specific number of ticks to complete 
+			
+			<pre>SCSIComplete gives the current command wait number of ticks to complete;
+the two completion bytes are returned in stat and message.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0)No error
+scCommErr (2)Breakdown in SCSI protocols
+scPhaseErr (5)Phase error
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -204,10 +441,36 @@ EXTERN_API(OSErr)
 SCSIComplete(short *stat, short *message, unsigned long wait)
     THREEWORDINLINE(0x3F3C, 0x0004, 0xA815);
 
-/**
- *  SCSIStat()
- *
- *  Availability:
+
+			/** 
+			\brief Get bit map of SCSI control and status bits 
+			
+			<pre>SCSIStat returns a bit map of SCSI control and status bits; these bits are
+given below. See the NCR 5380 SCSI chip documentation for a description of
+these signals (Bits 0-9 are complements of the SCSI bus standard signals.)
+Bit Signal BitSignal
+15END DMA 7RST
+14DMA REQ 6BSY
+13PTY ERR 5REQ
+12INT REQ 4MSG
+11PHS MAT 3C/D
+10BSY ERR 2I/O
+9ATN 1SEL
+8ACK 0DBP
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0)No error
+scCommErr (2)Breakdown in SCSI protocols
+scPhaseErr (5)Phase error
+</pre>
+ * \note <pre> The error codes returned by SCSI Manager routines typically indicate
+only that a given operation has failed. To determine the actual cause of the
+failure, another SCSI command needs to be sent asking the device what went
+wrong.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -215,10 +478,25 @@ SCSIComplete(short *stat, short *message, unsigned long wait)
 EXTERN_API(short)
 SCSIStat(void) THREEWORDINLINE(0x3F3C, 0x000A, 0xA815);
 
-/**
- *  SCSISelAtn()
- *
- *  Availability:
+
+			/** 
+			\brief Select SCSI device and signal intention to send a message 
+			
+			<pre>SCSISelAtn is the same as SCSISelect except that it also asserts the bus's
+Attention line to indicate that there is a message pending for that drive.
+targetID identifies the selected SCSI device.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0) No error
+scArbNBErr (3) Arbitration failure during SCSIGet; bus busy
+scMgrBusyErr (7) SCSI Manager already occupied when SCSIGet was called
+scSequenceErr (8) Operation out of sequence
+scBusTOErr (9) Bus timeout before data ready on blind read or write
+scComplPhaseErr (10) Bus not in Status phase; SCSIComplete call failed
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -226,10 +504,28 @@ SCSIStat(void) THREEWORDINLINE(0x3F3C, 0x000A, 0xA815);
 EXTERN_API(OSErr)
 SCSISelAtn(short targetID) THREEWORDINLINE(0x3F3C, 0x000B, 0xA815);
 
-/**
- *  SCSIMsgIn()
- *
- *  Availability:
+
+			/** 
+			\brief Get a message from the SCSI device 
+			
+			<pre>SCSIMsgIn gets a message from the external drive.
+*message is in the low-order byte of the message parameter.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0) No error
+scArbNBErr (3) Arbitration failure during SCSIGet; bus busy
+scMgrBusyErr (7) SCSI Manager already occupied when SCSIGet was called
+scSequenceErr (8) Operation out of sequence
+scBusTOErr (9) Bus timeout before data ready on blind read or write
+scComplPhaseErr (10) Bus not in Status phase; SCSIComplete call failed
+</pre>
+ * \note <pre> Message values are listed in SCSI documentation from the American
+National Standards Institute. This routine leaves the Attention bus line
+undisturbed if it is already asserted.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -237,10 +533,28 @@ SCSISelAtn(short targetID) THREEWORDINLINE(0x3F3C, 0x000B, 0xA815);
 EXTERN_API(OSErr)
 SCSIMsgIn(short *message) THREEWORDINLINE(0x3F3C, 0x000C, 0xA815);
 
-/**
- *  SCSIMsgOut()
- *
- *  Availability:
+
+			/** 
+			\brief Send a message to the SCSI device 
+			
+			<pre>SCSIMsgOut sends a message to the external drive.
+*message is an ANSI-defined value in the low-order byte of the message
+parameter.
+</pre>
+ * \returns <pre>an error code indicating success or failure of the function. It will be
+one of:
+noErr(0) No error
+scArbNBErr (3) Arbitration failure during SCSIGet; bus busy
+scMgrBusyErr (7) SCSI Manager already occupied when SCSIGet was called
+scSequenceErr (8) Operation out of sequence
+scBusTOErr (9) Bus timeout before data ready on blind read or write
+scComplPhaseErr (10) Bus not Out Status phase; SCSIComplete call failed
+</pre>
+ * \note <pre> Message values are listed in SCSI documentation from the American
+National Standards Institute.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -1781,6 +2095,11 @@ SCSIKillXPT(SIMInitInfo *parameterBlock) TWOWORDINLINE(0x7005, 0xA089);
 #endif
 
 #ifdef __cplusplus
+}
+#endif
+
+#endif /* __SCSI__ */
+cplusplus
 }
 #endif
 

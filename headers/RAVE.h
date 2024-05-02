@@ -254,26 +254,82 @@ union TQAPlatformDevice {
   TQADeviceMemory memoryDevice;
   HDC hdc;
 #if !defined(RAVE_NO_DIRECTDRAW)
-  struct {
-    TQADirectDrawObjectSelector objectSelector;
-    union {
-      LPDIRECTDRAW lpDirectDraw;
-      LPDIRECTDRAW2 lpDirectDraw2;
-    };
+  /**
+<pre>
+ * \note <pre>This ColorInfo record type is the basic building block of the array that
+eventually comprises a color palette data structure. Taken together with
+other information on how the colors are used within the palette, the
+completed data structure is also the same as the 'pltt' resource type.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+/**
+<pre>
+ * \note <pre>Use this WDPBRec structure in calls to PBOpenWD , PBCloseWD , and
+PBGetWDInfo .
+Set ioWDIndex to 0 if in all cases except for indexed lookups via
+PBGetWDInfo .
+The meaning and usage of ioWDProcID has not been fully explained by
+Apple, but they do recommend that you set it to 'ERIK'.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+/**
+<pre>
+ * \note <pre>Applications can all have their own search procedures, yet share the same
+gDevice. The search procedures form the elements in a linked list that
+starts in the device port's gdSearchProc field. The search procedures list
+can be any length and each search procedure on the list gets a chance to act
+or not.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+/**
+<pre>
+ * \note <pre>The meaning of the qType field has been corrupted. If HFS is present, then
+this field indicates how to calculate the size of the drive. It is one of:
+0The drive contains dQDrvSz blocks (probably 512-bytes each)
+1The drive contains dQDrvSz +( dQDrvSz * 0x10000 ) blocks
+3MFS is probably present and dQDrvSz is the total blocks
+Preceding this structure in memory is a 4-byte set of flags, defined as
+follows:
+Offset Description
+-4(bit 7 set) = disk is locked (write-protected)
+-30 no disk in drive
+1 or 2 disk is in drive
+8 non-ejectable disk
+FCh...FFh disk was ejected within last 1.5 seconds
+48h non-ejectable disk, but driver expects a call (?)
+-2(used internally during system startup)
+-1(bit 7 clear) drive supports only single-sided media
+See GetDrvQHdr for an example of how to access these prefix bytes and
+how to calculate the true size of the drive.
+The global variable DrvQHdr contains the queue header which begins the
+chain of drive queue elements. Or call GetDrvQHdr to obtain that address.
+dQDrvSz2 is only used if qType is 1. In this case, dQDrvSz2 contains the
+high-order word of the size, and dQDrvSz contains the low-order word.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+/**
+<pre>
+ * \note <pre> Color icons are used just like black and white icons. 'cicn' resources will
+take precedence over 'ICON' resources whenever they're present. When
+calculating n, above:
+n=IconMask. rowBytes *height
+Height=IconPMap. bounds.bottom-IconPmap. bounds.top
+PlotIcon is used to draw a color icon already in RAM.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct {
+	PixMap iconPMap;/**< Pixel Map describing icon*/
+	BitMap iconMask;/**< Icon mask bitmap*/
+	BitMap iconBMap;/**< Icon bitmap*/
+	Handle iconData;/**< Handle to icon*/
+	short *iconMaskData;/**< nData for bitmap and map*/
+	} CIcon ;/**< +n*/
 
-    TQADirectDrawSurfaceSelector surfaceSelector;
-    union {
-      LPDIRECTDRAWSURFACE lpDirectDrawSurface;
-      LPDIRECTDRAWSURFACE2 lpDirectDrawSurface2;
-    };
-  };
-#endif /* RAVE_NO_DIRECTDRAW */
-};
-typedef union TQAPlatformDevice TQAPlatformDevice;
-
-union TQAPlatformClip {
-  HRGN clipRgn;
-};
 typedef union TQAPlatformClip TQAPlatformClip;
 
 #else
@@ -1815,6 +1871,81 @@ QAUnregisterDrawNotificationProc(TQADrawNotificationProcRefNum refNum);
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __RAVE__ */
+/**
+ *  QARegisterDrawNotificationProc()
+ *
+ *  Availability:
+ *    \non_carbon_cfm   not available
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(TQAError)
+QARegisterDrawNotificationProc(Rect *globalRect,
+                               TQADrawNotificationProcPtr proc, long refCon,
+                               TQADrawNotificationProcRefNum *refNum);
+
+/**
+ *  QAUnregisterDrawNotificationProc()
+ *
+ *  Availability:
+ *    \non_carbon_cfm   not available
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(TQAError)
+QAUnregisterDrawNotificationProc(TQADrawNotificationProcRefNum refNum);
+
+#endif /* CALL_NOT_IN_CARBON */
+
+#endif /* TARGET_OS_MAC */
+
+#if PRAGMA_ENUM_ALWAYSINT
+#pragma enumsalwaysint reset
+#ifdef __RAVE__RESTORE_TWOBYTEINTS
+#pragma fourbyteints off
+#endif
+#elif PRAGMA_ENUM_OPTIONS
+#pragma option enum =reset
+#elif defined(__RAVE__RESTORE_PACKED_ENUMS)
+#pragma options(pack_enums)
+#endif
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __RAVE__ */
+H
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()

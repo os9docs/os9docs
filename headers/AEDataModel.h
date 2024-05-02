@@ -162,16 +162,51 @@ typedef Ptr AEDataStorageType;
 #endif /** OPAQUE_TOOLBOX_STRUCTS */
 
 typedef AEDataStorageType *AEDataStorage;
+/**
+<pre>This is the Apple Event descriptor record. It is the fundamental structure
+from which Apple Events are constructed. A descriptor record is a data
+structure of type AEDesc; it consists of a handle to data and a descriptor type
+that identifies the type of the data referred to by the handle.
+</pre>
+ * \note <pre>The Apple Event descriptor record structure is used in the following calls:
+AECoerceDesc AEDuplicateDesc AEPutAttributeDesc
+AECoercePtr AEGetAttributeDesc AEPutDesc
+AECreateDesc AEGetKeyDesc AEPutDesc
+AEDisposeDesc AEGetNthDesc AEPutParamDesc
+AEGetParamDesc
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct AEDesc {
-  DescType descriptorType;
-  AEDataStorage dataHandle;
-};
+	DescType descriptorType;/**< */
+	Handle dataHandle;/**< */
+	} AEDesc;/**< */
+
 typedef struct AEDesc AEDesc;
 typedef AEDesc *AEDescPtr;
+/**
+<pre>The Apple Event Manager associates keywords with specific descriptor
+records by means of a keyword-specified descriptor record, which is a data
+structure of type AEKeyDesc that consists of a keyword and a descriptor
+record.
+A data structure of type AEKeyDesc consists of a keyword and a descriptor
+record. This data structure, called a keyword-specified descriptor record, is
+used by the Apple Event Manager to fully identify and describe an attribute
+or a parameter of an Apple event. Constants are typically used for keywords.
+For a list of these keyword constants, their four-character codes, and the
+attributes and parameters they represent see
+Apple Event Manager Data .
+</pre>
+ * \note <pre>The Apple Event keyword descriptor record structure is used
+in the following arrays: AEDataArray , AEKeyDescArray .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct AEKeyDesc {
-  AEKeyword descKey;
-  AEDesc descContent;
-};
+	AEKeyword descKey;/**< */
+	AEDesc descContent;/**< */
+	} AEKeyDesc ;/**< */
+
 typedef struct AEKeyDesc AEKeyDesc;
 /** a list of AEDesc's is a special kind of AEDesc */
 
@@ -197,13 +232,18 @@ enum {
 
 enum { kAEHandleArray = 2 };
 
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 union AEArrayData {
-  short kAEDataArray[1];
-  char kAEPackedArray[1];
-  Handle kAEHandleArray[1];
-  AEDesc kAEDescArray[1];
-  AEKeyDesc kAEKeyDescArray[1];
-};
+	short AEDataArray[];/**< array of short integers*/
+	char AEPackedArray[];/**< array of characters*/
+	Handle AEHandleArray[];/**< array of Handles*/
+	AEDesc AEDescArray[];/**< array of descriptor records*/
+	AEKeyDesc AEKeyDesc[];/**< array of keyword-specified*/
+	} AEArrayData ;/**< */
+
 typedef union AEArrayData AEArrayData;
 typedef AEArrayData *AEArrayDataPointer;
 /***************************************************************************
@@ -600,19 +640,25 @@ AEDuplicateDesc(const AEDesc *theAEDesc, AEDesc *result)
                                    Boolean isRecord, AEDescList *resultList)
         THREEWORDINLINE(0x303C, 0x0706, 0xA816);
 
-/**
- *  AECountItems()
- *
-\carbon_lib
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AECountItems(const AEDescList *theAEDescList, long *theCount)
-    THREEWORDINLINE(0x303C, 0x0407, 0xA816);
 
-/**
+			/** 
+			\brief Count number of descriptor records in a descriptor list 
+			
+			<pre>You can use the AECountItems function to count the number of descriptor
+records in any descriptor list.
+The AECountItems function counts the number of descriptor records in a
+descriptor list .
+The parameter theAEDescList is the descriptor list to be counted.
+The AECountItems function returns the number of descriptor records in the
+list in the parameter theCount .
+For an example program showing use of AECountItems , see the description
+of Open Documents Event .
+Result codes
+noErr(0)No error
+errAENotAEDesc (-1704) Not a valid descriptor record
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			*//**
  *  AEPutPtr()
  *
 
@@ -1146,6 +1192,33 @@ inline OSErr InvokeAEEventHandlerUPP(const AppleEvent *theAppleEvent,
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
+/** support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+#define NewAEEventHandlerProc(userRoutine) NewAEEventHandlerUPP(userRoutine)
+#define CallAEEventHandlerProc(userRoutine, theAppleEvent, reply,              \
+                               handlerRefcon)                                  \
+  InvokeAEEventHandlerUPP(theAppleEvent, reply, handlerRefcon, userRoutine)
+#endif /** CALL_NOT_IN_CARBON */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __AEDATAMODEL__ */
+*/LL_NOT_IN_CARBON || OLDROUTINENAMES
 /** support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewAEEventHandlerProc(userRoutine) NewAEEventHandlerUPP(userRoutine)
 #define CallAEEventHandlerProc(userRoutine, theAppleEvent, reply,              \

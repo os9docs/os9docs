@@ -122,99 +122,156 @@ typedef CALLBACK_API_REGISTER68K(void, ADSPCompletionProcPtr,
                                  (DSPPBPtr thePBPtr));
 typedef REGISTER_UPP_TYPE(ADSPConnectionEventProcPtr) ADSPConnectionEventUPP;
 typedef REGISTER_UPP_TYPE(ADSPCompletionProcPtr) ADSPCompletionUPP;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRinitParams {
-  TPCCB ccbPtr;                       /** pointer to connection control block */
-  ADSPConnectionEventUPP userRoutine; /** client routine to call on event */
-  UInt16 sendQSize;                   /** size of send queue (0..64K bytes) */
-  void *sendQueue;                    /** client passed send queue buffer */
-  UInt16 recvQSize;  /** size of receive queue (0..64K bytes) */
-  void *recvQueue;   /** client passed receive queue buffer */
-  void *attnPtr;     /** client passed receive attention buffer */
-  UInt8 localSocket; /** local socket number */
-  UInt8 filler1;     /** filler for proper byte alignment */
-};
+	TPCCB ccbPtr;/**< Pointer to CCB*/
+	ProcPtr userRoutine;/**< Client routine to call on event*/
+	short sendQSize;/**< Size of send queue (..K bytes)*/
+	Ptr sendQueue;/**< Client passed send queue buffer*/
+	short recvQSize;/**< Size of receive queue (..K bytes)*/
+	Ptr recvQueue;/**< Client passed receive queue*/
+	Ptr attnPtr;/**< Client passed receive attention*/
+	char localSocket;/**< Local socket number*/
+	} TRinitParams ;/**< */
+
 typedef struct TRinitParams TRinitParams;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRopenParams {
-  UInt16 localCID;         /** local connection id */
-  UInt16 remoteCID;        /** remote connection id */
-  AddrBlock remoteAddress; /** address of remote end */
-  AddrBlock filterAddress; /** address filter */
-  UInt32 sendSeq;          /** local send sequence number */
-  UInt16 sendWindow;       /** send window size */
-  UInt32 recvSeq;          /** receive sequence number */
-  UInt32 attnSendSeq;      /** attention send sequence number */
-  UInt32 attnRecvSeq;      /** attention receive sequence number */
-  UInt8 ocMode;            /** open connection mode */
-  UInt8 ocInterval;        /** open connection request retry interval */
-  UInt8 ocMaximum;         /** open connection request retry maximum */
-  UInt8 filler2;           /** filler for proper byte alignment */
-};
+	short localCID;/**< Local connection ID*/
+	short remoteCID;/**< Remote connection ID*/
+	AddrBlock remoteAddress;/**< Address of remote end*/
+	AddrBlock filterAddress;/**< Address filter*/
+	long sendSeq;/**< Local send sequence number*/
+	short sendWindow;/**< Send window size*/
+	long recvSeq;/**< Receive sequence number*/
+	long attnSendSeq;/**< Attention send seq number*/
+	long attnRecvSeq;/**< Attention receive seq num*/
+	char ocMode;/**< Open connection mode*/
+	char ocInterval;/**< Open connection request retry*/
+	char ocMaximum;/**< Open connection request retry*/
+	} TRopenParams ;/**< */
+
 typedef struct TRopenParams TRopenParams;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRcloseParams {
-  UInt8 abort;   /** abort connection immediately if non-zero */
-  UInt8 filler3; /** filler for proper byte alignment */
-};
+	char abort;/**< Abort connection immediately if*/
+	} TRcloseParams ;/**< */
+
 typedef struct TRcloseParams TRcloseParams;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRioParams {
-  UInt16 reqCount; /** requested number of bytes */
-  UInt16 actCount; /** actual number of bytes */
-  void *dataPtr;   /** pointer to data buffer */
-  UInt8 eom;       /** indicates logical end of message */
-  UInt8 flush;     /** send data now */
-};
+	short reqCount;/**< Requested number of bytes*/
+	short;/**< actCount;/**< Actual number of bytes*/
+	Ptr dataPtr;/**< Pointer to data buffer*/
+	char eom;/**<  if end of message*/
+	char flush;/**<  to send data now*/
+	} TRioParams ;/**< */
+
 typedef struct TRioParams TRioParams;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRattnParams {
-  UInt16 attnCode;    /** client attention code */
-  UInt16 attnSize;    /** size of attention data */
-  void *attnData;     /** pointer to attention data */
-  UInt8 attnInterval; /** retransmit timer in 10-tick intervals */
-  UInt8 filler4;      /** filler for proper byte alignment */
-};
+	short;/**< attnCode;/**< Client attention code*/
+	short attnSize;/**< Size of attention data*/
+	Ptr attnData;/**< Pointer to attention data*/
+	char attnInterval;/**< Retransmit int -tick intervals*/
+	} TRattnParams ;/**< */
+
 typedef struct TRattnParams TRattnParams;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRstatusParams {
-  TPCCB statusCCB;     /** pointer to ccb */
-  UInt16 sendQPending; /** pending bytes in send queue */
-  UInt16 sendQFree;    /** available buffer space in send queue */
-  UInt16 recvQPending; /** pending bytes in receive queue */
-  UInt16 recvQFree;    /** available buffer space in receive queue */
-};
+	TPCCB ccbPtr;/**<   Pointer to CCB*/
+	short sendQPending;/**<   Bytes waiting in send queue*/
+	short sendQFree;/**<   Available space in send queue*/
+	short recvQPending;/**<   Pending bytes in receive*/
+	short recvQFree;/**<   Available buffer space in*/
+	} TRstatusParams ;/**< */
+
 typedef struct TRstatusParams TRstatusParams;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRoptionParams {
-  UInt16 sendBlocking; /** quantum for data packets */
-  UInt8 sendTimer;     /** send timer in 10-tick intervals */
-  UInt8 rtmtTimer;     /** retransmit timer in 10-tick intervals */
-  UInt8 badSeqMax;     /** threshold for sending retransmit advice */
-  UInt8 useCheckSum;   /** use ddp packet checksum */
-};
+	short sendBlocking;/**<  Quantum for data packets*/
+	char sendTimer;/**<  Send time in -ticks intervals*/
+	char rtmtTimer;/**<  Retransmit time in -tick*/
+	char badSeqMax;/**<  Threshold for sending retransmit*/
+	char useCheckSum;/**<  Use ddp packet checksum*/
+	} TRoptionParams ;/**< */
+
 typedef struct TRoptionParams TRoptionParams;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct TRnewcidParams {
-  UInt16 newcid; /** new connection id returned */
-};
+	unsigned short newcid ;/**<  new connection id returned*/
+	} TRnewcidParams ;/**< */
+
 typedef struct TRnewcidParams TRnewcidParams;
-struct DSPParamBlock {
-  QElem *qLink;
-  short qType;
-  short ioTrap;
-  Ptr ioCmdAddr;
-  ADSPCompletionUPP ioCompletion;
-  OSErr ioResult;
-  StringPtr ioNamePtr;
-  short ioVRefNum;
-  short ioCRefNum; /** adsp driver refNum */
-  short csCode;    /** adsp driver control code */
-  long qStatus;    /** adsp internal use */
-  short ccbRefNum;
-  union {
-    TRinitParams initParams;
-    TRopenParams openParams;
-    TRcloseParams closeParams;   /**dspClose, dspRemove*/
-    TRioParams ioParams;         /**dspRead, dspWrite*/
-    TRattnParams attnParams;     /**dspAttention*/
-    TRstatusParams statusParams; /**dspStatus*/
-    TRoptionParams optionParams; /**dspOptions*/
-    TRnewcidParams newCIDParams; /**dspNewCID*/
-  } u;
-};
+/**
+<pre>
+ * \note <pre>The .DSP parameter block, defined by the DSPParamBlock data type, is a
+variant parameter block for the PBControl function.
+The qLink, qType, ioTrap, ioCmdAddr, ioNamePtr, and ioVRefNum fields
+are filled in by the Device Manager ; your application should not have to
+set or read these fields. The ioResult field returns the result of the function.
+If you call the routine asynchronously, the
+Device Manager sets this field to 1 as soon as you call the routine, and it
+changes the field to the actual result code when the routine completes
+execution. The ioCompletion field is a pointer to a completion routine that
+you can provide; the Device Manager calls your completion routine when
+it completes execution of the PBControl function. If you are not providing
+a completion routine, specify NIL for this field.
+The ioCRefNum field is returned by the OpenDriver function. You must
+specify this number every time you call The .DSP Driver .
+The csCode field specifies the command to be executed. You must fill in this
+field before calling the PBControl function. You can use the following
+constants as values for the csCode field:
+ADSP routine selectors
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct DSPParamBlock  {
+	QElem *qLink;/**<  Address of next queue entry;/**<*/
+	short qType;/**<  Queue type*/
+	short ioTrap;/**<  Routine trap*/
+	Ptr ioCmdAddr;/**<  Routine address*/
+	ProcPtr ioCompletion;/**<  Completion routine*/
+	OSErr ioResult;/**<  Result code*/
+	StringPtr ioNamePtr;/**<  Used only for dspOpen*/
+	short ioVRefNum;/**<  Volume reference number*/
+	short ioCRefNum;/**<  Driver reference number*/
+	long qStatus;/**<  Reserved for ADSP*/
+	short ccbRefNum;/**<  CCBreference number*/
+	TRinitParams initParams;/**<  dspInit, dspCLInit*/
+	TRopenParams openParams;/**<  dspOpen, dspCLListen ,*/
+	TRcloseParams closeParams;/**<  dspClose, dspRemove*/
+	TRioParams ioParams;/**<  dspRead, dspWrite*/
+	TRattnParams attnParams;/**<  dspAttention*/
+	TRstatusParams statusParams;/**<  dspStatus*/
+	TRoptionParams optionParams;/**<  dspOptions*/
+	TRnewcidParams newCID;/**<  dspNewCID*/
+	} u;/**<*/
+
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -393,6 +450,48 @@ inline void InvokeADSPCompletionUPP(DSPPBPtr thePBPtr,
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __ADSP__ */
+ADSPCompletionUPP(thePBPtr, userRoutine)
+#endif /** CALL_NOT_IN_CARBON */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __ADSP__ */
+port off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __ADSP__ */
+rt off
 #elif PRAGMA_IMPORT
 #pragma import reset
 #endif

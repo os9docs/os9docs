@@ -731,14 +731,28 @@ typedef SInt16 MenuID;
 typedef UInt16 MenuItemIndex;
 typedef UInt32 MenuCommand;
 #if !OPAQUE_TOOLBOX_STRUCTS
-struct MenuInfo {
-  MenuID menuID;    /* in Carbon use Get/SetMenuID*/
-  short menuWidth;  /* in Carbon use Get/SetMenuWidth*/
-  short menuHeight; /* in Carbon use Get/SetMenuHeight*/
-  Handle menuProc;  /* not supported in Carbon*/
-  long enableFlags; /* in Carbon use Enable/DisableMenuItem, IsMenuItemEnable*/
-  Str255 menuData;  /* in Carbon use Get/SetMenuTitle*/
-};
+/**
+<pre>
+ * \note <pre>A MenuHandle is obtained via NewMenu or GetMenu . You will
+probably have at least three of these hanging around your program. A
+MenuHandle is required in nearly all of the Menu Manager functions.
+The enableFlags field is a set of bit flags. If bit 0 is set, the menu is
+enabled. Bits 1-31 indicate the enabled/disabled state of each item in the
+menu (a 1 indicates enabled). Use EnableItem and DisableItem rather
+than mucking with these bits.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct MenuInfo  {
+	short menuID;/**< Menu ID (as used in NewMenu  or a*/
+	short menuWidth;/**< Menu width, in pixels*/
+	short menuHeight;/**< Menu height, in pixels*/
+	Handle menuProc;/**< Address of 'MDEF' menu handler (or*/
+	long enableFlags;/**< Bit flags indicate disabled/enabled*/
+	Str menuData;/**< nStart of p-string of menu title*/
+	m (info about each item;/**< See IM pg*/
+	} MenuInfo ;/**<*/
+
 typedef struct MenuInfo MenuInfo;
 typedef MenuInfo *MenuPtr;
 typedef MenuPtr *MenuHandle;
@@ -763,10 +777,15 @@ typedef MCEntry *MCEntryPtr;
 typedef MCEntry MCTable[1];
 typedef MCEntry *MCTablePtr;
 typedef MCTablePtr *MCTableHandle;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct MenuCRsrc {
-  short numEntries;    /*number of entries*/
-  MCTable mcEntryRecs; /*ARRAY [1..numEntries] of MCEntry*/
-};
+	short numEntries;/**<  Number of entries*/
+	MCTable mcEntryRecs;/**<  */
+	}MenuCRsrc ;/**< */
+
 typedef struct MenuCRsrc MenuCRsrc;
 typedef MenuCRsrc *MenuCRsrcPtr;
 typedef MenuCRsrcPtr *MenuCRsrcHandle;
@@ -1538,14 +1557,27 @@ EXTERN_API(void)
 CalcMenuSize(MenuRef theMenu) ONEWORDINLINE(0xA948);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  CountMItems()
- *
- *  Summary:
- *    Renamed to CountMenuItems in Carbon
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Find how many items are in a menu 
+			
+			<pre>CountMItems returns the number of items in a specified menu. You may
+use it as a way to get information about resource menus.
+theMenu is a handle leading to a variable-length MenuInfo structure. It
+identifies the menu about which you wish information.
+</pre>
+ * \returns <pre>a 16-bit short integer; the number of items in menu theMenu .
+</pre>
+ * \note <pre>For menus created in your application, you should probably keep track of
+how many items are in each menu.
+For menus containing items inserted via AddResMenu and
+InsertResMenu , this provides a way to find the number of items inserted
+into the menu. You can use the return value as an index limit in subsequent
+operations that examine the menu items.
+See GetItem for an example of usage.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -2403,11 +2435,29 @@ EXTERN_API(long)
 PopUpMenuSelect(MenuRef menu, short top, short left, short popUpItem)
     ONEWORDINLINE(0xA80B);
 
-/**
- *  MenuChoice()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief See if user attempted to select a disabled item 
+			
+			<pre>MenuChoice can be called after a previous call to MenuSelect returns 0
+(i.e., no selection made). It identifies the menu and item at which the mouse
+was pointing when the button was released (even if the item is disabled).
+</pre>
+ * \returns <pre>a 32-bit long that indicates which menu and item was pointed to by
+the mouse. It is made up of two values as follows:
+High Word menu ID of disabled "selection"
+Low Word item number of "selection". If 0, then the mouse
+was over the menu title or outside the menu.
+</pre>
+ * \note <pre>This can be used to see if the user has chosen a disabled item from a menu
+at which point you could display a help message.
+MenuChoice works by returning the current value in MenuDisable (and
+on older Mac systems, you can read this variable to obtain the item
+number). If you create a Custom Menus , this function will return
+garbage unless your custom code puts the information into that variable.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2505,11 +2555,18 @@ InvalidateMenuEnabling(MenuRef inMenu);
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /*  © Menu Bar */
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-/**
- *  GetMBarHeight()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Fetch the height of the menu bar 
+			
+			<pre>GetMBarHeight gets the height of the menu bar as required to hold menu
+titles in its current font.
+</pre>
+ * \note <pre>This routine is in the Pascal interface, not ROM and can't be used with the
+64K ROM.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2594,11 +2651,12 @@ GetNewMBar(short menuBarID) ONEWORDINLINE(0xA9C0);
 EXTERN_API(MenuBarHandle)
 GetMenuBar(void) ONEWORDINLINE(0xA93B);
 
-/**
- *  SetMenuBar()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Install an entire menu list 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2701,11 +2759,12 @@ MacInsertMenu(MenuRef theMenu, MenuID beforeID) ONEWORDINLINE(0xA935);
 EXTERN_API(void)
 MacDeleteMenu(MenuID menuID) ONEWORDINLINE(0xA936);
 
-/**
- *  ClearMenuBar()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Redraw the menu bar with no menus 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2713,14 +2772,24 @@ EXTERN_API(void)
 ClearMenuBar(void) ONEWORDINLINE(0xA934);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  SetMenuFlash()
- *
- *  Summary:
- *    Renamed to SetMenuFlashCount in Carbon
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set the number of times a menu item blinks upon selection 
+			
+			<pre>SetMenuFlash can be used to adjust the number of times a menu item blinks
+when it is selected.
+blinkCount specifies how many times menu items flash when selected. Typical
+value is 3. Use 0 to disable blinking.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>The blink count is normally set by a Control Panel DA - not by
+applications. This call simply sets the low-memory global variable,
+MenuFlash . SetMenuFlash is functionally identical to:
+MenuFlash =blinkCount ;
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -2946,11 +3015,46 @@ EXTERN_API(void)
 SetItemMark(MenuRef theMenu, short item, CharParameter markChar)
     ONEWORDINLINE(0xA944);
 
-/**
- *  GetItemMark()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Query the current mark character of a menu item 
+			
+			<pre>GetItemMark copies the mark character of a selected menu item into the
+caller's variable. A mark character is any character, such as a check mark,
+that is displayed to the left of the menu item's text.
+On 256K ROMs, this returns the menu ID of a submenu (i.e., a menu whose
+command character is 0x1B).
+theMenu is a handle leading to a variable-length MenuInfo structure. It
+identifies the menu containing the item whose mark you wish to
+obtain.
+whichItem identifies which item in menu theMenu to query. Items are
+numbered sequentially with the topmost item having an ID of 1.
+markChar is the address of a 2-byte buffer. Upon return, the low byte will
+contain the ASCII value of the current mark character. If the value
+equates with the defined constant noMark (0), no mark is currently
+present.
+If whichItem  is a submenu (i.e., its command character is 0x1B),
+this returns the menu ID of the that submenu.
+The designation as a short* is not a typo. Pascal CHAR data types
+are actually 16-bit words.  Using a 1-byte char variable will cause
+the Menu Manager to overwrite the next higher byte in memory.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>This function can be used as an aid in deciding which way to toggle the mark
+after the user selects an item. For instance:
+shortcurMark;
+GetItemMark ( theMenu, theItem, &curMark );
+if ( curMark == noMark)
+CheckItem ( theMenu, theItem, TRUE );
+else
+CheckItem ( theMenu, theItem, FALSE );
+Most applications keep track of the current state of each item separately;
+whether it is enabled or disabled, marked or unmarked, this function is used
+rarely.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2958,11 +3062,47 @@ EXTERN_API(void)
 GetItemMark(MenuRef theMenu, short item, CharParameter *markChar)
     ONEWORDINLINE(0xA943);
 
-/**
- *  SetItemCmd()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Assign a command-key to a menu item; make submenu 
+			
+			<pre>SetItemCmd assigns a command-key equivalent to a menu item (so that
+subsequent calls to MenuKey can return whichItem ). It also provides a way
+to convert a normal menu item into a hierarchical submenu title.
+theMenu is a handle leading to a variable-length MenuInfo structure. It is a
+value obtained via NewMenu or GetMenu and it identifies the menu
+containing the item to modify.
+whichItem identifies which item in theMenu to modify. Items are numbered
+sequentially with the topmost item having an ID of 1.
+cmdChar is a character to be used as the command-key equivalent for menu
+item whichItem (i.e., a value of 'B' or 'b' will cause a call to
+MenuKey to return whichItem  after the user presses B or b).
+If cmdChar is hMenuCmd (0x1B), whichItem becomes submenu title
+and you should call SetItemMark to identify which submenu should
+be attached to whichItem .
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>SetItemCmd is new with the 256K ROMs. It provides a way to change
+which command key is associated with a menu item or to convert a simple
+menu item into a hierarchical submenu title.
+Mac User Guidelines recommend that you never change command-key
+equivalents unless a user has specifically requested you to do so.
+Furthermore, the normal way to set up a command key for an item is to use
+the '/' metacharacter in the initial call to InsMenuItem or AppendMenu
+(or when creating the menu via a resource tool).
+This call would be more often used to toggle an item to and from a submenu.
+For instance, a menu item named Close MyFile , seen when only one
+window is open, might be changed to Close Window (a submenu title)
+when two or more windows are open.
+MenuHandle  windowsSubMenu, otherMenu;
+/* after user has opened a second window */
+/* create submenu with two entries ... */
+windowsSubMenu = NewMenu ( SMID_CLWIND, "\pClose Window" );
+AppendMenu ( windowsSubMenu, "\pMyFile" );
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2970,11 +3110,41 @@ EXTERN_API(void)
 SetItemCmd(MenuRef theMenu, short item, CharParameter cmdChar)
     ONEWORDINLINE(0xA84F);
 
-/**
- *  GetItemCmd()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Query current command character of a menu item 
+			
+			<pre>GetItemCmd copies the command character of a selected menu item into the
+caller's variable. A command character is normally assigned when a menu
+item is inserted or appended (see InsMenuItem and AppendMenu ) with the
+item text containing a metacharacter of " /". It is the command-key code that
+is assigned to a menu item (as obtained via MenuKey ).
+theMenu is a handle leading to a variable-length MenuInfo structure. It
+identifies the menu containing the item whose command character
+you wish to obtain.
+whichItem identifies which item in menu theMenu to query. Items are
+numbered sequentially with the topmost item having an ID of 1.
+cmdChar is the address of a 2-byte buffer. Upon return, the byte will
+contain the ASCII value of the current command character.  If the
+return value is hMenuCmd (0x1B), the menu item has a submenu. A
+returned value of 0 indicates that no command character is currently
+assigned.
+The designation as a short* is not a typo. Pascal CHAR data types
+are actually 16-bit words.  Using a 1-byte char variable will cause
+the Menu Manager to overwrite the next higher byte in memory.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>GetItemCmd is new with the 256K ROMs and might be handy for working
+with hierarchical menu systems. If the value returned in cmdChar  is
+0x1B, you may use GetItemMark to learn the ID of the submenu associated
+with item whichItem .
+Most applications, having defined each menu internally, will already know
+the command key equivalent of each menu item; therefore, this function is
+needed rarely.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2994,11 +3164,30 @@ EXTERN_API(void)
 SetItemIcon(MenuRef theMenu, short item, short iconIndex) ONEWORDINLINE(0xA940);
 
 /* icon is returned in high byte of 16-bit iconIndex */
-/**
- *  GetItemIcon()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief See which icon, if any, is attached to a menu item 
+			
+			<pre>GetItemIcon obtains a value indicating which icon, if any, is associated with
+a specified menu item. This can be used to see if a previous SetItemIcon call
+succeeded.
+theMenu is a handle leading to a variable-length MenuInfo structure. It
+identifies the menu containing the item whose icon you wish to query.
+whichItem identifies which item in theMenu to query. Items are numbered
+sequentially with the topmost item having an ID of 1.
+iconis the address of a 16-bit short integer. Upon return, it will
+contain 0 if no icon is associated with the menu item. Otherwise, it
+returns a value ranging from 1 to 255 that is 256 less than the
+resource ID of the 'ICON' or 'cicn' resource. For instance, if this
+contains 3, the resource ID of the icon is 259.
+The designation as a short* is not a typo. A Pascal Byte data type is
+actually a 16-bit word. If you use a 1-byte char variable, the Menu
+Manager will overwrite the byte above it.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -3018,11 +3207,12 @@ EXTERN_API(void)
 SetItemStyle(MenuRef theMenu, short item, StyleParameter chStyle)
     ONEWORDINLINE(0xA942);
 
-/**
- *  GetItemStyle()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain the current character formatting of a menu item 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -3032,22 +3222,85 @@ GetItemStyle(MenuRef theMenu, short item, Style *chStyle);
 /* These APIs are not supported in Carbon. Please use EnableMenuItem and */
 /* DisableMenuItem (available back through Mac OS 8.5) instead.          */
 #if CALL_NOT_IN_CARBON
-/**
- *  DisableItem()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Dim a menu or a menu item; make non-selectable 
+			
+			<pre>DisableItem dims a menu title or an individual item in a menu. When
+disabled, the item (or menu) is not highlighted when the cursor moves over it
+and cannot be selected.
+theMenu is a handle leading to a variable-length MenuInfo structure. It is a
+value obtained via NewMenu or GetMenu . It identifies the menu
+containing the item to disable, or if whichItem = 0, the menu to
+disable.
+whichItem identifies which item to disable or specifies your intention to
+disable an entire menu. When whichItem =0, the menu title is
+dimmed and all items in that menu are disabled. If it is a valid item
+ID, it specifies an item in theMenu. Items are numbered sequentially
+with the topmost item having an ID of 1; the last item ID can be
+obtained via CountMItems
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>Use DisableItem on all menu items that are not valid in the current
+context; e.g., disable "Paste" when there is nothing in the paste buffer.
+Disabling an item also excludes it from the search performed by
+MenuKey . Use EnableItem when you want the item to be selectable.
+When you disable or re-enable an entire menu ( whichItem =0), you
+should call DrawMenuBar to display the changed menu title.
+This works by clearing bit number whichItem  in the enableFlags field of
+the relevant MenuInfo structure. For instance, the following calls are
+functionally equivalent:
+DisableItem ( myMenu, 2 );
+(*myMenu)-> enableFlags &= ~4; /* clear bit 2 */
+All menus and items are implicitly enabled when inserted into the menu
+unless explicitly disabled by including the " (" metacharacter in the item
+text. Items with IDs higher than 31 are always enabled, since there is no
+"enable flag" to control them.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 EXTERN_API(void)
 DisableItem(MenuRef theMenu, short item) ONEWORDINLINE(0xA93A);
 
-/**
- *  EnableItem()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Undim a menu or a menu item; make selectable 
+			
+			<pre>EnableItem undims a menu title or an individual item in a menu. Use this
+after dimming an item or a menu title via DisableItem .
+theMenu is a handle leading to a variable-length MenuInfo structure. It is a
+value obtained via NewMenu or GetMenu . It identifies the menu
+containing the item to enable, or if whichItem = 0, the menu to
+enable.
+whichItem identifies which item to enable or specifies to enable an entire
+menu. When whichItem =0, the menu title is undimmed and all items
+in that menu are enabled. If it is a valid item ID, it specifies an item
+in theMenu. Items are numbered sequentially with the topmost item
+having an ID of 1; the ID of the last item can be obtained via
+CountMItems
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>After using DisableItem on a menu item (or including the " ("
+metacharacter in its item text), use EnableItem to make the item
+selectable and to include it in the search performed by MenuKey .
+When you disable or re-enable an entire menu ( whichItem =0), you
+should call DrawMenuBar to display the changed menu title.
+This works by setting bit number whichItem  in the enableFlags field of the
+relevant MenuInfo structure. For instance, the following calls are
+functionally equivalent:
+EnableItem ( myMenu, 2 );
+(*myMenu)->enableFlags |= 4; /* set bit 2 */
+All menus and items are enabled when inserted into the menu unless
+explicitly disabled by including the " (" metacharacter in the item text.
+Items with IDs higher than 31 are always enabled.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -3693,11 +3946,35 @@ SetMCInfo(MCTableHandle menuCTbl) ONEWORDINLINE(0xAA62);
 EXTERN_API(void)
 DisposeMCInfo(MCTableHandle menuCTbl) ONEWORDINLINE(0xAA63);
 
-/**
- *  GetMCEntry()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get the address of a particular menu color table entry 
+			
+			<pre>GetMCEntry returns the address of the color information for the specified
+menu and item.
+menuID is the ID of a menu (as used in NewMenu or GetMenu ). A value of
+0 specifies the menubar.
+itemIDidentifies the menu item of interest. A value of 0 specifies the title
+of menu menuID.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>The pointer returned by this call is an address within a relocatable
+block. Thus, if you want to retain it across calls that may move or purge
+memory (see TrapWords ), you should make a copy:
+MCEntry myMCE;
+MCEntryPtr ptrMCE;
+ptrMCE = GetMCEntry ( mnuFile, itmSave );
+myMCE = *ptrMCE; /* make a duplicate */
+myMCE.mctRGB2.red = 0xFFFF; /* change something in the copy*/
+myMCE.mctRGB2.green = 0;
+myMCE.mctRGB2.blue = 0;
+MyHeapScramble(); /* do something to move memory */
+SetMCEntries ( 1, &myMCE ); /* NOT ptrMCE; may have moved */
+Use GetMCInfo to get a copy of the entire menu color table.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -5127,3 +5404,156 @@ SetMenuDefinition(MenuRef menu, const MenuDefSpec *defSpec);
 #endif
 
 #endif /* __MENUS__ */
+*/ setmenuitemtext(menu, item, itemString)
+#define insmenuitem(theMenu, itemString, afterItem)                            \
+  insertmenuitem(theMenu, itemString, afterItem)
+#endif
+#endif /* OLDROUTINENAMES */
+
+#if ACCESSOR_CALLS_ARE_FUNCTIONS
+/* Getters */
+/**
+ *  GetMenuID()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(MenuID)
+GetMenuID(MenuRef menu);
+
+/**
+ *  GetMenuWidth()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(SInt16)
+GetMenuWidth(MenuRef menu);
+
+/**
+ *  GetMenuHeight()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(SInt16)
+GetMenuHeight(MenuRef menu);
+
+/**
+ *  GetMenuTitle()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(StringPtr)
+GetMenuTitle(MenuRef menu, Str255 title);
+
+/**
+ *  GetMenuDefinition()
+ *
+
+ *    \non_carbon_cfm   not available
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(OSStatus)
+GetMenuDefinition(MenuRef menu, MenuDefSpecPtr outDefSpec);
+
+/* Setters */
+/**
+ *  SetMenuID()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(void)
+SetMenuID(MenuRef menu, MenuID menuID);
+
+/**
+ *  SetMenuWidth()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(void)
+SetMenuWidth(MenuRef menu, SInt16 width);
+
+/**
+ *  SetMenuHeight()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(void)
+SetMenuHeight(MenuRef menu, SInt16 height);
+
+/**
+ *  SetMenuTitle()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(OSStatus)
+SetMenuTitle(MenuRef menu, ConstStr255Param title);
+
+/**
+ *  SetMenuDefinition()
+ *
+
+ *    \non_carbon_cfm   not available
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(OSStatus)
+SetMenuDefinition(MenuRef menu, const MenuDefSpec *defSpec);
+
+#endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
+
+#if TARGET_OS_WIN32
+#endif /* TARGET_OS_WIN32 */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __MENUS__ */
+*/RAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __MENUS__ */
+*/*/*/*/*/*/*/*/*/*/*/*/

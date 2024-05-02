@@ -654,66 +654,161 @@ struct PowerSourceParamBlock {
 };
 typedef struct PowerSourceParamBlock PowerSourceParamBlock;
 typedef PowerSourceParamBlock *PowerSourceParamBlockPtr;
-/**
- *  DisableWUTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Disable the wakeup timer 
+			
+			<pre>The DisableWUTime function disables the wakeup timer. You must set a
+new wakeup time to reenable the wakeup timer.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(OSErr)
 DisableWUTime(void);
 
-/**
- *  SetWUTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set and enable the wakeup timer 
+			
+			<pre>The SetWUTime function sets and enables the wakeup timer. When the
+Macintosh Portable computer is in the sleep state, the Power Manager
+updates the real-time clock and compares it to the wakeup timer once each
+second. When the real-time clock and the wakeup timer have the same setting,
+the Power Manager returns the Macintosh Portable to the operating state.
+The WUTime parameter specifies the time at which the Power Manager
+will return the Macintosh Portable to the operating state. You specify the time
+as the number of seconds since midnight, January 1, 1904.
+If the Macintosh Portable is not in the sleep state when the wakeup timer and
+the real-time clock settings coincide, nothing happens. If you set the wakeup
+timer to a time earlier than the current setting of the real-time clock, you
+effectively disable the wakeup timer.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(OSErr)
 SetWUTime(long wuTime);
 
-/**
- *  GetWUTime()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get the current wakeup time settings 
+			
+			<pre>The GetWUTime function returns the current setting of the wakeup timer
+and indicates whether the wakeup timer is enabled.
+The value returned by the WUTime parameter is the current setting of the
+wakeup timer specified as the number of seconds since midnight, January 1,
+1904. If the low-order bit (bit 0) of the WUFlag parameter is set to 1, the
+wakeup timer is enabled. The other bits in the WUFlag parameter are reserved.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(OSErr)
 GetWUTime(long *wuTime, Byte *wuFlag);
 
-/**
- *  BatteryStatus()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get status of battery charger and voltage level 
+			
+			<pre>The BatteryStatus function returns the status of the battery charger and
+the voltage level of the battery. The bits in the Status parameter are defined as
+follows:
+BitMeaning
+7Reserved.
+6Reserved.
+5The charger connection has or has not changed state. If 1, the charger
+has been recently connected or disconnected.
+4The battery warning. If 1, the battery voltage is low.
+3The dead battery indicator. This bit is always 0.
+2The hicharge counter overflow. If 1, the hicharge counter has
+overflowed.
+1The charge rate. If 1, the battery is charging at the hicharge rate.
+0The charger is or is not connected. If 1, the charger is connected.
+The Power Manager monitors the voltage level of the internal battery and
+warns the user when the voltage drops below a threshold value stored in
+parameter RAM. If the voltage continues to drop and falls below another, lower
+value stored in parameter RAM, the Power Manager puts the computer into
+the sleep state. The Power Manager provides a function that allows you to
+read the state of charge of the battery and the status of the battery charger.
+You can use the constants shown Power Mgr Data to check the values of
+these bits.
+Use the following formula to calculate the battery voltage, where Power is
+the value of the Power parameter returned by this function:
+voltage = ((Power/100) + 5.12) volts
+Due to the nature of lead-acid batteries, the battery power remaining is
+difficult to measure accurately. Temperature, load, and other factors can alter
+the measured voltage by 30 percent or more. The Power Manager takes as
+many of these factors into account as possible, but the voltage measurement can
+still be in error by up to 10 percent. The measurement is most accurate when
+the Macintosh Portable has been in the sleep state for at least 30 minutes.
+When the battery charger is connected to a Macintosh Portable computer with
+a low battery, the battery is charged at the hicharge rate (1.5 amps) until
+battery voltage reaches 7.2 volts. The Power Manager has a counter (the
+hicharge counter ) that measures the time required to raise the battery
+voltage to this level.
+After the 7.2 volt level is reached, the power management circuits maintain
+the hicharge connection until the hicharge counter counts down to 0. This
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(OSErr)
 BatteryStatus(Byte *status, Byte *power);
 
-/**
- *  ModemStatus()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get information about Mac Portable internal modem 
+			
+			<pre>The ModemStatus function returns information about the internal modem in
+the Macintosh Portable computer.
+The bits in the Status parameter are defined as follows:
+BitMeaning
+7Reserved.
+6Reserved.
+5The modem is on or off hook. If 1, the modem is off hook.
+4The ring-detect state. If 1, the modem has detected an incoming call.
+3The modem is or is not installed. If 1, an internal modem is installed.
+2The state of the ring-wakeup feature. If 1, the ring-wakeup feature
+is enabled.
+1Reserved; must always be set to 1.
+0The modem's power is on or off. If 1, the modem is switched on.
+You can use the constants shown in Power Mgr Data to check the values of
+these bits.
+The user can use the Portable control panel to enable or disable the
+ring-wakeup feature. When the ring-wakeup feature is enabled and the
+Macintosh Portable is in the sleep state, the Power Manager returns the
+computer to the operating state when the modem receives an incoming call.
+You can use the serial power control functions described in
+Switching Serial Power On and Off to control power to the modem.
+The modem indicates that it is off hook whenever it is busy sending or
+receiving data or processing commands. The modem cannot receive an incoming
+call when it is off hook.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(OSErr)
 ModemStatus(Byte *status);
 
-/**
- *  IdleUpdate()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Reset the activity timer 
+			
+			<pre>IdleUpdate is equivalent to the expression tickCount = Ticks;
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -723,11 +818,16 @@ ModemStatus(Byte *status);
 EXTERN_API(long)
 IdleUpdate(void) ONEWORDINLINE(0xA285);
 
-/**
- *  GetCPUSpeed()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Return the current effective clock speed of the CPU 
+			
+			<pre>The GetCPUSpeed function returns the current effective clock speed of the
+CPU. The only values that are returned by this function are 1 and 16,
+indicating the clock speed in megahertz.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -737,33 +837,53 @@ IdleUpdate(void) ONEWORDINLINE(0xA285);
 EXTERN_API(long)
 GetCPUSpeed(void) TWOWORDINLINE(0x70FF, 0xA485);
 
-/**
- *  EnableIdle()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Enable the Idle state 
+			
+			<pre>The EnableIdle procedure cancels the effect of a call to the DisableIdle
+procedure. A call to the EnableIdle procedure enables the idle state only if the
+user has not used the Portable control panel to disable the idle state and if
+every call to the DisableIdle procedure has been balanced by a call to the
+EnableIdle procedure.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 EnableIdle(void) TWOWORDINLINE(0x7000, 0xA485);
 
-/**
- *  DisableIdle()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Disable the Idle state 
+			
+			<pre>The DisableIdle procedure disables the idle state, even if the user has used
+the Portable control panel to enable the idle state. Every call to the
+DisableIdle procedure must be balanced by a call to the EnableIdle
+procedure before the idle state is reenabled.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 DisableIdle(void) TWOWORDINLINE(0x7001, 0xA485);
 
-/**
- *  SleepQInstall()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Add an entry to the sleep queue 
+			
+			<pre>You can use the SleepQInstall procedure to add an entry to the sleep queue,
+and you can use the SleepQRemove procedure to remove an entry from the
+sleep queue.
+The qRecPtr parameter is a pointer to a sleep queue record that you must
+provide.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -773,11 +893,18 @@ DisableIdle(void) TWOWORDINLINE(0x7001, 0xA485);
 EXTERN_API(void)
 SleepQInstall(SleepQRecPtr qRecPtr) ONEWORDINLINE(0xA28A);
 
-/**
- *  SleepQRemove()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Remove an entry from the sleep queue 
+			
+			<pre>You can use the SleepQRemove procedure to remove an entry from the sleep
+queue and you can use the SleepQInstall procedure to add an entry to the
+sleep queue.
+The qRecPtr parameter is a pointer to the sleep queue record that you
+provided when you added your routine to the sleep queue.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -787,55 +914,85 @@ SleepQInstall(SleepQRecPtr qRecPtr) ONEWORDINLINE(0xA28A);
 EXTERN_API(void)
 SleepQRemove(SleepQRecPtr qRecPtr) ONEWORDINLINE(0xA48A);
 
-/**
- *  AOn()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Switch on power to the SCC and the -5 volt supply 
+			
+			<pre>The AOn procedure always switches on power to the SCC and the -5 volt
+supply. If the internal modem is installed and is connected to port A, this
+procedure also switches on power to the modem. If either of these conditions is
+not met, the AOn procedure switches on power to the serial driver chips.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 AOn(void) TWOWORDINLINE(0x7004, 0xA685);
 
-/**
- *  AOnIgnoreModem()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Switch on power to SCC, -5 volt supply and serial driver chips 
+			
+			<pre>The AOnIgnoreModem procedure switches on power to the SCC, the -5 volt
+supply, and the serial driver chips. This procedure does not switch on power to
+the internal modem, even if the user has used the Portable control panel to
+select the modem.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 AOnIgnoreModem(void) TWOWORDINLINE(0x7005, 0xA685);
 
-/**
- *  BOn()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Switch on power to SCC, -5 volt supply and serial driver chips 
+			
+			<pre>The BOn procedure always switches on power to the SCC, the -5 volt supply,
+and the serial driver chips.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 BOn(void) TWOWORDINLINE(0x7000, 0xA685);
 
-/**
- *  AOff()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Switch off power to SCC and -5 volt supply if portB not in use 
+			
+			<pre>The AOff procedure always switches off power to the SCC and the -5 volt
+supply if serial port B is not in use. If the internal modem is installed,
+connected to port A, and switched on, this procedure switches off power to the
+modem. If any of these conditions are not met, it switches off power to the serial
+driver chips, unless they are being used by port B.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 AOff(void) TWOWORDINLINE(0x7084, 0xA685);
 
-/**
- *  BOff()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Switch off power to SCC and -5 volt supply if portA not in use 
+			
+			<pre>The BOff procedure switches off power to the SCC and the -5 volt supply if
+serial port A is not in use. If the internal modem is installed, connected to port
+B, and switched on, this procedure switches off power to the modem. Otherwise,
+the BOff procedure switches off power to the serial driver chips, unless they
+are being used by port A.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1972,3 +2129,53 @@ inline void InvokePMgrStateChangeUPP(PMgrQueueElement *theElement,
 #endif
 
 #endif /* __POWER__ */
+*/ueElement *theElement, long stateBits,
+                         PMgrStateChangeUPP userUPP);
+#if !OPAQUE_UPP_TYPES
+#ifdef __cplusplus
+inline void InvokePMgrStateChangeUPP(PMgrQueueElement *theElement,
+                                     long stateBits,
+                                     PMgrStateChangeUPP userUPP) {
+  CALL_TWO_PARAMETER_UPP(userUPP, uppPMgrStateChangeProcInfo, theElement,
+                         stateBits);
+}
+#else
+#define InvokePMgrStateChangeUPP(theElement, stateBits, userUPP)               \
+  CALL_TWO_PARAMETER_UPP((userUPP), uppPMgrStateChangeProcInfo, (theElement),  \
+                         (stateBits))
+#endif
+#endif
+
+#if CALL_NOT_IN_CARBON || OLDROUTINENAMES
+/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+#define NewSleepQProc(userRoutine) NewSleepQUPP(userRoutine)
+#define NewHDSpindownProc(userRoutine) NewHDSpindownUPP(userRoutine)
+#define NewPMgrStateChangeProc(userRoutine) NewPMgrStateChangeUPP(userRoutine)
+#define CallSleepQProc(userRoutine, message, qRecPtr)                          \
+  InvokeSleepQUPP(message, qRecPtr, userRoutine)
+#define CallHDSpindownProc(userRoutine, theElement)                            \
+  InvokeHDSpindownUPP(theElement, userRoutine)
+#define CallPMgrStateChangeProc(userRoutine, theElement, stateBits)            \
+  InvokePMgrStateChangeUPP(theElement, stateBits, userRoutine)
+#endif /* CALL_NOT_IN_CARBON */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __POWER__ */
+*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/

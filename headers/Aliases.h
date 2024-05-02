@@ -78,10 +78,28 @@ enum {
 };
 
 /** define the alias record that will be the blackbox for the caller */
-struct AliasRecord {
-  OSType userType;          /** appl stored type like creator type */
-  unsigned short aliasSize; /** alias record size in bytes, for appl usage */
-};
+/**
+<pre>
+ * \note <pre>Your application can use the userType field to store its own signature or
+any other data that fits into 4 bytes. When the Alias Manager creates an
+AliasRecord , it stores 0 in that field.
+The Alias Manager stores the size of the record when it was created in
+the aliasSize field. Knowing the starting size allows you to store and
+retrieve data of your own at the end of the record (see Customizing Alias
+Records under Using the Alias Manager ). An AliasRecord is typically
+200 to 300 bytes long.
+The private Alias Manager data includes all of the location, verification,
+and mounting information needed to resolve the AliasRecord with the
+various search strategies described in
+Search Strategies for Resolving Alias Records .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct AliasRecord  {
+	OSType userType;/**< application's signature*/
+	unsigned short aliasSize;/**< size of record when created*/
+	} AliasRecord ;/**<*/
+
 typedef struct AliasRecord AliasRecord;
 typedef AliasRecord *AliasPtr;
 typedef AliasPtr *AliasHandle;
@@ -155,16 +173,49 @@ ResolveAlias(const FSSpec *fromFile, /** can be NULL */
              AliasHandle alias, FSSpec *target, Boolean *wasChanged)
     TWOWORDINLINE(0x7003, 0xA823);
 
-/**
- *  GetAliasInfo()
- *
- *  Summary:
- *    given an alias handle and an index specifying requested alias
- *    information type, return the information from alias record as a
- *    string.
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get information from an AliasRecord 
+			
+			<pre>You use the GetAliasInfo function to get information from an AliasRecord
+without actually resolving the record.
+alias is a handle to the AliasRecord to be read.
+index specifies the kind of information to be retrieved. If index is a
+positive integer, GetAliasInfo retrieves the parent directory that
+has the same hierarchical level above the target as the index
+parameter (for example, an index value of 2 returns the name of the
+parent directory of the target's parent directory). You can therefore
+assemble the names of the target and all of its parent directories by
+making repeated calls to GetAliasInfo with incrementing index
+values, starting with a value of 0. When index is greater than the
+number of levels between the target and the root, GetAliasInfo
+returns an empty string. You can also set the index parameter to one
+of the following five values.
+Constant Description
+asiZoneName If the record represents a target on an AppleShare
+volume, retrieve the server's zone name. Otherwise,
+return an empty string.
+asiServerName If the record represents a target on an AppleShare
+volume, retrieve the server name. Otherwise, return
+an empty string.
+asiVolumeName Return the name of the volume on which the target
+resides.
+asiAliasName Return the name of the target.
+asiParentName Return the name of the parent directory of the target
+of the record. If the target is a volume, return the
+volume name.
+theString receives the requested information.
+Returns: an operating system Error Code .
+noErr(0)No error
+nsvErr (-35)The volume is not mounted
+fnfErr(-43)Target not found, but volume and parent directory
+found; if aliasCount is 1, target parameter contains a
+valid FSSpec record
+paramErr (-50)Alias, theString, or both are NIL, the index is less than
+asiZoneName, or the AliasRecord is corrupt
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -537,3 +588,4 @@ FSUpdateAlias(const FSRef *fromFile, /** can be NULL */
 #endif
 
 #endif /** __ALIASES__ */
+*/

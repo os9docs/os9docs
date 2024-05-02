@@ -608,11 +608,26 @@ EXTERN_API(OSErr)
 NewIconSuite(IconSuiteRef *theIconSuite)
     THREEWORDINLINE(0x303C, 0x0207, 0xABC9);
 
-/**
- *  AddIconToSuite()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Add an icon to an icon family 
+			
+			<pre>AddIconToSuite adds the data in theIconData into the the icon family
+referenced by theSuite at the location reseved for theType of icon data.
+AddIconToSuite will replace any old data in that slot without disposing of it,
+so you may want to call GetIconFromSuite to obtain the old handle (if any),
+to dispose. AddIconToSuite is use most often with NewIconSuite to fill an
+empty family after it has been created.
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr AddIconToSuite (Handle theIconData, Handle theSuite,
+ResType theType) = {0x303C, 0x0608, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -620,11 +635,23 @@ EXTERN_API(OSErr)
 AddIconToSuite(Handle theIconData, IconSuiteRef theSuite, ResType theType)
     THREEWORDINLINE(0x303C, 0x0608, 0xABC9);
 
-/**
- *  GetIconFromSuite()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetIconFromSuite Obtain a specified icon from an icon family 
+			
+			<pre>GetIconFromSuite returns a handle to the pixel data of the family member
+of theSuite specified by theType. If you intend to dispose of this handle, be
+sure to call AddIconToSuite with a NIL handle to zero out the family entry.
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr GetIconFromSuite (Handle *theIconData, Handle theSuite,
+ResType theType) = {0x303C, 0x0609, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -632,11 +659,39 @@ EXTERN_API(OSErr)
 GetIconFromSuite(Handle *theIconData, IconSuiteRef theSuite, ResType theType)
     THREEWORDINLINE(0x303C, 0x0609, 0xABC9);
 
-/**
- *  ForEachIconDo()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Perform action for specified members of an icon family 
+			
+			<pre>ForEachIconDo will call actionProc  for each icon in the family specified by
+theSelector and theSuite. theSelector is a bit level flag that specifies which
+members to operate on; they can be added together to create composite selectors
+that work on several different family members. See the Notes section below
+for the possible selector values.
+</pre>
+ * \note <pre>ForEachIconDo takes a selector value that specifies which icons in the
+family to operate on. The values for theSelector  are as follows:
+svLarge1Bit svMini8Bit
+svLarge4Bit svAllLargeData
+svLarge8Bit svAllSmallData
+svSmall1Bit svAllMiniData
+svSmall4Bit svAll1BitData
+svSmall8Bit svAll4BitData
+svMini1Bit svAll8BitData
+svMini4Bit svAllAvailableData
+The actionProc  procedure should have the following form:
+pascal OSErr ActionProc (Handle *theIconData, ResType the Type,
+void *yourDataPtr);
+This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr ForEachIconDo (Handle theSuite, long selector,
+ProcPtr action, void *yourDataPtr)
+= {0x303C, 0x080A, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -658,11 +713,23 @@ GetIconSuite(IconSuiteRef *theIconSuite, SInt16 theResID,
              IconSelectorValue selector)
     THREEWORDINLINE(0x303C, 0x0501, 0xABC9);
 
-/**
- *  DisposeIconSuite()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief DisposeIconSuite Dispose of icon family 
+			
+			<pre>DisposeIconSuite call disposes the icon family handle itself; in addition if
+disposeData  is TRUE, any of the icon data handles that do not belong to a
+resource form will also be disposed.
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr DisposeIconSuite (Handle theSuite, Boolean disposeData)
+= {0x303C, 0x0302, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -721,11 +788,24 @@ PlotIconMethod(const Rect *theRect, IconAlignmentType align,
                IconTransformType transform, IconGetterUPP theMethod,
                void *yourDataPtr) THREEWORDINLINE(0x303C, 0x0805, 0xABC9);
 
-/**
- *  GetLabel()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get color and string used in the lable menu of the Finder 
+			
+			<pre>GetLabel returns the actual color and string used in the label menu of the
+Finder and in the labels control panel. in labelColor  and labelString
+respectively. This information is useful case you wish to include the label text
+or color when displaying a file's icon in your application.
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr GetLabel (short labelNumber, RGBColor labelColor,
+Str255 labelString) = {0x303C, 0x061F, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -745,11 +825,24 @@ EXTERN_API(Boolean)
 PtInIconID(Point testPt, const Rect *iconRect, IconAlignmentType align,
            SInt16 iconID) THREEWORDINLINE(0x303C, 0x060D, 0xABC9);
 
-/**
- *  PtInIconSuite()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Hit test a point against indicated icon 
+			
+			<pre>PtInIconSuite returns TRUE if testPoint  is in the icon mask of the
+appropriate member of iconSuite . iconRect, alignment , and the current
+GrafPort should be the same as when the icon was last drawn.
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal Boolean PtInIconSuite (Point testPoint,
+const Rect *iconRect, short alignment, short iconSuite)
+= {0x303C, 0x070E, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -784,11 +877,24 @@ RectInIconID(const Rect *testRect, const Rect *iconRect,
              IconAlignmentType align, SInt16 iconID)
     THREEWORDINLINE(0x303C, 0x0610, 0xABC9);
 
-/**
- *  RectInIconSuite()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Hit test a rectangle against indicated icon 
+			
+			<pre>RectInIconSuite returns TRUE if testRect intersects the icon mask of the
+appropriate member of iconSuite . iconRect, alignment , and the current
+GrafPort should be the same as when the icon was last drawn.
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal Boolean RectInIconSuite (const Rect *testRect,
+const Rect *iconRect, short alignment, short iconSuite)
+= {0x303C, 0x0711, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -822,11 +928,27 @@ EXTERN_API(OSErr)
 IconIDToRgn(RgnHandle theRgn, const Rect *iconRect, IconAlignmentType align,
             SInt16 iconID) THREEWORDINLINE(0x303C, 0x0613, 0xABC9);
 
-/**
- *  IconSuiteToRgn()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Create a region from an icon mask 
+			
+			<pre>IconSuiteToRgn selects an icon from iconSuite , based on iconRect, and
+creates a region from the icon mask of that icon. The icon mask is aligned
+according to the alignment  parameter. The region created is returned in
+theRgn. This allows you to do accurate hit testing and outline dragging of the
+icon in your application. theRgn must be allocated before calling
+IconSuiteToRgn .
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr IconSuiteToRgn (RgnHandle theRgn, const Rect *iconRect,
+short alignment, Handle theIconSuite)
+= {0x303C, 0x0714, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -848,11 +970,25 @@ IconMethodToRgn(RgnHandle theRgn, const Rect *iconRect, IconAlignmentType align,
                 IconGetterUPP theMethod, void *yourDataPtr)
     THREEWORDINLINE(0x303C, 0x0915, 0xABC9);
 
-/**
- *  SetSuiteLabel()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Specify a default label for an icon family 
+			
+			<pre>SetSuiteLabel allows you to specify a label that is used to draw an icon of
+this suite when no label is specified in PlotIconSuite . This is used primarily
+when you want to make sure that a family passes to a system routine gets drawn
+with the proper label. The default label can be overridden by specifying a label
+in PlotIconSuite .
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr SetSuiteLabel (Handle theSuite, short theLabel)
+= {0x303C, 0x0316, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -860,22 +996,43 @@ EXTERN_API(OSErr)
 SetSuiteLabel(IconSuiteRef theSuite, SInt16 theLabel)
     THREEWORDINLINE(0x303C, 0x0316, 0xABC9);
 
-/**
- *  GetSuiteLabel()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Specify a default label for an icon family 
+			
+			<pre>GetSuiteLabel returns any label set previously with SetSuiteLabel .
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal short GetSuiteLabel (Handle theSuite )
+= {0x303C, 0x0217, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(SInt16)
 GetSuiteLabel(IconSuiteRef theSuite) THREEWORDINLINE(0x303C, 0x0217, 0xABC9);
 
-/**
- *  GetIconCacheData()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetIconCacheData Get data associated with an icon cache 
+			
+			<pre>GetIconCacheData obtains the data pointer value associated with theCache .
+The data pointer is returned in yourDataPtr .
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr GetIconCacheData (Handle theCache, Ptr *yourDataPtr)
+= {0x303C, 0x0419, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -883,11 +1040,22 @@ EXTERN_API(OSErr)
 GetIconCacheData(IconCacheRef theCache, void **theData)
     THREEWORDINLINE(0x303C, 0x0419, 0xABC9);
 
-/**
- *  SetIconCacheData()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SetIconCacheData Set the data associated with an icon cache 
+			
+			<pre>SetIconCacheData sets the data pointer value associated with the theCache
+to yourDataPtr .
+</pre>
+ * \note <pre>This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr SetIconCacheData (Handle theCache, Ptr yourDataPtr)
+= {0x303C, 0x041A, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -895,11 +1063,12 @@ EXTERN_API(OSErr)
 SetIconCacheData(IconCacheRef theCache, void *theData)
     THREEWORDINLINE(0x303C, 0x041A, 0xABC9);
 
-/**
- *  GetIconCacheProc()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetIconCacheProc Get procedure associated with an icon cache 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -907,11 +1076,28 @@ EXTERN_API(OSErr)
 GetIconCacheProc(IconCacheRef theCache, IconGetterUPP *theProc)
     THREEWORDINLINE(0x303C, 0x041B, 0xABC9);
 
-/**
- *  SetIconCacheProc()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SetIconCacheProc Set the procedure associated with an icon cache 
+			
+			<pre>SetIconCacheProc sets the ProcPtr value associated with the theCache  to
+theProc.
+</pre>
+ * \note <pre>SetIconCacheProc takes a ProcPtr parameter, theProc The ProcPtr
+should have the following format:
+Handle GetAnIcon (ResType theType, Ptr yourDataPtr);
+This function should return either the icon data to be used to draw or nil to
+signify that this entry in the icon cache does not exist. See
+Drawing Icons with System 7 for more on icon caches.
+This routine is not currently documented in MPW header files (hence, it is
+not in any THINK C or THINK Pascal header file either). The information
+given above comes from Macintosh Technical Note #306. This tech. note
+also gives the inline glue for the call as follows:
+pascal OSErr SetIconCacheProc (Handle theCache, Ptr yourDataPtr)
+= {0x303C, 0x041C, 0xABC9};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -945,11 +1131,50 @@ PlotSICNHandle(const Rect *theRect, IconAlignmentType align,
                IconTransformType transform, Handle theSICN)
     THREEWORDINLINE(0x303C, 0x061E, 0xABC9);
 
-/**
- *  PlotCIconHandle()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Display an icon image with System 7 icon resource types 
+			
+			<pre>PlotCIconHandle plots an icon image in the current GrafPort at local
+coordinates specified by a rectangle.
+theRectis the address of an 8-byte Rect structure, expressed in local
+coordinates.
+alignment alignment method used in case the icon does not exactly fit the
+rectangle give. See the Notes section below.
+transform desired appearance of the icon on the screen. See the Notes section
+belwo
+theCIconH handle to a standard QuickDraw color icon. Use GetCIcon to load a
+color icon. Don't forget to dispose of it when you are done with
+DisposCIcon (sometimes they can take up quite a bit of memory).
+</pre>
+ * \returns <pre>error code
+</pre>
+ * \note <pre>PlotCIconHandle takes a parameter which specifies the aligment of the
+icon in the destination rectangle. Most icons do not fully fill their rectangle,
+and it is sometimes necessary to draw the icon relative to other data (like
+menu text). For this reason, you can specify one of these standard alignment
+values for the alignment parameter. You can add a vertical alignment to a
+horizontal alignment to create a composite alignment value.
+atNone
+atVerticalCenter
+atTop
+atBottom
+atHorizontalCenter
+atLeft
+atRight
+The transform parameter specifies the mode or "transform" in which the
+icon should be drawn. Transforms are analogous to certain Finder states for
+the icons. For example the transform that you would use to show an icon of
+a disk that has been ejected is ttOffline. The following transforms are
+available.
+ttNone
+ttDisabled
+ttOffline
+ttOpen
+ttSelected
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -2261,3 +2486,79 @@ WriteIconFile(IconFamilyHandle iconFamily, const FSSpec *iconFile)
 #endif
 
 #endif /* __ICONS__ */
+*/or disposing the iconFamily
+*/
+
+/**
+ *  ReadIconFile()
+ *
+
+ *    \non_carbon_cfm   in IconServicesLib 9.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(OSErr)
+ReadIconFile(const FSSpec *iconFile, IconFamilyHandle *iconFamily)
+    TWOWORDINLINE(0x7036, 0xAA75);
+
+/* ReadIconFromFSRef*/
+/**
+ *  ReadIconFromFSRef()
+ *
+ *  Discussion:
+ *    This routine reads an icon (icns) file into memory.
+ *
+ *  Parameters:
+ *
+ *    ref:
+ *      The FSRef for the icon file.
+ *
+ *    iconFamily:
+ *      The handle for the icon family.
+ *
+
+ *    \non_carbon_cfm   not available
+ *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+ X version 10.1 and later
+ *    \mac_os_x         in version 10.1 and later
+ */
+EXTERN_API(OSStatus)
+ReadIconFromFSRef(const FSRef *ref, IconFamilyHandle *iconFamily);
+
+/**
+   WriteIconFile
+   Write the iconFamily handle to the specified file
+*/
+
+/**
+ *  WriteIconFile()
+ *
+
+ *    \non_carbon_cfm   in IconServicesLib 9.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(OSErr)
+WriteIconFile(IconFamilyHandle iconFamily, const FSSpec *iconFile)
+    TWOWORDINLINE(0x7037, 0xAA75);
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __ICONS__ */
+*/*/*/*/*/*/*/*/*/*/*/*/*/*/

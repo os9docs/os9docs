@@ -132,59 +132,142 @@ typedef short UpdateMode;
 typedef struct SectionRecord SectionRecord;
 typedef SectionRecord *SectionPtr;
 typedef SectionPtr *SectionHandle;
-struct SectionRecord {
-  SignedByte version;        /* always 0x01 in system 7.0 */
-  SectionType kind;          /* stSubscriber or stPublisher */
-  UpdateMode mode;           /* auto or manual */
-  TimeStamp mdDate;          /* last change in document */
-  long sectionID;            /* app. specific, unique per document */
-  long refCon;               /* application specific */
-  AliasHandle alias;         /* handle to Alias Record */
-  long subPart;              /* which part of container file */
-  SectionHandle nextSection; /* for linked list of app's Sections */
-  Handle controlBlock;       /* used internally */
-  EditionRefNum refNum;      /* used internally */
-};
+/**
+<pre><table><tbody>
+<tr>
+	<td>version</td>
+	<td><pre>Indicates the version of the section record, currently
+0x01.
+	</pre></td>
+</tr>
 
-struct EditionContainerSpec {
-  FSSpec theFile;
-  ScriptCode theFileScript;
-  long thePart;
-  Str31 thePartName;
-  ScriptCode thePartScript;
-};
+<tr>
+	<td>kind</td>
+	<td><pre>Defines the section type as either publisher or
+with the stPublisher or stSubscriber
+constant.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>mode</td>
+	<td><pre>Indicates if editions are updated automatically or
+manually.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>mdDate</td>
+	<td><pre>Indicates which version (modification date) of the
+contents is contained within the publisher or
+The mdDate is set to 0 when you create a
+subscriber section, and is set to the current time
+you create a new publisher. Be sure to update this
+each time publisher data is modified. The section's
+date is compared to the edition's
+date to determine whether the section and
+edition contain the same data. The section
+date is displayed in the publisher and
+options dialog boxes. See the section,
+an Edition for detailed information.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>sectionID</td>
+	<td><pre>Provides a unique number for each section within a
+A simple way to implement this is to create a
+for each document that is saved to disk with the
+The counter should start at 1. The section ID
+currently used as a tie breaker in the GoToPublisher
+when there are multiple publishers to the
+edition in a single document. The section ID should
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
+struct SectionRecord  {
+	char version;/**< always x in system .*/
+	SectionType kind;/**< stSubscriber or stPublisher*/
+	UpdateMode mode;/**< auto or manual*/
+	TimeStamp mdDate;/**< last change in document*/
+	long sectionID;/**< app. specific, unique per*/
+	long refCon;/**< application specific*/
+	AliasHandle alias;/**< handle to Alias Record*/
+	long subPart;/**< which part of container file*/
+	struct SectionRecord **nextSection;/**< for linked list of app's*/
+	Handle controlBlock;/**< used internally*/
+	EditionRefNum refNum;/**< used internally*/
+	} SectionRecord ;/**< */
+
+
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct EditionContainerSpec  {
+	FSSpec theFile;/**< file containing edition data*/
+	ScriptCode  theFileScript;/**< script code of filename*/
+	long thePart;/**< which part of file, always*/
+	Str thePartName;/**< not used in version .*/
+	ScriptCode  thePartScript;/**< not used in version .*/
+	} EditionContainerSpec ;/**< */
+
 typedef struct EditionContainerSpec EditionContainerSpec;
 typedef EditionContainerSpec *EditionContainerSpecPtr;
-struct EditionInfoRecord {
-  TimeStamp crDate;               /* date EditionContainer was created */
-  TimeStamp mdDate;               /* date of last change */
-  OSType fdCreator;               /* file creator */
-  OSType fdType;                  /* file type */
-  EditionContainerSpec container; /* the Edition */
-};
+/**
+<pre>The crDate field contains the creation date of the edition. The mdDate field
+contains the modification date of the edition.
+The fdCreator and fdType fields are the creator and type of the edition file. The
+container field includes a volume reference number, directory ID, filename,
+script, and part number for the edition.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct EditionInfoRecord  {
+	TimeStamp crDate;/**< date EditionContainer was created*/
+	TimeStamp mdDate;/**< date of last change*/
+	OSType fdCreator;/**< file creator*/
+	OSType fdType;/**< file type*/
+	EditionContainerSpec  container;/**< the Edition*/
+	} EditionInfoRecord ;/**< */
+
 typedef struct EditionInfoRecord EditionInfoRecord;
-struct NewPublisherReply {
-  Boolean canceled; /* O */
-  Boolean replacing;
-  Boolean usePart; /* I */
-  SInt8 filler;
-  Handle preview;                 /* I */
-  FormatType previewFormat;       /* I */
-  EditionContainerSpec container; /* I/O */
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct NewPublisherReply  {
+	Boolean canceled;/**<  Ouser canceled dialog box*/
+	Boolean usePart;/**<  always false in version .*/
+	Handle preview;/**<  handle to 'prvw',*/
+	FormatType previewFormat;/**<  type of preview*/
+	EditionContainerSpec container;/**<  edition selected*/
+	} NewPublisherReply ;/**< */
+
 typedef struct NewPublisherReply NewPublisherReply;
-struct NewSubscriberReply {
-  Boolean canceled; /* O */
-  SignedByte formatsMask;
-  EditionContainerSpec container; /*I/O*/
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct NewSubscriberReply  {
+	Boolean canceled;/**< Ouser canceled dialog box*/
+	unsigned char formatsMask;/**< formats required*/
+	EditionContainerSpec container;/**< edition selected*/
+	} NewSubscriberReply ;/**< */
+
 typedef struct NewSubscriberReply NewSubscriberReply;
-struct SectionOptionsReply {
-  Boolean canceled;       /* O */
-  Boolean changed;        /* O */
-  SectionHandle sectionH; /* I */
-  ResType action;         /* O */
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct SectionOptionsReply  {
+	Boolean canceled;/**< Ouser canceled dialog box*/
+	Boolean changed;/**< changed the section record*/
+	SectionHandle sectionH;/**< always false in version .*/
+	ResType action;/**< action codes*/
+	}SectionOptionsReply ;/**< */
+
 typedef struct SectionOptionsReply SectionOptionsReply;
 typedef CALLBACK_API(Boolean, ExpModalFilterProcPtr)(DialogRef theDialog,
                                                      EventRecord *theEvent,
@@ -379,14 +462,19 @@ enum {
   eoCanSubscribe = 4
 };
 
-struct FormatIOParamBlock {
-  long ioRefNum;
-  FormatType format;
-  long formatIndex;
-  unsigned long offset;
-  Ptr buffPtr;
-  unsigned long buffLen;
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FormatIOParamBlock  {
+	long ioRefNum;/**<  reference number*/
+	FormatType  format;/**<  edition format type*/
+	long formatIndex;/**<  opener-specific enumeration*/
+	unsigned long  offset;/**<  offset into format*/
+	Ptr buffPtr;/**<  data starts here*/
+	unsigned long  buffLen;/**<  length of data*/
+	} FormatIOParamBlock ;/**< */
+
 typedef struct FormatIOParamBlock FormatIOParamBlock;
 typedef struct EditionOpenerParamBlock EditionOpenerParamBlock;
 typedef CALLBACK_API(short, FormatIOProcPtr)(FormatIOVerb selector,
@@ -888,6 +976,35 @@ SectionOptionsDialog(SectionOptionsReply *reply)
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
+ */
+EXTERN_API(OSErr)
+SectionOptionsExpDialog(SectionOptionsReply *reply, Point where,
+                        short expansionDITLresID, ExpDlgHookUPP dlgHook,
+                        ExpModalFilterUPP filter, void *yourDataPtr)
+    THREEWORDINLINE(0x303C, 0x0B3C, 0xA82D);
+
+#endif /* CALL_NOT_IN_CARBON */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __EDITIONS__ */
+s_x         not available
  */
 EXTERN_API(OSErr)
 SectionOptionsExpDialog(SectionOptionsReply *reply, Point where,

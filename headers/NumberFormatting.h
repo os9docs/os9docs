@@ -99,10 +99,15 @@ enum {
   fEmptyFormatString = 13
 };
 
-struct FVector {
-  short start;
-  short length;
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FVector  {
+	short start;/**< */
+	short length;/**< */
+	}FVector ;/**< */
+
 typedef struct FVector FVector;
 /** index by [fPositive..fZero] */
 typedef FVector TripleInt[3];
@@ -227,6 +232,16 @@ FormatRecToString(const NumFormatString *myCanonical,
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __NUMBERFORMATTING__ */
+ort off
 #elif PRAGMA_IMPORT
 #pragma import reset
 #endif

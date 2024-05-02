@@ -119,23 +119,53 @@ typedef unsigned short SmallFract;
 models, HLS is reordered into HSL. Thus both models start with
 hue and saturation values; value/lightness/brightness is last. */
 
+/**
+<pre>
+ * \note <pre> For developmental simplicity in switching between the HLS and
+HSVmodels, HLS is reordered into HSL. Thus both models start with hue and
+saturation values; value/lightness/brightness is last.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct HSVColor {
-  SmallFract hue;        /*Fraction of circle, red at 0*/
-  SmallFract saturation; /*0-1, 0 for gray, 1 for pure color*/
-  SmallFract value;      /*0-1, 0 for black, 1 for max intensity*/
-};
+	SmallFract  hue;/**< Fraction of circle, red at */
+	SmallFract saturation;/**< -,  for gray,  for pure color*/
+	SmallFract  value;/**< -,  for black,  for max*/
+	} HSVColor ;/**< */
+
 typedef struct HSVColor HSVColor;
+/**
+<pre>
+ * \note <pre> For developmental simplicity in switching between the HLS and
+HSVmodels, HLS is reordered into HSL. Thus both models start with hue and
+saturation values; value/lightness/brightness is last.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct HSLColor {
-  SmallFract hue;        /*Fraction of circle, red at 0*/
-  SmallFract saturation; /*0-1, 0 for gray, 1 for pure color*/
-  SmallFract lightness;  /*0-1, 0 for black, 1 for white*/
-};
+	SmallFract hue;/**< Fraction of circle, red at */
+	SmallFract saturation;/**< -,  for gray,  for pure color*/
+	SmallFract lightness;/**< -,  for black,  for white*/
+	} HSLColor ;/**< */
+
 typedef struct HSLColor HSLColor;
+/**
+<pre>
+ * \note <pre>The CMYColor model is the complement of the RGBColor model defined in
+Color QuickDraw .
+The SmallFract data type is 16 bits long. It is an short comprising the
+unsigned fractional portion (between 0 and 1) of a Fixed data type. A
+SmallFract can represent values up to 65,536 and can be assigned
+directly to and from an short.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct CMYColor {
-  SmallFract cyan;
-  SmallFract magenta;
-  SmallFract yellow;
-};
+	SmallFract cyan;/**< cyan component*/
+	SmallFract magenta;/**< magenta component*/
+	SmallFract yellow;/**< yellow component*/
+	} CMYColor ;/**< */
+
 typedef struct CMYColor CMYColor;
 struct PMColor {
   CMProfileHandle profile;
@@ -566,6 +596,24 @@ inline Boolean InvokeUserEventUPP(EventRecord *event, UserEventUPP userUPP) {
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __COLORPICKER__ */
+gma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK

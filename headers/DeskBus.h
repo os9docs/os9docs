@@ -68,30 +68,41 @@ typedef REGISTER_UPP_TYPE(ADBCompletionProcPtr) ADBCompletionUPP;
 typedef REGISTER_UPP_TYPE(ADBDeviceDriverProcPtr) ADBDeviceDriverUPP;
 typedef REGISTER_UPP_TYPE(ADBServiceRoutineProcPtr) ADBServiceRoutineUPP;
 typedef REGISTER_UPP_TYPE(ADBInitProcPtr) ADBInitUPP;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ADBDataBlock {
-  SInt8 devType;                       /* original handler ID */
-  SInt8 origADBAddr;                   /* original ADB Address */
-  ADBServiceRoutineUPP dbServiceRtPtr; /* service routine pointer */
-  Ptr dbDataAreaAddr; /* this field is passed as the refCon parameter to the
-                         service routine */
-};
+	char devType;/**< What kind of an input only device?*/
+	char origADBAddr;/**< Device's original bus address*/
+	Ptr dbServiceRtPtr;/**< Address of the service routine*/
+	Ptr dbDataAreaAddr;/**< Address of the data area*/
+	} ADBDataBlock ;/**< */
+
 typedef struct ADBDataBlock ADBDataBlock;
 typedef ADBDataBlock *ADBDBlkPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ADBSetInfoBlock {
-  ADBServiceRoutineUPP siService; /* service routine pointer */
-  Ptr siDataAreaAddr; /* this field is passed as the refCon parameter to the
-                         service routine */
-};
+	Ptr siServiceRtPtr;/**<  Address of the service routine*/
+	Ptr siDataAreaAddr;/**<  Address of the data area*/
+	} ADBSetInfoBlock ;/**< */
+
 typedef struct ADBSetInfoBlock ADBSetInfoBlock;
 typedef ADBSetInfoBlock *ADBSInfoPtr;
 /* ADBOpBlock is only used when calling ADBOp from 68k assembly code */
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct ADBOpBlock {
-  Ptr dataBuffPtr; /* buffer: pointer to variable length data buffer */
-  ADBServiceRoutineUPP
-      opServiceRtPtr; /* completionProc: completion routine pointer */
-  Ptr opDataAreaPtr;  /* refCon: this field is passed as the refCon parameter to
-                         the completion routine */
-};
+	Ptr dataBuffPtr;/**<   address of data buffer*/
+	Ptr opServiceRtPtr;/**<   service routine pointer*/
+	Ptr opDataAreaPtr;/**<   optional data area address*/
+	} ADBOpBlock ;/**< */
+
 typedef struct ADBOpBlock ADBOpBlock;
 typedef ADBOpBlock *ADBOpBPtr;
 #endif /* CALL_NOT_IN_CARBON */
@@ -131,11 +142,47 @@ ADBReInit(void) ONEWORDINLINE(0xA07B);
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  ADBOp()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Transmit command byte 
+			
+			<pre>Use ADBOp to send the command byte specified by the value in commandNum
+field and instruct a bus-connected mouse or keyboard to SendReset, Flush,
+Talk, or Listen.
+datais an optional data area for local completion routine storage.
+compRout is a completion routine structure.
+bufferis a data area whose length is contained in its first byte.
+commandNum is the value of the command byte signifying SendReset, Flush, Talk
+or Listen.
+</pre>
+ * \returns <pre>an operating system Error Code . It will be one of:
+noErr(0) No error
+Err(-1) Unsuccessful completion
+</pre>
+ * \note <pre>ADBOp executes only when the bus is idle. The rest of the time it is held
+in a command queue. ADBOp returns an error if the command queue is full.
+On entry, D0 holds the commandNum short and register AO contains a
+pointer to a parameter block whose fields are:
+Out-In NameType SizeOffsetDescription
+->buffer Ptr 40Address of buffer for 8-bytes data
+(max.), 1 byte length prefix
+->compRout Ptr 44Completion routine address
+->data Ptr 48Optional data area for local storage
+compRout points to a completion routine which is passed the parameters
+for:
+1) commandNum in D0 (these are the commands to the device to:
+SendReset, Flush, Listen and Talk);
+2) a pointer in A0 to a buffer storing the bus device's send and receive data
+as a variable length Pascal string (but not exceeding 8 data bytes and a
+one-byte length prefix);
+3) a pointer in A1 to the completion routine itself; and
+4) a pointer in A2 to an optional data area designed to hold the completion
+routine's data.
+The completion routine is called when the ADBOp procedure has finished
+execution and has the same meaning as the service routine passed to the
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -145,11 +192,18 @@ ADBOp(Ptr refCon, ADBCompletionUPP compRout, Ptr buffer, short commandNum);
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  CountADBs()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Count the entries in the device table 
+			
+			<pre>CountADBs generates and returns a value representing the number of
+devices connected to the bus. It derives the number by counting the entries in
+the device table.
+</pre>
+ * \returns <pre>a short representing the number of devices in the table.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -159,11 +213,26 @@ ADBOp(Ptr refCon, ADBCompletionUPP compRout, Ptr buffer, short commandNum);
 EXTERN_API(short)
 CountADBs(void) ONEWORDINLINE(0xA077);
 
-/**
- *  GetIndADB()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Find out device's address 
+			
+			<pre>Use GetIndADB to obtain a device's current bus address.
+info is a parameter block whose relevant fields are:
+Out-In Name Type Size Offset Description
+<-devType SignedByte 1 0 Is it a mouse, keyboard, etc.?
+<-origADBAddr SignedByte 1 1 Original bus address
+<-dbServiceRtPtr Ptr 4 2 Pointer to a service routine
+<-dbDataAreaAddr Ptr 4 6 Pointer to a data area
+devTableIndex is the index number on the device table of the entry whose address is
+being sought.
+</pre>
+ * \returns <pre>a bus address byte for the device specified by the device table
+index. A negative number is returned if the search ends
+without finding the device.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -173,11 +242,40 @@ CountADBs(void) ONEWORDINLINE(0xA077);
 EXTERN_API(ADBAddress)
 GetIndADB(ADBDataBlock *info, short devTableIndex) ONEWORDINLINE(0xA078);
 
-/**
- *  GetADBInfo()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain information on the specified device 
+			
+			<pre>Use GetADBInfo to obtain current information about a device's address, ID,
+service routine and data area.
+info is a parameter block whose relevant fields are:
+Out-In Name Type SizeOffset Description
+ <-devHandlerID SignedByte 1 0Device type ID
+ <-origADBAddr SignedByte 1 1Original bus address
+ <- dbServiceRtPtr Ptr 42 Pointer to a service routine
+ <- dbDataAreaAddr Ptr 46 Pointer to a data area
+ADBAddr is the index number on the device table of the entry being queried.
+</pre>
+ * \returns <pre>an operating system Error Code .
+noErr(0) No error
+</pre>
+ * \note <pre> The devHandlerID parameter indicates the device type, which the
+application can change if the device is capable of various modes of operation.
+Values below 0x20 are reserved by Apple and other specific values
+precipitate actions rather than being stored to indicate device type: 0x00
+changes bits 8 through 13 of register 3 to mirror the rest of the Listen
+command but leaves the device type unchanged; 0xFD, when sent by the
+Listen command, changes the device address to match bits 8 through 11 if
+the device activator is depressed but leaves the device type and the flags the
+same as they were; 0xFE, when sent sent by the Listen command, will
+change the device address to match bits 8 through 11 as long as no other
+device already has that address but leaves the devHandlerID and flags
+unchanged; and 0xFF, when sent by the Listen command, causes the device
+to run a self-test. A successful test leaves register 3 the same as before,
+while a failed self-test clears the devHandlerID field to 0x00.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -187,11 +285,30 @@ GetIndADB(ADBDataBlock *info, short devTableIndex) ONEWORDINLINE(0xA078);
 EXTERN_API(OSErr)
 GetADBInfo(ADBDataBlock *info, ADBAddress adbAddr) ONEWORDINLINE(0xA079);
 
-/**
- *  SetADBInfo()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Establish a device's service routine address and data area address 
+			
+			<pre>Use SetADBInfo to establish a device's service routine address and data area
+address in the device table.
+info is a parameter block whose relevant fields are:
+Out-In NameType SizeOffset Description
+ -> siServiceRtPtr Ptr 40 Pointer to a service routine
+ -> siDataAreaAddr Ptr 44 Pointer to a data area
+ADBAddr is the index number on the device table of the entry being queried.
+</pre>
+ * \returns <pre>an operating system Error Code .
+noErr(0) No error
+</pre>
+ * \note <pre>  Send the Flush command to the device after you call this procedure as a
+way of keeping it from sending old data to the new data area address.
+Apple Tech Note 206 points out that just by using SetADBInfo to install a
+service routine for the appropriate address you can add devices to the bus
+without having to call the ADBReInit procedure and all the bugs associated
+with it.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -550,3 +667,23 @@ inline void InvokeADBInitUPP(SInt8 callOrder, ADBInitUPP userUPP) {
 #endif
 
 #endif /* __DESKBUS__ */
+*/
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __DESKBUS__ */
+*/*/*/*/}
+#endif
+
+#endif /* __DESKBUS__ */
+*/*/*/*/

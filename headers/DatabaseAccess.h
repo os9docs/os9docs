@@ -94,19 +94,45 @@ typedef CALLBACK_API_REGISTER68K(void, DBCompletionProcPtr,
                                  (DBAsyncParmBlkPtr pb));
 typedef REGISTER_UPP_TYPE(DBCompletionProcPtr) DBCompletionUPP;
 /** structure for asynchronous parameter block */
-struct DBAsyncParamBlockRec {
-  DBCompletionUPP completionProc; /** pointer to completion routine */
-  OSErr result;                   /** result of call */
-  long userRef;                   /** for application's use */
-  long ddevRef;                   /** for ddev's use */
-  long reserved;                  /** for internal use */
-};
+/**
+<pre>The completionProc field is a pointer to a completion routine that the database
+extension calls when it has completed executing the asynchronous function.
+Before calling the completion routine, the
+Data Access Manager places a pointer to the asynchronous parameter
+block in the A0 register. If you do not want to use a completion routine, set this
+parameter to NIL.
+The database extension sets the result field to 1 while the routine is
+executing, and places the result code in it when the routine completes. Your
+application can poll this field to determine when an asynchronous routine has
+completed execution.
+The userRef field is reserved for the application's use. Because the
+Data Access Manager passes a pointer to the parameter block to the
+completion routine, you can use this field to pass information to the completion
+routine.
+The ddevRef field is reserved for use by the database extension, and the
+reserved field is reserved for use by the Data Access Manager .
+You can use the DBKill function to cancel an asynchronous routine.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct DBAsyncParamBlockRec  {
+	ProcPtr completionProc;/**< pointer to completion routine*/
+	OSErr result;/**< result of call*/
+	long userRef;/**< for application's use*/
+	long ddevRef;/**< for ddev's use*/
+	long reserved;/**< for internal use*/
+
 
 /** structure for resource list in QueryRecord */
-struct ResListElem {
-  ResType theType; /** resource type */
-  short id;        /** resource id */
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ResListElem  {
+	ResType theType;/**< resource type*/
+	short id;/**< resource ID*/
+	} ResListElem ;/**< */
+
 typedef struct ResListElem ResListElem;
 typedef ResListElem *ResListPtr;
 typedef ResListPtr *ResListHandle;
@@ -114,23 +140,94 @@ typedef ResListPtr *ResListHandle;
 typedef Handle QueryArray[256];
 typedef Handle *QueryListPtr;
 typedef QueryListPtr *QueryListHandle;
-struct QueryRecord {
-  short version;             /** version */
-  short id;                  /** id of 'qrsc' this came from */
-  Handle queryProc;          /** handle to query def proc */
-  Str63 ddevName;            /** ddev name */
-  Str255 host;               /** host name */
-  Str255 user;               /** user name */
-  Str255 password;           /** password */
-  Str255 connStr;            /** connection string */
-  short currQuery;           /** index of current query */
-  short numQueries;          /** number of queries in list */
-  QueryListHandle queryList; /** handle to array of handles to text */
-  short numRes;              /** number of resources in list */
-  ResListHandle resList;     /** handle to array of resource list elements */
-  Handle dataHandle;         /** for use by query def proc */
-  long refCon;               /** for use by application */
-};
+/**
+<pre><table><tbody>
+<tr>
+	<td>version</td>
+	<td><pre>The version number of the QueryRecord format. For
+Data Access Manager released with system
+version 7.0, the version number is 0.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>id</td>
+	<td><pre>The resource ID of the 'qrsc' resource from which the
+Access Manager created this QueryRecord .
+	</pre></td>
+</tr>
+
+<tr>
+	<td>queryProc</td>
+	<td><pre>A handle to the query definition function that the
+ function calls. This handle is NIL if
+is no query definition function-that is, if the
+ function should send the query
+by this QueryRecord to the data server
+modifications.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>ddevName</td>
+	<td><pre>The database extension name used as a parameter to the
+function.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>host</td>
+	<td><pre>The name of the host computer system used as a
+to the DBInit function.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>user</td>
+	<td><pre>The name of the user, used as a parameter to the
+function.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>password</td>
+	<td><pre>The user's password, used as a parameter to the
+function.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>connStr</td>
+	<td><pre>The connection string used as a parameter to the
+function.
+	</pre></td>
+</tr>
+
+<tr>
+	<td>currQuery</td>
+	<td><pre>An index value from 1 through numQueries , indicating
+Reference © 1991-1992 Symantec Corporation
+	</pre></td>
+</tr>
+</tbody></table>*/
+struct QueryRecord  {
+	short version;/**< version*/
+	short id;/**< id of 'qrsc' this came from*/
+	Handle queryProc;/**< handle to query def proc*/
+	Str ddevName;/**< ddev name*/
+	Str host;/**< host*/
+	Str user;/**< user*/
+	Str password;/**< password*/
+	Str connStr;/**< connection string*/
+	short currQuery;/**< current query*/
+	short numQueries;/**< number of queries in queryList*/
+	QueryListHandle queryList;/**< handle to list of queries*/
+	short numRes;/**< number of resources in resList*/
+	ResListHandle resList;/**< handle to list of other resources*/
+	Handle dataHandle;/**< data used by query def proc*/
+	long refCon;/**< query's reference value*/
+	} QueryRecord ;/**< */
+
 typedef struct QueryRecord QueryRecord;
 typedef QueryRecord *QueryPtr;
 typedef QueryPtr *QueryHandle;
@@ -138,22 +235,68 @@ typedef QueryPtr *QueryHandle;
 typedef DBType ColTypesArray[256];
 typedef Handle ColTypesHandle;
 /** structure for column info in ResultsRecord */
-struct DBColInfoRecord {
-  short len;
-  short places;
-  short flags;
-};
+/**
+<pre>The len field indicates the length of the data item. The DBGetQueryResults
+function returns a value in this field only for those data types that do not have
+implied lengths; see the Table above.
+The places field indicates the number of decimal places in data items of types
+typeMoney and typeDecimal . For all other data types, the places field returns
+0.
+The least significant bit of the flags field is set to 1 if the data item is in the
+last column of the row. The third bit of the flags field is 1 if the data item is
+NULL. You can use the constants kDBLastColFlag and kDBNullFlag to test for
+these flag bits.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct DBColInfoRecord  {
+	short len;/**< length of data item*/
+	short places;/**< places for decimal and money data*/
+	short flags;/**< flags for data item*/
+	}DBColInfoRecord ;/**< */
+
 typedef struct DBColInfoRecord DBColInfoRecord;
 typedef DBColInfoRecord ColInfoArray[256];
 typedef Handle ColInfoHandle;
 /** structure of results returned by DBGetResults */
-struct ResultsRecord {
-  short numRows;           /** number of rows in result */
-  short numCols;           /** number of columns per row */
-  ColTypesHandle colTypes; /** data type array */
-  Handle colData;          /** actual results */
-  ColInfoHandle colInfo;   /** DBColInfoRecord array */
-};
+/**
+<pre>The numRows field in the ResultsRecord indicates the total number of rows
+retrieved. If the DBGetQueryResults function returns a result code other
+than rcDBValue , then not all of the data actually returned by the data source
+was retrieved. This could happen, for instance, if the user's computer does not
+have sufficient memory space to hold all the data. In this case, your application
+can make more space available (by writing the data in the data record to disk,
+for example) and then call the DBGetQueryResults function again to
+complete retrieval of the data.
+Note: The DBGetQueryResults function retrieves whole rows
+only; if it runs out of space in the middle of a row, it stores the
+partial row in a private buffer so that the data in the
+ResultsRecord ends with the last complete row. Because the last
+partial row is no longer available from the data server, you cannot
+start to retrieve data with the DBGetQueryResults function and
+then switch to the DBGetItem function to complete the data
+retrieval.
+The numCols field indicates the number of columns in each row of data.
+The colTypes field is a handle to an array of data types, specifying the type of
+data in each column. The number of elements in the array is equal to the value
+in the numCols parameter.
+The colData field is a handle to the data retrieved by the
+DBGetQueryResults function.
+The colInfo field is a handle to an array of records of type
+DBColInfoRecord , each of which specifies the length, places, and flags for a
+data item. There are as many records in the array as there are data items
+retrieved by the DBGetQueryResults function.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ResultsRecord  {
+	short numRows;/**< number of rows in result*/
+	short numCols;/**< number of columns per row*/
+	Handle colTypes;/**< data type array*/
+	Handle colData;/**< actual results*/
+	Handle colInfo;/**< DBColInfoRecord  array*/
+	}ResultsRecord  ;/**< */
+
 typedef struct ResultsRecord ResultsRecord;
 enum {
   /** messages sent to a 'ddev'*/
@@ -817,3 +960,4 @@ DBIdle(void) THREEWORDINLINE(0x303C, 0x00FF, 0xA82F);
 #endif
 
 #endif /** __DATABASEACCESS__ */
+__ */

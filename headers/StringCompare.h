@@ -357,10 +357,37 @@ EXTERN_API(short)
 IUStringOrder(ConstStr255Param aStr, ConstStr255Param bStr, ScriptCode aScript,
               ScriptCode bScript, LangCode aLang, LangCode bLang);
 
-/**
- *  IUCompString()
- *
- *  Availability:
+
+			/** 
+			\brief Compare p-strings for international sorting 
+			
+			<pre>IUCompString compares two pascal-style strings and indicates which is
+greater or if they are equal. It takes into consideration such international
+characteristics as diacritical marks and ligatures. It DOES differentiate
+between upper- and lowercase.
+strAand . . .
+strBare the addresses of pascal-style length-prefixed strings to be
+compared.
+</pre>
+ * \returns <pre>a signed integer; it describes the collation relationship of strA and
+strB. It is one of:
+-1 strA is less than strB
+0 strA and strB are equal
+1 strA is greater than strB
+</pre>
+ * \note <pre>The return code is the same as used by the familiar C strcmp function. As
+with strcmp, a short string is always seen as less than a long string.
+IUCompString may be overkill for your application. It is less efficient
+than a direct ASCII compare, as it has to look up the "collating weight" of
+each character of each string.
+This actually ends up calling IUMagString , which does not require
+length-prefixed strings.
+For case-insensitive equality testing (as when matching file names), use
+IUEqualString or EqualString .
+The actual comparison function is stored in the itl2 resource.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -457,10 +484,43 @@ iuequalstring(const char *aStr, const char *bStr);
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  RelString()
- *
- *  Availability:
+
+			/** 
+			\brief Compare two Pascal-style strings for sort order 
+			
+			<pre>RelString compares two Pascal-style length-prefixed strings (optionally
+ignoring case and/or diacritical marks), and returns an indication of which
+comes first in the ASCII collating sequence.
+strAand . . .
+strBare addresses of Pascal-style length-prefixed strings.
+caseSens specifies whether or not the comparison should be case-sensitive.
+It must be one of:
+FALSEignore character case when comparing ('A' == 'a')
+TRUEcharacter case is significant ('A' != 'a')
+diacSens specifies whether or not the comparison should be sensitive to
+diacritical marks. It must be one of:
+FALSEignore diacritical marks when comparing (' å' == 'a')
+TRUEdiacritical marks are significant (' å' != 'a')
+</pre>
+ * \returns <pre>a signed integer; it indicates the relative collating value of the
+strings, considering the case- and diacritical-sensitivity. Using the
+same values as with the familiar strcmp() library function, it is one
+of:
+-1strA is less than strB
+0strA is equal to strB
++1strA is greater than strB
+</pre>
+ * \note <pre>Since RelString compares Pascal-style strings directly, it is handier
+than converting to C-style strings and using strcmp.
+If caseSens =FALSE, then both strings are treated as if they had been
+upshifted with UprString (though the original contents are not modified).
+For 64K ROMs, the EqualString function can be used to test if two
+strings are the same. The IUEqualString and IUCompString functions
+take into consideration special spelling conventions used in foreign
+languages.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
@@ -469,10 +529,44 @@ EXTERN_API(short)
 RelString(ConstStr255Param str1, ConstStr255Param str2, Boolean caseSensitive,
           Boolean diacSensitive);
 
-/**
- *  EqualString()
- *
- *  Availability:
+
+			/** 
+			\brief See if two Pascal-style strings are equal 
+			
+			<pre>EqualString compares two pascal-style length-prefixed strings (optionally
+ignoring case and/or diacritical marks), and returns an indication of whether
+or not they are equal.
+strAand . . .
+strBare addresses of Pascal-style length-prefixed strings.
+caseSens specifies whether or not the comparison should be case-sensitive.
+It must be one of:
+FALSEignore character case when comparing ('A' == 'a')
+TRUEcharacter case is significant ('A' != 'a')
+diacSens specifies whether or not the comparison should be sensitive to
+diacritical marks. It must be one of:
+FALSEignore diacritical marks when comparing (' å' == 'a')
+TRUEdiacritical marks are significant (' å' != 'a')
+</pre>
+ * \returns <pre>a Boolean; it indicates whether the strings are equal, considering
+the case- and diacritical sensitivity. It is one of:
+FALSEnot equal
+TRUEequal
+</pre>
+ * \note <pre>Since EqualString compares pascal-style strings directly, it is handier
+than converting to C-style strings and using strcmp. Examples:
+Str255 strA="\pAbcDef";
+Str255 strB="\p åbcdef";
+EqualString ( strA,strB, TRUE,TRUE); /* Returns FALSE */
+EqualString ( strA, strB, FALSE,FALSE); /* Returns TRUE */
+If caseSens =FALSE, then both strings are treated as if they had been
+upshifted with UprString (though the original contents are not modified).
+The RelString function [128K ROMs] is more flexible in that its return
+code identifies which string is higher or lower in the collating sequence.
+The IUEqualString and IUCompString functions take into consideration
+special spelling conventions used in foreign languages.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later

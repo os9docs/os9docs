@@ -124,27 +124,43 @@ enum {
   sfErrorDialogRefCon = FOUR_CHAR_CODE('err ')
 };
 
-struct SFReply {
-  Boolean good;
-  Boolean copy;
-  OSType fType;
-  short vRefNum;
-  short version;
-  StrFileName fName; /* a Str63 on MacOS */
-};
+/**
+<pre>
+ * \note <pre>The SFReply structure is used in all Standard File functions, including:
+SFPutFile SFPPutFile SFGetFile SFPGetFile
+If the good field is FALSE upon return from one of these functions, then the
+contents of all other fields are undefined.
+The version field will always be 0 on files created by HFS.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct SFReply  {
+	Boolean good;/**<  FALSE if user canceled, etc.*/
+	Boolean copy;/**<  (not used)*/
+	OSType fType;/**<  File type (like OSType), eg: 'TEXT'*/
+	short vRefNum;/**<  Volume number or working*/
+	short version;/**<  File version number (normally )*/
+	unsigned char fName[];/**<  Pascal string filename*/
+	} SFReply ;/**< */
+
 typedef struct SFReply SFReply;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct StandardFileReply {
-  Boolean sfGood;
-  Boolean sfReplacing;
-  OSType sfType;
-  FSSpec sfFile;
-  ScriptCode sfScript;
-  short sfFlags;
-  Boolean sfIsFolder;
-  Boolean sfIsVolume;
-  long sfReserved1;
-  short sfReserved2;
-};
+	Boolean sfGood;/**< user did not cancel*/
+	Boolean sfReplacing;/**< replace file with same name*/
+	OSType sfType;/**< file type*/
+	FSSpec sfFile;/**< selected file, folder, or*/
+	ScriptCode sfScript;/**< script of file, folder, or*/
+	short sfFlags;/**< finder flags*/
+	Boolean sfIsFolder;/**< selected item is a folder*/
+	Boolean sfIsVolume;/**< selected item is a volume*/
+	long sfReserved;/**< reserved*/
+	short sfReserved;/**< reserved*/
+	}StandardFileReply ;/**<*/
+
 typedef struct StandardFileReply StandardFileReply;
 /* for CustomXXXFile, ActivationOrderListPtr parameter is a pointer to an array
  * of item numbers */
@@ -745,6 +761,30 @@ sfpgetfile(Point *where, const char *prompt,
 EXTERN_API_C(void)
 sfputfile(Point *where, const char *prompt, const char *origName,
           DlgHookUPP dlgHook, /* can be NULL */
+          SFReply *reply);
+
+#endif /* CALL_NOT_IN_CARBON */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __STANDARDFILE__ */
+ DlgHookUPP dlgHook, /* can be NULL */
           SFReply *reply);
 
 #endif /* CALL_NOT_IN_CARBON */

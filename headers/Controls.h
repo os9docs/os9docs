@@ -155,24 +155,26 @@ typedef STACK_UPP_TYPE(ControlActionProcPtr) ControlActionUPP;
 /*  � ControlRecord */
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
-struct ControlRecord {
-  ControlRef nextControl; /* in Carbon use embedding heirarchy functions*/
-  WindowRef contrlOwner;  /* in Carbon use GetControlOwner or EmbedControl*/
-  Rect contrlRect;        /* in Carbon use Get/SetControlBounds*/
-  UInt8 contrlVis;    /* in Carbon use IsControlVisible, SetControlVisibility*/
-  UInt8 contrlHilite; /* in Carbon use GetControlHilite, HiliteControl*/
-  SInt16 contrlValue; /* in Carbon use Get/SetControlValue,
-                         Get/SetControl32BitValue*/
-  SInt16 contrlMin;   /* in Carbon use Get/SetControlMinimum,
-                         Get/SetControl32BitMinimum*/
-  SInt16 contrlMax;   /* in Carbon use Get/SetControlMaximum,
-                         Get/SetControl32BitMaximum*/
-  Handle contrlDefProc;          /* not supported in Carbon*/
-  Handle contrlData;             /* in Carbon use Get/SetControlDataHandle*/
-  ControlActionUPP contrlAction; /* in Carbon use Get/SetControlAction*/
-  SInt32 contrlRfCon;            /* in Carbon use Get/SetControlReference*/
-  Str255 contrlTitle;            /* in Carbon use Get/SetControlTitle*/
-};
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct ControlRecord  {
+	ControlHandle nextControl;/**< Leads to next control in window*/
+	WindowPtr contrlOwner;/**< Window in which this control is*/
+	Rect contrlRect;/**< Enclosing rectangle MoveControl*/
+	Byte contrlVis;/**< =visible HideControl*/
+	Byte contrlHilite;/**< =none, else=control part*/
+	short contrlValue;/**< Current setting SetCtlValue*/
+	short contrlMin;/**< Minimum value SetCtlMin*/
+	short contrlMax;/**< Maximum value SetCtlMax*/
+	Handle contrlDefProc;/**< Control definition proc, for more*/
+	Handle contrlData;/**< Additional data or */
+	ProcPtr contrlAction;/**< proc addr  SetCtlAction ,*/
+	long contrlRfCon;/**< Reference for application usage*/
+	Str contrlTitle;/**< nLength-prefixed title text*/
+	} ControlRecord  ;/**< +n*/
+
 
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
@@ -271,12 +273,48 @@ enum {
   kNumberCtlCTabEntries = 4
 };
 
-struct CtlCTab {
-  SInt32 ccSeed;
-  SInt16 ccRider;
-  SInt16 ctSize;
-  ColorSpec ctTable[4];
-};
+/**
+<pre>
+ * \note <pre> A colorSpec record holds an identifying short that says which part of the
+control it is coloring ( cFrameColor , cBodyColor , cTextColor or
+cThumbColor ) and three shorts that define the values of the color's red,
+green and blue components. The part identifiers can be listed in any order,
+but if a part is not identified at all, it will be drawn with the first color in
+the table.
+If the color table is stored as resource type 'cctb' it still has this
+structure, and resides in the system in the same format as a 'clut' color
+table resource. A call to InitWindows loads the default color control
+resource 'cctb' = 0 into the application heap when your program starts up.
+The default is shared by all controls, regardless of type, and will be used in
+cases where there's no AuxCtlRec  with an acOwner field pointing to the
+control being drawn.  If you choose to set up your own color tables for your
+controls they can be as big as you want. You can also define them any way
+you want, except for using reserved part index numbers 1 through 127.
+When a plain button is highlighted, it swaps colors 1 and 2, while
+highlighted check boxes and radio buttons change appearance but keep their
+colors the same. A deactivated button of any variety is indicated by dimmed
+text with no color change.  The cThumbColor field is not used.
+Scrollbars use the same partIdentifier and partRGB fields as the buttons,
+except that the cThumbColor field is filled in, while the cTextColor field is
+not. Highlighted arrows are an outlined foreground color while a
+deactivated scrollbar lacks an indicator and shows a solid background color.
+Creating a new control with NewControl doesn't simultaneously create a
+new entry on the AuxList. Your controls will use the default color table
+unless you call SetCtlColor  or create the control from a 'CNTL' resource
+by a call to GetNewControl and there is also an associated 'cctb' resource
+with the same ID in the resource file.  If both types of resources exist, and
+they both have the same ID, GetNewControl will execute SetCtlColor .
+Further, your control's colors will be limited to the eight accommodated
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct CtlCTab  {
+	long ccSeed;/**< Unused, value = */
+	short ccReserved;/**< Unused, value = */
+	short ctSize;/**< Elements in control's color table,*/
+	ColorSpec ctTable[];/**< Address of colorSpec records*/
+	} CtlCTab ;/**< */
+
 typedef struct CtlCTab CtlCTab;
 typedef CtlCTab *CCTabPtr;
 typedef CCTabPtr *CCTabHandle;
@@ -284,15 +322,26 @@ typedef CCTabPtr *CCTabHandle;
 /*  � Auxiliary Control Record */
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
-struct AuxCtlRec {
-  Handle acNext;        /* not supported in Carbon*/
-  ControlRef acOwner;   /* not supported in Carbon*/
-  CCTabHandle acCTable; /* not supported in Carbon*/
-  SInt16 acFlags;       /* not supported in Carbon*/
-  SInt32 acReserved;    /* not supported in Carbon*/
-  SInt32 acRefCon;      /* in Carbon use Get/SetControlProperty if you need more
-                           refCons*/
-};
+/**
+<pre>
+ * \note <pre>Controls you create don't initially have an AuxCtlRec and if you wish to use
+non-standard colors you'll need to provide a control record and color table
+by calling SetCtlColor .  Controls should be created invisible then colors
+are set, and then displayed by calling ShowControl .  When you make your
+controls using the 'CNTL' resource, you can also stipulate that the color
+table be a resource, specifically, type 'cctb'.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct AuxCtlRec  {
+	AuxCtlHandle acNext;/**< Leads to next control in list*/
+	ControlHandle acOwner;/**< Handle to control that owns this*/
+	CCTabHandle acCTable;/**< Handle to individual control's color*/
+	short acFlags;/**< Reserved flag field*/
+	long acReserved;/**< Set to , reserved for the future*/
+	long acRefCon;/**< Field for application's reference*/
+	} AuxCtlRec ;/**< */
+
 typedef struct AuxCtlRec AuxCtlRec;
 typedef AuxCtlRec *AuxCtlPtr;
 typedef AuxCtlPtr *AuxCtlHandle;
@@ -1384,11 +1433,49 @@ DisableControl(ControlRef inControl);
 /*��������������������������������������������������������������������������������������*/
 /*  � Control Imaging */
 /*��������������������������������������������������������������������������������������*/
-/**
- *  DrawControls()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Draw all controls visible in a window 
+			
+			<pre>DrawControls draws all of a window's currently active and visible controls.
+This (or UpdtControl ) should be used upon detecting an update event for a
+window that contains controls.
+theWindow is a pointer to a 108-byte GrafPort structure (actually a 156-byte
+WindowRecord ). It is typically a value obtained from
+EventRecord .message after calling WaitNextEvent .
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>This can be used at any time to draw the controls in a window. It works by
+drawing all the controls, and letting the off-screen or covered controls be
+clipped. The 128K ROM UpdtControl function is more efficient since it
+doesn't waste time drawing outside of the window's visible region.
+The most common usage is to call DrawControls to redraw scroll bars
+upon detecting an update event as in this code skeleton:
+if ( GetNextEvent ( everyEvent , &myEvent ) ) {
+switch ( myEvent.what ) {
+case updateEvt :
+updtWin = (WindowPtr)myEvent.message;
+GetPort ( &savePort );
+SetPort ( updtWin)
+BeginUpdate ( updtWin );
+DrawControls ( updtWin );
+DrawGrowIcon ( updtWin); /* if needed */
+MyDrawWin( updtWin); /* draw window contents */
+EndUpdate ( updtWin );
+SetPort ( savePort )
+break;
+case mouseDown :
+.
+. ... etc ...
+.
+}
+}
+The ’size icon' (if used) is also part of the content region of a window and
+will need to be redrawn when it is uncovered.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -3185,6 +3272,88 @@ SetControlPopupMenuID(ControlRef control, short menuID);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __CONTROLS__ */
+*/);
+
+/**
+ *  SetControlBounds()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(void)
+SetControlBounds(ControlRef control, const Rect *bounds);
+
+/**
+ *  SetControlPopupMenuHandle()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(void)
+SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
+
+#define SetControlPopupMenuRef SetControlPopupMenuHandle
+/**
+ *  SetControlPopupMenuID()
+ *
+
+ *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+EXTERN_API(void)
+SetControlPopupMenuID(ControlRef control, short menuID);
+
+#endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
+
+#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
+#define GetControlListFromWindow(theWindow)                                    \
+  (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
+#define GetControlOwningWindowControlList(theWindow)                           \
+  (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
+#endif /* !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __CONTROLS__ */
+ma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK

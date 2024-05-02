@@ -682,12 +682,57 @@ enum {
 
 enum { kMouseUpOutOfSlop = (long)0x80008000 };
 
-struct WinCTab {
-  long wCSeed;      /** reserved */
-  short wCReserved; /** reserved */
-  short ctSize;     /** usually 4 for windows */
-  ColorSpec ctTable[5];
-};
+/**
+<pre>
+ * \note <pre>Both the wCSeed and wCReserved field have been set aside by Apple and
+their values are currently zero.
+ctSize describes the number of elements in the color table and the value is
+always 4 for a standard definition procedure since the standard color table
+always contains five elements, ie, definitions for the colors of: content area,
+frame, text, highlight and title bar. If you decide to build a custom
+definition procedure, you can make color tables as large or as small as you
+want and define their parts any way you want.  The only reservation you
+have to bear in mind is that part identifier numbers 1 through 127 belong
+to the system.
+The color table field (ctTable) whose address is given by cSpecArray
+contains 5 integers--each identifying a part of the color window.
+Associated with each of these PartIdentifier fields are value fields for the
+red/green/blue components that comprise that part's color. The whole
+WinCTab for a standard window can be described as a structure that looks
+like:
+Window Part
+  & values
+content =  0
+frame  =  1
+text    = 2
+highlight = 3
+title bar = 4Component Colors for Each Part 
+ (values supplied by application)
+red  
+  green      blue
+red
+red
+red
+red 
+ green
+ green
+ green
+ green 
+ blue
+ blue
+ blue
+ blueColor Table =ctSize= 4  wCSeed= 0
+wCReserved= 0
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct WinCTab  {
+	long wCSeed;/**< Reserved field*/
+	short wCReserved;/**< Reserved field*/
+	short ctSize;/**< Total table entries minus */
+	ColorSpec ctTable[];/**< Address of a five-element color table*/
+	} WinCTab ;/**< */
+
 typedef struct WinCTab WinCTab;
 typedef WinCTab *WCTabPtr;
 typedef WCTabPtr *WCTabHandle;
@@ -695,52 +740,87 @@ typedef WCTabPtr *WCTabHandle;
 #if !OPAQUE_TOOLBOX_STRUCTS
 typedef struct WindowRecord WindowRecord;
 typedef WindowRecord *WindowPeek;
-struct WindowRecord {
-  GrafPort port;    /** in Carbon use GetWindowPort*/
-  short windowKind; /** in Carbon use Get/SetWindowKind*/
-  Boolean
-      visible; /** in Carbon use Hide/ShowWindow, ShowHide, IsWindowVisible*/
-  Boolean hilited;          /** in Carbon use HiliteWindow, IsWindowHilited*/
-  Boolean goAwayFlag;       /** in Carbon use ChangeWindowAttributes*/
-  Boolean spareFlag;        /** in Carbon use ChangeWindowAttributes*/
-  RgnHandle strucRgn;       /** in Carbon use GetWindowRegion*/
-  RgnHandle contRgn;        /** in Carbon use GetWindowRegion*/
-  RgnHandle updateRgn;      /** in Carbon use GetWindowRegion*/
-  Handle windowDefProc;     /** not supported in Carbon */
-  Handle dataHandle;        /** not supported in Carbon */
-  StringHandle titleHandle; /** in Carbon use Get/SetWTitle */
-  short titleWidth;         /** in Carbon use GetWindowRegion */
-  Handle controlList;       /** in Carbon use GetRootControl */
-  WindowPeek nextWindow;    /** in Carbon use GetNextWindow */
-  PicHandle windowPic;      /** in Carbon use Get/SetWindowPic */
-  long refCon;              /** in Carbon use Get/SetWRefCon*/
-};
+/**
+<pre>
+ * \note <pre>A WindowPeek (ie, the address of a WindowRecord) is used in nearly all
+Window Manager calls.
+The port field is a GrafPort (all 108 bytes of it). It contains such
+important items as the size and location of the window, the text font and
+display attributes, etc.
+The windowKind field identifies which of the standard or user-defined
+window definition routines will draw the window.
+Note: For desk accessories, windowKind contains the driver reference
+number (a negative value). This affects how DAs must handle calls to
+IsDialogEvent .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct WindowRecord  {
+	GrafPort port;/**< portBits, portRect , pnSize,txFont,*/
+	short windowKind;/**< holds dialogKind, userKind, or*/
+	Boolean visible;/**< TRUE if window is visible*/
+	Boolean hilited;/**< TRUE if window hilited*/
+	Boolean goAwayFlag;/**< TRUE if window has a close box in*/
+	Boolean spareFlag;/**< TRUE=zoom is enabled*/
+	RgnHandle strucRgn;/**< Content region plus the frame ( global*/
+	RgnHandle contRgn;/**< Content rgn, including scroll bars*/
+	RgnHandle updateRgn;/**< Area needing update,(local)*/
+	Handle windowDefProc;/**< Code to draw the window ('WDEF')*/
+	Handle dataHandle;/**< Additional info;/**< may lead to a*/
+	StringHandle titleHandle;/**< Leads to pstring of title SetWTitle*/
+	short titleWidth;/**< Width, in pixels, of the window title*/
+	ControlHandle controlList;/**< Window's first ControlRecord*/
+	WindowPeek nextWindow;/**< The window behind this one ( if this*/
+	PicHandle  windowPic;/**< Leads to Picture;/**< =none*/
+	long refCon;/**< Anything you want SetWRefCon*/
+	} WindowRecord ;/**< */
+
 
 #endif /** !OPAQUE_TOOLBOX_STRUCTS */
 
 #if !OPAQUE_TOOLBOX_STRUCTS
 typedef struct CWindowRecord CWindowRecord;
 typedef CWindowRecord *CWindowPeek;
-struct CWindowRecord {
-  CGrafPort port;   /** in Carbon use GetWindowPort*/
-  short windowKind; /** in Carbon use Get/SetWindowKind    */
-  Boolean
-      visible; /** in Carbon use Hide/ShowWindow, ShowHide, IsWindowVisible */
-  Boolean hilited;          /** in Carbon use HiliteWindow, IsWindowHilited*/
-  Boolean goAwayFlag;       /** in Carbon use ChangeWindowAttributes   */
-  Boolean spareFlag;        /** in Carbon use ChangeWindowAttributes   */
-  RgnHandle strucRgn;       /** in Carbon use GetWindowRegion  */
-  RgnHandle contRgn;        /** in Carbon use GetWindowRegion  */
-  RgnHandle updateRgn;      /** in Carbon use GetWindowRegion  */
-  Handle windowDefProc;     /** not supported in Carbon */
-  Handle dataHandle;        /** not supported in Carbon */
-  StringHandle titleHandle; /** in Carbon use Get/SetWTitle */
-  short titleWidth;         /** in Carbon use GetWindowRegion */
-  Handle controlList;       /** in Carbon use GetRootControl */
-  CWindowPeek nextWindow;   /** in Carbon use GetNextWindow */
-  PicHandle windowPic;      /** in Carbon use Get/SetWindowPic     */
-  long refCon;              /** in Carbon use Get/SetWRefCon      */
-};
+/**
+<pre>fields */
+</pre>
+ * \note <pre>The only difference between a CWindowRecord and a WindowRecord is
+that the CWindowRecord's port field is a cGrafPort rather than a grafPort .
+Because everything else about the two structures is identical, and because
+all non-color Window Manager routines work with the new structure by
+accepting CWindowPtrs as well as WindowPtr s, all window management
+changes should be transparent to your applications.
+A CWindowPeek (ie, the address of a CWindowRecord ) is used in
+nearly all Window Manager calls.
+The port field is a CGrafPort (all 108 bytes of it). It contains such
+important items as the size and location of the window, the text font and
+display attributes, etc.
+The windowKind field identifies which of the standard or user-defined
+window definition routines will draw the window.
+Note: For desk accessories, windowKind contains the driver reference
+number (a negative value). This affects how DAs must handle calls to
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct CWindowRecord  {
+	CGrafPort port;/**< portBits, portRect, pnSize, txFont*/
+	short windowKind;/**< Class;/**< documentProc, etc.*/
+	char visible;/**< TRUE if window is visible*/
+	char hilited;/**< TRUE if window hilited*/
+	char goAwayFlag;/**< TRUE if window has a close box in*/
+	char spareFlag;/**< TRUE=zoom is enabled*/
+	RgnHandle strucRgn;/**< Content region plus the frame*/
+	RgnHandle contRgn;/**< Content rgn, including scroll bars*/
+	RgnHandle updateRgn;/**< Area needing update, (local)*/
+	Handle windowDefProc;/**< Code to draw the window ('WDEF')*/
+	Handle dataHandle;/**< Additional info;/**< may lead to a*/
+	StringHandle titleHandle;/**< Leads to pstring of title*/
+	short titleWidth;/**< Width, in pixels, of the window title*/
+	CWindowPeek nextWindow;/**< The window behind this one ( if*/
+	PicHandle  windowPic;/**< Leads to Picture;/**< =none*/
+	long refCon;/**< Anything you want*/
+	} CWindowRecord ;/**< */
+
 
 #endif /** !OPAQUE_TOOLBOX_STRUCTS */
 
@@ -748,17 +828,47 @@ struct CWindowRecord {
 typedef struct AuxWinRec AuxWinRec;
 typedef AuxWinRec *AuxWinPtr;
 typedef AuxWinPtr *AuxWinHandle;
-struct AuxWinRec {
-  AuxWinHandle awNext;   /** handle to next AuxWinRec, not supported in Carbon*/
-  WindowRef awOwner;     /** not supported in Carbon*/
-  CTabHandle awCTable;   /** color table for this window, use
-                            Get/SetWindowContentColor in Carbon*/
-  Handle reserved;       /** not supported in Carbon*/
-  long awFlags;          /** reserved for expansion, not supported in Carbon*/
-  CTabHandle awReserved; /** reserved for expansion, not supported in Carbon*/
-  long awRefCon; /** user constant, in Carbon use Get/SetWindowProperty if you
-                    need more refCons*/
-};
+/**
+<pre>
+ * \note <pre>The auxiliary window record or, AuxWinRec , supplements the window's
+structure and content regions by being the repository of its color
+information. Each auxiliary window record functions as an independent list
+for a single window, but several such records can be linked under the global
+variable AuxWindowHead.  Taken together, the variable and the
+associated records comprise an AuxWinList in which each record points to
+the next one.
+Color information is accessed through a color table handle loaded with
+default colors from a 'wctb' resource, located either in the application, the
+System file or ROM. Default system colors are the same as on black and
+white windows but can be changed by a call to SetWinColor .
+While each window can have its own auxiliary window record, most often
+several windows will be able to share a single record and its color table.
+New or different records will only be needed if a particular window's color
+usage varies from what is specified in the default color table. In that case,
+new records need to be created for the nonstandard windows, even if the
+colors themselves are the same as another window's.
+Windows' sharing color tables also means that an application shouldn't
+release the memory for its color table as long as other windows still need
+it--and resource color tables shouldn't be purgeable. If a color table's
+handle has its resource bit set, the only way to get rid of the color table is
+with a call to ReleaseResource .
+Creating a window with the old NewWindow routine will produce a
+structure without an auxiliary window record and one will have to be
+created using SetWinColor if your application uses any colors but the
+default.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct AuxWinRec  {
+	AuxWinHandle awNext;/**< Handle to next  auxiliary window*/
+	WindowPtr awOwner;/**< Pointer to this record's window*/
+	CTabHandle awCTable;/**< Handle to auxiliary window's color*/
+	CTabHandle dialogCItem;/**< Handle  to Dialog Manager  storage*/
+	long awFlags;/**< Reserved*/
+	CTabHandle awReserved;/**< Reserved*/
+	long awRefCon;/**< Application's reference constant*/
+	} AuxWinRec  ;/**< */
+
 
 #endif /** !OPAQUE_TOOLBOX_STRUCTS */
 
@@ -815,10 +925,36 @@ enum {
 #define kFirstWindowOfClass ((WindowRef)(-1))
 #define kLastWindowOfClass ((WindowRef)0)
 
-struct WStateData {
-  Rect userState; /**user zoom state*/
-  Rect stdState;  /**standard zoom state*/
-};
+/**
+<pre>
+ * \note <pre>The WStateData structure is not used in any system call. The Window
+Manager transparently maintains this structure of all zoom-able windows
+(ie, zoomDocProc and zoomNoGrow windows; see Window Types ). For these
+types of windows, the dataHandle field of the WindowRecord contains a
+handle leading to this 16-byte structure.
+Initially, the stdState field is set to fill most of the primary screen. It does
+not get changed unless you do it manually (see below).
+Whenever the user changes the size of the window (via your call to
+SizeWindow ), the resulting rectangle is stored in userState.
+It's becoming a common practice to "remember" the user's preferred
+userState for documents (by saving it in a document resource), and
+manually put that value in place when the document is loaded. This would be
+most handy in a system which has two or more screens:
+WindowPtr myWin;
+WindowPeek myWinPeek;
+WStateData **hWSD;
+myWin = GetNewWindow (DOC_WIN_ID, nil, (WindowPtr ) -1)
+myWinPeek=( WindowPeek )myWin;
+hWSD =(WStateData **)myWinPeek->dataHandle;
+**hWSD->userState = saveUsrRect; // rect used last time saved
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct WStateData  {
+	Rect userState;/**<   Size & position when zoomed IN*/
+	Rect stdState;/**<   Size & position when zoomed OUT*/
+	} WStateData ;/**<*/
+
 typedef struct WStateData WStateData;
 typedef WStateData *WStateDataPtr;
 typedef WStateDataPtr *WStateDataHandle;
@@ -2942,11 +3078,18 @@ CheckUpdate(EventRecord *theEvent) ONEWORDINLINE(0xA911);
 EXTERN_API(WindowPartCode)
 MacFindWindow(Point thePoint, WindowRef *window) ONEWORDINLINE(0xA92C);
 
-/**
- *  FrontWindow()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Return a pointer to the frontmost window 
+			
+			<pre>FrontWindow will return the next lower window.
+Under MultiFinder , this function (and many others) apply only to the
+current window layer (usually the caller's application).  Thus, you may
+get a NIL return value even if there are many windows visible. Under
+Finder, you may get a WindowPtr to a DA.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -3150,22 +3293,39 @@ InitWindows(void) ONEWORDINLINE(0xA912);
 
 /**  The window manager port does not exist in Carbon.   */
 /**  We are investigating replacement technologies.      */
-/**
- *  GetWMgrPort()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain a pointer to the Window Manager port 
+			
+			<pre>use the WMgrPort directly and you shouldn't call GetWMgrPort ever.
+Rules
+Only draw to the whole screen in a "modal" way.  This could be an
+animation across windows or visual feedback from dragging from one to
+another. It is important to know that no other application, including the
+Finder, will draw until you have finished. In the case of an animation effect,
+the drawing shouldn't take much time. In the case of a drag, you should only
+draw while the mouse button is down.
+All operations should end with nothing left drawn outside your windows.
+Under MultiFinder it is alright not to call GetNextEvent, EventAvail or
+WaitNextEvent while drawing outside your windows. Use the StillDown or
+WaitMouseUp functions for loops that wait for the mouse button to go up.
+Never draw something on the desktop and leave it there. There is no way to
+tell the system that you have drawn on the desktop, so the Finder may draw
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 EXTERN_API(void)
 GetWMgrPort(GrafPtr *wPort) ONEWORDINLINE(0xA910);
 
-/**
- *  GetCWMgrPort()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain a pointer to the Window Manager port 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -3220,55 +3380,143 @@ InitFloatingWindows(void);
 EXTERN_API(void)
 HiliteWindow(WindowRef window, Boolean fHilite) ONEWORDINLINE(0xA91C);
 
-/**
- *  SetWRefCon()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set the reference value (refCon) for a window 
+			
+			<pre>SetWRefCon sets the "reference constant" (the WindowRecord .refCon value)
+for the selected window.  The reference constant is an application-defined
+value you can use for any purpose.
+theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
+newRefis a 4-byte value for the private use of your application. This value
+will be stored in the WindowRecord and will be available via
+GetWRefCon .
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>Use this to store some identifier or other information so that you can more
+easily classify or identify the window later.
+You may wish to use the WindowRecord .refCon field to hold a pointer or
+Handle to additional information about the window. Just allocate some
+storage on the heap and save its address using this call. Be sure to free the
+allocation when you close the window.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 SetWRefCon(WindowRef window, long data) ONEWORDINLINE(0xA918);
 
-/**
- *  GetWRefCon()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Return a window's reference value 
+			
+			<pre>NewWindow ). Use SetWRefCon to change it. Use GetWRefCon to
+obtain its current value, or just read it directly from the window record:
+wPeek = ( WindowPeek )theWindow;
+myRefCon = wPeek -> refCon;
+This user-defined value is often used as a good place to store a Handle
+leading to additional information about the window. For instance, such a
+handle could contain information to help you keep track of the scrolling
+position or the name and reference of a file read to obtain the contents of the
+window, etc.
+Note: if you do maintain such a Handle, be sure to dispose of it before you
+close the window.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(long)
 GetWRefCon(WindowRef window) ONEWORDINLINE(0xA917);
 
-/**
- *  SetWindowPic()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set a PicHandle for alternative updating 
+			
+			<pre>SetWindowPic stores a PicHandle into the WindowRecord . A non-NIL value
+causes the Window Manager to draw that picture instead of generating an
+update event. You will no longer receive update events for theWindow .
+theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
+thePicture is a handle of a picture that will be drawn automatically when the
+window needs to be updated.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>This function causes thePicture  to be stored in the windowPic field of the
+WindowRecord structure of theWindow . When that field is an address (as
+opposed to the default value of NIL), update events will not get generated
+when that window is moved, sized, uncovered, etc. Instead, thePicture  is
+drawn.
+SetWindowPic is typically used for windows that are never changed; for
+instance, an introduction window or a one-screen help window.
+It can also be used to force fast screen updates, at the expense of
+extravagant memory usage. For instance, you could use CopyBits to
+generate a picture of the content region of your window and use
+SetWindowPic to point to that picture. Now you will find that moving,
+uncovering, or sizing the window will go faster than would be possible when
+an update event occurred and you needed to redraw it from scratch.
+Use SetWindowPic again, setting thePicture = NIL in order to resume
+normal generation of update events.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 SetWindowPic(WindowRef window, PicHandle pic) ONEWORDINLINE(0xA92E);
 
-/**
- *  GetWindowPic()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain Handle of window picture, if any 
+			
+			<pre>GetWindowPic returns a PicHandle of the picture that defines the contents
+of a window. In most cases, it returns NIL, indicating that no such picture
+exists.
+</pre>
+ * \returns <pre>the value found in the windowPic field of theWindow 's
+WindowRecord . A non-NIL value indicates that a previous call to
+SetWindowPic has defined such a picture.
+</pre>
+ * \note <pre>This routine can be used as part of a speed-optimization technique you can
+use to avoid time-consuming updates on windows that do not change, or
+windows that have been saved temporarily as a bit image.
+Use SetWindowPic to install a picture defining a window. See that topic
+for related information.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(PicHandle)
 GetWindowPic(WindowRef window) ONEWORDINLINE(0xA92F);
 
-/**
- *  GetWVariant()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Get the variant code for a window 
+			
+			<pre>GetWVariant returns a variant code for the window pointed to by
+whichWindow . Use this function to determine the type of a particular
+window.
+whichWin is the window whose variant code you wish to find.
+</pre>
+ * \returns <pre>a short indicating the variant code of the window.
+</pre>
+ * \note <pre>The variant code allows a single window definition function ('WDEF') to
+implement several related types of windows as "variations on a theme". For
+example, the dBoxProc type of window is a variation of the standard
+document window; both use the window definition function whose resource
+ID is 0, but the document window has a variation code of 0 while the
+dBoxProc window has a variation code of 1. See Window Types for more
+information.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -3460,11 +3708,27 @@ DrawGrowIcon(WindowRef window) ONEWORDINLINE(0xA904);
 EXTERN_API(void)
 SetWTitle(WindowRef window, ConstStr255Param title) ONEWORDINLINE(0xA91A);
 
-/**
- *  GetWTitle()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Obtain the text of a window's title 
+			
+			<pre>GetWTitle obtains the title of the specified window.
+theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
+theTitle is the address of a pointer to a Str255. Upon return, it will contain
+a pointer to the text of the title.
+</pre>
+ * \returns <pre>none
+Example
+#include < Windows.h >
+WindowPtr myWindow;
+Str255 *theTitle;
+  /* ... */
+GetWTitle ( myWindow, &theTitle );
+PtoCstr( theTitle ); /* ASCIIZ for printf() */
+printf("The current title is %s\n", theTitle );
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -4815,11 +5079,36 @@ ChangeWindowPropertyAttributes(WindowRef window, OSType propertyCreator,
                                OSType propertyTag, UInt32 attributesToSet,
                                UInt32 attributesToClear);
 
-/**
- *  PinRect()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Find point on a rectangle's border near point 
+			
+			<pre>PinRect returns the coordinates inside a rectangle that most-closely match
+the coordinates of a specified point. If the point is inside the rectangle, it is
+returned unchanged. If the point is outside the rectangle, the return value is a
+position on the border of the rectangle that is closest the point.
+theRectis a pointer to a rectangle.
+thePoint is any point (typically the position of a mouse-down event), in local
+window coordinates.
+</pre>
+ * \returns <pre>a 32-bit long integer, defined as two 16-bit words that indicate the
+coordinates of the point, pinned to the rectangle. The return value
+may be cast as a Point; it is broken up as follows:
+high word the vertical coordinate
+low word the horizontal coordinate
+</pre>
+ * \note <pre>After a mouse-down event, you may use PinRect to determine if the point
+is inside theRect or to determine the point on the rectangle that is nearest
+to the mouse.
+This could be used when limiting mouse drawing to a defined area - if the
+mouse has moved outside of a specified area you can assume that the edge of
+the area was desired.
+Note that the return value is in the same order as a Point data type, so it
+may be cast as such for comparisons or for use in functions that need that
+type of parameter.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -4892,11 +5181,12 @@ DragTheRgn(RgnHandle theRgn, Point startPt, const Rect *limitRect,
 
 #if !OPAQUE_TOOLBOX_STRUCTS
 #if CALL_NOT_IN_CARBON
-/**
- *  GetAuxWin()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Supply an auxiliary window record if one exists 
+			
+			
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -5591,3 +5881,176 @@ enum {
 #endif
 
 #endif /** __MACWINDOWS__ */
+*/
+inline Handle GetWindowDataHandle(WindowRef window) {
+  return ((WindowPeek)window)->dataHandle;
+}
+#else
+#define GetWindowDataHandle(window) (((WindowPeek)window)->dataHandle)
+#endif
+#endif
+
+/**
+ *  SetWindowDataHandle()
+ *
+
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(void)
+SetWindowDataHandle(WindowRef window, Handle data);
+#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
+#ifdef __cplusplus
+inline void SetWindowDataHandle(WindowRef window, Handle data) {
+  ((WindowPeek)window)->dataHandle = data;
+}
+#else
+#define SetWindowDataHandle(window, data)                                      \
+  (((WindowPeek)window)->dataHandle = data)
+#endif
+#endif
+
+/**
+ *  GetWindowZoomFlag()
+ *
+
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(Boolean)
+GetWindowZoomFlag(WindowRef window);
+#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
+#ifdef __cplusplus
+inline Boolean GetWindowZoomFlag(WindowRef window) {
+  return ((WindowPeek)window)->spareFlag;
+}
+#else
+#define GetWindowZoomFlag(window) (((WindowPeek)window)->spareFlag)
+#endif
+#endif
+
+/**
+ *  GetWindowStructureRgn()
+ *
+
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(void)
+GetWindowStructureRgn(WindowRef window, RgnHandle r);
+#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
+#ifdef __cplusplus
+inline void GetWindowStructureRgn(WindowRef window, RgnHandle r) {
+  MacCopyRgn(((WindowPeek)window)->strucRgn, r);
+}
+#else
+#define GetWindowStructureRgn(window, r)                                       \
+  (MacCopyRgn(((WindowPeek)window)->strucRgn, r))
+#endif
+#endif
+
+/**
+ *  GetWindowContentRgn()
+ *
+
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(void)
+GetWindowContentRgn(WindowRef window, RgnHandle r);
+#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
+#ifdef __cplusplus
+inline void GetWindowContentRgn(WindowRef window, RgnHandle r) {
+  MacCopyRgn(((WindowPeek)window)->contRgn, r);
+}
+#else
+#define GetWindowContentRgn(window, r)                                         \
+  (MacCopyRgn(((WindowPeek)window)->contRgn, r))
+#endif
+#endif
+
+/**
+ *  GetWindowUpdateRgn()
+ *
+
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(void)
+GetWindowUpdateRgn(WindowRef window, RgnHandle r);
+#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
+#ifdef __cplusplus
+inline void GetWindowUpdateRgn(WindowRef window, RgnHandle r) {
+  MacCopyRgn(((WindowPeek)window)->updateRgn, r);
+}
+#else
+#define GetWindowUpdateRgn(window, r)                                          \
+  (MacCopyRgn(((WindowPeek)window)->updateRgn, r))
+#endif
+#endif
+
+/**
+ *  GetWindowTitleWidth()
+ *
+
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+EXTERN_API_C(SInt16)
+GetWindowTitleWidth(WindowRef window);
+#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
+#ifdef __cplusplus
+inline SInt16 GetWindowTitleWidth(WindowRef window) {
+  return ((WindowPeek)window)->titleWidth;
+}
+#else
+#define GetWindowTitleWidth(window) (((WindowPeek)window)->titleWidth)
+#endif
+#endif
+
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+/** Obsolete symbolic names */
+/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+#endif /** CALL_NOT_IN_CARBON */
+
+enum {
+  kWindowGroupAttrSelectable = kWindowGroupAttrSelectAsLayer,
+  kWindowGroupAttrPositionFixed = kWindowGroupAttrMoveTogether,
+  kWindowGroupAttrZOrderFixed = kWindowGroupAttrLayerTogether
+};
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __MACWINDOWS__ */
+*/if PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __MACWINDOWS__ */
+*/*/*/*/*/*/*/*/*/

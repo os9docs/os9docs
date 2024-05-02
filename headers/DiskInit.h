@@ -43,16 +43,34 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-struct HFSDefaults {
-  char sigWord[2]; /** signature word */
-  long abSize;     /** allocation block size in bytes */
-  long clpSize;    /** clump size in bytes */
-  long nxFreeFN;   /** next free file number */
-  long btClpSize;  /** B-Tree clump size in bytes */
-  short rsrv1;     /** reserved */
-  short rsrv2;     /** reserved */
-  short rsrv3;     /** reserved */
-};
+/**
+<pre>
+ * \note <pre>This structure contains options used by DIFormat when it formats a disk
+(see also DIBadMount ). The global variable FmtDefaults (at 0x39E)
+contains the address of a structure with this layout which is normally
+contained in ROM.
+If you wish to format a diskette using different defaults, you can allocate a
+24-byte non-relocatable block and fill it with the HFSDefaults field values
+and set FmtDefaults to point to your version of the structure. Then call
+DIFormat . To restore the normal values, just clear FmtDefaults .
+The nxFreeFN field sets the initial 'hard' file number used in identifying
+files and directories on the volume. This value will be stored in the volume
+information (ie, the ioVNxtFNum field in a VolumeParam or VCB
+structure) and is incremented each time a new file or directory is created.
+If you set the abSize and/or btClpSize fields to 0, their values will be
+automatically calculated based upon the volume size.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct HFSDefaults  {
+	char sigWord[];/**< Signature ('BD' for HSF floppies)*/
+	long abSize;/**< Allocation block size in bytes ( or */
+	long clpSize;/**< Clump size in bytes*/
+	long nxFreeFN;/**< Next free file number (normally*/
+	long btClpSize;/**< B* tree clump size in bytes(or  to*/
+	short rsrv;/**< (unused)*/
+	short rsrv;/**< (unused)*/
+
 typedef struct HFSDefaults HFSDefaults;
 enum { kHFSPlusDefaultsVersion = 1 };
 

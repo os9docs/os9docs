@@ -3005,11 +3005,83 @@ enum {
   dsMixedModeFailure = 1011 /* Internal Mixed Mode Failure */
 };
 
-/**
- *  SysError()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Perform action normally taken upon a system error 
+			
+			<pre>SysError is called by the system when a catastrophic error occurs. It
+displays the "Sorry, a system error..." dialog (with the bomb icon) and takes
+some precise steps, as described below.
+errID is a System Error Code , such as dsAddressError, and so forth.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>You usually won't use this in an application, but it is handy for testing
+your "resume" proc (as setup via InitDialogs ), and some applications may
+find reasons to intercept this trap.
+This function relies heavily on something called the "Sytem Alert Table"
+which gets loaded at startup. A pointer to it gets stored into the global
+variable DSAlertTab , at 0x2BA. For details, see Inside Macintosh, Volume 2,
+page 359.
+The steps taken by the system error handler are as follows:
+1Save all registers
+2Store errID in global variable DSErrCode
+3Check DSAlertTab and if no error table in memory, draw Sad Mac Icon
+3Allocate memory for Quickdraw globals on stack and initialize a GrafPort
+for use in the error dialog.
+4If errID is < 0 the alert box will not be drawn (redrawn).
+5If errID matches an entry in the error alert table, display an
+error-specific message, otherwise, display the generic "Sorry, a system
+error occurred" message.
+6Draw the alert in the global-coordinates of the Rect in global variable
+DSAlertRect .
+7If the string IDs in the alert table are non-0, draw both strings.
+8If the Icon ID in the alert table is non-0, draw the icon.
+9If the procedure definition ID in the alert table is non-0, execute the
+procedure.
+10If the button definition ID in the alert table is 0, return to the caller.
+11If there's a resume procedure, increment the button definition ID by one.
+12Draw the buttons matching the button definition ID from the alert table.
+13Hit-test the buttons. If a resume-proc exists, and Resume is clicked, set
+the stack pointer to the value in CurStackBase (throwing away the stack),
+set A5 to what is was earlier, and jump to resume procedure.
+14Return to the caller.
+Notice that "resume procedures" must be written with the assumption that
+the stack has been lost so there is no "return address". After performing
+whatever error recovery is possible, the routine must be able to jump to a
+known "starting point" in the program.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+#if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
+#pragma parameter SysError(__D0)
+#endif
+EXTERN_API(void)
+SysError(short errorCode) ONEWORDINLINE(0xA9C9);
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __MACERRORS__ */
+*/carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */

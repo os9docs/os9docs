@@ -139,38 +139,75 @@ typedef SInt16 StageList;
 /** DialogPtr is obsolete. Use DialogRef instead.*/
 typedef DialogPtr DialogRef;
 #if !OPAQUE_TOOLBOX_STRUCTS
-struct DialogRecord {
-  WindowRecord window; /** in Carbon use GetDialogWindow or GetDialogPort*/
-  Handle items;        /** in Carbon use Get/SetDialogItem*/
-  TEHandle textH;      /** in Carbon use GetDialogTextEditHandle*/
-  SInt16 editField;    /** in Carbon use
-                          SelectDialogItemText/GetDialogKeyboardFocusItem*/
-  SInt16 editOpen;     /** not available in Carbon */
-  SInt16 aDefItem;     /** in Carbon use Get/SetDialogDefaultItem*/
-};
+/**
+<pre>
+ * \note <pre>A DialogRecord begins with a WindowRecord which begins with a GrafPort .
+The data types GrafPtr, WindowPtr , and DialogPtr may be used
+interchangeably when you pass a pointer to a function which expects a
+subset:
+DialogPtr myDlg;
+SetPort (myDlg); /* expects a GrafPtr */
+ShowWindow (myDlg); /* expects a WindowPtr */
+To access the additional fields of this structure, create a DialogPeek
+variable:
+DialogPtr myDlg;
+DialogPeek myDlgPeek;
+myDlgPeek = (DialogPeek)myDlg;
+myDlgPeek->aDefItem = 12;
+// To query the contents of a field, you can use type coercion:
+i = ((DialogPeek)myDlg)->aDefItem;
+Although the format of the items field of the DialogRecord is not defined in any
+MPW header file, it has been defined in Macintosh Tech Note #95 which
+specifies how to add items to a Print Dialog. See the AppendDITL function of
+Adding Items to the Print Dialogs for this defintion. Please note,
+however, that the routines AppendDITL , CountDITL and ShortenDITL have
+been provided so that you can avoid accessing this field directly, since its
+format could change in the future.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct DialogRecord  {
+	WindowRecord window;/**< Dialog's window.  See WindowRecord*/
+	Handle items;/**< Leads to item list (see below for*/
+	TEHandle textH;/**< Leads to a TERec of current editText*/
+	short editField;/**< Item number - of current editText*/
+	short editOpen;/**< (used internally)*/
+	short aDefItem;/**< Default item for alerts and modal*/
+	} DialogRecord ;/**< */
+
 typedef struct DialogRecord DialogRecord;
 typedef DialogRecord *DialogPeek;
 #endif /** !OPAQUE_TOOLBOX_STRUCTS */
 
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct DialogTemplate {
-  Rect boundsRect;
-  SInt16 procID;
-  Boolean visible;
-  Boolean filler1;
-  Boolean goAwayFlag;
-  Boolean filler2;
-  SInt32 refCon;
-  SInt16 itemsID;
-  Str255 title;
-};
+	Rect boundsRect;/**<  */
+	short procID;/**<  */
+	Boolean visible;/**<  */
+	Boolean filler;/**<  */
+	Boolean goAwayFlag;/**<  */
+	Boolean filler;/**<  */
+	long refCon;/**<  */
+	short itemsID;/**<  */
+	Str title;/**<  */
+	} DialogTemplate ;/**< */
+
 typedef struct DialogTemplate DialogTemplate;
 typedef DialogTemplate *DialogTPtr;
 typedef DialogTPtr *DialogTHndl;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct AlertTemplate {
-  Rect boundsRect;
-  SInt16 itemsID;
-  StageList stages;
-};
+	Rect boundsRect;/**<  */
+	short itemsID;/**<  */
+	StageList stages;/**<  */
+	} AlertTemplate;/**< */
+
 typedef struct AlertTemplate AlertTemplate;
 typedef AlertTemplate *AlertTPtr;
 typedef AlertTPtr *AlertTHndl;
@@ -715,22 +752,89 @@ typedef AlertStdCFStringAlertParamRec *AlertStdCFStringAlertParamPtr;
     should always pass NULL to InitDialogs.
 */
 #if CALL_NOT_IN_CARBON
-/**
- *  InitDialogs()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Initialize before using Dialog Manager functions 
+			
+			<pre>InitDialogs initializes the Dialog Manager and optionally installs a routine
+to get control after a fatal system error. It should be called once, after calling
+InitGraf , InitFonts , InitWindows , InitMenus , TEInit (in that order),
+and before using any other Dialog Manager functions.
+resumeProc is the address of a caller-supplied routine. In the event of a fatal
+system error, the system error alert is displayed and if the user
+then selects the Resume button, resumeProc  will get control. If
+you use resumeProc =NIL, no routine is installed and the Resume
+button will be dimmed.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>InitDialogs installs the standard sound procedure (see ErrorSound )
+and sets all text-replacement parameters to empty strings (see
+ParamText ). It also stores the value of resumeProc  into the
+low-memory variable ResumeProc .
+During application development, you may wish to create a "resume"
+procedure that jumps to some sort of diagnostic code, in an attempt to locate
+where the error occurred.
+The code at resumeProc  expects no parameters. When it gets control, the
+stack has been discarded (reset to the value of the global variable
+CurStackBase ) and A5 has been set to its position before the error
+occurred. You can test your custom code by calling SysError and clicking
+the Resume button when the alert appears.
+See SysError , System Error Codes , and IM pg II-356-363 for
+related information.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 EXTERN_API(void)
 InitDialogs(void *ignored) ONEWORDINLINE(0xA97B);
 
-/**
- *  ErrorSound()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Set up to use non-standard sounds for alerts 
+			
+			<pre>ErrorSound lets you override the standard sounds that are made when alerts
+are invoked.
+soundProc is the address of a pascal-style procedure. This routine will get
+control at each stage of each alert. A value of NIL disables alert
+beeping altogether and also disables the menu bar-blinking that
+occurs when the speaker volume has been set to 0.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre>If you never call this function, the alert will emit simple beeps - up to 3;
+one beep for the current alert stage - at the current speaker volume
+(adjustable via the control panel DA). In the event that the volume has been
+set to 0, the standard "sound" is a flashing of the menu bar. See SysBeep .
+If you call ErrorSound ( 0 ), beeping and flashing will not occur.
+To customize the sounds, use ErrorSound ( mySounds), as illustrated in
+the following example.
+Note: Sound number 1 is the sound made when a user clicks outside of a
+modal dialog box (as well as in a stage-1 alert).
+Example
+#include < Dialogs.h >
+#include < Sound.h>
+pascal void MySoundProc( short sndNum );
+#define kSndResNum 128 /* 'snd ' resource number */
+pascal void MySoundProc( short sndNum)
+/* sndNum will range from 0 to 3 */
+{
+SndChannelPtr myChan = 0L;
+Handle mySound;
+OSErr err;
+if (sndNum == 0) return;
+mySound = GetResource ( soundListRsrc, kSndResNum );
+err = SndNewChannel ( &myChan, 0, 0, 0L );
+HLock( mySound );
+err = SndPlay ( myChan, mySound, FALSE );
+HUnlock ( mySound );
+err = SndDisposeChannel ( myChan, FALSE );
+}
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -815,11 +919,48 @@ EXTERN_API(void)
 ModalDialog(ModalFilterUPP modalFilter, DialogItemIndex *itemHit)
     ONEWORDINLINE(0xA991);
 
-/**
- *  IsDialogEvent()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Check if an event belongs to a dialog window 
+			
+			<pre>IsDialogEvent should be called directly after GetNextEvent if there are
+any currently-open modeless dialogs. If the return value is TRUE, the next
+step is to call DialogSelect and handle the event.
+theEvent is the address of an EventRecord . Normally, this will contain the
+data obtained by a call to GetNextEvent in your main event loop.
+</pre>
+ * \returns <pre>a Boolean value indicating whether the event occurred in a modeless
+dialog window. It is one of:
+FALSE (0)theEvent  is unrelated to dialogs
+TRUE (1)theEvent  occurred in a dialog; use DialogSelect to find
+which dialog and to handle the event.
+</pre>
+ * \note <pre>You should call IsDialogEvent in your main event loop if you have opened
+any modeless dialogs (see NewDialog and GetNewDialog ). It is OK to call
+this if all such dialogs are closed or haven't yet been opened - it just
+returns FALSE.
+The return value is TRUE if theEvent  is an "activate" or "update" event for
+any dialog window. If the active window is a dialog, the return value is
+TRUE for all mouse-downs in its content region and all other events related
+to the window.
+In most cases, the next step is to call DialogSelect to see which dialog is
+associated with theEvent  and to handle the event. However, that function
+doesn't handle -shifted keys or disk-insert events. Thus, you may need to
+do some preprocessing of theEvent  beforehand.
+If all your dialogs are modal, events are handled immediately after the
+dialog is displayed by a loop that calls ModalDialog and you won't need this
+function.
+Note: It is normal to call IsDialogEvent and DialogSelect in your
+event loop even when GetNextEvent returns FALSE (no event). This
+ensures correct blinking of the caret for editText items.
+DAs: This call checks the windowKind field of the relevant
+WindowRecord , looking for a 2 (dialogKind). Since DAs must set their
+reference number in this field, you must store 2 into dialog window's
+windowKind field, call IsDialogEvent , and restore the value afterwards.
+See DialogSelect for an example of usage.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1245,11 +1386,25 @@ EXTERN_API(Boolean)
 StdFilterProc(DialogRef theDialog, EventRecord *event,
               DialogItemIndex *itemHit);
 
-/**
- *  GetStdFilterProc()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetStdFilterProc Get a pointer to the Dialog Manager's standard dialog filter 
+			
+			<pre>GetStdFilterProc returns a pointer to the Dialog Manager's standard dialog
+filter.
+theProc pointer to dialog filter procedure pointer.
+</pre>
+ * \returns <pre>error code
+</pre>
+ * \note <pre>This routine is not yet documented in any MPW header file (hence, it is not
+in any THINK C or THINK Pascal header file either). The information given
+above comes from Macintosh Technical Note #304. This tech. note also gives
+the inline glue for the call as follows:
+pascal OSErr GetStdFilterProc (ProcPtr *theProc)
+= {0x303C, 0x0203, 0xAA68};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1257,11 +1412,27 @@ EXTERN_API(OSErr)
 GetStdFilterProc(ModalFilterUPP *theProc)
     THREEWORDINLINE(0x303C, 0x0203, 0xAA68);
 
-/**
- *  SetDialogDefaultItem()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SetDialogDefaultItem Tell Dialog Mgr which item in dialog should be default item 
+			
+			<pre>SetDialogDefaultItem indicates to the Dialog Manager which item is the
+default. It will alias the return and enter keys to this item, and also bold
+border it.
+theDialog dialog whose default item is being set.
+newItem item to make be the default item.
+</pre>
+ * \returns <pre>error code
+</pre>
+ * \note <pre>This routine is not yet documented in any MPW header file (hence, it is not
+in any THINK C or THINK Pascal header file either). The information given
+above comes from Macintosh Technical Note #304. This tech. note also gives
+the inline glue for the call as follows:
+pascal OSErr SetDialogDefaultItem (DialogPtr theDialog,
+short newItem) = {0x303C,0x0304,0xAA68};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1269,11 +1440,26 @@ EXTERN_API(OSErr)
 SetDialogDefaultItem(DialogRef theDialog, DialogItemIndex newItem)
     THREEWORDINLINE(0x303C, 0x0304, 0xAA68);
 
-/**
- *  SetDialogCancelItem()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SetDialogCancelItem Tell Dialog Mgr which item should be default cancel item 
+			
+			<pre>SetDialogCancelItem indicates to the Dialog Manager which item is the
+default cancel item. It will alias the escape or "Command - period".
+theDialog dialog whose default item is being set.
+newItem item to make be the default cancel item.
+</pre>
+ * \returns <pre>error code
+</pre>
+ * \note <pre>This routine is not yet documented in any MPW header file (hence, it is not
+in any THINK C or THINK Pascal header file either). The information given
+above comes from Macintosh Technical Note #304. This tech. note also gives
+the inline glue for the call as follows:
+pascal OSErr SetDialogCancelItem (DialogPtr theDialog,
+short newItem) = {0x303C,0x0305,0xAA68};
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1922,3 +2108,26 @@ FreeAlert(SInt16 alertID) ONEWORDINLINE(0xA98A);
 #endif
 
 #endif /** __DIALOGS__ */
+*/_OS_MAC
+#endif /** !TARGET_OS_MAC */
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __DIALOGS__ */
+*/*/*/*/*/

@@ -104,44 +104,69 @@ enum {
   fontWid = 44208L
 };
 
-struct FMInput {
-  short family;
-  short size;
-  Style face;
-  Boolean needBits;
-  short device;
-  Point numer;
-  Point denom;
-};
+/**
+<pre>
+ * \note <pre>This structure is used in communication between Quickdraw and the Font
+Manager. You won't need this in a standard application program.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FMInput  {
+	short family;/**< Font number*/
+	short size;/**< Font size, in points*/
+	Style face;/**< Character style (see Style for valid*/
+	Boolean needBits;/**< =not going to actually draw the text*/
+	short device;/**< bits -=used by device driver*/
+	Point numer;/**< Scaling factor horiz and vertical*/
+	Point denom;/**< Scaling factor horiz and vertical*/
+	} FMInput ;/**< */
+
 typedef struct FMInput FMInput;
-struct FMOutput {
-  short errNum;
-  Handle fontHandle;
-  UInt8 boldPixels;
-  UInt8 italicPixels;
-  UInt8 ulOffset;
-  UInt8 ulShadow;
-  UInt8 ulThick;
-  UInt8 shadowPixels;
-  SInt8 extra;
-  UInt8 ascent;
-  UInt8 descent;
-  UInt8 widMax;
-  SInt8 leading;
-  SInt8 curStyle;
-  Point numer;
-  Point denom;
-};
+/**
+<pre>
+ * \note <pre>This structure is used in communication between Quickdraw and the Font
+Manager. You won't need this in a standard application program.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FMOutput  {
+	short errNum;/**< (not used)*/
+	Handle fontHandle;/**< Handle leading to a FontRec structure*/
+	unsigned char boldPixel ;/**< Used by Quickdraw...*/
+	unsigned char italicPixels;/**< ...  in generating stylistic variations*/
+	unsigned char ulOffset;/**<  "*/
+	unsigned char ulShadow;/**<  "*/
+	unsigned char ulThick;/**<  "*/
+	unsigned char shadowPixels;/**<  "*/
+	char extra;/**< Pixels widened by stylistic variation*/
+	unsigned char ascent;/**< Max distance above baseline (in*/
+	unsigned char descent;/**< Max distance below baseline (in*/
+	unsigned char widMax;/**< Maximum width of any character*/
+	char leading;/**< Distance between lines*/
+	char unused;/**< (unused)*/
+	Point numer;/**< Scaling factor horiz and vertical*/
+	Point denom;/**< Scaling factor horiz and vertical*/
+	} FMOutput ;/**< */
+
 typedef struct FMOutput FMOutput;
 typedef FMOutput *FMOutputPtr;
 typedef FMOutputPtr FMOutPtr;
-struct FMetricRec {
-  Fixed ascent;      /**base line to top*/
-  Fixed descent;     /**base line to bottom*/
-  Fixed leading;     /**leading between lines*/
-  Fixed widMax;      /**maximum character width*/
-  Handle wTabHandle; /**handle to font width table*/
-};
+/**
+<pre>
+ * \note <pre>The FMetricRec structure is used in calls to FontMetrics , by
+applications which need fractional-point accuracy in calculating
+text-drawing positioning values.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FMetricRec  {
+	Fixed ascent;/**< Max distance above baseline (in*/
+	Fixed descent;/**< Max distance below baseline (in*/
+	Fixed leading;/**< Distance between lines*/
+	Fixed widMax;/**< Maximum width of any character*/
+	Handle wTabHandle;/**< Handle leading to a WidthTable*/
+	} FMetricRec ;/**< */
+
 typedef struct FMetricRec FMetricRec;
 typedef FMetricRec *FMetricRecPtr;
 typedef FMetricRecPtr *FMetricRecHandle;
@@ -239,22 +264,53 @@ SetFScaleDisable(Boolean fscaleDisable) ONEWORDINLINE(0xA834);
 EXTERN_API(void)
 FontMetrics(FMetricRecPtr theMetrics) ONEWORDINLINE(0xA835);
 
-/**
- *  SetFractEnable()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Enable/disable use of fractional character widths 
+			
+			<pre>SetFractEnable controls the use of fractional character widths for drawing
+text. By default, fractional widths are disabled.
+useFract is a Boolean specifying whether to enable or disable use of fractional
+character widths. It is one of:
+FALSEDisable. All sizes are rounded to integers.
+TRUEEnable. Use fixed-point calculations in all operations that
+determine character placement.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \note <pre> SetFractEnable affects functions that draw text (such as
+DrawString ), and functions that calculate character widths (such as
+TextWidth , CharWidth , and MeasureText ).
+The 64K ROMs do not support fractional character widths; so all
+characters are sized in typographical points (increments of 1/72nd of an
+inch).
+Use SetFractEnable (TRUE) before printing to the laser printer or other
+high-resolution device or when writing in a "page-preview" window. At
+other times, leave fractional positioning off for faster calculations.
+C and ASM programmers are advised to use this routine rather than
+bypassing it by setting the byte-length global variable FractEnable (at
+0x0BF4) to 0xFF ( TRUE) or 0x00 ( FALSE). Note: Be sure you're running
+on the 128K ROMs or later (see Gestalt).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 SetFractEnable(Boolean fractEnable) ONEWORDINLINE(0xA814);
 
-/**
- *  GetDefFontSize()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Retrieve the size of the current default font 
+			
+			<pre>GetDefFontSize gets the size of the current default font.
+</pre>
+ * \note <pre>This routine is in the Pascal interface, not ROM and can't be used with the
+64K ROM.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -272,22 +328,52 @@ GetDefFontSize(void) FIVEWORDINLINE(0x3EB8, 0x0BA8, 0x6604, 0x3EBC, 0x000C);
 EXTERN_API(Boolean)
 IsOutline(Point numer, Point denom) TWOWORDINLINE(0x7000, 0xA854);
 
-/**
- *  SetOutlinePreferred()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SetOutlinePreferred Make TrueType fonts preferred over bitmapped fonts 
+			
+			<pre>You can use the SetOutlinePreferred procedure to cause the
+Font Manager to prefer TrueType fonts over bitmapped fonts .
+If a TrueType font and a bitmapped font are available for a font request, the
+default behavior for the Font Manager is to choose the bitmapped font, in
+order to maintain compatibility with documents that were created on computer
+systems on which TrueType fonts were not available. The
+SetOutlinePreferred procedure sets the preference of which type of font
+to use in this situation.
+If you want the Font Manager to choose outline fonts over any bitmapped
+font counterparts, set the outlinePreferred parameter to TRUE. If only outline
+fonts are available and outlinePreferred is set to FALSE, the outline font is
+chosen regardless. If only bitmapped fonts are available and outlinePreferred
+is set to TRUE, the bitmapped font is still chosen.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 SetOutlinePreferred(Boolean outlinePreferred) TWOWORDINLINE(0x7001, 0xA854);
 
-/**
- *  GetOutlinePreferred()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetOutlinePreferred Determine if TrueType fonts are preferred 
+			
+			<pre>You can use the GetOutlinePreferred function to determine whether or not
+TrueType fonts are preferred over bitmapped fonts .
+If both types of fonts are available for a particular font request, the
+GetOutlinePreferred function returns a Boolean value indicating whether
+the Font Manager chooses TrueType fonts over bitmapped fonts. By default,
+the Font Manager prefers to use bitmapped fonts, for which the
+GetOutlinePreferred function returns FALSE; you can also set the
+behavior of the Font Manager with the SetOutlinePreferred procedure.
+</pre>
+ * \returns <pre>TRUE = TrueType is preferred
+FALSE = bitmapped fonts preferred
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -307,22 +393,48 @@ OutlineMetrics(short byteCount, const void *textPtr, Point numer, Point denom,
                short *yMax, short *yMin, FixedPtr awArray, FixedPtr lsbArray,
                RectPtr boundsArray) TWOWORDINLINE(0x7008, 0xA854);
 
-/**
- *  SetPreserveGlyph()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief SetPreserveGlyph Set whether to preserve outline glyph shape 
+			
+			<pre>The SetPreserveGlyph procedure tells the Font Manager whether to
+preserve the original shape of an outline glyph, which in some cases may
+exceed the ascent or descent lines.
+The default behavior for the Font Manager is to scale a glyph so that it fits
+between the ascent and descent lines; however, this alters the look of the glyph.
+If you set the preserveGlyph parameter in the SetPreserveGlyph procedure
+to TRUE, the measurements of all glyphs are preserved, and your application
+may have to alter the leading between lines in a document if some of these
+glyphs extend beyond the ascent or descent lines. If you set preserveGlyph to
+FALSE, all glyphs are scaled to fit between the ascent and descent lines.
+Save the setting of whether glyphs are preserved or not and call
+SetPreserveGlyph with this value as the parameter every time the user
+opens the application.
+</pre>
+ * \returns <pre>none
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(void)
 SetPreserveGlyph(Boolean preserveGlyph) TWOWORDINLINE(0x700A, 0xA854);
 
-/**
- *  GetPreserveGlyph()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief GetPreserveGlyph Find whether TrueType glyph shape is preserved or 
+			
+			<pre>The GetPreserveGlyph function returns a Boolean value indicating whether
+the Font Manager preserves the shape of TrueType glyphs, which by default
+is FALSE. Your application can set the behavior of the
+Font Manager using the SetPreserveGlyph procedure.
+</pre>
+ * \returns <pre>Boolean TRUE = does preserve TrueType glyph shape
+FALSE = does not preserve TrueType glyph shape
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -368,22 +480,34 @@ getfontname(short familyID, char *theName);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  GetSysFont()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Fetch the ID of the current system font 
+			
+			<pre>GetSysFont gets the ID of the current system font.
+</pre>
+ * \note <pre>This routine is in the Pascal interface, not ROM and can't be used with the
+64K ROM.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 EXTERN_API(short)
 GetSysFont(void) TWOWORDINLINE(0x3EB8, 0x0BA6);
 
-/**
- *  GetAppFont()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+			/** 
+			\brief Fetch the ID of the current application font 
+			
+			<pre>GetAppFont gets the ID of the current application font.
+</pre>
+ * \note <pre>This routine is in the Pascal interface, not ROM and can't be used with the
+64K ROM.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -874,13 +998,18 @@ enum {
    may only be accessed through the font access and data management functions of
    the Font Manager or ATS.
 */
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct WidEntry {
-  short widStyle; /**style entry applies to*/
-};
-typedef struct WidEntry WidEntry;
-struct WidTable {
-  short numWidths; /**number of entries - 1*/
-};
+	short widStyle;/**< style entry applies to*/
+	} WidEntry ;/**< */
+
 typedef struct WidTable WidTable;
 struct AsscEntry {
   short fontSize;
@@ -888,94 +1017,175 @@ struct AsscEntry {
   short fontID; /**font resource ID*/
 };
 typedef struct AsscEntry AsscEntry;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct FontAssoc {
-  short numAssoc; /**number of entries - 1*/
-};
+	short numAssoc;/**< number of entries - */
+	} FontAssoc ;/**< */
+
 typedef struct FontAssoc FontAssoc;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct StyleTable {
-  short fontClass;
-  long offset;
-  long reserved;
-  char indexes[48];
-};
+	short fontClass;/**< font class*/
+	long offset;/**< offset within class*/
+	long reserved;/**< reserved for Font Manager*/
+	char indexes[];/**<  table indices*/
+	} StyleTable ;/**< */
+
 typedef struct StyleTable StyleTable;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct NameTable {
-  short stringCount;
-  Str255 baseFontName;
-};
+	short stringCount;/**< number of strings*/
+	Str baseFontName;/**< name of base font*/
+	} NameTable ;/**< */
+
 typedef struct NameTable NameTable;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct KernPair {
-  char kernFirst;  /**1st character of kerned pair*/
-  char kernSecond; /**2nd character of kerned pair*/
-  short kernWidth; /**kerning in 1pt fixed format*/
-};
+	char kernFirst;/**< st character of kerned pair*/
+	char kernSecond;/**< nd character of kerned pair*/
+	short kernWidth;/**< kerning (in  pt fixed format)*/
+	} KernPair ;/**<*/
+
 typedef struct KernPair KernPair;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
 struct KernEntry {
-  short kernStyle;  /**style the entry applies to*/
-  short kernLength; /**length of this entry*/
-};
+	short kernLength;/**< length of this entry*/
+	short kernStyle;/**< style this entry applies to*/
+	} KernEntry ;/**< */
+
 typedef struct KernEntry KernEntry;
 struct KernTable {
   short numKerns; /**number of kerning entries*/
 };
 typedef struct KernTable KernTable;
-struct WidthTable {
-  Fixed tabData[256]; /**character widths*/
-  Handle tabFont;     /**font record used to build table*/
-  long sExtra;        /**space extra used for table*/
-  long style;         /**extra due to style*/
-  short fID;          /**font family ID*/
-  short fSize;        /**font size request*/
-  short face;         /**style (face) request*/
-  short device;       /**device requested*/
-  Point inNumer;      /**scale factors requested*/
-  Point inDenom;      /**scale factors requested*/
-  short aFID;         /**actual font family ID for table*/
-  Handle fHand;       /**family record used to build up table*/
-  Boolean usedFam;    /**used fixed point family widths*/
-  UInt8 aFace;        /**actual face produced*/
-  short vOutput;      /**vertical scale output value*/
-  short hOutput;      /**horizontal scale output value*/
-  short vFactor;      /**vertical scale output value*/
-  short hFactor;      /**horizontal scale output value*/
-  short aSize;        /**actual size of actual font used*/
-  short tabSize;      /**total size of table*/
-};
+/**
+<pre>
+ * \note <pre>The WidthTable structure is used by applications which require additional
+accuracy in calculating text-drawing positioning values. The address of this
+structure may be obtained by a call to FontMetrics .
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct WidthTable  {
+	Fixed tabData[];/**<  Character widths*/
+	Handle tabFont;/**<  FontRec used to build this table*/
+	long sExtra;/**<  spaceExtra used in building table*/
+	long style;/**<  Extra due to style*/
+	short fID;/**<  Font family resource ID (type*/
+	short fSize;/**<  Font size requested*/
+	short face;/**<  Font style requested (see Styles)*/
+	short device;/**<  Device requested*/
+	Point inNumer;/**<  Scaling factor numerators*/
+	Point inDenom;/**<  Scaling factor denominators*/
+	short aFID;/**<  Actual font ID fo this family*/
+	Handle fHand;/**<  Family record use to build table*/
+	Byte usedFam;/**<  (Boolean) Used family widths?*/
+	Byte aFace;/**<  Actual face produced*/
+	short vOutput;/**<  Vertical factor for expanding chars*/
+	short hOutput;/**<  Horizontal factor for expanding*/
+	short vFactor;/**<  (not used)*/
+	short hFactor;/**<  Horiz factor for increasing char*/
+	short aSize;/**<  Actual size of real font used*/
+	short tabSize;/**<  Total size of table, in bytes*/
+	} WidthTable ;/**< */
+
 typedef struct WidthTable WidthTable;
 typedef WidthTable *WidthTablePtr;
 typedef WidthTablePtr *WidthTableHdl;
-struct FamRec {
-  short ffFlags;       /**flags for family*/
-  short ffFamID;       /**family ID number*/
-  short ffFirstChar;   /**ASCII code of 1st character*/
-  short ffLastChar;    /**ASCII code of last character*/
-  short ffAscent;      /**maximum ascent for 1pt font*/
-  short ffDescent;     /**maximum descent for 1pt font*/
-  short ffLeading;     /**maximum leading for 1pt font*/
-  short ffWidMax;      /**maximum widMax for 1pt font*/
-  long ffWTabOff;      /**offset to width table*/
-  long ffKernOff;      /**offset to kerning table*/
-  long ffStylOff;      /**offset to style mapping table*/
-  short ffProperty[9]; /**style property info*/
-  short ffIntl[2];     /**for international use*/
-  short ffVersion;     /**version number*/
-};
+/**
+<pre>
+ * \note <pre>The FOND resource and FamRec structure have the same layout. FamRec
+is not used directly by any system function used by
+application programs.
+A font family's range of Styles is enumerated in the bounding box table.
+The table's contents consist of an initial field (2 bytes) listing the total
+number of table entries minus 1, followed by one 10-byte field describing
+each bounding box entry.
+Each 10-byte bounding box entry, in turn, consists of five 2-byte fields
+that list: Style word; lower left x coordinate; lower left y coordinate;
+upper right x coordinate; and upper right y coordinate. The entries
+position the bounding box with respect to the characters' starting point.
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FamRec  {
+	short ffFlags;/**< Flags describe features, handling*/
+	short ffFamID;/**< Family resource ID (type 'FOND')*/
+	short ffFirstChar;/**< ASCII code of first character in font*/
+	short ffLastChar;/**< ASCII code of last character in font*/
+	short ffAscent;/**< Max distance above baseline (in*/
+	short ffDescent;/**< Max distance below baseline (in*/
+	short ffLeading;/**< Distance between lines*/
+	short ffWidMax;/**< Maximum width of any character*/
+	long ffWTabOff;/**< Offset to width table*/
+	long ffKernOff;/**< Offset to kerning table*/
+	long ffStylOff;/**< Offset to style-mapping table*/
+	short ffProperty[];/**< Style property information*/
+	short ffIntl[];/**< (reserved)*/
+	short ffVersion;/**< Version number*/
+	short ffNumOff;/**< Number of offsets minus */
+	long ffBBTabOff;/**< Offset to bounding box table*/
+	FontAssoc ffAssoc;/**< m Font association table (variable*/
+	BBTable ffBBTab;/**< n Bounding box table*/
+	WidTable ffWidthTab;/**< p Font width table (variable length)*/
+	StyleTable ffStyTab;/**< q Style-mapping table (variable*/
+	KernTable ffKernTab;/**< r Kerning table (variable length)*/
+	} FamRec ;/**< +m +n +p +q +r*/
+
 typedef struct FamRec FamRec;
-struct FontRec {
-  short fontType;        /**font type*/
-  short firstChar;       /**ASCII code of first character*/
-  short lastChar;        /**ASCII code of last character*/
-  short widMax;          /**maximum character width*/
-  short kernMax;         /**negative of maximum character kern*/
-  short nDescent;        /**negative of descent*/
-  short fRectWidth;      /**width of font rectangle*/
-  short fRectHeight;     /**height of font rectangle*/
-  unsigned short owTLoc; /**offset to offset/width table*/
-  short ascent;          /**ascent*/
-  short descent;         /**descent*/
-  short leading;         /**leading*/
-  short rowWords;        /**row width of bit image / 2 */
-};
+/**
+<pre>
+ * \note <pre>The FontRec structure lays out the same as a 'FONT' resource. It is not
+accessed directly in any system function used by applications. However, it
+seems possible to get a handle to a 'FONT' resource, lock it in memory, and
+change one or more characters in the font.
+In contrast to the way this record was originally formatted, the
+owTLoc field is a LONGINT instead of an INT, while the nDescent field has
+become the high-order word. The nDescent field is ignored if it is negative.
+The Fonts.h header defines the following constants which might be found in
+the fontType field:
+propFont 0x9000 Proportional font
+prpFntH 0x9001  (with height table)
+prpFntW 0x9002  (with width table)
+prpFntHW 0x9003  (with height and width tables)
+fixedFont 0xB000 Fixed-width font
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct FontRec  {
+	short fontType;/**< Font type (see defined constants,*/
+	short firstChar;/**< ASCII code of first character defined*/
+	short lastChar;/**< ASCII code of last character defined*/
+	short widMax;/**< Width of widest character defined*/
+	short kernMax;/**< Negative of maximum character kern*/
+	short nDescent;/**< Negative of maximum distance below*/
+	short fRectWidth;/**< Width of font bit-image rectangle*/
+	short fRectHeight;/**< Height of font bit-image rectangle*/
+	long owTLoc;/**< Offset to start of offset/width table*/
+	short ascent;/**< Maximum distance above baseline*/
+	short descent;/**< Maximum distance below baseline*/
+	short leading;/**< Distance between lines (in pixels)*/
+	short rowWords;/**< Row width of bit image / ( ie, in*/
+	short bitImage[][];/**< Bit image is rowWords * fRectHeight*/
+	short locTable[];/**< Locations: (lastChar-firstChar)+*/
+	short owTable[];/**< Offsets and widths (same size as*/
+	} FontRec ;/**< +nNote: size must be < K with K ROMs*/
+
 typedef struct FontRec FontRec;
 typedef FontRec *FontRecPtr;
 typedef FontRecPtr *FontRecHdl;
@@ -1022,3 +1232,41 @@ enum {
 #endif
 
 #endif /** __FONTS__ */
+*/don,
+  athens = kFontIDAthens,
+  sanFran = kFontIDSanFrancisco,
+  toronto = kFontIDToronto,
+  cairo = kFontIDCairo,
+  losAngeles = kFontIDLosAngeles,
+  times = kFontIDTimes,
+  helvetica = kFontIDHelvetica,
+  courier = kFontIDCourier,
+  symbol = kFontIDSymbol,
+  mobile = kFontIDMobile
+};
+
+#endif /** OLDROUTINENAMES */
+
+/**--------------------------------------------------------------------------------------*/
+
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+
+#ifdef PRAGMA_IMPORT_OFF
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /** __FONTS__ */
+*/*/*/*/*/*/*/__ */
+*/*/*/*/*/*/*/
