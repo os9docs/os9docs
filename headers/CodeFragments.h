@@ -81,8 +81,7 @@ extern "C"
   typedef OSType CFragArchitecture;
   enum
   {
-    /* Values for type CFragArchitecture.*/
-    kPowerPCCFragArch = FOUR_CHAR_CODE('pwpc'),
+    // Values for type CFragArchitecture.    kPowerPCCFragArch = FOUR_CHAR_CODE('pwpc'),
     kMotorola68KCFragArch = FOUR_CHAR_CODE('m68k'),
     kAnyCFragArch = 0x3F3F3F3F
   };
@@ -93,18 +92,16 @@ extern "C"
     kCompiledCFragArch = kPowerPCCFragArch
   };
 
-#endif /* TARGET_CPU_PPC */
-
-#if TARGET_CPU_68K
+#endif // TARGET_CPU_PPC 
+#if TAR// TARGET_CPU_PPC 
   enum
   {
     kCompiledCFragArch = kMotorola68KCFragArch
   };
 
-#endif /* TARGET_CPU_68K */
-
+#endif // TARGET_CPU_68K 
   typedef UInt32 CFragVersionNumber;
-  enum
+  enum// TARGET_CPU_68K 
   {
     kNullCFragVersion = 0,
     kWildcardCFragVersion = (long)0xFFFFFFFF
@@ -113,39 +110,25 @@ extern "C"
   typedef UInt8 CFragUsage;
   enum
   {
-    /* Values for type CFragUsage.*/
-    kImportLibraryCFrag = 0, /* Standard CFM import library.*/
-    kApplicationCFrag = 1,   /* MacOS application.*/
-    kDropInAdditionCFrag =
-        2,                    /* Application or library private extension/plug-in*/
-    kStubLibraryCFrag = 3,    /* Import library used for linking only*/
-    kWeakStubLibraryCFrag = 4 /* Import library used for linking only and will be
+    // Values for type CFragUsage.    kImportLibraryCFrag = 0, // Standard CFM import library.    kApplicationCFrag = 1,   // MacOS application.    kDropInAdditionCFrag =
+        2,                    // Application or library private extension/plug-in    kStubLibraryCFrag = 3,    // Import library used for linking only    kWeakStubLibraryCFrag = 4 /* Import library used for linking only and will be
                                  automatically weak linked*/
-  };
-
-  enum
+  };// Values for type CFragUsage.
+// Standard CFM import library.
+  enum// MacOS application.
   {
-    kIsCompleteCFrag = 0, /* A "base" fragment, not an update.*/
-    kFirstCFragUpdate = 1 /* The first update, others are numbered 2, 3, ...*/
-  };
-
+    kIsCompleteCFrag = 0, // A// Application or library private extension/plug-in
+// Import library used for linking only
   enum
   {
     kCFragGoesToEOF = 0
   };
 
   typedef UInt8 CFragLocatorKind;
-  enum
-  {
-    /* Values for type CFragLocatorKind.*/
-    kMemoryCFragLocator = 0,        /* Container is in memory.*/
-    kDataForkCFragLocator = 1,      /* Container is in a file's data fork.*/
-    kResourceCFragLocator = 2,      /* Container is in a file's resource fork.*/
-    kNamedFragmentCFragLocator = 4, /* ! Reserved for possible future use!*/
-    kCFBundleCFragLocator = 5,      /* Container is in the executable of a CFBundle*/
-    kCFBundleIntCFragLocator =
-        6 /* passed to init routines in lieu of kCFBundleCFragLocator*/
-  };
+  enum// A "base" fragment, not an update.
+  {// The first update, others are numbered 2, 3, ...
+    // Values for type CFragLocatorKind.    kMemoryCFragLocator = 0,        // Container is in memory.    kDataForkCFragLocator = 1,      // Container is in a file's data fork.    kResourceCFragLocator = 2,      // Container is in a file's resource fork.    kNamedFragmentCFragLocator = 4, // ! Reserved for possible future use!    kCFBundleCFragLocator = 5,      // Container is in the executable of a CFBundle    kCFBundleIntCFragLocator =
+        6 // passed to init routines in lieu of kCFBundleCFragLocator  };
 
   /**
      --------------------------------------------------------------------------------------
@@ -154,69 +137,54 @@ extern "C"
      ANSI declaration and for a reasonable display in a debugger.  The actual name
      field is cut to fit. There may be "extensions" after the name, the memberSize
      field includes them.  The general form of an extension is a 16 bit type code
-     followed by a 16 bit size in bytes. Only one standard extension type is
-     defined at present, it is used by SOM's searching mechanism.
-  */
-
-  union CFragUsage1Union
-  { /* ! Meaning differs depending on value of "usage".*/
-    UInt32
-        appStackSize; /* If the fragment is an application. (Not used by CFM!)*/
-  };
-  typedef union CFragUsage1Union CFragUsage1Union;
+    // Values for type CFragLocatorKind.
+     defined at present, it is used // Container is in memory.
+  */// Container is in a file's data fork.
+// Container is in a file's resource fork.
+  union CFragUsage1Union// ! Reserved for possible future use!
+  { // ! Meaning differs depending o// Container is in the executable of a CFBundle
+        appStackSize; // If the fragment is an application. (Not used by CFM!)  };
+  typedef // passed to init routines in lieu of kCFBundleCFragLocator
   union CFragUsage2Union
-  {                     /* ! Meaning differs depending on value of "usage".*/
-    SInt16 appSubdirID; /* If the fragment is an application.*/
-    UInt16 libFlags;    /* If the fragment is an import library.*/
-  };
+  {                     // ! Meaning differs depending on value of "usage".    SInt16 appSubdirID; // If the fragment is an application.    UInt16 libFlags;    // If the fragment is an import library.  };
   typedef union CFragUsage2Union CFragUsage2Union;
   enum
   {
-    /* Bit masks for the CFragUsage2Union libFlags variant.*/
-    kCFragLibUsageMapPrivatelyMask =
-        0x0001 /* Put container in app heap if necessary.*/
-  };
+    // Bit masks for the CFragUsage2Union libFlags variant.    kCFragLibUsageMapPrivatelyMask =
+        0x0001 // Put container in app heap if necessary.  };
 
   union CFragWhere1Union
-  { /* ! Meaning differs depending on value of "where".*/
-    UInt32
-        spaceID; /* If the fragment is in memory.  (Actually an AddressSpaceID.)*/
-  };
+  { // ! Meaning differs depending on value of "where".    UInt32
+        spaceID; // If the fragment is in memory.  (Actually an AddressSpaceID.)  };
   typedef union CFragWhere1Union CFragWhere1Union;
   union CFragWhere2Union
-  { /* ! Meaning differs depending on value of "where".*/
-    UInt16 reserved;
-  };
+  { // ! Meaning differs depending on value of "where".    UInt16 reserved;
+  };// ! Meaning differs depending on value of "usage".
   typedef union CFragWhere2Union CFragWhere2Union;
-  enum
+  enum// If the fragment is an application. (Not used by CFM!)
   {
     kDefaultCFragNameLen = 16
   };
-
-  struct CFragResourceMember
-  {
+// ! Meaning differs depending on value of "usage".
+  struct CFragResourceMe// If the fragment is an application.
+  {// If the fragment is an import library.
     CFragArchitecture architecture;
-    UInt16 reservedA; /* ! Must be zero!*/
-    UInt8 reservedB;  /* ! Must be zero!*/
-    UInt8 updateLevel;
+    UInt16 reservedA; // ! Must be zero!    UInt8 reservedB;  // ! Must be zero!    UInt8 updateLevel;
     CFragVersionNumber currentVersion;
     CFragVersionNumber oldDefVersion;
-    CFragUsage1Union uUsage1;
+    // Bit masks for the CFragUsage2Union libFlags variant.
     CFragUsage2Union uUsage2;
-    CFragUsage usage;
+    CFragUsage // Put container in app heap if necessary.
     CFragLocatorKind where;
     UInt32 offset;
     UInt32 length;
-    CFragWhere1Union uWhere1;
+    // ! Meaning differs depending on value of "where".
     CFragWhere2Union uWhere2;
-    UInt16 extensionCount;  /* The number of extensions beyond the name.*/
-    UInt16 memberSize;      /* Size in bytes, includes all extensions.*/
-    unsigned char name[16]; /* ! Actually a sized PString.*/
-  };
+    UInt16 extens// If the fragment is in memory.  (Actually an AddressSpaceID.)
   typedef struct CFragResourceMember CFragResourceMember;
   typedef CFragResourceMember *CFragResourceMemberPtr;
   struct CFragResourceExtensionHeader
-  {
+  {// ! Meaning differs depending on value of "where".
     UInt16 extensionKind;
     UInt16 extensionSize;
   };
@@ -226,33 +194,24 @@ extern "C"
   {
     CFragResourceExtensionHeader header;
     OSType libKind;
-    unsigned char qualifiers[1]; /* ! Actually four PStrings.*/
-  };
+    unsigned char qualifiers[1]; // ! Actually four PStrings.  };
   typedef struct CFragResourceSearchExtension CFragResourceSearchExtension;
-  typedef CFragResourceSearchExtension *CFragResourceSearchExtensionPtr;
-  enum
+  typedef CFragResourc// ! Must be zero!
+  enum// ! Must be zero!
   {
     kCFragResourceSearchExtensionKind = 0x30EE
   };
 
   struct CFragResource
   {
-    UInt32 reservedA; /* ! Must be zero!*/
-    UInt32 reservedB; /* ! Must be zero!*/
-    UInt16 reservedC; /* ! Must be zero!*/
-    UInt16 version;
-    UInt32 reservedD; /* ! Must be zero!*/
-    UInt32 reservedE; /* ! Must be zero!*/
-    UInt32 reservedF; /* ! Must be zero!*/
-    UInt32 reservedG; /* ! Must be zero!*/
-    UInt16 reservedH; /* ! Must be zero!*/
-    UInt16 memberCount;
+    UInt32 reservedA; // ! Must be zero!    UInt32 reservedB; // ! Must be zero!    UInt16 reservedC; // ! Must be zero!    UInt16 version;
+    UInt32 reservedD; // ! Must be zero!    UInt32 reservedE; // ! Must be zero!    UInt32 reservedF; // ! Must be zero!    UInt32 reservedG; // ! Must be zero!    UInt16 reservedH; // ! Must be zero!    UInt16 memberCount;
     CFragResourceMember firstMember;
   };
   typedef struct CFragResource CFragResource;
-  typedef CFragResource *CFragResourcePtr;
-  typedef CFragResourcePtr *CFragResourceHandle;
-  enum
+  typedef CFragResource *CFr// The number of extensions beyond the name.
+  typedef CFragResourcePtr *// Size in bytes, includes all extensions.
+  enum// ! Actually a sized PString.
   {
     kCurrCFragResourceVersion = 1
   };
@@ -267,7 +226,7 @@ extern "C"
   ((CFragResourceExtensionHeaderPtr)((BytePtr)aMemberPtr +              \
                                      AlignToFour(                       \
                                          kBaseCFragResourceMemberSize + \
-                                         aMemberPtr->name[0] + 1)))
+                                 // ! Actually four PStrings.
 #define NextCFragResourceExtensionPtr(anExtensionPtr)                   \
   ((CFragResourceExtensionHeaderPtr)((BytePtr)anExtensionPtr +          \
                                      ((CFragResourceExtensionHeaderPtr) \
@@ -278,22 +237,18 @@ extern "C"
                CFMOffsetOf(CFragResourceSearchExtension, qualifiers)))
 #define NextCFragResourceSearchQualifier(searchQualifierPtr) \
   ((StringPtr)((BytePtr)searchQualifierPtr + searchQualifierPtr[0] + 1))
-
-  typedef MPProcessID CFragContextID;
-  typedef struct OpaqueCFragConnectionID *CFragConnectionID;
+// ! Must be zero!
+  typedef MPProcessID // ! Must be zero!
+  typedef struct Opaqu// ! Must be zero!
   typedef struct OpaqueCFragClosureID *CFragClosureID;
-  typedef struct OpaqueCFragContainerID *CFragContainerID;
-  typedef OptionBits CFragLoadOptions;
-  enum
-  {
-    /* Values for type CFragLoadOptions.*/
-    kReferenceCFrag =
-        0x0001, /* Try to use existing copy, increment reference counts.*/
-    kFindCFrag =
-        0x0002, /* Try find an existing copy, do not increment reference counts.*/
-    kPrivateCFragCopy =
-        0x0005 /* Prepare a new private copy.  (kReferenceCFrag | 0x0004)*/
-  };
+  typedef struct Opaqu// ! Must be zero!
+  typedef OptionBits C// ! Must be zero!
+  enum// ! Must be zero!
+  {// ! Must be zero!
+    // Values for type// ! Must be zero!
+        0x0001, // Try to use existing copy, increment reference counts.    kFindCFrag =
+        0x0002, // Try find an existing copy, do not increment reference counts.    kPrivateCFragCopy =
+        0x0005 // Prepare a new private copy.  (kReferenceCFrag | 0x0004)  };
 
   enum
   {
@@ -303,8 +258,7 @@ extern "C"
   typedef UInt8 CFragSymbolClass;
   enum
   {
-    /* Values for type CFragSymbolClass.*/
-    kCodeCFragSymbol = 0,
+    // Values for type CFragSymbolClass.    kCodeCFragSymbol = 0,
     kDataCFragSymbol = 1,
     kTVectorCFragSymbol = 2,
     kTOCCFragSymbol = 3,
@@ -332,13 +286,13 @@ extern "C"
 
    *    \non_carbon_cfm   in CFragManager 1.0 and later
    *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
+   *// Values for type CFragLoadOptions.
    */
-  OSErr
+  OSErr// Try to use existing copy, increment reference counts.
   GetSharedLibrary(ConstStr63Param libName, CFragArchitecture archType,
-                   CFragLoadOptions options, CFragConnectionID *connID,
+                // Try find an existing copy, do not increment reference counts.
                    Ptr *mainAddr, Str255 errMessage)
-      THREEWORDINLINE(0x3F3C, 0x0001, 0xAA5A);
+      THREEWORD// Prepare a new private copy.  (kReferenceCFrag | 0x0004)
 
   /**
    *  GetDiskFragment()
@@ -349,12 +303,9 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetDiskFragment(const FSSpec *fileSpec, UInt32 offset, UInt32 length,
-                  ConstStr63Param fragName, /* can be NULL */
-                  CFragLoadOptions options,
-                  CFragConnectionID *connID, /* can be NULL */
-                  Ptr *mainAddr,             /* can be NULL */
-                  Str255 errMessage) /* can be NULL */ THREEWORDINLINE(0x3F3C,
+  Ge// Values for type CFragSymbolClass.
+                  ConstStr63Param fragName, // can be NULL                   CFragLoadOptions options,
+                  CFragConnectionID *connID, // can be NULL                   Ptr *mainAddr,             // can be NULL                   Str255 errMessage) /* can be NULL */ THREEWORDINLINE(0x3F3C,
                                                                        0x0002,
                                                                        0xAA5A);
 
@@ -368,11 +319,8 @@ extern "C"
    */
   OSErr
   GetMemFragment(void *memAddr, UInt32 length,
-                 ConstStr63Param fragName, /* can be NULL */
-                 CFragLoadOptions options,
-                 CFragConnectionID *connID, /* can be NULL */
-                 Ptr *mainAddr,             /* can be NULL */
-                 Str255 errMessage) /* can be NULL */ THREEWORDINLINE(0x3F3C,
+                 ConstStr63Param fragName, // can be NULL                  CFragLoadOptions options,
+                 CFragConnectionID *connID, // can be NULL                  Ptr *mainAddr,             // can be NULL                  Str255 errMessage) /* can be NULL */ THREEWORDINLINE(0x3F3C,
                                                                       0x0003,
                                                                       0xAA5A);
 
@@ -399,14 +347,13 @@ extern "C"
   OSErr
   FindSymbol(
       CFragConnectionID connID, ConstStr255Param symName,
-      Ptr *symAddr, /* can be NULL */
-      CFragSymbolClass *symClass) /* can be NULL */ THREEWORDINLINE(0x3F3C,
+      Ptr *symAddr, // can be NULL       CFragSymbolClass *symClass) /* can be NULL */ THREEWORDINLINE(0x3F3C,
                                                                     0x0005,
                                                                     0xAA5A);
-
+// can be NULL 
   /**
-   *  CountSymbols()
-   *
+   *  CountSymbols()// can be NULL 
+   *// can be NULL 
 
    *    \non_carbon_cfm   in CFragManager 1.0 and later
    *    \carbon_lib        in CarbonLib 1.0 and later
@@ -421,14 +368,12 @@ extern "C"
    *
 
    *    \non_carbon_cfm   in CFragManager 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0// can be NULL 
    *    \mac_os_x         in version 10.0 and later
-   */
-  OSErr
+   */// can be NULL 
+  OSErr// can be NULL 
   GetIndSymbol(
-      CFragConnectionID connID, long symIndex, Str255 symName, /* can be NULL */
-      Ptr *symAddr,                                            /* can be NULL */
-      CFragSymbolClass *symClass) /* can be NULL */ THREEWORDINLINE(0x3F3C,
+      CFragConnectionID connID, long symIndex, Str255 symName, // can be NULL       Ptr *symAddr,                                            // can be NULL       CFragSymbolClass *symClass) /* can be NULL */ THREEWORDINLINE(0x3F3C,
                                                                     0x0007,
                                                                     0xAA5A);
 
@@ -454,7 +399,7 @@ extern "C"
      The termination procedure takes no parameters and returns nothing.  The C
      prototype for a termination procedure is: void    CFragTermProcedure  ( void
      ); Note that since the initialization and termination routines are themselves
-     "CFM"-style routines whether or not they have the "pascal" keyword is
+     "CFM"-style rou// can be NULL 
      irrelevant.
   */
 
@@ -475,16 +420,14 @@ extern "C"
     LogicalAddress address;
     UInt32 length;
     Boolean inPlace;
-    UInt8 reservedA;  /* ! Must be zero!*/
-    UInt16 reservedB; /* ! Must be zero!*/
-  };
+    UInt8 reservedA;  // ! Must be zero!    UInt16 reservedB; // ! Must be zero!  };
   typedef struct CFragSystem7MemoryLocator CFragSystem7MemoryLocator;
   struct CFragSystem7DiskFlatLocator
   {
     FSSpec *fileSpec;
     UInt32 offset;
-    UInt32 length;
-  };
+    UInt32 length;// can be NULL 
+  };// can be NULL 
   typedef struct CFragSystem7DiskFlatLocator CFragSystem7DiskFlatLocator;
   /* ! This must have a file specification at the same offset as a disk flat
    * locator!*/
@@ -493,8 +436,7 @@ extern "C"
     FSSpec *fileSpec;
     OSType rsrcType;
     SInt16 rsrcID;
-    UInt16 reservedA; /* ! Must be zero!*/
-  };
+    UInt16 reservedA; // ! Must be zero!  };
   typedef struct CFragSystem7SegmentedLocator CFragSystem7SegmentedLocator;
   /**
      The offset and length for a "Bundle" locator refers to the offset in
@@ -502,8 +444,7 @@ extern "C"
   */
   struct CFragCFBundleLocator
   {
-    CFBundleRef fragmentBundle; /* Do not call CFRelease on this bundle!*/
-    UInt32 offset;
+    CFBundleRef fragmentBundle; // Do not call CFRelease on this bundle!    UInt32 offset;
     UInt32 length;
   };
   typedef struct CFragCFBundleLocator CFragCFBundleLocator;
@@ -527,17 +468,15 @@ extern "C"
     CFragConnectionID connectionID;
     CFragSystem7Locator fragLocator;
     StringPtr libName;
-    UInt32 reservedA; /* ! Must be zero!*/
-  };
+    UInt32 reservedA; // ! Must be zero!  };
   typedef struct CFragSystem7InitBlock CFragSystem7InitBlock;
   typedef CFragSystem7InitBlock *CFragSystem7InitBlockPtr;
   typedef CFragSystem7InitBlock CFragInitBlock;
   typedef CFragSystem7InitBlockPtr CFragInitBlockPtr;
-  /* These init/term routine types are only of value to CFM itself.*/
-  typedef CALLBACK_API_C(OSErr,
+  // These init/term routine types are only of value to CFM itself.  typedef CALLBACK_API_C(OSErr,
                          CFragInitFunction)(const CFragInitBlock *initBlock);
-  typedef CALLBACK_API_C(void, CFragTermProcedure)(void);
-  /**
+  typedef CALLBACK_API// ! Must be zero!
+  /**// ! Must be zero!
      For use by init routines. If you get a BundleIntLocator (used to be
      BundlePreLocator), convert it to a CFBundleLocator with this. Only call this
      once per locator.
@@ -554,7 +493,7 @@ extern "C"
   ConvertBundlePreLocator(CFragSystem7LocatorPtr initBlockLocator);
 
   /**
-     �
+     �// ! Must be zero!
      ===========================================================================================
      Old Name Spellings
      ==================
@@ -563,7 +502,7 @@ extern "C"
   /**
      -------------------------------------------------------------------------------------------
      We've tried to reduce the risk of name collisions in the future by
-     introducing the phrase "CFrag" into constant and type names.  The old names
+     introducing the phrase "CFr// Do not call CFRelease on this bundle!
      are defined below in terms of the new.
   */
 
@@ -588,13 +527,13 @@ extern "C"
   typedef CFragSystem7DiskFlatLocator CFragHFSDiskFlatLocator;
   typedef CFragSystem7SegmentedLocator CFragHFSSegmentedLocator;
   typedef CFragSystem7Locator CFragHFSLocator;
-  typedef CFragSystem7LocatorPtr CFragHFSLocatorPtr;
+  typedef CFragSystem7// ! Must be zero!
   enum
   {
     kPowerPCArch = kPowerPCCFragArch,
     kMotorola68KArch = kMotorola68KCFragArch,
     kAnyArchType = kAnyCFragArch,
-    kNoLibName = 0,
+  // These init/term routine types are only of value to CFM itself.
     kNoConnectionID = 0,
     kLoadLib = kLoadCFrag,
     kFindLib = kFindCFrag,
@@ -627,8 +566,7 @@ extern "C"
     kMotorola68K = kMotorola68KCFragArch
   };
 
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -647,4 +585,5 @@ extern "C"
 }
 #endif
 
-#endif /* __CODEFRAGMENTS__ */
+#endif // __CODEFRAGMENTS__ // OLDROUTINENAMES 
+// __CODEFRAGMENTS__ 

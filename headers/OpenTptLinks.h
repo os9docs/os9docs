@@ -27,4 +27,4 @@
     The contents of OpenTptLinks.h has been merged into OpenTransportProviders.h
 */
 
-#endif /* __OPENTPTLINKS__ */
+#endif // __OPENTPTLINKS__

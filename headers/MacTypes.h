@@ -752,7 +752,7 @@ debugger.
 </pre>
 * \note <pre>Be sure to remove this function before shipping your application!  A
 typical setup for C programmers is to use the preprocessor:
-#define DEBUGGING TRUE /* in header file */
+#define DEBUGGING TRUE // in header file 
   ...
 #ifdef DEBUGGING
       Debugger();
@@ -768,7 +768,7 @@ typical setup for C programmers is to use the preprocessor:
                                                      later
                                                          *    \mac_os_x in version 10.0 and
                                                      later
-                                                         * /
+                                                       */
                                                          void Debugger(void) ONEWORDINLINE(0xA9FF);
 
   /**
@@ -781,7 +781,7 @@ debugger, passing the address of a string to be displayed.
 </pre>
 * \note <pre>Be sure to remove this function before shipping your application!  A
 typical setup for C programmers is to use the preprocessor:
-#define DEBUGGING TRUE /* in header file */
+#define DEBUGGING TRUE // in header file 
   ...
 #ifdef DEBUGGING
       DebugStr("\pGot an invalid Menu command.");

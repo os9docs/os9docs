@@ -72,135 +72,82 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  /* Values of the 'message' parameter to a Chooser device package */
-  enum
+  // Values of the 'message' parameter to a Chooser device package   enum
   {
-    chooserInitMsg = 11, /* the user selected this device package */
-    newSelMsg = 12,      /* the user made new device selections */
-    fillListMsg = 13,    /* fill the device list with choices */
-    getSelMsg = 14,      /* mark one or more choices as selected */
-    selectMsg = 15,      /* the user made a selection */
-    deselectMsg = 16,    /* the user canceled a selection */
-    terminateMsg = 17,   /* allows device package to clean up */
-    buttonMsg = 19       /* the user selected a button */
-  };
-
-  /* Values of the 'caller' parameter to a Chooser device package */
-  enum
-  {
-    chooserID = 1
-  };
-
-  /* Values of the 'message' parameter to a Monitor 'mntr' */
-  enum
-  {
+    chooserInitMsg = 11, // the user selected this device package     newSelMsg = 12,      // the user made new device selections     fillListMsg = 13,    // fill the device list with choices     getSelMsg = 14,      // mark one or more choices as selected     selectMsg = 15,      // the user made a selection     deselectMsg = 16,    // the user canceled a selection     terminateMsg = 17,   // allows device package to clean up     buttonMsg = 19       // the user selected a button   };
+// the user selected this device package 
+  // Values of the 'calle// the user made new device selections 
+  {// fill the device list with choices 
+    chooserID = 1// mark one or more choices as selected 
+  };// the user made a selection 
+// the user canceled a selection 
+  // Values of the 'messa// allows device package to clean up 
+  {// the user selected a button 
     initMsg = 1,       /*initialization*/
     okMsg = 2,         /*user clicked OK button*/
-    cancelMsg = 3,     /*user clicked Cancel button*/
+  // Values of the 'caller' parameter to a Chooser device package 
     hitMsg = 4,        /*user clicked control in Options dialog*/
     nulMsg = 5,        /*periodic event*/
     updateMsg = 6,     /*update event*/
     activateMsg = 7,   /*not used*/
     deactivateMsg = 8, /*not used*/
-    keyEvtMsg = 9,     /*keyboard event*/
+  // Values of the 'message' parameter to a Monitor 'mntr' 
     superMsg = 10,     /*show superuser controls*/
     normalMsg = 11,    /*show only normal controls*/
     startupMsg = 12    /*code has been loaded*/
   };
 
-  /* control codes for DeskAccessories */
-  enum
+  // control codes for DeskAccessories   enum
   {
-    goodbye = -1,   /* heap being reinitialized */
-    killCode = 1,   /* KillIO requested */
-    accEvent = 64,  /* handle an event */
-    accRun = 65,    /* time for periodic action */
-    accCursor = 66, /* change cursor shape */
-    accMenu = 67,   /* handle menu item */
-    accUndo = 68,   /* handle undo command */
-    accCut = 70,    /* handle cut command */
-    accCopy = 71,   /* handle copy command */
-    accPaste = 72,  /* handle paste command */
-    accClear = 73   /* handle clear command */
-  };
+    goodbye = -1,   // heap being reinitialized     killCode = 1,   // KillIO requested     accEvent = 64,  // handle an event     accRun = 65,    // time for periodic action     accCursor = 66, // change cursor shape     accMenu = 67,   // handle menu item     accUndo = 68,   // handle undo command     accCut = 70,    // handle cut command     accCopy = 71,   // handle copy command     accPaste = 72,  // handle paste command     accClear = 73   // handle clear command   };
 
-  /* Control/Status Call Codes */
-  /* drvStsCode, ejectCode and tgBuffCode are now defined in Disks.h/p/a */
-
-  /* miscellaneous Device Manager constants */
-  enum
+  // Control/Status Call Codes   // drvStsCode, ejectCode and tgBuffCode are now defined in Disks.h/p/a 
+  // miscellaneous Device Manager constants   enum
   {
-    ioInProgress = 1, /* predefined value of ioResult while I/O is pending */
-    aRdCmd = 2,       /* low byte of ioTrap for Read calls */
-    aWrCmd = 3,       /* low byte of ioTrap for Write calls */
-    asyncTrpBit = 10, /* trap word modifier */
-    noQueueBit = 9    /* trap word modifier */
-  };
+    ioInProgress = 1, // predefined value of ioResult while I/O is pending     aRdCmd = 2,       // low byte of ioTrap for Read calls     aWrCmd = 3,       // low byte of ioTrap for Write calls     asyncTrpBit = 10, // trap word modifier     noQueueBit = 9    // trap word modifier   };
 
-  /* flags used in the driver header and device control entry */
-  enum
+  // flags used in the driver header and device control entry   enum
   {
-    dReadEnable = 0,  /* set if driver responds to read requests */
-    dWritEnable = 1,  /* set if driver responds to write requests */
-    dCtlEnable = 2,   /* set if driver responds to control requests */
-    dStatEnable = 3,  /* set if driver responds to status requests */
-    dNeedGoodBye = 4, /* set if driver needs time for performing periodic tasks */
-    dNeedTime = 5,    /* set if driver needs time for performing periodic tasks */
-    dNeedLock =
-        6 /* set if driver must be locked in memory as soon as it is opened */
-  };
+  // control codes for DeskAccessories 
+        6 // set if driver must be locked in memory as soon as it is opened   };
 
-  enum
-  {
-    dNeedLockMask = 0x4000, /* set if driver must be locked in memory as soon as
-                               it is opened */
-    dNeedTimeMask =
-        0x2000,                /* set if driver needs time for performing periodic tasks */
-    dNeedGoodByeMask = 0x1000, /* set if driver needs to be called before the
-                                  application heap is initialized */
-    dStatEnableMask = 0x0800,  /* set if driver responds to status requests */
-    dCtlEnableMask = 0x0400,   /* set if driver responds to control requests */
-    dWritEnableMask = 0x0200,  /* set if driver responds to write requests */
-    dReadEnableMask = 0x0100   /* set if driver responds to read requests */
-  };
+  enum// heap being reinitialized 
+  {// KillIO requested 
+    dNeedLockMask = // handle an event 
+                    // time for periodic action 
+    dNeedTimeMask =// change cursor shape 
+        0x2000,     // handle menu item 
+                    // handle undo command 
+    dStatEnableMask // handle cut command 
+// handle copy command 
+  // run-time flags // handle paste command 
+  {// handle clear command 
+    dVMImmuneBit = 0, // driver does not need VM protection     dOpened = 5,      // driver is open     dRAMBased = 6,    // dCtlDriver is a handle (1) or pointer (0)     drvrActive = 7    // driver is currently processing a request   };
 
-  /* run-time flags used in the device control entry */
-  enum
-  {
-    dVMImmuneBit = 0, /* driver does not need VM protection */
-    dOpened = 5,      /* driver is open */
-    dRAMBased = 6,    /* dCtlDriver is a handle (1) or pointer (0) */
-    drvrActive = 7    /* driver is currently processing a request */
-  };
-
-  enum
-  {
-    dVMImmuneMask = 0x0001, /* driver does not need VM protection */
-    dOpenedMask = 0x0020,   /* driver is open */
-    dRAMBasedMask = 0x0040, /* dCtlDriver is a handle (1) or pointer (0) */
-    drvrActiveMask = 0x0080 /* driver is currently processing a request */
-  };
-
+  // Control/Status Call Codes 
+  // drvStsCode, ejectCode and tgBuffCode are now defined in Disks.h/p/a 
+    dVMImmuneMask = 0x0001, // driver does not need VM protection     dOpenedMask = 0x0020,   // driver is open     dRAMBasedMask = 0x0040, // dCtlDriver is a handle (1) or pointer (0)     drvrActiveMask = 0x0080 // driver is currently processing a request   };
+// miscellaneous Device Manager constants 
   struct DRVRHeader
   {
-    short drvrFlags;
-    short drvrDelay;
-    short drvrEMask;
-    short drvrMenu;
-    short drvrOpen;
+    short drvrFlags;// predefined value of ioResult while I/O is pending 
+    short drvrDelay;// low byte of ioTrap for Read calls 
+    short drvrEMask;// low byte of ioTrap for Write calls 
+    short drvrMenu;// trap word modifier 
+    short drvrOpen;// trap word modifier 
     short drvrPrime;
     short drvrCtl;
-    short drvrStatus;
+  // flags used in the driver header and device control entry 
     short drvrClose;
     unsigned char drvrName[1];
-  };
-  typedef struct DRVRHeader DRVRHeader;
-  typedef DRVRHeader *DRVRHeaderPtr;
-  typedef DRVRHeaderPtr *DRVRHeaderHandle;
-  /**
-  <pre>
+  };// set if driver responds to read requests 
+  typedef struct DRVRH// set if driver responds to write requests 
+  typedef DRVRHeader *// set if driver responds to control requests 
+  typedef DRVRHeaderPt// set if driver responds to status requests 
+  /**// set if driver needs time for performing periodic tasks 
+  <pre>// set if driver needs time for performing periodic tasks 
    * \note <pre>When a driver serves a slot device the Device Control Entry has six
-  additional fields added to the end and is known as an AuxDCE .
+  addition// set if driver must be locked in memory as soon as it is opened 
   The low-order byte of the dCtlFlags word contains the following flags:
   Bit Number Meaning
   5Set if driver is open
@@ -208,30 +155,30 @@ extern "C"
   7Set if driver is currently executing
   The high-order byte of the dCtlFlags word contains flags copied from
   the drvrFlags word of the driver.
-  DCtlQHdr contains the header of the driver's I/O queue. DCtlPosition is
+  DCtlQHdr contains the header // set if driver needs time for performing periodic tasks 
   used only by drivers of block devices, and indicates the current source or
   destination position of a read or write call. The position is given as a
-  number of bytes beyond the physical beginning of the medium used by the
-  device. For example, if one logical block of data has just been read from a 3
-  1/2" disk via the Disk Driver, dCtlPosition will be 512.
-  </pre>
+  number of bytes beyond the ph// set if driver responds to status requests 
+  device. For example, if one l// set if driver responds to control requests 
+  1/2" disk via the Disk Driver// set if driver responds to write requests 
+  </pre>// set if driver responds to read requests 
    * \copyright THINK Reference © 1991-1992 Symantec Corporation
   */
-  struct DCtlEntry
+  // run-time flags used in the device control entry 
   {
     Ptr dCtlDriver;       /**< pointer to ROM driver or handle to*/
-    short dCtlFlags;      /**< flags*/
-    QHdr dCtlQHdr;        /**< driver I/O queue header*/
-    long dCtlPosition;    /**< byte position used by read and write*/
-    Handle dCtlStorage;   /**< handle to RAM driver's private*/
+    short dCtlFlags;  // driver does not need VM protection 
+    QHdr dCtlQHdr;    // driver is open 
+    long dCtlPosition;// dCtlDriver is a handle (1) or pointer (0) 
+    Handle dCtlStorage// driver is currently processing a request 
     short dCtlRefNum;     /**< driver reference number*/
     long dCtlCurTicks;    /**< used internally*/
     WindowPtr dCtlWindow; /**< pointer to driver's window*/
     short dCtlDelay;      /**< number of ticks between periodic*/
-    short dCtlEMask;      /**< desk accessory event mask*/
-    short dCtlMenu;       /**< menu ID of menu associated with*/
-  } DCtlEntry;            /**< */
-
+    short dCtlEMask;      /*// driver does not need VM protection 
+    short dCtlMenu;       /*// driver is open 
+  } DCtlEntry;            /*// dCtlDriver is a handle (1) or pointer (0) 
+// driver is currently processing a request 
   typedef struct DCtlEntry DCtlEntry;
   typedef DCtlEntry *DCtlPtr;
   typedef DCtlPtr *DCtlHandle;
@@ -263,8 +210,7 @@ extern "C"
   typedef struct AuxDCE AuxDCE;
   typedef AuxDCE *AuxDCEPtr;
   typedef AuxDCEPtr *AuxDCEHandle;
-  /*  The NDRV Driver IO Entry Point and Commands */
-  typedef UInt16 UnitNumber;
+  //  The NDRV Driver IO Entry Point and Commands   typedef UInt16 UnitNumber;
   typedef UInt32 DriverOpenCount;
   typedef SInt16 DriverRefNum;
   typedef SInt16 DriverFlags;
@@ -278,18 +224,11 @@ extern "C"
     kControlCommand = 4,
     kStatusCommand = 5,
     kKillIOCommand = 6,
-    kInitializeCommand = 7,  /* init driver and device*/
-    kFinalizeCommand = 8,    /* shutdown driver and device*/
-    kReplaceCommand = 9,     /* replace an old driver*/
-    kSupersededCommand = 10, /* prepare to be replaced by a new driver*/
-    kSuspendCommand = 11,    /* prepare driver to go to sleep*/
-    kResumeCommand = 12      /* wake up sleeping driver*/
-  };
+    kInitializeCommand = 7,  // init driver and device    kFinalizeCommand = 8,    // shutdown driver and device    kReplaceCommand = 9,     // replace an old driver    kSupersededCommand = 10, // prepare to be replaced by a new driver    kSuspendCommand = 11,    // prepare driver to go to sleep    kResumeCommand = 12      // wake up sleeping driver  };
 
   enum
   {
-    /* one more IOCommandCode*/
-    kPowerManagementCommand = 13 /* power management command, supercedes
+    // one more IOCommandCode    kPowerManagementCommand = 13 /* power management command, supercedes
                                     kSuspendCommand and kResumeCommand*/
   };
 
@@ -322,10 +261,9 @@ extern "C"
   typedef DriverFinalInfo DriverSupersededInfo;
   typedef DriverFinalInfo *DriverSupersededInfoPtr;
 
-  /* Contents are command specific*/
-
+  // Contents are command specific
   union IOCommandContents
-  {
+  //  The NDRV Driver IO Entry Point and Commands 
     ParmBlkPtr pb;
     DriverInitInfoPtr initialInfo;
     DriverFinalInfoPtr finalInfo;
@@ -338,27 +276,21 @@ extern "C"
                                                      IOCommandContents Contents,
                                                      IOCommandCode Code,
                                                      IOCommandKind Kind);
-  /* Record to describe a file-based driver candidate */
-  struct FileBasedDriverRecord
+  // Record to describe a file-based driver candidate   struct FileBasedDriverRecord
   {
-    FSSpec theSpec;         /* file specification*/
-    MacDriverType theType;  /* nameInfoStr + version number*/
-    Boolean compatibleProp; /* true if matched using a compatible name*/
-    UInt8 pad[3];           /* alignment*/
-  };
-  typedef struct FileBasedDriverRecord FileBasedDriverRecord;
-  typedef FileBasedDriverRecord *FileBasedDriverRecordPtr;
-  /* Detailed Record to describe a file-based driver candidate. Includes fragment
-   * name */
-  struct FileBasedDriverDetailed
+    FSSpec theSpec;         /// init driver and device
+  typedef struct FileBasedDri// shutdown driver and device
+  typedef FileBasedDriverReco// replace an old driver
+  /* Detailed Record to descr// prepare to be replaced by a new driver
+   * name */// prepare driver to go to sleep
+  struct FileBasedDriverDetai// wake up sleeping driver
   {
     FileBasedDriverRecord fileBasedDriver;
     Str63 fragName;
   };
-  typedef struct FileBasedDriverDetailed FileBasedDriverDetailed;
+  ty// one more IOCommandCode
   typedef FileBasedDriverDetailed *FileBasedDriverDetailedPtr;
-/* Driver Loader API */
-#define DECLARE_DRIVERDESCRIPTION(N_ADDITIONAL_SERVICES)             \
+// Driver Loader API #define DECLARE_DRIVERDESCRIPTION(N_ADDITIONAL_SERVICES)             \
   struct                                                             \
   {                                                                  \
     DriverDescription fixed;                                         \
@@ -390,7 +322,7 @@ extern "C"
   VerifyFragmentAsDriver(CFragConnectionID fragmentConnID,
                          DriverEntryPointPtr *fragmentMain,
                          DriverDescriptionPtr *driverDesc);
-
+// Contents are command specific
   /**
    *  GetDriverMemoryFragment()
    *
@@ -406,13 +338,13 @@ extern "C"
                           DriverDescriptionPtr *driverDesc);
 
   /**
-   *  GetDriverDiskFragment()
+  // Record to describe a file-based driver candidate 
    *
 
-   *    \non_carbon_cfm   in DriverLoaderLib 1.0 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
+   *    \non_carbon_cfm   in// file specification
+   *    \carbon_lib        n// nameInfoStr + version number
+   *    \mac_os_x         no// true if matched using a compatible name
+   */// alignment
   OSErr
   GetDriverDiskFragment(FSSpecPtr fragmentSpec, CFragConnectionID *fragmentConnID,
                         DriverEntryPointPtr *fragmentMain,
@@ -425,7 +357,7 @@ extern "C"
    *    \non_carbon_cfm   in DriverLoaderLib 2.0 and later
    *    \carbon_lib        not available
    *    \mac_os_x         not available
-   */
+// Driver Loader API 
   OSErr
   GetNamedDriverDiskFragment(FSSpecPtr fragmentSpec, ConstStr63Param fragName,
                              CFragConnectionID *fragmentConnID,
@@ -845,8 +777,7 @@ extern "C"
   OSErr
   PBOpenImmed(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA200);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
  *  PBCloseSync()
  *
@@ -890,8 +821,7 @@ extern "C"
   OSErr
   PBCloseImmed(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA201);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
  *  PBReadSync()
  *
@@ -915,7 +845,7 @@ extern "C"
  *    \mac_os_x         in version 10.0 and later
  */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
-#pragma parameter __D0 PBReadAsync(__A0)
+#pragma// CALL_NOT_IN_CARBON 
 #endif
   OSErr
   PBReadAsync(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA402);
@@ -935,8 +865,7 @@ extern "C"
   OSErr
   PBReadImmed(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA202);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
  *  PBWriteSync()
  *
@@ -961,7 +890,7 @@ extern "C"
  */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 PBWriteAsync(__A0)
-#endif
+#endif// CALL_NOT_IN_CARBON 
   OSErr
   PBWriteAsync(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA403);
 
@@ -985,8 +914,7 @@ extern "C"
     a pending asynchronous I/O operation in power-managed and
     preemptive multitasking systems.
  */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  PBWaitIOComplete()
    *
@@ -998,8 +926,7 @@ extern "C"
   OSErr
   PBWaitIOComplete(ParmBlkPtr paramBlock, Duration timeout);
 
-  /* AddDrive and GetDrvQHdr are now defined in Disks.h/p/a */
-
+  // AddDrive and GetDrvQHdr are now defined in Disks.h/p/a 
 #if CALL_NOT_IN_CARBON
   /**
    *  GetDCtlEntry()
@@ -1008,7 +935,7 @@ extern "C"
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
    *    \carbon_lib        not available
    *    \mac_os_x         not available
-   */
+   */// CALL_NOT_IN_CARBON 
   DCtlHandle
   GetDCtlEntry(short refNum);
 
@@ -1058,7 +985,7 @@ extern "C"
   anyways. There will soon be a DriverInstall() which does the right thing.
 
         DrvrRemove has been renamed to DriverRemove.  But, InterfaceLib for
-  PowerPC still exports DrvrRemove, so a macro is used to map the new name to
+  Power// CALL_NOT_IN_CARBON 
   old.
 
 */
@@ -1071,13 +998,12 @@ extern "C"
  *    \mac_os_x         not available
  */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
-#pragma parameter __D0 DrvrRemove(__D0)
+#p// AddDrive and GetDrvQHdr are now defined in Disks.h/p/a 
 #endif
   OSErr
   DrvrRemove(short refNum) ONEWORDINLINE(0xA03E);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #define DriverRemove(refNum) DrvrRemove(refNum)
 
 #if CALL_NOT_IN_CARBON
@@ -1150,7 +1076,7 @@ unitEmptyErr (-22) refnum specifies NIL handle in unit table
 *    \carbon_lib        not available
 *    \mac_os_x         not available
 */
-  OSErr
+  OSErr// CALL_NOT_IN_CARBON 
   KillIO(short refNum);
 
 /**
@@ -1195,8 +1121,7 @@ unitEmptyErr (-22) refnum specifies NIL handle in unit table
   void
   IODone(DCtlPtr dce, OSErr ioResult) THREEWORDINLINE(0x2078, 0x08FC, 0x4E90);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 /**
  *  PBControlSync()
@@ -1270,7 +1195,7 @@ unitEmptyErr (-22) refnum specifies NIL handle in unit table
 
 /**
  *  PBStatusImmed()
- *
+ *// CALL_NOT_IN_CARBON 
 
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        not available
@@ -1364,19 +1289,13 @@ if(WaitNextEvent (everyEvent , &theEvent, 0, nil)) {
 if ( theEvent. what == mouseDown ) {
 switch ( FindWindow ( theEvent. where, &whichWindow ) ) {
 case inMenuBar :
-mr = MenuSelect ( theEvent. where );/* user interaction*/
-  if (HiWord(mr) == FILE_MENU)
-  { /* in File menu? */
-    if (LoWord(mr) == CLOSE_ITM)
-    { /* Close Item ? */
-      if (isMyWindow(FrontWindow()))
+mr = MenuSelect ( theEvent. where );// user interaction  if (HiWord(mr) == FILE_MENU)
+  { // in File menu?     if (LoWord(mr) == CLOSE_ITM)
+    { // Close Item ?       if (isMyWindow(FrontWindow()))
       {
-        /* if it's mine */
-        /* ... close one of my application's windows ..*/
-      }
+        // if it's mine         // ... close one of my application's windows ..      }
       else
-      { /* must be a DA window */
-        wPeek = (WindowPeek)FrontWindow();
+      { // must be a DA window         wPeek = (WindowPeek)FrontWindow();
         CloseDeskAcc(wPeek->windowKind);
       }
     }
@@ -1389,8 +1308,7 @@ mr = MenuSelect ( theEvent. where );/* user interaction*/
             void
             CloseDeskAcc(short refNum) ONEWORDINLINE(0xA9B7);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
     /**
      *  opendeskacc()
@@ -1414,8 +1332,7 @@ mr = MenuSelect ( theEvent. where );/* user interaction*/
     OSErr
     opendriver(const char *driverName, short *refNum);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
     The PBxxx() routines are obsolete.
 
@@ -1447,6 +1364,12 @@ mr = MenuSelect ( theEvent. where );/* user interaction*/
 #ifdef __cplusplus
   }
 #endif
-
-#endif /* __DEVICES__ */
-  */*/
+// user interaction
+#endif // __DEVICES__   */*/// in File menu? 
+// Close Item ? 
+// if it's mine 
+// ... close one of my application's windows ..
+// must be a DA window 
+// CALL_NOT_IN_CARBON 
+// CALL_NOT_IN_CARBON 
+// __DEVICES__ 

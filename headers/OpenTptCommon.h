@@ -2,7 +2,7 @@
      \file       OpenTptCommon.h
 
     \brief   Equates for Open Transport development needed both by clients
-    
+
     \ingroup OpenTransport
 
     \introduced_in  Mac OS 8.1
@@ -27,4 +27,4 @@
     The contents of OpenTptCommon.h has been merged into OpenTransportProtocol.h
 */
 
-#endif /* __OPENTPTCOMMON__ */
+#endif // __OPENTPTCOMMON__

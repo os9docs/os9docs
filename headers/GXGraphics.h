@@ -113,8 +113,7 @@ void
 GXDisposeGraphicsClient(gxGraphicsClient client)
     THREEWORDINLINE(0x303C, 0x005C, 0xA832);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /*returns the count */
 #if CALL_NOT_IN_CARBON
 /**
@@ -471,9 +470,8 @@ gxCurve *
 GXGetCurve(gxShape source, gxCurve *data)
     THREEWORDINLINE(0x303C, 0x007E, 0xA832);
 
-/* returns byte length of glyphs */
-/**
- *  GXGetGlyphs()
+// returns byte length of glyphs /**
+// returns byte length of glyphs 
  *
 
  *    \non_carbon_cfm   not available
@@ -497,10 +495,9 @@ GXGetGlyphs(gxShape source, long *charCount, unsigned char text[],
 gxLine *
 GXGetLine(gxShape source, gxLine *data) THREEWORDINLINE(0x303C, 0x0080, 0xA832);
 
-/* returns byte length */
-/**
+// returns byte length /**
  *  GXGetPaths()
- *
+// returns byte length 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -510,11 +507,10 @@ long
 GXGetPaths(gxShape source, gxPaths *data)
     THREEWORDINLINE(0x303C, 0x0081, 0xA832);
 
-/* returns count */
-/**
+// returns count /**
  *  GXGetPicture()
  *
-
+// returns count 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -535,12 +531,11 @@ gxPoint *
 GXGetPoint(gxShape source, gxPoint *data)
     THREEWORDINLINE(0x303C, 0x0083, 0xA832);
 
-/* returns byte length */
-/**
+// returns byte length /**
  *  GXGetPolygons()
  *
 
- *    \non_carbon_cfm   not available
+// returns byte length 
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -560,13 +555,12 @@ gxRectangle *
 GXGetRectangle(gxShape source, gxRectangle *data)
     THREEWORDINLINE(0x303C, 0x0085, 0xA832);
 
-/* returns byte length */
-/**
+// returns byte length /**
  *  GXGetText()
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// returns byte length 
  *    \mac_os_x         not available
  */
 long
@@ -1930,14 +1924,13 @@ gxCapRecord *
 GXGetShapeCap(gxShape source, gxCapRecord *cap)
     THREEWORDINLINE(0x303C, 0x00FB, 0xA832);
 
-/* returns the number of layers */
-/**
+// returns the number of layers /**
  *  GXGetShapeFace()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+// returns the number of layers 
  */
 long
 GXGetShapeFace(gxShape source, gxTextFace *face)
@@ -2083,15 +2076,14 @@ gxCapRecord *
 GXGetStyleCap(gxStyle source, gxCapRecord *cap)
     THREEWORDINLINE(0x303C, 0x0108, 0xA832);
 
-/* returns the number of layers */
-/**
+// returns the number of layers /**
  *  GXGetStyleFace()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+// returns the number of layers 
 long
 GXGetStyleFace(gxStyle source, gxTextFace *face)
     THREEWORDINLINE(0x303C, 0x0109, 0xA832);
@@ -3815,8 +3807,7 @@ long
 GXCountShapePoints(gxShape source, long contour)
     THREEWORDINLINE(0x303C, 0x0196, 0xA832);
 
-/* returns the number of positions */
-/**
+// returns the number of positions /**
  *  GXGetShapeDashPositions()
  *
 
@@ -3824,7 +3815,7 @@ GXCountShapePoints(gxShape source, long contour)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-long
+// returns the number of positions 
 GXGetShapeDashPositions(gxShape source, gxMapping dashMappings[])
     THREEWORDINLINE(0x303C, 0x0197, 0xA832);
 
@@ -3915,8 +3906,7 @@ gxRectangle *
 GXGetShapeLocalBounds(gxShape source, gxRectangle *bounds)
     THREEWORDINLINE(0x303C, 0x019E, 0xA832);
 
-/* returns the number of positions */
-/**
+// returns the number of positions /**
  *  GXGetShapePatternPositions()
  *
 
@@ -3925,7 +3915,7 @@ GXGetShapeLocalBounds(gxShape source, gxRectangle *bounds)
  *    \mac_os_x         not available
  */
 long
-GXGetShapePatternPositions(gxShape source, gxPoint positions[])
+// returns the number of positions 
     THREEWORDINLINE(0x303C, 0x019F, 0xA832);
 
 /**
@@ -4189,8 +4179,7 @@ GXGetColorSetParts(gxColorSet source, long index, long count,
                    gxColorSpace *space, gxSetColor data[])
     THREEWORDINLINE(0x303C, 0x01B4, 0xA832);
 
-/* returns the glyph count */
-/**
+// returns the glyph count /**
  *  GXGetGlyphParts()
  *
 
@@ -4200,7 +4189,7 @@ GXGetColorSetParts(gxColorSet source, long index, long count,
  */
 long
 GXGetGlyphParts(gxShape source, long index, long charCount, long *byteLength,
-                unsigned char text[], gxPoint positions[], long advanceBits[],
+// returns the glyph count 
                 gxPoint tangents[], long *runCount, short styleRuns[],
                 gxStyle styles[]) THREEWORDINLINE(0x303C, 0x01B5, 0xA832);
 
@@ -4921,8 +4910,7 @@ GXIgnoreGraphicsNotice(gxGraphicsNotice notice)
 void
 GXPopGraphicsNotice(void) THREEWORDINLINE(0x303C, 0x006E, 0xA832);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if defined(__MWERKS__) && TARGET_CPU_68K
 #pragma pop
 #endif
@@ -4933,7 +4921,7 @@ GXPopGraphicsNotice(void) THREEWORDINLINE(0x303C, 0x006E, 0xA832);
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
-#endif
+#endif// CALL_NOT_IN_CARBON 
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
@@ -4945,4 +4933,4 @@ GXPopGraphicsNotice(void) THREEWORDINLINE(0x303C, 0x006E, 0xA832);
 }
 #endif
 
-#endif /* __GXGRAPHICS__ */
+#endif // __GXGRAPHICS__ // __GXGRAPHICS__ 

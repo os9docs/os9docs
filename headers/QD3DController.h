@@ -412,8 +412,7 @@ Q3ControllerState_Restore(TQ3ControllerStateObject controllerStateObject);
  **                             Type Definitions                             **
  **                                                                          **
  *****************************************************************************/
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(TQ3Status,
                        TQ3TrackerNotifyFunc)(TQ3TrackerObject trackerObject,
                                              TQ3ControllerRef controllerRef);
@@ -614,9 +613,8 @@ Q3Tracker_GetEventCoordinates(TQ3TrackerObject trackerObject,
  **                              Types                                       **
  **                                                                          **
  *****************************************************************************/
-#endif /* CALL_NOT_IN_CARBON */
-
-typedef CALLBACK_API_C(void, TQ3CursorTrackerNotifyFunc)(void);
+#endif // CALL_NOT_IN_CARBON 
+typedef// CALL_NOT_IN_CARBON 
 /******************************************************************************
  **                                                                          **
  **                              Routines                                    **
@@ -681,10 +679,9 @@ Q3CursorTracker_SetNotifyFunc(TQ3CursorTrackerNotifyFunc notifyFunc);
 TQ3Status
 Q3CursorTracker_GetNotifyFunc(TQ3CursorTrackerNotifyFunc *notifyFunc);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
-#pragma enumsalwaysint reset
+#pragma// CALL_NOT_IN_CARBON 
 #ifdef __QD3DCONTROLLER__RESTORE_TWOBYTEINTS
 #pragma fourbyteints off
 #endif
@@ -712,4 +709,4 @@ Q3CursorTracker_GetNotifyFunc(TQ3CursorTrackerNotifyFunc *notifyFunc);
 }
 #endif
 
-#endif /* __QD3DCONTROLLER__ */
+#endif // __QD3DCONTROLLER__ // __QD3DCONTROLLER__ 

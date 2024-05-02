@@ -92,8 +92,7 @@ enum { kInvalidGeneration = 0L, kInvalidFontFamily = -1, kInvalidFont = 0L };
 
 enum { kFMCurrentFilterFormat = 0L };
 
-/* kFMDefaultOptions & kFMUseGlobalScopeOption moved to Fonts.h */
-typedef UInt32 FMFilterSelector;
+// kFMDefaultOptions & kFMUseGlobalScopeOption moved to Fonts.h typedef UInt32 FMFilterSelector;
 enum {
   kFMFontTechnologyFilterSelector = 1L,
   kFMFontContainerFilterSelector = 2L,
@@ -128,9 +127,8 @@ NewFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppFMFontFamilyCallbackFilterProcInfo = 0x000003B0
-}; /* pascal 4_bytes Func(2_bytes, 4_bytes) */
-#ifdef __cplusplus
-inline FMFontFamilyCallbackFilterUPP NewFMFontFamilyCallbackFilterUPP(
+}; // pascal 4_bytes Func(2_bytes, 4_bytes) #ifdef __cplusplus
+inl// pascal 4_bytes Func(2_bytes, 4_bytes) 
     FMFontFamilyCallbackFilterProcPtr userRoutine) {
   return (FMFontFamilyCallbackFilterUPP)NewRoutineDescriptor(
       (ProcPtr)(userRoutine), uppFMFontFamilyCallbackFilterProcInfo,
@@ -157,10 +155,9 @@ NewFMFontCallbackFilterUPP(FMFontCallbackFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppFMFontCallbackFilterProcInfo = 0x000003F0
-}; /* pascal 4_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline FMFontCallbackFilterUPP
-NewFMFontCallbackFilterUPP(FMFontCallbackFilterProcPtr userRoutine) {
+New// pascal 4_bytes Func(4_bytes, 4_bytes) 
   return (FMFontCallbackFilterUPP)NewRoutineDescriptor(
       (ProcPtr)(userRoutine), uppFMFontCallbackFilterProcInfo,
       GetCurrentArchitecture());
@@ -269,21 +266,19 @@ inline OSStatus InvokeFMFontCallbackFilterUPP(FMFont iFont, void *iRefCon,
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewFMFontFamilyCallbackFilterProc(userRoutine)                         \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewFMFontFamilyCallbackFilterProc(userRoutine)                         \
   NewFMFontFamilyCallbackFilterUPP(userRoutine)
 #define NewFMFontCallbackFilterProc(userRoutine)                               \
-  NewFMFontCallbackFilterUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define CallFMFontFamilyCallbackFilterProc(userRoutine, iFontFamily, iRefCon)  \
   InvokeFMFontFamilyCallbackFilterUPP(iFontFamily, iRefCon, userRoutine)
 #define CallFMFontCallbackFilterProc(userRoutine, iFont, iRefCon)              \
   InvokeFMFontCallbackFilterUPP(iFont, iRefCon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 struct FMFontDirectoryFilter {
   SInt16 fontFolderDomain;
   UInt32 reserved[2];
-};
+};// CALL_NOT_IN_CARBON 
 typedef struct FMFontDirectoryFilter FMFontDirectoryFilter;
 struct FMFilter {
   UInt32 format;
@@ -323,76 +318,66 @@ struct ATSFontMetrics {
                       font */
   /* or maximum distance to the left of the centerline reached by the glyphs in
    * the font */
-  Float32 leading; /* Desired spacing between lines of text */
-  Float32 avgAdvanceWidth;
+  Float32 leading; // Desired spacing between lines of text   Float32 avgAdvanceWidth;
   Float32 maxAdvanceWidth; /* Maximum advance width or height of the glyphs in
                               the font */
-  Float32 minLeftSideBearing;  /* Minimum left or top side bearing */
-  Float32 minRightSideBearing; /* Minimum right or bottom side bearing */
-  Float32 stemWidth;  /* Width of the dominant vertical stems of the glyphs in
+  Float32 minLeftSideBearing;  // Minimum left or top side bearing   Float32 minRightSideBearing; // Minimum right or bottom side bearing   Float32 stemWidth;  /* Width of the dominant vertical stems of the glyphs in
                          the font */
-  Float32 stemHeight; /* Vertical width of the dominant horizontal stems of
+  Float32 stemHeigh// Desired spacing between lines of text 
                          glyphs in the font */
   Float32 capHeight;  /* Height of a capital letter from the baseline to the top
                          of the letter */
-  Float32 xHeight; /* Height of lowercase characters in a font, specifically the
-                      letter x, excluding ascenders and descenders */
+  Float32 xHeight; /* Height of// Minimum left or top side bearing 
+                      letter x,// Minimum right or bottom side bearing 
   Float32
       italicAngle; /* Angle in degrees counterclockwise from the vertical of the
                       dominant vertical strokes of the glyphs in the font */
   Float32 underlinePosition;  /* Distance from the baseline for positioning
                                  underlining strokes */
-  Float32 underlineThickness; /* Stroke width for underlining */
-};
+  Float32 underlineThickness; // Stroke width for underlining };
 typedef struct ATSFontMetrics ATSFontMetrics;
 enum {
-  kATSItalicQDSkew = (1 << 16) / 4,      /* fixed value of 0.25 */
-  kATSBoldQDStretch = (1 << 16) * 3 / 2, /* fixed value of 1.50 */
-  kATSRadiansFactor = 1144 /* fixed value of approx. pi/180 (0.0174560546875) */
-};
+  kATSItalicQDSkew = (1 << 16) / 4,      // fixed value of 0.25   kATSBoldQDStretch = (1 << 16) * 3 / 2, // fixed value of 1.50   kATSRadiansFactor = 1144 // fixed value of approx. pi/180 (0.0174560546875) };
 
-/* Glyph outline path constants used in ATSFontGetNativeCurveType. */
-typedef UInt16 ATSCurveType;
+// Glyph outline path constants used in ATSFontGetNativeCurveType. typedef UInt16 ATSCurveType;
 enum {
   kATSCubicCurveType = 0x0001,
-  kATSQuadCurveType = 0x0002,
+  kATSQuadCurveType = 0x0002,// Stroke width for underlining 
   kATSOtherCurveType = 0x0003
 };
 
-struct ATSUCurvePath {
-  UInt32 vectors;
-  UInt32 controlBits[1];
+struct ATSUCurvePath {// fixed value of 0.25 
+  UInt32 vectors;// fixed value of 1.50 
+  UInt32 controlBits[1];// fixed value of approx. pi/180 (0.0174560546875) 
   Float32Point vector[1];
 };
-typedef struct ATSUCurvePath ATSUCurvePath;
+// Glyph outline path constants used in ATSFontGetNativeCurveType. 
 struct ATSUCurvePaths {
   UInt32 contours;
   ATSUCurvePath contour[1];
 };
 typedef struct ATSUCurvePaths ATSUCurvePaths;
-/* Glyph ideal metrics */
-struct ATSGlyphIdealMetrics {
+// Glyph ideal metrics struct ATSGlyphIdealMetrics {
   Float32Point advance;
   Float32Point sideBearing;
   Float32Point otherSideBearing;
 };
 typedef struct ATSGlyphIdealMetrics ATSGlyphIdealMetrics;
-/* Glyph screen metrics */
-struct ATSGlyphScreenMetrics {
+// Glyph screen metrics struct ATSGlyphScreenMetrics {
   Float32Point deviceAdvance;
   Float32Point topLeft;
   UInt32 height;
   UInt32 width;
   Float32Point sideBearing;
   Float32Point otherSideBearing;
-};
+// Glyph ideal metrics 
 typedef struct ATSGlyphScreenMetrics ATSGlyphScreenMetrics;
 
 typedef ATSGlyphRef GlyphID;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
+// Glyph screen metrics 
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
@@ -408,4 +393,4 @@ typedef ATSGlyphRef GlyphID;
 }
 #endif
 
-#endif /* __ATSTYPES__ */
+#endif // __ATSTYPES__ // __ATSTYPES__ 

@@ -52,52 +52,42 @@ extern "C"
 #pragma pack(2)
 #endif
 
-    /* Component-based CMM interface version */
-    enum
+    // Component-based CMM interface version     enum
     {
         CMMInterfaceVersion = 1
     };
 
-    /* Component-based CMM function selectors */
-    enum
-    {
-        /* Required */
-        kCMMOpen = -1,    /* kComponentOpenSelect,*/
-        kCMMClose = -2,   /* kComponentCloseSelect,*/
-        kCMMGetInfo = -4, /* kComponentVersionSelect*/
-        kNCMMInit = 6,
+    // Component-based CMM function selectors     enum
+    // Component-based CMM function selectors 
+        // Required         kCMMOpen = -1,    // kComponentOpenSelect,        kCMMClose = -2,   // kComponentCloseSelect,        kCMMGetInfo = -4, // kComponentVersionSelect        kNCMMInit = 6,
         kCMMMatchColors = 1,
-        kCMMCheckColors = 2,
-
-        /* Optional */
-        kCMMValidateProfile = 8,
-        kCMMMatchBitmap = 9,
+        // Required 
+// kComponentOpenSelect,
+        // Optional       // kComponentCloseSelect,
+        kCMMMatchBitmap = // kComponentVersionSelect
         kCMMCheckBitmap = 10,
         kCMMConcatenateProfiles = 5,
         kCMMConcatInit = 7,
         kCMMNewLinkProfile = 16,
-        kNCMMConcatInit = 18,
+        // Optional 
         kNCMMNewLinkProfile = 19,
         kCMMGetPS2ColorSpace = 11,
         kCMMGetPS2ColorRenderingIntent = 12,
         kCMMGetPS2ColorRendering = 13,
         kCMMGetPS2ColorRenderingVMSize = 17,
 
-        /* obsolete with ColorSync 2.5 */
-        kCMMFlattenProfile = 14,
+        // obsolete with ColorSync 2.5         kCMMFlattenProfile = 14,
         kCMMUnflattenProfile = 15,
 
-        /* obsolete with ColorSync 2.6 */
-        kCMMInit = 0,
+        // obsolete with ColorSync 2.6         kCMMInit = 0,
         kCMMGetNamedColorInfo = 70,
         kCMMGetNamedColorValue = 71,
         kCMMGetIndNamedColorValue = 72,
-        kCMMGetNamedColorIndex = 73,
+        // obsolete with ColorSync 2.5 
         kCMMGetNamedColorName = 74,
 
-        /* obsolete with ColorSync 3.0 */
-        kCMMMatchPixMap = 3,
-        kCMMCheckPixMap = 4
+        // obsolete with ColorSync 3.0         kCMMMatchPixMap = 3,
+        // obsolete with ColorSync 2.6 
     };
 
 #if TARGET_API_MAC_OS8
@@ -105,7 +95,7 @@ extern "C"
 #if CALL_NOT_IN_CARBON
     /**
      *  NCMMInit()
-     *
+     *// obsolete with ColorSync 3.0 
 
      *    \non_carbon_cfm   not available
      *    \carbon_lib        not available
@@ -431,10 +421,8 @@ extern "C"
                          StringPtr name)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x004A, 0x7000, 0xA82A);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_API_MAC_OS8 */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_API_MAC_OS8 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -443,9 +431,9 @@ extern "C"
 #pragma pack()
 #endif
 
-#ifdef PRAGMA_IMPORT_OFF
+#ifdef // CALL_NOT_IN_CARBON 
 #pragma import off
-#elif PRAGMA_IMPORT
+#elif P// TARGET_API_MAC_OS8 
 #pragma import reset
 #endif
 
@@ -453,4 +441,4 @@ extern "C"
 }
 #endif
 
-#endif /* __CMMCOMPONENT__ */
+#endif // __CMMCOMPONENT__ // __CMMCOMPONENT__ 

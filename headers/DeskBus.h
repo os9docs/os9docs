@@ -95,8 +95,7 @@ extern "C"
 
   typedef struct ADBSetInfoBlock ADBSetInfoBlock;
   typedef ADBSetInfoBlock *ADBSInfoPtr;
-  /* ADBOpBlock is only used when calling ADBOp from 68k assembly code */
-  /**
+  // ADBOpBlock is only used when calling ADBOp from 68k assembly code   /**
   <pre>
    * \copyright THINK Reference © 1991-1992 Symantec Corporation
   */
@@ -109,9 +108,8 @@ extern "C"
 
   typedef struct ADBOpBlock ADBOpBlock;
   typedef ADBOpBlock *ADBOpBPtr;
-#endif /* CALL_NOT_IN_CARBON */
-#if CALL_NOT_IN_CARBON
-  /**
+#endif // CALL_NOT_IN_CARBON #if CALL_NOT_IN_CARBON
+  /**// CALL_NOT_IN_CARBON 
    *  ADBReInit()
    *
 
@@ -143,10 +141,9 @@ extern "C"
    completion routine is called, 68k register A1 will point to the completion
    routine, as documented in Inside Mac.
 */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
-
+// CALL_NOT_IN_CARBON 
   /**
   \brief Transmit command byte
 
@@ -193,11 +190,10 @@ execution and has the same meaning as the service routine passed to the
   OSErr
   ADBOp(Ptr refCon, ADBCompletionUPP compRout, Ptr buffer, short commandNum);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 
-  /**
+  /**// CALL_NOT_IN_CARBON 
   \brief Count the entries in the device table
 
   <pre>CountADBs generates and returns a value representing the number of
@@ -320,12 +316,11 @@ with it.
   SetADBInfo(const ADBSetInfoBlock *info, ADBAddress adbAddr)
       ONEWORDINLINE(0xA07A);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
   /**
    *  NewADBCompletionUPP()
-   *
+   *// CALL_NOT_IN_CARBON 
 
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        not available
@@ -337,13 +332,12 @@ with it.
   enum
   {
     uppADBCompletionProcInfo = 0x007B9802
-  }; /* register no_return_value Func(4_bytes:A0, 4_bytes:A2, 4_bytes:D0) */
-#ifdef __cplusplus
+  }; // register no_return_value Func(4_bytes:A0, 4_bytes:A2, 4_bytes:D0) #ifdef __cplusplus
   inline ADBCompletionUPP NewADBCompletionUPP(ADBCompletionProcPtr userRoutine)
   {
     return (ADBCompletionUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                   uppADBCompletionProcInfo,
-                                                  GetCurrentArchitecture());
+     // register no_return_value Func(4_bytes:A0, 4_bytes:A2, 4_bytes:D0) 
   }
 #else
 #define NewADBCompletionUPP(userRoutine)                                     \
@@ -367,14 +361,13 @@ with it.
   enum
   {
     uppADBDeviceDriverProcInfo = 0x00050802
-  }; /* register no_return_value Func(1_byte:D0, 1_byte:D1) */
-#ifdef __cplusplus
+  }; // register no_return_value Func(1_byte:D0, 1_byte:D1) #ifdef __cplusplus
   inline ADBDeviceDriverUPP
   NewADBDeviceDriverUPP(ADBDeviceDriverProcPtr userRoutine)
   {
     return (ADBDeviceDriverUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                     uppADBDeviceDriverProcInfo,
-                                                    GetCurrentArchitecture());
+     // register no_return_value Func(1_byte:D0, 1_byte:D1) 
   }
 #else
 #define NewADBDeviceDriverUPP(userRoutine)                                     \
@@ -430,15 +423,14 @@ with it.
   enum
   {
     uppADBInitProcInfo = 0x00000802
-  }; /* register no_return_value Func(1_byte:D0) */
-#ifdef __cplusplus
+  }; // register no_return_value Func(1_byte:D0) #ifdef __cplusplus
   inline ADBInitUPP NewADBInitUPP(ADBInitProcPtr userRoutine)
   {
     return (ADBInitUPP)NewRoutineDescriptor(
         (ProcPtr)(userRoutine), uppADBInitProcInfo, GetCurrentArchitecture());
   }
 #else
-#define NewADBInitUPP(userRoutine)   \
+#defi// register no_return_value Func(1_byte:D0) 
   (ADBInitUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppADBInitProcInfo, GetCurrentArchitecture())
 #endif
@@ -642,29 +634,25 @@ with it.
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewADBCompletionProc(userRoutine) NewADBCompletionUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewADBCompletionProc(userRoutine) NewADBCompletionUPP(userRoutine)
 #define NewADBDeviceDriverProc(userRoutine) NewADBDeviceDriverUPP(userRoutine)
 #define NewADBServiceRoutineProc(userRoutine) \
   NewADBServiceRoutineUPP(userRoutine)
 #define NewADBInitProc(userRoutine) NewADBInitUPP(userRoutine)
 #define CallADBCompletionProc(userRoutine, buffer, refCon, command) \
-  InvokeADBCompletionUPP(buffer, refCon, command, userRoutine)
+  Invok// CALL_NOT_IN_CARBON 
 #define CallADBDeviceDriverProc(userRoutine, devAddress, devType) \
   InvokeADBDeviceDriverUPP(devAddress, devType, userRoutine)
-#define CallADBServiceRoutineProc(userRoutine, buffer, completionProc, refCon, \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
                                   command)                                     \
   InvokeADBServiceRoutineUPP(buffer, completionProc, refCon, command,          \
                              userRoutine)
 #define CallADBInitProc(userRoutine, callOrder) \
   InvokeADBInitUPP(callOrder, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_MAC */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_OS_MAC 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -673,9 +661,9 @@ with it.
 #pragma pack()
 #endif
 
-#ifdef PRAGMA_IMPORT_OFF
+#ifdef // CALL_NOT_IN_CARBON 
 #pragma import off
-#elif PRAGMA_IMPORT
+#elif P// TARGET_OS_MAC 
 #pragma import reset
 #endif
 
@@ -683,8 +671,7 @@ with it.
 }
 #endif
 
-#endif /* __DESKBUS__ */
-* /
+#endif // __DESKBUS__ * /
 #pragma pack()
 #endif
 
@@ -696,12 +683,11 @@ with it.
 
 #ifdef __cplusplus
 }
-#endif
+#endif// __DESKBUS__ 
 
-#endif /* __DESKBUS__ */
-* /*/*/ * /
+#endif // __DESKBUS__ * /*/*/ * /
 }
 #endif
 
-#endif /* __DESKBUS__ */
-* /*/*/ * /
+#endif // __DESKBUS__ * /*/*/ * /// __DESKBUS__ 
+// __DESKBUS__ 

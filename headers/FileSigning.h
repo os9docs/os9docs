@@ -56,26 +56,23 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  /* Data structures and types */
-  typedef SInt32 SecOptions;
+  // Data structures and types   typedef SInt32 SecOptions;
   enum
   {
     kSecOptionProgress = 1 << 0,
     kSecOptionShowVerifyUI = 1 << 1,
     kSecOptionNeverShowUI = 1 << 2,
     kCertUsageReserved =
-        0x7FFFFF00 /* Last 3 bytes reserved for SecOptions flags */
-  };
-
+        0x7FFFFF00 // Last 3 bytes reserved for SecOptions flags   };
+// Last 3 bytes reserved for SecOptions flags 
   typedef UInt32 SecSignatureType;
   enum
   {
     kSecSignatureTypeRawPKCS7 = 0,
     kSecSignatureTypeCMS = 1,
-    kSecSignatureTypePGP = 2 /* reserved but not implemented */
-  };
+    kSecSignatureTypePGP = 2 // reserved but not implemented   };
 
-  typedef UInt32 SecTrustPolicy;
+  typedef UInt32 SecTrustPoli// reserved but not implemented 
   enum
   {
     kSecTrustPolicyCodeSigning = 0,
@@ -113,11 +110,10 @@ extern "C"
   enum
   {
     uppSecProgressCallbackProcInfo = 0x000003F0
-  }; /* pascal 4_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline SecProgressCallbackUPP
   NewSecProgressCallbackUPP(SecProgressCallbackProcPtr userRoutine)
-  {
+  {// pascal 4_bytes Func(4_bytes, 4_bytes) 
     return (SecProgressCallbackUPP)NewRoutineDescriptor(
         (ProcPtr)(userRoutine), uppSecProgressCallbackProcInfo,
         GetCurrentArchitecture());
@@ -179,22 +175,19 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewSecProgressCallbackProc(userRoutine) \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewSecProgressCallbackProc(userRoutine) \
   NewSecProgressCallbackUPP(userRoutine)
-#define CallSecProgressCallbackProc(userRoutine, callbackInfo, userContext) \
+#define// CALL_NOT_IN_CARBON 
   InvokeSecProgressCallbackUPP(callbackInfo, userContext, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-#if CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
   /**
    *  SecSetProgressCallback()
    *
    *  Availability:
-   *    \non_carbon_cfm   in FileSigningLib 1.0 and later
+   *   // CALL_NOT_IN_CARBON 
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
@@ -224,15 +217,14 @@ extern "C"
   DefaultSecProgressCallbackProc(SecProgressCallbackInfo *info,
                                  void *userContext);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   enum
   {
     kSecDefaultSignatureResID = 1
   };
 
 #if CALL_NOT_IN_CARBON
-  /**
+  /**// CALL_NOT_IN_CARBON 
    *  SecMacSignFile()
    *
    *  Availability:
@@ -363,9 +355,7 @@ extern "C"
   SecMacDisplaySigner(OSStatus inputErr, SecSignerRef signer,
                       Boolean alwaysShowUI, FSSpec *theFile);
 
-/* Errors Codes */
-#endif /* CALL_NOT_IN_CARBON */
-
+// Errors Codes #endif // CALL_NOT_IN_CARBON 
   enum
   {
     errSecTooManySigners = -13839,
@@ -373,8 +363,8 @@ extern "C"
     errSecCorruptSigPound = -13837,
     errSecNoSignatureFound = -13836
   };
-
-#if PRAGMA_STRUCT_ALIGN
+// Errors Codes 
+#if PRA// CALL_NOT_IN_CARBON 
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -392,4 +382,4 @@ extern "C"
 }
 #endif
 
-#endif /* __FILESIGNING__ */
+#endif // __FILESIGNING__ // __FILESIGNING__ 

@@ -76,37 +76,20 @@ extern "C"
 
     enum
     {
-        icPrefNotFoundErr = -666,  /* preference not found (duh!)  */
-        icPermErr = -667,          /* cannot set preference  */
-        icPrefDataErr = -668,      /* problem with preference data  */
-        icInternalErr = -669,      /* hmm, this is not good  */
-        icTruncatedErr = -670,     /* more data was present than was returned  */
-        icNoMoreWritersErr = -671, /* you cannot begin a write session because someone
+        icPrefNotFoundErr = -666,  // preference not found (duh!)          icPermErr = -667,          // cannot set preference          icPrefDataErr = -668,      // problem with preference data          icInternalErr = -669,      // hmm, this is not good          icTruncatedErr = -670,     // more data was present than was returned          icNoMoreWritersErr = -671, /* you cannot begin a write session because someone
                                       else is already doing it  */
         icNothingToOverrideErr =
-            -672,                        /* no component for the override component to capture  */
-        icNoURLErr = -673,               /* no URL found  */
-        icConfigNotFoundErr = -674,      /* no configuration was found  */
-        icConfigInappropriateErr = -675, /* incorrect manufacturer code  */
-        icProfileNotFoundErr = -676,     /* profile not found  */
-        icTooManyProfilesErr = -677      /* too many profiles in database  */
-    };
+            -672,                        // no component for the override component to capture          icNoURLErr = -673,               // no URL found          icConfigNotFoundErr = -674,      // no configuration was found          icConfigInappropriateErr = -675, // incorrect manufacturer code          icProfileNotFoundErr = -676,     // profile not found          icTooManyProfilesErr = -677      // too many profiles in database      };
 
     /************************************************************************************************
       IC versions (not necessarily, but historically, from a component)
      ************************************************************************************************/
-
-    enum
-    {
-        kICComponentInterfaceVersion0 = 0x00000000, /* IC >= 1.0  */
-        kICComponentInterfaceVersion1 = 0x00010000, /* IC >= 1.1  */
-        kICComponentInterfaceVersion2 = 0x00020000, /* IC >= 1.2  */
-        kICComponentInterfaceVersion3 = 0x00030000, /* IC >= 2.0  */
-        kICComponentInterfaceVersion4 = 0x00040000, /* IC >= 2.5  */
-        kICComponentInterfaceVersion =
-            kICComponentInterfaceVersion4 /* current version number is 4  */
-    };
-
+// no component for the override component to capture  
+    enum// no URL found  
+    {// no configuration was found  
+        kICComponentInterfaceVersion0 = 0// incorrect manufacturer code  
+            kICComponentInterfaceVersion4// profile not found  
+// too many profiles in database  
     /************************************************************************************************
       opaque type for preference reference
      ************************************************************************************************/
@@ -115,13 +98,13 @@ extern "C"
 
     /************************************************************************************************
       a record that specifies a folder, an array of such records, and a pointer to
-     such an array
-     ************************************************************************************************/
-    struct ICDirSpec
-    {
-        short vRefNum;
+     such an array// IC >= 1.0  
+     ***********************************************// IC >= 1.1  
+    struct ICDirSpec// IC >= 1.2  
+    {// IC >= 2.0  
+        short vRefNum;// IC >= 2.5  
         long dirID;
-    };
+    };// current version number is 4  
     typedef struct ICDirSpec ICDirSpec;
     typedef ICDirSpec ICDirSpecArray[4];
     typedef ICDirSpecArray *ICDirSpecArrayPtr;
@@ -167,14 +150,12 @@ extern "C"
     struct ICConfigRef
     {
         OSType manufacturer;
-        /* other private data follows  */
-    };
+        // other private data follows      };
     typedef struct ICConfigRef ICConfigRef;
     typedef ICConfigRef *ICConfigRefPtr;
     typedef ICConfigRefPtr *ICConfigRefHandle;
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
     /************************************************************************************************
       profile IDs
      ************************************************************************************************/
@@ -186,13 +167,13 @@ extern "C"
         kICNilProfileID = 0
     };
 
-    /************************************************************************************************
+    /***// other private data follows  
       other constants
      ************************************************************************************************/
 
     enum
     {
-        kICNoUserInteractionBit = 0
+       // CALL_NOT_IN_CARBON 
     };
 
     enum
@@ -218,8 +199,7 @@ extern "C"
         keyAEAttaching = FOUR_CHAR_CODE('Atch')
     };
 
-    /* AERegistry.i defines a compatible keyAEDestination */
-
+    // AERegistry.i defines a compatible keyAEDestination 
     enum
     {
         kICEditPreferenceEventClass = FOUR_CHAR_CODE('ICAp'),
@@ -235,11 +215,10 @@ extern "C"
     {
         kICComponentVersion = 0, /* Return a component version, comparable to
                                     kICComponentInterfaceVersion  */
-        kICNumVersion = 1        /* Return a NumVersion structure  */
-    };
+        kICNumVersion = 1        // Return a NumVersion structure      };
 
     /************************************************************************************************
-      types and constants for use with kICDocumentFont, et. al.
+    // AERegistry.i defines a compatible keyAEDestination 
      ************************************************************************************************/
     struct ICFontRecord
     {
@@ -256,7 +235,7 @@ extern "C"
       types and constants for use with kICCharacterSet, et. al.
      ************************************************************************************************/
     struct ICCharTable
-    {
+    {// Return a NumVersion structure  
         unsigned char netToMac[256];
         unsigned char macToNet[256];
     };
@@ -295,9 +274,7 @@ extern "C"
         long volCreationDate;
         FSSpec fss;
         AliasRecord alias;
-        /* plus extra data, aliasSize 0 means no alias manager present when*/
-        /* ICFileSpecification was created*/
-    };
+        // plus extra data, aliasSize 0 means no alias manager present when        // ICFileSpecification was created    };
     typedef struct ICFileSpec ICFileSpec;
     typedef ICFileSpec *ICFileSpecPtr;
     typedef ICFileSpecPtr *ICFileSpecHandle;
@@ -312,15 +289,14 @@ struct ICFileSpec
 typedef struct ICFileSpec ICFileSpec;
 typedef ICFileSpec *ICFileSpecPtr;
 typedef ICFileSpecPtr *ICFileSpecHandle;
-#endif /* !OLDROUTINENAMES */
-
+#endif // !OLDROUTINENAMES 
     enum
     {
         kICFileSpecHeaderSize = sizeof(ICFileSpec) - sizeof(AliasRecord)
     };
 
-    /************************************************************************************************
-      types and constants for use with ICMapFilename, et. al.
+    /***// plus extra data, aliasSize 0 means no alias manager present when
+      ty// ICFileSpecification was created
      ************************************************************************************************/
     typedef long ICMapEntryFlags;
     typedef short ICFixedLength;
@@ -335,9 +311,8 @@ typedef ICFileSpecPtr *ICFileSpecHandle;
         OSType fileCreator;
         OSType postCreator;
         ICMapEntryFlags flags;
-        /* variable part starts here*/
-        Str255 extension;
-        Str255 creatorAppName;
+        // variable part starts here        Str255 extension;
+       // !OLDROUTINENAMES 
         Str255 postAppName;
         Str255 MIMEType;
         Str255 entryName;
@@ -360,41 +335,28 @@ struct ICMapEntry
     Str255 creator_app_name;
     Str255 post_app_name;
     Str255 MIME_type;
-    Str255 entry_name;
+    Str2// variable part starts here
 };
 typedef struct ICMapEntry ICMapEntry;
 typedef ICMapEntry *ICMapEntryPtr;
 typedef ICMapEntryPtr *ICMapEntryHandle;
-#endif /* !OLDROUTINENAMES */
-
+#endif // !OLDROUTINENAMES 
     enum
     {
-        kICMapFixedLength = 22 /* number in fixedLength field*/
-    };
+        kICMapFixedLength = 22 // number in fixedLength field    };
 
     enum
     {
         kICMapBinaryBit =
-            0,                     /* file should be transfered in binary as opposed to text mode*/
-        kICMapResourceForkBit = 1, /* the resource fork of the file is significant*/
-        kICMapDataForkBit = 2,     /* the data fork of the file is significant*/
-        kICMapPostBit = 3,         /* post process using post fields*/
-        kICMapNotIncomingBit = 4,  /* ignore this mapping for incoming files*/
-        kICMapNotOutgoingBit = 5   /* ignore this mapping for outgoing files*/
-    };
+            0,                     // file should be transfered in binary as opposed to text mode        kICMapResourceForkBit = 1, // the resource fork of the file is significant        kICMapDataForkBit = 2,     // the data fork of the file is significant        kICMapPostBit = 3,         // post process using post fields        kICMapNotIncomingBit = 4,  // ignore this mapping for incoming files        kICMapNotOutgoingBit = 5   // ignore this mapping for outgoing files    };
 
     enum
     {
         kICMapBinaryMask = 0x00000001, /* file should be transfered in binary as
                                           opposed to text mode*/
         kICMapResourceForkMask =
-            0x00000002,                  /* the resource fork of the file is significant*/
-        kICMapDataForkMask = 0x00000004, /* the data fork of the file is significant*/
-        kICMapPostMask = 0x00000008,     /* post process using post fields*/
-        kICMapNotIncomingMask =
-            0x00000010,                    /* ignore this mapping for incoming files*/
-        kICMapNotOutgoingMask = 0x00000020 /* ignore this mapping for outgoing files*/
-    };
+            0x00000002,                  // the resource fork of the file is significant        kICMapDataForkMask = 0x00000004, // the data fork of the file is significant        kICMapPostMask = 0x00000008,     // post process using post fields        kICMapNotIncomingMask =
+            0x00000010,                    // ignore this mapping for incoming files        kICMapNotOutgoingMask = 0x00000020 // ignore this mapping for outgoing files    };
 
     /************************************************************************************************
       types and constants for use with kICServices, et. al.
@@ -403,22 +365,22 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     struct ICServiceEntry
     {
         Str255 name;
-        short port;
+       // !OLDROUTINENAMES 
         ICServiceEntryFlags flags;
     };
     typedef struct ICServiceEntry ICServiceEntry;
-    typedef ICServiceEntry *ICServiceEntryPtr;
+    typedef ICServiceEntry *ICS// number in fixedLength field
     typedef ICServiceEntryPtr *ICServiceEntryHandle;
 
     enum
     {
         kICServicesTCPBit = 0,
-        kICServicesUDPBit = 1 /* both bits can be set, which means the service is both
-                                 TCP and UDP, eg daytime*/
-    };
-
-    enum
-    {
+        kICServicesUDPBit = 1 /* bo// file should be transfered in binary as opposed to text mode
+                                 TC// the resource fork of the file is significant
+    };// the data fork of the file is significant
+// post process using post fields
+    enum// ignore this mapping for incoming files
+    {// ignore this mapping for outgoing files
         kICServicesTCPMask = 0x00000001,
         kICServicesUDPMask = 0x00000002 /* both bits can be set, which means the
                                            service is both TCP and UDP, eg daytime*/
@@ -426,12 +388,12 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
 
     struct ICServices
     {
-        short count;
-        ICServiceEntry services[1];
-    };
+        short count;// the resource fork of the file is significant
+        ICServiceEntry services[1];// the data fork of the file is significant
+    };// post process using post fields
     typedef struct ICServices ICServices;
-    typedef ICServices *ICServicesPtr;
-    typedef ICServicesPtr *ICServicesHandle;
+    typedef ICServices *ICServicesPtr;// ignore this mapping for incoming files
+    typedef ICServicesPtr *ICServicesHandle// ignore this mapping for outgoing files
 
     /************************************************************************************************
       default file name, for internal use, overridden by a component resource
@@ -439,8 +401,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
 
 #if CALL_NOT_IN_CARBON
 #define kICDefaultFileName "\pInternet Preferences"
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /************************************************************************************************
   keys
  ************************************************************************************************/
@@ -478,7 +439,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
 #define kICFTPHost "\pFTPHost"
 /**
     PString -- second level FTP proxy authorisation
-*/
+*/// CALL_NOT_IN_CARBON 
 #define kICFTPProxyAccount "\pFTPProxyAccount"
 /**
     PString -- host.domain
@@ -773,8 +734,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
 
      ************************************************************************************************/
 
-    /* ***** Starting Up and Shutting Down *****  */
-    /**
+    // ***** Starting Up and Shutting Down *****      /**
      *  ICStart()
      *
      *  Availability:
@@ -813,7 +773,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \mac_os_x         in version 10.0 and later
      */
     OSStatus
-    ICGetVersion(ICInstance inst, long whichVersion, UInt32 *version)
+    // ***** Starting Up and Shutting Down *****  
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0032, 0x7000, 0xA82A);
 
 /* [r4] [c3] [b3]
@@ -821,8 +781,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
  * to get the version as previously returned by GetComponenVerson.
  * Pass kICNumVersion to get a NumVersion structure.
  */
-/* ***** Specifying a Configuration *****  */
-#if CALL_NOT_IN_CARBON
+// ***** Specifying a Configuration *****  #if CALL_NOT_IN_CARBON
     /**
      *  ICFindConfigFile()
      *
@@ -862,7 +821,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * empty configuration if necessary
      * For use with double-clickable preference files.
      */
-    /**
+// ***** Specifying a Configuration *****  
      *  ICGeneralFindConfigFile()
      *
      *  Availability:
@@ -921,8 +880,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
  * sort of modal dialog. If the user cancels the dialog the configuration
  * state will be unaffected.
  */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
     /**
      *  ICGetConfigName()
      *
@@ -963,7 +921,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * ref must be a valid non-nil handle and it will be resized to fit the
      * resulting data.
      */
-    /**
+    /**// CALL_NOT_IN_CARBON 
      *  ICSetConfigReference()
      *
      *  Availability:
@@ -1022,9 +980,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
  * If you call this routine yourself, you will conflict with any
  * future IC implementation that doesn't use explicit preference files.
  */
-/* ***** Getting Information *****  */
-#endif /* CALL_NOT_IN_CARBON */
-
+// ***** Getting Information *****  #endif // CALL_NOT_IN_CARBON 
     /**
      *  ICGetSeed()
      *
@@ -1066,8 +1022,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
+// ***** Getting Information *****  
+     */// CALL_NOT_IN_CARBON 
     OSStatus
     ICDefaultFileName(ICInstance inst, Str63 name)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x000B, 0x7000, 0xA82A);
@@ -1099,9 +1055,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
  * if we're using the component.
  * Returns badComponenInstance and nil if we're operating with glue.
  */
-/* ***** Reading and Writing Preferences *****  */
-#endif /* CALL_NOT_IN_CARBON */
-
+// ***** Reading and Writing Preferences *****  #endif // CALL_NOT_IN_CARBON 
     /**
      *  ICBegin()
      *
@@ -1145,8 +1099,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * attr is set to ICattr_no_change and size is set to 0.
      * size is the actual size of the data.
      * attr is set to the attributes associated with the preference.
-     * If this routine returns icTruncatedErr then the other returned
-     * values are valid except that only the first size bytes have been
+// ***** Reading and Writing Preferences *****  
+     * // CALL_NOT_IN_CARBON 
      * return. size is adjusted to reflect the true size of the preference.
      * Returns icPrefNotFound if there is no preference for the key.
      */
@@ -1331,8 +1285,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * Returns a default preference value for the specified key.  You
      * must pass in a valid prefH, which is resized to fit the data.
      */
-    /* ***** User Interface Stuff *****  */
-    /**
+    // ***** User Interface Stuff *****      /**
      *  ICEditPreferences()
      *
      *  Availability:
@@ -1356,8 +1309,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * It may have a radically different implementation in future
      * IC systems.
      */
-    /* ***** URL Handling *****  */
-    /**
+    // ***** URL Handling *****      /**
      *  ICLaunchURL()
      *
      *  Availability:
@@ -1379,7 +1331,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * len indicates the length of the text. It must be non-negative.
      * selStart and selEnd should be passed in as the current selection of
      * the text. This selection is given in the same manner as TextEdit,
-     * ie if selStart = selEnd then there is no selection only an insertion
+    // ***** User Interface Stuff *****  
      * point. Also selStart � selEnd and 0 � selStart � len and 0 � selEnd � len.
      * selStart and selEnd are returned as the bounds of the URL. If the
      * routine returns an error then these new boundaries may be
@@ -1404,7 +1356,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * Parses a URL out of the specified text and returns it in a canonical form
      * in a handle.
      * hint indicates the default scheme for URLs of the form "name@address".
-     * If hint is the empty string then URLs of that form are not allowed.
+    // ***** URL Handling *****  
      * data points to the start of the text. It must not be nil.
      * len indicates the length of the text. It must be non-negative.
      * selStart and selEnd should be passed in as the current selection of
@@ -1494,8 +1446,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * the empty string.
      * Returns icPrefNotFoundErr if no suitable entry found.
      */
-    /* ----- Mid Level Routines -----  */
-    /**
+    // ----- Mid Level Routines -----      /**
      *  ICMapEntriesFilename()
      *
      *  Availability:
@@ -1537,14 +1488,13 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * the empty string.
      * Returns icPrefNotFoundErr if no suitable entry found.
      */
-    /* ----- Low Level Routines -----  */
-    /**
+    // ----- Low Level Routines -----      /**
      *  ICCountMapEntries()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0.2 and later
-     *    \mac_os_x         in version 10.0 and later
+    // ----- Mid Level Routines -----  
      */
     OSStatus
     ICCountMapEntries(ICInstance inst, Handle entries, long *count)
@@ -1587,7 +1537,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      */
     OSStatus
     ICGetMapEntry(ICInstance inst, Handle entries, long pos, ICMapEntry *entry)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0014, 0x7000, 0xA82A);
+    // ----- Low Level Routines -----  
 
     /* [r1] [c1] [b3]
      * Returns the entry located at position pos in the mappings database.
@@ -1655,8 +1605,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      * The entry is added to the end of the entries database.
      * No user data is added.
      */
-    /* ***** Profile Management Routines *****  */
-    /**
+    // ***** Profile Management Routines *****      /**
      *  ICGetCurrentProfile()
      *
      *  Availability:
@@ -1706,7 +1655,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0.2 and later
+    // ***** Profile Management Routines *****  
      *    \mac_os_x         in version 10.0 and later
      */
     OSStatus
@@ -1791,8 +1740,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
 /************************************************************************************************
   NOTHING BELOW THIS DIVIDER IS IN CARBON
  ************************************************************************************************/
-/* ***** Interrupt Safe Routines *****  */
-#if CALL_NOT_IN_CARBON
+// ***** Interrupt Safe Routines *****  #if CALL_NOT_IN_CARBON
     /**
      *  ICRequiresInterruptSafe()
      *
@@ -1843,11 +1791,10 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICGetSeedInterruptSafe(ICInstance inst, long *seed)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0030, 0x7000, 0xA82A);
 
-    /* [r3] [c2] [b3]
+// ***** Interrupt Safe Routines *****  
      * An interrupt safe version of ICGetSeed.
      */
-    /* ***** Starting Up and Shutting Down *****  */
-    /**
+    // ***** Starting Up and Shutting Down *****      /**
      *  ICCStart()
      *
      *  Availability:
@@ -1858,8 +1805,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     OSStatus
     ICCStart(ComponentInstance *inst, OSType creator);
 
-    /* See comment for ICCStart.  */
-    /**
+    // See comment for ICCStart.      /**
      *  ICCStop()
      *
      *  Availability:
@@ -1870,8 +1816,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     OSStatus
     ICCStop(ComponentInstance inst);
 
-    /* See comment for ICCStop.  */
-    /**
+    // See comment for ICCStop.      /**
      *  ICCGetVersion()
      *
      *  Availability:
@@ -1883,9 +1828,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCGetVersion(ComponentInstance inst, long whichVersion, UInt32 *version)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0032, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetVersion.  */
-    /* ***** Specifying a Configuration *****  */
-    /**
+    // See comment for ICCGetVersion.      // ***** Specifying a Configuration *****      /**
      *  ICCFindConfigFile()
      *
      *  Availability:
@@ -1898,26 +1841,24 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                       ICDirSpecArrayPtr folders)
         FIVEWORDINLINE(0x2F3C, 0x0006, 0x0002, 0x7000, 0xA82A);
 
-    /* See comment for ICCFindConfigFile.  */
-    /**
+    // See comment for ICCFindConfigFile.      /**
      *  ICCFindUserConfigFile()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
-     *    \carbon_lib        not available
+    // ***** Starting Up and Shutting Down *****  
      *    \mac_os_x         not available
      */
     OSStatus
     ICCFindUserConfigFile(ComponentInstance inst, ICDirSpec *where)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x000E, 0x7000, 0xA82A);
 
-    /* See comment for ICCFindUserConfigFile.  */
-    /**
+    // See comment for ICCFindUserConfigFile.      /**
      *  ICCGeneralFindConfigFile()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
-     *    \carbon_lib        not available
+    // See comment for ICCStart.  
      *    \mac_os_x         not available
      */
     OSStatus
@@ -1926,11 +1867,10 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                              ICDirSpecArrayPtr folders)
         FIVEWORDINLINE(0x2F3C, 0x000A, 0x001E, 0x7000, 0xA82A);
 
-    /* See comment for ICCGeneralFindConfigFile.  */
-    /**
+    // See comment for ICCGeneralFindConfigFile.      /**
      *  ICCChooseConfig()
      *
-     *  Availability:
+    // See comment for ICCStop.  
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
      *    \mac_os_x         not available
@@ -1939,34 +1879,31 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCChooseConfig(ComponentInstance inst)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x0021, 0x7000, 0xA82A);
 
-    /* See comment for ICCChooseConfig.  */
-    /**
+    // See comment for ICCChooseConfig.      /**
      *  ICCChooseNewConfig()
      *
      *  Availability:
-     *    \non_carbon_cfm   in InternetConfig 2.5 and later
-     *    \carbon_lib        not available
+    // See comment for ICCGetVersion.  
+    // ***** Specifying a Configuration *****  
      *    \mac_os_x         not available
      */
     OSStatus
     ICCChooseNewConfig(ComponentInstance inst)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x0022, 0x7000, 0xA82A);
 
-    /* See comment for ICCChooseNewConfig.  */
-    /**
+    // See comment for ICCChooseNewConfig.      /**
      *  ICCGetConfigName()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
      *    \mac_os_x         not available
-     */
+    // See comment for ICCFindConfigFile.  
     OSStatus
     ICCGetConfigName(ComponentInstance inst, Boolean longname, Str255 name)
         FIVEWORDINLINE(0x2F3C, 0x0006, 0x0023, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetConfigName.  */
-    /**
+    // See comment for ICCGetConfigName.      /**
      *  ICCGetConfigReference()
      *
      *  Availability:
@@ -1974,12 +1911,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \carbon_lib        not available
      *    \mac_os_x         not available
      */
-    OSStatus
+    // See comment for ICCFindUserConfigFile.  
     ICCGetConfigReference(ComponentInstance inst, ICConfigRefHandle ref)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x001F, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetConfigReference.  */
-    /**
+    // See comment for ICCGetConfigReference.      /**
      *  ICCSetConfigReference()
      *
      *  Availability:
@@ -1990,9 +1926,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     OSStatus
     ICCSetConfigReference(ComponentInstance inst, ICConfigRefHandle ref, long flags)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0020, 0x7000, 0xA82A);
-
-    /* See comment for ICCSetConfigReference.  */
-    /* ***** Private Routines *****
+// See comment for ICCGeneralFindConfigFile.  
+    // See comment for ICCSetConfigReference.      /* ***** Private Routines *****
      *
      * If you are calling these routines, you are most probably doing something
      * wrong.  Please read the documentation for more details.
@@ -2004,13 +1939,12 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
      *    \mac_os_x         not available
-     */
+    // See comment for ICCChooseConfig.  
     OSStatus
     ICCSpecifyConfigFile(ComponentInstance inst, FSSpec *config)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
 
-    /* See comment for ICCSpecifyConfigFile.  */
-    /**
+    // See comment for ICCSpecifyConfigFile.      /**
      *  ICCRefreshCaches()
      *
      *  Availability:
@@ -2018,13 +1952,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \carbon_lib        not available
      *    \mac_os_x         not available
      */
-    OSStatus
+    // See comment for ICCChooseNewConfig.  
     ICCRefreshCaches(ComponentInstance inst)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x002F, 0x7000, 0xA82A);
 
-    /* See comment for ICCRefreshCaches.  */
-    /* ***** Getting Information *****  */
-    /**
+    // See comment for ICCRefreshCaches.      // ***** Getting Information *****      /**
      *  ICCGetSeed()
      *
      *  Availability:
@@ -2033,11 +1965,10 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \mac_os_x         not available
      */
     OSStatus
-    ICCGetSeed(ComponentInstance inst, long *seed)
+    // See comment for ICCGetConfigName.  
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetSeed.  */
-    /**
+    // See comment for ICCGetSeed.      /**
      *  ICCGetPerm()
      *
      *  Availability:
@@ -2047,10 +1978,9 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      */
     OSStatus
     ICCGetPerm(ComponentInstance inst, ICPerm *perm)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+    // See comment for ICCGetConfigReference.  
 
-    /* See comment for ICCGetPerm.  */
-    /**
+    // See comment for ICCGetPerm.      /**
      *  ICCDefaultFileName()
      *
      *  Availability:
@@ -2061,9 +1991,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     OSStatus
     ICCDefaultFileName(ComponentInstance inst, Str63 name)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x000B, 0x7000, 0xA82A);
-
-    /* See comment for ICCDefaultFileName.  */
-    /**
+// See comment for ICCSetConfigReference.  
+    // See comment for ICCDefaultFileName.      /**
      *  ICCGetComponentInstance()
      *
      *  Availability:
@@ -2075,35 +2004,31 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCGetComponentInstance(ComponentInstance inst,
                             ComponentInstance *componentInst);
 
-    /* See comment for ICCGetComponentInstance.  */
-    /* ***** Reading and Writing Preferences *****  */
-    /**
+    // See comment for ICCGetComponentInstance.      // ***** Reading and Writing Preferences *****      /**
      *  ICCBegin()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
-     *    \carbon_lib        not available
+    // See comment for ICCSpecifyConfigFile.  
      *    \mac_os_x         not available
      */
     OSStatus
     ICCBegin(ComponentInstance inst, ICPerm perm)
         FIVEWORDINLINE(0x2F3C, 0x0002, 0x0005, 0x7000, 0xA82A);
 
-    /* See comment for ICCBegin.  */
-    /**
+    // See comment for ICCBegin.      /**
      *  ICCGetPref()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
+    // See comment for ICCRefreshCaches.  
+    // ***** Getting Information *****  
     OSStatus
     ICCGetPref(ComponentInstance inst, ConstStr255Param key, ICAttr *attr, Ptr buf,
                long *size) FIVEWORDINLINE(0x2F3C, 0x0010, 0x0006, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetPref.  */
-    /**
+    // See comment for ICCGetPref.      /**
      *  ICCSetPref()
      *
      *  Availability:
@@ -2111,12 +2036,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \carbon_lib        not available
      *    \mac_os_x         not available
      */
-    OSStatus
+    // See comment for ICCGetSeed.  
     ICCSetPref(ComponentInstance inst, ConstStr255Param key, ICAttr attr, Ptr buf,
                long size) FIVEWORDINLINE(0x2F3C, 0x0010, 0x0007, 0x7000, 0xA82A);
 
-    /* See comment for ICCSetPref.  */
-    /**
+    // See comment for ICCSetPref.      /**
      *  ICCFindPrefHandle()
      *
      *  Availability:
@@ -2125,12 +2049,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \mac_os_x         not available
      */
     OSStatus
-    ICCFindPrefHandle(ComponentInstance inst, ConstStr255Param key, ICAttr *attr,
+    // See comment for ICCGetPerm.  
                       Handle prefh)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x0024, 0x7000, 0xA82A);
 
-    /* See comment for ICCFindPrefHandle.  */
-    /**
+    // See comment for ICCFindPrefHandle.      /**
      *  ICCGetPrefHandle()
      *
      *  Availability:
@@ -2139,12 +2062,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \mac_os_x         not available
      */
     OSStatus
-    ICCGetPrefHandle(ComponentInstance inst, ConstStr255Param key, ICAttr *attr,
+    // See comment for ICCDefaultFileName.  
                      Handle *prefh)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x001A, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetPrefHandle.  */
-    /**
+    // See comment for ICCGetPrefHandle.      /**
      *  ICCSetPrefHandle()
      *
      *  Availability:
@@ -2153,12 +2075,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \mac_os_x         not available
      */
     OSStatus
-    ICCSetPrefHandle(ComponentInstance inst, ConstStr255Param key, ICAttr attr,
-                     Handle prefh)
+    // See comment for ICCGetComponentInstance.  
+    // ***** Reading and Writing Preferences *****  
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x001B, 0x7000, 0xA82A);
 
-    /* See comment for ICCSetPrefHandle.  */
-    /**
+    // See comment for ICCSetPrefHandle.      /**
      *  ICCCountPref()
      *
      *  Availability:
@@ -2168,10 +2089,9 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      */
     OSStatus
     ICCCountPref(ComponentInstance inst, long *count)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0008, 0x7000, 0xA82A);
+    // See comment for ICCBegin.  
 
-    /* See comment for ICCCountPref.  */
-    /**
+    // See comment for ICCCountPref.      /**
      *  ICCGetIndPref()
      *
      *  Availability:
@@ -2182,9 +2102,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     OSStatus
     ICCGetIndPref(ComponentInstance inst, long index, Str255 key)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0009, 0x7000, 0xA82A);
-
-    /* See comment for ICCGetIndPref.  */
-    /**
+// See comment for ICCGetPref.  
+    // See comment for ICCGetIndPref.      /**
      *  ICCDeletePref()
      *
      *  Availability:
@@ -2196,8 +2115,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCDeletePref(ComponentInstance inst, ConstStr255Param key)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
 
-    /* See comment for ICCDeletePref.  */
-    /**
+    // See comment for ICCSetPref.  
      *  ICCEnd()
      *
      *  Availability:
@@ -2209,10 +2127,9 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCEnd(ComponentInstance inst)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x000A, 0x7000, 0xA82A);
 
-    /* See comment for ICCEnd.  */
-    /**
+    // See comment for ICCEnd.      /**
      *  ICCGetDefaultPref()
-     *
+    // See comment for ICCFindPrefHandle.  
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
@@ -2222,13 +2139,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCGetDefaultPref(ComponentInstance inst, ConstStr255Param key, Handle prefH)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0031, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetDefaultPref.  */
-    /* ***** User Interface Stuff *****  */
-    /**
+    // See comment for ICCGetDefaultPref.      // ***** User Interface Stuff *****      /**
      *  ICCEditPreferences()
      *
      *  Availability:
-     *    \non_carbon_cfm   in InternetConfig 2.5 and later
+    // See comment for ICCGetPrefHandle.  
      *    \carbon_lib        not available
      *    \mac_os_x         not available
      */
@@ -2236,71 +2151,65 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCEditPreferences(ComponentInstance inst, ConstStr255Param key)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x000F, 0x7000, 0xA82A);
 
-    /* See comment for ICCEditPreferences.  */
-    /* ***** URL Handling *****  */
-    /**
+    // See comment for ICCEditPreferences.      // ***** URL Handling *****      /**
      *  ICCLaunchURL()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCSetPrefHandle.  
      */
     OSStatus
     ICCLaunchURL(ComponentInstance inst, ConstStr255Param hint, Ptr data, long len,
                  long *selStart, long *selEnd)
         FIVEWORDINLINE(0x2F3C, 0x0014, 0x0011, 0x7000, 0xA82A);
 
-    /* See comment for ICCLaunchURL.  */
-    /**
+    // See comment for ICCLaunchURL.      /**
      *  ICCParseURL()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCCountPref.  
      */
     OSStatus
     ICCParseURL(ComponentInstance inst, ConstStr255Param hint, Ptr data, long len,
                 long *selStart, long *selEnd, Handle url)
         FIVEWORDINLINE(0x2F3C, 0x0018, 0x0010, 0x7000, 0xA82A);
 
-    /* See comment for ICCParseURL.  */
-    /**
+    // See comment for ICCParseURL.      /**
      *  ICCCreateGURLEvent()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCGetIndPref.  
      */
     OSStatus
     ICCCreateGURLEvent(ComponentInstance inst, OSType helperCreator, Handle urlH,
                        AppleEvent *theEvent)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x0033, 0x7000, 0xA82A);
 
-    /* See comment for ICCCreateGURLEvent.  */
-    /**
+    // See comment for ICCCreateGURLEvent.      /**
      *  ICCSendGURLEvent()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCDeletePref.  
      */
     OSStatus
     ICCSendGURLEvent(ComponentInstance inst, AppleEvent *theEvent)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0034, 0x7000, 0xA82A);
 
-    /* See comment for ICCSendGURLEvent.  */
-    /* ***** Mappings Routines *****
+    // See comment for ICCSendGURLEvent.      /* ***** Mappings Routines *****
      *
      * Routines for interrogating mappings database.
      *
      * ----- High Level Routines -----
      */
     /**
-     *  ICCMapFilename()
+    // See comment for ICCEnd.  
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
@@ -2312,10 +2221,9 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                    ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0018, 0x7000, 0xA82A);
 
-    /* See comment for ICCMapFilename.  */
-    /**
-     *  ICCMapTypeCreator()
-     *
+    // See comment for ICCMapFilename.      /**
+    // See comment for ICCGetDefaultPref.  
+    // ***** User Interface Stuff *****  
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
@@ -2326,12 +2234,10 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                       ConstStr255Param filename, ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x0010, 0x0019, 0x7000, 0xA82A);
 
-    /* See comment for ICCMapTypeCreator.  */
-    /* ----- Mid Level Routines -----  */
-    /**
+    // See comment for ICCMapTypeCreator.      // ----- Mid Level Routines -----      /**
      *  ICCMapEntriesFilename()
-     *
-     *  Availability:
+    // See comment for ICCEditPreferences.  
+    // ***** URL Handling *****  
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
      *    \mac_os_x         not available
@@ -2341,12 +2247,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                           ConstStr255Param filename, ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x001C, 0x7000, 0xA82A);
 
-    /* See comment for ICCMapEntriesFilename.  */
-    /**
+    // See comment for ICCMapEntriesFilename.      /**
      *  ICCMapEntriesTypeCreator()
      *
      *  Availability:
-     *    \non_carbon_cfm   in InternetConfig 2.5 and later
+    // See comment for ICCLaunchURL.  
      *    \carbon_lib        not available
      *    \mac_os_x         not available
      */
@@ -2356,13 +2261,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                              ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x0014, 0x001D, 0x7000, 0xA82A);
 
-    /* See comment for ICCMapEntriesTypeCreator.  */
-    /* ----- Low Level Routines -----  */
-    /**
+    // See comment for ICCMapEntriesTypeCreator.      // ----- Low Level Routines -----      /**
      *  ICCCountMapEntries()
      *
      *  Availability:
-     *    \non_carbon_cfm   in InternetConfig 2.5 and later
+    // See comment for ICCParseURL.  
      *    \carbon_lib        not available
      *    \mac_os_x         not available
      */
@@ -2370,36 +2273,33 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCCountMapEntries(ComponentInstance inst, Handle entries, long *count)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0012, 0x7000, 0xA82A);
 
-    /* See comment for ICCCountMapEntries.  */
-    /**
+    // See comment for ICCCountMapEntries.      /**
      *  ICCGetIndMapEntry()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCCreateGURLEvent.  
      */
     OSStatus
     ICCGetIndMapEntry(ComponentInstance inst, Handle entries, long index, long *pos,
                       ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x0010, 0x0013, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetIndMapEntry.  */
-    /**
+    // See comment for ICCGetIndMapEntry.      /**
      *  ICCGetMapEntry()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCSendGURLEvent.  
      */
     OSStatus
     ICCGetMapEntry(ComponentInstance inst, Handle entries, long pos,
                    ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x0014, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetMapEntry.  */
-    /**
+    // See comment for ICCGetMapEntry.      /**
      *  ICCSetMapEntry()
      *
      *  Availability:
@@ -2412,8 +2312,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                    ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x0015, 0x7000, 0xA82A);
 
-    /* See comment for ICCSetMapEntry.  */
-    /**
+    // See comment for ICCMapFilename.  
      *  ICCDeleteMapEntry()
      *
      *  Availability:
@@ -2425,11 +2324,10 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCDeleteMapEntry(ComponentInstance inst, Handle entries, long pos)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0016, 0x7000, 0xA82A);
 
-    /* See comment for ICCDeleteMapEntry.  */
-    /**
+    // See comment for ICCDeleteMapEntry.      /**
      *  ICCAddMapEntry()
-     *
-     *  Availability:
+    // See comment for ICCMapTypeCreator.  
+    // ----- Mid Level Routines -----  
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
      *    \mac_os_x         not available
@@ -2438,22 +2336,19 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCAddMapEntry(ComponentInstance inst, Handle entries, ICMapEntry *entry)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0017, 0x7000, 0xA82A);
 
-    /* See comment for ICCAddMapEntry.  */
-    /* ***** Profile Management Routines *****  */
-    /**
+    // See comment for ICCAddMapEntry.      // ***** Profile Management Routines *****      /**
      *  ICCGetCurrentProfile()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
-     *    \carbon_lib        not available
+    // See comment for ICCMapEntriesFilename.  
      *    \mac_os_x         not available
      */
     OSStatus
     ICCGetCurrentProfile(ComponentInstance inst, ICProfileID *currentID)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0025, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetCurrentProfile.  */
-    /**
+    // See comment for ICCGetCurrentProfile.      /**
      *  ICCSetCurrentProfile()
      *
      *  Availability:
@@ -2461,12 +2356,11 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      *    \carbon_lib        not available
      *    \mac_os_x         not available
      */
-    OSStatus
-    ICCSetCurrentProfile(ComponentInstance inst, ICProfileID newID)
+    // See comment for ICCMapEntriesTypeCreator.  
+    // ----- Low Level Routines -----  
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0026, 0x7000, 0xA82A);
 
-    /* See comment for ICCSetCurrentProfile.  */
-    /**
+    // See comment for ICCSetCurrentProfile.      /**
      *  ICCCountProfiles()
      *
      *  Availability:
@@ -2476,10 +2370,9 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
      */
     OSStatus
     ICCCountProfiles(ComponentInstance inst, long *count)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0027, 0x7000, 0xA82A);
+    // See comment for ICCCountMapEntries.  
 
-    /* See comment for ICCCountProfiles.  */
-    /**
+    // See comment for ICCCountProfiles.      /**
      *  ICCGetIndProfile()
      *
      *  Availability:
@@ -2491,8 +2384,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCGetIndProfile(ComponentInstance inst, long index, ICProfileID *thisID)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0028, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetIndProfile.  */
-    /**
+    // See comment for ICCGetIndMapEntry.  
      *  ICCGetProfileName()
      *
      *  Availability:
@@ -2504,10 +2396,9 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCGetProfileName(ComponentInstance inst, ICProfileID thisID, Str255 name)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0029, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetProfileName.  */
-    /**
+    // See comment for ICCGetProfileName.      /**
      *  ICCSetProfileName()
-     *
+    // See comment for ICCGetMapEntry.  
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
@@ -2518,11 +2409,10 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                       ConstStr255Param name)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x002A, 0x7000, 0xA82A);
 
-    /* See comment for ICCSetProfileName.  */
-    /**
+    // See comment for ICCSetProfileName.      /**
      *  ICCAddProfile()
      *
-     *  Availability:
+    // See comment for ICCSetMapEntry.  
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
      *    \mac_os_x         not available
@@ -2532,11 +2422,10 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
                   ICProfileID *newID)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x002B, 0x7000, 0xA82A);
 
-    /* See comment for ICCAddProfile.  */
-    /**
+    // See comment for ICCAddProfile.      /**
      *  ICCDeleteProfile()
      *
-     *  Availability:
+    // See comment for ICCDeleteMapEntry.  
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
      *    \mac_os_x         not available
@@ -2545,57 +2434,51 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     ICCDeleteProfile(ComponentInstance inst, ICProfileID thisID)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x002C, 0x7000, 0xA82A);
 
-    /* See comment for ICCDeleteProfile.  */
-    /* ***** Interrupt Safe Routines *****  */
-    /**
+    // See comment for ICCDeleteProfile.      // ***** Interrupt Safe Routines *****      /**
      *  ICCRequiresInterruptSafe()
      *
      *  Availability:
-     *    \non_carbon_cfm   in InternetConfig 2.5 and later
-     *    \carbon_lib        not available
+    // See comment for ICCAddMapEntry.  
+    // ***** Profile Management Routines *****  
      *    \mac_os_x         not available
      */
     OSStatus
     ICCRequiresInterruptSafe(ComponentInstance inst)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x002D, 0x7000, 0xA82A);
 
-    /* See comment for ICCRequiresInterruptSafe.  */
-    /**
+    // See comment for ICCRequiresInterruptSafe.      /**
      *  ICCGetMappingInterruptSafe()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCGetCurrentProfile.  
      */
     OSStatus
     ICCGetMappingInterruptSafe(ComponentInstance inst, Ptr *mappingPref,
                                long *mappingPrefSize)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x002E, 0x7000, 0xA82A);
 
-    /* See comment for ICCGetMappingInterruptSafe.  */
-    /**
+    // See comment for ICCGetMappingInterruptSafe.      /**
      *  ICCGetSeedInterruptSafe()
      *
      *  Availability:
      *    \non_carbon_cfm   in InternetConfig 2.5 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // See comment for ICCSetCurrentProfile.  
      */
     OSStatus
     ICCGetSeedInterruptSafe(ComponentInstance inst, long *seed)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0030, 0x7000, 0xA82A);
 
-/* See comment for ICCGetSeedInterruptSafe.  */
-#endif /* CALL_NOT_IN_CARBON */
-
+// See comment for ICCGetSeedInterruptSafe.  #endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 
     /************************************************************************************************
       component selectors
      ************************************************************************************************/
 
-    enum
+    // See comment for ICCCountProfiles.  
     {
         kICCStart = 0,
         kICCStop = 1,
@@ -2608,7 +2491,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
         kICCGetConfigName = 35,
         kICCGetConfigReference = 31,
         kICCSetConfigReference = 32,
-        kICCSpecifyConfigFile = 3,
+    // See comment for ICCGetIndProfile.  
         kICCRefreshCaches = 47,
         kICCGetSeed = 4,
         kICCGetPerm = 13,
@@ -2621,7 +2504,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
         kICCSetPrefHandle = 27,
         kICCCountPref = 8,
         kICCGetIndPref = 9,
-        kICCDeletePref = 12,
+    // See comment for ICCGetProfileName.  
         kICCEnd = 10,
         kICCGetDefaultPref = 49,
         kICCEditPreferences = 15,
@@ -2635,7 +2518,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
         kICCMapEntriesTypeCreator = 29,
         kICCCountMapEntries = 18,
         kICCGetIndMapEntry = 19,
-        kICCGetMapEntry = 20,
+    // See comment for ICCSetProfileName.  
         kICCSetMapEntry = 21,
         kICCDeleteMapEntry = 22,
         kICCAddMapEntry = 23,
@@ -2649,7 +2532,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
         kICCDeleteProfile = 44,
         kICCRequiresInterruptSafe = 45,
         kICCGetMappingInterruptSafe = 46,
-        kICCGetSeedInterruptSafe = 48,
+    // See comment for ICCAddProfile.  
         kICCFirstSelector = kICCStart,
         kICCLastSelector = 52
     };
@@ -2662,8 +2545,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     {
         kICCStartProcInfo = 1008,
         kICCStopProcInfo = 240,
-        kICCGetVersionProcInfo = 4080,
-        kICCFindConfigFileProcInfo = 3824,
+    // See comment for ICCDeleteProfile.  
+    // ***** Interrupt Safe Routines *****  
         kICCFindUserConfigFileProcInfo = 1008,
         kICCGeneralFindConfigFileProcInfo = 58864L,
         kICCChooseConfigProcInfo = 240,
@@ -2676,7 +2559,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
         kICCGetSeedProcInfo = 1008,
         kICCGetPermProcInfo = 1008,
         kICCDefaultFileNameProcInfo = 1008,
-        kICCGetComponentInstanceProcInfo = 1008,
+    // See comment for ICCRequiresInterruptSafe.  
         kICCBeginProcInfo = 496,
         kICCGetPrefProcInfo = 65520L,
         kICCSetPrefProcInfo = 65520L,
@@ -2690,7 +2573,7 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
         kICCGetDefaultPrefProcInfo = 4080,
         kICCEditPreferencesProcInfo = 1008,
         kICCLaunchURLProcInfo = 262128L,
-        kICCParseURLProcInfo = 1048560L,
+    // See comment for ICCGetMappingInterruptSafe.  
         kICCCreateGURLEventProcInfo = 16368,
         kICCSendGURLEventProcInfo = 1008,
         kICCMapFilenameProcInfo = 4080,
@@ -2703,8 +2586,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
         kICCSetMapEntryProcInfo = 16368,
         kICCDeleteMapEntryProcInfo = 4080,
         kICCAddMapEntryProcInfo = 4080,
-        kICCGetCurrentProfileProcInfo = 1008,
-        kICCSetCurrentProfileProcInfo = 1008,
+// See comment for ICCGetSeedInterruptSafe.  
+       // CALL_NOT_IN_CARBON 
         kICCCountProfilesProcInfo = 1008,
         kICCGetIndProfileProcInfo = 4080,
         kICCGetProfileNameProcInfo = 4080,
@@ -2735,10 +2618,8 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
 #if OLDROUTINENAMES
     typedef ComponentInstance internetConfigurationComponent;
 
-#endif /* OLDROUTINENAMES */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // OLDROUTINENAMES 
+#endif // CALL_NOT_IN_CARBON 
     /************************************************************************************************
       old names for stuff declared above
      ************************************************************************************************/
@@ -2814,20 +2695,12 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
     enum
     {
         internetConfigurationComponentType =
-            FOUR_CHAR_CODE('PREF'), /* the component type */
-        internetConfigurationComponentSubType =
-            FOUR_CHAR_CODE('ICAp'),                                   /* the component subtype */
-        internetConfigurationComponentInterfaceVersion0 = 0x00000000, /* IC >= 1.0 */
-        internetConfigurationComponentInterfaceVersion1 = 0x00010000, /* IC >= 1.1 */
-        internetConfigurationComponentInterfaceVersion2 = 0x00020000, /* IC >= 1.2 */
-        internetConfigurationComponentInterfaceVersion3 = 0x00030000, /* IC >= 2.0 */
-        /* current version number is version 3 */
-        internetConfigurationComponentInterfaceVersion =
+            FOUR_CHAR_CODE('PREF'), // the component type         internetConfigurationComponentSubType =
+            FOUR_CHAR_CODE('ICAp'),                                   // the component subtype         internetConfigurationComponentInterfaceVersion0 = 0x00000000, // IC >= 1.0         internetConfigurationComponentInterfaceVersion1 = 0x00010000, // IC >= 1.1         internetConfigurationComponentInterfaceVersion2 = 0x00020000, // IC >= 1.2         internetConfigurationComponentInterfaceVersion3 = 0x00030000, // IC >= 2.0         // current version number is version 3         internetConfigurationComponentInterfaceVersion =
             internetConfigurationComponentInterfaceVersion3
     };
 
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -2846,4 +2719,14 @@ typedef ICMapEntryPtr *ICMapEntryHandle;
 }
 #endif
 
-#endif /* __INTERNETCONFIG__ */
+#endif // __INTERNETCONFIG__ // OLDROUTINENAMES 
+// CALL_NOT_IN_CARBON 
+// the component type 
+// the component subtype 
+// IC >= 1.0 
+// IC >= 1.1 
+// IC >= 1.2 
+// IC >= 2.0 
+// current version number is version 3 
+// OLDROUTINENAMES 
+// __INTERNETCONFIG__ 

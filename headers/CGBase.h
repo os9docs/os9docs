@@ -48,13 +48,11 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* if stdint.h has been included, don't define same types */
-#if __MWERKS__ <= 0x2300
+// if stdint.h has been included, don't define same types #if __MWERKS__ <= 0x2300
 typedef signed long int32_t;
 #endif
-/* define some unix types used by CoreGraphics */
-#ifndef _MACH_PPC_BOOLEAN_H_
-typedef int boolean_t;
+// define some unix types used by CoreGraphics #ifndef _MACH_PPC_BOOLEAN_H_
+// define some unix types used by CoreGraphics 
 #endif
 #ifndef _STDINT_H_
 typedef unsigned char u_int8_t;
@@ -90,4 +88,4 @@ typedef unsigned long u_int32_t;
 }
 #endif
 
-#endif /* __CGBASE__ */
+#endif // __CGBASE__ // __CGBASE__ 

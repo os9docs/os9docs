@@ -59,12 +59,10 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* ************* Constants ************* */
-
+// ************* Constants ************* 
 enum {
-  /* Flags */
-  kUSBTaskTimeFlag = 1,
-  kUSBHubPower = 2,
+  // Flags   kUSBTaskTimeFlag = 1,
+  // Flags 
   kUSBPowerReset = 4,
   kUSBHubReaddress = 8,
   kUSBAddressRequest = 16,
@@ -81,19 +79,17 @@ enum {
 };
 
 enum {
-  /* Hub messages */
-  kUSBHubPortResetRequest = 1,
+  // Hub messages   kUSBHubPortResetRequest = 1,
   kUSBHubPortSuspendRequest = 2,
-  kUSBHubPortStatusRequest = 3
+  // Hub messages 
 };
 
 enum { kVendorID_AppleComputer = 0x05AC };
 
-/* ************* types ************* */
-
+// ************* types ************* 
 typedef SInt32 USBReference;
 typedef USBReference USBDeviceRef;
-typedef USBDeviceRef *USBDeviceRefPtr;
+// ************* types ************* 
 typedef USBReference USBInterfaceRef;
 typedef USBReference USBPipeRef;
 typedef USBReference USBBusRef;
@@ -123,12 +119,11 @@ struct USBIsocFrame {
 typedef struct USBIsocFrame USBIsocFrame;
 enum {
   kUSBMaxIsocFrameReqCount =
-      1023 /* maximum size (bytes) of any one Isoc frame*/
-};
+      1023 // maximum size (bytes) of any one Isoc frame};
 
 struct usbIsocBits {
   USBIsocFrame *FrameList;
-  UInt32 NumFrames;
+  UInt32 Nu// maximum size (bytes) of any one Isoc frame
 };
 typedef struct usbIsocBits usbIsocBits;
 struct usbHubBits {
@@ -199,25 +194,21 @@ struct uslReq {
 typedef struct uslReq uslReq;
 
 enum {
-  /* BT 19Aug98, bump up to v1.10 for Isoc*/
-  kUSBCurrentPBVersion = 0x0100, /* v1.00*/
-  kUSBIsocPBVersion = 0x0109,    /* v1.10*/
-  kUSBCurrentHubPB = kUSBIsocPBVersion
+  // BT 19Aug98, bump up to v1.10 for Isoc  kUSBCurrentPBVersion = 0x0100, // v1.00  kUSBIsocPBVersion = 0x0109,    // v1.10  kUSBCurrentHubPB = kUSBIsocPBVersion
 };
 
 #define kUSBNoCallBack ((USBCompletion)-1L)
 
-typedef UInt8 bcdUSB;
-enum {
-  kUSBControl = 0,
+ty// BT 19Aug98, bump up to v1.10 for Isoc
+enum {// v1.00
+  kUSBControl = 0,// v1.10
   kUSBIsoc = 1,
   kUSBBulk = 2,
   kUSBInterrupt = 3,
   kUSBAnyType = 0xFF
 };
 
-/* endpoint type */
-enum { kUSBOut = 0, kUSBIn = 1, kUSBNone = 2, kUSBAnyDirn = 3 };
+// endpoint type enum { kUSBOut = 0, kUSBIn = 1, kUSBNone = 2, kUSBAnyDirn = 3 };
 
 /*USBDirection*/
 enum { kUSBStandard = 0, kUSBClass = 1, kUSBVendor = 2 };
@@ -225,7 +216,7 @@ enum { kUSBStandard = 0, kUSBClass = 1, kUSBVendor = 2 };
 /*USBRqType*/
 enum { kUSBDevice = 0, kUSBInterface = 1, kUSBEndpoint = 2, kUSBOther = 3 };
 
-/*USBRqRecipient*/
+// endpoint type 
 enum {
   kUSBRqGetStatus = 0,
   kUSBRqClearFeature = 1,
@@ -256,31 +247,25 @@ enum {
   kUSBHUBDesc = 0x29
 };
 
-/* descriptorType */
-
+// descriptorType 
 enum { kUSBFeatureDeviceRemoteWakeup = 1, kUSBFeatureEndpointStall = 0 };
 
-/* Feature selectors */
-enum {
-  kUSBActive = 0,     /* Pipe can accept new transactions*/
-  kUSBIdle = 1,       /* Pipe will not accept new transactions*/
-  kUSBStalled = 2,    /* An error occured on the pipe*/
-  kUSBSuspended = 4,  /* Device is suspended*/
-  kUSBNoBandwidth = 8 /* (Isoc or Int) Pipe could not be initialised due to
+// Feature selectors enum {
+  kUSBActive = 0,     // Pipe can accept new transactions  kUSBIdle = 1,       // Pipe will not accept new transactions  kUSBStalled = 2,    // An error occured on the pipe  kUSBSuspended = 4,  // Device is suspended  kUSBNoBandwidth = 8 /* (Isoc or Int) Pipe could not be initialised due to
                          bandwidth constraint*/
 };
 
 enum {
-  kUSB100mAAvailable = 50,
+// descriptorType 
   kUSB500mAAvailable = 250,
   kUSB100mA = 50,
   kUSBAtrBusPowered = 0x80,
-  kUSBAtrSelfPowered = 0x40,
+// Feature selectors 
   kUSBAtrRemoteWakeup = 0x20
-};
-
-enum { kUSBRel10 = 0x0100, kUSBRel11 = 0x0110, kUSBRel20 = 0x0200 };
-
+};// Pipe can accept new transactions
+// Pipe will not accept new transactions
+enum { kUSBRel10 = 0x0// An error occured on the pipe
+// Device is suspended
 #define USB_CONSTANT16(x) ((((x) >> 8) & 0x0ff) | ((x & 0xff) << 8))
 enum {
   kUSBDeviceDescriptorLength = 0x12,
@@ -369,14 +354,10 @@ struct USBHIDReportDesc {
 typedef struct USBHIDReportDesc USBHIDReportDesc;
 typedef USBHIDReportDesc *USBHIDReportDescPtr;
 struct USBHubPortStatus {
-  UInt16 portFlags;       /* Port status flags */
-  UInt16 portChangeFlags; /* Port changed flags */
-};
+  UInt16 portFlags;       // Port status flags   UInt16 portChangeFlags; // Port changed flags };
 typedef struct USBHubPortStatus USBHubPortStatus;
 typedef USBHubPortStatus *USBHubPortStatusPtr;
-/* ********* ProtoTypes *************** */
-/* For dealing with endianisms */
-#if CALL_NOT_IN_CARBON
+// ********* ProtoTypes *************** // For dealing with endianisms #if CALL_NOT_IN_CARBON
 /**
  *  HostToUSBWord()
  *
@@ -388,13 +369,13 @@ typedef USBHubPortStatus *USBHubPortStatusPtr;
 UInt16
 HostToUSBWord(UInt16 value);
 
-/**
- *  USBToHostWord()
+/**// Port status flags 
+ *  USBToHostWord()// Port changed flags 
  *
  *  Availability:
  *    \non_carbon_cfm   in USBServicesLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
+// ********* ProtoTypes *************** 
+// For dealing with endianisms 
  */
 UInt16
 USBToHostWord(UInt16 value);
@@ -421,9 +402,7 @@ HostToUSBLong(UInt32 value);
 UInt32
 USBToHostLong(UInt32 value);
 
-/* Main prototypes */
-/* Transfer commands */
-/**
+// Main prototypes // Transfer commands /**
  *  USBDeviceRequest()
  *
  *  Availability:
@@ -442,8 +421,8 @@ USBDeviceRequest(USBPB *pb);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-OSStatus
-USBBulkWrite(USBPB *pb);
+// Main prototypes 
+// Transfer commands 
 
 /**
  *  USBBulkRead()
@@ -500,8 +479,7 @@ USBIsocRead(USBPB *pb);
 OSStatus
 USBIsocWrite(USBPB *pb);
 
-/* Pipe state control */
-/**
+// Pipe state control /**
  *  USBClearPipeStallByReference()
  *
  *  Availability:
@@ -522,7 +500,7 @@ USBClearPipeStallByReference(USBPipeRef ref);
  */
 OSStatus
 USBAbortPipeByReference(USBReference ref);
-
+// Pipe state control 
 /**
  *  USBResetPipeByReference()
  *
@@ -578,8 +556,7 @@ USBClosePipeByReference(USBPipeRef ref);
 OSStatus
 USBGetPipeStatusByReference(USBReference ref, USBPipeState *state);
 
-/* Configuration services */
-/**
+// Configuration services /**
  *  USBFindNextInterface()
  *
  *  Availability:
@@ -601,7 +578,7 @@ USBFindNextInterface(USBPB *pb);
 OSStatus
 USBOpenDevice(USBPB *pb);
 
-/**
+// Configuration services 
  *  USBSetConfiguration()
  *
  *  Availability:
@@ -667,9 +644,7 @@ USBFindNextPipe(USBPB *pb);
 OSStatus
 USBSetPipePolicy(USBPB *pb);
 
-/* Dealing with descriptors. */
-/* Note most of this is temprorary */
-/**
+// Dealing with descriptors. // Note most of this is temprorary /**
  *  USBGetConfigurationDescriptor()
  *
  *  Availability:
@@ -692,8 +667,8 @@ OSStatus
 USBGetFullConfigurationDescriptor(USBPB *pb);
 
 /**
- *  USBGetStringDescriptor()
- *
+// Dealing with descriptors. 
+// Note most of this is temprorary 
  *  Availability:
  *    \non_carbon_cfm   in USBServicesLib 1.0 and later
  *    \carbon_lib        not available
@@ -735,8 +710,7 @@ USBFindNextInterfaceDescriptorImmediate(USBPB *pb);
 OSStatus
 USBFindNextAssociatedDescriptor(USBPB *pb);
 
-/* Utility functions */
-/**
+// Utility functions /**
  *  USBResetDevice()
  *
  *  Availability:
@@ -761,7 +735,7 @@ USBPortStatus(USBPB *pb);
 /**
  *  USBSuspendDevice()
  *
- *  Availability:
+// Utility functions 
  *    \non_carbon_cfm   in USBServicesLib 1.3 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -846,8 +820,7 @@ USBAllocMem(USBPB *pb);
 OSStatus
 USBDeallocMem(USBPB *pb);
 
-/* Expert interface functions */
-/**
+// Expert interface functions /**
  *  USBExpertInstallInterfaceDriver()
  *
  *  Availability:
@@ -873,7 +846,7 @@ USBExpertRemoveInterfaceDriver(USBDeviceRef ref);
 
 /**
  *  USBExpertInstallDeviceDriver()
- *
+// Expert interface functions 
  *  Availability:
  *    \non_carbon_cfm   in USBServicesLib 1.0 and later
  *    \carbon_lib        not available
@@ -976,8 +949,7 @@ USBExpertSetDevicePowerStatus(USBDeviceRef ref, UInt32 reserved1,
                               UInt32 reserved2, UInt32 powerStatus,
                               UInt32 busPowerAvailable, UInt32 busPowerNeeded);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
   kUSBDevicePower_PowerOK = 0,
   kUSBDevicePower_BusPowerInsufficient = 1,
@@ -992,8 +964,7 @@ enum {
   kUSBDevicePower_Reserved4 = 10
 };
 
-/* For hubs only */
-#if CALL_NOT_IN_CARBON
+// For hubs only #if CALL_NOT_IN_CARBON
 /**
  *  USBHubAddDevice()
  *
@@ -1005,7 +976,7 @@ enum {
 OSStatus
 USBHubAddDevice(USBPB *pb);
 
-/**
+/**// CALL_NOT_IN_CARBON 
  *  USBHubConfigurePipeZero()
  *
  *  Availability:
@@ -1021,7 +992,7 @@ USBHubConfigurePipeZero(USBPB *pb);
  *
  *  Availability:
  *    \non_carbon_cfm   in USBServicesLib 1.0 and later
- *    \carbon_lib        not available
+// For hubs only 
  *    \mac_os_x         not available
  */
 OSStatus
@@ -1060,8 +1031,7 @@ USBMakeBMRequestType(UInt8 direction, UInt8 reqtype, UInt8 recipient);
 OSStatus
 USBControlRequest(USBPB *pb);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef UInt32 USBLocationID;
 enum {
   kUSBLocationNibbleFormat =
@@ -1071,8 +1041,7 @@ enum {
 
 enum { kNoDeviceRef = -1 };
 
-/* Status Level constants*/
-/**
+// Status Level constants/**
 Level 1: Fatal errors
 Level 2: General errors that may or may not effect operation
 Level 3: General driver messages.  The "AddStatus" call that drivers use comes
@@ -1088,11 +1057,10 @@ enum {
   kUSBStatusLevelVerbose = 5
 };
 
-/* Expert Notification Types*/
-typedef UInt8 USBNotificationType;
+// Expert Notification Typestypedef UInt8 USBNotificationType;
 enum {
   kNotifyAddDevice = 0x00,
-  kNotifyRemoveDevice = 0x01,
+  kNoti// CALL_NOT_IN_CARBON 
   kNotifyAddInterface = 0x02,
   kNotifyRemoveInterface = 0x03,
   kNotifyGetDeviceDescriptor = 0x04,
@@ -1103,7 +1071,7 @@ enum {
   kNotifyRemoveDeviceNotification = 0x09,
   kNotifyDeviceRefToBusRef = 0x0A,
   kNotifyDriverNotify = 0x0C,
-  kNotifyParentNotify = 0x0D,
+// Status Level constants
   kNotifyAnyEvent = 0xFF,
   kNotifyPowerState = 0x17,
   kNotifyStatus = 0x18,
@@ -1120,15 +1088,14 @@ typedef UInt16 USBManagerWildcard;
 enum {
   kUSBAnyClass = 0xFFFF,
   kUSBAnySubClass = 0xFFFF,
-  kUSBAnyProtocol = 0xFFFF,
+// Expert Notification Types
   kUSBAnyVendor = 0xFFFF,
   kUSBAnyProduct = 0xFFFF
 };
 
 struct ExpertNotificationData {
   USBNotificationType notification;
-  UInt8 filler[1]; /* unused due to 2-byte 68k alignment*/
-  USBDeviceRef *deviceRef;
+  UInt8 filler[1]; // unused due to 2-byte 68k alignment  USBDeviceRef *deviceRef;
   UInt32 busPowerAvailable;
   void *data;
   UInt32 info1;
@@ -1136,21 +1103,16 @@ struct ExpertNotificationData {
 };
 typedef struct ExpertNotificationData ExpertNotificationData;
 typedef ExpertNotificationData *ExpertNotificationDataPtr;
-/* Definition of function pointer passed in ExpertEntryProc*/
-typedef CALLBACK_API_C(OSStatus, ExpertNotificationProcPtr)(
+// Definition of function pointer passed in ExpertEntryProctypedef CALLBACK_API_C(OSStatus, ExpertNotificationProcPtr)(
     ExpertNotificationDataPtr pNotificationData);
-/* Definition of expert's callback installation function*/
-typedef CALLBACK_API_C(OSStatus, ExpertEntryProcPtr)(
+// Definition of expert's callback installation functiontypedef CALLBACK_API_C(OSStatus, ExpertEntryProcPtr)(
     ExpertNotificationProcPtr pExpertNotify);
-/* Device Notification Callback Routine*/
-typedef CALLBACK_API_C(void, USBDeviceNotificationCallbackProcPtr)(void *pb);
-/* Device Notification Parameter Block*/
-struct USBDeviceNotificationParameterBlock {
+// Device Notification Callback Routinetypedef CALLBACK_API_C(void, USBDeviceNotificationCallbackProcPtr)(void *pb);
+// Device Notification Parameter Blockstruct USBDeviceNotificationParameterBlock {
   UInt16 pbLength;
   UInt16 pbVersion;
   USBNotificationType usbDeviceNotification;
-  UInt8 reserved1[1]; /* needed because of 2-byte 68k alignment*/
-  USBDeviceRef usbDeviceRef;
+  UInt8 reserved1[1]; // needed because of 2-byte 68k alignment  USBDeviceRef usbDeviceRef;
   UInt16 usbClass;
   UInt16 usbSubClass;
   UInt16 usbProtocol;
@@ -1165,31 +1127,29 @@ typedef struct USBDeviceNotificationParameterBlock
     USBDeviceNotificationParameterBlock;
 typedef USBDeviceNotificationParameterBlock
     *USBDeviceNotificationParameterBlockPtr;
-/* Definition of USBDriverNotificationCallback Routine*/
-typedef CALLBACK_API_C(void, USBDriverNotificationCallbackPtr)(OSStatus status,
+// Definition of US// unused due to 2-byte 68k alignment
                                                                UInt32 refcon);
-/* Public Functions*/
-#if CALL_NOT_IN_CARBON
+// Public Functions#if CALL_NOT_IN_CARBON
 /**
  *  USBGetVersion()
  *
  *  Availability:
  *    \non_carbon_cfm   in USBServicesLib 1.3 and later
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+// Definition of function pointer passed in ExpertEntryProc
  */
 UInt32
-USBGetVersion(void);
+// Definition of expert's callback installation function
 
 /**
- *  USBGetNextDeviceByClass()
+// Device Notification Callback Routine
  *
- *  Availability:
+// Device Notification Parameter Block
  *    \non_carbon_cfm   in USBManagerLib 1.0 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-OSStatus
+OSStatus// needed because of 2-byte 68k alignment
 USBGetNextDeviceByClass(USBDeviceRef *deviceRef, CFragConnectionID *connID,
                         UInt16 theClass, UInt16 theSubClass,
                         UInt16 theProtocol);
@@ -1205,10 +1165,10 @@ USBGetNextDeviceByClass(USBDeviceRef *deviceRef, CFragConnectionID *connID,
 OSStatus
 USBGetDeviceDescriptor(USBDeviceRef *deviceRef,
                        USBDeviceDescriptor *deviceDescriptor, UInt32 size);
-
+// Definition of USBDriverNotificationCallback Routine
 /**
  *  USBGetInterfaceDescriptor()
- *
+// Public Functions
  *  Availability:
  *    \non_carbon_cfm   in USBManagerLib 1.0 and later
  *    \carbon_lib        not available
@@ -1330,32 +1290,24 @@ USBReferenceToRegEntry(RegEntryID *parentEntry, USBDeviceRef parentDeviceRef);
 OSStatus
 USBConfigureADBShim(UInt32 inCommandID, void *arg1, void *arg2);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(void, HIDInterruptProcPtr)(UInt32 refcon, void *theData);
 typedef CALLBACK_API_C(void,
                        HIDNotificationProcPtr)(UInt32 refcon, UInt32 reportSize,
                                                void *theReport,
                                                USBReference theInterfaceRef);
-/* HID Install Interrupt prototype*/
-typedef CALLBACK_API_C(OSStatus, USBHIDInstallInterruptProcPtr)(
+// HID Install Interrupt prototypetypedef CALLBACK_API_C(OSStatus, USBHIDInstallInterruptProcPtr)(
     HIDInterruptProcPtr pInterruptProc, UInt32 refcon);
-/* HID Poll Device prototype*/
-typedef CALLBACK_API_C(OSStatus, USBHIDPollDeviceProcPtr)(void);
-/* HID Control Device prototype*/
-typedef CALLBACK_API_C(OSStatus,
+// HID Poll Device prototypetypedef CALLBACK_API_C(OSStatus, USBHIDPollDeviceProcPtr)(void);
+// HID Control Device prototypetypedef CALLBACK_API_C(OSStatus,
                        USBHIDControlDeviceProcPtr)(UInt32 theControlSelector,
                                                    void *theControlData);
-/* HID Get Device Info prototype*/
-typedef CALLBACK_API_C(OSStatus,
+// HID Get Device Info prototypetypedef CALLBACK_API_C(OSStatus,
                        USBHIDGetDeviceInfoProcPtr)(UInt32 theInfoSelector,
                                                    void *theInfo);
-/* HID Enter Polled Mode prototype*/
-typedef CALLBACK_API_C(OSStatus, USBHIDEnterPolledModeProcPtr)(void);
-/* HID Exit Polled Mode prototype*/
-typedef CALLBACK_API_C(OSStatus, USBHIDExitPolledModeProcPtr)(void);
-/* HID Install Notification prototype*/
-typedef CALLBACK_API_C(OSStatus, USBHIDInstallNotificationProcPtr)(
+// HID Enter Polled Mode prototypetypedef CALLBACK_API_C(OSStatus, USBHIDEnterPolledModeProcPtr)(void);
+// HID Exit Polled Mode prototypetypedef CALLBACK_API_C(OSStatus, USBHIDExitPolledModeProcPtr)(void);
+// HID Install Notification prototypetypedef CALLBACK_API_C(OSStatus, USBHIDInstallNotificationProcPtr)(
     HIDNotificationProcPtr pNotificationProc, UInt32 refcon);
 enum {
   kHIDStandardDispatchVersion = 0,
@@ -1378,32 +1330,31 @@ typedef struct USBHIDRev2DispatchTable USBHIDRev2DispatchTable;
 typedef USBHIDRev2DispatchTable *USBHIDRev2DispatchTablePtr;
 struct USBHIDModuleDispatchTable {
   UInt32 hidDispatchVersion;
-  USBHIDInstallInterruptProcPtr pUSBHIDInstallInterrupt;
+  USBHI// CALL_NOT_IN_CARBON 
   USBHIDPollDeviceProcPtr pUSBHIDPollDevice;
   USBHIDControlDeviceProcPtr pUSBHIDControlDevice;
   USBHIDGetDeviceInfoProcPtr pUSBHIDGetDeviceInfo;
   USBHIDEnterPolledModeProcPtr pUSBHIDEnterPolledMode;
   USBHIDExitPolledModeProcPtr pUSBHIDExitPolledMode;
 };
-typedef struct USBHIDModuleDispatchTable USBHIDModuleDispatchTable;
+// HID Install Interrupt prototype
 typedef USBHIDModuleDispatchTable *USBHIDModuleDispatchTablePtr;
-/*  Prototypes Tue, Mar 17, 1998 4:54:30 PM */
-#if CALL_NOT_IN_CARBON
-/**
+//  Prototypes Tue, Mar 17, 1998 4:54:30 PM #if CALL_NOT_IN_CARBON
+// HID Poll Device prototype
  *  USBHIDInstallInterrupt()
- *
+// HID Control Device prototype
  *  Availability:
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+// HID Get Device Info prototype
  */
 OSStatus
 USBHIDInstallInterrupt(HIDInterruptProcPtr HIDInterruptFunction, UInt32 refcon);
-
+// HID Enter Polled Mode prototype
 /**
- *  USBHIDPollDevice()
+// HID Exit Polled Mode prototype
  *
- *  Availability:
+// HID Install Notification prototype
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -1436,7 +1387,7 @@ USBHIDGetDeviceInfo(UInt32 theInfoSelector, void *theInfo);
 /**
  *  USBHIDEnterPolledMode()
  *
- *  Availability:
+//  Prototypes Tue, Mar 17, 1998 4:54:30 PM 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -1478,8 +1429,7 @@ USBHIDInstallNotification(HIDNotificationProcPtr HIDNotificationFunction,
 void
 HIDNotification(UInt32 devicetype, UInt8 NewHIDData[], UInt8 OldHIDData[]);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
   kHIDRqGetReport = 1,
   kHIDRqGetIdle = 2,
@@ -1506,14 +1456,9 @@ enum {
 };
 
 enum {
-  kHIDGetLEDStateByBits = 1,    /* not supported in 1.0 of keyboard module*/
-  kHIDGetLEDStateByBitMask = 1, /* not supported in 1.0 of keyboard module*/
-  kHIDGetLEDStateByIDNumber = 2,
-  kHIDGetDeviceCountryCode = 3,  /* not supported in 1.0 HID modules*/
-  kHIDGetDeviceUnitsPerInch = 4, /* only supported in mouse HID module*/
-  kHIDGetInterruptHandler = 5,
-  kHIDGetCurrentKeys = 6, /* only supported in keyboard HID module*/
-  kHIDGetInterruptRefcon = 7,
+  kHIDGetLEDStateByBits = 1,    // not supported in 1.0 of keyboard module  kHIDGetLEDStateByBitMask = 1, // not supported in 1.0 of keyboard module  kHIDGetLEDStateByIDNumber = 2,
+  kHIDGetDeviceCountryCode = 3,  // not supported in 1.0 HID modules  kHIDGetDeviceUnitsPerInch = 4, // only supported in mouse HID module  kHIDGetInterruptHandler = 5,
+  kHIDGetCurrentKeys = 6, // only supported in keyboard HID module  kHIDGetInterruptRefcon = 7,
   kHIDGetVendorID = 8,
   kHIDGetProductID = 9
 };
@@ -1533,7 +1478,7 @@ enum {
   kComposeLEDMask = 1 << kComposeLED,
   kKanaLEDMask = 1 << kKanaLED
 };
-
+// CALL_NOT_IN_CARBON 
 enum {
   kUSBCapsLockKey = 0x39,
   kUSBNumLockKey = 0x53,
@@ -1561,18 +1506,17 @@ typedef union USBHIDData USBHIDData;
 typedef USBHIDData *USBHIDDataPtr;
 #if CALL_NOT_IN_CARBON
 /**
- *  StartCompoundClassDriver()
- *
+ *  StartCompoundClassDriver()// not supported in 1.0 of keyboard module
+ *// not supported in 1.0 of keyboard module
  *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+ *    \non_carbon_cfm   not avail// not supported in 1.0 HID modules
+ *    \carbon_lib        not avai// only supported in mouse HID module
  *    \mac_os_x         not available
- */
+ */// only supported in keyboard HID module
 void
 StartCompoundClassDriver(USBDeviceRef device, UInt16 classID, UInt16 subClass);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
   kUSBCompositeClass = 0,
   kUSBAudioClass = 1,
@@ -1610,8 +1554,7 @@ enum {
 };
 
 enum {
-  kServiceCategoryUSB = FOUR_CHAR_CODE('usb ') /* USB*/
-};
+  kServiceCategoryUSB = FOUR_CHAR_CODE('usb ') // USB};
 
 enum {
   kUSBDriverFileType = FOUR_CHAR_CODE('ndrv'),
@@ -1624,56 +1567,32 @@ enum { kTheUSBDriverDescriptionSignature = FOUR_CHAR_CODE('usbd') };
 enum { kInitialUSBDriverDescriptor = 0 };
 
 typedef UInt32 USBDriverDescVersion;
-/*  Driver Loading Options*/
-typedef UInt32 USBDriverLoadingOptions;
+//  Driver Loading Optionstypedef UInt32 USBDriverLoadingOptions;
 enum {
   kUSBDoNotMatchGenericDevice =
-      0x00000001, /* Driver's VendorID must match Device's VendorID*/
-  kUSBDoNotMatchInterface =
-      0x00000002, /* Do not load this driver as an interface driver.*/
-  kUSBProtocolMustMatch =
-      0x00000004, /* Do not load this driver if protocol field doesn't match.*/
-  kUSBInterfaceMatchOnly =
-      0x00000008 /* Only load this driver as an interface driver.*/
-};
+      0x00000001, // Driver's VendorID must match Device's VendorID  kUSBDoNotMatchInterface =
+      0// CALL_NOT_IN_CARBON 
+      0x00000004, // Do not load this driver if protocol field doesn't match.  kUSBInterfaceMatchOnly =
+      0x00000008 // Only load this driver as an interface driver.};
 
 enum { kClassDriverPluginVersion = 0x00001100 };
 
 struct USBDeviceInfo {
-  UInt16 usbVendorID;            /* USB Vendor ID*/
-  UInt16 usbProductID;           /* USB Product ID.*/
-  UInt16 usbDeviceReleaseNumber; /* Release Number of Device*/
-  UInt16 usbDeviceProtocol;      /* Protocol Info.*/
-};
+  UInt16 usbVendorID;            // USB Vendor ID  UInt16 usbProductID;           // USB Product ID.  UInt16 usbDeviceReleaseNumber; // Release Number of Device  UInt16 usbDeviceProtocol;      // Protocol Info.};
 typedef struct USBDeviceInfo USBDeviceInfo;
 typedef USBDeviceInfo *USBDeviceInfoPtr;
 struct USBInterfaceInfo {
-  UInt8 usbConfigValue;       /* Configuration Value*/
-  UInt8 usbInterfaceNum;      /* Interface Number*/
-  UInt8 usbInterfaceClass;    /* Interface Class*/
-  UInt8 usbInterfaceSubClass; /* Interface SubClass*/
-  UInt8 usbInterfaceProtocol; /* Interface Protocol*/
-};
+  UInt8 usbConfigValue;       // Configuration Value  UInt8 usbInterfaceNum;      // Interface Number  UInt8 usbInterfaceClass;    // Interface Class  UInt8 usbInterfaceSubClass; // Interface SubClass  UInt8 usbInterfaceProtocol; // Interface Protocol};
 typedef struct USBInterfaceInfo USBInterfaceInfo;
 typedef USBInterfaceInfo *USBInterfaceInfoPtr;
 struct USBDriverType {
-  Str31 nameInfoStr;    /* Driver's name when loading into the Name Registry.*/
-  UInt8 usbDriverClass; /* USB Class this driver belongs to.*/
-  UInt8 usbDriverSubClass;     /* Module type*/
-  NumVersion usbDriverVersion; /* Class driver version number.*/
-};
+  Str31 nameInfoStr;    // Driver's name when loading into the Name Registry.  UInt8 usbDriverClass; // USB Class this driver belongs to.  UInt8 usbDriverSubClass;     // Module type  NumVersion usbDriverVersion; // Class driver version number.};
 typedef struct USBDriverType USBDriverType;
 typedef USBDriverType *USBDriverTypePtr;
 struct USBDriverDescription {
-  OSType usbDriverDescSignature; /* Signature field of this structure.*/
-  USBDriverDescVersion
-      usbDriverDescVersion;          /* Version of this data structure.*/
-  USBDeviceInfo usbDeviceInfo;       /* Product & Vendor Info*/
-  USBInterfaceInfo usbInterfaceInfo; /* Interface info*/
-  USBDriverType usbDriverType;       /* Driver Info.*/
-  USBDriverLoadingOptions
-      usbDriverLoadingOptions; /* Options for class driver loading.*/
-};
+  OSType usbDriverDescSignature; // Signature field of this structure.  USBDriverDescVersion
+      usbDriverDescVersion;          // Version of this data structure.  USBDeviceInfo usbDeviceInfo;       // Product & Vendor Info  USBInterfaceInfo usbInterfaceInfo; // Interface info  USBDriverType usbDriverType;       // Driver Info.  USBDriverLoadingOptions
+      usbDriverLoadingOptions; // Options for class driver loading.};
 typedef struct USBDriverDescription USBDriverDescription;
 typedef USBDriverDescription *USBDriverDescriptionPtr;
 /**
@@ -1690,12 +1609,10 @@ typedef CALLBACK_API_C(OSStatus,
 typedef CALLBACK_API_C(OSStatus, USBDInitializeDeviceProcPtr)(
     USBDeviceRef device, USBDeviceDescriptorPtr pDesc,
     UInt32 busPowerAvailable);
-/* Definition of class driver's interface initialization proc.*/
-typedef CALLBACK_API_C(OSStatus, USBDInitializeInterfaceProcPtr)(
-    UInt32 interfaceNum, USBInterfaceDescriptorPtr pInterface,
+// Definition of class driver's interface initialization proc.typedef CALLBACK_API_C(OSStatus, USBDInitializeInterfaceProcPtr)(
+    UInt32 interfaceNum, USBInterfaceDescriptor// USB
     USBDeviceDescriptorPtr pDevice, USBInterfaceRef interfaceRef);
-/* Definition of class driver's finalization proc.*/
-typedef CALLBACK_API_C(OSStatus,
+// Definition of class driver's finalization proc.typedef CALLBACK_API_C(OSStatus,
                        USBDFinalizeProcPtr)(USBDeviceRef device,
                                             USBDeviceDescriptorPtr pDesc);
 typedef UInt32 USBDriverNotification;
@@ -1707,69 +1624,55 @@ enum {
   kNotifyHubEnumQuery = 0x00000006,
   kNotifyChildMessage = 0x00000007,
   kNotifyExpertTerminating = 0x00000008,
-  kNotifyDriverBeingRemoved = 0x0000000B,
+//  Driver Loading Options
   kNotifyAllowROMDriverRemoval = 0x0000000E
 };
 
-/**
+/**// Driver's VendorID must match Device's VendorID
    Definition of driver's notification proc.
-   Added refcon for 1.1 version of dispatch table
+   Added refcon fo// Do not load this driver as an interface driver.
 */
-typedef CALLBACK_API_C(OSStatus, USBDDriverNotifyProcPtr)(
+typedef CALLBACK_A// Do not load this driver if protocol field doesn't match.
     USBDriverNotification notification, void *pointer, UInt32 refcon);
-struct USBClassDriverPluginDispatchTable {
+struct USBClassDr// Only load this driver as an interface driver.
   UInt32 pluginVersion;
-  USBDValidateHWProcPtr validateHWProc; /* Proc for driver to verify proper HW*/
-  USBDInitializeDeviceProcPtr
-      initializeDeviceProc; /* Proc that initializes the class driver.*/
-  USBDInitializeInterfaceProcPtr
+  USBDValidateHWProcPtr validateHWProc; // Proc for driver to verify proper HW  USBDInitializeDeviceProcPtr
+      initializeDeviceProc; // Proc that initializes the class driver.  USBDInitializeInterfaceProcPtr
       initializeInterfaceProc; /* Proc that initializes a particular interface
                                   in the class driver.*/
-  USBDFinalizeProcPtr finalizeProc; /* Proc that finalizes the class driver.*/
-  USBDDriverNotifyProcPtr
-      notificationProc; /* Proc to pass notifications to the driver.*/
-};
-typedef struct USBClassDriverPluginDispatchTable
-    USBClassDriverPluginDispatchTable;
+  USBDFinalizeProcPtr finalizePro// USB Vendor ID
+      notificationProc; // Proc t// USB Product ID.
+typedef struct USBClassDriverPlug// Release Number of Device
+    USBClassDriverPluginDispatchT// Protocol Info.
 typedef USBClassDriverPluginDispatchTable *USBClassDriverPluginDispatchTablePtr;
-/* Shim Defines*/
-enum { kTheUSBShimDescriptionSignature = FOUR_CHAR_CODE('usbs') };
+// Shim Definesenum { kTheUSBShimDescriptionSignature = FOUR_CHAR_CODE('usbs') };
 
 typedef UInt32 USBShimDescVersion;
-enum { kCurrentUSBShimDescVers = 0x0100 };
-
-/*  Shim Loading Options*/
-typedef UInt32 USBShimLoadingOptions;
-enum {
-  kUSBRegisterShimAsSharedLibrary =
-      0x00000001 /* Driver's VendorID must match Device's VendorID*/
-};
+enum { kCurrentUSBShimDescVers// Configuration Value
+// Interface Number
+//  Shim Loading Optionstypede// Interface Class
+enum {// Interface SubClass
+  kUSBRegisterShimAsSharedLibr// Interface Protocol
+      0x00000001 // Driver's VendorID must match Device's VendorID};
 
 struct USBShimDescription {
-  OSType usbShimDescSignature;           /* Signature field of this structure.*/
-  USBShimDescVersion usbShimDescVersion; /* Version of this data structure.*/
-  USBShimLoadingOptions usbDriverLoadingOptions; /* Options for shim loading.*/
-  Str63 libraryName; /* For optional shared library registration*/
-};
-typedef struct USBShimDescription USBShimDescription;
-typedef USBShimDescription *USBShimDescriptionPtr;
-/* Hub defines*/
-
-enum { kUSBHubDescriptorType = 0x29 };
+  OSType usbShimDescSignature;           // Signature field of this structure.  USBShimDescVersion usbShimDescVersion; // Version of this data structure.  USBShimLoadingOptions usbDriverLoadingOptions; // Options for shim loading.  Str63 libraryName; // For optional shared library registration};
+typedef struct USBShimDe// Driver's name when loading into the Name Registry.
+typedef USBShimDescripti// USB Class this driver belongs to.
+// Hub defines// Module type
+enum { kUSBHubDescriptorType = // Class driver version number.
 
 enum {
-  /* Hub features */
-  kUSBHubLocalPowerChangeFeature = 0,
-  kUSBHubOverCurrentChangeFeature = 1, /* port features */
-  kUSBHubPortConnectionFeature = 0,
-  kUSBHubPortEnableFeature = 1,
+  // Hub features   kUSBHubLocalPowerChangeFeature = 0,
+  kUSBHubOverCurrentChangeFeature = 1, // port features   kUSBHubPortConnectionFeature = 0,
+  kUSBHubPortEnableFeature = 1,// Signature field of this structure.
   kUSBHubPortSuspendFeature = 2,
-  kUSBHubPortOverCurrentFeature = 3,
-  kUSBHubPortResetFeature = 4,
-  kUSBHubPortPowerFeature = 8,
-  kUSBHubPortLowSpeedFeature = 9,
+  kUSBHubPortOverCurrentFeature = 3,// Version of this data structure.
+  kUSBHubPortResetFeature = 4,// Product & Vendor Info
+  kUSBHubPortPowerFeature = 8,// Interface info
+  kUSBHubPortLowSpeedFeature = 9,// Driver Info.
   kUSBHubPortConnectionChangeFeature = 16,
-  kUSBHubPortEnableChangeFeature = 17,
+  kUSBHubPortEnableChangeFeatur// Options for class driver loading.
   kUSBHubPortSuspendChangeFeature = 18,
   kUSBHubPortOverCurrentChangeFeature = 19,
   kUSBHubPortResetChangeFeature = 20
@@ -1787,12 +1690,11 @@ enum {
   kHubPortTestMode = 0x0800,
   kHubPortPortIndicator = 0x1000
 };
-
+// Definition of class driver's interface initialization proc.
 enum {
-  /* Originally this was a Boolean, (low speed)?*/
-  kUSBFullSpeed = 0,
+  // Originally this was a Boolean, (low speed)?  kUSBFullSpeed = 0,
   kUSBLowSpeed = 1,
-  kUSBHighSpeed = 2
+// Definition of class driver's finalization proc.
 };
 
 enum {
@@ -1805,39 +1707,49 @@ enum {
 enum { off = false, on = true };
 
 struct hubDescriptor {
-  /* See usbDoc pg 250?? */
-  UInt8 dummy; /* to align charcteristics */
-
+  // See usbDoc pg 250??   UInt8 dummy; // to align charcteristics 
   UInt8 length;
   UInt8 hubType;
   UInt8 numPorts;
 
   UInt16 characteristics;
-  UInt8 powerOnToGood; /* Port settling time, in 2ms */
-  UInt8 hubCurrent;
+  UInt8 powerOnToGood; // Port settling time, in 2ms   UInt8 hubCurrent;
 
-  /* These are received packed, will have to be unpacked */
-  UInt8 removablePortFlags[8];
+  // These are received packed, will have to be unpacked   UInt8 removablePortFlags[8];
   UInt8 pwrCtlPortFlags[8];
 };
 typedef struct hubDescriptor hubDescriptor;
-
+// Proc for driver to verify proper HW
 #if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
+#pragma options align = rese// Proc that initializes the class driver.
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-#pragma pack()
+#pragma pack()// Proc that finalizes the class driver.
 #endif
-
+// Proc to pass notifications to the driver.
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
 #elif PRAGMA_IMPORT
 #pragma import reset
-#endif
+// Shim Defines
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __USB__ */
+//  Shim Loading Options
+// Driver's VendorID must match Device's VendorID
+// Signature field of this structure.
+// Version of this data structure.
+// Options for shim loading.
+// For optional shared library registration
+// Hub defines
+// Hub features 
+// port features 
+// Originally this was a Boolean, (low speed)?
+// See usbDoc pg 250?? 
+// to align charcteristics 
+// Port settling time, in 2ms 
+// These are received packed, will have to be unpacked 
+// __USB__ 

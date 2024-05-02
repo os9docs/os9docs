@@ -28,8 +28,7 @@
 #include <MacTypes.h>
 #endif
 
-#endif /* TARGET_OS_MAC */
-
+#endif // TARGET_OS_MAC 
 #include <stdio.h>
 
 #if PRAGMA_ONCE
@@ -76,9 +75,8 @@ extern "C" {
 #define WINDOW_SYSTEM_WIN32 0
 #define WINDOW_SYSTEM_X11 0
 #define WINDOW_SYSTEM_NEXT 0
-#endif /* TARGET_OS_MAC */
-
-#if TARGET_OS_WIN32
+#endif // TARGET_OS_MAC 
+#if TAR// TARGET_OS_MAC 
 #define OS_MACINTOSH 0
 #define OS_WIN32 1
 #define OS_UNIX 0
@@ -87,10 +85,9 @@ extern "C" {
 #define WINDOW_SYSTEM_WIN32 1
 #define WINDOW_SYSTEM_X11 0
 #define WINDOW_SYSTEM_NEXT 0
-#endif /* TARGET_OS_WIN32 */
-
+#endif // TARGET_OS_WIN32 
 #if TARGET_OS_UNIX
-#define OS_MACINTOSH 0
+#define// TARGET_OS_WIN32 
 #define OS_WIN32 0
 #define WINDOW_SYSTEM_MACINTOSH 0
 #define WINDOW_SYSTEM_WIN32 0
@@ -104,41 +101,34 @@ extern "C" {
 #define OS_NEXT 0
 #define WINDOW_SYSTEM_X11 1
 #define WINDOW_SYSTEM_NEXT 0
-#endif /* NeXT */
-
-#endif /* TARGET_OS_UNIX */
-
+#endif // NeXT 
+#endif // TARGET_OS_UNIX 
 /******************************************************************************
- ** **
+ ** **// NeXT 
  **                             Export Control                               **
- **                                                                          **
+ **    // TARGET_OS_UNIX 
  *****************************************************************************/
 #if TARGET_OS_WIN32
-#if defined(WIN32_EXPORTING) /* define when building DLL */
-#define QD3D_EXPORT __declspec(dllexport)
+#if defined(WIN32_EXPORTING) // define when building DLL #define QD3D_EXPORT __declspec(dllexport)
 #define QD3D_CALL
 #define QD3D_CALLBACK
 #else
 #define QD3D_EXPORT __declspec(dllimport)
-#define QD3D_CALL __cdecl
+#define QD3D_CALL __cdecl// define when building DLL 
 #define QD3D_CALLBACK __cdecl
-#endif /* WIN32_EXPORTING */
-#else
+#endif // WIN32_EXPORTING #else
 #define QD3D_EXPORT
 #define QD3D_CALL
 #define QD3D_CALLBACK
-#endif /*  TARGET_OS_WIN32  */
-
+#endif //  TARGET_OS_WIN32  
 /******************************************************************************
- **                                                                          **
+ **    // WIN32_EXPORTING 
  **                             NULL definition                              **
  **                                                                          **
  *****************************************************************************/
 
-#ifndef NULL
-#error /*   NULL is undefined?  */
-#endif /* NULL */
-
+#ifndef//  TARGET_OS_WIN32  
+#error //   NULL is undefined?  #endif // NULL 
 /******************************************************************************
  **                                                                          **
  **                                 Objects                                  **
@@ -146,12 +136,11 @@ extern "C" {
  *****************************************************************************/
 /**
  * Everything in QuickDraw 3D is an OBJECT: a bunch of data with a type,
- * deletion, duplication, and i/o methods.
- */
+ * dele//   NULL is undefined?  
+ */// NULL 
 typedef long TQ3ObjectType;
 typedef struct OpaqueTQ3Object *TQ3Object;
-/* */
-/**
+// /**
  * There are four subclasses of OBJECT:
  *  an ELEMENT, which is data that is placed in a SET
  *  a SHAREDOBJECT, which is reference-counted data that is shared
@@ -161,7 +150,7 @@ typedef struct OpaqueTQ3Object *TQ3Object;
 typedef TQ3Object TQ3ElementObject;
 typedef TQ3Object TQ3SharedObject;
 typedef TQ3Object TQ3ViewObject;
-typedef TQ3Object TQ3PickObject;
+// 
 /**
  * There are several types of SharedObjects:
  *  RENDERERs, which paint to a drawContext
@@ -276,13 +265,7 @@ enum TQ3Axis { kQ3AxisX = 0, kQ3AxisY = 1, kQ3AxisZ = 2 };
 typedef enum TQ3Axis TQ3Axis;
 
 enum TQ3PixelType {
-  kQ3PixelTypeRGB32 = 0,     /* Alpha:8 (ignored), R:8, G:8, B:8   */
-  kQ3PixelTypeARGB32 = 1,    /* Alpha:8, R:8, G:8, B:8          */
-  kQ3PixelTypeRGB16 = 2,     /* Alpha:1 (ignored), R:5, G:5, B:5   */
-  kQ3PixelTypeARGB16 = 3,    /* Alpha:1, R:5, G:5, B:5          */
-  kQ3PixelTypeRGB16_565 = 4, /* Win32 only: 16 bits/pixel, R:5, G:6, B:5     */
-  kQ3PixelTypeRGB24 = 5      /* Win32 only: 24 bits/pixel, R:8, G:8, B:8     */
-};
+  kQ3PixelTypeRGB32 = 0,     // Alpha:8 (ignored), R:8, G:8, B:8     kQ3PixelTypeARGB32 = 1,    // Alpha:8, R:8, G:8, B:8            kQ3PixelTypeRGB16 = 2,     // Alpha:1 (ignored), R:5, G:5, B:5     kQ3PixelTypeARGB16 = 3,    // Alpha:1, R:5, G:5, B:5            kQ3PixelTypeRGB16_565 = 4, // Win32 only: 16 bits/pixel, R:5, G:6, B:5       kQ3PixelTypeRGB24 = 5      // Win32 only: 24 bits/pixel, R:8, G:8, B:8     };
 typedef enum TQ3PixelType TQ3PixelType;
 
 enum TQ3Endian { kQ3EndianBig = 0, kQ3EndianLittle = 1 };
@@ -293,12 +276,12 @@ enum TQ3EndCapMasks {
   kQ3EndCapMaskTop = 1 << 0,
   kQ3EndCapMaskBottom = 1 << 1,
   kQ3EndCapMaskInterior = 1 << 2
-};
-typedef enum TQ3EndCapMasks TQ3EndCapMasks;
-
-typedef unsigned long TQ3EndCap;
-
-enum { kQ3ArrayIndexNULL = ~0 };
+};// Alpha:8 (ignored), R:8, G:8, B:8   
+typedef enum TQ3EndCapMasks T// Alpha:8, R:8, G:8, B:8          
+// Alpha:1 (ignored), R:5, G:5, B:5   
+typedef unsigned long TQ3EndC// Alpha:1, R:5, G:5, B:5          
+// Win32 only: 16 bits/pixel, R:5, G:6, B:5     
+enum { kQ3ArrayIndexNULL = ~0// Win32 only: 24 bits/pixel, R:8, G:8, B:8     
 
 /******************************************************************************
  **                                                                          **
@@ -483,53 +466,40 @@ struct TQ3Bitmap {
   TQ3Endian bitOrder;
 };
 typedef struct TQ3Bitmap TQ3Bitmap;
-struct TQ3MipmapImage {   /* An image for use as a texture mipmap  */
-  unsigned long width;    /* Width of mipmap, must be power of 2   */
-  unsigned long height;   /* Height of mipmap, must be power of 2  */
-  unsigned long rowBytes; /* Rowbytes of mipmap                    */
-  unsigned long offset;   /* Offset from image base to this mipmap */
-};
+struct TQ3MipmapImage {   // An image for use as a texture mipmap    unsigned long width;    // Width of mipmap, must be power of 2     unsigned long height;   // Height of mipmap, must be power of 2    unsigned long rowBytes; // Rowbytes of mipmap                      unsigned long offset;   // Offset from image base to this mipmap };
 typedef struct TQ3MipmapImage TQ3MipmapImage;
 struct TQ3Mipmap {
-  TQ3StorageObject image;   /* Data containing the texture map and     */
-                            /* if (useMipmapping==kQ3True) the       */
-                            /* mipmap data                  */
-  TQ3Boolean useMipmapping; /* True if mipmapping should be used   */
-                            /* and all mipmaps have been provided    */
-  TQ3PixelType pixelType;
+  TQ3StorageObject image;   // Data containing the texture map and                                 // if (useMipmapping==kQ3True) the                                   // mipmap data                    TQ3Boolean useMipmapping; // True if mipmapping should be used                               // and all mipmaps have been provided      TQ3PixelType pixelType;
   TQ3Endian bitOrder;
   TQ3Endian byteOrder;
-  unsigned long reserved;     /* leave NULL for next version          */
-  TQ3MipmapImage mipmaps[32]; /* The actual number of mipmaps is determined from
+  unsigned long reserved;     // leave NULL for next version            TQ3MipmapImage mipmaps[32]; /* The actual number of mipmaps is determined from
                                  the size of the first mipmap */
 };
 typedef struct TQ3Mipmap TQ3Mipmap;
 
 struct TQ3CompressedPixmap {
   TQ3StorageObject
-      compressedImage; /* storage obj containing compressed image data */
-
-  TQ3Endian imageDescByteOrder; /* endianness of the data in the imageDesc */
-  TQ3StorageObject
+      compressedImage; // storage obj containing compressed image data 
+  TQ3Endian imageDescByteOrder; // endianness of the data in the imageDesc   TQ3StorageObject
       imageDesc; /* storage obj containing image description created by
                     Quicktime to store info about compressed image */
-
-  TQ3Boolean makeMipmaps;
-
-  unsigned long width;
-  unsigned long height;
+// An image for use as a texture mipmap  
+  TQ3Boolean makeMipmaps;// Width of mipmap, must be power of 2   
+// Height of mipmap, must be power of 2  
+  unsigned long width;// Rowbytes of mipmap                    
+  unsigned long height;// Offset from image base to this mipmap 
   unsigned long pixelSize;
   TQ3PixelType pixelType;
 };
-typedef struct TQ3CompressedPixmap TQ3CompressedPixmap;
-
-/******************************************************************************
- **                                                                          **
- **                     Higher dimension quantities                          **
+typedef struct TQ3Compressed// Data containing the texture map and     
+// if (useMipmapping==kQ3True) the       
+/***************************// mipmap data                  
+ **                         // True if mipmapping should be used   
+ **                     High// and all mipmaps have been provided    
  **                                                                          **
  *****************************************************************************/
 struct TQ3Area {
-  TQ3Point2D min;
+  TQ3Point2D min;// leave NULL for next version          
   TQ3Point2D max;
 };
 typedef struct TQ3Area TQ3Area;
@@ -537,9 +507,9 @@ struct TQ3PlaneEquation {
   TQ3Vector3D normal;
   float constant;
 };
-typedef struct TQ3PlaneEquation TQ3PlaneEquation;
+typedef struct TQ3Plane// storage obj containing compressed image data 
 struct TQ3BoundingBox {
-  TQ3Point3D min;
+  TQ3Point3D min;// endianness of the data in the imageDesc 
   TQ3Point3D max;
   TQ3Boolean isEmpty;
 };
@@ -949,13 +919,10 @@ Q3ObjectHierarchy_IsNameRegistered(const char *objectClassName);
  * TQ3SubClassData is used when querying the object system for
  * the subclasses of a particular parent type:
  */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 struct TQ3SubClassData {
   unsigned long
-      numClasses; /* the # of subclass types found for a parent class */
-  TQ3ObjectType *classTypes; /* an array containing the class types */
-};
+      numClasses; // the # of subclass types found for a parent class   TQ3ObjectType *classTypes; // an array containing the class types };
 typedef struct TQ3SubClassData TQ3SubClassData;
 /**
  *  Given a parent type and an instance of the TQ3SubClassData struct fill
@@ -982,12 +949,12 @@ Q3ObjectHierarchy_GetSubClassData(TQ3ObjectType objectClassType,
 /**
  *  Given an instance of the TQ3SubClassData struct free all memory allocated
  *  by the Q3ObjectClass_GetSubClassData call.
- *
+ *// CALL_NOT_IN_CARBON 
  *  NOTE: This call MUST be made after a call to Q3ObjectClass_GetSubClassData
  *  to avoid memory leaks.
  */
-/**
- *  Q3ObjectHierarchy_EmptySubClassData()
+/**// the # of subclass types found for a parent class 
+ *  Q3ObjectHierarchy_EmptySu// an array containing the class types 
  *
 
  *    \non_carbon_cfm   not available
@@ -1392,8 +1359,7 @@ Q3Bitmap_Empty(TQ3Bitmap *bitmap);
 unsigned long
 Q3Bitmap_GetImageSize(unsigned long width, unsigned long height);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __QD3D__RESTORE_TWOBYTEINTS
@@ -1423,4 +1389,5 @@ Q3Bitmap_GetImageSize(unsigned long width, unsigned long height);
 }
 #endif
 
-#endif /* __QD3D__ */
+#endif // __QD3D__ // CALL_NOT_IN_CARBON 
+// __QD3D__ 

@@ -62,10 +62,7 @@ extern "C"
 
   enum
   {
-    /* resource types  */
-    rSectionType = FOUR_CHAR_CODE('sect'), /* ResType of saved SectionRecords */
-                                           /* Finder types for edition files */
-    kPICTEditionFileType = FOUR_CHAR_CODE('edtp'),
+    // resource types      rSectionType = FOUR_CHAR_CODE('sect'), // ResType of saved SectionRecords                                            // Finder types for edition files     kPICTEditionFileType = FOUR_CHAR_CODE('edtp'),
     kTEXTEditionFileType = FOUR_CHAR_CODE('edtt'),
     ksndEditionFileType = FOUR_CHAR_CODE('edts'),
     kUnknownEditionFileType = FOUR_CHAR_CODE('edtu'),
@@ -76,148 +73,123 @@ extern "C"
 
   enum
   {
-    /* section types */
-    stSubscriber = 0x01,
+    // section types     stSubscriber = 0x01,
     stPublisher = 0x0A
   };
 
   enum
   {
-    sumAutomatic = 0, /* subscriber update mode - Automatically     */
-    sumManual = 1,    /* subscriber update mode - Manually */
-    pumOnSave = 0,    /* publisher update mode - OnSave            */
-    pumManual = 1     /* publisher update mode - Manually */
-  };
+    sumAutomatic = 0, // subscriber update mode - Automatically         sumManual = 1,    // subscriber update mode - Manually     pumOnSave = 0,    // publisher update mode - OnSave                pumManual = 1     // publisher update mode - Manually   };
 
-  enum
-  {
-    kPartsNotUsed = 0,
-    kPartNumberUnknown = -1
-  };
+    enum {
+        kPartsNotUsed = 0,
+        kPartNumberUnknown = -1};
 
-  enum
-  {
-    kPreviewWidth = 120,
-    kPreviewHeight = 120
-  };
+    enum {
+        kPreviewWidth = 120,
+        kPreviewHeight = 120};
 
-  enum
-  {
-    /* bits for formatsMask */
-    kPICTformatMask = 1,
-    kTEXTformatMask = 2,
-    ksndFormatMask = 4
-  };
+    enum {
+        // bits for formatsMask     kPICTformatMask = 1,
+        kTEXTformatMask = 2,
+        ksndFormatMask = 4};
 
-  enum
-  {
-    /* pseudo-item hits for dialogHooks the first is for NewPublisher or
-       NewSubscriber Dialogs */
-    emHookRedrawPreview = 150, /* the following are for SectionOptions Dialog */
-    emHookCancelSection = 160,
-    emHookGoToPublisher = 161,
-    emHookGetEditionNow = 162,
-    emHookSendEditionNow = 162,
-    emHookManualUpdateMode = 163,
-    emHookAutoUpdateMode = 164
-  };
+    enum {
+        /* pseudo-item hits for dialogHooks the first is for NewPublisher or
+           NewSubscriber Dialogs */
+        emHookRedrawPreview = 150, // the following are for SectionOptions Dialog     emHookCancelSection = 160,
+        emHookGoToPublisher = 161,
+        emHookGetEditionNow = 162,
+        emHookSendEditionNow = 162,
+        emHookManualUpdateMode = 163,
+        emHookAutoUpdateMode = 164};
 
-  enum
-  {
-    /* the refcon field of the dialog record during a modalfilter or dialoghook
-       contains one the following */
-    emOptionsDialogRefCon = FOUR_CHAR_CODE('optn'),
-    emCancelSectionDialogRefCon = FOUR_CHAR_CODE('cncl'),
-    emGoToPubErrDialogRefCon = FOUR_CHAR_CODE('gerr')
-  };
+    enum {
+        /* the refcon field of the dialog record during a modalfilter or dialoghook
+           contains one the following */
+        emOptionsDialogRefCon = FOUR_CHAR_CODE('optn'),
+        emCancelSectionDialogRefCon = FOUR_CHAR_CODE('cncl'),
+        emGoToPubErrDialogRefCon = FOUR_CHAR_CODE('gerr')};
 
-  enum
-  {
-    kFormatLengthUnknown = -1
-  };
+    enum {
+        kFormatLengthUnknown = -1};
 
-  /* one byte, stSubscriber or stPublisher */
-  typedef SignedByte SectionType;
-  /* seconds since 1904 */
-  typedef unsigned long TimeStamp;
-  /* similar to ResType */
-  typedef FourCharCode FormatType;
-  /* used in Edition I/O */
-  typedef Handle EditionRefNum;
-  /* update modes */
-  /* sumAutomatic, pumSuspend, etc */
-  typedef short UpdateMode;
-  typedef struct SectionRecord SectionRecord;
-  typedef SectionRecord *SectionPtr;
-  typedef SectionPtr *SectionHandle;
-  /**
-  <pre><table><tbody>
-  <tr>
-    <td>version</td>
-    <td><pre>Indicates the version of the section record, currently
-  0x01.
-    </pre></td>
-  </tr>
+    // one byte, stSubscriber or stPublisher   typedef SignedByte SectionType;
+    // seconds since 1904   typedef unsigned long TimeStamp;
+    // similar to ResType   typedef FourCharCode FormatType;
+    // used in Edition I/O   typedef Handle EditionRefNum;
+    // update modes   // sumAutomatic, pumSuspend, etc   typedef short UpdateMode;
+    typedef struct SectionRecord SectionRecord;
+    typedef SectionRecord * SectionPtr;
+    typedef SectionPtr * SectionHandle;
+    /**
+    <pre><table><tbody>
+    <tr>
+      <td>version</td>
+      <td><pre>Indicates the version of the section record, currently
+    0x01.
+      </pre></td>
+    </tr>
 
-  <tr>
-    <td>kind</td>
-    <td><pre>Defines the section type as either publisher or
-  with the stPublisher or stSubscriber
-  constant.
-    </pre></td>
-  </tr>
+    <tr>
+      <td>kind</td>
+      <td><pre>Defines the section type as either publisher or
+    with the stPublisher or stSubscriber
+    constant.
+      </pre></td>
+    </tr>
 
-  <tr>
-    <td>mode</td>
-    <td><pre>Indicates if editions are updated automatically or
-  manually.
-    </pre></td>
-  </tr>
+    <tr>
+      <td>mode</td>
+      <td><pre>Indicates if editions are updated automatically or
+    manually.
+      </pre></td>
+    </tr>
 
-  <tr>
-    <td>mdDate</td>
-    <td><pre>Indicates which version (modification date) of the
-  contents is contained within the publisher or
-  The mdDate is set to 0 when you create a
-  subscriber section, and is set to the current time
-  you create a new publisher. Be sure to update this
-  each time publisher data is modified. The section's
-  date is compared to the edition's
-  date to determine whether the section and
-  edition contain the same data. The section
-  date is displayed in the publisher and
-  options dialog boxes. See the section,
-  an Edition for detailed information.
-    </pre></td>
-  </tr>
+    <tr>
+      <td>mdDate</td>
+      <td><pre>Indicates which version (modification date) of the
+    contents is contained within the publisher or
+    The mdDate is set to 0 when you create a
+    subscriber section, and is set to the current time
+    you create a new publisher. Be sure to update this
+    each time publisher data is modified. The section's
+    date is compared to the edition's
+    date to determine whether the section and
+    edition contain the same data. The section
+    date is displayed in the publisher and
+    options dialog boxes. See the section,
+    an Edition for detailed information.
+      </pre></td>
+    </tr>
 
-  <tr>
-    <td>sectionID</td>
-    <td><pre>Provides a unique number for each section within a
-  A simple way to implement this is to create a
-  for each document that is saved to disk with the
-  The counter should start at 1. The section ID
-  currently used as a tie breaker in the GoToPublisher
-  when there are multiple publishers to the
-  edition in a single document. The section ID should
-  Reference © 1991-1992 Symantec Corporation
-    </pre></td>
-  </tr>
-  </tbody></table>*/
-  struct SectionRecord
-  {
-    char version;                       /**< always x in system .*/
-    SectionType kind;                   /**< stSubscriber or stPublisher*/
-    UpdateMode mode;                    /**< auto or manual*/
-    TimeStamp mdDate;                   /**< last change in document*/
-    long sectionID;                     /**< app. specific, unique per*/
-    long refCon;                        /**< application specific*/
-    AliasHandle alias;                  /**< handle to Alias Record*/
-    long subPart;                       /**< which part of container file*/
-    struct SectionRecord **nextSection; /**< for linked list of app's*/
-    Handle controlBlock;                /**< used internally*/
-    EditionRefNum refNum;               /**< used internally*/
-  } SectionRecord;                      /**< */
+    <tr>
+      <td>sectionID</td>
+      <td><pre>Provides a unique number for each section within a
+    A simple way to implement this is to create a
+    for each document that is saved to disk with the
+    The counter should start at 1. The section ID
+    currently used as a tie breaker in the GoToPublisher
+    when there are multiple publishers to the
+    edition in a single document. The section ID should
+    Reference © 1991-1992 Symantec Corporation
+      </pre></td>
+    </tr>
+    </tbody></table>*/
+    struct SectionRecord{
+        char version;                        /**< always x in system .*/
+        SectionType kind;                    /**< stSubscriber or stPublisher*/
+        UpdateMode mode;                     /**< auto or manual*/
+        TimeStamp mdDate;                    /**< last change in document*/
+        long sectionID;                      /**< app. specific, unique per*/
+        long refCon;                         /**< application specific*/
+        AliasHandle alias;                   /**< handle to Alias Record*/
+        long subPart;                        /**< which part of container file*/
+        struct SectionRecord * *nextSection; /**< for linked list of app's*/
+        Handle controlBlock;                 /**< used internally*/
+        EditionRefNum refNum;                /**< used internally*/
+    }
+  SectionRecord; /**< */
 
   /**
   <pre>
@@ -317,8 +289,7 @@ extern "C"
   enum
   {
     uppExpModalFilterProcInfo = 0x0000FBD0
-  }; /* pascal 1_byte Func(4_bytes, 4_bytes, 2_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 1_byte Func(4_bytes, 4_bytes, 2_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline ExpModalFilterUPP
   NewExpModalFilterUPP(ExpModalFilterProcPtr userRoutine)
   {
@@ -348,8 +319,7 @@ extern "C"
   enum
   {
     uppExpDlgHookProcInfo = 0x00003EA0
-  }; /* pascal 2_bytes Func(2_bytes, 2_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 2_bytes Func(2_bytes, 2_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline ExpDlgHookUPP NewExpDlgHookUPP(ExpDlgHookProcPtr userRoutine)
   {
     return (ExpDlgHookUPP)NewRoutineDescriptor(
@@ -466,11 +436,9 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewExpModalFilterProc(userRoutine) NewExpModalFilterUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewExpModalFilterProc(userRoutine) NewExpModalFilterUPP(userRoutine)
 #define NewExpDlgHookProc(userRoutine) NewExpDlgHookUPP(userRoutine)
 #define CallExpModalFilterProc(userRoutine, theDialog, theEvent, itemOffset, \
                                itemHit, yourDataPtr)                         \
@@ -479,8 +447,7 @@ extern "C"
 #define CallExpDlgHookProc(userRoutine, itemOffset, itemHit, theDialog, \
                            yourDataPtr)                                 \
   InvokeExpDlgHookUPP(itemOffset, itemHit, theDialog, yourDataPtr, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
   typedef SInt8 FormatIOVerb;
   enum
   {
@@ -549,8 +516,7 @@ extern "C"
   enum
   {
     uppFormatIOProcInfo = 0x00000360
-  }; /* pascal 2_bytes Func(1_byte, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 2_bytes Func(1_byte, 4_bytes) #ifdef __cplusplus
   inline FormatIOUPP NewFormatIOUPP(FormatIOProcPtr userRoutine)
   {
     return (FormatIOUPP)NewRoutineDescriptor(
@@ -577,8 +543,7 @@ extern "C"
   enum
   {
     uppEditionOpenerProcInfo = 0x00000360
-  }; /* pascal 2_bytes Func(1_byte, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 2_bytes Func(1_byte, 4_bytes) #ifdef __cplusplus
   inline EditionOpenerUPP NewEditionOpenerUPP(EditionOpenerProcPtr userRoutine)
   {
     return (EditionOpenerUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -593,14 +558,11 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewFormatIOProc(userRoutine) NewFormatIOUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewFormatIOProc(userRoutine) NewFormatIOUPP(userRoutine)
 #define NewEditionOpenerProc(userRoutine) NewEditionOpenerUPP(userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
   /**
    Section events now arrive in the message buffer using the AppleEvent format.
    The direct object parameter is an aeTemporaryIDParamType ('tid '). The
@@ -648,10 +610,8 @@ extern "C"
  */
 OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82D);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_RT_MAC_CFM */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // TARGET_RT_MAC_CFM
 #if CALL_NOT_IN_CARBON
   /**
    *  InitEditionPackVersion()
@@ -675,8 +635,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   NewSection(const EditionContainerSpec *container,
-             const FSSpec *sectionDocument, /* can be NULL */
-             SectionType kind, long sectionID, UpdateMode initalMode,
+             const FSSpec *sectionDocument, // can be NULL              SectionType kind, long sectionID, UpdateMode initalMode,
              SectionHandle *sectionH) THREEWORDINLINE(0x303C, 0x0A02, 0xA82D);
 
   /**
@@ -775,8 +734,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   OpenNewEdition(SectionHandle publisherSectionH, OSType fdCreator,
-                 const FSSpec *publisherSectionDocument, /* can be NULL */
-                 EditionRefNum *refNum) THREEWORDINLINE(0x303C, 0x0814, 0xA82D);
+                 const FSSpec *publisherSectionDocument, // can be NULL                  EditionRefNum *refNum) THREEWORDINLINE(0x303C, 0x0814, 0xA82D);
 
   /**
    *  CloseEdition()
@@ -1030,8 +988,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
                           ExpModalFilterUPP filter, void *yourDataPtr)
       THREEWORDINLINE(0x303C, 0x0B3C, 0xA82D);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1050,16 +1007,13 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
 }
 #endif
 
-#endif /* __EDITIONS__ */
-s_x not available * /
-    OSErr
-    SectionOptionsExpDialog(SectionOptionsReply * reply, Point where,
-                            short expansionDITLresID, ExpDlgHookUPP dlgHook,
-                            ExpModalFilterUPP filter, void *yourDataPtr)
-        THREEWORDINLINE(0x303C, 0x0B3C, 0xA82D);
+#endif // __EDITIONS__ s_x not available * /
+OSErr SectionOptionsExpDialog(SectionOptionsReply *reply, Point where,
+                              short expansionDITLresID, ExpDlgHookUPP dlgHook,
+                              ExpModalFilterUPP filter, void *yourDataPtr)
+    THREEWORDINLINE(0x303C, 0x0B3C, 0xA82D);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1078,4 +1032,4 @@ s_x not available * /
 }
 #endif
 
-#endif /* __EDITIONS__ */
+#endif // __EDITIONS__

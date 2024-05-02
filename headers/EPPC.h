@@ -66,8 +66,7 @@ extern "C"
 
   enum
   {
-    /* postOptions currently supported */
-    receiverIDMask = 0x0000F000,
+    // postOptions currently supported     receiverIDMask = 0x0000F000,
     receiverIDisPSN = 0x00008000,
     receiverIDisSignature = 0x00007000,
     receiverIDisSessionID = 0x00006000,
@@ -80,8 +79,7 @@ extern "C"
 
   enum
   {
-    /* constant for return receipts */
-    HighLevelEventMsgClass = FOUR_CHAR_CODE('jaym'),
+    // constant for return receipts     HighLevelEventMsgClass = FOUR_CHAR_CODE('jaym'),
     rtrnReceiptMsgID = FOUR_CHAR_CODE('rtrn')
   };
 
@@ -151,8 +149,7 @@ extern "C"
   enum
   {
     uppGetSpecificFilterProcInfo = 0x00000FD0
-  }; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline GetSpecificFilterUPP
   NewGetSpecificFilterUPP(GetSpecificFilterProcPtr userRoutine)
   {
@@ -218,16 +215,13 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewGetSpecificFilterProc(userRoutine) \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewGetSpecificFilterProc(userRoutine) \
   NewGetSpecificFilterUPP(userRoutine)
 #define CallGetSpecificFilterProc(userRoutine, contextPtr, msgBuff, sender) \
   InvokeGetSpecificFilterUPP(contextPtr, msgBuff, sender, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
   /**
@@ -244,10 +238,8 @@ extern "C"
                      unsigned long postingOptions)
       THREEWORDINLINE(0x3F3C, 0x0034, 0xA88F);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
   /**
@@ -263,10 +255,8 @@ extern "C"
                        unsigned long *msgLen)
       THREEWORDINLINE(0x3F3C, 0x0033, 0xA88F);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 
@@ -283,10 +273,8 @@ extern "C"
                                      ProcessSerialNumber *pPSN)
       THREEWORDINLINE(0x3F3C, 0x0035, 0xA88F);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 
@@ -303,10 +291,8 @@ extern "C"
                                      const ProcessSerialNumber *pPSN)
       THREEWORDINLINE(0x3F3C, 0x0046, 0xA88F);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
   /**
@@ -321,10 +307,8 @@ extern "C"
   GetSpecificHighLevelEvent(GetSpecificFilterUPP aFilter, void *contextPtr,
                             OSErr *err) THREEWORDINLINE(0x3F3C, 0x0045, 0xA88F);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -343,8 +327,7 @@ extern "C"
 }
 #endif
 
-#endif /* __EPPC__ */
-* / align = reset
+#endif // __EPPC__ * / align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
@@ -361,5 +344,4 @@ extern "C"
 }
 #endif
 
-#endif /* __EPPC__ */
-* /
+#endif // __EPPC__ * /

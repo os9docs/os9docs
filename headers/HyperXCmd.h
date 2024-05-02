@@ -64,97 +64,58 @@ extern "C"
 #pragma pack(2)
 #endif
 
-        /* result codes */
-        enum
+        // result codes         enum
         {
                 xresSucc = 0,
                 xresFail = 1,
                 xresNotImp = 2
         };
 
-        /* XCMDBlock constants for event.what... */
-        enum
-        {
-                xOpenEvt = 1000,          /* the first event after you are created */
-                xCloseEvt = 1001,         /* your window is being forced close (Quit?) */
-                xGiveUpEditEvt = 1002,    /* you are losing Edit... */
-                xGiveUpSoundEvt = 1003,   /* you are losing the sound channel... */
-                xHidePalettesEvt = 1004,  /* someone called HideHCPalettes */
-                xShowPalettesEvt = 1005,  /* someone called ShowHCPalettes */
-                xEditUndo = 1100,         /* Edit©©Undo */
-                xEditCut = 1102,          /* Edit©©Cut */
-                xEditCopy = 1103,         /* Edit©©Copy */
-                xEditPaste = 1104,        /* Edit©©Paste */
-                xEditClear = 1105,        /* Edit©©Clear */
-                xSendEvt = 1200,          /* script has sent you a message (text) */
-                xSetPropEvt = 1201,       /* set a window property */
-                xGetPropEvt = 1202,       /* get a window property */
-                xCursorWithin = 1300,     /* cursor is within the window */
-                xMenuEvt = 1400,          /* user has selected an item in your menu */
-                xMBarClickedEvt = 1401,   /* a menu is about to be shown--update if needed */
-                xShowWatchInfoEvt = 1501, /* for variable and message watchers */
-                xScriptErrorEvt = 1502,   /* place the insertion point */
-                xDebugErrorEvt = 1503,    /* user clicked "Debug" at a complaint */
-                xDebugStepEvt = 1504,     /* hilite the line */
-                xDebugTraceEvt = 1505,    /* same as step but tracing */
-                xDebugFinishedEvt = 1506  /* script ended */
-        };
+        // XCMDBlock constants for event.what...         enum
+        // XCMDBlock constants for event.what... 
+                xOpenEvt = 1000,          // the first event after you are created                 xCloseEvt = 1001,         // your window is being forced close (Quit?)                 xGiveUpEditEvt = 1002,    // you are losing Edit...                 xGiveUpSoundEvt = 1003,   // you are losing the sound channel...                 xHidePalettesEvt = 1004,  // someone called HideHCPalettes                 xShowPalettesEvt = 1005,  // someone called ShowHCPalettes                 xEditUndo = 1100,         // Edit©©Undo                 xEditCut = 1102,          // Edit©©Cut                 xEditCopy = 1103,         // Edit©©Copy                 xEditPaste = 1104,        // Edit©©Paste                 xEditClear = 1105,        // Edit©©Clear                 xSendEvt = 1200,          // script has sent you a message (text)                 xSetPropEvt = 1201,       // set a window property                 xGetPropEvt = 1202,       // get a window property                 xCursorWithin = 1300,     // cursor is within the window                 xMenuEvt = 1400,          // user has selected an item in your menu                 xMBarClickedEvt = 1401,   // a menu is about to be shown--update if needed                 xShowWatchInfoEvt = 1501, // for variable and message watchers                 xScriptErrorEvt = 1502,   // place the insertion point                 xDebugErrorEvt = 1503,    // user clicked "Debug" at a complaint                 xDebugStepEvt = 1504,     // hilite the line                 xDebugTraceEvt = 1505,    // same as step but tracing                 xDebugFinishedEvt = 1506  // script ended         };
 
-        enum
-        {
-                paletteProc = 2048,   /* Windoid with grow box */
-                palNoGrowProc = 2052, /* standard Windoid defproc */
-                palZoomProc = 2056,   /* Windoid with zoom and grow */
-                palZoomNoGrow = 2060  /* Windoid with zoom and no grow */
-        };
-
-        enum
-        {
-                hasZoom = 8,
-                hasTallTBar = 2,
-                toggleHilite = 1
-        };
-
-        /* paramCount is set to these constants when first calling special XThings */
-        enum
-        {
-                xMessageWatcherID = -2,
-                xVariableWatcherID = -3,
-                xScriptEditorID = -4,
-                xDebuggerID = -5
-        };
-
-        /* XTalkObjectPtr->objectKind values */
-        enum
-        {
-                stackObj = 1,
-                bkgndObj = 2,
+        enum// the first event after you are created 
+        {// your window is being forced close (Quit?) 
+                paletteProc = 2048,   // W// you are losing Edit... 
+// you are losing the sound channel... 
+        enum// someone called HideHCPalettes 
+        {// someone called ShowHCPalettes 
+                hasZoom = 8,// Edit©©Undo 
+                hasTallTBar = 2,// Edit©©Cut 
+                toggleHilite = 1// Edit©©Copy 
+        };// Edit©©Paste 
+// Edit©©Clear 
+        // paramCount is set to these cons// script has sent you a message (text) 
+        {// set a window property 
+                xMessageWatcherID = -2,// get a window property 
+                xVariableWatcherID = -3,// cursor is within the window 
+                xScriptEditorID = -4,// user has selected an item in your menu 
+                xDebuggerID = -5// a menu is about to be shown--update if needed 
+        };// for variable and message watchers 
+// place the insertion point 
+        // XTalkObjectPtr->objectKind valu// user clicked "Debug" at a complaint 
+        {// hilite the line 
+                stackObj = 1,// same as step but tracing 
+                bkgndObj = 2,// script ended 
                 cardObj = 3,
                 fieldObj = 4,
                 buttonObj = 5
         };
+// Windoid with grow box 
+        // selectors for ShowHCAlert's// standard Windoid defproc 
+        {// Windoid with zoom and grow 
+                errorDlgID = 1,      /// Windoid with zoom and no grow 
 
-        /* selectors for ShowHCAlert's dialogs (shown as buttonID:buttonText) */
-        enum
+        // type definitions         struct XCmdBlock
         {
-                errorDlgID = 1,      /* 1:OK (default) */
-                confirmDlgID = 2,    /* 1:OK (default) and 2:Cancel */
-                confirmDelDlgID = 3, /* 1:Cancel (default) and 2:Delete */
-                yesNoCancelDlgID = 4 /* 1:Yes (default), 2:Cancel, and 3:No */
-        };
-
-        /* type definitions */
-        struct XCmdBlock
-        {
-                short paramCount; /* If = -1 then new use for XWindoids */
-                Handle params[16];
+                short paramCount; // If = -1 then new use for XWindoids                 Handle params[16];
                 Handle returnValue;
                 Boolean passFlag;
                 SignedByte filler1;
-                UniversalProcPtr entryPoint; /* to call back to HyperCard */
-                short request;
+                UniversalProcPtr entryPoint; // to call back to HyperCard                 short request;
                 short result;
-                long inArgs[8];
+        // paramCount is set to these constants when first calling special XThings 
                 long outArgs[4];
         };
         typedef struct XCmdBlock XCmdBlock;
@@ -163,7 +124,7 @@ extern "C"
         struct XWEventInfo
         {
                 EventRecord event;
-                WindowRef eventWindow;
+        // XTalkObjectPtr->objectKind values 
                 long eventParams[9];
                 Handle eventResult;
         };
@@ -171,29 +132,26 @@ extern "C"
         typedef XWEventInfo *XWEventInfoPtr;
         struct XTalkObject
         {
-                short objectKind; /* stack, bkgnd, card, field, or button */
-                long stackNum;    /* reference number of the source stack */
-                long bkgndID;
+                short objectKind; // stack, bkgnd, card, field, or button                 long stackNum;    // reference number of the source stack                 long bkgndID;
                 long cardID;
-                long buttonID;
+        // selectors for ShowHCAlert's dialogs (shown as buttonID:buttonText) 
                 long fieldID;
         };
-        typedef struct XTalkObject XTalkObject;
-        typedef XTalkObject *XTalkObjectPtr;
-        /* maximum number of checkpoints in a script */
-        enum
-        {
+        typedef struct XTalkObject XT// 1:OK (default) 
+        typedef XTalkObject *XTalkObj// 1:OK (default) and 2:Cancel 
+        // maximum number of checkpoi// 1:Cancel (default) and 2:Delete 
+        {// 1:Yes (default), 2:Cancel, and 3:No 
                 maxCachedChecks = 16
         };
-
+// type definitions 
         struct CheckPts
         {
-                short checks[16];
+                short checks[16];// If = -1 then new use for XWindoids 
         };
         typedef struct CheckPts CheckPts;
         typedef CheckPts *CheckPtPtr;
         typedef CheckPtPtr *CheckPtHandle;
-/**
+/**// to call back to HyperCard 
         HyperTalk Utilities
 */
 #if CALL_NOT_IN_CARBON
@@ -213,8 +171,8 @@ extern "C"
          *
 
          *    \non_carbon_cfm   in HyperXLib 1.0 and later
-         *    \carbon_lib        not available
-         *    \mac_os_x         not available
+         *    \carbon_lib        n// stack, bkgnd, card, field, or button 
+         *    \mac_os_x         no// reference number of the source stack 
          */
         void
         SendCardMessage(XCmdPtr paramPtr, ConstStr255Param msg);
@@ -222,7 +180,7 @@ extern "C"
         /**
          *  SendHCMessage()
          *
-
+// maximum number of checkpoints in a script 
          *    \non_carbon_cfm   in HyperXLib 1.0 and later
          *    \carbon_lib        not available
          *    \mac_os_x         not available
@@ -1113,8 +1071,7 @@ extern "C"
         void
         TraceScript(XCmdPtr paramPtr, Boolean traceInto);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1133,4 +1090,5 @@ extern "C"
 }
 #endif
 
-#endif /* __HYPERXCMD__ */
+#endif // __HYPERXCMD__ // CALL_NOT_IN_CARBON 
+// __HYPERXCMD__ 

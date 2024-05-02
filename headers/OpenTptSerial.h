@@ -28,4 +28,4 @@
    OpenTransportProviders.h
 */
 
-#endif /* __OPENTPTSERIAL__ */
+#endif // __OPENTPTSERIAL__

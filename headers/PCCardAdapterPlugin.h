@@ -59,66 +59,42 @@ extern "C" {
 /*------------------------------------------------------------------------------------
   Types
 ------------------------------------------------------------------------------------*/
-/*  Interrupt Status Change bits*/
-
+//  Interrupt Status Change bits
 enum {
-  kSCBatteryDead = 0x01,  /* Battery Dead Status Change*/
-  kSCBatteryLow = 0x02,   /* Battery Warning Status Change*/
-  kSCReady = 0x04,        /* Ready Status Change*/
-  kSCCardDetect = 0x08,   /* Card Detect Status Change*/
-  kSCCardEjected = 0x10,  /* Card Ejected*/
-  kSCStatusChange = 0x20, /* PC Card Status Change Signal Asserted*/
-  kSCRingIndicate = 0x40  /* PC Card Ring Indicate Signal Asserted*/
-};
+  kSCBatteryDead = 0x01,  // Battery Dead Status Change  kSCBatteryLow = 0x02,   // Battery Warning Status Change  kSCReady = 0x04,        // Ready Status Change  kSCCardDetect = 0x08,   // Card Detect Status Change  kSCCardEjected = 0x10,  // Card Ejected  kSCStatusChange = 0x20, // PC Card Status Change Signal Asserted  kSCRingIndicate = 0x40  // PC Card Ring Indicate Signal Asserted};
+// Battery Dead Status Change
+//  IRQ bits enum {// Battery Warning Status Change
+  kIRQLevelMask = 0x1F,// Ready Status Change
+  kIRQInvalid = 0x20,// Card Detect Status Change
+  kIRQHigh = 0x40,// Card Ejected
+  kIRQEnable = 0x80// PC Card Status Change Signal Asserted
+};// PC Card Ring Indicate Signal Asserted
 
-/*  IRQ bits */
-enum {
-  kIRQLevelMask = 0x1F,
-  kIRQInvalid = 0x20,
-  kIRQHigh = 0x40,
-  kIRQEnable = 0x80
-};
-
-/*  bits for adapter characteristics flags*/
-
-enum {
-  SS_ADPT_FLG_IND = 0x01,     /* indicators for write-protect, card lock,*/
-                              /* battery status, busy status, and XIP*/
-                              /* are shared for all sockets*/
-  SS_ADPT_FLG_PWR = 0x02,     /* if set indicates that the sockets*/
-                              /* share the same power control*/
-  SS_ADPT_FLG_DBW = 0x04,     /* all windows on the adapter must use*/
-                              /* the same Data Bus Width*/
-  SS_ADPT_FLG_CARDBUS = 0x08, /* all sockets are CardBus PC Card capable*/
-  SS_ADPT_FLG_DMA = 0x10,     /* the adapter has DMA capability*/
-                              /*    bits for adapter power characteristics*/
-  SS_ADPT_FLG_V33 = 0x20,     /* adapter supports 3.3 volt power to socket*/
-  SS_ADPT_FLG_V50 = 0x40,     /* adapter supports 5.0 volt power to socket*/
-  SS_ADPT_FLG_V12 = 0x80      /* adapter supports 12.0 volt power to socket*/
-};
+//  bits for adapter characteristics flags
+//  IRQ bits 
+  SS_ADPT_FLG_IND = 0x01,     // indicators for write-protect, card lock,                              // battery status, busy status, and XIP                              // are shared for all sockets  SS_ADPT_FLG_PWR = 0x02,     // if set indicates that the sockets                              // share the same power control  SS_ADPT_FLG_DBW = 0x04,     // all windows on the adapter must use                              // the same Data Bus Width  SS_ADPT_FLG_CARDBUS = 0x08, // all sockets are CardBus PC Card capable  SS_ADPT_FLG_DMA = 0x10,     // the adapter has DMA capability                              //    bits for adapter power characteristics  SS_ADPT_FLG_V33 = 0x20,     // adapter supports 3.3 volt power to socket  SS_ADPT_FLG_V50 = 0x40,     // adapter supports 5.0 volt power to socket  SS_ADPT_FLG_V12 = 0x80      // adapter supports 12.0 volt power to socket};
 
 /*------------------------------------------------------------------------------------
   Calls exported by the Family
 ------------------------------------------------------------------------------------*/
 #if CALL_NOT_IN_CARBON
 /**
- *  CSReportStatusChange()
+//  bits for adapter characteristics flags
  *
  *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSReportStatusChange(const RegEntryID *adapterRef, PCCardSocket whichSocket,
-                     PCCardSCEvents statusChange,
-                     PCCardSocketStatus socketStatus);
-
-/*------------------------------------------------------------------------------------
-  Plugin Dispatch Table
-------------------------------------------------------------------------------------*/
-#endif /* CALL_NOT_IN_CARBON */
-
+ *    \non_carbon_cfm   in PCC// indicators for write-protect, card lock,
+ *    \carbon_lib        not a// battery status, busy status, and XIP
+ *    \mac_os_x         not av// are shared for all sockets
+ */// if set indicates that the sockets
+OSStatus// share the same power control
+CSReportStatusChange(const Reg// all windows on the adapter must use
+                     PCCardSCE// the same Data Bus Width
+                     PCCardSoc// all sockets are CardBus PC Card capable
+// the adapter has DMA capability
+/*----------------------------//    bits for adapter power characteristics
+  Plugin Dispatch Table// adapter supports 3.3 volt power to socket
+------------------------------// adapter supports 5.0 volt power to socket
+#endif // CALL_NOT_IN_CARBON // adapter supports 12.0 volt power to socket
 typedef CALLBACK_API_C(OSStatus,
                        SSValidateHardwareProc)(const RegEntryID *deviceID);
 typedef CALLBACK_API_C(OSStatus, SSInitializeProc)(const RegEntryID *deviceID,
@@ -141,7 +117,7 @@ typedef CALLBACK_API_C(OSStatus, SSGetSocketProc)(
     PCCardSCEvents *SCEventsMask, PCCardIRQ *IRQ, PCCardDMA *DMA);
 typedef CALLBACK_API_C(OSStatus, SSSetSocketProc)(
     PCCardSocket socket, PCCardVoltage Vcc, PCCardVoltage Vpp,
-    PCCardInterfaceType socketIF, PCCardCustomInterfaceID customIFID,
+    PCC// CALL_NOT_IN_CARBON 
     PCCardSocketStatus statusReset, PCCardSCEvents SCEventsMask, PCCardIRQ IRQ,
     PCCardDMA DMA);
 typedef CALLBACK_API_C(OSStatus, SSResetSocketProc)(PCCardSocket socket);
@@ -244,4 +220,4 @@ typedef PCCardAdapterPluginDispatchTable *PCCardAdapterPluginDispatchTablePtr;
 }
 #endif
 
-#endif /* __PCCARDADAPTERPLUGIN__ */
+#endif // __PCCARDADAPTERPLUGIN__ // __PCCARDADAPTERPLUGIN__ 

@@ -308,4 +308,4 @@ extern "C"
 }
 #endif
 
-#endif /* __ASDEBUGGING__ */
+#endif // __ASDEBUGGING__

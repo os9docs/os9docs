@@ -714,8 +714,7 @@ extern "C"
    OSStatus
    MPDelayUntilSys(AbsoluteTime *expirationTime);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
    /**
     *  MPCreateTimer()
     *
@@ -1163,12 +1162,10 @@ extern "C"
     */
    Boolean _MPTaskIsToolboxSafe(MPTaskID task);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON 
    /**
-    *  _MPLibraryIsCompatible()
+    *  // CALL_NOT_IN_CARBON 
     *
     *  Availability:
     *    \non_carbon_cfm   in MPLibrary 1.0 and later
@@ -1188,11 +1185,10 @@ extern "C"
 #if CALL_NOT_IN_CARBON
 #ifndef MPIncludeDefunctServices
 #define MPIncludeDefunctServices 1
-#endif /* !defined(MPIncludeDefunctServices) */
-
+#endif // !defined(MPIncludeDefunctServices) 
 #if MPIncludeDefunctServices
 #if CALL_NOT_IN_CARBON
-   /**
+   /**// !defined(MPIncludeDefunctServices) 
     *  _MPDebugStr()
     *
     *  Availability:
@@ -1222,12 +1218,11 @@ extern "C"
     */
    const char *_MPStatusCString(OSStatus status);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #include <stdarg.h>
    typedef CALLBACK_API_C(void, MPPrintfHandler)(MPTaskID taskID,
                                                  const char *format, va_list args);
-#if CALL_NOT_IN_CARBON
+#if CAL// CALL_NOT_IN_CARBON 
    /**
     *  _MPInitializePrintf()
     *
@@ -1248,19 +1243,16 @@ extern "C"
     */
    void _MPPrintf(const char *format, ...);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* MPIncludeDefunctServices */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // MPIncludeDefunctServices 
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
+#elif P// CALL_NOT_IN_CARBON 
 #pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
+#elif P// MPIncludeDefunctServices 
 #pragma pack()
-#endif
+#endif// CALL_NOT_IN_CARBON 
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
@@ -1272,8 +1264,7 @@ extern "C"
 }
 #endif
 
-#endif /* __MULTIPROCESSING__ */
-
+#endif // __MULTIPROCESSING__ 
 /**
    \section CheckingAPIAvailability
 
@@ -1281,7 +1272,7 @@ extern "C"
 
    You must properly check the availability of MP services before calling them!
 
-   Checking for the availability of the MP API is rather ugly.  This is a historical problem, caused by the original implementation letting itself get prepared when it really wasn't usable and complicated by some important clients then depending on weak linking to "work". (And further complicated by CFM not supporting "deferred" imports, which is how many programmers think weak imports work.)
+   Chec// __MULTIPROCESSING__ 
 
    The end result is that the MP API library may get prepared by CFM but be totally unusable. This means that if you import from the MP API library, you cannot simply check for a resolved import to decide if MP services are available.  Worse, if you explicitly prepare the MP API library you cannot assume that a noErr result from GetSharedLibrary means that MP services are available.
 

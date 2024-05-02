@@ -73,7 +73,7 @@ extern "C"
 #endif
 
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Resource Types */
+  //  � Resource Types 
   /*������������������������������������������������������������������������������������������������������*/
   enum
   {
@@ -84,7 +84,7 @@ extern "C"
   };
 
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Format of a �CNTL� resource */
+  //  � Format of a �CNTL� resource 
   /*������������������������������������������������������������������������������������������������������*/
   struct ControlTemplate
   {
@@ -111,10 +111,10 @@ extern "C"
   typedef UInt32 ControlNotification;
   enum
   {
-    controlNotifyNothing = FOUR_CHAR_CODE('nada'), /* No (null) notification*/
-    controlNotifyClick = FOUR_CHAR_CODE('clik'),   /* Control was clicked*/
-    controlNotifyFocus = FOUR_CHAR_CODE('focu'),   /* Control got keyboard focus*/
-    controlNotifyKey = FOUR_CHAR_CODE('key ')      /* Control got a keypress*/
+    controlNotifyNothing = FOUR_CHAR_CODE('nada'), // No (null) notification
+    controlNotifyClick = FOUR_CHAR_CODE('clik'),   // Control was clicked
+    controlNotifyFocus = FOUR_CHAR_CODE('focu'),   // Control got keyboard focus
+    controlNotifyKey = FOUR_CHAR_CODE('key ')      // Control got a keypress
   };
 
   typedef UInt32 ControlCapabilities;
@@ -125,20 +125,20 @@ extern "C"
                    after hide/move operation.*/
   };
 
-  /* procID's for our added "controls"*/
+  // procID's for our added "controls"
   enum
   {
-    staticTextProc = 256, /* static text*/
-    editTextProc = 272,   /* editable text*/
-    iconProc = 288,       /* icon*/
-    userItemProc = 304,   /* user drawn item*/
-    pictItemProc = 320    /* pict*/
+    staticTextProc = 256, // static text
+    editTextProc = 272,   // editable text
+    iconProc = 288,       // icon
+    userItemProc = 304,   // user drawn item
+    pictItemProc = 320    // pict
   };
 
-#endif /* !TARGET_OS_MAC */
+#endif // !TARGET_OS_MAC 
 
 /*������������������������������������������������������������������������������������������������������*/
-/*  � ControlRef */
+//  � ControlRef 
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
   typedef struct ControlRecord ControlRecord;
@@ -146,19 +146,19 @@ extern "C"
   typedef ControlPtr *ControlRef;
 #else
 typedef struct OpaqueControlRef *ControlRef;
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
-  /* ControlHandle is obsolete. Use ControlRef.*/
+  // ControlHandle is obsolete. Use ControlRef.
   typedef ControlRef ControlHandle;
   typedef SInt16 ControlPartCode;
   /*������������������������������������������������������������������������������������������������������*/
-  /* � Control ActionProcPtr */
+  // � Control ActionProcPtr 
   /*������������������������������������������������������������������������������������������������������*/
   typedef CALLBACK_API(void, ControlActionProcPtr)(ControlRef theControl,
                                                    ControlPartCode partCode);
   typedef STACK_UPP_TYPE(ControlActionProcPtr) ControlActionUPP;
 /*������������������������������������������������������������������������������������������������������*/
-/*  � ControlRecord */
+//  � ControlRecord 
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
   /**
@@ -182,10 +182,10 @@ typedef struct OpaqueControlRef *ControlRef;
     Str contrlTitle;           /**< nLength-prefixed title text*/
   } ControlRecord;             /**< +n*/
 
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
   /*������������������������������������������������������������������������������������������������������*/
-  /* � Control ActionProcPtr : Epilogue */
+  // � Control ActionProcPtr : Epilogue 
   /*������������������������������������������������������������������������������������������������������*/
   /**
    *  NewControlActionUPP()
@@ -201,7 +201,7 @@ typedef struct OpaqueControlRef *ControlRef;
   enum
   {
     uppControlActionProcInfo = 0x000002C0
-  }; /* pascal no_return_value Func(4_bytes, 2_bytes) */
+  }; // pascal no_return_value Func(4_bytes, 2_bytes) 
 #ifdef __cplusplus
   inline ControlActionUPP NewControlActionUPP(ControlActionProcPtr userRoutine)
   {
@@ -266,14 +266,14 @@ typedef struct OpaqueControlRef *ControlRef;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewControlActionProc(userRoutine) NewControlActionUPP(userRoutine)
 #define CallControlActionProc(userRoutine, theControl, partCode) \
   InvokeControlActionUPP(theControl, partCode, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Control Color Table */
+  //  � Control Color Table 
   /*������������������������������������������������������������������������������������������������������*/
   enum
   {
@@ -331,7 +331,7 @@ typedef struct OpaqueControlRef *ControlRef;
   typedef CtlCTab *CCTabPtr;
   typedef CCTabPtr *CCTabHandle;
 /*������������������������������������������������������������������������������������������������������*/
-/*  � Auxiliary Control Record */
+//  � Auxiliary Control Record 
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
   /**
@@ -358,23 +358,23 @@ typedef struct OpaqueControlRef *ControlRef;
   typedef struct AuxCtlRec AuxCtlRec;
   typedef AuxCtlRec *AuxCtlPtr;
   typedef AuxCtlPtr *AuxCtlHandle;
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Control Variants */
+  //  � Control Variants 
   /*��������������������������������������������������������������������������������������*/
   typedef SInt16 ControlVariant;
   enum
   {
-    kControlNoVariant = 0, /* No variant*/
+    kControlNoVariant = 0, // No variant
     kControlUsesOwningWindowsFontVariant =
-        1 << 3 /* Control uses owning windows font to display text*/
+        1 << 3 // Control uses owning windows font to display text
   };
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Control Part Codes */
+  //  � Control Part Codes 
   /*��������������������������������������������������������������������������������������*/
-  /* Basic part codes */
+  // Basic part codes 
   enum
   {
     kControlNoPart = 0,
@@ -383,17 +383,17 @@ typedef struct OpaqueControlRef *ControlRef;
     kControlInactivePart = 255
   };
 
-  /* Use this constant in Get/SetControlData when the data referred to is not */
+  // Use this constant in Get/SetControlData when the data referred to is not 
   /* specific to a part, but rather the entire control, e.g. the list handle of a
    */
-  /* list box control. */
+  // list box control. 
   enum
   {
     kControlEntireControl = 0
   };
 
-  /*  Meta-Parts */
-  /*                                                                                      */
+  //  Meta-Parts 
+  //                                                                                      
   /*  If you haven't guessed from looking at other toolbox headers. We like the
    * word      */
   /*  'meta'. It's cool. So here's one more for you. A meta-part is a part used in
@@ -406,8 +406,8 @@ typedef struct OpaqueControlRef *ControlRef;
    * content  */
   /*  region is only defined by controls that can embed other controls. It is the
    * area    */
-  /*  that embedded content can live. */
-  /*                                                                                      */
+  //  that embedded content can live. 
+  //                                                                                      
   /*  Along with these parts, you can also pass in normal part codes to get the
    * regions   */
   /*  of the parts. Not all controls fully support this at the time this was
@@ -418,26 +418,26 @@ typedef struct OpaqueControlRef *ControlRef;
     kControlContentMetaPart = -2
   };
 
-  /* focusing part codes */
+  // focusing part codes 
   enum
   {
-    kControlFocusNoPart = 0,    /* tells control to clear its focus*/
-    kControlFocusNextPart = -1, /* tells control to focus on the next part*/
-    kControlFocusPrevPart = -2  /* tells control to focus on the previous part*/
+    kControlFocusNoPart = 0,    // tells control to clear its focus
+    kControlFocusNextPart = -1, // tells control to focus on the next part
+    kControlFocusPrevPart = -2  // tells control to focus on the previous part
   };
 
   typedef SInt16 ControlFocusPart;
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Control Collection Tags */
+  //  � Control Collection Tags 
   /*������������������������������������������������������������������������������������������������������*/
   /*  These are standard tags that you will find in the initial data Collection
    * that is passed in the     */
-  /*  'param' parameter to the initCntl message (Carbon only). */
-  /*                                                                                                      */
+  //  'param' parameter to the initCntl message (Carbon only). 
+  //                                                                                                      
   /*  All tags at ID zero in a Control's Collection are reserved for Control
    * Manager use.                 */
-  /*  Custom control definitions should use other IDs. */
-  /*                                                                                                      */
+  //  Custom control definitions should use other IDs. 
+  //                                                                                                      
   /*  Most of these tags are interpreted when you call CreateCustomControl; the
    * Control Manager will      */
   /*  put value in the right place before calling the Control Definition with the
@@ -445,33 +445,33 @@ typedef struct OpaqueControlRef *ControlRef;
   enum
   {
     kControlCollectionTagBounds =
-        FOUR_CHAR_CODE('boun'),                          /* Rect - the bounding rectangle*/
-    kControlCollectionTagValue = FOUR_CHAR_CODE('valu'), /* SInt32 - the value*/
+        FOUR_CHAR_CODE('boun'),                          // Rect - the bounding rectangle
+    kControlCollectionTagValue = FOUR_CHAR_CODE('valu'), // SInt32 - the value
     kControlCollectionTagMinimum =
-        FOUR_CHAR_CODE('min '), /* SInt32 - the minimum*/
+        FOUR_CHAR_CODE('min '), // SInt32 - the minimum
     kControlCollectionTagMaximum =
-        FOUR_CHAR_CODE('max '), /* SInt32 - the maximum*/
+        FOUR_CHAR_CODE('max '), // SInt32 - the maximum
     kControlCollectionTagViewSize =
-        FOUR_CHAR_CODE('view'), /* SInt32 - the view size*/
+        FOUR_CHAR_CODE('view'), // SInt32 - the view size
     kControlCollectionTagVisibility =
-        FOUR_CHAR_CODE('visi'),                           /* Boolean - the visible state*/
-    kControlCollectionTagRefCon = FOUR_CHAR_CODE('refc'), /* SInt32 - the refCon*/
+        FOUR_CHAR_CODE('visi'),                           // Boolean - the visible state
+    kControlCollectionTagRefCon = FOUR_CHAR_CODE('refc'), // SInt32 - the refCon
     kControlCollectionTagTitle =
-        FOUR_CHAR_CODE('titl'), /* arbitrarily sized character array - the title*/
+        FOUR_CHAR_CODE('titl'), // arbitrarily sized character array - the title
     kControlCollectionTagUnicodeTitle = FOUR_CHAR_CODE(
-        'uttl'), /* bytes as received via CFStringCreateExternalRepresentation*/
+        'uttl'), // bytes as received via CFStringCreateExternalRepresentation
     kControlCollectionTagIDSignature =
-        FOUR_CHAR_CODE('idsi'), /* OSType - the ControlID signature*/
+        FOUR_CHAR_CODE('idsi'), // OSType - the ControlID signature
     kControlCollectionTagIDID =
-        FOUR_CHAR_CODE('idid'), /* SInt32 - the ControlID id*/
+        FOUR_CHAR_CODE('idid'), // SInt32 - the ControlID id
     kControlCollectionTagCommand =
-        FOUR_CHAR_CODE('cmd '), /* UInt32 - the command*/
+        FOUR_CHAR_CODE('cmd '), // UInt32 - the command
     kControlCollectionTagVarCode =
-        FOUR_CHAR_CODE('varc') /* SInt16 - the variant*/
+        FOUR_CHAR_CODE('varc') // SInt16 - the variant
   };
 
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Control Image Content */
+  //  � Control Image Content 
   /*������������������������������������������������������������������������������������������������������*/
   enum
   {
@@ -507,7 +507,7 @@ typedef struct OpaqueControlRef *ControlRef;
   typedef ControlButtonContentInfo ControlImageContentInfo;
   typedef ControlButtonContentInfo *ControlImageContentInfoPtr;
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Control Key Script Behavior */
+  //  � Control Key Script Behavior 
   /*������������������������������������������������������������������������������������������������������*/
   enum
   {
@@ -524,7 +524,7 @@ typedef struct OpaqueControlRef *ControlRef;
 
   typedef UInt32 ControlKeyScriptBehavior;
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Control Font Style */
+  //  � Control Font Style 
   /*������������������������������������������������������������������������������������������������������*/
   /*    SPECIAL FONT USAGE NOTES: You can specify the font to use for many control
      types. The constants below are meta-font numbers which you can use to set a
@@ -541,19 +541,19 @@ typedef struct OpaqueControlRef *ControlRef;
                   backwards compatibility). Also size, face, and addFontSize are
      ignored when using the meta-font numbering.
   */
-  /* Meta-font numbering - see note above */
+  // Meta-font numbering - see note above 
   enum
   {
-    kControlFontBigSystemFont = -1,       /* force to big system font*/
-    kControlFontSmallSystemFont = -2,     /* force to small system font*/
-    kControlFontSmallBoldSystemFont = -3, /* force to small bold system font*/
+    kControlFontBigSystemFont = -1,       // force to big system font
+    kControlFontSmallSystemFont = -2,     // force to small system font
+    kControlFontSmallBoldSystemFont = -3, // force to small bold system font
     kControlFontViewSystemFont =
-        -4 /* force to views system font (DataBrowser control only)*/
+        -4 // force to views system font (DataBrowser control only)
   };
 
-  /* Add these masks together to set the flags field of a ControlFontStyleRec */
-  /* They specify which fields to apply to the text. It is important to make  */
-  /* sure that you specify only the fields that you wish to set.              */
+  // Add these masks together to set the flags field of a ControlFontStyleRec 
+  // They specify which fields to apply to the text. It is important to make  
+  // sure that you specify only the fields that you wish to set.              
   enum
   {
     kControlUseFontMask = 0x0001,
@@ -567,21 +567,21 @@ typedef struct OpaqueControlRef *ControlRef;
     kControlAddFontSizeMask = 0x0100
   };
 
-  /* AddToMetaFont indicates that we want to start with a standard system     */
-  /* font, but then we'd like to add the other attributes. Normally, the meta */
-  /* font ignores all other flags                                             */
+  // AddToMetaFont indicates that we want to start with a standard system     
+  // font, but then we'd like to add the other attributes. Normally, the meta 
+  // font ignores all other flags                                             
   enum
   {
-    kControlAddToMetaFontMask = 0x0200 /* Available in Appearance 1.1 or later*/
+    kControlAddToMetaFontMask = 0x0200 // Available in Appearance 1.1 or later
   };
 
-  /* UseThemeFontID indicates that the font field of the ControlFontStyleRec  */
-  /* should be interpreted as a ThemeFontID (see Appearance.h). In all other  */
-  /* ways, specifying a ThemeFontID is just like using one of the control     */
-  /* meta-fonts IDs.                                                          */
+  // UseThemeFontID indicates that the font field of the ControlFontStyleRec  
+  // should be interpreted as a ThemeFontID (see Appearance.h). In all other  
+  // ways, specifying a ThemeFontID is just like using one of the control     
+  // meta-fonts IDs.                                                          
   enum
   {
-    kControlUseThemeFontIDMask = 0x0080 /* Available in Mac OS X or later*/
+    kControlUseThemeFontIDMask = 0x0080 // Available in Mac OS X or later
   };
 
   struct ControlFontStyleRec
@@ -598,23 +598,23 @@ typedef struct OpaqueControlRef *ControlRef;
   typedef struct ControlFontStyleRec ControlFontStyleRec;
   typedef ControlFontStyleRec *ControlFontStylePtr;
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Click Activation Results */
+  //  � Click Activation Results 
   /*������������������������������������������������������������������������������������������������������*/
   /*  These are for use with GetControlClickActivation. The enumerated values
    * should be pretty            */
-  /*  self-explanatory, but just in case: */
+  //  self-explanatory, but just in case: 
   /*  � Activate/DoNotActivate indicates whether or not to change the owning
    * window's z-ordering before   */
   /*      processing the click. If activation is requested, you may also want to
    * immediately redraw the   */
-  /*      newly exposed portion of the window. */
+  //      newly exposed portion of the window. 
   /*  � Ignore/Handle Click indicates whether or not to call an appropriate click
    * handling API (like      */
-  /*      HandleControlClick) in respose to the event. */
+  //      HandleControlClick) in respose to the event. 
   enum
   {
     kDoNotActivateAndIgnoreClick =
-        0,                            /* probably never used. here for completeness.*/
+        0,                            // probably never used. here for completeness.
     kDoNotActivateAndHandleClick = 1, /* let the control handle the click while
                                          the window is still in the background.*/
     kActivateAndIgnoreClick =
@@ -626,7 +626,7 @@ typedef struct OpaqueControlRef *ControlRef;
 
   typedef UInt32 ClickActivationResult;
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Common data tags for Get/SetControlData */
+  //  � Common data tags for Get/SetControlData 
   /*������������������������������������������������������������������������������������������������������*/
 
   /**
@@ -652,11 +652,11 @@ typedef struct OpaqueControlRef *ControlRef;
   };
 
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Control Feature Bits */
+  //  � Control Feature Bits 
   /*������������������������������������������������������������������������������������������������������*/
   enum
   {
-    /* Control feature bits - returned by GetControlFeatures */
+    // Control feature bits - returned by GetControlFeatures 
     kControlSupportsGhosting = 1 << 0,
     kControlSupportsEmbedding = 1 << 1,
     kControlSupportsFocus = 1 << 2,
@@ -669,27 +669,27 @@ typedef struct OpaqueControlRef *ControlRef;
     kControlSupportsCalcBestRect = 1 << 9,
     kControlSupportsLiveFeedback = 1 << 10,
     kControlHasRadioBehavior = 1
-                               << 11,          /* Available in Appearance 1.0.1 or later*/
-    kControlSupportsDragAndDrop = 1 << 12,     /* Available in Carbon*/
-    kControlAutoToggles = 1 << 14,             /* Available in Appearance 1.1 or later*/
-    kControlSupportsGetRegion = 1 << 17,       /* Available in Appearance 1.1 or later*/
-    kControlSupportsFlattening = 1 << 19,      /* Available in Carbon*/
-    kControlSupportsSetCursor = 1 << 20,       /* Available in Carbon*/
-    kControlSupportsContextualMenus = 1 << 21, /* Available in Carbon*/
-    kControlSupportsClickActivation = 1 << 22, /* Available in Carbon*/
+                               << 11,          // Available in Appearance 1.0.1 or later
+    kControlSupportsDragAndDrop = 1 << 12,     // Available in Carbon
+    kControlAutoToggles = 1 << 14,             // Available in Appearance 1.1 or later
+    kControlSupportsGetRegion = 1 << 17,       // Available in Appearance 1.1 or later
+    kControlSupportsFlattening = 1 << 19,      // Available in Carbon
+    kControlSupportsSetCursor = 1 << 20,       // Available in Carbon
+    kControlSupportsContextualMenus = 1 << 21, // Available in Carbon
+    kControlSupportsClickActivation = 1 << 22, // Available in Carbon
     kControlIdlesWithTimer = 1 << 23           /* Available in Carbon - this bit indicates
                                                   that the control animates automatically*/
   };
 
   /*������������������������������������������������������������������������������������������������������*/
-  /*  � Control Messages */
+  //  � Control Messages 
   /*������������������������������������������������������������������������������������������������������*/
   enum
   {
     drawCntl = 0,
     testCntl = 1,
     calcCRgns = 2,
-    initCntl = 3, /* Param is Collection, result is OSStatus*/
+    initCntl = 3, // Param is Collection, result is OSStatus
     dispCntl = 4,
     posCntl = 5,
     thumbCntl = 6,
@@ -700,9 +700,9 @@ typedef struct OpaqueControlRef *ControlRef;
     drawThumbOutline = 12,
     kControlMsgDrawGhost = 13,
     kControlMsgCalcBestRect =
-        14, /* Calculate best fitting rectangle for control*/
+        14, // Calculate best fitting rectangle for control
     kControlMsgHandleTracking = 15,
-    kControlMsgFocus = 16, /* param indicates action.*/
+    kControlMsgFocus = 16, // param indicates action.
     kControlMsgKeyDown = 17,
     kControlMsgIdle = 18,
     kControlMsgGetFeatures = 19,
@@ -712,31 +712,31 @@ typedef struct OpaqueControlRef *ControlRef;
     kControlMsgSetUpBackground = 23,
     kControlMsgCalcValueFromPos = 26,
     kControlMsgTestNewMsgSupport =
-        27,                            /* See if this control supports new messaging*/
-    kControlMsgSubValueChanged = 25,   /* Available in Appearance 1.0.1 or later*/
-    kControlMsgSubControlAdded = 28,   /* Available in Appearance 1.0.1 or later*/
-    kControlMsgSubControlRemoved = 29, /* Available in Appearance 1.0.1 or later*/
-    kControlMsgApplyTextColor = 30,    /* Available in Appearance 1.1 or later*/
-    kControlMsgGetRegion = 31,         /* Available in Appearance 1.1 or later*/
-    kControlMsgFlatten = 32,           /* Available in Carbon. Param is Collection.*/
+        27,                            // See if this control supports new messaging
+    kControlMsgSubValueChanged = 25,   // Available in Appearance 1.0.1 or later
+    kControlMsgSubControlAdded = 28,   // Available in Appearance 1.0.1 or later
+    kControlMsgSubControlRemoved = 29, // Available in Appearance 1.0.1 or later
+    kControlMsgApplyTextColor = 30,    // Available in Appearance 1.1 or later
+    kControlMsgGetRegion = 31,         // Available in Appearance 1.1 or later
+    kControlMsgFlatten = 32,           // Available in Carbon. Param is Collection.
     kControlMsgSetCursor =
-        33,                           /* Available in Carbon. Param is ControlSetCursorRec*/
+        33,                           // Available in Carbon. Param is ControlSetCursorRec
     kControlMsgDragEnter = 38,        /* Available in Carbon. Param is DragRef, result is
                                          boolean indicating acceptibility of drag.*/
-    kControlMsgDragLeave = 39,        /* Available in Carbon. As above.*/
-    kControlMsgDragWithin = 40,       /* Available in Carbon. As above.*/
+    kControlMsgDragLeave = 39,        // Available in Carbon. As above.
+    kControlMsgDragWithin = 40,       // Available in Carbon. As above.
     kControlMsgDragReceive = 41,      /* Available in Carbon. Param is DragRef, result
                                          is OSStatus indicating success/failure.*/
-    kControlMsgDisplayDebugInfo = 46, /* Available in Carbon on X.*/
+    kControlMsgDisplayDebugInfo = 46, // Available in Carbon on X.
     kControlMsgContextualMenuClick =
-        47, /* Available in Carbon. Param is ControlContextualMenuClickRec*/
+        47, // Available in Carbon. Param is ControlContextualMenuClickRec
     kControlMsgGetClickActivation =
-        48 /* Available in Carbon. Param is ControlClickActivationRec*/
+        48 // Available in Carbon. Param is ControlClickActivationRec
   };
 
   typedef SInt16 ControlDefProcMessage;
   /*��������������������������������������������������������������������������������������*/
-  /*  � Control Sizes */
+  //  � Control Sizes 
   /*��������������������������������������������������������������������������������������*/
   enum
   {
@@ -748,7 +748,7 @@ typedef struct OpaqueControlRef *ControlRef;
 
   typedef UInt16 ControlSize;
   /*��������������������������������������������������������������������������������������*/
-  /*  � Constants for drawCntl message (passed in param) */
+  //  � Constants for drawCntl message (passed in param) 
   /*��������������������������������������������������������������������������������������*/
   enum
   {
@@ -757,7 +757,7 @@ typedef struct OpaqueControlRef *ControlRef;
   };
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Constants for dragCntl message (passed in param) */
+  //  � Constants for dragCntl message (passed in param) 
   /*��������������������������������������������������������������������������������������*/
   enum
   {
@@ -766,7 +766,7 @@ typedef struct OpaqueControlRef *ControlRef;
   };
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Drag Constraint Structure for thumbCntl message (passed in param) */
+  //  � Drag Constraint Structure for thumbCntl message (passed in param) 
   /*��������������������������������������������������������������������������������������*/
   struct IndicatorDragConstraint
   {
@@ -777,7 +777,7 @@ typedef struct OpaqueControlRef *ControlRef;
   typedef struct IndicatorDragConstraint IndicatorDragConstraint;
   typedef IndicatorDragConstraint *IndicatorDragConstraintPtr;
   /*��������������������������������������������������������������������������������������*/
-  /*  CDEF should return as result of kControlMsgTestNewMsgSupport */
+  //  CDEF should return as result of kControlMsgTestNewMsgSupport 
   /*��������������������������������������������������������������������������������������*/
   enum
   {
@@ -787,7 +787,7 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /*  This structure is passed into a CDEF when called with the
    * kControlMsgHandleTracking */
-  /*  message */
+  //  message 
   /*��������������������������������������������������������������������������������������*/
   struct ControlTrackingRec
   {
@@ -812,7 +812,7 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /* This structure is passed into a CDEF when called with the kControlMsgGetData
    * or      */
-  /* kControlMsgSetData message */
+  // kControlMsgSetData message 
   /*��������������������������������������������������������������������������������������*/
   struct ControlDataAccessRec
   {
@@ -838,7 +838,7 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /* This structure is passed into a CDEF when called with the
    * kControlMsgSetUpBackground */
-  /* message is sent */
+  // message is sent 
   /*��������������������������������������������������������������������������������������*/
   struct ControlBackgroundRec
   {
@@ -850,7 +850,7 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /* This structure is passed into a CDEF when called with the
    * kControlMsgApplyTextColor  */
-  /* message is sent */
+  // message is sent 
   /*��������������������������������������������������������������������������������������*/
   struct ControlApplyTextColorRec
   {
@@ -863,7 +863,7 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /* This structure is passed into a CDEF when called with the
    * kControlMsgGetRegion       */
-  /* message is sent */
+  // message is sent 
   /*��������������������������������������������������������������������������������������*/
   struct ControlGetRegionRec
   {
@@ -875,7 +875,7 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /* This structure is passed into a CDEF when the kControlMsgSetCursor message is
    * sent   */
-  /* Only sent on Carbon */
+  // Only sent on Carbon 
   /*��������������������������������������������������������������������������������������*/
   struct ControlSetCursorRec
   {
@@ -889,8 +889,8 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /* This structure is passed into a CDEF when the kControlMsgContextualMenuClick
    * message */
-  /* is sent */
-  /* Only sent on Carbon */
+  // is sent 
+  // Only sent on Carbon 
   /*��������������������������������������������������������������������������������������*/
   struct ControlContextualMenuClickRec
   {
@@ -903,19 +903,19 @@ typedef struct OpaqueControlRef *ControlRef;
   /*��������������������������������������������������������������������������������������*/
   /* This structure is passed into a CDEF when the kControlMsgGetClickActivation
    * message  */
-  /* is sent */
-  /* Only sent on Carbon */
+  // is sent 
+  // Only sent on Carbon 
   /*��������������������������������������������������������������������������������������*/
   struct ControlClickActivationRec
   {
     Point localPoint;
     EventModifiers modifiers;
-    ClickActivationResult result; /* your CDEF must pass the desired result back*/
+    ClickActivationResult result; // your CDEF must pass the desired result back
   };
   typedef struct ControlClickActivationRec ControlClickActivationRec;
   typedef ControlClickActivationRec *ControlClickActivationPtr;
   /*��������������������������������������������������������������������������������������*/
-  /*  � �CDEF� entrypoint */
+  //  � �CDEF� entrypoint 
   /*��������������������������������������������������������������������������������������*/
   typedef CALLBACK_API(SInt32, ControlDefProcPtr)(SInt16 varCode,
                                                   ControlRef theControl,
@@ -936,7 +936,7 @@ typedef struct OpaqueControlRef *ControlRef;
   enum
   {
     uppControlDefProcInfo = 0x00003BB0
-  }; /* pascal 4_bytes Func(2_bytes, 4_bytes, 2_bytes, 4_bytes) */
+  }; // pascal 4_bytes Func(2_bytes, 4_bytes, 2_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline ControlDefUPP NewControlDefUPP(ControlDefProcPtr userRoutine)
   {
@@ -1001,21 +1001,21 @@ typedef struct OpaqueControlRef *ControlRef;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewControlDefProc(userRoutine) NewControlDefUPP(userRoutine)
 #define CallControlDefProc(userRoutine, varCode, theControl, message, param) \
   InvokeControlDefUPP(varCode, theControl, message, param, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /*��������������������������������������������������������������������������������������*/
-  /*  Control Key Filter */
+  //  Control Key Filter 
   /*��������������������������������������������������������������������������������������*/
-  /* Certain controls can have a keyfilter attached to them. */
+  // Certain controls can have a keyfilter attached to them. 
   /* Definition of a key filter for intercepting and possibly changing keystrokes
    */
-  /* which are destined for a control. */
-  /* Key Filter Result Codes */
-  /* The filter proc should return one of the two constants below. If */
+  // which are destined for a control. 
+  // Key Filter Result Codes 
+  // The filter proc should return one of the two constants below. If 
   /* kKeyFilterBlockKey is returned, the key is blocked and never makes it to the
    */
   /* control. If kKeyFilterPassKey is returned, the control receives the
@@ -1046,7 +1046,7 @@ typedef struct OpaqueControlRef *ControlRef;
   enum
   {
     uppControlKeyFilterProcInfo = 0x00003FE0
-  }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline ControlKeyFilterUPP
   NewControlKeyFilterUPP(ControlKeyFilterProcPtr userRoutine)
@@ -1117,18 +1117,18 @@ typedef struct OpaqueControlRef *ControlRef;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewControlKeyFilterProc(userRoutine) NewControlKeyFilterUPP(userRoutine)
 #define CallControlKeyFilterProc(userRoutine, theControl, keyCode, charCode, \
                                  modifiers)                                  \
   InvokeControlKeyFilterUPP(theControl, keyCode, charCode, modifiers,        \
                             userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � DragGrayRgn Constatns */
-  /*                                                                                      */
-  /*   For DragGrayRgnUPP used in TrackControl() */
+  //  � DragGrayRgn Constatns 
+  //                                                                                      
+  //   For DragGrayRgnUPP used in TrackControl() 
   /*��������������������������������������������������������������������������������������*/
   enum
   {
@@ -1138,13 +1138,13 @@ typedef struct OpaqueControlRef *ControlRef;
   };
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Control Creation/Deletion/Persistence */
+  //  � Control Creation/Deletion/Persistence 
   /*��������������������������������������������������������������������������������������*/
-  /*  CreateCustomControl is only available as part of Carbon */
+  //  CreateCustomControl is only available as part of Carbon 
   enum
   {
-    kControlDefProcPtr = 0,    /* raw proc-ptr based access*/
-    kControlDefObjectClass = 1 /* event-based definition (Mac OS X only)*/
+    kControlDefProcPtr = 0,    // raw proc-ptr based access
+    kControlDefObjectClass = 1 // event-based definition (Mac OS X only)
   };
 
   typedef UInt32 ControlDefType;
@@ -1219,7 +1219,7 @@ typedef struct OpaqueControlRef *ControlRef;
   KillControls(WindowRef theWindow) ONEWORDINLINE(0xA956);
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Control Definition Registration */
+  //  � Control Definition Registration 
   /*��������������������������������������������������������������������������������������*/
   typedef CALLBACK_API(OSStatus, ControlCNTLToCollectionProcPtr)(
       const Rect *bounds, SInt16 value, Boolean visible, SInt16 max, SInt16 min,
@@ -1318,7 +1318,7 @@ typedef struct OpaqueControlRef *ControlRef;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewControlCNTLToCollectionProc(userRoutine) \
   NewControlCNTLToCollectionUPP(userRoutine)
 #define CallControlCNTLToCollectionProc(userRoutine, bounds, value, visible, \
@@ -1326,7 +1326,7 @@ typedef struct OpaqueControlRef *ControlRef;
                                         collection)                          \
   InvokeControlCNTLToCollectionUPP(bounds, value, visible, max, min, procID, \
                                    refCon, title, collection, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /**
    *  RegisterControlDefinition()
@@ -1384,7 +1384,7 @@ typedef struct OpaqueControlRef *ControlRef;
                             ControlCNTLToCollectionUPP inConversionProc);
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Control Visible State */
+  //  � Control Visible State 
   /*��������������������������������������������������������������������������������������*/
   /**
    *  HiliteControl()
@@ -1420,7 +1420,7 @@ typedef struct OpaqueControlRef *ControlRef;
   void
   HideControl(ControlRef theControl) ONEWORDINLINE(0xA958);
 
-  /* following state routines available only with Appearance 1.0 and later*/
+  // following state routines available only with Appearance 1.0 and later
   /**
    *  IsControlActive()
    *
@@ -1477,7 +1477,7 @@ typedef struct OpaqueControlRef *ControlRef;
   SetControlVisibility(ControlRef inControl, Boolean inIsVisible,
                        Boolean inDoDraw) THREEWORDINLINE(0x303C, 0x001E, 0xAA73);
 
-  /* following state routines available only on Mac OS X and later*/
+  // following state routines available only on Mac OS X and later
   /**
    *  IsControlEnabled()
    *
@@ -1515,7 +1515,7 @@ typedef struct OpaqueControlRef *ControlRef;
   DisableControl(ControlRef inControl);
 
   /*��������������������������������������������������������������������������������������*/
-  /*  � Control Imaging */
+  //  � Control Imaging 
   /*��������������������������������������������������������������������������������������*/
 
   /**
@@ -1544,8 +1544,8 @@ GetPort ( &savePort );
 SetPort ( updtWin)
 BeginUpdate ( updtWin );
 DrawControls ( updtWin );
-DrawGrowIcon ( updtWin); /* if needed */
-  MyDrawWin(updtWin); /* draw window contents */
+DrawGrowIcon ( updtWin); // if needed 
+  MyDrawWin(updtWin); // draw window contents 
   EndUpdate(updtWin);
   SetPort(savePort) break;
 case mouseDown:
@@ -1563,7 +1563,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         void
         DrawControls(WindowRef theWindow) ONEWORDINLINE(0xA969);
 
@@ -1606,7 +1606,7 @@ void UpdateControls(
     WindowRef inWindow,
     RgnHandle inUpdateRegion) /* can be NULL */ ONEWORDINLINE(0xA953);
 
-/* following imaging routines available only with Appearance 1.0 and later*/
+// following imaging routines available only with Appearance 1.0 and later
 /**
  *  GetBestControlRect()
  *
@@ -1816,7 +1816,7 @@ NewControlColorUPP(ControlColorProcPtr userRoutine);
 enum
 {
   uppControlColorProcInfo = 0x00001AF0
-}; /* pascal 4_bytes Func(4_bytes, 2_bytes, 2_bytes, 1_byte) */
+}; // pascal 4_bytes Func(4_bytes, 2_bytes, 2_bytes, 1_byte) 
 #ifdef __cplusplus
 inline ControlColorUPP NewControlColorUPP(ControlColorProcPtr userRoutine)
 {
@@ -1884,13 +1884,13 @@ inline OSStatus InvokeControlColorUPP(ControlRef inControl, SInt16 inMessage,
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewControlColorProc(userRoutine) NewControlColorUPP(userRoutine)
 #define CallControlColorProc(userRoutine, inControl, inMessage, inDrawDepth, \
                              inDrawInColor)                                  \
   InvokeControlColorUPP(inControl, inMessage, inDrawDepth, inDrawInColor,    \
                         userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 /**
  *  SetControlColorProc()
@@ -1942,7 +1942,7 @@ OSStatus
 SetControlColorProc(ControlRef inControl, ControlColorUPP inProc);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Mousing */
+//  � Control Mousing 
 /*��������������������������������������������������������������������������������������*/
 /**
     NOTE ON CONTROL ACTION PROCS
@@ -2004,11 +2004,11 @@ FindControl(Point testPoint, WindowRef theWindow, ControlRef *theControl)
 
 /* The following mousing routines available only with Appearance 1.0 and later
  */
-/*                                                                              */
-/* HandleControlClick is preferable to TrackControl when running under */
+//                                                                              
+// HandleControlClick is preferable to TrackControl when running under 
 /* Appearance 1.0 as you can pass in modifiers, which some of the new controls
  */
-/* use, such as edit text and list boxes. */
+// use, such as edit text and list boxes. 
 /**
  *  FindControlUnderMouse()
  *
@@ -2040,9 +2040,9 @@ HandleControlClick(
  */
 /* If the control didn't display a contextual menu (possibly because the point
  */
-/* was in a non-interesting part), the menuDisplayed output parameter will be */
-/* false. If the control did display a menu, menuDisplayed will be true. */
-/* This in on Carbon only */
+// was in a non-interesting part), the menuDisplayed output parameter will be 
+// false. If the control did display a menu, menuDisplayed will be true. 
+// This in on Carbon only 
 /**
  *  HandleControlContextualMenuClick()
  *
@@ -2055,12 +2055,12 @@ OSStatus
 HandleControlContextualMenuClick(ControlRef inControl, Point inWhere,
                                  Boolean *menuDisplayed);
 
-/* Some complex controls (like Data Browser) require proper sequencing of */
-/* window activation and click processing. In some cases, the control might */
-/* want the window to be left inactive yet still handle the click, or vice- */
-/* versa. The GetControlClickActivation routine lets a control client ask the */
-/* control how it wishes to behave for a particular click. */
-/* This in on Carbon only. */
+// Some complex controls (like Data Browser) require proper sequencing of 
+// window activation and click processing. In some cases, the control might 
+// want the window to be left inactive yet still handle the click, or vice- 
+// versa. The GetControlClickActivation routine lets a control client ask the 
+// control how it wishes to behave for a particular click. 
+// This in on Carbon only. 
 /**
  *  GetControlClickActivation()
  *
@@ -2075,7 +2075,7 @@ GetControlClickActivation(ControlRef inControl, Point inWhere,
                           ClickActivationResult *outResult);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Events (available only with Appearance 1.0 and later) */
+//  � Control Events (available only with Appearance 1.0 and later) 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  HandleControlKey()
@@ -2101,16 +2101,16 @@ HandleControlKey(ControlRef inControl, SInt16 inKeyCode, SInt16 inCharCode,
 void IdleControls(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x000C, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
-/* � Control Mouse Tracking (available with Carbon) */
+// � Control Mouse Tracking (available with Carbon) 
 /*��������������������������������������������������������������������������������������*/
 /* The HandleControlSetCursor routine requests that a given control set the
  * cursor to   */
-/* something appropriate based on the mouse location. */
-/* If the control didn't want to set the cursor (because the point was in a */
+// something appropriate based on the mouse location. 
+// If the control didn't want to set the cursor (because the point was in a 
 /* non-interesting part), the cursorWasSet output parameter will be false. If
  * the       */
-/* control did set the cursor, cursorWasSet will be true. */
-/* Carbon only. */
+// control did set the cursor, cursorWasSet will be true. 
+// Carbon only. 
 /**
  *  HandleControlSetCursor()
  *
@@ -2124,7 +2124,7 @@ HandleControlSetCursor(ControlRef control, Point localPoint,
                        EventModifiers modifiers, Boolean *cursorWasSet);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Positioning */
+//  � Control Positioning 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  MoveControl()
@@ -2147,7 +2147,7 @@ void MoveControl(ControlRef theControl, SInt16 h, SInt16 v) ONEWORDINLINE(0xA959
 void SizeControl(ControlRef theControl, SInt16 w, SInt16 h) ONEWORDINLINE(0xA95C);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Title */
+//  � Control Title 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  SetControlTitle()
@@ -2193,7 +2193,7 @@ OSStatus
 CopyControlTitleAsCFString(ControlRef inControl, CFStringRef *outString);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Value */
+//  � Control Value 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  GetControlValue()
@@ -2260,7 +2260,7 @@ GetControlMaximum(ControlRef theControl) ONEWORDINLINE(0xA962);
 void SetControlMaximum(ControlRef theControl, SInt16 newMaximum)
     ONEWORDINLINE(0xA965);
 
-/* proportional scrolling/32-bit value support is new with Appearance 1.1*/
+// proportional scrolling/32-bit value support is new with Appearance 1.1
 
 /**
  *  GetControlViewSize()
@@ -2364,8 +2364,8 @@ Boolean
 IsValidControlHandle(ControlRef theControl);
 
 /*��������������������������������������������������������������������������������������*/
-/* � Control IDs */
-/* Carbon only. */
+// � Control IDs 
+// Carbon only. 
 /*��������������������������������������������������������������������������������������*/
 struct ControlID
 {
@@ -2408,8 +2408,8 @@ GetControlByID(WindowRef inWindow, const ControlID *inID,
                ControlRef *outControl);
 
 /*��������������������������������������������������������������������������������������*/
-/* � Control Command IDs */
-/* Carbon only. */
+// � Control Command IDs 
+// Carbon only. 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  SetControlCommandID()
@@ -2434,8 +2434,8 @@ OSStatus
 GetControlCommandID(ControlRef inControl, UInt32 *outCommandID);
 
 /*��������������������������������������������������������������������������������������*/
-/* � Control Identification */
-/* Carbon only. */
+// � Control Identification 
+// Carbon only. 
 /*��������������������������������������������������������������������������������������*/
 struct ControlKind
 {
@@ -2486,7 +2486,7 @@ OSStatus
 GetControlKind(ControlRef inControl, ControlKind *outControlKind);
 
 /*��������������������������������������������������������������������������������������*/
-/* � Properties */
+// � Properties 
 /*��������������������������������������������������������������������������������������*/
 enum
 {
@@ -2569,9 +2569,9 @@ ChangeControlPropertyAttributes(ControlRef control, OSType propertyCreator,
                                 UInt32 attributesToClear);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Regions (Appearance 1.1 or later) */
-/*                                                                                      */
-/*  See the discussion on meta-parts in this header for more information */
+//  � Control Regions (Appearance 1.1 or later) 
+//                                                                                      
+//  See the discussion on meta-parts in this header for more information 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  GetControlRegion()
@@ -2586,7 +2586,7 @@ GetControlRegion(ControlRef inControl, ControlPartCode inPart,
                  RgnHandle outRegion);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Variant */
+//  � Control Variant 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  GetControlVariant()
@@ -2600,7 +2600,7 @@ ControlVariant
 GetControlVariant(ControlRef theControl) ONEWORDINLINE(0xA809);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Action */
+//  � Control Action 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  SetControlAction()
@@ -2625,7 +2625,7 @@ ControlActionUPP
 GetControlAction(ControlRef theControl) ONEWORDINLINE(0xA96A);
 
 /*��������������������������������������������������������������������������������������*/
-/* � Control Accessors */
+// � Control Accessors 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  SetControlReference()
@@ -2662,9 +2662,9 @@ Boolean
 GetAuxiliaryControlRecord(ControlRef theControl, AuxCtlHandle *acHndl)
     ONEWORDINLINE(0xAA44);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -2679,9 +2679,9 @@ void SetControlColor(ControlRef theControl, CCTabHandle newColorTable)
     ONEWORDINLINE(0xAA43);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Hierarchy (Appearance 1.0 and later only) */
+//  � Control Hierarchy (Appearance 1.0 and later only) 
 /*��������������������������������������������������������������������������������������*/
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 /**
  *  SendControlMessage()
@@ -2815,7 +2815,7 @@ OSErr SetControlSupervisor(ControlRef inControl, ControlRef inBoss)
     THREEWORDINLINE(0x303C, 0x001A, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Keyboard Focus (available only with Appearance 1.0 and later) */
+//  � Keyboard Focus (available only with Appearance 1.0 and later) 
 /*��������������������������������������������������������������������������������������*/
 /**
  *  GetKeyboardFocus()
@@ -2873,7 +2873,7 @@ OSErr ReverseKeyboardFocus(WindowRef inWindow)
 OSErr ClearKeyboardFocus(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x0019, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Data (available only with Appearance 1.0 and later) */
+//  � Control Data (available only with Appearance 1.0 and later) 
 /*��������������������������������������������������������������������������������������*/
 
 /**
@@ -2924,10 +2924,10 @@ OSErr GetControlDataSize(ControlRef inControl, ControlPartCode inPart,
     THREEWORDINLINE(0x303C, 0x0014, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
-/*  � Control Drag & Drop */
-/*      Carbon only. */
+//  � Control Drag & Drop 
+//      Carbon only. 
 /*��������������������������������������������������������������������������������������*/
-/* some simple redefinitions of the similar values found in the Drag header*/
+// some simple redefinitions of the similar values found in the Drag header
 enum
 {
   kDragTrackingEnterControl = 2,
@@ -3006,9 +3006,9 @@ IsAutomaticControlDragTrackingEnabledForWindow(WindowRef theWindow,
 
 #if !TARGET_OS_MAC
 /*��������������������������������������������������������������������������������������*/
-/*  � QuickTime 3.0 Win32/unix notification mechanism */
+//  � QuickTime 3.0 Win32/unix notification mechanism 
 /*��������������������������������������������������������������������������������������*/
-/* Proc used to notify window that something happened to the control*/
+// Proc used to notify window that something happened to the control
 typedef CALLBACK_API_C(void, ControlNotificationProcPtr)(
     WindowRef theWindow, ControlRef theControl,
     ControlNotification notification, long param1, long param2);
@@ -3053,13 +3053,13 @@ GetControlHandleFromCookie(long cookie);
  */
 void SetControlDefProc(short resID, ControlDefProcPtr proc);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 typedef ControlNotificationProcPtr ControlNotificationUPP;
-#endif /* !TARGET_OS_MAC */
+#endif // !TARGET_OS_MAC 
 
 /*��������������������������������������������������������������������������������������*/
-/*  � C Glue */
+//  � C Glue 
 /*��������������������������������������������������������������������������������������*/
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
@@ -3138,13 +3138,13 @@ short trackcontrol(ControlRef theControl, Point *thePoint,
  */
 short testcontrol(ControlRef theControl, Point *thePt);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 #if OLDROUTINENAMES
 /*��������������������������������������������������������������������������������������*/
-/*  � OLDROUTINENAMES */
+//  � OLDROUTINENAMES 
 /*��������������������������������������������������������������������������������������*/
 enum
 {
@@ -3181,10 +3181,10 @@ enum
 #define GetCVariant(theControl) GetControlVariant(theControl)
 #define getctitle(theControl, title) getcontroltitle(theControl, title)
 #define setctitle(theControl, title) setcontroltitle(theControl, title)
-#endif /* OLDROUTINENAMES */
+#endif // OLDROUTINENAMES 
 
 #if ACCESSOR_CALLS_ARE_FUNCTIONS
-/* Getters */
+// Getters 
 /**
  *  GetControlBounds()
  *
@@ -3262,7 +3262,7 @@ GetControlPopupMenuHandle(ControlRef control);
  */
 short GetControlPopupMenuID(ControlRef control);
 
-/* Setters */
+// Setters 
 /**
  *  SetControlDataHandle()
  *
@@ -3304,14 +3304,14 @@ void SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
  */
 void SetControlPopupMenuID(ControlRef control, short menuID);
 
-#endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
+#endif // ACCESSOR_CALLS_ARE_FUNCTIONS 
 
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #define GetControlListFromWindow(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
 #define GetControlOwningWindowControlList(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
-#endif /* !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS 
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -3331,7 +3331,7 @@ void SetControlPopupMenuID(ControlRef control, short menuID);
 }
 #endif
 
-#endif /* __CONTROLS__ */
+#endif // __CONTROLS__ 
 */);
 
 /**
@@ -3365,14 +3365,14 @@ void SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
  */
 void SetControlPopupMenuID(ControlRef control, short menuID);
 
-#endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
+#endif // ACCESSOR_CALLS_ARE_FUNCTIONS 
 
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #define GetControlListFromWindow(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
 #define GetControlOwningWindowControlList(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
-#endif /* !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS 
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -3392,7 +3392,7 @@ void SetControlPopupMenuID(ControlRef control, short menuID);
 }
 #endif
 
-#endif /* __CONTROLS__ */
+#endif // __CONTROLS__ 
 ma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -3410,4 +3410,4 @@ ma options align = reset
 }
 #endif
 
-#endif /* __CONTROLS__ */
+#endif // __CONTROLS__ 

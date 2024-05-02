@@ -28,8 +28,7 @@
 #include <MixedMode.h>
 #endif
 
-/* Standard type for ColorSync and other system error codes */
-
+// Standard type for ColorSync and other system error codes 
 #if PRAGMA_ONCE
 #pragma once
 #endif
@@ -51,45 +50,34 @@ extern "C" {
 #endif
 
 typedef long CMError;
-/* Abstract data type for memory-based Profile */
-typedef struct OpaqueCMProfileRef *CMProfileRef;
-/* Abstract data type for Profile search result */
-typedef struct OpaqueCMProfileSearchRef *CMProfileSearchRef;
-/* Abstract data type for BeginMatching(�) reference */
-typedef struct OpaqueCMMatchRef *CMMatchRef;
-/* Abstract data type for ColorWorld reference */
-typedef struct OpaqueCMWorldRef *CMWorldRef;
-/* Data type for ColorSync DisplayID reference */
-/* On 8 & 9 this is a AVIDType */
-/* On X this is a CGSDisplayID */
-typedef UInt32 CMDisplayIDType;
-
-/* Caller-supplied flatten function */
-typedef CALLBACK_API(OSErr, CMFlattenProcPtr)(long command, long *size,
-                                              void *data, void *refCon);
-/* Caller-supplied progress function for Bitmap & PixMap matching routines */
-typedef CALLBACK_API(Boolean, CMBitmapCallBackProcPtr)(long progress,
-                                                       void *refCon);
-/* Caller-supplied progress function for NCMMConcatInit & NCMMNewLinkProfile
- * routines */
+// Abstract data type for memory-based Profile typedef struct OpaqueCMProfileRef *CMProfileRef;
+// Abstract data type for memory-based Profile 
+// Abstract data type for BeginMatching(�) reference typedef struct OpaqueCMMatchRef *CMMatchRef;
+// Abstract data type for Profile search result 
+// Data type for ColorSync DisplayID reference // On 8 & 9 this is a AVIDType // On X this is a CGSDisplayID typedef UInt32 CMDisplayIDType;
+// Abstract data type for BeginMatching(�) reference 
+// Caller-supplied flatten function typedef CALLBACK_API(OSErr, CMFlattenProcPtr)(long command, long *size,
+// Abstract data type for ColorWorld reference 
+// Caller-supplied progress function for Bitmap & PixMap matching routines typedef CALLBACK_API(Boolean, CMBitmapCallBackProcPtr)(long progress,
+// Data type for ColorSync DisplayID reference 
+// On 8 & 9 this is a AVIDType 
+// On X this is a CGSDisplayID 
 typedef CALLBACK_API(Boolean, CMConcatCallBackProcPtr)(long progress,
                                                        void *refCon);
-/* Caller-supplied filter function for Profile search */
-typedef CALLBACK_API(Boolean, CMProfileFilterProcPtr)(CMProfileRef prof,
+// Caller-supplied flatten function 
                                                       void *refCon);
-/* Caller-supplied function for profile access */
-typedef CALLBACK_API(OSErr, CMProfileAccessProcPtr)(long command, long offset,
-                                                    long *size, void *data,
+// Caller-supplied function for profile access typedef CALLBACK_API(OSErr, CMProfileAccessProcPtr)(long command, long offset,
+// Caller-supplied progress function for Bitmap & PixMap matching routines 
                                                     void *refCon);
 typedef STACK_UPP_TYPE(CMFlattenProcPtr) CMFlattenUPP;
 typedef STACK_UPP_TYPE(CMBitmapCallBackProcPtr) CMBitmapCallBackUPP;
 typedef STACK_UPP_TYPE(CMConcatCallBackProcPtr) CMConcatCallBackUPP;
 typedef STACK_UPP_TYPE(CMProfileFilterProcPtr) CMProfileFilterUPP;
 typedef STACK_UPP_TYPE(CMProfileAccessProcPtr) CMProfileAccessUPP;
-/**
+// Caller-supplied filter function for Profile search 
  *  NewCMFlattenUPP()
  *
- *  Availability:
+// Caller-supplied function for profile access 
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in 3.0 and later
@@ -99,8 +87,7 @@ NewCMFlattenUPP(CMFlattenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppCMFlattenProcInfo = 0x00003FE0
-}; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline CMFlattenUPP NewCMFlattenUPP(CMFlattenProcPtr userRoutine) {
   return (CMFlattenUPP)NewRoutineDescriptor(
       (ProcPtr)(userRoutine), uppCMFlattenProcInfo, GetCurrentArchitecture());
@@ -112,7 +99,7 @@ inline CMFlattenUPP NewCMFlattenUPP(CMFlattenProcPtr userRoutine) {
 #endif
 #endif
 
-/**
+/**// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
  *  NewCMBitmapCallBackUPP()
  *
  *  Availability:
@@ -125,8 +112,7 @@ NewCMBitmapCallBackUPP(CMBitmapCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppCMBitmapCallBackProcInfo = 0x000003D0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 1_byte Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline CMBitmapCallBackUPP
 NewCMBitmapCallBackUPP(CMBitmapCallBackProcPtr userRoutine) {
   return (CMBitmapCallBackUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -139,7 +125,7 @@ NewCMBitmapCallBackUPP(CMBitmapCallBackProcPtr userRoutine) {
                                              uppCMBitmapCallBackProcInfo,      \
                                              GetCurrentArchitecture())
 #endif
-#endif
+#en// pascal 1_byte Func(4_bytes, 4_bytes) 
 
 /**
  *  NewCMConcatCallBackUPP()
@@ -154,8 +140,7 @@ NewCMConcatCallBackUPP(CMConcatCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppCMConcatCallBackProcInfo = 0x000003D0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 1_byte Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline CMConcatCallBackUPP
 NewCMConcatCallBackUPP(CMConcatCallBackProcPtr userRoutine) {
   return (CMConcatCallBackUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -169,7 +154,7 @@ NewCMConcatCallBackUPP(CMConcatCallBackProcPtr userRoutine) {
                                              GetCurrentArchitecture())
 #endif
 #endif
-
+// pascal 1_byte Func(4_bytes, 4_bytes) 
 /**
  *  NewCMProfileFilterUPP()
  *
@@ -183,8 +168,7 @@ NewCMProfileFilterUPP(CMProfileFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppCMProfileFilterProcInfo = 0x000003D0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 1_byte Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline CMProfileFilterUPP
 NewCMProfileFilterUPP(CMProfileFilterProcPtr userRoutine) {
   return (CMProfileFilterUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -199,7 +183,7 @@ NewCMProfileFilterUPP(CMProfileFilterProcPtr userRoutine) {
 #endif
 #endif
 
-/**
+/**// pascal 1_byte Func(4_bytes, 4_bytes) 
  *  NewCMProfileAccessUPP()
  *
  *  Availability:
@@ -212,8 +196,7 @@ NewCMProfileAccessUPP(CMProfileAccessProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppCMProfileAccessProcInfo = 0x0000FFE0
-}; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline CMProfileAccessUPP
 NewCMProfileAccessUPP(CMProfileAccessProcPtr userRoutine) {
   return (CMProfileAccessUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -229,7 +212,7 @@ NewCMProfileAccessUPP(CMProfileAccessProcPtr userRoutine) {
 #endif
 
 /**
- *  DisposeCMFlattenUPP()
+ * // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) 
  *
  *  Availability:
  *    \non_carbon_cfm   available as macro/inline
@@ -456,8 +439,7 @@ inline OSErr InvokeCMProfileAccessUPP(long command, long offset, long *size,
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewCMFlattenProc(userRoutine) NewCMFlattenUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewCMFlattenProc(userRoutine) NewCMFlattenUPP(userRoutine)
 #define NewCMBitmapCallBackProc(userRoutine) NewCMBitmapCallBackUPP(userRoutine)
 #define NewCMConcatCallBackProc(userRoutine) NewCMConcatCallBackUPP(userRoutine)
 #define NewCMProfileFilterProc(userRoutine) NewCMProfileFilterUPP(userRoutine)
@@ -473,9 +455,8 @@ inline OSErr InvokeCMProfileAccessUPP(long command, long offset, long *size,
 #define CallCMProfileAccessProc(userRoutine, command, offset, size, data,      \
                                 refCon)                                        \
   InvokeCMProfileAccessUPP(command, offset, size, data, refCon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-#if PRAGMA_STRUCT_ALIGN
+#endif // CALL_NOT_IN_CARBON 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -492,5 +473,5 @@ inline OSErr InvokeCMProfileAccessUPP(long command, long offset, long *size,
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* __CMTYPES__ */
+// CALL_NOT_IN_CARBON 
+#endif // __CMTYPES__ // __CMTYPES__ 

@@ -60,8 +60,8 @@ extern "C"
   */
   struct ICDHeader
   {
-    OSErr err;     /* --> */
-    UInt32 refcon; /* <-- */
+    OSErr err;     // -->
+    UInt32 refcon; // <--
   };
 
   /**
@@ -71,17 +71,17 @@ extern "C"
   {
     ICDHeader header;
 
-    ICAObject parentObject;   /* <-- */
-    ICAObjectInfo objectInfo; /* <-- */
+    ICAObject parentObject;   // <--
+    ICAObjectInfo objectInfo; // <--
 
-    ICAObject object; /* --> */
+    ICAObject object; // -->
   };
   typedef struct ICD_NewObjectPB ICD_NewObjectPB;
   struct ICD_DisposeObjectPB
   {
     ICDHeader header;
 
-    ICAObject object; /* <-- */
+    ICAObject object; // <--
   };
   typedef struct ICD_DisposeObjectPB ICD_DisposeObjectPB;
   /**
@@ -91,17 +91,17 @@ extern "C"
   {
     ICDHeader header;
 
-    ICAObject object;             /* <-- */
-    ICAPropertyInfo propertyInfo; /* <-- */
+    ICAObject object;             // <--
+    ICAPropertyInfo propertyInfo; // <--
 
-    ICAProperty property; /* --> */
+    ICAProperty property; // -->
   };
   typedef struct ICD_NewPropertyPB ICD_NewPropertyPB;
   struct ICD_DisposePropertyPB
   {
     ICDHeader header;
 
-    ICAProperty property; /* <-- */
+    ICAProperty property; // <--
   };
   typedef struct ICD_DisposePropertyPB ICD_DisposePropertyPB;
   /**
@@ -123,7 +123,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  ICDNewObject(ICD_NewObjectPB *pb, ICDCompletion completion); /* can be NULL */
+  ICDNewObject(ICD_NewObjectPB *pb, ICDCompletion completion); // can be NULL
 
   /**
    *  ICDDisposeObject()
@@ -135,7 +135,7 @@ extern "C"
    */
   OSErr
   ICDDisposeObject(ICD_DisposeObjectPB *pb,
-                   ICDCompletion completion); /* can be NULL */
+                   ICDCompletion completion); // can be NULL
 
   /**
    *  ICDNewProperty()
@@ -147,7 +147,7 @@ extern "C"
    */
   OSErr
   ICDNewProperty(ICD_NewPropertyPB *pb,
-                 ICDCompletion completion); /* can be NULL */
+                 ICDCompletion completion); // can be NULL
 
   /**
    *  ICDDisposeProperty()
@@ -159,7 +159,7 @@ extern "C"
    */
   OSErr
   ICDDisposeProperty(ICD_DisposePropertyPB *pb,
-                     ICDCompletion completion); /* can be NULL */
+                     ICDCompletion completion); // can be NULL
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -179,4 +179,4 @@ extern "C"
 }
 #endif
 
-#endif /* __ICADEVICE__ */
+#endif // __ICADEVICE__

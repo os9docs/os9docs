@@ -160,8 +160,8 @@ extern "C"
   interchangeably when you pass a pointer to a function which expects a
   subset:
   DialogPtr myDlg;
-  SetPort (myDlg); /* expects a GrafPtr */
-  ShowWindow(myDlg); /* expects a WindowPtr */
+  SetPort (myDlg); // expects a GrafPtr
+  ShowWindow(myDlg); // expects a WindowPtr
   To access the additional fields of this structure, create a DialogPeek
                                                          variable : DialogPtr myDlg;
   DialogPeek myDlgPeek;
@@ -179,208 +179,208 @@ format could change in the future.
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
 */
-struct DialogRecord
-{
-  WindowRecord window; /**< Dialog's window.  See WindowRecord*/
-  Handle items;        /**< Leads to item list (see below for*/
-  TEHandle textH;      /**< Leads to a TERec of current editText*/
-  short editField;     /**< Item number - of current editText*/
-  short editOpen;      /**< (used internally)*/
-  short aDefItem;      /**< Default item for alerts and modal*/
-} DialogRecord;        /**< */
+  struct DialogRecord
+  {
+    WindowRecord window; /**< Dialog's window.  See WindowRecord*/
+    Handle items;        /**< Leads to item list (see below for*/
+    TEHandle textH;      /**< Leads to a TERec of current editText*/
+    short editField;     /**< Item number - of current editText*/
+    short editOpen;      /**< (used internally)*/
+    short aDefItem;      /**< Default item for alerts and modal*/
+  } DialogRecord;        /**< */
 
-typedef struct DialogRecord DialogRecord;
-typedef DialogRecord *DialogPeek;
+  typedef struct DialogRecord DialogRecord;
+  typedef DialogRecord *DialogPeek;
 #endif /** !OPAQUE_TOOLBOX_STRUCTS */
 
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct DialogTemplate
-{
-  Rect boundsRect;    /**<  */
-  short procID;       /**<  */
-  Boolean visible;    /**<  */
-  Boolean filler;     /**<  */
-  Boolean goAwayFlag; /**<  */
-  Boolean filler;     /**<  */
-  long refCon;        /**<  */
-  short itemsID;      /**<  */
-  Str title;          /**<  */
-} DialogTemplate;     /**< */
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct DialogTemplate
+  {
+    Rect boundsRect;    /**<  */
+    short procID;       /**<  */
+    Boolean visible;    /**<  */
+    Boolean filler;     /**<  */
+    Boolean goAwayFlag; /**<  */
+    Boolean filler;     /**<  */
+    long refCon;        /**<  */
+    short itemsID;      /**<  */
+    Str title;          /**<  */
+  } DialogTemplate;     /**< */
 
-typedef struct DialogTemplate DialogTemplate;
-typedef DialogTemplate *DialogTPtr;
-typedef DialogTPtr *DialogTHndl;
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct AlertTemplate
-{
-  Rect boundsRect;  /**<  */
-  short itemsID;    /**<  */
-  StageList stages; /**<  */
-} AlertTemplate;    /**< */
+  typedef struct DialogTemplate DialogTemplate;
+  typedef DialogTemplate *DialogTPtr;
+  typedef DialogTPtr *DialogTHndl;
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct AlertTemplate
+  {
+    Rect boundsRect;  /**<  */
+    short itemsID;    /**<  */
+    StageList stages; /**<  */
+  } AlertTemplate;    /**< */
 
-typedef struct AlertTemplate AlertTemplate;
-typedef AlertTemplate *AlertTPtr;
-typedef AlertTPtr *AlertTHndl;
-/** new type abstractions for the dialog manager */
-typedef SInt16 DialogItemIndexZeroBased;
-typedef SInt16 DialogItemIndex;
-typedef SInt16 DialogItemType;
-/** dialog manager callbacks */
-typedef CALLBACK_API(void, SoundProcPtr)(SInt16 soundNumber);
-typedef CALLBACK_API(Boolean, ModalFilterProcPtr)(DialogRef theDialog,
-                                                  EventRecord *theEvent,
-                                                  DialogItemIndex *itemHit);
-/** ModalFilterYDProcPtr was previously in StandardFile.h */
-typedef CALLBACK_API(Boolean, ModalFilterYDProcPtr)(DialogRef theDialog,
+  typedef struct AlertTemplate AlertTemplate;
+  typedef AlertTemplate *AlertTPtr;
+  typedef AlertTPtr *AlertTHndl;
+  /** new type abstractions for the dialog manager */
+  typedef SInt16 DialogItemIndexZeroBased;
+  typedef SInt16 DialogItemIndex;
+  typedef SInt16 DialogItemType;
+  /** dialog manager callbacks */
+  typedef CALLBACK_API(void, SoundProcPtr)(SInt16 soundNumber);
+  typedef CALLBACK_API(Boolean, ModalFilterProcPtr)(DialogRef theDialog,
                                                     EventRecord *theEvent,
-                                                    short *itemHit,
-                                                    void *yourDataPtr);
-typedef CALLBACK_API(void, UserItemProcPtr)(DialogRef theDialog,
-                                            DialogItemIndex itemNo);
-typedef STACK_UPP_TYPE(SoundProcPtr) SoundUPP;
-typedef STACK_UPP_TYPE(ModalFilterProcPtr) ModalFilterUPP;
-typedef STACK_UPP_TYPE(ModalFilterYDProcPtr) ModalFilterYDUPP;
-typedef STACK_UPP_TYPE(UserItemProcPtr) UserItemUPP;
+                                                    DialogItemIndex *itemHit);
+  /** ModalFilterYDProcPtr was previously in StandardFile.h */
+  typedef CALLBACK_API(Boolean, ModalFilterYDProcPtr)(DialogRef theDialog,
+                                                      EventRecord *theEvent,
+                                                      short *itemHit,
+                                                      void *yourDataPtr);
+  typedef CALLBACK_API(void, UserItemProcPtr)(DialogRef theDialog,
+                                              DialogItemIndex itemNo);
+  typedef STACK_UPP_TYPE(SoundProcPtr) SoundUPP;
+  typedef STACK_UPP_TYPE(ModalFilterProcPtr) ModalFilterUPP;
+  typedef STACK_UPP_TYPE(ModalFilterYDProcPtr) ModalFilterYDUPP;
+  typedef STACK_UPP_TYPE(UserItemProcPtr) UserItemUPP;
 #if CALL_NOT_IN_CARBON
-/**
- *  NewSoundUPP()
- *
+  /**
+   *  NewSoundUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-SoundUPP
-NewSoundUPP(SoundProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SoundUPP
+  NewSoundUPP(SoundProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum
-{
-  uppSoundProcInfo = 0x00000080
-}; /** pascal no_return_value Func(2_bytes) */
+  enum
+  {
+    uppSoundProcInfo = 0x00000080
+  }; /** pascal no_return_value Func(2_bytes) */
 #ifdef __cplusplus
-inline SoundUPP NewSoundUPP(SoundProcPtr userRoutine)
-{
-  return (SoundUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppSoundProcInfo, GetCurrentArchitecture());
-}
+  inline SoundUPP NewSoundUPP(SoundProcPtr userRoutine)
+  {
+    return (SoundUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppSoundProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewSoundUPP(userRoutine)                                          \
-(SoundUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppSoundProcInfo, \
-                                GetCurrentArchitecture())
+#define NewSoundUPP(userRoutine)                                            \
+  (SoundUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppSoundProcInfo, \
+                                  GetCurrentArchitecture())
 #endif
 #endif
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  NewModalFilterUPP()
- *
+  /**
+   *  NewModalFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ModalFilterUPP
-NewModalFilterUPP(ModalFilterProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ModalFilterUPP
+  NewModalFilterUPP(ModalFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum
-{
-  uppModalFilterProcInfo = 0x00000FD0
-}; /** pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppModalFilterProcInfo = 0x00000FD0
+  }; /** pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ModalFilterUPP NewModalFilterUPP(ModalFilterProcPtr userRoutine)
-{
-  return (ModalFilterUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppModalFilterProcInfo, GetCurrentArchitecture());
-}
+  inline ModalFilterUPP NewModalFilterUPP(ModalFilterProcPtr userRoutine)
+  {
+    return (ModalFilterUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppModalFilterProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewModalFilterUPP(userRoutine)                                   \
-(ModalFilterUPP)                                                         \
-    NewRoutineDescriptor((ProcPtr)(userRoutine), uppModalFilterProcInfo, \
-                         GetCurrentArchitecture())
+#define NewModalFilterUPP(userRoutine)                                     \
+  (ModalFilterUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppModalFilterProcInfo, \
+                           GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewModalFilterYDUPP()
- *
+  /**
+   *  NewModalFilterYDUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ModalFilterYDUPP
-NewModalFilterYDUPP(ModalFilterYDProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ModalFilterYDUPP
+  NewModalFilterYDUPP(ModalFilterYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum
-{
-  uppModalFilterYDProcInfo = 0x00003FD0
-}; /** pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppModalFilterYDProcInfo = 0x00003FD0
+  }; /** pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ModalFilterYDUPP NewModalFilterYDUPP(ModalFilterYDProcPtr userRoutine)
-{
-  return (ModalFilterYDUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppModalFilterYDProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline ModalFilterYDUPP NewModalFilterYDUPP(ModalFilterYDProcPtr userRoutine)
+  {
+    return (ModalFilterYDUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppModalFilterYDProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewModalFilterYDUPP(userRoutine)                                   \
-(ModalFilterYDUPP)                                                         \
-    NewRoutineDescriptor((ProcPtr)(userRoutine), uppModalFilterYDProcInfo, \
-                         GetCurrentArchitecture())
+#define NewModalFilterYDUPP(userRoutine)                                     \
+  (ModalFilterYDUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppModalFilterYDProcInfo, \
+                           GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewUserItemUPP()
- *
+  /**
+   *  NewUserItemUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UserItemUPP
-NewUserItemUPP(UserItemProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UserItemUPP
+  NewUserItemUPP(UserItemProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum
-{
-  uppUserItemProcInfo = 0x000002C0
-}; /** pascal no_return_value Func(4_bytes, 2_bytes) */
+  enum
+  {
+    uppUserItemProcInfo = 0x000002C0
+  }; /** pascal no_return_value Func(4_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline UserItemUPP NewUserItemUPP(UserItemProcPtr userRoutine)
-{
-  return (UserItemUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppUserItemProcInfo, GetCurrentArchitecture());
-}
+  inline UserItemUPP NewUserItemUPP(UserItemProcPtr userRoutine)
+  {
+    return (UserItemUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppUserItemProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewUserItemUPP(userRoutine) \
-(UserItemUPP) NewRoutineDescriptor( \
-    (ProcPtr)(userRoutine), uppUserItemProcInfo, GetCurrentArchitecture())
+#define NewUserItemUPP(userRoutine)   \
+  (UserItemUPP) NewRoutineDescriptor( \
+      (ProcPtr)(userRoutine), uppUserItemProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON
-/**
- *  DisposeSoundUPP()
- *
+  /**
+   *  DisposeSoundUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void DisposeSoundUPP(SoundUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void DisposeSoundUPP(SoundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeSoundUPP(SoundUPP userUPP)
-{
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeSoundUPP(SoundUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeSoundUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
@@ -388,169 +388,169 @@ inline void DisposeSoundUPP(SoundUPP userUPP)
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  DisposeModalFilterUPP()
- *
+  /**
+   *  DisposeModalFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void DisposeModalFilterUPP(ModalFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void DisposeModalFilterUPP(ModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeModalFilterUPP(ModalFilterUPP userUPP)
-{
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeModalFilterUPP(ModalFilterUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeModalFilterUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeModalFilterYDUPP()
- *
+  /**
+   *  DisposeModalFilterYDUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void DisposeModalFilterYDUPP(ModalFilterYDUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void DisposeModalFilterYDUPP(ModalFilterYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeModalFilterYDUPP(ModalFilterYDUPP userUPP)
-{
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeModalFilterYDUPP(ModalFilterYDUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeModalFilterYDUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeUserItemUPP()
- *
+  /**
+   *  DisposeUserItemUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void DisposeUserItemUPP(UserItemUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void DisposeUserItemUPP(UserItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeUserItemUPP(UserItemUPP userUPP)
-{
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeUserItemUPP(UserItemUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeUserItemUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON
-/**
- *  InvokeSoundUPP()
- *
+  /**
+   *  InvokeSoundUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void InvokeSoundUPP(SInt16 soundNumber, SoundUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void InvokeSoundUPP(SInt16 soundNumber, SoundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeSoundUPP(SInt16 soundNumber, SoundUPP userUPP)
-{
-  CALL_ONE_PARAMETER_UPP(userUPP, uppSoundProcInfo, soundNumber);
-}
+  inline void InvokeSoundUPP(SInt16 soundNumber, SoundUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppSoundProcInfo, soundNumber);
+  }
 #else
 #define InvokeSoundUPP(soundNumber, userUPP) \
-CALL_ONE_PARAMETER_UPP((userUPP), uppSoundProcInfo, (soundNumber))
+  CALL_ONE_PARAMETER_UPP((userUPP), uppSoundProcInfo, (soundNumber))
 #endif
 #endif
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  InvokeModalFilterUPP()
- *
+  /**
+   *  InvokeModalFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
-                     DialogItemIndex *itemHit, ModalFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
+                       DialogItemIndex *itemHit, ModalFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
-                                    DialogItemIndex *itemHit,
-                                    ModalFilterUPP userUPP)
-{
-  return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppModalFilterProcInfo,
-                                           theDialog, theEvent, itemHit);
-}
+  inline Boolean InvokeModalFilterUPP(DialogRef theDialog, EventRecord *theEvent,
+                                      DialogItemIndex *itemHit,
+                                      ModalFilterUPP userUPP)
+  {
+    return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppModalFilterProcInfo,
+                                             theDialog, theEvent, itemHit);
+  }
 #else
-#define InvokeModalFilterUPP(theDialog, theEvent, itemHit, userUPP)   \
-(Boolean) CALL_THREE_PARAMETER_UPP((userUPP), uppModalFilterProcInfo, \
-                                   (theDialog), (theEvent), (itemHit))
+#define InvokeModalFilterUPP(theDialog, theEvent, itemHit, userUPP)     \
+  (Boolean) CALL_THREE_PARAMETER_UPP((userUPP), uppModalFilterProcInfo, \
+                                     (theDialog), (theEvent), (itemHit))
 #endif
 #endif
 
-/**
- *  InvokeModalFilterYDUPP()
- *
+  /**
+   *  InvokeModalFilterYDUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeModalFilterYDUPP(DialogRef theDialog, EventRecord *theEvent,
-                       short *itemHit, void *yourDataPtr,
-                       ModalFilterYDUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeModalFilterYDUPP(DialogRef theDialog, EventRecord *theEvent,
+                         short *itemHit, void *yourDataPtr,
+                         ModalFilterYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeModalFilterYDUPP(DialogRef theDialog,
-                                      EventRecord *theEvent, short *itemHit,
-                                      void *yourDataPtr,
-                                      ModalFilterYDUPP userUPP)
-{
-  return (Boolean)CALL_FOUR_PARAMETER_UPP(userUPP, uppModalFilterYDProcInfo,
-                                          theDialog, theEvent, itemHit,
-                                          yourDataPtr);
-}
+  inline Boolean InvokeModalFilterYDUPP(DialogRef theDialog,
+                                        EventRecord *theEvent, short *itemHit,
+                                        void *yourDataPtr,
+                                        ModalFilterYDUPP userUPP)
+  {
+    return (Boolean)CALL_FOUR_PARAMETER_UPP(userUPP, uppModalFilterYDProcInfo,
+                                            theDialog, theEvent, itemHit,
+                                            yourDataPtr);
+  }
 #else
 #define InvokeModalFilterYDUPP(theDialog, theEvent, itemHit, yourDataPtr, \
                                userUPP)                                   \
-(Boolean) CALL_FOUR_PARAMETER_UPP((userUPP), uppModalFilterYDProcInfo,    \
-                                  (theDialog), (theEvent), (itemHit),     \
-                                  (yourDataPtr))
+  (Boolean) CALL_FOUR_PARAMETER_UPP((userUPP), uppModalFilterYDProcInfo,  \
+                                    (theDialog), (theEvent), (itemHit),   \
+                                    (yourDataPtr))
 #endif
 #endif
 
-/**
- *  InvokeUserItemUPP()
- *
+  /**
+   *  InvokeUserItemUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void InvokeUserItemUPP(DialogRef theDialog, DialogItemIndex itemNo,
-                       UserItemUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void InvokeUserItemUPP(DialogRef theDialog, DialogItemIndex itemNo,
+                         UserItemUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeUserItemUPP(DialogRef theDialog, DialogItemIndex itemNo,
-                              UserItemUPP userUPP)
-{
-  CALL_TWO_PARAMETER_UPP(userUPP, uppUserItemProcInfo, theDialog, itemNo);
-}
+  inline void InvokeUserItemUPP(DialogRef theDialog, DialogItemIndex itemNo,
+                                UserItemUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppUserItemProcInfo, theDialog, itemNo);
+  }
 #else
 #define InvokeUserItemUPP(theDialog, itemNo, userUPP) \
-CALL_TWO_PARAMETER_UPP((userUPP), uppUserItemProcInfo, (theDialog), (itemNo))
+  CALL_TWO_PARAMETER_UPP((userUPP), uppUserItemProcInfo, (theDialog), (itemNo))
 #endif
 #endif
 
@@ -856,9 +856,9 @@ Example
 #include < Dialogs.h >
 #include < Sound.h>
 pascal void MySoundProc( short sndNum );
-#define kSndResNum 128 /* 'snd ' resource number */
+#define kSndResNum 128 // 'snd ' resource number
   pascal void MySoundProc(short sndNum)
-  /* sndNum will range from 0 to 3 */
+  // sndNum will range from 0 to 3
   {
     SndChannelPtr myChan = 0L;
     Handle mySound;

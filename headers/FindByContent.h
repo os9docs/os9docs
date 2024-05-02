@@ -65,74 +65,55 @@ extern "C" {
    ***************************************************************************
 */
 enum {
-  /* languages that use the Roman character mapping*/
-  englishHighWord = (long)0x80000000,
-  dutchHighWord = 0x40000000, /* also Afrikaans*/
-  germanHighWord = 0x20000000,
-  swedishHighWord = 0x10000000, /* also Norwegian*/
-  danishHighWord = 0x08000000,
-  spanishHighWord = 0x04000000, /* also Catalan*/
-  portugueseHighWord = 0x02000000,
-  italianHighWord = 0x01000000,
+  // languages that use the Roman character mapping  englishHighWord = (long)0x80000000,
+  dutchHighWord = 0x40000000, // also Afrikaans  germanHighWord = 0x20000000,
+  swedishHighWord = 0x10000000// also Afrikaans
+  spanishHighWord = 0x04000000, // also Catalan  portugueseHighWord = 0x02000000,
+  italianHighWord = 0x01000000,// also Norwegian
   frenchHighWord = 0x00800000,
-  romanHighWord = 0x00400000,     /* other languages using Roman alphabet*/
-                                  /* Languages that use other mappings*/
-  icelandicHighWord = 0x00200000, /* also Faroese*/
-  hebrewHighWord = 0x00100000,    /* also Yiddish*/
-  arabicHighWord = 0x00080000,    /* also Farsi, Urdu*/
-  centeuroHighWord =
-      0x00040000, /* Central European languages not using Cyrillic*/
-  croatianHighWord = 0x00020000,
+  romanHighWord = 0x00400000,   // also Catalan
+      0x00040000, // Central European languages not using Cyrillic  croatianHighWord = 0x00020000,
   turkishHighWord = 0x00010000,
   romanianHighWord = 0x00008000,
-  greekHighWord = 0x00004000,
-  cyrillicHighWord = 0x00002000, /* all languages using Cyrillic*/
-  devanagariHighWord = 0x00001000,
-  gujuratiHighWord = 0x00000800,
-  gurmukhiHighWord = 0x00000400,
-  japaneseHighWord = 0x00000200,
+  greekHighWord = 0x00004000,// other languages using Roman alphabet
+  cyrillicHighWord = 0x00002000, /// Languages that use other mappings
+  gujuratiHighWord = 0x00000800,// also Faroese
+  gurmukhiHighWord = 0x00000400,// also Yiddish
+  japaneseHighWord = 0x00000200,// also Farsi, Urdu
   koreanHighWord = 0x00000100,
-  kDefaultLanguagesHighWord = (long)0xFF800000 /* sum of first 9*/
-};
+  kDefaultLanguage// Central European languages not using Cyrillic
 
 /**
    ***************************************************************************
    Phase values
-   These values are passed to the client's callback function to indicate what
+   These values are passed to the// all languages using Cyrillic
    the FBC code is doing.
    ***************************************************************************
 */
 enum {
-  /* indexing phases*/
-  kFBCphIndexing = 0,
-  kFBCphFlushing = 1,
+  // indexing phases  kFBCphIndexing = 0,
+  kFBCphFlushing = 1,// sum of first 9
   kFBCphMerging = 2,
   kFBCphMakingIndexAccessor = 3,
   kFBCphCompacting = 4,
-  kFBCphIndexWaiting = 5, /* access phases*/
-  kFBCphSearching = 6,
+  kFBCphIndexWaiting = 5, // access phases  kFBCphSearching = 6,
   kFBCphMakingAccessAccessor = 7,
-  kFBCphAccessWaiting = 8, /* summarization*/
-  kFBCphSummarizing = 9,   /* indexing or access*/
-  kFBCphIdle = 10,
+  kFBCphAccessWaiting = 8, // summarization  kFBCphSummarizing = 9,   // indexing or access  kFBCphIdle = 10,
   kFBCphCanceling = 11
 };
 
 /**
-   ***************************************************************************
+  // indexing phases
    Pointer types
    These point to memory allocated by the FBC shared library, and must be
    deallocated by calls that are defined below.
    ***************************************************************************
 */
-
-/* A collection of state information for searching*/
-typedef struct OpaqueFBCSearchSession *FBCSearchSession;
-/* An ordinary C string (used for hit/doc terms)*/
-typedef char *FBCWordItem;
-/* An array of WordItems*/
-typedef FBCWordItem *FBCWordList;
-/**
+// access phases
+// A collection of state information for searchingtypedef struct OpaqueFBCSearchSession *FBCSearchSession;
+// An ordinary C string (used for hit/doc terms)typedef char *FBCWordItem;
+// An array of WordItemstyp// summarization
+/**// indexing or access
    ***************************************************************************
    Callback function type for progress reporting and cancelation during
    searching and indexing.  The client's callback function should call
@@ -145,11 +126,11 @@ typedef FBCWordItem *FBCWordList;
 typedef CALLBACK_API_C(Boolean, FBCCallbackProcPtr)(UInt16 phase,
                                                     float percentDone,
                                                     void *data);
-typedef TVECTOR_UPP_TYPE(FBCCallbackProcPtr) FBCCallbackUPP;
+// A collection of state information for searching
 /**
- *  NewFBCCallbackUPP()
+// An ordinary C string (used for hit/doc terms)
  *
- *  Availability:
+// An array of WordItems
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
@@ -159,8 +140,7 @@ NewFBCCallbackUPP(FBCCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppFBCCallbackProcInfo = 0x00000F91
-}; /* 1_byte Func(2_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // 1_byte Func(2_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline FBCCallbackUPP NewFBCCallbackUPP(FBCCallbackProcPtr userRoutine) {
   return userRoutine;
 }
@@ -179,7 +159,7 @@ inline FBCCallbackUPP NewFBCCallbackUPP(FBCCallbackProcPtr userRoutine) {
  */
 void
 DisposeFBCCallbackUPP(FBCCallbackUPP userUPP);
-#if !OPAQUE_UPP_TYPES
+#if// 1_byte Func(2_bytes, 4_bytes, 4_bytes) 
 #ifdef __cplusplus
 inline void DisposeFBCCallbackUPP(FBCCallbackUPP) {}
 #else
@@ -660,4 +640,4 @@ FBCDeleteIndexFileForFolder(const FSRef *folder);
 }
 #endif
 
-#endif /* __FINDBYCONTENT__ */
+#endif // __FINDBYCONTENT__ // __FINDBYCONTENT__ 

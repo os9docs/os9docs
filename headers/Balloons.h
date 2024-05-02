@@ -65,7 +65,7 @@ extern "C"
      Carbon and are only defined for those files that need to build pre-Carbon
      applications.
   */
-  /* ©©constants*/
+  // ©©constants
 
   typedef SInt16 BalloonVariant;
   enum
@@ -83,36 +83,36 @@ extern "C"
 
   enum
   {
-    hmBalloonHelpVersion = 0x0002 /* The real version of the Help Manager */
+    hmBalloonHelpVersion = 0x0002 // The real version of the Help Manager
   };
 
   enum
   {
-    kHMHelpMenuID = -16490, /* Resource ID and menu ID of help menu */
-    kHMAboutHelpItem = 1,   /* help menu item number of About Balloon Help© */
-    kHMShowBalloonsItem = 3 /* help menu item number of Show/Hide Balloons */
+    kHMHelpMenuID = -16490, // Resource ID and menu ID of help menu
+    kHMAboutHelpItem = 1,   // help menu item number of About Balloon Help©
+    kHMShowBalloonsItem = 3 // help menu item number of Show/Hide Balloons
   };
 
   enum
   {
     kHMHelpID =
-        -5696, /* ID of various Help Mgr package resources (in Pack14 range) */
+        -5696, // ID of various Help Mgr package resources (in Pack14 range)
     kBalloonWDEFID =
-        126 /* Resource ID of the WDEF proc used in standard balloons */
+        126 // Resource ID of the WDEF proc used in standard balloons
   };
 
   enum
   {
-    /* Dialog item template type constant */
+    // Dialog item template type constant
     helpItem =
-        1 /* key value in DITL template that corresponds to the help item */
+        1 // key value in DITL template that corresponds to the help item
   };
 
   enum
   {
     /* Options for Help Manager resources in 'hmnu', 'hdlg', 'hrct', 'hovr', &
        'hfdr' resources */
-    hmDefaultOptions = 0, /* default options for help manager resources */
+    hmDefaultOptions = 0, // default options for help manager resources
     hmUseSubIDBit = 0,
     hmAbsoluteCoordsBit = 1,
     hmSaveBitsNoWindowBit = 2,
@@ -147,62 +147,62 @@ extern "C"
     hmMatchInTitle = hmMatchInTitleMask
   };
 
-#endif /* OLDROUTINENAMES */
+#endif // OLDROUTINENAMES
 
   enum
   {
     /* Constants for Help Types in 'hmnu', 'hdlg', 'hrct', 'hovr', & 'hfdr'
        resources */
-    kHMStringItem = 1,    /* pstring used in resource */
-    kHMPictItem = 2,      /* 'PICT' ResID used in resource */
-    kHMStringResItem = 3, /* 'STR#' ResID & index used in resource */
+    kHMStringItem = 1,    // pstring used in resource
+    kHMPictItem = 2,      // 'PICT' ResID used in resource
+    kHMStringResItem = 3, // 'STR#' ResID & index used in resource
     kHMTEResItem =
-        6,                       /* Styled Text Edit ResID used in resource ('TEXT' & 'styl') */
-    kHMSTRResItem = 7,           /* 'STR ' ResID used in resource */
-    kHMSkipItem = 256,           /* don't display a balloon */
+        6,                       // Styled Text Edit ResID used in resource ('TEXT' & 'styl')
+    kHMSTRResItem = 7,           // 'STR ' ResID used in resource
+    kHMSkipItem = 256,           // don't display a balloon
     kHMCompareItem = 512,        /* Compare pstring in menu item w/ PString in resource
                                     item ('hmnu' only) */
     kHMNamedResourceItem = 1024, /* Use pstring in menu item to get 'STR#',
                                     'PICT', or 'STR ' resource ('hmnu' only) */
-    kHMTrackCntlItem = 2048      /* Reserved */
+    kHMTrackCntlItem = 2048      // Reserved
   };
 
   enum
   {
-    /* Constants for hmmHelpType's when filling out HMMessageRecord */
-    khmmString = 1, /* help message contains a PString */
-    khmmPict = 2,   /* help message contains a resource ID to a 'PICT' resource */
+    // Constants for hmmHelpType's when filling out HMMessageRecord
+    khmmString = 1, // help message contains a PString
+    khmmPict = 2,   // help message contains a resource ID to a 'PICT' resource
     khmmStringRes =
-        3,              /* help message contains a res ID & index to a 'STR#' resource */
-    khmmTEHandle = 4,   /* help message contains a Text Edit handle */
-    khmmPictHandle = 5, /* help message contains a Picture handle */
+        3,              // help message contains a res ID & index to a 'STR#' resource
+    khmmTEHandle = 4,   // help message contains a Text Edit handle
+    khmmPictHandle = 5, // help message contains a Picture handle
     khmmTERes =
-        6,             /* help message contains a res ID to 'TEXT' & 'styl' resources */
-    khmmSTRRes = 7,    /* help message contains a res ID to a 'STR ' resource */
-    kHMEnabledItem = 0 /* item is enabled, but not checked or control value = 0 */
+        6,             // help message contains a res ID to 'TEXT' & 'styl' resources
+    khmmSTRRes = 7,    // help message contains a res ID to a 'STR ' resource
+    kHMEnabledItem = 0 // item is enabled, but not checked or control value = 0
   };
 
   enum
   {
-    /* ResTypes for Styled TE Handles in Resources */
+    // ResTypes for Styled TE Handles in Resources
     kHMTETextResType =
         FOUR_CHAR_CODE('TEXT'), /* Resource Type of text data for styled TE record
                                    w/o style info */
     kHMTEStyleResType = FOUR_CHAR_CODE(
-        'styl') /* Resource Type of style information for styled TE record */
+        'styl') // Resource Type of style information for styled TE record
   };
 
   enum
   {
     kHMDisabledItem =
-        1,                   /* item is disabled, grayed in menus or disabled in dialogs */
-    kHMCheckedItem = 2,      /* item is enabled, and checked or control value = 1 */
-    kHMOtherItem = 3,        /* item is enabled, and control value > 1 */
-                             /* Method parameters to pass to HMShowBalloon */
-    kHMRegularWindow = 0,    /* Create a regular window floating above all windows */
-    kHMSaveBitsNoWindow = 1, /* Just save the bits and draw (for MDEF calls) */
+        1,                   // item is disabled, grayed in menus or disabled in dialogs
+    kHMCheckedItem = 2,      // item is enabled, and checked or control value = 1
+    kHMOtherItem = 3,        // item is enabled, and control value > 1
+                             // Method parameters to pass to HMShowBalloon
+    kHMRegularWindow = 0,    // Create a regular window floating above all windows
+    kHMSaveBitsNoWindow = 1, // Just save the bits and draw (for MDEF calls)
     kHMSaveBitsWindow =
-        2 /* Regular window, save bits behind, AND generate update event */
+        2 // Regular window, save bits behind, AND generate update event
   };
 
   enum
@@ -210,17 +210,17 @@ extern "C"
     /* Resource Types for whichType parameter used when extracting 'hmnu' & 'hdlg'
        messages */
     kHMMenuResType = FOUR_CHAR_CODE(
-        'hmnu'), /* ResType of help resource for supporting menus */
+        'hmnu'), // ResType of help resource for supporting menus
     kHMDialogResType = FOUR_CHAR_CODE(
-        'hdlg'), /* ResType of help resource for supporting dialogs */
+        'hdlg'), // ResType of help resource for supporting dialogs
     kHMWindListResType = FOUR_CHAR_CODE(
-        'hwin'), /* ResType of help resource for supporting windows */
+        'hwin'), // ResType of help resource for supporting windows
     kHMRectListResType = FOUR_CHAR_CODE(
-        'hrct'), /* ResType of help resource for rectangles in windows */
+        'hrct'), // ResType of help resource for rectangles in windows
     kHMOverrideResType = FOUR_CHAR_CODE(
-        'hovr'), /* ResType of help resource for overriding system balloons */
+        'hovr'), // ResType of help resource for overriding system balloons
     kHMFinderApplResType = FOUR_CHAR_CODE(
-        'hfdr') /* ResType of help resource for custom balloon in Finder */
+        'hfdr') // ResType of help resource for custom balloon in Finder
   };
 
   /**
@@ -272,7 +272,7 @@ extern "C"
   enum
   {
     uppTipFunctionProcInfo = 0x00003FE0
-  }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes)
 #ifdef __cplusplus
   inline TipFunctionUPP NewTipFunctionUPP(TipFunctionProcPtr userRoutine)
   {
@@ -335,16 +335,16 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #define NewTipFunctionProc(userRoutine) NewTipFunctionUPP(userRoutine)
 #define CallTipFunctionProc(userRoutine, tip, structure, r, balloonVariant) \
   InvokeTipFunctionUPP(tip, structure, r, balloonVariant, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
-/*  Public Interfaces  */
+//  Public Interfaces
 #if CALL_NOT_IN_CARBON
   /**
    *  HMGetHelpMenuHandle()
@@ -368,7 +368,7 @@ extern "C"
    */
   OSErr
   HMShowBalloon(const HMMessageRecord *inHelpMessage, Point inTip,
-                Rect *inHotRect, /* can be NULL */
+                Rect *inHotRect, // can be NULL
                 TipFunctionUPP inTipProc, SInt16 inWindowProcID,
                 BalloonVariant inBalloonVariant, SInt16 inMethod)
       THREEWORDINLINE(0x303C, 0x0B01, 0xA830);
@@ -384,7 +384,7 @@ extern "C"
   OSErr
   HMShowMenuBalloon(SInt16 itemNum, SInt16 itemMenuID, SInt32 itemFlags,
                     SInt32 itemReserved, Point tip,
-                    Rect *alternateRect, /* can be NULL */
+                    Rect *alternateRect, // can be NULL
                     TipFunctionUPP tipProc, SInt16 theProc,
                     BalloonVariant balloonVariant)
       THREEWORDINLINE(0x303C, 0x0E05, 0xA830);
@@ -618,7 +618,7 @@ balloons.
   OSErr
   HMGetBalloonWindow(WindowRef *window) THREEWORDINLINE(0x303C, 0x0215, 0xA830);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -638,5 +638,5 @@ balloons.
 }
 #endif
 
-#endif /* __BALLOONS__ */
+#endif // __BALLOONS__
 * /

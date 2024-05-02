@@ -66,7 +66,7 @@ extern "C"
 
   enum
   {
-    /* transfer modes */
+    // transfer modes 
     srcCopy = 0, /*the 16 transfer modes*/
     srcOr = 1,
     srcXor = 2,
@@ -82,10 +82,10 @@ extern "C"
     notPatCopy = 12,
     notPatOr = 13,
     notPatXor = 14,
-    notPatBic = 15, /* Special Text Transfer Mode */
+    notPatBic = 15, // Special Text Transfer Mode 
     grayishTextOr = 49,
     hilitetransfermode = 50,
-    hilite = 50, /* Arithmetic transfer modes */
+    hilite = 50, // Arithmetic transfer modes 
     blend = 32,
     addPin = 33,
     addOver = 34,
@@ -94,7 +94,7 @@ extern "C"
     adMax = 37,
     subOver = 38,
     adMin = 39,
-    ditherCopy = 64, /* Transparent mode constant */
+    ditherCopy = 64, // Transparent mode constant 
     transparent = 36
   };
 
@@ -110,7 +110,7 @@ extern "C"
 
   enum
   {
-    /* QuickDraw color separation constants */
+    // QuickDraw color separation constants 
     normalBit = 0,  /*normal screen mapping*/
     inverseBit = 1, /*inverse screen mapping*/
     redBit = 4,     /*RGB additive mapping*/
@@ -146,24 +146,24 @@ extern "C"
 
   enum
   {
-    interlacedDevice = 2, /* 1 if single pixel lines look bad */
-    hwMirroredDevice = 4, /* 1 if device is HW mirrored */
-    roundedDevice = 5,    /* 1 if device has been �rounded� into the GrayRgn */
-    hasAuxMenuBar = 6,    /* 1 if device has an aux menu bar on it */
+    interlacedDevice = 2, // 1 if single pixel lines look bad 
+    hwMirroredDevice = 4, // 1 if device is HW mirrored 
+    roundedDevice = 5,    // 1 if device has been �rounded� into the GrayRgn 
+    hasAuxMenuBar = 6,    // 1 if device has an aux menu bar on it 
     burstDevice = 7,
     ext32Device = 8,
     ramInit = 10,      /*1 if initialized from 'scrn' resource*/
-    mainScreen = 11,   /* 1 if main screen */
-    allInit = 12,      /* 1 if all devices initialized */
+    mainScreen = 11,   // 1 if main screen 
+    allInit = 12,      // 1 if all devices initialized 
     screenDevice = 13, /*1 if screen device [not used]*/
-    noDriver = 14,     /* 1 if no driver for this GDevice */
+    noDriver = 14,     // 1 if no driver for this GDevice 
     screenActive = 15, /*1 if in use*/
     hiliteBit = 7,     /*flag bit in LMGet/SetHiliteMode*/
     pHiliteBit = 0,    /*flag bit in LMGet/SetHiliteMode when used with BitClr*/
     defQDColors = 127, /*resource ID of clut for default QDColors*/
-                       /* pixel type */
-    RGBDirect = 16,    /* 16 & 32 bits/pixel pixelType value */
-                       /* pmVersion values */
+                       // pixel type 
+    RGBDirect = 16,    // 16 & 32 bits/pixel pixelType value 
+                       // pmVersion values 
     baseAddr32 = 4     /*pixmap base address is 32-bit address*/
   };
 
@@ -195,7 +195,7 @@ extern "C"
     fill = kQDGrafVerbFill
   };
 
-#endif /* OLDROUTINENAMES */
+#endif // OLDROUTINENAMES 
 
   typedef SInt8 GrafVerb;
   enum
@@ -323,8 +323,8 @@ extern "C"
 #if !OPAQUE_TOOLBOX_STRUCTS
   struct MacRegion
   {
-    unsigned short rgnSize; /* size in bytes; don't rely on it */
-    Rect rgnBBox;           /* enclosing rectangle; in Carbon use GetRegionBounds */
+    unsigned short rgnSize; // size in bytes; don't rely on it 
+    Rect rgnBBox;           // enclosing rectangle; in Carbon use GetRegionBounds 
   };
   typedef struct MacRegion MacRegion;
 /**
@@ -333,13 +333,13 @@ extern "C"
 */
 #if TARGET_OS_MAC
   typedef MacRegion Region;
-#endif /* TARGET_OS_MAC */
+#endif // TARGET_OS_MAC 
 
   typedef MacRegion *RgnPtr;
   typedef RgnPtr *RgnHandle;
 #else
 typedef struct OpaqueRgnHandle *RgnHandle;
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
   /**
   <pre>
@@ -383,7 +383,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
 */
 #if TARGET_OS_MAC
   typedef MacPolygon Polygon;
-#endif /* TARGET_OS_MAC */
+#endif // TARGET_OS_MAC 
 
   typedef MacPolygon *PolyPtr;
   typedef PolyPtr *PolyHandle;
@@ -475,7 +475,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDTextProcInfo = 0x00003F80
-  }; /* pascal no_return_value Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  }; // pascal no_return_value Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline QDTextUPP NewQDTextUPP(QDTextProcPtr userRoutine)
   {
@@ -503,7 +503,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDLineProcInfo = 0x000000C0
-  }; /* pascal no_return_value Func(4_bytes) */
+  }; // pascal no_return_value Func(4_bytes) 
 #ifdef __cplusplus
   inline QDLineUPP NewQDLineUPP(QDLineProcPtr userRoutine)
   {
@@ -531,7 +531,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDRectProcInfo = 0x00000340
-  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  }; // pascal no_return_value Func(1_byte, 4_bytes) 
 #ifdef __cplusplus
   inline QDRectUPP NewQDRectUPP(QDRectProcPtr userRoutine)
   {
@@ -559,7 +559,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDRRectProcInfo = 0x00002B40
-  }; /* pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) */
+  }; // pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) 
 #ifdef __cplusplus
   inline QDRRectUPP NewQDRRectUPP(QDRRectProcPtr userRoutine)
   {
@@ -587,7 +587,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDOvalProcInfo = 0x00000340
-  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  }; // pascal no_return_value Func(1_byte, 4_bytes) 
 #ifdef __cplusplus
   inline QDOvalUPP NewQDOvalUPP(QDOvalProcPtr userRoutine)
   {
@@ -615,7 +615,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDArcProcInfo = 0x00002B40
-  }; /* pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) */
+  }; // pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) 
 #ifdef __cplusplus
   inline QDArcUPP NewQDArcUPP(QDArcProcPtr userRoutine)
   {
@@ -643,7 +643,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDPolyProcInfo = 0x00000340
-  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  }; // pascal no_return_value Func(1_byte, 4_bytes) 
 #ifdef __cplusplus
   inline QDPolyUPP NewQDPolyUPP(QDPolyProcPtr userRoutine)
   {
@@ -671,7 +671,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDRgnProcInfo = 0x00000340
-  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  }; // pascal no_return_value Func(1_byte, 4_bytes) 
 #ifdef __cplusplus
   inline QDRgnUPP NewQDRgnUPP(QDRgnProcPtr userRoutine)
   {
@@ -728,7 +728,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDCommentProcInfo = 0x00000E80
-  }; /* pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes) */
+  }; // pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline QDCommentUPP NewQDCommentUPP(QDCommentProcPtr userRoutine)
   {
@@ -756,7 +756,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDTxMeasProcInfo = 0x0000FFA0
-  }; /* pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  }; // pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline QDTxMeasUPP NewQDTxMeasUPP(QDTxMeasProcPtr userRoutine)
   {
@@ -784,7 +784,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDGetPicProcInfo = 0x000002C0
-  }; /* pascal no_return_value Func(4_bytes, 2_bytes) */
+  }; // pascal no_return_value Func(4_bytes, 2_bytes) 
 #ifdef __cplusplus
   inline QDGetPicUPP NewQDGetPicUPP(QDGetPicProcPtr userRoutine)
   {
@@ -812,7 +812,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDPutPicProcInfo = 0x000002C0
-  }; /* pascal no_return_value Func(4_bytes, 2_bytes) */
+  }; // pascal no_return_value Func(4_bytes, 2_bytes) 
 #ifdef __cplusplus
   inline QDPutPicUPP NewQDPutPicUPP(QDPutPicProcPtr userRoutine)
   {
@@ -840,7 +840,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDOpcodeProcInfo = 0x00002BC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 2_bytes) */
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 2_bytes) 
 #ifdef __cplusplus
   inline QDOpcodeUPP NewQDOpcodeUPP(QDOpcodeProcPtr userRoutine)
   {
@@ -868,7 +868,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDStdGlyphsProcInfo = 0x000003F1
-  }; /* 4_bytes Func(4_bytes, 4_bytes) */
+  }; // 4_bytes Func(4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline QDStdGlyphsUPP NewQDStdGlyphsUPP(QDStdGlyphsProcPtr userRoutine)
   {
@@ -897,7 +897,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   enum
   {
     uppQDJShieldCursorProcInfo = 0x00002A80
-  }; /* pascal no_return_value Func(2_bytes, 2_bytes, 2_bytes, 2_bytes) */
+  }; // pascal no_return_value Func(2_bytes, 2_bytes, 2_bytes, 2_bytes) 
 #ifdef __cplusplus
   inline QDJShieldCursorUPP
   NewQDJShieldCursorUPP(QDJShieldCursorProcPtr userRoutine)
@@ -1643,7 +1643,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewQDTextProc(userRoutine) NewQDTextUPP(userRoutine)
 #define NewQDLineProc(userRoutine) NewQDLineUPP(userRoutine)
 #define NewQDRectProc(userRoutine) NewQDRectUPP(userRoutine)
@@ -1691,7 +1691,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
   InvokeQDStdGlyphsUPP(dataStream, size, userRoutine)
 #define CallQDJShieldCursorProc(userRoutine, left, top, right, bottom) \
   InvokeQDJShieldCursorUPP(left, top, right, bottom, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 #if !OPAQUE_TOOLBOX_STRUCTS
   /**
@@ -1746,7 +1746,7 @@ typedef struct OpaqueRgnHandle *RgnHandle;
 typedef struct OpaqueWindowPtr *WindowPtr;
 typedef struct OpaqueDialogPtr *DialogPtr;
 typedef struct OpaqueGrafPtr *GrafPtr;
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
   typedef WindowPtr WindowRef;
   /* DragConstraint constants to pass to DragGray,DragTheRgn, or
@@ -1802,7 +1802,7 @@ typedef struct OpaqueGrafPtr *GrafPtr;
   enum
   {
     uppDragGrayRgnProcInfo = 0x00000000
-  }; /* pascal no_return_value Func() */
+  }; // pascal no_return_value Func() 
 #ifdef __cplusplus
   inline DragGrayRgnUPP NewDragGrayRgnUPP(DragGrayRgnProcPtr userRoutine)
   {
@@ -1831,7 +1831,7 @@ typedef struct OpaqueGrafPtr *GrafPtr;
   enum
   {
     uppColorSearchProcInfo = 0x000003D0
-  }; /* pascal 1_byte Func(4_bytes, 4_bytes) */
+  }; // pascal 1_byte Func(4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline ColorSearchUPP NewColorSearchUPP(ColorSearchProcPtr userRoutine)
   {
@@ -1860,7 +1860,7 @@ typedef struct OpaqueGrafPtr *GrafPtr;
   enum
   {
     uppColorComplementProcInfo = 0x000000D0
-  }; /* pascal 1_byte Func(4_bytes) */
+  }; // pascal 1_byte Func(4_bytes) 
 #ifdef __cplusplus
   inline ColorComplementUPP
   NewColorComplementUPP(ColorComplementProcPtr userRoutine)
@@ -2012,7 +2012,7 @@ typedef struct OpaqueGrafPtr *GrafPtr;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewDragGrayRgnProc(userRoutine) NewDragGrayRgnUPP(userRoutine)
 #define NewColorSearchProc(userRoutine) NewColorSearchUPP(userRoutine)
 #define NewColorComplementProc(userRoutine) NewColorComplementUPP(userRoutine)
@@ -2021,7 +2021,7 @@ typedef struct OpaqueGrafPtr *GrafPtr;
   InvokeColorSearchUPP(rgb, position, userRoutine)
 #define CallColorComplementProc(userRoutine, rgb) \
   InvokeColorComplementUPP(rgb, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /**
   <pre>
@@ -2088,9 +2088,9 @@ typedef struct OpaqueGrafPtr *GrafPtr;
 #define OLDPIXMAPSTRUCT 1
 #else
 #define OLDPIXMAPSTRUCT 0
-#endif /* TARGET_OS_MAC && TARGET_API_MAC_OS8 */
+#endif // TARGET_OS_MAC && TARGET_API_MAC_OS8 
 
-#endif /* !defined(OLDPIXMAPSTRUCT) */
+#endif // !defined(OLDPIXMAPSTRUCT) 
 
 #if OLDPIXMAPSTRUCT
 #define GETPIXMAPPIXELFORMAT(pm) ((pm)->pixelSize)
@@ -2105,43 +2105,43 @@ typedef struct OpaqueGrafPtr *GrafPtr;
 #define NON_MAC_PIXEL_FORMATS 1
 #endif
 
-  /* pixel formats*/
+  // pixel formats
   enum
   {
-    k1MonochromePixelFormat = 0x00000001,  /* 1 bit indexed*/
-    k2IndexedPixelFormat = 0x00000002,     /* 2 bit indexed*/
-    k4IndexedPixelFormat = 0x00000004,     /* 4 bit indexed*/
-    k8IndexedPixelFormat = 0x00000008,     /* 8 bit indexed*/
-    k16BE555PixelFormat = 0x00000010,      /* 16 bit BE rgb 555 (Mac)*/
-    k24RGBPixelFormat = 0x00000018,        /* 24 bit rgb */
-    k32ARGBPixelFormat = 0x00000020,       /* 32 bit argb    (Mac)*/
-    k1IndexedGrayPixelFormat = 0x00000021, /* 1 bit indexed gray*/
-    k2IndexedGrayPixelFormat = 0x00000022, /* 2 bit indexed gray*/
-    k4IndexedGrayPixelFormat = 0x00000024, /* 4 bit indexed gray*/
-    k8IndexedGrayPixelFormat = 0x00000028  /* 8 bit indexed gray*/
+    k1MonochromePixelFormat = 0x00000001,  // 1 bit indexed
+    k2IndexedPixelFormat = 0x00000002,     // 2 bit indexed
+    k4IndexedPixelFormat = 0x00000004,     // 4 bit indexed
+    k8IndexedPixelFormat = 0x00000008,     // 8 bit indexed
+    k16BE555PixelFormat = 0x00000010,      // 16 bit BE rgb 555 (Mac)
+    k24RGBPixelFormat = 0x00000018,        // 24 bit rgb 
+    k32ARGBPixelFormat = 0x00000020,       // 32 bit argb    (Mac)
+    k1IndexedGrayPixelFormat = 0x00000021, // 1 bit indexed gray
+    k2IndexedGrayPixelFormat = 0x00000022, // 2 bit indexed gray
+    k4IndexedGrayPixelFormat = 0x00000024, // 4 bit indexed gray
+    k8IndexedGrayPixelFormat = 0x00000028  // 8 bit indexed gray
   };
 
-  /* values for PixMap.pixelFormat*/
+  // values for PixMap.pixelFormat
   enum
   {
-    k16LE555PixelFormat = FOUR_CHAR_CODE('L555'),  /* 16 bit LE rgb 555 (PC)*/
-    k16LE5551PixelFormat = FOUR_CHAR_CODE('5551'), /* 16 bit LE rgb 5551*/
-    k16BE565PixelFormat = FOUR_CHAR_CODE('B565'),  /* 16 bit BE rgb 565*/
-    k16LE565PixelFormat = FOUR_CHAR_CODE('L565'),  /* 16 bit LE rgb 565*/
-    k24BGRPixelFormat = FOUR_CHAR_CODE('24BG'),    /* 24 bit bgr */
-    k32BGRAPixelFormat = FOUR_CHAR_CODE('BGRA'),   /* 32 bit bgra    (Matrox)*/
-    k32ABGRPixelFormat = FOUR_CHAR_CODE('ABGR'),   /* 32 bit abgr    */
-    k32RGBAPixelFormat = FOUR_CHAR_CODE('RGBA'),   /* 32 bit rgba    */
+    k16LE555PixelFormat = FOUR_CHAR_CODE('L555'),  // 16 bit LE rgb 555 (PC)
+    k16LE5551PixelFormat = FOUR_CHAR_CODE('5551'), // 16 bit LE rgb 5551
+    k16BE565PixelFormat = FOUR_CHAR_CODE('B565'),  // 16 bit BE rgb 565
+    k16LE565PixelFormat = FOUR_CHAR_CODE('L565'),  // 16 bit LE rgb 565
+    k24BGRPixelFormat = FOUR_CHAR_CODE('24BG'),    // 24 bit bgr 
+    k32BGRAPixelFormat = FOUR_CHAR_CODE('BGRA'),   // 32 bit bgra    (Matrox)
+    k32ABGRPixelFormat = FOUR_CHAR_CODE('ABGR'),   // 32 bit abgr    
+    k32RGBAPixelFormat = FOUR_CHAR_CODE('RGBA'),   // 32 bit rgba    
     kYUVSPixelFormat =
-        FOUR_CHAR_CODE('yuvs'), /* YUV 4:2:2 byte ordering 16-unsigned = 'YUY2'*/
+        FOUR_CHAR_CODE('yuvs'), // YUV 4:2:2 byte ordering 16-unsigned = 'YUY2'
     kYUVUPixelFormat =
-        FOUR_CHAR_CODE('yuvu'),                   /* YUV 4:2:2 byte ordering 16-signed*/
-    kYVU9PixelFormat = FOUR_CHAR_CODE('YVU9'),    /* YVU9 Planar    9*/
-    kYUV411PixelFormat = FOUR_CHAR_CODE('Y411'),  /* YUV 4:1:1 Interleaved  16*/
-    kYVYU422PixelFormat = FOUR_CHAR_CODE('YVYU'), /* YVYU 4:2:2 byte ordering 16*/
-    kUYVY422PixelFormat = FOUR_CHAR_CODE('UYVY'), /* UYVY 4:2:2 byte ordering 16*/
-    kYUV211PixelFormat = FOUR_CHAR_CODE('Y211'),  /* YUV 2:1:1 Packed   8*/
-    k2vuyPixelFormat = FOUR_CHAR_CODE('2vuy')     /* UYVY 4:2:2 byte ordering   16*/
+        FOUR_CHAR_CODE('yuvu'),                   // YUV 4:2:2 byte ordering 16-signed
+    kYVU9PixelFormat = FOUR_CHAR_CODE('YVU9'),    // YVU9 Planar    9
+    kYUV411PixelFormat = FOUR_CHAR_CODE('Y411'),  // YUV 4:1:1 Interleaved  16
+    kYVYU422PixelFormat = FOUR_CHAR_CODE('YVYU'), // YVYU 4:2:2 byte ordering 16
+    kUYVY422PixelFormat = FOUR_CHAR_CODE('UYVY'), // UYVY 4:2:2 byte ordering 16
+    kYUV211PixelFormat = FOUR_CHAR_CODE('Y211'),  // YUV 2:1:1 Packed   8
+    k2vuyPixelFormat = FOUR_CHAR_CODE('2vuy')     // UYVY 4:2:2 byte ordering   16
   };
 
   /**
@@ -2353,9 +2353,9 @@ typedef struct OpaqueGrafPtr *GrafPtr;
 #define OLDGDEVICESTRUCT 1
 #else
 #define OLDGDEVICESTRUCT 0
-#endif /* TARGET_OS_MAC && TARGET_API_MAC_OS8 */
+#endif // TARGET_OS_MAC && TARGET_API_MAC_OS8 
 
-#endif /* !defined(OLDGDEVICESTRUCT) */
+#endif // !defined(OLDGDEVICESTRUCT) 
 
   typedef struct GDevice GDevice;
   typedef GDevice *GDPtr;
@@ -2422,7 +2422,7 @@ typedef struct OpaqueGrafPtr *GrafPtr;
   typedef CGrafPort *CGrafPtr;
 #else
 typedef GrafPtr CGrafPtr;
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
   typedef CALLBACK_API_C(OSStatus,
                          QDPrinterStatusProcPtr)(PrinterStatusOpcode opcode,
@@ -2507,13 +2507,13 @@ typedef GrafPtr CGrafPtr;
     CQDProcsPtr grafProcs;   /**< Addr of struct with addresses of*/
   } CGrafPort;               /**< */
 
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
 
 #if OPAQUE_TOOLBOX_STRUCTS
   typedef WindowPtr CWindowPtr;
 #else
 typedef CGrafPtr CWindowPtr;
-#endif /* OPAQUE_TOOLBOX_STRUCTS */
+#endif // OPAQUE_TOOLBOX_STRUCTS 
 
   /**
   <pre>
@@ -2582,7 +2582,7 @@ typedef CGrafPtr CWindowPtr;
   enum
   {
     uppQDPrinterStatusProcInfo = 0x00000FF1
-  }; /* 4_bytes Func(4_bytes, 4_bytes, 4_bytes) */
+  }; // 4_bytes Func(4_bytes, 4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline QDPrinterStatusUPP
   NewQDPrinterStatusUPP(QDPrinterStatusProcPtr userRoutine)
@@ -2599,7 +2599,7 @@ typedef CGrafPtr CWindowPtr;
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /**
    *  NewDeviceLoopDrawingUPP()
@@ -2615,7 +2615,7 @@ typedef CGrafPtr CWindowPtr;
   enum
   {
     uppDeviceLoopDrawingProcInfo = 0x00003E80
-  }; /* pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes, 4_bytes) */
+  }; // pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline DeviceLoopDrawingUPP
   NewDeviceLoopDrawingUPP(DeviceLoopDrawingProcPtr userRoutine)
@@ -2654,7 +2654,7 @@ typedef CGrafPtr CWindowPtr;
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /**
    *  DisposeDeviceLoopDrawingUPP()
@@ -2707,7 +2707,7 @@ typedef CGrafPtr CWindowPtr;
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /**
    *  InvokeDeviceLoopDrawingUPP()
@@ -2739,7 +2739,7 @@ typedef CGrafPtr CWindowPtr;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewQDPrinterStatusProc(userRoutine) NewQDPrinterStatusUPP(userRoutine)
 #define NewDeviceLoopDrawingProc(userRoutine) \
   NewDeviceLoopDrawingUPP(userRoutine)
@@ -2750,28 +2750,28 @@ typedef CGrafPtr CWindowPtr;
                                   targetDevice, userData)                \
   InvokeDeviceLoopDrawingUPP(depth, deviceFlags, targetDevice, userData, \
                              userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 #if !OPAQUE_TOOLBOX_STRUCTS || !TARGET_API_MAC_CARBON
   struct QDGlobals
   {
     char privates[76];
-    long randSeed;     /* in Carbon use GetQDGlobalsRandomSeed*/
-    BitMap screenBits; /* in Carbon use GetQDGlobalsScreenBits*/
-    Cursor arrow;      /* in Carbon use GetQDGlobalsArrow*/
-    Pattern dkGray;    /* in Carbon use GetQDGlobalsDarkGray*/
-    Pattern ltGray;    /* in Carbon use GetQDGlobalsLightGray*/
-    Pattern gray;      /* in Carbon use GetQDGlobalsGray*/
-    Pattern black;     /* in Carbon use GetQDGlobalsBlack*/
-    Pattern white;     /* in Carbon use GetQDGlobalsWhite*/
-    GrafPtr thePort;   /* in Carbon use GetQDGlobalsThePort*/
+    long randSeed;     // in Carbon use GetQDGlobalsRandomSeed
+    BitMap screenBits; // in Carbon use GetQDGlobalsScreenBits
+    Cursor arrow;      // in Carbon use GetQDGlobalsArrow
+    Pattern dkGray;    // in Carbon use GetQDGlobalsDarkGray
+    Pattern ltGray;    // in Carbon use GetQDGlobalsLightGray
+    Pattern gray;      // in Carbon use GetQDGlobalsGray
+    Pattern black;     // in Carbon use GetQDGlobalsBlack
+    Pattern white;     // in Carbon use GetQDGlobalsWhite
+    GrafPtr thePort;   // in Carbon use GetQDGlobalsThePort
   };
   typedef struct QDGlobals QDGlobals;
   typedef QDGlobals *QDGlobalsPtr;
   typedef QDGlobalsPtr *QDGlobalsHdl;
   extern QDGlobals qd;
 
-#endif /* !OPAQUE_TOOLBOX_STRUCTS || !TARGET_API_MAC_CARBON */
+#endif // !OPAQUE_TOOLBOX_STRUCTS || !TARGET_API_MAC_CARBON 
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -2822,7 +2822,7 @@ typedef CGrafPtr CWindowPtr;
    These are Carbon only routines. They do nothing at all on
    Mac OS 8, but work flawlessly on Mac OS X.
 */
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /**
    *  LockPortBits()
@@ -2846,7 +2846,7 @@ typedef CGrafPtr CWindowPtr;
   OSErr
   UnlockPortBits(GrafPtr port);
 
-  /* Break a region up into rectangles.*/
+  // Break a region up into rectangles.
 
   enum
   {
@@ -2885,7 +2885,7 @@ typedef CGrafPtr CWindowPtr;
   enum
   {
     uppRegionToRectsProcInfo = 0x00003FB1
-  }; /* 4_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  }; // 4_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #ifdef __cplusplus
   inline RegionToRectsUPP NewRegionToRectsUPP(RegionToRectsProcPtr userRoutine)
   {
@@ -2950,11 +2950,11 @@ typedef CGrafPtr CWindowPtr;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #define NewRegionToRectsProc(userRoutine) NewRegionToRectsUPP(userRoutine)
 #define CallRegionToRectsProc(userRoutine, message, rgn, rect, refCon) \
   InvokeRegionToRectsUPP(message, rgn, rect, refCon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
   /**
    *  QDRegionToRects()
@@ -3040,9 +3040,9 @@ savePort = thePort;
   RgnHandle
   NativeRegionToMacRegion(void *nativeRegion);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
-#endif /* !TARGET_OS_MAC */
+#endif // !TARGET_OS_MAC 
 
 #if TARGET_OS_WIN32
 #if CALL_NOT_IN_CARBON
@@ -3136,9 +3136,9 @@ savePort = thePort;
   PicHandle
   GetPICTFromDIB(void *h);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
-#endif /* TARGET_OS_WIN32 */
+#endif // TARGET_OS_WIN32 
 
 /**
  *  [Mac]SetPort()
@@ -3223,7 +3223,7 @@ performs the calculation:
 rectHigh = bounds.bottom - bounds.top;
 rectWide = bounds.right - bounds.left;
 rowBytes = ((rectWide -1) / 16) + 1) * 2;
-buffSize = rowBytes * rectHigh; /* size in bytes */
+buffSize = rowBytes * rectHigh; // size in bytes 
 The third line above correctly adjusts for the required word alignment.
 Example
 #include < Quickdraw.h >
@@ -3235,8 +3235,8 @@ OffScreenDraw( short rWide, short rHigh, Rect rDest )
   BitMap saveBits;
   BitMap tempBits;
   short bytesPerRow;
-  saveBits = thePort->portBits; /* save current */
-  /* now create an off-screen "canvas" */
+  saveBits = thePort->portBits; // save current 
+  // now create an off-screen "canvas" 
   bytesPerRow = (((rWide - 1) / 16) + 1) * 2;
   tempBits.baseAddr = (QDPtr)NewPtr(bytesPerRow * rHigh);
   tempBits.rowBytes = bytesPerRow;
@@ -3250,7 +3250,7 @@ OffScreenDraw( short rWide, short rHigh, Rect rDest )
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void
           SetPortBits(const BitMap *bm) ONEWORDINLINE(0xA875);
 
@@ -3552,10 +3552,10 @@ Example
 DrawSomething()
 {
 PenState savePenState;
-GetPenState ( &savePenState ); /* save current state */
-    ShowPen(); /* we want pen to be visible */
-    /* ...draw some figure here which may change the state... */
-    SetPenState(&savePenState); /* restore the pen's visible state */
+GetPenState ( &savePenState ); // save current state 
+    ShowPen(); // we want pen to be visible 
+    // ...draw some figure here which may change the state... 
+    SetPenState(&savePenState); // restore the pen's visible state 
   }
   </ pre>
               * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -3566,7 +3566,7 @@ GetPenState ( &savePenState ); /* save current state */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void
           GetPenState(PenState *pnState) ONEWORDINLINE(0xA898);
 
@@ -4867,10 +4867,10 @@ For instance, the following sequence converts a local Polygon to global
 coordinates:
 Point tmpPt,localPt;
 PolyHandle thePoly;
-tmpPt=localPt=topLeft( (*thePoly)-> polyBBox );/* get corner */
-  LocalToGlobal(&tmpPt);                 /* convert to global */
-  SubPt(localPt, &tmpPt);                /* find difference */
-  OffsetPoly(thePoly, tmpPt.h, tmpPt.v); /* move the item */
+tmpPt=localPt=topLeft( (*thePoly)-> polyBBox );// get corner 
+  LocalToGlobal(&tmpPt);                 // convert to global 
+  SubPt(localPt, &tmpPt);                // find difference 
+  OffsetPoly(thePoly, tmpPt.h, tmpPt.v); // move the item 
   </ pre>
               * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
@@ -4880,7 +4880,7 @@ tmpPt=localPt=topLeft( (*thePoly)-> polyBBox );/* get corner */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void
           LocalToGlobal(Point *pt) ONEWORDINLINE(0xA870);
 
@@ -4908,7 +4908,7 @@ ControlHandle myCtl;
 short ctlCode;
 GetNextEvent ( everyEvent , &myEvent );
 if ( myEvent.what ) == mouseDown {
-GlobalToLocal ( &myEvent. where );/* get local equivalent */
+GlobalToLocal ( &myEvent. where );// get local equivalent 
   ctlCode = FindControl(myEvent.where, myWindow, &myCtl);
   if (ctlCode == inThumb)
   /*. . . etc. . . */
@@ -4933,7 +4933,7 @@ To convert between the coordinates of regions and polygons, calculate the</ pre>
                                                                 later
                                                                     *    \mac_os_x in version 10.0 and
                                                                 later
-                                                                        * /
+                                                                      */
                                                                     void
                                                                     GlobalToLocal(Point *pt) ONEWORDINLINE(0xA871);
 
@@ -4955,22 +4955,22 @@ The seed is initialized to 1 by InitGraf . If you start a sequence by storing
 a value in randSeed , you can restart the same sequence by setting randSeed
 to the same value. A more typical operation is to start the sequence with
 some relatively unguessable value, such as the system time:
-GetDateTime ( &randSeed ); /* store 32-bit value in seed */
-theRand = Random(); /* get a random number */
+GetDateTime ( &randSeed ); // store 32-bit value in seed 
+theRand = Random(); // get a random number 
 The Quickdraw global variable randSeed can also be used as a seed to start a
         pseudo -
     random sequence.Example
-/* example function returns value between min and max */
+// example function returns value between min and max 
 #include < Quickdraw.h >
     unsigned short
     RangedRdm(unsigned short min, unsigned short max)
-/* assume that min is less than max */
+// assume that min is less than max 
 {
-  unsigned qdRdm; /* treat return value as 0-65536 */
+  unsigned qdRdm; // treat return value as 0-65536 
   long range, t;
   qdRdm = Random();
   range = max - min;
-  t = (qdRdm * range) / 65536; /* now 0 <= t <= range */
+  t = (qdRdm * range) / 65536; // now 0 <= t <= range 
   return (t + min);
 }
 </ pre>
@@ -4982,7 +4982,7 @@ The Quickdraw global variable randSeed can also be used as a seed to start a
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         short
         Random(void) ONEWORDINLINE(0xA861);
 
@@ -5106,10 +5106,10 @@ srcRect destRect
 It is OK if the two rectangles overlap, and thePoint need not be enclosed by
 srcRect (in that case, its remapped position will be outside of destRect ).
 This call is functionally equivalent to the long-winded:
-h1=r1.bottom-r1.top; h2=r2.bottom - r2.top; /* calc heights */
+h1=r1.bottom-r1.top; h2=r2.bottom - r2.top; // calc heights 
 w1 = r1.right - r1.left;
-w2 = r2.right - r2.left;             /* and widths */
-thePoint.h = (thePoint.h * w1) / w2; /* apply ratio of sizes */
+w2 = r2.right - r2.left;             // and widths 
+thePoint.h = (thePoint.h * w1) / w2; // apply ratio of sizes 
 </ pre>
             * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
@@ -5119,7 +5119,7 @@ thePoint.h = (thePoint.h * w1) / w2; /* apply ratio of sizes */
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         void
         MapPt(Point *pt, const Rect *srcRect, const Rect *dstRect)
             ONEWORDINLINE(0xA8F9);
@@ -5242,11 +5242,11 @@ original handler, as illustrated in the following example:
 Example
 #include < Quickdraw.h >
 #define MY_COMMENT 1234
-QDProcs myQDProcs; /* uninitialized data structure */
-pascal short myCommentProc(void);             /* declare the function */
-SetStdProcs(&myQDProcs);                      /* initialize with defaults */
-myQDProcs.commentProc = (QDPtr)myCommentProc; /* change one proc */
-thePort->grafProcs = &myQDProcs;              /* install the change */
+QDProcs myQDProcs; // uninitialized data structure 
+pascal short myCommentProc(void);             // declare the function 
+SetStdProcs(&myQDProcs);                      // initialize with defaults 
+myQDProcs.commentProc = (QDPtr)myCommentProc; // change one proc 
+thePort->grafProcs = &myQDProcs;              // install the change 
 </ pre>
             * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
@@ -5256,7 +5256,7 @@ thePort->grafProcs = &myQDProcs;              /* install the change */
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         void
         SetStdProcs(QDProcs *procs) ONEWORDINLINE(0xA8EA);
 
@@ -5429,7 +5429,7 @@ if ( (pt1.h == pt2.h) && (pt1.v==pt2.v) ) { /* compare shorts twice
 */
 ... they are equal...
 }
-or the more efficient : if (*(long *)&pt1 == *(long *)&pt2){/* compare longs once */
+or the more efficient : if (*(long *)&pt1 == *(long *)&pt2){// compare longs once 
                                                             ... they are equal...} < / pre >
                         * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
@@ -5558,7 +5558,7 @@ GetNextEvent ( everyEvent , &theEvent );
 :
 GlobalToLocal ( &theEvent.where );
 if (PtInRgn ( theEvent.where, theRgn ) {
-... /* yes, it was in that region */
+... // yes, it was in that region 
 ...
 }
 </ pre>
@@ -5570,7 +5570,7 @@ if (PtInRgn ( theEvent.where, theRgn ) {
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         Boolean
         PtInRgn(Point pt, RgnHandle rgn) ONEWORDINLINE(0xA8E8);
 
@@ -5615,7 +5615,7 @@ void InitCPort(CGrafPtr port) ONEWORDINLINE(0xAA01);
  */
 void CloseCPort(CGrafPtr port) ONEWORDINLINE(0xAA02);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 /**
  *  NewPixMap()
@@ -6182,7 +6182,7 @@ void AllocCursor(void) ONEWORDINLINE(0xAA1D);
  */
 void DisposeCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA26);
 
-/* GetCIcon(), PlotCIcon(), and DisposeCIcon() moved to Icons.h*/
+// GetCIcon(), PlotCIcon(), and DisposeCIcon() moved to Icons.h
 
 /**
 \brief Set graphProcs field to point to custom routines
@@ -6949,7 +6949,7 @@ long DeltaPoint(Point ptA, Point ptB) ONEWORDINLINE(0xA94F);
 <pre>ShieldCursor ( &shieldRect, thePort->portBits.bounds.topLeft );
 .
 :
-ShowCursor ();/* when you no longer need to shield */
+ShowCursor ();// when you no longer need to shield 
 An alternative method is to convert shieldRect to global coordinates(via
                                                                          LocalToGlobal) before the call,
     and pass(0, 0) as offsetPt.</ pre>
@@ -6962,7 +6962,7 @@ An alternative method is to convert shieldRect to global coordinates(via
         later
             *    \mac_os_x in version 10.0 and
         later
-                * /
+              */
             void ShieldCursor(const Rect *shieldRect, Point offsetPt) ONEWORDINLINE(0xA855);
 
 /**
@@ -7112,7 +7112,7 @@ void stdline(const Point *newPt);
  */
 void shieldcursor(const Rect *shieldRect, Point *offsetPt);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 /**
  *  deltapoint()
@@ -7130,7 +7130,7 @@ long deltapoint(Point *ptA, Point *ptB);
 #define DisposCTable(cTable) DisposeCTable(cTable)
 #define DisposCCursor(cCrsr) DisposeCCursor(cCrsr)
 #define DisposGDevice(gdh) DisposeGDevice(gdh)
-#endif /* OLDROUTINENAMES */
+#endif // OLDROUTINENAMES 
 
 /**
     From ToolUtils.i
@@ -7172,7 +7172,7 @@ Example
 PtrsavePtr;
 longmapSize, PackScreen( Ptr);
 mapSize = (long) screenBits .bounds.bottom * screenBits .rowBytes;
-savePtr = NewPtr ( mapSize + 1 ); /* allocate storage buffer */
+savePtr = NewPtr ( mapSize + 1 ); // allocate storage buffer 
 </ pre>
             * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
@@ -7182,7 +7182,7 @@ savePtr = NewPtr ( mapSize + 1 ); /* allocate storage buffer */
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         void
         PackBits(Ptr *srcPtr, Ptr *dstPtr, short srcBytes) ONEWORDINLINE(0xA8CF);
 
@@ -7205,12 +7205,12 @@ void UnpackBits(Ptr *srcPtr, Ptr *dstPtr, short dstBytes) ONEWORDINLINE(0xA8D0);
 /**
 \brief Calculate slope given an angle
 
-<pre>theSlope = SlopeFromAngle ( 17 ); /* get slope of 17 ° angle */
-/* -------- calculate dv and dh; the vertical and horizontal distance */
-dv = startPt.v - endPt.v; /* vertical is easy */
+<pre>theSlope = SlopeFromAngle ( 17 ); // get slope of 17 ° angle 
+// -------- calculate dv and dh; the vertical and horizontal distance 
+dv = startPt.v - endPt.v; // vertical is easy 
 dh = FixRound(FixMul(INT2FIX(dv), theSlope));
-MoveTo(startPt.h, startPt.v); /* move to start point */
-Line(dh, dv);                 /* draw calculated distance */
+MoveTo(startPt.h, startPt.v); // move to start point 
+Line(dh, dv);                 // draw calculated distance 
 </ pre>
             * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
@@ -7220,7 +7220,7 @@ Line(dh, dv);                 /* draw calculated distance */
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         Fixed
         SlopeFromAngle(short angle) ONEWORDINLINE(0xA8BC);
 
@@ -7243,13 +7243,13 @@ The following example calculates the slope of a line represented by two
 endpoints and uses AngleFromSlope to derive the angle of the line.
 Example
 #include < ToolUtils.h >
-#define INT2FIX(i) ((long) i << 16 )/* short to Fixed conversion macro */
+#define INT2FIX(i) ((long) i << 16 )// short to Fixed conversion macro 
 Fixed theSlope;
 Point startPt, endPt;
 short theAngle, dh, dv;
-dh = startPt.h - endPt.h; /* calculate the deltas */
+dh = startPt.h - endPt.h; // calculate the deltas 
 dv = startPt.v - endPt.v;
-theSlope = FixRatio(INT2FIX(dh), INT2FIX(dv)); /* slope=dh/dv */
+theSlope = FixRatio(INT2FIX(dh), INT2FIX(dv)); // slope=dh/dv 
 theAngle = AngleFromSlope(theSlope);
 </ pre>
             * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -7260,11 +7260,11 @@ theAngle = AngleFromSlope(theSlope);
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
         short
         AngleFromSlope(Fixed slope) ONEWORDINLINE(0xA8C4);
 
-/* New transfer modes */
+// New transfer modes 
 enum
 {
   colorXorXFer = 52,
@@ -7272,12 +7272,12 @@ enum
   customXFer = 54
 };
 
-/* Custom XFer flags */
+// Custom XFer flags 
 enum
 {
-  kXFer1PixelAtATime = 0x00000001, /* 1 pixel passed to custom XFer proc*/
+  kXFer1PixelAtATime = 0x00000001, // 1 pixel passed to custom XFer proc
   kXFerConvertPixelToRGB32 =
-      0x00000002 /* All color depths converted to 32 bit RGB*/
+      0x00000002 // All color depths converted to 32 bit RGB
 };
 
 struct CustomXFerRec
@@ -7329,7 +7329,7 @@ enum
   kCursorComponentType = FOUR_CHAR_CODE('curs')
 };
 
-/* Cursor Component capabilities flags */
+// Cursor Component capabilities flags 
 enum
 {
   cursorDoesAnimate = 1L << 0,
@@ -7337,25 +7337,25 @@ enum
   cursorDoesUnreadableScreenBits = 1L << 2
 };
 
-/* Cursor Component output mode flags */
+// Cursor Component output mode flags 
 enum
 {
   kRenderCursorInHardware = 1L << 0,
   kRenderCursorInSoftware = 1L << 1
 };
 
-/* Cursor Component Info */
+// Cursor Component Info 
 struct CursorInfo
 {
-  long version; /* use kCursorComponentsVersion */
+  long version; // use kCursorComponentsVersion 
   long capabilities;
-  long animateDuration; /* approximate time between animate tickles */
+  long animateDuration; // approximate time between animate tickles 
   Rect bounds;
   Point hotspot;
-  long reserved; /* must set to zero */
+  long reserved; // must set to zero 
 };
 typedef struct CursorInfo CursorInfo;
-/* Cursor Component Selectors */
+// Cursor Component Selectors 
 enum
 {
   kCursorComponentInit = 0x0001,
@@ -7425,8 +7425,8 @@ OSErr CursorComponentChanged(ComponentInstance ci)
 OSErr CursorComponentSetData(ComponentInstance ci, long data)
     FOURWORDINLINE(0x203C, 0x0008, 0x000F, 0xABE0);
 
-/* Quickdraw-specific ColorSync matching */
-/* Available in CarbonLib... */
+// Quickdraw-specific ColorSync matching 
+// Available in CarbonLib... 
 /**
  *  IsValidPort()
  *
@@ -7439,8 +7439,8 @@ Boolean
 IsValidPort(CGrafPtr port);
 
 #if ACCESSOR_CALLS_ARE_FUNCTIONS
-/* GrafPort */
-/* Getters */
+// GrafPort 
+// Getters 
 /**
  *  GetPortPixMap()
  *
@@ -7805,7 +7805,7 @@ void SectRegionWithPortClipRegion(CGrafPtr port, RgnHandle ioRegion);
  */
 void SectRegionWithPortVisibleRegion(CGrafPtr port, RgnHandle ioRegion);
 
-/* Swappers */
+// Swappers 
 /**
  *  SwapPortPicSaveHandle()
  *
@@ -7838,7 +7838,7 @@ void SectRegionWithPortVisibleRegion(CGrafPtr port, RgnHandle ioRegion);
 Handle
 SwapPortPicSaveHandle(CGrafPtr port, Handle inPicSaveHdl);
 
-/* Setters */
+// Setters 
 /**
  *  SetPortBounds()
  *
@@ -7989,7 +7989,7 @@ void SetPortPenMode(CGrafPtr port, SInt32 penMode);
  */
 void SetPortFracHPenLocation(CGrafPtr port, short pnLocHFrac);
 
-/* PixMap */
+// PixMap 
 /**
  *  GetPixBounds()
  *
@@ -8011,8 +8011,8 @@ GetPixBounds(PixMapHandle pixMap, Rect *bounds);
  */
 short GetPixDepth(PixMapHandle pixMap);
 
-/* QDGlobals */
-/* Getters */
+// QDGlobals 
+// Getters 
 /**
  *  GetQDGlobalsRandomSeed()
  *
@@ -8111,7 +8111,7 @@ GetQDGlobalsWhite(Pattern *white);
 CGrafPtr
 GetQDGlobalsThePort(void);
 
-/* Setters */
+// Setters 
 /**
  *  SetQDGlobalsRandomSeed()
  *
@@ -8132,7 +8132,7 @@ void SetQDGlobalsRandomSeed(long randomSeed);
  */
 void SetQDGlobalsArrow(const Cursor *arrow);
 
-/* Regions */
+// Regions 
 /**
  *  GetRegionBounds()
  *
@@ -8155,11 +8155,11 @@ GetRegionBounds(RgnHandle region, Rect *bounds);
 Boolean
 IsRegionRectangular(RgnHandle region);
 
-/* Utilities */
+// Utilities 
 /* To prevent upward dependencies, GetWindowFromPort() is defined in Window
  * Manager interface: */
-/*      pascal WindowRef        GetWindowFromPort(CGrafPtr port); */
-/* NewPtr/OpenCPort doesn't work with opaque structures */
+//      pascal WindowRef        GetWindowFromPort(CGrafPtr port); 
+// NewPtr/OpenCPort doesn't work with opaque structures 
 /**
  *  CreateNewPort()
  *
@@ -8191,7 +8191,7 @@ void DisposePort(CGrafPtr port);
  */
 void SetQDError(OSErr err);
 
-#endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
+#endif // ACCESSOR_CALLS_ARE_FUNCTIONS 
 
 /**
    Routines available on Mac OS X to flush buffered window ports...
@@ -8229,7 +8229,7 @@ QDIsPortBufferDirty(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-void QDFlushPortBuffer(CGrafPtr port, RgnHandle region); /* can be NULL */
+void QDFlushPortBuffer(CGrafPtr port, RgnHandle region); // can be NULL 
 
 /**
  *  QDGetDirtyRegion()
@@ -8783,7 +8783,7 @@ void LMGetHiliteRGB(RGBColor *hiliteRGBValue);
  */
 void LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
 
-#endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM */
+#endif // TARGET_CPU_68K && !TARGET_RT_MAC_CFM 
 
 /**
  *  LMGetCursorNew()
@@ -8824,7 +8824,7 @@ void LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 }
 #endif
 
-#endif /* __QUICKDRAW__ */
+#endif // __QUICKDRAW__ 
 in CarbonLib 1.0 and later *    \mac_os_x in version 10.0 and later * / UInt8 LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
 
 /**
@@ -8986,7 +8986,7 @@ void LMGetHiliteRGB(RGBColor *hiliteRGBValue);
  */
 void LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
 
-#endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM */
+#endif // TARGET_CPU_68K && !TARGET_RT_MAC_CFM 
 
 /**
  *  LMGetCursorNew()
@@ -9027,7 +9027,7 @@ void LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 }
 #endif
 
-#endif /* __QUICKDRAW__ */
+#endif // __QUICKDRAW__ 
 LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 
 #if PRAGMA_STRUCT_ALIGN
@@ -9048,4 +9048,4 @@ LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 }
 #endif
 
-#endif /* __QUICKDRAW__ */
+#endif // __QUICKDRAW__ 

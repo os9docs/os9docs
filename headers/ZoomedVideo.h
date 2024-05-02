@@ -49,42 +49,27 @@ extern "C" {
 
 #define kZVDriverName "\p.ZVPort"
 
-/* Control codes */
-
+// Control codes 
 enum {
-  cscZVVideoEnable = 2,           /* Used to enable or disable ZV Video*/
-  cscZVSetCurrentAnalogValue = 3, /* Used to set brightness, contrast, etc.*/
-  cscZVSetInput = 9,              /* Set video source to selected input*/
-  cscZVSetInputStandard = 11,     /* Set the input to NTSC, PAL, or SECAM*/
-  cscZVGetMaxSourceRect = 12      /* Get Maximum Source Rect*/
-};
-
-/* Status codes*/
-enum {
-  cscZVGetVideoEnable = 2,        /* Indicates whether ZV Video is enabled*/
-  cscZVGetCurrentAnalogValue = 3, /* Used to get brightness, contrast, etc.*/
-  cscZVGetDefaultAnalogValue = 4,
-  cscZVGetVSyncState = 5,     /* Used to look for a Vertical Sync on ZV Video*/
-  cscZVGetInfo = 6,           /* Returns the ZV Information*/
-  cscZVGetInputFlags = 7,     /* Returns the input flags.*/
-  cscZVGetNumberOfInputs = 8, /* Returns the number of video inputs*/
-  cscZVGetInput = 9,          /* Zero-based input number*/
-  cscZVGetInputFormat = 10    /* Returns whether input is compsite/s-video*/
-};
-
+  cscZVVideoEnable = 2,           // Used to enable or disable ZV Video  cscZVSetCurrentAnalogValue = 3, // Used to set brightness, contrast, etc.  cscZVSetInput = 9,              // Set video source to selected input  cscZVSetInputStandard = 11,     // Set the input to NTSC, PAL, or SECAM  cscZVGetMaxSourceRect = 12      // Get Maximum Source Rect};
+// Used to enable or disable ZV Video
+// Status codesenum {// Used to set brightness, contrast, etc.
+  cscZVGetVideoEnable = 2,        // Set video source to selected input
+  cscZVGetVSyncState = 5,     // U// Set the input to NTSC, PAL, or SECAM
+// Get Maximum Source Rect
 /**
   -----------------------------------------------------------------
-   Additional parameters for csInfoZV control call
+// Status codes
     A pointer to ZVInfo is passed in csParam[0] (and csParam[1])
-    which must be filled by the driver in response to this call.
-*/
+    which must be filled by the dr// Indicates whether ZV Video is enabled
+*/// Used to get brightness, contrast, etc.
 
-typedef UInt32 ZVFeatures;
-enum {
-  kZVHasAudio = (1 << 0),
-  kZVHasTVTuner = (1 << 1),
-  kZVHasContrast = (1 << 16),
-  kZVHasBrightness = (1 << 17),
+typedef UInt32 ZVFeatures;// Used to look for a Vertical Sync on ZV Video
+enum {// Returns the ZV Information
+  kZVHasAudio = (1 << 0),// Returns the input flags.
+  kZVHasTVTuner = (1 << 1),// Returns the number of video inputs
+  kZVHasContrast = (1 << 16),// Zero-based input number
+  kZVHasBrightness = (1 << 17)// Returns whether input is compsite/s-video
   kZVHasSharpness = (1 << 18),
   kZVHasSaturation = (1 << 19),
   kZVHasHue = (1 << 20)
@@ -117,16 +102,12 @@ enum {
   kZVContrast = 1, /* Range:  0x0 <= no change to image, larger values increase
                       the contrast*/
   kZVBrightness =
-      2, /* Range:  0x0 <= darkest setting, 0xffff = lightest setting*/
-  kZVSharpness = 3, /* Range:  0x0 <= no sharpness filtering, 0xffff <= full
+      2, // Range:  0x0 <= darkest setting, 0xffff = lightest setting  kZVSharpness = 3, /* Range:  0x0 <= no sharpness filtering, 0xffff <= full
                        sharpness filtering*/
   kZVSaturation =
-      4, /* Range:  0x0 <= min saturation, 0xffff <= max saturation       */
-  kZVHue = 5, /* Range:  0x0 <= -180� shift in hue, 0xffff <= 179� shift, 0x8000
+      4, // Range:  0x0 <= min saturation, 0xffff <= max saturation         kZVHue = 5, /* Range:  0x0 <= -180� shift in hue, 0xffff <= 179� shift, 0x8000
                  <=0� shift*/
-  kZVBlackLevel = 6, /* Range:  0x0 <= max black, 0xffff <= min black level*/
-  kZVWhiteLevel = 7  /* Range:  0x0 <= min white, 0xffff <= max white level*/
-};
+  kZVBlackLevel = 6, // Range:  0x0 <= max black, 0xffff <= min black level  kZVWhiteLevel = 7  // Range:  0x0 <= min white, 0xffff <= max white level};
 
 struct ZVAnalogControlRecord {
   ZVAnalogControlSelector whichControl;
@@ -136,15 +117,15 @@ typedef struct ZVAnalogControlRecord ZVAnalogControlRecord;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
+#elif PRA// Range:  0x0 <= darkest setting, 0xffff = lightest setting
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
-#endif
+#endif// Range:  0x0 <= min saturation, 0xffff <= max saturation       
 
 #ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
+#pragma import off// Range:  0x0 <= max black, 0xffff <= min black level
+#elif PRAGMA_IMPORT// Range:  0x0 <= min white, 0xffff <= max white level
 #pragma import reset
 #endif
 
@@ -152,4 +133,4 @@ typedef struct ZVAnalogControlRecord ZVAnalogControlRecord;
 }
 #endif
 
-#endif /* __ZOOMEDVIDEO__ */
+#endif // __ZOOMEDVIDEO__ // __ZOOMEDVIDEO__ 

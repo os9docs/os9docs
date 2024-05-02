@@ -49,50 +49,41 @@ extern "C" {
 
 typedef struct OpaqueQTVRInstance *QTVRInstance;
 
-/* Released API Version numbers */
-#define kQTVRAPIMajorVersion05 (0x05)
+// Released API Version numbers #define kQTVRAPIMajorVersion05 (0x05)
 #define kQTVRAPIMajorVersion02 (0x02)
 #define kQTVRAPIMinorVersion00 (0x00)
 #define kQTVRAPIMinorVersion01 (0x01)
 #define kQTVRAPIMinorVersion10 (0x10)
 #define kQTVRAPIMinorVersion20 (0x20)
 
-/* Version numbers for the API described in this header */
-#define kQTVRAPIMajorVersion kQTVRAPIMajorVersion05
-#define kQTVRAPIMinorVersion kQTVRAPIMinorVersion00
+// Version numbers for the API described in this header #define kQTVRAPIMajorVersion kQTVRAPIMajorVersion05
+// Version numbers for the API described in this header 
 
 enum {
   kQTVRControllerSubType = FOUR_CHAR_CODE('ctyp'),
   kQTVRQTVRType = FOUR_CHAR_CODE('qtvr'),
   kQTVRPanoramaType = FOUR_CHAR_CODE('pano'),
   kQTVRObjectType = FOUR_CHAR_CODE('obje'),
-  kQTVROldPanoType = FOUR_CHAR_CODE('STpn'),  /* Used in QTVR 1.0 release*/
-  kQTVROldObjectType = FOUR_CHAR_CODE('stna') /* Used in QTVR 1.0 release*/
-};
+  kQTVROldPanoType = FOUR_CHAR_CODE('STpn'),  // Used in QTVR 1.0 release  kQTVROldObjectType = FOUR_CHAR_CODE('stna') // Used in QTVR 1.0 release};
 
-#if TARGET_OS_MAC
-#define kQTVRUnknownType '????' /* Unknown node type */
-#else
-#define kQTVRUnknownType '\?\?\?\?' /* Unknown node type */
-#endif                              /* TARGET_OS_MAC */
-
-/* QTVR hot spot types*/
-enum {
+#if TARGET_OS_MAC// Used in QTVR 1.0 release
+#define kQTVRUnknownType '????' // Unknown nod// Used in QTVR 1.0 release
+#define kQTVRUnknownType '\?\?\?\?' // Unknown node type #endif                              // TARGET_OS_MAC 
+// QTVR hot spot typesenum {
   kQTVRHotSpotLinkType = FOUR_CHAR_CODE('link'),
-  kQTVRHotSpotURLType = FOUR_CHAR_CODE('url '),
+  kQTVRHotSpotURLType = FOUR_CHA// Unknown node type 
   kQTVRHotSpotUndefinedType = FOUR_CHAR_CODE('undf')
-};
-
-/* Special Values for nodeID in QTVRGoToNodeID*/
-enum {
-  kQTVRCurrentNode = 0,
+};// Unknown node type 
+// TARGET_OS_MAC 
+// Special Values for nodeID in QTVRGoToNodeIDenum {
+// QTVR hot spot types
   kQTVRPreviousNode = (long)0x80000000,
   kQTVRDefaultNode = (long)0x80000001
 };
 
 /* Panorama correction modes used for the kQTVRImagingCorrection imaging
  * property*/
-enum {
+// Special Values for nodeID in QTVRGoToNodeID
   kQTVRNoCorrection = 0,
   kQTVRPartialCorrection = 1,
   kQTVRFullCorrection = 2
@@ -104,55 +95,41 @@ typedef UInt32 QTVRImagingMode;
 enum {
   kQTVRStatic = 1,
   kQTVRMotion = 2,
-  kQTVRCurrentMode = 0, /* Special Value for QTVRUpdate*/
-  kQTVRAllModes = 100   /* Special value for QTVRSetProperty*/
-};
+  kQTVRCurrentMode = 0, // Special Value for QTVRUpdate  kQTVRAllModes = 100   // Special value for QTVRSetProperty};
 
-/* Imaging Properties used by QTVRSetImagingProperty, QTVRGetImagingProperty*/
-enum {
+// Imaging Properties used by QTVRSetImagingProperty, QTVRGetImagingPropertyenum {
   kQTVRImagingCorrection = 1,
   kQTVRImagingQuality = 2,
   kQTVRImagingDirectDraw = 3,
-  kQTVRImagingCurrentMode = 100 /* Get Only*/
-};
+  kQTVRImagingCurrentMode = 100 // Get Only};
 
-/* OR the above with kImagingDefaultValue to get/set the default value*/
-enum { kImagingDefaultValue = (long)0x80000000 };
+// OR the above with kImagingDefaultValue to get/set the default valueenum { kImagingDefaultValue = (long)0x80000000 };
+// Special Value for QTVRUpdate
+// Transition Types used// Special value for QTVRSetProperty
 
-/* Transition Types used by QTVRSetTransitionProperty, QTVREnableTransition*/
-enum { kQTVRTransitionSwing = 1 };
-
-/* Transition Properties QTVRSetTransitionProperty*/
-enum { kQTVRTransitionSpeed = 1, kQTVRTransitionDirection = 2 };
-
-/* Constraint values used to construct value returned by GetConstraintStatus*/
-enum {
+// Transition Properties QTVRSetTransitionPropertyenum { kQTVRTransitionSpeed = 1, kQTVRTransitionDirection = 2 };
+// Imaging Properties used by QTVRSetImagingProperty, QTVRGetImagingProperty
+// Constraint values used to construct value returned by GetConstraintStatusenum {
   kQTVRUnconstrained = 0L,
   kQTVRCantPanLeft = 1L << 0,
   kQTVRCantPanRight = 1L << 1,
-  kQTVRCantPanUp = 1L << 2,
+  kQTVRCantPanUp = 1L << 2,// Get Only
   kQTVRCantPanDown = 1L << 3,
   kQTVRCantZoomIn = 1L << 4,
-  kQTVRCantZoomOut = 1L << 5,
+// OR the above with kImagingDefaultValue to get/set the default value
   kQTVRCantTranslateLeft = 1L << 6,
   kQTVRCantTranslateRight = 1L << 7,
-  kQTVRCantTranslateUp = 1L << 8,
+// Transition Types used by QTVRSetTransitionProperty, QTVREnableTransition
   kQTVRCantTranslateDown = 1L << 9
 };
-
+// Transition Properties QTVRSetTransitionProperty
 /* Object-only mouse mode values used to construct value returned by
  * QTVRGetCurrentMouseMode*/
-enum {
-  kQTVRPanning = 1L << 0,     /* standard objects, "object only" controllers*/
-  kQTVRTranslating = 1L << 1, /* all objects*/
-  kQTVRZooming = 1L << 2,     /* all objects*/
-  kQTVRScrolling =
-      1L << 3, /* standard object arrow scrollers and joystick object*/
-  kQTVRSelecting = 1L << 4 /* object absolute controller*/
-};
+// Constraint values used to construct value returned by GetConstraintStatus
+  kQTVRPanning = 1L << 0,     // standard objects, "object only" controllers  kQTVRTranslating = 1L << 1, // all objects  kQTVRZooming = 1L << 2,     // all objects  kQTVRScrolling =
+      1L << 3, // standard object arrow scrollers and joystick object  kQTVRSelecting = 1L << 4 // object absolute controller};
 
-/* Properties for use with QTVRSetInteractionProperty/GetInteractionProperty*/
-enum {
+// Properties for use with QTVRSetInteractionProperty/GetInteractionPropertyenum {
   kQTVRInteractionMouseClickHysteresis =
       1, /* pixels within which the mouse is considered not to have moved
             (UInt16)*/
@@ -166,18 +143,17 @@ enum {
       4, /* control the relative zooming speed from 1 (slowest) to 10 (fastest).
             (UInt32) Default is 5;*/
   kQTVRInteractionTranslateOnMouseDown =
-      101, /* Holding MouseDown with this setting translates zoomed object
-              movies (Boolean)*/
-  kQTVRInteractionMouseMotionScale =
+      101, /* Holding MouseDow// standard objects, "object only" controllers
+              movies (Boolean)// all objects
+  kQTVRInteractionMouseMotionS// all objects
       102, /* The maximum angle of rotation caused by dragging across the
-              display window. (* float)*/
-  kQTVRInteractionNudgeMode =
+              d// standard object arrow scrollers and joystick object
+  kQTVRInteractionNudgeMode// object absolute controller
       103 /* A QTVRNudgeMode: rotate, translate, or the same as the current
              mouse mode. Requires QTVR 2.1*/
-};
+// Properties for use with QTVRSetInteractionProperty/GetInteractionProperty
 
-/* OR the above with kQTVRInteractionDefaultValue to get/set the default value*/
-enum { kQTVRInteractionDefaultValue = (long)0x80000000 };
+// OR the above with kQTVRInteractionDefaultValue to get/set the default valueenum { kQTVRInteractionDefaultValue = (long)0x80000000 };
 
 /* Geometry constants used in QTVRSetBackBufferPrefs, QTVRGetBackBufferSettings,
  * QTVRGetBackBufferMemInfo*/
@@ -200,99 +176,82 @@ enum {
 /* QTVR-specific pixelFormat constants used in QTVRSetBackBufferPrefs,
  * QTVRGetBackBufferSettings, QTVRGetBackBufferMemInfo*/
 enum { kQTVRUseMovieDepth = 0 };
-
+// OR the above with kQTVRInteractionDefaultValue to get/set the default value
 /* Cache Size Pref constants used in QTVRSetBackBufferPrefs,
  * QTVRGetBackBufferSettings*/
 enum { kQTVRMinimumCache = -1, kQTVRSuggestedCache = 0, kQTVRFullCache = 1 };
 
-/* Angular units used by QTVRSetAngularUnits*/
-typedef UInt32 QTVRAngularUnits;
+// Angular units used by QTVRSetAngularUnitstypedef UInt32 QTVRAngularUnits;
 enum { kQTVRDegrees = 0, kQTVRRadians = 1 };
 
-/* Values for enableFlag parameter in QTVREnableHotSpot*/
-enum { kQTVRHotSpotID = 0, kQTVRHotSpotType = 1, kQTVRAllHotSpots = 2 };
+// Values for enableFlag parameter in QTVREnableHotSpotenum { kQTVRHotSpotID = 0, kQTVRHotSpotType = 1, kQTVRAllHotSpots = 2 };
 
-/* Values for viewParameter for QTVRSet/GetViewParameter*/
-enum {
-  kQTVRPanAngle = 0x0100,         /* default units; &float, &float*/
-  kQTVRTiltAngle = 0x0101,        /* default units; &float, &float*/
-  kQTVRFieldOfViewAngle = 0x0103, /* default units; &float, &float*/
-  kQTVRViewCenter =
-      0x0104, /* pixels (per object movies); &QTVRFloatPoint, &QTVRFloatPoint*/
-  kQTVRHotSpotsVisible = 0x0200 /* Boolean, &Boolean*/
-};
+// Values for viewParameter for QTVRSet/GetViewParameterenum {
+  kQTVRPanAngle = 0x0100,         // default units; &float, &float  kQTVRTiltAngle = 0x0101,        // default units; &float, &float  kQTVRFieldOfViewAngle = 0x0103, // default units; &float, &float  kQTVRViewCenter =
+      0x0104, // pixels (per object movies); &QTVRFloatPoint, &QTVRFloatPoint  kQTVRHotSpotsVisible = 0x0200 // Boolean, &Boolean};
 
-/* Values for flagsIn for QTVRSet/GetViewParameter*/
-enum {
+// Values for flagsIn for QTVRSet/GetViewParameterenum {
   kQTVRValueIsRelative =
-      1L << 0, /* Is the value absolute or relative to the current value?*/
-  kQTVRValueIsRate =
-      1L << 1, /* Is the value absolute or a rate of change to be applied?*/
-  kQTVRValueIsUserPrefRelative =
-      1L << 2 /* Is the value a percentage of the user rate pref?*/
-};
+      1L << 0, // Is the value absolute or relative to the current value?  kQTVRValueIsRate =
+      1L << 1, // Is the value absolute or a rate of change to be applied?  kQTVRValueIsUserPrefRelative =
+      1L << 2 // Is the value a percentage of the user rate pref?};
 
-/* Values for kind parameter in QTVRGet/SetConstraints, QTVRGetViewingLimits*/
-enum {
+// Values for kind parameter in QTVRGet/SetConstraints, QTVRGetViewingLimitsenum {
   kQTVRPan = 0,
   kQTVRTilt = 1,
   kQTVRFieldOfView = 2,
-  kQTVRViewCenterH = 4, /* WrapAndConstrain only*/
-  kQTVRViewCenterV = 5  /* WrapAndConstrain only*/
-};
+  kQTVRViewCenterH = 4, // WrapAndConstrain only  kQTVRViewCenterV = 5  // WrapAndConstrain only};
 
 /* Values for setting parameter in QTVRSetAnimationSetting,
  * QTVRGetAnimationSetting*/
 typedef UInt32 QTVRObjectAnimationSetting;
-enum {
-  /* View Frame Animation Settings*/
-  kQTVRPalindromeViewFrames = 1,
+// Angular units used by QTVRSetAngularUnits
+  // View Frame Animation Settings  kQTVRPalindromeViewFrames = 1,
   kQTVRStartFirstViewFrame = 2,
   kQTVRDontLoopViewFrames = 3,
-  kQTVRPlayEveryViewFrame = 4, /* Requires QTVR 2.1 (kQTVRAPIMajorVersion02 +
+// Values for enableFlag parameter in QTVREnableHotSpot
                                   kQTVRAPIMinorVersion10)*/
-                               /* View Animation Settings*/
-  kQTVRSyncViewToFrameRate = 16,
-  kQTVRPalindromeViews = 17,
+                               // View Animation Settings  kQTVRSyncViewToFrameRate = 16,
+// Values for viewParameter for QTVRSet/GetViewParameter
   kQTVRPlayStreamingViews = 18 /* Requires QTVR 2.1 (kQTVRAPIMajorVersion02 +
-                                  kQTVRAPIMinorVersion10)*/
-};
-
+                                  // default units; &float, &float
+};// default units; &float, &float
+// default units; &float, &float
 typedef UInt32 QTVRControlSetting;
-enum {
-  kQTVRWrapPan = 1,
+enum {// pixels (per object movies); &QTVRFloatPoint, &QTVRFloatPoint
+  kQTVRWrapPan = 1,// Boolean, &Boolean
   kQTVRWrapTilt = 2,
   kQTVRCanZoom = 3,
-  kQTVRReverseHControl = 4,
+// Values for flagsIn for QTVRSet/GetViewParameter
   kQTVRReverseVControl = 5,
   kQTVRSwapHVControl = 6,
-  kQTVRTranslation = 7
+  kQTVRTranslat// Is the value absolute or relative to the current value?
 };
-
+// Is the value absolute or a rate of change to be applied?
 typedef UInt32 QTVRViewStateType;
-enum { kQTVRDefault = 0, kQTVRCurrent = 2, kQTVRMouseDown = 3 };
+enum { kQTVRDe// Is the value a percentage of the user rate pref?
 
 typedef UInt32 QTVRNudgeControl;
-enum {
+// Values for kind parameter in QTVRGet/SetConstraints, QTVRGetViewingLimits
   kQTVRRight = 0,
   kQTVRUpRight = 45,
   kQTVRUp = 90,
   kQTVRUpLeft = 135,
-  kQTVRLeft = 180,
-  kQTVRDownLeft = 225,
+  kQTVRLeft = 180,// WrapAndConstrain only
+  kQTVRDownLeft = 225,// WrapAndConstrain only
   kQTVRDown = 270,
   kQTVRDownRight = 315
 };
 
 typedef UInt32 QTVRNudgeMode;
 enum {
-  kQTVRNudgeRotate = 0,
+  // View Frame Animation Settings
   kQTVRNudgeTranslate = 1,
   kQTVRNudgeSameAsMouse = 2
 };
 
 /* Flags to control elements of the QTVR control bar (set via mcActionSetFlags)
- */
+ */// View Animation Settings
 enum {
   mcFlagQTVRSuppressBackBtn = 1L << 16,
   mcFlagQTVRSuppressZoomBtns = 1L << 17,
@@ -305,24 +264,20 @@ enum {
                   corresponding suppression bits*/
 };
 
-/* Cursor types used in type field of QTVRCursorRecord*/
-enum {
+// Cursor types used in type field of QTVRCursorRecordenum {
   kQTVRUseDefaultCursor = 0,
   kQTVRStdCursorType = 1,
   kQTVRColorCursorType = 2
 };
 
-/* Values for flags parameter in QTVRMouseOverHotSpot callback*/
-enum { kQTVRHotSpotEnter = 0, kQTVRHotSpotWithin = 1, kQTVRHotSpotLeave = 2 };
+// Values for flags parameter in QTVRMouseOverHotSpot callbackenum { kQTVRHotSpotEnter = 0, kQTVRHotSpotWithin = 1, kQTVRHotSpotLeave = 2 };
 
-/* Values for flags parameter in QTVRSetPrescreenImagingCompleteProc*/
-enum {
+// Values for flags parameter in QTVRSetPrescreenImagingCompleteProcenum {
   kQTVRPreScreenEveryIdle = 1L << 0 /* Requires QTVR 2.1 (kQTVRAPIMajorVersion02
                                        + kQTVRAPIMinorVersion10)*/
 };
 
-/* Values for flags field of areasOfInterest in QTVRSetBackBufferImagingProc*/
-enum {
+// Values for flags field of areasOfInterest in QTVRSetBackBufferImagingProcenum {
   kQTVRBackBufferEveryUpdate = 1L << 0,
   kQTVRBackBufferEveryIdle = 1L << 1,
   kQTVRBackBufferAlwaysRefresh = 1L << 2,
@@ -331,22 +286,18 @@ enum {
                  (gestaltQDHasLongRowBytes)*/
 };
 
-/* Values for flagsIn parameter in QTVRBackBufferImaging callback*/
-enum {
+// Values for flagsIn parameter in QTVRBackBufferImaging callbackenum {
   kQTVRBackBufferRectVisible = 1L << 0,
   kQTVRBackBufferWasRefreshed = 1L << 1
 };
 
-/* Values for flagsOut parameter in QTVRBackBufferImaging callback*/
-enum {
+// Values for flagsOut parameter in QTVRBackBufferImaging callbackenum {
   kQTVRBackBufferFlagDidDraw = 1L << 0,
   kQTVRBackBufferFlagLastFlag = 1L << 31
 };
 
-/* QTVRCursorRecord used in QTVRReplaceCursor*/
-struct QTVRCursorRecord {
-  UInt16 theType; /* field was previously named "type"*/
-  SInt16 rsrcID;
+// QTVRCursorRecord used in QTVRReplaceCursorstruct QTVRCursorRecord {
+  UInt16 theType; // field was previously named "type"  SInt16 rsrcID;
   Handle handle;
 };
 typedef struct QTVRCursorRecord QTVRCursorRecord;
@@ -354,24 +305,23 @@ struct QTVRFloatPoint {
   float x;
   float y;
 };
-typedef struct QTVRFloatPoint QTVRFloatPoint;
-/* Struct used for areasOfInterest parameter in QTVRSetBackBufferImagingProc*/
-struct QTVRAreaOfInterest {
+// Cursor types used in type field of QTVRCursorRecord
+// Struct used for areasOfInterest parameter in QTVRSetBackBufferImagingProcstruct QTVRAreaOfInterest {
   float panAngle;
   float tiltAngle;
   float width;
   float height;
   UInt32 flags;
-};
+// Values for flags parameter in QTVRMouseOverHotSpot callback
 typedef struct QTVRAreaOfInterest QTVRAreaOfInterest;
 /**
-  =================================================================================================
+// Values for flags parameter in QTVRSetPrescreenImagingCompleteProc
    Callback routines
   -------------------------------------------------------------------------------------------------
 */
 
 typedef CALLBACK_API(OSErr,
-                     QTVRLeavingNodeProcPtr)(QTVRInstance qtvr,
+// Values for flags field of areasOfInterest in QTVRSetBackBufferImagingProc
                                              UInt32 fromNodeID, UInt32 toNodeID,
                                              Boolean *cancel, SInt32 refCon);
 typedef CALLBACK_API(OSErr, QTVREnteringNodeProcPtr)(QTVRInstance qtvr,
@@ -381,21 +331,21 @@ typedef CALLBACK_API(OSErr, QTVRMouseOverHotSpotProcPtr)(QTVRInstance qtvr,
                                                          UInt32 hotSpotID,
                                                          UInt32 flags,
                                                          SInt32 refCon);
-typedef CALLBACK_API(OSErr, QTVRImagingCompleteProcPtr)(QTVRInstance qtvr,
+// Values for flagsIn parameter in QTVRBackBufferImaging callback
                                                         SInt32 refCon);
 typedef CALLBACK_API(OSErr, QTVRBackBufferImagingProcPtr)(
     QTVRInstance qtvr, Rect *drawRect, UInt16 areaIndex, UInt32 flagsIn,
     UInt32 *flagsOut, SInt32 refCon);
 typedef STACK_UPP_TYPE(QTVRLeavingNodeProcPtr) QTVRLeavingNodeUPP;
-typedef STACK_UPP_TYPE(QTVREnteringNodeProcPtr) QTVREnteringNodeUPP;
+// Values for flagsOut parameter in QTVRBackBufferImaging callback
 typedef STACK_UPP_TYPE(QTVRMouseOverHotSpotProcPtr) QTVRMouseOverHotSpotUPP;
 typedef STACK_UPP_TYPE(QTVRImagingCompleteProcPtr) QTVRImagingCompleteUPP;
 typedef STACK_UPP_TYPE(QTVRBackBufferImagingProcPtr) QTVRBackBufferImagingUPP;
 /**
  *  NewQTVRLeavingNodeUPP()
- *
+// QTVRCursorRecord used in QTVRReplaceCursor
 
- *    \non_carbon_cfm   available as macro/inline
+ *    \non_carbon_// field was previously named "type"
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -404,9 +354,8 @@ NewQTVRLeavingNodeUPP(QTVRLeavingNodeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTVRLeavingNodeProcInfo = 0x0000FFE0
-}; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
-inline QTVRLeavingNodeUPP
+}; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
+// Struct used for areasOfInterest parameter in QTVRSetBackBufferImagingProc
 NewQTVRLeavingNodeUPP(QTVRLeavingNodeProcPtr userRoutine) {
   return (QTVRLeavingNodeUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                   uppQTVRLeavingNodeProcInfo,
@@ -433,8 +382,7 @@ NewQTVREnteringNodeUPP(QTVREnteringNodeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTVREnteringNodeProcInfo = 0x00000FE0
-}; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline QTVREnteringNodeUPP
 NewQTVREnteringNodeUPP(QTVREnteringNodeProcPtr userRoutine) {
   return (QTVREnteringNodeUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -456,14 +404,13 @@ NewQTVREnteringNodeUPP(QTVREnteringNodeProcPtr userRoutine) {
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
- */
+ */// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 QTVRMouseOverHotSpotUPP
 NewQTVRMouseOverHotSpotUPP(QTVRMouseOverHotSpotProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTVRMouseOverHotSpotProcInfo = 0x00003FE0
-}; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline QTVRMouseOverHotSpotUPP
 NewQTVRMouseOverHotSpotUPP(QTVRMouseOverHotSpotProcPtr userRoutine) {
   return (QTVRMouseOverHotSpotUPP)NewRoutineDescriptor(
@@ -486,13 +433,12 @@ NewQTVRMouseOverHotSpotUPP(QTVRMouseOverHotSpotProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-QTVRImagingCompleteUPP
+QTV// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) 
 NewQTVRImagingCompleteUPP(QTVRImagingCompleteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTVRImagingCompleteProcInfo = 0x000003E0
-}; /* pascal 2_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 2_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline QTVRImagingCompleteUPP
 NewQTVRImagingCompleteUPP(QTVRImagingCompleteProcPtr userRoutine) {
   return (QTVRImagingCompleteUPP)NewRoutineDescriptor(
@@ -516,7 +462,7 @@ NewQTVRImagingCompleteUPP(QTVRImagingCompleteProcPtr userRoutine) {
  *    \mac_os_x         in version 10.0 and later
  */
 QTVRBackBufferImagingUPP
-NewQTVRBackBufferImagingUPP(QTVRBackBufferImagingProcPtr userRoutine);
+New// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTVRBackBufferImagingProcInfo = 0x0003FBE0
@@ -545,7 +491,7 @@ NewQTVRBackBufferImagingUPP(QTVRBackBufferImagingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-void
+voi// pascal 2_bytes Func(4_bytes, 4_bytes) 
 DisposeQTVRLeavingNodeUPP(QTVRLeavingNodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -780,8 +726,7 @@ inline OSErr InvokeQTVRBackBufferImagingUPP(QTVRInstance qtvr, Rect *drawRect,
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewQTVRLeavingNodeProc(userRoutine) NewQTVRLeavingNodeUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewQTVRLeavingNodeProc(userRoutine) NewQTVRLeavingNodeUPP(userRoutine)
 #define NewQTVREnteringNodeProc(userRoutine) NewQTVREnteringNodeUPP(userRoutine)
 #define NewQTVRMouseOverHotSpotProc(userRoutine)                               \
   NewQTVRMouseOverHotSpotUPP(userRoutine)
@@ -804,8 +749,7 @@ inline OSErr InvokeQTVRBackBufferImagingUPP(QTVRInstance qtvr, Rect *drawRect,
                                       flagsIn, flagsOut, refCon)               \
   InvokeQTVRBackBufferImagingUPP(qtvr, drawRect, areaIndex, flagsIn, flagsOut, \
                                  refCon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
   =================================================================================================
     QTVR Intercept Struct, Callback, Routine Descriptors
@@ -836,7 +780,7 @@ enum {
                 kQTVRAPIMinorVersion00)*/
 };
 
-struct QTVRInterceptRecord {
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
   SInt32 reserved1;
   SInt32 selector;
 
@@ -848,8 +792,7 @@ struct QTVRInterceptRecord {
 };
 typedef struct QTVRInterceptRecord QTVRInterceptRecord;
 typedef QTVRInterceptRecord *QTVRInterceptPtr;
-/* Prototype for Intercept Proc callback*/
-typedef CALLBACK_API(void, QTVRInterceptProcPtr)(QTVRInstance qtvr,
+// Prototype for Intercept Proc callbacktypedef CALLBACK_API(void, QTVRInterceptProcPtr)(QTVRInstance qtvr,
                                                  QTVRInterceptPtr qtvrMsg,
                                                  SInt32 refCon,
                                                  Boolean *cancel);
@@ -861,14 +804,13 @@ typedef STACK_UPP_TYPE(QTVRInterceptProcPtr) QTVRInterceptUPP;
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
- */
+ */// CALL_NOT_IN_CARBON 
 QTVRInterceptUPP
 NewQTVRInterceptUPP(QTVRInterceptProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTVRInterceptProcInfo = 0x00003FC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline QTVRInterceptUPP NewQTVRInterceptUPP(QTVRInterceptProcPtr userRoutine) {
   return (QTVRInterceptUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                 uppQTVRInterceptProcInfo,
@@ -906,7 +848,7 @@ inline void DisposeQTVRInterceptUPP(QTVRInterceptUPP userUPP) {
  *  InvokeQTVRInterceptUPP()
  *
 
- *    \non_carbon_cfm   available as macro/inline
+// Prototype for Intercept Proc callback
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -925,17 +867,15 @@ inline void InvokeQTVRInterceptUPP(QTVRInstance qtvr, QTVRInterceptPtr qtvrMsg,
 #else
 #define InvokeQTVRInterceptUPP(qtvr, qtvrMsg, refCon, cancel, userUPP)         \
   CALL_FOUR_PARAMETER_UPP((userUPP), uppQTVRInterceptProcInfo, (qtvr),         \
-                          (qtvrMsg), (refCon), (cancel))
+   // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewQTVRInterceptProc(userRoutine) NewQTVRInterceptUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewQTVRInterceptProc(userRoutine) NewQTVRInterceptUPP(userRoutine)
 #define CallQTVRInterceptProc(userRoutine, qtvr, qtvrMsg, refCon, cancel)      \
   InvokeQTVRInterceptUPP(qtvr, qtvrMsg, refCon, cancel, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
   =================================================================================================
     Initialization QTVR calls
@@ -969,10 +909,8 @@ InitializeQTVR(void);
 OSErr
 TerminateQTVR(void);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* !TARGET_OS_MAC */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // !TARGET_OS_MAC 
 /**
   =================================================================================================
     General QTVR calls
@@ -992,11 +930,11 @@ QTVRGetQTVRTrack(Movie theMovie, SInt32 index);
 
 /**
  *  QTVRGetQTVRInstance()
- *
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 
  *    \non_carbon_cfm   in QuickTimeVRLib 2.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
+ *    \// CALL_NOT_IN_CARBON 
  *    Windows:          in QTVR.lib 2.1 and later
  */
 OSErr
@@ -1031,9 +969,9 @@ QTVRSetViewParameter(QTVRInstance qtvr, UInt32 viewParameter, void *value,
 
  *    \non_carbon_cfm   in QuickTimeVRLib 5.0 and later
  *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
+ *    \// CALL_NOT_IN_CARBON 
  *    Windows:          in QTVR.lib 5.0 and later
- */
+ */// !TARGET_OS_MAC 
 OSErr
 QTVRGetViewParameter(QTVRInstance qtvr, UInt32 viewParameter, void *value,
                      UInt32 flagsIn, UInt32 *flagsOut);
@@ -1122,8 +1060,7 @@ QTVRGetFieldOfView(QTVRInstance qtvr);
 OSErr
 QTVRShowDefaultView(QTVRInstance qtvr);
 
-/* Object Specific*/
-/**
+// Object Specific/**
  *  QTVRSetViewCenter()
  *
 
@@ -1185,7 +1122,7 @@ QTVRInteractionNudge(QTVRInstance qtvr, QTVRNudgeControl direction);
 
  *    \non_carbon_cfm   in QuickTimeVRLib 2.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
+// Object Specific
  *    Windows:          in QTVR.lib 2.1 and later
  */
 OSErr
@@ -1463,8 +1400,7 @@ QTVRMouseStillDown(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
 OSErr
 QTVRMouseUp(QTVRInstance qtvr, Point pt, UInt32 *hotSpotID, WindowRef w);
 
-/* These require QTVR 2.01 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion01)*/
-/**
+// These require QTVR 2.01 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion01)/**
  *  QTVRMouseStillDownExtended()
  *
 
@@ -1527,7 +1463,7 @@ QTVRCallInterceptedProc(QTVRInstance qtvr, QTVRInterceptRecord *qtvrMsg);
     Object Movie Specific Calls
   -------------------------------------------------------------------------------------------------
    QTVRGetCurrentMouseMode requires QTRVR 2.1 (kQTVRAPIMajorVersion02 +
-  kQTVRAPIMinorVersion10)
+// These require QTVR 2.01 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion01)
 */
 /**
  *  QTVRGetCurrentMouseMode()
@@ -1916,8 +1852,7 @@ QTVRSetAngularUnits(QTVRInstance qtvr, QTVRAngularUnits units);
 QTVRAngularUnits
 QTVRGetAngularUnits(QTVRInstance qtvr);
 
-/* Pano specific routines*/
-/**
+// Pano specific routines/**
  *  QTVRPtToAngles()
  *
 
@@ -1955,8 +1890,7 @@ OSErr
 QTVRAnglesToCoord(QTVRInstance qtvr, float panAngle, float tiltAngle,
                   QTVRFloatPoint *coord);
 
-/* Object specific routines*/
-/**
+// Object specific routines/**
  *  QTVRPanToColumn()
  *
 
@@ -1968,8 +1902,7 @@ QTVRAnglesToCoord(QTVRInstance qtvr, float panAngle, float tiltAngle,
 short
 QTVRPanToColumn(QTVRInstance qtvr, float panAngle);
 
-/* zero based   */
-/**
+// zero based   /**
  *  QTVRColumnToPan()
  *
 
@@ -1981,10 +1914,9 @@ QTVRPanToColumn(QTVRInstance qtvr, float panAngle);
 float
 QTVRColumnToPan(QTVRInstance qtvr, short column);
 
-/* zero based   */
-/**
+// zero based   /**
  *  QTVRTiltToRow()
- *
+// Pano specific routines
 
  *    \non_carbon_cfm   in QuickTimeVRLib 2.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -1994,8 +1926,7 @@ QTVRColumnToPan(QTVRInstance qtvr, short column);
 short
 QTVRTiltToRow(QTVRInstance qtvr, float tiltAngle);
 
-/* zero based   */
-/**
+// zero based   /**
  *  QTVRRowToTilt()
  *
 
@@ -2007,8 +1938,7 @@ QTVRTiltToRow(QTVRInstance qtvr, float tiltAngle);
 float
 QTVRRowToTilt(QTVRInstance qtvr, short row);
 
-/* zero based               */
-/**
+// zero based               /**
  *  QTVRWrapAndConstrain()
  *
 
@@ -2025,7 +1955,7 @@ QTVRWrapAndConstrain(QTVRInstance qtvr, short kind, float value, float *result);
     Interaction Routines
   -------------------------------------------------------------------------------------------------
 */
-
+// Object specific routines
 /**
  *  QTVRSetEnteringNodeProc()
  *
@@ -2038,7 +1968,7 @@ QTVRWrapAndConstrain(QTVRInstance qtvr, short kind, float value, float *result);
 OSErr
 QTVRSetEnteringNodeProc(QTVRInstance qtvr, QTVREnteringNodeUPP enteringNodeProc,
                         SInt32 refCon, UInt32 flags);
-
+// zero based   
 /**
  *  QTVRSetLeavingNodeProc()
  *
@@ -2051,7 +1981,7 @@ QTVRSetEnteringNodeProc(QTVRInstance qtvr, QTVREnteringNodeUPP enteringNodeProc,
 OSErr
 QTVRSetLeavingNodeProc(QTVRInstance qtvr, QTVRLeavingNodeUPP leavingNodeProc,
                        SInt32 refCon, UInt32 flags);
-
+// zero based   
 /**
  *  QTVRSetInteractionProperty()
  *
@@ -2064,7 +1994,7 @@ QTVRSetLeavingNodeProc(QTVRInstance qtvr, QTVRLeavingNodeUPP leavingNodeProc,
 OSErr
 QTVRSetInteractionProperty(QTVRInstance qtvr, UInt32 property, void *value);
 
-/**
+// zero based   
  *  QTVRGetInteractionProperty()
  *
 
@@ -2077,7 +2007,7 @@ OSErr
 QTVRGetInteractionProperty(QTVRInstance qtvr, UInt32 property, void *value);
 
 /**
- *  QTVRReplaceCursor()
+// zero based               
  *
 
  *    \non_carbon_cfm   in QuickTimeVRLib 2.0 and later
@@ -2163,8 +2093,7 @@ QTVRSetConstraints(QTVRInstance qtvr, UInt16 kind, float minValue,
 OSErr
 QTVRGetAvailableResolutions(QTVRInstance qtvr, UInt16 *resolutionsMask);
 
-/* These require QTVR 2.1 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion10)*/
-/**
+// These require QTVR 2.1 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion10)/**
  *  QTVRGetBackBufferMemInfo()
  *
 
@@ -2234,7 +2163,7 @@ QTVRSetPrescreenImagingCompleteProc(QTVRInstance qtvr,
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTVR.lib 2.1 and later
  */
-OSErr
+// These require QTVR 2.1 (kQTVRAPIMajorVersion02 + kQTVRAPIMinorVersion10)
 QTVRSetBackBufferImagingProc(QTVRInstance qtvr,
                              QTVRBackBufferImagingUPP backBufferImagingProc,
                              UInt16 numAreas,
@@ -2272,8 +2201,7 @@ typedef QTVRImagingCompleteProcPtr ImagingCompleteProcPtr;
 typedef QTVRImagingCompleteUPP ImagingCompleteUPP;
 typedef QTVRBackBufferImagingProcPtr BackBufferImagingProcPtr;
 typedef QTVRBackBufferImagingUPP BackBufferImagingUPP;
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -2292,4 +2220,5 @@ typedef QTVRBackBufferImagingUPP BackBufferImagingUPP;
 }
 #endif
 
-#endif /* __QUICKTIMEVR__ */
+#endif // __QUICKTIMEVR__ // OLDROUTINENAMES 
+// __QUICKTIMEVR__ 

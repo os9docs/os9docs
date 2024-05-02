@@ -63,13 +63,11 @@ extern "C" {
 
 */
 
-/* \copyright � 1996 SystemSoft Corporation, all rights reserved. */
-/*------------------------------------------------------------------------------------
+// \copyright � 1996 SystemSoft Corporation, all rights reserved. /*------------------------------------------------------------------------------------
     Card Services calls exported by the Family
 ------------------------------------------------------------------------------------*/
-/*  Card Services for Card Enablers*/
-
-#if CALL_NOT_IN_CARBON
+//  Card Services for Card Enablers
+//  Card Services for Card Enablers
 /**
  *  CSGetCardServicesInfo()
  *
@@ -82,10 +80,9 @@ OSStatus
 CSGetCardServicesInfo(UInt32 *socketCount, UInt32 *complianceLevel,
                       UInt32 *version);
 
-/* Function prototypes for tuples calls */
-
+// Function prototypes for tuples calls 
 /**
- *  CSGetFirstTuple()
+// Function prototypes for tuples calls 
  *
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.0 and later
@@ -109,11 +106,10 @@ OSStatus
 CSGetNextTuple(PCCardTupleIterator tupleIterator, Byte desiredTuple,
                void *tupleData, ByteCount *tupleBufferSize, Byte *foundTuple);
 
-/* Function prototypes for window calls*/
-
+// Function prototypes for window calls
 /**
  *  CSRequestWindow()
- *
+// Function prototypes for window calls
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.0 and later
  *    \carbon_lib        not available
@@ -174,12 +170,11 @@ CSInquireWindow(PCCardSocket vSocket, UInt32 device, PCCardWindowID windowID,
                 PCCardAccessSpeed *windowParam, UInt32 *windowBase,
                 PCCardWindowSize *windowSize, PCCardWindowOffset *windowOffset);
 
-/* Function prototypes for CIS calls*/
-
+// Function prototypes for CIS calls
 /**
  *  CSValidateCIS()
  *
- *  Availability:
+// Function prototypes for CIS calls
  *    \non_carbon_cfm   in PCCard 3.0 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -198,13 +193,12 @@ CSValidateCIS(PCCardSocket vSocket, UInt32 device, UInt32 *cisChainCount);
 OSStatus
 CSGetDeviceCount(PCCardSocket vSocket, UInt32 *deviceCount);
 
-/* Function prototypes for Status calls*/
-
+// Function prototypes for Status calls
 /**
  *  CSGetStatus()
  *
  *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
+// Function prototypes for Status calls
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -212,14 +206,13 @@ OSStatus
 CSGetStatus(PCCardSocket vSocket, UInt32 *currentState, UInt32 *changedState,
             PCCardVoltage *Vcc, PCCardVoltage *Vpp);
 
-/* Function prototypes for configuration calls*/
-
+// Function prototypes for configuration calls
 /**
  *  CSRequestConfiguration()
  *
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
+// Function prototypes for configuration calls
  *    \mac_os_x         not available
  */
 OSStatus
@@ -304,15 +297,14 @@ CSWriteConfigurationRegister(PCCardSocket vSocket, UInt32 device,
                              PCCardConfigPresentMask whichRegister,
                              UInt32 configRegBaseAddress, UInt8 registerValue);
 
-/* Function prototypes for Client Support calls*/
-/**
+// Function prototypes for Client Support calls/**
  *  CSRegisterClient()
  *
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.0 and later
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+// Function prototypes for Client Support calls
 OSStatus
 CSRegisterClient(PCCardSocket vSocket, PCCardEventMask eventMask,
                  PCCardEventHandler clientCallBack, void *clientParam,
@@ -374,8 +366,7 @@ CSRegisterTimer(PCCardClientID registeredClientID, PCCardTimerID *lpNewTimerID,
 OSStatus
 CSDeRegisterTimer(PCCardTimerID timerID);
 
-/* Function prototypes for CardBus Config Space access*/
-/**
+// Function prototypes for CardBus Config Space access/**
  *  CSReadCardBusConfigSpace()
  *
  *  Availability:
@@ -383,7 +374,7 @@ CSDeRegisterTimer(PCCardTimerID timerID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-OSStatus
+// Function prototypes for CardBus Config Space access
 CSReadCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
                          UInt32 configOffset, Byte *data, UInt32 dataSize);
 
@@ -402,74 +393,50 @@ CSWriteCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
 /*------------------------------------------------------------------------------------
     Card Enabler Types
 ------------------------------------------------------------------------------------*/
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
-  kUnknownDeviceType = FOUR_CHAR_CODE('unkn'), /* class-code = 0x00 */
-  kSCSIDeviceType =
-      FOUR_CHAR_CODE('scsi'), /* class-code = 0x01, sub-class = 0x00 */
-  kBlockDeviceType =
-      FOUR_CHAR_CODE('blok'), /* class-code = 0x01, sub-class = 0xXX */
-  kNetworkDeviceType = FOUR_CHAR_CODE('netw'),    /* class-code = 0x02 */
-  kDisplayDeviceType = FOUR_CHAR_CODE('dspl'),    /* class-code = 0x03 */
-  kMultimediaDeviceType = FOUR_CHAR_CODE('mmdv'), /* class-code = 0x04 */
-  kMemoryDeviceType = FOUR_CHAR_CODE('mem '),     /* class-code = 0x05 */
-  kBridgeDeviceType = FOUR_CHAR_CODE('brdg'),     /* class-code = 0x06 */
-  kCommDeviceType = FOUR_CHAR_CODE('comm'),       /* class-code = 0x07 */
-  kPeripheralDeviceType = FOUR_CHAR_CODE('sysp'), /* class-code = 0x08 */
-  kInputDeviceType = FOUR_CHAR_CODE('inpt'),      /* class-code = 0x09 */
-  kDockingDeviceType = FOUR_CHAR_CODE('dock'),    /* class-code = 0x0A */
-  kProcessorDeviceType = FOUR_CHAR_CODE('proc'),  /* class-code = 0x0B */
-  kFirewireBusDeviceType =
-      FOUR_CHAR_CODE('firw'), /* class-code = 0x0C, sub-class = 0x00 */
-  kACCESSBusDeviceType =
-      FOUR_CHAR_CODE('accs'), /* class-code = 0x0C, sub-class = 0x01 */
-  kSSABusDeviceType =
-      FOUR_CHAR_CODE('ssa '), /* class-code = 0x0C, sub-class = 0x02 */
-  kUSBBusDeviceType =
-      FOUR_CHAR_CODE('usb '), /* class-code = 0x0C, sub-class = 0x03 */
-  kFibreBusDeviceType =
-      FOUR_CHAR_CODE('fibr'), /* class-code = 0x0C, sub-class = 0x04 */
-  kByteDeviceType = FOUR_CHAR_CODE('byte'),     /* class-code = 0x?? */
-  kSerialDeviceType = FOUR_CHAR_CODE('ser '),   /* class-code = 0x?? */
-  kParallelDeviceType = FOUR_CHAR_CODE('parl'), /* class-code = 0x?? */
-  kAIMSDeviceType = FOUR_CHAR_CODE('aims')      /* class-code = 0x?? */
-};
+  kUnknownDeviceType = FOUR_CHAR_CODE('unkn'), // class-code = 0x00   kSCSIDeviceType =
+      FOUR_CHAR_CODE('scsi'), // class-code = 0x01, sub-class = 0x00   kBlockDeviceType =
+      FOUR_CHAR_CODE('blok'), // class-code = 0x01, sub-class = 0xXX   kNetworkDeviceType = FOUR_CHAR_CODE('netw'),    // class-code = 0x02   kDisplayDeviceType = FOUR_CHAR_CODE('dspl'),    // class-code = 0x03   kMultimediaDeviceType = FOUR_CHAR_CODE('mmdv'), // class-code = 0x04   kMemoryDeviceType = FOUR_CHAR_CODE('mem '),     // class-code = 0x05   kBridgeDeviceType = FOUR_CHAR_CODE('brdg'),     // class-code = 0x06   kCommDeviceType = FOUR_CHAR_CODE('comm'),       // class-code = 0x07   kPeripheralDeviceType = FOUR_CHAR_CODE('sysp'), // class-code = 0x08   kInputDeviceType = FOUR_CHAR_CODE('inpt'),      // class-code = 0x09   kDockingDeviceType = FOUR_CHAR_CODE('dock'),    // class-code = 0x0A   kProcessorDeviceType = FOUR_CHAR_CODE('proc'),  // class-code = 0x0B   kFirewireBusDeviceType =
+      FOUR_CHAR_CODE('firw'), // class-code = 0x0C, sub-class = 0x00   kACCESSBusDeviceType =
+      FOUR_CHAR_CODE('accs'), // class-code = 0x0C, sub-class = 0x01   kSSABusDeviceType =
+      FOUR_CHAR_CODE('ssa '), // class-code = 0x0C, sub-class = 0x02   kUSBBusDeviceType =
+      FOUR_CHAR_CODE('usb '), // class-code = 0x0C, sub-class = 0x03   kFibreBusDeviceType =
+      F// CALL_NOT_IN_CARBON 
 
 typedef OSType PCDeviceType;
-enum { kAttributeType = 0, kMemoryType = 1, kIOType = 2 };
+enum { kAttributeType = 0, kMemoryType = 1, kIO// class-code = 0x00 
 
-typedef UInt32 PCCardMemoryType;
+typedef UInt32 PCCardMemoryTyp// class-code = 0x01, sub-class = 0x00 
 enum {
-  kUnknown = FOUR_CHAR_CODE('unkn'),
-  kPCCard16 = FOUR_CHAR_CODE('pc16'),
-  kCardBus = FOUR_CHAR_CODE('cdbs')
-};
-
-typedef OSType PCCardArchitectureType;
-#define kNodeNameName "name"
-#define k16BitPCCardName "16bitcard"
-#define kCardbusPropertyName "cardbus"
-#define kNodeCompatiblePropertyName "compatible"
-#define kDevice_TypeName "device_type"
+  kUnknown = FOUR_CHAR_CODE('u// class-code = 0x01, sub-class = 0xXX 
+  kPCCard16 = FOUR_CHAR_CODE('pc16'),// class-code = 0x02 
+  kCardBus = FOUR_CHAR_CODE('cdbs')// class-code = 0x03 
+};// class-code = 0x04 
+// class-code = 0x05 
+typedef OSType PCCardArchitectureType;// class-code = 0x06 
+#define kNodeNameName "name"// class-code = 0x07 
+#define k16BitPCCardName "16bitcard"// class-code = 0x08 
+#define kCardbusPropertyName "cardbus"// class-code = 0x09 
+#define kNodeCompatiblePropertyName "compatible"// class-code = 0x0A 
+#define kDevice_TypeName "device_type"// class-code = 0x0B 
 #define kDriverISTPropertyName "driver-ist"
-#define kFCRAccessPropertyName "FCRAccess"
+#define kFCRAccessPropertyName// class-code = 0x0C, sub-class = 0x00 
 #define kConfigRegPropertyName "ConfigRegValues"
-#define kNodeTypePropertyName "PCCardNodeType"
+#define kNodeTypePropertyName // class-code = 0x0C, sub-class = 0x01 
 #define kDeviceNumberPropertName "DeviceNumber"
-#define kSocketNumberPropertName "SocketNumber"
+#define kSocketNumberPropertNa// class-code = 0x0C, sub-class = 0x02 
 
-/*------------------------------------------------------------------------------------
+/*----------------------------// class-code = 0x0C, sub-class = 0x03 
   Plugin Dispatch Table
-------------------------------------------------------------------------------------*/
-enum {
-  kServiceTypePCCardEnabler = FOUR_CHAR_CODE('card'),
-  kPCCardEnablerPluginVersion = 0x00000001,
-  kPCCardEnablerPluginCurrentVersion = kPCCardEnablerPluginVersion
+------------------------------// class-code = 0x0C, sub-class = 0x04 
+enum {// class-code = 0x?? 
+  kServiceTypePCCardEnabler = FOUR_CHAR_CODE('ca// class-code = 0x?? 
+  kPCCardEnablerPluginVersion = 0x00000001,// class-code = 0x?? 
+  kPCCardEnablerPluginCurrentVersion = kPCCardEn// class-code = 0x?? 
 };
 
-/*  Card Enabler Entrypoints*/
-typedef CALLBACK_API_C(OSStatus,
+//  Card Enabler Entrypointstypedef CALLBACK_API_C(OSStatus,
                        CEValidateHardwareProc)(const RegEntryID *cardRef);
 typedef CALLBACK_API_C(OSStatus, CEInitializeProc)(const RegEntryID *cardRef,
                                                    Boolean replacingOld);
@@ -501,7 +468,7 @@ typedef CALLBACK_API_C(OSStatus,
 typedef CALLBACK_API_C(OSStatus,
                        CEGetDeviceTypeProc)(const RegEntryID *deviceRef,
                                             UInt32 socketNumber,
-                                            UInt32 deviceNumber,
+//  Card Enabler Entrypoints
                                             PCDeviceType *lpDeviceType);
 typedef CALLBACK_API_C(OSStatus,
                        CEGetDeviceTypeNameProc)(const RegEntryID *deviceRef,
@@ -539,20 +506,17 @@ typedef struct PCCardEnablerPluginHeader PCCardEnablerPluginHeader;
 struct PCCardEnablerPluginDispatchTable {
   PCCardEnablerPluginHeader header;
 
-  /* General functions*/
-  CEValidateHardwareProc validateHardwareProc;
+  // General functions  CEValidateHardwareProc validateHardwareProc;
   CEInitializeProc initializeProc;
   CECleanupProc cleanUpProc;
   CEPowerManagementProc setPCCardPowerLevel;
 
-  /* Card functions*/
-  CEHandleEventProc handleEventProc;
+  // Card functions  CEHandleEventProc handleEventProc;
   CEGetCardInfoProc getCardInfoProc;
   CEAddCardPropertiesProc addCardProperties;
   CEGetDeviceCountProc getDeviceCount;
 
-  /* Device functions*/
-  CEGetDeviceNameProc getDeviceName;
+  // Device functions  CEGetDeviceNameProc getDeviceName;
   CEGetDeviceCompatibleProc getDeviceCompatibleNames;
   CEGetDeviceTypeProc getDeviceType;
   CEGetDeviceTypeNameProc getDeviceTypeName;
@@ -560,13 +524,11 @@ struct PCCardEnablerPluginDispatchTable {
   CEConfigureDeviceProc configureDevice;
   CEFinalizeDeviceProc finalizeDevice;
 
-  /* Card Services Overrides...*/
-  CEValidateCISProc validateCIS;
+  // Card Services Overrides...  CEValidateCISProc validateCIS;
   CEGetFirstTupleProc getFirstTuple;
   CEGetNextTupleProc getNextTuple;
 
-  /* InterruptHandlers...*/
-  InterruptHandler cardInterruptHandlerFunction;
+  // InterruptHandlers...  InterruptHandler cardInterruptHandlerFunction;
   InterruptEnabler cardInterruptEnableFunction;
   InterruptDisabler cardInterruptDisableFunction;
 };
@@ -576,21 +538,20 @@ typedef PCCardEnablerPluginDispatchTable *PCCardEnablerPluginDispatchTablePtr;
 /*------------------------------------------------------------------------------------
     PC Card Enabler Utility calls exported by the Family
 ------------------------------------------------------------------------------------*/
-/*  Generic Enabler Entrypoints*/
-#if CALL_NOT_IN_CARBON
-/**
+//  Generic Enabler Entrypoints#if CALL_NOT_IN_CARBON
+/*// General functions
  *  CEInitializeCard()
  *
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.0 and later
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+ *// Card functions
  */
 OSStatus
 CEInitializeCard(const RegEntryID *cardRef, Boolean replacingOld);
 
 /**
- *  CEFinalizeCard()
+ *// Device functions
  *
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.0 and later
@@ -599,12 +560,12 @@ CEInitializeCard(const RegEntryID *cardRef, Boolean replacingOld);
  */
 OSStatus
 CEFinalizeCard(const RegEntryID *cardRef, Boolean beingReplaced);
-
+// Card Services Overrides...
 /**
  *  CEPowerManagement()
  *
  *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
+ *// InterruptHandlers...
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -615,7 +576,7 @@ CEPowerManagement(const RegEntryID *lpParentID, PCCardPowerOptions powerLevel);
  *  CEHandleCardEvent()
  *
  *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
+//  Generic Enabler Entrypoints
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -657,8 +618,7 @@ CEAddCardProperties(const RegEntryID *cardRef);
 OSStatus
 CEGetDeviceCount(const RegEntryID *cardRef, ItemCount *numberOfDevices);
 
-/* device functions*/
-/**
+// device functions/**
  *  CEGetDeviceName()
  *
  *  Availability:
@@ -697,7 +657,7 @@ CEGetDeviceType(const RegEntryID *deviceRef, UInt32 socketNumber,
  *  CEGetDeviceTypeName()
  *
  *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
+// device functions
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
@@ -738,8 +698,7 @@ CEConfigureDevice(const RegEntryID *deviceRef, UInt32 deviceNumber);
 OSStatus
 CEFinalizeDevice(UInt32 socket, UInt32 device, const RegEntryID *deviceRef);
 
-/*  RegEntryID <-> socket number mapping functions*/
-/**
+//  RegEntryID <-> socket number mapping functions/**
  *  CEGetSocketAndDeviceFromRegEntry()
  *
  *  Availability:
@@ -764,8 +723,7 @@ CEGetPhysicalSocketNumber(const RegEntryID *socketRef,
                           const RegEntryID *lpDeviceEntry,
                           UInt32 *lpPhysicalSocketNumber);
 
-/*  Hardware Validation Utilities*/
-/**
+//  Hardware Validation Utilities/**
  *  CECompareCISTPL_VERS_1()
  *
  *  Availability:
@@ -780,7 +738,7 @@ CECompareCISTPL_VERS_1(const RegEntryID *cardRef, Byte majorVersion,
                        const char *info2, Boolean *identical);
 
 /**
- *  CECompareCISTPL_MANFID()
+//  RegEntryID <-> socket number mapping functions
  *
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.0 and later
@@ -806,7 +764,7 @@ CECompareMemory(const RegEntryID *cardRef, PCCardMemoryType memType,
 
 /**
  *  CEValidateCIS()
- *
+//  Hardware Validation Utilities
  *  Availability:
  *    \non_carbon_cfm   in PCCard 3.1 and later
  *    \carbon_lib        not available
@@ -830,8 +788,7 @@ CEDefaultInterruptHandler(InterruptSetMember ISTmember, void *refCon,
 /*------------------------------------------------------------------------------------
     PC Card Customization Resources
 ------------------------------------------------------------------------------------*/
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
   kPCCardCustomInfoResType = FOUR_CHAR_CODE('pccd'),
   kPCCardCustomInfoVersion = 0
@@ -839,17 +796,14 @@ enum {
 
 struct PCCardCustomResource {
   long version;
-  short customIconID;    /*    ICN#, etc. resource ID*/
-  short customStringsID; /*    STR# resource ID*/
-  short customTypeStringIndex;
+  short customIconID;    //    ICN#, etc. resource ID  short customStringsID; //    STR# resource ID  short customTypeStringIndex;
   short customHelpStringIndex;
   OSType customAction;
   long customActionParam1;
   long customActionParam2;
 };
 typedef struct PCCardCustomResource PCCardCustomResource;
-#endif /* !defined(__CARDSERVICES__) */
-
+#endif // !defined(__CARDSERVICES__) 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -868,4 +822,8 @@ typedef struct PCCardCustomResource PCCardCustomResource;
 }
 #endif
 
-#endif /* __PCCARDENABLERPLUGIN__ */
+#endif // __PCCARDENABLERPLUGIN__ // CALL_NOT_IN_CARBON 
+//    ICN#, etc. resource ID
+//    STR# resource ID
+// !defined(__CARDSERVICES__) 
+// __PCCARDENABLERPLUGIN__ 

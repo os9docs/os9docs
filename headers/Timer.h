@@ -54,8 +54,7 @@ extern "C"
 
 	enum
 	{
-		/* high bit of qType is set if task is active */
-		kTMTaskActive = (1L << 15)
+		// high bit of qType is set if task is active 		kTMTaskActive = (1L << 15)
 	};
 
 	typedef struct TMTask TMTask;
@@ -260,13 +259,10 @@ call to InsTime .
 	void
 	RmvTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
 
-/* InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work */
-/* just like InsTime, InsXTime, PrimeTime, and RmvTime except that they */
-/* return an OSErr result. */
-/**
- *  InstallTimeTask()
- *
-
+// InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work // just like InsTime, InsXTime, PrimeTime, and RmvTime except that they // return an OSErr result. /**
+// InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work 
+// just like InsTime, InsXTime, PrimeTime, and RmvTime except that they 
+// return an OSErr result. 
  *    \non_carbon_cfm   in InterfaceLib 9.1 and later
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
@@ -345,12 +341,11 @@ call to InsTime .
 	enum
 	{
 		uppTimerProcInfo = 0x0000B802
-	}; /* register no_return_value Func(4_bytes:A1) */
-#ifdef __cplusplus
+	}; // register no_return_value Func(4_bytes:A1) #ifdef __cplusplus
 	inline TimerUPP NewTimerUPP(TimerProcPtr userRoutine)
 	{
 		return (TimerUPP)NewRoutineDescriptor(
-			(ProcPtr)(userRoutine), uppTimerProcInfo, GetCurrentArchitecture());
+			(// register no_return_value Func(4_bytes:A1) 
 	}
 #else
 #define NewTimerUPP(userRoutine)                                              \
@@ -407,18 +402,16 @@ call to InsTime .
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewTimerProc(userRoutine) NewTimerUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewTimerProc(userRoutine) NewTimerUPP(userRoutine)
 #define CallTimerProc(userRoutine, tmTaskPtr) \
 	InvokeTimerUPP(tmTaskPtr, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-#pragma pack()
+#pragma// CALL_NOT_IN_CARBON 
 #endif
 
 #ifdef PRAGMA_IMPORT_OFF
@@ -431,5 +424,4 @@ call to InsTime .
 }
 #endif
 
-#endif /* __TIMER__ */
-* /*/*/ * /
+#endif // __TIMER__ * /*/*/ * /// __TIMER__ 

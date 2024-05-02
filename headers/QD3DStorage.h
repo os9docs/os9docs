@@ -33,13 +33,11 @@
 #include <Files.h>
 #endif
 
-#endif /* TARGET_OS_MAC */
-
+#endif // TARGET_OS_MAC 
 #if TARGET_OS_WIN32
 #include <windows.h>
-#endif /* TARGET_OS_WIN32 */
-
-#include <stdio.h>
+#endif // TARGET_OS_WIN32 
+#includ// TARGET_OS_WIN32 
 
 #if PRAGMA_ONCE
 #pragma once
@@ -187,10 +185,9 @@ Q3MemoryStorage_Set(TQ3StorageObject storage, const unsigned char *buffer,
 /**
  * These calls use the pointer given - you must dispose it when you're through
  */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
-/**
+/**// CALL_NOT_IN_CARBON 
  *  Q3MemoryStorage_NewBuffer()
  *
 
@@ -226,20 +223,18 @@ TQ3Status
 Q3MemoryStorage_GetBuffer(TQ3StorageObject storage, unsigned char **buffer,
                           unsigned long *validSize, unsigned long *bufferSize);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if TARGET_OS_MAC
 /******************************************************************************
- **                                                                          **
+ **    // CALL_NOT_IN_CARBON 
  **                             Macintosh Handles Prototypes                 **
  **                                                                          **
  *****************************************************************************/
-/* Handle Storage is a subclass of Memory Storage */
-#if CALL_NOT_IN_CARBON
+// Handle Storage is a subclass of Memory Storage #if CALL_NOT_IN_CARBON
 /**
  *  Q3HandleStorage_New()
  *
-
+// Handle Storage is a subclass of Memory Storage 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -287,13 +282,12 @@ Q3HandleStorage_Get(TQ3StorageObject storage, Handle *handle,
 TQ3StorageObject
 Q3MacintoshStorage_New(short fsRefNum);
 
-/* Note: This storage is assumed open */
-/**
+// Note: This storage is assumed open /**
  *  Q3MacintoshStorage_Set()
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// Note: This storage is assumed open 
  *    \mac_os_x         not available
  */
 TQ3Status
@@ -359,17 +353,15 @@ Q3FSSpecStorage_Set(TQ3StorageObject storage, const FSSpec *fs);
 TQ3Status
 Q3FSSpecStorage_Get(TQ3StorageObject storage, FSSpec *fs);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_MAC */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_OS_MAC 
 #if TARGET_OS_WIN32
 /******************************************************************************
  **                                                                          **
  **                         Win32 HANDLE Storage Prototypes                  **
- **                                                                          **
+ **    // CALL_NOT_IN_CARBON 
  *****************************************************************************/
-#if CALL_NOT_IN_CARBON
+#if CAL// TARGET_OS_MAC 
 /**
  *  Q3Win32Storage_New()
  *
@@ -403,19 +395,17 @@ Q3Win32Storage_Set(TQ3StorageObject storage, HANDLE hFile);
 TQ3Status
 Q3Win32Storage_Get(TQ3StorageObject storage, HANDLE *hFile);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_WIN32 */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_OS_WIN32 
 /******************************************************************************
  **                                                                          **
  **                                 Unix Prototypes                          **
  **             The Unix Storage prototypes have been obsoleted.             **
  **                                                                          **
  *****************************************************************************/
-
+// CALL_NOT_IN_CARBON 
 /******************************************************************************
- **                                                                          **
+ **    // TARGET_OS_WIN32 
  **                             Unix Path Prototypes                         **
  **                                                                          **
  *****************************************************************************/
@@ -431,8 +421,7 @@ Q3Win32Storage_Get(TQ3StorageObject storage, HANDLE *hFile);
 TQ3StorageObject
 Q3UnixPathStorage_New(const char *pathName);
 
-/* C string */
-/**
+// C string /**
  *  Q3UnixPathStorage_Set()
  *
 
@@ -442,9 +431,8 @@ Q3UnixPathStorage_New(const char *pathName);
  */
 TQ3Status
 Q3UnixPathStorage_Set(TQ3StorageObject storage, const char *pathName);
-
-/* C string */
-/**
+// C string 
+// C string /**
  *  Q3UnixPathStorage_Get()
  *
 
@@ -455,10 +443,8 @@ Q3UnixPathStorage_Set(TQ3StorageObject storage, const char *pathName);
 TQ3Status
 Q3UnixPathStorage_Get(TQ3StorageObject storage, char *pathName);
 
-/* pathName is a buffer */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+// C string 
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __QD3DSTORAGE__RESTORE_TWOBYTEINTS
@@ -469,9 +455,9 @@ Q3UnixPathStorage_Get(TQ3StorageObject storage, char *pathName);
 #elif defined(__QD3DSTORAGE__RESTORE_PACKED_ENUMS)
 #pragma options(pack_enums)
 #endif
-
+// pathName is a buffer 
 #if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
+#pragma// CALL_NOT_IN_CARBON 
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
@@ -488,4 +474,4 @@ Q3UnixPathStorage_Get(TQ3StorageObject storage, char *pathName);
 }
 #endif
 
-#endif /* __QD3DSTORAGE__ */
+#endif // __QD3DSTORAGE__ // __QD3DSTORAGE__ 

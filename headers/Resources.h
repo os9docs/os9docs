@@ -102,8 +102,7 @@ extern "C"
   enum
   {
     uppResErrProcInfo = 0x00001002
-  }; /* register no_return_value Func(2_bytes:D0) */
-#ifdef __cplusplus
+  }; // register no_return_value Func(2_bytes:D0) #ifdef __cplusplus
   inline ResErrUPP NewResErrUPP(ResErrProcPtr userRoutine)
   {
     return (ResErrUPP)NewRoutineDescriptor(
@@ -164,13 +163,10 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewResErrProc(userRoutine) NewResErrUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewResErrProc(userRoutine) NewResErrUPP(userRoutine)
 #define CallResErrProc(userRoutine, thErr) InvokeResErrUPP(thErr, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-  /* QuickTime 3.0*/
-  typedef CALLBACK_API(OSErr,
+#endif // CALL_NOT_IN_CARBON 
+  // QuickTime 3.0  typedef CALLBACK_API(OSErr,
                        ResourceEndianFilterPtr)(Handle theResource,
                                                 Boolean currentlyNativeEndian);
 #if CALL_NOT_IN_CARBON
@@ -196,8 +192,7 @@ extern "C"
   void
   RsrcZoneInit(void) ONEWORDINLINE(0xA996);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  CloseResFile()
    *
@@ -309,8 +304,7 @@ usage unnecessary.
   short
   OpenResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA997);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
   \brief Make specified resource file the "current file".
 
@@ -377,8 +371,7 @@ The following example displays a list of resource types along with the
 number of such resources, contained in all open resource files.
 Example
 #include < Resources.h >
-#include <stdio.h> /* for printf() */
-  short rTotal, j;
+#include <stdio.h> // for printf()   short rTotal, j;
   ResType rt;
   char *rtp;
   rTotal = CountTypes();
@@ -397,7 +390,7 @@ Example
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           short
           CountTypes(void) ONEWORDINLINE(0xA99E);
 
@@ -516,18 +509,14 @@ short rCount, rID, j;
 Handle rHandle;
 ResType rType;
 Str255 rName;
-printf("\n"); /* ensure printf can get fonts */
-  /* before calling SetResLoad */
-  rCount = CountResources('DRVR');
-  SetResLoad(FALSE); /* do not need resource, just info */
-  for (j = 1; j <= rCount; j++)
+printf("\n"); // ensure printf can get fonts   // before calling SetResLoad   rCount = CountResources('DRVR');
+  SetResLoad(FALSE); // do not need resource, just info   for (j = 1; j <= rCount; j++)
   {
     rHandle = GetIndResource('DRVR', j);
     GetResInfo(rHandle, &rID, &rType, rName);
     printf(" 'DRVR' Rsrc ID: %6d, Name: %s\n", rID, PtoCstr(rName) + 1);
   }
-  SetResLoad(TRUE); /* better do this! */
-  </ pre>
+  SetResLoad(TRUE); // better do this!   </ pre>
               * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
                                                         *    \non_carbon_cfm in InterfaceLib 7.1 and
       later
@@ -535,7 +524,7 @@ printf("\n"); /* ensure printf can get fonts */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           short
           CountResources(ResType theType) ONEWORDINLINE(0xA99C);
 
@@ -546,7 +535,7 @@ printf("\n"); /* ensure printf can get fonts */
 which exist in the current resource file.
 rTypeis a 4-byte ResType value identifying the resource type you wish to
 count (e.g. 'FONT', 'MENU', etc.).
-</pre>
+</pre>*/
 * \returns <pre>a positive integer; the number of resources of the specified type in
 the current resource file. Returns 0 if none found.
 </pre>
@@ -856,8 +845,7 @@ leading to the start of the resource map of the current resource file.
   long
   RsrcMapEntry(Handle theResource) ONEWORDINLINE(0xA9C5);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
   \brief Set resource attributes (purgeable, locked, etc.)
 
@@ -982,15 +970,10 @@ Remember that if a resource has been purged, these file operations will
 write a 0-length resource to the file. Thus, a typical use of this function is
 in a sequence that locks a resource, changes it, writes the changes, and
 unlocks the resource:
-HNoPurge ( rHandle ); /* inhibit purging */
-  /*... modify the handle data... */
-  ChangedResource(rHandle); /* tag as changed */
-  if (ResError() == noErr)
-  {                         /* always check this! */
-    WriteResource(rHandle); /* record changes to disk */
-  }
-  HPurge(rHandle); /* allow purge */
-  Make sure you check ResError after calling ChangedResource(or
+HNoPurge ( rHandle ); // inhibit purging   /*... modify the handle data... */
+  ChangedResource(rHandle); // tag as changed   if (ResError() == noErr)
+  {                         // always check this!     WriteResource(rHandle); // record changes to disk   }
+  HPurge(rHandle); // allow purge   Make sure you check ResError after calling ChangedResource(or
                                                              AddResource) and
       before calling WriteResource.</ pre>
               * \copyright THINK Reference © 1991 -
@@ -1001,7 +984,7 @@ HNoPurge ( rHandle ); /* inhibit purging */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void WriteResource(Handle theResource) ONEWORDINLINE(0xA9B0);
 
   /**
@@ -1018,7 +1001,7 @@ WriteResource , UpdateResFile , or CloseResFile , a 0-length
 resource is sent to disk. By calling SetResPurge (TRUE), you can avoid
 this problem. Another way is to set the address of a custom "purge warning
 handler" into the purgeProc field of the memory manager's Zone structure
-obtained via ApplicZone . Yet another way is: avoid changing purgeable
+obtained via*/icZone . Yet another way is: avoid changing purgeable
 resources altogether!
 Note that this does NOT keep the resource from getting purged. You must
 use LoadResource before each access of an unlocked purgeable resource.
@@ -1161,8 +1144,7 @@ resource file attributes.
   Handle
   RGetResource(ResType theType, short theID) ONEWORDINLINE(0xA80C);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  HOpenResFile()
    *
@@ -1271,8 +1253,7 @@ number returned is -1. Call the ResError function to check for errors.
   Handle
   GetNextFOND(Handle fondHandle) TWOWORDINLINE(0x700A, 0xA822);
 
-/* QuickTime 3.0*/
-#if CALL_NOT_IN_CARBON
+// QuickTime 3.0#if CALL_NOT_IN_CARBON
   /**
    *  RegisterResourceEndianFilter()
    *
@@ -1311,16 +1292,11 @@ number returned is -1. Call the ResError function to check for errors.
     _________________________________________________________________________________________________________
   */
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   typedef SInt16 RsrcChainLocation;
   enum
   {
-    kRsrcChainBelowSystemMap = 0,      /* Below the system's resource map*/
-    kRsrcChainBelowApplicationMap = 1, /* Below the application's resource map*/
-    kRsrcChainAboveApplicationMap = 2, /* Above the application's resource map*/
-    kRsrcChainAboveAllMaps = 4         /* Above all resource maps*/
-  };
+    kRsrcChainBelowSystemMap = 0,      // Below the system's resource map    kRsrcChainBelowApplicationMap = 1, // Below the application's resource map    kRsrcChainAboveApplicationMap = 2, // Above the application's resource map    kRsrcChainAboveAllMaps = 4         // Above all resource maps  };
 
   /**
      If the file is already in the resource chain, it is removed and re-inserted
@@ -1519,14 +1495,12 @@ number returned is -1. Call the ResError function to check for errors.
   void
   addresource(Handle theResource, ResType theType, short theID, const char *name);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if OLDROUTINENAMES
 #define SizeResource(theResource) GetResourceSizeOnDisk(theResource)
 #define MaxSizeRsrc(theResource) GetMaxResourceSize(theResource)
 #define RmveResource(theResource) RemoveResource(theResource)
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
   /**
    *  FSOpenResFile()
    *
@@ -1614,12 +1588,8 @@ number returned is -1. Call the ResError function to check for errors.
   OSErr
   FSCreateResourceFile(const FSRef *parentRef, UniCharCount nameLength,
                        const UniChar *name, FSCatalogInfoBitmap whichInfo,
-                       const FSCatalogInfo *catalogInfo, /* can be NULL */
-                       UniCharCount forkNameLength,
-                       const UniChar *forkName, /* can be NULL */
-                       FSRef *newRef,           /* can be NULL */
-                       FSSpec *newSpec);        /* can be NULL */
-
+                       const FSCatalogInfo *catalogInfo, // can be NULL                        UniCharCount forkNameLength,
+                       const UniChar *forkName, // can be NULL                        FSRef *newRef,           // can be NULL                        FSSpec *newSpec);        // can be NULL 
   /**
    *  FSOpenResourceFile()
    *
@@ -1655,8 +1625,7 @@ number returned is -1. Call the ResError function to check for errors.
    */
   OSErr
   FSOpenResourceFile(const FSRef *ref, UniCharCount forkNameLength,
-                     const UniChar *forkName, /* can be NULL */
-                     SInt8 permissions, SInt16 *refNum);
+                     const UniChar *forkName, // can be NULL                      SInt8 permissions, SInt16 *refNum);
 
   /**
       These typedefs were originally created for the Copland Resource Mangager
@@ -1684,8 +1653,7 @@ number returned is -1. Call the ResError function to check for errors.
 }
 #endif
 
-#endif /* __RESOURCES__ */
-* / FileAttributes;
+#endif // __RESOURCES__ * / FileAttributes;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -1705,5 +1673,4 @@ number returned is -1. Call the ResError function to check for errors.
 }
 #endif
 
-#endif /* __RESOURCES__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /
+#endif // __RESOURCES__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /

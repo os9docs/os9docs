@@ -484,11 +484,11 @@ You can read the current style setting by accessing the txFace field of the
 current GrafPort :
 curStyle = thePort -> txFace;
 Here are some examples of usage:
-TextFace ( bold ); /* set to bold */
-  TextFace(bold | italic);           /* set to bold and italic */
-  TextFace(thePort->txFace | bold);  /* add bolding */
-  TextFace(thePort->txFace & ~bold); /* remove bolding */
-  TextFace(0);                       /* set to plain text */
+TextFace ( bold ); // set to bold 
+  TextFace(bold | italic);           // set to bold and italic 
+  TextFace(thePort->txFace | bold);  // add bolding 
+  TextFace(thePort->txFace & ~bold); // remove bolding 
+  TextFace(0);                       // set to plain text 
 The "condense" and "extend" variations change the spacing between
 characters to an arbitrary value set by the Font Manager. Another way to
 compress expand text is to call SetFScaleDisable and use a smaller or
@@ -504,7 +504,7 @@ e.g., as an aid in
           later
               *    \mac_os_x in version 10.0 and
           later
-                  * /
+                */
               void
               TextFace(StyleParameter face) ONEWORDINLINE(0xA888);
 
@@ -850,4 +850,4 @@ conjunction with an old-style grafPort.
 
 #endif            /** __QUICKDRAWTEXT__ */
 * / endif         /** __QUICKDRAWTEXT__ */
-        * /*/*/ * /*/*/
+      */*/*/ * /*/*/

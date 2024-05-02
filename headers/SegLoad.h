@@ -118,7 +118,7 @@ Example
 #include <stdio.h>
 shortfileCnt, doWhat, index;
 AppFile fileStuff;
-char*cp = (char *)&fileStuff.ftype;  /* ease handling of file type */
+char*cp = (char *)&fileStuff.ftype;  // ease handling of file type 
    CountAppFiles(&doWhat, &fileCnt);
    for (index = 1; index <= fileCnt; index++)
    {
@@ -228,7 +228,7 @@ Furthermore, you can examine the global variables CurApName (at
       GetAppParms(Str255 apName, short *apRefNum, Handle *apParam)
           ONEWORDINLINE(0xA9F5);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 #if CALL_NOT_IN_CARBON
       /**
@@ -242,9 +242,9 @@ Furthermore, you can examine the global variables CurApName (at
       void
       getappparms(char *apName, short *apRefNum, Handle *apParam);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
-#endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM || !TARGET_OS_MAC */
+#endif // TARGET_CPU_68K && !TARGET_RT_MAC_CFM || !TARGET_OS_MAC 
 
 /**
    Because PowerPC applications don©t have segments.
@@ -264,13 +264,13 @@ Furthermore, you can examine the global variables CurApName (at
       void
       UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON 
 
 #else
 #define UnloadSeg(x)
-#endif /* TARGET_CPU_68K */
+#endif // TARGET_CPU_68K 
 
-      /* ExitToShell() has moved to Process.h*/
+      // ExitToShell() has moved to Process.h
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -290,5 +290,5 @@ Furthermore, you can examine the global variables CurApName (at
    }
 #endif
 
-#endif /* __SEGLOAD__ */
-   * /*/*/ * /
+#endif // __SEGLOAD__ 
+ */*/*/ * /

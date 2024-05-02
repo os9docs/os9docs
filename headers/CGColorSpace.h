@@ -73,8 +73,7 @@ enum CGColorRenderingIntent {
 typedef enum CGColorRenderingIntent CGColorRenderingIntent;
 
 /** Device-dependent color spaces.  **/
-/* Create a DeviceGray colorspace. */
-/**
+// Create a DeviceGray colorspace. /**
  *  CGColorSpaceCreateDeviceGray()
  *
 
@@ -85,9 +84,8 @@ typedef enum CGColorRenderingIntent CGColorRenderingIntent;
 CGColorSpaceRef
 CGColorSpaceCreateDeviceGray(void);
 
-/* Create a DeviceRGB colorspace. */
-/**
- *  CGColorSpaceCreateDeviceRGB()
+// Create a DeviceRGB colorspace. /**
+// Create a DeviceRGB colorspace. 
  *
 
  *    \non_carbon_cfm   not available
@@ -97,10 +95,9 @@ CGColorSpaceCreateDeviceGray(void);
 CGColorSpaceRef
 CGColorSpaceCreateDeviceRGB(void);
 
-/* Create a DeviceCMYK colorspace. */
-/**
+// Create a DeviceCMYK colorspace. /**
  *  CGColorSpaceCreateDeviceCMYK()
- *
+// Create a DeviceCMYK colorspace. 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -245,11 +242,10 @@ CGColorSpaceRef
 CGColorSpaceCreateWithPlatformColorSpace(void *platformColorSpaceReference);
 
 /** Colorspace information. **/
-/* Return the number of color components supported by the colorspace `cs'. */
-/**
+// Return the number of color components supported by the colorspace `cs'. /**
  *  CGColorSpaceGetNumberOfComponents()
  *
-
+// Return the number of color components supported by the colorspace `cs'. 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
@@ -313,4 +309,4 @@ CGColorSpaceRelease(CGColorSpaceRef cs);
 }
 #endif
 
-#endif /* __CGCOLORSPACE__ */
+#endif // __CGCOLORSPACE__ // __CGCOLORSPACE__ 

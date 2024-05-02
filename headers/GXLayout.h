@@ -741,8 +741,7 @@ GXGetShapeRunKerningAdjustments(gxShape source,
                                 gxKerningAdjustment kerningAdjustments[])
     THREEWORDINLINE(0x303C, 0x0030, 0xA832);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if defined(__MWERKS__) && TARGET_CPU_68K
 #pragma pop
 #endif
@@ -765,4 +764,4 @@ GXGetShapeRunKerningAdjustments(gxShape source,
 }
 #endif
 
-#endif /* __GXLAYOUT__ */
+#endif // __GXLAYOUT__ // __GXLAYOUT__ 

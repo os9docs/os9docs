@@ -60,9 +60,7 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  /* The following are icons for which there are both icon suites and SICNs. */
-  /* Avoid using icon resources if possible. Use IconServices instead. */
-  enum
+  // The following are icons for which there are both icon suites and SICNs.   // Avoid using icon resources if possible. Use IconServices instead.   enum
   {
     kGenericDocumentIconResource = -4000,
     kGenericStationeryIconResource = -3985,
@@ -77,9 +75,7 @@ extern "C"
     kGenericCDROMIconResource = -3987
   };
 
-  /* The following are icons for which there are SICNs only. */
-  /* Avoid using icon resources if possible. Use IconServices instead. */
-  enum
+  // The following are icons for which there are SICNs only.   // Avoid using icon resources if possible. Use IconServices instead.   enum
   {
     kDesktopIconResource = -3992,
     kOpenFolderIconResource = -3997,
@@ -89,9 +85,7 @@ extern "C"
     kGenericMoverObjectIconResource = -3969
   };
 
-  /* The following are icons for which there are icon suites only. */
-  /* Avoid using icon resources if possible. Use IconServices instead. */
-  enum
+  // The following are icons for which there are icon suites only.   // Avoid using icon resources if possible. Use IconServices instead.   enum
   {
     kGenericPreferencesIconResource = -3971,
     kGenericQueryDocumentIconResource = -16506,
@@ -101,8 +95,7 @@ extern "C"
     kAppleMenuFolderIconResource = -3982
   };
 
-  /* Obsolete. Use named constants defined above. */
-  enum
+  // Obsolete. Use named constants defined above.   enum
   {
     genericDocumentIconResource = kGenericDocumentIconResource,
     genericStationeryIconResource = kGenericStationeryIconResource,
@@ -128,8 +121,7 @@ extern "C"
     appleMenuFolderIconResource = kAppleMenuFolderIconResource
   };
 
-  /* Avoid using icon resources if possible. Use IconServices instead. */
-  enum
+  // Avoid using icon resources if possible. Use IconServices instead.   enum
   {
     kStartupFolderIconResource = -3981,
     kOwnedFolderIconResource = -3980,
@@ -144,8 +136,7 @@ extern "C"
     kFullTrashIconResource = -3984
   };
 
-  /* Obsolete. Use named constants defined above. */
-  enum
+  // Obsolete. Use named constants defined above.   enum
   {
     startupFolderIconResource = kStartupFolderIconResource,
     ownedFolderIconResource = kOwnedFolderIconResource,
@@ -160,9 +151,7 @@ extern "C"
     fullTrashIconResource = kFullTrashIconResource
   };
 
-  /* The following icon types can only be used as an icon element */
-  /* inside a 'icns' icon family */
-  enum
+  // The following icon types can only be used as an icon element   // inside a 'icns' icon family   enum
   {
     kThumbnail32BitData = FOUR_CHAR_CODE('it32'),
     kThumbnail8BitMask = FOUR_CHAR_CODE('t8mk')
@@ -177,9 +166,7 @@ extern "C"
     kHuge8BitMask = FOUR_CHAR_CODE('h8mk')
   };
 
-  /* The following icon types can be used as a resource type */
-  /* or as an icon element type inside a 'icns' icon family */
-  enum
+  // The following icon types can be used as a resource type   // or as an icon element type inside a 'icns' icon family   enum
   {
     kLarge1BitMask = FOUR_CHAR_CODE('ICN#'),
     kLarge4BitData = FOUR_CHAR_CODE('icl4'),
@@ -196,10 +183,7 @@ extern "C"
     kMini8BitData = FOUR_CHAR_CODE('icm8')
   };
 
-  /*  Icon Variants */
-  /* These can be used as an element of an 'icns' icon family */
-  /* or as a parameter to GetIconRefVariant */
-  enum
+  //  Icon Variants   // These can be used as an element of an 'icns' icon family   // or as a parameter to GetIconRefVariant   enum
   {
     kTileIconVariant = FOUR_CHAR_CODE('tile'),
     kRolloverIconVariant = FOUR_CHAR_CODE('over'),
@@ -208,8 +192,7 @@ extern "C"
     kOpenDropIconVariant = FOUR_CHAR_CODE('odrp')
   };
 
-  /* Obsolete. Use names defined above. */
-  enum
+  // Obsolete. Use names defined above.   enum
   {
     large1BitMask = kLarge1BitMask,
     large4BitData = kLarge4BitData,
@@ -222,8 +205,7 @@ extern "C"
     mini8BitData = kMini8BitData
   };
 
-  /* Alignment type values. */
-  enum
+  // Alignment type values.   enum
   {
     kAlignNone = 0x00,
     kAlignVerticalCenter = 0x01,
@@ -243,8 +225,7 @@ extern "C"
     kAlignBottomRight = kAlignBottom | kAlignRight
   };
 
-  /* Obsolete. Use names defined above. */
-  enum
+  // Obsolete. Use names defined above.   enum
   {
     atNone = kAlignNone,
     atVerticalCenter = kAlignVerticalCenter,
@@ -265,8 +246,7 @@ extern "C"
   };
 
   typedef SInt16 IconAlignmentType;
-  /* Transform type values. */
-  enum
+  // Transform type values.   enum
   {
     kTransformNone = 0x00,
     kTransformDisabled = 0x01,
@@ -285,8 +265,7 @@ extern "C"
     kTransformSelectedOpen = kTransformSelected | kTransformOpen
   };
 
-  /* Obsolete. Use names defined above. */
-  enum
+  // Obsolete. Use names defined above.   enum
   {
     ttNone = kTransformNone,
     ttDisabled = kTransformDisabled,
@@ -306,8 +285,7 @@ extern "C"
   };
 
   typedef SInt16 IconTransformType;
-  /* Selector mask values. */
-  enum
+  // Selector mask values.   enum
   {
     kSelectorLarge1Bit = 0x00000001,
     kSelectorLarge4Bit = 0x00000002,
@@ -342,8 +320,7 @@ extern "C"
     kSelectorAllAvailableData = (long)0xFFFFFFFF
   };
 
-  /* Obsolete. Use names defined above. */
-  enum
+  // Obsolete. Use names defined above.   enum
   {
     svLarge1Bit = kSelectorLarge1Bit,
     svLarge4Bit = kSelectorLarge4Bit,
@@ -384,8 +361,7 @@ extern "C"
   enum
   {
     uppIconActionProcInfo = 0x00000FE0
-  }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline IconActionUPP NewIconActionUPP(IconActionProcPtr userRoutine)
   {
     return (IconActionUPP)NewRoutineDescriptor(
@@ -412,8 +388,7 @@ extern "C"
   enum
   {
     uppIconGetterProcInfo = 0x000003F0
-  }; /* pascal 4_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline IconGetterUPP NewIconGetterUPP(IconGetterProcPtr userRoutine)
   {
     return (IconGetterUPP)NewRoutineDescriptor(
@@ -520,15 +495,13 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewIconActionProc(userRoutine) NewIconActionUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewIconActionProc(userRoutine) NewIconActionUPP(userRoutine)
 #define NewIconGetterProc(userRoutine) NewIconGetterUPP(userRoutine)
 #define CallIconActionProc(userRoutine, theType, theIcon, yourDataPtr) \
   InvokeIconActionUPP(theType, theIcon, yourDataPtr, userRoutine)
 #define CallIconGetterProc(userRoutine, theType, yourDataPtr) \
   InvokeIconGetterUPP(theType, yourDataPtr, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   typedef IconGetterProcPtr IconGetter;
   typedef IconActionProcPtr IconAction;
   /* CIconHandle, GetCIcon(), PlotCIcon(), and DisposeCIcon() moved here from
@@ -577,8 +550,7 @@ extern "C"
   void
   DisposeCIcon(CIconHandle theIcon) ONEWORDINLINE(0xAA25);
 
-  /* GetIcon and PlotIcon moved here from ToolUtils*/
-  /**
+  // GetIcon and PlotIcon moved here from ToolUtils  /**
    *  GetIcon()
    *
 
@@ -1225,8 +1197,7 @@ ttSelected
      will retun in iconRef the IconRef for the standard help icon.
   */
 
-  /* Generic Finder icons */
-  enum
+  // Generic Finder icons   enum
   {
     kClipboardIcon = FOUR_CHAR_CODE('CLIP'),
     kClippingUnknownTypeIcon = FOUR_CHAR_CODE('clpu'),
@@ -1272,11 +1243,9 @@ ttSelected
     kTrueTypeFlatFontIcon = FOUR_CHAR_CODE('sfnt'),
     kTrueTypeMultiFlatFontIcon = FOUR_CHAR_CODE('ttcf'),
     kUserIDiskIcon = FOUR_CHAR_CODE('udsk'),
-    kInternationResourcesIcon = kInternationalResourcesIcon /* old misspelling*/
-  };
+    kInternationResourcesIcon = kInternationalResourcesIcon // old misspelling  };
 
-  /* Internet locations */
-  enum
+  // Internet locations   enum
   {
     kInternetLocationHTTPIcon = FOUR_CHAR_CODE('ilht'),
     kInternetLocationFTPIcon = FOUR_CHAR_CODE('ilft'),
@@ -1289,8 +1258,7 @@ ttSelected
     kInternetLocationGenericIcon = FOUR_CHAR_CODE('ilge')
   };
 
-  /* Folders */
-  enum
+  // Folders   enum
   {
     kGenericFolderIcon = FOUR_CHAR_CODE('fldr'),
     kDropFolderIcon = FOUR_CHAR_CODE('dbox'),
@@ -1301,8 +1269,7 @@ ttSelected
     kSharedFolderIcon = FOUR_CHAR_CODE('shfl')
   };
 
-  /* Sharing Privileges icons */
-  enum
+  // Sharing Privileges icons   enum
   {
     kSharingPrivsNotApplicableIcon = FOUR_CHAR_CODE('shna'),
     kSharingPrivsReadOnlyIcon = FOUR_CHAR_CODE('shro'),
@@ -1311,8 +1278,7 @@ ttSelected
     kSharingPrivsWritableIcon = FOUR_CHAR_CODE('writ')
   };
 
-  /* Users and Groups icons */
-  enum
+  // Users and Groups icons   enum
   {
     kUserFolderIcon = FOUR_CHAR_CODE('ufld'),
     kWorkgroupFolderIcon = FOUR_CHAR_CODE('wfld'),
@@ -1322,8 +1288,7 @@ ttSelected
     kGroupIcon = FOUR_CHAR_CODE('grup')
   };
 
-  /* Special folders */
-  enum
+  // Special folders   enum
   {
     kAppearanceFolderIcon = FOUR_CHAR_CODE('appr'),
     kAppleExtrasFolderIcon = FOUR_CHAR_CODE('aex�'),
@@ -1371,8 +1336,7 @@ ttSelected
     kVoicesFolderIcon = FOUR_CHAR_CODE('fvoc')
   };
 
-  /* Badges */
-  enum
+  // Badges   enum
   {
     kAppleScriptBadgeIcon = FOUR_CHAR_CODE('scrp'),
     kLockedBadgeIcon = FOUR_CHAR_CODE('lbdg'),
@@ -1382,16 +1346,14 @@ ttSelected
     kAlertCautionBadgeIcon = FOUR_CHAR_CODE('cbdg')
   };
 
-  /* Alert icons */
-  enum
+  // Alert icons   enum
   {
     kAlertNoteIcon = FOUR_CHAR_CODE('note'),
     kAlertCautionIcon = FOUR_CHAR_CODE('caut'),
     kAlertStopIcon = FOUR_CHAR_CODE('stop')
   };
 
-  /* Networking icons */
-  enum
+  // Networking icons   enum
   {
     kAppleTalkIcon = FOUR_CHAR_CODE('atlk'),
     kAppleTalkZoneIcon = FOUR_CHAR_CODE('atzn'),
@@ -1402,8 +1364,7 @@ ttSelected
     kIPFileServerIcon = FOUR_CHAR_CODE('isrv')
   };
 
-  /* Toolbar icons */
-  enum
+  // Toolbar icons   enum
   {
     kToolbarCustomizeIcon = FOUR_CHAR_CODE('tcus'),
     kToolbarDeleteIcon = FOUR_CHAR_CODE('tdel'),
@@ -1411,8 +1372,7 @@ ttSelected
     kToolbarHomeIcon = FOUR_CHAR_CODE('thom')
   };
 
-  /* Other icons */
-  enum
+  // Other icons   enum
   {
     kAppleLogoIcon = FOUR_CHAR_CODE('capl'),
     kAppleMenuIcon = FOUR_CHAR_CODE('sapl'),
@@ -1442,8 +1402,7 @@ ttSelected
     kRightContainerArrowIcon = FOUR_CHAR_CODE('rcar')
   };
 
-  /*  IconServicesUsageFlags */
-  typedef UInt32 IconServicesUsageFlags;
+  //  IconServicesUsageFlags   typedef UInt32 IconServicesUsageFlags;
   enum
   {
     kIconServicesNormalUsageFlag = 0
@@ -1510,16 +1469,12 @@ ttSelected
 
   struct IconFamilyElement
   {
-    OSType elementType; /* 'ICN#', 'icl8', etc...*/
-    Size elementSize;   /* Size of this element*/
-    unsigned char elementData[1];
+    OSType elementType; // 'ICN#', 'icl8', etc...    Size elementSize;   // Size of this element    unsigned char elementData[1];
   };
   typedef struct IconFamilyElement IconFamilyElement;
   struct IconFamilyResource
   {
-    OSType resourceType; /* Always 'icns'*/
-    Size resourceSize;   /* Total size of this resource*/
-    IconFamilyElement elements[1];
+    OSType resourceType; // Always 'icns'    Size resourceSize;   // Total size of this resource    IconFamilyElement elements[1];
   };
   typedef struct IconFamilyResource IconFamilyResource;
   typedef IconFamilyResource *IconFamilyPtr;
@@ -1567,8 +1522,7 @@ ttSelected
   void
   IconServicesTerminate(void) TWOWORDINLINE(0x7016, 0xAA75);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
     ==============================================================================
      Converting data structures
@@ -1816,8 +1770,7 @@ ttSelected
                        SInt8 attributes, SInt8 accessPrivileges,
                        IconRef *theIconRef) TWOWORDINLINE(0x7022, 0xAA75);
 
-  /* GetIconRefFromFileInfo*/
-  /**
+  // GetIconRefFromFileInfo  /**
    *  GetIconRefFromFileInfo()
    *
    *  Summary:
@@ -1866,10 +1819,8 @@ ttSelected
    */
   OSStatus
   GetIconRefFromFileInfo(const FSRef *inRef, UniCharCount inFileNameLength,
-                         const UniChar *inFileName, /* can be NULL */
-                         FSCatalogInfoBitmap inWhichInfo,
-                         const FSCatalogInfo *inCatalogInfo, /* can be NULL */
-                         IconServicesUsageFlags inUsageFlags, IconRef *outIconRef,
+                         const UniChar *inFileName, // can be NULL                          FSCatalogInfoBitmap inWhichInfo,
+                         const FSCatalogInfo *inCatalogInfo, // can be NULL                          IconServicesUsageFlags inUsageFlags, IconRef *outIconRef,
                          SInt16 *outLabel);
 
   /**
@@ -1927,8 +1878,7 @@ ttSelected
                               const FSSpec *resourceFile, SInt16 resourceID,
                               IconRef *theIconRef) TWOWORDINLINE(0x7023, 0xAA75);
 
-  /* RegisterIconRefFromFSRef*/
-  /**
+  // RegisterIconRefFromFSRef  /**
    *  RegisterIconRefFromFSRef()
    *
    *  Discussion:
@@ -2145,8 +2095,7 @@ ttSelected
               IconServicesUsageFlags theIconServicesUsageFlags,
               IconRef theIconRef) TWOWORDINLINE(0x700E, 0xAA75);
 
-  /* PlotIconRefInContext*/
-  /**
+  // PlotIconRefInContext  /**
    *  PlotIconRefInContext()
    *
    *  Discussion:
@@ -2462,8 +2411,7 @@ ttSelected
   ReadIconFile(const FSSpec *iconFile, IconFamilyHandle *iconFamily)
       TWOWORDINLINE(0x7036, 0xAA75);
 
-  /* ReadIconFromFSRef*/
-  /**
+  // ReadIconFromFSRef  /**
    *  ReadIconFromFSRef()
    *
    *  Discussion:
@@ -2521,9 +2469,8 @@ ttSelected
 }
 #endif
 
-#endif /* __ICONS__ */
-* / or disposing the iconFamily
-               * /
+#endif // __ICONS__ * / or disposing the iconFamily
+             */
 
            /**
             *  ReadIconFile()
@@ -2537,8 +2484,7 @@ ttSelected
            ReadIconFile(const FSSpec *iconFile, IconFamilyHandle *iconFamily)
                TWOWORDINLINE(0x7036, 0xAA75);
 
-/* ReadIconFromFSRef*/
-/**
+// ReadIconFromFSRef/**
  *  ReadIconFromFSRef()
  *
  *  Discussion:
@@ -2595,5 +2541,4 @@ OSErr WriteIconFile(IconFamilyHandle iconFamily, const FSSpec *iconFile)
 }
 #endif
 
-#endif /* __ICONS__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/ */*/
+#endif // __ICONS__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ */*/

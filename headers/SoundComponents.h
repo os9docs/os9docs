@@ -19,9 +19,8 @@
 #ifndef __SOUNDCOMPONENTS__
 #define __SOUNDCOMPONENTS__
 
-/* obsolete file, all sound interfaces have been moved to Sound.[hpar]*/
-#ifndef __SOUND__
+// obsolete file, all sound interfaces have been moved to Sound.[hpar]#ifndef __SOUND__
 #include <Sound.h>
 #endif
 
-#endif /* __SOUNDCOMPONENTS__ */
+#endif // __SOUNDCOMPONENTS__ // __SOUNDCOMPONENTS__ 

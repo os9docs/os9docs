@@ -67,22 +67,17 @@ extern "C" {
  *  The placement of the camera.
  */
 struct TQ3CameraPlacement {
-  TQ3Point3D cameraLocation;  /*  Location point of the camera  */
-  TQ3Point3D pointOfInterest; /*  Point of interest           */
-  TQ3Vector3D upVector;       /*  "up" vector             */
-};
+  TQ3Point3D cameraLocation;  //  Location point of the camera    TQ3Point3D pointOfInterest; //  Point of interest             TQ3Vector3D upVector;       //  "up" vector             };
 typedef struct TQ3CameraPlacement TQ3CameraPlacement;
 /**
  *  The range of the camera.
  */
 struct TQ3CameraRange {
-  float hither; /*  Hither plane, measured from "from" towards "to"   */
-  float yon;    /*  Yon  plane, measured from "from" towards "to"     */
-};
+  float hither; //  Hither plane, measured from "from" towards "to"     float yon;    //  Yon  plane, measured from "from" towards "to"     };
 typedef struct TQ3CameraRange TQ3CameraRange;
 /**
- *  Viewport specification.  Origin is (-1, 1), and corresponds to the
- *  upper left-hand corner; width and height maximum is (2.0, 2.0),
+ *  Viewport spe//  Hither plane, measured from "from" towards "to"   
+ *  upper left-h//  Yon  plane, measured from "from" towards "to"     
  *  corresponding to the lower left-hand corner of the window.  The
  *  TQ3Viewport specifies a part of the viewPlane that gets displayed
  *  on the window that is to be drawn.
@@ -665,13 +660,12 @@ TQ3Status
 Q3ViewAngleAspectCamera_GetAspectRatio(TQ3CameraObject camera,
                                        float *aspectRatioXToY);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __QD3DCAMERA__RESTORE_TWOBYTEINTS
 #pragma fourbyteints off
-#endif
+#endif// CALL_NOT_IN_CARBON 
 #elif PRAGMA_ENUM_OPTIONS
 #pragma option enum =reset
 #elif defined(__QD3DCAMERA__RESTORE_PACKED_ENUMS)
@@ -696,4 +690,4 @@ Q3ViewAngleAspectCamera_GetAspectRatio(TQ3CameraObject camera,
 }
 #endif
 
-#endif /* __QD3DCAMERA__ */
+#endif // __QD3DCAMERA__ // __QD3DCAMERA__ 

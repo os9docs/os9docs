@@ -60,8 +60,7 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  /* type for unique process identifier */
-  /**
+  // type for unique process identifier   /**
   <pre>
    * \copyright THINK Reference © 1991-1992 Symantec Corporation
   */
@@ -75,18 +74,15 @@ extern "C"
   typedef ProcessSerialNumber *ProcessSerialNumberPtr;
   enum
   {
-    /* Process identifier - Various reserved process serial numbers */
-    kNoProcess = 0,
-    kSystemProcess = 1,
+    // Process identifier - Various reserved process serial numbers     kNoProcess = 0,
+    // Process identifier - Various reserved process serial numbers 
     kCurrentProcess = 2
   };
 
-  /* Definition of the parameter block passed to _Launch */
-  /* Typedef and flags for launchControlFlags field*/
-  typedef unsigned short LaunchFlags;
+  // Definition of the parameter block passed to _Launch   // Typedef and flags for launchControlFlags field  typedef unsigned short LaunchFlags;
   enum
-  {
-    launchContinue = 0x4000,
+  // Definition of the parameter block passed to _Launch 
+  // Typedef and flags for launchControlFlags field
     launchNoFileFlags = 0x0800,
     launchUseMinimum = 0x0400,
     launchDontSwitch = 0x0200,
@@ -104,12 +100,11 @@ extern "C"
   };
   typedef struct AppParameters AppParameters;
   typedef AppParameters *AppParametersPtr;
-  /* Parameter block to _Launch */
-  struct LaunchParamBlockRec
+  // Parameter block to _Launch   struct LaunchParamBlockRec
   {
     unsigned long reserved1;
     unsigned short reserved2;
-    unsigned short launchBlockID;
+  // Parameter block to _Launch 
     unsigned long launchEPBLength;
     unsigned short launchFileFlags;
     LaunchFlags launchControlFlags;
@@ -126,20 +121,18 @@ extern "C"
    Set launchEPBLength to extendedBlockLen for compatibility.*/
   enum
   {
-    extendedBlock = 0x4C43, /* 'LC' */
-    extendedBlockLen = sizeof(LaunchParamBlockRec) - 12
+    extendedBlock = 0x4C43, // 'LC'     extendedBlockLen = sizeof(LaunchParamBlockRec) - 12
   };
 
   enum
   {
-    /* Definition of the information block returned by GetProcessInformation */
-    modeReserved = 0x01000000,
+    // Definition of the inf// 'LC' 
     modeControlPanel = 0x00080000,
     modeLaunchDontSwitch = 0x00040000,
     modeDeskAccessory = 0x00020000,
     modeMultiLaunch = 0x00010000,
     modeNeedSuspendResume = 0x00004000,
-    modeCanBackground = 0x00001000,
+    // Definition of the information block returned by GetProcessInformation 
     modeDoesActivateOnFGSwitch = 0x00000800,
     modeOnlyBackground = 0x00000400,
     modeGetFrontClicks = 0x00000200,
@@ -247,15 +240,14 @@ extern "C"
   };
   typedef struct ProcessInfoExtendedRec ProcessInfoExtendedRec;
   typedef ProcessInfoExtendedRec *ProcessInfoExtendedRecPtr;
-  /* Record corresponding to the SIZE resource definition */
-  struct SizeResourceRec
+  // Record corresponding to the SIZE resource definition   struct SizeResourceRec
   {
     unsigned short flags;
     unsigned long preferredHeapSize;
     unsigned long minimumHeapSize;
   };
   typedef struct SizeResourceRec SizeResourceRec;
-  typedef SizeResourceRec *SizeResourceRecPtr;
+  // Record corresponding to the SIZE resource definition 
   typedef SizeResourceRecPtr *SizeResourceRecHandle;
   /**
       Applications and background applications can control when they are asked to
@@ -303,8 +295,7 @@ extern "C"
   LaunchDeskAccessory(const FSSpec *pFileSpec, ConstStr255Param pDAName)
       THREEWORDINLINE(0x3F3C, 0x0036, 0xA88F);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
  *  [Mac]GetCurrentProcess()
  *
@@ -312,7 +303,7 @@ extern "C"
  *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
- */
+ */// CALL_NOT_IN_CARBON 
 #if TARGET_OS_MAC
 #define MacGetCurrentProcess GetCurrentProcess
 #endif
@@ -483,8 +474,7 @@ in a process serial number is internal to the Process Manager .
   SameProcess(const ProcessSerialNumber *PSN1, const ProcessSerialNumber *PSN2,
               Boolean *result) THREEWORDINLINE(0x3F3C, 0x003D, 0xA88F);
 
-  /*  ExitToShell was previously in SegLoad.h*/
-  /**
+  //  ExitToShell was previously in SegLoad.h  /**
    *  ExitToShell()
    *
 
@@ -493,7 +483,7 @@ in a process serial number is internal to the Process Manager .
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ExitToShell(void) ONEWORDINLINE(0xA9F4);
+  //  ExitToShell was previously in SegLoad.h
 
 /**
    LaunchControlPanel is similar to LaunchDeskAccessory, but for Control Panel
@@ -513,8 +503,7 @@ in a process serial number is internal to the Process Manager .
   LaunchControlPanel(const FSSpec *pFileSpec)
       THREEWORDINLINE(0x3F3C, 0x007B, 0xA88F);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  GetApplicationTextEncoding()
    *
@@ -524,7 +513,7 @@ in a process serial number is internal to the Process Manager .
    *
    *  Discussion:
    *    The application text encoding is used when you create a
-   *    CFStringRef from text stored in Resource Manager resources, which
+   *   // CALL_NOT_IN_CARBON 
    *    typically uses one of the Mac encodings such as MacRoman or
    *    MacJapanese.
    *
@@ -671,8 +660,7 @@ in a process serial number is internal to the Process Manager .
   ShowHideProcess(const ProcessSerialNumber *psn, Boolean visible)
       THREEWORDINLINE(0x3F3C, 0x0060, 0xA88F);
 
-  /* Values of the 'message' parameter to a Control Panel 'cdev' */
-  enum
+  // Values of the 'message' parameter to a Control Panel 'cdev'   enum
   {
     initDev = 0,    /*Time for cdev to initialize itself*/
     hitDev = 1,     /*Hit on one of my items*/
@@ -683,7 +671,7 @@ in a process serial number is internal to the Process Manager .
     deactivDev = 6, /*Deactivate event*/
     keyEvtDev = 7,  /*Key down/auto key*/
     macDev = 8,     /*Decide whether or not to show up*/
-    undoDev = 9,
+  // Values of the 'message' parameter to a Control Panel 'cdev' 
     cutDev = 10,
     copyDev = 11,
     pasteDev = 12,
@@ -691,31 +679,28 @@ in a process serial number is internal to the Process Manager .
     cursorDev = 14
   };
 
-  /* Special values a Control Panel 'cdev' can return */
-  enum
+  // Special values a Control Panel 'cdev' can return   enum
   {
     cdevGenErr = -1, /*General error; gray cdev w/o alert*/
     cdevMemErr = 0,  /*Memory shortfall; alert user please*/
     cdevResErr = 1,  /*Couldn't get a needed resource; alert*/
-    cdevUnset = 3    /* cdevValue is initialized to this*/
-  };
+    cdevUnset = 3    // cdevValue is initialized to this  };
 
-  /* Control Panel Default Proc */
-  typedef CALLBACK_API(long, ControlPanelDefProcPtr)(
+  // Control Panel Default Proc   typedef CALLBACK_API(long, ControlPanelDefProcPtr)(
       short message, short item, short numItems, short cPanelID,
       EventRecord *theEvent, long cdevValue, DialogPtr cpDialog);
   typedef STACK_UPP_TYPE(ControlPanelDefProcPtr) ControlPanelDefUPP;
 #if CALL_NOT_IN_CARBON
-  /**
+  // Special values a Control Panel 'cdev' can return 
    *  NewControlPanelDefUPP()
    *
 
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        not available
-   *    \mac_os_x         not available
+   *    \mac_os_x    // cdevValue is initialized to this
    */
   ControlPanelDefUPP
-  NewControlPanelDefUPP(ControlPanelDefProcPtr userRoutine);
+  // Control Panel Default Proc 
 #if !OPAQUE_UPP_TYPES
   enum
   {
@@ -791,17 +776,14 @@ in a process serial number is internal to the Process Manager .
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewControlPanelDefProc(userRoutine) NewControlPanelDefUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewControlPanelDefProc(userRoutine) NewControlPanelDefUPP(userRoutine)
 #define CallControlPanelDefProc(userRoutine, message, item, numItems,    \
                                 cPanelID, theEvent, cdevValue, cpDialog) \
   InvokeControlPanelDefUPP(message, item, numItems, cPanelID, theEvent,  \
                            cdevValue, cpDialog, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -809,16 +791,15 @@ in a process serial number is internal to the Process Manager .
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
-
+// CALL_NOT_IN_CARBON 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
-#elif PRAGMA_IMPORT
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 #pragma import reset
 #endif
 
 #ifdef __cplusplus
 }
-#endif
+#endif// CALL_NOT_IN_CARBON 
 
-#endif /* __PROCESSES__ */
-* /*/*/ */*/
+#endif // __PROCESSES__ * /*/*/ */*/// __PROCESSES__ 

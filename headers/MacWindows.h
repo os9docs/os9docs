@@ -3800,9 +3800,9 @@ Example
 #include < Windows.h >
 WindowPtr myWindow;
 Str255 *theTitle;
-/* ... */
+// ... 
   GetWTitle(myWindow, &theTitle);
-  PtoCstr(theTitle); /* ASCIIZ for printf() */
+  PtoCstr(theTitle); // ASCIIZ for printf() 
   printf("The current title is %s\n", theTitle);
   </ pre>
               * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -3812,7 +3812,7 @@ Str255 *theTitle;
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void
           GetWTitle(WindowRef window, Str255 title) ONEWORDINLINE(0xA919);
 

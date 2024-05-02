@@ -59,21 +59,18 @@ extern "C"
 #if CALL_NOT_IN_CARBON
   enum
   {
-    curCMVersion = 2 /* current Connection Manager version*/
-  };
+    curCMVersion = 2 // current Connection Manager version  };
 
   enum
   {
     curConnEnvRecVers =
-        0 /*    current Connection Manager Environment Record version*/
-  };
-
+        0 //    current Connection Manager Environment Record version  };
+//    current Connection Manager Environment Record version
   enum
   {
-    /* CMErr */
-    cmGenericError = -1,
+    // CMErr     cmGenericError = -1,
     cmNoErr = 0,
-    cmRejected = 1,
+    // CMErr 
     cmFailed = 2,
     cmTimeOut = 3,
     cmNotOpen = 4,
@@ -104,36 +101,28 @@ extern "C"
     cmConfigChanged = 1L << 18
   };
 
-  /* CMRecFlags and CMChannel     */
-  /*      Low word of CMRecFlags is same as CMChannel */
-  typedef long CMRecFlags;
+  // CMRecFlags and CMChannel       //      Low word of CMRecFlags is same as CMChannel   typedef long CMRecFlags;
   typedef short CMChannel;
 
-  enum
-  {
+  // CMRecFlags and CMChannel     
+  //      Low word of CMRecFlags is same as CMChannel 
     cmStatusOpening = 1L << 0,
     cmStatusOpen = 1L << 1,
     cmStatusClosing = 1L << 2,
     cmStatusDataAvail = 1L << 3,
     cmStatusCntlAvail = 1L << 4,
     cmStatusAttnAvail = 1L << 5,
-    cmStatusDRPend = 1L << 6,  /* data read pending  */
-    cmStatusDWPend = 1L << 7,  /* data write pending */
-    cmStatusCRPend = 1L << 8,  /* cntl read pending  */
-    cmStatusCWPend = 1L << 9,  /* cntl write pending */
-    cmStatusARPend = 1L << 10, /* attn read pending  */
-    cmStatusAWPend = 1L << 11, /* attn write pending */
-    cmStatusBreakPend = 1L << 12,
+    cmStatusDRPend = 1L << 6,  // data read pending      cmStatusDWPend = 1L << 7,  // data write pending     cmStatusCRPend = 1L << 8,  // cntl read pending      cmStatusCWPend = 1L << 9,  // cntl write pending     cmStatusARPend = 1L << 10, // attn read pending      cmStatusAWPend = 1L << 11, // attn write pending     cmStatusBreakPend = 1L << 12,
     cmStatusListenPend = 1L << 13,
     cmStatusIncomingCallPresent = 1L << 14,
     cmStatusReserved0 = 1L << 15
   };
-
-  typedef unsigned long CMStatFlags;
-  enum
-  {
-    cmDataIn = 0,
-    cmDataOut = 1,
+// data read pending  
+  typedef unsigned long CMStatF// data write pending 
+  enum// cntl read pending  
+  {// cntl write pending 
+    cmDataIn = 0,// attn read pending  
+    cmDataOut = 1,// attn write pending 
     cmCntlIn = 2,
     cmCntlOut = 3,
     cmAttnIn = 4,
@@ -208,32 +197,26 @@ extern "C"
 
   enum
   {
-    /* CMIOPB constants and structure */
-    cmIOPBQType = 10,
+    // CMIOPB constants and structure     cmIOPBQType = 10,
     cmIOPBversion = 0
   };
 
   struct CMIOPB
   {
     QElemPtr qLink;
-    short qType; /* cmIOPBQType */
-    ConnHandle hConn;
+    short qType; // cmIOPBQType     ConnHandle hConn;
     Ptr theBuffer;
     long count;
     CMFlags flags;
-    ConnectionCompletionUPP userCompletion;
+    // CMIOPB constants and structure 
     long timeout;
     CMErr errCode;
     CMChannel channel;
     long asyncEOM;
     long reserved1;
     short reserved2;
-    short version;  /* cmIOPBversion */
-    long refCon;    /* for application */
-    long toolData1; /* for tool */
-    long toolData2; /* for tool */
-  };
-  typedef struct CMIOPB CMIOPB;
+    short version;  // cmIOPBversion     long refCon;    // for application     long toolData1; // for tool     long toolData2; // for tool   };
+  typedef struct // cmIOPBQType 
   typedef CMIOPB *CMIOPBPtr;
 #if CALL_NOT_IN_CARBON
   /**
@@ -245,13 +228,12 @@ extern "C"
    *    \mac_os_x         not available
    */
   ConnectionToolDefUPP
-  NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine);
-#if !OPAQUE_UPP_TYPES
-  enum
-  {
+  NewConnectionToolD// cmIOPBversion 
+#if !OPAQUE_UPP_TYPE// for application 
+  enum// for tool 
+  {// for tool 
     uppConnectionToolDefProcInfo = 0x0000FEF0
-  }; /* pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline ConnectionToolDefUPP
   NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine)
   {
@@ -268,7 +250,7 @@ extern "C"
 #endif
 
   /**
-   *  NewConnectionSearchCallBackUPP()
+   * // pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) 
    *
 
    *    \non_carbon_cfm   available as macro/inline
@@ -281,8 +263,7 @@ extern "C"
   enum
   {
     uppConnectionSearchCallBackProcInfo = 0x00000FC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline ConnectionSearchCallBackUPP
   NewConnectionSearchCallBackUPP(ConnectionSearchCallBackProcPtr userRoutine)
   {
@@ -300,7 +281,7 @@ extern "C"
 
   /**
    *  NewConnectionCompletionUPP()
-   *
+   *// pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) 
 
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        not available
@@ -312,8 +293,7 @@ extern "C"
   enum
   {
     uppConnectionCompletionProcInfo = 0x000000C0
-  }; /* pascal no_return_value Func(4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes) #ifdef __cplusplus
   inline ConnectionCompletionUPP
   NewConnectionCompletionUPP(ConnectionCompletionProcPtr userRoutine)
   {
@@ -332,7 +312,7 @@ extern "C"
   /**
    *  NewConnectionChooseIdleUPP()
    *
-
+// pascal no_return_value Func(4_bytes) 
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        not available
    *    \mac_os_x         not available
@@ -343,8 +323,7 @@ extern "C"
   enum
   {
     uppConnectionChooseIdleProcInfo = 0x00000000
-  }; /* pascal no_return_value Func() */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func() #ifdef __cplusplus
   inline ConnectionChooseIdleUPP
   NewConnectionChooseIdleUPP(ConnectionChooseIdleProcPtr userRoutine)
   {
@@ -364,7 +343,7 @@ extern "C"
    *  DisposeConnectionToolDefUPP()
    *
 
-   *    \non_carbon_cfm   available as macro/inline
+   * // pascal no_return_value Func() 
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
@@ -548,11 +527,9 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewConnectionToolDefProc(userRoutine) \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewConnectionToolDefProc(userRoutine) \
   NewConnectionToolDefUPP(userRoutine)
 #define NewConnectionSearchCallBackProc(userRoutine) \
   NewConnectionSearchCallBackUPP(userRoutine)
@@ -568,15 +545,13 @@ extern "C"
   InvokeConnectionCompletionUPP(hConn, userRoutine)
 #define CallConnectionChooseIdleProc(userRoutine) \
   InvokeConnectionChooseIdleUPP(userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
-  /**
+  /**// CALL_NOT_IN_CARBON 
    *  InitCM()
    *
-
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
    *    \carbon_lib        not available
    *    \mac_os_x         not available
@@ -593,9 +568,9 @@ extern "C"
    *    \mac_os_x         not available
    */
   Handle
-  CMGetVersion(ConnHandle hConn);
+  CMGet// CALL_NOT_IN_CARBON 
 
-  /**
+  /**// CALL_NOT_IN_CARBON 
    *  CMGetCMVersion()
    *
 
@@ -606,8 +581,7 @@ extern "C"
   short
   CMGetCMVersion(void);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
   /**
    *  CMNew()
@@ -621,8 +595,7 @@ extern "C"
   CMNew(short procID, CMRecFlags flags, ConstCMBufferSizesParam desiredSizes,
         long refCon, long userData);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
   /**
    *  CMDispose()
@@ -633,7 +606,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  CMDispose(ConnHandle hConn);
+  CMDis// CALL_NOT_IN_CARBON 
 
   /**
    *  CMListen()
@@ -648,7 +621,7 @@ extern "C"
            long timeout);
 
   /**
-   *  CMAccept()
+   *  C// CALL_NOT_IN_CARBON 
    *
 
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
@@ -1145,8 +1118,7 @@ extern "C"
   CMErr
   CMPBIOKill(ConnHandle hConn, CMIOPBPtr theIOPB);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1165,4 +1137,5 @@ extern "C"
 }
 #endif
 
-#endif /* __CONNECTIONS__ */
+#endif // __CONNECTIONS__ // CALL_NOT_IN_CARBON 
+// __CONNECTIONS__ 

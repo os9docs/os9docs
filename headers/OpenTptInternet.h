@@ -28,4 +28,4 @@
    OpenTransportProviders.h
 */
 
-#endif /* __OPENTPTINTERNET__ */
+#endif // __OPENTPTINTERNET__

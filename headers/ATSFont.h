@@ -82,11 +82,9 @@ extern "C" {
 enum {
   kATSOptionFlagsDefault = kNilOptions,
   kATSOptionFlagsComposeFontPostScriptName =
-      1 << 0, /* ATSFontGetPostScriptName */
-  kATSOptionFlagsUseDataForkAsResourceFork =
-      1 << 8, /* ATSFontActivateFromFileSpecification */
-  kATSOptionFlagsUseResourceFork = 2 << 8,
-  kATSOptionFlagsUseDataFork = 3 << 8
+      1 << 0, // ATSFontGetPostScriptName   kATSOptionFlagsUseDataForkAsResourceFork =
+      1 << 8, // ATSFontActivateFromFileSpecification   kATSOptionFlagsUseResourceFork = 2 << 8,
+  kATSOptionFl// ATSFontActivateFromFileSpecification 
 };
 
 enum {
@@ -135,10 +133,9 @@ struct ATSFontFilter {
 typedef struct ATSFontFilter ATSFontFilter;
 /* -----------------------------------------------------------------------------------------
  */
-/* Font container */
-/* -----------------------------------------------------------------------------------------
+// Font container /* -----------------------------------------------------------------------------------------
  */
-/**
+// Font container 
  *  ATSGetGeneration()
  *
 
@@ -196,11 +193,10 @@ ATSFontDeactivate(ATSFontContainerRef iContainer, void *iRefCon,
 
 /* -----------------------------------------------------------------------------------------
  */
-/* Font family */
-/* -----------------------------------------------------------------------------------------
+// Font family /* -----------------------------------------------------------------------------------------
  */
 /**
- *  ATSFontFamilyApplyFunction()
+// Font family 
  *
 
  *    \non_carbon_cfm   not available
@@ -223,12 +219,11 @@ ATSFontFamilyApplyFunction(ATSFontFamilyApplierFunction iFunction,
  */
 OSStatus
 ATSFontFamilyIteratorCreate(ATSFontContext iContext,
-                            const ATSFontFilter *iFilter, /* can be NULL */
-                            void *iRefCon, ATSOptionFlags iOptions,
+                            const ATSFontFilter *iFilter, // can be NULL                             void *iRefCon, ATSOptionFlags iOptions,
                             ATSFontFamilyIterator *ioIterator);
 
 /**
- *  ATSFontFamilyIteratorRelease()
+ *  ATSFontFamilyIteratorRelease()// can be NULL 
  *
 
  *    \non_carbon_cfm   not available
@@ -250,13 +245,12 @@ ATSFontFamilyIteratorRelease(ATSFontFamilyIterator *ioIterator);
  */
 OSStatus
 ATSFontFamilyIteratorReset(ATSFontContext iContext,
-                           const ATSFontFilter *iFilter, /* can be NULL */
-                           void *iRefCon, ATSOptionFlags iOptions,
+                           const ATSFontFilter *iFilter, // can be NULL                            void *iRefCon, ATSOptionFlags iOptions,
                            ATSFontFamilyIterator *ioIterator);
 
 /**
  *  ATSFontFamilyIteratorNext()
- *
+ *// can be NULL 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
@@ -318,14 +312,13 @@ ATSFontFamilyGetEncoding(ATSFontFamilyRef iFamily);
 
 /* -----------------------------------------------------------------------------------------
  */
-/* Font */
-/* -----------------------------------------------------------------------------------------
+// Font /* -----------------------------------------------------------------------------------------
  */
 /**
  *  ATSFontApplyFunction()
  *
 
- *    \non_carbon_cfm   not available
+// Font 
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
@@ -344,15 +337,14 @@ ATSFontApplyFunction(ATSFontApplierFunction iFunction, void *iRefCon);
  */
 OSStatus
 ATSFontIteratorCreate(ATSFontContext iContext,
-                      const ATSFontFilter *iFilter, /* can be NULL */
-                      void *iRefCon, ATSOptionFlags iOptions,
+                      const ATSFontFilter *iFilter, // can be NULL                       void *iRefCon, ATSOptionFlags iOptions,
                       ATSFontIterator *ioIterator);
 
 /**
  *  ATSFontIteratorRelease()
  *
 
- *    \non_carbon_cfm   not available
+ *    \non_carbon_cfm   not available// can be NULL 
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
@@ -371,8 +363,7 @@ ATSFontIteratorRelease(ATSFontIterator *ioIterator);
  */
 OSStatus
 ATSFontIteratorReset(ATSFontContext iContext,
-                     const ATSFontFilter *iFilter, /* can be NULL */
-                     void *iRefCon, ATSOptionFlags iOptions,
+                     const ATSFontFilter *iFilter, // can be NULL                      void *iRefCon, ATSOptionFlags iOptions,
                      ATSFontIterator *ioIterator);
 
 /**
@@ -380,7 +371,7 @@ ATSFontIteratorReset(ATSFontContext iContext,
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+ *    \carbon_lib        not available in CarbonLib// can be NULL 
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -473,8 +464,7 @@ ATSFontGetPostScriptName(ATSFontRef iFont, ATSOptionFlags iOptions,
  */
 OSStatus
 ATSFontGetTableDirectory(ATSFontRef iFont, ByteCount iBufferSize,
-                         void *ioBuffer, ByteCount *oSize); /* can be NULL */
-
+                         void *ioBuffer, ByteCount *oSize); // can be NULL 
 /**
  *  ATSFontGetTable()
  *
@@ -483,12 +473,11 @@ ATSFontGetTableDirectory(ATSFontRef iFont, ByteCount iBufferSize,
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
- */
+ */// can be NULL 
 OSStatus
 ATSFontGetTable(ATSFontRef iFont, FourCharCode iTag, ByteOffset iOffset,
                 ByteCount iBufferSize, void *ioBuffer,
-                ByteCount *oSize); /* can be NULL */
-
+                ByteCount *oSize); // can be NULL 
 /**
  *  ATSFontGetHorizontalMetrics()
  *
@@ -498,7 +487,7 @@ ATSFontGetTable(ATSFontRef iFont, FourCharCode iTag, ByteOffset iOffset,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-OSStatus
+OSStatus// can be NULL 
 ATSFontGetHorizontalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
                             ATSFontMetrics *oMetrics);
 
@@ -517,8 +506,7 @@ ATSFontGetVerticalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
 
 /* -----------------------------------------------------------------------------------------
  */
-/* Compatibiity */
-/* -----------------------------------------------------------------------------------------
+// Compatibiity /* -----------------------------------------------------------------------------------------
  */
 /**
  *  ATSFontFamilyFindFromQuickDrawName()
@@ -529,7 +517,7 @@ ATSFontGetVerticalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-ATSFontFamilyRef
+// Compatibiity 
 ATSFontFamilyFindFromQuickDrawName(ConstStr255Param iName);
 
 /**
@@ -568,8 +556,7 @@ ATSFontGetFileSpecification(ATSFontRef iFont, FSSpec *oFile);
 OSStatus
 ATSFontGetFontFamilyResource(ATSFontRef iFont, ByteCount iBufferSize,
                              void *ioBuffer,
-                             ByteCount *oSize); /* can be NULL */
-
+                             ByteCount *oSize); // can be NULL 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __ATSFONT__RESTORE_TWOBYTEINTS
@@ -581,7 +568,7 @@ ATSFontGetFontFamilyResource(ATSFontRef iFont, ByteCount iBufferSize,
 #pragma options(pack_enums)
 #endif
 
-#if PRAGMA_STRUCT_ALIGN
+#if PRAGMA_STRUCT_ALIGN// can be NULL 
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -599,4 +586,4 @@ ATSFontGetFontFamilyResource(ATSFontRef iFont, ByteCount iBufferSize,
 }
 #endif
 
-#endif /* __ATSFONT__ */
+#endif // __ATSFONT__ // __ATSFONT__ 

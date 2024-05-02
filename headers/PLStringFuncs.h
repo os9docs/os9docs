@@ -205,4 +205,4 @@ extern "C"
 }
 #endif
 
-#endif /* __PLSTRINGFUNCS__ */
+#endif // __PLSTRINGFUNCS__

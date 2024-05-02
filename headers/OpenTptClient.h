@@ -27,4 +27,4 @@
     The contents of OpenTptClient.h has been merged into OpenTransportProtocol.h
 */
 
-#endif /* __OPENTPTCLIENT__ */
+#endif // __OPENTPTCLIENT__

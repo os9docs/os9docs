@@ -651,8 +651,7 @@ TQ3Status
 Q3SpotLight_SetData(TQ3LightObject light,
                     const TQ3SpotLightData *spotLightData);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __QD3DLIGHT__RESTORE_TWOBYTEINTS
@@ -682,4 +681,4 @@ Q3SpotLight_SetData(TQ3LightObject light,
 }
 #endif
 
-#endif /* __QD3DLIGHT__ */
+#endif // __QD3DLIGHT__ // __QD3DLIGHT__ 

@@ -9,7 +9,7 @@
     \copyright � 1994-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup AppleTypeServices
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -61,4 +62,4 @@ extern "C" {
 }
 #endif
 
-#endif /* __UNICODE__ */
+#endif // __UNICODE__

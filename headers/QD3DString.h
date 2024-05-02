@@ -113,8 +113,7 @@ Q3CString_GetLength(TQ3StringObject stringObj, unsigned long *length);
 TQ3Status
 Q3CString_SetString(TQ3StringObject stringObj, const char *str);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 /**
  *  Q3CString_GetString()
@@ -138,9 +137,8 @@ Q3CString_GetString(TQ3StringObject stringObj, char **str);
 TQ3Status
 Q3CString_EmptyData(char **str);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#if PRAGMA_ENUM_ALWAYSINT
+#endif // CALL_NOT_IN_CARBON 
+#if PRA// CALL_NOT_IN_CARBON 
 #pragma enumsalwaysint reset
 #ifdef __QD3DSTRING__RESTORE_TWOBYTEINTS
 #pragma fourbyteints off
@@ -169,4 +167,4 @@ Q3CString_EmptyData(char **str);
 }
 #endif
 
-#endif /* __QD3DSTRING__ */
+#endif // __QD3DSTRING__ // __QD3DSTRING__ 

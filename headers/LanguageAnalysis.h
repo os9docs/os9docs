@@ -412,15 +412,13 @@ extern "C"
 #define LALanguageAnalysisAvailable()   ((LALibraryVersion != (void*)kUnresolvedCFragSymbolAddress)
 #endif
 #elif TARGET_RT_MAC_MACHO
-/* Language Analysis Manager is always available on OS X */
-#ifdef __cplusplus
+// Language Analysis Manager is always available on OS X #ifdef __cplusplus
 inline pascal Boolean LALanguageAnalysisAvailable() { return true; }
 #else
 #define LALanguageAnalysisAvailable() (true)
 #endif
-#endif /*  */
-
-/**
+#endif //  
+/**//  
 =============================================================================================
     Definitions for Japanese Analysis Module
 =============================================================================================
@@ -501,87 +499,59 @@ inline pascal Boolean LALanguageAnalysisAvailable() { return true; }
   */
   enum
   {
-    kLASpeechMeishi = 0x00000000,        /* noun */
-    kLASpeechFutsuuMeishi = 0x00000000,  /* general noun */
-    kLASpeechJinmei = 0x00000100,        /* person name */
-    kLASpeechJinmeiSei = 0x00000110,     /* family name */
-    kLASpeechJinmeiMei = 0x00000120,     /* first name */
-    kLASpeechChimei = 0x00000200,        /* place name */
-    kLASpeechSetsubiChimei = 0x00000210, /* place name with suffix */
-    kLASpeechSoshikimei = 0x00000300,    /* organization name */
-    kLASpeechKoyuuMeishi = 0x00000400,   /* proper noun */
-    kLASpeechSahenMeishi = 0x00000500,   /* special noun */
-    kLASpeechKeidouMeishi = 0x00000600,  /* special noun */
-    kLASpeechRentaishi = 0x00001000,
-    kLASpeechFukushi = 0x00002000,      /* adverb */
-    kLASpeechSetsuzokushi = 0x00003000, /* conjunction */
-    kLASpeechKandoushi = 0x00004000,
-    kLASpeechDoushi = 0x00005000, /* verb */
-    kLASpeechGodanDoushi = 0x00005000,
-    kLASpeechKagyouGodan = 0x00005000,
-    kLASpeechSagyouGodan = 0x00005010,
-    kLASpeechTagyouGodan = 0x00005020,
-    kLASpeechNagyouGodan = 0x00005030,
-    kLASpeechMagyouGodan = 0x00005040,
-    kLASpeechRagyouGodan = 0x00005050,
-    kLASpeechWagyouGodan = 0x00005060,
-    kLASpeechGagyouGodan = 0x00005070,
-    kLASpeechBagyouGodan = 0x00005080,
-    kLASpeechIchidanDoushi = 0x00005100,
+    kLASpeechMeishi = 0x00000000,        // noun     kLASpeechFutsuuMeishi = 0x00000000,  // general noun     kLASpeechJinmei = 0x00000100,        // person name     kLASpeechJinmeiSei = 0x00000110,     // family name     kLASpeechJinmeiMei = 0x00000120,     // first name     kLASpeechChimei = 0x00000200,        // place name     kLASpeechSetsubiChimei = 0x00000210, // place name with suffix     kLASpeechSoshikimei = 0x00000300,    // organization name     kLASpeechKoyuuMeishi = 0x00000400,   // proper noun     kLASpeechSahenMeishi = 0x00000500,   // special noun     kLASpeechKeidouMeishi = 0x00000600,  // special noun     kLASpeechRentaishi = 0x00001000,
+    kLASpeechFukushi = 0x00002000,      // adverb     kLASpeechSetsuzokushi = 0x00003000, // conjunction     kLASpeechKandoushi = 0x00004000,
+    kLASpeechDoushi = 0x00005000, // verb// noun 
+    kLASpeechKagyouGodan = 0x00005000,// general noun 
+    kLASpeechSagyouGodan = 0x00005010,// person name 
+    kLASpeechTagyouGodan = 0x00005020,// family name 
+    kLASpeechNagyouGodan = 0x00005030,// first name 
+    kLASpeechMagyouGodan = 0x00005040,// place name 
+    kLASpeechRagyouGodan = 0x00005050,// place name with suffix 
+    kLASpeechWagyouGodan = 0x00005060,// organization name 
+    kLASpeechGagyouGodan = 0x00005070,// proper noun 
+    kLASpeechBagyouGodan = 0x00005080,// special noun 
+    kLASpeechIchidanDoushi = 0x00005100,// special noun 
     kLASpeechKahenDoushi = 0x00005200,
-    kLASpeechSahenDoushi = 0x00005300,
-    kLASpeechZahenDoushi = 0x00005400,
-    kLASpeechKeiyoushi = 0x00006000, /* adjective */
-    kLASpeechKeiyoudoushi = 0x00007000,
-    kLASpeechSettougo = 0x00008000,            /* prefix*/
-    kLASpeechSuujiSettougo = 0x00008100,       /* prefix for numbers */
-    kLASpeechSetsubigo = 0x00009000,           /* suffix */
-    kLASpeechJinmeiSetsubigo = 0x00009100,     /* suffix for person name */
-    kLASpeechChimeiSetsubigo = 0x00009200,     /* suffix for place name */
-    kLASpeechSoshikimeiSetsubigo = 0x00009300, /* suffix for organization name */
-    kLASpeechSuujiSetsubigo = 0x00009400,      /* suffix for numbers */
-    kLASpeechMuhinshi = 0x0000A000,            /* no category */
-    kLASpeechTankanji = 0x0000A000,            /* character */
-    kLASpeechKigou = 0x0000A100,               /* symbol */
-    kLASpeechKuten = 0x0000A110,
+    kLASpeechSahenDoushi = 0x00005300,// adverb 
+    kLASpeechZahenDoushi = 0x00005400,// conjunction 
+    kLASpeechKeiyoushi = 0x00006000, // adjective     kLASpeechKeiyoudoushi = 0x00007000,
+    kLASpeechSettougo = 0x00008000// verb 
     kLASpeechTouten = 0x0000A120,
-    kLASpeechSuushi = 0x0000A200, /* numbers */
-    kLASpeechDokuritsugo = 0x0000A300,
+    kLASpeechSuushi = 0x0000A200, // numbers     kLASpeechDokuritsugo = 0x0000A300,
     kLASpeechSeiku = 0x0000A400,
-    kLASpeechJodoushi = 0x0000B000, /* auxiliary verb */
-    kLASpeechJoshi = 0x0000C000     /* postpositional particle */
-  };
+    kLASpeechJodoushi = 0x0000B000, // auxiliary verb     kLASpeechJoshi = 0x0000C000     // postpositional particle   };
 
   /**
       Conjugations
    */
   enum
   {
-    kLASpeechKatsuyouGokan = 0x00000001, /* stem */
-    kLASpeechKatsuyouMizen = 0x00000002,
+    kLASpeechKatsuyouGokan = 0x00000001, // stem     kLASpeechKatsuyouMizen = 0x00000002,
     kLASpeechKatsuyouRenyou = 0x00000003,
     kLASpeechKatsuyouSyuushi = 0x00000004,
     kLASpeechKatsuyouRentai = 0x00000005,
-    kLASpeechKatsuyouKatei = 0x00000006,
+    kLASpeechKatsuyouKatei = 0x000000// adjective 
     kLASpeechKatsuyouMeirei = 0x00000007
-  };
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
+  };// prefix
+// prefix for numbers 
+#if PRAGMA_STRUCT_ALIGN// suffix 
+#pragma options align = reset// suffix for person name 
+#elif PRAGMA_STRUCT_PACKPUSH// suffix for place name 
+#pragma pack(pop)// suffix for organization name 
+#elif PRAGMA_STRUCT_PACK// suffix for numbers 
+#pragma pack()// no category 
+#endif// character 
+// symbol 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
-#elif PRAGMA_IMPORT
+#elif PRAGMA_IMPORT// numbers 
 #pragma import reset
 #endif
-
-#ifdef __cplusplus
+// auxiliary verb 
+#ifdef __cplusplus// postpositional particle 
 }
 #endif
 
-#endif /* __LANGUAGEANALYSIS__ */
+#endif // __LANGUAGEANALYSIS__ // stem 
+// __LANGUAGEANALYSIS__ 

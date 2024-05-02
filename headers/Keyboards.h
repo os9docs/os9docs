@@ -45,28 +45,24 @@ extern "C"
 #endif
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /* Keyboard API constants */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /* Keyboard API Trap Number. Should be moved to Traps.i */
-  enum
-  {
+  // Keyboard API constants   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // Keyboard API Trap Number. Should be moved to Traps.i   enum
+  // Keyboard API Trap Number. Should be moved to Traps.i 
     _KeyboardDispatch = 0xAA7A
   };
 
-  /* Gestalt selector and values for the Keyboard API */
-  enum
+  // Gestalt selector and values for the Keyboard API   enum
   {
-    gestaltKeyboardsAttr = FOUR_CHAR_CODE('kbds'),
+  // Gestalt selector and values for the Keyboard API 
     gestaltKBPS2Keyboards = 1,
     gestaltKBPS2SetIDToAny = 2,
     gestaltKBPS2SetTranslationTable = 4
   };
 
-  /* Keyboard API Error Codes */
-  /**
+  // Keyboard API Error Codes   /**
      I stole the range blow from the empty space in the Allocation project but
      should be updated to the officially registered range.
-  */
+  // Keyboard API Error Codes 
   enum
   {
     errKBPS2KeyboardNotAvailable = -30850,
@@ -76,29 +72,25 @@ extern "C"
     errKBFailWritePreference = -30854
   };
 
-  /* Keyboard HW Layout Types */
-  enum
+  // Keyboard HW Layout Types   enum
   {
     kKeyboardJIS = FOUR_CHAR_CODE('JIS '),
     kKeyboardANSI = FOUR_CHAR_CODE('ANSI'),
-    kKeyboardISO = FOUR_CHAR_CODE('ISO '),
-    kKeyboardUnknown = kUnknownType /* '????'*/
-  };
+  // Keyboard HW Layout Types 
+    kKeyboardUnknown = kUnknownType // '????'  };
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /* Keyboard API types */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // Keyboard API types   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /* Keyboard API routines */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©// '????'
+  // Keyboard API routines   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 
 #if CALL_NOT_IN_CARBON
-  /**
+  // Keyboard API types 
    *  KBInitialize()
    *
 
-   *    \non_carbon_cfm   in KeyboardsLib 1.0 and later
+  // Keyboard API routines 
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
@@ -198,8 +190,7 @@ extern "C"
   KBGetPS2KeyboardLayoutType(OSType *layoutType)
       THREEWORDINLINE(0x303C, 0x0009, 0xAA7A);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  KBGetLayoutType()
    *
@@ -207,7 +198,7 @@ extern "C"
    *    \non_carbon_cfm   in KeyboardsLib 1.0 and later
    *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
    X version 10.0 and later
-   *    \mac_os_x         in version 10.0 and later
+   *   // CALL_NOT_IN_CARBON 
    */
   OSType
   KBGetLayoutType(SInt16 keyboardType) THREEWORDINLINE(0x303C, 0x0007, 0xAA7A);
@@ -230,4 +221,4 @@ extern "C"
 }
 #endif
 
-#endif /* __KEYBOARDS__ */
+#endif // __KEYBOARDS__ // __KEYBOARDS__ 

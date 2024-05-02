@@ -65,21 +65,18 @@ enum {
 enum { NoLooping = 0, ForwardLooping = 1, ForwardBackwardLooping = 2 };
 
 enum {
-  /* AIFF-C Versions */
-  AIFCVersion1 = (long)0xA2805140
+  // AIFF-C Versions   AIFCVersion1 = (long)0xA2805140
 };
 
-/* Compression Names */
-#define NoneName "\pnot compressed"
-#define ACE2to1Name "\pACE 2-to-1"
+// Compression Names #define NoneName "\pnot compressed"
+// Compression Names 
 #define ACE8to3Name "\pACE 8-to-3"
 #define MACE3to1Name "\pMACE 3-to-1"
 #define MACE6to1Name "\pMACE 6-to-1"
 enum {
-  /* Compression Types */
-  NoneType = FOUR_CHAR_CODE('NONE'),
+  // Compression Types   NoneType = FOUR_CHAR_CODE('NONE'),
   ACE2Type = FOUR_CHAR_CODE('ACE2'),
-  ACE8Type = FOUR_CHAR_CODE('ACE8'),
+  // Compression Types 
   MACE3Type = FOUR_CHAR_CODE('MAC3'),
   MACE6Type = FOUR_CHAR_CODE('MAC6')
 };
@@ -534,4 +531,4 @@ typedef TextChunk *TextChunkPtr;
 }
 #endif
 
-#endif /* __AIFF__ */
+#endif // __AIFF__ // __AIFF__ 

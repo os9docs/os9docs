@@ -28,8 +28,7 @@
 #include <MacTypes.h>
 #endif
 
-#endif /* TARGET_OS_MAC */
-
+#endif // TARGET_OS_MAC 
 #if PRAGMA_ONCE
 #pragma once
 #endif
@@ -71,52 +70,43 @@ extern "C" {
  **                                                                          **
  *****************************************************************************/
 enum TQ3Error {
-  kQ3ErrorNone = 0, /* Fatal Errors */
-  kQ3ErrorInternalError = -28500,
-  kQ3ErrorNoRecovery = -28499,
-  kQ3ErrorLastFatalError = -28498, /* System Errors */
-  kQ3ErrorNotInitialized = -28490,
+  kQ3ErrorNone = 0, // Fatal Errors   kQ3ErrorInternalError = -28500,
+  kQ3ErrorNoRecovery// Fatal Errors 
+  kQ3ErrorLastFatalError = -28498, // System Errors   kQ3ErrorNotInitialized = -28490,
   kQ3ErrorAlreadyInitialized = -28489,
-  kQ3ErrorUnimplemented = -28488,
-  kQ3ErrorRegistrationFailed = -28487, /* OS Errors */
-  kQ3ErrorUnixError = -28486,
+  kQ3ErrorUnimplemented = -28488,// System Errors 
+  kQ3ErrorRegistrationFailed = -28487, // OS Errors   kQ3ErrorUnixError = -28486,
   kQ3ErrorMacintoshError = -28485,
-  kQ3ErrorX11Error = -28484, /* Memory Errors */
-  kQ3ErrorMemoryLeak = -28483,
-  kQ3ErrorOutOfMemory = -28482, /* Parameter errors */
-  kQ3ErrorNULLParameter = -28481,
+  kQ3ErrorX11Error = -28484, // Memory Errors   kQ3ErrorMemoryLeak = -28483,
+  kQ3ErrorOutOfMemory = -28482, // Para// OS Errors 
   kQ3ErrorParameterOutOfRange = -28480,
   kQ3ErrorInvalidParameter = -28479,
-  kQ3ErrorInvalidData = -28478,
+  kQ3ErrorInvalidData = -2847// Memory Errors 
   kQ3ErrorAcceleratorAlreadySet = -28477,
-  kQ3ErrorVector3DNotUnitLength = -28476,
-  kQ3ErrorVector3DZeroLength = -28475, /* Object Errors */
-  kQ3ErrorInvalidObject = -28474,
+  kQ3ErrorVector3DNotUnitLength // Parameter errors 
+  kQ3ErrorVector3DZeroLength = -28475, // Object Errors   kQ3ErrorInvalidObject = -28474,
   kQ3ErrorInvalidObjectClass = -28473,
   kQ3ErrorInvalidObjectType = -28472,
   kQ3ErrorInvalidObjectName = -28471,
   kQ3ErrorObjectClassInUse = -28470,
   kQ3ErrorAccessRestricted = -28469,
-  kQ3ErrorMetaHandlerRequired = -28468,
+  kQ3ErrorMetaHandlerRequired = -28468,// Object Errors 
   kQ3ErrorNeedRequiredMethods = -28467,
   kQ3ErrorNoSubClassType = -28466,
   kQ3ErrorUnknownElementType = -28465,
-  kQ3ErrorNotSupported = -28464, /* Extension Errors */
-  kQ3ErrorNoExtensionsFolder = -28463,
+  kQ3ErrorNotSupported = -28464, // Extension Errors   kQ3ErrorNoExtensionsFolder = -28463,
   kQ3ErrorExtensionError = -28462,
-  kQ3ErrorPrivateExtensionError = -28461, /* Geometry Errors */
-  kQ3ErrorDegenerateGeometry = -28460,
-  kQ3ErrorGeometryInsufficientNumberOfPoints = -28459, /* IO Errors */
-  kQ3ErrorNoStorageSetForFile = -28458,
+  kQ3ErrorPrivateExtensionError = -28461, // Geometry Errors   kQ3ErrorDegenerateGeometry = -28460,
+  kQ3ErrorGeometryInsufficientNumberOfPoints = -28459, // IO Errors   kQ3ErrorNoStorageSetForFile = -28458,
   kQ3ErrorEndOfFile = -28457,
   kQ3ErrorFileCancelled = -28456,
   kQ3ErrorInvalidMetafile = -28455,
-  kQ3ErrorInvalidMetafilePrimitive = -28454,
+  kQ3ErrorInvalidMetafilePrimitiv// Extension Errors 
   kQ3ErrorInvalidMetafileLabel = -28453,
   kQ3ErrorInvalidMetafileObject = -28452,
-  kQ3ErrorInvalidMetafileSubObject = -28451,
+  kQ3ErrorInvalidMetafileSubObject = -2845// Geometry Errors 
   kQ3ErrorInvalidSubObjectForObject = -28450,
-  kQ3ErrorUnresolvableReference = -28449,
+  kQ3ErrorUnresolvableReference = -28449,// IO Errors 
   kQ3ErrorUnknownObject = -28448,
   kQ3ErrorStorageInUse = -28447,
   kQ3ErrorStorageAlreadyOpen = -28446,
@@ -145,8 +135,7 @@ enum TQ3Error {
   kQ3ErrorNonUniqueLabel = -28423,
   kQ3ErrorEndOfContainer = -28422,
   kQ3ErrorUnmatchedEndGroup = -28421,
-  kQ3ErrorFileVersionExists = -28420, /* View errors */
-  kQ3ErrorViewNotStarted = -28419,
+  kQ3ErrorFileVersionExists = -28420, // View errors   kQ3ErrorViewNotStarted = -28419,
   kQ3ErrorViewIsStarted = -28418,
   kQ3ErrorRendererNotSet = -28417,
   kQ3ErrorRenderingIsActive = -28416,
@@ -156,96 +145,68 @@ enum TQ3Error {
   kQ3ErrorDrawContextNotSet = -28412,
   kQ3ErrorNonInvertibleMatrix = -28411,
   kQ3ErrorRenderingNotStarted = -28410,
-  kQ3ErrorPickingNotStarted = -28409,
+  kQ3ErrorPickingNotStarted = -28409,// View errors 
   kQ3ErrorBoundsNotStarted = -28408,
   kQ3ErrorDataNotAvailable = -28407,
-  kQ3ErrorNothingToPop = -28406, /* Renderer Errors */
-  kQ3ErrorUnknownStudioType = -28405,
+  kQ3ErrorNothingToPop = -28406, // Renderer Errors   kQ3ErrorUnknownStudioType = -28405,
   kQ3ErrorAlreadyRendering = -28404,
   kQ3ErrorStartGroupRange = -28403,
   kQ3ErrorUnsupportedGeometryType = -28402,
   kQ3ErrorInvalidGeometryType = -28401,
-  kQ3ErrorUnsupportedFunctionality = -28400, /* Group Errors */
-  kQ3ErrorInvalidPositionForGroup = -28399,
+  kQ3ErrorUnsupportedFunctionality = -28400, // Group Errors   kQ3ErrorInvalidPositionForGroup = -28399,
   kQ3ErrorInvalidObjectForGroup = -28398,
-  kQ3ErrorInvalidObjectForPosition = -28397, /* Transform Errors */
-  kQ3ErrorScaleOfZero = -28396,              /* String Errors */
-  kQ3ErrorBadStringType = -28395,            /* Attribute Errors */
-  kQ3ErrorAttributeNotContained = -28394,
-  kQ3ErrorAttributeInvalidType = -28393, /* Camera Errors */
-  kQ3ErrorInvalidCameraValues = -28392,  /* DrawContext Errors */
-  kQ3ErrorBadDrawContextType = -28391,
+  kQ3ErrorInvalidObjectForPosition = -28397, // Transform Errors   kQ3ErrorScaleOfZero = -28396,              // String Errors   kQ3ErrorBadStringType = -28395,            // Attribute Errors   kQ3ErrorAttributeNotContained = -28394,
+  kQ3ErrorAttributeInvalidType = -28393, // Camera Errors   kQ3ErrorInvalidCameraValues = -28392,  // DrawContext Errors   kQ3ErrorBadDrawContextType = -28391,
   kQ3ErrorBadDrawContextFlag = -28390,
   kQ3ErrorBadDrawContext = -28389,
-  kQ3ErrorUnsupportedPixelDepth = -28388, /* Controller Errors */
-  kQ3ErrorController = -28387,            /* Tracker Errors */
-  kQ3ErrorTracker = -28386,               /* Another OS Error */
-  kQ3ErrorWin32Error = -28385,            /* Object Errors */
-  kQ3ErrorTypeAlreadyExistsAndHasSubclasses = -28384,
+  kQ3ErrorUnsupportedPixelDepth =// Renderer Errors 
   kQ3ErrorTypeAlreadyExistsAndOtherClassesDependOnIt = -28383,
   kQ3ErrorTypeAlreadyExistsAndHasObjectInstances =
       -28382, /* submit loop errors: if you ever get one of these check the
                  previous*/
-  /* error posted, it may be kQ3ErrorOutOfMemory.  If so you *may* be able*/
-  /* to recover by freeing up some memory and trying again*/
-  kQ3ErrorPickingLoopFailed = -28381,
-  kQ3ErrorRenderingLoopFailed = -28380,
+  // error posted, it may be kQ3ErrorOutOfMemory.  If so you *may* be able  // to recover by freeing up some memory and trying again  kQ3ErrorPickingLoopFailed = -28381,
+  kQ3ErrorRenderingLoopFailed = -28380,// Group Errors 
   kQ3ErrorWritingLoopFailed = -28379,
   kQ3ErrorBoundingLoopFailed = -28378
-};
-typedef enum TQ3Error TQ3Error;
-
+};// Transform Errors 
+typedef enum TQ3Error TQ3Error;// String Errors 
+// Attribute Errors 
 enum TQ3Warning {
-  kQ3WarningNone = 0,                   /* General System */
-  kQ3WarningInternalException = -28300, /* Object Warnings */
-  kQ3WarningNoObjectSupportForDuplicateMethod = -28299,
-  kQ3WarningNoObjectSupportForDrawMethod = -28298,
+  kQ3WarningNone = 0,                   /// Camera Errors 
+  kQ3WarningNoObjectSupportForDrawMethod // DrawContext Errors 
   kQ3WarningNoObjectSupportForWriteMethod = -28297,
   kQ3WarningNoObjectSupportForReadMethod = -28296,
   kQ3WarningUnknownElementType = -28295,
-  kQ3WarningTypeAndMethodAlreadyDefined = -28294,
-  kQ3WarningTypeIsOutOfRange = -28293,
-  kQ3WarningTypeHasNotBeenRegistered = -28292, /* Parameter Warnings */
-  kQ3WarningVector3DNotUnitLength = -28291,    /* IO Warnings */
-  kQ3WarningInvalidSubObjectForObject = -28290,
-  kQ3WarningInvalidHexString = -28289,
+  kQ3WarningTypeAndMethodAlreadyDefined = // Controller Errors 
+  kQ3WarningTypeIsOutOfRange = -28293,// Tracker Errors 
+  kQ3WarningTypeHasNotBeenRegistered = -28// Another OS Error 
+  kQ3WarningInvalidHexString = -28289,// Object Errors 
   kQ3WarningUnknownObject = -28288,
   kQ3WarningInvalidMetafileObject = -28287,
   kQ3WarningUnmatchedBeginGroup = -28286,
   kQ3WarningUnmatchedEndGroup = -28285,
   kQ3WarningInvalidTableOfContents = -28284,
-  kQ3WarningUnresolvableReference = -28283,
-  kQ3WarningNoAttachMethod = -28282,
+  // error posted, it may be kQ3ErrorOutOfMemory.  If so you *may* be able
+  // to recover by freeing up some memory and trying again
   kQ3WarningInconsistentData = -28281,
   kQ3WarningReadLessThanSize = -28280,
   kQ3WarningFilePointerResolutionFailed = -28279,
   kQ3WarningFilePointerRedefined = -28278,
-  kQ3WarningStringExceedsMaximumLength = -28277, /* Memory Warnings */
-  kQ3WarningLowMemory = -28276,
-  kQ3WarningPossibleMemoryLeak = -28275, /* View Warnings */
-  kQ3WarningViewTraversalInProgress = -28274,
-  kQ3WarningNonInvertibleMatrix = -28273,       /* Quaternion Warning */
-  kQ3WarningQuaternionEntriesAreZero = -28272,  /* Renderer Warning */
-  kQ3WarningFunctionalityNotSupported = -28271, /* DrawContext Warning */
-  kQ3WarningInvalidPaneDimensions = -28270,     /* Pick Warning */
-  kQ3WarningPickParamOutside = -28269,          /* Scale Warnings */
-  kQ3WarningScaleEntriesAllZero = -28268,
-  kQ3WarningScaleContainsNegativeEntries = -28267, /* Generic Warnings */
-  kQ3WarningParameterOutOfRange = -28266,          /* Extension Warnings */
-  kQ3WarningExtensionNotLoading = -28265,          /* Object Warnings */
-  kQ3WarningTypeAlreadyRegistered = -28264,
-  kQ3WarningTypeSameVersionAlreadyRegistered = -28263,
-  kQ3WarningTypeNewerVersionAlreadyRegistered =
-      -28262, /* Invalid Group Object */
-  kQ3WarningInvalidObjectInGroupMetafile = -28261
+  kQ3WarningStringExceedsMaximumLength = -28277, // Memory Warnings   kQ3WarningLowMemory = -28276,
+  kQ3WarningPossibleMemoryLeak = -28275, // View Warnings   kQ3WarningViewTraversalInProgress = -28274,
+  kQ3WarningNonInvertibleMatrix = -28273,       // Quaternion Warning   kQ3WarningQuaternionEntriesAreZero = -28272,  // Renderer Warning   kQ3WarningFunctionalityNotSupported = -28271, // DrawContext Warning   kQ3WarningInvalidPaneDimensions = -28270,     // Pick Warning   kQ3WarningPickParamOutside = -28269,          // Scale Warnings   kQ3WarningScaleEntriesAllZero = -28268,
+  kQ3WarningScaleContainsNegativeEntries = -28267, // Generic Warnings   kQ3WarningParameterOutOfRange = -28266,          // Extension Warnings   kQ3WarningExtensionNotLoading = -28265,          // Object Warnings   kQ3WarningTypeAlreadyRegistered = -28264,
+  kQ3WarningTypeSameVersionAlreadyRegist// General System 
+  kQ3WarningTypeNewerVersionAlreadyRegis// Object Warnings 
+      -28262, // Invalid Group Object   kQ3WarningInvalidObjectInGroupMetafile = -28261
 };
 typedef enum TQ3Warning TQ3Warning;
 
 enum TQ3Notice {
   kQ3NoticeNone = 0,
   kQ3NoticeDataAlreadyEmpty = -28100,
-  kQ3NoticeMethodNotSupported = -28099,
-  kQ3NoticeObjectAlreadySet = -28098,
+  kQ3NoticeMethodNotSupported = -28099,// Parameter Warnings 
+  kQ3NoticeObjectAlreadySet = -28098,// IO Warnings 
   kQ3NoticeParameterOutOfRange = -28097,
   kQ3NoticeFileAliasWasChanged = -28096,
   kQ3NoticeMeshVertexHasNoComponent = -28095,
@@ -259,23 +220,23 @@ enum TQ3Notice {
   kQ3NoticeSystemAlreadyInitialized = -28087,
   kQ3NoticeViewSyncCalledAgain = -28086,
   kQ3NoticeFileCancelled = -28085
-};
+};// Memory Warnings 
 typedef enum TQ3Notice TQ3Notice;
-
+// View Warnings 
 typedef CALLBACK_API_C(void, TQ3ErrorMethod)(TQ3Error firstError,
-                                             TQ3Error lastError,
-                                             long reference);
-typedef CALLBACK_API_C(void, TQ3WarningMethod)(TQ3Warning firstWarning,
-                                               TQ3Warning lastWarning,
-                                               long reference);
+                                             TQ3// Quaternion Warning 
+                                             lon// Renderer Warning 
+typedef CALLBACK_API_C(void, TQ3WarningMethod)(T// DrawContext Warning 
+                                               T// Pick Warning 
+                                               l// Scale Warnings 
 typedef CALLBACK_API_C(void, TQ3NoticeMethod)(TQ3Notice firstNotice,
-                                              TQ3Notice lastNotice,
-                                              long reference);
-/******************************************************************************
+                                              TQ3No// Generic Warnings 
+                                              long // Extension Warnings 
+/**************************************************// Object Warnings 
  **                                                                          **
  **                             Error Routines                               **
  **                                                                          **
- *****************************************************************************/
+ *************// Invalid Group Object 
 #if CALL_NOT_IN_CARBON
 /**
  *  Q3Error_Register()
@@ -360,8 +321,7 @@ Q3Warning_Get(TQ3Warning *firstWarning);
 TQ3Notice
 Q3Notice_Get(TQ3Notice *firstNotice);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if TARGET_OS_MAC
 #if CALL_NOT_IN_CARBON
 /**
@@ -375,10 +335,8 @@ Q3Notice_Get(TQ3Notice *firstNotice);
 OSErr
 Q3MacintoshError_Get(OSErr *firstMacErr);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_MAC */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_OS_MAC 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __QD3DERRORS__RESTORE_TWOBYTEINTS
@@ -402,10 +360,12 @@ Q3MacintoshError_Get(OSErr *firstMacErr);
 #pragma import off
 #elif PRAGMA_IMPORT
 #pragma import reset
-#endif
+#endif// CALL_NOT_IN_CARBON 
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __QD3DERRORS__ */
+#endif // __QD3DERRORS__ // CALL_NOT_IN_CARBON 
+// TARGET_OS_MAC 
+// __QD3DERRORS__ 

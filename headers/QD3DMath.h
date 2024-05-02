@@ -1764,8 +1764,7 @@ Q3BoundingSphere_SetFromRationalPoints4D(TQ3BoundingSphere *bSphere,
                                          unsigned long numPoints,
                                          unsigned long structSize);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __QD3DMATH__RESTORE_TWOBYTEINTS
@@ -1795,4 +1794,4 @@ Q3BoundingSphere_SetFromRationalPoints4D(TQ3BoundingSphere *bSphere,
 }
 #endif
 
-#endif /* __QD3DMATH__ */
+#endif // __QD3DMATH__ // __QD3DMATH__ 

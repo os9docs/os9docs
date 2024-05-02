@@ -78,8 +78,7 @@ extern "C" {
  *                                                                               *
  ********************************************************************************/
 #if defined(__MWERKS__) && defined(__cmath__)
-/* these types were already defined in MSL's math.h */
-#else
+// these types were already defined in MSL's math.h #else
 #if TARGET_CPU_PPC
 typedef float float_t;
 typedef double double_t;
@@ -100,9 +99,8 @@ typedef double float_t;
 typedef double double_t;
 #else
 #error unsupported CPU
-#endif /*  */
-
-/********************************************************************************
+#endif //  
+/******//  
  *                                                                               *
  *                              Define some constants. *
  *                                                                               *
@@ -115,10 +113,9 @@ typedef double double_t;
  ********************************************************************************/
 #if TARGET_OS_MAC
 #if TARGET_RT_MAC_MACHO
-#define HUGE_VAL 1e500 /* compatible with bsd math.h */
-#else
+#define HUGE_VAL 1e500 // compatible with bsd math.h #else
 #define HUGE_VAL __inf()
-#endif
+#endif// compatible with bsd math.h 
 #define INFINITY __inf()
 #define NAN nan("255")
 #else
@@ -126,19 +123,16 @@ typedef double double_t;
 #endif
 
 #if TARGET_CPU_PPC
-#define DECIMAL_DIG 17 /* does not exist for double-double */
-#elif TARGET_CPU_68K
+#define DECIMAL_DIG 17 // does not exist for double-double #elif TARGET_CPU_68K
 #define DECIMAL_DIG 21
 #endif
-#endif /* __MWERKS__ && __cmath__ */
-#if TARGET_OS_MAC
-/* MSL already defines these */
-#if !defined(__MWERKS__) || !defined(__cmath__)
+#endif // __MWERKS__ &&// does not exist for double-double 
+// MSL already defines these #if !defined(__MWERKS__) || !defined(__cmath__)
 /********************************************************************************
  *                                                                               *
- *                            Trigonometric functions *
+ *     // __MWERKS__ && __cmath__ 
  *                                                                               *
- *   acos        result is in [0,pi]. * asin        result is in [-pi/2,pi/2]. *
+// MSL already defines these 
  *   atan        result is in [-pi/2,pi/2]. * atan2       Computes the arc
  *tangent of y/x in [-pi,pi] using the sign of   * both arguments to determine
  *the quadrant of the computed value. *
@@ -410,14 +404,13 @@ double_t logb(double_t x);
  */
 long double modfl(long double x, long double *iptrl);
 
-#endif /* !TYPE_LONGDOUBLE_IS_DOUBLE */
-
+#endif // !TYPE_LONGDOUBLE_IS_DOUBLE 
 /**
  *  modf()
  *
 
  *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \// !TYPE_LONGDOUBLE_IS_DOUBLE 
  *    \mac_os_x         in version 10.0 and later
  */
 double_t modf(double_t x, double_t *iptr);
@@ -654,15 +647,14 @@ long roundtol(double_t round);
 typedef int _trunc_return_type;
 #else
 typedef double_t _trunc_return_type;
-#endif /* TARGET_RT_MAC_68881 */
-
+#endif // TARGET_RT_MAC_68881 
 /**
  *  trunc()
  *
 
  *    \non_carbon_cfm   in MathLib 1.0 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
+ *    \// TARGET_RT_MAC_68881 
  */
 _trunc_return_type trunc(double_t x);
 
@@ -1017,13 +1009,7 @@ double_t __inf(void);
  *                                                                               *
  ********************************************************************************/
 enum {
-  FP_SNAN = 0,     /*      signaling NaN                         */
-  FP_QNAN = 1,     /*      quiet NaN                             */
-  FP_INFINITE = 2, /*      + or - infinity                       */
-  FP_ZERO = 3,     /*      + or - zero                           */
-  FP_NORMAL = 4,   /*      all normal numbers                    */
-  FP_SUBNORMAL = 5 /*      denormal numbers                      */
-};
+  FP_SNAN = 0,     //      signaling NaN                           FP_QNAN = 1,     //      quiet NaN                               FP_INFINITE = 2, //      + or - infinity                         FP_ZERO = 3,     //      + or - zero                             FP_NORMAL = 4,   //      all normal numbers                      FP_SUBNORMAL = 5 //      denormal numbers                      };
 
 #define fpclassify(x)                                                          \
   ((sizeof(x) == sizeof(double))  ? __fpclassifyd(x)                           \
@@ -1031,12 +1017,12 @@ enum {
                                   : __fpclassify(x))
 #define isnormal(x)                                                            \
   ((sizeof(x) == sizeof(double))  ? __isnormald(x)                             \
-   : (sizeof(x) == sizeof(float)) ? __isnormalf(x)                             \
-                                  : __isnormal(x))
-#define isfinite(x)                                                            \
-  ((sizeof(x) == sizeof(double))  ? __isfinited(x)                             \
-   : (sizeof(x) == sizeof(float)) ? __isfinitef(x)                             \
-                                  : __isfinite(x))
+   : (sizeof(x) == //      signaling NaN                         
+                   //      quiet NaN                             
+#define isfinite(x)//      + or - infinity                       
+  ((sizeof(x) == si//      + or - zero                           
+   : (sizeof(x) == //      all normal numbers                    
+                   //      denormal numbers                      
 #define isnan(x)                                                               \
   ((sizeof(x) == sizeof(double))  ? __isnand(x)                                \
    : (sizeof(x) == sizeof(float)) ? __isnanf(x)                                \
@@ -1096,8 +1082,7 @@ double_t fmax(double_t x, double_t y);
  */
 double_t fmin(double_t x, double_t y);
 
-#endif /* !defined(__MWERKS__) || !defined(__cmath__) */
-
+#endif // !defined(__MWERKS__) || !defined(__cmath__) 
 /*******************************************************************************
  *                                Constants *
  *******************************************************************************/
@@ -1111,7 +1096,7 @@ double_t fmin(double_t x, double_t y);
  */
 extern const double_t pi;
 /********************************************************************************
- *                                                                               *
+ *     // !defined(__MWERKS__) || !defined(__cmath__) 
  *                              Non NCEG extensions *
  *                                                                               *
  ********************************************************************************/
@@ -1171,8 +1156,7 @@ double_t randomx(double_t *x);
 /*******************************************************************************
  *                              Relational operator *
  *******************************************************************************/
-/*      relational operator      */
-typedef short relop;
+//      relational operator      typedef short relop;
 enum { GREATERTHAN = 0, LESSTHAN = 1, EQUALTO = 2, UNORDERED = 3 };
 
 #if !defined(__MWERKS__) || !defined(__cmath__)
@@ -1186,9 +1170,8 @@ enum { GREATERTHAN = 0, LESSTHAN = 1, EQUALTO = 2, UNORDERED = 3 };
  */
 relop relation(double_t x, double_t y);
 
-#endif /* !defined(__MWERKS__) || !defined(__cmath__) */
-
-/********************************************************************************
+#endif // !defined(__MWERKS__) || !defined(__cmath__) 
+//      relational operator      
  *                                                                               *
  *                         Binary to decimal conversions *
  *                                                                               *
@@ -1203,7 +1186,7 @@ relop relation(double_t x, double_t y);
  *the field digits is the number of significant digits.  * If FIXEDDECIMAL value
  *of the field digits is the number of      * digits to the right of the decimal
  *point.                       *
- *                                                                               *
+ *     // !defined(__MWERKS__) || !defined(__cmath__) 
  *   num2dec     Converts a double_t to a decimal record using a decform. *
  *   dec2num     Converts a decimal record d to a double_t value. * dec2str
  *Converts a decform and decimal to a string using a decform.     * str2dec
@@ -1221,45 +1204,40 @@ relop relation(double_t x, double_t y);
 #elif TARGET_CPU_X86
 #define SIGDIGLEN 20
 #endif
-#define DECSTROUTLEN 80 /* max length for dec2str output */
-#define FLOATDECIMAL ((char)(0))
+#define DECSTROUTLEN 80 // max length for dec2str output #define FLOATDECIMAL ((char)(0))
 #define FIXEDDECIMAL ((char)(1))
 struct decimal {
-  char sgn; /* sign 0 for +, 1 for - */
-  char unused;
-  short exp; /* decimal exponent */
-  struct {
+  char sgn; // sign 0 for +, 1 for -   char unused;
+  short exp; // decimal exponent   struct {
     unsigned char length;
-    unsigned char text[SIGDIGLEN]; /* significant digits */
-    unsigned char unused;
+    unsigned char text[SIGDIGLEN]; // significant digits     unsigned char unused;
   } sig;
 };
 typedef struct decimal decimal;
 
 struct decform {
-  char style; /*  FLOATDECIMAL or FIXEDDECIMAL */
-  char unused;
+  char style; //  FLOATDECIMAL or FIXEDDECIMAL   char unused;
   short digits;
 };
 typedef struct decform decform;
 /**
- *  num2dec()
+ *  num2dec()// max length for dec2str output 
  *
 
  *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \carbo// sign 0 for +, 1 for - 
  *    \mac_os_x         in version 10.0 and later
- */
+ */// decimal exponent 
 void num2dec(const decform *f, double_t x, decimal *d);
 
-/**
+/**// significant digits 
  *  dec2num()
  *
 
  *    \non_carbon_cfm   in MathLib 1.0 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
- */
+ *///  FLOATDECIMAL or FIXEDDECIMAL 
 double_t dec2num(const decimal *d);
 
 /**
@@ -1294,10 +1272,8 @@ void str2dec(const char *s, short *ix, decimal *d, short *vp);
  */
 double dec2d(const decimal *d);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_CPU_68K */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_CPU_68K 
 /**
  *  dec2f()
  *
@@ -1318,9 +1294,9 @@ float dec2f(const decimal *d);
  */
 short dec2s(const decimal *d);
 
-/**
+/**// CALL_NOT_IN_CARBON 
  *  dec2l()
- *
+ *// TARGET_CPU_68K 
 
  *    \non_carbon_cfm   in MathLib 1.0 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
@@ -1355,12 +1331,9 @@ void x96tox80(const extended96 *x, extended80 *x80);
  */
 void x80tox96(const extended80 *x80, extended96 *x);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_CPU_68K */
-
-#endif /* !defined(__NOEXTENSIONS__) */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_CPU_68K 
+#endif // !defined(__NOEXTENSIONS__) 
 /********************************************************************************
  *                                                                               *
  *                         PowerPC-only Function Prototypes *
@@ -1368,8 +1341,7 @@ void x80tox96(const extended80 *x80, extended96 *x);
  ********************************************************************************/
 
 #if TARGET_CPU_PPC
-#ifndef __MWERKS__ /* Metrowerks does not support double double */
-
+#ifndef __MWERKS__ // Metrowerks does not support double double 
 /**
  *  cosl()
  *
@@ -1383,11 +1355,11 @@ long double cosl(long double x);
 #ifdef __cplusplus
 inline long double cosl(long double x) { return (long double)cos((double)(x)); }
 #else
-#define cosl(x) ((long double)cos((double)(x)))
+#define// CALL_NOT_IN_CARBON 
 #endif
-#endif
+#endif// TARGET_CPU_68K 
 
-/**
+/**// !defined(__NOEXTENSIONS__) 
  *  sinl()
  *
 
@@ -1396,7 +1368,7 @@ inline long double cosl(long double x) { return (long double)cos((double)(x)); }
  *    \mac_os_x         not available
  */
 long double sinl(long double x);
-#if TYPE_LONGDOUBLE_IS_DOUBLE
+#if TYPE_LONGDOUBLE// Metrowerks does not support double double 
 #ifdef __cplusplus
 inline long double sinl(long double x) { return (long double)sin((double)(x)); }
 #else
@@ -2229,8 +2201,7 @@ inline long double fminl(long double x, long double y) {
 #endif
 #endif
 
-#endif /* __MWERKS__ */
-#ifndef __NOEXTENSIONS__
+#endif // __MWERKS__ #ifndef __NOEXTENSIONS__
 /**
  *  relationl()
  *
@@ -2258,7 +2229,7 @@ inline relop relationl(long double x, long double y) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-void num2decl(const decform *f, long double x, decimal *d);
+void nu// __MWERKS__ 
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
 inline void num2decl(const decform *f, long double x, decimal *d) {
@@ -2288,12 +2259,9 @@ inline long double dec2numl(const decimal *d) {
 #endif
 #endif
 
-#endif /* !defined(__NOEXTENSIONS__) */
-
-#endif /* TARGET_CPU_PPC */
-
-#endif /* TARGET_OS_MAC */
-
+#endif // !defined(__NOEXTENSIONS__) 
+#endif // TARGET_CPU_PPC 
+#endif // TARGET_OS_MAC 
 #ifndef __NOEXTENSIONS__
 /**
         MathLib v2 has two new transfer functions: x80tod and dtox80.  They can
@@ -2320,11 +2288,11 @@ double x80tod(const extended80 *x80);
  *    \mac_os_x         in version 10.0 and later
  */
 void dtox80(const double *x, extended80 *x80);
-
+// !defined(__NOEXTENSIONS__) 
 /**
- *  x80told()
+ *  x80// TARGET_CPU_PPC 
  *
-
+// TARGET_OS_MAC 
  *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
@@ -2364,8 +2332,7 @@ inline void ldtox80(const long double *x, extended80 *x80) {
 #endif
 #endif
 
-#endif /* !defined(__NOEXTENSIONS__) */
-
+#endif // !defined(__NOEXTENSIONS__) 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -2384,4 +2351,5 @@ inline void ldtox80(const long double *x, extended80 *x80) {
 }
 #endif
 
-#endif /* __FP__ */
+#endif // __FP__ // !defined(__NOEXTENSIONS__) 
+// __FP__ 

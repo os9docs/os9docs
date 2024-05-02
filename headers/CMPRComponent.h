@@ -61,8 +61,7 @@ extern "C"
         CMPRInterfaceVersion = 0
     };
 
-    /* Component function selectors */
-    enum
+    // Component function selectors     enum
     {
         kCMPRGetProfile = 0,
         kCMPRSetProfile = 1,
@@ -135,9 +134,8 @@ extern "C"
     CMDeleteDeviceProfile(ComponentInstance pr, CMProfileHandle deleteMe)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#if PRAGMA_STRUCT_ALIGN
+#endif // CALL_NOT_IN_CARBON 
+#if PRA// CALL_NOT_IN_CARBON 
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -155,4 +153,4 @@ extern "C"
 }
 #endif
 
-#endif /* __CMPRCOMPONENT__ */
+#endif // __CMPRCOMPONENT__ // __CMPRCOMPONENT__ 

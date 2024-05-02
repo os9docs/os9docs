@@ -587,7 +587,7 @@ DoDoubleClick( &theEvent ); // process the double click
 }
 lastWhen = theEvent.when;
 lastWhere = theEvent.where;
-/* ... handle other mouseDown events ... */
+// ... handle other mouseDown events ... 
 }
 if (theEvent.what == keyDown)
 {
@@ -599,7 +599,7 @@ if (theEvent.what == keyDown)
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           UInt32
           GetDblTime(void) TWOWORDINLINE(0x2EB8, 0x02F0);
 
@@ -939,8 +939,8 @@ InitGraf ();
 .
 .... initialize other stuff ...
 .
-while (TRUE) /* Loop forever; terminate via */
-  EventLoop(); /* ExitToShell elsewhere */
+while (TRUE) // Loop forever; terminate via 
+  EventLoop(); // ExitToShell elsewhere 
 }
 EventLoop()
 {
@@ -968,7 +968,7 @@ DAs wanting a timeslice every so often should set bit 5 of the drvrFlags
                later
                        *    \carbon_lib not available
                    *    \mac_os_x not available
-                   * /
+                 */
                    void SystemTask(void) ONEWORDINLINE(0xA9B4);
 
 /**

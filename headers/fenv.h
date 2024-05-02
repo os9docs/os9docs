@@ -9,7 +9,7 @@
     \copyright © 1987-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup Math
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -66,10 +67,9 @@ extern "C" {
  *                                                                               *
  ********************************************************************************/
 #if TARGET_CPU_PPC
-typedef long fenv_t;
-typedef long fexcept_t;
-/*    Definitions of floating-point exception macros                          */
-enum {
+  typedef long fenv_t;
+  typedef long fexcept_t;
+  //    Definitions of floating-point exception macros                          enum {
   FE_INEXACT = 0x02000000,
   FE_DIVBYZERO = 0x04000000,
   FE_UNDERFLOW = 0x08000000,
@@ -79,68 +79,49 @@ enum {
                                 FE_OVERFLOW | FE_INVALID*/
 };
 
-/*    Definitions of rounding direction macros                                */
-enum {
-  FE_TONEAREST = 0x00000000,
-  FE_TOWARDZERO = 0x00000001,
-  FE_UPWARD = 0x00000002,
-  FE_DOWNWARD = 0x00000003
-};
+//    Definitions of rounding direction macros                                enum {
+FE_TONEAREST = 0x00000000,
+    FE_TOWARDZERO = 0x00000001,
+    FE_UPWARD = 0x00000002,
+    FE_DOWNWARD = 0x00000003
+}
+;
 
-#endif /* TARGET_CPU_PPC */
-
+#endif // TARGET_CPU_PPC
 #if TARGET_CPU_68K
 #if TARGET_RT_MAC_68881
 typedef long fexcept_t;
-struct fenv_t {
+struct fenv_t
+{
   long FPCR;
   long FPSR;
 };
 typedef struct fenv_t fenv_t;
-enum {
-  FE_INEXACT = 0x00000008,   /* ((long)(8))   */
-  FE_DIVBYZERO = 0x00000010, /* ((long)(16))  */
-  FE_UNDERFLOW = 0x00000020, /* ((long)(32))  */
-  FE_OVERFLOW = 0x00000040,  /* ((long)(64))  */
-  FE_INVALID = 0x00000080,   /* ((long)(128)) */
-  FE_ALL_EXCEPT = 0x000000F8 /* FE_INEXACT | FE_DIVBYZERO | FE_UNDERFLOW |
-                                FE_OVERFLOW | FE_INVALID*/
+enum
+{
+  FE_INEXACT = 0x00000008, // ((long)(8))     FE_DIVBYZERO = 0x00000010, // ((long)(16))    FE_UNDERFLOW = 0x00000020, // ((long)(32))    FE_OVERFLOW = 0x00000040,  // ((long)(64))    FE_INVALID = 0x00000080,   // ((long)(128))   FE_ALL_EXCEPT = 0x000000F8 /* FE_INEXACT | FE_DIVBYZERO | FE_UNDERFLOW |
+  FE_OVERFLOW | FE_INVALID * /
 };
 
 #else
 
 typedef short fexcept_t;
 typedef short fenv_t;
-enum {
-  FE_INVALID = 0x0001,   /* ((short)(1))  */
-  FE_UNDERFLOW = 0x0002, /* ((short)(2))  */
-  FE_OVERFLOW = 0x0004,  /* ((short)(4))  */
-  FE_DIVBYZERO = 0x0008, /* ((short)(8))  */
-  FE_INEXACT = 0x0010,   /* ((short)(16)) */
-  FE_ALL_EXCEPT = 0x001F /* FE_INEXACT | FE_DIVBYZERO | FE_UNDERFLOW |
-                            FE_OVERFLOW | FE_INVALID*/
+enum
+{
+  FE_INVALID = 0x0001, // ((short)(1))    FE_UNDERFLOW = 0x0002, // ((short)(2))    FE_OVERFLOW = 0x0004,  // ((short)(4))    FE_DIVBYZERO = 0x0008, // ((short)(8))    FE_INEXACT = 0x0010,   // ((short)(16))   FE_ALL_EXCEPT = 0x001F /* FE_INEXACT | FE_DIVBYZERO | FE_UNDERFLOW |
+  FE_OVERFLOW | FE_INVALID * /
 };
 
-#endif /* TARGET_RT_MAC_68881 */
-
+#endif // TARGET_RT_MAC_68881
 enum {
-  FE_TONEAREST = 0x0000, /* ((short)(0))  */
-  FE_UPWARD = 0x0001,    /* ((short)(1))  */
-  FE_DOWNWARD = 0x0002,  /* ((short)(2))  */
-  FE_TOWARDZERO = 0x0003 /* ((short)(3))  */
-};
+  FE_TONEAREST = 0x0000, // ((short)(0))    FE_UPWARD = 0x0001,    // ((short)(1))    FE_DOWNWARD = 0x0002,  // ((short)(2))    FE_TOWARDZERO = 0x0003 // ((short)(3))  };
 
-/*    Definitions of rounding precision macros  (68K only)                    */
-enum {
-  FE_LDBLPREC = 0x0000, /* ((short)(0))  */
-  FE_DBLPREC = 0x0001,  /* ((short)(1))  */
-  FE_FLTPREC = 0x0002   /* ((short)(2))  */
-};
+//    Definitions of rounding precision macros  (68K only)                    enum {
+  FE_LDBLPREC = 0x0000, // ((short)(0))    FE_DBLPREC = 0x0001,  // ((short)(1))    FE_FLTPREC = 0x0002   // ((short)(2))  };
 
-#endif /* TARGET_CPU_68K */
-
-/* default environment object        */
-/**
+#endif // TARGET_CPU_68K 
+// default environment object        /**
  *  _FE_DFL_ENV
  *
 
@@ -149,8 +130,7 @@ enum {
  *    \mac_os_x         in version 10.1 and later
  */
 extern fenv_t _FE_DFL_ENV;
-#define FE_DFL_ENV &_FE_DFL_ENV /* pointer to default environment    */
-/*******************************************************************************
+#define FE_DFL_ENV &_FE_DFL_ENV // pointer to default environment    /*******************************************************************************
  *     The following functions provide access to the exception flags.  The *
  *     "int" input argument can be constructed by bitwise ORs of the exception *
  *     macros: for example: FE_OVERFLOW | FE_INEXACT. *
@@ -365,12 +345,9 @@ int fegetprec(void);
  */
 int fesetprec(int precision);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_CPU_68K */
-
-#endif /* TARGET_OS_MAC */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // TARGET_CPU_68K
+#endif // TARGET_OS_MAC
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -389,4 +366,4 @@ int fesetprec(int precision);
 }
 #endif
 
-#endif /* __FENV__ */
+#endif // __FENV__

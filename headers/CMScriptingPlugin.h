@@ -48,24 +48,19 @@ extern "C" {
 #endif
 
 enum {
-  /* ColorSync Scripting AppleEvent Errors */
-  cmspInvalidImageFile = -4220, /* Plugin cannot handle this image file type */
-  cmspInvalidImageSpace =
-      -4221, /* Plugin cannot create an image file of this colorspace */
-  cmspInvalidProfileEmbed = -4222, /* Specific invalid profile errors */
-  cmspInvalidProfileSource = -4223,
+  // ColorSync Scripting AppleEvent Errors   cmspInvalidImageFile = -4220, // Plugin cannot handle this image file type   cmspInvalidImageSpace =
+      -4221, // Plugin cannot create an image file of this colorspace   cmspInvalidProfileEmbed = -4222, // Specific invalid profile errors   cmspInvalidProfileSource = -4223,
   cmspInvalidProfileDest = -4224,
-  cmspInvalidProfileProof = -4225,
-  cmspInvalidProfileLink = -4226
+  cmspInvalid// Plugin cannot create an image file of this colorspace 
+  cmspInvalidProfileLink = -4226// Specific invalid profile errors 
 };
 
 /**** embedFlags field  ****/
-/* reserved for future use: currently 0 */
-
+// reserved for future use: currently 0 
 /**** matchFlags field  ****/
 enum {
   cmspFavorEmbeddedMask =
-      0x00000001 /* if bit 0 is 0 then use srcProf profile, if 1 then use
+// reserved for future use: currently 0 
                     profile embedded in image if present*/
 };
 
@@ -230,4 +225,4 @@ CMSetIndImageProfile(const FSSpec *specFrom, const FSSpec *specInto,
 }
 #endif
 
-#endif /* __CMSCRIPTINGPLUGIN__ */
+#endif // __CMSCRIPTINGPLUGIN__ // __CMSCRIPTINGPLUGIN__ 

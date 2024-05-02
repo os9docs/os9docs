@@ -170,36 +170,22 @@ Q3Set_GetNextElementType(TQ3SetObject theSet, TQ3ElementType *theType);
  *  For surface shader attributes, reference counts are incremented on
  *  the _Add and _Get
  */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum TQ3AttributeTypes {
-  /* Data Type          */
-  kQ3AttributeTypeNone = 0,               /* ---------          */
-  kQ3AttributeTypeSurfaceUV = 1,          /* TQ3Param2D          */
-  kQ3AttributeTypeShadingUV = 2,          /* TQ3Param2D           */
-  kQ3AttributeTypeNormal = 3,             /* TQ3Vector3D           */
-  kQ3AttributeTypeAmbientCoefficient = 4, /* float            */
-  kQ3AttributeTypeDiffuseColor = 5,       /* TQ3ColorRGB          */
-  kQ3AttributeTypeSpecularColor = 6,      /* TQ3ColorRGB          */
-  kQ3AttributeTypeSpecularControl = 7,    /* float            */
-  kQ3AttributeTypeTransparencyColor = 8,  /* TQ3ColorRGB          */
-  kQ3AttributeTypeSurfaceTangent = 9,     /* TQ3Tangent2D          */
-  kQ3AttributeTypeHighlightState = 10,    /* TQ3Switch           */
-  kQ3AttributeTypeSurfaceShader = 11,     /* TQ3SurfaceShaderObject */
-  kQ3AttributeTypeNumTypes = 12
-};
-typedef enum TQ3AttributeTypes TQ3AttributeTypes;
-
-typedef TQ3ElementType TQ3AttributeType;
-/******************************************************************************
- **                                                                          **
- **                             Attribute Drawing                            **
- **                                                                          **
- *****************************************************************************/
-#if CALL_NOT_IN_CARBON
-/**
- *  Q3Attribute_Submit()
- *
+  // Data Type            kQ3AttributeTypeNone = 0,               // ---------            kQ3AttributeTypeSurfaceUV = 1,          // TQ3Param2D            kQ3AttributeTypeShadingUV = 2,          // TQ3Param2D             kQ3AttributeTypeNormal = 3,             // TQ3Vector3D             kQ3AttributeTypeAmbientCoefficient = 4, // float              kQ3AttributeTypeDiffuseColor = 5,       // TQ3ColorRGB            kQ3AttributeTypeSpecularColor = 6,      // TQ3ColorRGB            kQ3AttributeTypeSpecularControl = 7,    // float              kQ3AttributeTypeTransparencyColor = 8,  // TQ3ColorRGB            kQ3AttributeTypeSurfaceTangent = 9,     // TQ3Tangent2D            kQ3AttributeTypeHighlightState = 10,    // TQ3Switch             kQ3AttributeTypeSurfaceShader = 11,     // TQ3SurfaceShaderObject   kQ3AttributeTypeNumTypes = 12
+};// Data Type          
+typedef enum TQ3AttributeTypes TQ3Attribut// ---------          
+// TQ3Param2D          
+typedef TQ3ElementType TQ3AttributeType;// TQ3Param2D           
+/*****************************************// TQ3Vector3D           
+ **                                       // float            
+ **                             Attribute // TQ3ColorRGB          
+ **                                       // TQ3ColorRGB          
+ *****************************************// float            
+#if CALL_NOT_IN_CARBON// TQ3ColorRGB          
+/**// TQ3Tangent2D          
+ *  Q3Attribute_Submit()// TQ3Switch           
+ *// TQ3SurfaceShaderObject 
  *  Availability:
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -376,8 +362,7 @@ Q3AttributeSet_Inherit(TQ3AttributeSet parent, TQ3AttributeSet child,
  *      If CopyGet allocates any memory in it's destination, it is up to the
  *      application to delete it on its side.
  */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #define kQ3XMethodTypeElementCopyAdd Q3_METHOD_TYPE('e', 'c', 'p', 'a')
 #define kQ3XMethodTypeElementCopyReplace Q3_METHOD_TYPE('e', 'c', 'p', 'r')
 #define kQ3XMethodTypeElementCopyGet Q3_METHOD_TYPE('e', 'c', 'p', 'g')
@@ -391,7 +376,7 @@ typedef CALLBACK_API_C(TQ3Status,
                                                      void *ontoInternalElement);
 typedef CALLBACK_API_C(TQ3Status, TQ3XElementCopyGetMethod)(
     const void *fromInternalElement, void *toAPIElement);
-typedef CALLBACK_API_C(TQ3Status, TQ3XElementCopyDuplicateMethod)(
+typedef// CALL_NOT_IN_CARBON 
     const void *fromInternalElement, void *toInternalElement);
 typedef CALLBACK_API_C(TQ3Status,
                        TQ3XElementDeleteMethod)(void *internalElement);
@@ -421,8 +406,7 @@ TQ3Status
 Q3XElementType_GetElementSize(TQ3ElementType elementType,
                               unsigned long *sizeOfElement);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /******************************************************************************
  **                                                                          **
  **                     Custom Attribute Registration                        **
@@ -430,15 +414,14 @@ Q3XElementType_GetElementSize(TQ3ElementType elementType,
  *****************************************************************************/
 #define kQ3XMethodTypeAttributeInherit Q3_METHOD_TYPE('i', 'n', 'h', 't')
 typedef TQ3Boolean TQ3XAttributeInheritMethod;
-/* return kQ3True or kQ3False in your metahandler */
-#define kQ3XMethodTypeAttributeCopyInherit Q3_METHOD_TYPE('a', 'c', 'p', 'i')
+// return kQ3True or kQ3False in your metahandler #define kQ3XMethodTypeAttributeCopyInherit Q3_METHOD_TYPE('a', 'c', 'p', 'i')
 typedef CALLBACK_API_C(TQ3Status, TQ3XAttributeCopyInheritMethod)(
     const void *fromInternalAttribute, void *toInternalAttribute);
 #if CALL_NOT_IN_CARBON
 /**
  *  Q3XAttributeClass_Register()
  *
- *  Availability:
+ *  Ava// CALL_NOT_IN_CARBON 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -447,9 +430,8 @@ TQ3XObjectClass
 Q3XAttributeClass_Register(TQ3AttributeType *attributeType,
                            const char *creatorName, unsigned long sizeOfElement,
                            TQ3XMetaHandler metaHandler);
-
-#endif /* CALL_NOT_IN_CARBON */
-
+// return kQ3True or kQ3False in your metahandler 
+#endif // CALL_NOT_IN_CARBON 
 /**
  *  Version 1.5
  */
@@ -466,7 +448,7 @@ typedef CALLBACK_API_C(TQ3Boolean,
 #pragma fourbyteints off
 #endif
 #elif PRAGMA_ENUM_OPTIONS
-#pragma option enum =reset
+#pragma// CALL_NOT_IN_CARBON 
 #elif defined(__QD3DSET__RESTORE_PACKED_ENUMS)
 #pragma options(pack_enums)
 #endif
@@ -489,4 +471,4 @@ typedef CALLBACK_API_C(TQ3Boolean,
 }
 #endif
 
-#endif /* __QD3DSET__ */
+#endif // __QD3DSET__ // __QD3DSET__ 

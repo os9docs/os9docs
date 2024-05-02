@@ -73,8 +73,7 @@ extern "C" {
 typedef CGError CGEventErr;
 enum { CGEventNoErr = kCGErrorSuccess };
 
-/* Screen refresh or drawing notification */
-/**
+// Screen refresh or drawing notification /**
  * Callback function pointer;
  * Declare your callback function in this form.  When an area of the display is
  * modified or refreshed, your callback function will be invoked with a count
@@ -368,15 +367,13 @@ CGEnableEventStateCombining(boolean_t doCombineState);
  */
 enum CGEventFilterMask {
   kCGEventFilterMaskPermitLocalMouseEvents =
-      0x00000001, /* Mouse, scroll wheel */
-  kCGEventFilterMaskPermitLocalKeyboardEvents =
-      0x00000002, /* Alphanumeric keys and Command, Option, Control, Shift,
+      0x00000001, // Mouse, scroll wheel   kCGEventFilterMaskPermitLocalKeyboardEvents =
+      0x00000002, // Mouse, scroll wheel 
                      AlphaLock */
   kCGEventFilterMaskPermitSystemDefinedEvents =
-      0x00000004, /* Power key, bezel buttons, sticky keys */
-  kCGEventFilterMaskPermitAllEvents =
+      0x00000004, // Power key, bezel buttons, sticky keys   kCGEventFilterMaskPermitAllEvents =
       kCGEventFilterMaskPermitLocalMouseEvents |
-      kCGEventFilterMaskPermitLocalKeyboardEvents |
+      kCGEventFilt// Power key, bezel buttons, sticky keys 
       kCGEventFilterMaskPermitSystemDefinedEvents
 };
 typedef enum CGEventFilterMask CGEventFilterMask;
@@ -503,4 +500,4 @@ CGAssociateMouseAndMouseCursorPosition(boolean_t connected);
 }
 #endif
 
-#endif /* __CGREMOTEOPERATION__ */
+#endif // __CGREMOTEOPERATION__ // __CGREMOTEOPERATION__ 

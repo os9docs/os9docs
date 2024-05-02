@@ -75,8 +75,7 @@ typedef struct CGDataConsumerCallbacks CGDataConsumerCallbacks;
 CGDataConsumerRef
 CGDataConsumerCreate(void *info, const CGDataConsumerCallbacks *callbacks);
 
-/* Create a data consumer which writes data to `url'. */
-/**
+// Create a data consumer which writes data to `url'. /**
  *  CGDataConsumerCreateWithURL()
  *
 
@@ -131,4 +130,4 @@ CGDataConsumerRelease(CGDataConsumerRef consumer);
 }
 #endif
 
-#endif /* __CGDATACONSUMER__ */
+#endif // __CGDATACONSUMER__ // __CGDATACONSUMER__ 

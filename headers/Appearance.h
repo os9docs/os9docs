@@ -56,10 +56,8 @@
 #endif
 
 /*����������������������������������������������������������������������������������*/
-/* Appearance Manager constants, etc. */
-/*����������������������������������������������������������������������������������*/
-/* Appearance Manager Apple Events (1.1 and later)              */
-
+// Appearance Manager constants, etc. /*����������������������������������������������������������������������������������*/
+// Appearance Manager Apple Events (1.1 and later)
 #if PRAGMA_ONCE
 #pragma once
 #endif
@@ -83,32 +81,21 @@ extern "C"
 
   enum
   {
-    kAppearanceEventClass = FOUR_CHAR_CODE('appr'), /* Event Class */
-    kAEAppearanceChanged = FOUR_CHAR_CODE(
-        'thme'),                                   /* Appearance changed (e.g. platinum to hi-tech) */
-    kAESystemFontChanged = FOUR_CHAR_CODE('sysf'), /* system font changed */
-    kAESmallSystemFontChanged =
-        FOUR_CHAR_CODE('ssfn'),                  /* small system font changed */
-    kAEViewsFontChanged = FOUR_CHAR_CODE('vfnt') /* views font changed */
-  };
+    kAppearanceEventClass = FOUR_CHAR_CODE('appr'), // Event Class     kAEAppearanceChanged = FOUR_CHAR_CODE(
+        'thme'),                                   // Appearance changed (e.g. platinum to hi-tech)     kAESystemFontChanged = FOUR_CHAR_CODE('sysf'), // system font changed     kAESmallSystemFontChanged =
+        FOUR_CHAR_CODE('ssfn'),                  // small system font changed     kAEViewsFontChanged = FOUR_CHAR_CODE('vfnt') // views font changed   };
 
   /*����������������������������������������������������������������������������������*/
-  /* Appearance Manager file types */
-  /*����������������������������������������������������������������������������������*/
+  // Appearance Manager file types   /*����������������������������������������������������������������������������������*/
   enum
   {
-    kThemeDataFileType = FOUR_CHAR_CODE('thme'), /* file type for theme files */
-    kThemePlatinumFileType =
-        FOUR_CHAR_CODE('pltn'), /* file type for platinum appearance */
-    kThemeCustomThemesFileType =
-        FOUR_CHAR_CODE('scen'), /* file type for user themes */
-    kThemeSoundTrackFileType = FOUR_CHAR_CODE('tsnd')
+    kThemeDataFileType = FOUR_CHAR_CODE('thme'), // file type for theme files     kThemePlatinumFileType =
+        FOUR_CHAR_CODE('pltn'), // file type for platinum appearance     kThemeCustomThemesFileType =
+        FOUR_CHAR_CODE('scen'), // file type for user themes     kThemeSoundTrackFileType = FOUR_CHAR_CODE('tsnd')
   };
 
   /*����������������������������������������������������������������������������������*/
-  /* Appearance Manager Supported Themes */
-  /* Use CopyThemeIdentifier to get the current theme ID */
-  /*����������������������������������������������������������������������������������*/
+  // Appearance Manager Supported Themes   // Use CopyThemeIdentifier to get the current theme ID   /*����������������������������������������������������������������������������������*/
 
 #define kThemeAppearancePlatinum CFSTR("com.apple.theme.appearance.platinum")
 #define kThemeAppearanceAqua CFSTR("com.apple.theme.appearance.aqua")
@@ -118,16 +105,11 @@ extern "C"
 
   enum
   {
-    kThemeBrushDialogBackgroundActive = 1,   /* Dialogs */
-    kThemeBrushDialogBackgroundInactive = 2, /* Dialogs */
-    kThemeBrushAlertBackgroundActive = 3,
+    kThemeBrushDialogBackgroundActive = 1,   // Dialogs     kThemeBrushDialogBackgroundInactive = 2, // Dialogs     kThemeBrushAlertBackgroundActive = 3,
     kThemeBrushAlertBackgroundInactive = 4,
     kThemeBrushModelessDialogBackgroundActive = 5,
     kThemeBrushModelessDialogBackgroundInactive = 6,
-    kThemeBrushUtilityWindowBackgroundActive = 7,   /* Miscellaneous */
-    kThemeBrushUtilityWindowBackgroundInactive = 8, /* Miscellaneous */
-    kThemeBrushListViewSortColumnBackground = 9,    /* Finder */
-    kThemeBrushListViewBackground = 10,
+    kThemeBrushUtilityWindowBackgroundActive = 7,   // Miscellaneous     kThemeBrushUtilityWindowBackgroundInactive = 8, // Miscellaneous     kThemeBrushListViewSortColumnBackground = 9,    // Finder     kThemeBrushListViewBackground = 10,
     kThemeBrushIconLabelBackground = 11,
     kThemeBrushListViewSeparator = 12,
     kThemeBrushChasingArrows = 13,
@@ -136,8 +118,7 @@ extern "C"
     kThemeBrushFinderWindowBackground = 16
   };
 
-  /* Brushes available in Appearance 1.1 or later */
-  enum
+  // Brushes available in Appearance 1.1 or later   enum
   {
     kThemeBrushScrollBarDelimiterActive = 17,
     kThemeBrushScrollBarDelimiterInactive = 18,
@@ -172,14 +153,12 @@ extern "C"
     kThemeBrushBevelInactiveDark = 47
   };
 
-  /* Brushes available in Appearance 1.1.1 or later */
-  enum
+  // Brushes available in Appearance 1.1.1 or later   enum
   {
     kThemeBrushNotificationWindowBackground = 48
   };
 
-  /* Brushes available in Appearance X or later */
-  enum
+  // Brushes available in Appearance X or later   enum
   {
     kThemeBrushMovableModalBackground = 49,
     kThemeBrushSheetBackgroundOpaque = 50,
@@ -188,16 +167,12 @@ extern "C"
     kThemeBrushSheetBackgroundTransparent = 53
   };
 
-  /* Appearance X or later theme brush compatibility synonyms */
-  enum
+  // Appearance X or later theme brush compatibility synonyms   enum
   {
     kThemeBrushSheetBackground = kThemeBrushSheetBackgroundOpaque
   };
 
-  /* These values are meta-brushes, specific colors that do not       */
-  /* change from theme to theme. You can use them instead of using    */
-  /* direct RGB values.                                               */
-  enum
+  // These values are meta-brushes, specific colors that do not         // change from theme to theme. You can use them instead of using      // direct RGB values.                                                 enum
   {
     kThemeBrushBlack = -1,
     kThemeBrushWhite = -2
@@ -230,8 +205,7 @@ extern "C"
     kThemeTextColorListView = 22
   };
 
-  /* Text Colors available in Appearance 1.0.1 or later */
-  enum
+  // Text Colors available in Appearance 1.0.1 or later   enum
   {
     kThemeTextColorDocumentWindowTitleActive = 23,
     kThemeTextColorDocumentWindowTitleInactive = 24,
@@ -251,8 +225,7 @@ extern "C"
     kThemeTextColorPopupLabelInactive = 38
   };
 
-  /* Text colors available in Appearance 1.1 or later */
-  enum
+  // Text colors available in Appearance 1.1 or later   enum
   {
     kThemeTextColorTabFrontActive = 39,
     kThemeTextColorTabNonFrontActive = 40,
@@ -264,23 +237,19 @@ extern "C"
     kThemeTextColorBevelButtonStickyInactive = 46
   };
 
-  /* Text colors available in Appearance 1.1.1 or later */
-  enum
+  // Text colors available in Appearance 1.1.1 or later   enum
   {
     kThemeTextColorNotification = 47
   };
 
-  /* These values are specific colors that do not change from             */
-  /* theme to theme. You can use them instead of using direct RGB values. */
-  enum
+  // These values are specific colors that do not change from               // theme to theme. You can use them instead of using direct RGB values.   enum
   {
     kThemeTextColorBlack = -1,
     kThemeTextColorWhite = -2
   };
 
   typedef SInt16 ThemeTextColor;
-  /* States to draw primitives: disabled, active, and pressed (hilited) */
-  enum
+  // States to draw primitives: disabled, active, and pressed (hilited)   enum
   {
     kThemeStateInactive = 0,
     kThemeStateActive = 1,
@@ -290,8 +259,7 @@ extern "C"
     kThemeStateUnavailableInactive = 8
   };
 
-  /* obsolete name */
-  enum
+  // obsolete name   enum
   {
     kThemeStateDisabled = 0
   };
@@ -299,15 +267,12 @@ extern "C"
   enum
   {
     kThemeStatePressedUp =
-        2, /* draw with up pressed     (increment/decrement buttons) */
-    kThemeStatePressedDown =
-        3 /* draw with down pressed (increment/decrement buttons) */
-  };
+        2, // draw with up pressed     (increment/decrement buttons)     kThemeStatePressedDown =
+        3 // draw with down pressed (increment/decrement buttons)   };
 
   typedef UInt32 ThemeDrawState;
   /*����������������������������������������������������������������������������������*/
-  /* Theme cursor selectors available in Appearance 1.1 or later */
-  /*����������������������������������������������������������������������������������*/
+  // Theme cursor selectors available in Appearance 1.1 or later   /*����������������������������������������������������������������������������������*/
   enum
   {
     kThemeArrowCursor = 0,
@@ -317,23 +282,17 @@ extern "C"
     kThemeIBeamCursor = 4,
     kThemeCrossCursor = 5,
     kThemePlusCursor = 6,
-    kThemeWatchCursor = 7, /* Can Animate */
-    kThemeClosedHandCursor = 8,
+    kThemeWatchCursor = 7, // Can Animate     kThemeClosedHandCursor = 8,
     kThemeOpenHandCursor = 9,
     kThemePointingHandCursor = 10,
-    kThemeCountingUpHandCursor = 11,        /* Can Animate */
-    kThemeCountingDownHandCursor = 12,      /* Can Animate */
-    kThemeCountingUpAndDownHandCursor = 13, /* Can Animate */
-    kThemeSpinningCursor = 14,              /* Can Animate */
-    kThemeResizeLeftCursor = 15,
+    kThemeCountingUpHandCursor = 11,        // Can Animate     kThemeCountingDownHandCursor = 12,      // Can Animate     kThemeCountingUpAndDownHandCursor = 13, // Can Animate     kThemeSpinningCursor = 14,              // Can Animate     kThemeResizeLeftCursor = 15,
     kThemeResizeRightCursor = 16,
     kThemeResizeLeftRightCursor = 17
   };
 
   typedef UInt32 ThemeCursor;
   /*����������������������������������������������������������������������������������*/
-  /* Theme menu bar drawing states */
-  /*����������������������������������������������������������������������������������*/
+  // Theme menu bar drawing states   /*����������������������������������������������������������������������������������*/
   enum
   {
     kThemeMenuBarNormal = 0,
@@ -341,15 +300,13 @@ extern "C"
   };
 
   typedef UInt16 ThemeMenuBarState;
-  /* attributes */
-  enum
+  // attributes   enum
   {
     kThemeMenuSquareMenuBar = (1 << 0)
   };
 
   /*����������������������������������������������������������������������������������*/
-  /* Theme menu drawing states */
-  /*����������������������������������������������������������������������������������*/
+  // Theme menu drawing states   /*����������������������������������������������������������������������������������*/
   enum
   {
     kThemeMenuActive = 0,
@@ -361,8 +318,7 @@ extern "C"
   /*������������������������������������������������������������������������������������������*/
   /* MenuType: add kThemeMenuTypeInactive to menu type for DrawThemeMenuBackground
    * if entire  */
-  /* menu is inactive */
-  /*������������������������������������������������������������������������������������������*/
+  // menu is inactive   /*������������������������������������������������������������������������������������������*/
   enum
   {
     kThemeMenuTypePullDown = 0,
@@ -375,25 +331,17 @@ extern "C"
   enum
   {
     kThemeMenuItemPlain = 0,
-    kThemeMenuItemHierarchical = 1, /* item has hierarchical arrow*/
-    kThemeMenuItemScrollUpArrow =
-        2, /* for scrollable menus, indicates item is scroller*/
-    kThemeMenuItemScrollDownArrow = 3,
+    kThemeMenuItemHierarchical = 1, // item has hierarchical arrow    kThemeMenuItemScrollUpArrow =
+        2, // for scrollable menus, indicates item is scroller    kThemeMenuItemScrollDownArrow = 3,
     kThemeMenuItemAtTop =
-        0x0100, /* indicates item is being drawn at top of menu*/
-    kThemeMenuItemAtBottom =
-        0x0200,                             /* indicates item is being drawn at bottom of menu*/
-    kThemeMenuItemHierBackground = 0x0400,  /* item is within a hierarchical menu*/
-    kThemeMenuItemPopUpBackground = 0x0800, /* item is within a popped up menu*/
-    kThemeMenuItemHasIcon = 0x8000,         /* add into non-arrow type when icon present*/
-    kThemeMenuItemNoBackground = 0x4000     /* don't draw the menu background while
+        0x0100, // indicates item is being drawn at top of menu    kThemeMenuItemAtBottom =
+        0x0200,                             // indicates item is being drawn at bottom of menu    kThemeMenuItemHierBackground = 0x0400,  // item is within a hierarchical menu    kThemeMenuItemPopUpBackground = 0x0800, // item is within a popped up menu    kThemeMenuItemHasIcon = 0x8000,         // add into non-arrow type when icon present    kThemeMenuItemNoBackground = 0x4000     /* don't draw the menu background while
                                                drawing this item (Mac OS X only)*/
   };
 
   typedef UInt16 ThemeMenuItemType;
   /*������������������������������������������������������������������������������������������*/
-  /* Theme Backgrounds */
-  /*������������������������������������������������������������������������������������������*/
+  // Theme Backgrounds   /*������������������������������������������������������������������������������������������*/
   enum
   {
     kThemeBackgroundTabPane = 1,
@@ -405,97 +353,59 @@ extern "C"
 
   typedef UInt32 ThemeBackgroundKind;
   /*������������������������������������������������������������������������������������������*/
-  /* Theme Collection tags for Get/SetTheme */
-  /*                                                                                          */
-  /*  X ALERT: Please note that Get/SetTheme are severely neutered under Mac OS X
+  // Theme Collection tags for Get/SetTheme   //                                                                                            /*  X ALERT: Please note that Get/SetTheme are severely neutered under Mac OS X
    * at present. */
   /*           The first group of tags below are available to get under both 9 and
    * X. The     */
   /*           second group is 9 only. None of the tags can be used in SetTheme on
    * X, as it   */
-  /*           is completely inert on X, and will return unimpErr. */
-  /*������������������������������������������������������������������������������������������*/
+  //           is completely inert on X, and will return unimpErr.   /*������������������������������������������������������������������������������������������*/
   enum
   {
-    kThemeNameTag = FOUR_CHAR_CODE('name'),        /* Str255*/
-    kThemeVariantNameTag = FOUR_CHAR_CODE('varn'), /* Str255*/
-    kThemeVariantBaseTintTag =
-        FOUR_CHAR_CODE('tint'),                       /* RGBColor (10.1 and later)*/
-    kThemeHighlightColorTag = FOUR_CHAR_CODE('hcol'), /* RGBColor*/
-    kThemeScrollBarArrowStyleTag =
-        FOUR_CHAR_CODE('sbar'), /* ThemeScrollBarArrowStyle*/
-    kThemeScrollBarThumbStyleTag =
-        FOUR_CHAR_CODE('sbth'),                        /* ThemeScrollBarThumbStyle*/
-    kThemeSoundsEnabledTag = FOUR_CHAR_CODE('snds'),   /* Boolean*/
-    kThemeDblClickCollapseTag = FOUR_CHAR_CODE('coll') /* Boolean*/
-  };
+    kThemeNameTag = FOUR_CHAR_CODE('name'),        // Str255    kThemeVariantNameTag = FOUR_CHAR_CODE('varn'), // Str255    kThemeVariantBaseTintTag =
+        FOUR_CHAR_CODE('tint'),                       // RGBColor (10.1 and later)    kThemeHighlightColorTag = FOUR_CHAR_CODE('hcol'), // RGBColor    kThemeScrollBarArrowStyleTag =
+        FOUR_CHAR_CODE('sbar'), // ThemeScrollBarArrowStyle    kThemeScrollBarThumbStyleTag =
+        FOUR_CHAR_CODE('sbth'),                        // ThemeScrollBarThumbStyle    kThemeSoundsEnabledTag = FOUR_CHAR_CODE('snds'),   // Boolean    kThemeDblClickCollapseTag = FOUR_CHAR_CODE('coll') // Boolean  };
 
   enum
   {
-    kThemeAppearanceFileNameTag = FOUR_CHAR_CODE('thme'), /* Str255*/
-    kThemeSystemFontTag = FOUR_CHAR_CODE('lgsf'),         /* Str255*/
-    kThemeSmallSystemFontTag = FOUR_CHAR_CODE('smsf'),    /* Str255*/
-    kThemeViewsFontTag = FOUR_CHAR_CODE('vfnt'),          /* Str255*/
-    kThemeViewsFontSizeTag = FOUR_CHAR_CODE('vfsz'),      /* SInt16*/
-    kThemeDesktopPatternNameTag = FOUR_CHAR_CODE('patn'), /* Str255*/
-    kThemeDesktopPatternTag =
-        FOUR_CHAR_CODE('patt'),                            /* <variable-length data> (flattened pattern)*/
-    kThemeDesktopPictureNameTag = FOUR_CHAR_CODE('dpnm'),  /* Str255*/
-    kThemeDesktopPictureAliasTag = FOUR_CHAR_CODE('dpal'), /* <alias handle>*/
-    kThemeDesktopPictureAlignmentTag =
-        FOUR_CHAR_CODE('dpan'),                           /* UInt32 (see the Picture Alignments below)*/
-    kThemeHighlightColorNameTag = FOUR_CHAR_CODE('hcnm'), /* Str255*/
-    kThemeExamplePictureIDTag = FOUR_CHAR_CODE('epic'),   /* SInt16*/
-    kThemeSoundTrackNameTag = FOUR_CHAR_CODE('sndt'),     /* Str255*/
-    kThemeSoundMaskTag = FOUR_CHAR_CODE('smsk'),          /* UInt32*/
-    kThemeUserDefinedTag =
+    kThemeAppearanceFileNameTag = FOUR_CHAR_CODE('thme'), // Str255    kThemeSystemFontTag = FOUR_CHAR_CODE('lgsf'),         // Str255    kThemeSmallSystemFontTag = FOUR_CHAR_CODE('smsf'),    // Str255    kThemeViewsFontTag = FOUR_CHAR_CODE('vfnt'),          // Str255    kThemeViewsFontSizeTag = FOUR_CHAR_CODE('vfsz'),      // SInt16    kThemeDesktopPatternNameTag = FOUR_CHAR_CODE('patn'), // Str255    kThemeDesktopPatternTag =
+        FOUR_CHAR_CODE('patt'),                            // <variable-length data> (flattened pattern)    kThemeDesktopPictureNameTag = FOUR_CHAR_CODE('dpnm'),  // Str255    kThemeDesktopPictureAliasTag = FOUR_CHAR_CODE('dpal'), // <alias handle>    kThemeDesktopPictureAlignmentTag =
+        FOUR_CHAR_CODE('dpan'),                           // UInt32 (see the Picture Alignments below)    kThemeHighlightColorNameTag = FOUR_CHAR_CODE('hcnm'), // Str255    kThemeExamplePictureIDTag = FOUR_CHAR_CODE('epic'),   // SInt16    kThemeSoundTrackNameTag = FOUR_CHAR_CODE('sndt'),     // Str255    kThemeSoundMaskTag = FOUR_CHAR_CODE('smsk'),          // UInt32    kThemeUserDefinedTag =
         FOUR_CHAR_CODE('user'),                          /* Boolean (this should _always_ be true if
                                                             present - used by Control Panel).*/
-    kThemeSmoothFontEnabledTag = FOUR_CHAR_CODE('smoo'), /* Boolean*/
-    kThemeSmoothFontMinSizeTag =
-        FOUR_CHAR_CODE('smos') /* UInt16 (must be >= 12 and <= 24)*/
-  };
+    kThemeSmoothFontEnabledTag = FOUR_CHAR_CODE('smoo'), // Boolean    kThemeSmoothFontMinSizeTag =
+        FOUR_CHAR_CODE('smos') // UInt16 (must be >= 12 and <= 24)  };
 
   /* Picture Aligmnents that might be reported in the data for
    * kThemeDesktopPictureAlignmentTag*/
   enum
   {
-    kTiledOnScreen = 1,  /* draws picture repeatedly*/
-    kCenterOnScreen = 2, /* "actual size", shows pattern on sides or clips picture
+    kTiledOnScreen = 1,  // draws picture repeatedly    kCenterOnScreen = 2, /* "actual size", shows pattern on sides or clips picture
                             if necessary*/
-    kFitToScreen = 3,    /* shrinks if necessary*/
-    kFillScreen = 4,     /* messes up aspect ratio if necessary*/
-    kUseBestGuess = 5    /* heuristically determines the best way to display the
+    kFitToScreen = 3,    // shrinks if necessary    kFillScreen = 4,     // messes up aspect ratio if necessary    kUseBestGuess = 5    /* heuristically determines the best way to display the
                             picture based on picture and monitor sizes*/
   };
 
   /*������������������������������������������������������������������������������������������*/
-  /* Theme Control Settings */
-  /*������������������������������������������������������������������������������������������*/
+  // Theme Control Settings   /*������������������������������������������������������������������������������������������*/
   enum
   {
-    kThemeCheckBoxClassicX = 0, /* check box with an 'X'*/
-    kThemeCheckBoxCheckMark = 1 /* check box with a real check mark*/
-  };
+    kThemeCheckBoxClassicX = 0, // check box with an 'X'    kThemeCheckBoxCheckMark = 1 // check box with a real check mark  };
 
   typedef UInt16 ThemeCheckBoxStyle;
   enum
   {
-    kThemeScrollBarArrowsSingle = 0,    /* single arrow on each end*/
-    kThemeScrollBarArrowsLowerRight = 1 /* double arrows only on right or bottom*/
-  };
+    kThemeScrollBarArrowsSingle = 0,    // single arrow on each end    kThemeScrollBarArrowsLowerRight = 1 // double arrows only on right or bottom  };
 
   typedef UInt16 ThemeScrollBarArrowStyle;
   enum
   {
-    kThemeScrollBarThumbNormal = 0,      /* normal, classic thumb size*/
-    kThemeScrollBarThumbProportional = 1 /* proportional thumbs*/
-  };
+    kThemeScrollBarThumbNormal = 0,      // normal, classic thumb size    kThemeScrollBarThumbProportional = 1 // proportional thumbs  };
 
   typedef UInt16 ThemeScrollBarThumbStyle;
   /*������������������������������������������������������������������������������������������*/
-  /* Font constants */
-  /*������������������������������������������������������������������������������������������*/
+  // Font constants   /*������������������������������������������������������������������������������������������*/
 
   /**
    *  Summary:
@@ -641,8 +551,7 @@ extern "C"
 
   typedef UInt16 ThemeFontID;
   /*������������������������������������������������������������������������������������������*/
-  /* Tab constants */
-  /*������������������������������������������������������������������������������������������*/
+  // Tab constants   /*������������������������������������������������������������������������������������������*/
   enum
   {
     kThemeTabNonFront = 0,
@@ -664,8 +573,7 @@ extern "C"
   };
 
   typedef UInt16 ThemeTabDirection;
-  /* NOTE ON TAB HEIGHT */
-  /* Use the kThemeSmallTabHeightMax and kThemeLargeTabHeightMax when calculating
+  // NOTE ON TAB HEIGHT   /* Use the kThemeSmallTabHeightMax and kThemeLargeTabHeightMax when calculating
    * the rects   */
   /* to draw tabs into. This height includes the tab frame overlap. Tabs that are
    * not in the  */
@@ -673,19 +581,12 @@ extern "C"
    * just        */
   /* kThemeLargeTabHeight, for example, as opposed to the ...Max constant.
    * Remember that for  */
-  /* East and West tabs, the height referred to below is actually the width. */
-  enum
+  // East and West tabs, the height referred to below is actually the width.   enum
   {
-    kThemeSmallTabHeight = 16,    /* amount small tabs protrude from frame.*/
-    kThemeLargeTabHeight = 21,    /* amount large tabs protrude from frame.*/
-    kThemeTabPaneOverlap = 3,     /* amount tabs overlap frame.*/
-    kThemeSmallTabHeightMax = 19, /* small tab height + overlap*/
-    kThemeLargeTabHeightMax = 24  /* large tab height + overlap*/
-  };
+    kThemeSmallTabHeight = 16,    // amount small tabs protrude from frame.    kThemeLargeTabHeight = 21,    // amount large tabs protrude from frame.    kThemeTabPaneOverlap = 3,     // amount tabs overlap frame.    kThemeSmallTabHeightMax = 19, // small tab height + overlap    kThemeLargeTabHeightMax = 24  // large tab height + overlap  };
 
   /*������������������������������������������������������������������������������������������*/
-  /* Track kinds */
-  /*������������������������������������������������������������������������������������������*/
+  // Track kinds   /*������������������������������������������������������������������������������������������*/
   enum
   {
     kThemeMediumScrollBar = 0,
@@ -701,12 +602,10 @@ extern "C"
 
   typedef UInt16 ThemeTrackKind;
   /*������������������������������������������������������������������������������������������*/
-  /* Track enable states */
-  /*������������������������������������������������������������������������������������������*/
+  // Track enable states   /*������������������������������������������������������������������������������������������*/
   enum
   {
-    /* track states */
-    kThemeTrackActive = 0,
+    // track states     kThemeTrackActive = 0,
     kThemeTrackDisabled = 1,
     kThemeTrackNothingToScroll = 2,
     kThemeTrackInactive = 3
@@ -714,12 +613,10 @@ extern "C"
 
   typedef UInt8 ThemeTrackEnableState;
   /*������������������������������������������������������������������������������������������*/
-  /* Track pressed states */
-  /*������������������������������������������������������������������������������������������*/
+  // Track pressed states   /*������������������������������������������������������������������������������������������*/
   enum
   {
-    /* press states (ignored unless track is active) */
-    kThemeLeftOutsideArrowPressed = 0x01,
+    // press states (ignored unless track is active)     kThemeLeftOutsideArrowPressed = 0x01,
     kThemeLeftInsideArrowPressed = 0x02,
     kThemeLeftTrackPressed = 0x04,
     kThemeThumbPressed = 0x08,
@@ -736,193 +633,141 @@ extern "C"
 
   typedef UInt8 ThemeTrackPressState;
   /*������������������������������������������������������������������������������������������*/
-  /* Thumb directions */
-  /*������������������������������������������������������������������������������������������*/
+  // Thumb directions   /*������������������������������������������������������������������������������������������*/
   enum
   {
-    /* thumb direction */
-    kThemeThumbPlain = 0,
+    // thumb direction     kThemeThumbPlain = 0,
     kThemeThumbUpward = 1,
     kThemeThumbDownward = 2
   };
 
   typedef UInt8 ThemeThumbDirection;
   /*������������������������������������������������������������������������������������������*/
-  /* Track attributes */
-  /*������������������������������������������������������������������������������������������*/
+  // Track attributes   /*������������������������������������������������������������������������������������������*/
   enum
   {
-    kThemeTrackHorizontal = (1 << 0),  /* track is drawn horizontally*/
-    kThemeTrackRightToLeft = (1 << 1), /* track progresses from right to left*/
-    kThemeTrackShowThumb = (1 << 2),   /* track's thumb should be drawn*/
-    kThemeTrackThumbRgnIsNotGhost =
+    kThemeTrackHorizontal = (1 << 0),  // track is drawn horizontally    kThemeTrackRightToLeft = (1 << 1), // track progresses from right to left    kThemeTrackShowThumb = (1 << 2),   // track's thumb should be drawn    kThemeTrackThumbRgnIsNotGhost =
         (1
-         << 3), /* the provided thumbRgn should be drawn opaque, not as a ghost*/
-    kThemeTrackNoScrollBarArrows =
-        (1 << 4) /* the scroll bar doesn't have arrows*/
-  };
+         << 3), // the provided thumbRgn should be drawn opaque, not as a ghost    kThemeTrackNoScrollBarArrows =
+        (1 << 4) // the scroll bar doesn't have arrows  };
 
   typedef UInt16 ThemeTrackAttributes;
   /*������������������������������������������������������������������������������������������*/
-  /* Track info block */
-  /*������������������������������������������������������������������������������������������*/
+  // Track info block   /*������������������������������������������������������������������������������������������*/
   struct ScrollBarTrackInfo
   {
-    SInt32 viewsize;                 /* current view range size */
-    ThemeTrackPressState pressState; /* pressed parts state */
-  };
+    SInt32 viewsize;                 // current view range size     ThemeTrackPressState pressState; // pressed parts state   };
   typedef struct ScrollBarTrackInfo ScrollBarTrackInfo;
   struct SliderTrackInfo
   {
-    ThemeThumbDirection thumbDir;    /* thumb direction */
-    ThemeTrackPressState pressState; /* pressed parts state */
-  };
+    ThemeThumbDirection thumbDir;    // thumb direction     ThemeTrackPressState pressState; // pressed parts state   };
   typedef struct SliderTrackInfo SliderTrackInfo;
   struct ProgressTrackInfo
   {
-    UInt8 phase; /* phase for indeterminate progress */
-  };
+    UInt8 phase; // phase for indeterminate progress   };
   typedef struct ProgressTrackInfo ProgressTrackInfo;
   struct ThemeTrackDrawInfo
   {
-    ThemeTrackKind kind; /* what kind of track this info is for */
-    Rect bounds;         /* track basis rectangle */
-    SInt32 min;          /* min track value */
-    SInt32 max;          /* max track value */
-    SInt32 value;        /* current thumb value */
-    UInt32 reserved;
+    ThemeTrackKind kind; // what kind of track this info is for     Rect bounds;         // track basis rectangle     SInt32 min;          // min track value     SInt32 max;          // max track value     SInt32 value;        // current thumb value     UInt32 reserved;
 
-    ThemeTrackAttributes attributes;   /* various track attributes */
-    ThemeTrackEnableState enableState; /* enable state */
-    UInt8 filler1;
+    ThemeTrackAttributes attributes;   // various track attributes     ThemeTrackEnableState enableState; // enable state     UInt8 filler1;
 
     union
     {
       ScrollBarTrackInfo scrollbar;
       SliderTrackInfo slider;
       ProgressTrackInfo progress;
-    } trackInfo;
-  };
-  typedef struct ThemeTrackDrawInfo ThemeTrackDrawInfo;
-  /*������������������������������������������������������������������������������������������*/
-  /* ThemeWindowAttributes */
-  /*������������������������������������������������������������������������������������������*/
-  enum
-  {
-    kThemeWindowHasGrow =
-        (1 << 0), /* can the size of the window be changed by the user? */
-    kThemeWindowHasHorizontalZoom =
-        (1 << 3),                           /* window can zoom only horizontally */
-    kThemeWindowHasVerticalZoom = (1 << 4), /* window can zoom only vertically */
-    kThemeWindowHasFullZoom =
-        kThemeWindowHasHorizontalZoom +
-        kThemeWindowHasVerticalZoom,       /* window zooms in all directions */
-    kThemeWindowHasCloseBox = (1 << 5),    /* window has a close box */
-    kThemeWindowHasCollapseBox = (1 << 6), /* window has a collapse box */
-    kThemeWindowHasTitleText = (1 << 7),   /* window has a title/title icon */
-    kThemeWindowIsCollapsed = (1 << 8),    /* window is in the collapsed state */
-    kThemeWindowHasDirty = (1 << 9)
-  };
+    }
+  trackInfo;
+};
+typedef struct ThemeTrackDrawInfo ThemeTrackDrawInfo;
+/*������������������������������������������������������������������������������������������*/
+// ThemeWindowAttributes   /*������������������������������������������������������������������������������������������*/
+enum
+{
+  kThemeWindowHasGrow =
+      (1 << 0), // can the size of the window be changed by the user?     kThemeWindowHasHorizontalZoom =
+  (1 << 3),     // window can zoom only horizontally     kThemeWindowHasVerticalZoom = (1 << 4), // window can zoom only vertically     kThemeWindowHasFullZoom =
+  kThemeWindowHasHorizontalZoom +
+      kThemeWindowHasVerticalZoom, // window zooms in all directions     kThemeWindowHasCloseBox = (1 << 5),    // window has a close box     kThemeWindowHasCollapseBox = (1 << 6), // window has a collapse box     kThemeWindowHasTitleText = (1 << 7),   // window has a title/title icon     kThemeWindowIsCollapsed = (1 << 8),    // window is in the collapsed state     kThemeWindowHasDirty = (1 << 9)
+};
 
-  typedef UInt32 ThemeWindowAttributes;
-  /*������������������������������������������������������������������������������������������*/
-  /* Window Types Supported by the Appearance Manager */
-  /*������������������������������������������������������������������������������������������*/
-  enum
-  {
-    kThemeDocumentWindow = 0,
-    kThemeDialogWindow = 1,
-    kThemeMovableDialogWindow = 2,
-    kThemeAlertWindow = 3,
-    kThemeMovableAlertWindow = 4,
-    kThemePlainDialogWindow = 5,
-    kThemeShadowDialogWindow = 6,
-    kThemePopupWindow = 7,
-    kThemeUtilityWindow = 8,
-    kThemeUtilitySideWindow = 9,
-    kThemeSheetWindow = 10
-  };
+typedef UInt32 ThemeWindowAttributes;
+/*������������������������������������������������������������������������������������������*/
+// Window Types Supported by the Appearance Manager   /*������������������������������������������������������������������������������������������*/
+enum
+{
+  kThemeDocumentWindow = 0,
+  kThemeDialogWindow = 1,
+  kThemeMovableDialogWindow = 2,
+  kThemeAlertWindow = 3,
+  kThemeMovableAlertWindow = 4,
+  kThemePlainDialogWindow = 5,
+  kThemeShadowDialogWindow = 6,
+  kThemePopupWindow = 7,
+  kThemeUtilityWindow = 8,
+  kThemeUtilitySideWindow = 9,
+  kThemeSheetWindow = 10
+};
 
-  typedef UInt16 ThemeWindowType;
-  /*������������������������������������������������������������������������������������������*/
-  /* Window Widgets Supported by the Appearance Manager */
-  /*������������������������������������������������������������������������������������������*/
-  enum
-  {
-    kThemeWidgetCloseBox = 0,
-    kThemeWidgetZoomBox = 1,
-    kThemeWidgetCollapseBox = 2,
-    kThemeWidgetDirtyCloseBox = 6
-  };
+typedef UInt16 ThemeWindowType;
+/*������������������������������������������������������������������������������������������*/
+// Window Widgets Supported by the Appearance Manager   /*������������������������������������������������������������������������������������������*/
+enum
+{
+  kThemeWidgetCloseBox = 0,
+  kThemeWidgetZoomBox = 1,
+  kThemeWidgetCollapseBox = 2,
+  kThemeWidgetDirtyCloseBox = 6
+};
 
-  typedef UInt16 ThemeTitleBarWidget;
-  /*������������������������������������������������������������������������������������������*/
-  /* Popup arrow orientations */
-  /*������������������������������������������������������������������������������������������*/
-  enum
-  {
-    kThemeArrowLeft = 0,
-    kThemeArrowDown = 1,
-    kThemeArrowRight = 2,
-    kThemeArrowUp = 3
-  };
+typedef UInt16 ThemeTitleBarWidget;
+/*������������������������������������������������������������������������������������������*/
+// Popup arrow orientations   /*������������������������������������������������������������������������������������������*/
+enum
+{
+  kThemeArrowLeft = 0,
+  kThemeArrowDown = 1,
+  kThemeArrowRight = 2,
+  kThemeArrowUp = 3
+};
 
-  typedef UInt16 ThemeArrowOrientation;
-  /*������������������������������������������������������������������������������������������*/
-  /* Popup arrow sizes */
-  /*������������������������������������������������������������������������������������������*/
-  enum
-  {
-    kThemeArrow3pt = 0,
-    kThemeArrow5pt = 1,
-    kThemeArrow7pt = 2,
-    kThemeArrow9pt = 3
-  };
+typedef UInt16 ThemeArrowOrientation;
+/*������������������������������������������������������������������������������������������*/
+// Popup arrow sizes   /*������������������������������������������������������������������������������������������*/
+enum
+{
+  kThemeArrow3pt = 0,
+  kThemeArrow5pt = 1,
+  kThemeArrow7pt = 2,
+  kThemeArrow9pt = 3
+};
 
-  typedef UInt16 ThemePopupArrowSize;
-  /*������������������������������������������������������������������������������������������*/
-  /* Grow box directions */
-  /*������������������������������������������������������������������������������������������*/
+typedef UInt16 ThemePopupArrowSize;
+/*������������������������������������������������������������������������������������������*/
+// Grow box directions   /*������������������������������������������������������������������������������������������*/
   enum
   {
-    kThemeGrowLeft = (1 << 0),  /* can grow to the left */
-    kThemeGrowRight = (1 << 1), /* can grow to the right */
-    kThemeGrowUp = (1 << 2),    /* can grow up */
-    kThemeGrowDown = (1 << 3)   /* can grow down */
-  };
+    kThemeGrowLeft = (1 << 0),  // can grow to the left     kThemeGrowRight = (1 << 1), // can grow to the right     kThemeGrowUp = (1 << 2),    // can grow up     kThemeGrowDown = (1 << 3)   // can grow down   };
 
   typedef UInt16 ThemeGrowDirection;
   /*������������������������������������������������������������������������������������������*/
-  /* Button kinds */
-  /*������������������������������������������������������������������������������������������*/
+  // Button kinds   /*������������������������������������������������������������������������������������������*/
   enum
   {
     kThemePushButton = 0,
     kThemeCheckBox = 1,
     kThemeRadioButton = 2,
-    kThemeBevelButton = 3, /* bevel button (obsolete) */
-    kThemeArrowButton = 4, /* popup button without text (no label). See
+    kThemeBevelButton = 3, // bevel button (obsolete)     kThemeArrowButton = 4, /* popup button without text (no label). See
                               ThemeButtonAdornment for glyphs. */
-    kThemePopupButton = 5, /* popup button */
-    kThemeDisclosureButton = 6,
-    kThemeIncDecButton = 7,        /* increment/decrement buttons  (no label) */
-    kThemeSmallBevelButton = 8,    /* small-shadow bevel button */
-    kThemeMediumBevelButton = 3,   /* med-shadow bevel button */
-    kThemeLargeBevelButton = 9,    /* large-shadow bevel button */
-    kThemeListHeaderButton = 10,   /* sort button for top of list */
-    kThemeRoundButton = 11,        /* round button */
-    kThemeLargeRoundButton = 12,   /* large round button */
-    kThemeSmallCheckBox = 13,      /* small checkbox */
-    kThemeSmallRadioButton = 14,   /* small radio button */
-    kThemeRoundedBevelButton = 15, /* rounded bevel button */
-    kThemeNormalCheckBox = kThemeCheckBox,
+    kThemePopupButton = 5, // popup button     kThemeDisclosureButton = 6,
+    kThemeIncDecButton = 7,        // increment/decrement buttons  (no label)     kThemeSmallBevelButton = 8,    // small-shadow bevel button     kThemeMediumBevelButton = 3,   // med-shadow bevel button     kThemeLargeBevelButton = 9,    // large-shadow bevel button     kThemeListHeaderButton = 10,   // sort button for top of list     kThemeRoundButton = 11,        // round button     kThemeLargeRoundButton = 12,   // large round button     kThemeSmallCheckBox = 13,      // small checkbox     kThemeSmallRadioButton = 14,   // small radio button     kThemeRoundedBevelButton = 15, // rounded bevel button     kThemeNormalCheckBox = kThemeCheckBox,
     kThemeNormalRadioButton = kThemeRadioButton
   };
 
   typedef UInt16 ThemeButtonKind;
   /*������������������������������������������������������������������������������������������*/
-  /* Common button values */
-  /*������������������������������������������������������������������������������������������*/
+  // Common button values   /*������������������������������������������������������������������������������������������*/
   enum
   {
     kThemeButtonOff = 0,
@@ -935,16 +780,13 @@ extern "C"
 
   typedef UInt16 ThemeButtonValue;
   /*������������������������������������������������������������������������������������������*/
-  /* Button adornment types */
-  /*������������������������������������������������������������������������������������������*/
+  // Button adornment types   /*������������������������������������������������������������������������������������������*/
   enum
   {
     kThemeAdornmentNone = 0,
     kThemeAdornmentDefault = (1 << 0),     /* if set, draw default ornamentation ( for
                                               push button and generic well ) */
-    kThemeAdornmentFocus = (1 << 2),       /* if set, draw focus */
-    kThemeAdornmentRightToLeft = (1 << 4), /* if set, draw right to left label */
-    kThemeAdornmentDrawIndicatorOnly =
+    kThemeAdornmentFocus = (1 << 2),       // if set, draw focus     kThemeAdornmentRightToLeft = (1 << 4), // if set, draw right to left label     kThemeAdornmentDrawIndicatorOnly =
         (1 << 5), /* if set, don't draw or erase label ( radio, check, disclosure
                      ) */
     kThemeAdornmentHeaderButtonLeftNeighborSelected =
@@ -965,23 +807,16 @@ extern "C"
     kThemeAdornmentHeaderButtonShadowOnly =
         (1 << 11),                                                 /* if set, draw the only the shadow area of the button ( list
                                                                       header button only ) */
-    kThemeAdornmentNoShadow = kThemeAdornmentHeaderButtonNoShadow, /* old name */
-    kThemeAdornmentShadowOnly =
-        kThemeAdornmentHeaderButtonShadowOnly, /* old name */
-    kThemeAdornmentArrowLeftArrow =
-        (1 << 6), /* If set, draw a left arrow on the arrow button */
-    kThemeAdornmentArrowDownArrow =
-        (1 << 7), /* If set, draw a down arrow on the arrow button */
-    kThemeAdornmentArrowDoubleArrow =
-        (1 << 8), /* If set, draw a double arrow on the arrow button */
-    kThemeAdornmentArrowUpArrow =
-        (1 << 9) /* If set, draw a up arrow on the arrow button */
-  };
+    kThemeAdornmentNoShadow = kThemeAdornmentHeaderButtonNoShadow, // old name     kThemeAdornmentShadowOnly =
+        kThemeAdornmentHeaderButtonShadowOnly, // old name     kThemeAdornmentArrowLeftArrow =
+        (1 << 6), // If set, draw a left arrow on the arrow button     kThemeAdornmentArrowDownArrow =
+        (1 << 7), // If set, draw a down arrow on the arrow button     kThemeAdornmentArrowDoubleArrow =
+        (1 << 8), // If set, draw a double arrow on the arrow button     kThemeAdornmentArrowUpArrow =
+        (1 << 9) // If set, draw a up arrow on the arrow button   };
 
   typedef UInt16 ThemeButtonAdornment;
   /*������������������������������������������������������������������������������������������*/
-  /* Button drawing info block */
-  /*������������������������������������������������������������������������������������������*/
+  // Button drawing info block   /*������������������������������������������������������������������������������������������*/
   struct ThemeButtonDrawInfo
   {
     ThemeDrawState state;
@@ -991,78 +826,55 @@ extern "C"
   typedef struct ThemeButtonDrawInfo ThemeButtonDrawInfo;
   typedef ThemeButtonDrawInfo *ThemeButtonDrawInfoPtr;
   /*������������������������������������������������������������������������������������������*/
-  /* Sound Support */
-  /*                                                                                          */
-  /*  X ALERT: Please note that none of the theme sound APIs currently function on
-   * X.         */
-  /*������������������������������������������������������������������������������������������*/
-  /*������������������������������������������������������������������������������������������*/
-  /* Sound classes */
-  /*                                                                                          */
-  /* You can use the constants below to set what sounds are active using the
-   * SetTheme API.    */
-  /* Use these with the kThemeSoundMask tag. */
-  /*������������������������������������������������������������������������������������������*/
-  enum
-  {
-    kThemeNoSounds = 0,
-    kThemeWindowSoundsMask = (1 << 0),
-    kThemeMenuSoundsMask = (1 << 1),
-    kThemeControlSoundsMask = (1 << 2),
-    kThemeFinderSoundsMask = (1 << 3)
-  };
+  // Sound Support   //                                                                                            /*  X ALERT: Please note that none of the theme sound APIs currently function on
+  *X.*/
+      /*������������������������������������������������������������������������������������������*/
+      /*������������������������������������������������������������������������������������������*/
+      // Sound classes   //                                                                                            /* You can use the constants below to set what sounds are active using the
+      *SetTheme API.*/
+      // Use these with the kThemeSoundMask tag.   /*������������������������������������������������������������������������������������������*/
+      enum {
+        kThemeNoSounds = 0,
+        kThemeWindowSoundsMask = (1 << 0),
+        kThemeMenuSoundsMask = (1 << 1),
+        kThemeControlSoundsMask = (1 << 2),
+        kThemeFinderSoundsMask = (1 << 3)
+      };
 
   /*������������������������������������������������������������������������������������������*/
-  /* Drag Sounds */
-  /*                                                                                          */
-  /* Drag sounds are looped for the duration of the drag. */
-  /*                                                                                          */
-  /* Call BeginThemeDragSound at the start of the drag. */
-  /* Call EndThemeDragSound when the drag has finished. */
-  /*                                                                                          */
-  /* Note that in order to maintain a consistent user experience, only one drag
-   * sound may     */
-  /* occur at a time.  The sound should be attached to a mouse action, start after
-   * the        */
-  /* mouse goes down and stop when the mouse is released. */
-  /*������������������������������������������������������������������������������������������*/
-  enum
-  {
-    kThemeDragSoundNone = 0,
-    kThemeDragSoundMoveWindow = FOUR_CHAR_CODE('wmov'),
-    kThemeDragSoundGrowWindow = FOUR_CHAR_CODE('wgro'),
-    kThemeDragSoundMoveUtilWindow = FOUR_CHAR_CODE('umov'),
-    kThemeDragSoundGrowUtilWindow = FOUR_CHAR_CODE('ugro'),
-    kThemeDragSoundMoveDialog = FOUR_CHAR_CODE('dmov'),
-    kThemeDragSoundMoveAlert = FOUR_CHAR_CODE('amov'),
-    kThemeDragSoundMoveIcon = FOUR_CHAR_CODE('imov'),
-    kThemeDragSoundSliderThumb = FOUR_CHAR_CODE('slth'),
-    kThemeDragSoundSliderGhost = FOUR_CHAR_CODE('slgh'),
-    kThemeDragSoundScrollBarThumb = FOUR_CHAR_CODE('sbth'),
-    kThemeDragSoundScrollBarGhost = FOUR_CHAR_CODE('sbgh'),
-    kThemeDragSoundScrollBarArrowDecreasing = FOUR_CHAR_CODE('sbad'),
-    kThemeDragSoundScrollBarArrowIncreasing = FOUR_CHAR_CODE('sbai'),
-    kThemeDragSoundDragging = FOUR_CHAR_CODE('drag')
-  };
+  // Drag Sounds   //                                                                                            // Drag sounds are looped for the duration of the drag.   //                                                                                            // Call BeginThemeDragSound at the start of the drag.   // Call EndThemeDragSound when the drag has finished.   //                                                                                            /* Note that in order to maintain a consistent user experience, only one drag
+  *sound may * /
+      /* occur at a time.  The sound should be attached to a mouse action, start after
+       * the        */
+      // mouse goes down and stop when the mouse is released.   /*������������������������������������������������������������������������������������������*/
+      enum {
+        kThemeDragSoundNone = 0,
+        kThemeDragSoundMoveWindow = FOUR_CHAR_CODE('wmov'),
+        kThemeDragSoundGrowWindow = FOUR_CHAR_CODE('wgro'),
+        kThemeDragSoundMoveUtilWindow = FOUR_CHAR_CODE('umov'),
+        kThemeDragSoundGrowUtilWindow = FOUR_CHAR_CODE('ugro'),
+        kThemeDragSoundMoveDialog = FOUR_CHAR_CODE('dmov'),
+        kThemeDragSoundMoveAlert = FOUR_CHAR_CODE('amov'),
+        kThemeDragSoundMoveIcon = FOUR_CHAR_CODE('imov'),
+        kThemeDragSoundSliderThumb = FOUR_CHAR_CODE('slth'),
+        kThemeDragSoundSliderGhost = FOUR_CHAR_CODE('slgh'),
+        kThemeDragSoundScrollBarThumb = FOUR_CHAR_CODE('sbth'),
+        kThemeDragSoundScrollBarGhost = FOUR_CHAR_CODE('sbgh'),
+        kThemeDragSoundScrollBarArrowDecreasing = FOUR_CHAR_CODE('sbad'),
+        kThemeDragSoundScrollBarArrowIncreasing = FOUR_CHAR_CODE('sbai'),
+        kThemeDragSoundDragging = FOUR_CHAR_CODE('drag')
+      };
 
   typedef OSType ThemeDragSoundKind;
   /*��������������������������������������������������������������������������*/
-  /* State-change sounds                                                      */
-  /*                                                                          */
-  /* State-change sounds are played asynchonously as a one-shot.              */
-  /*                                                                          */
-  /* Call PlayThemeSound to play the sound.  The sound will play              */
-  /* asynchronously until complete, then stop automatically.                  */
-  /*��������������������������������������������������������������������������*/
+  // State-change sounds                                                        //                                                                            // State-change sounds are played asynchonously as a one-shot.                //                                                                            // Call PlayThemeSound to play the sound.  The sound will play                // asynchronously until complete, then stop automatically.                    /*��������������������������������������������������������������������������*/
   enum
   {
     kThemeSoundNone = 0,
-    kThemeSoundMenuOpen = FOUR_CHAR_CODE('mnuo'), /* menu sounds */
-    kThemeSoundMenuClose = FOUR_CHAR_CODE('mnuc'),
+    kThemeSoundMenuOpen = FOUR_CHAR_CODE('mnuo'), // menu sounds     kThemeSoundMenuClose = FOUR_CHAR_CODE('mnuc'),
     kThemeSoundMenuItemHilite = FOUR_CHAR_CODE('mnui'),
     kThemeSoundMenuItemRelease = FOUR_CHAR_CODE('mnus'),
-    kThemeSoundWindowClosePress = FOUR_CHAR_CODE('wclp'), /* window sounds */
-    kThemeSoundWindowCloseEnter = FOUR_CHAR_CODE('wcle'),
+    kThemeSoundWindowClosePress = FOUR_CHAR_CODE('wclp'), // window sounds     kThemeSoundWindowCloseEnter = FOUR_CHAR_CODE('wcle'),
     kThemeSoundWindowCloseExit = FOUR_CHAR_CODE('wclx'),
     kThemeSoundWindowCloseRelease = FOUR_CHAR_CODE('wclr'),
     kThemeSoundWindowZoomPress = FOUR_CHAR_CODE('wzmp'),
@@ -1075,8 +887,7 @@ extern "C"
     kThemeSoundWindowCollapseRelease = FOUR_CHAR_CODE('wcor'),
     kThemeSoundWindowDragBoundary = FOUR_CHAR_CODE('wdbd'),
     kThemeSoundUtilWinClosePress =
-        FOUR_CHAR_CODE('uclp'), /* utility window sounds */
-    kThemeSoundUtilWinCloseEnter = FOUR_CHAR_CODE('ucle'),
+        FOUR_CHAR_CODE('uclp'), // utility window sounds     kThemeSoundUtilWinCloseEnter = FOUR_CHAR_CODE('ucle'),
     kThemeSoundUtilWinCloseExit = FOUR_CHAR_CODE('uclx'),
     kThemeSoundUtilWinCloseRelease = FOUR_CHAR_CODE('uclr'),
     kThemeSoundUtilWinZoomPress = FOUR_CHAR_CODE('uzmp'),
@@ -1089,8 +900,7 @@ extern "C"
     kThemeSoundUtilWinCollapseRelease = FOUR_CHAR_CODE('ucor'),
     kThemeSoundUtilWinDragBoundary = FOUR_CHAR_CODE('udbd'),
     kThemeSoundWindowOpen =
-        FOUR_CHAR_CODE('wopn'), /* window close and zoom action */
-    kThemeSoundWindowClose = FOUR_CHAR_CODE('wcls'),
+        FOUR_CHAR_CODE('wopn'), // window close and zoom action     kThemeSoundWindowClose = FOUR_CHAR_CODE('wcls'),
     kThemeSoundWindowZoomIn = FOUR_CHAR_CODE('wzmi'),
     kThemeSoundWindowZoomOut = FOUR_CHAR_CODE('wzmo'),
     kThemeSoundWindowCollapseUp = FOUR_CHAR_CODE('wcol'),
@@ -1109,63 +919,48 @@ extern "C"
     kThemeSoundAlertClose = FOUR_CHAR_CODE('altc'),
     kThemeSoundPopupWindowOpen = FOUR_CHAR_CODE('pwop'),
     kThemeSoundPopupWindowClose = FOUR_CHAR_CODE('pwcl'),
-    kThemeSoundButtonPress = FOUR_CHAR_CODE('btnp'), /* button */
-    kThemeSoundButtonEnter = FOUR_CHAR_CODE('btne'),
+    kThemeSoundButtonPress = FOUR_CHAR_CODE('btnp'), // button     kThemeSoundButtonEnter = FOUR_CHAR_CODE('btne'),
     kThemeSoundButtonExit = FOUR_CHAR_CODE('btnx'),
     kThemeSoundButtonRelease = FOUR_CHAR_CODE('btnr'),
-    kThemeSoundDefaultButtonPress = FOUR_CHAR_CODE('dbtp'), /* default button */
-    kThemeSoundDefaultButtonEnter = FOUR_CHAR_CODE('dbte'),
+    kThemeSoundDefaultButtonPress = FOUR_CHAR_CODE('dbtp'), // default button     kThemeSoundDefaultButtonEnter = FOUR_CHAR_CODE('dbte'),
     kThemeSoundDefaultButtonExit = FOUR_CHAR_CODE('dbtx'),
     kThemeSoundDefaultButtonRelease = FOUR_CHAR_CODE('dbtr'),
-    kThemeSoundCancelButtonPress = FOUR_CHAR_CODE('cbtp'), /* cancel button */
-    kThemeSoundCancelButtonEnter = FOUR_CHAR_CODE('cbte'),
+    kThemeSoundCancelButtonPress = FOUR_CHAR_CODE('cbtp'), // cancel button     kThemeSoundCancelButtonEnter = FOUR_CHAR_CODE('cbte'),
     kThemeSoundCancelButtonExit = FOUR_CHAR_CODE('cbtx'),
     kThemeSoundCancelButtonRelease = FOUR_CHAR_CODE('cbtr'),
-    kThemeSoundCheckboxPress = FOUR_CHAR_CODE('chkp'), /* checkboxes */
-    kThemeSoundCheckboxEnter = FOUR_CHAR_CODE('chke'),
+    kThemeSoundCheckboxPress = FOUR_CHAR_CODE('chkp'), // checkboxes     kThemeSoundCheckboxEnter = FOUR_CHAR_CODE('chke'),
     kThemeSoundCheckboxExit = FOUR_CHAR_CODE('chkx'),
     kThemeSoundCheckboxRelease = FOUR_CHAR_CODE('chkr'),
-    kThemeSoundRadioPress = FOUR_CHAR_CODE('radp'), /* radio buttons */
-    kThemeSoundRadioEnter = FOUR_CHAR_CODE('rade'),
+    kThemeSoundRadioPress = FOUR_CHAR_CODE('radp'), // radio buttons     kThemeSoundRadioEnter = FOUR_CHAR_CODE('rade'),
     kThemeSoundRadioExit = FOUR_CHAR_CODE('radx'),
     kThemeSoundRadioRelease = FOUR_CHAR_CODE('radr'),
-    kThemeSoundScrollArrowPress = FOUR_CHAR_CODE('sbap'), /* scroll bars */
-    kThemeSoundScrollArrowEnter = FOUR_CHAR_CODE('sbae'),
+    kThemeSoundScrollArrowPress = FOUR_CHAR_CODE('sbap'), // scroll bars     kThemeSoundScrollArrowEnter = FOUR_CHAR_CODE('sbae'),
     kThemeSoundScrollArrowExit = FOUR_CHAR_CODE('sbax'),
     kThemeSoundScrollArrowRelease = FOUR_CHAR_CODE('sbar'),
     kThemeSoundScrollEndOfTrack = FOUR_CHAR_CODE('sbte'),
     kThemeSoundScrollTrackPress = FOUR_CHAR_CODE('sbtp'),
-    kThemeSoundSliderEndOfTrack = FOUR_CHAR_CODE('slte'), /* sliders */
-    kThemeSoundSliderTrackPress = FOUR_CHAR_CODE('sltp'),
-    kThemeSoundBalloonOpen = FOUR_CHAR_CODE('blno'), /* help balloons */
-    kThemeSoundBalloonClose = FOUR_CHAR_CODE('blnc'),
-    kThemeSoundBevelPress = FOUR_CHAR_CODE('bevp'), /* Bevel buttons */
-    kThemeSoundBevelEnter = FOUR_CHAR_CODE('beve'),
+    kThemeSoundSliderEndOfTrack = FOUR_CHAR_CODE('slte'), // sliders     kThemeSoundSliderTrackPress = FOUR_CHAR_CODE('sltp'),
+    kThemeSoundBalloonOpen = FOUR_CHAR_CODE('blno'),      // help balloons     kThemeSoundBalloonClose = FOUR_CHAR_CODE('blnc'),
+    kThemeSoundBevelPress = FOUR_CHAR_CODE('bevp'),       // Bevel buttons     kThemeSoundBevelEnter = FOUR_CHAR_CODE('beve'),
     kThemeSoundBevelExit = FOUR_CHAR_CODE('bevx'),
     kThemeSoundBevelRelease = FOUR_CHAR_CODE('bevr'),
-    kThemeSoundLittleArrowUpPress = FOUR_CHAR_CODE('laup'), /* Little Arrows */
-    kThemeSoundLittleArrowDnPress = FOUR_CHAR_CODE('ladp'),
+    kThemeSoundLittleArrowUpPress = FOUR_CHAR_CODE('laup'), // Little Arrows     kThemeSoundLittleArrowDnPress = FOUR_CHAR_CODE('ladp'),
     kThemeSoundLittleArrowEnter = FOUR_CHAR_CODE('lare'),
     kThemeSoundLittleArrowExit = FOUR_CHAR_CODE('larx'),
     kThemeSoundLittleArrowUpRelease = FOUR_CHAR_CODE('laur'),
     kThemeSoundLittleArrowDnRelease = FOUR_CHAR_CODE('ladr'),
-    kThemeSoundPopupPress = FOUR_CHAR_CODE('popp'), /* Popup Buttons */
-    kThemeSoundPopupEnter = FOUR_CHAR_CODE('pope'),
+    kThemeSoundPopupPress = FOUR_CHAR_CODE('popp'), // Popup Buttons     kThemeSoundPopupEnter = FOUR_CHAR_CODE('pope'),
     kThemeSoundPopupExit = FOUR_CHAR_CODE('popx'),
     kThemeSoundPopupRelease = FOUR_CHAR_CODE('popr'),
-    kThemeSoundDisclosurePress = FOUR_CHAR_CODE('dscp'), /* Disclosure Buttons */
-    kThemeSoundDisclosureEnter = FOUR_CHAR_CODE('dsce'),
+    kThemeSoundDisclosurePress = FOUR_CHAR_CODE('dscp'), // Disclosure Buttons     kThemeSoundDisclosureEnter = FOUR_CHAR_CODE('dsce'),
     kThemeSoundDisclosureExit = FOUR_CHAR_CODE('dscx'),
     kThemeSoundDisclosureRelease = FOUR_CHAR_CODE('dscr'),
-    kThemeSoundTabPressed = FOUR_CHAR_CODE('tabp'), /* Tabs */
-    kThemeSoundTabEnter = FOUR_CHAR_CODE('tabe'),
+    kThemeSoundTabPressed = FOUR_CHAR_CODE('tabp'), // Tabs     kThemeSoundTabEnter = FOUR_CHAR_CODE('tabe'),
     kThemeSoundTabExit = FOUR_CHAR_CODE('tabx'),
     kThemeSoundTabRelease = FOUR_CHAR_CODE('tabr'),
-    kThemeSoundDragTargetHilite = FOUR_CHAR_CODE('dthi'), /* drag manager */
-    kThemeSoundDragTargetUnhilite = FOUR_CHAR_CODE('dtuh'),
+    kThemeSoundDragTargetHilite = FOUR_CHAR_CODE('dthi'), // drag manager     kThemeSoundDragTargetUnhilite = FOUR_CHAR_CODE('dtuh'),
     kThemeSoundDragTargetDrop = FOUR_CHAR_CODE('dtdr'),
-    kThemeSoundEmptyTrash = FOUR_CHAR_CODE('ftrs'), /* finder */
-    kThemeSoundSelectItem = FOUR_CHAR_CODE('fsel'),
+    kThemeSoundEmptyTrash = FOUR_CHAR_CODE('ftrs'), // finder     kThemeSoundSelectItem = FOUR_CHAR_CODE('fsel'),
     kThemeSoundNewItem = FOUR_CHAR_CODE('fnew'),
     kThemeSoundReceiveDrop = FOUR_CHAR_CODE('fdrp'),
     kThemeSoundCopyDone = FOUR_CHAR_CODE('fcpd'),
@@ -1179,8 +974,7 @@ extern "C"
 
   typedef OSType ThemeSoundKind;
   /*������������������������������������������������������������������������������������������*/
-  /* Window Metrics */
-  /*������������������������������������������������������������������������������������������*/
+  // Window Metrics   /*������������������������������������������������������������������������������������������*/
   /*  Window metrics are used by the Appearance manager to fill in the blanks
    * necessary to    */
   /*  draw windows. If a value is not appropriate for the type of window, be sure
@@ -1191,36 +985,24 @@ extern "C"
    * interpreted in a   */
   /*  different manner when depending on the value of the popupTabPosition field.
    * The values  */
-  /*  you can pass into popupTabPosition are: */
-  /*                                                                                          */
-  /*  kThemePopupTabNormalPosition */
-  /*      Starts the tab left edge at the position indicated by the popupTabOffset
-   * field.     */
-  /*                                                                                          */
-  /*  kThemePopupTabCenterOnWindow */
-  /*      tells us to ignore the offset field and instead simply center the width
-   * of the      */
-  /*      handle on the window. */
-  /*                                                                                          */
-  /*  kThemePopupTabCenterOnOffset */
-  /*      tells us to center the width of the handle around the value passed in
-   * offset.       */
-  /*                                                                                          */
-  /*  The Appearance Manager will try its best to accomodate the requested
-   * placement, but may */
-  /*  move the handle slightly to make it fit correctly. */
-  /*                                                                                          */
-  enum
-  {
-    kThemePopupTabNormalPosition = 0,
-    kThemePopupTabCenterOnWindow = 1,
-    kThemePopupTabCenterOnOffset = 2
-  };
+  //  you can pass into popupTabPosition are:   //                                                                                            //  kThemePopupTabNormalPosition   /*      Starts the tab left edge at the position indicated by the popupTabOffset
+  *field.*/
+      //                                                                                            //  kThemePopupTabCenterOnWindow   /*      tells us to ignore the offset field and instead simply center the width
+      *of the * /
+      //      handle on the window.   //                                                                                            //  kThemePopupTabCenterOnOffset   /*      tells us to center the width of the handle around the value passed in
+      *offset.*/
+      //                                                                                            /*  The Appearance Manager will try its best to accomodate the requested
+      *placement,
+      but may * /
+          //  move the handle slightly to make it fit correctly.   //                                                                                            enum
+          {
+              kThemePopupTabNormalPosition = 0,
+              kThemePopupTabCenterOnWindow = 1,
+              kThemePopupTabCenterOnOffset = 2};
 
   struct ThemeWindowMetrics
   {
-    UInt16 metricSize; /* should be always be sizeof( ThemeWindowMetrics )*/
-    SInt16 titleHeight;
+    UInt16 metricSize; // should be always be sizeof( ThemeWindowMetrics )    SInt16 titleHeight;
     SInt16 titleWidth;
     SInt16 popupTabOffset;
     SInt16 popupTabWidth;
@@ -1229,8 +1011,7 @@ extern "C"
   typedef struct ThemeWindowMetrics ThemeWindowMetrics;
   typedef ThemeWindowMetrics *ThemeWindowMetricsPtr;
   /*������������������������������������������������������������������������������������������*/
-  /* Theme Metrics */
-  /*������������������������������������������������������������������������������������������*/
+  // Theme Metrics   /*������������������������������������������������������������������������������������������*/
 
   /**
    *  Discussion:
@@ -1324,12 +1105,10 @@ extern "C"
 
   typedef UInt32 ThemeMetric;
   /*������������������������������������������������������������������������������������������*/
-  /* Drawing State */
-  /*������������������������������������������������������������������������������������������*/
+  // Drawing State   /*������������������������������������������������������������������������������������������*/
   typedef struct OpaqueThemeDrawingState *ThemeDrawingState;
   /*������������������������������������������������������������������������������������������*/
-  /* Callback procs */
-  /*������������������������������������������������������������������������������������������*/
+  // Callback procs   /*������������������������������������������������������������������������������������������*/
   typedef CALLBACK_API(void, ThemeTabTitleDrawProcPtr)(
       const Rect *bounds, ThemeTabStyle style, ThemeTabDirection direction,
       SInt16 depth, Boolean isColorDev, UInt32 userData);
@@ -1378,9 +1157,9 @@ extern "C"
   }
 #else
 #define NewThemeTabTitleDrawUPP(userRoutine)                                \
-  (ThemeTabTitleDrawUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),       \
-                                              uppThemeTabTitleDrawProcInfo, \
-                                              GetCurrentArchitecture())
+    (ThemeTabTitleDrawUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),       \
+                                                uppThemeTabTitleDrawProcInfo, \
+                                                GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1398,8 +1177,7 @@ extern "C"
   enum
   {
     uppThemeEraseProcInfo = 0x00001BC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 1_byte) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 1_byte) #ifdef __cplusplus
   inline ThemeEraseUPP NewThemeEraseUPP(ThemeEraseProcPtr userRoutine)
   {
     return (ThemeEraseUPP)NewRoutineDescriptor(
@@ -1407,8 +1185,8 @@ extern "C"
   }
 #else
 #define NewThemeEraseUPP(userRoutine)   \
-  (ThemeEraseUPP) NewRoutineDescriptor( \
-      (ProcPtr)(userRoutine), uppThemeEraseProcInfo, GetCurrentArchitecture())
+    (ThemeEraseUPP) NewRoutineDescriptor( \
+        (ProcPtr)(userRoutine), uppThemeEraseProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1438,9 +1216,9 @@ extern "C"
   }
 #else
 #define NewThemeButtonDrawUPP(userRoutine)                                     \
-  (ThemeButtonDrawUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppThemeButtonDrawProcInfo, \
-                           GetCurrentArchitecture())
+    (ThemeButtonDrawUPP)                                                         \
+        NewRoutineDescriptor((ProcPtr)(userRoutine), uppThemeButtonDrawProcInfo, \
+                             GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1458,8 +1236,7 @@ extern "C"
   enum
   {
     uppWindowTitleDrawingProcInfo = 0x000036C0
-  }; /* pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) #ifdef __cplusplus
   inline WindowTitleDrawingUPP
   NewWindowTitleDrawingUPP(WindowTitleDrawingProcPtr userRoutine)
   {
@@ -1469,9 +1246,9 @@ extern "C"
   }
 #else
 #define NewWindowTitleDrawingUPP(userRoutine)                                 \
-  (WindowTitleDrawingUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),        \
-                                               uppWindowTitleDrawingProcInfo, \
-                                               GetCurrentArchitecture())
+    (WindowTitleDrawingUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),        \
+                                                 uppWindowTitleDrawingProcInfo, \
+                                                 GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1489,8 +1266,7 @@ extern "C"
   enum
   {
     uppThemeIteratorProcInfo = 0x00003ED0
-  }; /* pascal 1_byte Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 1_byte Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline ThemeIteratorUPP NewThemeIteratorUPP(ThemeIteratorProcPtr userRoutine)
   {
     return (ThemeIteratorUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -1499,9 +1275,9 @@ extern "C"
   }
 #else
 #define NewThemeIteratorUPP(userRoutine)                                     \
-  (ThemeIteratorUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppThemeIteratorProcInfo, \
-                           GetCurrentArchitecture())
+    (ThemeIteratorUPP)                                                         \
+        NewRoutineDescriptor((ProcPtr)(userRoutine), uppThemeIteratorProcInfo, \
+                             GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1636,10 +1412,10 @@ extern "C"
   }
 #else
 #define InvokeThemeTabTitleDrawUPP(bounds, style, direction, depth,         \
-                                   isColorDev, userData, userUPP)           \
-  CALL_SIX_PARAMETER_UPP((userUPP), uppThemeTabTitleDrawProcInfo, (bounds), \
-                         (style), (direction), (depth), (isColorDev),       \
-                         (userData))
+                                     isColorDev, userData, userUPP)           \
+    CALL_SIX_PARAMETER_UPP((userUPP), uppThemeTabTitleDrawProcInfo, (bounds), \
+                           (style), (direction), (depth), (isColorDev),       \
+                           (userData))
 #endif
 #endif
 
@@ -1665,8 +1441,8 @@ extern "C"
   }
 #else
 #define InvokeThemeEraseUPP(bounds, eraseData, depth, isColorDev, userUPP) \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppThemeEraseProcInfo, (bounds),      \
-                          (eraseData), (depth), (isColorDev))
+    CALL_FOUR_PARAMETER_UPP((userUPP), uppThemeEraseProcInfo, (bounds),      \
+                            (eraseData), (depth), (isColorDev))
 #endif
 #endif
 
@@ -1696,9 +1472,9 @@ extern "C"
   }
 #else
 #define InvokeThemeButtonDrawUPP(bounds, kind, info, userData, depth,     \
-                                 isColorDev, userUPP)                     \
-  CALL_SIX_PARAMETER_UPP((userUPP), uppThemeButtonDrawProcInfo, (bounds), \
-                         (kind), (info), (userData), (depth), (isColorDev))
+                                   isColorDev, userUPP)                     \
+    CALL_SIX_PARAMETER_UPP((userUPP), uppThemeButtonDrawProcInfo, (bounds), \
+                           (kind), (info), (userData), (depth), (isColorDev))
 #endif
 #endif
 
@@ -1725,9 +1501,9 @@ extern "C"
   }
 #else
 #define InvokeWindowTitleDrawingUPP(bounds, depth, colorDevice, userData,     \
-                                    userUPP)                                  \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppWindowTitleDrawingProcInfo, (bounds), \
-                          (depth), (colorDevice), (userData))
+                                      userUPP)                                  \
+    CALL_FOUR_PARAMETER_UPP((userUPP), uppWindowTitleDrawingProcInfo, (bounds), \
+                            (depth), (colorDevice), (userData))
 #endif
 #endif
 
@@ -1756,44 +1532,41 @@ extern "C"
   }
 #else
 #define InvokeThemeIteratorUPP(inFileName, resID, inThemeSettings, inUserData, \
-                               userUPP)                                        \
-  (Boolean) CALL_FOUR_PARAMETER_UPP((userUPP), uppThemeIteratorProcInfo,       \
-                                    (inFileName), (resID), (inThemeSettings),  \
-                                    (inUserData))
+                                 userUPP)                                        \
+    (Boolean) CALL_FOUR_PARAMETER_UPP((userUPP), uppThemeIteratorProcInfo,       \
+                                      (inFileName), (resID), (inThemeSettings),  \
+                                      (inUserData))
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewThemeTabTitleDrawProc(userRoutine) \
+  // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewThemeTabTitleDrawProc(userRoutine) \
   NewThemeTabTitleDrawUPP(userRoutine)
 #define NewThemeEraseProc(userRoutine) NewThemeEraseUPP(userRoutine)
 #define NewThemeButtonDrawProc(userRoutine) NewThemeButtonDrawUPP(userRoutine)
 #define NewWindowTitleDrawingProc(userRoutine) \
-  NewWindowTitleDrawingUPP(userRoutine)
+    NewWindowTitleDrawingUPP(userRoutine)
 #define NewThemeIteratorProc(userRoutine) NewThemeIteratorUPP(userRoutine)
 #define CallThemeTabTitleDrawProc(userRoutine, bounds, style, direction,  \
-                                  depth, isColorDev, userData)            \
-  InvokeThemeTabTitleDrawUPP(bounds, style, direction, depth, isColorDev, \
-                             userData, userRoutine)
+                                    depth, isColorDev, userData)            \
+    InvokeThemeTabTitleDrawUPP(bounds, style, direction, depth, isColorDev, \
+                               userData, userRoutine)
 #define CallThemeEraseProc(userRoutine, bounds, eraseData, depth, isColorDev) \
-  InvokeThemeEraseUPP(bounds, eraseData, depth, isColorDev, userRoutine)
+    InvokeThemeEraseUPP(bounds, eraseData, depth, isColorDev, userRoutine)
 #define CallThemeButtonDrawProc(userRoutine, bounds, kind, info, userData,  \
-                                depth, isColorDev)                          \
-  InvokeThemeButtonDrawUPP(bounds, kind, info, userData, depth, isColorDev, \
-                           userRoutine)
+                                  depth, isColorDev)                          \
+    InvokeThemeButtonDrawUPP(bounds, kind, info, userData, depth, isColorDev, \
+                             userRoutine)
 #define CallWindowTitleDrawingProc(userRoutine, bounds, depth, colorDevice, \
-                                   userData)                                \
-  InvokeWindowTitleDrawingUPP(bounds, depth, colorDevice, userData, userRoutine)
+                                     userData)                                \
+    InvokeWindowTitleDrawingUPP(bounds, depth, colorDevice, userData, userRoutine)
 #define CallThemeIteratorProc(userRoutine, inFileName, resID, inThemeSettings, \
-                              inUserData)                                      \
-  InvokeThemeIteratorUPP(inFileName, resID, inThemeSettings, inUserData,       \
-                         userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+                                inUserData)                                      \
+    InvokeThemeIteratorUPP(inFileName, resID, inThemeSettings, inUserData,       \
+                           userRoutine)
+#endif // CALL_NOT_IN_CARBON
   /*����������������������������������������������������������������������������������*/
-  /* Menu Drawing callbacks */
-  /*����������������������������������������������������������������������������������*/
+  // Menu Drawing callbacks   /*����������������������������������������������������������������������������������*/
   typedef CALLBACK_API(void, MenuTitleDrawingProcPtr)(const Rect *inBounds,
                                                       SInt16 inDepth,
                                                       Boolean inIsColorDevice,
@@ -1818,8 +1591,7 @@ extern "C"
   enum
   {
     uppMenuTitleDrawingProcInfo = 0x000036C0
-  }; /* pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) #ifdef __cplusplus
   inline MenuTitleDrawingUPP
   NewMenuTitleDrawingUPP(MenuTitleDrawingProcPtr userRoutine)
   {
@@ -1829,9 +1601,9 @@ extern "C"
   }
 #else
 #define NewMenuTitleDrawingUPP(userRoutine)                               \
-  (MenuTitleDrawingUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),      \
-                                             uppMenuTitleDrawingProcInfo, \
-                                             GetCurrentArchitecture())
+    (MenuTitleDrawingUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),      \
+                                               uppMenuTitleDrawingProcInfo, \
+                                               GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1849,8 +1621,7 @@ extern "C"
   enum
   {
     uppMenuItemDrawingProcInfo = 0x000036C0
-  }; /* pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) #ifdef __cplusplus
   inline MenuItemDrawingUPP
   NewMenuItemDrawingUPP(MenuItemDrawingProcPtr userRoutine)
   {
@@ -1860,9 +1631,9 @@ extern "C"
   }
 #else
 #define NewMenuItemDrawingUPP(userRoutine)                                     \
-  (MenuItemDrawingUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppMenuItemDrawingProcInfo, \
-                           GetCurrentArchitecture())
+    (MenuItemDrawingUPP)                                                         \
+        NewRoutineDescriptor((ProcPtr)(userRoutine), uppMenuItemDrawingProcInfo, \
+                             GetCurrentArchitecture())
 #endif
 #endif
 
@@ -1932,9 +1703,9 @@ extern "C"
   }
 #else
 #define InvokeMenuTitleDrawingUPP(inBounds, inDepth, inIsColorDevice,         \
-                                  inUserData, userUPP)                        \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppMenuTitleDrawingProcInfo, (inBounds), \
-                          (inDepth), (inIsColorDevice), (inUserData))
+                                    inUserData, userUPP)                        \
+    CALL_FOUR_PARAMETER_UPP((userUPP), uppMenuTitleDrawingProcInfo, (inBounds), \
+                            (inDepth), (inIsColorDevice), (inUserData))
 #endif
 #endif
 
@@ -1961,40 +1732,38 @@ extern "C"
   }
 #else
 #define InvokeMenuItemDrawingUPP(inBounds, inDepth, inIsColorDevice,         \
-                                 inUserData, userUPP)                        \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppMenuItemDrawingProcInfo, (inBounds), \
-                          (inDepth), (inIsColorDevice), (inUserData))
+                                   inUserData, userUPP)                        \
+    CALL_FOUR_PARAMETER_UPP((userUPP), uppMenuItemDrawingProcInfo, (inBounds), \
+                            (inDepth), (inIsColorDevice), (inUserData))
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewMenuTitleDrawingProc(userRoutine) NewMenuTitleDrawingUPP(userRoutine)
+  // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewMenuTitleDrawingProc(userRoutine) NewMenuTitleDrawingUPP(userRoutine)
 #define NewMenuItemDrawingProc(userRoutine) NewMenuItemDrawingUPP(userRoutine)
 #define CallMenuTitleDrawingProc(userRoutine, inBounds, inDepth,            \
-                                 inIsColorDevice, inUserData)               \
-  InvokeMenuTitleDrawingUPP(inBounds, inDepth, inIsColorDevice, inUserData, \
-                            userRoutine)
+                                   inIsColorDevice, inUserData)               \
+    InvokeMenuTitleDrawingUPP(inBounds, inDepth, inIsColorDevice, inUserData, \
+                              userRoutine)
 #define CallMenuItemDrawingProc(userRoutine, inBounds, inDepth,            \
-                                inIsColorDevice, inUserData)               \
-  InvokeMenuItemDrawingUPP(inBounds, inDepth, inIsColorDevice, inUserData, \
-                           userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+                                  inIsColorDevice, inUserData)               \
+    InvokeMenuItemDrawingUPP(inBounds, inDepth, inIsColorDevice, inUserData, \
+                             userRoutine)
+#endif // CALL_NOT_IN_CARBON
+         /*����������������������������������������������������������������������������������*/
+         //  Appearance Manager APIs   /*����������������������������������������������������������������������������������*/
+         // Registering Appearance-Savvy Applications   /**
+  *RegisterAppearanceClient() *
 
-  /*����������������������������������������������������������������������������������*/
-  /*  Appearance Manager APIs */
-  /*����������������������������������������������������������������������������������*/
-  /* Registering Appearance-Savvy Applications */
-  /**
-   *  RegisterAppearanceClient()
-   *
-
-   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  OSStatus
-  RegisterAppearanceClient(void) THREEWORDINLINE(0x303C, 0x0015, 0xAA74);
+          *    \non_carbon_cfm in AppearanceLib 1.0 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          OSStatus
+          RegisterAppearanceClient(void) THREEWORDINLINE(0x303C, 0x0015, 0xAA74);
 
   /**
    *  UnregisterAppearanceClient()
@@ -2081,18 +1850,19 @@ extern "C"
                            Boolean inUpdate)
       THREEWORDINLINE(0x303C, 0x0004, 0xAA74);
 
-  /* Window Placards, Headers and Frames */
-  /**
-   *  DrawThemeWindowHeader()
-   *
+  // Window Placards, Headers and Frames   /**
+  *DrawThemeWindowHeader() *
 
-   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  OSStatus
-  DrawThemeWindowHeader(const Rect *inRect, ThemeDrawState inState)
-      THREEWORDINLINE(0x303C, 0x0005, 0xAA74);
+          *    \non_carbon_cfm in AppearanceLib 1.0 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          OSStatus
+          DrawThemeWindowHeader(const Rect *inRect, ThemeDrawState inState)
+              THREEWORDINLINE(0x303C, 0x0005, 0xAA74);
 
   /**
    *  DrawThemeWindowListViewHeader()
@@ -2142,31 +1912,33 @@ extern "C"
   DrawThemeListBoxFrame(const Rect *inRect, ThemeDrawState inState)
       THREEWORDINLINE(0x303C, 0x000A, 0xAA74);
 
-  /* Keyboard Focus Drawing */
-  /**
-   *  DrawThemeFocusRect()
-   *
+  // Keyboard Focus Drawing   /**
+  *DrawThemeFocusRect() *
 
-   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  OSStatus
-  DrawThemeFocusRect(const Rect *inRect, Boolean inHasFocus)
-      THREEWORDINLINE(0x303C, 0x000B, 0xAA74);
+          *    \non_carbon_cfm in AppearanceLib 1.0 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          OSStatus
+          DrawThemeFocusRect(const Rect *inRect, Boolean inHasFocus)
+              THREEWORDINLINE(0x303C, 0x000B, 0xAA74);
 
-  /* Dialog Group Boxes and Separators */
-  /**
-   *  DrawThemePrimaryGroup()
-   *
+  // Dialog Group Boxes and Separators   /**
+  *DrawThemePrimaryGroup() *
 
-   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  OSStatus
-  DrawThemePrimaryGroup(const Rect *inRect, ThemeDrawState inState)
-      THREEWORDINLINE(0x303C, 0x000C, 0xAA74);
+          *    \non_carbon_cfm in AppearanceLib 1.0 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          OSStatus
+          DrawThemePrimaryGroup(const Rect *inRect, ThemeDrawState inState)
+              THREEWORDINLINE(0x303C, 0x000C, 0xAA74);
 
   /**
    *  DrawThemeSecondaryGroup()
@@ -2194,19 +1966,19 @@ extern "C"
 
   /*������������������������������ BEGIN APPEARANCE 1.0.1
    * ��������������������������������������������*/
-  /* The following Appearance Manager APIs are only available */
-  /* in Appearance 1.0.1 or later                             */
-  /**
-   *  DrawThemeModelessDialogFrame()
-   *
+  // The following Appearance Manager APIs are only available   // in Appearance 1.0.1 or later                               /**
+  *DrawThemeModelessDialogFrame() *
 
-   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  OSStatus
-  DrawThemeModelessDialogFrame(const Rect *inRect, ThemeDrawState inState)
-      THREEWORDINLINE(0x303C, 0x0008, 0xAA74);
+          *    \non_carbon_cfm in AppearanceLib 1.0 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          OSStatus
+          DrawThemeModelessDialogFrame(const Rect *inRect, ThemeDrawState inState)
+              THREEWORDINLINE(0x303C, 0x0008, 0xAA74);
 
   /**
    *  DrawThemeGenericWell()
@@ -2247,18 +2019,19 @@ extern "C"
 
   /* IMPORTANT: GetThemeAccentColors will only work in the platinum theme. Any
    * other theme will */
-  /* most likely return an error */
-  /**
-   *  GetThemeAccentColors()
-   *
+  // most likely return an error   /**
+  *GetThemeAccentColors() *
 
-   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  OSStatus
-  GetThemeAccentColors(CTabHandle *outColors)
-      THREEWORDINLINE(0x303C, 0x0025, 0xAA74);
+          *    \non_carbon_cfm in AppearanceLib 1.0 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          OSStatus
+          GetThemeAccentColors(CTabHandle *outColors)
+              THREEWORDINLINE(0x303C, 0x0025, 0xAA74);
 
   /**
    *  DrawThemeMenuBarBackground()
@@ -2284,8 +2057,7 @@ extern "C"
   OSStatus
   DrawThemeMenuTitle(const Rect *inMenuBarRect, const Rect *inTitleRect,
                      ThemeMenuState inState, UInt32 inAttributes,
-                     MenuTitleDrawingUPP inTitleProc, /* can be NULL */
-                     UInt32 inTitleData) THREEWORDINLINE(0x303C, 0x0019, 0xAA74);
+                     MenuTitleDrawingUPP inTitleProc, // can be NULL                      UInt32 inTitleData) THREEWORDINLINE(0x303C, 0x0019, 0xAA74);
 
   /**
    *  GetThemeMenuBarHeight()
@@ -2336,8 +2108,7 @@ extern "C"
   DrawThemeMenuItem(const Rect *inMenuRect, const Rect *inItemRect,
                     SInt16 inVirtualMenuTop, SInt16 inVirtualMenuBottom,
                     ThemeMenuState inState, ThemeMenuItemType inItemType,
-                    MenuItemDrawingUPP inDrawProc, /* can be NULL */
-                    UInt32 inUserData) THREEWORDINLINE(0x303C, 0x001D, 0xAA74);
+                    MenuItemDrawingUPP inDrawProc, // can be NULL                     UInt32 inUserData) THREEWORDINLINE(0x303C, 0x001D, 0xAA74);
 
   /**
    *  DrawThemeMenuSeparator()
@@ -2391,8 +2162,7 @@ extern "C"
    * ���������������������������������������������*/
   /*���������������������������������� THEME SWITCHING
    * �����������������������������������������������*/
-  /*                                                                                                  */
-  /*  X ALERT: Please note that Get/SetTheme are severely neutered under Mac OS X
+  //                                                                                                    /*  X ALERT: Please note that Get/SetTheme are severely neutered under Mac OS X
    * at present.         */
   /*           See the note above regarding what collection tags are supported
    * under X.               */
@@ -2428,8 +2198,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSStatus
-  IterateThemes(ThemeIteratorUPP inProc, void *inUserData); /* can be NULL */
-
+  IterateThemes(ThemeIteratorUPP inProc, void *inUserData); // can be NULL 
   /*���������������������������������������� TABS
    * ����������������������������������������������������*/
   /**
@@ -2454,8 +2223,7 @@ extern "C"
   OSStatus
   DrawThemeTab(const Rect *inRect, ThemeTabStyle inStyle,
                ThemeTabDirection inDirection,
-               ThemeTabTitleDrawUPP labelProc, /* can be NULL */
-               UInt32 userData);
+               ThemeTabTitleDrawUPP labelProc, // can be NULL                UInt32 userData);
 
   /**
    *  GetThemeTabRegion()
@@ -2551,8 +2319,7 @@ extern "C"
    */
   OSStatus
   GetThemeFont(ThemeFontID inFontID, ScriptCode inScript,
-               Str255 outFontName, /* can be NULL */
-               SInt16 *outFontSize, Style *outStyle);
+               Str255 outFontName, // can be NULL                SInt16 *outFontSize, Style *outStyle);
 
   /**
    *  DrawThemeTextBox()
@@ -2694,8 +2461,7 @@ extern "C"
   TruncateThemeText(CFMutableStringRef inString, ThemeFontID inFontID,
                     ThemeDrawState inState, SInt16 inPixelWidthLimit,
                     TruncCode inTruncWhere,
-                    Boolean *outTruncated); /* can be NULL */
-
+                    Boolean *outTruncated); // can be NULL 
   /**
    *  GetThemeTextDimensions()
    *
@@ -2814,9 +2580,7 @@ extern "C"
    */
   OSStatus
   DrawThemeTrack(const ThemeTrackDrawInfo *drawInfo,
-                 RgnHandle rgnGhost,      /* can be NULL */
-                 ThemeEraseUPP eraseProc, /* can be NULL */
-                 UInt32 eraseData);
+                 RgnHandle rgnGhost,      // can be NULL                  ThemeEraseUPP eraseProc, // can be NULL                  UInt32 eraseData);
 
   /**
    *  HitTestThemeTrack()
@@ -2873,8 +2637,7 @@ extern "C"
    */
   OSStatus
   DrawThemeTrackTickMarks(const ThemeTrackDrawInfo *drawInfo, ItemCount numTicks,
-                          ThemeEraseUPP eraseProc, /* can be NULL */
-                          UInt32 eraseData);
+                          ThemeEraseUPP eraseProc, // can be NULL                           UInt32 eraseData);
 
   /**
    *  GetThemeTrackThumbPositionFromOffset()
@@ -2986,8 +2749,7 @@ extern "C"
   DrawThemeWindowFrame(ThemeWindowType flavor, const Rect *contRect,
                        ThemeDrawState state, const ThemeWindowMetrics *metrics,
                        ThemeWindowAttributes attributes,
-                       WindowTitleDrawingUPP titleProc, /* can be NULL */
-                       UInt32 titleData);
+                       WindowTitleDrawingUPP titleProc, // can be NULL                        UInt32 titleData);
 
   /**
    *  DrawThemeTitleBarWidget()
@@ -3043,10 +2805,7 @@ extern "C"
   OSStatus
   DrawThemeButton(const Rect *inBounds, ThemeButtonKind inKind,
                   const ThemeButtonDrawInfo *inNewInfo,
-                  const ThemeButtonDrawInfo *inPrevInfo, /* can be NULL */
-                  ThemeEraseUPP inEraseProc,             /* can be NULL */
-                  ThemeButtonDrawUPP inLabelProc,        /* can be NULL */
-                  UInt32 inUserData);
+                  const ThemeButtonDrawInfo *inPrevInfo, // can be NULL                   ThemeEraseUPP inEraseProc,             // can be NULL                   ThemeButtonDrawUPP inLabelProc,        // can be NULL                   UInt32 inUserData);
 
   /**
    *  GetThemeButtonRegion()
@@ -3088,8 +2847,7 @@ extern "C"
 
   /*������������������������������������� INTERFACE SOUNDS
    * �������������������������������������������*/
-  /*                                                                                                  */
-  /*  X ALERT: Please note that the sound APIs do not work on Mac OS X at present.
+  //                                                                                                    /*  X ALERT: Please note that the sound APIs do not work on Mac OS X at present.
    */
   /**
    *  PlayThemeSound()
@@ -3148,8 +2906,7 @@ extern "C"
    */
   OSStatus
   DrawThemeChasingArrows(const Rect *bounds, UInt32 index, ThemeDrawState state,
-                         ThemeEraseUPP eraseProc, /* can be NULL */
-                         UInt32 eraseData);
+                         ThemeEraseUPP eraseProc, // can be NULL                          UInt32 eraseData);
 
   /**
    *  DrawThemePopupArrow()
@@ -3162,8 +2919,7 @@ extern "C"
   OSStatus
   DrawThemePopupArrow(const Rect *bounds, ThemeArrowOrientation orientation,
                       ThemePopupArrowSize size, ThemeDrawState state,
-                      ThemeEraseUPP eraseProc, /* can be NULL */
-                      UInt32 eraseData);
+                      ThemeEraseUPP eraseProc, // can be NULL                       UInt32 eraseData);
 
   /**
    *  DrawThemeStandaloneGrowBox()
@@ -3215,25 +2971,11 @@ extern "C"
    * inDisposeNow          */
   /* parameter of the SetThemeDrawingState routine.  You can use this routine to
    * copy the drawing     */
-  /* state from one port to another as well. */
-  /*                                                                                                  */
-  /* As of this writing (Mac OS 9.1 and Mac OS X), Get/SetThemeDrawingState will
+  // state from one port to another as well.   //                                                                                                    /* As of this writing (Mac OS 9.1 and Mac OS X), Get/SetThemeDrawingState will
    * save and restore     */
-  /* this data in the port: */
-  /*                                                                                                  */
-  /*      pen size */
-  /*      pen location */
-  /*      pen mode */
-  /*      pen Pattern and PixPat */
-  /*      background Pattern and PixPat */
-  /*      RGB foreground and background colors */
-  /*      text mode */
-  /*      pattern origin */
-  /*                                                                                                  */
-  /* Get/SetThemeDrawingState may save and restore additional port state in the
+  // this data in the port:   //                                                                                                    //      pen size   //      pen location   //      pen mode   //      pen Pattern and PixPat   //      background Pattern and PixPat   //      RGB foreground and background colors   //      text mode   //      pattern origin   //                                                                                                    /* Get/SetThemeDrawingState may save and restore additional port state in the
    * future, but you can   */
-  /* rely on them to always save at least this port state. */
-  /**
+  // rely on them to always save at least this port state.   /**
    *  NormalizeThemeDrawingState()
    *
 
@@ -3285,8 +3027,7 @@ extern "C"
    */
   /* call this API to ensure a correct background for the current theme. You pass
    */
-  /* in the same rectangle you would if you were calling the drawing primitive. */
-  /**
+  // in the same rectangle you would if you were calling the drawing primitive.   /**
    *  ApplyThemeBackground()
    *
 
@@ -3425,8 +3166,7 @@ extern "C"
   GetTextAndEncodingFromCFString(CFStringRef inString, BytePtr outText,
                                  ByteCount inTextMaxLength,
                                  ByteCount *outTextLength,
-                                 TextEncoding *outEncoding); /* can be NULL */
-
+                                 TextEncoding *outEncoding); // can be NULL 
   /**
    *  CopyThemeIdentifier()
    *
@@ -3439,13 +3179,10 @@ extern "C"
   CopyThemeIdentifier(CFStringRef *outIdentifier);
 
   /*��������������������������������������������������������������������������������������������������*/
-  /* Obsolete symbolic names */
-  /*��������������������������������������������������������������������������������������������������*/
-  /* Obsolete error codes - use the new ones, s'il vous plait / kudasai */
-  enum
+  // Obsolete symbolic names   /*��������������������������������������������������������������������������������������������������*/
+  // Obsolete error codes - use the new ones, s'il vous plait / kudasai   enum
   {
-    appearanceBadBrushIndexErr = themeInvalidBrushErr, /* pattern index invalid */
-    appearanceProcessRegisteredErr = themeProcessRegisteredErr,
+    appearanceBadBrushIndexErr = themeInvalidBrushErr, // pattern index invalid     appearanceProcessRegisteredErr = themeProcessRegisteredErr,
     appearanceProcessNotRegisteredErr = themeProcessNotRegisteredErr,
     appearanceBadTextColorIndexErr = themeBadTextColorErr,
     appearanceThemeHasNoAccents = themeHasNoAccentsErr,
@@ -3542,17 +3279,15 @@ extern "C"
 
   enum
   {
-    kAEThemeSwitch = kAEAppearanceChanged /* Event ID's: Theme Switched */
-  };
+  kAEThemeSwitch = kAEAppearanceChanged // Event ID's: Theme Switched   };
 
-  enum
-  {
-    kThemeNoAdornment = kThemeAdornmentNone,
-    kThemeDefaultAdornment = kThemeAdornmentDefault,
-    kThemeFocusAdornment = kThemeAdornmentFocus,
-    kThemeRightToLeftAdornment = kThemeAdornmentRightToLeft,
-    kThemeDrawIndicatorOnly = kThemeAdornmentDrawIndicatorOnly
-  };
+      enum {
+        kThemeNoAdornment = kThemeAdornmentNone,
+        kThemeDefaultAdornment = kThemeAdornmentDefault,
+        kThemeFocusAdornment = kThemeAdornmentFocus,
+        kThemeRightToLeftAdornment = kThemeAdornmentRightToLeft,
+        kThemeDrawIndicatorOnly = kThemeAdornmentDrawIndicatorOnly
+      };
 
   enum
   {
@@ -3566,18 +3301,14 @@ extern "C"
     kThemeMetricDisclosureButtonSize = kThemeMetricDisclosureButtonHeight,
     kThemeMetricBestListHeaderHeight = kThemeMetricListHeaderHeight,
     kThemeMetricSmallProgressBarThickness =
-        kThemeMetricNormalProgressBarThickness, /* obsolete */
-    kThemeMetricProgressBarThickness =
-        kThemeMetricLargeProgressBarThickness /* obsolete */
-  };
+        kThemeMetricNormalProgressBarThickness, // obsolete     kThemeMetricProgressBarThickness =
+    kThemeMetricLargeProgressBarThickness       // obsolete   };
 
-  enum
-  {
-    kThemeScrollBar = kThemeMediumScrollBar,
-    kThemeSlider = kThemeMediumSlider,
-    kThemeProgressBar = kThemeMediumProgressBar,
-    kThemeIndeterminateBar = kThemeMediumIndeterminateBar
-  };
+    enum {
+        kThemeScrollBar = kThemeMediumScrollBar,
+        kThemeSlider = kThemeMediumSlider,
+        kThemeProgressBar = kThemeMediumProgressBar,
+        kThemeIndeterminateBar = kThemeMediumIndeterminateBar};
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -3594,7 +3325,7 @@ extern "C"
 #endif
 
 #ifdef __cplusplus
-}
+  }
 #endif
 
-#endif /* __APPEARANCE__ */
+#endif // __APPEARANCE__

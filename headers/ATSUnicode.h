@@ -80,8 +80,7 @@ extern "C" {
 #endif
 
 /********************************/
-/*  Types and related constants */
-/********************************/
+//  Types and related constants /********************************/
 /**
    UniCharArrayHandle and UniCharArrayOffset are defined in the
    TextCommon interface file.
@@ -144,209 +143,132 @@ typedef struct OpaqueATSUFontFallbacks *ATSUFontFallbacks;
 */
 typedef UInt32 ATSUAttributeTag;
 enum {
-  /*    Layout and Line Control Attribute Tags*/
-  kATSULineWidthTag = 1L,     /*    Type:       ATSUTextMeasurement*/
-                              /*    Default value: 0*/
-  kATSULineRotationTag = 2L,  /*    Type:       Fixed (fixed value in degrees in
-                                 right-handed coordinate system)*/
-                              /*    Default value: 0*/
-  kATSULineDirectionTag = 3L, /*    Type:       Boolean; values 0 or 1 (see
-                                 below for value identities)*/
+  //    Layout and Line Control Attribute Tags  kATSULineWidthTag = 1L,     //    Type:       ATSUTextMeasurement                              //    Default value: 0  kATSULineRotationTag = 2L,  /*    Type:       Fixed (fixed value in degrees in
+  //    Layout and Line Control Attribute Tags
+                              //    Type:       ATSUTextMeasurement
+                              //    Default value: 0
   /*    Default value: GetSysDirection() ? kATSURightToLeftBaseDirection :
      kATSULeftToRightBaseDirection*/
-  kATSULineJustificationFactorTag =
-      4L,                          /*    Type:       Fract between 0 and 1*/
-                                   /*    Default value: kATSUNoJustification*/
-  kATSULineFlushFactorTag = 5L,    /*    Type:       Fract between 0 and 1 */
-                                   /*    Default value: kATSUStartAlignment*/
-  kATSULineBaselineValuesTag = 6L, /*    Type:       BslnBaselineRecord*/
-  /*    Default value: All zeros.  Calculated from other style attributes (e.g.,
+  kATSULineJustificationFactor//    Default value: 0
+      4L,                          //    Type:       Fract between 0 and 1                                   //    Default value: kATSUNoJustification  kATSULineFlushFactorTag = 5L,    //    Type:       Fract between 0 and 1                                    //    Default value: kATSUStartAlignment  kATSULineBaselineValuesTag = 6L, //    Type:       BslnBaselineRecord  /*    Default value: All zeros.  Calculated from other style attributes (e.g.,
      font and point size)*/
   kATSULineLayoutOptionsTag =
-      7L, /*    Type:       ATSLineLayoutOptions (see ATSLayoutTypes.h)*/
-          /*    Default value: kATSLineNoLayoutOptions - other options listed in
+      7L, //    Type:       ATSLineLayoutOptions (see ATSLayoutTypes.h)          /*    Default value: kATSLineNoLayoutOptions - other options listed in
              ATSLayoutTypes.h*/
-  kATSULineAscentTag = 8L,       /*    Type:       ATSUTextMeasurement*/
-                                 /*    Default value: kATSUseLineHeight*/
-  kATSULineDescentTag = 9L,      /*    Type:       ATSUTextMeasurement*/
-                                 /*    Default value: kATSUseLineHeight*/
-  kATSULineLangRegionTag = 10L,  /*    Type:       RegionCode - region values
-                                    listed in script.h interface file*/
-                                 /*    Default value: kTextRegionDontCare*/
-  kATSULineTextLocatorTag = 11L, /*    Type:       TextBreakLocatorRef*/
-  /*    Default value: NULL - set Region derived locator or the default Text
-     Utilities locator*/
-  kATSULineTruncationTag = 12L,    /*    Type:       ATSULineTruncation*/
-                                   /*    Default value: kATSUTruncateNone                                  */
-  kATSULineFontFallbacksTag = 13L, /*    Type:       ATSUFontFallbacks*/
-  /*    Default value: globally set font fallbacks using the
+  kATSULineAscentTag = 8L,       ////    Type:       Fract between 0 and 1
+                                   //    Default value: kATSUNoJustification
+                                 ////    Type:       Fract between 0 and 1 
+     Utilities locator*///    Default value: kATSUStartAlignment
+  kATSULineTruncationTag = 12L,    //    Type:       BslnBaselineRecord
      ATSUSetFontFallbacks                                                     */
   kATSUMaxLineTag = 14L, /*    This is just for convenience - the upper limit of
                             the ATSUTextLayout attribute tags*/
-                         /* obsolete layout tags */
-  kATSULineLanguageTag = 10L, /*    Use kATSULineLangRegionTag           */
-                              /*    Run Style Attribute Tags*/
-                              /* QuickDraw compatibility tags */
-  kATSUQDBoldfaceTag = 256L,  /*    Type:       Boolean    */
-                              /*    Default value: false*/
-  kATSUQDItalicTag = 257L,    /*    Type:       Boolean       */
-                              /*    Default value: false*/
-  kATSUQDUnderlineTag = 258L, /*    Type:       Boolean    */
-                              /*    Default value: false*/
-  kATSUQDCondensedTag = 259L, /*    Type:       Boolean    */
-                              /*    Default value: false*/
-  kATSUQDExtendedTag = 260L,  /*    Type:       Boolean    */
-                              /*    Default value: false*/
-                              /* Common run tags */
-  kATSUFontTag = 261L,        /*    Type:       ATSUFontID */
-  /*    Default value: GetScriptVariable( smSystemScript, smScriptAppFond )*/
-  kATSUSizeTag = 262L, /*    Type:       Fixed  */
-  /*    Default value: GetScriptVariable( smSystemScript, smScriptAppFondSize )
+          //    Type:       ATSLineLayoutOptions (see ATSLayoutTypes.h)
    */
-  kATSUColorTag = 263L,      /*    Type:       RGBColor   */
-                             /*    Default value: (0, 0, 0)*/
-                             /*    Less common run tags */
-  kATSULangRegionTag = 264L, /*    Type:       RegionCode - region values listed
-                                in script.h interface file*/
-  /*    Default value: GetScriptManagerVariable( smRegionCode )*/
-  kATSUVerticalCharacterTag =
-      265L,                   /*    Type:       ATSUVerticalCharacterType  */
-                              /*    Default value: kATSUStronglyHorizontal*/
-  kATSUImposeWidthTag = 266L, /*    Type:       ATSUTextMeasurement*/
-  /*    Default value: 0 - all glyphs use their own font defined advance
-     widths*/
-  kATSUBeforeWithStreamShiftTag = 267L, /*    Type:       Fixed*/
-                                        /*    Default value: 0*/
-  kATSUAfterWithStreamShiftTag = 268L,  /*    Type:       Fixed*/
-                                        /*    Default value: 0*/
-  kATSUCrossStreamShiftTag = 269L,      /*    Type:       Fixed*/
-                                        /*    Default value: 0*/
-  kATSUTrackingTag = 270L,              /*    Type:       Fixed*/
-                                        /*    Default value: kATSNoTracking*/
-  kATSUHangingInhibitFactorTag = 271L, /*    Type:       Fract between 0 and 1*/
-                                       /*    Default value: 0*/
-  kATSUKerningInhibitFactorTag = 272L, /*    Type:       Fract between 0 and 1*/
-                                       /*    Default value: 0*/
-  kATSUDecompositionFactorTag = 273L,  /*    Type:       Fixed (-1.0 -> 1.0)*/
-                                       /*    Default value: 0*/
-  kATSUBaselineClassTag =
-      274L, /*    Type:       BslnBaselineClass  (see SFNTLayoutTypes.h)*/
-  /*    Default value: kBSLNRomanBaseline - set to kBSLNNoBaselineOverride to
-     use intrinsic baselines*/
-  kATSUPriorityJustOverrideTag =
+  kATSUColorTag = 263L,      //    Type:       RGBColor                                //    Default value: (0, 0, 0)                             //    Less common run tags   kATSULangRegionTag = 264L, /*    Type:       RegionCode - region values listed
+                                i//    Type:       ATSUTextMeasurement
+  //    Default value: GetScriptM//    Default value: kATSUseLineHeight
+      265L,                   // //    Type:       ATSUTextMeasurement
+     widths*///    Default value: kATSUseLineHeight
+  kATSUBeforeWithStreamShiftTag = 267L, //    Type:       Fixed                                        //    Default value: 0  kATSUAfterWithStreamShiftTag = 268L,  //    Type:       Fixed                                        //    Default value: 0  kATSUCrossStreamShiftTag = 269L,      //    Type:       Fixed                                        //    Default value: 0  kATSUTrackingTag = 270L,              //    Type:       Fixed                                        //    Default value: kATSNoTracking  kATSUHangingInhibitFactorTag = 271L, //    Type:       Fract between 0 and 1                                       //    Default value: 0  kATSUKerningInhibitFactorTag = 272L, //    Type:       Fract between 0 and 1                                       //    Default value: 0  kATSUDecompositionFactorTag = 273L,  //    Type:       Fixed (-1.0 -> 1.0)                                       //    Default value: 0  kATSUBaselineClassTag =
+      274L, //    Type:       BslnBaselineClass  (see SFNTLayoutTypes.h)  /*    Default value: kBSLNRomanBaseline - set to kBSLNNoBaselineOverride to
+     use intrinsic baselines*///    Default value: kTextRegionDontCare
+  kATSUPriorityJustOverrideTag =//    Type:       TextBreakLocatorRef
       275L, /*    Type:       ATSJustPriorityWidthDeltaOverrides (see
                ATSLayoutTypes.h)*/
-            /*    Default value: all zeros*/
-  kATSUNoLigatureSplitTag = 276L, /*    Type:       Boolean*/
-  /*    Default value: false - ligatures and compound characters have divisable
-     components.*/
-  kATSUNoCaretAngleTag = 277L, /*    Type:       Boolean*/
-  /*    Default value: false - use the character's angularity to determine its
+            //    Default value: al//    Type:       ATSULineTruncation
+     components.*///    Default value: kATSUTruncateNone                                  
+  kATSUNoCaretAngleTag = 277L, //  //    Type:       ATSUFontFallbacks
      boundaries*/
-  kATSUSuppressCrossKerningTag = 278L, /*    Type:       Boolean*/
-  /*    Default value: false - do not suppress automatic cross kerning (defined
+  kATSUSuppressCrossKerningTag = 278L, //    Type:       Boolean  /*    Default value: false - do not suppress automatic cross kerning (defined
      by font)*/
-  kATSUNoOpticalAlignmentTag = 279L, /*    Type:       Boolean*/
-  /*    Default value: false - do not suppress character's automatic optical
-     positional alignment*/
-  kATSUForceHangingTag = 280L, /*    Type:       Boolean*/
-  /*    Default value: false - do not force the character's to hang beyond the
-     line boundaries*/
-  kATSUNoSpecialJustificationTag = 281L, /*    Type:       Boolean*/
-  /*    Default value: false - perform post-compensation justification if
-     needed*/
-  kATSUStyleTextLocatorTag = 282L, /*    Type:       TextBreakLocatorRef*/
-  /*    Default value: NULL - region derived locator or the default Text
-     Utilities locator*/
-  kATSUStyleRenderingOptionsTag =
-      283L, /*    Type:       ATSStyleRenderingOptions (see ATSLayoutTypes.h)*/
-  /*    Default value: kATSStyleApplyHints - ATS glyph rendering uses hinting*/
-  kATSUMaxStyleTag = 284L, /*    This is just for convenience - the upper limit
-                              of the ATSUStyle attribute tags */
-                           /* obsolete style tags */
-  kATSULanguageTag = 264L, /*    use kATSULangRegionTag               */
-                           /* special layout tag for Mac OS X */
-  kATSUCGContextTag =
-      32767L, /*  Type:          CGContext, Default value:    NULL   */
-              /* max */
-  kATSUMaxATSUITagValue =
-      65535L /*    This is the maximum Apple ATSUI reserved tag value.  Client
-                defined tags must be larger.*/
-};
-
-/**
-    ATSUAttributeValuePtr is used to provide generic access to
+  kATSUNoOpticalAlignmentTag = 279L, //    Type:       Boolean  /*    Default value: false - do not suppress character's automatic optical
+     positional alignment// obsolete layout tags 
+  kATSUForceHangingTag = 280L,//    Use kATSULineLangRegionTag           
+     line boundaries*///    Run Style Attribute Tags
+  kATSUNoSpecialJustificationT// QuickDraw compatibility tags 
+     needed*///    Type:       Boolean    
+  kATSUStyleTextLocatorTag = 2//    Default value: false
+     Utilities locator*///    Type:       Boolean       
+  kATSUStyleRenderingOptionsTa//    Default value: false
+      283L, //    Type:       //    Type:       Boolean    
+                              //    Default value: false
+                           // //    Type:       Boolean    
+      32767L, //  Type:       //    Default value: false
+      65535L /*    This is the//    Type:       Boolean    
+                defined tags m//    Default value: false
+};// Common run tags 
+//    Type:       ATSUFontID 
+/*//    Default value: GetScriptVariable( smSystemScript, smScriptAppFond )
+    ATSUAttributeValueP//    Type:       Fixed  
     storage of attribute values, which vary in size.
     ConstATSUAttributeValuePtr is a pointer to a const attribute value.
-*/
-typedef void *ATSUAttributeValuePtr;
-typedef const void *ConstATSUAttributeValuePtr;
+*///    Type:       RGBColor   
+typedef void *ATSUAttributeVa//    Default value: (0, 0, 0)
+typedef const void *ConstATSU//    Less common run tags 
 /**
     ATSUAttributeInfo is used to provide a tag/size pairing.
-    This makes it possible to provide the client information
+  //    Default value: GetScriptManagerVariable( smRegionCode )
     about all the attributes for a given range of text.  This
-    structure is only used to return to the client information
-    about a complete set of attributes.  An array of
-    ATSUAttributeInfos is passed as a parameter so that the
+    structure is only used to //    Type:       ATSUVerticalCharacterType  
+    about a complete set of at//    Default value: kATSUStronglyHorizontal
+    ATSUAttributeInfos is pass//    Type:       ATSUTextMeasurement
     client can find out what attributes are set and what their
     individual sizes are; with that information, they can then
-    query about the values of the attributes they're interested
-    in.  Because arrays of ATSUAttributeInfos are used as parameters
-    to functions, they have to be of a fixed size, hence the
-    value is not included in the structure.
-*/
-struct ATSUAttributeInfo {
-  ATSUAttributeTag fTag;
-  ByteCount fValueSize;
-};
-typedef struct ATSUAttributeInfo ATSUAttributeInfo;
-/**
-    ATSUCaret contains the complete information needed to render a
-    caret.  fX and fY is the position of one of the caret's ends
-    relative to the origin position of the line the caret belongs.
+    query about the values of the attrib//    Type:       Fixed
+    in.  Because arrays of ATSUAttribute//    Default value: 0
+    to functions, they have to be of a f//    Type:       Fixed
+    value is not included in the structu//    Default value: 0
+*///    Type:       Fixed
+struct ATSUAttributeInfo {//    Default value: 0
+  ATSUAttributeTag fTag;//    Type:       Fixed
+  ByteCount fValueSize;//    Default value: kATSNoTracking
+};//    Type:       Fract between 0 and 1
+typedef struct ATSUAttributeInfo ATSUAt//    Default value: 0
+/**//    Type:       Fract between 0 and 1
+    ATSUCaret contains the complete inf//    Default value: 0
+    caret.  fX and fY is the position o//    Type:       Fixed (-1.0 -> 1.0)
+    relative to the origin position of //    Default value: 0
     fDeltaX and fDeltaY is the position of the caret's other end.
-    Hence, to draw a caret, simply call MoveTo(fX, fY) followed by
+    Hence, t//    Type:       BslnBaselineClass  (see SFNTLayoutTypes.h)
     LineTo(fDeltaX, fDeltaY) or equivalent.  The ATSUCaret will
     contain the positions needed to draw carets on angled lines
     and reflect angled carets and leading/trailing split caret
     appearances.
 */
-struct ATSUCaret {
-  Fixed fX;
+struct ATSUC//    Default value: all zeros
+  Fixed fX;//    Type:       Boolean
   Fixed fY;
   Fixed fDeltaX;
-  Fixed fDeltaY;
+  Fixed fDeltaY;//    Type:       Boolean
 };
 typedef struct ATSUCaret ATSUCaret;
-/**
+/**//    Type:       Boolean
     ATSUCursorMovementType is used to indicate how much to move
     the cursor when using the ATSUI cusor movement routines.
-    Note that kATSUByCharacterCluster is only available in Mac OS X
+    Note that kATSUByCharacterCluster//    Type:       Boolean
     and in CarbonLib versions 1.3 and later.
 */
-typedef UInt16 ATSUCursorMovementType;
+typedef UInt16 ATSUCursorMoveme//    Type:       Boolean
 enum {
   kATSUByCharacter = 0,
-  kATSUByTypographicCluster = 1, /* clusters based on characters or ligatures*/
-  kATSUByWord = 2,
-  kATSUByCharacterCluster = 3, /* clusters based on characters only*/
-  kATSUByCluster = 1           /* obsolete name for kATSUByTypographicCluster*/
-};
+  kATSUByTypographicCluster = 1, // clust//    Type:       Boolean
+  kATSUByCharacterCluster = 3, // clusters based on characters only  kATSUByCluster = 1           // obsolete name for kATSUByTypographicCluster};
 
-/**
+/**//    Type:       TextBreakLocatorRef
     ATSULineTruncation is for identifying where truncation will occur when
     using a ATSUTextLayout with the ATSULineTruncation layout attribute.
 */
-typedef UInt32 ATSULineTruncation;
-enum {
+typedef UInt//    Type:       ATSStyleRenderingOptions (see ATSLayoutTypes.h)
+en//    Default value: kATSStyleApplyHints - ATS glyph rendering uses hinting
   kATSUTruncateNone = 0,  /* truncation specification - add to any desired
                              truncFeat bit options listed below*/
-  kATSUTruncateStart = 1, /* for instance, kATSUTruncateEnd with
-                             kATSUTruncFeatNoSquishing is value 0x0000000A*/
-  kATSUTruncateEnd = 2,
+  kATSUTruncateStart = 1, /// obsolete style tags 
+                           //    use kATSULangRegionTag               
+  kATSUTruncateEnd = 2,// special layout tag for Mac OS X 
   kATSUTruncateMiddle = 3,
-  kATSUTruncateSpecificationMask =
-      0x00000007, /* these bits are reserved for the truncation specification (0
+  kATSUTruncat//  Type:          CGContext, Default value:    NULL   
+      0x000000// max 
                      - 7)*/
   /* the following bit-field options can be added to the chosen truncation
      specification*/
@@ -405,10 +327,10 @@ typedef CALLBACK_API_C(void, ATSUCustomFreeFunc)(void *refCon,
                                                  void *doomedBlock);
 typedef CALLBACK_API_C(void *, ATSUCustomGrowFunc)(void *refCon, void *oldBlock,
                                                    ByteCount oldSize,
-                                                   ByteCount newSize);
+                                 // clusters based on characters or ligatures
 union ATSUMemoryCallbacks {
-  struct {
-    ATSUCustomAllocFunc Alloc;
+  struct {// clusters based on characters only
+    ATSUCustomAllocFunc Alloc;// obsolete name for kATSUByTypographicCluster
     ATSUCustomFreeFunc Free;
     ATSUCustomGrowFunc Grow;
     void *memoryRefCon;
@@ -437,10 +359,8 @@ enum {
     call.
 */
 typedef struct OpaqueATSUMemorySetting *ATSUMemorySetting;
-#endif /* CALL_NOT_IN_CARBON */
-
-/* Types for ATSUI Low Level API */
-struct ATSUGlyphInfo {
+#endif // CALL_NOT_IN_CARBON 
+// Types for ATSUI Low Level API struct ATSUGlyphInfo {
   GlyphID glyphID;
   UInt16 reserved;
   UInt32 layoutFlags;
@@ -460,8 +380,7 @@ struct ATSUGlyphInfoArray {
 typedef struct ATSUGlyphInfoArray ATSUGlyphInfoArray;
 
 /*********************************************************************************/
-/*  ATSUI Highlighting method constants and typedefs             */
-/*********************************************************************************/
+//  ATSUI Highlighting method constants and typedefs             /*********************************************************************************/
 typedef UInt32 ATSUHighlightMethod;
 enum { kInvertHighlighting = 0, kRedrawHighlighting = 1 };
 
@@ -518,9 +437,9 @@ typedef struct ATSUBackgroundColor ATSUBackgroundColor;
  *    A Boolean result indicating whether ATSUI should redraw the text.
  *    If the client function redraws the text, it should return false,
  *    otherwise it should return true to have ATSUI redraw any text
- *    that needs to be redrawn.
+ *    t// CALL_NOT_IN_CARBON 
  */
-typedef CALLBACK_API(Boolean,
+// Types for ATSUI Low Level API 
                      RedrawBackgroundProcPtr)(ATSUTextLayout iLayout,
                                               UniCharArrayOffset iTextOffset,
                                               UniCharCount iTextLength,
@@ -541,7 +460,7 @@ NewRedrawBackgroundUPP(RedrawBackgroundProcPtr userRoutine);
 /**
  *  DisposeRedrawBackgroundUPP()
  *
-
+//  ATSUI Highlighting method constants and typedefs             
  *    \non_carbon_cfm   not available
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
@@ -577,25 +496,18 @@ struct ATSUUnhighlightData {
 typedef struct ATSUUnhighlightData ATSUUnhighlightData;
 
 /********************/
-/*  Other constants */
-/********************/
-/* Line direction types (used for kATSULineDirectionTag values) */
-enum {
+//  Other constants /********************/
+// Line direction types (used for kATSULineDirectionTag values) enum {
   kATSULeftToRightBaseDirection =
-      0, /*    Impose left-to-right or top-to-bottom dominant direction */
-  kATSURightToLeftBaseDirection =
-      1 /*    Impose right-to-left or bottom-to-top dominant direction */
-};
+      0, //    Impose left-to-right or top-to-bottom dominant direction   kATSURightToLeftBaseDirection =
+      1 //    Impose right-to-left or bottom-to-top dominant direction };
 
-/* LineFlushFactor convenience defined values */
-#define kATSUStartAlignment ((Fract)0x00000000L)
+// LineFlushFactor convenience defined values #define kATSUStartAlignment ((Fract)0x00000000L)
 #define kATSUEndAlignment ((Fract)0x40000000L)
 #define kATSUCenterAlignment ((Fract)0x20000000L)
-/* LineJustificationFactor convenience defined values */
-#define kATSUNoJustification ((Fract)0x00000000L)
+// LineJustificationFactor convenience defined values #define kATSUNoJustification ((Fract)0x00000000L)
 #define kATSUFullJustification ((Fract)0x40000000L)
-/* Other constants  */
-enum { kATSUInvalidFontID = 0 };
+// Other constants  enum { kATSUInvalidFontID = 0 };
 
 enum { kATSUUseLineControlWidth = 0x7FFFFFFF };
 
@@ -612,8 +524,7 @@ enum {
 };
 
 /****************/
-/*  Functions   */
-/****************/
+//  Functions   /****************/
 
 /*  Clipboard support, flattened style version 0 (it is advised to not use these
  * routines and perform your own flattening)  */
@@ -639,8 +550,7 @@ ATSUCopyToHandle(ATSUStyle iStyle, Handle oStyleHandle);
 OSStatus
 ATSUPasteFromHandle(ATSUStyle iStyle, Handle iStyleHandle);
 
-/*  Memory allocation specification functions (not in Carbon)   */
-#if CALL_NOT_IN_CARBON
+//  Memory allocation specification functions (not in Carbon)   #if CALL_NOT_IN_CARBON
 /**
  *  ATSUCreateMemorySetting()
  *
@@ -667,29 +577,27 @@ ATSUSetCurrentMemorySetting(ATSUMemorySetting iMemorySetting);
 
 /**
  *  ATSUGetCurrentMemorySetting()
- *
+//  Other constants 
 
- *    \non_carbon_cfm   in ATSUnicodeLib 8.6 and later
+// Line direction types (used for kATSULineDirectionTag values) 
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+ *///    Impose left-to-right or top-to-bottom dominant direction 
 ATSUMemorySetting
-ATSUGetCurrentMemorySetting(void);
+ATSUGetC//    Impose right-to-left or bottom-to-top dominant direction 
 
 /**
- *  ATSUDisposeMemorySetting()
+// LineFlushFactor convenience defined values 
  *
 
  *    \non_carbon_cfm   in ATSUnicodeLib 8.6 and later
- *    \carbon_lib        not available
+// LineJustificationFactor convenience defined values 
  *    \mac_os_x         not available
  */
-OSStatus
+// Other constants  
 ATSUDisposeMemorySetting(ATSUMemorySetting iMemorySetting);
 
-/*  Font fallback object functions  */
-#endif /* CALL_NOT_IN_CARBON */
-
+//  Font fallback object functions  #endif // CALL_NOT_IN_CARBON 
 /**
  *  ATSUCreateFontFallbacks()
  *
@@ -704,7 +612,7 @@ ATSUCreateFontFallbacks(ATSUFontFallbacks *oFontFallback);
 /**
  *  ATSUDisposeFontFallbacks()
  *
-
+//  Functions   
  *    \non_carbon_cfm   in ATSUnicodeLib 9.2.2 and later
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
@@ -731,7 +639,7 @@ ATSUSetObjFontFallbacks(ATSUFontFallbacks iFontFallbacks,
  *
 
  *    \non_carbon_cfm   in ATSUnicodeLib 9.2.2 and later
- *    \carbon_lib        in CarbonLib 1.5 and later
+//  Memory allocation specification functions (not in Carbon)   
  *    \mac_os_x         in version 10.1 and later
  */
 OSStatus
@@ -740,8 +648,7 @@ ATSUGetObjFontFallbacks(ATSUFontFallbacks iFontFallbacks,
                         ATSUFontFallbackMethod *oFontFallbackMethod,
                         ItemCount *oActualFallbacksCount);
 
-/*  Basic style functions   */
-/**
+//  Basic style functions   /**
  *  ATSUCreateStyle()
  *
 
@@ -780,8 +687,8 @@ ATSUDisposeStyle(ATSUStyle iStyle);
 
  *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+//  Font fallback object functions  
+ */// CALL_NOT_IN_CARBON 
 OSStatus
 ATSUSetStyleRefCon(ATSUStyle iStyle, UInt32 iRefCon);
 
@@ -796,8 +703,7 @@ ATSUSetStyleRefCon(ATSUStyle iStyle, UInt32 iRefCon);
 OSStatus
 ATSUGetStyleRefCon(ATSUStyle iStyle, UInt32 *oRefCon);
 
-/*  Style comparison        */
-/**
+//  Style comparison        /**
  *  ATSUCompareStyles()
  *
 
@@ -809,8 +715,7 @@ OSStatus
 ATSUCompareStyles(ATSUStyle iFirstStyle, ATSUStyle iSecondStyle,
                   ATSUStyleComparison *oComparison);
 
-/*  Attribute manipulations */
-/**
+//  Attribute manipulations /**
  *  ATSUCopyAttributes()
  *
 
@@ -835,7 +740,7 @@ ATSUOverwriteAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
 /**
  *  ATSUUnderwriteAttributes()
  *
-
+//  Basic style functions   
  *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
@@ -843,8 +748,7 @@ ATSUOverwriteAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
 OSStatus
 ATSUUnderwriteAttributes(ATSUStyle iSourceStyle, ATSUStyle iDestinationStyle);
 
-/*  Empty styles    */
-/**
+//  Empty styles    /**
  *  ATSUClearStyle()
  *
 
@@ -866,8 +770,7 @@ ATSUClearStyle(ATSUStyle iStyle);
 OSStatus
 ATSUStyleIsEmpty(ATSUStyle iStyle, Boolean *oIsClear);
 
-/*  Get and set attributes */
-/**
+//  Get and set attributes /**
  *  ATSUCalculateBaselineDeltas()
  *
 
@@ -893,7 +796,7 @@ ATSUSetAttributes(ATSUStyle iStyle, ItemCount iAttributeCount,
                   const ATSUAttributeValuePtr iValue[]);
 
 /**
- *  ATSUGetAttribute()
+//  Style comparison        
  *
 
  *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
@@ -906,7 +809,7 @@ ATSUGetAttribute(ATSUStyle iStyle, ATSUAttributeTag iTag,
                  ByteCount *oActualValueSize);
 
 /**
- *  ATSUGetAllAttributes()
+//  Attribute manipulations 
  *
 
  *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
@@ -930,8 +833,7 @@ OSStatus
 ATSUClearAttributes(ATSUStyle iStyle, ItemCount iTagCount,
                     const ATSUAttributeTag iTag[]);
 
-/*  Font features   */
-/**
+//  Font features   /**
  *  ATSUSetFontFeatures()
  *
 
@@ -941,7 +843,7 @@ ATSUClearAttributes(ATSUStyle iStyle, ItemCount iTagCount,
  */
 OSStatus
 ATSUSetFontFeatures(ATSUStyle iStyle, ItemCount iFeatureCount,
-                    const ATSUFontFeatureType iType[],
+//  Empty styles    
                     const ATSUFontFeatureSelector iSelector[]);
 
 /**
@@ -964,7 +866,7 @@ ATSUGetFontFeature(ATSUStyle iStyle, ItemCount iFeatureIndex,
  *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
- */
+//  Get and set attributes 
 OSStatus
 ATSUGetAllFontFeatures(ATSUStyle iStyle, ItemCount iMaximumFeatureCount,
                        ATSUFontFeatureType oFeatureType[],
@@ -984,8 +886,7 @@ ATSUClearFontFeatures(ATSUStyle iStyle, ItemCount iFeatureCount,
                       const ATSUFontFeatureType iType[],
                       const ATSUFontFeatureSelector iSelector[]);
 
-/*  Font variations */
-/**
+//  Font variations /**
  *  ATSUSetVariations()
  *
 
@@ -1029,7 +930,7 @@ ATSUGetAllFontVariations(ATSUStyle iStyle, ItemCount iVariationCount,
  *  ATSUClearFontVariations()
  *
 
- *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
+//  Font features   
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1037,8 +938,7 @@ OSStatus
 ATSUClearFontVariations(ATSUStyle iStyle, ItemCount iAxisCount,
                         const ATSUFontVariationAxis iAxis[]);
 
-/*  Basic text-layout functions */
-/**
+//  Basic text-layout functions /**
  *  ATSUCreateTextLayout()
  *
 
@@ -1084,7 +984,7 @@ ATSUCreateTextLayoutWithTextPtr(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-OSStatus
+//  Font variations 
 ATSUCreateTextLayoutWithTextHandle(
     UniCharArrayHandle iText, UniCharArrayOffset iTextOffset,
     UniCharCount iTextLength, UniCharCount iTextTotalLength,
@@ -1135,10 +1035,9 @@ ATSUSetTextLayoutRefCon(ATSUTextLayout iTextLayout, UInt32 iRefCon);
 OSStatus
 ATSUGetTextLayoutRefCon(ATSUTextLayout iTextLayout, UInt32 *oRefCon);
 
-/*  Glyph bounds retrieval  */
-/**
+//  Glyph bounds retrieval  /**
  *  ATSUGetGlyphBounds()
- *
+//  Basic text-layout functions 
 
  *    \non_carbon_cfm   in ATSUnicodeLib 8.6 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
@@ -1153,8 +1052,7 @@ ATSUGetGlyphBounds(ATSUTextLayout iTextLayout,
                    ItemCount iMaxNumberOfBounds, ATSTrapezoid oGlyphBounds[],
                    ItemCount *oActualNumberOfBounds);
 
-/*  Idle processing */
-/**
+//  Idle processing /**
  *  ATSUIdle()
  *
 
@@ -1165,8 +1063,7 @@ ATSUGetGlyphBounds(ATSUTextLayout iTextLayout,
 OSStatus
 ATSUIdle(ATSUTextLayout iTextLayout);
 
-/*  Text location   */
-/**
+//  Text location   /**
  *  ATSUSetTextPointerLocation()
  *
 
@@ -1208,8 +1105,7 @@ ATSUGetTextLocation(ATSUTextLayout iTextLayout, void **oText,
                     Boolean *oTextIsStoredInHandle, UniCharArrayOffset *oOffset,
                     UniCharCount *oTextLength, UniCharCount *oTextTotalLength);
 
-/*  Text manipulation   */
-/**
+//  Text manipulation   /**
  *  ATSUTextDeleted()
  *
 
@@ -1239,15 +1135,14 @@ ATSUTextInserted(ATSUTextLayout iTextLayout,
  *  ATSUTextMoved()
  *
 
- *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
+//  Glyph bounds retrieval  
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 OSStatus
 ATSUTextMoved(ATSUTextLayout iTextLayout, ConstUniCharArrayPtr iNewLocation);
 
-/*  Layout controls */
-/**
+//  Layout controls /**
  *  ATSUCopyLayoutControls()
  *
 
@@ -1258,7 +1153,7 @@ ATSUTextMoved(ATSUTextLayout iTextLayout, ConstUniCharArrayPtr iNewLocation);
 OSStatus
 ATSUCopyLayoutControls(ATSUTextLayout iSourceTextLayout,
                        ATSUTextLayout iDestTextLayout);
-
+//  Idle processing 
 /**
  *  ATSUSetLayoutControls()
  *
@@ -1270,7 +1165,7 @@ ATSUCopyLayoutControls(ATSUTextLayout iSourceTextLayout,
 OSStatus
 ATSUSetLayoutControls(ATSUTextLayout iTextLayout, ItemCount iAttributeCount,
                       const ATSUAttributeTag iTag[],
-                      const ByteCount iValueSize[],
+//  Text location   
                       const ATSUAttributeValuePtr iValue[]);
 
 /**
@@ -1312,9 +1207,8 @@ OSStatus
 ATSUClearLayoutControls(ATSUTextLayout iTextLayout, ItemCount iTagCount,
                         const ATSUAttributeTag iTag[]);
 
-/*  Single line layout controls */
-/**
- *  ATSUCopyLineControls()
+//  Single line layout controls /**
+//  Text manipulation   
  *
 
  *    \non_carbon_cfm   in ATSUnicodeLib 8.6 and later
@@ -1352,7 +1246,7 @@ ATSUSetLineControls(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
 OSStatus
 ATSUGetLineControl(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                    ATSUAttributeTag iTag, ByteCount iExpectedValueSize,
-                   ATSUAttributeValuePtr oValue, ByteCount *oActualValueSize);
+//  Layout controls 
 
 /**
  *  ATSUGetAllLineControls()
@@ -1381,8 +1275,7 @@ OSStatus
 ATSUClearLineControls(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                       ItemCount iTagCount, const ATSUAttributeTag iTag[]);
 
-/*  Style run processing    */
-/**
+//  Style run processing    /**
  *  ATSUSetRunStyle()
  *
 
@@ -1419,9 +1312,8 @@ OSStatus
 ATSUGetContinuousAttributes(ATSUTextLayout iTextLayout,
                             UniCharArrayOffset iOffset, UniCharCount iLength,
                             ATSUStyle oStyle);
-
-/*  Drawing and measuring   */
-/**
+//  Single line layout controls 
+//  Drawing and measuring   /**
  *  ATSUDrawText()
  *
 
@@ -1461,8 +1353,7 @@ ATSUMeasureTextImage(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineOffset,
                      UniCharCount iLineLength, ATSUTextMeasurement iLocationX,
                      ATSUTextMeasurement iLocationY, Rect *oTextImageRect);
 
-/*  Highlighting    */
-/**
+//  Highlighting    /**
  *  ATSUHighlightText()
  *
 
@@ -1490,7 +1381,7 @@ ATSUUnhighlightText(ATSUTextLayout iTextLayout,
                     ATSUTextMeasurement iTextBasePointX,
                     ATSUTextMeasurement iTextBasePointY,
                     UniCharArrayOffset iHighlightStart,
-                    UniCharCount iHighlightLength);
+//  Style run processing    
 
 /**
  *  ATSUGetTextHighlight()
@@ -1507,8 +1398,7 @@ ATSUGetTextHighlight(ATSUTextLayout iTextLayout,
                      UniCharArrayOffset iHighlightStart,
                      UniCharCount iHighlightLength, RgnHandle oHighlightRegion);
 
-/*  Hit-testing */
-/**
+//  Hit-testing /**
  *  ATSUPositionToOffset()
  *
 
@@ -1530,7 +1420,7 @@ ATSUPositionToOffset(ATSUTextLayout iTextLayout, ATSUTextMeasurement iLocationX,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-OSStatus
+//  Drawing and measuring   
 ATSUOffsetToPosition(ATSUTextLayout iTextLayout, UniCharArrayOffset iOffset,
                      Boolean iIsLeading, ATSUCaret *oMainCaret,
                      ATSUCaret *oSecondCaret, Boolean *oCaretIsSplit);
@@ -1567,12 +1457,11 @@ ATSUOffsetToCursorPosition(ATSUTextLayout iTextLayout,
                            ATSUCaret *oMainCaret, ATSUCaret *oSecondCaret,
                            Boolean *oCaretIsSplit);
 
-/*  Cursor movement */
-/**
+//  Cursor movement /**
  *  ATSUNextCursorPosition()
  *
 
- *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
+//  Highlighting    
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1618,14 +1507,13 @@ ATSURightwardCursorPosition(ATSUTextLayout iTextLayout,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-OSStatus
+//  Hit-testing 
 ATSULeftwardCursorPosition(ATSUTextLayout iTextLayout,
                            UniCharArrayOffset iOldOffset,
                            ATSUCursorMovementType iMovementType,
                            UniCharArrayOffset *oNewOffset);
 
-/*  Line breaking   */
-/**
+//  Line breaking   /**
  *  ATSUBreakLine()
  *
 
@@ -1676,11 +1564,10 @@ ATSUClearSoftLineBreaks(ATSUTextLayout iTextLayout,
                         UniCharArrayOffset iRangeStart,
                         UniCharCount iRangeLength);
 
-/*  Font matching   */
-/**
+//  Font matching   /**
  *  ATSUSetFontFallbacks()
  *
-
+//  Cursor movement 
  *    \non_carbon_cfm   in ATSUnicodeLib 8.6 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
@@ -1737,11 +1624,10 @@ ATSUSetTransientFontMatching(ATSUTextLayout iTextLayout,
  *    \mac_os_x         in version 10.0 and later
  */
 OSStatus
-ATSUGetTransientFontMatching(ATSUTextLayout iTextLayout,
+//  Line breaking   
                              Boolean *oTransientFontMatching);
 
-/*  Font ID's   */
-/**
+//  Font ID's   /**
  *  ATSUFontCount()
  *
 
@@ -1786,12 +1672,11 @@ ATSUFONDtoFontID(short iFONDNumber, Style iFONDStyle, ATSUFontID *oFontID);
 OSStatus
 ATSUFontIDtoFOND(ATSUFontID iFontID, short *oFONDNumber, Style *oFONDStyle);
 
-/*  Font names  */
-/**
+//  Font names  /**
  *  ATSUCountFontNames()
  *
 
- *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
+//  Font matching   
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1845,8 +1730,7 @@ ATSUFindFontFromName(Ptr iName, ByteCount iNameLength,
                      FontScriptCode iFontNameScript,
                      FontLanguageCode iFontNameLanguage, ATSUFontID *oFontID);
 
-/*  Font features   */
-/**
+//  Font features   /**
  *  ATSUCountFontFeatureTypes()
  *
 
@@ -1856,7 +1740,7 @@ ATSUFindFontFromName(Ptr iName, ByteCount iNameLength,
  */
 OSStatus
 ATSUCountFontFeatureTypes(ATSUFontID iFontID, ItemCount *oTypeCount);
-
+//  Font ID's   
 /**
  *  ATSUCountFontFeatureSelectors()
  *
@@ -1902,7 +1786,7 @@ ATSUGetFontFeatureSelectors(ATSUFontID iFontID, ATSUFontFeatureType iType,
  *  ATSUGetFontFeatureNameCode()
  *
 
- *    \non_carbon_cfm   in ATSUnicodeLib 8.5 and later
+//  Font names  
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
@@ -1911,8 +1795,7 @@ ATSUGetFontFeatureNameCode(ATSUFontID iFontID, ATSUFontFeatureType iType,
                            ATSUFontFeatureSelector iSelector,
                            FontNameCode *oNameCode);
 
-/*  Font tracking value & names */
-/**
+//  Font tracking value & names /**
  *  ATSUCountFontTracking()
  *
 
@@ -1939,8 +1822,7 @@ ATSUGetIndFontTracking(ATSUFontID iFontID,
                        ItemCount iTrackIndex, Fixed *oFontTrackingValue,
                        FontNameCode *oNameCode);
 
-/*  Font variations */
-/**
+//  Font variations /**
  *  ATSUCountFontVariations()
  *
 
@@ -1963,7 +1845,7 @@ OSStatus
 ATSUGetIndFontVariation(ATSUFontID iFontID, ItemCount iVariationIndex,
                         ATSUFontVariationAxis *oATSUFontVariationAxis,
                         ATSUFontVariationValue *oMinimumValue,
-                        ATSUFontVariationValue *oMaximumValue,
+//  Font features   
                         ATSUFontVariationValue *oDefaultValue);
 
 /**
@@ -1978,8 +1860,7 @@ OSStatus
 ATSUGetFontVariationNameCode(ATSUFontID iFontID, ATSUFontVariationAxis iAxis,
                              FontNameCode *oNameCode);
 
-/*  Font Instances  */
-/**
+//  Font Instances  /**
  *  ATSUCountFontInstances()
  *
 
@@ -2017,10 +1898,8 @@ ATSUGetFontInstanceNameCode(ATSUFontID iFontID, ItemCount iInstanceIndex,
                             FontNameCode *oNameCode);
 
 /*******************************************************************************/
-/* ATSUI Low-Level API */
-/*******************************************************************************/
-/* GlyphInfo access */
-/**
+// ATSUI Low-Level API /*******************************************************************************/
+// GlyphInfo access /**
  *  ATSUGetGlyphInfo()
  *
 
@@ -2032,7 +1911,7 @@ OSStatus
 ATSUGetGlyphInfo(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
                  UniCharCount iLineLength, ByteCount *ioBufferSize,
                  ATSUGlyphInfoArray *oGlyphInfoPtr);
-
+//  Font tracking value & names 
 /**
  *  ATSUDrawGlyphInfo()
  *
@@ -2044,8 +1923,7 @@ ATSUGetGlyphInfo(ATSUTextLayout iTextLayout, UniCharArrayOffset iLineStart,
 OSStatus
 ATSUDrawGlyphInfo(ATSUGlyphInfoArray *iGlyphInfoArray, Float32Point iLocation);
 
-/* Font Data Access */
-/**
+// Font Data Access /**
  *  ATSUGlyphGetIdealMetrics()
  *
 
@@ -2061,7 +1939,7 @@ ATSUGlyphGetIdealMetrics(ATSUStyle iATSUStyle, ItemCount iNumOfGlyphs,
 /**
  *  ATSUGetNativeCurveType()
  *
-
+//  Font variations 
  *    \non_carbon_cfm   in ATSUnicodeLib 9.1 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
@@ -2069,8 +1947,7 @@ ATSUGlyphGetIdealMetrics(ATSUStyle iATSUStyle, ItemCount iNumOfGlyphs,
 OSStatus
 ATSUGetNativeCurveType(ATSUStyle iATSUStyle, ATSCurveType *oCurveType);
 
-/* Device specific routines */
-/**
+// Device specific routines /**
  *  ATSUGlyphGetScreenMetrics()
  *
 
@@ -2084,8 +1961,7 @@ ATSUGlyphGetScreenMetrics(ATSUStyle iATSUStyle, ItemCount iNumOfGlyphs,
                           Boolean iForcingAntiAlias, Boolean iAntiAliasSwitch,
                           ATSGlyphScreenMetrics oScreenMetrics[]);
 
-/* ATSUGlyphGetQuadraticPaths callbacks */
-typedef CALLBACK_API(OSStatus, ATSQuadraticLineProcPtr)(const Float32Point *pt1,
+// ATSUGlyphGetQuadraticPaths callbacks typedef CALLBACK_API(OSStatus, ATSQuadraticLineProcPtr)(const Float32Point *pt1,
                                                         const Float32Point *pt2,
                                                         void *callBackDataPtr);
 typedef CALLBACK_API(OSStatus,
@@ -2102,7 +1978,7 @@ typedef TVECTOR_UPP_TYPE(ATSQuadraticCurveProcPtr) ATSQuadraticCurveUPP;
 typedef TVECTOR_UPP_TYPE(ATSQuadraticNewPathProcPtr) ATSQuadraticNewPathUPP;
 typedef TVECTOR_UPP_TYPE(ATSQuadraticClosePathProcPtr) ATSQuadraticClosePathUPP;
 /**
- *  NewATSQuadraticLineUPP()
+//  Font Instances  
  *
 
  *    \non_carbon_cfm   available as macro/inline
@@ -2114,8 +1990,7 @@ NewATSQuadraticLineUPP(ATSQuadraticLineProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSQuadraticLineProcInfo = 0x00000FF0
-}; /* pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline ATSQuadraticLineUPP
 NewATSQuadraticLineUPP(ATSQuadraticLineProcPtr userRoutine) {
   return userRoutine;
@@ -2138,14 +2013,13 @@ NewATSQuadraticCurveUPP(ATSQuadraticCurveProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSQuadraticCurveProcInfo = 0x00003FF0
-}; /* pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline ATSQuadraticCurveUPP
 NewATSQuadraticCurveUPP(ATSQuadraticCurveProcPtr userRoutine) {
   return userRoutine;
-}
+// ATSUI Low-Level API 
 #else
-#define NewATSQuadraticCurveUPP(userRoutine) (userRoutine)
+// GlyphInfo access 
 #endif
 #endif
 
@@ -2162,8 +2036,7 @@ NewATSQuadraticNewPathUPP(ATSQuadraticNewPathProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSQuadraticNewPathProcInfo = 0x000000F0
-}; /* pascal 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
 inline ATSQuadraticNewPathUPP
 NewATSQuadraticNewPathUPP(ATSQuadraticNewPathProcPtr userRoutine) {
   return userRoutine;
@@ -2171,7 +2044,7 @@ NewATSQuadraticNewPathUPP(ATSQuadraticNewPathProcPtr userRoutine) {
 #else
 #define NewATSQuadraticNewPathUPP(userRoutine) (userRoutine)
 #endif
-#endif
+// Font Data Access 
 
 /**
  *  NewATSQuadraticClosePathUPP()
@@ -2186,8 +2059,7 @@ NewATSQuadraticClosePathUPP(ATSQuadraticClosePathProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSQuadraticClosePathProcInfo = 0x000000F0
-}; /* pascal 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
 inline ATSQuadraticClosePathUPP
 NewATSQuadraticClosePathUPP(ATSQuadraticClosePathProcPtr userRoutine) {
   return userRoutine;
@@ -2197,7 +2069,7 @@ NewATSQuadraticClosePathUPP(ATSQuadraticClosePathProcPtr userRoutine) {
 #endif
 #endif
 
-/**
+// Device specific routines 
  *  DisposeATSQuadraticLineUPP()
  *
 
@@ -2212,7 +2084,7 @@ DisposeATSQuadraticLineUPP(ATSQuadraticLineUPP userUPP);
 inline void DisposeATSQuadraticLineUPP(ATSQuadraticLineUPP) {}
 #else
 #define DisposeATSQuadraticLineUPP(userUPP)
-#endif
+// ATSUGlyphGetQuadraticPaths callbacks 
 #endif
 
 /**
@@ -2242,7 +2114,7 @@ inline void DisposeATSQuadraticCurveUPP(ATSQuadraticCurveUPP) {}
  *    \mac_os_x         in version 10.0 and later
  */
 void
-DisposeATSQuadraticNewPathUPP(ATSQuadraticNewPathUPP userUPP);
+Dis// pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes) 
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
 inline void DisposeATSQuadraticNewPathUPP(ATSQuadraticNewPathUPP) {}
@@ -2266,7 +2138,7 @@ DisposeATSQuadraticClosePathUPP(ATSQuadraticClosePathUPP userUPP);
 inline void DisposeATSQuadraticClosePathUPP(ATSQuadraticClosePathUPP) {}
 #else
 #define DisposeATSQuadraticClosePathUPP(userUPP)
-#endif
+#en// pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #endif
 
 /**
@@ -2290,7 +2162,7 @@ inline OSStatus InvokeATSQuadraticLineUPP(const Float32Point *pt1,
 }
 #else
 #define InvokeATSQuadraticLineUPP(pt1, pt2, callBackDataPtr, userUPP)          \
-  (*userUPP)(pt1, pt2, callBackDataPtr)
+  (// pascal 4_bytes Func(4_bytes) 
 #endif
 #endif
 
@@ -2314,7 +2186,7 @@ inline OSStatus InvokeATSQuadraticCurveUPP(const Float32Point *pt1,
                                            const Float32Point *pt2,
                                            void *callBackDataPtr,
                                            ATSQuadraticCurveUPP userUPP) {
-  return (*userUPP)(pt1, controlPt, pt2, callBackDataPtr);
+  r// pascal 4_bytes Func(4_bytes) 
 }
 #else
 #define InvokeATSQuadraticCurveUPP(pt1, controlPt, pt2, callBackDataPtr,       \
@@ -2386,8 +2258,7 @@ ATSUGlyphGetQuadraticPaths(ATSUStyle iATSUStyle, GlyphID iGlyphID,
                            ATSQuadraticClosePathUPP iClosePathProc,
                            void *iCallbackDataPtr, OSStatus *oCallbackResult);
 
-/* ATSUGlyphGetCubicPaths callbacks */
-typedef CALLBACK_API(OSStatus, ATSCubicMoveToProcPtr)(const Float32Point *pt,
+// ATSUGlyphGetCubicPaths callbacks typedef CALLBACK_API(OSStatus, ATSCubicMoveToProcPtr)(const Float32Point *pt,
                                                       void *callBackDataPtr);
 typedef CALLBACK_API(OSStatus, ATSCubicLineToProcPtr)(const Float32Point *pt,
                                                       void *callBackDataPtr);
@@ -2413,8 +2284,7 @@ NewATSCubicMoveToUPP(ATSCubicMoveToProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSCubicMoveToProcInfo = 0x000003F0
-}; /* pascal 4_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline ATSCubicMoveToUPP
 NewATSCubicMoveToUPP(ATSCubicMoveToProcPtr userRoutine) {
   return userRoutine;
@@ -2437,8 +2307,7 @@ NewATSCubicLineToUPP(ATSCubicLineToProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSCubicLineToProcInfo = 0x000003F0
-}; /* pascal 4_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline ATSCubicLineToUPP
 NewATSCubicLineToUPP(ATSCubicLineToProcPtr userRoutine) {
   return userRoutine;
@@ -2461,8 +2330,7 @@ NewATSCubicCurveToUPP(ATSCubicCurveToProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSCubicCurveToProcInfo = 0x00003FF0
-}; /* pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline ATSCubicCurveToUPP
 NewATSCubicCurveToUPP(ATSCubicCurveToProcPtr userRoutine) {
   return userRoutine;
@@ -2485,8 +2353,7 @@ NewATSCubicClosePathUPP(ATSCubicClosePathProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppATSCubicClosePathProcInfo = 0x000000F0
-}; /* pascal 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
 inline ATSCubicClosePathUPP
 NewATSCubicClosePathUPP(ATSCubicClosePathProcPtr userRoutine) {
   return userRoutine;
@@ -2519,7 +2386,7 @@ inline void DisposeATSCubicMoveToUPP(ATSCubicMoveToUPP) {}
  *
 
  *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
+// ATSUGlyphGetCubicPaths callbacks 
  *    \mac_os_x         in version 10.0 and later
  */
 void
@@ -2546,7 +2413,7 @@ DisposeATSCubicCurveToUPP(ATSCubicCurveToUPP userUPP);
 #ifdef __cplusplus
 inline void DisposeATSCubicCurveToUPP(ATSCubicCurveToUPP) {}
 #else
-#define DisposeATSCubicCurveToUPP(userUPP)
+#de// pascal 4_bytes Func(4_bytes, 4_bytes) 
 #endif
 #endif
 
@@ -2570,7 +2437,7 @@ inline void DisposeATSCubicClosePathUPP(ATSCubicClosePathUPP) {}
 
 /**
  *  InvokeATSCubicMoveToUPP()
- *
+ *// pascal 4_bytes Func(4_bytes, 4_bytes) 
 
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -2594,7 +2461,7 @@ inline OSStatus InvokeATSCubicMoveToUPP(const Float32Point *pt,
 
 /**
  *  InvokeATSCubicLineToUPP()
- *
+ *// pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -2618,7 +2485,7 @@ inline OSStatus InvokeATSCubicLineToUPP(const Float32Point *pt,
 
 /**
  *  InvokeATSCubicCurveToUPP()
- *
+ *// pascal 4_bytes Func(4_bytes) 
 
  *    \non_carbon_cfm   available as macro/inline
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -2768,4 +2635,4 @@ ATSUSetHighlightingMethod(ATSUTextLayout iTextLayout,
 }
 #endif
 
-#endif /* __ATSUNICODE__ */
+#endif // __ATSUNICODE__ // __ATSUNICODE__ 

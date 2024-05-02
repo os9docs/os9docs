@@ -102,8 +102,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   MPPageSizeClass MPGetPageSizeClasses(void);
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
   /**
    *  MPGetPageSize()
@@ -115,9 +114,8 @@ extern "C"
    */
   ByteCount MPGetPageSize(MPPageSizeClass pageClass);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-  /**
+#endif // CALL_NOT_IN_CARBON 
+  /**// CALL_NOT_IN_CARBON 
      \section ID Iterator Services
      ========*/
 
@@ -234,10 +232,9 @@ extern "C"
   OSStatus MPGetNextNotificationID(MPProcessID owningProcessID,
                                    MPNotificationID *notificationID);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
-  /**
+  /**// CALL_NOT_IN_CARBON 
    *  MPGetNextAreaID()
    *
 
@@ -248,11 +245,10 @@ extern "C"
   OSStatus
   MPGetNextAreaID(MPAddressSpaceID owningSpaceID, MPAreaID *areaID);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
   /**
-   *  MPGetNextConsoleID()
+   *  M// CALL_NOT_IN_CARBON 
    *
 
    *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
@@ -276,38 +272,32 @@ extern "C"
      \warning The implementation of MPGetObjectInfo assumes that all info records are in 4 byte multiples.
   */
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   enum
   {
-    /* The version of the MPAreaInfo structure requested.*/
-    kMPQueueInfoVersion = 1L | (kOpaqueQueueID << 16),
-    kMPSemaphoreInfoVersion = 1L | (kOpaqueSemaphoreID << 16),
+    // The version of the MPAreaInfo structure requested.    kMPQueueInfoVersion = 1L | (kOpaqueQueueID << 16),
+    kMP// CALL_NOT_IN_CARBON 
     kMPEventInfoVersion = 1L | (kOpaqueEventID << 16),
     kMPCriticalRegionInfoVersion = 1L | (kOpaqueCriticalRegionID << 16),
     kMPNotificationInfoVersion = 1L | (kOpaqueNotificationID << 16),
-    kMPAddressSpaceInfoVersion = 1L | (kOpaqueAddressSpaceID << 16)
+    // The version of the MPAreaInfo structure requested.
   };
 
   struct MPQueueInfo
   {
-    PBVersion version; /* Version of the data structure requested*/
-
-    MPProcessID processID; /* Owning process ID*/
-    OSType queueName;      /* Queue name*/
-
+    PBVersion version; // Version of the data structure requested
+    MPProcessID processID; // Owning process ID    OSType queueName;      // Queue name
     ItemCount nWaiting;
-    MPTaskID waitingTaskID; /* First waiting task.*/
-
+    MPTaskID waitingTaskID; // First waiting task.
     ItemCount nMessages;
     ItemCount nReserved;
-
+// Version of the data structure requested
     void *p1; /*< First message parameters...*/
-    void *p2;
-    void *p3;
+    void *p2;// Owning process ID
+    void *p3;// Queue name
   };
   typedef struct MPQueueInfo MPQueueInfo;
-  struct MPSemaphoreInfo
+  struct MPSemaphoreInfo// First waiting task.
   {
     PBVersion version; /*< Version of the data structure requested*/
 
@@ -376,8 +366,7 @@ extern "C"
     UInt32 vsid[16];       /*< Segment register VSIDs.*/
   };
   typedef struct MPAddressSpaceInfo MPAddressSpaceInfo;
-  /* *** We should put the task info call here instead of in MPExtractTaskState.*/
-
+  // *** We should put the task info call here instead of in MPExtractTaskState.
 #if CALL_NOT_IN_CARBON
   /**
    *  MPGetQueueInfo()
@@ -387,7 +376,7 @@ extern "C"
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  OSStatus MPGetQueueInfo(MPQueueID id, PBVersion version, MPQueueInfo *info_o);
+  // *** We should put the task info call here instead of in MPExtractTaskState.
 
   /**
    *  MPGetSemaphoreInfo()
@@ -443,8 +432,7 @@ extern "C"
   OSStatus MPGetAddressSpaceInfo(MPAddressSpaceID id, PBVersion version,
                                  MPAddressSpaceInfo *info_o);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -455,7 +443,7 @@ extern "C"
 
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
-#elif PRAGMA_IMPORT
+#elif P// CALL_NOT_IN_CARBON 
 #pragma import reset
 #endif
 
@@ -463,4 +451,4 @@ extern "C"
 }
 #endif
 
-#endif /* __MULTIPROCESSINGINFO__ */
+#endif // __MULTIPROCESSINGINFO__ // __MULTIPROCESSINGINFO__ 

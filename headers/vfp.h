@@ -492,8 +492,7 @@ vector float vpowf(vector float X, vector float Y);
 vector unsigned int
 vtablelookup(vector signed int Index_Vect, unsigned long *Table);
 
-#endif /* defined(__VEC__) */
-
+#endif // defined(__VEC__) 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -512,4 +511,4 @@ vtablelookup(vector signed int Index_Vect, unsigned long *Table);
 }
 #endif
 
-#endif /* __VFP__ */
+#endif // __VFP__ // __VFP__ 

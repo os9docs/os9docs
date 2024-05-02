@@ -9,7 +9,7 @@
     \copyright � 1994-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup System
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -27,4 +27,4 @@
     The contents of Kernel.h has been merged into DriverServices.h
 */
 
-#endif /* __KERNEL__ */
+#endif // __KERNEL__

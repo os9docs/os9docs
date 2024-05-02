@@ -93,11 +93,9 @@ struct HardwareCursorInfoRec {
                           kHardwareCursorInfoMinorVersion1*/
   UInt32 cursorHeight;
   UInt32 cursorWidth;
-  CTabPtr colorMap; /* nil or big enough for hardware's max colors*/
-  Ptr hardwareCursor;
-  UInt32 reserved[6]; /* Test tool should check for 0s*/
-};
-typedef struct HardwareCursorInfoRec HardwareCursorInfoRec;
+  CTabPtr colorMap; // nil or big enough for hardware's max colors  Ptr hardwareCursor;
+  UInt32 reserved[6]; // Test tool should check for 0s};
+typedef struct Hardwar// Test tool should check for 0s
 typedef HardwareCursorInfoRec *HardwareCursorInfoPtr;
 
 enum {
@@ -105,10 +103,9 @@ enum {
   kHBLInterruptServiceType = FOUR_CHAR_CODE('hbl '),
   kFrameInterruptServiceType = FOUR_CHAR_CODE('fram'),
   kConnectInterruptServiceType =
-      FOUR_CHAR_CODE('dci '), /* Renamed -- Use kFBCheckInterruptServiceType*/
-  kFBConnectInterruptServiceType =
+      FOUR_CHAR_CODE('dci '), // Renamed -- Use kFBCheckInterruptServiceType  kFBConnectInterruptServiceType =
       kConnectInterruptServiceType, /* Demand to check configuration (Hardware
-                                       unchanged)*/
+                              // Renamed -- Use kFBCheckInterruptServiceType
   kFBChangedInterruptServiceType =
       FOUR_CHAR_CODE('chng'), /* Demand to rebuild (Hardware has reinitialized
                                  on dependent change)*/
@@ -116,17 +113,15 @@ enum {
       'remv'), /* Demand to remove framebuffer (Hardware not available on
                   dependent change -- but must not buserror)*/
   kFBOnlineInterruptServiceType = FOUR_CHAR_CODE(
-      'add ') /* Notice that hardware is available (after being removed)*/
-};
+      'add ') // Notice that hardware is available (after being removed)};
 
 enum {
-  kMaxDisplayConfigDataSize =
-      64 /* Max data size for VSLSetDisplayConfiguration*/
-};
+  kMaxDisplayC// Notice that hardware is available (after being removed)
+      64 // Max data size for VSLSetDisplayConfiguration};
 
 typedef ResType InterruptServiceType;
 typedef UInt32 InterruptServiceIDType;
-typedef InterruptServiceIDType *InterruptServiceIDPtr;
+typedef I// Max data size for VSLSetDisplayConfiguration
 #if CALL_NOT_IN_CARBON
 /**
  *  VSLNewInterruptService()
@@ -199,13 +194,12 @@ OSErr
 VSLSetDisplayConfiguration(RegEntryID *device, RegPropertyName *propertyName,
                            void *configData, long configDataSize);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
+#elif P// CALL_NOT_IN_CARBON 
 #pragma pack()
 #endif
 
@@ -219,4 +213,4 @@ VSLSetDisplayConfiguration(RegEntryID *device, RegPropertyName *propertyName,
 }
 #endif
 
-#endif /* __VIDEOSERVICES__ */
+#endif // __VIDEOSERVICES__ // __VIDEOSERVICES__ 

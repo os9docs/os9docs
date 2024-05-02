@@ -95,17 +95,9 @@ extern "C"
 
   enum
   {
-    /* Special language code values for Language Order*/
-    systemCurLang = -2,  /* current (itlbLang) lang for system script*/
-    systemDefLang = -3,  /* default (table) lang for system script*/
-    currentCurLang = -4, /* current (itlbLang) lang for current script*/
-    currentDefLang = -5, /* default lang for current script*/
-    scriptCurLang = -6,  /* current (itlbLang) lang for specified script*/
-    scriptDefLang = -7   /* default language for a specified script*/
-  };
+    // Special language code values for Language Order    systemCurLang = -2,  // current (itlbLang) lang for system script    systemDefLang = -3,  // default (table) lang for system script    currentCurLang = -4, // current (itlbLang) lang for current script    currentDefLang = -5, // default lang for current script    scriptCurLang = -6,  // current (itlbLang) lang for specified script    scriptDefLang = -7   // default language for a specified script  };
 
-  /* obsolete names*/
-  enum
+  // obsolete names  enum
   {
     iuSystemCurLang = systemCurLang,
     iuSystemDefLang = systemDefLang,
@@ -323,8 +315,7 @@ extern "C"
   IUMagIDString(const void *aPtr, const void *bPtr, short aLen, short bLen)
       THREEWORDINLINE(0x3F3C, 0x000C, 0xA9ED);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
   /**
    *  IUCompPString()
@@ -408,8 +399,7 @@ The actual comparison function is stored in the itl2 resource.
   short
   IUEqualString(ConstStr255Param aStr, ConstStr255Param bStr);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 #if TARGET_OS_MAC
 #define CompareString(aStr, bStr, itl2Handle) \
@@ -426,8 +416,7 @@ The actual comparison function is stored in the itl2 resource.
 #define TextOrder(aPtr, bPtr, aLen, bLen, aScript, bScript, aLang, bLang) \
   IUTextOrder(aPtr, bPtr, aLen, bLen, aScript, bScript, aLang, bLang)
 #define LanguageOrder(language1, language2) IULangOrder(language1, language2)
-#endif /* CALL_NOT_IN_CARBON */
-#if CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON #if CALL_NOT_IN_CARBON
   /**
    *  iucomppstring()
    *
@@ -484,8 +473,7 @@ The actual comparison function is stored in the itl2 resource.
   short
   iuequalstring(const char *aStr, const char *bStr);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
   \brief Compare two Pascal-style strings for sort order
 
@@ -556,9 +544,7 @@ TRUEequal
 than converting to C-style strings and using strcmp. Examples:
 Str255 strA="\pAbcDef";
 Str255 strB="\p åbcdef";
-EqualString ( strA,strB, TRUE,TRUE); /* Returns FALSE */
-  EqualString(strA, strB, FALSE, FALSE); /* Returns TRUE */
-  If caseSens = FALSE, then both strings are treated as if they had been
+EqualString ( strA,strB, TRUE,TRUE); // Returns FALSE   EqualString(strA, strB, FALSE, FALSE); // Returns TRUE   If caseSens = FALSE, then both strings are treated as if they had been
                                upshifted with
                                UprString(though the original contents are not modified)
                                    .The RelString function[128K ROMs] is more flexible in that its return code identifies which string is higher
@@ -570,7 +556,7 @@ EqualString ( strA,strB, TRUE,TRUE); /* Returns FALSE */
                                   later
                                       *    \mac_os_x in version 10.0 and
                                   later
-                                      * /
+                                    */
                                       Boolean
                                       EqualString(ConstStr255Param str1, ConstStr255Param str2, Boolean caseSensitive,
                                                   Boolean diacSensitive);
@@ -600,8 +586,7 @@ EqualString ( strA,strB, TRUE,TRUE); /* Returns FALSE */
   equalstring(const char *str1, const char *str2, Boolean caseSensitive,
               Boolean diacSensitive);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -620,4 +605,4 @@ EqualString ( strA,strB, TRUE,TRUE); /* Returns FALSE */
 }
 #endif
 
-#endif /* __STRINGCOMPARE__ */
+#endif // __STRINGCOMPARE__ 

@@ -560,7 +560,7 @@ ListRec.dataBounds.right).
 ListRec.dataBounds.bottom) * 2 bytes. ListRec.dataBounds.right is
 increased by count.
 For instance, after:
-LAddColumn( 1,1, theList ); /* insert 1 column at column 1 */
+LAddColumn( 1,1, theList ); // insert 1 column at column 1 
   The list shown in the LNew example changes to look like : </ pre>
                                                                 * \copyright THINK Reference © 1991 -
                                                             1992 Symantec Corporation
@@ -570,7 +570,7 @@ LAddColumn( 1,1, theList ); /* insert 1 column at column 1 */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           short
           LAddColumn(short count, short colNum, ListHandle lHandle)
               THREEWORDINLINE(0x3F3C, 0x0004, 0xA9E7);
@@ -601,7 +601,7 @@ ListRec.dataBounds.bottom).
 ListRec.dataBounds.right) * 2 bytes. ListRec.dataBounds.bottom is
 increased by count.
 For instance, after:
-LAddRow( 3,2, theList ); /* insert 3 rows at row 2 */
+LAddRow( 3,2, theList ); // insert 3 rows at row 2 
   The list shown in the LNew example would look like : </ pre>
                                                            * \copyright THINK Reference © 1991 -
                                                        1992 Symantec Corporation
@@ -611,7 +611,7 @@ LAddRow( 3,2, theList ); /* insert 3 rows at row 2 */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           short
           LAddRow(short count, short rowNum, ListHandle lHandle)
               THREEWORDINLINE(0x3F3C, 0x0008, 0xA9E7);
@@ -637,7 +637,7 @@ value previously obtained via LNew.
 ListRec.dataBounds.bottom) * 2 bytes. ListRec.dataBounds.right is
 decreased by count.
 For instance, after:
-LDelColumn ( 1,1, theList ); /* delete column 1 */
+LDelColumn ( 1,1, theList ); // delete column 1 
   the list shown in the LNew example might look like : It is a lot faster to delete multiple columns in one call than to delete one at
                                                            a time.Use
                                                            LDispose(or set count to 0) to delete them all.</ pre>
@@ -649,7 +649,7 @@ LDelColumn ( 1,1, theList ); /* delete column 1 */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void LDelColumn(short count, short colNum, ListHandle lHandle)
               THREEWORDINLINE(0x3F3C, 0x0020, 0xA9E7);
 
@@ -674,7 +674,7 @@ value previously obtained via LNew.
 ListRec.dataBounds.right) * 2 bytes. ListRec.dataBounds.bottom is
 decreased by count.
 For instance, after:
-LDelRow ( 4,3, theList ); /* delete 4 rows, starting at row 3 */
+LDelRow ( 4,3, theList ); // delete 4 rows, starting at row 3 
   The list shown in the LNew example might look like : It is a lot faster to delete multiple rows with one call than than to delete one at a time.Use LDispose(or set count to 0) to delete them all.</ pre>
                                                            * \copyright THINK Reference © 1991 -
           1992 Symantec Corporation
@@ -684,7 +684,7 @@ LDelRow ( 4,3, theList ); /* delete 4 rows, starting at row 3 */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void LDelRow(short count, short rowNum, ListHandle lHandle)
               THREEWORDINLINE(0x3F3C, 0x0024, 0xA9E7);
 
@@ -802,7 +802,7 @@ Cell theCell;
 Rect cellRect;
 Point mousePt;
 Boolean found;
-found = FALSE; theCell. h=theCell. v=0; /* start at top left */
+found = FALSE; theCell. h=theCell. v=0; // start at top left 
   </ pre>
               * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
                                                         *    \non_carbon_cfm in InterfaceLib 7.1 and
@@ -811,7 +811,7 @@ found = FALSE; theCell. h=theCell. v=0; /* start at top left */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           Boolean
           LNextCell(Boolean hNext, Boolean vNext, Cell *theCell, ListHandle lHandle)
               THREEWORDINLINE(0x3F3C, 0x0048, 0xA9E7);
@@ -845,7 +845,7 @@ know its contents. In this respect, the List Manager can be used in simple
 database operations. A more common use is to call LSearch followed by
 LSetSelect and LAutoScroll in order to pre-select a default (e.g.,
 highlight the current font in a font-selection list).
-SetPt( &theCell, 0,0 ); /* search from top of list */
+SetPt( &theCell, 0,0 ); // search from top of list 
 if ( LSearch ( "Geneva", 6, NIL, &theCell, theList ) {
     LSetSelect(TRUE, theCell, theList);
     LAutoScroll(theList);
@@ -946,13 +946,13 @@ One case where you might use LScroll is to take action on a press of the
 PageUp or PageDown keys.  Another case is when you want a particular cell
 to be positioned at the top of the list (e.g., a default selection). For
 instance:
-SetPt( &theCell, 0,0 ); /* search from top of list */
-LSearch ( "Geneva", 6, nil, &theCell, theList );  /* where's Geneva? */
-LDoDraw (FALSE, theList ); /* temporarily off */
-LScroll ( -1000,-1000, theList ); /* go to a reference point */
-LDoDraw (TRUE, theList ); /* back on */
-LScroll ( theCell. h,theCell.v, theList ); /* put Geneva on top */
-LSetSelect ( TRUE, theCell, theList ); /* pre-select it */
+SetPt( &theCell, 0,0 ); // search from top of list 
+LSearch ( "Geneva", 6, nil, &theCell, theList );  // where's Geneva? 
+LDoDraw (FALSE, theList ); // temporarily off 
+LScroll ( -1000,-1000, theList ); // go to a reference point 
+LDoDraw (TRUE, theList ); // back on 
+LScroll ( theCell. h,theCell.v, theList ); // put Geneva on top 
+LSetSelect ( TRUE, theCell, theList ); // pre-select it 
 Note that LScroll uses relative positioning. The example first scrolls to
 the top of the list by scrolling up and left by 1000. The scroll will actually
 </pre>
@@ -1018,15 +1018,15 @@ value previously obtained via LNew.
  * \note <pre>When an update event occurs for the window that encloses a list, call
 LUpdate to force the List Manager to redraw the parts of the list that need
 updating. For instance:
-WindowPtr listWindow; /* assumed to be created */
-if(WaitNextEvent (everyEvent , &theEvent, 0, nil)) {/* in event loop */
+WindowPtr listWindow; // assumed to be created 
+if(WaitNextEvent (everyEvent , &theEvent, 0, nil)) {// in event loop 
     if (theEvent.what == updateEvt)
     {
       if (theEvent.message == (long)listWindow)
       {
         BeginUpdate(listWindow);
         LUpdate(listWindow->visRgn, theList);
-        DrawGrowIcon(listWindow); /* if needed */
+        DrawGrowIcon(listWindow); // if needed 
         EndUpdate(listWindow)
       }
     }
@@ -1118,10 +1118,10 @@ Note: LCellSize does NOT automatically calculate the size from the font
 (as does LNew). Do NOT use a cellSize of (0,0).
 The following sequence changes the cell size and ensures proper updating of
 the screen:
-cellSz.h=30; cellSz. v=20; /* for example */
-LCellSize ( cellSz, theList ); /* change the size */
-FillRect ( &listWindow-> portRect , white );/* clear the window */
-InvalRect ( &listWindow-> portRect ); /* indicate redraw all */
+cellSz.h=30; cellSz. v=20; // for example 
+LCellSize ( cellSz, theList ); // change the size 
+FillRect ( &listWindow-> portRect , white );// clear the window 
+InvalRect ( &listWindow-> portRect ); // indicate redraw all 
 LUpdate ( listWindow->visRgn, theList ); /*force update (in evt loop)*/
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
@@ -1369,12 +1369,12 @@ one selection at a time), LSetSelect will NOT automatically deselect
 before selecting another. You must deselect manually.
 After selecting a cell, you can use LAutoScroll to bring the cell into the
 viewing area.
-chartheChar; /* a keyboard character */
+chartheChar; // a keyboard character 
 CelltheCell;
-pascal Boolean cmp1stChar(); /* custom comparison function */
+pascal Boolean cmp1stChar(); // custom comparison function 
 if ( LSearch ( &theChar, 1, cmp1stChar, &theCell, theList ) ){
     LSetSelect(TRUE, theCell, theList);
-    LAutoScroll(theList); /* make sure selection is visible */
+    LAutoScroll(theList); // make sure selection is visible 
 }
 See LSearch for an example of how to make a first-character search
 routine, similar to that used by Standard File.
@@ -1425,8 +1425,8 @@ shortoffset, len;
 char*cp;
 LFind( &offset, &len, theCell, theList );
 cp = (char *)((long)**(*theList)->cells ) + offset;
-*cp = checkMark; /* zap the check mark in place */
-LDraw( theCell, theList ); /* force cell to be redrawn */
+*cp = checkMark; // zap the check mark in place 
+LDraw( theCell, theList ); // force cell to be redrawn 
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
 			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
@@ -2014,4 +2014,4 @@ SetListSelectionFlags(ListRef list, OptionBits selectionFlags);
                #endif
 
                #endif /** __LISTS__ */
-    * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ */*/
+  */*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ */*/

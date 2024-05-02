@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright © 1993-2001 by Apple Computer, Inc., all rights reserved.
-    
+
     \ingroup ColorSync
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -26,8 +26,7 @@
       and            #include <CMPRComponent.h>
 
 */
-/* #include the two ColorSync 2.0 files equivalent to the v. 1.0 file */
-#ifndef __CMMCOMPONENT__
+// #include the two ColorSync 2.0 files equivalent to the v. 1.0 file #ifndef __CMMCOMPONENT__
 #include <CMMComponent.h>
 #endif
 
@@ -35,4 +34,4 @@
 #include <CMPRComponent.h>
 #endif
 
-#endif /* __CMCOMPONENT__ */
+#endif // __CMCOMPONENT__

@@ -86,19 +86,14 @@ extern "C"
     */
     enum
     {
-        keyDCMFieldTag = FOUR_CHAR_CODE('ftag'),      /* typeEnumeration */
-        keyDCMFieldType = FOUR_CHAR_CODE('ftyp'),     /* typeEnumeration */
-        keyDCMMaxRecordSize = FOUR_CHAR_CODE('mrsz'), /* typeMagnitude */
-        keyDCMFieldAttributes = FOUR_CHAR_CODE('fatr'),
+        keyDCMFieldTag = FOUR_CHAR_CODE('ftag'),      // typeEnumeration         keyDCMFieldType = FOUR_CHAR_CODE('ftyp'),     // typeEnumeration         keyDCMMaxRecordSize = FOUR_CHAR_CODE('mrsz'), // typeMagnitude         keyDCMFieldAttributes = FOUR_CHAR_CODE('fatr'),
         keyDCMFieldDefaultData = FOUR_CHAR_CODE('fdef'),
-        keyDCMFieldName = FOUR_CHAR_CODE('fnam'), /* typeChar */
-        keyDCMFieldFindMethods =
-            FOUR_CHAR_CODE('ffnd') /* typeAEList of typeDCMFindMethod */
-    };
+        keyDCMFieldName = FOUR_CHAR_CODE('fnam'), // typeChar         keyDCMFieldFindMethods =
+            FOUR_CHAR_CODE('ffnd') // typeAEList of typeDCMFindMethod     };
 
-    /**
+    /**// typeChar 
         Special types for fields of a Field Info Record
-    */
+    */// typeAEList of typeDCMFindMethod 
     enum
     {
         typeDCMFieldAttributes = FOUR_CHAR_CODE('fatr'),
@@ -123,25 +118,19 @@ extern "C"
     */
     enum
     {
-        pDCMAccessMethod = FOUR_CHAR_CODE('amtd'), /* data type: typeChar ReadOnly */
-        pDCMPermission = FOUR_CHAR_CODE('perm'),   /* data type: typeUInt16 */
-        pDCMListing = FOUR_CHAR_CODE('list'),      /* data type: typeUInt16 */
-        pDCMMaintenance = FOUR_CHAR_CODE('mtnc'),  /* data type: typeUInt16 */
-        pDCMLocale = FOUR_CHAR_CODE('locl'),       /* data type: typeUInt32.  Optional;
+        pDCMAccessMethod = FOUR_CHAR_CODE('amtd'), // data type: typeChar ReadOnly         pDCMPermission = FOUR_CHAR_CODE('perm'),   // data type: typeUInt16         pDCMListing = FOUR_CHAR_CODE('list'),      // data type: typeUInt16         pDCMMaintenance = FOUR_CHAR_CODE('mtnc'),  // data type: typeUInt16         pDCMLocale = FOUR_CHAR_CODE('locl'),       /* data type: typeUInt32.  Optional;
                                                       default = kLocaleIdentifierWildCard */
-        pDCMClass = pClass,                        /* data type: typeUInt16 */
-        pDCMCopyright = FOUR_CHAR_CODE('info')     /* data type: typeChar */
-    };
+        pDCMClass = pClass,                        // data type: typeUInt16         pDCMCopyright = FOUR_CHAR_CODE('info')     // data type: typeChar     };
 
     /**
-        pDCMPermission property constants
-    */
-    enum
-    {
+        pDCMPermission property constants// data type: typeChar ReadOnly 
+    */// data type: typeUInt16 
+    enum// data type: typeUInt16 
+    {// data type: typeUInt16 
         kDCMReadOnlyDictionary = 0,
         kDCMReadWriteDictionary = 1
-    };
-
+    };// data type: typeUInt16 
+// data type: typeChar 
     /**
         pDCMListing property constants
     */
@@ -171,10 +160,8 @@ extern "C"
         kDCMFindMethodContainsMatch = kAEContains,
         kDCMFindMethodEndingMatch = kAEEndsWith,
         kDCMFindMethodForwardTrie =
-            FOUR_CHAR_CODE('ftri'), /* used for morphological analysis*/
-        kDCMFindMethodBackwardTrie =
-            FOUR_CHAR_CODE('btri') /* used for morphological analysis*/
-    };
+            FOUR_CHAR_CODE('ftri'), // used for morphological analysis        kDCMFindMethodBackwardTrie =
+            FOUR_CHAR_CODE('btri') // used for morphological analysis    };
 
     typedef OSType DCMFindMethod;
     /**
@@ -184,9 +171,9 @@ extern "C"
     {
         kDCMCanUseFileDictionaryMask = 0x00000001,
         kDCMCanUseMemoryDictionaryMask = 0x00000002,
-        kDCMCanStreamDictionaryMask = 0x00000004,
+        kDCMCanStreamDictionaryMask // used for morphological analysis
         kDCMCanHaveMultipleIndexMask = 0x00000008,
-        kDCMCanModifyDictionaryMask = 0x00000010,
+        kDCMCanModifyDictionaryMask// used for morphological analysis
         kDCMCanCreateDictionaryMask = 0x00000020,
         kDCMCanAddDictionaryFieldMask = 0x00000040,
         kDCMCanUseTransactionMask = 0x00000080
@@ -245,8 +232,7 @@ extern "C"
     enum
     {
         uppDCMProgressFilterProcInfo = 0x00000E50
-    }; /* pascal 1_byte Func(1_byte, 2_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 1_byte Func(1_byte, 2_bytes, 4_bytes) #ifdef __cplusplus
     inline DCMProgressFilterUPP
     NewDCMProgressFilterUPP(DCMProgressFilterProcPtr userRoutine)
     {
@@ -259,7 +245,7 @@ extern "C"
     (DCMProgressFilterUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),       \
                                                 uppDCMProgressFilterProcInfo, \
                                                 GetCurrentArchitecture())
-#endif
+#endif// pascal 1_byte Func(1_byte, 2_bytes, 4_bytes) 
 #endif
 
     /**
@@ -315,34 +301,31 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewDCMProgressFilterProc(userRoutine) \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewDCMProgressFilterProc(userRoutine) \
     NewDCMProgressFilterUPP(userRoutine)
 #define CallDCMProgressFilterProc(userRoutine, determinateProcess,     \
                                   percentageComplete, callbackUD)      \
     InvokeDCMProgressFilterUPP(determinateProcess, percentageComplete, \
                                callbackUD, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
     /**
         Library version
     */
     /**
      *  DCMLibraryVersion()
-     *
+     *// CALL_NOT_IN_CARBON 
 
      *    \non_carbon_cfm   in DictionaryMgrLib 1.0 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
      *    \mac_os_x         in version 10.0 and later
      */
     UInt32
     DCMLibraryVersion(void);
 
     /**
-        Create/delete dictionary
+       // CALL_NOT_IN_CARBON 
     */
     /**
      *  DCMNewDictionary()
@@ -953,14 +936,12 @@ extern "C"
 #define DCMDictionaryManagerAvailable()     ((DCMLibraryVersion != (void*)kUnresolvedCFragSymbolAddress)
 #endif
 #elif TARGET_RT_MAC_MACHO
-/* Dictionary Manager is always available on OS X */
-#ifdef __cplusplus
+// Dictionary Manager is always available on OS X #ifdef __cplusplus
 inline pascal Boolean DCMDictionaryManagerAvailable() { return true; }
 #else
 #define DCMDictionaryManagerAvailable() (true)
 #endif
-#endif /*  */
-
+#endif //  
 /**
 =============================================================================================
     Definitions for Japanese Analysis Module
@@ -972,13 +953,13 @@ inline pascal Boolean DCMDictionaryManagerAvailable() { return true; }
 #define kAppleJapaneseDefaultAccessMethodName \
     "\pDAM:Apple Backward Trie Access Method"
     /**
-        Data length limitations of Apple Japanese dictionaries
+// Dictionary Manager is always available on OS X 
     */
     enum
     {
         kMaxYomiLengthInAppleJapaneseDictionary = 40,
         kMaxKanjiLengthInAppleJapaneseDictionary = 64
-    };
+    };//  
 
     /**
         Defined field tags of Apple Japanese dictionary
@@ -1020,8 +1001,7 @@ inline pascal Boolean DCMDictionaryManagerAvailable() { return true; }
 
     enum
     {
-        /* Dictionary data insertion modes */
-        kInsert = 0,         /* Only insert the input entry if there is nothing in the
+        // Dictionary data insertion modes         kInsert = 0,         /* Only insert the input entry if there is nothing in the
                                 dictionary that matches the key. */
         kReplace = 1,        /* Only replace the entries which match the key with the input
                                 entry. */
@@ -1030,55 +1010,48 @@ inline pascal Boolean DCMDictionaryManagerAvailable() { return true; }
                                 matched entries with the input entry. */
     };
 
-    /* This Was InsertMode */
-
+    // This Was InsertMode 
     typedef short DictionaryDataInsertMode;
     enum
     {
-        /* Key attribute constants */
-        kIsCaseSensitive = 0x10,          /* case sensitive = 16       */
-        kIsNotDiacriticalSensitive = 0x20 /* diac not sensitive = 32    */
-    };
+        // Key attribute constants         kIsCaseSensitive = 0x10,          // case sensitive = 16               kIsNotDiacriticalSensitive = 0x20 // diac not sensitive = 32        };
 
     enum
     {
-        /* Registered attribute type constants.   */
-        kNoun = -1,
+        // Registered attribute type constants.           kNoun = -1,
         kVerb = -2,
-        kAdjective = -3,
+        // Dictionary data insertion modes 
         kAdverb = -4
     };
 
-    /* This Was AttributeType */
-    typedef SInt8 DictionaryEntryAttribute;
-    /* Dictionary information record */
-    struct DictionaryInformation
+    // This Was AttributeType     typedef SInt8 DictionaryEntryAttribute;
+    // Dictionary information record     struct DictionaryInformation
     {
         FSSpec dictionaryFSSpec;
         SInt32 numberOfRecords;
         SInt32 currentGarbageSize;
-        ScriptCode script;
+    // This Was InsertMode 
         SInt16 maximumKeyLength;
         SInt8 keyAttributes;
     };
     typedef struct DictionaryInformation DictionaryInformation;
-    struct DictionaryAttributeTable
-    {
-        UInt8 datSize;
+    stru// Key attribute constants 
+    {// case sensitive = 16       
+        UInt8 datSize;// diac not sensitive = 32    
         DictionaryEntryAttribute datTable[1];
     };
     typedef struct DictionaryAttributeTable DictionaryAttributeTable;
     typedef DictionaryAttributeTable *DictionaryAttributeTablePtr;
-#if CALL_NOT_IN_CARBON
+#if CALL// Registered attribute type constants.   
     /**
      *  InitializeDictionary()
      *
 
      *    \non_carbon_cfm   in InterfaceLib 7.1 and later
      *    \carbon_lib        not available
-     *    \mac_os_x         not available
+    // This Was AttributeType 
      */
-    OSErr
+    // Dictionary information record 
     InitializeDictionary(const FSSpec *theFsspecPtr, SInt16 maximumKeyLength,
                          SInt8 keyAttributes, ScriptCode script)
         THREEWORDINLINE(0x303C, 0x0500, 0xAA53);
@@ -1188,8 +1161,7 @@ inline pascal Boolean DCMDictionaryManagerAvailable() { return true; }
     CompactDictionary(SInt32 dictionaryReference)
         THREEWORDINLINE(0x303C, 0x0208, 0xAA53);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1208,4 +1180,5 @@ inline pascal Boolean DCMDictionaryManagerAvailable() { return true; }
 }
 #endif
 
-#endif /* __DICTIONARY__ */
+#endif // __DICTIONARY__ // CALL_NOT_IN_CARBON 
+// __DICTIONARY__ 

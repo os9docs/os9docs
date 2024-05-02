@@ -159,9 +159,7 @@ order without affecting the result.
 This capability is native to the CPU and can be performed much faster
 using the C & (bitwise AND) operator.
 longx, op1, op2;
-x = BitAnd( op1, op2); /* is equivalent to . . . */
-	x = op1 & op2; /* . . . and this is MUCH faster */
-	</ pre>
+x = BitAnd( op1, op2); // is equivalent to . . . 	x = op1 & op2; // . . . and this is MUCH faster 	</ pre>
 				* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 														  *    \non_carbon_cfm in InterfaceLib 7.1 and
 		later
@@ -189,9 +187,7 @@ bits of the result are cleared to 0.
 This capability is native to the CPU and can be performed much faster
 using the C | (bitwise OR) operator or the Assembler OR or ORI opcode.
 longx, op1, op2;
-x = BitOr( op1, op2); /* is equivalent to . . . */
-	x = op1 | op2; /* . . . and this is MUCH faster */
-	</ pre>
+x = BitOr( op1, op2); // is equivalent to . . . 	x = op1 | op2; // . . . and this is MUCH faster 	</ pre>
 				* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 														  *    \non_carbon_cfm in InterfaceLib 7.1 and
 		later
@@ -220,9 +216,7 @@ values; other bits are cleared.  Alternative explanation: the bits of op2
 This capability is native to the CPU and can be performed much faster
 using the C ^ (bitwise XOR) operator.
 longx, op1, op2;
-x = BitXor( op1, op2); /* is equivalent to . . . */
-	x = op1 ^ op2; /* . . . and this is MUCH faster */
-	</ pre>
+x = BitXor( op1, op2); // is equivalent to . . . 	x = op1 ^ op2; // . . . and this is MUCH faster 	</ pre>
 				* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 														  *    \non_carbon_cfm in InterfaceLib 7.1 and
 		later
@@ -247,9 +241,7 @@ result are cleared to 0.
 This capability is native to the CPU and can be performed much faster
 using the C ~ (bitwise NOT) operator.
 longx, operand;
-x = BitNot( operand); /* is equivalent to . . . */
-	x = ~operand; /* . . . and this is MUCH faster */
-	</ pre>
+x = BitNot( operand); // is equivalent to . . . 	x = ~operand; // . . . and this is MUCH faster 	</ pre>
 				* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 														  *    \non_carbon_cfm in InterfaceLib 7.1 and
 		later
@@ -285,10 +277,7 @@ using the C >> and << (bitwise shift) operators or the assembler LSL or
 LSR opcodes.
 longx, operand;
 shortcount;
-x = BitShift ( operand, count ); /* is equivalent to . . . */
-	x = operand << count;	 /* if count is positive or . . . */
-	x = operand >> (-count); /* if count is negative */
-	</ pre>
+x = BitShift ( operand, count ); // is equivalent to . . . 	x = operand << count;	 // if count is positive or . . . 	x = operand >> (-count); // if count is negative 	</ pre>
 				* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 														  *    \non_carbon_cfm in InterfaceLib 7.1 and
 		later
@@ -343,10 +332,8 @@ Use FixMul to multiply fixed-point values.
 
 #else
 #define LongMul(a, b, result) ((void)WideMultiply((a), (b), (wide *)(result)))
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_CPU_68K */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // TARGET_CPU_68K
 #define HiWord(x) ((short)((long)(x) >> 16))
 #define LoWord(x) ((short)(x))
 
@@ -368,5 +355,4 @@ Use FixMul to multiply fixed-point values.
 }
 #endif
 
-#endif			  /* __TOOLUTILS__ */
-* /*/*/ * /*/*/ * /*/*/
+#endif // __TOOLUTILS__ * /*/*/ * /*/*/ * /*/*/

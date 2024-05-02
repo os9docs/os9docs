@@ -73,8 +73,7 @@ extern "C"
                                 DVCTransactionParams *params)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
 
-  /* selectors for component calls */
-  enum
+  // selectors for component calls   enum
   {
     kDeviceControlDoAVCTransactionSelect = 0x0001
   };
@@ -97,4 +96,4 @@ extern "C"
 }
 #endif
 
-#endif /* __DEVICECONTROL__ */
+#endif // __DEVICECONTROL__ // __DEVICECONTROL__ 

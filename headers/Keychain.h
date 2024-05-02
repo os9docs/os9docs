@@ -9,7 +9,7 @@
     \copyright © 1997-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Keychain
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -27,6 +27,5 @@
 #include <KeychainHI.h>
 #endif
 
-/* this file has been split into KeychainCore.h and KeychainHI.h */
-
-#endif /* __KEYCHAIN__ */
+// this file has been split into KeychainCore.h and KeychainHI.h
+#endif // __KEYCHAIN__

@@ -70,8 +70,7 @@ typedef struct CGPDFDocument *CGPDFDocumentRef;
 CGPDFDocumentRef
 CGPDFDocumentCreateWithProvider(CGDataProviderRef provider);
 
-/* Create a PDF document from `url'. */
-/**
+// Create a PDF document from `url'. /**
  *  CGPDFDocumentCreateWithURL()
  *
  *  Availability:
@@ -108,9 +107,8 @@ CGPDFDocumentRetain(CGPDFDocumentRef document);
 void
 CGPDFDocumentRelease(CGPDFDocumentRef document);
 
-/* Return the number of pages in `document'. */
-/**
- *  CGPDFDocumentGetNumberOfPages()
+// Return the number of pages in `document'. /**
+// Return the number of pages in `document'. 
  *
  *  Availability:
  *    \non_carbon_cfm   not available
@@ -120,10 +118,9 @@ CGPDFDocumentRelease(CGPDFDocumentRef document);
 int
 CGPDFDocumentGetNumberOfPages(CGPDFDocumentRef document);
 
-/* Return the media box of page number `page' in `document'. */
-/**
+// Return the media box of page number `page' in `document'. /**
  *  CGPDFDocumentGetMediaBox()
- *
+// Return the media box of page number `page' in `document'. 
  *  Availability:
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -132,11 +129,10 @@ CGPDFDocumentGetNumberOfPages(CGPDFDocumentRef document);
 CGRect
 CGPDFDocumentGetMediaBox(CGPDFDocumentRef document, int page);
 
-/* Return the crop box of page number `page' in `document'. */
-/**
+// Return the crop box of page number `page' in `document'. /**
  *  CGPDFDocumentGetCropBox()
  *
- *  Availability:
+// Return the crop box of page number `page' in `document'. 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
@@ -144,38 +140,35 @@ CGPDFDocumentGetMediaBox(CGPDFDocumentRef document, int page);
 CGRect
 CGPDFDocumentGetCropBox(CGPDFDocumentRef document, int page);
 
-/* Return the bleed box of page number `page' in `document'. */
-/**
+// Return the bleed box of page number `page' in `document'. /**
  *  CGPDFDocumentGetBleedBox()
  *
  *  Availability:
- *    \non_carbon_cfm   not available
+// Return the bleed box of page number `page' in `document'. 
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
 CGRect
 CGPDFDocumentGetBleedBox(CGPDFDocumentRef document, int page);
 
-/* Return the trim box of page number `page' in `document'. */
-/**
+// Return the trim box of page number `page' in `document'. /**
  *  CGPDFDocumentGetTrimBox()
  *
  *  Availability:
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// Return the trim box of page number `page' in `document'. 
  *    \mac_os_x         in version 10.0 and later
  */
 CGRect
 CGPDFDocumentGetTrimBox(CGPDFDocumentRef document, int page);
 
-/* Return the art box of page number `page' in `document'. */
-/**
+// Return the art box of page number `page' in `document'. /**
  *  CGPDFDocumentGetArtBox()
  *
  *  Availability:
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
+// Return the art box of page number `page' in `document'. 
  */
 CGRect
 CGPDFDocumentGetArtBox(CGPDFDocumentRef document, int page);
@@ -211,4 +204,4 @@ CGPDFDocumentGetRotationAngle(CGPDFDocumentRef document, int page);
 }
 #endif
 
-#endif /* __CGPDFDOCUMENT__ */
+#endif // __CGPDFDOCUMENT__ // __CGPDFDOCUMENT__ 

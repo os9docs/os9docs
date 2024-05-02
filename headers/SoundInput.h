@@ -17,9 +17,8 @@
 #ifndef __SOUNDINPUT__
 #define __SOUNDINPUT__
 
-/* obsolete file, all sound interfaces have been moved to Sound.[hpar]*/
-#ifndef __SOUND__
+// obsolete file, all sound interfaces have been moved to Sound.[hpar]#ifndef __SOUND__
 #include <Sound.h>
 #endif
 
-#endif /* __SOUNDINPUT__ */
+#endif // __SOUNDINPUT__ // __SOUNDINPUT__ 

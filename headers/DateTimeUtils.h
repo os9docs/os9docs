@@ -461,7 +461,7 @@ the Time Manager ).
 (at 0x020C) and into the specified variable. Thus, the following are
 functionally equivalent:
 unsigned long secs;
-GetDateTime ( &secs); /* is the same as . . . */
+GetDateTime ( &secs); // is the same as . . . 
     secs = Time;
 It is recommended that you obtain the value using the GetDateTime trap
 rather than using the low-memory variable however, as it is possible that
@@ -556,7 +556,7 @@ its fields contain the current year, month, day, etc.
 </pre>
 * \note <pre>GetTime calls GetDateTime and converts its "raw" seconds value into
 corresponding DateTimeRec . For example:
-DateTimeRec now; /* create a 14-byte record */
+DateTimeRec now; // create a 14-byte record 
 GetTime(&now);
 printf("Today is %d/%d/%d\n", now.month, now.day, now.year);
 printf("The first day of the rest of your life. . . ");
@@ -568,7 +568,7 @@ printf("The first day of the rest of your life. . . ");
     later
         *    \mac_os_x in version 10.0 and
     later
-            * /
+          */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter GetTime(__A0)
 #endif
@@ -645,8 +645,8 @@ Example
 #include < Packages.h >
 long nowNum;
 Str255 nowStr;
-GetDateTime ( &nowNum ); /* or today = Time */
-    IUTimeString(nowNum, TRUE, nowStr); /* exclude seconds */
+GetDateTime ( &nowNum ); // or today = Time 
+    IUTimeString(nowNum, TRUE, nowStr); // exclude seconds 
     DrawString("\pThe time is: ");
     DrawString(nowStr);
     </ pre>
@@ -703,9 +703,9 @@ Example
 */
     long nowNum;
     Str255 nowStr;
-    Intl0Hndl i0h;                 /* handle to an Intl0Rec */
-    i0h = (Intl0Hndl)IUGetIntl(0); /* get current settings */
-    (*i0h)->timeCycle = 0;         /* 24-hr format */
+    Intl0Hndl i0h;                 // handle to an Intl0Rec 
+    i0h = (Intl0Hndl)IUGetIntl(0); // get current settings 
+    (*i0h)->timeCycle = 0;         // 24-hr format 
     (*i0h)->timeFmt |= secLeadingZ | minLeadingZ | hrLeadingZ;
     </ pre>
                 * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -856,4 +856,4 @@ Example
 #endif
 
 #endif                  /** __DATETIMEUTILS__ */
-      * /*/*/ * /*/*/ * /*/*/
+    */*/*/ * /*/*/ * /*/*/

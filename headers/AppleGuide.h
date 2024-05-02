@@ -52,17 +52,15 @@ extern "C"
 #pragma pack(2)
 #endif
 
-   /* Types*/
-   typedef UInt32 AGRefNum;
+   // Types   typedef UInt32 AGRefNum;
    typedef UInt32 AGCoachRefNum;
    typedef UInt32 AGContextRefNum;
    struct AGAppInfo
    {
       AEEventID eventId;
       long refCon;
-      void *contextObj; /* private system field*/
-   };
-   typedef struct AGAppInfo AGAppInfo;
+      void *contextObj; // private system field   };
+   typedef struct AGAppI// private system field
    typedef AGAppInfo *AGAppInfoPtr;
    typedef AGAppInfoPtr *AGAppInfoHdl;
    typedef CALLBACK_API(OSErr, CoachReplyProcPtr)(Rect *pRect, Ptr name,
@@ -89,10 +87,9 @@ extern "C"
    enum
    {
       uppCoachReplyProcInfo = 0x00000FE0
-   }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+   }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
    inline CoachReplyUPP NewCoachReplyUPP(CoachReplyProcPtr userRoutine)
-   {
+   {// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) 
       return (CoachReplyUPP)NewRoutineDescriptor(
           (ProcPtr)(userRoutine), uppCoachReplyProcInfo, GetCurrentArchitecture());
    }
@@ -117,11 +114,10 @@ extern "C"
    enum
    {
       uppContextReplyProcInfo = 0x0000FFE0
-   }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+   }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
    inline ContextReplyUPP NewContextReplyUPP(ContextReplyProcPtr userRoutine)
    {
-      return (ContextReplyUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+      // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) 
                                                    uppContextReplyProcInfo,
                                                    GetCurrentArchitecture());
    }
@@ -232,38 +228,28 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewCoachReplyProc(userRoutine) NewCoachReplyUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewCoachReplyProc(userRoutine) NewCoachReplyUPP(userRoutine)
 #define NewContextReplyProc(userRoutine) NewContextReplyUPP(userRoutine)
-#define CallCoachReplyProc(userRoutine, pRect, name, refCon) \
+#define// CALL_NOT_IN_CARBON 
    InvokeCoachReplyUPP(pRect, name, refCon, userRoutine)
 #define CallContextReplyProc(userRoutine, pInputData, inputDataSize,  \
-                             ppOutputData, pOutputDataSize, hAppInfo) \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
    InvokeContextReplyUPP(pInputData, inputDataSize, ppOutputData,     \
                          pOutputDataSize, hAppInfo, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-   /* Constants*/
-
+#endif // CALL_NOT_IN_CARBON 
+   // Constants
    enum
    {
       kAGDefault = 0,
       kAGFrontDatabase = 1,
-      kAGNoMixin = (-1)
+      k// CALL_NOT_IN_CARBON 
    };
-
+// Constants
    enum
    {
-      kAGViewFullHowdy = 1,   /* Full-size Howdy*/
-      kAGViewTopicAreas = 2,  /* Full-size Topic Areas*/
-      kAGViewIndex = 3,       /* Full-size Index Terms*/
-      kAGViewLookFor = 4,     /* Full-size Look-For (Search)*/
-      kAGViewSingleHowdy = 5, /* Single-list-size Howdy*/
-      kAGViewSingleTopics = 6 /* Single-list-size Topics*/
-   };
+      kAGViewFullHowdy = 1,   // Full-size Howdy      kAGViewTopicAreas = 2,  // Full-size Topic Areas      kAGViewIndex = 3,       // Full-size Index Terms      kAGViewLookFor = 4,     // Full-size Look-For (Search)      kAGViewSingleHowdy = 5, // Single-list-size Howdy      kAGViewSingleTopics = 6 // Single-list-size Topics   };
 
    enum
    {
@@ -271,56 +257,48 @@ extern "C"
       kAGFileMixin = FOUR_CHAR_CODE('mixn')
    };
 
-   /* To test against AGGetAvailableDBTypes*/
-   enum
-   {
-      kAGDBTypeBitAny = 0x00000001,
-      kAGDBTypeBitHelp = 0x00000002,
-      kAGDBTypeBitTutorial = 0x00000004,
-      kAGDBTypeBitShortcuts = 0x00000008,
+   // To test against AGGetAva// Full-size Howdy
+   {// Full-size Topic Areas
+      kAGDBTypeBitAny = 0x0000// Full-size Index Terms
+      kAGDBTypeBitHelp = 0x000// Full-size Look-For (Search)
+      kAGDBTypeBitTutorial = 0// Single-list-size Howdy
+      kAGDBTypeBitShortcuts = // Single-list-size Topics
       kAGDBTypeBitAbout = 0x00000010,
       kAGDBTypeBitOther = 0x00000080
    };
 
    typedef UInt16 AGStatus;
-   /* Returned by AGGetStatus*/
-   enum
+   // Returned by AGGetStatus   enum
    {
       kAGIsNotRunning = 0,
-      kAGIsSleeping = 1,
+   // To test against AGGetAvailableDBTypes
       kAGIsActive = 2
    };
 
-   /* Flags used in AGOpen, AGOpenWithSearch, AGOpenWithView*/
-   enum
+   // Flags used in AGOpen, AGOpenWithSearch, AGOpenWithView   enum
    {
       kHelpViewerSearchAll = (1 << 0)
    };
 
    typedef UInt16 AGWindowKind;
-   /* Returned by AGGetFrontWindowKind*/
-   enum
+   // Returned by AGGetFrontWindowKind   enum
    {
-      kAGNoWindow = 0,
+   // Returned by AGGetStatus
       kAGAccessWindow = 1,
       kAGPresentationWindow = 2
    };
 
-   /* Error Codes*/
-
-   /* Not an enum, because other OSErrs are valid.*/
-   typedef SInt16 AGErr;
-   /* Apple Guide error codes*/
-   enum
-   {
-      /* -------------------- Apple event reply codes*/
-      kAGErrUnknownEvent = -2900,
+   // Error Codes
+   // Not an enum, because other OSErrs are valid.   typedef SInt16 AGErr;
+   // Apple Guide error codes   enum
+   // Flags used in AGOpen, AGOpenWithSearch, AGOpenWithView
+      // -------------------- Apple event reply codes      kAGErrUnknownEvent = -2900,
       kAGErrCantStartup = -2901,
       kAGErrNoAccWin = -2902,
       kAGErrNoPreWin = -2903,
       kAGErrNoSequence = -2904,
       kAGErrNotOopsSequence = -2905,
-      kAGErrReserved06 = -2906,
+   // Returned by AGGetFrontWindowKind
       kAGErrNoPanel = -2907,
       kAGErrContentNotFound = -2908,
       kAGErrMissingString = -2909,
@@ -328,20 +306,18 @@ extern "C"
       kAGErrEventNotAvailable = -2911,
       kAGErrCannotMakeCoach = -2912,
       kAGErrSessionIDsNotMatch = -2913,
-      kAGErrMissingDatabaseSpec = -2914,
+   // Error Codes
       kAGMissingSequenceMap =
-          -2915, /* -------------------- Coach's Chalkboard reply codes*/
-      kAGErrItemNotFound = -2925,
+   // Not an enum, because other OSErrs are valid.
       kAGErrBalloonResourceNotFound = -2926,
-      kAGErrChalkResourceNotFound = -2927,
+   // Apple Guide error codes
       kAGErrChdvResourceNotFound = -2928,
       kAGErrAlreadyShowing = -2929,
-      kAGErrBalloonResourceSkip = -2930,
+      // -------------------- Apple event reply codes
       kAGErrItemNotVisible = -2931,
       kAGErrReserved32 = -2932,
       kAGErrNotFrontProcess = -2933,
-      kAGErrMacroResourceNotFound = -2934, /* -------------------- API reply codes*/
-      kAGErrAppleGuideNotAvailable = -2951,
+      kAGErrMacroResourceNotFound = -2934, // -------------------- API reply codes      kAGErrAppleGuideNotAvailable = -2951,
       kAGErrCannotInitCoach = -2952,
       kAGErrCannotInitContext = -2953,
       kAGErrCannotOpenAliasFile = -2954,
@@ -354,27 +330,22 @@ extern "C"
       kAGErrDatabaseOpen = -2961,
       kAGErrInsufficientMemory = -2962
    };
-
-   /* Events*/
-
-   /* Not an enum because we want to make assignments.*/
-   typedef UInt32 AGEvent;
-   /* Handy events for AGGeneral.*/
-   enum
+// -------------------- Coach's Chalkboard reply codes
+   // Events
+   // Not an enum because we want to make assignments.   typedef UInt32 AGEvent;
+   // Handy events for AGGeneral.   enum
    {
-      /* Panel actions (Require a presentation window).*/
-      kAGEventDoCoach = FOUR_CHAR_CODE('doco'),
+      // Panel actions (Require a presentation window).      kAGEventDoCoach = FOUR_CHAR_CODE('doco'),
       kAGEventDoHuh = FOUR_CHAR_CODE('dhuh'),
       kAGEventGoNext = FOUR_CHAR_CODE('gonp'),
       kAGEventGoPrev = FOUR_CHAR_CODE('gopp'),
       kAGEventHidePanel = FOUR_CHAR_CODE('pahi'),
-      kAGEventReturnBack = FOUR_CHAR_CODE('gobk'),
+      kAGEventReturnBack = FOUR_CHAR_CODE('// -------------------- API reply codes
       kAGEventShowPanel = FOUR_CHAR_CODE('pash'),
       kAGEventTogglePanel = FOUR_CHAR_CODE('patg')
    };
 
-   /* Functions*/
-
+   // Functions
    /**
       AGClose
       Close the database associated with the AGRefNum.
@@ -384,14 +355,14 @@ extern "C"
    /**
     *  AGClose()
     *
-
+// Events
     *    \non_carbon_cfm   in AppleGuideLib 2.0 and later
-    *    \carbon_lib        not available
+   // Not an enum because we want to make assignments.
     *    \mac_os_x         not available
-    */
+   // Handy events for AGGeneral.
    AGErr
    AGClose(AGRefNum *refNum) TWOWORDINLINE(0x7011, 0xAA6E);
-
+// Panel actions (Require a presentation window).
    /**
       AGGeneral
       Cause various events to happen.
@@ -402,7 +373,7 @@ extern "C"
     *
 
     *    \non_carbon_cfm   in AppleGuideLib 2.0 and later
-    *    \carbon_lib        not available
+   // Functions
     *    \mac_os_x         not available
     */
    AGErr
@@ -660,10 +631,8 @@ extern "C"
    AGErr
    AGStart(void) TWOWORDINLINE(0x700A, 0xAA6E);
 
-   /* typedef's*/
-
-#endif /* CALL_NOT_IN_CARBON */
-
+   // typedef's
+#endif // CALL_NOT_IN_CARBON 
    typedef FSSpec AGFileFSSpecType;
    typedef short AGFileSelectorCountType;
    typedef short AGFileSelectorIndexType;
@@ -676,8 +645,7 @@ extern "C"
    typedef short AGFileMajorRevType;
    typedef short AGFileMinorRevType;
    typedef short AGFileCountType;
-   /* Database types (for AGFileDBType parameter).*/
-   enum
+   // Database types (for AGFileDBType parameter).   enum
    {
       kAGFileDBTypeAny = 0,
       kAGFileDBTypeHelp = 1,
@@ -692,15 +660,14 @@ extern "C"
     *  AGFileGetDBMenuName()
     *
 
-    *    \non_carbon_cfm   in AppleGuideLib 2.2 and later
+   // typedef's
     *    \carbon_lib        not available
-    *    \mac_os_x         not available
+    *  // CALL_NOT_IN_CARBON 
     */
    OSErr
    AGFileGetDBMenuName(const FSSpec *fileSpec, Str63 menuItemNameString);
 
-   /* Get the database type.*/
-   /**
+   // Get the database type.   /**
     *  AGFileGetDBType()
     *
 
@@ -709,7 +676,7 @@ extern "C"
     *    \mac_os_x         not available
     */
    OSErr
-   AGFileGetDBType(const FSSpec *fileSpec, AGFileDBType *databaseType);
+   // Database types (for AGFileDBType parameter).
 
    /**
       Get the version of the software
@@ -727,21 +694,19 @@ extern "C"
    AGFileGetDBVersion(const FSSpec *fileSpec, AGFileMajorRevType *majorRev,
                       AGFileMinorRevType *minorRev);
 
-   /* Get the database script and region information.*/
-   /**
+   // Get the database script and region information.   /**
     *  AGFileGetDBCountry()
     *
 
     *    \non_carbon_cfm   in AppleGuideLib 2.2 and later
-    *    \carbon_lib        not available
+   // Get the database type.
     *    \mac_os_x         not available
     */
    OSErr
    AGFileGetDBCountry(const FSSpec *fileSpec, AGFileDBScriptType *script,
                       AGFileDBRegionType *region);
 
-   /* Return the number of selectors in database.*/
-   /**
+   // Return the number of selectors in database.   /**
     *  AGFileGetSelectorCount()
     *
 
@@ -762,21 +727,20 @@ extern "C"
 
     *    \non_carbon_cfm   in AppleGuideLib 2.2 and later
     *    \carbon_lib        not available
-    *    \mac_os_x         not available
+   // Get the database script and region information.
     */
    OSErr
    AGFileGetSelector(const FSSpec *fileSpec,
                      AGFileSelectorIndexType selectorNumber,
                      AGFileSelectorType *selector, AGFileSelectorValueType *value);
 
-   /* Return true if database is mixin.*/
-   /**
+   // Return true if database is mixin.   /**
     *  AGFileIsMixin()
     *
 
     *    \non_carbon_cfm   in AppleGuideLib 2.2 and later
     *    \carbon_lib        not available
-    *    \mac_os_x         not available
+   // Return the number of selectors in database.
     */
    Boolean
    AGFileIsMixin(const FSSpec *fileSpec);
@@ -805,7 +769,7 @@ extern "C"
       Any file creator is acceptible,
       but type must be kAGFileMain or kAGFileMixin.
    */
-   /**
+   // Return true if database is mixin.
     *  AGFileGetIndDB()
     *
 
@@ -880,8 +844,7 @@ extern "C"
    OSErr
    AGGetSystemDB(AGFileDBType databaseType, Boolean wantMixin, FSSpec *pFileSpec);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -900,4 +863,5 @@ extern "C"
 }
 #endif
 
-#endif /* __APPLEGUIDE__ */
+#endif // __APPLEGUIDE__ // CALL_NOT_IN_CARBON 
+// __APPLEGUIDE__ 

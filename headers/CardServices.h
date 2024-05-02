@@ -52,167 +52,102 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  /*  miscellaneous*/
-
+  //  miscellaneous
   enum
   {
-    CS_MAX_SOCKETS = 32 /* a long is used as a socket bitmap*/
-  };
+    CS_MAX_SOCKETS = 32 // a long is used as a socket bitmap  };
+// a long is used as a socket bitmap
+  // Will move to <Traps.h>  enum
+  {
+  // Will move to <Traps.h>
 
-  /* Will move to <Traps.h>*/
+  // Will move to <Errors.h>
+  //  result codes// Card Services entry trap
   enum
   {
-    _PCCardDispatch = 0xAAF0 /* Card Services entry trap*/
-  };
+  // Will move to <Errors.h>
+        -9058,                    // specified logical or physical socket number is invalid    kCSBadTypeErr = -9059,        // specified window or interface type is invalid    kCSBadVccErr = -9060,         // specified Vcc power level index is invalid    kCSBadVppErr = -9061,         // specified Vpp1 or Vpp2 power level index is invalid    kCSBadWindowErr = -9062,      // specified window is invalid    kCSBadArgLengthErr = -9063,   // ArgLength argument is invalid    kCSBadArgsErr = -9064,        // values in argument packet are invalid    kCSBadHandleErr = -9065,      // clientHandle is invalid    kCSBadCISErr = -9066,         // CIS on card is invalid    kCSBadSpeedErr = -9067,       // specified speed is unavailable    kCSReadFailureErr = -9068,    // unable to complete read request    kCSWriteFailureErr = -9069,   // unable to complete write request    kCSGeneralFailureErr = -9070, // an undefined error has occurred    kCSNoCardErr = -9071,         // no PC card in the socket    kCSUnsupportedFunctionErr =
+  //  result codes
+        -9076,                  // a configuration has already been locked    kCSInUseErr = -9077,        // requested resource is being used by a client    kCSNoMoreItemsErr = -9078,  // there are no more of the requested item    kCSOutOfResourceErr = -9079 // Card Services has exhausted the resource  };
 
-  /* Will move to <Errors.h>*/
-
-  /*  result codes*/
-
-  enum
-  {
-    kCSBadAdapterErr = -9050,   /* invalid adapter number*/
-    kCSBadAttributeErr = -9051, /* specified attributes field value is invalid*/
-    kCSBadBaseErr = -9052,      /* specified base system memory address is invalid*/
-    kCSBadEDCErr = -9053,       /* specified EDC generator specified is invalid*/
-    kCSBadIRQErr = -9054,       /* specified IRQ level is invalid*/
-    kCSBadOffsetErr = -9055,    /* specified PC card memory array offset is invalid*/
-    kCSBadPageErr = -9056,      /* specified page is invalid*/
-    kCSBadSizeErr = -9057,      /* specified size is invalid*/
-    kCSBadSocketErr =
-        -9058,                    /* specified logical or physical socket number is invalid*/
-    kCSBadTypeErr = -9059,        /* specified window or interface type is invalid*/
-    kCSBadVccErr = -9060,         /* specified Vcc power level index is invalid*/
-    kCSBadVppErr = -9061,         /* specified Vpp1 or Vpp2 power level index is invalid*/
-    kCSBadWindowErr = -9062,      /* specified window is invalid*/
-    kCSBadArgLengthErr = -9063,   /* ArgLength argument is invalid*/
-    kCSBadArgsErr = -9064,        /* values in argument packet are invalid*/
-    kCSBadHandleErr = -9065,      /* clientHandle is invalid*/
-    kCSBadCISErr = -9066,         /* CIS on card is invalid*/
-    kCSBadSpeedErr = -9067,       /* specified speed is unavailable*/
-    kCSReadFailureErr = -9068,    /* unable to complete read request*/
-    kCSWriteFailureErr = -9069,   /* unable to complete write request*/
-    kCSGeneralFailureErr = -9070, /* an undefined error has occurred*/
-    kCSNoCardErr = -9071,         /* no PC card in the socket*/
-    kCSUnsupportedFunctionErr =
-        -9072,                     /* function is not supported by this implementation*/
-    kCSUnsupportedModeErr = -9073, /* mode is not supported*/
-    kCSBusyErr = -9074,            /* unable to process request at this time - try later*/
-    kCSWriteProtectedErr = -9075,  /* media is write-protected*/
-    kCSConfigurationLockedErr =
-        -9076,                  /* a configuration has already been locked*/
-    kCSInUseErr = -9077,        /* requested resource is being used by a client*/
-    kCSNoMoreItemsErr = -9078,  /* there are no more of the requested item*/
-    kCSOutOfResourceErr = -9079 /* Card Services has exhausted the resource*/
-  };
-
-  /*  messages sent to client's event handler*/
-
-  enum
-  {
-    kCSNullMessage = 0x00,          /* no messages pending (not sent to clients)*/
-    kCSCardInsertionMessage = 0x01, /* card has been inserted into the socket*/
-    kCSCardRemovalMessage = 0x02,   /* card has been removed from the socket*/
-    kCSCardLockMessage =
-        0x03,                    /* card is locked into the socket with a mechanical latch*/
-    kCSCardUnlockMessage = 0x04, /* card is no longer locked into the socket*/
-    kCSCardReadyMessage = 0x05,  /* card is ready to be accessed*/
-    kCSCardResetMessage = 0x06,  /* physical reset has completed*/
-    kCSInsertionRequestMessage =
-        0x07, /* request to insert a card using insertion motor*/
-    kCSInsertionCompleteMessage =
-        0x08, /* insertion motor has finished inserting a card*/
-    kCSEjectionRequestMessage =
-        0x09, /* user or other client is requesting a card ejection*/
-    kCSEjectionFailedMessage =
-        0x0A,                   /* eject failure due to electrical/mechanical problems*/
-    kCSPMResumeMessage = 0x0B,  /* power management resume (TBD)*/
-    kCSPMSuspendMessage = 0x0C, /* power management suspend (TBD)*/
-    kCSResetPhysicalMessage =
-        0x0D, /* physical reset is about to occur on this card*/
-    kCSResetRequestMessage =
-        0x0E, /* physical reset has been requested by a client*/
-    kCSResetCompleteMessage =
-        0x0F, /* ResetCard() background reset has completed*/
-    kCSBatteryDeadMessage =
-        0x10,                      /* battery is no longer useable, data will be lost*/
-    kCSBatteryLowMessage = 0x11,   /* battery is weak and should be replaced*/
-    kCSWriteProtectMessage = 0x12, /* card is now write protected*/
-    kCSWriteEnabledMessage = 0x13, /* card is now write enabled*/
-    kCSClientInfoMessage = 0x14,   /* client is to return client information*/
-    kCSSSUpdatedMessage =
-        0x15,                           /* AddSocketServices/ReplaceSocket services has changed SS support*/
-    kCSFunctionInterruptMessage = 0x16, /* card function interrupt*/
-    kCSAccessErrorMessage = 0x17,       /* client bus errored on access to socket*/
-    kCSCardUnconfiguredMessage =
-        0x18,                      /* a CARD_READY was delivered to all clients and no client */
-                                   /*    requested a configuration for the socket*/
-    kCSStatusChangedMessage = 0x19 /* status change for cards in I/O mode*/
-  };
-
-  /**
-      The following is a mapping of the PCMCIA name space to the Macintosh name
-     space. These two enum lists will be removed and given to developers as a
-     separate file.
-  */
-  enum
-  {
-    SUCCESS = noErr,
+  //  messages sent to client's event handler
+  enum// invalid adapter number
+  {// specified attributes field value is invalid
+    kCSNullMessage = 0x00,      // specified base system memory address is invalid
+        0x03,                   // specified EDC generator specified is invalid
+        0x07, // request to inse// specified IRQ level is invalid
+        0x08, // insertion motor// specified PC card memory array offset is invalid
+        0x09, // user or other c// specified page is invalid
+        0x0A,                   // specified size is invalid
+        0x0D, // physical reset is about to occur on this card    kCSResetRequestMessage =
+        0x0E, // physical reset ha// specified logical or physical socket number is invalid
+        0x0F, // ResetCard() backg// specified window or interface type is invalid
+        0x10,                     // specified Vcc power level index is invalid
+        0x15,                     // specified Vpp1 or Vpp2 power level index is invalid
+        0x18,                     // specified window is invalid
+// ArgLength argument is invalid
+  /**// values in argument packet are invalid
+      The following is a mapping o// clientHandle is invalid
+     space. These two enum lists w// CIS on card is invalid
+     separate file.// specified speed is unavailable
+  */// unable to complete read request
+  enum// unable to complete write request
+  {// an undefined error has occurred
+    SUCCESS = noErr,// no PC card in the socket
     BAD_ADAPTER = kCSBadAdapterErr,
-    BAD_ATTRIBUTE = kCSBadAttributeErr,
-    BAD_BASE = kCSBadBaseErr,
-    BAD_EDC = kCSBadEDCErr,
-    BAD_IRQ = kCSBadIRQErr,
+    BAD_ATTRIBUTE = kCSBadAttribute// function is not supported by this implementation
+    BAD_BASE = kCSBadBaseErr,// mode is not supported
+    BAD_EDC = kCSBadEDCErr,// unable to process request at this time - try later
+    BAD_IRQ = kCSBadIRQErr,// media is write-protected
     BAD_OFFSET = kCSBadOffsetErr,
-    BAD_PAGE = kCSBadPageErr,
-    BAD_SIZE = kCSBadSizeErr,
-    BAD_SOCKET = kCSBadSocketErr,
-    BAD_TYPE = kCSBadTypeErr,
+    BAD_PAGE = kCSBadPageErr,// a configuration has already been locked
+    BAD_SIZE = kCSBadSizeErr,// requested resource is being used by a client
+    BAD_SOCKET = kCSBadSocketErr// there are no more of the requested item
+    BAD_TYPE = kCSBadTypeErr,// Card Services has exhausted the resource
     BAD_VCC = kCSBadVccErr,
     BAD_VPP = kCSBadVppErr,
-    BAD_WINDOW = kCSBadWindowErr,
+  //  messages sent to client's event handler
     BAD_ARG_LENGTH = kCSBadArgLengthErr,
     BAD_ARGS = kCSBadArgsErr,
     BAD_HANDLE = kCSBadHandleErr,
-    BAD_CIS = kCSBadCISErr,
-    BAD_SPEED = kCSBadSpeedErr,
-    READ_FAILURE = kCSReadFailureErr,
+    BAD_CIS = kCSBadCISErr,// no messages pending (not sent to clients)
+    BAD_SPEED = kCSBadSpeedErr,// card has been inserted into the socket
+    READ_FAILURE = kCSReadFailureErr// card has been removed from the socket
     WRITE_FAILURE = kCSWriteFailureErr,
-    GENERAL_FAILURE = kCSGeneralFailureErr,
-    NO_CARD = kCSNoCardErr,
-    UNSUPPORTED_FUNCTION = kCSUnsupportedFunctionErr,
-    UNSUPPORTED_MODE = kCSUnsupportedModeErr,
+    GENERAL_FAILURE = kCSGeneralF// card is locked into the socket with a mechanical latch
+    NO_CARD = kCSNoCardErr,// card is no longer locked into the socket
+    UNSUPPORTED_FUNCTION = kCSUns// card is ready to be accessed
+    UNSUPPORTED_MODE = kCSUnsuppo// physical reset has completed
     BUSY = kCSBusyErr,
-    WRITE_PROTECTED = kCSWriteProtectedErr,
+    WRITE_PROT// request to insert a card using insertion motor
     CONFIGURATION_LOCKED = kCSConfigurationLockedErr,
-    IN_USE = kCSInUseErr,
+    IN_USE = k// insertion motor has finished inserting a card
     NO_MORE_ITEMS = kCSNoMoreItemsErr,
-    OUT_OF_RESOURCE = kCSOutOfResourceErr
+    OUT_OF_RES// user or other client is requesting a card ejection
   };
-
-  /*  messages sent to client's event handler*/
-
-  enum
+// eject failure due to electrical/mechanical problems
+  //  messages sent to client's // power management resume (TBD)
+  enum// power management suspend (TBD)
   {
-    NULL_MESSAGE = kCSNullMessage,
+    NULL_MESSA// physical reset is about to occur on this card
     CARD_INSERTION = kCSCardInsertionMessage,
-    CARD_REMOVAL = kCSCardRemovalMessage,
+    CARD_REMOV// physical reset has been requested by a client
     CARD_LOCK = kCSCardLockMessage,
-    CARD_UNLOCK = kCSCardUnlockMessage,
+    CARD_UNLOC// ResetCard() background reset has completed
     CARD_READY = kCSCardReadyMessage,
-    CARD_RESET = kCSCardResetMessage,
-    INSERTION_REQUEST = kCSInsertionRequestMessage,
-    INSERTION_COMPLETE = kCSInsertionCompleteMessage,
-    EJECTION_REQUEST = kCSEjectionRequestMessage,
-    EJECTION_FAILED = kCSEjectionFailedMessage,
+    CARD_RESET = kCSCardResetMessag// battery is no longer useable, data will be lost
+    INSERTION_REQUEST = kCSInsertio// battery is weak and should be replaced
+    INSERTION_COMPLETE = kCSInserti// card is now write protected
+    EJECTION_REQUEST = kCSEjectionR// card is now write enabled
+    EJECTION_FAILED = kCSEjectionFa// client is to return client information
     PM_RESUME = kCSPMResumeMessage,
-    PM_SUSPEND = kCSPMSuspendMessage,
-    RESET_PHYSICAL = kCSResetPhysicalMessage,
-    RESET_REQUEST = kCSResetRequestMessage,
+    PM_SUSPEND = kCSPMSuspendMessage,// AddSocketServices/ReplaceSocket services has changed SS support
+    RESET_PHYSICAL = kCSResetPhysicalMes// card function interrupt
+    RESET_REQUEST = kCSResetRequestMessa// client bus errored on access to socket
     RESET_COMPLETE = kCSResetCompleteMessage,
-    BATTERY_DEAD = kCSBatteryDeadMessage,
-    BATTERY_LOW = kCSBatteryLowMessage,
-    WRITE_PROTECT = kCSWriteProtectMessage,
+    BATTERY_DEAD = kCSBatteryDeadMe// a CARD_READY was delivered to all clients and no client 
+    BATTERY_LOW = kCSBatteryLowMess//    requested a configuration for the socket
+    WRITE_PROTECT = kCSWriteProtect// status change for cards in I/O mode
     WRITE_ENABLED = kCSWriteEnabledMessage,
     CLIENT_INFO = kCSClientInfoMessage,
     SS_UPDATED = kCSSSUpdatedMessage,
@@ -226,15 +161,9 @@ extern "C"
 
   struct AccessConfigurationRegisterPB
   {
-    UInt16 socket;    /*  -> global socket number*/
-    UInt8 action;     /*  -> read/write*/
-    UInt8 offset;     /*  -> offset from config register base*/
-    UInt8 value;      /* <-> value to read/write*/
-    UInt8 padding[1]; /* */
-  };
+    UInt16 socket;    //  -> global socket number    UInt8 action;     //  -> read/write    UInt8 offset;     //  -> offset from config register base    UInt8 value;      // <-> value to read/write    UInt8 padding[1]; //   };
   typedef struct AccessConfigurationRegisterPB AccessConfigurationRegisterPB;
-  /*  �action� field values*/
-
+  //  �action� field values
   enum
   {
     kCSReadConfigRegister = 0x00,
@@ -245,66 +174,34 @@ extern "C"
 
   struct GetCardServicesInfoPB
   {
-    UInt8 signature[2];  /* <-  two ascii chars 'CS'*/
-    UInt16 count;        /* <-  total number of sockets installed*/
-    UInt16 revision;     /* <-  BCD*/
-    UInt16 csLevel;      /* <-  BCD*/
-    UInt16 reserved;     /*  -> zero*/
-    UInt16 vStrLen;      /* <-> in: client's buffer size, out: vendor string length*/
-    UInt8 *vendorString; /* <-> in: pointer to buffer to hold CS vendor string
+    UInt8 signature[2];  // <-  two ascii chars 'CS'    UInt16 count;        // <-  total number of sockets installed    UInt16 revision;     // <-  BCD    UInt16 csLevel;      // <-  BCD    UInt16 reserved;     //  -> zero    UInt16 vStrLen;      // <-> in: client's buffer size, out: vendor string length    UInt8 *vendorString; /* <-> in: pointer to buffer to hold CS vendor string
                             (zero-terminated)*/
-                         /*    out: CS vendor string copied to buffer*/
-  };
+                         //    out: CS vendor string copied to buffer  };
   typedef struct GetCardServicesInfoPB GetCardServicesInfoPB;
   /*----------------      CSGetClientInfo                 ----------------*/
 
-  /* upper byte of attributes is kCSClientInfoSubfunction*/
-  struct ClientInfoParam
+  // upper byte of attributes is kCSClientInfoSubfunction  struct ClientInfoParam
   {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 attributes;   /* <-> subfunction + bitmapped client attributes*/
-    UInt16 revision;     /* <-  BCD value of client's revision*/
-    UInt16 csLevel;      /* <-  BCD value of CS release*/
-    UInt16 revDate;      /* <-  revision date: y[15-9], m[8-5], d[4-0]*/
-    SInt16
-        nameLen; /* <-> in: max length of client name string, out: actual length*/
-    SInt16
-        vStringLen;      /* <-> in: max length of vendor string, out: actual length*/
-    UInt8 *nameString;   /* <-  pointer to client name string (zero-terminated)*/
-    UInt8 *vendorString; /* <-  pointer to vendor string (zero-terminated)*/
-  };
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt16 attributes;   // <-> subfunction + bitmapped client attributes    UInt16 revision;     // <-  BCD value of client's revision    UInt16 csLevel;      // <-  BCD value of CS release    UInt16 revDate;      // <-  revision date: y[15-9], m[8-5], d[4-0]    SInt16
+        nameLen; // <-> in: max length of client name string, out: actual length    SInt16
+        vStringLen;      // <-> in: max length of vendor string, out: actual length    UInt8 *nameString;   // <-  pointer to client name string (zero-terminated)    UInt8 *vendorString; // <-  pointer to vendor string (zero-terminated)  };
   typedef struct ClientInfoParam ClientInfoParam;
   /**
      upper byte of attributes is kCSCardNameSubfunction,
                                  kCSCardTypeSubfunction,
                                  kCSHelpStringSubfunction
-  */
+  //  messages sent to client's event handler
   struct AlternateTextStringParam
   {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 attributes;   /* <-> subfunction + bitmapped client attributes*/
-    UInt16 socket;       /*  -> logical socket number*/
-    UInt16 reserved;     /*  -> zero*/
-    SInt16 length;       /* <-> in: max length of string, out: actual length*/
-    UInt8 *text;         /* <-  pointer to string (zero-terminated)*/
-  };
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt16 attributes;   // <-> subfunction + bitmapped client attributes    UInt16 socket;       //  -> logical socket number    UInt16 reserved;     //  -> zero    SInt16 length;       // <-> in: max length of string, out: actual length    UInt8 *text;         // <-  pointer to string (zero-terminated)  };
   typedef struct AlternateTextStringParam AlternateTextStringParam;
-  /* upper byte of attributes is kCSCardIconSubfunction*/
-  struct AlternateCardIconParam
+  // upper byte of attributes is kCSCardIconSubfunction  struct AlternateCardIconParam
   {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 attributes;   /* <-> subfunction + bitmapped client attributes*/
-    UInt16 socket;       /*  -> logical socket number*/
-    Handle iconSuite;    /* <-  handle to icon suite containing all icons*/
-  };
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt16 attributes;   // <-> subfunction + bitmapped client attributes    UInt16 socket;       //  -> logical socket number    Handle iconSuite;    // <-  handle to icon suite containing all icons  };
   typedef struct AlternateCardIconParam AlternateCardIconParam;
-  /* upper byte of attributes is kCSActionProcSubfunction*/
-  struct CustomActionProcParam
+  // upper byte of attributes is kCSActionProcSubfunction  struct CustomActionProcParam
   {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 attributes;   /* <-> subfunction + bitmapped client attributes*/
-    UInt16 socket;       /*  -> logical socket number*/
-  };
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt16 attributes;   // <-> subfunction + bitmapped client attributes    UInt16 socket;       //  -> logical socket number  };
   typedef struct CustomActionProcParam CustomActionProcParam;
   struct GetClientInfoPB
   {
@@ -317,8 +214,7 @@ extern "C"
     } u;
   };
   typedef struct GetClientInfoPB GetClientInfoPB;
-  /*  �attributes� field values*/
-  enum
+  //  �attributes� field values  enum
   {
     kCSMemoryClient = 0x0001,
     kCSIOClient = 0x0004,
@@ -330,77 +226,52 @@ extern "C"
     kCSCardNameSubfunction = 0x8000,
     kCSCardTypeSubfunction = 0x8100,
     kCSHelpStringSubfunction = 0x8200,
-    kCSCardIconSubfunction = 0x8300,
-    kCSActionProcSubfunction = 0x8400
-  };
-
-  /**
+    kCSCardIconSubfunc//  -> global socket number
+    kCSActionProcSubfu//  -> read/write
+  };//  -> offset from config register base
+// <-> value to read/write
+  /**// 
     ----------------      CSGetConfigurationInfo          ----------------
     ----------------      CSModifyConfiguration           ----------------
-    ----------------      CSRequestConfiguration          ----------------
+  //  �action� field values
   */
 
   struct GetModRequestConfigInfoPB
   {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 socket;       /*  -> logical socket number*/
-    UInt16 attributes;   /* <-> bitmap of configuration attributes*/
-    UInt8 vcc;           /* <-> Vcc setting*/
-    UInt8 vpp1;          /* <-> Vpp1 setting*/
-    UInt8 vpp2;          /* <-> Vpp2 setting*/
-    UInt8 intType;       /* <-> interface type (memory or memory+I/O)*/
-    UInt32 configBase;   /* <-> card base address of configuration registers*/
-    UInt8 status;        /* <-> card status register setting, if present*/
-    UInt8 pin;           /* <-> card pin register setting, if present*/
-    UInt8 copy;          /* <-> card socket/copy register setting, if present*/
-    UInt8 configIndex;   /* <-> card option register setting, if present*/
-    UInt8 present;       /* <-> bitmap of which configuration registers are present*/
-    UInt8 firstDevType;  /* <-  from DeviceID tuple*/
-    UInt8 funcCode;      /* <-  from FuncID tuple*/
-    UInt8 sysInitMask;   /* <-  from FuncID tuple*/
-    UInt16 manufCode;    /* <-  from ManufacturerID tuple*/
-    UInt16 manufInfo;    /* <-  from ManufacturerID tuple*/
-    UInt8 cardValues;    /* <-  valid card register values*/
-    UInt8 padding[1];    /* */
-  };
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt16 socket;       //  -> logical socket number    UInt16 attributes;   // <-> bitmap of configuration attributes    UInt8 vcc;           // <-> Vcc setting    UInt8 vpp1;          // <-> Vpp1 setting    UInt8 vpp2;          // <-> Vpp2 setting    UInt8 intType;       // <-> interface type (memory or memory+I/O)    UInt32 configBase;   // <-> card base address of configuration registers    UInt8 status;        // <-> card status register setting, if present    UInt8 pin;           // <-> card pin register setting, if present    UInt8 copy;          // <-> card socket/copy register setting, if present    UInt8 configIndex;   // <-> card option register setting, if present    UInt8 present;       // <-> bitmap of which configuration registers are present    UInt8 firstDevType;  // <-  from DeviceID tuple    UInt8 funcCode;      // <-  from FuncID tuple    UInt8 sysInitMask;   // <-  from FuncID tuple    UInt16 manufCode;    // <-  from ManufacturerID tuple    UInt16 manufInfo;    // <-  from ManufacturerID tuple    UInt8 cardValues;    // <-  valid card register values    UInt8 padding[1];    //   };
   typedef struct GetModRequestConfigInfoPB GetModRequestConfigInfoPB;
-  /*  �attributes� field values*/
-  enum
+  //  �attributes� field values  enum
   {
     kCSExclusivelyUsed = 0x0001,
     kCSEnableIREQs = 0x0002,
     kCSVccChangeValid = 0x0004,
-    kCSVpp1ChangeValid = 0x0008,
-    kCSVpp2ChangeValid = 0x0010,
-    kCSValidClient = 0x0020,
-    kCSSleepPower =
-        0x0040, /* request that power be applied to socket during Sleep*/
-    kCSLockSocket = 0x0080,
-    kCSTurnOnInUse = 0x0100
+    kCSVpp1ChangeValid = // <-  two ascii chars 'CS'
+    kCSVpp2ChangeValid = // <-  total number of sockets installed
+    kCSValidClient = 0x00// <-  BCD
+    kCSSleepPower =// <-  BCD
+        0x0040, // reques//  -> zero
+    kCSTurnOnInUse = 0x01// <-> in: client's buffer size, out: vendor string length
   };
 
-  /*  �intType� field values*/
-
+  //  �intType� field val//    out: CS vendor string copied to buffer
   enum
   {
     kCSMemoryInterface = 0x01,
     kCSMemory_And_IO_Interface = 0x02
-  };
+  // upper byte of attributes is kCSClientInfoSubfunction
 
-  /*  �present� field values*/
-
-  enum
-  {
-    kCSOptionRegisterPresent = 0x01,
-    kCSStatusRegisterPresent = 0x02,
-    kCSPinReplacementRegisterPresent = 0x04,
+  //  �present� field values
+  enum//  -> clientHandle returned by RegisterClient
+  {// <-> subfunction + bitmapped client attributes
+    kCSOptionRegisterPres// <-  BCD value of client's revision
+    kCSStatusRegisterPres// <-  BCD value of CS release
+    kCSPinReplacementRegi// <-  revision date: y[15-9], m[8-5], d[4-0]
     kCSCopyRegisterPresent = 0x08
-  };
+  };// <-> in: max length of client name string, out: actual length
 
-  /*  �cardValues� field values*/
-
-  enum
-  {
+  //  �cardValues� field // <-> in: max length of vendor string, out: actual length
+  enum// <-  pointer to client name string (zero-terminated)
+  {// <-  pointer to vendor string (zero-terminated)
     kCSOptionValueValid = 0x01,
     kCSStatusValueValid = 0x02,
     kCSPinReplacementValueValid = 0x04,
@@ -410,34 +281,29 @@ extern "C"
   /**
     ----------------      CSGetClientEventMask            ----------------
     ----------------      CSSetClientEventMask            ----------------
-  */
-
-  struct GetSetClientEventMaskPB
-  {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 attributes;   /* <-> bitmap of attributes*/
-    UInt16 eventMask;    /* <-> bitmap of events to be passed to client for this
-                            socket*/
-    UInt16 socket;       /*  -> logical socket number*/
-  };
+  *///  -> clientHandle returned by RegisterClient
+// <-> subfunction + bitmapped client attributes
+  struct GetSetClientEven//  -> logical socket number
+  {//  -> zero
+    UInt32 clientHandle; // <-> in: max length of string, out: actual length
+                         // <-  pointer to string (zero-terminated)
+    UInt16 socket;       //  -> logical socket number  };
   typedef struct GetSetClientEventMaskPB GetSetClientEventMaskPB;
-  /*  �attributes� field values*/
-  enum
+  // upper byte of attributes is kCSCardIconSubfunction
   {
     kCSEventMaskThisSocketOnly = 0x0001
-  };
-
-  /*  �eventMask� field values*/
-
-  enum
+  };//  -> clientHandle returned by RegisterClient
+// <-> subfunction + bitmapped client attributes
+  //  �eventMask� field v//  -> logical socket number
+  enum// <-  handle to icon suite containing all icons
   {
     kCSWriteProtectEvent = 0x0001,
-    kCSCardLockChangeEvent = 0x0002,
+  // upper byte of attributes is kCSActionProcSubfunction
     kCSEjectRequestEvent = 0x0004,
     kCSInsertRequestEvent = 0x0008,
-    kCSBatteryDeadEvent = 0x0010,
-    kCSBatteryLowEvent = 0x0020,
-    kCSReadyChangeEvent = 0x0040,
+    kCSBatteryDeadEvent =//  -> clientHandle returned by RegisterClient
+    kCSBatteryLowEvent = // <-> subfunction + bitmapped client attributes
+    kCSReadyChangeEvent =//  -> logical socket number
     kCSCardDetectChangeEvent = 0x0080,
     kCSPMChangeEvent = 0x0100,
     kCSResetEvent = 0x0200,
@@ -451,15 +317,11 @@ extern "C"
     ----------------      CSGetNextClient                 ----------------
   */
 
-  struct GetClientPB
+  //  �attributes� field values
   {
-    UInt32 clientHandle; /* <-  clientHandle for this client*/
-    UInt16 socket;       /*  -> logical socket number*/
-    UInt16 attributes;   /*  -> bitmap of attributes*/
-  };
+    UInt32 clientHandle; // <-  clientHandle for this client    UInt16 socket;       //  -> logical socket number    UInt16 attributes;   //  -> bitmap of attributes  };
   typedef struct GetClientPB GetClientPB;
-  /*  �attributes� field values*/
-  enum
+  //  �attributes� field values  enum
   {
     kCSClientsForAllSockets = 0x0000,
     kCSClientsThisSocketOnly = 0x0001
@@ -473,80 +335,59 @@ extern "C"
 
   struct GetTuplePB
   {
-    UInt16 socket;      /*  -> logical socket number*/
-    UInt16 attributes;  /*  -> bitmap of attributes*/
-    UInt8 desiredTuple; /*  -> desired tuple code value, or $FF for all*/
-    UInt8 tupleOffset;  /*  -> offset into tuple from link byte*/
-    UInt16 flags;       /* <-> internal use*/
-    UInt32 linkOffset;  /* <-> internal use*/
-    UInt32 cisOffset;   /* <-> internal use*/
-
+    UInt16 socket;      //  -> logical socket number    UInt16 attributes;  //  -> bitmap of attributes    UInt8 desiredTuple; //  -> desired tuple code value, or $FF for all    UInt8 tupleOffset;  //  -> offset into tuple from link byte    UInt16 flags;       // <-> internal use    UInt32 linkOffset;  // <-> internal use    UInt32 cisOffset;   // <-> internal use
     union
     {
       struct
       {
-        UInt8 tupleCode; /* <-  tuple code found*/
-        UInt8 tupleLink; /* <-  link value for tuple found*/
-      } TuplePB;
+        UInt8 tupleCode; // <-  tuple code found        UInt8 tupleLink; // <-  link value for tuple found      } TuplePB;
 
-      struct
-      {
-        UInt16 tupleDataMax; /*  -> maximum size of tuple data area*/
-        UInt16 tupleDataLen; /* <-  number of bytes in tuple body*/
-        TupleBody tupleData; /* <-  tuple data*/
-      } TupleDataPB;
-    } u;
-  };
-  typedef struct GetTuplePB GetTuplePB;
-  /*  �attributes� field values*/
-  enum
-  {
-    kCSReturnLinkTuples = 0x0001
-  };
-
-  /**
-    ----------------      CSRequestSocketMask             ----------------
-    ----------------      CSReleaseSocketMask             ----------------
-  */
-
-  struct ReqRelSocketMaskPB
-  {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 socket;       /*  -> logical socket*/
-    UInt16 eventMask;    /*  -> bitmap of events to be passed to client for this
-                            socket*/
+      struct//  -> clientHandle returned by RegisterClient
+      {//  -> logical socket number
+        UInt16 tupleDataM// <-> bitmap of configuration attributes
+    } u;// <-> Vcc setting
+  };// <-> Vpp1 setting
+  typedef struct GetTuple// <-> Vpp2 setting
+  //  �attributes� field // <-> interface type (memory or memory+I/O)
+  {// <-> card base address of configuration registers
+    kCSReturnLinkTuples =// <-> card status register setting, if present
+  };// <-> card pin register setting, if present
+// <-> card socket/copy register setting, if present
+  /**// <-> card option register setting, if present
+    ----------------     // <-> bitmap of which configuration registers are present
+    ----------------     // <-  from DeviceID tuple
+  */// <-  from FuncID tuple
+// <-  from FuncID tuple
+  struct ReqRelSocketMask// <-  from ManufacturerID tuple
+  {// <-  from ManufacturerID tuple
+    UInt32 clientHandle; // <-  valid card register values
+                         // 
   };
   typedef struct ReqRelSocketMaskPB ReqRelSocketMaskPB;
-  /*  �eventMask� field values (see above for Get/SetClientEventMask*/
-
+  //  �attributes� field values
   /*----------------      CSGetStatus                     ----------------*/
 
   struct GetStatusPB
   {
-    UInt16 socket;      /*  -> logical socket number*/
-    UInt16 cardState;   /* <-  current state of installed card*/
-    UInt16 socketState; /* <-  current state of the socket*/
-  };
+    UInt16 socket;      //  -> logical socket number    UInt16 cardState;   // <-  current state of installed card    UInt16 socketState; // <-  current state of the socket  };
   typedef struct GetStatusPB GetStatusPB;
-  /*  �cardState� field values*/
-  enum
+  //  �cardState� field values  enum
   {
     kCSWriteProtected = 0x0001,
-    kCSCardLocked = 0x0002,
+    kCSCardLocke// request that power be applied to socket during Sleep
     kCSEjectRequest = 0x0004,
     kCSInsertRequest = 0x0008,
     kCSBatteryDead = 0x0010,
     kCSBatteryLow = 0x0020,
-    kCSReady = 0x0040,
+  //  �intType� field values
     kCSCardDetected = 0x0080
   };
 
-  /*  �socketState� field values*/
-
+  //  �socketState� field values
   enum
   {
     kCSWriteProtectChanged = 0x0001,
-    kCSCardLockChanged = 0x0002,
+  //  �present� field values
     kCSEjectRequestPending = 0x0004,
     kCSInsertRequestPending = 0x0008,
     kCSBatteryDeadChanged = 0x0010,
@@ -556,53 +397,37 @@ extern "C"
   };
 
   /**
-    ----------------      CSModifyWindow                  ----------------
+  //  �cardValues� field values
     ----------------      CSReleaseWindow                 ----------------
     ----------------      CSRequestWindow                 ----------------
   */
 
   struct ReqModRelWindowPB
   {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt32 windowHandle; /* <-> window descriptor*/
-    UInt16 socket;       /*  -> logical socket number*/
-    UInt16 attributes;   /*  -> window attributes (bitmap)*/
-    UInt32 base;         /* <-> system base address*/
-    UInt32 size;         /* <-> memory window size*/
-    UInt8 accessSpeed;   /*  -> window access speed (bitmap)*/
-                         /*       (not applicable for I/O mode)*/
-    UInt8 padding[1];    /* */
-  };
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt32 windowHandle; // <-> window descriptor    UInt16 socket;       //  -> logical socket number    UInt16 attributes;   //  -> window attributes (bitmap)    UInt32 base;         // <-> system base address    UInt32 size;         // <-> memory window size    UInt8 accessSpeed;   //  -> window access speed (bitmap)                         //       (not applicable for I/O mode)    UInt8 padding[1];    //   };
   typedef struct ReqModRelWindowPB ReqModRelWindowPB;
-  /*  �attributes� field values*/
-  enum
+  //  �attributes� field values  enum
   {
     kCSMemoryWindow = 0x0001,
     kCSIOWindow = 0x0002,
-    kCSAttributeWindow = 0x0004, /* not normally used by Card Services clients*/
-    kCSWindowTypeMask = 0x0007,
+    kCSAttributeWindow = 0x0004, // not normally used by Card Services clients    kCSWindowTypeMask = 0x0007,
     kCSEnableWindow = 0x0008,
     kCSAccessSpeedValid = 0x0010,
-    kCSLittleEndian = 0x0020, /* configure socket for little endianess*/
-    kCS16BitDataPath = 0x0040,
-    kCSWindowPaged = 0x0080, /* */
-    kCSWindowShared = 0x0100,
-    kCSWindowFirstShared = 0x0200, /* */
-    kCSWindowProgrammable = 0x0400 /* */
-  };
+    kCSLittleEndian = 0x0020, // configure socket for little endianess    kCS16BitDataPath = 0x0040,
+    kCSWindowPaged = 0x00//  -> clientHandle returned by RegisterClient
+    kCSWindowFirstShared // <-> bitmap of attributes
 
-  /*  �accessSpeed� field values*/
-
-  enum
+  //  �accessSpeed� field values
+  enum//  -> logical socket number
   {
     kCSDeviceSpeedCodeMask = 0x07,
-    kCSSpeedExponentMask = 0x07,
+  //  �attributes� field values
     kCSSpeedMantissaMask = 0x78,
     kCSUseWait = 0x80,
     kCSAccessSpeed250nsec = 0x01,
     kCSAccessSpeed200nsec = 0x02,
     kCSAccessSpeed150nsec = 0x03,
-    kCSAccessSpeed100nsec = 0x04,
+  //  �eventMask� field values
     kCSExtAccSpeedMant1pt0 = 0x01,
     kCSExtAccSpeedMant1pt2 = 0x02,
     kCSExtAccSpeedMant1pt3 = 0x03,
@@ -628,21 +453,14 @@ extern "C"
     kCSExtAccSpeedExp10ms = 0x07
   };
 
-  /**
-    ----------------      CSRegisterClient                ----------------
-    ----------------      CSDeregisterClient              ----------------
+  /**// <-  clientHandle for this client
+    ----------------     //  -> logical socket number
+    ----------------     //  -> bitmap of attributes
   */
 
-  struct ClientCallbackPB
+  //  �attributes� field values
   {
-    UInt16 message; /*  -> which event this is*/
-    UInt16 socket;  /*  -> logical socket number*/
-    UInt16 info;    /*  -> function-specific*/
-    UInt16 misc;    /*  -> function-specific*/
-    Ptr reserved;   /*  -> pointer to MTD request block*/
-    Ptr buffer;     /*  -> function-specific*/
-    Ptr clientData; /*  -> pointer to client's data (from RegisterClient)*/
-  };
+    UInt16 message; //  -> which event this is    UInt16 socket;  //  -> logical socket number    UInt16 info;    //  -> function-specific    UInt16 misc;    //  -> function-specific    Ptr reserved;   //  -> pointer to MTD request block    Ptr buffer;     //  -> function-specific    Ptr clientData; //  -> pointer to client's data (from RegisterClient)  };
   typedef struct ClientCallbackPB ClientCallbackPB;
   typedef ClientCallbackPB *ClientCallbackPBPtr;
   typedef CALLBACK_API(UInt16,
@@ -655,33 +473,32 @@ extern "C"
 
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  PCCardCSClientUPP
-  NewPCCardCSClientUPP(PCCardCSClientProcPtr userRoutine);
-#if !OPAQUE_UPP_TYPES
-  enum
-  {
+   *    \mac_os_x       //  -> logical socket number
+   *///  -> bitmap of attributes
+  PCCardCSClientUPP//  -> desired tuple code value, or $FF for all
+  NewPCCardCSClientUPP(P//  -> offset into tuple from link byte
+#if !OPAQUE_UPP_TYPES// <-> internal use
+  enum// <-> internal use
+  {// <-> internal use
     uppPCCardCSClientProcInfo = 0x000000E0
-  }; /* pascal 2_bytes Func(4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 2_bytes Func(4_bytes) #ifdef __cplusplus
   inline PCCardCSClientUPP
   NewPCCardCSClientUPP(PCCardCSClientProcPtr userRoutine)
   {
-    return (PCCardCSClientUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                   uppPCCardCSClientProcInfo,
+    return (PCCardCSClien// <-  tuple code found
+                         // <-  link value for tuple found
                                                    GetCurrentArchitecture());
   }
 #else
 #define NewPCCardCSClientUPP(userRoutine)                                     \
-  (PCCardCSClientUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppPCCardCSClientProcInfo, \
-                           GetCurrentArchitecture())
+  (PCCardCSClientUPP)        //  -> maximum size of tuple data area
+      NewRoutineDescriptor((P// <-  number of bytes in tuple body
+                           Ge// <-  tuple data
 #endif
 #endif
 
   /**
-   *  DisposePCCardCSClientUPP()
+  //  �attributes� field values
    *
 
    *    \non_carbon_cfm   available as macro/inline
@@ -694,24 +511,24 @@ extern "C"
 #ifdef __cplusplus
   inline void DisposePCCardCSClientUPP(PCCardCSClientUPP userUPP)
   {
-    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-  }
+    DisposeRoutineDescrip//  -> clientHandle returned by RegisterClient
+  }//  -> logical socket
 #else
 #define DisposePCCardCSClientUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
-
+//  �eventMask� field values (see above for Get/SetClientEventMask
   /**
    *  InvokePCCardCSClientUPP()
    *
 
    *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
+   *    \carbon_lib     //  -> logical socket number
+   *    \mac_os_x       // <-  current state of installed card
+   */// <-  current state of the socket
   UInt16
   InvokePCCardCSClientUPP(ClientCallbackPBPtr ccPBPtr, PCCardCSClientUPP userUPP);
-#if !OPAQUE_UPP_TYPES
+#i//  �cardState� field values
 #ifdef __cplusplus
   inline UInt16 InvokePCCardCSClientUPP(ClientCallbackPBPtr ccPBPtr,
                                         PCCardCSClientUPP userUPP)
@@ -724,30 +541,20 @@ extern "C"
   (UInt16)                                        \
       CALL_ONE_PARAMETER_UPP((userUPP), uppPCCardCSClientProcInfo, (ccPBPtr))
 #endif
-#endif
+#e//  �socketState� field values
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewPCCardCSClientProc(userRoutine) NewPCCardCSClientUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewPCCardCSClientProc(userRoutine) NewPCCardCSClientUPP(userRoutine)
 #define CallPCCardCSClientProc(userRoutine, ccPBPtr) \
   InvokePCCardCSClientUPP(ccPBPtr, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   struct RegisterClientPB
   {
-    UInt32 clientHandle; /* <-  client descriptor*/
-    PCCardCSClientUPP
-        clientEntry;   /*  -> universal procPtr to client's event handler*/
-    UInt16 attributes; /*  -> bitmap of client attributes*/
-    UInt16 eventMask;  /*  -> bitmap of events to notify client*/
-    Ptr clientData;    /*  -> pointer to client's data*/
-    UInt16 version;    /*  -> Card Services version this client expects*/
-  };
+    UInt32 clientHandle; // <-  client descriptor    PCCardCSClientUPP
+        clientEntry;   //  -> universal procPtr to client's event handler    UInt16 attributes; //  -> bitmap of client attributes    UInt16 eventMask;  //  -> bitmap of events to notify client    Ptr clientData;    //  -> pointer to client's data    UInt16 version;    //  -> Card Services version this client expects  };
   typedef struct RegisterClientPB RegisterClientPB;
-  /*  �attributes� field values (see GetClientInfo)*/
-  /**
+  //  �attributes� field values (see GetClientInfo)  /**
       kCSMemoryClient                 = 0x0001,
       kCSIOClient                     = 0x0004,
       kCSShareableCardInsertEvents    = 0x0008,
@@ -756,63 +563,43 @@ extern "C"
 
   /*----------------      CSReleaseConfiguration          ----------------*/
 
-  struct ReleaseConfigurationPB
-  {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 socket;       /*  -> */
-  };
-  typedef struct ReleaseConfigurationPB ReleaseConfigurationPB;
-  /*----------------      CSResetCard                     ----------------*/
-
-  struct ResetCardPB
-  {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 socket;       /*  -> */
-    UInt16 attributes;   /*  -> xxx*/
-  };
+  struct ReleaseConfigura//  -> clientHandle returned by RegisterClient
+  {// <-> window descriptor
+    UInt32 clientHandle; //  -> logical socket number
+  typedef struct ReleaseC//  -> window attributes (bitmap)
+  /*----------------     // <-> system base address
+// <-> memory window size
+  struct ResetCardPB//  -> window access speed (bitmap)
+  {//       (not applicable for I/O mode)
+    UInt32 clientHandle; // 
   typedef struct ResetCardPB ResetCardPB;
   /*----------------      CSValidateCIS                   ----------------*/
-
+//  �attributes� field values
   struct ValidateCISPB
   {
-    UInt16 socket; /*  -> */
-    UInt16 chains; /*  -> whether link/null tuples should be included*/
-  };
+    UInt16 socket; //  ->     UInt16 chains; //  -> whether link/null tuples should be included  };
   typedef struct ValidateCISPB ValidateCISPB;
-  /**
+  /**// not normally used by Card Services clients
     ----------------      CSRequestIO                     ----------------
     ----------------      CSReleaseIO                     ----------------
   */
-
+// configure socket for little endianess
   struct ReqRelIOPB
-  {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 socket;       /*  -> socket number*/
-    UInt16 reserved;
-    UInt16 basePort1;  /*    -> base I/O port for range*/
-    UInt8 numPorts1;   /*    -> number of ports (e.g., bytes).*/
-    UInt8 attributes1; /*    -> attributes*/
-
-    UInt16 basePort2;  /*    -> base I/O port for range*/
-    UInt8 numPorts2;   /*    -> number of ports*/
-    UInt8 attributes2; /*    -> attributes*/
-
-    UInt8 ioAddrLines; /*    -> number of I/O lines decoded by card*/
-    UInt8 reserved1;
+  {// 
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt16 socket;       //  -> socket number    UInt16 reserved;
+    UInt16 basePort1;  //    -> bas// 
+    UInt16 basePort2;  //    -> bas// 
+    UInt8 ioAddrLines; //    -> number of I/O lines decoded by card    UInt8 reserved1;
   };
-  typedef struct ReqRelIOPB ReqRelIOPB;
+  //  �accessSpeed� field values
   /*----------------      CSVendorSpecific                ----------------*/
   struct VendorSpecificPB
   {
-    UInt32 clientHandle; /*  -> clientHandle returned by RegisterClient*/
-    UInt16 vsCode;
+    UInt32 clientHandle; //  -> clientHandle returned by RegisterClient    UInt16 vsCode;
     UInt16 socket;
-    UInt32 dataLen;   /*  -> length of buffer pointed to by vsDataPtr*/
-    UInt8 *vsDataPtr; /*  -> Card Services version this client expects*/
-  };
+    UInt32 dataLen;   //  -> length of buffer pointed to by vsDataPtr    UInt8 *vsDataPtr; //  -> Card Services version this client expects  };
   typedef struct VendorSpecificPB VendorSpecificPB;
-  /*  �vsCode� field values*/
-
+  //  �vsCode� field values
   enum
   {
     vsAppleReserved = 0x0000,
@@ -831,15 +618,9 @@ extern "C"
 
   struct GetAdapterInfoPB
   {
-    UInt32 attributes;     /* <-  capabilties of socket's adapter*/
-    UInt16 revision;       /* <-  id of adapter*/
-    UInt16 reserved;       /* */
-    UInt16 numVoltEntries; /* <-  number of valid voltage values*/
-    UInt8 *voltages;       /* <-> array of BCD voltage values*/
-  };
+    UInt32 attributes;     // <-  capabilties of socket's adapter    UInt16 revision;       // <-  id of adapter    UInt16 reserved;       //     UInt16 numVoltEntries; // <-  number of valid voltage values    UInt8 *voltages;       // <-> array of BCD voltage values  };
   typedef struct GetAdapterInfoPB GetAdapterInfoPB;
-  /*  �attributes� field values*/
-  enum
+  //  �attributes� field values  enum
   {
     kCSLevelModeInterrupts = 0x00000001,
     kCSPulseModeInterrupts = 0x00000002,
@@ -854,22 +635,14 @@ extern "C"
   /**
     ///////////////////////////////////////////////////////////////////////////////////////
       GetCardInfo parameter block (vendor-specific call #2)
-  */
-
-  struct GetCardInfoPB
-  {
-    UInt8 cardType;       /* <-  type of card in this socket (defined at top of file)*/
-    UInt8 subType;        /* <-  more detailed card type (defined at top of file)*/
-    UInt16 reserved;      /* <-> reserved (should be set to zero)*/
-    UInt16 cardNameLen;   /*  -> maximum length of card name to be returned*/
-    UInt16 vendorNameLen; /*  -> maximum length of vendor name to be returned*/
-    UInt8 *cardName;      /*  -> pointer to card name string (read from CIS), or nil*/
-    UInt8 *
-        vendorName; /*  -> pointer to vendor name string (read from CIS), or nil*/
-  };
-  typedef struct GetCardInfoPB GetCardInfoPB;
-  /*  GetCardInfo card types*/
-  enum
+  *///  -> which event this is
+//  -> logical socket number
+  struct GetCardInfo//  -> function-specific
+  {//  -> function-specific
+    UInt8 cardType; //  -> pointer to MTD request block
+        vendorName; //  -> function-specific
+  typedef struct Get//  -> pointer to client's data (from RegisterClient)
+  //  GetCardInfo card types  enum
   {
     kCSUnknownCardType = 0,
     kCSMultiFunctionCardType = 1,
@@ -890,7 +663,7 @@ extern "C"
     kCSNetworkAdaptorCardType = 7,
     kCSAIMSCardType = 8,
     kCSNumCardTypes = 9
-  };
+  };// pascal 2_bytes Func(4_bytes) 
 
 #ifndef __PCCARDENABLERPLUGIN__
 /**
@@ -953,27 +726,27 @@ extern "C"
    */
   OSErr
   CSGetNextTuple(GetTuplePB *pb) TWOWORDINLINE(0x7004, 0xAAF0);
-
+// CALL_NOT_IN_CARBON 
   /**
    *  CSGetTupleData()
-   *
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 
    *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
    *    \carbon_lib        not available
-   *    \mac_os_x         not available
+   *   // CALL_NOT_IN_CARBON 
    */
   OSErr
   CSGetTupleData(GetTuplePB *pb) TWOWORDINLINE(0x7005, 0xAAF0);
-
+// <-  client descriptor
   /**
-   *  CSGetConfigurationInfo()
-   *
-
-   *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
-   *    \carbon_lib        not available
+   *  CSGetConfiguratio//  -> universal procPtr to client's event handler
+   *//  -> bitmap of client attributes
+//  -> bitmap of events to notify client
+   *    \non_carbon_cfm//  -> pointer to client's data
+   *    \carbon_lib    //  -> Card Services version this client expects
    *    \mac_os_x         not available
    */
-  OSErr
+  //  �attributes� field values (see GetClientInfo)
   CSGetConfigurationInfo(GetModRequestConfigInfoPB *pb)
       TWOWORDINLINE(0x7006, 0xAAF0);
 
@@ -985,25 +758,25 @@ extern "C"
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  OSErr
-  CSGetCardServicesInfo(GetCardServicesInfoPB *pb) TWOWORDINLINE(0x7007, 0xAAF0);
+  OSErr//  -> clientHandle returned by RegisterClient
+  CSGetCardServicesInfo(G//  -> 
 
   /**
    *  CSGetStatus()
    *
 
    *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
+   *    \carbon_lib      //  -> clientHandle returned by RegisterClient
+   *    \mac_os_x        //  -> 
+   *///  -> xxx
   OSErr
   CSGetStatus(GetStatusPB *pb) TWOWORDINLINE(0x7008, 0xAAF0);
 
   /**
    *  CSValidateCIS()
    *
-
-   *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
+//  -> 
+   *    \non_carbon//  -> whether link/null tuples should be included
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
@@ -1013,32 +786,32 @@ extern "C"
   /**
    *  CSGetFirstClient()
    *
-
-   *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
+//  -> clientHandle returned by RegisterClient
+   *    \non_carbon_cfm  //  -> socket number
    *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  OSErr
+   *    \mac_os_x      //    -> base I/O port for range
+   *///    -> number of ports (e.g., bytes).
+  OSErr//    -> attributes
   CSGetFirstClient(GetClientPB *pb) TWOWORDINLINE(0x700F, 0xAAF0);
-
-  /**
-   *  CSGetNextClient()
+//    -> base I/O port for range
+  /**//    -> number of ports
+   *  CSGetNextClient()//    -> attributes
    *
-
+//    -> number of I/O lines decoded by card
    *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
   OSErr
   CSGetNextClient(GetClientPB *pb) TWOWORDINLINE(0x7010, 0xAAF0);
-
+//  -> clientHandle returned by RegisterClient
   /**
    *  CSGetClientInfo()
-   *
-
+   *//  -> length of buffer pointed to by vsDataPtr
+//  -> Card Services version this client expects
    *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
    *    \carbon_lib        not available
-   *    \mac_os_x         not available
+  //  �vsCode� field values
    */
   OSErr
   CSGetClientInfo(GetClientInfoPB *pb) TWOWORDINLINE(0x7011, 0xAAF0);
@@ -1058,14 +831,14 @@ extern "C"
    *  CSRequestWindow()
    *
 
-   *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  OSErr
+   *    \non_carbon_cfm   i// <-  capabilties of socket's adapter
+   *    \carbon_lib        // <-  id of adapter
+   *    \mac_os_x         n// 
+   */// <-  number of valid voltage values
+  OSErr// <-> array of BCD voltage values
   CSRequestWindow(ReqModRelWindowPB *pb) TWOWORDINLINE(0x7013, 0xAAF0);
 
-  /**
+  //  �attributes� field values
    *  CSModifyWindow()
    *
 
@@ -1085,17 +858,17 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CSReleaseWindow(ReqModRelWindowPB *pb) TWOWORDINLINE(0x7015, 0xAAF0);
-
-  /**
-   *  CSRequestConfiguration()
-   *
-
+  CSReleaseWindow(ReqModRe// <-  type of card in this socket (defined at top of file)
+// <-  more detailed card type (defined at top of file)
+  /**// <-> reserved (should be set to zero)
+   *  CSRequestConfigurati//  -> maximum length of card name to be returned
+   *//  -> maximum length of vendor name to be returned
+//  -> pointer to card name string (read from CIS), or nil
    *    \non_carbon_cfm   in PCCardLib 1.0 thru 2.0
-   *    \carbon_lib        not available
+   *    \carbon_lib //  -> pointer to vendor name string (read from CIS), or nil
    *    \mac_os_x         not available
    */
-  OSErr
+  //  GetCardInfo card types
   CSRequestConfiguration(GetModRequestConfigInfoPB *pb)
       TWOWORDINLINE(0x701B, 0xAAF0);
 
@@ -1206,10 +979,8 @@ extern "C"
   OSErr
   CSReleaseIO(ReqRelIOPB *pb) TWOWORDINLINE(0x7026, 0xAAF0);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* !defined(__PCCARDENABLERPLUGIN__) */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // !defined(__PCCARDENABLERPLUGIN__) 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1228,4 +999,6 @@ extern "C"
 }
 #endif
 
-#endif /* __CARDSERVICES__ */
+#endif // __CARDSERVICES__ // CALL_NOT_IN_CARBON 
+// !defined(__PCCARDENABLERPLUGIN__) 
+// __CARDSERVICES__ 

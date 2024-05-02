@@ -67,178 +67,74 @@ extern "C"
 #if CALL_NOT_IN_CARBON
   enum
   {
-    curFTVersion = 2 /* current file transfer manager version*/
-  };
+    curFTVersion = 2 // current file transfer manager version  };
 
-  enum
-  {
-    /* FTErr    */
-    ftGenericError = -1,
-    ftNoErr = 0,
-    ftRejected = 1,
-    ftFailed = 2,
-    ftTimeOut = 3,
-    ftTooManyRetry = 4,
-    ftNotEnoughDSpace = 5,
-    ftRemoteCancel = 6,
-    ftWrongFormat = 7,
-    ftNoTools = 8,
-    ftUserCancel = 9,
-    ftNotSupported = 10
-  };
+    enum {
+        // FTErr        ftGenericError = -1,
+        ftNoErr = 0,
+        ftRejected = 1,
+        ftFailed = 2,
+        ftTimeOut = 3,
+        ftTooManyRetry = 4,
+        ftNotEnoughDSpace = 5,
+        ftRemoteCancel = 6,
+        ftWrongFormat = 7,
+        ftNoTools = 8,
+        ftUserCancel = 9,
+        ftNotSupported = 10};
 
-  typedef OSErr FTErr;
-  enum
-  {
-    ftIsFTMode = 1 << 0,
-    ftNoMenus = 1 << 1,
-    ftQuiet = 1 << 2,
-    ftConfigChanged = 1 << 4,
-    ftSucc = 1 << 7
-  };
+    typedef OSErr FTErr; enum {ftIsFTMode = 1 << 0, ftNoMenus = 1 << 1, ftQuiet = 1 << 2, ftConfigChanged = 1 << 4, ftSucc = 1 << 7};
 
-  typedef unsigned long FTFlags;
-  enum
-  {
-    ftSameCircuit = 1 << 0,
-    ftSendDisable = 1 << 1,
-    ftReceiveDisable = 1 << 2,
-    ftTextOnly = 1 << 3,
-    ftNoStdFile = 1 << 4,
-    ftMultipleFileSend = 1 << 5
-  };
+    typedef unsigned long FTFlags; enum {ftSameCircuit = 1 << 0, ftSendDisable = 1 << 1, ftReceiveDisable = 1 << 2, ftTextOnly = 1 << 3, ftNoStdFile = 1 << 4, ftMultipleFileSend = 1 << 5};
 
-  typedef unsigned short FTAttributes;
-  enum
-  {
-    ftReceiving = 0,
-    ftTransmitting = 1,
-    ftFullDuplex = 2 /* (16) added ftFullDuplex bit.*/
-  };
+    typedef unsigned short FTAttributes; enum {ftReceiving = 0, ftTransmitting = 1,
+                                               ftFullDuplex = 2 // (16) added ftFullDuplex bit.  };
 
-  typedef unsigned short FTDirection;
-  typedef CALLBACK_API(long, FileTransferDefProcPtr)(TermHandle hTerm, short msg,
-                                                     long p1, long p2, long p3);
-  /*  application routines type definitions */
-  typedef struct FTRecord FTRecord;
-  typedef FTRecord *FTPtr;
-  typedef FTPtr *FTHandle;
-  typedef CALLBACK_API(OSErr, FileTransferReadProcPtr)(unsigned long *count,
-                                                       Ptr pData, long refCon,
-                                                       short fileMsg);
-  typedef CALLBACK_API(OSErr, FileTransferWriteProcPtr)(unsigned long *count,
-                                                        Ptr pData, long refCon,
-                                                        short fileMsg);
-  typedef CALLBACK_API(Size, FileTransferSendProcPtr)(Ptr thePtr, long theSize,
-                                                      long refCon,
-                                                      CMChannel channel,
-                                                      CMFlags flag);
-  typedef CALLBACK_API(Size, FileTransferReceiveProcPtr)(Ptr thePtr, long theSize,
-                                                         long refCon,
-                                                         CMChannel channel,
-                                                         CMFlags *flag);
-  typedef CALLBACK_API(OSErr,
-                       FileTransferEnvironsProcPtr)(long refCon,
-                                                    ConnEnvironRec *theEnvirons);
-  typedef CALLBACK_API(void,
-                       FileTransferNotificationProcPtr)(FTHandle hFT,
-                                                        const FSSpec *pFSSpec);
-  typedef CALLBACK_API(void, FileTransferChooseIdleProcPtr)(void);
-  typedef STACK_UPP_TYPE(FileTransferDefProcPtr) FileTransferDefUPP;
-  typedef STACK_UPP_TYPE(FileTransferReadProcPtr) FileTransferReadUPP;
-  typedef STACK_UPP_TYPE(FileTransferWriteProcPtr) FileTransferWriteUPP;
-  typedef STACK_UPP_TYPE(FileTransferSendProcPtr) FileTransferSendUPP;
-  typedef STACK_UPP_TYPE(FileTransferReceiveProcPtr) FileTransferReceiveUPP;
-  typedef STACK_UPP_TYPE(FileTransferEnvironsProcPtr) FileTransferEnvironsUPP;
-  typedef STACK_UPP_TYPE(FileTransferNotificationProcPtr)
-      FileTransferNotificationUPP;
-  typedef STACK_UPP_TYPE(FileTransferChooseIdleProcPtr) FileTransferChooseIdleUPP;
-  struct FTRecord
-  {
-    short procID;
-    FTFlags flags;
-    FTErr errCode;
-    long refCon;
-    long userData;
-    FileTransferDefUPP defProc;
-    Ptr config;
-    Ptr oldConfig;
-    FileTransferEnvironsUPP environsProc;
-    long reserved1;
-    long reserved2;
-    Ptr ftPrivate;
-    FileTransferSendUPP sendProc;
-    FileTransferReceiveUPP recvProc;
-    FileTransferWriteUPP writeProc;
-    FileTransferReadUPP readProc;
-    WindowRef owner;
-    FTDirection direction;
-    SFReply theReply;
-    long writePtr;
-    long readPtr;
-    Ptr theBuf;
-    long bufSize;
-    Str255 autoRec;
-    FTAttributes attributes;
-  };
+                                               typedef unsigned short FTDirection;
+                                               typedef CALLBACK_API(long, FileTransferDefProcPtr)(TermHandle hTerm, short msg, long p1, long p2, long p3);
+                                               //  application routines type definitions   typedef struct FTRecord FTRecord;
+                                               typedef FTRecord * FTPtr; typedef FTPtr * FTHandle; typedef CALLBACK_API(OSErr, FileTransferReadProcPtr)(unsigned long *count, Ptr pData, long refCon, short fileMsg); typedef CALLBACK_API(OSErr, FileTransferWriteProcPtr)(unsigned long *count, Ptr pData, long refCon, short fileMsg); typedef CALLBACK_API(Size, FileTransferSendProcPtr)(Ptr thePtr, long theSize, long refCon, CMChannel channel, CMFlags flag); typedef CALLBACK_API(Size, FileTransferReceiveProcPtr)(Ptr thePtr, long theSize, long refCon, CMChannel channel, CMFlags *flag); typedef CALLBACK_API(OSErr, FileTransferEnvironsProcPtr)(long refCon, ConnEnvironRec *theEnvirons); typedef CALLBACK_API(void, FileTransferNotificationProcPtr)(FTHandle hFT, const FSSpec *pFSSpec); typedef CALLBACK_API(void, FileTransferChooseIdleProcPtr)(void); typedef STACK_UPP_TYPE(FileTransferDefProcPtr) FileTransferDefUPP; typedef STACK_UPP_TYPE(FileTransferReadProcPtr) FileTransferReadUPP; typedef STACK_UPP_TYPE(FileTransferWriteProcPtr) FileTransferWriteUPP; typedef STACK_UPP_TYPE(FileTransferSendProcPtr) FileTransferSendUPP; typedef STACK_UPP_TYPE(FileTransferReceiveProcPtr) FileTransferReceiveUPP; typedef STACK_UPP_TYPE(FileTransferEnvironsProcPtr) FileTransferEnvironsUPP; typedef STACK_UPP_TYPE(FileTransferNotificationProcPtr) FileTransferNotificationUPP; typedef STACK_UPP_TYPE(FileTransferChooseIdleProcPtr) FileTransferChooseIdleUPP; struct FTRecord{short procID; FTFlags flags; FTErr errCode; long refCon; long userData; FileTransferDefUPP defProc; Ptr config; Ptr oldConfig; FileTransferEnvironsUPP environsProc; long reserved1; long reserved2; Ptr ftPrivate; FileTransferSendUPP sendProc; FileTransferReceiveUPP recvProc; FileTransferWriteUPP writeProc; FileTransferReadUPP readProc; WindowRef owner; FTDirection direction; SFReply theReply; long writePtr; long readPtr; Ptr theBuf; long bufSize; Str255 autoRec; FTAttributes attributes;};
 
   typedef unsigned short FTCompletionKind;
   enum
   {
-    /* FTReadProc messages */
-    ftReadOpenFile = 0, /* count = forkFlags, buffer = pblock from PBGetFInfo */
-    ftReadDataFork = 1,
+    // FTReadProc messages     ftReadOpenFile = 0, // count = forkFlags, buffer = pblock from PBGetFInfo     ftReadDataFork = 1,
     ftReadRsrcFork = 2,
     ftReadAbort = 3,
     ftReadComplete = 4,
-    ftReadSetFPos = 6, /* count = forkFlags, buffer = pBlock same as PBSetFPos */
-    ftReadGetFPos = 7  /* count = forkFlags, buffer = pBlock same as PBGetFPos */
-  };
+    ftReadSetFPos = 6, // count = forkFlags, buffer = pBlock same as PBSetFPos     ftReadGetFPos = 7  // count = forkFlags, buffer = pBlock same as PBGetFPos   };
 
-  enum
-  {
-    /* FTWriteProc messages */
-    ftWriteOpenFile = 0, /* count = forkFlags, buffer = pblock from PBGetFInfo */
-    ftWriteDataFork = 1,
-    ftWriteRsrcFork = 2,
-    ftWriteAbort = 3,
-    ftWriteComplete = 4,
-    ftWriteFileInfo = 5,
-    ftWriteSetFPos = 6, /* count = forkFlags, buffer = pBlock same as PBSetFPos */
-    ftWriteGetFPos = 7  /* count = forkFlags, buffer = pBlock same as PBGetFPos */
-  };
+    enum {
+        // FTWriteProc messages     ftWriteOpenFile = 0, // count = forkFlags, buffer = pblock from PBGetFInfo     ftWriteDataFork = 1,
+        ftWriteRsrcFork = 2,
+        ftWriteAbort = 3,
+        ftWriteComplete = 4,
+        ftWriteFileInfo = 5,
+        ftWriteSetFPos = 6, // count = forkFlags, buffer = pBlock same as PBSetFPos     ftWriteGetFPos = 7  // count = forkFlags, buffer = pBlock same as PBGetFPos   };
 
-  enum
-  {
-    /*    fork flags */
-    ftOpenDataFork = 1,
-    ftOpenRsrcFork = 2
-  };
+        enum {
+            //    fork flags     ftOpenDataFork = 1,
+            ftOpenRsrcFork = 2};
 
 #if CALL_NOT_IN_CARBON
-  /**
-   *  NewFileTransferDefUPP()
-   *
+        /**
+         *  NewFileTransferDefUPP()
+         *
 
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  FileTransferDefUPP
-  NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine);
+         *    \non_carbon_cfm   available as macro/inline
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        FileTransferDefUPP
+            NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-  enum
-  {
-    uppFileTransferDefProcInfo = 0x0000FEF0
-  }; /* pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
-  inline FileTransferDefUPP
-  NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine)
-  {
-    return (FileTransferDefUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                    uppFileTransferDefProcInfo,
-                                                    GetCurrentArchitecture());
-  }
+        enum {
+            uppFileTransferDefProcInfo = 0x0000FEF0}; // pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
+        inline FileTransferDefUPP
+            NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine){
+                return (FileTransferDefUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                                uppFileTransferDefProcInfo,
+                                                                GetCurrentArchitecture());}
 #else
 #define NewFileTransferDefUPP(userRoutine)                                     \
   (FileTransferDefUPP)                                                         \
@@ -258,11 +154,8 @@ extern "C"
   FileTransferReadUPP
   NewFileTransferReadUPP(FileTransferReadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-  enum
-  {
-    uppFileTransferReadProcInfo = 0x00002FE0
-  }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) */
-#ifdef __cplusplus
+  enum {
+      uppFileTransferReadProcInfo = 0x00002FE0}; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) #ifdef __cplusplus
   inline FileTransferReadUPP
   NewFileTransferReadUPP(FileTransferReadProcPtr userRoutine)
   {
@@ -289,11 +182,8 @@ extern "C"
   FileTransferWriteUPP
   NewFileTransferWriteUPP(FileTransferWriteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-  enum
-  {
-    uppFileTransferWriteProcInfo = 0x00002FE0
-  }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) */
-#ifdef __cplusplus
+  enum {
+      uppFileTransferWriteProcInfo = 0x00002FE0}; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) #ifdef __cplusplus
   inline FileTransferWriteUPP
   NewFileTransferWriteUPP(FileTransferWriteProcPtr userRoutine)
   {
@@ -323,8 +213,7 @@ extern "C"
   enum
   {
     uppFileTransferSendProcInfo = 0x0000AFF0
-  }; /* pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 2_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 2_bytes) #ifdef __cplusplus
   inline FileTransferSendUPP
   NewFileTransferSendUPP(FileTransferSendProcPtr userRoutine)
   {
@@ -354,8 +243,7 @@ extern "C"
   enum
   {
     uppFileTransferReceiveProcInfo = 0x0000EFF0
-  }; /* pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 4_bytes) #ifdef __cplusplus
   inline FileTransferReceiveUPP
   NewFileTransferReceiveUPP(FileTransferReceiveProcPtr userRoutine)
   {
@@ -385,8 +273,7 @@ extern "C"
   enum
   {
     uppFileTransferEnvironsProcInfo = 0x000003E0
-  }; /* pascal 2_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 2_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline FileTransferEnvironsUPP
   NewFileTransferEnvironsUPP(FileTransferEnvironsProcPtr userRoutine)
   {
@@ -416,8 +303,7 @@ extern "C"
   enum
   {
     uppFileTransferNotificationProcInfo = 0x000003C0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline FileTransferNotificationUPP
   NewFileTransferNotificationUPP(FileTransferNotificationProcPtr userRoutine)
   {
@@ -447,8 +333,7 @@ extern "C"
   enum
   {
     uppFileTransferChooseIdleProcInfo = 0x00000000
-  }; /* pascal no_return_value Func() */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func() #ifdef __cplusplus
   inline FileTransferChooseIdleUPP
   NewFileTransferChooseIdleUPP(FileTransferChooseIdleProcPtr userRoutine)
   {
@@ -854,11 +739,9 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewFileTransferDefProc(userRoutine) NewFileTransferDefUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewFileTransferDefProc(userRoutine) NewFileTransferDefUPP(userRoutine)
 #define NewFileTransferReadProc(userRoutine) NewFileTransferReadUPP(userRoutine)
 #define NewFileTransferWriteProc(userRoutine) \
   NewFileTransferWriteUPP(userRoutine)
@@ -890,8 +773,7 @@ extern "C"
   InvokeFileTransferNotificationUPP(hFT, pFSSpec, userRoutine)
 #define CallFileTransferChooseIdleProc(userRoutine) \
   InvokeFileTransferChooseIdleUPP(userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
   /**
    *  InitFT()
@@ -1316,10 +1198,8 @@ extern "C"
   FTErr
   FTCompletionAsync(FTHandle hFT, FTCompletionKind completionCall);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1338,4 +1218,4 @@ extern "C"
 }
 #endif
 
-#endif /* __FILETRANSFERS__ */
+#endif // __FILETRANSFERS__

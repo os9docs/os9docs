@@ -81,8 +81,7 @@ extern "C" {
 enum { typeReplyPortAttr = FOUR_CHAR_CODE('repp') };
 
 #if TARGET_RT_MAC_MACHO
-#ifdef _MACH_MESSAGE_H_ /* only use if <mach/port.h> previously included */
-/*-
+#ifdef _MACH_MESSAGE_H_ // only use if <mach/port.h> previously included /*-
  * Return the mach_port_t that was registered with the bootstrap
  * server for this process.  This port is considered public, and
  * will be used by other applications to target your process.  You
@@ -123,9 +122,8 @@ AEGetRegisteredMachPort(void);
  */
 OSStatus
 AEDecodeMessage(mach_msg_header_t *header, AppleEvent *event,
-                AppleEvent *reply); /* can be NULL */
-
-/*-
+                AppleEvent *reply); // can be NULL 
+/*-// can be NULL 
  * Decodes and dispatches an event to an event handler.  Handles
  * packaging and returning the reply to the sender.
  *
@@ -157,16 +155,13 @@ AEProcessMessage(mach_msg_header_t *header);
  *    \mac_os_x         in version 10.0 and later
  */
 OSStatus
-AESendMessage(const AppleEvent *event, AppleEvent *reply, /* can be NULL */
-              AESendMode sendMode, long timeOutInTicks);
+AESendMessage(const AppleEvent *event, AppleEvent *reply, // can be NULL               AESendMode sendMode, long timeOutInTicks);
 
-#endif /* _MACH_MESSAGE_H_ */
-#endif /* TARGET_RT_MAC_MACHO */
-
+#endif // _MACH_MESSAGE_H_ #endif // TARGET_RT_MAC_MACHO // can be NULL 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
+#elif P// _MACH_MESSAGE_H_ 
+#pragma// TARGET_RT_MAC_MACHO 
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
@@ -181,4 +176,4 @@ AESendMessage(const AppleEvent *event, AppleEvent *reply, /* can be NULL */
 }
 #endif
 
-#endif /* __AEMACH__ */
+#endif // __AEMACH__ // __AEMACH__ 

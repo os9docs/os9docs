@@ -105,4 +105,4 @@ extern "C"
 }
 #endif
 
-#endif /* __OSACOMP__ */
+#endif // __OSACOMP__

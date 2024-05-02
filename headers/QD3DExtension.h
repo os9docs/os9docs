@@ -73,8 +73,7 @@ enum {
   kQ3XExtensionMacFileType = FOUR_CHAR_CODE('shlb')
 };
 
-#endif /* TARGET_OS_MAC */
-
+#endif // TARGET_OS_MAC 
 /******************************************************************************
  ** **
  **                                 Macros                                   **
@@ -336,9 +335,8 @@ Q3XObject_GetClass(TQ3Object object);
  **                 Shared Library Registration Entry Point                  **
  **                                                                          **
  *****************************************************************************/
-#endif /* CALL_NOT_IN_CARBON */
-
-struct TQ3XSharedLibraryInfo {
+#endif // CALL_NOT_IN_CARBON 
+struct // CALL_NOT_IN_CARBON 
   TQ3XSharedLibraryRegister registerFunction;
   unsigned long sharedLibrary;
 };
@@ -423,10 +421,9 @@ Q3XWarning_Post(TQ3Warning warning);
 void
 Q3XNotice_Post(TQ3Notice notice);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if TARGET_OS_MAC
-/**
+/**// CALL_NOT_IN_CARBON 
  *  Q3XMacintoshError_Post
  *
  *  Post the QuickDraw 3D Error, kQ3ErrorMacintoshError, and the Macintosh
@@ -444,14 +441,12 @@ Q3XNotice_Post(TQ3Notice notice);
 void
 Q3XMacintoshError_Post(OSErr macOSErr);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_MAC */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_OS_MAC 
 #if PRAGMA_ENUM_ALWAYSINT
-#pragma enumsalwaysint reset
+#pragma// CALL_NOT_IN_CARBON 
 #ifdef __QD3DEXTENSION__RESTORE_TWOBYTEINTS
-#pragma fourbyteints off
+#pragma// TARGET_OS_MAC 
 #endif
 #elif PRAGMA_ENUM_OPTIONS
 #pragma option enum =reset
@@ -477,4 +472,4 @@ Q3XMacintoshError_Post(OSErr macOSErr);
 }
 #endif
 
-#endif /* __QD3DEXTENSION__ */
+#endif // __QD3DEXTENSION__ // __QD3DEXTENSION__ 

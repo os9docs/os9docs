@@ -61,12 +61,12 @@ extern "C"
 
   struct CalibratorInfo
   {
-    UInt32 dataSize;                       /* Size of this structure - compatibility */
-    CMDisplayIDType displayID;             /* Contains an hDC on Win32 */
-    UInt32 profileLocationSize;            /* Max size for returned profile location */
-    CMProfileLocation *profileLocationPtr; /* For returning the profile */
-    CalibrateEventUPP eventProc;           /* Ignored on Win32 */
-    Boolean isGood;                        /* true or false */
+    UInt32 dataSize;                       // Size of this structure - compatibility
+    CMDisplayIDType displayID;             // Contains an hDC on Win32
+    UInt32 profileLocationSize;            // Max size for returned profile location
+    CMProfileLocation *profileLocationPtr; // For returning the profile
+    CalibrateEventUPP eventProc;           // Ignored on Win32
+    Boolean isGood;                        // true or false
   };
   typedef struct CalibratorInfo CalibratorInfo;
   typedef CALLBACK_API(Boolean, CanCalibrateProcPtr)(CMDisplayIDType displayID,
@@ -88,7 +88,7 @@ extern "C"
   enum
   {
     uppCalibrateEventProcInfo = 0x000000C0
-  }; /* pascal no_return_value Func(4_bytes) */
+  }; // pascal no_return_value Func(4_bytes)
 #ifdef __cplusplus
   inline CalibrateEventUPP
   NewCalibrateEventUPP(CalibrateEventProcPtr userRoutine)
@@ -119,7 +119,7 @@ extern "C"
   enum
   {
     uppCanCalibrateProcInfo = 0x000003D0
-  }; /* pascal 1_byte Func(4_bytes, 4_bytes) */
+  }; // pascal 1_byte Func(4_bytes, 4_bytes)
 #ifdef __cplusplus
   inline CanCalibrateUPP NewCanCalibrateUPP(CanCalibrateProcPtr userRoutine)
   {
@@ -149,7 +149,7 @@ extern "C"
   enum
   {
     uppCalibrateProcInfo = 0x000000E0
-  }; /* pascal 2_bytes Func(4_bytes) */
+  }; // pascal 2_bytes Func(4_bytes)
 #ifdef __cplusplus
   inline CalibrateUPP NewCalibrateUPP(CalibrateProcPtr userRoutine)
   {
@@ -299,7 +299,7 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #define NewCalibrateEventProc(userRoutine) NewCalibrateEventUPP(userRoutine)
 #define NewCanCalibrateProc(userRoutine) NewCanCalibrateUPP(userRoutine)
 #define NewCalibrateProc(userRoutine) NewCalibrateUPP(userRoutine)
@@ -309,7 +309,7 @@ extern "C"
   InvokeCanCalibrateUPP(displayID, errMessage, userRoutine)
 #define CallCalibrateProc(userRoutine, theInfo) \
   InvokeCalibrateUPP(theInfo, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
   /**
    *  CMCalibrateDisplay()
@@ -323,7 +323,7 @@ extern "C"
   CMCalibrateDisplay(CalibratorInfo *theInfo);
 
 #if OLDROUTINENAMES
-  /* Interface for original ColorSync monitor calibrators (ColorSync 2.5.x) */
+  // Interface for original ColorSync monitor calibrators (ColorSync 2.5.x)
   enum
   {
     kOldCalibratorNamePrefix = FOUR_CHAR_CODE('Cali')
@@ -331,13 +331,13 @@ extern "C"
 
   struct OldCalibratorInfo
   {
-    CMDisplayIDType displayID; /* Contains an hDC on Win32 */
+    CMDisplayIDType displayID; // Contains an hDC on Win32
     CMProfileLocation profileLocation;
-    CalibrateEventUPP eventProc; /* Ignored on Win32 */
-    UInt32 reserved;             /* Unused */
-    UInt32 flags;                /* Unused */
-    Boolean isGood;              /* true or false */
-    SInt8 byteFiller;            /* Unused */
+    CalibrateEventUPP eventProc; // Ignored on Win32
+    UInt32 reserved;             // Unused
+    UInt32 flags;                // Unused
+    Boolean isGood;              // true or false
+    SInt8 byteFiller;            // Unused
   };
   typedef struct OldCalibratorInfo OldCalibratorInfo;
   typedef CALLBACK_API(Boolean,
@@ -360,7 +360,7 @@ extern "C"
   enum
   {
     uppOldCanCalibrateProcInfo = 0x000000D0
-  }; /* pascal 1_byte Func(4_bytes) */
+  }; // pascal 1_byte Func(4_bytes)
 #ifdef __cplusplus
   inline OldCanCalibrateUPP
   NewOldCanCalibrateUPP(OldCanCalibrateProcPtr userRoutine)
@@ -391,7 +391,7 @@ extern "C"
   enum
   {
     uppOldCalibrateProcInfo = 0x000000E0
-  }; /* pascal 2_bytes Func(4_bytes) */
+  }; // pascal 2_bytes Func(4_bytes)
 #ifdef __cplusplus
   inline OldCalibrateUPP NewOldCalibrateUPP(OldCalibrateProcPtr userRoutine)
   {
@@ -498,19 +498,19 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #define NewOldCanCalibrateProc(userRoutine) NewOldCanCalibrateUPP(userRoutine)
 #define NewOldCalibrateProc(userRoutine) NewOldCalibrateUPP(userRoutine)
 #define CallOldCanCalibrateProc(userRoutine, displayID) \
   InvokeOldCanCalibrateUPP(displayID, userRoutine)
 #define CallOldCalibrateProc(userRoutine, theInfo) \
   InvokeOldCalibrateUPP(theInfo, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
-#endif /* OLDROUTINENAMES */
+#endif // OLDROUTINENAMES
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -530,4 +530,4 @@ extern "C"
 }
 #endif
 
-#endif /* __CMCALIBRATOR__ */
+#endif // __CMCALIBRATOR__

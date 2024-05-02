@@ -92,8 +92,7 @@ extern "C"
   };
 
   typedef unsigned long GWorldFlags;
-  /* Type definition of a GWorldPtr */
-  typedef CGrafPtr GWorldPtr;
+  // Type definition of a GWorldPtr   typedef CGrafPtr GWorldPtr;
   /**
    *  NewGWorld()
    *
@@ -104,15 +103,12 @@ extern "C"
    */
   QDErr
   NewGWorld(GWorldPtr *offscreenGWorld, short PixelDepth, const Rect *boundsRect,
-            CTabHandle cTable, /* can be NULL */
-            GDHandle aGDevice, /* can be NULL */
-            GWorldFlags flags) FOURWORDINLINE(0x203C, 0x0016, 0x0000, 0xAB1D);
-
-  /* GDevice attribute bits for Carbon and QuickTime 3.0*/
-  enum
+            CTabHandle cTable, // can be NULL             GDHandle aGDevice, // can be NULL             GWorldFlags flags) FOURWORDINLINE(0x203C, 0x0016, 0x0000, 0xAB1D);
+// can be NULL 
+  // GDevice attribute bits for// can be NULL 
   {
     deviceIsIndirect = (1L << 0),
-    deviceNeedsLock = (1L << 1),
+  // GDevice attribute bits for Carbon and QuickTime 3.0
     deviceIsStatic = (1L << 2),
     deviceIsExternalBuffer = (1L << 3),
     deviceIsDDSurface = (1L << 4),
@@ -146,12 +142,11 @@ extern "C"
   unsigned long
   GetGDeviceAttributes(GDHandle gdh);
 
-  /* to allocate non-mac-rgb GWorlds use QTNewGWorld (ImageCompression.h) */
-  /**
+  // to allocate non-mac-rgb GWorlds use QTNewGWorld (ImageCompression.h)   /**
    *  NewGWorldFromHBITMAP()
    *
 
-   *    \non_carbon_cfm   not available
+  // to allocate non-mac-rgb GWorlds use QTNewGWorld (ImageCompression.h) 
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
@@ -160,16 +155,14 @@ extern "C"
                        GDHandle aGDevice, GWorldFlags flags, void *newHBITMAP,
                        void *newHDC);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_WIN32 */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_OS_WIN32 
   /**
    *  NewGWorldFromPtr()
    *
-
+// CALL_NOT_IN_CARBON 
    *    \non_carbon_cfm   not available
-   *    \carbon_lib        in CarbonLib 1.1 and later
+   *   // TARGET_OS_WIN32 
    *    \mac_os_x         in version 10.0 and later
    */
   QDErr
@@ -236,15 +229,14 @@ paramErr (-50) Illegal parameter
   GWorldFlags
   UpdateGWorld(GWorldPtr *offscreenGWorld, short pixelDepth,
                const Rect *boundsRect, CTabHandle cTable,
-               GDHandle aGDevice, /* can be NULL */
-               GWorldFlags flags) FOURWORDINLINE(0x203C, 0x0016, 0x0003, 0xAB1D);
+               GDHandle aGDevice, // can be NULL                GWorldFlags flags) FOURWORDINLINE(0x203C, 0x0016, 0x0003, 0xAB1D);
 
   /**
   \brief Dispose of a GDevice structure and substructures
 
   <pre>If an offscreen graphics device was created, DisposeGWorld disposes of its
 GDevice structure and substructures.
-Call DisposeGWorld only when the application no longer needs the offscreen
+Call DisposeGWorld only when the a// can be NULL 
 buffer. If the current device was the offscreen device attached to
 offscreenGWorld, the current device is reset to the device stored in the global
 variable MainDevice .
@@ -645,5 +637,4 @@ that use a handle to a pixel map.
 }
 #endif
 
-#endif /* __QDOFFSCREEN__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /
+#endif // __QDOFFSCREEN__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /// __QDOFFSCREEN__ 

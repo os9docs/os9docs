@@ -103,104 +103,62 @@ typedef STACK_UPP_TYPE(QTSNotificationProcPtr) QTSNotificationUPP;
     Get / Set Info
 -----------------------------------------*/
 enum {
-  kQTSGetURLLink = FOUR_CHAR_CODE('gull') /* QTSGetURLLinkRecord* */
-};
+  kQTSGetURLLink = FOUR_CHAR_CODE('gull') // QTSGetURLLinkRecord* };
 
-/* get and set */
-enum {
-  kQTSTargetBufferDurationInfo =
-      FOUR_CHAR_CODE('bufr'), /* Fixed* in seconds; expected, not actual */
-  kQTSDurationInfo = FOUR_CHAR_CODE('dura'), /* QTSDurationAtom* */
-  kQTSSoundLevelMeteringEnabledInfo = FOUR_CHAR_CODE('mtrn'), /* Boolean* */
-  kQTSSoundLevelMeterInfo = FOUR_CHAR_CODE('levm'),  /* LevelMeterInfoPtr */
-  kQTSSourceTrackIDInfo = FOUR_CHAR_CODE('otid'),    /* UInt32* */
-  kQTSSourceLayerInfo = FOUR_CHAR_CODE('olyr'),      /* UInt16* */
-  kQTSSourceLanguageInfo = FOUR_CHAR_CODE('olng'),   /* UInt16* */
-  kQTSSourceTrackFlagsInfo = FOUR_CHAR_CODE('otfl'), /* SInt32* */
-  kQTSSourceDimensionsInfo = FOUR_CHAR_CODE('odim'), /* QTSDimensionParams* */
-  kQTSSourceVolumesInfo = FOUR_CHAR_CODE('ovol'),    /* QTSVolumesParams* */
-  kQTSSourceMatrixInfo = FOUR_CHAR_CODE('omat'),     /* MatrixRecord* */
-  kQTSSourceClipRectInfo = FOUR_CHAR_CODE('oclp'),   /* Rect* */
-  kQTSSourceGraphicsModeInfo =
-      FOUR_CHAR_CODE('ogrm'),                   /* QTSGraphicsModeParams* */
-  kQTSSourceScaleInfo = FOUR_CHAR_CODE('oscl'), /* Point* */
-  kQTSSourceBoundingRectInfo = FOUR_CHAR_CODE('orct'), /* Rect* */
-  kQTSSourceUserDataInfo = FOUR_CHAR_CODE('oudt'),     /* UserData */
-  kQTSSourceInputMapInfo = FOUR_CHAR_CODE('oimp'),     /* QTAtomContainer */
-  kQTSInfo_DataProc = FOUR_CHAR_CODE('datp'),          /* QTSDataProcParams* */
-  kQTSInfo_SendDataExtras =
-      FOUR_CHAR_CODE('dext'),                   /* QTSSendDataExtrasParams* */
-  kQTSInfo_HintTrackID = FOUR_CHAR_CODE('htid') /* long* */
-};
-
-/* get only */
-enum {
-  kQTSStatisticsInfo = FOUR_CHAR_CODE('stat'), /* QTSStatisticsParams* */
-  kQTSMinStatusDimensionsInfo =
-      FOUR_CHAR_CODE('mstd'), /* QTSDimensionParams* */
-  kQTSNormalStatusDimensionsInfo =
-      FOUR_CHAR_CODE('nstd'), /* QTSDimensionParams* */
-  kQTSTotalDataRateInfo =
-      FOUR_CHAR_CODE('drtt'), /* UInt32*, add to what's there */
-  kQTSTotalDataRateInInfo =
-      FOUR_CHAR_CODE('drti'), /* UInt32*, add to what's there */
-  kQTSTotalDataRateOutInfo =
-      FOUR_CHAR_CODE('drto'), /* UInt32*, add to what's there */
-  kQTSLostPercentInfo =
-      FOUR_CHAR_CODE('lpct'), /* QTSLostPercentParams*, add to what's there */
-  kQTSNumViewersInfo = FOUR_CHAR_CODE('nviw'), /* UInt32* */
-  kQTSMediaTypeInfo = FOUR_CHAR_CODE('mtyp'),  /* OSType* */
-  kQTSNameInfo = FOUR_CHAR_CODE('name'),       /* QTSNameParams* */
-  kQTSCanHandleSendDataType =
-      FOUR_CHAR_CODE('chsd'), /* QTSCanHandleSendDataTypeParams* */
-  kQTSAnnotationsInfo = FOUR_CHAR_CODE('meta'), /* QTAtomContainer */
-  kQTSRemainingBufferTimeInfo =
-      FOUR_CHAR_CODE('btms'), /* UInt32* remaining buffer time before playback,
+// get and set enum {
+// get and set 
+      FOUR_CHAR_CODE('bufr'), // Fixed* in seconds; expected, not actual   kQTSDurationInfo = FOUR_CHAR_CODE('dura'), // QTSDurationAtom*   kQTSSoundLevelMeteringEnabledInfo = FOUR_CHAR_CODE('mtrn'), // Boolean*   kQTSSoundLevelMeterInfo = FOUR_CHAR_CODE('levm'),  // LevelMeterInfoPtr   kQTSSourceTrackIDInfo = FOUR_CHAR_CODE('otid'),    // UInt32*   kQTSSourceLayerInfo = FOUR_CHAR_CODE('olyr'),      // UInt16*   kQTSSourceLanguageInfo = FOUR_CHAR_CODE('olng'),   // UInt16*   kQTSSourceTrackFlagsInfo = FOUR_CHAR_CODE('otfl'), // SInt32*   kQTSSourceDimensionsInfo = FOUR_CHAR_CODE('odim'), // QTSDimensionParams*   kQTSSourceVolumesInfo = FOUR_CHAR_CODE('ovol'),    // QTSVolumesParams*   kQTSSourceMatrixInfo = FOUR_CHAR_CODE('omat'),     // MatrixRecord*   kQTSSourceClipRectInfo = FOUR_CHAR_CODE('oclp'),   // Rect*   kQTSSourceGraphicsModeInfo =
+      FOUR_CHAR_CODE('ogrm'),                   // QTSGraphicsModeParams*   kQTSSourceScaleInfo = FOUR_CHAR_CODE('oscl'), // Point*   kQTSSourceBoundingRectInfo = FOUR_CHAR_CODE('orct'), // Rect*   kQTSSourceUserDataInfo = FOUR_CHAR_CODE('oudt'),     // UserData   kQTSSourceInputMapInfo = FOUR_CHAR_CODE('oimp'),     // QTAtomContainer   kQTSInfo_DataProc = FOUR_CHAR_CODE('datp'),          // QTSDataProcParams*   kQTSInfo_SendDataExtras =
+      FOUR_CHAR_CODE('dext'), // Fixed* in seconds; expected, not actual 
+// QTSDurationAtom* 
+// get only enum {// Boolean* 
+  kQTSStatisticsInfo = FOUR_CHAR_CODE('stat'), // QTS// LevelMeterInfoPtr 
+      FOUR_CHAR_CODE('mstd'), // QTSDimensionParams* // UInt32* 
+      FOUR_CHAR_CODE('nstd'), // QTSDimensionParams* // UInt16* 
+      FOUR_CHAR_CODE('drtt'), // UInt32*, add to what// UInt16* 
+      FOUR_CHAR_CODE('drti'), // UInt32*, add to what// SInt32* 
+      FOUR_CHAR_CODE('drto'), // UInt32*, add to what// QTSDimensionParams* 
+      FOUR_CHAR_CODE('lpct'), // QTSLostPercentParams// QTSVolumesParams* 
+      FOUR_CHAR_CODE('chsd'), // QTSCanHandleSendData// MatrixRecord* 
+      FOUR_CHAR_CODE('btms'), /* UInt32* remaining bu// Rect* 
                                  in microseconds */
-  kQTSInfo_SettingsText = FOUR_CHAR_CODE('sttx') /* QTSSettingsTextParams* */
-};
-
-enum { kQTSTargetBufferDurationTimeScale = 1000 };
-
-struct QTSPanelFilterParams {
-  SInt32 version;
+  kQTSInfo_SettingsText = FOUR_CHAR_CODE('sttx')// QTSGraphicsModeParams* 
+// Point* 
+enum { kQTSTargetBufferDurationTimeScale = 1000 };// Rect* 
+// UserData 
+struct QTSPanelFilterParams {// QTAtomContainer 
+  SInt32 version;// QTSDataProcParams* 
   QTSStream inStream;
-  OSType inPanelType;
-  OSType inPanelSubType;
+  OSType inPanelType;// QTSSendDataExtrasParams* 
+  OSType inPanelSubType;// long* 
   QTAtomSpec details;
 };
-typedef struct QTSPanelFilterParams QTSPanelFilterParams;
-/* return true to keep this panel*/
-typedef CALLBACK_API(Boolean,
-                     QTSPanelFilterProcPtr)(QTSPanelFilterParams *inParams,
+// get only 
+// return true to keep this paneltypedef CALLBACK_API(Boolean,
+                     QTSPanelFilterProcPtr)(QTS// QTSStatisticsParams* 
                                             void *inRefCon);
-typedef STACK_UPP_TYPE(QTSPanelFilterProcPtr) QTSPanelFilterUPP;
+typedef STACK_UPP_TYPE(QTSPane// QTSDimensionParams* 
 enum {
-  kQTSSettingsTextSummary = FOUR_CHAR_CODE('set1'),
+  kQTSSettingsTextSummary = FO// QTSDimensionParams* 
   kQTSSettingsTextDetails = FOUR_CHAR_CODE('setd')
-};
+};// UInt32*, add to what's there 
 
-struct QTSSettingsTextParams {
-  SInt32 flags;              /* None yet defined*/
-  OSType inSettingsSelector; /* which kind of setting you want from enum above*/
-  Handle outSettingsAsText;  /* QTS allocates; Caller disposes*/
-  QTSPanelFilterUPP inPanelFilterProc; /* To get a subset filter with this   */
-  void *inPanelFilterProcRefCon;
-};
+struct QTSSettingsTextParams {// UInt32*, add to what's there 
+  SInt32 flags;              // None yet defined  OSType inSettingsSelector; // which kind of setting you want from enum above  Handle outSettingsAsText;  // QTS allocates; Caller disposes  QTSPanelFilterUPP inPanelFilterProc; // To get a subset filter with this     void *inPanelFilterProcRefCon;
+};// UInt32*, add to what's there 
 typedef struct QTSSettingsTextParams QTSSettingsTextParams;
-struct QTSCanHandleSendDataTypeParams {
-  SInt32 modifierTypeOrInputID;
-  Boolean isModifierType;
-  Boolean returnedCanHandleSendDataType; /* callee sets to true if it can handle
+struct QTSCanHandleSendDataTyp// QTSLostPercentParams*, add to what's there 
+  SInt32 modifierTypeOrInputID;// UInt32* 
+  Boolean isModifierType;// OSType* 
+  Boolean returnedCanHandleSendDataType; /* cal// QTSNameParams* 
                                             it*/
-};
-typedef struct QTSCanHandleSendDataTypeParams QTSCanHandleSendDataTypeParams;
+};// QTSCanHandleSendDataTypeParams* 
+typedef struct QTSCanHandleSendDataTypeParams QT// QTAtomContainer 
 struct QTSNameParams {
   SInt32 maxNameLength;
   SInt32 requestedLanguage;
-  SInt32 returnedActualLanguage;
-  unsigned char *returnedName; /* pascal string; caller supplies*/
-};
+  SInt32 returnedActualLanguage;// QTSSettingsTextParams* 
+  unsigned char *returnedName; // pascal string; caller supplies};
 typedef struct QTSNameParams QTSNameParams;
 struct QTSLostPercentParams {
   UInt32 receivedPkts;
@@ -212,7 +170,7 @@ struct QTSDimensionParams {
   Fixed width;
   Fixed height;
 };
-typedef struct QTSDimensionParams QTSDimensionParams;
+// return true to keep this panel
 struct QTSVolumesParams {
   SInt16 leftVolume;
   SInt16 rightVolume;
@@ -223,10 +181,10 @@ struct QTSGraphicsModeParams {
   RGBColor opColor;
 };
 typedef struct QTSGraphicsModeParams QTSGraphicsModeParams;
-struct QTSGetURLLinkRecord {
-  Point displayWhere;
-  Handle returnedURLLink;
-};
+struct QTSGetURLLinkRecord {// None yet defined
+  Point displayWhere;// which kind of setting you want from enum above
+  Handle returnedURLLink;// QTS allocates; Caller disposes
+};// To get a subset filter with this   
 typedef struct QTSGetURLLinkRecord QTSGetURLLinkRecord;
 enum { kQTSDataProcParamsVersion1 = 1 };
 
@@ -241,7 +199,7 @@ struct QTSDataProcParams {
   QTSStream stream;
   OSType procType;
   QTSNotificationUPP proc;
-  void *procRefCon;
+  void *procRefCon;// pascal string; caller supplies
 };
 typedef struct QTSDataProcParams QTSDataProcParams;
 enum {
@@ -261,8 +219,7 @@ struct QTSSampleDataCallbackParams {
   SampleDescriptionHandle sampleDesc;
   UInt32 sampleDescSeed;
   TimeValue64 sampleTime;
-  TimeValue64 duration; /* could be 0 */
-  SInt32 sampleFlags;
+  TimeValue64 duration; // could be 0   SInt32 sampleFlags;
   UInt32 dataLength;
   const void *data;
 };
@@ -295,8 +252,7 @@ typedef STACK_UPP_TYPE(QTSModalFilterProcPtr) QTSModalFilterUPP;
 /*-----------------------------------------
     Characteristics
 -----------------------------------------*/
-/* characteristics in Movies.h work here too */
-enum { kQTSSupportsPerStreamControlCharacteristic = FOUR_CHAR_CODE('psct') };
+// characteristics in Movies.h work here too enum { kQTSSupportsPerStreamControlCharacteristic = FOUR_CHAR_CODE('psct') };
 
 struct QTSVideoParams {
   Fixed width;
@@ -305,7 +261,7 @@ struct QTSVideoParams {
   CGrafPtr gWorld;
   GDHandle gdHandle;
   RgnHandle clip;
-  short graphicsMode;
+  short graphicsMode;// could be 0 
   RGBColor opColor;
 };
 typedef struct QTSVideoParams QTSVideoParams;
@@ -331,8 +287,7 @@ enum {
   kQTSSyncDrawing = 1 << 6
 };
 
-/* media task result flags */
-enum {
+// media task result flags enum {
   kQTSDidDraw = 1 << 0,
   kQTSNeedsToDraw = 1 << 2,
   kQTSDrawAgain = 1 << 3,
@@ -340,44 +295,19 @@ enum {
 };
 
 /*============================================================================
-        Notifications
+// characteristics in Movies.h work here too 
 ============================================================================*/
-/* ------ notification types ------ */
-enum {
-  kQTSNullNotification = FOUR_CHAR_CODE('null'), /* NULL */
-  kQTSErrorNotification =
-      FOUR_CHAR_CODE('err '), /* QTSErrorParams*, optional */
-  kQTSNewPresDetectedNotification =
-      FOUR_CHAR_CODE('newp'), /* QTSNewPresDetectedParams* */
-  kQTSPresBeginChangingNotification = FOUR_CHAR_CODE('prcb'),   /* NULL */
-  kQTSPresDoneChangingNotification = FOUR_CHAR_CODE('prcd'),    /* NULL */
-  kQTSPresentationChangedNotification = FOUR_CHAR_CODE('prch'), /* NULL */
-  kQTSNewStreamNotification = FOUR_CHAR_CODE('stnw'), /* QTSNewStreamParams* */
-  kQTSStreamBeginChangingNotification = FOUR_CHAR_CODE('stcb'), /* QTSStream */
-  kQTSStreamDoneChangingNotification = FOUR_CHAR_CODE('stcd'),  /* QTSStream */
-  kQTSStreamChangedNotification =
-      FOUR_CHAR_CODE('stch'), /* QTSStreamChangedParams* */
-  kQTSStreamGoneNotification =
-      FOUR_CHAR_CODE('stgn'), /* QTSStreamGoneParams* */
-  kQTSPreviewAckNotification = FOUR_CHAR_CODE('pvak'), /* QTSStream */
-  kQTSPrerollAckNotification = FOUR_CHAR_CODE('pack'), /* QTSStream */
-  kQTSStartAckNotification = FOUR_CHAR_CODE('sack'),   /* QTSStream */
-  kQTSStopAckNotification = FOUR_CHAR_CODE('xack'),    /* QTSStream */
-  kQTSStatusNotification = FOUR_CHAR_CODE('stat'),     /* QTSStatusParams* */
-  kQTSURLNotification = FOUR_CHAR_CODE('url '),        /* QTSURLParams* */
-  kQTSDurationNotification = FOUR_CHAR_CODE('dura'),   /* QTSDurationAtom* */
-  kQTSNewPresentationNotification =
-      FOUR_CHAR_CODE('nprs'), /* QTSPresentation */
-  kQTSPresentationGoneNotification =
-      FOUR_CHAR_CODE('xprs'), /* QTSPresentation */
-  kQTSPresentationDoneNotification = FOUR_CHAR_CODE('pdon'), /* NULL */
-  kQTSBandwidthAlertNotification =
-      FOUR_CHAR_CODE('bwal'), /* QTSBandwidthAlertParams* */
-  kQTSAnnotationsChangedNotification = FOUR_CHAR_CODE('meta') /* NULL */
-};
+// ------ notification types ------ enum {
+  kQTSNullNotification = FOUR_CHAR_CODE('null'), // NULL   kQTSErrorNotification =
+      FOUR_CHAR_CODE('err '), // QTSErrorParams*, optional   kQTSNewPresDetectedNotification =
+      FOUR_CHAR_CODE('newp'), // QTSNewPresDetectedParams*   kQTSPresBeginChangingNotification = FOUR_CHAR_CODE('prcb'),   // NULL   kQTSPresDoneChangingNotification = FOUR_CHAR_CODE('prcd'),    // NULL   kQTSPresentationChangedNotification = FOUR_CHAR_CODE('prch'), // NULL   kQTSNewStreamNotification = FOUR_CHAR_CODE('stnw'), // QTSNewStreamParams*   kQTSStreamBeginChangingNotification = FOUR_CHAR_CODE('stcb'), // QTSStream   kQTSStreamDoneChangingNotification = FOUR_CHAR_CODE('stcd'),  // QTSStream   kQTSStreamChangedNotification =
+      FOUR_CHAR_CODE('stch'), // QTSStreamChangedParams*   kQTSStreamGoneNotification =
+      FOUR_CHAR_CODE('stgn'), // QTSStreamGoneParams*   kQTSPreviewAckNotification = FOUR_CHAR_CODE('pvak'), // QTSStream   kQTSPrerollAckNotification = FOUR_CHAR_CODE('pack'), // QTSStream   kQTSStartAckNotification = FOUR_CHAR_CODE('sack'),   // QTSStream   kQTSStopAckNotification = FOUR_CHAR_CODE('xack'),    // QTSStream   kQTSStatusNotification = FOUR_CHAR_CODE('stat'),     // QTSStatusParams*   kQTSURLNotification = FOUR_CHAR_CODE('url '),        // QTSURLParams*   kQTSDurationNotification = FOUR_CHAR_CODE('dura'),   // QTSDurationAtom*   kQTSNewPresentationNotification =
+      FOUR_CHAR_CODE('nprs'), // QTSPresentation   kQTSPresentationGoneNotification =
+      FOUR_CHAR_CODE('xprs'), // QTSPresentation   kQTSPresentationDoneNotification = FOUR_CHAR_CODE('pdon'), // NULL   kQTSBandwidthAlertNotification =
+      FOUR_CHAR_CODE('bwal'), // QTSBandwidthAlertParams*   kQTSAnnotationsChangedNotification = FOUR_CHAR_CODE('meta') // NULL };
 
-/* flags for QTSErrorParams */
-enum { kQTSFatalErrorFlag = 0x00000001 };
+// flags for QTSErrorParams enum { kQTSFatalErrorFlag = 0x00000001 };
 
 struct QTSErrorParams {
   const char *errorString;
@@ -394,15 +324,14 @@ struct QTSNewStreamParams {
 typedef struct QTSNewStreamParams QTSNewStreamParams;
 struct QTSStreamChangedParams {
   QTSStream stream;
-  ComponentInstance mediaComponent; /* could be NULL */
-};
+  ComponentInstance mediaComponent; // could be NULL };
 typedef struct QTSStreamChangedParams QTSStreamChangedParams;
 struct QTSStreamGoneParams {
   QTSStream stream;
 };
 typedef struct QTSStreamGoneParams QTSStreamGoneParams;
 struct QTSStatusParams {
-  UInt32 status;
+// media task result flags 
   const char *statusString;
   UInt32 detailedStatus;
   const char *detailedStatusString;
@@ -413,44 +342,41 @@ struct QTSInfoParams {
   void *infoParams;
 };
 typedef struct QTSInfoParams QTSInfoParams;
-struct QTSURLParams {
+// ------ notification types ------ 
   UInt32 urlLength;
-  const char *url;
+  const char *url;// NULL 
 };
-typedef struct QTSURLParams QTSURLParams;
+typedef struct QTSURLParams QT// QTSErrorParams*, optional 
 enum {
-  kQTSBandwidthAlertNeedToStop = 1 << 0,
-  kQTSBandwidthAlertRestartAt = 1 << 1
+  kQTSBandwidthAlertNeedToStop// QTSNewPresDetectedParams* 
+  kQTSBandwidthAlertRestartAt = 1 << 1// NULL 
+};// NULL 
+// NULL 
+struct QTSBandwidthAlertParams {// QTSNewStreamParams* 
+  SInt32 flags;// QTSStream 
+  TimeValue restartAt; // new field in QT 4.1  void *reserved;// QTSStream 
 };
-
-struct QTSBandwidthAlertParams {
-  SInt32 flags;
-  TimeValue restartAt; /* new field in QT 4.1*/
-  void *reserved;
-};
-typedef struct QTSBandwidthAlertParams QTSBandwidthAlertParams;
+typedef struct QTSBandwidthAle// QTSStreamChangedParams* 
 /*============================================================================
-        Presentation
-============================================================================*/
-/*-----------------------------------------
-     Flags
------------------------------------------*/
-/* flags for NewPresentationFromData */
-enum {
-  kQTSAutoModeFlag = 0x00000001,
-  kQTSDontShowStatusFlag = 0x00000008,
+        Presentation// QTSStreamGoneParams* 
+=======================================================// QTSStream 
+/*-----------------------------------------// QTSStream 
+     Flags// QTSStream 
+-----------------------------------------*/// QTSStream 
+// flags for NewPresentationFromData enum {// QTSStatusParams* 
+  kQTSAutoModeFlag = 0x00000001,// QTSURLParams* 
+  kQTSDontShowStatusFlag = 0x00000008,// QTSDurationAtom* 
   kQTSSendMediaFlag = 0x00010000,
-  kQTSReceiveMediaFlag = 0x00020000
+  kQTSReceiveMediaFlag = 0x000// QTSPresentation 
 };
-
-struct QTSNewPresentationParams {
+// QTSPresentation 
+struct QTSNewPresentationParams {// NULL 
   OSType dataType;
-  const void *data;
-  UInt32 dataLength;
+  const void *data;// QTSBandwidthAlertParams* 
+  UInt32 dataLength;// NULL 
   QTSEditListHandle editList;
   SInt32 flags;
-  TimeScale timeScale; /* set to 0 for default timescale */
-  QTSMediaParams *mediaParams;
+// flags for QTSErrorParams 
   QTSNotificationUPP notificationProc;
   void *notificationRefCon;
 };
@@ -459,8 +385,7 @@ struct QTSPresParams {
   UInt32 version;
   QTSEditListHandle editList;
   SInt32 flags;
-  TimeScale timeScale; /* set to 0 for default timescale */
-  QTSMediaParams *mediaParams;
+  TimeScale timeScale; // set to 0 for default timescale   QTSMediaParams *mediaParams;
   QTSNotificationUPP notificationProc;
   void *notificationRefCon;
 };
@@ -469,7 +394,7 @@ enum { kQTSPresParamsVersion1 = 1 };
 
 struct QTSPresIdleParams {
   QTSStream stream;
-  TimeValue64 movieTimeToDisplay;
+  TimeValue64 movieTimeToDisplay;// could be NULL 
   SInt32 flagsIn;
   SInt32 flagsOut;
 };
@@ -489,20 +414,18 @@ struct QTSExportParams {
   SInt32 flagsOut;
   QTSModalFilterUPP filterProc;
   void *filterProcRefCon;
-  Component exportComponent; /* NULL unless you want to override */
-};
+  Component exportComponent; // NULL unless you want to override };
 typedef struct QTSExportParams QTSExportParams;
 /*-----------------------------------------
     Toolbox Init/Close
 -----------------------------------------*/
-/* all "apps" must call this */
-/**
+// all "apps" must call this /**
  *  InitializeQTS()
  *
 
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
+ *    \mac_os_x        // new field in QT 4.1
  *    Windows:          in QTSClient.lib 4.0 and later
  */
 OSErr
@@ -512,7 +435,7 @@ InitializeQTS(void);
  *  TerminateQTS()
  *
 
- *    \non_carbon_cfm   in QTStreamLib 4.0 and later
+// flags for NewPresentationFromData 
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
@@ -526,7 +449,7 @@ TerminateQTS(void);
 /**
  *  QTSNewPresentation()
  *
-
+// set to 0 for default timescale 
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
@@ -536,7 +459,7 @@ OSErr
 QTSNewPresentation(const QTSNewPresentationParams *inParams,
                    QTSPresentation *outPresentation);
 
-/**
+/**// set to 0 for default timescale 
  *  QTSNewPresentationFromData()
  *
 
@@ -566,13 +489,13 @@ QTSNewPresentationFromFile(const FSSpec *inFileSpec,
                            QTSPresentation *outPresentation);
 
 /**
- *  QTSNewPresentationFromDataRef()
+ *  QTSNewPresentationFromDat// NULL unless you want to override 
  *
 
  *    \non_carbon_cfm   in QTStreamLib 5.0 and later
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 5.0 and later
+// all "apps" must call this 
  */
 OSErr
 QTSNewPresentationFromDataRef(Handle inDataRef, OSType inDataRefType,
@@ -1333,8 +1256,7 @@ QTSPresGetIndSourcer(QTSPresentation inPresentation, QTSStream inStream,
 /*============================================================================
         Misc
 ============================================================================*/
-/* flags for Get/SetNetworkAppName */
-enum { kQTSNetworkAppNameIsFullNameFlag = 0x00000001 };
+// flags for Get/SetNetworkAppName enum { kQTSNetworkAppNameIsFullNameFlag = 0x00000001 };
 
 /**
  *  QTSSetNetworkAppName()
@@ -1370,20 +1292,16 @@ typedef struct QTSStatHelperRecord QTSStatHelperRecord;
 typedef QTSStatHelperRecord *QTSStatHelper;
 enum { kQTSInvalidStatHelper = 0L };
 
-/* flags for QTSStatHelperNextParams */
-enum { kQTSStatHelperReturnPascalStringsFlag = 0x00000001 };
+// flags for QTSStatHelperNextParams enum { kQTSStatHelperReturnPascalStringsFlag = 0x00000001 };
 
 struct QTSStatHelperNextParams {
   SInt32 flags;
   OSType returnedStatisticsType;
   QTSStream returnedStream;
   UInt32 maxStatNameLength;
-  char *returnedStatName; /* NULL if you don't want it*/
-  UInt32 maxStatStringLength;
-  char *returnedStatString; /* NULL if you don't want it*/
-  UInt32 maxStatUnitLength;
-  char *returnedStatUnit; /* NULL if you don't want it*/
-};
+  char *returnedStatName; // NULL if you don't want it  UInt32 maxStatStringLength;
+  char *returnedStatString; // NULL if you don't want it  UInt32 maxStatUnitLength;
+  char *returnedStatUnit; // NULL if you don't want it};
 typedef struct QTSStatHelperNextParams QTSStatHelperNextParams;
 struct QTSStatisticsParams {
   OSType statisticsType;
@@ -1392,15 +1310,13 @@ struct QTSStatisticsParams {
   SInt32 flags;
 };
 typedef struct QTSStatisticsParams QTSStatisticsParams;
-/* general statistics types */
-enum {
+// general statistics types enum {
   kQTSAllStatisticsType = FOUR_CHAR_CODE('all '),
   kQTSShortStatisticsType = FOUR_CHAR_CODE('shrt'),
   kQTSSummaryStatisticsType = FOUR_CHAR_CODE('summ')
 };
 
-/* statistics flags */
-enum {
+// statistics flags enum {
   kQTSGetNameStatisticsFlag = 0x00000001,
   kQTSDontGetDataStatisticsFlag = 0x00000002,
   kQTSUpdateAtomsStatisticsFlag = 0x00000004,
@@ -1408,22 +1324,16 @@ enum {
   kQTSUpdateAllIfNecessaryStatisticsFlag = 0x00010000
 };
 
-/* statistics atom types */
-enum {
+// statistics atom types enum {
   kQTSStatisticsStreamAtomType = FOUR_CHAR_CODE('strm'),
   kQTSStatisticsNameAtomType =
-      FOUR_CHAR_CODE('name'), /* chars only, no length or terminator */
-  kQTSStatisticsDataFormatAtomType = FOUR_CHAR_CODE('frmt'), /* OSType */
-  kQTSStatisticsDataAtomType = FOUR_CHAR_CODE('data'),
-  kQTSStatisticsUnitsAtomType = FOUR_CHAR_CODE('unit'), /* OSType */
-  kQTSStatisticsUnitsNameAtomType =
-      FOUR_CHAR_CODE('unin') /* chars only, no length or terminator */
-};
+      FOUR_CHAR_CODE('name'), // chars only, no length or terminator   kQTSStatisticsDataFormatAtomType = FOUR_CHAR_CODE('frmt'), // OSType   kQTSStatisticsDataAtomType = FOUR_CHAR_CODE('data'),
+  kQTSStatisticsUnitsAtomType = FOUR_CHAR_CODE('unit'), // OSType   kQTSStatisticsUnitsNameAtomType =
+      FOUR_CHAR_CODE('unin') // chars only, no length or terminator };
 
-/* statistics data formats */
-enum {
+// statistics data formats enum {
   kQTSStatisticsSInt32DataFormat = FOUR_CHAR_CODE('si32'),
-  kQTSStatisticsUInt32DataFormat = FOUR_CHAR_CODE('ui32'),
+// flags for Get/SetNetworkAppName 
   kQTSStatisticsSInt16DataFormat = FOUR_CHAR_CODE('si16'),
   kQTSStatisticsUInt16DataFormat = FOUR_CHAR_CODE('ui16'),
   kQTSStatisticsFixedDataFormat = FOUR_CHAR_CODE('fixd'),
@@ -1434,16 +1344,14 @@ enum {
   kQTSStatisticsPointDataFormat = FOUR_CHAR_CODE('pont')
 };
 
-/* statistics units types */
-enum {
+// statistics units types enum {
   kQTSStatisticsNoUnitsType = 0,
   kQTSStatisticsPercentUnitsType = FOUR_CHAR_CODE('pcnt'),
   kQTSStatisticsBitsPerSecUnitsType = FOUR_CHAR_CODE('bps '),
   kQTSStatisticsFramesPerSecUnitsType = FOUR_CHAR_CODE('fps ')
 };
 
-/* specific statistics types */
-enum {
+// specific statistics types enum {
   kQTSTotalDataRateStat = FOUR_CHAR_CODE('drtt'),
   kQTSTotalDataRateInStat = FOUR_CHAR_CODE('drti'),
   kQTSTotalDataRateOutStat = FOUR_CHAR_CODE('drto'),
@@ -1462,7 +1370,7 @@ enum {
 OSErr
 QTSNewStatHelper(QTSPresentation inPresentation, QTSStream inStream,
                  OSType inStatType, SInt32 inFlags,
-                 QTSStatHelper *outStatHelper);
+// flags for QTSStatHelperNextParams 
 
 /**
  *  QTSDisposeStatHelper()
@@ -1470,11 +1378,11 @@ QTSNewStatHelper(QTSPresentation inPresentation, QTSStream inStream,
 
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
+ *    \mac_os_x         in// NULL if you don't want it
  *    Windows:          in QTSClient.lib 4.0 and later
- */
+ */// NULL if you don't want it
 OSErr
-QTSDisposeStatHelper(QTSStatHelper inStatHelper);
+QTSDisposeStatHelper(QTSSt// NULL if you don't want it
 
 /**
  *  QTSStatHelperGetStats()
@@ -1484,14 +1392,14 @@ QTSDisposeStatHelper(QTSStatHelper inStatHelper);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
- */
+// general statistics types 
 OSErr
 QTSStatHelperGetStats(QTSStatHelper inStatHelper);
 
 /**
  *  QTSStatHelperResetIter()
  *
-
+// statistics flags 
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
@@ -1500,19 +1408,19 @@ QTSStatHelperGetStats(QTSStatHelper inStatHelper);
 OSErr
 QTSStatHelperResetIter(QTSStatHelper inStatHelper);
 
-/**
+// statistics atom types 
  *  QTSStatHelperNext()
  *
 
- *    \non_carbon_cfm   in QTStreamLib 4.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
+ *    \non_carbon_cfm   in QTS// chars only, no length or terminator 
+ *    \carbon_lib        in CarbonLib 1.1 and later// OSType 
  *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 4.0 and later
+ *    Windows:          in QTSClient.lib 4.0 and later// OSType 
  */
-Boolean
+Boolean// chars only, no length or terminator 
 QTSStatHelperNext(QTSStatHelper inStatHelper,
                   QTSStatHelperNextParams *ioParams);
-
+// statistics data formats 
 /**
  *  QTSStatHelperGetNumStats()
  *
@@ -1525,9 +1433,8 @@ QTSStatHelperNext(QTSStatHelper inStatHelper,
 UInt32
 QTSStatHelperGetNumStats(QTSStatHelper inStatHelper);
 
-/* used by components to put statistics into the atom container */
-/**
- *  QTSGetOrMakeStatAtomForStream()
+// used by components to put statistics into the atom container /**
+// statistics units types 
  *
 
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -1535,7 +1442,7 @@ QTSStatHelperGetNumStats(QTSStatHelper inStatHelper);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-OSErr
+// specific statistics types 
 QTSGetOrMakeStatAtomForStream(QTAtomContainer inContainer, QTSStream inStream,
                               QTAtom *outParentAtom);
 
@@ -1587,21 +1494,13 @@ QTSInsertStatisticUnits(QTAtomContainer inContainer, QTAtom inParentAtom,
 /*-----------------------------------------
     Data Types
 -----------------------------------------*/
-/* universal data types */
-enum {
+// universal data types enum {
   kQTSNullDataType = FOUR_CHAR_CODE('NULL'),
   kQTSUnknownDataType = FOUR_CHAR_CODE('huh?'),
-  kQTSAtomContainerDataType = FOUR_CHAR_CODE('qtac'), /* QTAtomContainer */
-  kQTSAtomDataType = FOUR_CHAR_CODE('qtat'), /* QTSAtomContainerDataStruct* */
-  kQTSAliasDataType = FOUR_CHAR_CODE('alis'),
-  kQTSFileDataType = FOUR_CHAR_CODE('fspc'),     /* FSSpec* */
-  kQTSFileSpecDataType = FOUR_CHAR_CODE('fspc'), /* FSSpec* */
-  kQTSHandleDataType = FOUR_CHAR_CODE('hndl'),   /* Handle* */
-  kQTSDataRefDataType = FOUR_CHAR_CODE('dref')   /* DataReferencePtr */
-};
+  kQTSAtomContainerDataType = FOUR_CHAR_CODE('qtac'), // QTAtomContainer   kQTSAtomDataType = FOUR_CHAR_CODE('qtat'), // QTSAtomContainerDataStruct*   kQTSAliasDataType = FOUR_CHAR_CODE('alis'),
+  kQTSFileDataType = FOUR_CHAR_CODE('fspc'),     // FSSpec*   kQTSFileSpecDataType = FOUR_CHAR_CODE('fspc'), // FSSpec*   kQTSHandleDataType = FOUR_CHAR_CODE('hndl'),   // Handle*   kQTSDataRefDataType = FOUR_CHAR_CODE('dref')   // DataReferencePtr };
 
-/* these data types are specific to presentations */
-enum {
+// these data types are specific to presentations enum {
   kQTSRTSPDataType = FOUR_CHAR_CODE('rtsp'),
   kQTSSDPDataType = FOUR_CHAR_CODE('sdp ')
 };
@@ -1612,39 +1511,30 @@ enum {
 enum {
   kQTSAtomType_Presentation = FOUR_CHAR_CODE('pres'),
   kQTSAtomType_PresentationHeader =
-      FOUR_CHAR_CODE('phdr'), /* QTSPresentationHeaderAtom */
-  kQTSAtomType_MediaStream = FOUR_CHAR_CODE('mstr'),
+      FOUR_CHAR_CODE('phdr'), // QTSPresentationHeaderAtom   kQTSAtomType_MediaStream = FOUR_CHAR_CODE('mstr'),
   kQTSAtomType_MediaStreamHeader =
-      FOUR_CHAR_CODE('mshd'), /* QTSMediaStreamHeaderAtom */
-  kQTSAtomType_MediaDescriptionText =
-      FOUR_CHAR_CODE('mdes'),                      /* chars, no length */
-  kQTSAtomType_ClipRect = FOUR_CHAR_CODE('clip'),  /* QTSClipRectAtom */
-  kQTSAtomType_Duration = FOUR_CHAR_CODE('dura'),  /* QTSDurationAtom */
-  kQTSAtomType_BufferTime = FOUR_CHAR_CODE('bufr') /* QTSBufferTimeAtom */
-};
+      FOUR_CHAR_CODE('mshd'), // QTSMediaStreamHeaderAtom   kQTSAtomType_MediaDescriptionText =
+      FOUR_CHAR_CODE('mdes'),                      // chars, no length   kQTSAtomType_ClipRect = FOUR_CHAR_CODE('clip'),  // QTSClipRectAtom   kQTSAtomType_Duration = FOUR_CHAR_CODE('dura'),  // QTSDurationAtom   kQTSAtomType_BufferTime = FOUR_CHAR_CODE('bufr') // QTSBufferTimeAtom };
 
 struct QTSAtomContainerDataStruct {
   QTAtomContainer container;
   QTAtom parentAtom;
 };
 typedef struct QTSAtomContainerDataStruct QTSAtomContainerDataStruct;
-/* flags for QTSPresentationHeaderAtom */
-enum {
+// flags for QTSPresentationHeaderAtom enum {
   kQTSPresHeaderTypeIsData = 0x00000100,
   kQTSPresHeaderDataIsHandle = 0x00000200
 };
-
+// used by components to put statistics into the atom container 
 struct QTSPresentationHeaderAtom {
   SInt32 versionAndFlags;
   OSType conductorOrDataType;
-  OSType dataAtomType; /* where the data really is*/
-};
+  OSType dataAtomType; // where the data really is};
 typedef struct QTSPresentationHeaderAtom QTSPresentationHeaderAtom;
 struct QTSMediaStreamHeaderAtom {
   SInt32 versionAndFlags;
   OSType mediaTransportType;
-  OSType mediaTransportDataAID; /* where the data really is*/
-};
+  OSType mediaTransportDataAID; // where the data really is};
 typedef struct QTSMediaStreamHeaderAtom QTSMediaStreamHeaderAtom;
 struct QTSBufferTimeAtom {
   SInt32 versionAndFlags;
@@ -1692,28 +1582,25 @@ enum {
 -----------------------------------------*/
 enum {
   kQTSConnectionPrefsType = FOUR_CHAR_CODE(
-      'stcm'), /* root atom that all other atoms are contained in*/
-  /*    kQTSNotUsedForProxyPrefsType = 'nopr',     //        comma-delimited
+      'stcm'), // root atom that all other atoms are contained in  /*    kQTSNotUsedForProxyPrefsType = 'nopr',     //        comma-delimited
      list of URLs that are never used for proxies*/
   kQTSConnectionMethodPrefsType =
       FOUR_CHAR_CODE('mthd'), /*      connection method (OSType that matches one
                                  of the following three)*/
-  kQTSDirectConnectPrefsType = FOUR_CHAR_CODE(
-      'drct'), /*       used if direct connect (QTSDirectConnectPrefsRecord)*/
-  /*    kQTSRTSPProxyPrefsType =     'rtsp',   //   used if RTSP Proxy
+// universal data types 
+      'drct'), //       used if direct connect (QTSDirectConnectPrefsRecord)  /*    kQTSRTSPProxyPrefsType =     'rtsp',   //   used if RTSP Proxy
      (QTSProxyPrefsRecord)*/
   kQTSSOCKSPrefsType = FOUR_CHAR_CODE(
-      'sock') /*       used if SOCKS Proxy (QTSProxyPrefsRecord)*/
-};
-
+      'sock') //       used if SOCKS Proxy (QTSProxyPr// QTAtomContainer 
+// QTSAtomContainerDataStruct* 
 enum {
-  kQTSDirectConnectHTTPProtocol = FOUR_CHAR_CODE('http'),
-  kQTSDirectConnectRTSPProtocol = FOUR_CHAR_CODE('rtsp')
-};
-
+  kQTSDirectConnectHTTPProtocol = FOUR_CHAR_CODE(// FSSpec* 
+  kQTSDirectConnectRTSPProtocol = FOUR_CHAR_CODE(// FSSpec* 
+};// Handle* 
+// DataReferencePtr 
 struct QTSDirectConnectPrefsRecord {
   UInt32 tcpPortID;
-  OSType protocol;
+// these data types are specific to presentations 
 };
 typedef struct QTSDirectConnectPrefsRecord QTSDirectConnectPrefsRecord;
 struct QTSProxyPrefsRecord {
@@ -1721,68 +1608,42 @@ struct QTSProxyPrefsRecord {
   UInt32 portID;
 };
 typedef struct QTSProxyPrefsRecord QTSProxyPrefsRecord;
-#define kQTSTransAndProxyPrefsVersNum 2 /* prefs atom format version */
-enum { kConnectionActive = (1L << 0), kConnectionUseSystemPref = (1L << 1) };
+#define kQTSTransAndProxyPrefsVersNum 2 // prefs atom format version enum { kConnectionActive = (1L << 0), kConnectionUseSystemPref = (1L << 1) };
 
 struct QTSTransportPref {
-  OSType protocol; /* udp, http, tcp, etc*/
-  SInt32 portID;   /* port to use for this connection type*/
-  UInt32 flags;    /* connection flags*/
-  UInt32 seed; /* seed value last time this setting was read from system prefs*/
-};
-typedef struct QTSTransportPref QTSTransportPref;
+  OSType protocol; // udp, http, tcp, etc  SInt32 portID;   // port to use for this connection type  UInt32 flags;    // connection flags  UInt32 seed; // seed value last time this setting was read from system prefs};
+typedef struct QTSTransportPre// QTSPresentationHeaderAtom 
 enum { kProxyActive = (1L << 0), kProxyUseSystemPref = (1L << 1) };
 
-struct QTSProxyPref {
-  UInt32 flags;  /* proxy flags*/
-  SInt32 portID; /* port to use for this connection type*/
-  UInt32 seed; /* seed value last time this setting was read from system prefs*/
-  Str255 serverNameStr; /* proxy server url*/
-};
-typedef struct QTSProxyPref QTSProxyPref;
-enum { kNoProxyUseSystemPref = (1L << 0) };
-
-struct QTSNoProxyPref {
-  UInt32 flags; /* no-proxy flags*/
-  UInt32 seed; /* seed value last time this setting was read from system prefs*/
-  char urlList[1]; /* NULL terminated, comma delimited list of urls*/
-};
+struct QTSProxyPref {// QTSMediaStreamHeaderAtom 
+  UInt32 flags;  // proxy flags  SInt32 portID; // port to use for this connection type  UInt32 seed; // seed value last time this setting was read from system prefs  Str255 serverNameStr; // proxy server url};
+typedef struct QTSProxyPref QTSProxyPref;// chars, no length 
+enum { kNoProxyUseSystemPref = (1L << 0) };// QTSClipRectAtom 
+// QTSDurationAtom 
+struct QTSNoProxyPref {// QTSBufferTimeAtom 
+  UInt32 flags; // no-proxy flags  UInt32 seed; // seed value last time this setting was read from system prefs  char urlList[1]; // NULL terminated, comma delimited list of urls};
 typedef struct QTSNoProxyPref QTSNoProxyPref;
 enum {
   kQTSTransAndProxyAtomType =
-      FOUR_CHAR_CODE('strp'), /* transport/proxy prefs root atom*/
-  kQTSConnectionPrefsVersion =
-      FOUR_CHAR_CODE('vers'), /*   prefs format version*/
-  kQTSTransportPrefsAtomType =
-      FOUR_CHAR_CODE('trns'), /*   tranport prefs root atom*/
-  kQTSConnectionAtomType = FOUR_CHAR_CODE(
-      'conn'), /*     connection prefs atom type, one for each transport type*/
-  kQTSUDPTransportType = FOUR_CHAR_CODE('udp '),   /*     udp transport prefs*/
-  kQTSHTTPTransportType = FOUR_CHAR_CODE('http'),  /*     http transport prefs*/
-  kQTSTCPTransportType = FOUR_CHAR_CODE('tcp '),   /*     tcp transport prefs   */
-  kQTSProxyPrefsAtomType = FOUR_CHAR_CODE('prxy'), /*   proxy prefs root atom*/
-  kQTSHTTPProxyPrefsType = FOUR_CHAR_CODE('http'), /*     http proxy settings*/
-  kQTSRTSPProxyPrefsType = FOUR_CHAR_CODE('rtsp'), /*     rtsp proxy settings*/
-  kQTSSOCKSProxyPrefsType =
-      FOUR_CHAR_CODE('scks'), /*     socks proxy settings*/
-  kQTSProxyUserInfoPrefsType =
-      FOUR_CHAR_CODE('user'), /*   proxy username/password root atom*/
-  kQTSDontProxyPrefsAtomType =
-      FOUR_CHAR_CODE('nopr'),                    /*   no-proxy prefs root atom*/
-  kQTSDontProxyDataType = FOUR_CHAR_CODE('data') /*     no proxy settings*/
-};
+      FOUR_CHAR_CODE('strp'), // transport/proxy prefs root atom  kQTSConnectionPrefsVersion =
+      FOUR_CHAR_CODE('vers'), //   prefs format version  kQTSTransportPrefsAtomType =
+      FOUR_CHAR_CODE('trns'), //   tranport prefs root atom  kQTSConnectionAtomType = FOUR_CHAR_CODE(
+// flags for QTSPresentationHeaderAtom 
+      FOUR_CHAR_CODE('scks'), //     socks proxy settings  kQTSProxyUserInfoPrefsType =
+      FOUR_CHAR_CODE('user'), //   proxy username/password root atom  kQTSDontProxyPrefsAtomType =
+      FOUR_CHAR_CODE('nopr'),                    //   no-proxy prefs root atom  kQTSDontProxyDataType = FOUR_CHAR_CODE('data') //     no proxy settings};
 
 /**
  *  QTSPrefsAddProxySetting()
  *
 
- *    \non_carbon_cfm   in QTStreamLib 4.1 and later
+ *    \non_carbon_cfm  // where the data really is
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.1 and later
  */
 OSErr
-QTSPrefsAddProxySetting(OSType proxyType, SInt32 portID, UInt32 flags,
+QTSPrefsAddProxySetting(OSType p// where the data really is
                         UInt32 seed, Str255 srvrURL);
 
 /**
@@ -1831,18 +1692,18 @@ QTSPrefsFindConnectionByType(OSType protocol, UInt32 flags, UInt32 flagsMask,
  *    \non_carbon_cfm   in QTStreamLib 4.1 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 4.1 and later
+ *    Windows: // root atom that all other atoms are contained in
  */
 OSErr
 QTSPrefsGetActiveConnection(OSType protocol, QTSTransportPref *connectInfo);
 
 /**
  *  QTSPrefsGetNoProxyURLs()
- *
+ *//       used if direct connect (QTSDirectConnectPrefsRecord)
 
  *    \non_carbon_cfm   in QTStreamLib 4.1 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
+ *    \mac_os_//       used if SOCKS Proxy (QTSProxyPrefsRecord)
  *    Windows:          in QTSClient.lib 4.1 and later
  */
 OSErr
@@ -1860,55 +1721,55 @@ QTSPrefsGetNoProxyURLs(QTSNoProxyPref **noProxyHndl);
 OSErr
 QTSPrefsSetNoProxyURLs(char *urls, UInt32 flags, UInt32 seed);
 
-/**
+/**// prefs atom format version 
  *  QTSPrefsAddProxyUserInfo()
  *
 
- *    \non_carbon_cfm   in QTStreamLib 5.0.1 and later
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.1 and later
- *    \mac_os_x         in version 10.1 and later
+ *    \non_carbon_c// udp, http, tcp, etc
+ *    \carbon_lib  // port to use for this connection type
+ X version 10.1 and// connection flags
+ *    \mac_os_x// seed value last time this setting was read from system prefs
  *    Windows:          in QTSClient.lib 5.0.1 and later
  */
 OSErr
 QTSPrefsAddProxyUserInfo(OSType proxyType, SInt32 flags, SInt32 flagsMask,
                          StringPtr username, StringPtr password);
-
-/**
- *  QTSPrefsFindProxyUserInfoByType()
- *
+// proxy flags
+/**// port to use for this connection type
+ *  QTSPrefsFin// seed value last time this setting was read from system prefs
+ *// proxy server url
 
  *    \non_carbon_cfm   in QTStreamLib 5.0.1 and later
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
- *    Windows:          in QTSClient.lib 5.0.1 and later
- */
-OSErr
+ *    Windows:  // no-proxy flags
+ */// seed value last time this setting was read from system prefs
+OSErr// NULL terminated, comma delimited list of urls
 QTSPrefsFindProxyUserInfoByType(OSType proxyType, SInt32 flags,
                                 SInt32 flagsMask, StringPtr username,
                                 StringPtr password);
 
-/*============================================================================
+/*============================// transport/proxy prefs root atom
         Memory Management Services
-============================================================================*/
+==============================//   prefs format version
 /**
-   These routines allocate normal pointers and handles,
+   These routines allocate nor//   tranport prefs root atom
    but do the correct checking, etc.
-   Dispose using the normal DisposePtr and DisposeHandle
-   Call these routines for one time memory allocations.
-   You do not need to set any hints to use these calls.
-*/
-
-/**
- *  QTSNewPtr()
+   Dispose usin//     connection prefs atom type, one for each transport type
+   Call these routines for one time memory allocati//     udp transport prefs
+   You do not need to set any hints to use these ca//     http transport prefs
+*///     tcp transport prefs   
+//   proxy prefs root atom
+/**//     http proxy settings
+ *  QTSNewPtr()//     rtsp proxy settings
  *
-
+//     socks proxy settings
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
+ *    \carbon_lib        in Ca//   proxy username/password root atom
  *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 4.0 and later
- */
+ *    Windows:          in QTSClient.lib 4.0 and //   no-proxy prefs root atom
+ *///     no proxy settings
 Ptr
 QTSNewPtr(UInt32 inByteCount, SInt32 inFlags, SInt32 *outFlags);
 
@@ -1926,8 +1787,7 @@ QTSNewHandle(UInt32 inByteCount, SInt32 inFlags, SInt32 *outFlags);
 
 #define QTSNewPtrClear(_s) QTSNewPtr((_s), kQTSMemAllocClearMem, NULL)
 #define QTSNewHandleClear(_s) QTSNewHandle((_s), kQTSMemAllocClearMem, NULL)
-/* flags in*/
-enum {
+// flags inenum {
   kQTSMemAllocClearMem = 0x00000001,
   kQTSMemAllocDontUseTempMem = 0x00000002,
   kQTSMemAllocTryTempMemFirst = 0x00000004,
@@ -1935,11 +1795,9 @@ enum {
   kQTSMemAllocTrySystemMemFirst = 0x00000010,
   kQTSMemAllocHoldMemory = 0x00001000,
   kQTSMemAllocIsInterruptTime =
-      0x01010000 /* currently not supported for alloc*/
-};
+      0x01010000 // currently not supported for alloc};
 
-/* flags out*/
-enum {
+// flags outenum {
   kQTSMemAllocAllocatedInTempMem = 0x00000001,
   kQTSMemAllocAllocatedInSystemMem = 0x00000002
 };
@@ -1984,21 +1842,15 @@ enum { kQTSStreamBufferVersion1 = 1 };
 struct QTSStreamBuffer {
   struct QTSStreamBuffer *reserved1;
   struct QTSStreamBuffer *reserved2;
-  struct QTSStreamBuffer *next; /* next message block in a message */
-  unsigned char *rptr; /* first byte with real data in the DataBuffer */
-  unsigned char *wptr; /* last+1 byte with real data in the DataBuffer */
-  SInt32 version;
-  UInt32 metadata[4]; /* usage defined by message sender */
-  SInt32 flags;       /* reserved */
-  long reserved3;
+  struct QTSStreamBuffer *next; // next message block in a message   unsigned char *rptr; // first byte with real data in the DataBuffer   unsigned char *wptr; // last+1 byte with real data in the DataBuffer   SInt32 version;
+  UInt32 metadata[4]; // usage defined by message sender   SInt32 flags;       // reserved   long reserved3;
   long reserved4;
   long reserved5;
 
   UInt32 moreMeta[8];
 };
 typedef struct QTSStreamBuffer QTSStreamBuffer;
-/* flags for QTSDuplicateMessage*/
-enum {
+// flags for QTSDuplicateMessageenum {
   kQTSDuplicateBufferFlag_CopyData = 0x00000001,
   kQTSDuplicateBufferFlag_FlattenMessage = 0x00000002
 };
@@ -2071,11 +1923,10 @@ void
 QTSStreamBufferDataInfo(QTSStreamBuffer *inStreamBuffer,
                         unsigned char **outDataStart, UInt32 *outDataMaxLength);
 
-/* ---- old calls (don't use these)*/
-
+// ---- old calls (don't use these)
 /**
  *  QTSAllocBuffer()
- *
+// flags in
 
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -2084,10 +1935,10 @@ QTSStreamBufferDataInfo(QTSStreamBuffer *inStreamBuffer,
  */
 QTSStreamBuffer *
 QTSAllocBuffer(SInt32 inSize);
-
+// currently not supported for alloc
 /**
  *  QTSDupMessage()
- *
+// flags out
 
  *    \non_carbon_cfm   in QTStreamLib 4.0 and later
  *    \carbon_lib        in CarbonLib 1.1 and later
@@ -2133,12 +1984,12 @@ QTSFlattenMessage(QTSStreamBuffer *inMessage);
  *    \mac_os_x         in version 10.0 and later
  *    Windows:          in QTSClient.lib 4.0 and later
  */
-Boolean
-QTSGetErrorString(SInt32 inErrorCode, UInt32 inMaxErrorStringLength,
-                  char *outErrorString, SInt32 inFlags);
+Boolean// next message block in a message 
+QTSGetErrorString(SInt3// first byte with real data in the DataBuffer 
+                  char // last+1 byte with real data in the DataBuffer 
 
-/**
- *  QTSInitializeMediaParams()
+/**// usage defined by message sender 
+ *  QTSInitializeMedia// reserved 
  *
 
  *    \non_carbon_cfm   in QTStreamLib 5.0.1 and later
@@ -2146,12 +1997,11 @@ QTSGetErrorString(SInt32 inErrorCode, UInt32 inMaxErrorStringLength,
  X version 10.1 and later
  *    \mac_os_x         in version 10.1 and later
  *    Windows:          in QTSClient.lib 5.0.1 and later
- */
+// flags for QTSDuplicateMessage
 OSErr
 QTSInitializeMediaParams(QTSMediaParams *inMediaParams);
 
-/* UPP call backs */
-/**
+// UPP call backs /**
  *  NewQTSNotificationUPP()
  *
 
@@ -2164,8 +2014,7 @@ NewQTSNotificationUPP(QTSNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTSNotificationProcInfo = 0x00003FF0
-}; /* pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline QTSNotificationUPP
 NewQTSNotificationUPP(QTSNotificationProcPtr userRoutine) {
   return (QTSNotificationUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -2193,8 +2042,7 @@ NewQTSPanelFilterUPP(QTSPanelFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTSPanelFilterProcInfo = 0x000003D0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // pascal 1_byte Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline QTSPanelFilterUPP
 NewQTSPanelFilterUPP(QTSPanelFilterProcPtr userRoutine) {
   return (QTSPanelFilterUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -2222,9 +2070,8 @@ NewQTSModalFilterUPP(QTSModalFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppQTSModalFilterProcInfo = 0x00003FD0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
-inline QTSModalFilterUPP
+}; // pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
+// ---- old calls (don't use these)
 NewQTSModalFilterUPP(QTSModalFilterProcPtr userRoutine) {
   return (QTSModalFilterUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                  uppQTSModalFilterProcInfo,
@@ -2303,7 +2150,7 @@ inline void DisposeQTSModalFilterUPP(QTSModalFilterUPP userUPP) {
  *
 
  *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.3 and later
+// UPP call backs 
  *    \mac_os_x         in version 10.0 and later
  */
 ComponentResult
@@ -2317,7 +2164,7 @@ inline ComponentResult InvokeQTSNotificationUPP(ComponentResult inErr,
                                                 void *inNotificationParams,
                                                 void *inRefCon,
                                                 QTSNotificationUPP userUPP) {
-  return (ComponentResult)CALL_FOUR_PARAMETER_UPP(
+  r// pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
       userUPP, uppQTSNotificationProcInfo, inErr, inNotificationType,
       inNotificationParams, inRefCon);
 }
@@ -2346,7 +2193,7 @@ InvokeQTSPanelFilterUPP(QTSPanelFilterParams *inParams, void *inRefCon,
 inline Boolean InvokeQTSPanelFilterUPP(QTSPanelFilterParams *inParams,
                                        void *inRefCon,
                                        QTSPanelFilterUPP userUPP) {
-  return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppQTSPanelFilterProcInfo,
+  r// pascal 1_byte Func(4_bytes, 4_bytes) 
                                          inParams, inRefCon);
 }
 #else
@@ -2375,7 +2222,7 @@ inline Boolean InvokeQTSModalFilterUPP(DialogPtr inDialog,
                                        SInt16 *ioItemHit, void *inRefCon,
                                        QTSModalFilterUPP userUPP) {
   return (Boolean)CALL_FOUR_PARAMETER_UPP(userUPP, uppQTSModalFilterProcInfo,
-                                          inDialog, inEvent, ioItemHit,
+   // pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
                                           inRefCon);
 }
 #else
@@ -2388,8 +2235,7 @@ inline Boolean InvokeQTSModalFilterUPP(DialogPtr inDialog,
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewQTSNotificationProc(userRoutine) NewQTSNotificationUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewQTSNotificationProc(userRoutine) NewQTSNotificationUPP(userRoutine)
 #define NewQTSPanelFilterProc(userRoutine) NewQTSPanelFilterUPP(userRoutine)
 #define NewQTSModalFilterProc(userRoutine) NewQTSModalFilterUPP(userRoutine)
 #define CallQTSNotificationProc(userRoutine, inErr, inNotificationType,        \
@@ -2401,8 +2247,7 @@ inline Boolean InvokeQTSModalFilterUPP(DialogPtr inDialog,
 #define CallQTSModalFilterProc(userRoutine, inDialog, inEvent, ioItemHit,      \
                                inRefCon)                                       \
   InvokeQTSModalFilterUPP(inDialog, inEvent, ioItemHit, inRefCon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -2421,4 +2266,6 @@ inline Boolean InvokeQTSModalFilterUPP(DialogPtr inDialog,
 }
 #endif
 
-#endif /* __QUICKTIMESTREAMING__ */
+#endif // __QUICKTIMESTREAMING__ // support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+// CALL_NOT_IN_CARBON 
+// __QUICKTIMESTREAMING__ 

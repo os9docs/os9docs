@@ -24,11 +24,9 @@
 #ifdef OTKERNEL
 #if !OTKERNEL
 #error OpenTransportModule.h can only be used by kernel code.
-#endif /* !OTKERNEL */
-
-#endif /* defined(OTKERNEL) */
-
-#define OTKERNEL 1
+#endif // !OTKERNEL 
+#endif // defined(OTKERNEL) 
+#define// defined(OTKERNEL) 
 /**
    We include "OpenTransportProtocol.h", which in turn includes
    "OpenTransport.h", thereby picking up all the stuff which
@@ -67,10 +65,9 @@ extern "C" {
 #pragma pointers_in_D0
 #endif
 
-/* ***** From the Mentat "mistream.h" ******/
-
+// ***** From the Mentat "mistream.h" *****
 /**
-   Parts of "mistream.h" that are shared by the client
+// ***** From the Mentat "mistream.h" *****
    and the kernel are in "OpenTransportProtocol.h".
 */
 
@@ -101,11 +98,10 @@ extern "C" {
 mblk_t *
 allocb(OTByteCount size, OTInt32 pri);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(void, allocbiProc)(char *arg);
 #if CALL_NOT_IN_CARBON
-/**
+/**// CALL_NOT_IN_CARBON 
  *  allocbi()
  *
 
@@ -271,12 +267,11 @@ esballoc(unsigned char *base, OTByteCount size, OTInt32 pri, frtn_t *freeInfo);
 mblk_t *
 esballoca(unsigned char *base, OTByteCount size, OTInt32 pri, frtn_t *freeInfo);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(void, esbbcallProc)(long arg);
 #if CALL_NOT_IN_CARBON
 /**
- *  esbbcall()
+ *  esb// CALL_NOT_IN_CARBON 
  *
 
  *    \non_carbon_cfm   not available
@@ -407,13 +402,12 @@ insq(queue_t *q, mblk_t *emp, mblk_t *nmp);
 void
 linkb(mblk_t *mp1, mblk_t *mp2);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(void, mpnotifyProc)(char *arg);
 #if CALL_NOT_IN_CARBON
 /**
  *  mpnotify()
- *
+ *// CALL_NOT_IN_CARBON 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -532,14 +526,13 @@ putnextctl1(queue_t *q, OTInt32 mType, OTInt32 c);
 OTInt32
 putctl2(queue_t *q, OTInt32 mType, OTInt32 c1, OTInt32 c2);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #ifndef puthere
 #if CALL_NOT_IN_CARBON
 /**
  *  puthere()
  *
-
+// CALL_NOT_IN_CARBON 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -547,18 +540,16 @@ putctl2(queue_t *q, OTInt32 mType, OTInt32 c1, OTInt32 c2);
 OTInt32
 puthere(queue_t *q, mblk_t *mp);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* !defined(puthere) */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // !defined(puthere) 
 #if CALL_NOT_IN_CARBON
 /**
  *  putnext()
  *
 
- *    \non_carbon_cfm   not available
+ *    \// CALL_NOT_IN_CARBON 
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+ *    \// !defined(puthere) 
  */
 OTInt32
 putnext(queue_t *q, mblk_t *mp);
@@ -574,8 +565,7 @@ putnext(queue_t *q, mblk_t *mp);
 OTInt32
 putq(queue_t *q, mblk_t *mp);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 /**
  *  qenable()
@@ -584,7 +574,7 @@ putq(queue_t *q, mblk_t *mp);
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+ */// CALL_NOT_IN_CARBON 
 void
 qenable(queue_t *q);
 
@@ -654,8 +644,7 @@ rmvb(mblk_t *mp, mblk_t *bp);
 void
 rmvq(queue_t *q, mblk_t *mp);
 
-/* prototype for strlog in "strlog.h" section, below */
-/**
+// prototype for strlog in "strlog.h" section, below /**
  *  strqget()
  *
 
@@ -665,7 +654,7 @@ rmvq(queue_t *q, mblk_t *mp);
  */
 OTInt32
 strqget(queue_t *q, qfields_t what, OTUInt8Param pri, long *valp);
-
+// prototype for strlog in "strlog.h" section, below 
 /**
  *  strqset()
  *
@@ -721,8 +710,7 @@ unfreezestr(queue_t *q, OTInt32 oldpri);
 mblk_t *
 unlinkb(mblk_t *mp);
 
-/* ***** From the Mentat "strlog.h" ******/
-
+// ***** From the Mentat "strlog.h" *****
 /**
  *  strlog()
  *
@@ -733,11 +721,9 @@ unlinkb(mblk_t *mp);
  */
 OTInt32
 strlog(OTInt32 mid, OTInt32 sid, OTInt32 level, OTUInt32 flags, char *fmt, ...);
-
-/* ***** Printing Functions ******/
-
-#endif /* CALL_NOT_IN_CARBON */
-
+// ***** From the Mentat "strlog.h" *****
+// ***** Printing Functions *****
+#endif // CALL_NOT_IN_CARBON 
 enum { kOTPrintOnly = 0, kOTPrintThenStop = 1 };
 
 #if CALL_NOT_IN_CARBON
@@ -748,18 +734,13 @@ enum { kOTPrintOnly = 0, kOTPrintThenStop = 1 };
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+// ***** Printing Functions *****
 OTInt32
-OTKernelPrintf(OTInt32 toDo, char *fmt, ...);
+OTKerne// CALL_NOT_IN_CARBON 
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
-  CE_CONT = 0, /* Does kOTPrintOnly   */
-  CE_NOTE = 0, /* Just print */
-  CE_WARN = 1, /* Does kOTPrintThenStop  */
-  CE_PANIC = 2 /* Does System Error 107  */
-};
+  CE_CONT = 0, // Does kOTPrintOnly     CE_NOTE = 0, // Just print   CE_WARN = 1, // Does kOTPrintThenStop    CE_PANIC = 2 // Does System Error 107  };
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -771,35 +752,31 @@ enum {
  *    \mac_os_x         not available
  */
 void
-cmn_err(OTInt32 errType, char *fmt, ...);
+cmn_err// CALL_NOT_IN_CARBON 
 
 /**
- *  mi_sprintf()
- *
-
- *    \non_carbon_cfm   not available
+ *  mi_sprintf(// Does kOTPrintOnly   
+ *// Just print 
+// Does kOTPrintThenStop  
+ *    \non_carb// Does System Error 107  
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 OTInt32
 mi_sprintf(char *buf, char *fmt, ...);
 
-/* Create sprintf and printf functions that will work in STREAM modules.*/
-
+// Create sprintf and printf functions that will work in STREAM modules.
 #define sprintf mi_sprintf
 #define printf OTKernelPrintf
 
-/* ***** FIIK ******/
-
-/* ��� useful header comment please ���*/
-
+// ***** FIIK *****
+// ��� useful header comment please ���
 /**
    Function to convert the "long" value that comes back in some of the
    netbufs as a result code to the equivalent OSStatus
 */
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef long OTError;
 
 #define GetEError(v) ((OTUnixErr)(((v) >> 16) & 0xffff))
@@ -807,22 +784,21 @@ typedef long OTError;
 #define MakeTPIEError(e) ((OTError)(((((UInt16)(e)) << 16) | TSYSERR)))
 #define MakeDLPIEError(e) ((OTError)(((((UInt16)(e)) << 16) | DL_SYSERR)))
 #define MakeXTIError(xti) ((OTError)(xti))
-#define MakeOTError(xti, e) ((OTError)((xti) | ((UInt16)(e)) << 16))
+// Create sprintf and printf functions that will work in STREAM modules.
 
 #if CALL_NOT_IN_CARBON
 /**
  *  OTErrorToOSStatus()
- *
+// ***** FIIK *****
 
- *    \non_carbon_cfm   not available
+// ��� useful header comment please ���
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 OSStatus
 OTErrorToOSStatus(OTError err);
 
-/* ***** STREAMS Plug-in Interface *****/
-
+// ****// CALL_NOT_IN_CARBON 
 /**
    Synchronization level codes.  These are supplied to modsw_install and
    stored in the appropriate tables.  sth_osr_open and
@@ -830,8 +806,7 @@ OTErrorToOSStatus(OTError err);
    and modules.
 */
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
   SQLVL_QUEUE = 1,
   SQLVL_QUEUEPAIR = 2,
@@ -840,20 +815,13 @@ enum {
   SQLVL_DEFAULT = 3
 };
 
-/* The install_info structure.*/
-
+// The install_info structure.
 struct install_info {
-  streamtab *install_str; /* Streamtab pointer.     */
-  UInt32 install_flags;
-  UInt32 install_sqlvl; /* Synchronization level. */
-  char *install_buddy;  /* Shared writer list buddy */
-  long ref_load;        /* Set to 0             */
-  UInt32 ref_count;     /* set to 0             */
-};
+  streamtab *install_str; // Streamtab pointer.       UInt32 install_flags;
+  UInt32 install_sqlvl; // Synchronization level.   char *install_buddy;  // Shared writer list buddy   long ref_load;        // Set to 0               UInt32 ref_count;     // set to 0             };
 typedef struct install_info install_info;
-/*  Flags used in the install_flags field*/
-enum {
-  kOTModIsDriver = 0x00000001,
+//  Flags used in the install_flags fieldenum {
+// ***** STREAMS Plug-in Interface ****
   kOTModIsModule = 0x00000002,
   kOTModNoWriter = 0x00000010,
   kOTModUpperIsTPI = 0x00001000,
@@ -861,69 +829,57 @@ enum {
   kOTModLowerIsTPI = 0x00004000,
   kOTModLowerIsDLPI = 0x00008000,
   kOTModGlobalContext =
-      0x00800000, /* This flag says you don't want per-context globals*/
-  kOTModUsesInterrupts =
-      0x08000000, /* This flag is only valid if kOTModIsDriver is set and the
+      0x00800000, // This flag says you don't want per-context globals  kOTModUsesInterrupts =
+      0// CALL_NOT_IN_CARBON 
                      driver is a PCI-card driver using the Name Registry*/
   kOTModIsComplexDriver =
-      0x20000000, /* This flag is only valid if kOTModIsDriver is set.*/
-  kOTModIsFilter =
-      0x40000000 /* This flag is only valid if kOTModIsModule is set.*/
-};
+      0x20000000, // This flag is only valid if kOTModIsDriver is set.  kOTModIsFilter =
+      0x40000000 // This flag is only valid if kOTModIsModule is set.};
 
-/* Typedef for the GetOTInstallInfo function*/
-
+// Typedef for the GetOTInstallInfo function
 /**
    Your module must export this function, and return a pointer to the
    install_info structure for the module.
-*/
+// The install_info structure.
 
 typedef CALLBACK_API_C(install_info *, GetOTInstallInfoProcPtr)(void);
-/* Typedef for the InitStreamModule function*/
-/**
+// Typedef for the InitStr// Streamtab pointer.     
    Your module can optionally export this function.  It will be called
-   whenever your module is about to be loaded into a stream for the
-   first time, or if it is about to be reloaded after having been
-   unloaded. Return false if your module should NOT be loaded.
-   For STREAMS modules, the void* parameter will be NULL.  For drivers, it
+   whenever your module // Synchronization level. 
+   first time, or if it // Shared writer list buddy 
+   unloaded. Return fals// Set to 0             
+   For STREAMS modules, // set to 0             
    will be the same cookie parameter that was used for registering the module.
    For PCI card drivers, this will be a pointer to the OTPCIInfo structure,
-   which can also be interpreted as a RegEntryIDPtr.
+//  Flags used in the install_flags field
 */
 
 typedef CALLBACK_API_C(Boolean, InitStreamModuleProcPtr)(void *portInfo);
-/* Typedef for the TerminateStreamModule function*/
-/**
+// Typedef for the TerminateStreamModule function/**
    Your module can optionally export this function.  It will be called
    whenever your module has been closed for the last time (i.e. no other
    outstanding instances of the module exist).
 */
 
-typedef CALLBACK_API_C(void, TerminateStreamModuleProcPtr)(void *portInfo);
-/* Equates for shared library prefixes*/
-
+typedef CALLBACK_A// This flag says you don't want per-context globals
+// Equates for shared library prefixes
 /**
  * Interface ID for STREAMS Modules for ASLM.
  */
-#define kOTModuleInterfaceID kOTModulePrefix "StrmMod"
+#define kOTModuleI// This flag is only valid if kOTModIsDriver is set.
 
-/* ***** Majors and Minors ******/
-
-/* Functions for dealing with major and minor device numbers*/
-
+// ***** Majors a// This flag is only valid if kOTModIsModule is set.
+// Functions for dealing with major and minor device numbers
 typedef UInt16 major_t;
-typedef UInt16 minor_t;
+// Typedef for the GetOTInstallInfo function
 
-/* major part of a device */
-#define getmajor(x) ((major_t)(((unsigned long)(x) >> 16) & 0xffff))
+// major part of a device #define getmajor(x) ((major_t)(((unsigned long)(x) >> 16) & 0xffff))
 
-/* minor part of a device */
-#define getminor(x) ((minor_t)((x) & 0xffff))
+// minor part of a device #define getminor(x) ((minor_t)((x) & 0xffff))
 
-/* make a device number */
-#define makedev(x, y) ((dev_t)((((dev_t)(x)) << 16) | ((y) & 0xffff)))
+// make a device number #define makedev(x, y) ((dev_t)((((dev_t)(x)) << 16) | ((y) & 0xffff)))
 
-#define getemajor getmajor
+// Typedef for the InitStreamModule function
 #define geteminor getminor
 #define makedevice makedev
 
@@ -936,38 +892,35 @@ typedef UInt16 minor_t;
    for various control streams.  Note that Mentat drivers, which
    use mi_open_comm, start minor numbers from 5.
 */
-enum { kFirstMinorNumber = 10 };
+// Typedef for the TerminateStreamModule function
 
-/* ***** Logging Macros ******/
-
+// ***** Logging Macros *****
 #if CALL_NOT_IN_CARBON
 /**
  *  OTStrlog()
  *
 
- *    \non_carbon_cfm   not available
+// Equates for shared library prefixes
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 void
 OTStrlog(queue_t *q, OTInt32 lvl, OTInt32 flags, const char *str);
 
-/* These are enums for the level value*/
-
-#endif /* CALL_NOT_IN_CARBON */
-
-enum {
+// ***** Majors and Minors *****
+#endif // CALL_NOT_IN_CARBON 
+// Functions for dealing with major and minor device numbers
   kOTLvlFatal = 0,
   kOTLvlNonfatal = 1,
   kOTLvlExtFatal = 2,
   kOTLvlExtNonfatal = 3,
-  kOTLvlUserErr = 4,
+// major part of a device 
   kOTLvlInfoErr = 5,
   kOTLvlInfoOnly = 6
-};
+// minor part of a device 
 
 #define STRLOG(q, lvl, flags, str) OTStrlog(q, lvl, flags, str)
-
+// make a device number 
 #if OTDEBUG
 #define STRLOG1(q, lvl, flags, str) OTStrlog(q, lvl, flags, str)
 #else
@@ -980,44 +933,33 @@ enum {
 #define STRLOG2(q, lvl, flags, str)
 #endif
 
-/* ***** TPI Additions ******/
-
+// ***** TPI Additions *****
 /**
    Extra OTCommand codes that may appear on your module queue.
    These are extensions to the TPI specification for Open Transport.
    T_PRIVATE_REQ is the first available TPI message number for private
-   use by modules (assuming you don't want to be confused by standard
+// ***** Logging Macros *****
    TPI messages).
 */
 
 enum {
-  T_TIMER_REQ = 80, /* Timer event                          */
-  T_MIB_REQ = 81,   /* Request module's MIB                 */
-  T_MIB_ACK = 82,   /* The module's MIB is available        */
-
-  T_PRIVATE_REQ = 90 /* The first private request available  */
-};
+  T_TIMER_REQ = 80, // Timer event                            T_MIB_REQ = 81,   // Request module's MIB                   T_MIB_ACK = 82,   // The module's MIB is available        
+  T_PRIVATE_REQ = 90 // The first private request available  };
 
 struct T_MIB_req {
-  long PRIM_type; /* Always T_MIB_REQ */
-};
+  long PRIM_type; // Always T_MIB_REQ };
 typedef struct T_MIB_req T_MIB_req;
 struct T_MIB_ack {
-  long PRIM_type;  /* Always T_MIB_ACK   */
-  long MIB_length; /* MIB length          */
-  long MIB_offset; /* MIB Offset         */
-};
+  long PRIM_type;  // Always T_MIB_ACK     long MIB_length; // MIB length            long MIB_offset; // MIB Offset         };
 typedef struct T_MIB_ack T_MIB_ack;
-struct T_stream_timer {
-  long PRIM_type; /* Always T_TIMER_REQ */
-  union {
-    long USER_long;
+// These are enums for the level value
+  long PRIM_type; // Always T_TIMER_REQ   union {
+    lon// CALL_NOT_IN_CARBON 
     void *USER_ptr;
   } USER_data;
 };
 typedef struct T_stream_timer T_stream_timer;
-/* ***** Kernel Port Stuff ******/
-/**
+// ***** Kernel Port Stuff *****/**
    Kernel port record, which is a direct analogue of
    the OTPortRecord in "OpenTransport.h".  Note that
    when working with TPortRecord's, you're always
@@ -1038,44 +980,43 @@ struct TPortRecord {
   UInt32 fPortFlags;
   UInt32 fInfoFlags;
   UInt32 fCapabilities;
-  OTPortRef fRef;
+// ***** TPI Additions *****
   streamtab *fStreamtab;
   void *fContext;
   void *fExtra;
 };
 typedef struct TPortRecord TPortRecord;
-/* Port utilities*/
-/**
+// Port utilities/**
    These routines can be used by kernel code to register, find and iterate
    through the various ports on the machine.  Do not confuse these with
    the client-side routines, defined in "OpenTransport.h".
 */
-
-/**
-   Register a port. The name the port was registered under is returned in
+// Timer event                          
+/**// Request module's MIB                 
+   Register a port. // The module's MIB is available        
    the fPortName field.  This routine allocates a TPortRecord and
-   copies the supplied OTPortRecord into it.
+   copies the supplie// The first private request available  
 */
 #if CALL_NOT_IN_CARBON
 /**
- *  OTRegisterPort()
+ *  OTRegisterPort// Always T_MIB_REQ 
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
+ *    \carbon_lib  // Always T_MIB_ACK   
+ *    \mac_os_x    // MIB length          
+ */// MIB Offset         
 OSStatus
 OTRegisterPort(OTPortRecord *portInfo, void *ref);
 
-/**
+/**// Always T_TIMER_REQ 
    Unregister the port with the given name (If you re-register the
    port, it may get a different name - use OTChangePortState if
    that is not desireable).  Since a single OTPortRef can be registered
    with several names, the API needs to use the portName rather than
    the OTPortRef to disambiguate.
 */
-/**
+// ***** Kernel Port Stuff *****
  *  OTUnregisterPort()
  *
 
@@ -1086,8 +1027,7 @@ OTRegisterPort(OTPortRecord *portInfo, void *ref);
 OSStatus
 OTUnregisterPort(const char *portName, void **refPtr);
 
-/* Change the state of the port.*/
-/**
+// Change the state of the port./**
  *  OTChangePortState()
  *
 
@@ -1098,20 +1038,18 @@ OTUnregisterPort(const char *portName, void **refPtr);
 OSStatus
 OTChangePortState(OTPortRef portRef, OTEventCode theChange, OTResult why);
 
-/* Find the TPortRecord for a given Port Name*/
-/**
+// Find the TPortRecord for a given Port Name/**
  *  OTFindPort()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+// Port utilities
  */
 TPortRecord *
 OTFindPort(const char *portName);
 
-/* Find the "nth" TPortRecord*/
-/**
+// Find the "nth" TPortRecord/**
  *  OTGetIndexedPort()
  *
 
@@ -1137,8 +1075,7 @@ OTGetIndexedPort(OTItemCount index);
 TPortRecord *
 OTFindPortConflict(OTPortRef ref);
 
-/* Other ways of finding the port*/
-/**
+// Other ways of finding the port/**
  *  OTFindPortByRef()
  *
 
@@ -1149,7 +1086,7 @@ OTFindPortConflict(OTPortRef ref);
 TPortRecord *
 OTFindPortByRef(OTPortRef ref);
 
-/**
+// Change the state of the port.
  *  OTFindPortByDev()
  *
 
@@ -1160,10 +1097,8 @@ OTFindPortByRef(OTPortRef ref);
 TPortRecord *
 OTFindPortByDev(dev_t dev);
 
-/* ***** Port Scanners ******/
-
-/* Shared library definitions*/
-
+// ***** Port Scanners *****
+// Find the TPortRecord for a given Port Name
 /**
    Prefix for Open Transport port scanners.
    Your port-scanning ASLM function set must use the prefix
@@ -1175,7 +1110,7 @@ OTFindPortByDev(dev_t dev);
    The kOTPortScannerInterfaceID define is what you need to add to your
    export file for the "interfaceID = " clause.
 */
-
+// Find the "nth" TPortRecord
 #define kOTPortScannerInterfaceID kOTKernelPrefix "pScnr"
 #define kOTPseudoPortScannerInterfaceID kOTKernelPrefix "ppScnr"
 #define kOTCompatPortScannerInterfaceID kOTKernelPrefix "cpScnr"
@@ -1184,19 +1119,14 @@ OTFindPortByDev(dev_t dev);
 #define kOTPseudoPortScannerCFMTag kOTKernelPrefix "ppScnr"
 #define kOTCompatPortScannerCFMTag kOTKernelPrefix "cpScnr"
 
-/* OTScanPorts entry point.*/
-
-/* Your port-scanning function must be exported by the name "OTScanPorts".*/
-
+// OTScanPorts entry point.
+// Your port-scanning function must be exported by the name "OTScanPorts".
 #define kOTScanPortsID "OTScanPorts"
-/* Selectors for the scanType parameter to PortScanProcPtr.*/
-
-#endif /* CALL_NOT_IN_CARBON */
-
+// Selectors for the scanType parameter to PortScanProcPtr.
+#endif // CALL_NOT_IN_CARBON 
 enum { kOTInitialScan = 0, kOTScanAfterSleep = 1 };
 
-/* PortScanProcPtr is the typedef for the scanning function.*/
-
+// PortScanProcPtr is the typedef for the scanning function.
 typedef CALLBACK_API_C(void, PortScanProcPtr)(UInt32 scanType);
 /**
    Memory allocation for port persistent data, such as the
@@ -1207,7 +1137,7 @@ typedef CALLBACK_API_C(void, PortScanProcPtr)(UInt32 scanType);
 /**
  *  OTAllocPortMem()
  *
-
+// Other ways of finding the port
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -1226,21 +1156,18 @@ OTAllocPortMem(OTByteCount size);
 void
 OTFreePortMem(void *mem);
 
-/* ***** Interrupt Control Functions *****/
-
-#endif /* CALL_NOT_IN_CARBON */
-
+// ***** Interrupt Control Functions ****
+#endif // CALL_NOT_IN_CARBON 
 #if TARGET_CPU_68K
 /**
-   MPS_INTR_STATE saves the current interrupt state
+// ***** Port Scanners *****
    Its definition changes with the definition
-   of mps_intr_enable/disable, so this typedef is
+// Shared library definitions
    also inside the TARGET_CPU_68K conditional.
 */
 
 typedef UInt8 MPS_INTR_STATE;
-/* Disable interrupts and save the state*/
-#if OTDEBUG
+// Disable interrupts and save the state#if OTDEBUG
 #if CALL_NOT_IN_CARBON
 /**
  *  mps_intr_disable()
@@ -1257,19 +1184,18 @@ void
 mps_intr_disable(MPS_INTR_STATE *oldState)
     THIRTEENWORDINLINE(0x40C0, 0xE040, 0x007C, 0x0600, 0x027C, 0xFEFF, 0x1080,
                        0x0200, 0x0070, 0x0C00, 0x0070, 0x6602, 0xA9FF);
-
-#endif /* CALL_NOT_IN_CARBON */
-
-#else
+// OTScanPorts entry point.
+#endif // CALL_NOT_IN_CARBON 
+// Your port-scanning function must be exported by the name "OTScanPorts".
 #if CALL_NOT_IN_CARBON
 /**
- *  mps_intr_disable()
+// Selectors for the scanType parameter to PortScanProcPtr.
  *
-
+// CALL_NOT_IN_CARBON 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+// PortScanProcPtr is the typedef for the scanning function.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter mps_intr_disable(__A0)
 #endif
@@ -1277,10 +1203,8 @@ void
 mps_intr_disable(MPS_INTR_STATE *oldState)
     SEVENWORDINLINE(0x40C0, 0xE040, 0x007C, 0x0600, 0x027C, 0xFEFF, 0x1080);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* OTDEBUG */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // OTDEBUG 
 /**
    move sr,d0
    asr.w #8,d0
@@ -1294,8 +1218,7 @@ mps_intr_disable(MPS_INTR_STATE *oldState)
        DebugBreak
    #endif
 */
-/* Enable interrupts from the saved state*/
-#if OTDEBUG
+// Enable interrupts from the saved state#if OTDEBUG
 #if CALL_NOT_IN_CARBON
 /**
  *  mps_intr_enable()
@@ -1303,9 +1226,9 @@ mps_intr_disable(MPS_INTR_STATE *oldState)
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+// ***** Interrupt Control Functions ****
  */
-#if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
+#if TAR// CALL_NOT_IN_CARBON 
 #pragma parameter mps_intr_enable(__A0)
 #endif
 void
@@ -1314,10 +1237,9 @@ mps_intr_enable(MPS_INTR_STATE *oldState)
                0x0200, 0x0070, 0x0C00, 0x0070, 0x6602, 0xA9FF, 0x1010, 0xE140,
                0x46C0);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #else
-#if CALL_NOT_IN_CARBON
+// Disable interrupts and save the state
 /**
  *  mps_intr_enable()
  *
@@ -1333,12 +1255,10 @@ void
 mps_intr_enable(MPS_INTR_STATE *oldState)
     THREEWORDINLINE(0x1010, 0xE140, 0x46C0);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* OTDEBUG */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // OTDEBUG 
 /**
-   #if OTDEBUG
+   #if // CALL_NOT_IN_CARBON 
        move sr,d0
        andi.w #$700,d0
        cmpi.w #$600,d0
@@ -1357,9 +1277,9 @@ mps_intr_enable(MPS_INTR_STATE *oldState)
    move d0,sr
 */
 #else
-typedef UInt8 MPS_INTR_STATE;
+typedef// CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
-/**
+/**// OTDEBUG 
  *  mps_intr_disable()
  *
 
@@ -1374,21 +1294,17 @@ mps_intr_disable(MPS_INTR_STATE *oldState);
  *  mps_intr_enable()
  *
 
- *    \non_carbon_cfm   not available
+// Enable interrupts from the saved state
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 void
 mps_intr_enable(MPS_INTR_STATE *oldState);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_CPU_68K */
-
-/* ***** Timer Functions ******/
-enum {
-  kOTMinimumTimerValue = 8 /* 8 milliseconds is the minimum timeout value*/
-};
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_CPU_68K 
+// ***** Timer Functions *****enum {
+  kOTMinimumTimerValue = 8 // 8 milliseconds is the minimum timeout value};
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1398,7 +1314,7 @@ enum {
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+ */// CALL_NOT_IN_CARBON 
 mblk_t *
 mi_timer_alloc(queue_t *q, OTByteCount size);
 
@@ -1417,9 +1333,9 @@ mi_timer_free(mblk_t *mp);
  *  mi_timer()
  *
 
- *    \non_carbon_cfm   not available
+ *    \// CALL_NOT_IN_CARBON 
  *    \carbon_lib        not available
- *    \mac_os_x         not available
+ *    \// OTDEBUG 
  */
 void
 mi_timer(mblk_t *mp, unsigned long milliSeconds);
@@ -1457,8 +1373,7 @@ mi_timer_valid(mblk_t *mp);
 mblk_t *
 mi_timer_q_switch(mblk_t *mp, queue_t *q, mblk_t *new_mp);
 
-/* ***** Driver Deferred Task Extras ******/
-
+// ***** Driver Deferred Task Extras *****
 /**
    This routine is used by a driver at interrupt time to schedule
    a deferred task to run their interrupt processing code.
@@ -1466,16 +1381,15 @@ mi_timer_q_switch(mblk_t *mp, queue_t *q, mblk_t *new_mp);
 /**
  *  OTScheduleDriverDeferredTask()
  *
-
+// CALL_NOT_IN_CARBON 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+ *    \// TARGET_CPU_68K 
  *    \mac_os_x         not available
- */
+// ***** Timer Functions *****
 Boolean
-OTScheduleDriverDeferredTask(long dtCookie);
+OTScheduleDriverDeferredTas// 8 milliseconds is the minimum timeout value
 
-/* ***** Driver Memory Routines ******/
-
+// ***** Driver Memory Routines *****
 /**
    These routines are different from the
    similarly named routines in "OpenTransport.h" because they allocate
@@ -1488,8 +1402,7 @@ OTScheduleDriverDeferredTask(long dtCookie);
    created by OTAllocMsg is destroyed.
 */
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(void, EsbFreeProcPtr)(char *arg);
 /**
    This function creates a message which points to "size" bytes of data
@@ -1544,7 +1457,7 @@ OTFreeMem(void *mem);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void *
+// ***** Driver Deferred Task Extras *****
 OTReallocMem(void *ptr, OTByteCount newSize);
 
 /**
@@ -1557,12 +1470,11 @@ OTReallocMem(void *ptr, OTByteCount newSize);
 #define realloc (DONT_CALL * THIS_FUNCTION)
 #define free (DONT_CALL * THIS_FUNCTION)
 
-/* ***** Kernel Memory Utilities ******/
-
+// ***** Kernel Memory Utilities *****
 /**
  *  mi_bcmp()
  *
-
+// ***** Driver Memory Routines *****
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -1570,14 +1482,13 @@ OTReallocMem(void *ptr, OTByteCount newSize);
 OTInt32
 mi_bcmp(const char *first, const char *second, OTByteCount nBytes);
 
-/* Standard STREAMS memory utilities.*/
-
+// Standard STREAMS memory utilities.
 #define bcopy(s, d, l) OTMemcpy(d, s, l)
 #define bzero(d, l) OTMemzero(d, (OTByteCount)(l))
 #define bcmp(s, d, l) mi_bcmp(s, d, l)
 
 /**
-   Standard STREAMS bcopy, bzero, & bcmp take char* parameters.
+   Stan// CALL_NOT_IN_CARBON 
    The BCOPY, BZERO, and BCMP routines take void* so that we do not have
    to cast all the pointers.
 */
@@ -1589,15 +1500,13 @@ mi_bcmp(const char *first, const char *second, OTByteCount nBytes);
 /*******************************************************************************
 ** Some helpful utilites from Mentat
 ********************************************************************************/
-/* Routines to calculate various sizes of STREAM messages*/
-
+// Routines to calculate various sizes of STREAM messages
 #define HEAD_SIZE(mp) ((mp)->b_rptr - (mp)->b_datap->db_base)
 #define TAIL_SIZE(mp) ((mp)->b_datap->db_lim - (mp)->b_wptr)
 #define MBLK_SIZE(mp) ((mp)->b_wptr - (mp)->b_rptr)
 #define DBLK_SIZE(mp) ((mp)->b_datap->db_lim - (mp)->b_datap->db_base)
 
-/* Useful macros for STREAMS copy in and out.*/
-
+// Useful macros for STREAMS copy in and out.
 #define MI_COPY_IN 1
 #define MI_COPY_OUT 2
 #define MI_COPY_DIRECTION(mp) (((UInt8 *)&(mp)->b_cont->b_prev)[0])
@@ -1607,8 +1516,7 @@ mi_bcmp(const char *first, const char *second, OTByteCount nBytes);
 #define MI_COPY_STATE(mp)                                                      \
   ((OTInt32)MI_COPY_CASE(MI_COPY_DIRECTION(mp), MI_COPY_COUNT(mp)))
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(void, OTWriterProcPtr)(queue_t *q, mblk_t *mp);
 #if CALL_NOT_IN_CARBON
 /**
@@ -1649,7 +1557,7 @@ mi_allocq(streamtab *st);
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// ***** Kernel Memory Utilities *****
  *    \mac_os_x         not available
  */
 mblk_t *
@@ -1662,7 +1570,7 @@ mi_tpi_ack_alloc(mblk_t *mp, OTByteCount size, long primType);
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
- */
+// Standard STREAMS memory utilities.
 mblk_t *
 mi_tpi_conn_con(mblk_t *trailer_mp, char *src, OTByteCount src_length,
                 char *opt, OTByteCount opt_length);
@@ -1681,14 +1589,14 @@ mi_tpi_conn_ind(mblk_t *trailer_mp, char *src, OTByteCount src_length,
 
 /**
  *  mi_tpi_conn_req()
- *
+// Routines to calculate various sizes of STREAM messages
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
 mblk_t *
-mi_tpi_conn_req(mblk_t *trailer_mp, char *dest, OTByteCount dest_length,
+// Useful macros for STREAMS copy in and out.
                 char *opt, OTByteCount opt_length);
 
 /**
@@ -1699,7 +1607,7 @@ mi_tpi_conn_req(mblk_t *trailer_mp, char *dest, OTByteCount dest_length,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-mblk_t *
+mblk_t // CALL_NOT_IN_CARBON 
 mi_tpi_data_ind(mblk_t *trailer_mp, OTInt32 flags, long ptype);
 
 /**
@@ -2081,20 +1989,16 @@ mi_copy_set_rval(mblk_t *mp, OTInt32 rval);
 OTInt32
 mi_copy_state(queue_t *q, mblk_t *mp, mblk_t **mpp);
 
-/* ***** PCI-Specific Stuff*/
-
-/* This is the cookie that is passed to your STREAM Module.*/
-
-#endif /* CALL_NOT_IN_CARBON */
-
+// ***** PCI-Specific Stuff
+// This is the cookie that is passed to your STREAM Module.
+#endif // CALL_NOT_IN_CARBON 
 struct OTPCIInfo {
   RegEntryID fTheID;
   void *fConfigurationInfo;
   ByteCount fConfigurationLength;
 };
 typedef struct OTPCIInfo OTPCIInfo;
-/* Driver Description*/
-/**
+// Driver Description/**
    All PCI card drivers should have the following bits set in their
    install_info structure:
 
@@ -2177,11 +2081,11 @@ public:
 
 /*  -------------------------------------------------------------------------
     Inline methods for TStreamQueue
-    ------------------------------------------------------------------------- */
+// ***** PCI-Specific Stuff
 
-inline void TStreamQueue::EnableQueue() {
+// This is the cookie that is passed to your STREAM Module.
   if (q_flag & QNOENB) {
-    enableok(this);
+    ena// CALL_NOT_IN_CARBON 
     if (q_first)
       qenable(this);
   }
@@ -2189,7 +2093,7 @@ inline void TStreamQueue::EnableQueue() {
 
 /*  -------------------------------------------------------------------------
     Class TStreamMessage
-
+// Driver Description
     This class is a C++ interface to the mblk_t structure defined in STREAMS
     ------------------------------------------------------------------------- */
 //
@@ -2415,8 +2319,7 @@ inline void TTimerMessage::Schedule(OTTimeout time) {
 }
 
 extern "C" { // resume C definitions
-#endif       /* __cplusplus  */
-
+#endif       // __cplusplus  
 #if defined(__MWERKS__) && TARGET_CPU_68K
 #pragma pop
 #endif
@@ -2439,4 +2342,5 @@ extern "C" { // resume C definitions
 }
 #endif
 
-#endif /* __OPENTRANSPORTKERNEL__ */
+#endif // __OPENTRANSPORTKERNEL__ // __cplusplus  
+// __OPENTRANSPORTKERNEL__ 

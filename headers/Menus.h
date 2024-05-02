@@ -88,8 +88,7 @@ extern "C"
    *  Menu Manager
    */
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Menu Constants */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  © Menu Constants   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   enum
   {
     noMark = 0 /* mark symbol for SetItemMark; other mark symbols are defined in
@@ -416,8 +415,7 @@ extern "C"
   */
   enum
   {
-    /* menu defProc messages */
-    kMenuDrawMsg = 0,
+    // menu defProc messages     kMenuDrawMsg = 0,
     kMenuSizeMsg = 2,
     kMenuPopUpMsg = 3,
     kMenuCalcItemMsg = 5,
@@ -426,8 +424,7 @@ extern "C"
               the whichItem parameter*/
     mDrawMsg = 0,
     mSizeMsg = 2,
-    mPopUpMsg = 3, /* position the popup menu rect appropriately */
-    mCalcItemMsg = 5
+    mPopUpMsg = 3, // position the popup menu rect appropriately     mCalcItemMsg = 5
   };
 
 #if CALL_NOT_IN_CARBON
@@ -444,16 +441,14 @@ extern "C"
     kMenuDrawItemMsg = 4
   };
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   enum
   {
     kThemeSavvyMenuResponse = 0x7473 /* should be returned in *whichItem when
                                         handling kMenuThemeSavvyMsg*/
   };
 
-  /* these MDEF messages are only supported in Carbon*/
-  enum
+  // these MDEF messages are only supported in Carbon  enum
   {
     kMenuInitMsg = 8,
     kMenuDisposeMsg = 9,
@@ -472,35 +467,19 @@ extern "C"
     mctLastIDIndic = -99          /*last color table entry has this in ID field*/
   };
 
-  /* Constants for use with MacOS 8.0 (Appearance 1.0) and later*/
-  enum
+  // Constants for use with MacOS 8.0 (Appearance 1.0) and later  enum
   {
     kMenuStdMenuProc = 63,
     kMenuStdMenuBarProc = 63
   };
 
-  /* For use with Get/SetMenuItemModifiers*/
-  enum
+  // For use with Get/SetMenuItemModifiers  enum
   {
-    kMenuNoModifiers = 0,             /* Mask for no modifiers*/
-    kMenuShiftModifier = (1 << 0),    /* Mask for shift key modifier*/
-    kMenuOptionModifier = (1 << 1),   /* Mask for option key modifier*/
-    kMenuControlModifier = (1 << 2),  /* Mask for control key modifier*/
-    kMenuNoCommandModifier = (1 << 3) /* Mask for no command key modifier*/
-  };
+    kMenuNoModifiers = 0,             // Mask for no modifiers    kMenuShiftModifier = (1 << 0),    // Mask for shift key modifier    kMenuOptionModifier = (1 << 1),   // Mask for option key modifier    kMenuControlModifier = (1 << 2),  // Mask for control key modifier    kMenuNoCommandModifier = (1 << 3) // Mask for no command key modifier  };
 
-  /* For use with Get/SetMenuItemIconHandle*/
-  enum
+  // For use with Get/SetMenuItemIconHandle  enum
   {
-    kMenuNoIcon = 0,         /* No icon*/
-    kMenuIconType = 1,       /* Type for ICON*/
-    kMenuShrinkIconType = 2, /* Type for ICON plotted 16 x 16*/
-    kMenuSmallIconType = 3,  /* Type for SICN*/
-    kMenuColorIconType = 4,  /* Type for cicn*/
-    kMenuIconSuiteType = 5,  /* Type for Icon Suite*/
-    kMenuIconRefType = 6,    /* Type for Icon Ref*/
-    kMenuCGImageRefType = 7, /* Type for a CGImageRef (Mac OS X only)*/
-    kMenuSystemIconSelectorType =
+    kMenuNoIcon = 0,         // No icon    kMenuIconType = 1,       // Type for ICON    kMenuShrinkIconType = 2, // Type for ICON plotted 16 x 16    kMenuSmallIconType = 3,  // Type for SICN    kMenuColorIconType = 4,  // Type for cicn    kMenuIconSuiteType = 5,  // Type for Icon Suite    kMenuIconRefType = 6,    // Type for Icon Ref    kMenuCGImageRefType = 7, // Type for a CGImageRef (Mac OS X only)    kMenuSystemIconSelectorType =
         8, /* Type for an IconRef registered with Icon Services under
               kSystemIconsCreator (after Mac OS X 10.0.x only)*/
     kMenuIconResourceType =
@@ -508,74 +487,15 @@ extern "C"
              process (after Mac OS X 10.0.x only)*/
   };
 
-  /* For use with Get/SetMenuItemKeyGlyph*/
-  enum
+  // For use with Get/SetMenuItemKeyGlyph  enum
   {
-    kMenuNullGlyph = 0x00, /* Null (always glyph 1)*/
-    kMenuTabRightGlyph =
-        0x02, /* Tab to the right key (for left-to-right script systems)*/
-    kMenuTabLeftGlyph =
-        0x03,                 /* Tab to the left key (for right-to-left script systems)*/
-    kMenuEnterGlyph = 0x04,   /* Enter key*/
-    kMenuShiftGlyph = 0x05,   /* Shift key*/
-    kMenuControlGlyph = 0x06, /* Control key*/
-    kMenuOptionGlyph = 0x07,  /* Option key*/
-    kMenuSpaceGlyph = 0x09,   /* Space (always glyph 3) key*/
-    kMenuDeleteRightGlyph =
-        0x0A,                             /* Delete to the right key (for right-to-left script systems)*/
-    kMenuReturnGlyph = 0x0B,              /* Return key (for left-to-right script systems)*/
-    kMenuReturnR2LGlyph = 0x0C,           /* Return key (for right-to-left script systems)*/
-    kMenuNonmarkingReturnGlyph = 0x0D,    /* Nonmarking return key*/
-    kMenuPencilGlyph = 0x0F,              /* Pencil key*/
-    kMenuDownwardArrowDashedGlyph = 0x10, /* Downward dashed arrow key*/
-    kMenuCommandGlyph = 0x11,             /* Command key*/
-    kMenuCheckmarkGlyph = 0x12,           /* Checkmark key*/
-    kMenuDiamondGlyph = 0x13,             /* Diamond key*/
-    kMenuAppleLogoFilledGlyph = 0x14,     /* Apple logo key (filled)*/
-    kMenuParagraphKoreanGlyph = 0x15,     /* Unassigned (paragraph in Korean)*/
-    kMenuDeleteLeftGlyph =
-        0x17,                          /* Delete to the left key (for left-to-right script systems)*/
-    kMenuLeftArrowDashedGlyph = 0x18,  /* Leftward dashed arrow key*/
-    kMenuUpArrowDashedGlyph = 0x19,    /* Upward dashed arrow key*/
-    kMenuRightArrowDashedGlyph = 0x1A, /* Rightward dashed arrow key*/
-    kMenuEscapeGlyph = 0x1B,           /* Escape key*/
-    kMenuClearGlyph = 0x1C,            /* Clear key*/
-    kMenuLeftDoubleQuotesJapaneseGlyph =
-        0x1D, /* Unassigned (left double quotes in Japanese)*/
-    kMenuRightDoubleQuotesJapaneseGlyph =
-        0x1E,                           /* Unassigned (right double quotes in Japanese)*/
-    kMenuTrademarkJapaneseGlyph = 0x1F, /* Unassigned (trademark in Japanese)*/
-    kMenuBlankGlyph = 0x61,             /* Blank key*/
-    kMenuPageUpGlyph = 0x62,            /* Page up key*/
-    kMenuCapsLockGlyph = 0x63,          /* Caps lock key*/
-    kMenuLeftArrowGlyph = 0x64,         /* Left arrow key*/
-    kMenuRightArrowGlyph = 0x65,        /* Right arrow key*/
-    kMenuNorthwestArrowGlyph = 0x66,    /* Northwest arrow key*/
-    kMenuHelpGlyph = 0x67,              /* Help key*/
-    kMenuUpArrowGlyph = 0x68,           /* Up arrow key*/
-    kMenuSoutheastArrowGlyph = 0x69,    /* Southeast arrow key*/
-    kMenuDownArrowGlyph = 0x6A,         /* Down arrow key*/
-    kMenuPageDownGlyph = 0x6B,          /* Page down key*/
-    kMenuAppleLogoOutlineGlyph = 0x6C,  /* Apple logo key (outline)*/
-    kMenuContextualMenuGlyph = 0x6D,    /* Contextual menu key*/
-    kMenuPowerGlyph = 0x6E,             /* Power key*/
-    kMenuF1Glyph = 0x6F,                /* F1 key*/
-    kMenuF2Glyph = 0x70,                /* F2 key*/
-    kMenuF3Glyph = 0x71,                /* F3 key*/
-    kMenuF4Glyph = 0x72,                /* F4 key*/
-    kMenuF5Glyph = 0x73,                /* F5 key*/
-    kMenuF6Glyph = 0x74,                /* F6 key*/
-    kMenuF7Glyph = 0x75,                /* F7 key*/
-    kMenuF8Glyph = 0x76,                /* F8 key*/
-    kMenuF9Glyph = 0x77,                /* F9 key*/
-    kMenuF10Glyph = 0x78,               /* F10 key*/
-    kMenuF11Glyph = 0x79,               /* F11 key*/
-    kMenuF12Glyph = 0x7A,               /* F12 key*/
-    kMenuF13Glyph = 0x87,               /* F13 key*/
-    kMenuF14Glyph = 0x88,               /* F14 key*/
-    kMenuF15Glyph = 0x89,               /* F15 key*/
-    kMenuControlISOGlyph = 0x8A         /* Control key (ISO standard)*/
-  };
+    kMenuNullGlyph = 0x00, // Null (always glyph 1)    kMenuTabRightGlyph =
+        0x02, // Tab to the right key (for left-to-right script systems)    kMenuTabLeftGlyph =
+        0x03,                 // Tab to the left key (for right-to-left script systems)    kMenuEnterGlyph = 0x04,   // Enter key    kMenuShiftGlyph = 0x05,   // Shift key    kMenuControlGlyph = 0x06, // Control key    kMenuOptionGlyph = 0x07,  // Option key    kMenuSpaceGlyph = 0x09,   // Space (always glyph 3) key    kMenuDeleteRightGlyph =
+        0x0A,                             // Delete to the right key (for right-to-left script systems)    kMenuReturnGlyph = 0x0B,              // Return key (for left-to-right script systems)    kMenuReturnR2LGlyph = 0x0C,           // Return key (for right-to-left script systems)    kMenuNonmarkingReturnGlyph = 0x0D,    // Nonmarking return key    kMenuPencilGlyph = 0x0F,              // Pencil key    kMenuDownwardArrowDashedGlyph = 0x10, // Downward dashed arrow key    kMenuCommandGlyph = 0x11,             // Command key    kMenuCheckmarkGlyph = 0x12,           // Checkmark key    kMenuDiamondGlyph = 0x13,             // Diamond key    kMenuAppleLogoFilledGlyph = 0x14,     // Apple logo key (filled)    kMenuParagraphKoreanGlyph = 0x15,     // Unassigned (paragraph in Korean)    kMenuDeleteLeftGlyph =
+        0x17,                          // Delete to the left key (for left-to-right script systems)    kMenuLeftArrowDashedGlyph = 0x18,  // Leftward dashed arrow key    kMenuUpArrowDashedGlyph = 0x19,    // Upward dashed arrow key    kMenuRightArrowDashedGlyph = 0x1A, // Rightward dashed arrow key    kMenuEscapeGlyph = 0x1B,           // Escape key    kMenuClearGlyph = 0x1C,            // Clear key    kMenuLeftDoubleQuotesJapaneseGlyph =
+        0x1D, // Unassigned (left double quotes in Japanese)    kMenuRightDoubleQuotesJapaneseGlyph =
+        0x1E,                           // Unassigned (right double quotes in Japanese)    kMenuTrademarkJapaneseGlyph = 0x1F, // Unassigned (trademark in Japanese)    kMenuBlankGlyph = 0x61,             // Blank key    kMenuPageUpGlyph = 0x62,            // Page up key    kMenuCapsLockGlyph = 0x63,          // Caps lock key    kMenuLeftArrowGlyph = 0x64,         // Left arrow key    kMenuRightArrowGlyph = 0x65,        // Right arrow key    kMenuNorthwestArrowGlyph = 0x66,    // Northwest arrow key    kMenuHelpGlyph = 0x67,              // Help key    kMenuUpArrowGlyph = 0x68,           // Up arrow key    kMenuSoutheastArrowGlyph = 0x69,    // Southeast arrow key    kMenuDownArrowGlyph = 0x6A,         // Down arrow key    kMenuPageDownGlyph = 0x6B,          // Page down key    kMenuAppleLogoOutlineGlyph = 0x6C,  // Apple logo key (outline)    kMenuContextualMenuGlyph = 0x6D,    // Contextual menu key    kMenuPowerGlyph = 0x6E,             // Power key    kMenuF1Glyph = 0x6F,                // F1 key    kMenuF2Glyph = 0x70,                // F2 key    kMenuF3Glyph = 0x71,                // F3 key    kMenuF4Glyph = 0x72,                // F4 key    kMenuF5Glyph = 0x73,                // F5 key    kMenuF6Glyph = 0x74,                // F6 key    kMenuF7Glyph = 0x75,                // F7 key    kMenuF8Glyph = 0x76,                // F8 key    kMenuF9Glyph = 0x77,                // F9 key    kMenuF10Glyph = 0x78,               // F10 key    kMenuF11Glyph = 0x79,               // F11 key    kMenuF12Glyph = 0x7A,               // F12 key    kMenuF13Glyph = 0x87,               // F13 key    kMenuF14Glyph = 0x88,               // F14 key    kMenuF15Glyph = 0x89,               // F15 key    kMenuControlISOGlyph = 0x8A         // Control key (ISO standard)  };
 
   /**
    *  MenuAttributes
@@ -743,8 +663,7 @@ extern "C"
   };
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Menu Types */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  © Menu Types   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   typedef SInt16 MenuID;
   typedef UInt16 MenuItemIndex;
   typedef UInt32 MenuCommand;
@@ -777,10 +696,8 @@ extern "C"
   typedef MenuPtr *MenuHandle;
 #else
 typedef struct OpaqueMenuHandle *MenuHandle;
-#endif /* !OPAQUE_TOOLBOX_STRUCTS */
-
-  /* MenuRef and MenuHandle are equivalent. Use either. We don't care.*/
-  typedef MenuHandle MenuRef;
+#endif // !OPAQUE_TOOLBOX_STRUCTS 
+  // MenuRef and MenuHandle are equivalent. Use either. We don't care.  typedef MenuHandle MenuRef;
   typedef Handle MenuBarHandle;
   struct MCEntry
   {
@@ -811,8 +728,7 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   typedef MenuCRsrc *MenuCRsrcPtr;
   typedef MenuCRsrcPtr *MenuCRsrcHandle;
 #if TARGET_OS_WIN32
-  /* QuickTime 3.0 */
-  struct MenuAccessKeyRec
+  // QuickTime 3.0   struct MenuAccessKeyRec
   {
     short count;
     long flags;
@@ -833,10 +749,8 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   void
   SetMenuItemHotKey(MenuRef menu, short itemID, char hotKey, long flags);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_WIN32 */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_OS_WIN32 
   /**
    *  MenuTrackingData
    *
@@ -1175,12 +1089,9 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   typedef MenuItemDataRec *MenuItemDataPtr;
   typedef UInt32 MenuItemID;
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Menu ProcPtrs */
-  /*                                                                                      */
-  /*  All of these procs are considered deprecated.  Developers interested in
+  //  © Menu ProcPtrs   //                                                                                        /*  All of these procs are considered deprecated.  Developers interested in
    * portability */
-  /*  to Carbon should avoid them entirely, if at all possible. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  to Carbon should avoid them entirely, if at all possible.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   typedef CALLBACK_API(void, MenuDefProcPtr)(short message, MenuRef theMenu,
                                              Rect *menuRect, Point hitPt,
                                              short *whichItem);
@@ -1264,13 +1175,11 @@ typedef struct OpaqueMenuHandle *MenuHandle;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewMenuDefProc(userRoutine) NewMenuDefUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewMenuDefProc(userRoutine) NewMenuDefUPP(userRoutine)
 #define CallMenuDefProc(userRoutine, message, theMenu, menuRect, hitPt, \
                         whichItem)                                      \
   InvokeMenuDefUPP(message, theMenu, menuRect, hitPt, whichItem, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   typedef CALLBACK_API(long, MenuBarDefProcPtr)(short selector, short message,
                                                 short parameter1,
                                                 long parameter2);
@@ -1294,8 +1203,7 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   enum
   {
     uppMenuBarDefProcInfo = 0x00003AB0
-  }; /* pascal 4_bytes Func(2_bytes, 2_bytes, 2_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(2_bytes, 2_bytes, 2_bytes, 4_bytes) #ifdef __cplusplus
   inline MenuBarDefUPP NewMenuBarDefUPP(MenuBarDefProcPtr userRoutine)
   {
     return (MenuBarDefUPP)NewRoutineDescriptor(
@@ -1322,8 +1230,7 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   enum
   {
     uppMenuHookProcInfo = 0x00000000
-  }; /* pascal no_return_value Func() */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func() #ifdef __cplusplus
   inline MenuHookUPP NewMenuHookUPP(MenuHookProcPtr userRoutine)
   {
     return (MenuHookUPP)NewRoutineDescriptor(
@@ -1350,8 +1257,7 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   enum
   {
     uppMBarHookProcInfo = 0x000000CF
-  }; /* SPECIAL_CASE_PROCINFO(12) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(12) #ifdef __cplusplus
   inline MBarHookUPP NewMBarHookUPP(MBarHookProcPtr userRoutine)
   {
     return (MBarHookUPP)NewRoutineDescriptor(
@@ -1499,11 +1405,9 @@ typedef struct OpaqueMenuHandle *MenuHandle;
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewMenuBarDefProc(userRoutine) NewMenuBarDefUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewMenuBarDefProc(userRoutine) NewMenuBarDefUPP(userRoutine)
 #define NewMenuHookProc(userRoutine) NewMenuHookUPP(userRoutine)
 #define NewMBarHookProc(userRoutine) NewMBarHookUPP(userRoutine)
 #define CallMenuBarDefProc(userRoutine, selector, message, parameter1, \
@@ -1512,12 +1416,10 @@ typedef struct OpaqueMenuHandle *MenuHandle;
 #define CallMenuHookProc(userRoutine) InvokeMenuHookUPP(userRoutine)
 #define CallMBarHookProc(userRoutine, menuRect) \
   InvokeMBarHookUPP(menuRect, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   enum
   {
-    kMenuDefProcPtr = 0 /* raw proc-ptr access based on old MDEF */
-  };
+    kMenuDefProcPtr = 0 // raw proc-ptr access based on old MDEF   };
 
   typedef UInt32 MenuDefType;
   struct MenuDefSpec
@@ -1531,8 +1433,7 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   typedef struct MenuDefSpec MenuDefSpec;
   typedef MenuDefSpec *MenuDefSpecPtr;
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-/*  © Menu Manager Initialization */
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+//  © Menu Manager Initialization /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 #if CALL_NOT_IN_CARBON
   /**
    *  InitProcMenu()
@@ -1557,10 +1458,8 @@ typedef struct OpaqueMenuHandle *MenuHandle;
   InitMenus(void) ONEWORDINLINE(0xA930);
 
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-/*  © Menu Manipulation */
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-#endif /* CALL_NOT_IN_CARBON */
-
+//  © Menu Manipulation /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  NewMenu()
    *
@@ -1636,8 +1535,7 @@ See GetItem for an example of usage.
   UInt16
   CountMItems(MenuRef theMenu) ONEWORDINLINE(0xA950);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  CountMenuItems()
    *
@@ -2051,9 +1949,7 @@ See GetItem for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   OSStatus
-  GetMenuTitleIcon(MenuRef inMenu, UInt32 *outType, /* can be NULL */
-                   void **outIcon);                 /* can be NULL */
-
+  GetMenuTitleIcon(MenuRef inMenu, UInt32 *outType, // can be NULL                    void **outIcon);                 // can be NULL 
   /**
    *  InvalidateMenuSize()
    *
@@ -2108,8 +2004,7 @@ See GetItem for an example of usage.
   IsMenuSizeInvalid(MenuRef inMenu);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  ©©MDEF support */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  ©©MDEF support   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  EraseMenuBackground()
    *
@@ -2144,8 +2039,7 @@ See GetItem for an example of usage.
    */
   OSStatus
   EraseMenuBackground(MenuRef inMenu, const Rect *inEraseRect,
-                      CGContextRef inContext); /* can be NULL */
-
+                      CGContextRef inContext); // can be NULL 
   /**
    *  ScrollMenuImage()
    *
@@ -2185,11 +2079,9 @@ See GetItem for an example of usage.
    */
   OSStatus
   ScrollMenuImage(MenuRef inMenu, const Rect *inScrollRect, int inHScroll,
-                  int inVScroll, CGContextRef inContext); /* can be NULL */
-
+                  int inVScroll, CGContextRef inContext); // can be NULL 
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-/*  © Menu Item Insertion */
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+//  © Menu Item Insertion /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 /**
  *  [Mac]AppendMenu()
  *
@@ -2406,8 +2298,7 @@ See GetItem for an example of usage.
   AppendMenuItemTextWithCFString(MenuRef inMenu, CFStringRef inString,
                                  MenuItemAttributes inAttributes,
                                  MenuCommand inCommandID,
-                                 MenuItemIndex *outNewItem); /* can be NULL */
-
+                                 MenuItemIndex *outNewItem); // can be NULL 
   /**
    *  InsertMenuItemTextWithCFString()
    *
@@ -2452,8 +2343,7 @@ See GetItem for an example of usage.
                                  MenuCommand inCommandID);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Menu Events */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  © Menu Events   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  MenuKey()
    *
@@ -2565,9 +2455,7 @@ garbage unless your custom code puts the information into that variable.
    */
   Boolean
   IsMenuKeyEvent(MenuRef inStartMenu, EventRef inEvent,
-                 MenuEventOptions inOptions, MenuRef *outMenu, /* can be NULL */
-                 MenuItemIndex *outMenuItem);                  /* can be NULL */
-
+                 MenuEventOptions inOptions, MenuRef *outMenu, // can be NULL                  MenuItemIndex *outMenuItem);                  // can be NULL 
   /**
    *  InvalidateMenuEnabling()
    *
@@ -2605,8 +2493,7 @@ garbage unless your custom code puts the information into that variable.
   InvalidateMenuEnabling(MenuRef inMenu);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Menu Bar */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  © Menu Bar   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 
   /**
   \brief Fetch the height of the menu bar
@@ -2846,8 +2733,7 @@ MenuFlash =blinkCount ;
   void
   SetMenuFlash(short count) ONEWORDINLINE(0xA94A);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  SetMenuFlashCount()
    *
@@ -2877,8 +2763,7 @@ MenuFlash =blinkCount ;
   void
   FlashMenuBar(MenuID menuID) ONEWORDINLINE(0xA94C);
 
-/* These are obsolete because Carbon does not support desk accessories.*/
-#if CALL_NOT_IN_CARBON
+// These are obsolete because Carbon does not support desk accessories.#if CALL_NOT_IN_CARBON
   /**
    *  SystemEdit()
    *
@@ -2901,8 +2786,7 @@ MenuFlash =blinkCount ;
   void
   SystemMenu(long menuResult) ONEWORDINLINE(0xA9B5);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  IsMenuBarVisible()
    *
@@ -2979,8 +2863,7 @@ MenuFlash =blinkCount ;
   SetRootMenu(MenuRef inMenu);
 
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-/*  © Menu Item Accessors */
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+//  © Menu Item Accessors /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 #if CALL_NOT_IN_CARBON
   /**
    *  CheckItem()
@@ -2996,8 +2879,7 @@ MenuFlash =blinkCount ;
   void
   CheckItem(MenuRef theMenu, short item, Boolean checked) ONEWORDINLINE(0xA945);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
  *  [Mac]CheckMenuItem()
  *
@@ -3145,9 +3027,7 @@ For instance, a menu item named Close MyFile , seen when only one
 window is open, might be changed to Close Window (a submenu title)
 when two or more windows are open.
 MenuHandle  windowsSubMenu, otherMenu;
-/* after user has opened a second window */
-  /* create submenu with two entries ... */
-  windowsSubMenu = NewMenu(SMID_CLWIND, "\pClose Window");
+// after user has opened a second window   // create submenu with two entries ...   windowsSubMenu = NewMenu(SMID_CLWIND, "\pClose Window");
   AppendMenu(windowsSubMenu, "\pMyFile");
   </ pre>
               * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -3157,7 +3037,7 @@ MenuHandle  windowsSubMenu, otherMenu;
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           void
           SetItemCmd(MenuRef theMenu, short item, CharParameter cmdChar)
               ONEWORDINLINE(0xA84F);
@@ -3214,8 +3094,7 @@ needed rarely.
   void
   SetItemIcon(MenuRef theMenu, short item, short iconIndex) ONEWORDINLINE(0xA940);
 
-  /* icon is returned in high byte of 16-bit iconIndex */
-
+  // icon is returned in high byte of 16-bit iconIndex 
   /**
   \brief See which icon, if any, is attached to a menu item
 
@@ -3269,9 +3148,7 @@ Manager will overwrite the byte above it.
   void
   GetItemStyle(MenuRef theMenu, short item, Style *chStyle);
 
-/* These APIs are not supported in Carbon. Please use EnableMenuItem and */
-/* DisableMenuItem (available back through Mac OS 8.5) instead.          */
-#if CALL_NOT_IN_CARBON
+// These APIs are not supported in Carbon. Please use EnableMenuItem and // DisableMenuItem (available back through Mac OS 8.5) instead.          #if CALL_NOT_IN_CARBON
 
   /**
   \brief Dim a menu or a menu item; make non-selectable
@@ -3302,8 +3179,7 @@ This works by clearing bit number whichItem  in the enableFlags field of
 the relevant MenuInfo structure. For instance, the following calls are
 functionally equivalent:
 DisableItem ( myMenu, 2 );
-(*myMenu)-> enableFlags &= ~4; /* clear bit 2 */
-  All menus and items are implicitly enabled when inserted into the menu
+(*myMenu)-> enableFlags &= ~4; // clear bit 2   All menus and items are implicitly enabled when inserted into the menu
       unless explicitly disabled by including the " (" metacharacter in the item
           text.Items with IDs higher than 31 are always enabled,
       since there is no
@@ -3344,8 +3220,7 @@ This works by setting bit number whichItem  in the enableFlags field of the
 relevant MenuInfo structure. For instance, the following calls are
 functionally equivalent:
 EnableItem ( myMenu, 2 );
-(*myMenu)->enableFlags |= 4; /* set bit 2 */
-  All menus and items are enabled when inserted into the menu unless
+(*myMenu)->enableFlags |= 4; // set bit 2   All menus and items are enabled when inserted into the menu unless
               explicitly disabled by including the " (" metacharacter in the item text.Items with IDs higher than 31 are always enabled.</ pre>
                   * \copyright THINK Reference © 1991 -
           1992 Symantec Corporation
@@ -3356,8 +3231,7 @@ EnableItem ( myMenu, 2 );
           void
           EnableItem(MenuRef theMenu, short item) ONEWORDINLINE(0xA939);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  SetMenuItemCommandID()
    *
@@ -3529,8 +3403,7 @@ EnableItem ( myMenu, 2 );
   GetMenuItemRefCon(MenuRef inMenu, SInt16 inItem, UInt32 *outRefCon)
       THREEWORDINLINE(0x303C, 0x050B, 0xA825);
 
-/* Please use the menu item property APIs in Carbon.*/
-#if CALL_NOT_IN_CARBON
+// Please use the menu item property APIs in Carbon.#if CALL_NOT_IN_CARBON
   /**
    *  SetMenuItemRefCon2()
    *
@@ -3555,8 +3428,7 @@ EnableItem ( myMenu, 2 );
   GetMenuItemRefCon2(MenuRef inMenu, SInt16 inItem, UInt32 *outRefCon2)
       THREEWORDINLINE(0x303C, 0x0512, 0xA825);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  SetMenuItemKeyGlyph()
    *
@@ -3692,8 +3564,7 @@ EnableItem ( myMenu, 2 );
    */
   OSStatus
   SetMenuItemHierarchicalMenu(MenuRef inMenu, MenuItemIndex inItem,
-                              MenuRef inHierMenu); /* can be NULL */
-
+                              MenuRef inHierMenu); // can be NULL 
   /**
    *  GetMenuItemHierarchicalMenu()
    *
@@ -3945,12 +3816,9 @@ EnableItem ( myMenu, 2 );
                         Boolean inSetVirtualKey, UInt16 inKey);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Menu Item Color Tables */
-  /*                                                                                      */
-  /*  Menu color manipulation is considered deprecated with the advent of the
+  //  © Menu Item Color Tables   //                                                                                        /*  Menu color manipulation is considered deprecated with the advent of the
    * Appearance  */
-  /*  Manager.  Avoid using these routines if possible */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  Manager.  Avoid using these routines if possible   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  DeleteMCEntries()
    *
@@ -4013,13 +3881,9 @@ memory (see TrapWords ), you should make a copy:
 MCEntry myMCE;
 MCEntryPtr ptrMCE;
 ptrMCE = GetMCEntry ( mnuFile, itmSave );
-myMCE = *ptrMCE; /* make a duplicate */
-  myMCE.mctRGB2.red = 0xFFFF; /* change something in the copy*/
-  myMCE.mctRGB2.green = 0;
+myMCE = *ptrMCE; // make a duplicate   myMCE.mctRGB2.red = 0xFFFF; // change something in the copy  myMCE.mctRGB2.green = 0;
   myMCE.mctRGB2.blue = 0;
-  MyHeapScramble();        /* do something to move memory */
-  SetMCEntries(1, &myMCE); /* NOT ptrMCE; may have moved */
-  Use GetMCInfo to get a copy of the entire menu color table.</ pre>
+  MyHeapScramble();        // do something to move memory   SetMCEntries(1, &myMCE); // NOT ptrMCE; may have moved   Use GetMCInfo to get a copy of the entire menu color table.</ pre>
               * \copyright THINK Reference © 1991 -
           1992 Symantec Corporation
               *    \non_carbon_cfm in InterfaceLib 7.1 and
@@ -4028,7 +3892,7 @@ myMCE = *ptrMCE; /* make a duplicate */
       later
           *    \mac_os_x in version 10.0 and
       later
-              * /
+            */
           MCEntryPtr
           GetMCEntry(MenuID menuID, short menuItem) ONEWORDINLINE(0xAA64);
 
@@ -4044,19 +3908,15 @@ myMCE = *ptrMCE; /* make a duplicate */
   SetMCEntries(short numEntries, MCTablePtr menuCEntries) ONEWORDINLINE(0xAA65);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /* © Properties  (Mac OS 8.5 and later) */
-  /*                                                                                      */
-  /* With the following property APIs, you can attach any piece of data you'd like
+  // © Properties  (Mac OS 8.5 and later)   //                                                                                        /* With the following property APIs, you can attach any piece of data you'd like
    * to a   */
   /* menu or menu item. Passing zero for the item number parameter indicates you'd
    * like   */
-  /* to attach the data to the menu itself, and not to any specific menu item. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // to attach the data to the menu itself, and not to any specific menu item.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   enum
   {
     kMenuPropertyPersistent =
-        0x00000001 /* whether this property gets saved when flattening the menu*/
-  };
+        0x00000001 // whether this property gets saved when flattening the menu  };
 
   /**
    *  GetMenuItemProperty()
@@ -4168,7 +4028,7 @@ myMCE = *ptrMCE; /* make a duplicate */
    *    attributesToClear:
    *      The attributes to remove from the menu item property.
    *
-
+*/
    *    \non_carbon_cfm   not available
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
@@ -4180,10 +4040,7 @@ myMCE = *ptrMCE; /* make a duplicate */
                                    UInt32 attributesToClear);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Attributes (Carbon and later) */
-  /*                                                                                      */
-  /*  Each menu and menu item has attribute flags. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  © Attributes (Carbon and later)   //                                                                                        //  Each menu and menu item has attribute flags.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  GetMenuAttributes()
    *
@@ -4289,10 +4146,7 @@ myMCE = *ptrMCE; /* make a duplicate */
                            MenuItemAttributes clearTheseAttributes);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Mass menu item enabling and disabling (Carbon and later) */
-  /*                                                                                      */
-  /*  Useful when rewriting code that modifies the enableFlags field directly. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  © Mass menu item enabling and disabling (Carbon and later)   //                                                                                        //  Useful when rewriting code that modifies the enableFlags field directly.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  DisableAllMenuItems()
    *
@@ -4370,12 +4224,9 @@ myMCE = *ptrMCE; /* make a duplicate */
   MenuHasEnabledItems(MenuRef theMenu);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Menu tracking status (Carbon and later) */
-  /*                                                                                      */
-  /*  Get info about the selected menu item during menu tracking. Replaces direct
+  //  © Menu tracking status (Carbon and later)   //                                                                                        /*  Get info about the selected menu item during menu tracking. Replaces direct
    * access  */
-  /*  to low-mem globals that previously held this info. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  to low-mem globals that previously held this info.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  GetMenuTrackingData()
    *
@@ -4443,12 +4294,9 @@ myMCE = *ptrMCE; /* make a duplicate */
   GetMenuType(MenuRef theMenu, UInt16 *outType);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  ©©Universal command ID access (Carbon and later) */
-  /*                                                                                      */
-  /*  These APIs allow you to operate on menu items strictly by command ID, with
+  //  ©©Universal command ID access (Carbon and later)   //                                                                                        /*  These APIs allow you to operate on menu items strictly by command ID, with
    * no       */
-  /*  knowledge of a menu item's index. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  knowledge of a menu item's index.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  CountMenuItemsWithCommandID()
    *
@@ -4526,9 +4374,7 @@ myMCE = *ptrMCE; /* make a duplicate */
   OSStatus
   GetIndMenuItemWithCommandID(MenuRef inMenu, MenuCommand inCommandID,
                               UInt32 inItemIndex,
-                              MenuRef *outMenu,         /* can be NULL */
-                              MenuItemIndex *outIndex); /* can be NULL */
-
+                              MenuRef *outMenu,         // can be NULL                               MenuItemIndex *outIndex); // can be NULL 
   /**
    *  EnableMenuCommand()
    *
@@ -4710,8 +4556,7 @@ myMCE = *ptrMCE; /* make a duplicate */
   GetMenuCommandProperty(MenuRef inMenu, MenuCommand inCommandID,
                          OSType inPropertyCreator, OSType inPropertyTag,
                          ByteCount inBufferSize,
-                         ByteCount *outActualSize, /* can be NULL */
-                         void *inPropertyBuffer);
+                         ByteCount *outActualSize, // can be NULL                          void *inPropertyBuffer);
 
   /**
    *  GetMenuCommandPropertySize()
@@ -4851,47 +4696,33 @@ myMCE = *ptrMCE; /* make a duplicate */
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /*  © Dynamic menu item support (CarbonLib 1.1 and Carbon for Mac OS X, and
    * later)      */
-  /*                                                                                      */
-  /*  Dynamic menu item support allows a menu item to be redrawn while the menu is
+  //                                                                                        /*  Dynamic menu item support allows a menu item to be redrawn while the menu is
    * open   */
   /*  and visible to the user. Carbon contains automatic support for dynamic items
    * based  */
   /*  on keyboard modifier state. If you need to implement your own variable item
    * state   */
-  /*  based on other system state, you can use these APIs to implement it. */
-  /*                                                                                      */
-  /*  To use the built-in support for dynamic items, you should create a menu
+  //  based on other system state, you can use these APIs to implement it.   //                                                                                        /*  To use the built-in support for dynamic items, you should create a menu
    * containing  */
   /*  several contiguous items with the same command key but different text and
    * modifier  */
-  /*  keys. For example, you might have: */
-  /*                                                                                      */
-  /*      Close       cmd-W */
-  /*      Close All   cmd-option-W */
-  /*                                                                                      */
-  /*  In your MENU resource, you would create the Close and Close All items and
+  //  keys. For example, you might have:   //                                                                                        //      Close       cmd-W   //      Close All   cmd-option-W   //                                                                                        /*  In your MENU resource, you would create the Close and Close All items and
    * give      */
   /*  them each the letter 'W' as the command key; using an associated xmnu
    * resource,     */
   /*  you would specify kMenuOptionModifier as the modifier for the Close All
    * item.       */
-  /*                                                                                      */
-  /*  After loading your menu from the resource, you must set the
+  //                                                                                        /*  After loading your menu from the resource, you must set the
    * kMenuItemAttrDynamic    */
-  /*  flag for each dynamic item. In this example, you would use: */
-  /*                                                                                      */
-  /*      ChangeMenuItemAttributes( menu, kCloseItem, kMenuItemAttrDynamic, 0 );
+  //  flag for each dynamic item. In this example, you would use:   //                                                                                        /*      ChangeMenuItemAttributes( menu, kCloseItem, kMenuItemAttrDynamic, 0 );
    */
   /*      ChangeMenuItemAttributes( menu, kCloseAllItem, kMenuItemAttrDynamic, 0
    * );       */
-  /*                                                                                      */
-  /*  The Menu Manager will now automatically display the correct item depending
+  //                                                                                        /*  The Menu Manager will now automatically display the correct item depending
    * on       */
   /*  whether the Option key is pressed. The result from MenuSelect will be the
    * item      */
-  /*  number of the item that was visible when the menu closed. */
-  /*                                                                                      */
-  /*  If the Menu Manager's built-in support is not sufficient, you can also
+  //  number of the item that was visible when the menu closed.   //                                                                                        /*  If the Menu Manager's built-in support is not sufficient, you can also
    * change the   */
   /*  attributes of an item yourself and use the UpdateInvalidMenuItems API to
    * cause      */
@@ -4907,9 +4738,7 @@ myMCE = *ptrMCE; /* make a duplicate */
    * UpdateInvalidMenuItems will  */
   /*  scan the menu for invalid items and redraw each, clearing its invalid flag
    */
-  /*  afterwards. */
-  /*                                                                                      */
-  /*  If you need to change menu contents based on modifier key state without
+  //  afterwards.   //                                                                                        /*  If you need to change menu contents based on modifier key state without
    * using the   */
   /*  built-in support in the Menu Manager, we recommend that you install a Carbon
    * event  */
@@ -4917,8 +4746,7 @@ myMCE = *ptrMCE; /* make a duplicate */
    * kEventRawKeyModifiersChanged]    */
   /*  event. Modifier key events are passed to the currently open menu before
    * being sent  */
-  /*  to the user focus target. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  to the user focus target.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   /**
    *  IsMenuItemInvalid()
    *
@@ -5002,10 +4830,7 @@ myMCE = *ptrMCE; /* make a duplicate */
   UpdateInvalidMenuItems(MenuRef menu);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  ©©Standard font menu (Carbon and later) */
-  /*                                                                                      */
-  /*  These APIs allow you to create and use the standard font menu. */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  //  ©©Standard font menu (Carbon and later)   //                                                                                        //  These APIs allow you to create and use the standard font menu.   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
   enum
   {
     kHierarchicalFontMenuOption = 0x00000001
@@ -5049,28 +4874,22 @@ myMCE = *ptrMCE; /* make a duplicate */
                                  FMFontStyle *outStyle);
 
   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /*  © Contextual Menu routines and constants */
-  /*  available with Conxtextual Menu extension 1.0 and later */
-  /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-  /* Gestalt Selector for classic 68K apps only. */
-  /* CFM apps should weak link and check the symbols. */
-  enum
+  //  © Contextual Menu routines and constants   //  available with Conxtextual Menu extension 1.0 and later   /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+  // Gestalt Selector for classic 68K apps only.   // CFM apps should weak link and check the symbols.   enum
   {
     gestaltContextualMenuAttr = FOUR_CHAR_CODE('cmnu'),
     gestaltContextualMenuUnusedBit = 0,
     gestaltContextualMenuTrapAvailable = 1
   };
 
-  /* Values indicating what kind of help the application supports */
-  enum
+  // Values indicating what kind of help the application supports   enum
   {
     kCMHelpItemNoHelp = 0,
     kCMHelpItemAppleGuide = 1,
     kCMHelpItemOtherHelp = 2
   };
 
-  /* Values indicating what was chosen from the menu */
-  enum
+  // Values indicating what was chosen from the menu   enum
   {
     kCMNothingSelected = 0,
     kCMMenuItemSelected = 1,
@@ -5122,9 +4941,7 @@ myMCE = *ptrMCE; /* make a duplicate */
   OSStatus
   ContextualMenuSelect(MenuRef inMenu, Point inGlobalLocation, Boolean inReserved,
                        UInt32 inHelpType,
-                       ConstStr255Param inHelpItemString, /* can be NULL */
-                       const AEDesc *inSelection,         /* can be NULL */
-                       UInt32 *outUserSelectionType, SInt16 *outMenuID,
+                       ConstStr255Param inHelpItemString, // can be NULL                        const AEDesc *inSelection,         // can be NULL                        UInt32 *outUserSelectionType, SInt16 *outMenuID,
                        MenuItemIndex *outMenuItem) TWOWORDINLINE(0x7003, 0xAA72);
 
   /**
@@ -5140,21 +4957,13 @@ myMCE = *ptrMCE; /* make a duplicate */
       TWOWORDINLINE(0x7004, 0xAA72);
 
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-/*  Contextual Menu Plugin Interface */
-/*                                                                                      */
-/*  For Mac OS X, we will support a new type of Contextual Menu Plugin: the
+//  Contextual Menu Plugin Interface //                                                                                      /*  For Mac OS X, we will support a new type of Contextual Menu Plugin: the
  * CFPlugIn    */
 /*  based plugin.  Each plugin must be in a CFPlugIn in the Contextual Menu
  * Items       */
-/*  folder in one of these paths: */
-/*      /System/Library/Contextual Menu Items/ */
-/*      /Library/Contextual Menu Items/ */
-/*      ~/Library/Contextual Menu Items/ */
-/*                                                                                      */
-/*  It must export the following functions using the following interface or a
+//  folder in one of these paths: //      /System/Library/Contextual Menu Items/ //      /Library/Contextual Menu Items/ //      ~/Library/Contextual Menu Items/ //                                                                                      /*  It must export the following functions using the following interface or a
  * C++       */
-/*  interface inheriting from IUnknown and including similar functions. */
-/*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
+//  interface inheriting from IUnknown and including similar functions. /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
 
 /* The Contextual Menu Manager will only load CFPlugIns of type
  * kContextualMenuTypeID */
@@ -5162,24 +4971,21 @@ myMCE = *ptrMCE; /* make a duplicate */
   (CFUUIDGetConstantUUIDWithBytes(NULL, 0x2F, 0x65, 0x22, 0xE9, 0x3E, 0x66, \
                                   0x11, 0xD5, 0x80, 0xA7, 0x00, 0x30, 0x65, \
                                   0xB3, 0x00, 0xBC))
-/* 2F6522E9-3E66-11D5-80A7-003065B300BC */
-
+// 2F6522E9-3E66-11D5-80A7-003065B300BC 
 /* Contextual Menu Plugins must implement this Contexual Menu Plugin Interface
  */
 #define kContextualMenuInterfaceID                                          \
   (CFUUIDGetConstantUUIDWithBytes(NULL, 0x32, 0x99, 0x7B, 0x62, 0x3E, 0x66, \
                                   0x11, 0xD5, 0xBE, 0xAB, 0x00, 0x30, 0x65, \
                                   0xB3, 0x00, 0xBC))
-  /* 32997B62-3E66-11D5-BEAB-003065B300BC */
-
+  // 32997B62-3E66-11D5-BEAB-003065B300BC 
 #define CM_IUNKNOWN_C_GUTS                                                  \
   void *_reserved;                                                          \
   SInt32 (*QueryInterface)(void *thisPointer, CFUUIDBytes iid, void **ppv); \
   UInt32 (*AddRef)(void *thisPointer);                                      \
   UInt32 (*Release)(void *thisPointer)
 
-  /* The function table for the interface */
-  struct ContextualMenuInterfaceStruct
+  // The function table for the interface   struct ContextualMenuInterfaceStruct
   {
     CM_IUNKNOWN_C_GUTS;
     OSStatus (*ExamineContext)(void *thisInstance, const AEDesc *inContext,
@@ -5299,8 +5105,7 @@ myMCE = *ptrMCE; /* make a duplicate */
   void
   getmenuitemtext(MenuRef menu, short item, char *itemString);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if OLDROUTINENAMES
 #define AddResMenu(theMenu, theType) AppendResMenu(theMenu, theType)
 #define InsMenuItem(theMenu, itemString, afterItem) \
@@ -5324,11 +5129,9 @@ myMCE = *ptrMCE; /* make a duplicate */
 #define insmenuitem(theMenu, itemString, afterItem) \
   insertmenuitem(theMenu, itemString, afterItem)
 #endif
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
 #if ACCESSOR_CALLS_ARE_FUNCTIONS
-  /* Getters */
-  /**
+  // Getters   /**
    *  GetMenuID()
    *
 
@@ -5383,8 +5186,7 @@ myMCE = *ptrMCE; /* make a duplicate */
   OSStatus
   GetMenuDefinition(MenuRef menu, MenuDefSpecPtr outDefSpec);
 
-  /* Setters */
-  /**
+  // Setters   /**
    *  SetMenuID()
    *
 
@@ -5439,11 +5241,9 @@ myMCE = *ptrMCE; /* make a duplicate */
   OSStatus
   SetMenuDefinition(MenuRef menu, const MenuDefSpec *defSpec);
 
-#endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
-
+#endif // ACCESSOR_CALLS_ARE_FUNCTIONS 
 #if TARGET_OS_WIN32
-#endif /* TARGET_OS_WIN32 */
-
+#endif // TARGET_OS_WIN32 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -5462,16 +5262,13 @@ myMCE = *ptrMCE; /* make a duplicate */
 }
 #endif
 
-#endif /* __MENUS__ */
-* / setmenuitemtext(menu, item, itemString)
+#endif // __MENUS__ * / setmenuitemtext(menu, item, itemString)
 #define insmenuitem(theMenu, itemString, afterItem) \
   insertmenuitem(theMenu, itemString, afterItem)
 #endif
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
 #if ACCESSOR_CALLS_ARE_FUNCTIONS
-    /* Getters */
-    /**
+    // Getters     /**
      *  GetMenuID()
      *
 
@@ -5526,8 +5323,7 @@ GetMenuTitle(MenuRef menu, Str255 title);
 OSStatus
 GetMenuDefinition(MenuRef menu, MenuDefSpecPtr outDefSpec);
 
-/* Setters */
-/**
+// Setters /**
  *  SetMenuID()
  *
 
@@ -5579,11 +5375,9 @@ SetMenuTitle(MenuRef menu, ConstStr255Param title);
 OSStatus
 SetMenuDefinition(MenuRef menu, const MenuDefSpec *defSpec);
 
-#endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
-
+#endif // ACCESSOR_CALLS_ARE_FUNCTIONS 
 #if TARGET_OS_WIN32
-#endif /* TARGET_OS_WIN32 */
-
+#endif // TARGET_OS_WIN32 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -5602,8 +5396,7 @@ SetMenuDefinition(MenuRef menu, const MenuDefSpec *defSpec);
 }
 #endif
 
-#endif /* __MENUS__ */
-* / RAGMA_IMPORT
+#endif // __MENUS__ * / RAGMA_IMPORT
 #pragma import reset
 #endif
 
@@ -5611,5 +5404,4 @@ SetMenuDefinition(MenuRef menu, const MenuDefSpec *defSpec);
 }
 #endif
 
-#endif                    /* __MENUS__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/
+#endif                    // __MENUS__ * /*/*/ * /*/*/ * /*/*/ * /*/*/

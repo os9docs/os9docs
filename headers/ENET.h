@@ -114,8 +114,7 @@ extern "C"
   enum
   {
     uppENETCompletionProcInfo = 0x00009802
-  }; /* register no_return_value Func(4_bytes:A0) */
-#ifdef __cplusplus
+  }; // register no_return_value Func(4_bytes:A0) #ifdef __cplusplus
   inline ENETCompletionUPP
   NewENETCompletionUPP(ENETCompletionProcPtr userRoutine)
   {
@@ -180,18 +179,15 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewENETCompletionProc(userRoutine) NewENETCompletionUPP(userRoutine)
+#endif // CALL_NOT_IN_CARBON 
+#if CAL// CALL_NOT_IN_CARBON 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewENETCompletionProc(userRoutine) NewENETCompletionUPP(userRoutine)
 #define CallENETCompletionProc(userRoutine, thePBPtr) \
-  InvokeENETCompletionUPP(thePBPtr, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 
-  /**
+  /**// CALL_NOT_IN_CARBON 
   \brief Send a data packet over Ethernet
 
   <pre>EWrite uses The .ENET Driver to send a data packet over Ethernet.
@@ -590,12 +586,11 @@ ENetDelMulti for this function.
   OSErr
   EDelMulti(EParamBlkPtr thePBptr, Boolean async);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
+#pragma// CALL_NOT_IN_CARBON 
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
@@ -610,5 +605,4 @@ ENetDelMulti for this function.
 }
 #endif
 
-#endif            /* __ENET__ */
-* /*/*/ * /*/*/ * /*/*/
+#endif            // __ENET__ * /*/*/ * /*/*/ * /*/*/// __ENET__ 

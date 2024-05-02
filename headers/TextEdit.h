@@ -310,22 +310,19 @@ extern "C"
 
   enum
   {
-    /* Justification (word alignment) styles */
-    teJustLeft = 0,
+    // Justification (word alignment) styles     teJustLeft = 0,
     teJustCenter = 1,
     teJustRight = -1,
     teForceLeft =
-        -2,             /* new names for the Justification (word alignment) styles */
-    teFlushDefault = 0, /*flush according to the line direction */
-    teCenter = 1,       /*center justify (word alignment) */
-    teFlushRight = -1,  /*flush right for all scripts */
-    teFlushLeft = -2    /*flush left for all scripts */
+        -2,            // new names for the Justification (word alignment) styles     teFlushDefault = 0, /*flush according to the line direction */
+    teCenter = 1,      /*center justify (word alignment) */
+    teFlushRight = -1, /*flush right for all scripts */
+    teFlushLeft = -2   /*flush left for all scripts */
   };
 
   enum
   {
-    /* Set/Replace style modes */
-    fontBit = 0,    /*set font*/
+    // Set/Replace style modes     fontBit = 0,    /*set font*/
     faceBit = 1,    /*set face*/
     sizeBit = 2,    /*set size*/
     clrBit = 3,     /*set color*/
@@ -335,9 +332,7 @@ extern "C"
 
   enum
   {
-    /* TESetStyle/TEContinuousStyle modes */
-    doFont = 1,   /* set font (family) number*/
-    doFace = 2,   /*set character style*/
+    // TESetStyle/TEContinuousStyle modes     doFont = 1,   // set font (family) number    doFace = 2,   /*set character style*/
     doSize = 4,   /*set type size*/
     doColor = 8,  /*set color*/
     doAll = 15,   /*set all attributes*/
@@ -347,8 +342,7 @@ extern "C"
 
   enum
   {
-    /* offsets into TEDispatchRec */
-    EOLHook = 0,       /*[UniversalProcPtr] TEEOLHook*/
+    // offsets into TEDispatchRec     EOLHook = 0,       /*[UniversalProcPtr] TEEOLHook*/
     DRAWHook = 4,      /*[UniversalProcPtr] TEWidthHook*/
     WIDTHHook = 8,     /*[UniversalProcPtr] TEDrawHook*/
     HITTESTHook = 12,  /*[UniversalProcPtr] TEHitTestHook*/
@@ -358,8 +352,7 @@ extern "C"
 
   enum
   {
-    /* selectors for TECustomHook */
-    intEOLHook = 0,       /*TEIntHook value*/
+    // selectors for TECustomHook     intEOLHook = 0,       /*TEIntHook value*/
     intDrawHook = 1,      /*TEIntHook value*/
     intWidthHook = 2,     /*TEIntHook value*/
     intHitTestHook = 3,   /*TEIntHook value*/
@@ -373,8 +366,7 @@ extern "C"
 
   enum
   {
-    /* feature or bit definitions for TEFeatureFlag */
-    teFAutoScroll = 0,           /*00000001b*/
+    // feature or bit definitions for TEFeatureFlag     teFAutoScroll = 0,           /*00000001b*/
     teFTextBuffering = 1,        /*00000010b*/
     teFOutlineHilite = 2,        /*00000100b*/
     teFInlineInput = 3,          /*00001000b */
@@ -385,21 +377,16 @@ extern "C"
 
   enum
   {
-    /* feature or bit definitions for TEFeatureFlag -- Carbon only */
-    /* To avoid having to call TEIdle in Carbon apps, automatic idling can be
-       activated   */
+    // feature or bit definitions for TEFeatureFlag -- Carbon only     /* To avoid having to call TEIdle in Carbon apps, automatic idling can be
+    activated * /
     /* via the following feature flag, but you must ensure that the destRect
        and/or     */
-    /* GrafPort's origin be setup properly for drawing in a given TERec when */
-    /* the timer fires.    When this feature flag is set, TEIdle is a noop. */
-    /* Activate this feature flag before calling TEActivate.                 */
-    teFIdleWithEventLoopTimer = 7 /*10000000b */
+    // GrafPort's origin be setup properly for drawing in a given TERec when     // the timer fires.    When this feature flag is set, TEIdle is a noop.     // Activate this feature flag before calling TEActivate.                     teFIdleWithEventLoopTimer = 7 /*10000000b */
   };
 
   enum
   {
-    /* action for the new "bit (un)set" interface, TEFeatureFlag */
-    teBitClear = 0,
+    // action for the new "bit (un)set" interface, TEFeatureFlag     teBitClear = 0,
     teBitSet = 1,  /*set the selector bit*/
     teBitTest = -1 /*no change; just return the current setting*/
   };
@@ -552,8 +539,7 @@ extern "C"
   } ScrpSTElement;      /**< */
 
   typedef struct ScrpSTElement ScrpSTElement;
-  /* ARRAY [0..1600] OF ScrpSTElement */
-  typedef ScrpSTElement ScrpSTTable[1601];
+  // ARRAY [0..1600] OF ScrpSTElement   typedef ScrpSTElement ScrpSTTable[1601];
   /**
   <pre>
    * \note <pre>This variable-length StScrpRec is known as the "style scrap" record. It
@@ -678,8 +664,7 @@ extern "C"
   enum
   {
     uppHighHookProcInfo = 0x0000000F
-  }; /* SPECIAL_CASE_PROCINFO(0) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(0) #ifdef __cplusplus
   inline HighHookUPP NewHighHookUPP(HighHookProcPtr userRoutine)
   {
     return (HighHookUPP)NewRoutineDescriptor(
@@ -706,8 +691,7 @@ extern "C"
   enum
   {
     uppEOLHookProcInfo = 0x0000001F
-  }; /* SPECIAL_CASE_PROCINFO(1) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(1) #ifdef __cplusplus
   inline EOLHookUPP NewEOLHookUPP(EOLHookProcPtr userRoutine)
   {
     return (EOLHookUPP)NewRoutineDescriptor(
@@ -734,8 +718,7 @@ extern "C"
   enum
   {
     uppCaretHookProcInfo = 0x0000000F
-  }; /* SPECIAL_CASE_PROCINFO(0) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(0) #ifdef __cplusplus
   inline CaretHookUPP NewCaretHookUPP(CaretHookProcPtr userRoutine)
   {
     return (CaretHookUPP)NewRoutineDescriptor(
@@ -762,8 +745,7 @@ extern "C"
   enum
   {
     uppWidthHookProcInfo = 0x0000002F
-  }; /* SPECIAL_CASE_PROCINFO(2) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(2) #ifdef __cplusplus
   inline WidthHookUPP NewWidthHookUPP(WidthHookProcPtr userRoutine)
   {
     return (WidthHookUPP)NewRoutineDescriptor(
@@ -790,8 +772,7 @@ extern "C"
   enum
   {
     uppTextWidthHookProcInfo = 0x0000002F
-  }; /* SPECIAL_CASE_PROCINFO(2) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(2) #ifdef __cplusplus
   inline TextWidthHookUPP NewTextWidthHookUPP(TextWidthHookProcPtr userRoutine)
   {
     return (TextWidthHookUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -820,8 +801,7 @@ extern "C"
   enum
   {
     uppNWidthHookProcInfo = 0x0000003F
-  }; /* SPECIAL_CASE_PROCINFO(3) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(3) #ifdef __cplusplus
   inline NWidthHookUPP NewNWidthHookUPP(NWidthHookProcPtr userRoutine)
   {
     return (NWidthHookUPP)NewRoutineDescriptor(
@@ -848,8 +828,7 @@ extern "C"
   enum
   {
     uppDrawHookProcInfo = 0x0000004F
-  }; /* SPECIAL_CASE_PROCINFO(4) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(4) #ifdef __cplusplus
   inline DrawHookUPP NewDrawHookUPP(DrawHookProcPtr userRoutine)
   {
     return (DrawHookUPP)NewRoutineDescriptor(
@@ -876,8 +855,7 @@ extern "C"
   enum
   {
     uppHitTestHookProcInfo = 0x0000005F
-  }; /* SPECIAL_CASE_PROCINFO(5) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(5) #ifdef __cplusplus
   inline HitTestHookUPP NewHitTestHookUPP(HitTestHookProcPtr userRoutine)
   {
     return (HitTestHookUPP)NewRoutineDescriptor(
@@ -905,8 +883,7 @@ extern "C"
   enum
   {
     uppTEFindWordProcInfo = 0x0000006F
-  }; /* SPECIAL_CASE_PROCINFO(6) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(6) #ifdef __cplusplus
   inline TEFindWordUPP NewTEFindWordUPP(TEFindWordProcPtr userRoutine)
   {
     return (TEFindWordUPP)NewRoutineDescriptor(
@@ -933,8 +910,7 @@ extern "C"
   enum
   {
     uppTERecalcProcInfo = 0x0000009F
-  }; /* SPECIAL_CASE_PROCINFO(9) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(9) #ifdef __cplusplus
   inline TERecalcUPP NewTERecalcUPP(TERecalcProcPtr userRoutine)
   {
     return (TERecalcUPP)NewRoutineDescriptor(
@@ -961,8 +937,7 @@ extern "C"
   enum
   {
     uppTEDoTextProcInfo = 0x000000AF
-  }; /* SPECIAL_CASE_PROCINFO(10) */
-#ifdef __cplusplus
+  }; // SPECIAL_CASE_PROCINFO(10) #ifdef __cplusplus
   inline TEDoTextUPP NewTEDoTextUPP(TEDoTextProcPtr userRoutine)
   {
     return (TEDoTextUPP)NewRoutineDescriptor(
@@ -989,8 +964,7 @@ extern "C"
   enum
   {
     uppTEClickLoopProcInfo = 0x0000F812
-  }; /* register 1_byte:D0 Func(4_bytes:A3) */
-#ifdef __cplusplus
+  }; // register 1_byte:D0 Func(4_bytes:A3) #ifdef __cplusplus
   inline TEClickLoopUPP NewTEClickLoopUPP(TEClickLoopProcPtr userRoutine)
   {
     return (TEClickLoopUPP)NewRoutineDescriptor(
@@ -1019,8 +993,7 @@ extern "C"
   enum
   {
     uppWordBreakProcInfo = 0x00029812
-  }; /* register 1_byte:D0 Func(4_bytes:A0, 2_bytes:D0) */
-#ifdef __cplusplus
+  }; // register 1_byte:D0 Func(4_bytes:A0, 2_bytes:D0) #ifdef __cplusplus
   inline WordBreakUPP NewWordBreakUPP(WordBreakProcPtr userRoutine)
   {
     return (WordBreakUPP)NewRoutineDescriptor(
@@ -1033,8 +1006,7 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
   /**
    *  DisposeHighHookUPP()
    *
@@ -1309,8 +1281,7 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
   /**
    *  InvokeHighHookUPP()
    *
@@ -1705,11 +1676,9 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewHighHookProc(userRoutine) NewHighHookUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewHighHookProc(userRoutine) NewHighHookUPP(userRoutine)
 #define NewEOLHookProc(userRoutine) NewEOLHookUPP(userRoutine)
 #define NewCaretHookProc(userRoutine) NewCaretHookUPP(userRoutine)
 #define NewWidthHookProc(userRoutine) NewWidthHookUPP(userRoutine)
@@ -1763,23 +1732,19 @@ extern "C"
   InvokeTEClickLoopUPP(pTE, userRoutine)
 #define CallWordBreakProc(userRoutine, text, charPos) \
   InvokeWordBreakUPP(text, charPos, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
   enum
   {
-    /* feature bit 4 for TEFeatureFlag no longer in use */
-    teFUseTextServices = 4 /*00010000b */
+    // feature bit 4 for TEFeatureFlag no longer in use     teFUseTextServices = 4 /*00010000b */
   };
 
 #if OLDROUTINENAMES
-/* action for the old C "bit (un)set" interface, TEFeatureFlag */
-#define TEBitClear teBitClear
+// action for the old C "bit (un)set" interface, TEFeatureFlag #define TEBitClear teBitClear
 #define TEBitSet teBitSet
 #define TEBitTest teBitTest
 #define teFAutoScr teFAutoScroll
 #define toglBit toggleBit
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES
   /**
   \brief Obtain handle leading to TextEdit scrap
 
@@ -1827,8 +1792,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
   void
   TEInit(void) ONEWORDINLINE(0xA9CC);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
   /**
    *  TENew()
    *
@@ -2478,8 +2442,7 @@ void TESetClickLoop(TEClickLoopUPP clikProc, TEHandle hTE);
  */
 void TESetWordBreak(WordBreakUPP wBrkProc, TEHandle hTE);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 /**
  *  TEGetDoTextHook()
  *
@@ -2564,19 +2527,17 @@ TEGetScrapHandle(void);
  */
 void TESetScrapHandle(Handle value);
 
-/* LMGetWordRedraw and LMSetWordRedraw were previously in LowMem.h  */
-/* Deprecated for Carbon on MacOS X                                 */
-/* This lomem is no longer used by the implementation of TextEdit   */
-/* on MacOS X, so setting it will have no effect.                   */
-/**
- *  LMGetWordRedraw()
- *
+// LMGetWordRedraw and LMSetWordRedraw were previously in LowMem.h  // Deprecated for Carbon on MacOS X                                 // This lomem is no longer used by the implementation of TextEdit   // on MacOS X, so setting it will have no effect.                   /**
+*LMGetWordRedraw() *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt8 LMGetWordRedraw(void) TWOWORDINLINE(0x1EB8, 0x0BA5);
+        *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        UInt8 LMGetWordRedraw(void) TWOWORDINLINE(0x1EB8, 0x0BA5);
 
 /**
  *  LMSetWordRedraw()
@@ -2599,8 +2560,7 @@ void LMSetWordRedraw(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BA5);
  */
 void teclick(Point *pt, Boolean fExtend, TEHandle h);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON
 #if OLDROUTINENAMES
 #if CALL_NOT_IN_CARBON
 #define TESetJust(just, hTE) TESetAlignment(just, hTE)
@@ -2623,9 +2583,7 @@ TEStyleInsert(text, length, hST, hTE)
 #define TEGetScrapLen() TEGetScrapLength()
 #define SetClikLoop(clikProc, hTE) TESetClickLoop(clikProc, hTE)
 #define SetWordBreak(wBrkProc, hTE) TESetWordBreak(wBrkProc, hTE)
-#endif /* CALL_NOT_IN_CARBON */
-#endif /* OLDROUTINENAMES */
-
+#endif // CALL_NOT_IN_CARBON #endif // OLDROUTINENAMES
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -2644,5 +2602,4 @@ TEStyleInsert(text, length, hST, hTE)
 }
 #endif
 
-#endif /* __TEXTEDIT__ */
-* /*/*/ */*/
+#endif // __TEXTEDIT__ * /*/*/ */*/

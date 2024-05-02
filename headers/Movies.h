@@ -68,10 +68,7 @@ extern "C"
 #pragma pack(2)
 #endif
 
-    /*  "kFix1" is defined in FixMath as "fixed1"  */
-    /* error codes are in Errors.[haa] */
-    /* gestalt codes are in Gestalt.[hpa] */
-    enum
+    //  "kFix1" is defined in FixMath as "fixed1"      // error codes are in Errors.[haa]     // gestalt codes are in Gestalt.[hpa]     enum
     {
         MovieFileType = FOUR_CHAR_CODE('MooV'),
         MovieScrapType = FOUR_CHAR_CODE('moov')
@@ -261,137 +258,96 @@ extern "C"
     typedef long QTAtom;
     typedef long QTAtomType;
     typedef long QTAtomID;
-    /* QTFloatDouble is the 64-bit IEEE-754 standard*/
-    typedef Float64 QTFloatDouble;
-    /* QTFloatSingle is the 32-bit IEEE-754 standard*/
-    typedef Float32 QTFloatSingle;
+    // QTFloatDouble is the 64-bit IEEE-754 standard    typedef Float64 QTFloatDouble;
+    // QTFloatSingle is the 32-bit IEEE-754 standard    typedef Float32 QTFloatSingle;
 
-    struct SoundDescription
+    // QTFloatDouble is the 64-bit IEEE-754 standard
     {
-        long descSize;   /* total size of SoundDescription including extra data */
-        long dataFormat; /* sound format */
-        long resvd1;     /* reserved for apple use. set to zero */
-        short resvd2;    /* reserved for apple use. set to zero */
-        short dataRefIndex;
-        short version;            /* which version is this data */
-        short revlevel;           /* what version of that codec did this */
-        long vendor;              /* whose  codec compressed this data */
-        short numChannels;        /* number of channels of sound */
-        short sampleSize;         /* number of bits per sample */
-        short compressionID;      /* unused. set to zero. */
-        short packetSize;         /* unused. set to zero. */
-        UnsignedFixed sampleRate; /* sample rate sound is captured at */
-    };
+    // QTFloatSingle is the 32-bit IEEE-754 standard
+        short version;            // which version is this data         short revlevel;           // what version of that codec did this         long vendor;              // whose  codec compressed this data         short numChannels;        // number of channels of sound         short sampleSize;         // number of bits per sample         short compressionID;      // unused. set to zero.         short packetSize;         // unused. set to zero.         UnsignedFixed sampleRate; // sample rate sound is captured at     };
     typedef struct SoundDescription SoundDescription;
     typedef SoundDescription *SoundDescriptionPtr;
     typedef SoundDescriptionPtr *SoundDescriptionHandle;
-    /* version 1 of the SoundDescription record*/
-    struct SoundDescriptionV1
-    {
-        /* original fields*/
-        SoundDescription desc;
-        /* fixed compression ratio information*/
-        unsigned long samplesPerPacket;
+    // version 1 of the S// total size of SoundDescription including extra data 
+    {// sound format 
+        // original field// reserved for apple use. set to zero 
+        // fixed compress// reserved for apple use. set to zero 
         unsigned long bytesPerPacket;
-        unsigned long bytesPerFrame;
-        unsigned long bytesPerSample;
-        /* additional atom based fields ([long size, long type, some data], repeat)*/
-    };
-    typedef struct SoundDescriptionV1 SoundDescriptionV1;
-    typedef SoundDescriptionV1 *SoundDescriptionV1Ptr;
-    typedef SoundDescriptionV1Ptr *SoundDescriptionV1Handle;
-    struct TextDescription
-    {
-        long descSize;   /* Total size of TextDescription*/
-        long dataFormat; /* 'text'*/
-
+        unsigned long bytesPerFram// which version is this data 
+        unsigned long bytesPerSamp// what version of that codec did this 
+        // additional atom based f// whose  codec compressed this data 
+    typedef struct SoundDescriptio// number of channels of sound 
+    typedef SoundDescriptionV1 *So// number of bits per sample 
+    typedef SoundDescriptionV1Ptr // unused. set to zero. 
+    struct TextDescription// unused. set to zero. 
+    {// sample rate sound is captured at 
+        long descSize;   // Total size of TextDescription        long dataFormat; // 'text'
         long resvd1;
         short resvd2;
         short dataRefIndex;
-
-        long displayFlags; /* see enum below for flag values*/
-
-        long textJustification; /* Can be: teCenter,teFlush -Default,-Right,-Left*/
-
-        RGBColor bgColor; /* Background color*/
-
-        Rect defaultTextBox;        /* Location to place the text within the track bounds*/
-        ScrpSTElement defaultStyle; /* Default style (struct defined in TextEdit.h)*/
-        char defaultFontName[1];    /* Font Name (pascal string - struct extended to fit)
-                                     */
+// version 1 of the SoundDescription record
+        long displayFlags; // see enum below for flag values
+        long textJustification; // Can be: teCenter,teFlush -Default,-Right,-Left
+        // original fields
+        Rect defaultTextBox;        // Location to place the text within the track bounds        ScrpSTElement defaultStyle; // Default style (struct defined in TextEdit.h)        char defaultFontName[1];    /* Font Name (pascal string - struct extended to fit)
+        // fixed compression ratio information
     };
     typedef struct TextDescription TextDescription;
     typedef TextDescription *TextDescriptionPtr;
     typedef TextDescriptionPtr *TextDescriptionHandle;
-    struct SpriteDescription
+    stru// additional atom based fields ([long size, long type, some data], repeat)
     {
-        long descSize;   /* total size of SpriteDescription including extra data */
-        long dataFormat; /*  */
-        long resvd1;     /* reserved for apple use */
-        short resvd2;
+        long descSize;   // total size of SpriteDescription including extra data         long dataFormat; //          long resvd1;     // reserved for apple use         short resvd2;
         short dataRefIndex;
-        long version; /* which version is this data */
-        OSType
-            decompressorType; /* which decompressor to use, 0 for no decompression */
-        long sampleFlags;     /* how to interpret samples */
-    };
+        long version; // which version is this data         OSType
+            decompressorType; // which decompressor to use, 0 for no decompression         long sampleFlags;     // how to interpret samples     };
     typedef struct SpriteDescription SpriteDescription;
-    typedef SpriteDescription *SpriteDescriptionPtr;
-    typedef SpriteDescriptionPtr *SpriteDescriptionHandle;
+    typedef SpriteDescrip// Total size of TextDescription
+    typedef SpriteDescrip// 'text'
     struct FlashDescription
     {
         long descSize;
         long dataFormat;
         long resvd1;
-        short resvd2;
+        short resvd2;// see enum below for flag values
         short dataRefIndex;
-        long version; /* which version is this data */
-        OSType
-            decompressorType; /* which decompressor to use, 0 for no decompression */
-        long flags;
-    };
+        long version; // which v// Can be: teCenter,teFlush -Default,-Right,-Left
+            decompressorType; // which decompressor to use, 0 for no decompression         long flags;
+    };// Background color
     typedef struct FlashDescription FlashDescription;
-    typedef FlashDescription *FlashDescriptionPtr;
-    typedef FlashDescriptionPtr *FlashDescriptionHandle;
+    typedef FlashDescription *FlashD// Location to place the text within the track bounds
+    typedef FlashDescriptionPtr *Fla// Default style (struct defined in TextEdit.h)
     struct ThreeDeeDescription
     {
-        long descSize;   /* total size of ThreeDeeDescription including extra data */
-        long dataFormat; /*  */
-        long resvd1;     /* reserved for apple use */
-        short resvd2;
+        long descSize;   // total size of ThreeDeeDescription including extra data         long dataFormat; //          long resvd1;     // reserved for apple use         short resvd2;
         short dataRefIndex;
-        long version;          /* which version is this data */
-        long rendererType;     /* which renderer to use, 0 for default */
-        long decompressorType; /* which decompressor to use, 0 for default */
-    };
+        long version;          // which version is this data         long rendererType;     // which renderer to use, 0 for default         long decompressorType; // which decompressor to use, 0 for default     };
     typedef struct ThreeDeeDescription ThreeDeeDescription;
     typedef ThreeDeeDescription *ThreeDeeDescriptionPtr;
     typedef ThreeDeeDescriptionPtr *ThreeDeeDescriptionHandle;
-    struct DataReferenceRecord
-    {
-        OSType dataRefType;
+    struct DataReferenceR// total size of SpriteDescription including extra data 
+    {//  
+        OSType dataRefTyp// reserved for apple use 
         Handle dataRef;
     };
-    typedef struct DataReferenceRecord DataReferenceRecord;
+    typedef struct Dat// which version is this data 
     typedef DataReferenceRecord *DataReferencePtr;
-    /*--------------------------
-      Music Sample Description
+    /*------------------------// which decompressor to use, 0 for no decompression 
+      Music Sample Description// how to interpret samples 
     --------------------------*/
     struct MusicDescription
     {
         long descSize;
-        long dataFormat; /* 'musi' */
-
+        long dataFormat; // 'musi' 
         long resvd1;
         short resvd2;
         short dataRefIndex;
 
         long musicFlags;
-        unsigned long headerData[1]; /* variable size! */
-    };
-    typedef struct MusicDescription MusicDescription;
+        unsigned long headerData[1]; // variable size!     };
+    typedef struct Mus// which version is this data 
     typedef MusicDescription *MusicDescriptionPtr;
-    typedef MusicDescriptionPtr *MusicDescriptionHandle;
+    typedef MusicDescriptionPt// which decompressor to use, 0 for no decompression 
     enum
     {
         kMusicFlagDontPlay2Soft = 1L << 0,
@@ -399,34 +355,21 @@ extern "C"
     };
 
     enum
-    {
-        dfDontDisplay = 1 << 0, /* Don't display the text*/
-        dfDontAutoScale =
-            1 << 1,               /* Don't scale text as track bounds grows or shrinks*/
-        dfClipToTextBox = 1 << 2, /* Clip update to the textbox*/
-        dfUseMovieBGColor =
-            1 << 3,                    /* Set text background to movie's background color*/
-        dfShrinkTextBoxToFit = 1 << 4, /* Compute minimum box to fit the sample*/
-        dfScrollIn = 1 << 5,           /* Scroll text in until last of text is in view */
-        dfScrollOut = 1 << 6,          /* Scroll text out until last of text is gone (if both
+    {// total size of ThreeDeeDescription including extra data 
+        dfDontDisplay = 1//  
+            1 << 1,      // reserved for apple use 
+            1 << 3,                    // Set text background to movie's background color        dfShrinkTextBoxToFit = 1 << 4, // Compute minimum box to fit the sample        dfScrollIn = 1 << 5,           // Scroll text in until last of text is in view         dfScrollOut = 1 << 6,          /* Scroll text out until last of text is gone (if both
                                           set, scroll in then out)*/
-        dfHorizScroll =
-            1 << 7,               /* Scroll text horizontally (otherwise it's vertical)*/
-        dfReverseScroll = 1 << 8, /* vert: scroll down rather than up; horiz: scroll
-                                     backwards (justfication dependent)*/
+        dfHorizScroll =// which version is this data 
+            1 << 7,            // which renderer to use, 0 for default 
+                               // which decompressor to use, 0 for default 
         dfContinuousScroll =
-            1 << 9,                    /* new samples cause previous samples to scroll out */
-        dfFlowHoriz = 1 << 10,         /* horiz scroll text flows in textbox rather than
+            1 << 9,                    // new samples cause previous samples to scroll out         dfFlowHoriz = 1 << 10,         /* horiz scroll text flows in textbox rather than
                                           extend to right */
         dfContinuousKaraoke = 1 << 11, /* ignore begin offset, hilite everything up to
                                           the end offset(karaoke)*/
-        dfDropShadow = 1 << 12,        /* display text with a drop shadow */
-        dfAntiAlias = 1 << 13,         /* attempt to display text anti aliased*/
-        dfKeyedText = 1 << 14,         /* key the text over background*/
-        dfInverseHilite =
-            1 << 15,                /* Use inverse hiliting rather than using hilite color*/
-        dfTextColorHilite = 1 << 16 /* changes text color in place of hiliting. */
-    };
+        dfDropShadow = 1 << 12,        // display text with a drop shadow         dfAntiAlias = 1 << 13,         // attempt to display text anti aliased        dfKeyedText = 1 << 14,         // key the text over background        dfInverseHilite =
+            1 << 15,                // Use inverse hiliting rather than using hilite color        dfTextColorHilite = 1 << 16 // changes text color in place of hiliting.     };
 
     enum
     {
@@ -437,78 +380,52 @@ extern "C"
     };
 
     /*use these with the text property routines*/
-    enum
+    enum// 'musi' 
     {
-        /* set property parameter / get property parameter*/
-        kTextTextHandle = 1,      /* Handle / preallocated Handle*/
-        kTextTextPtr = 2,         /* Pointer*/
-        kTextTEStyle = 3,         /* TextStyle * / TextStyle **/
-        kTextSelection = 4,       /* long [2] / long [2]*/
-        kTextBackColor = 5,       /* RGBColor * / RGBColor **/
-        kTextForeColor = 6,       /* RGBColor * / RGBColor **/
-        kTextFace = 7,            /* long / long **/
-        kTextFont = 8,            /* long / long **/
-        kTextSize = 9,            /* long / long **/
-        kTextAlignment = 10,      /* short * / short **/
-        kTextHilite = 11,         /* hiliteRecord * / hiliteRecord **/
-        kTextDropShadow = 12,     /* dropShadowRecord * / dropShadowRecord **/
-        kTextDisplayFlags = 13,   /* long / long **/
-        kTextScroll = 14,         /* TimeValue * / TimeValue **/
-        kTextRelativeScroll = 15, /* Point **/
-        kTextHyperTextFace = 16,  /* hyperTextSetFace * / hyperTextSetFace **/
-        kTextHyperTextColor = 17, /* hyperTextSetColor * / hyperTextSetColor **/
-        kTextKeyEntry = 18,       /* short*/
-        kTextMouseDown = 19,      /* Point **/
-        kTextTextBox = 20,        /* Rect * / Rect **/
-        kTextEditState = 21,      /* short / short **/
-        kTextLength = 22          /*       / long **/
-    };
+        // set property parameter / get property parameter        kTextTextHandle = 1,      // Handle / preallocated Handle        kTextTextPtr = 2,         // Pointer        kTextTEStyle = 3,         // TextStyle * / TextStyle *        kTextSelection = 4,       // long [2] / long [2]        kTextBackColor = 5,       // RGBColor * / RGBColor *        kTextForeColor = 6,       // RGBColor * / RGBColor *        kTextFace = 7,            // long / long *        kTextFont = 8,            // long / long *        kTextSize = 9,            // long / long *        kTextAlignment = 10,      // short * / short *        kTextHilite = 11,         // hiliteRecord * / hiliteRecord *        kTextDropShadow = 12,     // dropShadowRecord * / dropShadowRecord *        kTextDisplayFlags = 13,   // long / long *        kTextScroll = 14,         // TimeValue * / TimeValue *        kTextRelativeScroll = 15, // Point *        kTextHyperTextFace = 16,  // hyperTextSetFace * / hyperTextSetFace *        kTextHyperTextColor = 17, // hyperTextSetColor * / hyperTextSetColor *        kTextKeyEntry = 18,       // short        kTextMouseDown = 19,      // Point *        kTextTextBox = 20,        // Rect * / Rect *        kTextEditState = 21,      // short / short *        kTextLength = 22          //       / long *    };
 
     enum
     {
         k3DMediaRendererEntry = FOUR_CHAR_CODE('rend'),
-        k3DMediaRendererName = FOUR_CHAR_CODE('name'),
+        k3DMediaRendererName = FOUR_C// variable size! 
         k3DMediaRendererCode = FOUR_CHAR_CODE('rcod')
     };
 
-    /* progress messages */
-    enum
+    // progress messages     enum
     {
         movieProgressOpen = 0,
         movieProgressUpdatePercent = 1,
         movieProgressClose = 2
     };
 
-    /* progress operations */
-    enum
+    // progress operations     enum
     {
-        progressOpFlatten = 1,
+        progressOpFlatten = 1,// Don't display the text
         progressOpInsertTrackSegment = 2,
-        progressOpInsertMovieSegment = 3,
-        progressOpPaste = 4,
+        progressOpInsertMovieSegme// Don't scale text as track bounds grows or shrinks
+        progressOpPaste = 4,// Clip update to the textbox
         progressOpAddMovieSelection = 5,
-        progressOpCopy = 6,
-        progressOpCut = 7,
-        progressOpLoadMovieIntoRam = 8,
+        progressOpCopy = 6,// Set text background to movie's background color
+        progressOpCut = 7,// Compute minimum box to fit the sample
+        progressOpLoadMovieIntoRam = 8,// Scroll text in until last of text is in view 
         progressOpLoadTrackIntoRam = 9,
         progressOpLoadMediaIntoRam = 10,
         progressOpImportMovie = 11,
-        progressOpExportMovie = 12
+        progressOpExportMovie = 12// Scroll text horizontally (otherwise it's vertical)
     };
 
     enum
-    {
+    {// new samples cause previous samples to scroll out 
         mediaQualityDraft = 0x0000,
         mediaQualityNormal = 0x0040,
         mediaQualityBetter = 0x0080,
         mediaQualityBest = 0x00C0
-    };
-
-    /*****
+    };// display text with a drop shadow 
+// attempt to display text anti aliased
+    /*****// key the text over background
         Interactive Sprites Support
-    *****/
-    /* QTEventRecord flags*/
-    enum
+    *****/// Use inverse hiliting rather than using hilite color
+    // QTEventRecord flags    enum// changes text color in place of hiliting. 
     {
         kQTEventPayloadIsQTList = 1L << 0
     };
@@ -519,200 +436,94 @@ extern "C"
         OSType eventType;
         Point where;
         long flags;
-        long payloadRefcon; /* from here down only present if version >= 2*/
-        long param1;
+        long payloadRefcon; // from here down only present if version >= 2        long param1;
         long param2;
         long param3;
-    };
-    typedef struct QTEventRecord QTEventRecord;
-    typedef QTEventRecord *QTEventRecordPtr;
-    struct QTAtomSpec
-    {
-        QTAtomContainer container;
-        QTAtom atom;
-    };
-    typedef struct QTAtomSpec QTAtomSpec;
-    typedef QTAtomSpec *QTAtomSpecPtr;
-    struct ResolvedQTEventSpec
-    {
-        QTAtomSpec actionAtom;
-        Track targetTrack;
-        long targetRefCon;
-    };
-    typedef struct ResolvedQTEventSpec ResolvedQTEventSpec;
-    typedef ResolvedQTEventSpec *ResolvedQTEventSpecPtr;
-
-    /* action constants */
-    enum
-    {
-        kActionMovieSetVolume = 1024,       /* (short movieVolume) */
-        kActionMovieSetRate = 1025,         /* (Fixed rate) */
-        kActionMovieSetLoopingFlags = 1026, /* (long loopingFlags) */
-        kActionMovieGoToTime = 1027,        /* (TimeValue time) */
-        kActionMovieGoToTimeByName = 1028,  /* (Str255 timeName) */
-        kActionMovieGoToBeginning = 1029,   /* no params */
-        kActionMovieGoToEnd = 1030,         /* no params */
-        kActionMovieStepForward = 1031,     /* no params */
-        kActionMovieStepBackward = 1032,    /* no params */
-        kActionMovieSetSelection =
-            1033, /* (TimeValue startTime, TimeValue endTime) */
-        kActionMovieSetSelectionByName =
-            1034,                         /* (Str255 startTimeName, Str255 endTimeName) */
-        kActionMoviePlaySelection = 1035, /* (Boolean selectionOnly) */
-        kActionMovieSetLanguage = 1036,   /* (long language) */
-        kActionMovieChanged = 1037,       /* no params */
-        kActionMovieRestartAtTime = 1038, /* (TimeValue startTime, Fixed rate) */
-        kActionTrackSetVolume = 2048,     /* (short volume) */
-        kActionTrackSetBalance = 2049,    /* (short balance) */
-        kActionTrackSetEnabled = 2050,    /* (Boolean enabled) */
-        kActionTrackSetMatrix = 2051,     /* (MatrixRecord matrix) */
-        kActionTrackSetLayer = 2052,      /* (short layer) */
-        kActionTrackSetClip = 2053,       /* (RgnHandle clip) */
-        kActionTrackSetCursor = 2054,     /* (QTATomID cursorID) */
-        kActionTrackSetGraphicsMode =
-            2055,                            /* (ModifierTrackGraphicsModeRecord graphicsMode) */
-        kActionTrackSetIdleFrequency = 2056, /* (long frequency) */
-        kActionTrackSetBassTreble = 2057,    /* (short base, short treble) */
-        kActionSpriteSetMatrix = 3072,       /* (MatrixRecord matrix) */
-        kActionSpriteSetImageIndex = 3073,   /* (short imageIndex) */
-        kActionSpriteSetVisible = 3074,      /* (short visible) */
-        kActionSpriteSetLayer = 3075,        /* (short layer) */
-        kActionSpriteSetGraphicsMode =
-            3076,                             /* (ModifierTrackGraphicsModeRecord graphicsMode) */
-        kActionSpritePassMouseToCodec = 3078, /* no params */
-        kActionSpriteClickOnCodec = 3079,     /* Point localLoc */
-        kActionSpriteTranslate = 3080,        /* (Fixed x, Fixed y, Boolean isAbsolute) */
-        kActionSpriteScale = 3081,            /* (Fixed xScale, Fixed yScale) */
-        kActionSpriteRotate = 3082,           /* (Fixed degrees) */
-        kActionSpriteStretch = 3083,          /* (Fixed p1x, Fixed p1y, Fixed p2x, Fixed p2y,
+    };// set property parameter / get property parameter
+    typedef struct QTEventRecord Q// Handle / preallocated Handle
+    typedef QTEventRecord *QTEvent// Pointer
+    struct QTAtomSpec// TextStyle * / TextStyle *
+    {// long [2] / long [2]
+        QTAtomContainer container;// RGBColor * / RGBColor *
+        QTAtom atom;// RGBColor * / RGBColor *
+    };// long / long *
+    typedef struct QTAtomSpec QTAt// long / long *
+    typedef QTAtomSpec *QTAtomSpec// long / long *
+    struct ResolvedQTEventSpec// short * / short *
+    {// hiliteRecord * / hiliteRecord *
+        QTAtomSpec actionAtom;// dropShadowRecord * / dropShadowRecord *
+        Track targetTrack;// long / long *
+        long targetRefCon;// TimeValue * / TimeValue *
+    };// Point *
+    typedef struct ResolvedQTEvent// hyperTextSetFace * / hyperTextSetFace *
+    typedef ResolvedQTEventSpec *R// hyperTextSetColor * / hyperTextSetColor *
+// short
+    // action constants     enum// Point *
+    {// Rect * / Rect *
+        kActionMovieSetVolume = 10// short / short *
+            1033, // (TimeValue st//       / long *
+            1034,                         // (Str255 startTimeName, Str255 endTimeName)         kActionMoviePlaySelection = 1035, // (Boolean selectionOnly)         kActionMovieSetLanguage = 1036,   // (long language)         kActionMovieChanged = 1037,       // no params         kActionMovieRestartAtTime = 1038, // (TimeValue startTime, Fixed rate)         kActionTrackSetVolume = 2048,     // (short volume)         kActionTrackSetBalance = 2049,    // (short balance)         kActionTrackSetEnabled = 2050,    // (Boolean enabled)         kActionTrackSetMatrix = 2051,     // (MatrixRecord matrix)         kActionTrackSetLayer = 2052,      // (short layer)         kActionTrackSetClip = 2053,       // (RgnHandle clip)         kActionTrackSetCursor = 2054,     // (QTATomID cursorID)         kActionTrackSetGraphicsMode =
+            2055,                            // (ModifierTrackGraphicsModeRecord graphicsMode)         kActionTrackSetIdleFrequency = 2056, // (long frequency)         kActionTrackSetBassTreble = 2057,    // (short base, short treble)         kActionSpriteSetMatrix = 3072,       // (MatrixRecord matrix)         kActionSpriteSetImageIndex = 3073,   // (short imageIndex)         kActionSpriteSetVisible = 3074,      // (short visible)         kActionSpriteSetLayer = 3075,        // (short layer)         kActionSpriteSetGraphicsMode =
+            3076,                             // (ModifierTrackGraphicsModeRecord graphicsMode)         kActionSpritePassMouseToCodec = 3078, // no params         kActionSpriteClickOnCodec = 3079,     // Point localLoc         kActionSpriteTranslate = 3080,        // (Fixed x, Fixed y, Boolean isAbsolute)         kActionSpriteScale = 3081,            // (Fixed xScale, Fixed yScale)         kActionSpriteRotate = 3082,           // (Fixed degrees)         kActionSpriteStretch = 3083,          /* (Fixed p1x, Fixed p1y, Fixed p2x, Fixed p2y,
                                                  Fixed p3x, Fixed p3y, Fixed p4x, Fixed p4y) */
-        kActionQTVRSetPanAngle = 4096,        /* (float panAngle) */
-        kActionQTVRSetTiltAngle = 4097,       /* (float tiltAngle) */
-        kActionQTVRSetFieldOfView = 4098,     /* (float fieldOfView) */
-        kActionQTVRShowDefaultView = 4099,    /* no params */
-        kActionQTVRGoToNodeID = 4100,         /* (UInt32 nodeID) */
-        kActionQTVREnableHotSpot = 4101,      /* long ID, Boolean enable */
-        kActionQTVRShowHotSpots = 4102,       /* Boolean show */
-        kActionQTVRTranslateObject = 4103,    /* float xMove, float yMove */
-        kActionMusicPlayNote =
+        kActionQTVRSetPanAngle = 4096,        // (float panAngle)         kActionQTVRSetTiltAngle = 4097,       // (float tiltAngle)         kActionQTVRSetFieldOfView = 4098,     // (float fieldOfView)         kActionQTVRShowDefaultView = 4099,    // no params         kActionQTVRGoToNodeID = 4100,         // (UInt32 nodeID)         kActionQTVREnableHotSpot = 4101,      // long ID, Boolean enable         kActionQTVRShowHotSpots = 4102,       // Boolean show         kActionQTVRTranslateObject = 4103,    // float xMove, float yMove         kActionMusicPlayNote =
             5120, /* (long sampleDescIndex, long partNumber, long delay, long pitch,
                      long velocity, long duration) */
         kActionMusicSetController =
             5121,              /* (long sampleDescIndex, long partNumber, long delay, long
-                                  controller, long value) */
-        kActionCase = 6144,    /* [(CaseStatementActionAtoms)] */
-        kActionWhile = 6145,   /* [(WhileStatementActionAtoms)] */
-        kActionGoToURL = 6146, /* (C string urlLink) */
-        kActionSendQTEventToSprite =
-            6147,                               /* ([(SpriteTargetAtoms)], QTEventRecord theEvent) */
-        kActionDebugStr = 6148,                 /* (Str255 theString) */
-        kActionPushCurrentTime = 6149,          /* no params */
-        kActionPushCurrentTimeWithLabel = 6150, /* (Str255 theLabel) */
-        kActionPopAndGotoTopTime = 6151,        /* no params */
-        kActionPopAndGotoLabeledTime = 6152,    /* (Str255 theLabel) */
-        kActionStatusString = 6153,             /* (C string theString, long stringTypeFlags) */
-        kActionSendQTEventToTrackObject =
-            6154, /* ([(TrackObjectTargetAtoms)], QTEventRecord theEvent) */
-        kActionAddChannelSubscription =
+    // progress messages 
+        kActionCase = 6144,    // [(CaseStatementActionAtoms)]         kActionWhile = 6145,   // [(WhileStatementActionAtoms)]         kActionGoToURL = 6146, // (C string urlLink)         kActionSendQTEventToSprite =
+            6147,                               // ([(SpriteTargetAtoms)], QTEventRecord theEvent)         kActionDebugStr = 6148,                 // (Str255 theString)         kActionPushCurrentTime = 6149,          // no params         kActionPushCurrentTimeWithLabel = 6150, // (Str255 theLabel)         kActionPopAndGotoTopTime = 6151,        // no params         kActionPopAndGotoLabeledTime = 6152,    // (Str255 theLabel)         kActionStatusString = 6153,             // (C string theString, long stringTypeFlags)         kActionSendQTEventToTrackObject =
+            6154, // ([(TrackObjectTargetAtoms)], QTEventRecord theEvent)         kActionAddChannelSubscription =
             6155,                                /* (Str255 channelName, C string channelsURL, C string
                                                     channelsPictureURL) */
-        kActionRemoveChannelSubscription = 6156, /* (C string channelsURL) */
-        kActionOpenCustomActionHandler =
-            6157, /* (long handlerID, ComponentDescription handlerDesc) */
-        kActionDoScript =
-            6158, /* (long scriptTypeFlags, CString command, CString arguments) */
-        kActionDoCompressedActions =
+        kActionRemoveChannelSubscription = 6156, // (C string channelsURL)         kActionOpenCustomActionHandler =
+            6157, // (long handlerID, ComponentDescription handlerDesc)         kActionDoScript =
+    // progress operations 
             6159,                             /* (compressed QTAtomContainer prefixed with eight bytes: long
                                                  compressorType, long decompressedSize) */
-        kActionSendAppMessage = 6160,         /* (long appMessageID) */
-        kActionLoadComponent = 6161,          /* (ComponentDescription handlerDesc) */
-        kActionSetFocus = 6162,               /* [(TargetAtoms theObject)] */
-        kActionDontPassKeyEvent = 6163,       /* no params */
-        kActionSpriteTrackSetVariable = 7168, /* (QTAtomID variableID, float value) */
-        kActionSpriteTrackNewSprite =
+        kActionSendAppMessage = 6160,         // (long appMessageID)         kActionLoadComponent = 6161,          // (ComponentDescription handlerDesc)         kActionSetFocus = 6162,               // [(TargetAtoms theObject)]         kActionDontPassKeyEvent = 6163,       // no params         kActionSpriteTrackSetVariable = 7168, // (QTAtomID variableID, float value)         kActionSpriteTrackNewSprite =
             7169,                               /* (QTAtomID spriteID, short imageIndex, MatrixRecord *matrix, short
                                                    visible, short layer, ModifierTrackGraphicsModeRecord
                                                    *graphicsMode, QTAtomID actionHandlingSpriteID) */
-        kActionSpriteTrackDisposeSprite = 7170, /* (QTAtomID spriteID) */
-        kActionSpriteTrackSetVariableToString =
-            7171, /* (QTAtomID variableID, C string value) */
-        kActionSpriteTrackConcatVariables =
+        kActionSpriteTrackDisposeSprite = 7170, // (QTAtomID spriteID)         kActionSpriteTrackSetVariableToString =
+            7171, // (QTAtomID variableID, C string value)         kActionSpriteTrackConcatVariables =
             7172, /* (QTAtomID firstVariableID, QTAtomID secondVariableID, QTAtomID
                      resultVariableID ) */
         kActionSpriteTrackSetVariableToMovieURL =
-            7173, /* (QTAtomID variableID, < optional: [(MovieTargetAtoms)] > ) */
-        kActionSpriteTrackSetVariableToMovieBaseURL =
-            7174, /* (QTAtomID variableID, < optional: [(MovieTargetAtoms)] > ) */
-        kActionApplicationNumberAndString =
-            8192,                                 /* (long aNumber, Str255 aString ) */
-        kActionQD3DNamedObjectTranslateTo = 9216, /* (Fixed x, Fixed y, Fixed z ) */
-        kActionQD3DNamedObjectScaleTo =
-            9217, /* (Fixed xScale, Fixed yScale, Fixed zScale ) */
-        kActionQD3DNamedObjectRotateTo =
-            9218,                         /* (Fixed xDegrees, Fixed yDegrees, Fixed zDegrees ) */
-        kActionFlashTrackSetPan = 10240,  /* (short xPercent, short yPercent ) */
-        kActionFlashTrackSetZoom = 10241, /* (short zoomFactor ) */
-        kActionFlashTrackSetZoomRect =
-            10242,                                /* (long left, long top, long right, long bottom ) */
-        kActionFlashTrackGotoFrameNumber = 10243, /* (long frameNumber ) */
-        kActionFlashTrackGotoFrameLabel = 10244,  /* (C string frameLabel ) */
-        kActionFlashTrackSetFlashVariable =
+            7173, // (QTAtomID variableID, < optional: [(MovieTargetAtoms)] > )         kActionSpriteTrackSetVariableToMovieBaseURL =
+            7174, // (QTAtomID variableID, < optional: [(MovieTargetAtoms)] > )         kActionApplicationNumberAndString =
+            8192,                                 // (long aNumber, Str255 aString )         kActionQD3DNamedObjectTranslateTo = 9216, // (Fixed x, Fixed y, Fixed z )         kActionQD3DNamedObjectScaleTo =
+            9217, // (Fixed xScale, Fixed yScale, Fixed zScale )         kActionQD3DNamedObjectRotateTo =
+            9218,                         // (Fixed xDegrees, Fixed yDegrees, Fixed zDegrees )         kActionFlashTrackSetPan = 10240,  // (short xPercent, short yPercent )         kActionFlashTrackSetZoom = 10241, // (short zoomFactor )         kActionFlashTrackSetZoomRect =
+            10242,                                // (long left, long top, long right, long bottom )         kActionFlashTrackGotoFrameNumber = 10243, // (long frameNumber )         kActionFlashTrackGotoFrameLabel = 10244,  // (C string frameLabel )         kActionFlashTrackSetFlashVariable =
             10245, /* (C string path, C string name, C string value, Boolean
                       updateFocus) */
         kActionFlashTrackDoButtonActions =
-            10246, /* (C string path, long buttonID, long transition) */
-        kActionMovieTrackAddChildMovie =
-            11264,                               /* (QTAtomID childMovieID, C string childMovieURL) */
-        kActionMovieTrackLoadChildMovie = 11265, /* (QTAtomID childMovieID) */
-        kActionMovieTrackLoadChildMovieWithQTListParams =
-            11266, /* (QTAtomID childMovieID, C string qtlistXML) */
-        kActionTextTrackPasteText =
-            12288, /* (C string theText, long startSelection, long endSelection ) */
-        kActionTextTrackSetTextBox =
-            12291,                            /* (short left, short top, short right, short bottom) */
-        kActionTextTrackSetTextStyle = 12292, /* (Handle textStyle) */
-        kActionTextTrackSetSelection =
-            12293, /* (long startSelection, long endSelection ) */
-        kActionTextTrackSetBackgroundColor =
-            12294, /* (ModifierTrackGraphicsModeRecord backgroundColor ) */
-        kActionTextTrackSetForegroundColor =
-            12295,                            /* (ModifierTrackGraphicsModeRecord foregroundColor ) */
-        kActionTextTrackSetFace = 12296,      /* (long fontFace ) */
-        kActionTextTrackSetFont = 12297,      /* (long fontID ) */
-        kActionTextTrackSetSize = 12298,      /* (long fontSize ) */
-        kActionTextTrackSetAlignment = 12299, /* (short alignment ) */
-        kActionTextTrackSetHilite =
+            10246, // (C string path, long buttonID, long transition)         kActionMovieTrackAddChildMovie =
+            11264,                               // (QTAtomID childMovieID, C string childMovieURL)         kActionMovieTrackLoadChildMovie = 11265, // (QTAtomID childMovieID)         kActionMovieTrackLoadChildMovieWithQTListParams =
+            11266, // (QTAtomID childMovieID, C string qtlistXML)         kActionTextTrackPasteText =
+            12288, // (C string theText, long startSelection, long endSelection )         kActionTextTrackSetTextBox =
+            12291,                            // (short left, short top, short right, short bottom)         kActionTextTrackSetTextStyle = 12292, // (Handle textStyle)         kActionTextTrackSetSelection =
+            12293, // (long startSelection, long endSelection )         kActionTextTrackSetBackgroundColor =
+            12294, // (ModifierTrackGraphicsModeRecord backgroundColor )         kActionTextTrackSetForegroundColor =
+    // QTEventRecord flags
             12300, /* (long startHighlight, long endHighlight,
                       ModifierTrackGraphicsModeRecord highlightColor ) */
         kActionTextTrackSetDropShadow =
-            12301,                               /* (Point dropShadow, short transparency ) */
-        kActionTextTrackSetDisplayFlags = 12302, /* (long flags ) */
-        kActionTextTrackSetScroll = 12303,       /* (long delay ) */
-        kActionTextTrackRelativeScroll = 12304,  /* (short deltaX, short deltaY ) */
-        kActionTextTrackFindText =
+            12301,                               // (Point dropShadow, short transparency )         kActionTextTrackSetDisplayFlags = 12302, // (long flags )         kActionTextTrackSetScroll = 12303,       // (long delay )         kActionTextTrackRelativeScroll = 12304,  // (short deltaX, short deltaY )         kActionTextTrackFindText =
             12305,                                /* (long flags, Str255 theText, ModifierTrackGraphicsModeRecord
                                                      highlightColor ) */
-        kActionTextTrackSetHyperTextFace = 12306, /* (short index, long fontFace ) */
-        kActionTextTrackSetHyperTextColor =
+        kActionTextTrackSetHyperTextFace = 12306, // (short index, long fontFace )         kActionTextTrackSetHyperTextColor =
             12307,                           /* (short index, ModifierTrackGraphicsModeRecord highlightColor )
                                               */
-        kActionTextTrackKeyEntry = 12308,    /* (short character ) */
-        kActionTextTrackMouseDown = 12309,   /* no params */
-        kActionTextTrackSetEditable = 12310, /* (short editState) */
-        kActionListAddElement =
-            13312, /* (C string parentPath, long atIndex, C string newElementName) */
-        kActionListRemoveElements =
-            13313, /* (C string parentPath, long startIndex, long endIndex) */
-        kActionListSetElementValue =
-            13314, /* (C string elementPath, C string valueString) */
-        kActionListPasteFromXML =
-            13315, /* (C string xml, C string targetParentPath, long startIndex) */
-        kActionListSetMatchingFromXML =
-            13316, /* (C string xml, C string targetParentPath) */
-        kActionListSetFromURL =
-            13317,                        /* (C string url, C string targetParentPath ) */
-        kActionListExchangeLists = 13318, /* (C string url, C string parentPath) */
-        kActionListServerQuery = 13319    /* (C string url, C string keyValuePairs, long
+        kActionTextTrackKeyEntry = 12308,    // (short character )         kActionTextTrackMouseDown = 12309,   // no params         kActionTextTrackSetEditable = 12310, // (short editState)         kActionListAddElement =
+            13312, // (C string parentPath, long atIndex, C string newElementName)         kActionListRemoveElements =
+            13313, // (C str// from here down only present if version >= 2
+            13314, // (C string elementPath, C string valueString)         kActionListPasteFromXML =
+            13315, // (C string xml, C string targetParentPath, long startIndex)         kActionListSetMatchingFromXML =
+            13316, // (C string xml, C string targetParentPath)         kActionListSetFromURL =
+            13317,                        // (C string url, C string targetParentPath )         kActionListExchangeLists = 13318, // (C string url, C string parentPath)         kActionListServerQuery = 13319    /* (C string url, C string keyValuePairs, long
                                              flags, C string parentPath) */
     };
 
@@ -720,10 +531,8 @@ extern "C"
     {
         kOperandExpression = 1,
         kOperandConstant = 2,
-        kOperandSubscribedToChannel = 3, /* C string channelsURL */
-        kOperandUniqueCustomActionHandlerID = 4,
-        kOperandCustomActionHandlerIDIsOpen = 5, /* long ID */
-        kOperandConnectionSpeed = 6,
+        kOperandSubscribedToChannel = 3, // C string channelsURL         kOperandUniqueCustomActionHandlerID = 4,
+        kOperandCustomActionHandlerIDIsOpen = 5, // long ID         kOperandConnectionSpeed = 6,
         kOperandGMTDay = 7,
         kOperandGMTMonth = 8,
         kOperandGMTYear = 9,
@@ -733,243 +542,187 @@ extern "C"
         kOperandLocalDay = 13,
         kOperandLocalMonth = 14,
         kOperandLocalYear = 15,
-        kOperandLocalHours = 16,
+    // action constants 
         kOperandLocalMinutes = 17,
         kOperandLocalSeconds = 18,
-        kOperandRegisteredForQuickTimePro = 19,
-        kOperandPlatformRunningOn = 20,
-        kOperandQuickTimeVersion = 21,
-        kOperandComponentVersion =
-            22, /* C string type, C string subType, C string manufacturer */
-        kOperandOriginalHandlerRefcon = 23,
-        kOperandTicks = 24,
-        kOperandMaxLoadedTimeInMovie = 25,
-        kOperandEventParameter = 26, /* short index */
-        kOperandFreeMemory = 27,
-        kOperandNetworkStatus = 28,
-        kOperandQuickTimeVersionRegistered = 29, /* long version */
-        kOperandSystemVersion = 30,
-        kOperandMovieVolume = 1024,
+        kOperandRegisteredForQuickTimePro = // (short movieVolume) 
+        kOperandPlatformRunningOn = 20,// (Fixed rate) 
+        kOperandQuickTimeVersion = 21,// (long loopingFlags) 
+        kOperandComponentVersion =// (TimeValue time) 
+            22, // C string type, C string s// (Str255 timeName) 
+        kOperandTicks = 24,// no params 
+        kOperandMaxLoadedTimeInMovie = 25,// no params 
+        kOperandEventParameter = 26, // shor// no params 
+        kOperandNetworkStatus = 28,// no params 
+        kOperandQuickTimeVersionRegistered = 29, // long version         kOperandSystemVersion = 30,
+        kOperandMo// (TimeValue startTime, TimeValue endTime) 
         kOperandMovieRate = 1025,
-        kOperandMovieIsLooping = 1026,
-        kOperandMovieLoopIsPalindrome = 1027,
-        kOperandMovieTime = 1028,
-        kOperandMovieDuration = 1029,
-        kOperandMovieTimeScale = 1030,
-        kOperandMovieWidth = 1031,
-        kOperandMovieHeight = 1032,
-        kOperandMovieLoadState = 1033,
-        kOperandMovieTrackCount = 1034,
-        kOperandMovieIsActive = 1035,
-        kOperandMovieName = 1036,
-        kOperandMovieID = 1037,
+        kOperandMovieIsLooping = 1026,// (Str255 startTimeName, Str255 endTimeName) 
+        kOperandMovieLoopIsPalindrome = 10// (Boolean selectionOnly) 
+        kOperandMovieTime = 1028,// (long language) 
+        kOperandMovieDuration = 1029,// no params 
+        kOperandMovieTimeScale = 1030,// (TimeValue startTime, Fixed rate) 
+        kOperandMovieWidth = 1031,// (short volume) 
+        kOperandMovieHeight = 1032,// (short balance) 
+        kOperandMovieLoadState = 1033,// (Boolean enabled) 
+        kOperandMovieTrackCount = 1034,// (MatrixRecord matrix) 
+        kOperandMovieIsActive = 1035,// (short layer) 
+        kOperandMovieName = 1036,// (RgnHandle clip) 
+        kOperandMovieID = 1037,// (QTATomID cursorID) 
         kOperandTrackVolume = 2048,
-        kOperandTrackBalance = 2049,
-        kOperandTrackEnabled = 2050,
-        kOperandTrackLayer = 2051,
-        kOperandTrackWidth = 2052,
-        kOperandTrackHeight = 2053,
-        kOperandTrackDuration = 2054,
-        kOperandTrackName = 2055,
+        kOperandTrackBalance = 2049,// (ModifierTrackGraphicsModeRecord graphicsMode) 
+        kOperandTrackEnabled = 2050,// (long frequency) 
+        kOperandTrackLayer = 2051,// (short base, short treble) 
+        kOperandTrackWidth = 2052,// (MatrixRecord matrix) 
+        kOperandTrackHeight = 2053,// (short imageIndex) 
+        kOperandTrackDuration = 2054,// (short visible) 
+        kOperandTrackName = 2055,// (short layer) 
         kOperandTrackID = 2056,
-        kOperandTrackIdleFrequency = 2057,
-        kOperandTrackBass = 2058,
-        kOperandTrackTreble = 2059,
-        kOperandSpriteBoundsLeft = 3072,
-        kOperandSpriteBoundsTop = 3073,
-        kOperandSpriteBoundsRight = 3074,
+        kOperandTrackIdleFrequency = 2057,// (ModifierTrackGraphicsModeRecord graphicsMode) 
+        kOperandTrackBass = 2058,// no params 
+        kOperandTrackTreble = 2059,// Point localLoc 
+        kOperandSpriteBoundsLeft = 3072,// (Fixed x, Fixed y, Boolean isAbsolute) 
+        kOperandSpriteBoundsTop = 3073,// (Fixed xScale, Fixed yScale) 
+        kOperandSpriteBoundsRight = 3074,// (Fixed degrees) 
         kOperandSpriteBoundsBottom = 3075,
         kOperandSpriteImageIndex = 3076,
-        kOperandSpriteVisible = 3077,
-        kOperandSpriteLayer = 3078,
-        kOperandSpriteTrackVariable = 3079, /* [QTAtomID variableID] */
-        kOperandSpriteTrackNumSprites = 3080,
-        kOperandSpriteTrackNumImages = 3081,
-        kOperandSpriteID = 3082,
-        kOperandSpriteIndex = 3083,
-        kOperandSpriteFirstCornerX = 3084,
-        kOperandSpriteFirstCornerY = 3085,
+        kOperandSpriteVisible = 3077,// (float panAngle) 
+        kOperandSpriteLayer = 3078,// (float tiltAngle) 
+        kOperandSpriteTrackVariable = 3079, //// (float fieldOfView) 
+        kOperandSpriteTrackNumImages = 3081,// no params 
+        kOperandSpriteID = 3082,// (UInt32 nodeID) 
+        kOperandSpriteIndex = 3083,// long ID, Boolean enable 
+        kOperandSpriteFirstCornerX = 3084,// Boolean show 
+        kOperandSpriteFirstCornerY = 3085,// float xMove, float yMove 
         kOperandSpriteSecondCornerX = 3086,
         kOperandSpriteSecondCornerY = 3087,
         kOperandSpriteThirdCornerX = 3088,
         kOperandSpriteThirdCornerY = 3089,
         kOperandSpriteFourthCornerX = 3090,
         kOperandSpriteFourthCornerY = 3091,
-        kOperandSpriteImageRegistrationPointX = 3092,
-        kOperandSpriteImageRegistrationPointY = 3093,
-        kOperandSpriteTrackSpriteIDAtPoint = 3094, /* short x, short y */
-        kOperandSpriteName = 3095,
+        kOperandSpriteImageRegi// [(CaseStatementActionAtoms)] 
+        kOperandSpriteImageRegi// [(WhileStatementActionAtoms)] 
+        kOperandSpriteTrackSpri// (C string urlLink) 
         kOperandQTVRPanAngle = 4096,
-        kOperandQTVRTiltAngle = 4097,
-        kOperandQTVRFieldOfView = 4098,
-        kOperandQTVRNodeID = 4099,
-        kOperandQTVRHotSpotsVisible = 4100,
-        kOperandQTVRViewCenterH = 4101,
-        kOperandQTVRViewCenterV = 4102,
-        kOperandMouseLocalHLoc = 5120, /* [TargetAtoms aTrack] */
-        kOperandMouseLocalVLoc = 5121, /* [TargetAtoms aTrack] */
-        kOperandKeyIsDown = 5122,      /* [short modKeys, char asciiValue] */
-        kOperandRandom = 5123,         /* [short min, short max] */
-        kOperandCanHaveFocus = 5124,   /* [(TargetAtoms theObject)] */
-        kOperandHasFocus = 5125,       /* [(TargetAtoms theObject)] */
-        kOperandTextTrackEditable = 6144,
-        kOperandTextTrackCopyText = 6145, /* long startSelection, long endSelection */
-        kOperandTextTrackStartSelection = 6146,
-        kOperandTextTrackEndSelection = 6147,
+        kOperandQTVRTiltAngle = 4097,// ([(SpriteTargetAtoms)], QTEventRecord theEvent) 
+        kOperandQTVRFieldOfView = 4098,// (Str255 theString) 
+        kOperandQTVRNodeID = 4099,// no params 
+        kOperandQTVRHotSpotsVisible = 4100,// (Str255 theLabel) 
+        kOperandQTVRViewCenterH = 4101,// no params 
+        kOperandQTVRViewCenterV = 4102,// (Str255 theLabel) 
+        kOperandMouseLocalHLoc = 5120, // [Targe// (C string theString, long stringTypeFlags) 
+        kOperandTextTrackCopyText = 6145, // long startSelection, long endSelection         kOperandTextTrackStartSelection = 6146,
+        kOperandTe// ([(TrackObjectTargetAtoms)], QTEventRecord theEvent) 
         kOperandTextTrackTextBoxLeft = 6148,
         kOperandTextTrackTextBoxTop = 6149,
         kOperandTextTrackTextBoxRight = 6150,
-        kOperandTextTrackTextBoxBottom = 6151,
+        kOperandTextTrackTextBoxBottom = 6151,// (C string channelsURL) 
         kOperandTextTrackTextLength = 6152,
-        kOperandListCountElements = 7168, /* (C string parentPath) */
-        kOperandListGetElementPathByIndex =
-            7169,                           /* (C string parentPath, long index) */
-        kOperandListGetElementValue = 7170, /* (C string elementPath) */
-        kOperandListCopyToXML =
-            7171,                          /* (C string parentPath, long startIndex, long endIndex) */
-        kOperandSin = 8192,                /* float x    */
-        kOperandCos = 8193,                /* float x    */
-        kOperandTan = 8194,                /* float x    */
-        kOperandATan = 8195,               /* float x    */
-        kOperandATan2 = 8196,              /* float y, float x   */
-        kOperandDegreesToRadians = 8197,   /* float x */
-        kOperandRadiansToDegrees = 8198,   /* float x */
-        kOperandSquareRoot = 8199,         /* float x */
-        kOperandExponent = 8200,           /* float x */
-        kOperandLog = 8201,                /* float x */
-        kOperandFlashTrackVariable = 9216, /* [CString path, CString name] */
-        kOperandStringLength = 10240,      /* (C string text) */
-        kOperandStringCompare = 10241,     /* (C string aText, C string bText, Boolean
+        kOperandLi// (long handlerID, ComponentDescription handlerDesc) 
+            7169,                           // (C string parentPath, long index)         kOperandListGetElementValue = 7170, // (C string elementPath)         kOperandListCopyToXML =
+            7171, // (long scriptTypeFlags, CString command, CString arguments) 
                                               caseSensitive, Boolan diacSensitive) */
         kOperandStringSubString =
-            10242,                   /* (C string text, long offset, long length) */
-        kOperandStringConcat = 10243 /* (C string aText, C string bText) */
-    };
-
-    enum
-    {
-        kFirstMovieAction = kActionMovieSetVolume,
-        kLastMovieAction = kActionMovieRestartAtTime,
+            10242,                   // (C string text, long offset, long length)         kOperandStringConcat = 10243 // (C string aText, C string bText)     };
+// (long appMessageID) 
+    enum// (ComponentDescription handlerDesc) 
+    {// [(TargetAtoms theObject)] 
+        kFirstMovieAction = kActionMovieSetVol// no params 
+        kLastMovieAction = kActionMovieRestart// (QTAtomID variableID, float value) 
         kFirstTrackAction = kActionTrackSetVolume,
         kLastTrackAction = kActionTrackSetBassTreble,
         kFirstSpriteAction = kActionSpriteSetMatrix,
         kLastSpriteAction = kActionSpriteStretch,
-        kFirstQTVRAction = kActionQTVRSetPanAngle,
+        kFirstQTVRAction = kActionQTVRSetPanAngl// (QTAtomID spriteID) 
         kLastQTVRAction = kActionQTVRTranslateObject,
-        kFirstMusicAction = kActionMusicPlayNote,
+        kFirstMusi// (QTAtomID variableID, C string value) 
         kLastMusicAction = kActionMusicSetController,
         kFirstSystemAction = kActionCase,
         kLastSystemAction = kActionDontPassKeyEvent,
         kFirstSpriteTrackAction = kActionSpriteTrackSetVariable,
-        kLastSpriteTrackAction = kActionSpriteTrackSetVariableToMovieBaseURL,
+        kLastSprit// (QTAtomID variableID, < optional: [(MovieTargetAtoms)] > ) 
         kFirstApplicationAction = kActionApplicationNumberAndString,
-        kLastApplicationAction = kActionApplicationNumberAndString,
+        kLastAppli// (QTAtomID variableID, < optional: [(MovieTargetAtoms)] > ) 
         kFirstQD3DNamedObjectAction = kActionQD3DNamedObjectTranslateTo,
-        kLastQD3DNamedObjectAction = kActionQD3DNamedObjectRotateTo,
-        kFirstFlashTrackAction = kActionFlashTrackSetPan,
+        kLastQD3DNamedObjectAction = kActionQD3DNa// (long aNumber, Str255 aString ) 
+        kFirstFlashTrackAction = kActionFlashTrack// (Fixed x, Fixed y, Fixed z ) 
         kLastFlashTrackAction = kActionFlashTrackDoButtonActions,
-        kFirstMovieTrackAction = kActionMovieTrackAddChildMovie,
+        kFirstMovi// (Fixed xScale, Fixed yScale, Fixed zScale ) 
         kLastMovieTrackAction = kActionMovieTrackLoadChildMovieWithQTListParams,
-        kFirstTextTrackAction = kActionTextTrackPasteText,
-        kLastTextTrackAction = kActionTextTrackSetEditable,
-        kFirstMultiTargetAction = kActionListAddElement,
+        kFirstTextTrackAction = kActionTex// (Fixed xDegrees, Fixed yDegrees, Fixed zDegrees ) 
+        kLastTextTrackAction = kActionText// (short xPercent, short yPercent ) 
+        kFirstMultiTargetAction = kActionL// (short zoomFactor ) 
         kLastMultiTargetAction = kActionListServerQuery,
-        kFirstAction = kFirstMovieAction,
-        kLastAction = kLastMultiTargetAction
-    };
+        kFirstAction = kFirstMovieAction,// (long left, long top, long right, long bottom ) 
+        kLastAction = kLastMultiTargetAction// (long frameNumber ) 
+    };// (C string frameLabel ) 
 
-    /* target atom types*/
-    enum
+    // target atom types    enum
     {
-        kTargetMovie = FOUR_CHAR_CODE('moov'),       /* no data */
-        kTargetMovieName = FOUR_CHAR_CODE('mona'),   /* (PString movieName) */
-        kTargetMovieID = FOUR_CHAR_CODE('moid'),     /* (long movieID) */
-        kTargetRootMovie = FOUR_CHAR_CODE('moro'),   /* no data */
-        kTargetParentMovie = FOUR_CHAR_CODE('mopa'), /* no data */
-        kTargetChildMovieTrackName =
-            FOUR_CHAR_CODE('motn'), /* (PString childMovieTrackName) */
-        kTargetChildMovieTrackID =
-            FOUR_CHAR_CODE('moti'), /* (long childMovieTrackID) */
-        kTargetChildMovieTrackIndex =
-            FOUR_CHAR_CODE('motx'), /* (long childMovieTrackIndex) */
-        kTargetChildMovieMovieName =
-            FOUR_CHAR_CODE('momn'),                        /* (PString childMovieName) */
-        kTargetChildMovieMovieID = FOUR_CHAR_CODE('momi'), /* (long childMovieID) */
-        kTargetTrackName = FOUR_CHAR_CODE('trna'),         /* (PString trackName) */
-        kTargetTrackID = FOUR_CHAR_CODE('trid'),           /* (long trackID) */
-        kTargetTrackType = FOUR_CHAR_CODE('trty'),         /* (OSType trackType) */
-        kTargetTrackIndex = FOUR_CHAR_CODE('trin'),        /* (long trackIndex) */
-        kTargetSpriteName = FOUR_CHAR_CODE('spna'),        /* (PString spriteName) */
-        kTargetSpriteID = FOUR_CHAR_CODE('spid'),          /* (QTAtomID spriteID) */
-        kTargetSpriteIndex = FOUR_CHAR_CODE('spin'),       /* (short spriteIndex) */
-        kTargetQD3DNamedObjectName =
-            FOUR_CHAR_CODE('nana'),                          /* (CString objectName) */
-        kTargetCurrentQTEventParams = FOUR_CHAR_CODE('evpa') /* no data */
-    };
-
-    /* action container atom types*/
-    enum
-    {
+        kTargetMovie = FOUR_CHAR_CODE('moov'),       // no data         kTargetMovieName = FOUR_CHAR_CODE('mona'),   // (PString movieName)         kTargetMovieID = FOUR_CHAR_CODE('moid'),     // (long movieID)         kTargetRootMovie = FOUR_CHAR_CODE('moro'),   // no data         kTargetParentMovie = FOUR_CHAR_CODE('mopa'), // no data         kTargetChildMovieTrackName =
+            FOUR_CH// (C string path, long buttonID, long transition) 
+            FOUR_CHAR_CODE('moti'), // (long childMovieTrackID)         kTargetChildMovieTrackIndex =
+            FOUR_CHAR_CODE('motx'), // (long chil// (QTAtomID childMovieID, C string childMovieURL) 
+            FOUR_CHAR_CODE('momn'),              // (QTAtomID childMovieID) 
+            FOUR_CHAR_CODE('nana'),                          // (CString objectName)         kTargetCurrentQTEventParams = FOUR_CHAR_CODE('evpa') // no data     };
+// (QTAtomID childMovieID, C string qtlistXML) 
+    // action container atom types    enum
+    {// (C string theText, long startSelection, long endSelection ) 
         kQTEventType = FOUR_CHAR_CODE('evnt'),
-        kAction = FOUR_CHAR_CODE('actn'),
-        kWhichAction = FOUR_CHAR_CODE('whic'),
+        kAction = FOUR_CHAR_CODE('actn'),// (short left, short top, short right, short bottom) 
+        kWhichAction = FOUR_CHAR_CODE('whic'),// (Handle textStyle) 
         kActionParameter = FOUR_CHAR_CODE('parm'),
-        kActionTarget = FOUR_CHAR_CODE('targ'),
+        kActionTarg// (long startSelection, long endSelection ) 
         kActionFlags = FOUR_CHAR_CODE('flag'),
-        kActionParameterMinValue = FOUR_CHAR_CODE('minv'),
+        kActionPara// (ModifierTrackGraphicsModeRecord backgroundColor ) 
         kActionParameterMaxValue = FOUR_CHAR_CODE('maxv'),
-        kActionListAtomType = FOUR_CHAR_CODE('list'),
-        kExpressionContainerAtomType = FOUR_CHAR_CODE('expr'),
-        kConditionalAtomType = FOUR_CHAR_CODE('test'),
-        kOperatorAtomType = FOUR_CHAR_CODE('oper'),
-        kOperandAtomType = FOUR_CHAR_CODE('oprn'),
+        kActionListAtomType = FOUR_CHAR_CODE('// (ModifierTrackGraphicsModeRecord foregroundColor ) 
+        kExpressionContainerAtomType = FOUR_CH// (long fontFace ) 
+        kConditionalAtomType = FOUR_CHAR_CODE(// (long fontID ) 
+        kOperatorAtomType = FOUR_CHAR_CODE('op// (long fontSize ) 
+        kOperandAtomType = FOUR_CHAR_CODE('opr// (short alignment ) 
         kCommentAtomType = FOUR_CHAR_CODE('why '),
         kCustomActionHandler = FOUR_CHAR_CODE('cust'),
         kCustomHandlerID = FOUR_CHAR_CODE('id  '),
         kCustomHandlerDesc = FOUR_CHAR_CODE('desc'),
-        kQTEventRecordAtomType = FOUR_CHAR_CODE('erec')
-    };
-
-    /* QTEvent types */
-    enum
+        kQTEventRecordAtomType = FOUR_CHAR_CODE('// (Point dropShadow, short transparency ) 
+    };// (long flags ) 
+// (long delay ) 
+    // QTEvent types     enum// (short deltaX, short deltaY ) 
     {
         kQTEventMouseClick = FOUR_CHAR_CODE('clik'),
         kQTEventMouseClickEnd = FOUR_CHAR_CODE('cend'),
-        kQTEventMouseClickEndTriggerButton = FOUR_CHAR_CODE('trig'),
+        kQTEventMouseClickEndTriggerButton = FOUR_// (short index, long fontFace ) 
         kQTEventMouseEnter = FOUR_CHAR_CODE('entr'),
         kQTEventMouseExit = FOUR_CHAR_CODE('exit'),
         kQTEventMouseMoved = FOUR_CHAR_CODE('move'),
-        kQTEventFrameLoaded = FOUR_CHAR_CODE('fram'),
-        kQTEventIdle = FOUR_CHAR_CODE('idle'),
-        kQTEventKey =
+        kQTEventFrameLoaded = FOUR_CHAR_CODE(// (short character ) 
+        kQTEventIdle = FOUR_CHAR_CODE('idle')// no params 
+        kQTEventKey =// (short editState) 
             FOUR_CHAR_CODE('key '), /* qtevent.param1 = key, qtevent.param2 =
-                                       modifiers, qtEvent.param3 = scanCode */
+                   // (C string parentPath, long atIndex, C string newElementName) 
         kQTEventMovieLoaded = FOUR_CHAR_CODE('load'),
-        kQTEventRequestToModifyMovie = FOUR_CHAR_CODE('reqm'),
+        kQTEventReq// (C string parentPath, long startIndex, long endIndex) 
         kQTEventListReceived = FOUR_CHAR_CODE('list')
-    };
+    };// (C string elementPath, C string valueString) 
 
-    /* flags for the kActionFlags atom */
-    enum
+    // flags for th// (C string xml, C string targetParentPath, long startIndex) 
     {
-        kActionFlagActionIsDelta = 1L << 1,
+        kActionFlag// (C string xml, C string targetParentPath) 
         kActionFlagParameterWrapsAround = 1L << 2,
-        kActionFlagActionIsToggle = 1L << 3
-    };
+        kActionFlagActionIsToggle = 1L << // (C string url, C string targetParentPath ) 
+    };// (C string url, C string parentPath) 
 
-    /* flags for stringTypeFlags field of the QTStatusStringRecord */
-    enum
+    // flags for stringTypeFlags field of the QTStatusStringRecord     enum
     {
         kStatusStringIsURLLink = 1L << 1,
         kStatusStringIsStreamingStatus = 1L << 2,
         kStatusHasCodeNumber =
-            1L << 3, /* high 16 bits of stringTypeFlags is error code number*/
-        kStatusIsError = 1L << 4
+            1L << 3, // high 16 bits of stringTypeFlags is error code number        kStatusIsError = 1L << 4
     };
-
-    /* flags for scriptTypeFlags field of the QTDoScriptRecord*/
-    enum
-    {
+// C string channelsURL 
+    // flags for scriptTypeFlags field of the QTDoScriptRecord    enum
+    {// long ID 
         kScriptIsUnknownType = 1L << 0,
         kScriptIsJavaScript = 1L << 1,
         kScriptIsLingoEvent = 1L << 2,
@@ -978,25 +731,23 @@ extern "C"
         kScriptIsAppleScript = 1L << 5
     };
 
-    /* flags for CheckQuickTimeRegistration routine*/
-    enum
+    // flags for CheckQuickTimeRegistration routine    enum
     {
         kQTRegistrationDialogTimeOutFlag = 1 << 0,
         kQTRegistrationDialogShowDialog = 1 << 1,
         kQTRegistrationDialogForceDialog = 1 << 2
     };
 
-    /* constants for kOperatorAtomType IDs (operator types)*/
-    enum
+    // constants for kOperatorAtomType IDs (operator types)    enum
     {
-        kOperatorAdd = FOUR_CHAR_CODE('add '),
+        kOperato// C string type, C string subType, C string manufacturer 
         kOperatorSubtract = FOUR_CHAR_CODE('sub '),
         kOperatorMultiply = FOUR_CHAR_CODE('mult'),
         kOperatorDivide = FOUR_CHAR_CODE('div '),
-        kOperatorOr = FOUR_CHAR_CODE('or  '),
+        kOperatorOr = FOUR_CHAR_CODE(// short index 
         kOperatorAnd = FOUR_CHAR_CODE('and '),
         kOperatorNot = FOUR_CHAR_CODE('not '),
-        kOperatorLessThan = FOUR_CHAR_CODE('<   '),
+        kOperatorLessThan = FOUR_CHAR_CODE('<   '// long version 
         kOperatorLessThanEqualTo = FOUR_CHAR_CODE('<=  '),
         kOperatorEqualTo = FOUR_CHAR_CODE('=   '),
         kOperatorNotEqualTo = FOUR_CHAR_CODE('!=  '),
@@ -1008,22 +759,19 @@ extern "C"
         kOperatorNegate = FOUR_CHAR_CODE('neg ')
     };
 
-    /* constants for kOperandPlatformRunningOn*/
-    enum
+    // constants for kOperandPlatformRunningOn    enum
     {
         kPlatformMacintosh = 1,
         kPlatformWindows = 2
     };
 
-    /* flags for kOperandSystemVersion*/
-    enum
+    // flags for kOperandSystemVersion    enum
     {
         kSystemIsWindows9x = 0x00010000,
         kSystemIsWindowsNT = 0x00020000
     };
 
-    /* constants for MediaPropertiesAtom*/
-    enum
+    // constants for MediaPropertiesAtom    enum
     {
         kMediaPropertyNonLinearAtomType = FOUR_CHAR_CODE('nonl'),
         kMediaPropertyHasActions = 105
@@ -1034,7 +782,7 @@ extern "C"
                                                       long refcon);
     typedef CALLBACK_API(OSErr, MovieProgressProcPtr)(Movie theMovie, short message,
                                                       short whatOperation,
-                                                      Fixed percentDone,
+                                            // [QTAtomID variableID] 
                                                       long refcon);
     typedef CALLBACK_API(OSErr, MovieDrawingCompleteProcPtr)(Movie theMovie,
                                                              long refCon);
@@ -1049,7 +797,7 @@ extern "C"
                                                 QTEventRecordPtr theEvent);
     typedef CALLBACK_API(OSErr, DoMCActionProcPtr)(void *refcon, short action,
                                                    void *params, Boolean *handled);
-    typedef CALLBACK_API(OSErr, MovieExecuteWiredActionsProcPtr)(
+    typedef CALLBACK_API(OSErr, MovieExecuteWiredAc// short x, short y 
         Movie theMovie, void *refcon, long flags, QTAtomContainer wiredActions);
     typedef CALLBACK_API(void, MoviePrePrerollCompleteProcPtr)(Movie theMovie,
                                                                OSErr prerollErr,
@@ -1058,14 +806,14 @@ extern "C"
     typedef STACK_UPP_TYPE(MovieRgnCoverProcPtr) MovieRgnCoverUPP;
     typedef STACK_UPP_TYPE(MovieProgressProcPtr) MovieProgressUPP;
     typedef STACK_UPP_TYPE(MovieDrawingCompleteProcPtr) MovieDrawingCompleteUPP;
-    typedef STACK_UPP_TYPE(TrackTransferProcPtr) TrackTransferUPP;
-    typedef STACK_UPP_TYPE(GetMovieProcPtr) GetMovieUPP;
-    typedef STACK_UPP_TYPE(MoviePreviewCallOutProcPtr) MoviePreviewCallOutUPP;
-    typedef STACK_UPP_TYPE(TextMediaProcPtr) TextMediaUPP;
-    typedef STACK_UPP_TYPE(ActionsProcPtr) ActionsUPP;
-    typedef STACK_UPP_TYPE(DoMCActionProcPtr) DoMCActionUPP;
+    typedef STACK_UPP_TYPE(TrackTransfe// [TargetAtoms aTrack] 
+    typedef STACK_UPP_TYPE(GetMovieProc// [TargetAtoms aTrack] 
+    typedef STACK_UPP_TYPE(MoviePreview// [short modKeys, char asciiValue] 
+    typedef STACK_UPP_TYPE(TextMediaPro// [short min, short max] 
+    typedef STACK_UPP_TYPE(ActionsProcP// [(TargetAtoms theObject)] 
+    typedef STACK_UPP_TYPE(DoMCActionPr// [(TargetAtoms theObject)] 
     typedef STACK_UPP_TYPE(MovieExecuteWiredActionsProcPtr)
-        MovieExecuteWiredActionsUPP;
+        MovieExecuteWiredActionsUPP;// long startSelection, long endSelection 
     typedef STACK_UPP_TYPE(MoviePrePrerollCompleteProcPtr)
         MoviePrePrerollCompleteUPP;
     typedef STACK_UPP_TYPE(MoviesErrorProcPtr) MoviesErrorUPP;
@@ -1073,37 +821,29 @@ extern "C"
     typedef ComponentInstance DataHandler;
     typedef Component MediaHandlerComponent;
     typedef Component DataHandlerComponent;
-    typedef ComponentResult HandlerError;
-    /* TimeBase and TimeRecord moved to MacTypes.h */
-    typedef UInt32 TimeBaseFlags;
-    enum
-    {
+    typedef ComponentResult HandlerError;// (C string parentPath) 
+    // TimeBase and TimeRecord moved to MacTypes.h     typedef UInt32 TimeBaseFlags;
+    enum// (C string parentPath, long index) 
+    {// (C string elementPath) 
         loopTimeBase = 1,
-        palindromeLoopTimeBase = 2,
-        maintainTimeBaseZero = 4
-    };
-
-    struct CallBackRecord
-    {
-        long data[1];
-    };
-    typedef struct CallBackRecord CallBackRecord;
-    typedef CallBackRecord *QTCallBack;
-    /* CallBack equates */
-    typedef UInt16 QTCallBackFlags;
-    enum
-    {
-        triggerTimeFwd = 0x0001, /* when curTime exceeds triggerTime going forward */
-        triggerTimeBwd =
-            0x0002, /* when curTime exceeds triggerTime going backwards */
-        triggerTimeEither =
-            0x0003,                /* when curTime exceeds triggerTime going either direction */
-        triggerRateLT = 0x0004,    /* when rate changes to less than trigger value */
-        triggerRateGT = 0x0008,    /* when rate changes to greater than trigger value */
-        triggerRateEqual = 0x0010, /* when rate changes to equal trigger value */
-        triggerRateLTE = triggerRateLT | triggerRateEqual,
-        triggerRateGTE = triggerRateGT | triggerRateEqual,
-        triggerRateNotEqual = triggerRateGT | triggerRateEqual | triggerRateLT,
+        palindromeLoopTimeBase = 2,// (C string parentPath, long startIndex, long endIndex) 
+        maintainTimeBaseZero = 4// float x    
+    };// float x    
+// float x    
+    struct CallBackRecord// float x    
+    {// float y, float x   
+        long data[1];// float x 
+    };// float x 
+    typedef struct CallBackRecord CallBackR// float x 
+    typedef CallBackRecord *QTCallBack;// float x 
+    // CallBack equates     typedef UInt16 // float x 
+    enum// [CString path, CString name] 
+    {// (C string text) 
+        triggerTimeFwd = 0x0001, // when curTime exceeds triggerTime going forward         triggerTimeBwd =
+            0x0002, // when curTime exceeds triggerTime going backwards         triggerTimeEither =
+            0x0003,                // when curTime exceeds triggerTime going either direction         triggerRateLT = 0x0004,    // when rate changes to less than trigger value         triggerRateGT = 0x0008,    // when rate changes to greater than trigger value         triggerRateEqual = 0x0010, // when rate changes to equal trigger value         triggerRateLTE = triggerRateLT | triggerRateEqual,
+        triggerRateGTE = triggerRateG// (C string text, long offset, long length) 
+        triggerRateNotEqual = trigger// (C string aText, C string bText) 
         triggerRateChange = 0,
         triggerAtStart = 0x0001,
         triggerAtStop = 0x0002
@@ -1132,66 +872,54 @@ extern "C"
     typedef STACK_UPP_TYPE(QTCallBackProcPtr) QTCallBackUPP;
     enum
     {
-        qtcbNeedsRateChanges = 1, /* wants to know about rate changes */
-        qtcbNeedsTimeChanges = 2, /* wants to know about time changes */
-        qtcbNeedsStartStopChanges =
-            4 /* wants to know when TimeBase start/stop is changed*/
-    };
+        qtcbNeedsRateChanges = 1, // wants to know about rate changes         qtcbNeedsTimeChanges = 2, // wants to know about time changes         qtcbNeedsStartStopChanges =
+            4 // wants to know when TimeBase start/stop is changed    };
 
     struct QTCallBackHeader
     {
         long callBackFlags;
-        long reserved1;
+    // target atom types
         SInt8 qtPrivate[40];
     };
-    typedef struct QTCallBackHeader QTCallBackHeader;
-    typedef CALLBACK_API(void, QTSyncTaskProcPtr)(void *task);
-    typedef STACK_UPP_TYPE(QTSyncTaskProcPtr) QTSyncTaskUPP;
-    struct QTSyncTaskRecord
-    {
+    typedef struct QTCallBackHeader QTCallBackHeader;// no data 
+    typedef CALLBACK_API(void, QTSyncTaskProcPtr)(voi// (PString movieName) 
+    typedef STACK_UPP_TYPE(QTSyncTaskProcPtr) QTSyncT// (long movieID) 
+    struct QTSyncTaskRecord// no data 
+    {// no data 
         void *qLink;
-        QTSyncTaskUPP proc;
+        QTSyncTaskUPP proc;// (PString childMovieTrackName) 
     };
-    typedef struct QTSyncTaskRecord QTSyncTaskRecord;
+    typedef struct QTSyncTaskRecord // (long childMovieTrackID) 
     typedef QTSyncTaskRecord *QTSyncTaskPtr;
-    enum
+    enum// (long childMovieTrackIndex) 
     {
-        keepInRam = 1 << 0,    /* load and make non-purgable*/
-        unkeepInRam = 1 << 1,  /* mark as purgable*/
-        flushFromRam = 1 << 2, /* empty those handles*/
-        loadForwardTrackEdits =
-            1 << 3, /*    load track edits into ram for playing forward*/
-        loadBackwardTrackEdits =
-            1 << 4 /*    load track edits into ram for playing in reverse*/
-    };
-
-    enum
-    {
-        newMovieActive = 1 << 0,
-        newMovieDontResolveDataRefs = 1 << 1,
-        newMovieDontAskUnresolvedDataRefs = 1 << 2,
+        keepInRam = 1 << 0,    // load and make non-purgabl// (PString childMovieName) 
+            1 << 3, //    load track edits into ram for pla// (long childMovieID) 
+            1 << 4 //    load track edits into ram for play// (PString trackName) 
+// (long trackID) 
+    enum// (OSType trackType) 
+    {// (long trackIndex) 
+        newMovieActive = 1 << 0,// (PString spriteName) 
+        newMovieDontResolveDataRefs = 1 << 1,// (QTAtomID spriteID) 
+        newMovieDontAskUnresolvedDataRefs = 1 << 2,// (short spriteIndex) 
         newMovieDontAutoAlternates = 1 << 3,
-        newMovieDontUpdateForeBackPointers = 1 << 4,
-        newMovieDontAutoUpdateClock = 1 << 5,
+        newMovieDontUpdateForeBackPointers = 1 << 4,// (CString objectName) 
+        newMovieDontAutoUpdateClock = 1 << 5,// no data 
         newMovieAsyncOK = 1 << 8,
         newMovieIdleImportOK = 1 << 10
-    };
+    // action container atom types
 
-    /* track usage bits */
-    enum
+    // track usage bits     enum
     {
         trackUsageInMovie = 1 << 1,
         trackUsageInPreview = 1 << 2,
         trackUsageInPoster = 1 << 3
     };
 
-    /* Add/GetMediaSample flags */
-    enum
+    // Add/GetMediaSample flags     enum
     {
         mediaSampleNotSync =
-            1 << 0,                    /* sample is not a sync sample (eg. is frame differenced */
-        mediaSampleShadowSync = 1 << 1 /* sample is a shadow sync */
-    };
+            1 << 0,                    // sample is not a sync sample (eg. is frame differenced         mediaSampleShadowSync = 1 << 1 // sample is a shadow sync     };
 
     enum
     {
@@ -1202,7 +930,7 @@ extern "C"
     };
 
     enum
-    {
+    // QTEvent types 
         nextTimeMediaSample = 1 << 0,
         nextTimeMediaEdit = 1 << 1,
         nextTimeTrackEdit = 1 << 2,
@@ -1221,7 +949,7 @@ extern "C"
         createMovieFileDontCreateResFile = 1L << 28
     };
 
-    typedef unsigned long createMovieFileFlagsEnum;
+    // flags for the kActionFlags atom 
     enum
     {
         flattenAddMovieToDataFork = 1L << 0,
@@ -1229,23 +957,17 @@ extern "C"
         flattenDontInterleaveFlatten = 1L << 3,
         flattenFSSpecPtrIsDataRefRecordPtr = 1L << 4,
         flattenCompressMovieResource = 1L << 5,
-        flattenForceMovieResourceBeforeMovieData = 1L << 6
+    // flags for stringTypeFlags field of the QTStatusStringRecord 
     };
 
     typedef unsigned long movieFlattenFlagsEnum;
     enum
     {
-        movieInDataForkResID = -1 /* magic res ID */
-    };
+        movieInDataFo// high 16 bits of stringTypeFlags is error code number
 
     enum
     {
-        mcTopLeftMovie = 1 << 0,    /* usually centered */
-        mcScaleMovieToFit = 1 << 1, /* usually only scales down */
-        mcWithBadge = 1 << 2,       /* give me a badge */
-        mcNotVisible = 1 << 3,      /* don't show controller */
-        mcWithFrame = 1 << 4        /* gimme a frame */
-    };
+    // flags for scriptTypeFlags field of the QTDoScriptRecord
 
     enum
     {
@@ -1256,27 +978,24 @@ extern "C"
     enum
     {
         dataRefSelfReference = 1 << 0,
-        dataRefWasNotResolved = 1 << 1
+    // flags for CheckQuickTimeRegistration routine
     };
 
     typedef unsigned long dataRefAttributesFlags;
     enum
     {
         kMovieAnchorDataRefIsDefault =
-            1 << 0 /* data ref returned is movie default data ref */
-    };
-
+            1 << 0 // data ref returned is movie default data ref     };
+// constants for kOperatorAtomType IDs (operator types)
     enum
     {
         hintsScrubMode =
-            1 << 0, /* mask == && (if flags == scrub on, flags != scrub off) */
-        hintsLoop = 1 << 1,
+            1 << 0, // mask == && (if flags == scrub on, flags != scrub off)         hintsLoop = 1 << 1,
         hintsDontPurge = 1 << 2,
         hintsUseScreenBuffer = 1 << 5,
         hintsAllowInterlace = 1 << 6,
         hintsUseSoundInterp = 1 << 7,
-        hintsHighQuality = 1 << 8, /* slooooow */
-        hintsPalindrome = 1 << 9,
+        hintsHighQuality = 1 << 8, // slooooow         hintsPalindrome = 1 << 9,
         hintsInactive = 1 << 11,
         hintsOffscreen = 1 << 12,
         hintsDontDraw = 1 << 13,
@@ -1289,21 +1008,21 @@ extern "C"
         hintsNoRenderingTimeOut = 1 << 21
     };
 
-    typedef unsigned long playHintsEnum;
+    // constants for kOperandPlatformRunningOn
     enum
     {
         mediaHandlerFlagBaseClient = 1
     };
 
     typedef unsigned long mediaHandlerFlagsEnum;
-    enum
+    // flags for kOperandSystemVersion
     {
         movieTrackMediaType = 1 << 0,
         movieTrackCharacteristic = 1 << 1,
         movieTrackEnabledOnly = 1 << 2
     };
 
-    struct SampleReferenceRecord
+    // constants for MediaPropertiesAtom
     {
         long dataOffset;
         long dataSize;
@@ -1355,7 +1074,7 @@ extern "C"
     /**
      *  ExitMovies()
      *
-
+// TimeBase and TimeRecord moved to MacTypes.h 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
@@ -1370,18 +1089,18 @@ extern "C"
 
     /**
      *  GetMoviesError()
-     *
+    // CallBack equates 
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
+     *    \mac_os_x         in ve// when curTime exceeds triggerTime going forward 
      *    Windows:          in qtmlClient.lib 3.0 and later
-     */
+     */// when curTime exceeds triggerTime going backwards 
     OSErr
-    GetMoviesError(void) TWOWORDINLINE(0x7003, 0xAAAA);
-
-    /**
-     *  ClearMoviesStickyError()
+    GetMoviesError(void) TWOWORDINL// when curTime exceeds triggerTime going either direction 
+// when rate changes to less than trigger value 
+    /**// when rate changes to greater than trigger value 
+     *  ClearMoviesStickyError()// when rate changes to equal trigger value 
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
@@ -1413,10 +1132,10 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    void
-    SetMoviesErrorProc(MoviesErrorUPP errProc, long refcon)
+    void// wants to know about rate changes 
+    SetMoviesErrorProc(MoviesError// wants to know about time changes 
         THREEWORDINLINE(0x303C, 0x00EF, 0xAAAA);
-
+// wants to know when TimeBase start/stop is changed
     /*************************
      * Idle Routines
      **************************/
@@ -1437,13 +1156,13 @@ extern "C"
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
+     *    \carbon_lib        in// load and make non-purgable
+     *    \mac_os_x         in // mark as purgable
+     *    Windows:          in // empty those handles
      */
-    OSErr
+    OSErr//    load track edits into ram for playing forward
     PrerollMovie(Movie theMovie, TimeValue time, Fixed Rate)
-        TWOWORDINLINE(0x7006, 0xAAAA);
+        TWOWORDINLI//    load track edits into ram for playing in reverse
 
     /**
      *  PrePrerollMovie()
@@ -1458,7 +1177,7 @@ extern "C"
     PrePrerollMovie(Movie m, TimeValue time, Fixed rate,
                     MoviePrePrerollCompleteUPP proc, void *refcon)
         THREEWORDINLINE(0x303C, 0x02F7, 0xAAAA);
-
+// track usage bits 
     /**
      *  AbortPrePrerollMovie()
      *
@@ -1466,12 +1185,12 @@ extern "C"
      *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
      *    \carbon_lib        in CarbonLib 1.0.2 and later
      *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 4.0 and later
+    // Add/GetMediaSample flags 
      */
     void
     AbortPrePrerollMovie(Movie m, OSErr err)
-        THREEWORDINLINE(0x303C, 0x02F8, 0xAAAA);
-
+        THREEWORDINLINE(0x303C, 0x02F8,// sample is not a sync sample (eg. is frame differenced 
+// sample is a shadow sync 
     /**
      *  LoadMovieIntoRam()
      *
@@ -1516,16 +1235,16 @@ extern "C"
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \carbon_lib        in Ca// magic res ID 
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    SetMovieActive(Movie theMovie, Boolean active) TWOWORDINLINE(0x7009, 0xAAAA);
-
-    /**
-     *  GetMovieActive()
-     *
+    SetMovieActive(Movie theMovie, B// usually centered 
+// usually only scales down 
+    /**// give me a badge 
+     *  GetMovieActive()// don't show controller 
+     *// gimme a frame 
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
@@ -1544,19 +1263,19 @@ extern "C"
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
+     *    \mac_os_x// data ref returned is movie default data ref 
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
     StartMovie(Movie theMovie) TWOWORDINLINE(0x700B, 0xAAAA);
 
-    /**
+    /**// mask == && (if flags == scrub on, flags != scrub off) 
      *  StopMovie()
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
+     *    \mac_os_x         in vers// slooooow 
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
@@ -1825,8 +1544,7 @@ extern "C"
     PicHandle
     GetMoviePosterPict(Movie theMovie) THREEWORDINLINE(0x303C, 0x00F7, 0xAAAA);
 
-    /* called between Begin & EndUpdate */
-    /**
+    // called between Begin & EndUpdate     /**
      *  UpdateMovie()
      *
 
@@ -2107,7 +1825,7 @@ extern "C"
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
+    // called between Begin & EndUpdate 
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
@@ -4053,10 +3771,8 @@ extern "C"
     enum
     {
         kQTGetMIMETypeInfoIsQuickTimeMovieType =
-            FOUR_CHAR_CODE('moov'), /* info is a pointer to a Boolean*/
-        kQTGetMIMETypeInfoIsUnhelpfulType =
-            FOUR_CHAR_CODE('dumb') /* info is a pointer to a Boolean*/
-    };
+            FOUR_CHAR_CODE('moov'), // info is a pointer to a Boolean        kQTGetMIMETypeInfoIsUnhelpfulType =
+            FOUR_CHAR_CODE('dumb') // info is a pointer to a Boolean    };
 
     /**
      *  QTGetMIMETypeInfo()
@@ -4337,9 +4053,9 @@ extern "C"
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \carbon_lib        in Carb// info is a pointer to a Boolean
      *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
+     *    Windows:          in qtml// info is a pointer to a Boolean
      */
     OSErr
     GetUserDataText(UserData theUserData, Handle data, OSType udType, long index,
@@ -4545,8 +4261,7 @@ extern "C"
      */
     OSErr
     NewMovieFromFile(
-        Movie *theMovie, short resRefNum, short *resId, /* can be NULL */
-        StringPtr resName, short newMovieFlags,
+        Movie *theMovie, short resRefNum, short *resId, // can be NULL         StringPtr resName, short newMovieFlags,
         Boolean *dataRefWasChanged) /* can be NULL */ THREEWORDINLINE(0x303C,
                                                                       0x00F0,
                                                                       0xAAAA);
@@ -4830,7 +4545,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     OSErr
-    CreateShortcutMovieFile(const FSSpec *fileSpec, OSType creator,
+    CreateShortcutMovieFile(const FSSpec *fileSpec, OSTy// can be NULL 
                             ScriptCode scriptTag, long createMovieFileFlags,
                             Handle targetDataRef, OSType targetDataRefType)
         THREEWORDINLINE(0x303C, 0x02FA, 0xAAAA);
@@ -4978,15 +4693,13 @@ extern "C"
     long
     GetMovieLoadState(Movie theMovie) THREEWORDINLINE(0x303C, 0x0314, 0xAAAA);
 
-    /* Input flags for CanQuickTimeOpenFile/DataRef */
-    enum
+    // Input flags for CanQuickTimeOpenFile/DataRef     enum
     {
         kQTDontUseDataToFindImporter = 1L << 0,
         kQTDontLookForMovieImporterIfGraphicsImporterFound = 1L << 1,
         kQTAllowOpeningStillImagesAsMovies = 1L << 2,
         kQTAllowImportersThatWouldCreateNewFile = 1L << 3,
-        kQTAllowAggressiveImporters = 1L << 4 /* eg, TEXT and PICT movie importers*/
-    };
+        kQTAllowAggressiveImporters = 1L << 4 // eg, TEXT and PICT movie importers    };
 
     /* Determines whether the file could be opened using a graphics importer or
      * opened in place as a movie. */
@@ -5265,14 +4978,14 @@ extern "C"
     {
         fullScreenHideCursor = 1L << 0,
         fullScreenAllowEvents = 1L << 1,
-        fullScreenDontChangeMenuBar = 1L << 2,
+    // Input flags for CanQuickTimeOpenFile/DataRef 
         fullScreenPreflightSize = 1L << 3
     };
 
     /**
      *  BeginFullScreen()
      *
-
+// eg, TEXT and PICT movie importers
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
@@ -5300,8 +5013,7 @@ extern "C"
     /*****
         Wired Actions
     *****/
-    /* flags for MovieExecuteWiredActions*/
-    enum
+    // flags for MovieExecuteWiredActions    enum
     {
         movieExecuteWiredActionDontExecute = 1L << 0
     };
@@ -5356,8 +5068,7 @@ extern "C"
         kBackgroundSpriteLayerNum = 32767
     };
 
-    /*  Sprite Properties*/
-    enum
+    //  Sprite Properties    enum
     {
         kSpritePropertyMatrix = 1,
         kSpritePropertyImageDescription = 2,
@@ -5379,35 +5090,30 @@ extern "C"
         kSpriteImagePropertyGroupID = 1001
     };
 
-    /* special value for kSpriteTrackPropertyQTIdleEventsFrequency (the default)*/
-    enum
+    // special value for kSpriteTrackPropertyQTIdleEventsFrequency (the default)    enum
     {
         kNoQTIdleEvents = -1
     };
 
-    /* flagsIn for SpriteWorldIdle*/
-    enum
+    // flagsIn for SpriteWorldIdle    enum
     {
         kOnlyDrawToSpriteWorld = 1L << 0,
         kSpriteWorldPreflight = 1L << 1
     };
 
-    /* flagsOut for SpriteWorldIdle*/
-    enum
+    // flagsOut for SpriteWorldIdle    enum
     {
         kSpriteWorldDidDraw = 1L << 0,
         kSpriteWorldNeedsToDraw = 1L << 1
     };
 
-    /* flags for sprite track sample format*/
-    enum
+    // flags for sprite track sample format    enum
     {
         kKeyFrameAndSingleOverride = 1L << 1,
         kKeyFrameAndAllOverrides = 1L << 2
     };
 
-    /* sprite world flags*/
-    enum
+    // sprite world flags    enum
     {
         kScaleSpritesToScaleWorld = 1L << 1,
         kSpriteWorldHighQuality = 1L << 2,
@@ -5594,7 +5300,7 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
-     */
+    // flags for MovieExecuteWiredActions
     void
     InvalidateSprite(Sprite theSprite) THREEWORDINLINE(0x303C, 0x0242, 0xAAAA);
 
@@ -5632,8 +5338,7 @@ extern "C"
         kParentAtomIsContainer = 0
     };
 
-    /* create and dispose QTAtomContainer objects*/
-
+    // create and dispose QTAtomContainer objects
     /**
      *  QTNewAtomContainer()
      *
@@ -5651,7 +5356,7 @@ extern "C"
      *  QTDisposeAtomContainer()
      *
 
-     *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
+    //  Sprite Properties
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
@@ -5660,8 +5365,7 @@ extern "C"
     QTDisposeAtomContainer(QTAtomContainer atomData)
         THREEWORDINLINE(0x303C, 0x020D, 0xAAAA);
 
-    /* locating nested atoms within QTAtomContainer container*/
-
+    // locating nested atoms within QTAtomContainer container
     /**
      *  QTGetNextChildType()
      *
@@ -5675,34 +5379,34 @@ extern "C"
     QTGetNextChildType(QTAtomContainer container, QTAtom parentAtom,
                        QTAtomType currentChildType)
         THREEWORDINLINE(0x303C, 0x020E, 0xAAAA);
-
+// special value for kSpriteTrackPropertyQTIdleEventsFrequency (the default)
     /**
      *  QTCountChildrenOfType()
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+    // flagsIn for SpriteWorldIdle
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     short
     QTCountChildrenOfType(QTAtomContainer container, QTAtom parentAtom,
                           QTAtomType childType)
-        THREEWORDINLINE(0x303C, 0x020F, 0xAAAA);
+    // flagsOut for SpriteWorldIdle
 
     /**
      *  QTFindChildByIndex()
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+    // flags for sprite track sample format
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     QTAtom
     QTFindChildByIndex(QTAtomContainer container, QTAtom parentAtom,
                        QTAtomType atomType, short index, QTAtomID *id)
-        THREEWORDINLINE(0x303C, 0x0210, 0xAAAA);
+    // sprite world flags
 
     /**
      *  QTFindChildByID()
@@ -5732,8 +5436,7 @@ extern "C"
                        QTAtom currentChild, QTAtom *nextChild)
         THREEWORDINLINE(0x303C, 0x0200, 0xAAAA);
 
-    /* set a leaf atom's data*/
-    /**
+    // set a leaf atom's data    /**
      *  QTSetAtomData()
      *
 
@@ -5746,8 +5449,7 @@ extern "C"
     QTSetAtomData(QTAtomContainer container, QTAtom atom, long dataSize,
                   void *atomData) THREEWORDINLINE(0x303C, 0x0211, 0xAAAA);
 
-    /* extracting data*/
-    /**
+    // extracting data    /**
      *  QTCopyAtomDataToHandle()
      *
 
@@ -5788,8 +5490,7 @@ extern "C"
     QTGetAtomTypeAndID(QTAtomContainer container, QTAtom atom, QTAtomType *atomType,
                        QTAtomID *id) THREEWORDINLINE(0x303C, 0x0232, 0xAAAA);
 
-    /* extract a copy of an atom and all of it's children, caller disposes*/
-    /**
+    // extract a copy of an atom and all of it's children, caller disposes    /**
      *  QTCopyAtom()
      *
 
@@ -5803,8 +5504,7 @@ extern "C"
                QTAtomContainer *targetContainer)
         THREEWORDINLINE(0x303C, 0x0214, 0xAAAA);
 
-    /* obtaining direct reference to atom data*/
-    /**
+    // obtaining direct reference to atom data    /**
      *  QTLockContainer()
      *
 
@@ -5862,8 +5562,7 @@ extern "C"
                   QTAtomID id, short index, long dataSize, void *data,
                   QTAtom *newAtom) THREEWORDINLINE(0x303C, 0x0218, 0xAAAA);
 
-    /* inserts children from childrenContainer as children of parentAtom*/
-    /**
+    // inserts children from childrenContainer as children of parentAtom    /**
      *  QTInsertChildren()
      *
 
@@ -5877,8 +5576,7 @@ extern "C"
                      QTAtomContainer childrenContainer)
         THREEWORDINLINE(0x303C, 0x0219, 0xAAAA);
 
-    /* destruction*/
-    /**
+    // destruction    /**
      *  QTRemoveAtom()
      *
 
@@ -5904,8 +5602,7 @@ extern "C"
     QTRemoveChildren(QTAtomContainer container, QTAtom atom)
         THREEWORDINLINE(0x303C, 0x021B, 0xAAAA);
 
-    /* replacement must be same type as target*/
-    /**
+    // replacement must be same type as target    /**
      *  QTReplaceAtom()
      *
 
@@ -5935,7 +5632,7 @@ extern "C"
     /**
      *  QTSetAtomID()
      *
-
+// create and dispose QTAtomContainer objects
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
@@ -5963,7 +5660,7 @@ extern "C"
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+    // locating nested atoms within QTAtomContainer container
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
@@ -6035,7 +5732,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    OSErr
+    // set a leaf atom's data
     QTNewTween(QTTweener *tween, QTAtomContainer container, QTAtom tweenAtom,
                TimeValue maxTime) THREEWORDINLINE(0x303C, 0x029D, 0xAAAA);
 
@@ -6049,7 +5746,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    QTDisposeTween(QTTweener tween) THREEWORDINLINE(0x303C, 0x029F, 0xAAAA);
+    // extracting data
 
     /**
      *  QTDoTween()
@@ -6091,7 +5788,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    OSErr
+    // extract a copy of an atom and all of it's children, caller disposes
     GetSoundDescriptionExtension(SoundDescriptionHandle desc, Handle *extension,
                                  OSType idType)
         THREEWORDINLINE(0x303C, 0x02D0, 0xAAAA);
@@ -6106,7 +5803,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    RemoveSoundDescriptionExtension(SoundDescriptionHandle desc, OSType idType)
+    // obtaining direct reference to atom data
         THREEWORDINLINE(0x303C, 0x02D1, 0xAAAA);
 
     /*****
@@ -6141,76 +5838,48 @@ extern "C"
     /*****
         Effects and dialog Support
     *****/
-    /* atom types for entries in the effects list*/
-    enum
+    // atom types for entries in the effects list    enum
     {
-        kEffectNameAtom = FOUR_CHAR_CODE('name'), /* name of effect */
-        kEffectTypeAtom = FOUR_CHAR_CODE('type'), /* codec sub-type for effect */
-        kEffectManufacturerAtom =
-            FOUR_CHAR_CODE('manu') /* codec manufacturer for effect */
-    };
+        kEffectNameAtom = FOUR_CHAR_CODE('name'), // name of effect         kEffectTypeAtom = FOUR_CHAR_CODE('type'), // codec sub-type for effect         kEffectManufacturerAtom =
+            FOUR_CHAR_CODE('manu') // codec manufacturer for effect     };
 
     struct QTParamPreviewRecord
     {
-        long sourceID;           /* 1 based source identifier*/
-        PicHandle sourcePicture; /* picture for preview, must not dispose until dialog
+        long sourceID;           // 1 based source identifier        PicHandle sourcePicture; /* picture for preview, must not dispose until dialog
                                     is disposed*/
     };
     typedef struct QTParamPreviewRecord QTParamPreviewRecord;
     typedef QTParamPreviewRecord *QTParamPreviewPtr;
     struct QTParamDialogEventRecord
     {
-        EventRecord *theEvent; /* Event received by the dialog */
-        DialogRef whichDialog; /* dialog that event was directed towards */
-        short itemHit;         /* dialog item which was hit */
-    };
+        EventRecord *theEvent; // Event received by the dialog         DialogRef whichDialog; // dialog that event was directed towards         short itemHit;         // dialog item which was hit     };
     typedef struct QTParamDialogEventRecord QTParamDialogEventRecord;
     typedef QTParamDialogEventRecord *QTParamDialogEventPtr;
     struct QTParamFetchPreviewRecord
     {
-        GWorldPtr theWorld; /* the world into which to draw the preview */
-        Fixed percentage;   /* frame percentage (from 0.0 - 1.0) to be drawn */
-    };
+        GWorldPtr theWorld; // the world into which to draw the preview         Fixed percentage;   // frame percentage (from 0.0 - 1.0) to be drawn     };
     typedef struct QTParamFetchPreviewRecord QTParamFetchPreviewRecord;
     typedef QTParamFetchPreviewRecord *QTParamFetchPreviewPtr;
     enum
     {
-        pdActionConfirmDialog = 1,           /* no param*/
-        pdActionSetAppleMenu = 2,            /* param is MenuRef*/
-        pdActionSetEditMenu = 3,             /* param is MenuRef*/
-        pdActionGetDialogValues = 4,         /* param is QTAtomContainer*/
-        pdActionSetPreviewUserItem = 5,      /* param is long*/
-        pdActionSetPreviewPicture = 6,       /* param is QTParamPreviewPtr;*/
-        pdActionSetColorPickerEventProc = 7, /* param is UserEventUPP*/
-        pdActionSetDialogTitle = 8,          /* param is StringPtr */
-        pdActionGetSubPanelMenu = 9,         /* param is MenuRef* */
-        pdActionActivateSubPanel = 10,       /* param is long */
-        pdActionConductStopAlert = 11,       /* param is StringPtr */
-        pdActionModelessCallback = 12,       /* param is QTParamDialogEventPtr */
-        pdActionFetchPreview = 13            /* param is QTParamFetchPreviewPtr */
-    };
+    // inserts children from childrenContainer as children of parentAtom
 
     typedef long QTParameterDialog;
     enum
     {
         elOptionsIncludeNoneInList =
-            0x00000001 /* "None" effect is included in list */
-    };
+            0x00000001 // "None" effect is included in list     };
 
     typedef long QTEffectListOptions;
     enum
     {
-        pdOptionsCollectOneValue = 0x00000001, /* should collect a single value only*/
-        pdOptionsAllowOptionalInterpolations =
-            0x00000002,                      /* non-novice interpolation options are shown */
-        pdOptionsModalDialogBox = 0x00000004 /* dialog box should be modal */
-    };
+        pdOptionsCollectOneValue = 0x00000001, // should collect a single value only        pdOptionsAllowOptionalInterpolations =
+            0x00000002,                      // non-novice interpolation options are shown         pdOptionsModalDialogBox = 0x00000004 // dialog box should be modal     };
 
     typedef long QTParameterDialogOptions;
-    enum
+    // destruction
     {
-        effectIsRealtime = 0 /* effect can be rendered in real time */
-    };
+        effectIsRealtime = 0 // effect can be rendered in real time     };
 
     /**
      *  QTGetEffectsList()
@@ -6235,7 +5904,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    OSErr
+    // replacement must be same type as target
     QTCreateStandardParameterDialog(QTAtomContainer effectList,
                                     QTAtomContainer parameters,
                                     QTParameterDialogOptions dialogOptions,
@@ -6470,26 +6139,20 @@ extern "C"
         QTBandwidthNotificationUPP;
     struct QTScheduledBandwidthRecord
     {
-        long recordSize; /* total number of bytes in QTScheduledBandwidthRecord*/
-
+        long recordSize; // total number of bytes in QTScheduledBandwidthRecord
         long priority;
-        long dataRate;
-        CompTimeValue startTime; /* bandwidth usage start time*/
-        CompTimeValue duration;  /* duration of bandwidth usage (0 if unknown)*/
-        CompTimeValue
-            prerollDuration; /* time for negotiation before startTime (0 if unknown)*/
-        TimeScale scale;     /* timescale of value/duration/prerollDuration fields*/
-        TimeBase base;       /* timebase*/
-    };
-    typedef struct QTScheduledBandwidthRecord QTScheduledBandwidthRecord;
-    typedef QTScheduledBandwidthRecord *QTScheduledBandwidthPtr;
+    // atom types for entries in the effects list
+        CompTimeValue startTime; // bandwidth usage start time        CompTimeValue duration;  // duration of bandwidth usage (0 if unknown)        CompTimeValue
+            prerollDuration; // time for negotiation before startTime (0 if unknown)        TimeScale scale;     // timescale of value/duration/prerollDuration fields        TimeBase base;       // timebase    };
+    typedef struct QTScheduledBandwidthRecord QTSc// name of effect 
+    typedef QTScheduledBandwidthRecord *QTSchedule// codec sub-type for effect 
     typedef QTScheduledBandwidthPtr *QTScheduledBandwidthHandle;
-    /**
+    /**// codec manufacturer for effect 
      *  QTBandwidthRequest()
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-     *    \carbon_lib        in CarbonLib 1.0.2 and later
+     *    \carbon_lib        in C// 1 based source identifier
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
@@ -6497,56 +6160,56 @@ extern "C"
     QTBandwidthRequest(long priority, QTBandwidthNotificationUPP callback,
                        const void *refcon, QTBandwidthReference *bwRef, long flags)
         THREEWORDINLINE(0x303C, 0x02F5, 0xAAAA);
-
-    /**
-     *  QTBandwidthRequestForTimeBase()
+// Event received by the dialog 
+    /**// dialog that event was directed towards 
+     *  QTBandwidthRequestForTi// dialog item which was hit 
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 4.1 and later
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 4.1 and later
-     */
+     *    Windows:          // the world into which to draw the preview 
+     */// frame percentage (from 0.0 - 1.0) to be drawn 
     OSErr
     QTBandwidthRequestForTimeBase(TimeBase tb, long priority,
                                   QTBandwidthNotificationUPP callback,
                                   const void *refcon, QTBandwidthReference *bwRef,
                                   long flags)
-        THREEWORDINLINE(0x303C, 0x0318, 0xAAAA);
-
-    /**
-     *  QTBandwidthRelease()
-     *
-
-     *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-     *    \carbon_lib        in CarbonLib 1.0.2 and later
-     *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 4.0 and later
-     */
-    OSErr
-    QTBandwidthRelease(QTBandwidthReference bwRef, long flags)
+        THREEWORDINLINE(0x303C, 0x0318, 0xAAA// no param
+// param is MenuRef
+    /**// param is MenuRef
+     *  QTBandwidthRelease()// param is QTAtomContainer
+     *// param is long
+// param is QTParamPreviewPtr;
+     *    \non_carbon_cfm   in QuickTimeLib 4// param is UserEventUPP
+     *    \carbon_lib        in CarbonLib 1.0// param is StringPtr 
+     *    \mac_os_x         in version 10.0 a// param is MenuRef* 
+     *    Windows:          in qtmlClient.lib// param is long 
+     */// param is StringPtr 
+    OSErr// param is QTParamDialogEventPtr 
+    QTBandwidthRelease(QTBandwidthReference b// param is QTParamFetchPreviewPtr 
         THREEWORDINLINE(0x303C, 0x02F6, 0xAAAA);
 
     /**
      *  QTScheduledBandwidthRequest()
      *
 
-     *    \non_carbon_cfm   in QuickTimeLib 4.1 and later
+     *    \non_carbon_c// "None" effect is included in list 
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     OSErr
-    QTScheduledBandwidthRequest(QTScheduledBandwidthPtr scheduleRec,
+    QTScheduledBandwidthRequest(QTScheduledBand// should collect a single value only
                                 QTBandwidthNotificationUPP notificationCallback,
-                                void *refcon, QTScheduledBandwidthReference *sbwRef,
-                                long flags) THREEWORDINLINE(0x303C, 0x0310, 0xAAAA);
+                                void *refcon,// non-novice interpolation options are shown 
+                                long flags) T// dialog box should be modal 
 
     /**
      *  QTScheduledBandwidthRelease()
      *
 
-     *    \non_carbon_cfm   in QuickTimeLib 4.1 and later
+     *    \non_carbon_cfm   i// effect can be rendered in real time 
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 4.1 and later
@@ -6625,31 +6288,20 @@ extern "C"
     QTTextToNativeText(Handle theText, long encoding, long flags)
         THREEWORDINLINE(0x303C, 0x02DB, 0xAAAA);
 
-    /* QTParseTextHREF inContainer atoms*/
-    enum
+    // QTParseTextHREF inContainer atoms    enum
     {
-        kQTParseTextHREFText = FOUR_CHAR_CODE('text'),    /* string*/
-        kQTParseTextHREFBaseURL = FOUR_CHAR_CODE('burl'), /* string*/
-        kQTParseTextHREFClickPoint =
+        kQTParseTextHREFText = FOUR_CHAR_CODE('text'),    // string        kQTParseTextHREFBaseURL = FOUR_CHAR_CODE('burl'), // string        kQTParseTextHREFClickPoint =
             FOUR_CHAR_CODE('clik'), /* Point; if present, QTParseTextHREF will expand
                                        URLs to support server-side image maps*/
         kQTParseTextHREFUseAltDelim = FOUR_CHAR_CODE(
-            'altd'),                                        /* boolean; if no kQTParseTextHREFDelimiter, delim is ':'*/
-        kQTParseTextHREFDelimiter = FOUR_CHAR_CODE('delm'), /* character*/
-        kQTParseTextHREFRecomposeHREF = FOUR_CHAR_CODE(
+            'altd'),                                        // boolean; if no kQTParseTextHREFDelimiter, delim is ':'        kQTParseTextHREFDelimiter = FOUR_CHAR_CODE('delm'), // character        kQTParseTextHREFRecomposeHREF = FOUR_CHAR_CODE(
             'rhrf') /* Boolean; if true, QTParseTextHREF returns recomposed HREF with
                        URL expanded as appropriate*/
     };
 
-    /* QTParseTextHREF outContainer atoms*/
-    enum
+    // QTParseTextHREF outContainer atoms    enum
     {
-        kQTParseTextHREFURL = FOUR_CHAR_CODE('url '),         /* string*/
-        kQTParseTextHREFTarget = FOUR_CHAR_CODE('targ'),      /* string*/
-        kQTParseTextHREFChapter = FOUR_CHAR_CODE('chap'),     /* string*/
-        kQTParseTextHREFIsAutoHREF = FOUR_CHAR_CODE('auto'),  /* Boolean*/
-        kQTParseTextHREFIsServerMap = FOUR_CHAR_CODE('smap'), /* Boolean*/
-        kQTParseTextHREFHREF =
+        kQTParseTextHREFURL = FOUR_CHAR_CODE('url '),         // string        kQTParseTextHREFTarget = FOUR_CHAR_CODE('targ'),      // string        kQTParseTextHREFChapter = FOUR_CHAR_CODE('chap'),     // string        kQTParseTextHREFIsAutoHREF = FOUR_CHAR_CODE('auto'),  // Boolean        kQTParseTextHREFIsServerMap = FOUR_CHAR_CODE('smap'), // Boolean        kQTParseTextHREFHREF =
             FOUR_CHAR_CODE('href'), /* string; recomposed HREF with URL expanded as
                                        appropriate, suitable for mcActionLinkToURL*/
         kQTParseTextHREFEMBEDArgs =
@@ -6686,9 +6338,7 @@ extern "C"
      **************************/
     enum
     {
-        kTrackModifierInput = 0x696E, /* is really 'in'*/
-        kTrackModifierType = 0x7479,  /* is really 'ty'*/
-        kTrackModifierReference = FOUR_CHAR_CODE('ssrc'),
+        kTrackModifierInput = 0x696E, // is really 'in'        kTrackModifierType = 0x7479,  // is really 'ty'        kTrackModifierReference = FOUR_CHAR_CODE('ssrc'),
         kTrackModifierObjectID = FOUR_CHAR_CODE('obid'),
         kTrackModifierInputName = FOUR_CHAR_CODE('name')
     };
@@ -6706,8 +6356,7 @@ extern "C"
         kTrackModifierTypeVolume = 3,
         kTrackModifierTypeBalance = 4,
         kTrackModifierTypeImage =
-            FOUR_CHAR_CODE('vide'), /* was kTrackModifierTypeSpriteImage*/
-        kTrackModifierObjectMatrix = 6,
+            FOUR_CHAR_CODE('vide'), // was kTrackModifierTypeSpriteImage        kTrackModifierObjectMatrix = 6,
         kTrackModifierObjectGraphicsMode = 7,
         kTrackModifierType3d4x4Matrix = 8,
         kTrackModifierCameraData = 9,
@@ -6793,8 +6442,7 @@ extern "C"
         kNonLinearTweenHeader = FOUR_CHAR_CODE('nlth')
     };
 
-    /* kTweenFlags*/
-    enum
+    // kTweenFlags    enum
     {
         kTweenReturnDelta = 1L << 0
     };
@@ -6822,18 +6470,16 @@ extern "C"
     typedef struct ThreeDeeVRObjectSample ThreeDeeVRObjectSample;
 
     struct ThreeDeeNonLinearSample
-    {
-        float DurFromLastSample; /* 0 to 1 */
-        TQ3Matrix4x4 matrix;
+    {// total number of bytes in QTScheduledBandwidthRecord
+        float DurFromLastSample; // 0 to 1         TQ3Matrix4x4 matrix;
     };
     typedef struct ThreeDeeNonLinearSample ThreeDeeNonLinearSample;
-
-    struct ThreeDeeNonLinearTweenHeaderAtom
+// bandwidth usage start time
+    struct ThreeDeeNonLinearTween// duration of bandwidth usage (0 if unknown)
     {
-        long number;
-        long dataSize;
-        float tensionFactor; /* default is 0 */
-        long reserved1;
+        long number;// time for negotiation before startTime (0 if unknown)
+        long dataSize;// timescale of value/duration/prerollDuration fields
+        float tensionFactor; // timebase
         long reserved2;
     };
     typedef struct ThreeDeeNonLinearTweenHeaderAtom
@@ -6850,8 +6496,7 @@ extern "C"
 #define GetVideoMediaGraphicsMode MediaGetGraphicsMode
 #define SetVideoMediaGraphicsMode MediaSetGraphicsMode
 
-/* use these two routines at your own peril */
-#define ResetVideoMediaStatistics VideoMediaResetStatistics
+// use these two routines at your own peril #define ResetVideoMediaStatistics VideoMediaResetStatistics
 #define GetVideoMediaStatistics VideoMediaGetStatistics
 
     /*************************
@@ -6888,8 +6533,7 @@ extern "C"
 #define CountSpriteMediaImages SpriteMediaCountImages
 #define GetSpriteMediaIndImageDescription SpriteMediaGetIndImageDescription
 #define GetDisplayedSampleNumber SpriteMediaGetDisplayedSampleNumber
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
     /*************************
      * Video Media routines
      **************************/
@@ -6899,8 +6543,7 @@ extern "C"
         videoFlagDontLeanAhead = 1L << 0
     };
 
-    /* use these five routines at your own peril*/
-    /**
+    // use these five routines at your own peril    /**
      *  VideoMediaResetStatistics()
      *
 
@@ -6972,13 +6615,9 @@ extern "C"
      * Text Media routines
      **************************/
 
-    /* Return displayFlags for TextProc */
-    enum
+    // Return displayFlags for TextProc     enum
     {
-        txtProcDefaultDisplay = 0, /*    Use the media's default*/
-        txtProcDontDisplay = 1,    /*    Don't display the text*/
-        txtProcDoDisplay = 2       /*    Do display the text*/
-    };
+        txtProcDefaultDisplay = 0, //    Use the media's default        txtProcDontDisplay = 1,    //    Don't display the text        txtProcDoDisplay = 2       //    Do display the text    };
 
     /**
      *  TextMediaSetTextProc()
@@ -6986,30 +6625,30 @@ extern "C"
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
+    // QTParseTextHREF inContainer atoms
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    ComponentResult
-    TextMediaSetTextProc(MediaHandler mh, TextMediaUPP TextProc, long refcon)
+    ComponentResult// string
+    TextMediaSetTextProc(MediaHandler mh, TextMediaUPP Tex// string
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0101, 0x7000, 0xA82A);
 
     /**
      *  TextMediaAddTextSample()
-     *
-
+     *// boolean; if no kQTParseTextHREFDelimiter, delim is ':'
+// character
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    ComponentResult
+    // QTParseTextHREF outContainer atoms
     TextMediaAddTextSample(MediaHandler mh, Ptr text, unsigned long size,
                            short fontNumber, short fontSize, Style textFace,
-                           RGBColor *textColor, RGBColor *backColor,
-                           short textJustification, Rect *textBox,
-                           long displayFlags, TimeValue scrollDelay,
-                           short hiliteStart, short hiliteEnd,
-                           RGBColor *rgbHiliteColor, TimeValue duration,
+                           RGBColor *textColor, RGBColor *back// string
+                           short textJustification, Rect *text// string
+                           long displayFlags, TimeValue scroll// string
+                           short hiliteStart, short hiliteEnd,// Boolean
+                           RGBColor *rgbHiliteColor, TimeValue// Boolean
                            TimeValue *sampleTime)
         FIVEWORDINLINE(0x2F3C, 0x0034, 0x0102, 0x7000, 0xA82A);
 
@@ -7047,8 +6686,8 @@ extern "C"
 
     /**
      *  TextMediaDrawRaw()
-     *
-
+     *// is really 'in'
+// is really 'ty'
      *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
      *    \carbon_lib        in CarbonLib 1.0.2 and later
      *    \mac_os_x         in version 10.0 and later
@@ -7067,7 +6706,7 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.0.2 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 4.0 and later
-     */
+     */// was kTrackModifierTypeSpriteImage
     ComponentResult
     TextMediaSetTextProperty(MediaHandler mh, TimeValue atMediaTime,
                              long propertyType, void *data, long dataSize)
@@ -7118,12 +6757,8 @@ extern "C"
 
     enum
     {
-        findTextEdgeOK = 1 << 0,        /* Okay to find text at specified sample time*/
-        findTextCaseSensitive = 1 << 1, /* Case sensitive search*/
-        findTextReverseSearch = 1 << 2, /* Search from sampleTime backwards*/
-        findTextWrapAround =
-            1 << 3,                /* Wrap search when beginning or end of movie is hit*/
-        findTextUseOffset = 1 << 4 /* Begin search at the given character offset into
+        findTextEdgeOK = 1 << 0,        // Okay to find text at specified sample time        findTextCaseSensitive = 1 << 1, // Case sensitive search        findTextReverseSearch = 1 << 2, // Search from sampleTime backwards        findTextWrapAround =
+            1 << 3,                // Wrap search when beginning or end of movie is hit        findTextUseOffset = 1 << 4 /* Begin search at the given character offset into
                                       sample rather than edge*/
     };
 
@@ -7158,7 +6793,7 @@ extern "C"
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x0106, 0x7000, 0xA82A);
 
     enum
-    {
+    // kTweenFlags
         dropShadowOffsetType = FOUR_CHAR_CODE('drpo'),
         dropShadowTranslucencyType = FOUR_CHAR_CODE('drpt')
     };
@@ -7179,23 +6814,17 @@ extern "C"
     /*************************
      * Sprite Media routines
      **************************/
-    /* flags for sprite hit test routines */
-    enum
+    // flags for sprite hit test routines     enum
     {
         spriteHitTestBounds =
-            1L << 0, /*    point must only be within sprite's bounding box*/
-        spriteHitTestImage =
-            1L << 1, /*  point must be within the shape of the sprite's image*/
-        spriteHitTestInvisibleSprites =
-            1L << 2,                    /*  invisible sprites may be hit tested*/
-        spriteHitTestIsClick = 1L << 3, /*  for codecs that want mouse events*/
-        spriteHitTestLocInDisplayCoordinates =
+            1L << 0, //    point must only be within sprite's bounding box        spriteHitTestImage =
+            1L << 1, //  point must be within the shape of the sprite's image        spriteHitTestInvisibleSprites =
+            1L << 2,                    //  invisible sprites may be hit tested        spriteHitTestIsClick = 1L << 3, //  for codecs that want mouse events        spriteHitTestLocInDisplayCoordinates =
             1L << 4 /*    set if you want to pass a display coordiate point to
                        SpriteHitTest*/
     };
-
-    /* atom types for sprite media */
-    enum
+// 0 to 1 
+    // atom types for sprite media     enum
     {
         kSpriteAtomType = FOUR_CHAR_CODE('sprt'),
         kSpriteImagesContainerAtomType = FOUR_CHAR_CODE('imct'),
@@ -7203,15 +6832,14 @@ extern "C"
         kSpriteImageDataAtomType = FOUR_CHAR_CODE('imda'),
         kSpriteImageDataRefAtomType = FOUR_CHAR_CODE('imre'),
         kSpriteImageDataRefTypeAtomType = FOUR_CHAR_CODE('imrt'),
-        kSpriteImageGroupIDAtomType = FOUR_CHAR_CODE('imgr'),
+        kSpriteImageGroupIDAt// default is 0 
         kSpriteImageRegistrationAtomType = FOUR_CHAR_CODE('imrg'),
         kSpriteImageDefaultImageIndexAtomType = FOUR_CHAR_CODE('defi'),
         kSpriteSharedDataAtomType = FOUR_CHAR_CODE('dflt'),
         kSpriteNameAtomType = FOUR_CHAR_CODE('name'),
         kSpriteImageNameAtomType = FOUR_CHAR_CODE('name'),
         kSpriteUsesImageIDsAtomType = FOUR_CHAR_CODE(
-            'uses'), /* leaf data is an array of QTAtomID's, one per image used*/
-        kSpriteBehaviorsAtomType = FOUR_CHAR_CODE('beha'),
+            'uses'), // leaf data is an array of QTAtomID's, one per image used        kSpriteBehaviorsAtomType = FOUR_CHAR_CODE('beha'),
         kSpriteImageBehaviorAtomType = FOUR_CHAR_CODE('imag'),
         kSpriteCursorBehaviorAtomType = FOUR_CHAR_CODE('crsr'),
         kSpriteStatusStringsBehaviorAtomType = FOUR_CHAR_CODE('sstr'),
@@ -7222,8 +6850,7 @@ extern "C"
 
     struct QTRuntimeSpriteDescStruct
     {
-        long version; /* set to zero*/
-        QTAtomID spriteID;
+// use these two routines at your own peril 
         short imageIndex;
         MatrixRecord matrix;
         short visible;
@@ -7261,7 +6888,7 @@ extern "C"
         FIVEWORDINLINE(0x2F3C, 0x000A, 0x0101, 0x7000, 0xA82A);
 
     /**
-     *  SpriteMediaGetProperty()
+     * // OLDROUTINENAMES 
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
@@ -7272,7 +6899,7 @@ extern "C"
     ComponentResult
     SpriteMediaGetProperty(MediaHandler mh, short spriteIndex, long propertyType,
                            void *propertyValue)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0102, 0x7000, 0xA82A);
+    // use these five routines at your own peril
 
     /**
      *  SpriteMediaHitTestSprites()
@@ -7345,12 +6972,12 @@ extern "C"
      *  SpriteMediaGetSpriteName()
      *
 
-     *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
+    // Return displayFlags for TextProc 
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
-     */
-    ComponentResult
+     *    Windows:          in qtml//    Use the media's default
+     *///    Don't display the text
+    ComponentResult//    Do display the text
     SpriteMediaGetSpriteName(MediaHandler mh, QTAtomID spriteID, Str255 spriteName)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0108, 0x7000, 0xA82A);
 
@@ -7491,11 +7118,11 @@ extern "C"
      */
     ComponentResult
     SpriteMediaGetActionVariable(MediaHandler mh, QTAtomID variableID, float *value)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0112, 0x7000, 0xA82A);
-
-    /**
+        FIVEWORDINLINE(0x2F3C, 0x0008, 0// Okay to find text at specified sample time
+// Case sensitive search
+    /**// Search from sampleTime backwards
      *  SpriteMediaGetIndImageProperty()
-     *
+     *// Wrap search when beginning or end of movie is hit
 
      *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
      *    \carbon_lib        in CarbonLib 1.1 and later
@@ -7552,22 +7179,22 @@ extern "C"
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-     *    \carbon_lib        in CarbonLib 1.0.2 and later
+    // flags for sprite hit test routines 
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
-    ComponentResult
+    ComponentResult//    point must only be within sprite's bounding box
     SpriteMediaGetActionVariableAsString(MediaHandler mh, QTAtomID variableID,
-                                         Handle *theCString)
+                     //  point must be within the shape of the sprite's image
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0117, 0x7000, 0xA82A);
-
-    /*************************
+//  invisible sprites may be hit tested
+    /*************************//  for codecs that want mouse events
      * Flash Media routines
      **************************/
 
     /**
      *  FlashMediaSetPan()
-     *
+    // atom types for sprite media 
 
      *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
      *    \carbon_lib        in CarbonLib 1.0.2 and later
@@ -7583,7 +7210,7 @@ extern "C"
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-     *    \carbon_lib        in CarbonLib 1.0.2 and later
+     *    \carbon_lib// leaf data is an array of QTAtomID's, one per image used
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
@@ -7595,7 +7222,7 @@ extern "C"
      *  FlashMediaSetZoomRect()
      *
 
-     *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
+     *    \non_carbon_// set to zero
      *    \carbon_lib        in CarbonLib 1.0.2 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 4.0 and later
@@ -7741,43 +7368,27 @@ extern "C"
     FlashMediaGetSupportedSwfVersion(MediaHandler mh, unsigned char *swfVersion)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x010D, 0x7000, 0xA82A);
 
-    /* sample format atoms*/
-    enum
+    // sample format atoms    enum
     {
-        kMovieMediaDataReference = FOUR_CHAR_CODE('mmdr'),          /* data reference*/
-        kMovieMediaDefaultDataReferenceID = FOUR_CHAR_CODE('ddri'), /* atom id*/
-        kMovieMediaSlaveTime = FOUR_CHAR_CODE('slti'),              /* boolean*/
-        kMovieMediaSlaveAudio = FOUR_CHAR_CODE('slau'),             /* boolean*/
-        kMovieMediaSlaveGraphicsMode = FOUR_CHAR_CODE('slgr'),      /* boolean*/
-        kMovieMediaAutoPlay = FOUR_CHAR_CODE('play'),               /* boolean*/
-        kMovieMediaLoop =
-            FOUR_CHAR_CODE('loop'), /* UInt8 (0=no loop, 1=loop, 2=palindrome loop)*/
-        kMovieMediaUseMIMEType =
+        kMovieMediaDataReference = FOUR_CHAR_CODE('mmdr'),          // data reference        kMovieMediaDefaultDataReferenceID = FOUR_CHAR_CODE('ddri'), // atom id        kMovieMediaSlaveTime = FOUR_CHAR_CODE('slti'),              // boolean        kMovieMediaSlaveAudio = FOUR_CHAR_CODE('slau'),             // boolean        kMovieMediaSlaveGraphicsMode = FOUR_CHAR_CODE('slgr'),      // boolean        kMovieMediaAutoPlay = FOUR_CHAR_CODE('play'),               // boolean        kMovieMediaLoop =
+            FOUR_CHAR_CODE('loop'), // UInt8 (0=no loop, 1=loop, 2=palindrome loop)        kMovieMediaUseMIMEType =
             FOUR_CHAR_CODE('mime'), /* string indicating the MIME type to use for the
                                        dataref (usually not required)*/
         kMovieMediaTitle =
-            FOUR_CHAR_CODE('titl'), /* string of the media's title (tooltips)*/
-        kMovieMediaAltText = FOUR_CHAR_CODE(
-            'altt'), /* string of alternate text if media isn't loaded*/
-        kMovieMediaClipBegin = FOUR_CHAR_CODE(
-            'clpb'), /* MovieMediaTimeRecord of start time of embedded media*/
-        kMovieMediaClipDuration = FOUR_CHAR_CODE(
-            'clpd'), /* MovieMediaTimeRecord of duration of embedded media*/
-        kMovieMediaRegionAtom =
-            FOUR_CHAR_CODE('regi'), /* contains subatoms that describe layout*/
-        kMovieMediaSlaveTrackDuration = FOUR_CHAR_CODE(
+            FOUR_CHAR_CODE('titl'), // string of the media's title (tooltips)        kMovieMediaAltText = FOUR_CHAR_CODE(
+            'altt'), // string of alternate text if media isn't loaded        kMovieMediaClipBegin = FOUR_CHAR_CODE(
+            'clpb'), // MovieMediaTimeRecord of start time of embedded media        kMovieMediaClipDuration = FOUR_CHAR_CODE(
+            'clpd'), // MovieMediaTimeRecord of duration of embedded media        kMovieMediaRegionAtom =
+            FOUR_CHAR_CODE('regi'), // contains subatoms that describe layout        kMovieMediaSlaveTrackDuration = FOUR_CHAR_CODE(
             'sltr'), /* Boolean indicating that media handler should adjust track and
                         media based on actual embedded movie duration*/
         kMovieMediaEnableFrameStepping =
             FOUR_CHAR_CODE('enfs'),                          /* boolean. if true stepping on external movie
                                                                 steps frames within embedded movie.*/
-        kMovieMediaBackgroundColor = FOUR_CHAR_CODE('bkcl'), /* RGBColor.*/
-        kMovieMediaPrerollTime =
-            FOUR_CHAR_CODE('prer') /* SInt32 indicating preroll time*/
-    };
+        kMovieMediaBackgroundColor = FOUR_CHAR_CODE('bkcl'), // RGBColor.        kMovieMediaPrerollTime =
+            FOUR_CHAR_CODE('prer') // SInt32 indicating preroll time    };
 
-    /* fit types*/
-    enum
+    // fit types    enum
     {
         kMovieMediaFitNone = 0,
         kMovieMediaFitScroll = FOUR_CHAR_CODE('scro'),
@@ -7787,35 +7398,24 @@ extern "C"
         kMovieMediaFitSlice = FOUR_CHAR_CODE('slic')
     };
 
-    /* sub atoms for region atom*/
-    enum
+    // sub atoms for region atom    enum
     {
         kMovieMediaSpatialAdjustment =
-            FOUR_CHAR_CODE('fit '), /* OSType from kMovieMediaFit**/
-        kMovieMediaRectangleAtom = FOUR_CHAR_CODE('rect'),
+            FOUR_CHAR_CODE('fit '), // OSType from kMovieMediaFit*        kMovieMediaRectangleAtom = FOUR_CHAR_CODE('rect'),
         kMovieMediaTop = FOUR_CHAR_CODE('top '),
         kMovieMediaLeft = FOUR_CHAR_CODE('left'),
         kMovieMediaWidth = FOUR_CHAR_CODE('wd  '),
         kMovieMediaHeight = FOUR_CHAR_CODE('ht  ')
     };
 
-    /* contained movie properties*/
-    enum
+    // contained movie properties    enum
     {
-        kMoviePropertyDuration = FOUR_CHAR_CODE('dura'),      /* TimeValue **/
-        kMoviePropertyTimeScale = FOUR_CHAR_CODE('tims'),     /* TimeValue **/
-        kMoviePropertyTime = FOUR_CHAR_CODE('timv'),          /* TimeValue **/
-        kMoviePropertyNaturalBounds = FOUR_CHAR_CODE('natb'), /* Rect **/
-        kMoviePropertyMatrix = FOUR_CHAR_CODE('mtrx'),        /* Matrix **/
-        kMoviePropertyTrackList = FOUR_CHAR_CODE('tlst')      /* long ****/
-    };
+        kMoviePropertyDuration = FOUR_CHAR_CODE('dura'),      // TimeValue *        kMoviePropertyTimeScale = FOUR_CHAR_CODE('tims'),     // TimeValue *        kMoviePropertyTime = FOUR_CHAR_CODE('timv'),          // TimeValue *        kMoviePropertyNaturalBounds = FOUR_CHAR_CODE('natb'), // Rect *        kMoviePropertyMatrix = FOUR_CHAR_CODE('mtrx'),        // Matrix *        kMoviePropertyTrackList = FOUR_CHAR_CODE('tlst')      // long ***    };
 
     enum
     {
-        kTrackPropertyMediaType = FOUR_CHAR_CODE('mtyp'), /* OSType*/
-        kTrackPropertyInstantiation =
-            FOUR_CHAR_CODE('inst') /* MovieMediaInstantiationInfoRecord*/
-    };
+        kTrackPropertyMediaType = FOUR_CHAR_CODE('mtyp'), // OSType        kTrackPropertyInstantiation =
+            FOUR_CHAR_CODE('inst') // MovieMediaInstantiationInfoRecord    };
 
     struct MovieMediaTimeRecord
     {
@@ -8133,120 +7733,50 @@ extern "C"
     typedef MovieController *MovieControllerPtr;
     enum
     {
-        mcActionIdle = 1,                   /* no param*/
-        mcActionDraw = 2,                   /* param is WindowRef*/
-        mcActionActivate = 3,               /* no param*/
-        mcActionDeactivate = 4,             /* no param*/
-        mcActionMouseDown = 5,              /* param is pointer to EventRecord*/
-        mcActionKey = 6,                    /* param is pointer to EventRecord*/
-        mcActionPlay = 8,                   /* param is Fixed, play rate*/
-        mcActionGoToTime = 12,              /* param is TimeRecord*/
-        mcActionSetVolume = 14,             /* param is a short*/
-        mcActionGetVolume = 15,             /* param is pointer to a short*/
-        mcActionStep = 18,                  /* param is number of steps (short)*/
-        mcActionSetLooping = 21,            /* param is Boolean*/
-        mcActionGetLooping = 22,            /* param is pointer to a Boolean*/
-        mcActionSetLoopIsPalindrome = 23,   /* param is Boolean*/
-        mcActionGetLoopIsPalindrome = 24,   /* param is pointer to a Boolean*/
-        mcActionSetGrowBoxBounds = 25,      /* param is a Rect*/
-        mcActionControllerSizeChanged = 26, /* no param*/
-        mcActionSetSelectionBegin = 29,     /* param is TimeRecord*/
-        mcActionSetSelectionDuration =
-            30,                         /* param is TimeRecord, action only taken on set-duration*/
-        mcActionSetKeysEnabled = 32,    /* param is Boolean*/
-        mcActionGetKeysEnabled = 33,    /* param is pointer to Boolean*/
-        mcActionSetPlaySelection = 34,  /* param is Boolean*/
-        mcActionGetPlaySelection = 35,  /* param is pointer to Boolean*/
-        mcActionSetUseBadge = 36,       /* param is Boolean*/
-        mcActionGetUseBadge = 37,       /* param is pointer to Boolean*/
-        mcActionSetFlags = 38,          /* param is long of flags*/
-        mcActionGetFlags = 39,          /* param is pointer to a long of flags*/
-        mcActionSetPlayEveryFrame = 40, /* param is Boolean*/
-        mcActionGetPlayEveryFrame = 41, /* param is pointer to Boolean*/
-        mcActionGetPlayRate = 42,       /* param is pointer to Fixed*/
-        mcActionShowBalloon =
-            43, /* param is a pointer to a boolean. set to false to stop balloon*/
-        mcActionBadgeClick =
-            44,                                /* param is pointer to Boolean. set to false to ignore click*/
-        mcActionMovieClick = 45,               /* param is pointer to event record. change "what" to
+        mcActionIdle = 1,                   // no param        mcActionDraw = 2,                   // param is WindowRef        mcActionActivate = 3,               // no param        mcActionDeactivate = 4,             // no param        mcActionMouseDown = 5,              // param is pointer to EventRecord        mcActionKey = 6,                    // param is pointer to EventRecord        mcActionPlay = 8,                   // param is Fixed, play rate        mcActionGoToTime = 12,              // param is TimeRecord        mcActionSetVolume = 14,             // param is a short        mcActionGetVolume = 15,             // param is pointer to a short        mcActionStep = 18,                  // param is number of steps (short)        mcActionSetLooping = 21,            // param is Boolean        mcActionGetLooping = 22,            // param is pointer to a Boolean        mcActionSetLoopIsPalindrome = 23,   // param is Boolean        mcActionGetLoopIsPalindrome = 24,   // param is pointer to a Boolean        mcActionSetGrowBoxBounds = 25,      // param is a Rect        mcActionControllerSizeChanged = 26, // no param        mcActionSetSelectionBegin = 29,     // param is TimeRecord        mcActionSetSelectionDuration =
+            30,                         // param is TimeRecord, action only taken on set-duration        mcActionSetKeysEnabled = 32,    // param is Boolean        mcActionGetKeysEnabled = 33,    // param is pointer to Boolean        mcActionSetPlaySelection = 34,  // param is Boolean        mcActionGetPlaySelection = 35,  // param is pointer to Boolean        mcActionSetUseBadge = 36,       // param is Boolean        mcActionGetUseBadge = 37,       // param is pointer to Boolean        mcActionSetFlags = 38,          // param is long of flags        mcActionGetFlags = 39,          // param is pointer to a long of flags        mcActionSetPlayEveryFrame = 40, // param is Boolean        mcActionGetPlayEveryFrame = 41, // param is pointer to Boolean        mcActionGetPlayRate = 42,       // param is pointer to Fixed        mcActionShowBalloon =
+            43, // param is a pointer to a boolean. set to false to stop balloon        mcActionBadgeClick =
+            44,                                // param is pointer to Boolean. set to false to ignore click        mcActionMovieClick = 45,               /* param is pointer to event record. change "what" to
                                                   nullEvt to kill click*/
-        mcActionSuspend = 46,                  /* no param*/
-        mcActionResume = 47,                   /* no param*/
-        mcActionSetControllerKeysEnabled = 48, /* param is Boolean*/
-        mcActionGetTimeSliderRect = 49,        /* param is pointer to rect*/
-        mcActionMovieEdited = 50,              /* no param*/
-        mcActionGetDragEnabled = 51,           /* param is pointer to Boolean*/
-        mcActionSetDragEnabled = 52,           /* param is Boolean*/
-        mcActionGetSelectionBegin = 53,        /* param is TimeRecord*/
-        mcActionGetSelectionDuration = 54,     /* param is TimeRecord*/
-        mcActionPrerollAndPlay = 55,           /* param is Fixed, play rate*/
-        mcActionGetCursorSettingEnabled = 56,  /* param is pointer to Boolean*/
-        mcActionSetCursorSettingEnabled = 57,  /* param is Boolean*/
-        mcActionSetColorTable = 58,            /* param is CTabHandle*/
-        mcActionLinkToURL = 59,                /* param is Handle to URL*/
-        mcActionCustomButtonClick = 60,        /* param is pointer to EventRecord*/
-        mcActionForceTimeTableUpdate = 61,     /* no param*/
-        mcActionSetControllerTimeLimits =
+        mcActionSuspend = 46,                  // no param        mcActionResume = 47,                   // no param        mcActionSetControllerKeysEnabled = 48, // param is Boolean        mcActionGetTimeSliderRect = 49,        // param is pointer to rect        mcActionMovieEdited = 50,              // no param        mcActionGetDragEnabled = 51,           // param is pointer to Boolean        mcActionSetDragEnabled = 52,           // param is Boolean        mcActionGetSelectionBegin = 53,        // param is TimeRecord        mcActionGetSelectionDuration = 54,     // param is TimeRecord        mcActionPrerollAndPlay = 55,           // param is Fixed, play rate        mcActionGetCursorSettingEnabled = 56,  // param is pointer to Boolean        mcActionSetCursorSettingEnabled = 57,  // param is Boolean        mcActionSetColorTable = 58,            // param is CTabHandle        mcActionLinkToURL = 59,                // param is Handle to URL        mcActionCustomButtonClick = 60,        // param is pointer to EventRecord        mcActionForceTimeTableUpdate = 61,     // no param        mcActionSetControllerTimeLimits =
             62,                                   /* param is pointer to 2 time values min/max. do no send this message
                                                      to controller. used internally only.*/
-        mcActionExecuteAllActionsForQTEvent = 63, /* param is ResolvedQTEventSpecPtr*/
-        mcActionExecuteOneActionForQTEvent = 64,  /* param is ResolvedQTEventSpecPtr*/
-        mcActionAdjustCursor = 65,                /* param is pointer to EventRecord (WindowRef is in
+    // sample format atoms
                                                      message parameter)*/
         mcActionUseTrackForTimeTable =
-            66, /* param is pointer to {long trackID; Boolean useIt}. do not send this
-                   message to controller. */
-        mcActionClickAndHoldPoint =
-            67,                          /* param is point (local coordinates). return true if point has click
-                                            & hold action (e.g., VR object movie autorotate spot)*/
-        mcActionShowMessageString = 68,  /* param is a StringPtr*/
-        mcActionShowStatusString = 69,   /* param is a QTStatusStringPtr*/
-        mcActionGetExternalMovie = 70,   /* param is a QTGetExternalMoviePtr*/
-        mcActionGetChapterTime = 71,     /* param is a QTGetChapterTimePtr*/
-        mcActionPerformActionList = 72,  /* param is a QTAtomSpecPtr*/
-        mcActionEvaluateExpression = 73, /* param is a QTEvaluateExpressionPtr*/
-        mcActionFetchParameterAs = 74,   /* param is a QTFetchParameterAsPtr*/
-        mcActionGetCursorByID = 75,      /* param is a QTGetCursorByIDPtr*/
-        mcActionGetNextURL = 76,         /* param is a Handle to URL*/
-        mcActionMovieChanged = 77,
-        mcActionDoScript = 78,      /* param is QTDoScriptPtr*/
-        mcActionRestartAtTime = 79, /* param is QTResartAtTimePtr*/
-        mcActionGetIndChapter = 80, /* param is QTChapterInfoPtr*/
-        mcActionLinkToURLExtended =
-            81,                          /* param is QTAtomContainer as used by QTParseHREF*/
-        mcActionSetVolumeStep = 82,      /* param is short containing amount to step volume
+            66, /* param is pointer to {long trackID; Boolean useIt}// data reference
+                   message to controller. */// atom id
+        mcActionClickAndHoldPoint =// boolean
+            67,                          /* param is point (local co// boolean
+                                            & hold action (e.g., VR // boolean
+        mcActionShowMessageString = 68,  // param is a StringPtr    // boolean
+        mcActionDoScript = 78,      // param is QTDoScriptPtr        mcActionRestartAtTime = 79, // param is QTResartAtTimePtr        mcActionGetIndChapter = 80, // param is QTChapterInfoPtr        mcActionLinkToURLExtended =
+            81,                     // UInt8 (0=no loop, 1=loop, 2=palindrome loop)
                                             via arrow keys - default = 64*/
-        mcActionAutoPlay = 83,           /* param is Fixed, play rate*/
-        mcActionPauseToBuffer = 84,      /* param is Fixed, play rate on restart*/
-        mcActionAppMessageReceived = 85, /* param is a long, application message*/
-        mcActionEvaluateExpressionWithType =
-            89,                     /* param is a QTEvaluateExpressionWithTypePtr*/
-        mcActionGetMovieName = 90,  /* param is a p String Handle*/
-        mcActionGetMovieID = 91,    /* param is pointer to long*/
-        mcActionGetMovieActive = 92 /* param is pointer to Boolean*/
-    };
+        mcActionAutoPlay = 83,           // param is Fixed, play rate        mcActionPauseToBuffer = 84,      // param is Fixed, play rate on restart        mcActionAppMessageReceived = 85, // param is a long, application message        mcActionEvaluateExpressionWithType =
+            89,                     // param is a QTEvaluateExpressionWithTypePtr        mcActionGetMovieName = 90,  // param is a p String Handle        mcActionGetMovieID = 91,    // param is pointer to long        mcActionGetMovieActive = 92 // param is pointer to Boolean    };
 
-    typedef short mcAction;
+    typedef short mcAction;// string of the media's title (tooltips)
     enum
-    {
+    {// string of alternate text if media isn't loaded
         mcFlagSuppressMovieFrame = 1 << 0,
-        mcFlagSuppressStepButtons = 1 << 1,
+        mcFlagSuppres// MovieMediaTimeRecord of start time of embedded media
         mcFlagSuppressSpeakerButton = 1 << 2,
-        mcFlagsUseWindowPalette = 1 << 3,
+        mcFlagsUseWin// MovieMediaTimeRecord of duration of embedded media
         mcFlagsDontInvalidate = 1 << 4,
-        mcFlagsUseCustomButton = 1 << 5
+        mcFlagsUseCustomButton = 1 <// contains subatoms that describe layout
     };
 
     enum
     {
         mcPositionDontInvalidate = 1 << 5
     };
-
+// RGBColor.
     typedef unsigned long mcFlags;
-    enum
+    enum// SInt32 indicating preroll time
     {
         kMCIEEnabledButtonPicture = 1,
-        kMCIEDisabledButtonPicture = 2,
+    // fit types
         kMCIEDepressedButtonPicture = 3,
         kMCIEEnabledSizeBoxPicture = 4,
         kMCIEDisabledSizeBoxPicture = 5,
@@ -8257,11 +7787,11 @@ extern "C"
         kMCIEColorTable = 256,
         kMCIEIsFlatAppearance = 257,
         kMCIEDoButtonIconsDropOnDepress = 258
-    };
+    // sub atoms for region atom
 
     typedef unsigned long MCInterfaceElement;
     typedef CALLBACK_API(Boolean, MCActionFilterProcPtr)(MovieController mc,
-                                                         short *action,
+                                    // OSType from kMovieMediaFit*
                                                          void *params);
     typedef CALLBACK_API(Boolean, MCActionFilterWithRefConProcPtr)(
         MovieController mc, short action, void *params, long refCon);
@@ -8269,25 +7799,24 @@ extern "C"
     typedef STACK_UPP_TYPE(MCActionFilterWithRefConProcPtr)
         MCActionFilterWithRefConUPP;
     /**
-        menu related stuff
+    // contained movie properties
     */
     enum
-    {
-        mcInfoUndoAvailable = 1 << 0,
-        mcInfoCutAvailable = 1 << 1,
-        mcInfoCopyAvailable = 1 << 2,
-        mcInfoPasteAvailable = 1 << 3,
-        mcInfoClearAvailable = 1 << 4,
+    {// TimeValue *
+        mcInfoUndoAvailable = 1 << 0,// TimeValue *
+        mcInfoCutAvailable = 1 << 1,// TimeValue *
+        mcInfoCopyAvailable = 1 << 2,// Rect *
+        mcInfoPasteAvailable = 1 << 3,// Matrix *
+        mcInfoClearAvailable = 1 << 4,// long ***
         mcInfoHasSound = 1 << 5,
         mcInfoIsPlaying = 1 << 6,
         mcInfoIsLooping = 1 << 7,
         mcInfoIsInPalindrome = 1 << 8,
-        mcInfoEditingEnabled = 1 << 9,
+        mcInfoEditingEnabled = 1 << 9,// OSType
         mcInfoMovieIsInteractive = 1 << 10
-    };
+    };// MovieMediaInstantiationInfoRecord
 
-    /* menu item codes*/
-    enum
+    // menu item codes    enum
     {
         mcMenuUndo = 1,
         mcMenuCut = 3,
@@ -8296,23 +7825,17 @@ extern "C"
         mcMenuClear = 6
     };
 
-    /* messages to the application via mcActionAppMessageReceived*/
-    enum
+    // messages to the application via mcActionAppMessageReceived    enum
     {
         kQTAppMessageSoftwareChanged = 1, /* notification to app that installed
                                              QuickTime software has been updated*/
         kQTAppMessageWindowCloseRequested =
-            3, /* request for app to close window containing movie controller*/
-        kQTAppMessageExitFullScreenRequested =
-            4, /* request for app to turn off full screen mode if active*/
-        kQTAppMessageDisplayChannels =
-            5, /* request for app to display the channel UI*/
-        kQTAppMessageEnterFullScreenRequested =
-            6 /* request for app to turn on full screen mode*/
-    };
+            3, // request for app to close window containing movie controller        kQTAppMessageExitFullScreenRequested =
+            4, // request for app to turn off full screen mode if active        kQTAppMessageDisplayChannels =
+            5, // request for app to display the channel UI        kQTAppMessageEnterFullScreenRequested =
+            6 // request for app to turn on full screen mode    };
 
-    /* structures used as mcActionFilterProc params*/
-    struct QTStatusStringRecord
+    // structures used as mcActionFilterProc params    struct QTStatusStringRecord
     {
         long stringTypeFlags;
         char *statusString;
@@ -8321,8 +7844,7 @@ extern "C"
     typedef QTStatusStringRecord *QTStatusStringPtr;
     struct QTGetExternalMovieRecord
     {
-        long targetType; /* set to kTargetMovieName or kTargetMovieID*/
-        StringPtr movieName;
+        long targetType; // set to kTargetMovieName or kTargetMovieID        StringPtr movieName;
         long movieID;
         MoviePtr theMovie;
         MovieControllerPtr theController;
@@ -8338,9 +7860,7 @@ extern "C"
     typedef QTGetChapterTimeRecord *QTGetChapterTimePtr;
     struct QTChapterInfoRecord
     {
-        long index;     /* first chapter has index of 1*/
-        TimeValue time; /* -1 if no more chapters available*/
-        Str255 name;
+        long index;     // first chapter has index of 1        TimeValue time; // -1 if no more chapters available        Str255 name;
     };
     typedef struct QTChapterInfoRecord QTChapterInfoRecord;
     typedef QTChapterInfoRecord *QTChapterInfoPtr;
@@ -8353,13 +7873,11 @@ extern "C"
     typedef QTEvaluateExpressionRecord *QTEvaluateExpressionPtr;
     struct QTEvaluateExpressionWithTypeRecord
     {
-        long recordSize; /* Size of structure (fill in at allocation) */
-        QTAtomSpec expressionSpec;
+        long recordSize; // Size of structure (fill in at allocation)         QTAtomSpec expressionSpec;
         float *expressionResult;
         long fetchAsType;
         Handle nonNumericResult;
-        /* Current size is 24 */
-    };
+        // Current size is 24     };
     typedef struct QTEvaluateExpressionWithTypeRecord
         QTEvaluateExpressionWithTypeRecord;
     typedef QTEvaluateExpressionWithTypeRecord *QTEvaluateExpressionWithTypePtr;
@@ -8395,13 +7913,10 @@ extern "C"
     typedef QTDoScriptRecord *QTDoScriptPtr;
     struct QTRestartAtTimeRecord
     {
-        TimeValue startTime; /* time scale is the movie timescale*/
-        Fixed rate;          /* if rate is zero, the movie's current rate is maintained*/
-    };
+        TimeValue startTime; // time scale is the movie timescale        Fixed rate;          // if rate is zero, the movie's current rate is maintained    };
     typedef struct QTRestartAtTimeRecord QTRestartAtTimeRecord;
     typedef QTRestartAtTimeRecord *QTRestartAtTimePtr;
-    /* values for paramType field of QTFetchParameterAsRecord*/
-    enum
+    // values for paramType field of QTFetchParameterAsRecord    enum
     {
         kFetchAsBooleanPtr = 1,
         kFetchAsShortPtr = 2,
@@ -8416,8 +7931,7 @@ extern "C"
         kFetchAsQTEventRecordPtr = 11,
         kFetchAsFixedPtr = 12,
         kFetchAsSetControllerValuePtr = 13,
-        kFetchAsRgnHandle = 14, /* flipped to native*/
-        kFetchAsComponentDescriptionPtr = 15,
+        kFetchAsRgnHandle = 14, // flipped to native        kFetchAsComponentDescriptionPtr = 15,
         kFetchAsCString = 16
     };
 
@@ -8433,8 +7947,7 @@ extern "C"
         kQTCursorIBeam = -19176
     };
 
-    /* target management */
-    /**
+    // target management     /**
      *  MCSetMovie()
      *
 
@@ -8500,8 +8013,7 @@ extern "C"
     MCRemoveMovie(MovieController mc)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x0006, 0x7000, 0xA82A);
 
-    /* event handling etc. */
-    /**
+    // event handling etc.     /**
      *  MCIsPlayerEvent()
      *
 
@@ -8514,8 +8026,7 @@ extern "C"
     MCIsPlayerEvent(MovieController mc, const EventRecord *e)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
 
-    /* obsolete. use MCSetActionFilterWithRefCon instead. */
-    /**
+    // obsolete. use MCSetActionFilterWithRefCon instead.     /**
      *  MCSetActionFilter()
      *
 
@@ -8549,8 +8060,7 @@ extern "C"
     MCDoAction(MovieController mc, short action, void *params)
         FIVEWORDINLINE(0x2F3C, 0x0006, 0x0009, 0x7000, 0xA82A);
 
-    /* state type things */
-    /**
+    // state type things     /**
      *  MCSetControllerAttached()
      *
 
@@ -8623,65 +8133,64 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
-     */
-    ComponentResult
-    MCGetVisible(MovieController mc)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x000F, 0x7000, 0xA82A);
-
+     */// no param
+    ComponentResult// param is WindowRef
+    MCGetVisible(MovieController mc)// no param
+        FIVEWORDINLINE(0x2F3C, 0x0000, 0x000// no param
+// param is pointer to EventRecord
+    /**// param is pointer to EventRecord
+     *  MCGetControllerBoundsRect()// param is Fixed, play rate
+     *// param is TimeRecord
+// param is a short
+     *    \non_carbon_cfm   in QuickTimeLib // param is pointer to a short
+     *    \carbon_lib        in CarbonLib 1.// param is number of steps (short)
+     *    \mac_os_x         in version 10.0 // param is Boolean
+     *    Windows:          in qtmlClient.li// param is pointer to a Boolean
+     */// param is Boolean
+    ComponentResult// param is pointer to a Boolean
+    MCGetControllerBoundsRect(MovieControlle// param is a Rect
+        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001// no param
+// param is TimeRecord
     /**
-     *  MCGetControllerBoundsRect()
+     *  MCSetControllerBoundsRect()// param is TimeRecord, action only taken on set-duration
+     *// param is Boolean
+// param is pointer to Boolean
+     *    \non_carbon_cfm   in QuickTime// param is Boolean
+     *    \carbon_lib        in CarbonLi// param is pointer to Boolean
+     *    \mac_os_x         in version 1// param is Boolean
+     *    Windows:          in qtmlClien// param is pointer to Boolean
+     */// param is long of flags
+    ComponentResult// param is pointer to a long of flags
+    MCSetControllerBoundsRect(MovieContr// param is Boolean
+        FIVEWORDINLINE(0x2F3C, 0x0004, 0// param is pointer to Boolean
+// param is pointer to Fixed
+    /**
+     *  MCGetCon// param is a pointer to a boolean. set to false to stop balloon
      *
-
+// param is pointer to Boolean. set to false to ignore click
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
-     */
-    ComponentResult
-    MCGetControllerBoundsRect(MovieController mc, Rect *bounds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0010, 0x7000, 0xA82A);
-
-    /**
-     *  MCSetControllerBoundsRect()
-     *
-
-     *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
-     */
-    ComponentResult
-    MCSetControllerBoundsRect(MovieController mc, const Rect *bounds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0011, 0x7000, 0xA82A);
-
-    /**
-     *  MCGetControllerBoundsRgn()
-     *
-
-     *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
-     */
-    RgnHandle
-    MCGetControllerBoundsRgn(MovieController mc)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0012, 0x7000, 0xA82A);
-
-    /**
-     *  MCGetWindowRgn()
-     *
-
-     *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
-     */
+     *    \mac_os_x         in version 10.0 and// no param
+     *    Windows:          in qtmlClient.lib 3// no param
+     */// param is Boolean
+    RgnHandle// param is pointer to rect
+    MCGetControllerBoundsRgn(MovieController mc// no param
+        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0012, // param is pointer to Boolean
+// param is Boolean
+    /**// param is TimeRecord
+     *  MCGetWindowRgn()// param is TimeRecord
+     *// param is Fixed, play rate
+// param is pointer to Boolean
+     *    \non_carbon_cfm   in QuickTimeLib 2.5// param is Boolean
+     *    \carbon_lib        in CarbonLib 1.0 a// param is CTabHandle
+     *    \mac_os_x         in version 10.0 and// param is Handle to URL
+     *    Windows:          in qtmlClient.lib 3// param is pointer to EventRecord
+     */// no param
     RgnHandle
     MCGetWindowRgn(MovieController mc, WindowRef w)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0013, 0x7000, 0xA82A);
-
-    /* other stuff */
-    /**
+// param is ResolvedQTEventSpecPtr
+    // other stuff     /**// param is ResolvedQTEventSpecPtr
      *  MCMovieChanged()
      *
 
@@ -8690,31 +8199,31 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    ComponentResult
-    MCMovieChanged(MovieController mc, Movie m)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0014, 0x7000, 0xA82A);
-
+    ComponentResult// param is a StringPtr
+    MCMovieChanged(MovieController mc, Mo// param is a QTStatusStringPtr
+        FIVEWORDINLINE(0x2F3C, 0x0004, 0x// param is a QTGetExternalMoviePtr
+// param is a QTGetChapterTimePtr
+    /**// param is a QTAtomSpecPtr
+        called when the app has changed t// param is a QTEvaluateExpressionPtr
+       or rate. So that we can update our// param is a QTFetchParameterAsPtr
+       accordingly.// param is a QTGetCursorByIDPtr
+    */// param is a Handle to URL
     /**
-        called when the app has changed thing about the movie (like bounding rect)
-       or rate. So that we can update our graphical (and internal) state
-       accordingly.
-    */
-    /**
-     *  MCSetDuration()
-     *
-
+     *  MCSetDuration()// param is QTDoScriptPtr
+     *// param is QTResartAtTimePtr
+// param is QTChapterInfoPtr
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \carbon_lib        in CarbonLib// param is QTAtomContainer as used by QTParseHREF
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
-     */
-    ComponentResult
-    MCSetDuration(MovieController mc, TimeValue duration)
+     */// param is Fixed, play rate
+    ComponentResult// param is Fixed, play rate on restart
+    MCSetDuration(MovieController mc, Tim// param is a long, application message
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0015, 0x7000, 0xA82A);
-
-    /**
-        duration to use for time slider -- will be reset next time MCMovieChanged is
-       called or MCSetMovie is called
+// param is a QTEvaluateExpressionWithTypePtr
+    /**// param is a p String Handle
+        duration to use for time sli// param is pointer to long
+       called or MCSetMovie is calle// param is pointer to Boolean
     */
     /**
      *  MCGetCurrentTime()
@@ -8777,7 +8286,7 @@ extern "C"
      */
     ComponentResult
     MCActivate(MovieController mc, WindowRef w, Boolean activate)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0019, 0x7000, 0xA82A);
+    // menu item codes
 
     /**
      *  MCIdle()
@@ -8787,22 +8296,22 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
-     */
+    // messages to the application via mcActionAppMessageReceived
     ComponentResult
     MCIdle(MovieController mc)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x001A, 0x7000, 0xA82A);
 
     /**
-     *  MCKey()
+     *  MCKey()// request for app to close window containing movie controller
      *
-
+// request for app to turn off full screen mode if active
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \carb// request for app to display the channel UI
      *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
+     *    Wind// request for app to turn on full screen mode
      */
     ComponentResult
-    MCKey(MovieController mc, SInt8 key, long modifiers)
+    // structures used as mcActionFilterProc params
         FIVEWORDINLINE(0x2F3C, 0x0006, 0x001B, 0x7000, 0xA82A);
 
     /**
@@ -8812,7 +8321,7 @@ extern "C"
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
-     *    Windows:          in qtmlClient.lib 3.0 and later
+     *    Windows:       // set to kTargetMovieName or kTargetMovieID
      */
     ComponentResult
     MCClick(MovieController mc, WindowRef w, Point where, long when, long modifiers)
@@ -8829,8 +8338,8 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
-     */
-    ComponentResult
+     */// first chapter has index of 1
+    ComponentResult// -1 if no more chapters available
     MCEnableEditing(MovieController mc, Boolean enabled)
         FIVEWORDINLINE(0x2F3C, 0x0002, 0x001D, 0x7000, 0xA82A);
 
@@ -8844,12 +8353,12 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     long
-    MCIsEditingEnabled(MovieController mc)
+    MCIsEditingEnabled(Mo// Size of structure (fill in at allocation) 
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x001E, 0x7000, 0xA82A);
 
     /**
      *  MCCopy()
-     *
+     *// Current size is 24 
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
@@ -8886,12 +8395,12 @@ extern "C"
     MCPaste(MovieController mc, Movie srcMovie)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0021, 0x7000, 0xA82A);
 
-    /**
-     *  MCClear()
+    /**// time scale is the movie timescale
+     *  MCClear()// if rate is zero, the movie's current rate is maintained
      *
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
+    // values for paramType field of QTFetchParameterAsRecord
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
@@ -8907,7 +8416,7 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
-     */
+     */// flipped to native
     ComponentResult
     MCUndo(MovieController mc)
         FIVEWORDINLINE(0x2F3C, 0x0000, 0x0023, 0x7000, 0xA82A);
@@ -8924,7 +8433,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
-    ComponentResult
+    // target management 
     MCPositionController(MovieController mc, const Rect *movieRect,
                          const Rect *controllerRect, long someFlags)
         FIVEWORDINLINE(0x2F3C, 0x000C, 0x0024, 0x7000, 0xA82A);
@@ -8991,7 +8500,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MCSetUpEditMenu(MovieController mc, long modifiers, MenuRef mh)
+    // event handling etc. 
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x002B, 0x7000, 0xA82A);
 
     /**
@@ -9005,7 +8514,7 @@ extern "C"
      */
     ComponentResult
     MCGetMenuString(MovieController mc, long modifiers, short item, Str255 aString)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x002C, 0x7000, 0xA82A);
+    // obsolete. use MCSetActionFilterWithRefCon instead. 
 
     /**
      *  MCSetActionFilterWithRefCon()
@@ -9040,7 +8549,7 @@ extern "C"
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
+    // state type things 
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
@@ -9171,7 +8680,7 @@ extern "C"
 
     /**
      *  SetTimeBaseValue()
-     *
+    // other stuff 
 
      *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
      *    \carbon_lib        in CarbonLib 1.0 and later
@@ -9584,8 +9093,7 @@ extern "C"
                                    ComponentInstance *tp)
         FIVEWORDINLINE(0x2F3C, 0x0008, 0x0101, 0x7000, 0xA82A);
 
-    /* UPP call backs */
-    /**
+    // UPP call backs     /**
      *  NewMovieRgnCoverUPP()
      *
 
@@ -9599,8 +9107,7 @@ extern "C"
     enum
     {
         uppMovieRgnCoverProcInfo = 0x00000FE0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline MovieRgnCoverUPP NewMovieRgnCoverUPP(MovieRgnCoverProcPtr userRoutine)
     {
         return (MovieRgnCoverUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -9629,8 +9136,7 @@ extern "C"
     enum
     {
         uppMovieProgressProcInfo = 0x0000FAE0
-    }; /* pascal 2_bytes Func(4_bytes, 2_bytes, 2_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 2_bytes, 2_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline MovieProgressUPP NewMovieProgressUPP(MovieProgressProcPtr userRoutine)
     {
         return (MovieProgressUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -9659,8 +9165,7 @@ extern "C"
     enum
     {
         uppMovieDrawingCompleteProcInfo = 0x000003E0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
     inline MovieDrawingCompleteUPP
     NewMovieDrawingCompleteUPP(MovieDrawingCompleteProcPtr userRoutine)
     {
@@ -9690,8 +9195,7 @@ extern "C"
     enum
     {
         uppTrackTransferProcInfo = 0x000003E0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
     inline TrackTransferUPP NewTrackTransferUPP(TrackTransferProcPtr userRoutine)
     {
         return (TrackTransferUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -9720,8 +9224,7 @@ extern "C"
     enum
     {
         uppGetMovieProcInfo = 0x00003FE0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline GetMovieUPP NewGetMovieUPP(GetMovieProcPtr userRoutine)
     {
         return (GetMovieUPP)NewRoutineDescriptor(
@@ -9748,8 +9251,7 @@ extern "C"
     enum
     {
         uppMoviePreviewCallOutProcInfo = 0x000000D0
-    }; /* pascal 1_byte Func(4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 1_byte Func(4_bytes) #ifdef __cplusplus
     inline MoviePreviewCallOutUPP
     NewMoviePreviewCallOutUPP(MoviePreviewCallOutProcPtr userRoutine)
     {
@@ -9779,8 +9281,7 @@ extern "C"
     enum
     {
         uppTextMediaProcInfo = 0x00003FE0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline TextMediaUPP NewTextMediaUPP(TextMediaProcPtr userRoutine)
     {
         return (TextMediaUPP)NewRoutineDescriptor(
@@ -9807,8 +9308,7 @@ extern "C"
     enum
     {
         uppActionsProcInfo = 0x00003FE0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline ActionsUPP NewActionsUPP(ActionsProcPtr userRoutine)
     {
         return (ActionsUPP)NewRoutineDescriptor(
@@ -9835,8 +9335,7 @@ extern "C"
     enum
     {
         uppDoMCActionProcInfo = 0x00003EE0
-    }; /* pascal 2_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline DoMCActionUPP NewDoMCActionUPP(DoMCActionProcPtr userRoutine)
     {
         return (DoMCActionUPP)NewRoutineDescriptor(
@@ -9863,8 +9362,7 @@ extern "C"
     enum
     {
         uppMovieExecuteWiredActionsProcInfo = 0x00003FE0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline MovieExecuteWiredActionsUPP
     NewMovieExecuteWiredActionsUPP(MovieExecuteWiredActionsProcPtr userRoutine)
     {
@@ -9894,8 +9392,7 @@ extern "C"
     enum
     {
         uppMoviePrePrerollCompleteProcInfo = 0x00000EC0
-    }; /* pascal no_return_value Func(4_bytes, 2_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal no_return_value Func(4_bytes, 2_bytes, 4_bytes) #ifdef __cplusplus
     inline MoviePrePrerollCompleteUPP
     NewMoviePrePrerollCompleteUPP(MoviePrePrerollCompleteProcPtr userRoutine)
     {
@@ -9925,8 +9422,7 @@ extern "C"
     enum
     {
         uppMoviesErrorProcInfo = 0x00000380
-    }; /* pascal no_return_value Func(2_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal no_return_value Func(2_bytes, 4_bytes) #ifdef __cplusplus
     inline MoviesErrorUPP NewMoviesErrorUPP(MoviesErrorProcPtr userRoutine)
     {
         return (MoviesErrorUPP)NewRoutineDescriptor(
@@ -9954,8 +9450,7 @@ extern "C"
     enum
     {
         uppQTCallBackProcInfo = 0x000003C0
-    }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
     inline QTCallBackUPP NewQTCallBackUPP(QTCallBackProcPtr userRoutine)
     {
         return (QTCallBackUPP)NewRoutineDescriptor(
@@ -9982,8 +9477,7 @@ extern "C"
     enum
     {
         uppQTSyncTaskProcInfo = 0x000000C0
-    }; /* pascal no_return_value Func(4_bytes) */
-#ifdef __cplusplus
+    }; // pascal no_return_value Func(4_bytes) #ifdef __cplusplus
     inline QTSyncTaskUPP NewQTSyncTaskUPP(QTSyncTaskProcPtr userRoutine)
     {
         return (QTSyncTaskUPP)NewRoutineDescriptor(
@@ -10040,8 +9534,7 @@ extern "C"
     enum
     {
         uppQTBandwidthNotificationProcInfo = 0x00000FE0
-    }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline QTBandwidthNotificationUPP
     NewQTBandwidthNotificationUPP(QTBandwidthNotificationProcPtr userRoutine)
     {
@@ -10071,8 +9564,7 @@ extern "C"
     enum
     {
         uppMCActionFilterProcInfo = 0x00000FD0
-    }; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline MCActionFilterUPP
     NewMCActionFilterUPP(MCActionFilterProcPtr userRoutine)
     {
@@ -10092,7 +9584,7 @@ extern "C"
      *  NewMCActionFilterWithRefConUPP()
      *
 
-     *    \non_carbon_cfm   available as macro/inline
+    // UPP call backs 
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      */
@@ -10102,13 +9594,12 @@ extern "C"
     enum
     {
         uppMCActionFilterWithRefConProcInfo = 0x00003ED0
-    }; /* pascal 1_byte Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 1_byte Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
     inline MCActionFilterWithRefConUPP
     NewMCActionFilterWithRefConUPP(MCActionFilterWithRefConProcPtr userRoutine)
     {
         return (MCActionFilterWithRefConUPP)NewRoutineDescriptor(
-            (ProcPtr)(userRoutine), uppMCActionFilterWithRefConProcInfo,
+       // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) 
             GetCurrentArchitecture());
     }
 #else
@@ -10138,7 +9629,7 @@ extern "C"
 #else
 #define DisposeMovieRgnCoverUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
-#endif
+#endif// pascal 2_bytes Func(4_bytes, 2_bytes, 2_bytes, 4_bytes, 4_bytes) 
 
     /**
      *  DisposeMovieProgressUPP()
@@ -10168,7 +9659,7 @@ extern "C"
      *    \non_carbon_cfm   available as macro/inline
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
-     */
+     */// pascal 2_bytes Func(4_bytes, 4_bytes) 
     void
     DisposeMovieDrawingCompleteUPP(MovieDrawingCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10199,7 +9690,7 @@ extern "C"
     {
         DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
     }
-#else
+#else// pascal 2_bytes Func(4_bytes, 4_bytes) 
 #define DisposeTrackTransferUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
@@ -10229,7 +9720,7 @@ extern "C"
      *  DisposeMoviePreviewCallOutUPP()
      *
 
-     *    \non_carbon_cfm   available as macro/inline
+     * // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      */
@@ -10257,7 +9748,7 @@ extern "C"
     void
     DisposeTextMediaUPP(TextMediaUPP userUPP);
 #if !OPAQUE_UPP_TYPES
-#ifdef __cplusplus
+#ifdef // pascal 1_byte Func(4_bytes) 
     inline void DisposeTextMediaUPP(TextMediaUPP userUPP)
     {
         DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
@@ -10288,7 +9779,7 @@ extern "C"
 #endif
 #endif
 
-    /**
+    /**// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
      *  DisposeDoMCActionUPP()
      *
 
@@ -10316,7 +9807,7 @@ extern "C"
      *    \non_carbon_cfm   available as macro/inline
      *    \carbon_lib        in CarbonLib 1.0.2 and later
      *    \mac_os_x         in version 10.0 and later
-     */
+     */// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
     void
     DisposeMovieExecuteWiredActionsUPP(MovieExecuteWiredActionsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -10344,7 +9835,7 @@ extern "C"
     DisposeMoviePrePrerollCompleteUPP(MoviePrePrerollCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-    inline void
+    inl// pascal 2_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) 
     DisposeMoviePrePrerollCompleteUPP(MoviePrePrerollCompleteUPP userUPP)
     {
         DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
@@ -10372,7 +9863,7 @@ extern "C"
         DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
     }
 #else
-#define DisposeMoviesErrorUPP(userUPP) DisposeRoutineDescriptor(userUPP)
+#define// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
 #endif
 #endif
 
@@ -10403,7 +9894,7 @@ extern "C"
 
      *    \non_carbon_cfm   available as macro/inline
      *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
+     * // pascal no_return_value Func(4_bytes, 2_bytes, 4_bytes) 
      */
     void
     DisposeQTSyncTaskUPP(QTSyncTaskUPP userUPP);
@@ -10434,7 +9925,7 @@ extern "C"
     {
         DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
     }
-#else
+#else// pascal no_return_value Func(2_bytes, 4_bytes) 
 #define DisposeTweenerDataUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
@@ -10463,7 +9954,7 @@ extern "C"
 #endif
 
     /**
-     *  DisposeMCActionFilterUPP()
+     * // pascal no_return_value Func(4_bytes, 4_bytes) 
      *
 
      *    \non_carbon_cfm   available as macro/inline
@@ -10491,7 +9982,7 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.0 and later
      *    \mac_os_x         in version 10.0 and later
      */
-    void
+    voi// pascal no_return_value Func(4_bytes) 
     DisposeMCActionFilterWithRefConUPP(MCActionFilterWithRefConUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -10549,7 +10040,7 @@ extern "C"
     inline OSErr InvokeMovieProgressUPP(Movie theMovie, short message,
                                         short whatOperation, Fixed percentDone,
                                         long refcon, MovieProgressUPP userUPP)
-    {
+    {// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) 
         return (OSErr)CALL_FIVE_PARAMETER_UPP(userUPP, uppMovieProgressProcInfo,
                                               theMovie, message, whatOperation,
                                               percentDone, refcon);
@@ -10580,7 +10071,7 @@ extern "C"
                                                MovieDrawingCompleteUPP userUPP)
     {
         return (OSErr)CALL_TWO_PARAMETER_UPP(userUPP, uppMovieDrawingCompleteProcInfo,
-                                             theMovie, refCon);
+       // pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) 
     }
 #else
 #define InvokeMovieDrawingCompleteUPP(theMovie, refCon, userUPP)               \
@@ -10611,7 +10102,7 @@ extern "C"
 #define InvokeTrackTransferUPP(t, refCon, userUPP)                           \
     (OSErr) CALL_TWO_PARAMETER_UPP((userUPP), uppTrackTransferProcInfo, (t), \
                                    (refCon))
-#endif
+#endif// pascal 1_byte Func(4_bytes, 2_bytes, 4_bytes, 4_bytes) 
 #endif
 
     /**
@@ -10998,8 +10489,7 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewMovieRgnCoverProc(userRoutine) NewMovieRgnCoverUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewMovieRgnCoverProc(userRoutine) NewMovieRgnCoverUPP(userRoutine)
 #define NewMovieProgressProc(userRoutine) NewMovieProgressUPP(userRoutine)
 #define NewMovieDrawingCompleteProc(userRoutine) \
     NewMovieDrawingCompleteUPP(userRoutine)
@@ -11070,10 +10560,8 @@ extern "C"
 #define CallMCActionFilterWithRefConProc(userRoutine, mc, action, params, \
                                          refCon)                          \
     InvokeMCActionFilterWithRefConUPP(mc, action, params, refCon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-    /* selectors for component calls */
-    enum
+#endif // CALL_NOT_IN_CARBON 
+    // selectors for component calls     enum
     {
         kVideoMediaResetStatisticsSelect = 0x0105,
         kVideoMediaGetStatisticsSelect = 0x0106,
@@ -11218,4 +10706,7 @@ extern "C"
 }
 #endif
 
-#endif /* __MOVIES__ */
+#endif // __MOVIES__ // support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+// CALL_NOT_IN_CARBON 
+// selectors for component calls 
+// __MOVIES__ 

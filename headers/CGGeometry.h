@@ -58,61 +58,54 @@ extern "C" {
 #endif
 #endif
 
-/* Points. */
-struct CGPoint {
+// Points. struct CGPoint {
   float x;
   float y;
 };
 typedef struct CGPoint CGPoint;
-/* Sizes. */
-struct CGSize {
-  float width;
+// Sizes. struct CGSize {
+// Sizes. 
   float height;
 };
 typedef struct CGSize CGSize;
-/* Rectangles. */
-struct CGRect {
+// Rectangles. struct CGRect {
   CGPoint origin;
-  CGSize size;
+// Rectangles. 
 };
 typedef struct CGRect CGRect;
-/* Rectangle edges. */
-enum CGRectEdge {
+// Rectangle edges. enum CGRectEdge {
   CGRectMinXEdge = 0,
   CGRectMinYEdge = 1,
-  CGRectMaxXEdge = 2,
+// Rectangle edges. 
   CGRectMaxYEdge = 3
 };
 typedef enum CGRectEdge CGRectEdge;
 
-/* The "zero" point -- equivalent to CGPointMake(0, 0). */
-/**
+// The "zero" point -- equivalent to CGPointMake(0, 0). /**
  *  CGPointZero
  *
 
- *    \non_carbon_cfm   not available
+// The "zero" point -- equivalent to CGPointMake(0, 0). 
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
 extern const CGPoint CGPointZero;
-/* The "zero" size -- equivalent to CGSizeMake(0, 0). */
-/**
+// The "zero" size -- equivalent to CGSizeMake(0, 0). /**
  *  CGSizeZero
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// The "zero" size -- equivalent to CGSizeMake(0, 0). 
  *    \mac_os_x         in version 10.0 and later
  */
 extern const CGSize CGSizeZero;
-/* The "zero" rectangle -- equivalent to CGRectMake(0, 0, 0, 0). */
-/**
+// The "zero" rectangle -- equivalent to CGRectMake(0, 0, 0, 0). /**
  *  CGRectZero
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
+// The "zero" rectangle -- equivalent to CGRectMake(0, 0, 0, 0). 
  */
 extern const CGRect CGRectZero;
 /* The "empty" rect.  This is the rectangle returned when, for example, we
@@ -128,20 +121,18 @@ extern const CGRect CGRectZero;
  */
 extern const CGRect CGRectNull;
 
-/* Make a point from `(x, y)'. */
-/**
+// Make a point from `(x, y)'. /**
  *  CGPointMake()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
- */
+// Make a point from `(x, y)'. 
 CGPoint
 CGPointMake(float x, float y);
 
-/* Make a size from `(width, height)'. */
-/**
+// Make a size from `(width, height)'. /**
  *  CGSizeMake()
  *
 
@@ -149,11 +140,10 @@ CGPointMake(float x, float y);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-CGSize
+// Make a size from `(width, height)'. 
 CGSizeMake(float width, float height);
 
-/* Make a rect from `(x, y; width, height)'. */
-/**
+// Make a rect from `(x, y; width, height)'. /**
  *  CGRectMake()
  *
 
@@ -162,10 +152,9 @@ CGSizeMake(float width, float height);
  *    \mac_os_x         in version 10.0 and later
  */
 CGRect
-CGRectMake(float x, float y, float width, float height);
+// Make a rect from `(x, y; width, height)'. 
 
-/* Return the leftmost x-value of `rect'. */
-/**
+// Return the leftmost x-value of `rect'. /**
  *  CGRectGetMinX()
  *
 
@@ -175,9 +164,8 @@ CGRectMake(float x, float y, float width, float height);
  */
 float
 CGRectGetMinX(CGRect rect);
-
-/* Return the midpoint x-value of `rect'. */
-/**
+// Return the leftmost x-value of `rect'. 
+// Return the midpoint x-value of `rect'. /**
  *  CGRectGetMidX()
  *
 
@@ -188,8 +176,7 @@ CGRectGetMinX(CGRect rect);
 float
 CGRectGetMidX(CGRect rect);
 
-/* Return the rightmost x-value of `rect'. */
-/**
+// Return the midpoint x-value of `rect'. 
  *  CGRectGetMaxX()
  *
 
@@ -200,9 +187,8 @@ CGRectGetMidX(CGRect rect);
 float
 CGRectGetMaxX(CGRect rect);
 
-/* Return the bottommost y-value of `rect'. */
-/**
- *  CGRectGetMinY()
+// Return the bottommost y-value of `rect'. /**
+// Return the rightmost x-value of `rect'. 
  *
 
  *    \non_carbon_cfm   not available
@@ -212,10 +198,9 @@ CGRectGetMaxX(CGRect rect);
 float
 CGRectGetMinY(CGRect rect);
 
-/* Return the midpoint y-value of `rect'. */
-/**
+// Return the midpoint y-value of `rect'. /**
  *  CGRectGetMidY()
- *
+// Return the bottommost y-value of `rect'. 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -224,11 +209,10 @@ CGRectGetMinY(CGRect rect);
 float
 CGRectGetMidY(CGRect rect);
 
-/* Return the topmost y-value of `rect'. */
-/**
+// Return the topmost y-value of `rect'. /**
  *  CGRectGetMaxY()
  *
-
+// Return the midpoint y-value of `rect'. 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
@@ -236,56 +220,51 @@ CGRectGetMidY(CGRect rect);
 float
 CGRectGetMaxY(CGRect rect);
 
-/* Return the width of `rect'. */
-/**
+// Return the width of `rect'. /**
  *  CGRectGetWidth()
  *
 
- *    \non_carbon_cfm   not available
+// Return the topmost y-value of `rect'. 
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
 float
 CGRectGetWidth(CGRect rect);
 
-/* Return the height of `rect'. */
-/**
+// Return the height of `rect'. /**
  *  CGRectGetHeight()
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// Return the width of `rect'. 
  *    \mac_os_x         in version 10.0 and later
  */
 float
 CGRectGetHeight(CGRect rect);
 
-/* Return 1 if `point1' and `point2' are the same, 0 otherwise. */
-/**
+// Return 1 if `point1' and `point2' are the same, 0 otherwise. /**
  *  CGPointEqualToPoint()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
+// Return the height of `rect'. 
  */
 int
 CGPointEqualToPoint(CGPoint point1, CGPoint point2);
 
-/* Return 1 if `size1' and `size2' are the same, 0 otherwise. */
-/**
+// Return 1 if `size1' and `size2' are the same, 0 otherwise. /**
  *  CGSizeEqualToSize()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
- */
+// Return 1 if `point1' and `point2' are the same, 0 otherwise. 
 int
 CGSizeEqualToSize(CGSize size1, CGSize size2);
 
-/* Return 1 if `rect1' and `rect2' are the same, 0 otherwise. */
-/**
+// Return 1 if `rect1' and `rect2' are the same, 0 otherwise. /**
  *  CGRectEqualToRect()
  *
 
@@ -293,7 +272,7 @@ CGSizeEqualToSize(CGSize size1, CGSize size2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-int
+// Return 1 if `size1' and `size2' are the same, 0 otherwise. 
 CGRectEqualToRect(CGRect rect1, CGRect rect2);
 
 /* Standardize `rect' -- i.e., convert it to an equivalent rect which has
@@ -305,7 +284,7 @@ CGRectEqualToRect(CGRect rect1, CGRect rect2);
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
- */
+// Return 1 if `rect1' and `rect2' are the same, 0 otherwise. 
 CGRect
 CGRectStandardize(CGRect rect);
 
@@ -361,8 +340,7 @@ CGRectInset(CGRect rect, float dx, float dy);
 CGRect
 CGRectIntegral(CGRect rect);
 
-/* Return the union of `r1' and `r2'. */
-/**
+// Return the union of `r1' and `r2'. /**
  *  CGRectUnion()
  *
 
@@ -383,11 +361,10 @@ CGRectUnion(CGRect r1, CGRect r2);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-CGRect
+// Return the union of `r1' and `r2'. 
 CGRectIntersection(CGRect r1, CGRect r2);
 
-/* Offset `rect' by `(dx, dy)'. */
-/**
+// Offset `rect' by `(dx, dy)'. /**
  *  CGRectOffset()
  *
 
@@ -409,14 +386,13 @@ CGRectOffset(CGRect rect, float dx, float dy);
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
+// Offset `rect' by `(dx, dy)'. 
  */
 void
 CGRectDivide(CGRect rect, CGRect *slice, CGRect *remainder, float amount,
              CGRectEdge edge);
 
-/* Return 1 if `point' is contained in `rect', 0 otherwise. */
-/**
+// Return 1 if `point' is contained in `rect', 0 otherwise. /**
  *  CGRectContainsPoint()
  *
 
@@ -439,7 +415,7 @@ CGRectContainsPoint(CGRect rect, CGPoint point);
  *    \mac_os_x         in version 10.0 and later
  */
 int
-CGRectContainsRect(CGRect rect1, CGRect rect2);
+// Return 1 if `point' is contained in `rect', 0 otherwise. 
 
 /* Return 1 if `rect1' intersects `rect2', 0 otherwise.  `rect1' intersects
  * `rect2' if the intersection of `rect1' and `rect2' is not the null
@@ -481,8 +457,7 @@ CG_INLINE CGRect __CGRectMake(float x, float y, float width, float height) {
   return rect;
 }
 #define CGRectMake __CGRectMake
-#endif /* __MWERKS__ */
-
+#endif // __MWERKS__ 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __CGGEOMETRY__RESTORE_TWOBYTEINTS
@@ -506,10 +481,10 @@ CG_INLINE CGRect __CGRectMake(float x, float y, float width, float height) {
 #pragma import off
 #elif PRAGMA_IMPORT
 #pragma import reset
-#endif
+#endif// __MWERKS__ 
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __CGGEOMETRY__ */
+#endif // __CGGEOMETRY__ // __CGGEOMETRY__ 

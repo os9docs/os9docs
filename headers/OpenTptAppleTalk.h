@@ -28,4 +28,4 @@
    OpenTransportProviders.h
 */
 
-#endif /* __OPENTPTAPPLETALK__ */
+#endif // __OPENTPTAPPLETALK__

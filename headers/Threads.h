@@ -52,8 +52,7 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  /* Thread states*/
-  typedef UInt16 ThreadState;
+  // Thread states  typedef UInt16 ThreadState;
   enum
   {
     kReadyThreadState = 0,
@@ -61,46 +60,40 @@ extern "C"
     kRunningThreadState = 2
   };
 
-  /* Error codes have been moved to Errors.(pah)*/
-
-  /* Thread environment characteristics*/
-  typedef void *ThreadTaskRef;
-  /* Thread characteristics*/
-  typedef UInt32 ThreadStyle;
-  enum
+  // Error codes have been moved to Errors.(pah)
+  // Error codes have been moved to Errors.(pah)
+  // Thread characteristics  typedef UInt32 ThreadStyle;
+  // Thread environment characteristics
   {
-    kCooperativeThread = 1L << 0,
+  // Thread characteristics
     kPreemptiveThread = 1L << 1
   };
 
-  /* Thread identifiers*/
-  typedef UInt32 ThreadID;
+  // Thread identifiers  typedef UInt32 ThreadID;
   enum
   {
     kNoThreadID = 0,
-    kCurrentThreadID = 1,
+  // Thread identifiers
     kApplicationThreadID = 2
   };
 
-  /* Options when creating a thread*/
-  typedef UInt32 ThreadOptions;
+  // Options when creating a thread  typedef UInt32 ThreadOptions;
   enum
   {
     kNewSuspend = (1 << 0),
     kUsePremadeThread = (1 << 1),
-    kCreateIfNeeded = (1 << 2),
+  // Options when creating a thread
     kFPUNotNeeded = (1 << 3),
     kExactMatchThread = (1 << 4)
   };
 
-  /* Information supplied to the custom scheduler*/
-  struct SchedulerInfoRec
+  // Information supplied to the custom scheduler  struct SchedulerInfoRec
   {
     UInt32 InfoRecSize;
     ThreadID CurrentThreadID;
     ThreadID SuggestedThreadID;
     ThreadID InterruptedCoopThreadID;
-  };
+  // Information supplied to the custom scheduler
   typedef struct SchedulerInfoRec SchedulerInfoRec;
   typedef SchedulerInfoRec *SchedulerInfoRecPtr;
 
@@ -110,38 +103,31 @@ extern "C"
      to the implementation of the Thread Manager.
    */
   typedef void *voidPtr;
-  /* Prototype for thread's entry (main) routine*/
-  typedef CALLBACK_API(voidPtr, ThreadEntryProcPtr)(void *threadParam);
-  /* Prototype for custom thread scheduler routine*/
-  typedef CALLBACK_API(ThreadID,
+  // Prototype for thread's entry (main) routine  typedef CALLBACK_API(voidPtr, ThreadEntryProcPtr)(void *threadParam);
+  // Prototype for custom thread scheduler routine  typedef CALLBACK_API(ThreadID,
                        ThreadSchedulerProcPtr)(SchedulerInfoRecPtr schedulerInfo);
-  /* Prototype for custom thread switcher routine*/
-  typedef CALLBACK_API(void, ThreadSwitchProcPtr)(ThreadID threadBeingSwitched,
+  // Prototype for custom thread switcher routine  typedef CALLBACK_API(void, ThreadSwitchProcPtr)(ThreadID threadBeingSwitched,
                                                   void *switchProcParam);
-  /* Prototype for thread termination notification routine*/
-  typedef CALLBACK_API(void,
+  // Prototype for thread termination notification routine  typedef CALLBACK_API(void,
                        ThreadTerminationProcPtr)(ThreadID threadTerminated,
-                                                 void *terminationProcParam);
-  /* Prototype for debugger NewThread notification*/
-  typedef CALLBACK_API(void, DebuggerNewThreadProcPtr)(ThreadID threadCreated);
-  /* Prototype for debugger DisposeThread notification*/
-  typedef CALLBACK_API(void,
+  // Prototype for thread's entry (main) routine
+  // Prototype for debugger NewThread notification  typedef CALLBACK_API(void, DebuggerNewThreadProcPtr)(ThreadID threadCreated);
+  // Prototype for custom thread scheduler routine
                        DebuggerDisposeThreadProcPtr)(ThreadID threadDeleted);
-  /* Prototype for debugger schedule notification*/
-  typedef CALLBACK_API(ThreadID, DebuggerThreadSchedulerProcPtr)(
-      SchedulerInfoRecPtr schedulerInfo);
+  // Prototype for debugger schedule notification  typedef CALLBACK_API(ThreadID, DebuggerThreadSchedulerProcPtr)(
+  // Prototype for custom thread switcher routine
   typedef TVECTOR_UPP_TYPE(ThreadEntryProcPtr) ThreadEntryUPP;
   typedef TVECTOR_UPP_TYPE(ThreadSchedulerProcPtr) ThreadSchedulerUPP;
-  typedef TVECTOR_UPP_TYPE(ThreadSwitchProcPtr) ThreadSwitchUPP;
+  // Prototype for thread termination notification routine
   typedef TVECTOR_UPP_TYPE(ThreadTerminationProcPtr) ThreadTerminationUPP;
   typedef TVECTOR_UPP_TYPE(DebuggerNewThreadProcPtr) DebuggerNewThreadUPP;
   typedef TVECTOR_UPP_TYPE(DebuggerDisposeThreadProcPtr) DebuggerDisposeThreadUPP;
-  typedef TVECTOR_UPP_TYPE(DebuggerThreadSchedulerProcPtr)
+  // Prototype for debugger NewThread notification
       DebuggerThreadSchedulerUPP;
-  /**
+  // Prototype for debugger DisposeThread notification
    *  NewThreadEntryUPP()
    *
-
+// Prototype for debugger schedule notification
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
@@ -152,8 +138,7 @@ extern "C"
   enum
   {
     uppThreadEntryProcInfo = 0x000000F0
-  }; /* pascal 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
   inline ThreadEntryUPP NewThreadEntryUPP(ThreadEntryProcPtr userRoutine)
   {
     return userRoutine;
@@ -167,7 +152,7 @@ extern "C"
    *  NewThreadSchedulerUPP()
    *
 
-   *    \non_carbon_cfm   available as macro/inline
+   * // pascal 4_bytes Func(4_bytes) 
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
@@ -177,8 +162,7 @@ extern "C"
   enum
   {
     uppThreadSchedulerProcInfo = 0x000000F0
-  }; /* pascal 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
   inline ThreadSchedulerUPP
   NewThreadSchedulerUPP(ThreadSchedulerProcPtr userRoutine)
   {
@@ -193,7 +177,7 @@ extern "C"
    *  NewThreadSwitchUPP()
    *
 
-   *    \non_carbon_cfm   available as macro/inline
+   * // pascal 4_bytes Func(4_bytes) 
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
@@ -203,8 +187,7 @@ extern "C"
   enum
   {
     uppThreadSwitchProcInfo = 0x000003C0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline ThreadSwitchUPP NewThreadSwitchUPP(ThreadSwitchProcPtr userRoutine)
   {
     return userRoutine;
@@ -220,7 +203,7 @@ extern "C"
 
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
+   * // pascal no_return_value Func(4_bytes, 4_bytes) 
    */
   ThreadTerminationUPP
   NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine);
@@ -228,8 +211,7 @@ extern "C"
   enum
   {
     uppThreadTerminationProcInfo = 0x000003C0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline ThreadTerminationUPP
   NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine)
   {
@@ -246,7 +228,7 @@ extern "C"
 
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
+   * // pascal no_return_value Func(4_bytes, 4_bytes) 
    */
   DebuggerNewThreadUPP
   NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine);
@@ -254,8 +236,7 @@ extern "C"
   enum
   {
     uppDebuggerNewThreadProcInfo = 0x000000C0
-  }; /* pascal no_return_value Func(4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes) #ifdef __cplusplus
   inline DebuggerNewThreadUPP
   NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine)
   {
@@ -273,15 +254,14 @@ extern "C"
    *    \non_carbon_cfm   available as macro/inline
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
-   */
+   */// pascal no_return_value Func(4_bytes) 
   DebuggerDisposeThreadUPP
   NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
   {
     uppDebuggerDisposeThreadProcInfo = 0x000000C0
-  }; /* pascal no_return_value Func(4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes) #ifdef __cplusplus
   inline DebuggerDisposeThreadUPP
   NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine)
   {
@@ -300,14 +280,13 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  DebuggerThreadSchedulerUPP
+  Deb// pascal no_return_value Func(4_bytes) 
   NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
   {
     uppDebuggerThreadSchedulerProcInfo = 0x000000F0
-  }; /* pascal 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
   inline DebuggerThreadSchedulerUPP
   NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine)
   {
@@ -327,7 +306,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  DisposeThreadEntryUPP(ThreadEntryUPP userUPP);
+  Dis// pascal 4_bytes Func(4_bytes) 
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline void DisposeThreadEntryUPP(ThreadEntryUPP) {}
@@ -624,8 +603,7 @@ extern "C"
   */
 
 #if TARGET_OS_MAC && TARGET_CPU_PPC && !OPAQUE_UPP_TYPES
-  /* use raw function pointers*/
-  typedef ThreadEntryProcPtr ThreadEntryTPP;
+  // use raw function pointers  typedef ThreadEntryProcPtr ThreadEntryTPP;
   typedef ThreadSchedulerProcPtr ThreadSchedulerTPP;
   typedef ThreadSwitchProcPtr ThreadSwitchTPP;
   typedef ThreadTerminationProcPtr ThreadTerminationTPP;
@@ -633,32 +611,29 @@ extern "C"
   typedef DebuggerDisposeThreadProcPtr DebuggerDisposeThreadTPP;
   typedef DebuggerThreadSchedulerProcPtr DebuggerThreadSchedulerTPP;
 #else
-/* use UPP's*/
-typedef ThreadEntryUPP ThreadEntryTPP;
+// use UPP'stypedef ThreadEntryUPP ThreadEntryTPP;
 typedef ThreadSchedulerUPP ThreadSchedulerTPP;
 typedef ThreadSwitchUPP ThreadSwitchTPP;
 typedef ThreadTerminationUPP ThreadTerminationTPP;
 typedef DebuggerNewThreadUPP DebuggerNewThreadTPP;
 typedef DebuggerDisposeThreadUPP DebuggerDisposeThreadTPP;
 typedef DebuggerThreadSchedulerUPP DebuggerThreadSchedulerTPP;
-#endif /* TARGET_OS_MAC && TARGET_CPU_PPC && !OPAQUE_UPP_TYPES */
-
+#endif // TARGET_OS_MAC && TARGET_CPU_PPC && !OPAQUE_UPP_TYPES 
   /**
    *  NewThread()
    *
 
    *    \non_carbon_cfm   in ThreadsLib 1.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
+  // use raw function pointers
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
   NewThread(ThreadStyle threadStyle, ThreadEntryTPP threadEntry,
             void *threadParam, Size stackSize, ThreadOptions options,
-            void **threadResult, /* can be NULL */
-            ThreadID *threadMade) THREEWORDINLINE(0x303C, 0x0E03, 0xABF2);
+            void **threadResult, // can be NULL             ThreadID *threadMade) THREEWORDINLINE(0x303C, 0x0E03, 0xABF2);
 
   /**
-   *  SetThreadScheduler()
+// use UPP's
    *
 
    *    \non_carbon_cfm   in ThreadsLib 1.0 and later
@@ -666,7 +641,7 @@ typedef DebuggerThreadSchedulerUPP DebuggerThreadSchedulerTPP;
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetThreadScheduler(ThreadSchedulerTPP threadScheduler)
+  SetTh// TARGET_OS_MAC && TARGET_CPU_PPC && !OPAQUE_UPP_TYPES 
       THREEWORDINLINE(0x303C, 0x0209, 0xABF2);
 
   /**
@@ -679,7 +654,7 @@ typedef DebuggerThreadSchedulerUPP DebuggerThreadSchedulerTPP;
    */
   OSErr
   SetThreadSwitcher(ThreadID thread, ThreadSwitchTPP threadSwitcher,
-                    void *switchProcParam, Boolean inOrOut)
+                    void *switchP// can be NULL 
       THREEWORDINLINE(0x303C, 0x070A, 0xABF2);
 
   /**
@@ -934,4 +909,4 @@ typedef DebuggerThreadSchedulerUPP DebuggerThreadSchedulerTPP;
 }
 #endif
 
-#endif /* __THREADS__ */
+#endif // __THREADS__ // __THREADS__ 

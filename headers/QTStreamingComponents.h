@@ -68,8 +68,7 @@ extern "C"
     kQTSPushDataSourcerType = FOUR_CHAR_CODE('push')
   };
 
-  /* flags for sourcer data */
-  enum
+  // flags for sourcer data   enum
   {
     kQTSSourcerDataFlag_SyncSample = 0x00000001
   };
@@ -100,96 +99,60 @@ extern "C"
   QTSNewSourcer(void *params, const QTSSourcerInitParams *inInitParams,
                 SInt32 inFlags, ComponentInstance *outSourcer);
 
-  /* info selectors for sourcers - get and set */
-  enum
-  {
-    kQTSInfo_Track = FOUR_CHAR_CODE('trak'),         /* QTSTrackParams* */
-    kQTSInfo_Loop = FOUR_CHAR_CODE('loop'),          /* QTSLoopParams* */
-    kQTSInfo_SourcerTiming = FOUR_CHAR_CODE('stim'), /* QTSSourcerTimingParams* */
-    kQTSInfo_TargetFrameRate =
-        FOUR_CHAR_CODE('tfps'),                 /* Fixed * in frames per second */
-    kQTSInfo_PushData = FOUR_CHAR_CODE('push'), /* QTSPushDataParams* */
-    kQTSInfo_SourcerCallbackProc =
-        FOUR_CHAR_CODE('scbp'), /* QTSSourcerCallbackProcParams* */
-    kQTSInfo_TargetDataRate =
-        FOUR_CHAR_CODE('tdrt'), /* UInt32 * in bytes per second */
-    kQTSInfo_AudioAutoGainOnOff =
-        FOUR_CHAR_CODE('agc '), /* Boolean*  - error if unavailable*/
-    kQTSInfo_AudioGain =
-        FOUR_CHAR_CODE('gain'), /* Fixed* kFixed1 is unity gain */
-    kQTSInfo_CroppedInputRect = FOUR_CHAR_CODE(
-        'crpr'), /* Rect* - defined relative to kQTSInfo_FullInputRect below */
-    kQTSInfo_SpatialSettings =
-        FOUR_CHAR_CODE('sptl'), /* pointer to SCSpatialSettings struct*/
-    kQTSInfo_TemporalSettings =
-        FOUR_CHAR_CODE('tprl'), /* pointer to SCTemporalSettings struct*/
-    kQTSInfo_DataRateSettings =
-        FOUR_CHAR_CODE('drat'),                      /* pointer to SCDataRateSettings struct*/
-    kQTSInfo_CodecFlags = FOUR_CHAR_CODE('cflg'),    /* pointer to CodecFlags*/
-    kQTSInfo_CodecSettings = FOUR_CHAR_CODE('cdec'), /* pointer to Handle*/
-    kQTSInfo_ForceKeyValue = FOUR_CHAR_CODE('ksim'), /* pointer to long*/
-    kQTSInfo_SoundSampleRate =
-        FOUR_CHAR_CODE('ssrt'),                          /* pointer to UnsignedFixed*/
-    kQTSInfo_SoundSampleSize = FOUR_CHAR_CODE('ssss'),   /* pointer to short*/
-    kQTSInfo_SoundChannelCount = FOUR_CHAR_CODE('sscc'), /* pointer to short*/
-    kQTSInfo_SoundCompression = FOUR_CHAR_CODE('ssct'),  /* pointer to OSType*/
-    kQTSInfo_CompressionList =
-        FOUR_CHAR_CODE('ctyl'),                        /* pointer to OSType Handle*/
-    kQTSInfo_VideoHue = FOUR_CHAR_CODE('hue '),        /* UInt16* */
-    kQTSInfo_VideoSaturation = FOUR_CHAR_CODE('satr'), /* UInt16* */
-    kQTSInfo_VideoContrast = FOUR_CHAR_CODE('trst'),   /* UInt16* */
-    kQTSInfo_VideoBrightness = FOUR_CHAR_CODE('brit'), /* UInt16* */
-    kQTSInfo_VideoSharpness = FOUR_CHAR_CODE('shrp'),  /* UInt16* */
-    kQTSInfo_TimeScale = FOUR_CHAR_CODE('scal')        /* UInt32* */
-  };
+  // info selectors for sourcers - get and set   enum
+  // info selectors for sourcers - get and set 
+    kQTSInfo_Track = FOUR_CHAR_CODE('trak'),         // QTSTrackParams*     kQTSInfo_Loop = FOUR_CHAR_CODE('loop'),          // QTSLoopParams*     kQTSInfo_SourcerTiming = FOUR_CHAR_CODE('stim'), // QTSSourcerTimingParams*     kQTSInfo_TargetFrameRate =
+        FOUR_CHAR_CODE('tfps'),                 // Fixed * in frames per second     kQTSInfo_PushData = FOUR_CHAR_CODE('push'), // QTSPushDataParams*     kQTSInfo_SourcerCallbackProc =
+        FOUR_CHAR_CODE('scbp'), // QTSSourcerCallback// QTSTrackParams* 
+        FOUR_CHAR_CODE('tdrt'), // UInt32 * in bytes // QTSLoopParams* 
+        FOUR_CHAR_CODE('agc '), // Boolean*  - error // QTSSourcerTimingParams* 
+        FOUR_CHAR_CODE('gain'), // Fixed* kFixed1 is unity gain     kQTSInfo_CroppedInputRect = FOUR_CHAR_CODE(
+        'crpr'), // Rect* - defined relative to // Fixed * in frames per second 
+        FOUR_CHAR_CODE('sptl'), // pointer to SC// QTSPushDataParams* 
+        FOUR_CHAR_CODE('tprl'), // pointer to SCTemporalSettings struct    kQTSInfo_DataRateSettings =
+        FOUR_CHAR_CODE('drat'), // QTSSourcerCallbackProcParams* 
+        FOUR_CHAR_CODE('ssrt'),                          // pointer to UnsignedFixed    kQTSInfo_SoundSampleSize = FOUR_CHAR_CODE('ssss'),   // pointer to short    kQTSInfo_SoundChannelCount = FOUR_CHAR_CODE('sscc'), // pointer to short    kQTSInfo_SoundCompression = FOUR_CHAR_CODE('ssct'),  // pointer to OSType    kQTSInfo_CompressionList =
+        FOUR_CHAR_CODE('ctyl'), // UInt32 * in bytes per second 
 
-  /* info selectors for sourcers - get only*/
-  enum
+  // info selectors for sourcers// Boolean*  - error if unavailable
   {
-    kQTSInfo_SGChannel = FOUR_CHAR_CODE('sgch'),       /* SGChannel* */
-    kQTSInfo_InputDeviceName = FOUR_CHAR_CODE('innm'), /* Handle* */
-    kQTSInfo_InputSourceName = FOUR_CHAR_CODE('srnm'), /* Handle* */
-    kQTSInfo_FullInputRect = FOUR_CHAR_CODE('fulr')    /* Rect* */
-  };
+    kQTSInfo_SGChannel = FOUR_CH// Fixed* kFixed1 is unity gain 
 
-  /* loop flags */
-  enum
+  // loop flags  // Rect* - defined relative to kQTSInfo_FullInputRect below 
   {
-    kQTSLoopFlag_Loop = 0x00000001
+    kQTSLoopFlag_Loop = 0x000000// pointer to SCSpatialSettings struct
   };
-
+// pointer to SCTemporalSettings struct
   enum
-  {
-    kQTSLoopParamsVersion1 = 1
-  };
-
+  {// pointer to SCDataRateSettings struct
+    kQTSLoopParamsVersion1 = 1// pointer to CodecFlags
+  };// pointer to Handle
+// pointer to long
   struct QTSLoopParams
-  {
-    SInt32 version;
-    SInt32 flags;
-    SInt32 loopFlags;
+  {// pointer to UnsignedFixed
+    SInt32 version;// pointer to short
+    SInt32 flags;// pointer to short
+    SInt32 loopFlags;// pointer to OSType
     SInt32 flagsMask;
-    SInt32 numLoops;
-  };
-  typedef struct QTSLoopParams QTSLoopParams;
-  enum
-  {
-    kQTSTrackParamsVersion1 = 1
-  };
+    SInt32 numLoops;// pointer to OSType Handle
+  };// UInt16* 
+  typedef struct QTSLoopParams QTSLoopParams;// UInt16* 
+  enum// UInt16* 
+  {// UInt16* 
+    kQTSTrackParamsVersion1 = 1// UInt16* 
+  };// UInt32* 
 
   struct QTSTrackParams
-  {
+  // info selectors for sourcers - get only
     SInt32 version;
     SInt32 flags;
-    Track track;
-    TimeValue64 trackStartOffset; /* to start other than at the beginning
-                                     otherwise set to 0*/
-    TimeValue64 duration;         /* to limit the duration otherwise set to 0*/
-    QTSLoopParams
-        *loopParams; /* set to NULL if not using; default is no looping */
-  };
+    Track track;// SGChannel* 
+    TimeValue64 trackStartOffset; /* to start other tha// Handle* 
+                                     otherwise set to 0// Handle* 
+    TimeValue64 duration;         // to limit the durat// Rect* 
+        *loopParams; // set to NULL if not using; default is no looping   };
   typedef struct QTSTrackParams QTSTrackParams;
-  enum
+  // loop flags 
   {
     kQTSSourcerTimingParamsVersion1 = 1
   };
@@ -221,14 +184,10 @@ extern "C"
   struct QTSPushDataParams
   {
     SInt32 version;
-    SInt32 flags;
-    SampleDescriptionHandle sampleDescription; /* caller owns the handle */
-    UInt32 sampleDescSeed;
-    TimeValue64 sampleTime; /* also set flag if you set this */
-    TimeValue64 duration;   /* also set flag if you set this */
-    UInt32 dataLength;
-    void *dataPtr; /* this does not have to be a real macintosh Ptr */
-  };
+    SInt32 flags;// to limit the duration otherwise set to 0
+    SampleDescriptionHandle sampleDescription; // caller owns the handle     UInt32 sampleDescSeed;
+    TimeValue64 sampl// set to NULL if not using; default is no looping 
+    void *dataPtr; // this does not have to be a real macintosh Ptr   };
   typedef struct QTSPushDataParams QTSPushDataParams;
   enum
   {
@@ -243,20 +202,14 @@ extern "C"
     void *refCon;
   };
   typedef struct QTSSourcerCallbackProcParams QTSSourcerCallbackProcParams;
-  /* track sourcer callback selectors*/
-  enum
+  // track sourcer callback selectors  enum
   {
-    kQTSSourcerCallback_Done = FOUR_CHAR_CODE('done') /* QTSSourcerDoneParams* */
-  };
+    kQTSSourcerCallback_Done = FOUR_CHAR_CODE('done') // QTSSourcerDoneParams*   };
 
-  /* push data sourcer callback selectors*/
-  enum
+  // push data sourcer callback selectors  enum
   {
     kQTSPushDataSourcerCallback_HasCharacteristic =
-        0x050D,                                   /* QTSPushDataHasCharacteristicParams* */
-    kQTSPushDataSourcerCallback_SetInfo = 0x0507, /* QTSPushDataInfoParams* */
-    kQTSPushDataSourcerCallback_GetInfo = 0x0508  /* QTSPushDataInfoParams* */
-  };
+        0x050D,                                   // QTSPushDataHasCharacteristicParams*     kQTSPushDataSourcerCallback_SetInfo = 0x0507, // QTSPushDataInfoParams*     kQTSPushDataSourcerCallback_GetInfo = 0x0508  // QTSPushDataInfoParams*   };
 
   struct QTSPushDataHasCharacteristicParams
   {
@@ -269,12 +222,12 @@ extern "C"
   typedef struct QTSPushDataHasCharacteristicParams
       QTSPushDataHasCharacteristicParams;
   struct QTSPushDataInfoParams
-  {
+  {// caller owns the handle 
     SInt32 version;
-    SInt32 flags;
-    OSType selector;
+    SInt32 flags;// also set flag if you set this 
+    OSType selector;// also set flag if you set this 
     void *ioParams;
-  };
+  };// this does not have to be a real macintosh Ptr 
   typedef struct QTSPushDataInfoParams QTSPushDataInfoParams;
   enum
   {
@@ -290,19 +243,19 @@ extern "C"
   typedef struct QTSSourcerDoneParams QTSSourcerDoneParams;
 
   /*-----------------------------------------
-      Stream Sourcer Selectors
+  // track sourcer callback selectors
   -----------------------------------------*/
   enum
-  {
+  {// QTSSourcerDoneParams* 
     kQTSSourcerInitializeSelect = 0x0500,
     kQTSSourcerSetEnableSelect = 0x0503,
-    kQTSSourcerGetEnableSelect = 0x0504,
+  // push data sourcer callback selectors
     kQTSSourcerSetInfoSelect = 0x0507,
     kQTSSourcerGetInfoSelect = 0x0508,
     kQTSSourcerSetTimeScaleSelect = 0x050E,
-    kQTSSourcerGetTimeScaleSelect = 0x050F,
-    kQTSSourcerIdleSelect = 0x0516
-  };
+    kQTSSourcerGetTimeScaleSelect = 0x050F,// QTSPushDataHasCharacteristicParams* 
+    kQTSSourcerIdleSelect = 0x0516// QTSPushDataInfoParams* 
+  };// QTSPushDataInfoParams* 
 
   /*-----------------------------------------
       Stream Sourcer Prototypes
@@ -457,48 +410,19 @@ extern "C"
     kRTPInvalidSSRC = 0
   };
 
-  /* RTP standard content encodings for audio */
-  enum
+  // RTP standard content encodings for audio   enum
   {
-    kRTPPayload_PCMU = 0,       /* 8kHz PCM mu-law mono */
-    kRTPPayload_1016 = 1,       /* 8kHz CELP (Fed Std 1016) mono */
-    kRTPPayload_G721 = 2,       /* 8kHz G.721 ADPCM mono */
-    kRTPPayload_GSM = 3,        /* 8kHz GSM mono */
-    kRTPPayload_G723 = 4,       /* 8kHz G.723 ADPCM mono */
-    kRTPPayload_DVI_8 = 5,      /* 8kHz Intel DVI ADPCM mono */
-    kRTPPayload_DVI_16 = 6,     /* 16kHz Intel DVI ADPCM mono */
-    kRTPPayload_LPC = 7,        /* 8kHz LPC */
-    kRTPPayload_PCMA = 8,       /* 8kHz PCM a-law mono */
-    kRTPPayload_L16_44_2 = 10,  /* 44.1kHz 16-bit linear stereo */
-    kRTPPayload_L16_44_1 = 11,  /* 44.1kHz 16-bit linear mono */
-    kRTPPayload_PureVoice = 12, /* 8kHz PureVoice mono (QCELP) */
-    kRTPPayload_MPEGAUDIO = 14, /* MPEG I and II audio */
-    kRTPPayload_DVI_11 = 16,    /* 11kHz Intel DVI ADPCM mono */
-    kRTPPayload_DVI_22 = 17     /* 22kHz Intel DVI ADPCM mono */
-  };
+    kRTPPayload_PCMU = 0,       // 8kHz PCM mu-law mono     kRTPPayload_1016 = 1,       // 8kHz CELP (Fed Std 1016) mono     kRTPPayload_G721 = 2,       // 8kHz G.721 ADPCM mono     kRTPPayload_GSM = 3,        // 8kHz GSM mono     kRTPPayload_G723 = 4,       // 8kHz G.723 ADPCM mono     kRTPPayload_DVI_8 = 5,      // 8kHz Intel DVI ADPCM mono     kRTPPayload_DVI_16 = 6,     // 16kHz Intel DVI ADPCM mono     kRTPPayload_LPC = 7,        // 8kHz LPC     kRTPPayload_PCMA = 8,       // 8kHz PCM a-law mono     kRTPPayload_L16_44_2 = 10,  // 44.1kHz 16-bit linear stereo     kRTPPayload_L16_44_1 = 11,  // 44.1kHz 16-bit linear mono     kRTPPayload_PureVoice = 12, // 8kHz PureVoice mono (QCELP)     kRTPPayload_MPEGAUDIO = 14, // MPEG I and II audio     kRTPPayload_DVI_11 = 16,    // 11kHz Intel DVI ADPCM mono     kRTPPayload_DVI_22 = 17     // 22kHz Intel DVI ADPCM mono   };
 
-  /* RTP standard content encodings for video */
-  enum
+  // RTP standard content encodings for video   enum
   {
-    kRTPPayload_CELLB = 25,     /* Sun CellB */
-    kRTPPayload_JPEG = 26,      /* JPEG */
-    kRTPPayload_CUSEEME = 27,   /* Cornell CU-SeeMe */
-    kRTPPayload_NV = 28,        /* Xerox PARC nv */
-    kRTPPayload_PICWIN = 29,    /* BBN Picture Window */
-    kRTPPayload_CPV = 30,       /* Bolter CPV */
-    kRTPPayload_H261 = 31,      /* CCITT H.261 */
-    kRTPPayload_MPEGVIDEO = 32, /* MPEG I and II video */
-    kRTPPayload_H263 = 34       /* CCITT H.263 */
-  };
+    kRTPPayload_CELLB = 25,     // Sun CellB     kRTPPayload_JPEG = 26,      // JPEG     kRTPPayload_CUSEEME = 27,   // Cornell CU-SeeMe     kRTPPayload_NV = 28,        // Xerox PARC nv     kRTPPayload_PICWIN = 29,    // BBN Picture Window     kRTPPayload_CPV = 30,       // Bolter CPV     kRTPPayload_H261 = 31,      // CCITT H.261     kRTPPayload_MPEGVIDEO = 32, // MPEG I and II video     kRTPPayload_H263 = 34       // CCITT H.263   };
 
-  /* Other RTP standard content encodings */
-  enum
+  // Other RTP standard content encodings   enum
   {
-    kRTPPayload_MPEG2T = 33 /* MPEG 2 Transport */
-  };
+    kRTPPayload_MPEG2T = 33 // MPEG 2 Transport   };
 
-  /* Dynamic encodings */
-  enum
+  // Dynamic encodings   enum
   {
     kRTPPayload_FirstDynamic = 96,
     kRTPPayload_LastDynamic = 127,
@@ -510,12 +434,9 @@ extern "C"
       RTP Info selectors
   -----------------------------------------
   */
-  /* ----- these are get and set ----- */
-  enum
+  // ----- these are get and set -----   enum
   {
-    kRTPInfo_SSRC = FOUR_CHAR_CODE('ssrc'),      /* UInt32* */
-    kRTPInfo_NextSeqNum = FOUR_CHAR_CODE('rnsn') /* UInt16* */
-  };
+    kRTPInfo_SSRC = FOUR_CHAR_CODE('ssrc'),      // UInt32*     kRTPInfo_NextSeqNum = FOUR_CHAR_CODE('rnsn') // UInt16*   };
 
   /*-----------------------------------------
       RTP Statistics
@@ -536,53 +457,51 @@ extern "C"
     kRTPBadStateDroppedPktsStat = FOUR_CHAR_CODE('stdp'),
     kRTPBadPayloadDroppedPktsStat = FOUR_CHAR_CODE('bpdp'),
     kRTPNoTimeScaleDroppedPktsStat = FOUR_CHAR_CODE('ntdp'),
-    kRTPDupSeqNumDroppedPktsStat = FOUR_CHAR_CODE('dsdp'),
+  // RTP standard content encodings for audio 
     kRTPLostPktsPercentStat = FOUR_CHAR_CODE('lspp'),
     kRTPDroppedPktsPercentStat = FOUR_CHAR_CODE('dppp'),
-    kRTPTotalUnprocessedPktsPercentStat = FOUR_CHAR_CODE('tupp'),
-    kRTPRTCPDataRateStat = FOUR_CHAR_CODE('rrcd'),
-    kRTPPayloadIDStat = FOUR_CHAR_CODE('rpid'),
-    kRTPPayloadNameStat = FOUR_CHAR_CODE('rpnm'),
-    kRTPNumPktsInQueueStat = FOUR_CHAR_CODE('rnpq'),
-    kRTPTotalPktsInQueueStat = FOUR_CHAR_CODE('rtpq'),
-    kRTPTotalOutOfOrderPktsStat = FOUR_CHAR_CODE('rtoo'),
-    kRTPRetransmissionStat = FOUR_CHAR_CODE('rrtx')
-  };
-
-  /*-----------------------------------------
-      Payload Info
-  -----------------------------------------*/
-  enum
-  {
-    kRTPPayloadSpeedTag = FOUR_CHAR_CODE('sped'), /* 0-255, 255 is fastest*/
-    kRTPPayloadLossRecoveryTag =
+    kRTPTotalUnprocessedPktsPerc// 8kHz PCM mu-law mono 
+    kRTPRTCPDataRateStat = FOUR_// 8kHz CELP (Fed Std 1016) mono 
+    kRTPPayloadIDStat = FOUR_CHA// 8kHz G.721 ADPCM mono 
+    kRTPPayloadNameStat = FOUR_C// 8kHz GSM mono 
+    kRTPNumPktsInQueueStat = FOU// 8kHz G.723 ADPCM mono 
+    kRTPTotalPktsInQueueStat = F// 8kHz Intel DVI ADPCM mono 
+    kRTPTotalOutOfOrderPktsStat // 16kHz Intel DVI ADPCM mono 
+    kRTPRetransmissionStat = FOU// 8kHz LPC 
+  };// 8kHz PCM a-law mono 
+// 44.1kHz 16-bit linear stereo 
+  /*----------------------------// 44.1kHz 16-bit linear mono 
+      Payload Info// 8kHz PureVoice mono (QCELP) 
+  ------------------------------// MPEG I and II audio 
+  enum// 11kHz Intel DVI ADPCM mono 
+  {// 22kHz Intel DVI ADPCM mono 
+    kRTPPayloadSpeedTag = FOUR_CHAR_CODE('sped'), // 0-255, 255 is fastest    kRTPPayloadLossRecoveryTag =
         FOUR_CHAR_CODE('loss') /* 0-255, 0 can't handle any loss, 128 can handle
-                                  50% packet loss*/
+  // RTP standard content encodings for video 
   };
 
-  struct RTPPayloadCharacteristic
-  {
-    OSType tag;
-    long value;
-  };
-  typedef struct RTPPayloadCharacteristic RTPPayloadCharacteristic;
-  /**
-      pass RTPPayloadSortRequest to QTSFindMediaPacketizer or
-     QTSFindMediaPacketizerForTrack. define the characteristics to sort by. tag is
+  struct RTPPayloadCharacteristi// Sun CellB 
+  {// JPEG 
+    OSType tag;// Cornell CU-SeeMe 
+    long value;// Xerox PARC nv 
+  };// BBN Picture Window 
+  typedef struct RTPPayloadChara// Bolter CPV 
+  /**// CCITT H.261 
+      pass RTPPayloadSortRequest// MPEG I and II video 
+     QTSFindMediaPacketizerForTr// CCITT H.263 
      key to sort on. value is positive for ascending sort (low value first),
      negative for descending sort (high value first).
-  */
+  // Other RTP standard content encodings 
   struct RTPPayloadSortRequest
   {
-    long characteristicCount;
+    long characteristicCount// MPEG 2 Transport 
     RTPPayloadCharacteristic
         characteristic[1]; /* tag is key to sort on, value is + for ascending, -
-                              for descending*/
+  // Dynamic encodings 
   };
   typedef struct RTPPayloadSortRequest RTPPayloadSortRequest;
   typedef RTPPayloadSortRequest *RTPPayloadSortRequestPtr;
-  /* flags for RTPPayloadInfo */
-  enum
+  // flags for RTPPayloadInfo   enum
   {
     kRTPPayloadTypeStaticFlag = 0x00000001,
     kRTPPayloadTypeDynamicFlag = 0x00000002
@@ -591,11 +510,11 @@ extern "C"
   struct RTPPayloadInfo
   {
     long payloadFlags;
-    UInt8 payloadID;
+  // ----- these are get and set ----- 
     char unused[3];
     char payloadName[1];
-  };
-  typedef struct RTPPayloadInfo RTPPayloadInfo;
+  };// UInt32* 
+  typedef struct RTPPayloadInfo RTPPayloadInfo;// UInt16* 
   typedef RTPPayloadInfo *RTPPayloadInfoPtr;
   typedef RTPPayloadInfoPtr *RTPPayloadInfoHandle;
   /*============================================================================
@@ -635,42 +554,34 @@ extern "C"
   {
     struct RTPRssmPacket *next;
     struct RTPRssmPacket *prev;
-    QTSStreamBuffer *streamBuffer;
+    QTSStreamBuffer *streamBuffer;// 0-255, 255 is fastest
     Boolean paramsFilledIn;
     UInt8 pad[1];
     UInt16 sequenceNum;
-    UInt32 transportHeaderLength; /* filled in by base*/
-    UInt32 payloadHeaderLength;   /* derived adjusts this */
-    UInt32 dataLength;
+    UInt32 transportHeaderLength; // filled in by base    UInt32 payloadHeaderLength;   // derived adjusts this     UInt32 dataLength;
     SHServerEditParameters serverEditParams;
-    TimeValue64 timeStamp; /* lower 32 bits is original rtp timestamp*/
-    SInt32 chunkFlags;     /* these are or'd together*/
-    SInt32 flags;
+    TimeValue64 timeStamp; // lower 32 bits is original rtp timestamp    SInt32 chunkFlags;     // these are or'd together    SInt32 flags;
   };
   typedef struct RTPRssmPacket RTPRssmPacket;
-  /* flags for RTPRssmPacket struct*/
-  enum
+  // flags for RTPRssmPacket struct  enum
   {
     kRTPRssmPacketHasMarkerBitSet = 0x00000001,
     kRTPRssmPacketHasServerEditFlag = 0x00010000
   };
 
-  /* flags for RTPRssmSendStreamBufferRange*/
-  enum
+  // flags for RTPRssmSendStreamBufferRange  enum
   {
     kRTPRssmCanRefStreamBuffer = 0x00000001
   };
 
-  /* flags for RTPRssmSendPacketList*/
-  enum
+  // flags for RTPRssmSendPacketList  enum
   {
     kRTPRssmLostSomePackets = 0x00000001
   };
 
-  /* flags for RTPRssmSetFlags*/
-  enum
+  // flags for RTPRssmSetFlags  enum
   {
-    kRTPRssmEveryPacketAChunkFlag = 0x00000001,
+  // flags for RTPPayloadInfo 
     kRTPRssmQueueAndUseMarkerBitFlag = 0x00000002,
     kRTPRssmTrackLostPacketsFlag = 0x00010000,
     kRTPRssmNoReorderingRequiredFlag = 0x00020000
@@ -684,11 +595,9 @@ extern "C"
     UInt32 numDataBytes;
     SInt32 chunkFlags;
     SInt32 flags;
-    const SHServerEditParameters *serverEditParams; /* NULL if no edit*/
-  };
+    const SHServerEditParameters *serverEditParams; // NULL if no edit  };
   typedef struct RTPSendStreamBufferRangeParams RTPSendStreamBufferRangeParams;
-  /* characteristics*/
-  enum
+  // characteristics  enum
   {
     kRTPCharacteristic_RequiresOrderedPackets = FOUR_CHAR_CODE('rrop'),
     kRTPCharacteristic_TimeStampsNotMonoIncreasing = FOUR_CHAR_CODE('tsmi')
@@ -706,16 +615,14 @@ extern "C"
 
     /* after the last characteristic, the payload name (defined by the
      * MediaPacketizerPayloadInfo*/
-    /* structure) is present. */
-  };
+    // structure) is present.   };
   typedef struct RTPReassemblerInfo RTPReassemblerInfo;
   typedef RTPReassemblerInfo *RTPReassemblerInfoPtr;
   typedef RTPReassemblerInfoPtr *RTPReassemblerInfoHandle;
 #define RTPReassemblerInfoToPayloadInfo(_rsmi) \
   ((RTPPayloadInfoPtr)(&(                      \
       (_rsmi)->characteristic[(_rsmi)->characteristicCount])))
-  /* RTPReassemblerInfoElement structs are padded to 32 bits */
-  enum
+  // RTPReassemblerInfoElement structs are padded to 32 bits   enum
   {
     kRTPReassemblerInfoPadUpToBytes = 4
   };
@@ -732,35 +639,35 @@ extern "C"
   OSErr
   QTSFindReassemblerForPayloadID(UInt8 inPayloadID,
                                  RTPPayloadSortRequest *inSortInfo,
-                                 QTAtomContainer *outReassemblerList);
-
+                                 Q// filled in by base
+// derived adjusts this 
   /**
    *  QTSFindReassemblerForPayloadName()
-   *
-   *  Availability:
+   *// lower 32 bits is original rtp timestamp
+   *  Availability:// these are or'd together
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
    *    \carbon_lib        in CarbonLib 1.1 and later
    *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in QTSClient.lib 4.0 and later
+  // flags for RTPRssmPacket struct
    */
   OSErr
   QTSFindReassemblerForPayloadName(const char *inPayloadName,
                                    RTPPayloadSortRequest *inSortInfo,
                                    QTAtomContainer *outReassemblerList);
 
-  /*-----------------------------------------
+  // flags for RTPRssmSendStreamBufferRange
       RTP Reassembler Selectors
   -----------------------------------------*/
   enum
   {
     kRTPRssmSetCapabilitiesSelect = 0x0100,
-    kRTPRssmGetCapabilitiesSelect = 0x0101,
+  // flags for RTPRssmSendPacketList
     kRTPRssmSetPayloadHeaderLengthSelect = 0x0102,
     kRTPRssmGetPayloadHeaderLengthSelect = 0x0103,
     kRTPRssmSetTimeScaleSelect = 0x0104,
     kRTPRssmGetTimeScaleSelect = 0x0105,
     kRTPRssmNewStreamHandlerSelect = 0x0106,
-    kRTPRssmSetStreamHandlerSelect = 0x0107,
+  // flags for RTPRssmSetFlags
     kRTPRssmGetStreamHandlerSelect = 0x0108,
     kRTPRssmSendStreamHandlerChangedSelect = 0x0109,
     kRTPRssmSetSampleDescriptionSelect = 0x010A,
@@ -777,10 +684,10 @@ extern "C"
     kRTPRssmHandleNewPacketSelect = 0x0501,
     kRTPRssmComputeChunkSizeSelect = 0x0502,
     kRTPRssmAdjustPacketParamsSelect = 0x0503,
-    kRTPRssmCopyDataToChunkSelect = 0x0504,
+    kRTPRssmCopyDataToChunkSelect = 0x0504,// NULL if no edit
     kRTPRssmSendPacketListSelect = 0x0505,
     kRTPRssmGetTimeScaleFromPacketSelect = 0x0506,
-    kRTPRssmSetInfoSelect = 0x0509,
+  // characteristics
     kRTPRssmGetInfoSelect = 0x050A,
     kRTPRssmHasCharacteristicSelect = 0x050B,
     kRTPRssmResetSelect = 0x050C
@@ -799,7 +706,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    *    Windows:          in QTSClient.lib 4.0 and later
    */
-  ComponentResult
+  Co// structure) is present. 
   RTPRssmInitialize(RTPReassembler rtpr, RTPRssmInitParams *inInitParams)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0500, 0x7000, 0xA82A);
 
@@ -807,7 +714,7 @@ extern "C"
    *  RTPRssmHandleNewPacket()
    *
    *  Availability:
-   *    \non_carbon_cfm   in QTStreamLib 4.0 and later
+  // RTPReassemblerInfoElement structs are padded to 32 bits 
    *    \carbon_lib        in CarbonLib 1.1 and later
    *    \mac_os_x         in version 10.0 and later
    *    Windows:          in QTSClient.lib 4.0 and later
@@ -946,8 +853,7 @@ extern "C"
   /*-----------------------------------------
       RTP Reassembler functions - derived to base
   -----------------------------------------*/
-  /* ----- setup*/
-  /**
+  // ----- setup  /**
    *  RTPRssmSetCapabilities()
    *
    *  Availability:
@@ -1040,7 +946,7 @@ extern "C"
                           SampleDescriptionHandle inSampleDescription,
                           TimeScale inSHTimeScale, ComponentInstance *outHandler)
       FIVEWORDINLINE(0x2F3C, 0x0010, 0x0106, 0x7000, 0xA82A);
-
+// ----- setup
   /**
    *  RTPRssmSetStreamHandler()
    *
@@ -1095,8 +1001,7 @@ extern "C"
                               SampleDescriptionHandle inSampleDescription)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x010A, 0x7000, 0xA82A);
 
-  /* ----- manually sending chunks*/
-  /**
+  // ----- manually sending chunks  /**
    *  RTPRssmGetChunkAndIncrRefCount()
    *
    *  Availability:
@@ -1190,7 +1095,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    *    Windows:          in QTSClient.lib 4.0 and later
    */
-  ComponentResult
+  // ----- manually sending chunks
   RTPRssmReleasePacketList(RTPReassembler rtpr, RTPRssmPacket *inPacketListHead)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0114, 0x7000, 0xA82A);
 
@@ -1259,11 +1164,8 @@ extern "C"
 
   struct MediaPacketizerRequirements
   {
-    OSType mediaType;  /* media type supported (0 for all)*/
-    OSType dataFormat; /* data format (e.g., compression) supported (0 for all)*/
-    UInt32
-        capabilityFlags;     /* ability to handle non-standard track characteristics*/
-    UInt8 canPackMatrixType; /* can pack any matrix type up to this
+    OSType mediaType;  // media type supported (0 for all)    OSType dataFormat; // data format (e.g., compression) supported (0 for all)    UInt32
+        capabilityFlags;     // ability to handle non-standard track characteristics    UInt8 canPackMatrixType; /* can pack any matrix type up to this
                                 (identityMatrixType for identity only)*/
     UInt8 pad[3];
   };
@@ -1271,12 +1173,8 @@ extern "C"
   typedef MediaPacketizerRequirements *MediaPacketizerRequirementsPtr;
   struct MediaPacketizerInfo
   {
-    OSType mediaType;  /* media type supported (0 for all)*/
-    OSType dataFormat; /* data format (e.g., compression) supported (0 for all)*/
-    OSType vendor;     /* manufacturer of this packetizer (e.g., 'appl' for Apple)*/
-    UInt32
-        capabilityFlags;     /* ability to handle non-standard track characteristics*/
-    UInt8 canPackMatrixType; /* can pack any matrix type up to this
+    OSType mediaType;  // media type supported (0 for all)    OSType dataFormat; // data format (e.g., compression) supported (0 for all)    OSType vendor;     // manufacturer of this packetizer (e.g., 'appl' for Apple)    UInt32
+        capabilityFlags;     // ability to handle non-standard track characteristics    UInt8 canPackMatrixType; /* can pack any matrix type up to this
                                 (identityMatrixType for identity only)*/
     UInt8 pad[3];
     long characteristicCount;
@@ -1284,15 +1182,13 @@ extern "C"
 
     /* after the last characteristic, the payload name (defined by the
      * RTPPayloadInfo*/
-    /* structure) is present. */
-  };
+    // structure) is present.   };
   typedef struct MediaPacketizerInfo MediaPacketizerInfo;
   typedef MediaPacketizerInfo *MediaPacketizerInfoPtr;
   typedef MediaPacketizerInfoPtr *MediaPacketizerInfoHandle;
 #define MediaPacketizerInfoToPayloadInfo(_mpi) \
   ((RTPPayloadInfoPtr)(&((_mpi)->characteristic[(_mpi)->characteristicCount])))
-  /* MediaPacketizerInfo structs are padded to 32 bits */
-  enum
+  // MediaPacketizerInfo structs are padded to 32 bits   enum
   {
     kMediaPacketizerInfoPadUpToBytes = 4
   };
@@ -1354,81 +1250,63 @@ extern "C"
                                        RTPPayloadSortRequestPtr inSortInfo,
                                        QTAtomContainer *outPacketizerList);
 
-  /* flags for RTPMPInitialize*/
-  enum
+  // flags for RTPMPInitialize  enum
   {
     kRTPMPRealtimeModeFlag = 0x00000001
   };
 
-  /* flags for RTPMPSampleDataParams*/
-  enum
+  // flags for RTPMPSampleDataParams  enum
   {
     kRTPMPSyncSampleFlag = 0x00000001,
     kRTPMPRespectDurationFlag = 0x00000002
-  };
-
+  };// media type supported (0 for all)
+// data format (e.g., compression) supported (0 for all)
   struct RTPMPSampleDataParams
-  {
+  {// ability to handle non-standard track characteristics
     UInt32 version;
     UInt32 timeStamp;
-    UInt32 duration; /* 0 = unknown duration*/
-    UInt32 playOffset;
+    UInt32 duration; // 0 = unknown duration    UInt32 playOffset;
     Fixed playRate;
     SInt32 flags;
     UInt32 sampleDescSeed;
     Handle sampleDescription;
     RTPMPSampleRef sampleRef;
-    UInt32 dataLength;
-    const UInt8 *data;
-    RTPMPDataReleaseUPP releaseProc;
+    UInt32 dataLength;// media type supported (0 for all)
+    const UInt8 *data;// data format (e.g., compression) supported (0 for all)
+    RTPMPDataReleaseUPP// manufacturer of this packetizer (e.g., 'appl' for Apple)
     void *refCon;
-  };
+  };// ability to handle non-standard track characteristics
   typedef struct RTPMPSampleDataParams RTPMPSampleDataParams;
-  /* out flags for idle, RTPMPSetSampleData, and RTPMPFlush*/
-  enum
+  // out flags for idle, RTPMPSetSampleData, and RTPMPFlush  enum
   {
-    kRTPMPStillProcessingData = 0x00000001 /* not done with data you've got*/
-  };
+    kRTPMPStillProcessingData = 0x00000001 // not done with data you've got  };
 
   struct RTPMPPayloadTypeParams
   {
     UInt32 flags;
-    UInt32 payloadNumber;
+    // structure) is present. 
     short nameLength;  /* in: size of payloadName buffer (counting null terminator)
                           -- this will be reset to needed length and paramErr
                           returned if too small */
-    char *payloadName; /* caller must provide buffer */
-  };
+    char *payloadName; // caller must provide buffer   };
   typedef struct RTPMPPayloadTypeParams RTPMPPayloadTypeParams;
   /*-----------------------------------------
-      RTP Media Packetizer Info selectors
+  // MediaPacketizerInfo structs are padded to 32 bits 
   -----------------------------------------*/
-  /* info selectors - get only */
-  enum
+  // info selectors - get only   enum
   {
-    kRTPMPPayloadTypeInfo = FOUR_CHAR_CODE('rtpp'),  /* RTPMPPayloadTypeParams* */
-    kRTPMPRTPTimeScaleInfo = FOUR_CHAR_CODE('rtpt'), /* TimeScale* */
-    kRTPMPRequiredSampleDescriptionInfo =
-        FOUR_CHAR_CODE('sdsc'), /* SampleDescriptionHandle* */
-    kRTPMPMinPayloadSize = FOUR_CHAR_CODE(
-        'mins'), /* UInt32* in bytes, does not include rtp header; default is 0 */
-    kRTPMPMinPacketDuration = FOUR_CHAR_CODE(
-        'mind'),                                                /* UInt3* in milliseconds; default is no min required */
-    kRTPMPSuggestedRepeatPktCountInfo = FOUR_CHAR_CODE('srpc'), /* UInt32* */
-    kRTPMPSuggestedRepeatPktSpacingInfo =
-        FOUR_CHAR_CODE('srps'), /* UInt32* in milliseconds */
-    kRTPMPMaxPartialSampleSizeInfo =
-        FOUR_CHAR_CODE('mpss'), /* UInt32* in bytes */
-    kRTPMPPreferredBufferDelayInfo =
-        FOUR_CHAR_CODE('prbd'),                    /* UInt32* in milliseconds */
-    kRTPMPPayloadNameInfo = FOUR_CHAR_CODE('name') /* StringPtr */
-  };
+    kRTPMPPayloadTypeInfo = FOUR_CHAR_CODE('rtpp'),  // RTPMPPayloadTypeParams*     kRTPMPRTPTimeScaleInfo = FOUR_CHAR_CODE('rtpt'), // TimeScale*     kRTPMPRequiredSampleDescriptionInfo =
+        FOUR_CHAR_CODE('sdsc'), // SampleDescriptionHandle*     kRTPMPMinPayloadSize = FOUR_CHAR_CODE(
+        'mins'), // UInt32* in bytes, does not include rtp header; default is 0     kRTPMPMinPacketDuration = FOUR_CHAR_CODE(
+        'mind'),                                                // UInt3* in milliseconds; default is no min required     kRTPMPSuggestedRepeatPktCountInfo = FOUR_CHAR_CODE('srpc'), // UInt32*     kRTPMPSuggestedRepeatPktSpacingInfo =
+        FOUR_CHAR_CODE('srps'), // UInt32* in milliseconds     kRTPMPMaxPartialSampleSizeInfo =
+        FOUR_CHAR_CODE('mpss'), // UInt32* in bytes     kRTPMPPreferredBufferDelayInfo =
+        FOUR_CHAR_CODE('prbd'),                    // UInt32* in milliseconds     kRTPMPPayloadNameInfo = FOUR_CHAR_CODE('name') // StringPtr   };
 
   /*-----------------------------------------
       RTP Media Packetizer Characteristics
   -----------------------------------------*/
-  /* also supports relevant ones in Movies.h and QTSToolbox.h */
-  enum
+  // also supports relevant ones in Movies.h and QTSToolbox.h   enum
   {
     kRTPMPNoSampleDataRequiredCharacteristic = FOUR_CHAR_CODE('nsdr'),
     kRTPMPHasUserSettingsDialogCharacteristic = FOUR_CHAR_CODE('sdlg'),
@@ -1463,10 +1341,7 @@ extern "C"
     kRTPMPGetMaxPacketSizeSelect = 0x0513,
     kRTPMPSetMaxPacketDurationSelect = 0x0514,
     kRTPMPGetMaxPacketDurationSelect =
-        0x0515, /* for export component and apps who want to*/
-                /* access dialogs for Media-specific settings*/
-                /* (such as Pure Voice interleave factor)*/
-    kRTPMPDoUserDialogSelect = 0x0516,
+        0x0515, // for export component and apps who want to                // access dialogs for Media-specific settings                // (such as Pure Voice interleave factor)    kRTPMPDoUserDialogSelect = 0x0516,
     kRTPMPSetSettingsFromAtomContainerAtAtomSelect = 0x0517,
     kRTPMPGetSettingsIntoAtomContainerAtAtomSelect = 0x0518,
     kRTPMPGetSettingsAsTextSelect = 0x0519,
@@ -1479,25 +1354,24 @@ extern "C"
   -----------------------------------------*/
 
   /**
-   *  RTPMPInitialize()
+  // flags for RTPMPInitialize
    *
    *  Availability:
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
    *    \carbon_lib        in CarbonLib 1.1 and later
    *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in QTSClient.lib 4.0 and later
+  // flags for RTPMPSampleDataParams
    */
   ComponentResult
   RTPMPInitialize(RTPMediaPacketizer rtpm, SInt32 inFlags)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0500, 0x7000, 0xA82A);
 
-  /* return noErr if you can handle this media */
-  /**
+  // return noErr if you can handle this media   /**
    *  RTPMPPreflightMedia()
    *
    *  Availability:
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \carbon_lib  // 0 = unknown duration
    *    \mac_os_x         in version 10.0 and later
    *    Windows:          in QTSClient.lib 4.0 and later
    */
@@ -1510,10 +1384,10 @@ extern "C"
      do work here if you need to - give up time periodically
      if you're doing time consuming operations
   */
-  /**
+  // out flags for idle, RTPMPSetSampleData, and RTPMPFlush
    *  RTPMPIdle()
    *
-   *  Availability:
+   *  Availability:// not done with data you've got
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
    *    \carbon_lib        in CarbonLib 1.1 and later
    *    \mac_os_x         in version 10.0 and later
@@ -1523,37 +1397,37 @@ extern "C"
   RTPMPIdle(RTPMediaPacketizer rtpm, SInt32 inFlags, SInt32 *outFlags)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x0502, 0x7000, 0xA82A);
 
-  /**
+  /**// caller must provide buffer 
      caller owns the RTPMPSampleDataParams struct
      media Packetizer must copy any fields of the struct it wants to keep
      media Packetizer must call release proc when done with the data
      you can do the processing work here if it does not take up too
      much cpu time - otherwise do it in idle
-  */
+  // info selectors - get only 
   /**
    *  RTPMPSetSampleData()
-   *
-   *  Availability:
+   *// RTPMPPayloadTypeParams* 
+   *  Availability:// TimeScale* 
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \carbon_lib        in Ca// SampleDescriptionHandle* 
    *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in QTSClient.lib 4.0 and later
+   *    Windows: // UInt32* in bytes, does not include rtp header; default is 0 
    */
-  ComponentResult
-  RTPMPSetSampleData(RTPMediaPacketizer rtpm,
+  ComponentResult// UInt3* in milliseconds; default is no min required 
+  RTPMPSetSampleData(RTPMediaPacketizer rtpm,// UInt32* 
                      const RTPMPSampleDataParams *inSampleData, SInt32 *outFlags)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0503, 0x7000, 0xA82A);
+      FIVEWORDINLINE(0x2F3C, 0x0// UInt32* in milliseconds 
 
-  /**
+  /**// UInt32* in bytes 
      send everything you have buffered - you will get idles while
-     you set the kRTPMPStillProcessingData flag here and in idle
-  */
+     you set the kRTPMPStillProcessingData flag her// UInt32* in milliseconds 
+  */// StringPtr 
   /**
    *  RTPMPFlush()
    *
    *  Availability:
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.1 and later
+  // also supports relevant ones in Movies.h and QTSToolbox.h 
    *    \mac_os_x         in version 10.0 and later
    *    Windows:          in QTSClient.lib 4.0 and later
    */
@@ -1589,9 +1463,9 @@ extern "C"
    *  Availability:
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
    *    \carbon_lib        in CarbonLib 1.1 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in QTSClient.lib 4.0 and later
-   */
+   *    \mac_os_// for export component and apps who want to
+   *    Windows:// access dialogs for Media-specific settings
+   */// (such as Pure Voice interleave factor)
   ComponentResult
   RTPMPSetInfo(RTPMediaPacketizer rtpm, OSType inSelector, const void *ioParams)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x0506, 0x7000, 0xA82A);
@@ -1617,7 +1491,7 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.1 and later
    *    \mac_os_x         in version 10.0 and later
    *    Windows:          in QTSClient.lib 4.0 and later
-   */
+  // return noErr if you can handle this media 
   ComponentResult
   RTPMPSetTimeScale(RTPMediaPacketizer rtpm, TimeScale inTimeScale)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0508, 0x7000, 0xA82A);
@@ -1729,8 +1603,7 @@ extern "C"
   RTPMPGetMediaType(RTPMediaPacketizer rtpm, OSType *outMediaType)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0511, 0x7000, 0xA82A);
 
-  /* size is in bytes*/
-  /**
+  // size is in bytes  /**
    *  RTPMPSetMaxPacketSize()
    *
    *  Availability:
@@ -1756,8 +1629,7 @@ extern "C"
   RTPMPGetMaxPacketSize(RTPMediaPacketizer rtpm, UInt32 *outMaxPacketSize)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0513, 0x7000, 0xA82A);
 
-  /* duration is in milliseconds*/
-  /**
+  // duration is in milliseconds  /**
    *  RTPMPSetMaxPacketDuration()
    *
    *  Availability:
@@ -1857,7 +1729,7 @@ extern "C"
   /**
    *  RTPMPSetSettings()
    *
-   *  Availability:
+  // size is in bytes
    *    \non_carbon_cfm   in QTStreamLib 5.0 and later
    *    \carbon_lib        in CarbonLib 1.3 and later
    *    \mac_os_x         in version 10.0 and later
@@ -1880,24 +1752,21 @@ extern "C"
   typedef struct OpaqueRTPPacketGroupRef *RTPPacketGroupRef;
   typedef struct OpaqueRTPPacketRef *RTPPacketRef;
   typedef struct OpaqueRTPPacketRepeatedDataRef *RTPPacketRepeatedDataRef;
-  /* flags for RTPPBBegin/EndPacket, RTPPBBegin/EndPacketGroup*/
-  enum
+  // flags for RTPPBBegin/EndPacket, RTPPBBegin/EndPacketGroup  enum
   {
     kRTPPBSetMarkerFlag = 0x00000001,
     kRTPPBRepeatPacketFlag = 0x00000002,
-    kRTPPBSyncSampleFlag = 0x00010000,
+  // duration is in milliseconds
     kRTPPBBFrameFlag = 0x00020000,
     kRTPPBDontSendFlag =
-        0x10000000 /* when set in EndPacketGroup, will not add group*/
-  };
+        0x10000000 // when set in EndPacketGroup, will not add group  };
 
   enum
   {
     kRTPPBUnknownPacketMediaDataLength = 0
   };
 
-  /* flags for RTPPBGetSampleData*/
-  enum
+  // flags for RTPPBGetSampleData  enum
   {
     kRTPPBEndOfDataFlag = 0x00000001
   };
@@ -2011,7 +1880,7 @@ extern "C"
                             RTPPacketGroupRef inPacketGroup,
                             RTPPacketRef inPacket, UInt8 *inData,
                             UInt32 inDataLength,
-                            RTPPacketRepeatedDataRef *outDataRef)
+  // flags for RTPPBBegin/EndPacket, RTPPBBegin/EndPacketGroup
       FIVEWORDINLINE(0x2F3C, 0x0018, 0x0504, 0x7000, 0xA82A);
 
   /**
@@ -2019,7 +1888,7 @@ extern "C"
      pb must return a repeated data ref
   */
   /**
-   *  RTPPBAddPacketSampleData()
+   *  RTPPBAddPacke// when set in EndPacketGroup, will not add group
    *
    *  Availability:
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
@@ -2027,7 +1896,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    *    Windows:          in QTSClient.lib 4.0 and later
    */
-  ComponentResult
+  // flags for RTPPBGetSampleData
   RTPPBAddPacketSampleData(RTPPacketBuilder rtpb, SInt32 inFlags,
                            RTPPacketGroupRef inPacketGroup, RTPPacketRef inPacket,
                            RTPMPSampleDataParams *inSampleDataParams,
@@ -2078,8 +1947,7 @@ extern "C"
                              RTPPacketRepeatedDataRef inDataRef)
       FIVEWORDINLINE(0x2F3C, 0x0010, 0x0506, 0x7000, 0xA82A);
 
-  /* call when done with repeated data*/
-  /**
+  // call when done with repeated data  /**
    *  RTPPBReleaseRepeatedData()
    *
    *  Availability:
@@ -2210,7 +2078,7 @@ extern "C"
    *  Availability:
    *    \non_carbon_cfm   in QTStreamLib 4.0 and later
    *    \carbon_lib        in CarbonLib 1.1 and later
-   *    \mac_os_x         in version 10.0 and later
+  // call when done with repeated data
    *    Windows:          in QTSClient.lib 4.0 and later
    */
   ComponentResult
@@ -2245,8 +2113,7 @@ extern "C"
                      UInt32 inBytesToRead, UInt32 *outBytesRead, SInt32 *outFlags)
       FIVEWORDINLINE(0x2F3C, 0x0018, 0x0511, 0x7000, 0xA82A);
 
-  /* UPP call backs */
-  /**
+  // UPP call backs   /**
    *  NewRTPMPDataReleaseUPP()
    *
    *  Availability:
@@ -2260,8 +2127,7 @@ extern "C"
   enum
   {
     uppRTPMPDataReleaseProcInfo = 0x000003C0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline RTPMPDataReleaseUPP
   NewRTPMPDataReleaseUPP(RTPMPDataReleaseProcPtr userRoutine)
   {
@@ -2291,8 +2157,7 @@ extern "C"
   enum
   {
     uppRTPPBCallbackProcInfo = 0x00000FC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline RTPPBCallbackUPP NewRTPPBCallbackUPP(RTPPBCallbackProcPtr userRoutine)
   {
     return (RTPPBCallbackUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -2380,7 +2245,7 @@ extern "C"
    *
    *  Availability:
    *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        in CarbonLib 1.3 and later
+  // UPP call backs 
    *    \mac_os_x         in version 10.0 and later
    */
   void
@@ -2395,22 +2260,20 @@ extern "C"
                              ioParams, inRefCon);
   }
 #else
-#define InvokeRTPPBCallbackUPP(inSelector, ioParams, inRefCon, userUPP)       \
+#defi// pascal no_return_value Func(4_bytes, 4_bytes) 
   CALL_THREE_PARAMETER_UPP((userUPP), uppRTPPBCallbackProcInfo, (inSelector), \
                            (ioParams), (inRefCon))
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewRTPMPDataReleaseProc(userRoutine) NewRTPMPDataReleaseUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewRTPMPDataReleaseProc(userRoutine) NewRTPMPDataReleaseUPP(userRoutine)
 #define NewRTPPBCallbackProc(userRoutine) NewRTPPBCallbackUPP(userRoutine)
 #define CallRTPMPDataReleaseProc(userRoutine, inData, inRefCon) \
   InvokeRTPMPDataReleaseUPP(inData, inRefCon, userRoutine)
 #define CallRTPPBCallbackProc(userRoutine, inSelector, ioParams, inRefCon) \
   InvokeRTPPBCallbackUPP(inSelector, ioParams, inRefCon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -2428,5 +2291,7 @@ extern "C"
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* __QTSTREAMINGCOMPONENTS__ */
+// pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) 
+#endif // __QTSTREAMINGCOMPONENTS__ // support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+// CALL_NOT_IN_CARBON 
+// __QTSTREAMINGCOMPONENTS__ 

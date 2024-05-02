@@ -235,4 +235,4 @@ extern "C"
 }
 #endif
 
-#endif /* __APPLESCRIPT__ */
+#endif // __APPLESCRIPT__

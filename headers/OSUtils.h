@@ -27,20 +27,17 @@
 #include <MixedMode.h>
 #endif
 
-/*  HandToHand and other memory utilties were moved to MacMemory.h */
-#ifndef __MACMEMORY__
+//  HandToHand and other memory utilties were moved to MacMemory.h #ifndef __MACMEMORY__
 #include <MacMemory.h>
 #endif
 
-/*  GetTrapAddress and other trap table utilties were moved to Patches.h */
-#ifndef __PATCHES__
-#include <Patches.h>
+//  GetTrapAddress and other trap table utilties were moved to Patches.h #ifndef __PATCHES__
+//  GetTrapAddress and other trap table utilties were moved to Patches.h 
 #endif
 
-/*  Date and Time utilties were moved to DateTimeUtils.h */
-#ifndef __DATETIMEUTILS__
+//  Date and Time utilties were moved to DateTimeUtils.h #ifndef __DATETIMEUTILS__
 #include <DateTimeUtils.h>
-#endif
+//  Date and Time utilties were moved to DateTimeUtils.h 
 
 #ifndef __CFSTRING__
 #include <CFString.h>
@@ -51,11 +48,10 @@
 #include <Endian.h>
 #endif
 
-#endif /* !TARGET_OS_MAC */
-
+#endif // !TARGET_OS_MAC 
 #if PRAGMA_ONCE
 #pragma once
-#endif
+#endif// !TARGET_OS_MAC 
 
 #ifdef __cplusplus
 extern "C"
@@ -91,12 +87,11 @@ extern "C"
 
 	enum
 	{
-		/* result types for RelString Call */
-		sortsBefore = -1, /*first string < second string*/
+		// result types for RelString Call 		sortsBefore = -1, /*first string < second string*/
 		sortsEqual = 0,	  /*first string = second string*/
 		sortsAfter = 1	  /*first string > second string*/
 	};
-
+// result types for RelString Call 
 	enum
 	{
 		dummyType = 0,
@@ -214,13 +209,12 @@ struct QHdr
 };
 typedef struct QHdr QHdr;
 typedef QHdr *QHdrPtr;
-#endif /* TARGET_OS_MAC */
-
+#endif // TARGET_OS_MAC 
 	typedef CALLBACK_API_REGISTER68K(void, DeferredTaskProcPtr, (long dtParam));
 	typedef REGISTER_UPP_TYPE(DeferredTaskProcPtr) DeferredTaskUPP;
 	/**
 	 *  NewDeferredTaskUPP()
-	 *
+	 *// TARGET_OS_MAC 
 
 	 *    \non_carbon_cfm   available as macro/inline
 	 *    \carbon_lib        in CarbonLib 1.0 and later
@@ -232,14 +226,13 @@ typedef QHdr *QHdrPtr;
 	enum
 	{
 		uppDeferredTaskProcInfo = 0x0000B802
-	}; /* register no_return_value Func(4_bytes:A1) */
-#ifdef __cplusplus
+	}; // register no_return_value Func(4_bytes:A1) #ifdef __cplusplus
 	inline DeferredTaskUPP NewDeferredTaskUPP(DeferredTaskProcPtr userRoutine)
 	{
 		return (DeferredTaskUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
 													 uppDeferredTaskProcInfo,
 													 GetCurrentArchitecture());
-	}
+	}// register no_return_value Func(4_bytes:A1) 
 #else
 #define NewDeferredTaskUPP(userRoutine)                                       \
 	(DeferredTaskUPP)                                                         \
@@ -297,20 +290,18 @@ typedef QHdr *QHdrPtr;
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewDeferredTaskProc(userRoutine) NewDeferredTaskUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewDeferredTaskProc(userRoutine) NewDeferredTaskUPP(userRoutine)
 #define CallDeferredTaskProc(userRoutine, dtParam) \
 	InvokeDeferredTaskUPP(dtParam, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 	/**
 	<pre>
 	 * \note <pre>The Deferred Task Manager lets you put off the execution of lengthy
-	tasks until all interrupts at the current interrupt level have been serviced.
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 	These tasks are executed with interrupts enabled, but are subject to the
 	same restrictions regarding moving memory and preserving registers as
 	interrupt routines.By calling DTInstall , you can set up a queue, place the
-	information describing your interrupt task in that queue, and let the task
+	inform// CALL_NOT_IN_CARBON 
 	run when the processor would otherwise be idle.
 	In the DeferredTask structure, QLink points to the next enqueued item,
 	while QType is always a dtQType, a standard Operating System queue. The
@@ -342,9 +333,7 @@ typedef QHdr *QHdrPtr;
 		Fract longitude;
 		union
 		{
-			SInt8 dlsDelta; /* signed byte; daylight savings delta */
-			long gmtDelta;	/* use low 24-bits only */
-		} u;
+			SInt8 dlsDelta; // signed byte; daylight savings delta 			long gmtDelta;	// use low 24-bits only 		} u;
 	};
 	typedef struct MachineLocation MachineLocation;
 #else
@@ -353,16 +342,14 @@ typedef QHdr *QHdrPtr;
 	Alignment of MachineLocation is weird. The union above used for delta
 	tends not to work on non-Mac compilers.
 */
-struct MachineLocation
-{
+struct MachineLocat// signed byte; daylight savings delta 
+{// use low 24-bits only 
 	Fract latitude;
 	Fract longitude;
 	BigEndianLong
-		delta; /* high byte is daylight savings delta, low 24-bits is GMT delta */
-};
+		delta; // high byte is daylight savings delta, low 24-bits is GMT delta };
 typedef struct MachineLocation MachineLocation;
-#endif /* TARGET_OS_MAC */
-
+#endif // TARGET_OS_MAC 
 	/**
 	 *  IsMetric()
 	 *
@@ -371,10 +358,10 @@ typedef struct MachineLocation MachineLocation;
 	 *    \carbon_lib        in CarbonLib 1.0 and later
 	 *    \mac_os_x         in version 10.0 and later
 	 */
-	Boolean
+	Boolean// high byte is daylight savings delta, low 24-bits is GMT delta 
 	IsMetric(void) THREEWORDINLINE(0x3F3C, 0x0004, 0xA9ED);
 
-	/**
+	/**// TARGET_OS_MAC 
 	\brief Get address of start of Parameter RAM data
 
 	<pre>GetSysPPtr returns the address at which the Parameter RAM has been
@@ -452,8 +439,7 @@ the current addressing mode as well.
 */
 SInt8 GetMMUMode(void) TWOWORDINLINE(0x1EB8, 0x0CB2);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 
 /**
@@ -466,7 +452,7 @@ false32b or true32b for the mode parameter.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
  *    \non_carbon_cfm   not available
-*    \carbon_lib        not available
+*    \c// CALL_NOT_IN_CARBON 
 *    \mac_os_x         not available
 */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
@@ -474,8 +460,7 @@ false32b or true32b for the mode parameter.
 #endif
 void SwapMMUMode(SInt8 *mode) THREEWORDINLINE(0x1010, 0xA05D, 0x1080);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #endif
 
 	/**
@@ -489,7 +474,7 @@ last approx. 1 second.
 finalTicks is the address of a 32-bit long. Upon return, it will contain the
 value of Ticks (the number of ticks since system startup) as it was
 when Delay returned control.
-</pre>
+</pre>// CALL_NOT_IN_CARBON 
 * \returns <pre>none
 </pre>
 * \note <pre>Because of the possibility of interrupts being disabled or overridden for
@@ -709,8 +694,7 @@ copied.
 	void
 	MakeDataExecutable(void *baseAddress, unsigned long length);
 
-#endif /* !TARGET_CPU_68K */
-
+#endif // !TARGET_CPU_68K 
 #if TARGET_CPU_68K
 #if CALL_NOT_IN_CARBON
 
@@ -725,7 +709,7 @@ FALSE. SwapDataCache returns the previous state of the instruction cache.
 routine. See Using the Gestalt Manager for sample code that shows how
 to determine whether a trap is implemented. If you call this routine and
 _HWPriv is not implemented, you application will crash.
-The MC68020, MC68030 and MC68040 microprocessors have
+The MC6// !TARGET_CPU_68K 
 instruction caches.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
@@ -757,8 +741,7 @@ The MC68030 and MC68040 microprocessors have data caches.
 	Boolean
 	SwapDataCache(Boolean cacheEnable);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON
 
 	/**
@@ -774,7 +757,7 @@ to determine whether a trap is implemented. If you call this routine and
 _HWPriv is not implemented, you application will crash.
 The MC68020, MC68030 and MC68040 microprocessors have
 instruction caches.
-Any time you modify part of executable code, you risk creating stale
+Any tim// CALL_NOT_IN_CARBON 
 instructions in the instruction cache. A microprocessor that contains an
 instruction cache store the most recently executed instructions in its
 internal instruction cache, separate from main memory. Whenever your
@@ -861,10 +844,8 @@ performed whenever self-modifying code is used.
 	void
 	FlushCodeCache(void) ONEWORDINLINE(0xA0BD);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_CPU_68K */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // TARGET_CPU_68K 
 #if CALL_NOT_IN_CARBON
 /**
  *  FlushCodeCacheRange()
@@ -880,10 +861,9 @@ performed whenever self-modifying code is used.
 	OSErr
 	FlushCodeCacheRange(void *address, unsigned long count)
 		TWOWORDINLINE(0x7009, 0xA098);
-
-#endif /* CALL_NOT_IN_CARBON */
-
-	/**
+// CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON 
+	/**// TARGET_CPU_68K 
 	\brief Where is this Macintosh and what time is it?
 
 	<pre>ReadLocation accesses the stored geographic location of the Macintosh and
@@ -901,7 +881,7 @@ Macintosh Worldwide Development: Guide to System Software.
 	void
 	ReadLocation(MachineLocation *loc)
 		FOURWORDINLINE(0x203C, 0x000C, 0x00E4, 0xA051);
-
+// CALL_NOT_IN_CARBON 
 	/**
 	\brief Store machine's location and time zone data in RAM
 
@@ -956,13 +936,11 @@ Macintosh Worldwide Development: Guide to System Software.
 
 #if OLDROUTINENAMES
 #define IUMetric() IsMetric()
-#endif /* OLDROUTINENAMES */
-
+#endif // OLDROUTINENAMES 
 	/**
 		NOTE: SysEnvirons is obsolete.  You should be using Gestalt.
 	*/
-	/* Environs Equates */
-	enum
+	// Environs Equates 	enum
 	{
 		curSysEnvVers = 2 /*Updated to equal latest SysEnvirons version*/
 	};
@@ -978,12 +956,12 @@ Macintosh Worldwide Development: Guide to System Software.
 	Machine Type
 	The machineType field will hold one of the following:
 	envXL -2Mac XL / Lisa
-	envMac -1Original Mac with 64K ROMs
+	envMac// OLDROUTINENAMES 
 	envMachUnknown 0Some Mac newer than Mac II
 	env512KE 1Mac 512K Enhanced
 	envMacPlus 2Mac Plus
 	envSE 3Mac SE
-	envMacII 4Mac II
+	// Environs Equates 
 	envMacIIx 5Mac IIx
 	envMacIIcx 6Mac IIcx
 	envSE30 7Mac SE30
@@ -1017,8 +995,7 @@ Macintosh Worldwide Development: Guide to System Software.
 	typedef struct SysEnvRec SysEnvRec;
 	enum
 	{
-		/* Machine Types */
-		envMac = -1,
+		// Machine Types 		envMac = -1,
 		envXL = -2,
 		envMachUnknown = 0,
 		env512KE = 1,
@@ -1035,19 +1012,17 @@ Macintosh Worldwide Development: Guide to System Software.
 
 	enum
 	{
-		/* CPU types */
-		envCPUUnknown = 0,
+		// CPU types 		envCPUUnknown = 0,
 		env68000 = 1,
 		env68010 = 2,
 		env68020 = 3,
 		env68030 = 4,
-		env68040 = 5
+		// Machine Types 
 	};
 
 	enum
 	{
-		/* Keyboard types */
-		envUnknownKbd = 0,
+		// Keyboard types 		envUnknownKbd = 0,
 		envMacKbd = 1,
 		envMacAndPad = 2,
 		envMacPlusKbd = 3,
@@ -1060,7 +1035,7 @@ Macintosh Worldwide Development: Guide to System Software.
 	};
 
 #if CALL_NOT_IN_CARBON
-
+// CPU types 
 	/**
 	\brief Get ROM version, machine type, system version, etc.
 
@@ -1071,7 +1046,7 @@ or SysEnvirons , regardless of what machine or operating system you are
 running on.
 SysEnvirons fills a structure with information about the computer and
 system on which the caller is executing.
-verReqNo identifies which version of the SysEnvRec you wish to obtain. Use
+ve// Keyboard types 
 the constant curSysEnvVers (currently version 2) to obtain the
 basic 18-byte version described in the SysEnvRec topic.
 theSysEnv is the address of an 18-byte SysEnvRec structure. Upon return, it
@@ -1115,8 +1090,7 @@ version number you suspect might not be available).
 	OSErr
 	SysEnvirons(short versionRequested, SysEnvRec *theWorld) ONEWORDINLINE(0xA090);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1135,5 +1109,5 @@ version number you suspect might not be available).
 }
 #endif
 
-#endif									  /* __OSUTILS__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/
+#endif									  // __OSUTILS__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/// CALL_NOT_IN_CARBON 
+// __OSUTILS__ 

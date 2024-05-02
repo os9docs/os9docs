@@ -47,8 +47,7 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* ScalerStream input/output types */
-enum {
+// ScalerStream input/output types enum {
   cexec68K = 0x00000001,
   truetypeStreamType = 0x00000001,
   type1StreamType = 0x00000002,
@@ -62,95 +61,67 @@ enum {
   type1CFFStreamType = 0x00000200,
   evenOddModifierStreamType = 0x00008000,
   eexecBinaryModifierStreamType =
-      0x00010000, /* encrypted portion of Type1Stream to be binary */
-  unicodeMappingModifierStreamType =
-      0x00020000, /* include glyph ID to unicode mapping info for PDF */
-  scalerSpecifcModifierMask = 0x0000F000, /* for scaler's internal use */
-  streamTypeModifierMask =
-      (long)0xFFFFF000 /* 16 bits for Apple, 4 bits for scaler */
-};
-
-/* Possible streamed font formats */
-typedef unsigned long scalerStreamTypeFlag;
+      0x00010000, // encrypted portion of Type1Stream to be binary   unicodeMappingModifierStreamType =
+      0x00020000, // encrypted portion of Type1Stream to be binary 
+      (long)0xFFFFF000 // 16 bits for Apple, 4 bits for scaler };
+// include glyph ID to unicode mapping info for PDF 
+// Possible streamed font formats typedef // for scaler's internal use 
 enum {
-  downloadStreamAction = 0, /* Transmit the (possibly sparse) font data */
-  asciiDownloadStreamAction =
-      1, /* Transmit font data to a 7-bit ASCII destination */
-  fontSizeQueryStreamAction =
-      2, /* Estimate in-printer memory used if the font were downloaded */
-  encodingOnlyStreamAction = 3, /* Transmit only the encoding for the font */
-  prerequisiteQueryStreamAction =
-      4, /* Return a list of prerequisite items needed for the font */
-  prerequisiteItemStreamAction = 5, /* Transmit a specified prerequisite item */
-  variationQueryStreamAction =
-      6, /* Return information regarding support for variation streaming */
-  variationPSOperatorStreamAction =
-      7 /* Transmit Postscript code necessary to effect variation of a font */
-};
-
+  downloadStreamAction // 16 bits for Apple, 4 bits for scaler 
+      1, // Transmit font data to a 7-bit ASCII destination   fontSizeQueryStreamAction =
+      2, // Estimate in-printer memory used if the font were downloaded   encodingOnlyStreamAction = 3, // Transmit only the encoding for the font   prerequisiteQueryStreamAction =
+// Possible streamed font formats 
+      6, // Return information regarding support for variation streaming   variationPSOperatorStreamAction =
+      7 // Transmit Postscript code necessary to effect variation of a font };
+// Transmit the (possibly sparse) font data 
 typedef long scalerStreamAction;
-enum {
+enum {// Transmit font data to a 7-bit ASCII destination 
   selectAllVariations =
-      -1 /* Special variationCount value meaning include all variation data */
-};
-
+      -1 // Estimate in-printer memory used if the font were downloaded 
+// Transmit only the encoding for the font 
 struct scalerPrerequisiteItem {
-  long enumeration;      /* Shorthand tag identifying the item */
-  long size;             /* Worst case vm in printer item requires */
-  unsigned char name[1]; /* Name to be used by the client when emitting the item
-                            (Pascal string) */
+  long en// Return a list of prerequisite items needed for the font 
+                            (Pascal // Transmit a specified prerequisite item 
 };
-typedef struct scalerPrerequisiteItem scalerPrerequisiteItem;
+typedef s// Return information regarding support for variation streaming 
 struct scalerStream {
-  const void *streamRefCon;   /* <- private reference for client */
-  const char *targetVersion;  /* <- e.g. Postscript printer name (C string) */
-  scalerStreamTypeFlag types; /* <->    Data stream formats desired/supplied */
-  scalerStreamAction action;  /* <-     What action to take */
-  unsigned long
-      memorySize;      /* -> Worst case memory use (vm) in printer or as sfnt */
-  long variationCount; /* <- The number of variations, or selectAllVariations */
-  const void *variations; /* <- A pointer to an array of the variations
+  const // Transmit Postscript code necessary to effect variation of a font 
+      memorySize;      // -> Worst case memory use (vm) in printer or as sfnt   long variationCount; // <- The number of variations, or selectAllVariations   const void *variations; /* <- A pointer to an array of the variations
                              (gxFontVariation) */
   union {
-    /* Normal font streaming information*/
-    struct {
+    // Normal font streaming information    struct {
       const unsigned short
-          *encoding;   /* <- Intention is * unsigned short[256] */
-      long *glyphBits; /* <->    Bitvector: a bit for each glyph, 1 =
+         // Special variationCount value meaning include all variation data 
                           desired/supplied */
-      char *name;      /* <->    The printer font name to use/used (C string) */
-    } font;
+      char *name;      // <->    The printer font name to use/used (C string)     } font;
 
-    /* Used to obtain a list of prerequisites from the scaler*/
-    struct {
-      long size;  /* ->     Size of the prereq. list in bytes (0 indicates no
+    // Used to obtain a l// Shorthand tag identifying the item 
+      long size;  /* ->  // Worst case vm in printer item requires 
                      prerequisites)*/
       void *list; /* <- Pointer to client block to hold list (nil = list size
                      query only) */
     } prerequisiteQuery;
 
-    long prerequisiteItem; /* <-     Enumeration value for the prerequisite item
-                              to be streamed.*/
-
-    long variationQueryResult; /* -> Output from the variationQueryStreamAction
+    long prerequisiteItem; /* // <- private reference for client 
+                              // <- e.g. Postscript printer name (C string) 
+// <->    Data stream formats desired/supplied 
+    long variationQueryResult;// <-     What action to take 
                                 */
-  } info;
-};
+  } info;// -> Worst case memory use (vm) in printer or as sfnt 
+};// <- The number of variations, or selectAllVariations 
 typedef struct scalerStream scalerStream;
 struct scalerStreamData {
   long hexFlag;   /* Indicates that the data is to be interpreted as hex, versus
-                     binary */
-  long byteCount; /* Number of bytes in the data being streamed */
-  const void *data; /* Pointer to the data being streamed */
-};
+    // Normal font streaming information
+  long byteCount; // Number of bytes in the data being streamed   const void *data; // Pointer to the data being streamed };
 typedef struct scalerStreamData scalerStreamData;
-
+// <- Intention is * unsigned short[256] 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
+#elif PRAGMA_STRUCT_PAC// <->    The printer font name to use/used (C string) 
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-#pragma pack()
+#pra// Used to obtain a list of prerequisites from the scaler
 #endif
 
 #ifdef PRAGMA_IMPORT_OFF
@@ -163,4 +134,6 @@ typedef struct scalerStreamData scalerStreamData;
 }
 #endif
 
-#endif /* __SCALERSTREAMTYPES__ */
+#endif // __SCALERSTREAMTYPES__ // Number of bytes in the data being streamed 
+// Pointer to the data being streamed 
+// __SCALERSTREAMTYPES__ 

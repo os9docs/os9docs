@@ -69,8 +69,7 @@ extern "C"
 #endif
 
     /*======================================================================================*/
-    /*  EVENT COMMON */
-    /*======================================================================================*/
+    //  EVENT COMMON     /*======================================================================================*/
 
     /**
      *  Discussion:
@@ -154,13 +153,11 @@ extern "C"
     };
 
     /*======================================================================================*/
-    /*  EVENT CORE */
-    /*======================================================================================*/
-    /*��������������������������������������������������������������������������������������*/
-    /*  � Event Flags, options */
-    /*��������������������������������������������������������������������������������������*/
+    //  EVENT CORE     /*======================================================================================*/
+    //  EVENT CORE 
+    //  � Event Flags, options     /*��������������������������������������������������������������������������������������*/
 
-    /**
+    //  � Event Flags, options 
      *  EventPriority
      *
      *  Discussion:
@@ -200,15 +197,12 @@ extern "C"
     };
 
     /*��������������������������������������������������������������������������������������*/
-    /* � Event Times */
-    /*                                                                                      */
-    /* EventTime is in seconds since boot. Use the constants to make life easy. */
-    /*��������������������������������������������������������������������������������������*/
+    // � Event Times     //                                                                                          // EventTime is in seconds since boot. Use the constants to make life easy.     /*��������������������������������������������������������������������������������������*/
     typedef double EventTime;
     typedef EventTime EventTimeout;
-    typedef EventTime EventTimerInterval;
-#define kEventDurationSecond ((EventTime)1.0)
-#define kEventDurationMillisecond ((EventTime)(kEventDurationSecond / 1000))
+    // � Event Times 
+#def//                                                                                      
+#def// EventTime is in seconds since boot. Use the constants to make life easy. 
 #define kEventDurationMicrosecond ((EventTime)(kEventDurationSecond / 1000000))
 #define kEventDurationNanosecond \
     ((EventTime)(kEventDurationSecond / 1000000000))
@@ -218,35 +212,30 @@ extern "C"
 #define kEventDurationNoWait ((EventTime)0.0)
 #define kEventDurationForever ((EventTime)(-1.0))
 
-/* Helpful doodads to convert to and from ticks and event times*/
-#ifdef __cplusplus
+// Helpful doodads to convert to and from ticks and event times#ifdef __cplusplus
     inline EventTime TicksToEventTime(UInt32 t) { return ((t) / 60.0); }
     inline UInt32 EventTimeToTicks(EventTime t)
     {
         return (UInt32)(((t) * 60) + 0.5);
     }
-#else
+// Helpful doodads to convert to and from ticks and event times
 #define TicksToEventTime(t) ((EventTime)((t) / 60.0))
 #define EventTimeToTicks(t) ((UInt32)(((t) * 60) + 0.5))
-#endif /* defined(__cplusplus) */
-
+#endif // defined(__cplusplus) 
     /*��������������������������������������������������������������������������������������*/
-    /* EventTypeSpec structure */
-    /*                                                                                      */
-    /* This structure is used in many routines to pass a list of event types to a
+    // EventTypeSpec structure     //                                                                                          /* This structure is used in many routines to pass a list of event types to a
      * function. */
-    /* You typically would declare a const array of these types to pass in. */
-    /*��������������������������������������������������������������������������������������*/
+    // You typically would declare a const array of these types to pass in.     /*��������������������������������������������������������������������������������������*/
 
     /**
-     *  EventTypeSpec
+     * // defined(__cplusplus) 
      *
      *  Discussion:
-     *    This structure is used to specify an event. Typically, a static
-     *    array of EventTypeSpecs are passed into functions such as
+    // EventTypeSpec structure 
+    //                                                                                      
      *    InstallEventHandler, as well as routines such as
      *    FlushEventsMatchingListFromQueue.
-     */
+    // You typically would declare a const array of these types to pass in. 
     struct EventTypeSpec
     {
         UInt32 eventClass;
@@ -291,8 +280,7 @@ extern "C"
     typedef OSType EventParamName;
     typedef OSType EventParamType;
     /*��������������������������������������������������������������������������������������*/
-    /*  � EventLoop */
-    /*��������������������������������������������������������������������������������������*/
+    //  � EventLoop     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  EventLoopRef
@@ -303,7 +291,7 @@ extern "C"
      *    and other sources and also fires timers that might be installed
      *    with InstallEventLoopTimer. The term 'run' is a bit of a
      *    misnomer, as the event loop's goal is to stay as blocked as
-     *    possible to minimize CPU usage for the current application. The
+    //  � EventLoop 
      *    event loop is run implicitly thru APIs like ReceiveNextEvent,
      *    RunApplicationEventLoop, or even WaitNextEvent. It can also be
      *    run explicitly thru a call to RunCurrentEventLoop. Each
@@ -427,8 +415,7 @@ extern "C"
     GetCFRunLoopFromEventLoop(EventLoopRef inEventLoop);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Low-level event fetching */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Low-level event fetching     /*��������������������������������������������������������������������������������������*/
     /**
      *  ReceiveNextEvent()
      *
@@ -440,7 +427,7 @@ extern "C"
      *    blocked waiting for events to arrive when inside this function.
      *
      *  Parameters:
-     *
+    //  � Low-level event fetching 
      *    inNumTypes:
      *      The number of event types we are waiting for (0 if any event
      *      should cause this routine to return).
@@ -476,8 +463,7 @@ extern "C"
                      EventRef *outEvent);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Core event lifetime APIs */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Core event lifetime APIs     /*��������������������������������������������������������������������������������������*/
     typedef UInt32 EventAttributes;
     enum
     {
@@ -490,15 +476,14 @@ extern "C"
  *
  *  Availability:
  *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.1 and later
+ *  //  � Core event lifetime APIs 
  *    \mac_os_x         in version 10.0 and later
  */
 #if TARGET_OS_MAC
 #define MacCreateEvent CreateEvent
 #endif
     OSStatus
-    MacCreateEvent(CFAllocatorRef inAllocator, /* can be NULL */
-                   UInt32 inClassID, UInt32 kind, EventTime when,
+    MacCreateEvent(CFAllocatorRef inAllocator, // can be NULL                    UInt32 inClassID, UInt32 kind, EventTime when,
                    EventAttributes flags, EventRef *outEvent);
 
     /**
@@ -512,7 +497,7 @@ extern "C"
     EventRef
     CopyEvent(EventRef inOther);
 
-    /**
+    /**// can be NULL 
      *  RetainEvent()
      *
      *  Availability:
@@ -624,13 +609,10 @@ extern "C"
     OSStatus
     GetEventParameter(EventRef inEvent, EventParamName inName,
                       EventParamType inDesiredType,
-                      EventParamType *outActualType,              /* can be NULL */
-                      UInt32 inBufferSize, UInt32 *outActualSize, /* can be NULL */
-                      void *outData);
+                      EventParamType *outActualType,              // can be NULL                       UInt32 inBufferSize, UInt32 *outActualSize, // can be NULL                       void *outData);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Getters for 'base-class' event info */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Getters for 'base-class' event info     /*��������������������������������������������������������������������������������������*/
     /**
      *  GetEventClass()
      *
@@ -642,12 +624,12 @@ extern "C"
      *
      *    inEvent:
      *      The event in question.
-     *
-     *  Result:
+     *// can be NULL 
+     *  Result:// can be NULL 
      *    The class ID of the event.
      *
      *  Availability:
-     *    \non_carbon_cfm   not available
+    //  � Getters for 'base-class' event info 
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
      */
@@ -704,8 +686,7 @@ extern "C"
     GetEventTime(EventRef inEvent);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Setters for 'base-class' event info */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Setters for 'base-class' event info     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  SetEventTime()
@@ -723,7 +704,7 @@ extern "C"
      *
      *    inTime:
      *      The new time.
-     *
+    //  � Setters for 'base-class' event info 
      *  Result:
      *    An operating system result code.
      *
@@ -736,8 +717,7 @@ extern "C"
     SetEventTime(EventRef inEvent, EventTime inTime);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Event Queue routines (posting, finding, flushing) */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Event Queue routines (posting, finding, flushing)     /*��������������������������������������������������������������������������������������*/
 
     typedef struct OpaqueEventQueueRef *EventQueueRef;
     /**
@@ -756,7 +736,7 @@ extern "C"
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
      */
-    EventQueueRef
+    //  � Event Queue routines (posting, finding, flushing) 
     GetCurrentEventQueue(void);
 
     /**
@@ -811,8 +791,7 @@ extern "C"
     enum
     {
         uppEventComparatorProcInfo = 0x000003D0
-    }; /* pascal 1_byte Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 1_byte Func(4_bytes, 4_bytes) #ifdef __cplusplus
     inline EventComparatorUPP
     NewEventComparatorUPP(EventComparatorProcPtr userRoutine)
     {
@@ -832,7 +811,7 @@ extern "C"
      *  DisposeEventComparatorUPP()
      *
      *  Availability:
-     *    \non_carbon_cfm   available as macro/inline
+     * // pascal 1_byte Func(4_bytes, 4_bytes) 
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
      */
@@ -876,12 +855,10 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewEventComparatorProc(userRoutine) NewEventComparatorUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewEventComparatorProc(userRoutine) NewEventComparatorUPP(userRoutine)
 #define CallEventComparatorProc(userRoutine, inEvent, inCompareData) \
     InvokeEventComparatorUPP(inEvent, inCompareData, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
     /**
      *  PostEventToQueue()
      *
@@ -899,11 +876,11 @@ extern "C"
      *    inEvent:
      *      The event to post.
      *
-     *    inPriority:
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
      *      The priority of the event.
      *
      *  Result:
-     *    An operating system result code.
+     * // CALL_NOT_IN_CARBON 
      *
      *  Availability:
      *    \non_carbon_cfm   not available
@@ -1102,8 +1079,7 @@ extern "C"
     IsEventInQueue(EventQueueRef inQueue, EventRef inEvent);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Helpful utilities */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Helpful utilities     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  GetCurrentEventTime()
@@ -1126,7 +1102,7 @@ extern "C"
      *  IsUserCancelEventRef()
      *
      *  Discussion:
-     *    Tests the event given to see whether the event represents a 'user
+    //  � Helpful utilities 
      *    cancel' event. Currently this is defined to be either the escape
      *    key being pressed, or command-period being pressed.
      *
@@ -1179,8 +1155,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSStatus
-    TrackMouseLocation(GrafPtr inPort, /* can be NULL */
-                       Point *outPt, MouseTrackingResult *outResult);
+    TrackMouseLocation(GrafPtr inPort, // can be NULL                        Point *outPt, MouseTrackingResult *outResult);
 
     /**
      *  TrackMouseLocationWithOptions()
@@ -1204,7 +1179,7 @@ extern "C"
      *    inOptions:
      *      The only option supported by this routine at present is the
      *      option to have the toolbox leave mouse up events in the queue,
-     *      rather than pulling them (which is the default).
+     *      rather than pulling them (w// can be NULL 
      *
      *    inTimeout:
      *      The amount of time to wait for an event. If no events arrive
@@ -1235,11 +1210,9 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSStatus
-    TrackMouseLocationWithOptions(GrafPtr inPort, /* can be NULL */
-                                  OptionBits inOptions, EventTimeout inTimeout,
+    TrackMouseLocationWithOptions(GrafPtr inPort, // can be NULL                                   OptionBits inOptions, EventTimeout inTimeout,
                                   Point *outPt,
-                                  UInt32 *outModifiers, /* can be NULL */
-                                  MouseTrackingResult *outResult);
+                                  UInt32 *outModifiers, // can be NULL                                   MouseTrackingResult *outResult);
 
     /**
      *  TrackMouseRegion()
@@ -1262,10 +1235,10 @@ extern "C"
      *
      *    inRegion:
      *      The region to consider. This should be in the coordinates of
-     *      the port you passed to inPort.
+     *      the port you passed to inPort.// can be NULL 
      *
      *    ioWasInRgn:
-     *      On enter, this parameter should be set to true if the mouse is
+     *      On enter, this parameter should be set to tr// can be NULL 
      *      currently inside the region passed in inRegion, or false if the
      *      mouse is currently outside the region. On exit, this parameter
      *      is updated to reflect the current reality, e.g. if the
@@ -1289,8 +1262,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSStatus
-    TrackMouseRegion(GrafPtr inPort, /* can be NULL */
-                     RgnHandle inRegion, Boolean *ioWasInRgn,
+    TrackMouseRegion(GrafPtr inPort, // can be NULL                      RgnHandle inRegion, Boolean *ioWasInRgn,
                      MouseTrackingResult *outResult);
 
     /**
@@ -1317,7 +1289,7 @@ extern "C"
      *
      *  Availability:
      *    \non_carbon_cfm   not available
-     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \carbon_lib        in Carbo// can be NULL 
      *    \mac_os_x         in version 10.0 and later
      */
     Boolean
@@ -1365,8 +1337,7 @@ extern "C"
     GetLastUserEventTime(void);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Mouse Coalescing */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Mouse Coalescing     /*��������������������������������������������������������������������������������������*/
     /**
      *  IsMouseCoalescingEnabled()
      *
@@ -1394,7 +1365,7 @@ extern "C"
      *  Discussion:
      *    Allows you to set mouse move/drag event coalescing on or off. By
      *    default, coalescing is on, but you can use this function to
-     *    disable it if you want finer-grained mouse movement events, which
+    //  � Mouse Coalescing 
      *    is useful for drawing with tablets.
      *
      *  Parameters:
@@ -1418,11 +1389,9 @@ extern "C"
      */
     OSStatus
     SetMouseCoalescingEnabled(Boolean inNewState,
-                              Boolean *outOldState); /* can be NULL */
-
+                              Boolean *outOldState); // can be NULL 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Timers */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Timers     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  EventLoopTimerRef
@@ -1449,10 +1418,10 @@ extern "C"
      *    the standard Toolbox Edit Text control can install a timer to
      *    blink the cursor when it's active, meaning that IdleControls is a
      *    no-op for that control and doesn't need to be called. When the
-     *    control is inactive, it removes its timer and doesn't waste CPU
+     *    control is inactive, it removes its timer a// can be NULL 
      *    time in that state. NOTE: Currently, if you do decide to draw
      *    when your timer is called, be sure to save and restore the
-     *    current port so that calling your timer doesn't inadvertently
+    //  � Timers 
      *    change the port out from under someone.
      */
     typedef struct OpaqueEventLoopTimerRef *EventLoopTimerRef;
@@ -1488,8 +1457,7 @@ extern "C"
     enum
     {
         uppEventLoopTimerProcInfo = 0x000003C0
-    }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
     inline EventLoopTimerUPP
     NewEventLoopTimerUPP(EventLoopTimerProcPtr userRoutine)
     {
@@ -1520,7 +1488,7 @@ extern "C"
     inline void DisposeEventLoopTimerUPP(EventLoopTimerUPP userUPP)
     {
         DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-    }
+    }// pascal no_return_value Func(4_bytes, 4_bytes) 
 #else
 #define DisposeEventLoopTimerUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
@@ -1553,12 +1521,10 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewEventLoopTimerProc(userRoutine) NewEventLoopTimerUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewEventLoopTimerProc(userRoutine) NewEventLoopTimerUPP(userRoutine)
 #define CallEventLoopTimerProc(userRoutine, inTimer, inUserData) \
     InvokeEventLoopTimerUPP(inTimer, inUserData, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
     /**
      *  InstallEventLoopTimer()
      *
@@ -1587,11 +1553,11 @@ extern "C"
      *      The timer interval (pass 0 for a one-shot timer, which executes
      *      once but does not repeat). In Mac OS X and CarbonLib 1.5 and
      *      later, you may also pass kEventDurationForever to create a
-     *      one-shot timer.
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
      *
      *    inTimerProc:
      *      The routine to call when the timer fires.
-     *
+     *// CALL_NOT_IN_CARBON 
      *    inTimerData:
      *      Data to pass to the timer proc when called.
      *
@@ -1672,8 +1638,7 @@ extern "C"
                                   EventTimerInterval inNextFire);
 
     /*======================================================================================*/
-    /*  EVENT CLASSES */
-    /*======================================================================================*/
+    //  EVENT CLASSES     /*======================================================================================*/
 
     /**
      *  Discussion:
@@ -1707,7 +1672,7 @@ extern "C"
          */
         kEventClassAppleEvent = FOUR_CHAR_CODE('eppc'),
 
-        /**
+    //  EVENT CLASSES 
          * Menu-related events.
          */
         kEventClassMenu = FOUR_CHAR_CODE('menu'),
@@ -1749,10 +1714,8 @@ extern "C"
     };
 
     /*��������������������������������������������������������������������������������������*/
-    /* Mouse Events */
-    /*��������������������������������������������������������������������������������������*/
-    /* Mouse Events */
-
+    // Mouse Events     /*��������������������������������������������������������������������������������������*/
+    // Mouse Events 
     /**
      *  Discussion:
      *    Mouse events (kEventClassMouse)
@@ -1786,9 +1749,9 @@ extern "C"
         kEventMouseWheelMoved = 10
     };
 
-    /**
+    // Mouse Events 
      *  HIPoint
-     *
+    // Mouse Events 
      *  Discussion:
      *    HIPoint is a new, floating point-based type to help express
      *    coordinates in a much richer fashion than the classic QuickDraw
@@ -1920,8 +1883,7 @@ extern "C"
     };
 
     /*��������������������������������������������������������������������������������������*/
-    /* Text Input Events */
-    /*��������������������������������������������������������������������������������������*/
+    // Text Input Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -1958,7 +1920,7 @@ extern "C"
          * kUnicodeNotFromInputMethod AppleEvent handler is installed (or the
          * application has not created a Unicode TSMDocument), the Mac
          * encoding charCodes (if these can be converted from the Unicodes)
-         * are provided to WaitNextEvent.
+    // Text Input Events 
          */
         kEventTextInputUnicodeForKeyEvent = 2,
 
@@ -2090,8 +2052,7 @@ extern "C"
             <--     kEventParamTextInputReplySLRec typeIntlWritingCode
     */
     /*��������������������������������������������������������������������������������������*/
-    /* Raw Keyboard Events */
-    /*��������������������������������������������������������������������������������������*/
+    // Raw Keyboard Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -2106,8 +2067,7 @@ extern "C"
         /**
          * A key was pressed.
          */
-        kEventRawKeyDown = 1, /* hardware-level events*/
-
+        kEventRawKeyDown = 1, // hardware-level events
         /**
          * Sent periodically as a key is held down by the user.
          */
@@ -2130,9 +2090,8 @@ extern "C"
 
         /**
          * A registered Hot Key was released (this is only sent on Mac OS X).
-         */
-        kEventHotKeyReleased = 6 /* Mac OS X only*/
-    };
+    // Raw Keyboard Events 
+        kEventHotKeyReleased = 6 // Mac OS X only    };
 
     /**
      *  Summary:
@@ -2147,14 +2106,12 @@ extern "C"
 
         /**
          * The Num Lock state bit (Mac OS X only).
-         */
-        kEventKeyModifierNumLockBit = 16, /* Num Lock is on? (Mac OS X only)*/
-
+         */// hardware-level events
+        kEventKeyModifierNumLockBit = 16, // Num Lock is on? (Mac OS X only)
         /**
          * The Fn key state bit (Mac OS X only).
          */
-        kEventKeyModifierFnBit = 17 /* Fn key is down? (Mac OS X only)*/
-    };
+        kEventKeyModifierFnBit = 17 // Fn key is down? (Mac OS X only)    };
 
     enum
     {
@@ -2174,7 +2131,7 @@ extern "C"
         kEventRawKeyRepeat
             -->     kEventParamKeyMacCharCodes  typeChar
             -->     kEventParamKeyCode          typeUInt32
-            -->     kEventParamKeyModifiers     typeUInt32
+            -->     kEventParamKe// Mac OS X only
             -->     kEventParamKeyboardType     typeUInt32
 
         kEventRawKeyUp
@@ -2191,13 +2148,12 @@ extern "C"
 
         kEventHotKeyReleased
             -->     kEventParamDirectObject     typeEventHotKeyID
-    */
+    */// Num Lock is on? (Mac OS X only)
 
     /*��������������������������������������������������������������������������������������*/
-    /* Application Events */
-    /*��������������������������������������������������������������������������������������*/
+    // Application Events     /*��������������������������������������������������������������������������������������*/
 
-    /**
+    /**// Fn key is down? (Mac OS X only)
      *  Summary:
      *    Application events (kEventClassApplication)
      */
@@ -2238,7 +2194,7 @@ extern "C"
          * Another app was launched. Available on Mac OS X and CarbonLib
          * 1.3.1 and later.
          */
-        kEventAppLaunched = 5,
+    // Application Events 
 
         /**
          * Another app terminated. Available on Mac OS X and CarbonLib 1.3.1
@@ -2296,8 +2252,7 @@ extern "C"
             <--     kEventParamMenuRef      typeMenuRef
     */
     /*��������������������������������������������������������������������������������������*/
-    /*  Apple Events */
-    /*��������������������������������������������������������������������������������������*/
+    //  Apple Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -2323,8 +2278,7 @@ extern "C"
        the Apple event
     */
     /*��������������������������������������������������������������������������������������*/
-    /*  Window Events */
-    /*��������������������������������������������������������������������������������������*/
+    //  Window Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -2342,7 +2296,7 @@ extern "C"
          * installed. You must call BeginUpdate, call SetPort, draw your
          * window content, and then call EndUpdate.
          */
-        kEventWindowUpdate = 1,
+    //  Apple Events 
 
         /**
          * Only sent to windows with the standard handler installed.
@@ -2369,7 +2323,7 @@ extern "C"
      *  Discussion:
      *    Events related to activating and deactivating a window.
      */
-    enum
+    //  Window Events 
     {
 
         /**
@@ -3220,8 +3174,7 @@ extern "C"
        window
     */
     /*��������������������������������������������������������������������������������������*/
-    /*  Menu Events */
-    /*��������������������������������������������������������������������������������������*/
+    //  Menu Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -3267,7 +3220,7 @@ extern "C"
          */
         kEventMenuOpening = 4,
 
-        /**
+    //  Menu Events 
          * A menu has been closed. Sent after the menu is hidden.
          */
         kEventMenuClosed = 5,
@@ -3410,15 +3363,13 @@ extern "C"
      */
     enum
     {
-        /* menu location*/
-
+        // menu location
         /**
          * Indicates that this menu is inserted in the menubar, or is a
          * (directly or indirectly) a submenu of a menu that is inserted in
          * the menubar.
          */
-        kMenuContextMenuBar = 1 << 0, /* menu type*/
-
+        kMenuContextMenuBar = 1 << 0, // menu type
         /**
          * Indicates that this menu is a pull-down menu inserted in the
          * menubar.
@@ -3435,8 +3386,7 @@ extern "C"
          * Indicates that this menu is a submenu of some other pull-down or
          * popup menu.
          */
-        kMenuContextSubmenu = 1 << 10, /* menu usage*/
-
+        kMenuContextSubmenu = 1 << 10, // menu usage
         /**
          * Indicates that this Carbon event has been sent during a menubar
          * tracking session.
@@ -3460,14 +3410,14 @@ extern "C"
          * update the enabled state of the menus. Available on Mac OS X 10.1
          * and later, and in CarbonLib 1.5 and later; on earlier releases,
          * the kMenuContextKeyMatching flag is set when an event is sent
-         * during menu enabling.
+        // menu location
          */
         kMenuContextMenuEnabling = 1 << 19
     };
 
     /**
         Parameters for menu events:
-
+// menu type
         kEventMenuBeginTracking
             -->     kEventParamDirectObject             typeMenuRef
             -->     kEventParamCurrentMenuTrackingMode  typeMenuTrackingMode
@@ -3485,7 +3435,7 @@ extern "C"
             -->     kEventParamMenuContext              typeUInt32
 
         kEventMenuOpening
-            -->     kEventParamDirectObject             typeMenuRef
+            -->     kEventParamDirectOb// menu usage
             -->     kEventParamMenuFirstOpen            typeBoolean
             -->     kEventParamMenuContext              typeUInt32 (in CarbonLib 1.5
        and later)
@@ -3576,8 +3526,7 @@ extern "C"
             -->     kEventParamDirectObject             typeMenuRef
     */
     /*��������������������������������������������������������������������������������������*/
-    /*  Command Events */
-    /*��������������������������������������������������������������������������������������*/
+    //  Command Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -3618,8 +3567,7 @@ extern "C"
             -->     kEventParamDirectObject     typeHICommand
             -->     kEventParamMenuContext      typeUInt32
     */
-    /* HI Commands */
-
+    // HI Commands 
     /**
      *  Summary:
      *    Common command IDs
@@ -3628,7 +3576,7 @@ extern "C"
     {
 
         /**
-         * The OK button in a dialog or alert.
+    //  Command Events 
          */
         kHICommandOK = FOUR_CHAR_CODE('ok  '),
 
@@ -3670,7 +3618,7 @@ extern "C"
         /**
          * The selected items should be deleted.
          */
-        kHICommandClear = FOUR_CHAR_CODE('clea'),
+    // HI Commands 
 
         /**
          * All items in the active window should be selected.
@@ -3858,8 +3806,7 @@ extern "C"
     };
     typedef struct HICommand HICommand;
     /*��������������������������������������������������������������������������������������*/
-    /*  Control Events */
-    /*��������������������������������������������������������������������������������������*/
+    //  Control Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -3911,7 +3858,7 @@ extern "C"
          * X only)
          */
         kEventControlHitTest = 3,
-
+//  Control Events 
         /**
          * Sent when your control should draw itself. The event can
          * optionally contain a port in which to draw and a part to constrain
@@ -4306,8 +4253,7 @@ extern "C"
             <--     kEventParamControlResult            typeLongInteger
     */
     /*��������������������������������������������������������������������������������������*/
-    /*  Tablet Events (and tablet data in mouse events) */
-    /*��������������������������������������������������������������������������������������*/
+    //  Tablet Events (and tablet data in mouse events)     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -4328,8 +4274,7 @@ extern "C"
          */
         kEventTabletProximity = 2,
         kEventTabletPointer =
-            1 /* deprecated form for compatibility only, use kEventTabletPoint*/
-    };
+            1 // deprecated form for compatibility only, use kEventTabletPoint    };
 
     struct TabletPointRec
     {
@@ -4339,10 +4284,8 @@ extern "C"
                            resolution */
         SInt32 absZ;    /* absolute z coordinate in tablet space at full tablet
                            resolution */
-        UInt16 buttons; /* one bit per button - bit 0 is first button - 1 = closed */
-        UInt16
-            pressure;              /* scaled pressure value; MAXPRESSURE=(2^16)-1, MINPRESSURE=0 */
-        SInt16 tiltX;              /* scaled tilt x value; range is -((2^15)-1) to (2^15)-1 (-32767
+        UInt16 buttons; // one bit per button - bit 0 is first button - 1 = closed         UInt16
+            pressure;              // scaled pressure value; MAXPRESSURE=(2^16)-1, MINPRESSURE=0         SInt16 tiltX;              /* scaled tilt x value; range is -((2^15)-1) to (2^15)-1 (-32767
                                       to 32767) */
         SInt16 tiltY;              /* scaled tilt y value; range is -((2^15)-1) to (2^15)-1 (-32767
                                       to 32767) */
@@ -4352,33 +4295,21 @@ extern "C"
                                       tilt */
         UInt16 deviceID;           /* system-assigned unique device ID - matches to deviceID
                                       field in proximity event */
-        SInt16 vendor1;            /* vendor-defined signed 16-bit integer */
-        SInt16 vendor2;            /* vendor-defined signed 16-bit integer */
-        SInt16 vendor3;            /* vendor-defined signed 16-bit integer */
-    };
+        SInt16 vendor1;            // vendor-defined signed 16-bit integer         SInt16 vendor2;            // vendor-defined signed 16-bit integer         SInt16 vendor3;            // vendor-defined signed 16-bit integer     };
     typedef struct TabletPointRec TabletPointRec;
     typedef TabletPointRec TabletPointerRec;
     struct TabletProximityRec
     {
-        UInt16 vendorID;            /* vendor-defined ID - typically will be USB vendor ID */
-        UInt16 tabletID;            /* vendor-defined tablet ID - typically will be USB product
+        UInt16 vendorID;            // vendor-defined ID - typically will be USB vendor ID         UInt16 tabletID;            /* vendor-defined tablet ID - typically will be USB product
                                        ID for the tablet */
-        UInt16 pointerID;           /* vendor-defined ID of the specific pointing device */
-        UInt16 deviceID;            /* system-assigned unique device ID - matches to deviceID
+        UInt16 pointerID;           // vendor-defined ID of the specific pointing device         UInt16 deviceID;            /* system-assigned unique device ID - matches to deviceID
                                        field in tablet event */
-        UInt16 systemTabletID;      /* system-assigned unique tablet ID */
-        UInt16 vendorPointerType;   /* vendor-defined pointer type */
-        UInt32 pointerSerialNumber; /* vendor-defined serial number of the specific
+        UInt16 systemTabletID;      // system-assigned unique tablet ID         UInt16 vendorPointerType;   // vendor-defined pointer type         UInt32 pointerSerialNumber; /* vendor-defined serial number of the specific
                                        pointing device */
-        UInt64 uniqueID;            /* vendor-defined unique ID for this pointer */
-        UInt32 capabilityMask;      /* mask representing the capabilities of the device */
-        UInt8 pointerType;          /* type of pointing device - enum to be defined */
-        UInt8 enterProximity;       /* non-zero = entering; zero = leaving */
-    };
+    //  Tablet Events (and tablet data in mouse events) 
     typedef struct TabletProximityRec TabletProximityRec;
     /*��������������������������������������������������������������������������������������*/
-    /* Volume Events */
-    /*��������������������������������������������������������������������������������������*/
+    // Volume Events     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  Summary:
@@ -4391,15 +4322,13 @@ extern "C"
          * A new volume has been mounted (or new media inserted). Available
          * on Mac OS X and CarbonLib 1.3.1 and later.
          */
-        kEventVolumeMounted = 1, /* new volume mounted*/
-
+        kEventVolumeMounted = 1, // new volume mounted
         /**
          * An existing volume has been unmounted (or media ejected).
          * Available on Mac OS X and CarbonLib 1.3.1 and later.
          */
-        kEventVolumeUnmounted = 2 /* volume has been ejected or unmounted*/
-    };
-
+        kEventVolumeUnmounted = 2 // volume has been ejected or unmounted    };
+// deprecated form for compatibility only, use kEventTabletPoint
     /**
         Parameters for volume events:
 
@@ -4410,50 +4339,45 @@ extern "C"
             -->     kEventParamDirectObject     typeFSVolumeRefNum
     */
 
-    /* types for volume events*/
-
+    // types for volume // one bit per button - bit 0 is first button - 1 = closed 
     enum
-    {
-        typeFSVolumeRefNum = FOUR_CHAR_CODE('voln') /* FSVolumeRefNum*/
-    };
+    {// scaled pressure value; MAXPRESSURE=(2^16)-1, MINPRESSURE=0 
+        typeFSVolumeRefNum = FOUR_CHAR_CODE('voln') // FSVolumeRefNum    };
 
     /*��������������������������������������������������������������������������������������*/
-    /* Appearance Events */
-    /*��������������������������������������������������������������������������������������*/
-    /* Appearance Events */
-
+    // Appearance Events     /*��������������������������������������������������������������������������������������*/
+    // Appearance Events 
     /**
      *  Discussion:
      *    Appearance events (kEventClassAppearance)
      */
     enum
-    {
-
-        /**
+    {// vendor-defined signed 16-bit integer 
+// vendor-defined signed 16-bit integer 
+        /**// vendor-defined signed 16-bit integer 
          * The scroll bar variant has changed. Available on Mac OS X 10.1 and
          * later.
          */
         kEventAppearanceScrollBarVariantChanged = 1
     };
-
+// vendor-defined ID - typically will be USB vendor ID 
     /**
         Parameters for appearance events:
-
+// vendor-defined ID of the specific pointing device 
         kEventAppearanceScrollBarVariantChanged
             -->     kEventParamNewScrollBarVariant      typeShortInteger
-    */
-    /*��������������������������������������������������������������������������������������*/
-    /*  Services Events */
-    /*��������������������������������������������������������������������������������������*/
+    */// system-assigned unique tablet ID 
+    /*������������������������������// vendor-defined pointer type 
+    //  Services Events     /*��������������������������������������������������������������������������������������*/
 
-    /**
-     *  Summary:
-     *    Services events (kEventClassService)
-     *
+    /**// vendor-defined unique ID for this pointer 
+     *  Summary:// mask representing the capabilities of the device 
+     *    Services events (kEventCla// type of pointing device - enum to be defined 
+     *// non-zero = entering; zero = leaving 
      *  Discussion:
      *    Services are a feature by which applications can communicate with
      *    one another to request and provide services. This communication
-     *    happens through the Scrap Manager. When an event is sent that
+    // Volume Events 
      *    requires communication for processing or servicing a request, you
      *    will need to use the scrap that is given in the
      *    kEventParamScrapRef parameter of the event in order to
@@ -4467,13 +4391,13 @@ extern "C"
 
         /**
          * The user has invoked a service that requires the application to
-         * update the given scrap in the kEventParamScrapRef parameter with
+         * update the given scrap// new volume mounted
          * appropriate data from the focus.
          */
         kEventServiceCopy = 1,
 
         /**
-         * The user has invoked a service that requires the application to
+         * The user has invoked a // volume has been ejected or unmounted
          * update the current focus with data from the scrap that is given in
          * the kEventParamScrapRef parameter.
          */
@@ -4486,17 +4410,17 @@ extern "C"
          * This event sends two CFMutableArrayRefs for the application to add
          * the types to: the kEventParamServiceCopyTypes and the
          * kEventParamServicePasteTypes parameters. The types that are added
-         * are CFStringRefs. There is a convenience function,
+    // types for volume events
          * CreateTypeStringWithOSType(), which takes an OSType and will
          * create a CFStringRef that you can add to the array(s).
          */
-        kEventServiceGetTypes = 3,
+        kEventServiceGetTypes = 3,// FSVolumeRefNum
 
         /**
          * If the application is a service provider, this event will get sent
-         * when a Service is requested of the app. The scrap that should be
+    // Appearance Events 
          * used to send and receive data from the requester is provided in
-         * the kEventParamScrapRef parameter. The
+    // Appearance Events 
          * kEventParamServiceMessageName parameter contains a CFStringRef
          * that indicates which advertised service was invoked.
          */
@@ -4519,7 +4443,7 @@ extern "C"
        CFStringRefs
 
         kEventServicePerform
-            -->     kEventParamScrapRef                 typeScrapRef
+    //  Services Events 
             -->     kEventParamServiceMessageName       typeCFStringRef
             -->     kEventParamServiceUserData          typeCFStringRef
     */
@@ -4551,340 +4475,163 @@ extern "C"
     CreateTypeStringWithOSType(OSType inType);
 
     /*��������������������������������������������������������������������������������������*/
-    /* Parameter names and types */
-    /*��������������������������������������������������������������������������������������*/
+    // Parameter names and types     /*��������������������������������������������������������������������������������������*/
     enum
     {
         kEventParamDirectObject =
-            FOUR_CHAR_CODE('----') /* type varies depending on event*/
-    };
+            FOUR_CHAR_CODE('----') // type varies depending on event    };
 
-    /* Generic toolbox parameters and types*/
-
+    // Generic toolbox parameters and types
     enum
     {
-        kEventParamWindowRef = FOUR_CHAR_CODE('wind'),       /* typeWindowRef*/
-        kEventParamGrafPort = FOUR_CHAR_CODE('graf'),        /* typeGrafPtr*/
-        kEventParamDragRef = FOUR_CHAR_CODE('drag'),         /* typeDragRef*/
-        kEventParamMenuRef = FOUR_CHAR_CODE('menu'),         /* typeMenuRef*/
-        kEventParamEventRef = FOUR_CHAR_CODE('evnt'),        /* typeEventRef*/
-        kEventParamControlRef = FOUR_CHAR_CODE('ctrl'),      /* typeControlRef*/
-        kEventParamRgnHandle = FOUR_CHAR_CODE('rgnh'),       /* typeQDRgnHandle*/
-        kEventParamEnabled = FOUR_CHAR_CODE('enab'),         /* typeBoolean*/
-        kEventParamDimensions = FOUR_CHAR_CODE('dims'),      /* typeQDPoint*/
-        kEventParamAvailableBounds = FOUR_CHAR_CODE('avlb'), /* typeQDRectangle*/
-        kEventParamAEEventID = keyAEEventID,                 /* typeType*/
-        kEventParamAEEventClass = keyAEEventClass,           /* typeType*/
-        kEventParamCGContextRef = FOUR_CHAR_CODE('cntx'),    /* typeCGContextRef*/
-        kEventParamDeviceDepth = FOUR_CHAR_CODE('devd'),     /* typeShortInteger*/
-        kEventParamDeviceColor = FOUR_CHAR_CODE('devc'),     /* typeBoolean*/
-        typeWindowRef = FOUR_CHAR_CODE('wind'),              /* WindowRef*/
-        typeGrafPtr = FOUR_CHAR_CODE('graf'),                /* CGrafPtr*/
-        typeGWorldPtr = FOUR_CHAR_CODE('gwld'),              /* GWorldPtr*/
-        typeDragRef = FOUR_CHAR_CODE('drag'),                /* DragRef*/
-        typeMenuRef = FOUR_CHAR_CODE('menu'),                /* MenuRef*/
-        typeControlRef = FOUR_CHAR_CODE('ctrl'),             /* ControlRef*/
-        typeCollection = FOUR_CHAR_CODE('cltn'),             /* Collection*/
-        typeQDRgnHandle = FOUR_CHAR_CODE('rgnh'),            /* RgnHandle*/
-        typeOSStatus = FOUR_CHAR_CODE('osst'),               /* OSStatus*/
-        typeCFStringRef = FOUR_CHAR_CODE('cfst'),            /* CFStringRef*/
-        typeCGContextRef = FOUR_CHAR_CODE('cntx'),           /* CGContextRef*/
-        typeHIPoint = FOUR_CHAR_CODE('hipt')                 /* HIPoint*/
-    };
+        kEventParamWindowRef = FOUR_CHAR_CODE('wind'),       // typeWindowRef        kEventParamGrafPort = FOUR_CHAR_CODE('graf'),        // typeGrafPtr        kEventParamDragRef = FOUR_CHAR_CODE('drag'),         // typeDragRef        kEventParamMenuRef = FOUR_CHAR_CODE('menu'),         // typeMenuRef        kEventParamEventRef = FOUR_CHAR_CODE('evnt'),        // typeEventRef        kEventParamControlRef = FOUR_CHAR_CODE('ctrl'),      // typeControlRef        kEventParamRgnHandle = FOUR_CHAR_CODE('rgnh'),       // typeQDRgnHandle        kEventParamEnabled = FOUR_CHAR_CODE('enab'),         // typeBoolean        kEventParamDimensions = FOUR_CHAR_CODE('dims'),      // typeQDPoint        kEventParamAvailableBounds = FOUR_CHAR_CODE('avlb'), // typeQDRectangle        kEventParamAEEventID = keyAEEventID,                 // typeType        kEventParamAEEventClass = keyAEEventClass,           // typeType        kEventParamCGContextRef = FOUR_CHAR_CODE('cntx'),    // typeCGContextRef        kEventParamDeviceDepth = FOUR_CHAR_CODE('devd'),     // typeShortInteger        kEventParamDeviceColor = FOUR_CHAR_CODE('devc'),     // typeBoolean        typeWindowRef = FOUR_CHAR_CODE('wind'),              // WindowRef        typeGrafPtr = FOUR_CHAR_CODE('graf'),                // CGrafPtr        typeGWorldPtr = FOUR_CHAR_CODE('gwld'),              // GWorldPtr        typeDragRef = FOUR_CHAR_CODE('drag'),                // DragRef        typeMenuRef = FOUR_CHAR_CODE('menu'),                // MenuRef        typeControlRef = FOUR_CHAR_CODE('ctrl'),             // ControlRef        typeCollection = FOUR_CHAR_CODE('cltn'),             // Collection        typeQDRgnHandle = FOUR_CHAR_CODE('rgnh'),            // RgnHandle        typeOSStatus = FOUR_CHAR_CODE('osst'),               // OSStatus        typeCFStringRef = FOUR_CHAR_CODE('cfst'),            // CFStringRef        typeCGContextRef = FOUR_CHAR_CODE('cntx'),           // CGContextRef        typeHIPoint = FOUR_CHAR_CODE('hipt')                 // HIPoint    };
 
-    /* Mouse event parameters and types*/
-
+    // Mouse event parameters and types
     enum
     {
-        kEventParamMouseLocation = FOUR_CHAR_CODE('mloc'),   /* typeQDPoint*/
-        kEventParamMouseButton = FOUR_CHAR_CODE('mbtn'),     /* typeMouseButton*/
-        kEventParamClickCount = FOUR_CHAR_CODE('ccnt'),      /* typeUInt32*/
-        kEventParamMouseWheelAxis = FOUR_CHAR_CODE('mwax'),  /* typeMouseWheelAxis*/
-        kEventParamMouseWheelDelta = FOUR_CHAR_CODE('mwdl'), /* typeSInt32*/
-        kEventParamMouseDelta = FOUR_CHAR_CODE('mdta'),      /* typeQDPoint*/
-        kEventParamMouseChord = FOUR_CHAR_CODE('chor'),      /* typeUInt32*/
-        kEventParamTabletEventType = FOUR_CHAR_CODE('tblt'), /* typeUInt32*/
-        typeMouseButton = FOUR_CHAR_CODE('mbtn'),            /* EventMouseButton*/
-        typeMouseWheelAxis = FOUR_CHAR_CODE('mwax')          /* EventMouseWheelAxis*/
-    };
+        kEventParamMouseLocation = FOUR_CHAR_CODE('mloc'),   // typeQDPoint        kEventParamMouseButton = FOUR_CHAR_CODE('mbtn'),     // typeMouseButton        kEventParamClickCount = FOUR_CHAR_CODE('ccnt'),      // typeUInt32        kEventParamMouseWheelAxis = FOUR_CHAR_CODE('mwax'),  // typeMouseWheelAxis        kEventParamMouseWheelDelta = FOUR_CHAR_CODE('mwdl'), // typeSInt32        kEventParamMouseDelta = FOUR_CHAR_CODE('mdta'),      // typeQDPoint        kEventParamMouseChord = FOUR_CHAR_CODE('chor'),      // typeUInt32        kEventParamTabletEventType = FOUR_CHAR_CODE('tblt'), // typeUInt32        typeMouseButton = FOUR_CHAR_CODE('mbtn'),            // EventMouseButton        typeMouseWheelAxis = FOUR_CHAR_CODE('mwax')          // EventMouseWheelAxis    };
 
-    /* Keyboard event parameter and types*/
-
+    // Keyboard event parameter and types
     enum
     {
-        kEventParamKeyCode = FOUR_CHAR_CODE('kcod'),         /* typeUInt32*/
-        kEventParamKeyMacCharCodes = FOUR_CHAR_CODE('kchr'), /* typeChar*/
-        kEventParamKeyModifiers = FOUR_CHAR_CODE('kmod'),    /* typeUInt32*/
-        kEventParamKeyUnicodes = FOUR_CHAR_CODE('kuni'),     /* typeUnicodeText*/
-        kEventParamKeyboardType = FOUR_CHAR_CODE('kbdt'),    /* typeUInt32*/
-        typeEventHotKeyID = FOUR_CHAR_CODE('hkid')           /* EventHotKeyID*/
-    };
+        kEventParamKeyCode = FOUR_CHAR_CODE('kcod'),         // typeUInt32        kEventParamKeyMacCharCodes = FOUR_CHAR_CODE('kchr'), // typeChar        kEventParamKeyModifiers = FOUR_CHAR_CODE('kmod'),    // typeUInt32        kEventParamKeyUnicodes = FOUR_CHAR_CODE('kuni'),     // typeUnicodeText        kEventParamKeyboardType = FOUR_CHAR_CODE('kbdt'),    // typeUInt32        typeEventHotKeyID = FOUR_CHAR_CODE('hkid')           // EventHotKeyID    };
 
-    /* TextInput event parameters*/
-
+    // TextInput event parameters
     enum
     {
         kEventParamTextInputSendRefCon =
-            FOUR_CHAR_CODE('tsrc'), /*    typeLongInteger*/
-        kEventParamTextInputSendComponentInstance =
-            FOUR_CHAR_CODE('tsci'), /*    typeComponentInstance*/
-        kEventParamTextInputSendSLRec =
-            FOUR_CHAR_CODE('tssl'), /*    typeIntlWritingCode*/
-        kEventParamTextInputReplySLRec =
-            FOUR_CHAR_CODE('trsl'), /*    typeIntlWritingCode*/
-        kEventParamTextInputSendText =
+            FOUR_CHAR_CODE('tsrc'), //    typeLongInteger        kEventParamTextInputSendComponentInstance =
+            FOUR_CHAR_CODE('tsci'), //    typeComponentInstance        kEventParamTextInputSendSLRec =
+            FOUR_CHAR_CODE('tssl'), //    typeIntlWritingCode        kEventParamTextInputReplySLRec =
+            FOUR_CHAR_CODE('trsl'), //    typeIntlWritingCode        kEventParamTextInputSendText =
             FOUR_CHAR_CODE('tstx'), /*    typeUnicodeText (if TSMDocument is Unicode),
                                        otherwise typeChar*/
         kEventParamTextInputReplyText =
             FOUR_CHAR_CODE('trtx'), /*    typeUnicodeText (if TSMDocument is Unicode),
                                        otherwise typeChar*/
         kEventParamTextInputSendUpdateRng =
-            FOUR_CHAR_CODE('tsup'), /*    typeTextRangeArray*/
-        kEventParamTextInputSendHiliteRng =
-            FOUR_CHAR_CODE('tshi'), /*    typeTextRangeArray*/
-        kEventParamTextInputSendClauseRng =
-            FOUR_CHAR_CODE('tscl'),                              /*    typeOffsetArray*/
-        kEventParamTextInputSendPinRng = FOUR_CHAR_CODE('tspn'), /*    typeTextRange*/
-        kEventParamTextInputSendFixLen =
-            FOUR_CHAR_CODE('tsfx'), /*    typeLongInteger*/
-        kEventParamTextInputSendLeadingEdge =
-            FOUR_CHAR_CODE('tsle'), /*    typeBoolean*/
-        kEventParamTextInputReplyLeadingEdge =
-            FOUR_CHAR_CODE('trle'), /*    typeBoolean*/
-        kEventParamTextInputSendTextOffset =
-            FOUR_CHAR_CODE('tsto'), /*    typeLongInteger*/
-        kEventParamTextInputReplyTextOffset =
-            FOUR_CHAR_CODE('trto'), /*    typeLongInteger*/
-        kEventParamTextInputReplyRegionClass =
-            FOUR_CHAR_CODE('trrg'), /*    typeLongInteger*/
-        kEventParamTextInputSendCurrentPoint =
-            FOUR_CHAR_CODE('tscp'), /*    typeQDPoint*/
-        kEventParamTextInputSendDraggingMode =
-            FOUR_CHAR_CODE('tsdm'),                              /*    typeBoolean*/
-        kEventParamTextInputReplyPoint = FOUR_CHAR_CODE('trpt'), /*    typeQDPoint*/
-        kEventParamTextInputReplyFont =
-            FOUR_CHAR_CODE('trft'),                                  /*    typeLongInteger*/
-        kEventParamTextInputReplyFMFont = FOUR_CHAR_CODE('trfm'),    /*    typeUInt32*/
-        kEventParamTextInputReplyPointSize = FOUR_CHAR_CODE('trpz'), /*    typeFixed*/
-        kEventParamTextInputReplyLineHeight =
-            FOUR_CHAR_CODE('trlh'), /*    typeShortInteger*/
-        kEventParamTextInputReplyLineAscent =
-            FOUR_CHAR_CODE('trla'),                                  /*    typeShortInteger*/
-        kEventParamTextInputReplyTextAngle = FOUR_CHAR_CODE('trta'), /*    typeFixed*/
-        kEventParamTextInputSendShowHide = FOUR_CHAR_CODE('tssh'),   /*    typeBoolean*/
-        kEventParamTextInputReplyShowHide =
-            FOUR_CHAR_CODE('trsh'), /*    typeBoolean*/
-        kEventParamTextInputSendKeyboardEvent =
-            FOUR_CHAR_CODE('tske'), /*    typeEventRef*/
-        kEventParamTextInputSendTextServiceEncoding =
-            FOUR_CHAR_CODE('tsse'), /*    typeUInt32*/
-        kEventParamTextInputSendTextServiceMacEncoding =
-            FOUR_CHAR_CODE('tssm') /*    typeUInt32*/
-    };
+            FOUR_CHAR_CODE('tsup'), //    typeTextRangeArray        kEventParamTextInputSendHiliteRng =
+            FOUR_CHAR_CODE('tshi'), //    typeTextRangeArray        kEventParamTextInputSendClauseRng =
+            FOUR_CHAR_CODE('tscl'),                              //    typeOffsetArray        kEventParamTextInputSendPinRng = FOUR_CHAR_CODE('tspn'), //    typeTextRange        kEventParamTextInputSendFixLen =
+            FOUR_CHAR_CODE('tsfx'), //    typeLongInteger        kEventParamTextInputSendLeadingEdge =
+            FOUR_CHAR_CODE('tsle'), //    typeBoolean        kEventParamTextInputReplyLeadingEdge =
+            FOUR_CHAR_CODE('trle'), //    typeBoolean        kEventParamTextInputSendTextOffset =
+            FOUR_CHAR_CODE('tsto'), //    typeLongInteger        kEventParamTextInputReplyTextOffset =
+            FOUR_CHAR_CODE('trto'), //    typeLongInteger        kEventParamTextInputReplyRegionClass =
+            FOUR_CHAR_CODE('trrg'), //    typeLongInteger        kEventParamTextInputSendCurrentPoint =
+            FOUR_CHAR_CODE('tscp'), //    typeQDPoint        kEventParamTextInputSendDraggingMode =
+            FOUR_CHAR_CODE('tsdm'),                              //    typeBoolean        kEventParamTextInputReplyPoint = FOUR_CHAR_CODE('trpt'), //    typeQDPoint        kEventParamTextInputReplyFont =
+            FOUR_CHAR_CODE('trft'),                                  //    typeLongInteger        kEventParamTextInputReplyFMFont = FOUR_CHAR_CODE('trfm'),    //    typeUInt32        kEventParamTextInputReplyPointSize = FOUR_CHAR_CODE('trpz'), //    typeFixed        kEventParamTextInputReplyLineHeight =
+            FOUR_CHAR_CODE('trlh'), //    typeShortInteger        kEventParamTextInputReplyLineAscent =
+            FOUR_CHAR_CODE('trla'),                                  //    typeShortInteger        kEventParamTextInputReplyTextAngle = FOUR_CHAR_CODE('trta'), //    typeFixed        kEventParamTextInputSendShowHide = FOUR_CHAR_CODE('tssh'),   //    typeBoolean        kEventParamTextInputReplyShowHide =
+            FOUR_CHAR_CODE('trsh'), //    typeBoolean        kEventParamTextInputSendKeyboardEvent =
+            FOUR_CHAR_CODE('tske'), //    typeEventRef        kEventParamTextInputSendTextServiceEncoding =
+            FOUR_CHAR_CODE('tsse'), //    typeUInt32        kEventParamTextInputSendTextServiceMacEncoding =
+            FOUR_CHAR_CODE('tssm') //    typeUInt32    };
 
-    /* Command event parameters and types*/
-
+    // Command event parameters and types
     enum
     {
-        kEventParamHICommand = FOUR_CHAR_CODE('hcmd'), /* typeHICommand*/
-        typeHICommand = FOUR_CHAR_CODE('hcmd')         /* HICommand*/
-    };
+        kEventParamHICommand = FOUR_CHAR_CODE('hcmd'), // typeHICommand        typeHICommand = FOUR_CHAR_CODE('hcmd')         // HICommand    };
 
-    /* Window event parameters and types*/
-
+    // Window event parameters and types
     enum
     {
-        kEventParamWindowFeatures = FOUR_CHAR_CODE('wftr'), /* typeUInt32*/
-        kEventParamWindowDefPart = FOUR_CHAR_CODE('wdpc'),  /* typeWindowDefPartCode*/
-        kEventParamCurrentBounds = FOUR_CHAR_CODE('crct'),  /* typeQDRectangle*/
-        kEventParamOriginalBounds = FOUR_CHAR_CODE('orct'), /* typeQDRectangle*/
-        kEventParamPreviousBounds = FOUR_CHAR_CODE('prct'), /* typeQDRectangle*/
-        kEventParamClickActivation =
-            FOUR_CHAR_CODE('clac'), /* typeClickActivationResult*/
-        kEventParamWindowRegionCode =
-            FOUR_CHAR_CODE('wshp'),                               /* typeWindowRegionCode*/
-        kEventParamWindowDragHiliteFlag = FOUR_CHAR_CODE('wdhf'), /* typeBoolean*/
-        kEventParamWindowModifiedFlag = FOUR_CHAR_CODE('wmff'),   /* typeBoolean*/
-        kEventParamWindowProxyGWorldPtr = FOUR_CHAR_CODE('wpgw'), /* typeGWorldPtr*/
-        kEventParamWindowProxyImageRgn = FOUR_CHAR_CODE('wpir'),  /* typeQDRgnHandle*/
-        kEventParamWindowProxyOutlineRgn =
-            FOUR_CHAR_CODE('wpor'),                                  /* typeQDRgnHandle*/
-        kEventParamWindowStateChangedFlags = FOUR_CHAR_CODE('wscf'), /* typeUInt32 */
-        kEventParamWindowTitleFullWidth = FOUR_CHAR_CODE('wtfw'),    /* typeSInt16*/
-        kEventParamWindowTitleTextWidth = FOUR_CHAR_CODE('wttw'),    /* typeSInt16*/
-        kEventParamWindowGrowRect = FOUR_CHAR_CODE('grct'),          /* typeQDRectangle*/
-        kEventParamAttributes = FOUR_CHAR_CODE('attr'),              /* typeUInt32*/
-        typeWindowRegionCode = FOUR_CHAR_CODE('wshp'),               /* WindowRegionCode*/
-        typeWindowDefPartCode = FOUR_CHAR_CODE('wdpt'),              /* WindowDefPartCode*/
-        typeClickActivationResult = FOUR_CHAR_CODE('clac')           /* ClickActivationResult*/
-    };
+        kEventParamWindowFeatures = FOUR_CHAR_CODE('wftr'), // typeUInt32        kEventParamWindowDefPart = FOUR_CHAR_CODE('wdpc'),  // typeWindowDefPartCode        kEventParamCurrentBounds = FOUR_CHAR_CODE('crct'),  // typeQDRectangle        kEventParamOriginalBounds = FOUR_CHAR_CODE('orct'), // typeQDRectangle        kEventParamPreviousBounds = FOUR_CHAR_CODE('prct'), // typeQDRectangle        kEventParamClickActivation =
+            FOUR_CHAR_CODE('clac'), // typeClickActivationResult        kEventParamWindowRegionCode =
+            FOUR_CHAR_CODE('wshp'),                               // typeWindowRegionCode        kEventParamWindowDragHiliteFlag = FOUR_CHAR_CODE('wdhf'), // typeBoolean        kEventParamWindowModifiedFlag = FOUR_CHAR_CODE('wmff'),   // typeBoolean        kEventParamWindowProxyGWorldPtr = FOUR_CHAR_CODE('wpgw'), // typeGWorldPtr        kEventParamWindowProxyImageRgn = FOUR_CHAR_CODE('wpir'),  // typeQDRgnHandle        kEventParamWindowProxyOutlineRgn =
+            FOUR_CHAR_CODE('wpor'),                                  // typeQDRgnHandle        kEventParamWindowStateChangedFlags = FOUR_CHAR_CODE('wscf'), // typeUInt32         kEventParamWindowTitleFullWidth = FOUR_CHAR_CODE('wtfw'),    // typeSInt16        kEventParamWindowTitleTextWidth = FOUR_CHAR_CODE('wttw'),    // typeSInt16        kEventParamWindowGrowRect = FOUR_CHAR_CODE('grct'),          // typeQDRectangle        kEventParamAttributes = FOUR_CHAR_CODE('attr'),              // typeUInt32        typeWindowRegionCode = FOUR_CHAR_CODE('wshp'),               // WindowRegionCode        typeWindowDefPartCode = FOUR_CHAR_CODE('wdpt'),              // WindowDefPartCode        typeClickActivationResult = FOUR_CHAR_CODE('clac')           // ClickActivationResult    };
 
-    /* Control event parameters and types*/
-
+    // Control event parameters and types
     enum
     {
-        kEventParamControlPart = FOUR_CHAR_CODE('cprt'),    /* typeControlPartCode*/
-        kEventParamInitCollection = FOUR_CHAR_CODE('icol'), /* typeCollection*/
-        kEventParamControlMessage = FOUR_CHAR_CODE('cmsg'), /* typeShortInteger*/
-        kEventParamControlParam = FOUR_CHAR_CODE('cprm'),   /* typeLongInteger*/
-        kEventParamControlResult = FOUR_CHAR_CODE('crsl'),  /* typeLongInteger*/
-        kEventParamControlRegion = FOUR_CHAR_CODE('crgn'),  /* typeQDRgnHandle*/
-        kEventParamControlAction = FOUR_CHAR_CODE('caup'),  /* typeControlActionUPP*/
-        kEventParamControlIndicatorDragConstraint =
-            FOUR_CHAR_CODE('cidc'), /* typeIndicatorDragConstraint*/
-        kEventParamControlIndicatorRegion =
-            FOUR_CHAR_CODE('cirn'),                                 /* typeQDRgnHandle*/
-        kEventParamControlIsGhosting = FOUR_CHAR_CODE('cgst'),      /* typeBoolean*/
-        kEventParamControlIndicatorOffset = FOUR_CHAR_CODE('ciof'), /* typeQDPoint*/
-        kEventParamControlClickActivationResult =
-            FOUR_CHAR_CODE('ccar'),                               /* typeClickActivationResult*/
-        kEventParamControlSubControl = FOUR_CHAR_CODE('csub'),    /* typeControlRef*/
-        kEventParamControlOptimalBounds = FOUR_CHAR_CODE('cobn'), /* typeQDRectangle*/
-        kEventParamControlOptimalBaselineOffset =
-            FOUR_CHAR_CODE('cobo'),                            /* typeShortInteger*/
-        kEventParamControlDataTag = FOUR_CHAR_CODE('cdtg'),    /* typeEnumeration*/
-        kEventParamControlDataBuffer = FOUR_CHAR_CODE('cdbf'), /* typePtr*/
-        kEventParamControlDataBufferSize =
-            FOUR_CHAR_CODE('cdbs'),                             /* typeLongInteger*/
-        kEventParamControlDrawDepth = FOUR_CHAR_CODE('cddp'),   /* typeShortInteger*/
-        kEventParamControlDrawInColor = FOUR_CHAR_CODE('cdic'), /* typeBoolean*/
-        kEventParamControlFeatures = FOUR_CHAR_CODE('cftr'),    /* typeUInt32*/
-        kEventParamControlPartBounds = FOUR_CHAR_CODE('cpbd'),  /* typeQDRectangle*/
-        kEventParamControlOriginalOwningWindow =
-            FOUR_CHAR_CODE('coow'), /* typeWindowRef*/
-        kEventParamControlCurrentOwningWindow =
-            FOUR_CHAR_CODE('ccow'),                    /* typeWindowRef*/
-        typeControlActionUPP = FOUR_CHAR_CODE('caup'), /* ControlActionUPP*/
-        typeIndicatorDragConstraint =
-            FOUR_CHAR_CODE('cidc'),                  /* IndicatorDragConstraint*/
-        typeControlPartCode = FOUR_CHAR_CODE('cprt') /* ControlPartCode*/
-    };
+        kEventParamControlPart = FOUR_CHAR_CODE('cprt'),    // typeControlPartCode        kEventParamInitCollection = FOUR_CHAR_CODE('icol'), // typeCollection        kEventParamControlMessage = FOUR_CHAR_CODE('cmsg'), // typeShortInteger        kEventParamControlParam = FOUR_CHAR_CODE('cprm'),   // typeLongInteger        kEventParamControlResult = FOUR_CHAR_CODE('crsl'),  // typeLongInteger        kEventParamControlRegion = FOUR_CHAR_CODE('crgn'),  // typeQDRgnHandle        kEventParamControlAction = FOUR_CHAR_CODE('caup'),  // typeControlActionUPP        kEventParamControlIndicatorDragConstraint =
+            FOUR_CHAR_CODE('cidc'), // typeIndicatorDragConstraint        kEventParamControlIndicatorRegion =
+            FOUR_CHAR_CODE('cirn'),                                 // typeQDRgnHandle        kEventParamControlIsGhosting = FOUR_CHAR_CODE('cgst'),      // typeBoolean        kEventParamControlIndicatorOffset = FOUR_CHAR_CODE('ciof'), // typeQDPoint        kEventParamControlClickActivationResult =
+            FOUR_CHAR_CODE('ccar'),                               // typeClickActivationResult        kEventParamControlSubControl = FOUR_CHAR_CODE('csub'),    // typeControlRef        kEventParamControlOptimalBounds = FOUR_CHAR_CODE('cobn'), // typeQDRectangle        kEventParamControlOptimalBaselineOffset =
+            FOUR_CHAR_CODE('cobo'),                            // typeShortInteger        kEventParamControlDataTag = FOUR_CHAR_CODE('cdtg'),    // typeEnumeration        kEventParamControlDataBuffer = FOUR_CHAR_CODE('cdbf'), // typePtr        kEventParamControlDataBufferSize =
+            FOUR_CHAR_CODE('cdbs'),                             // typeLongInteger        kEventParamControlDrawDepth = FOUR_CHAR_CODE('cddp'),   // typeShortInteger        kEventParamControlDrawInColor = FOUR_CHAR_CODE('cdic'), // typeBoolean        kEventParamControlFeatures = FOUR_CHAR_CODE('cftr'),    // typeUInt32        kEventParamControlPartBounds = FOUR_CHAR_CODE('cpbd'),  // typeQDRectangle        kEventParamControlOriginalOwningWindow =
+    // Parameter names and types 
+            FOUR_CHAR_CODE('ccow'),                    // typeWindowRef        typeControlActionUPP = FOUR_CHAR_CODE('caup'), // ControlActionUPP        typeIndicatorDragConstraint =
+            FOUR_CHAR_CODE('cidc'),                  // IndicatorDragConstraint        typeControlPartCode = FOUR_CHAR_CODE('cprt') // ControlPartCode    };
 
-    /* Menu event parameters and types*/
-
-    enum
+    // Menu event parameters and types
+    enum// type varies depending on event
     {
         kEventParamCurrentMenuTrackingMode =
-            FOUR_CHAR_CODE('cmtm'), /* typeMenuTrackingMode*/
-        kEventParamNewMenuTrackingMode =
-            FOUR_CHAR_CODE('nmtm'),                                /* typeMenuTrackingMode*/
-        kEventParamMenuFirstOpen = FOUR_CHAR_CODE('1sto'),         /* typeBoolean*/
-        kEventParamMenuItemIndex = FOUR_CHAR_CODE('item'),         /* typeMenuItemIndex*/
-        kEventParamMenuCommand = FOUR_CHAR_CODE('mcmd'),           /* typeMenuCommand*/
-        kEventParamEnableMenuForKeyEvent = FOUR_CHAR_CODE('fork'), /* typeBoolean*/
-        kEventParamMenuEventOptions =
-            FOUR_CHAR_CODE('meop'),                               /* typeMenuEventOptions*/
-        kEventParamMenuContext = FOUR_CHAR_CODE('mctx'),          /* typeUInt32*/
-        kEventParamMenuItemBounds = FOUR_CHAR_CODE('mitb'),       /* typeQDRectangle*/
-        kEventParamMenuMarkBounds = FOUR_CHAR_CODE('mmkb'),       /* typeQDRectangle*/
-        kEventParamMenuIconBounds = FOUR_CHAR_CODE('micb'),       /* typeQDRectangle*/
-        kEventParamMenuTextBounds = FOUR_CHAR_CODE('mtxb'),       /* typeQDRectangle*/
-        kEventParamMenuTextBaseline = FOUR_CHAR_CODE('mtbl'),     /* typeShortInteger*/
-        kEventParamMenuCommandKeyBounds = FOUR_CHAR_CODE('mcmb'), /* typeQDRectangle*/
-        kEventParamMenuVirtualTop = FOUR_CHAR_CODE('mvrt'),       /* typeLongInteger*/
-        kEventParamMenuVirtualBottom = FOUR_CHAR_CODE('mvrb'),    /* typeLongInteger*/
-        kEventParamMenuDrawState = FOUR_CHAR_CODE('mdrs'),        /* typeThemeDrawState*/
-        kEventParamMenuItemType = FOUR_CHAR_CODE('mitp'),         /* typeThemeMenuItemType*/
-        kEventParamMenuItemWidth = FOUR_CHAR_CODE('mitw'),        /* typeShortInteger*/
-        kEventParamMenuItemHeight = FOUR_CHAR_CODE('mith'),       /* typeShortInteger*/
-        typeMenuItemIndex = FOUR_CHAR_CODE('midx'),               /* MenuItemIndex*/
-        typeMenuCommand = FOUR_CHAR_CODE('mcmd'),                 /* MenuCommand*/
-        typeMenuTrackingMode = FOUR_CHAR_CODE('mtmd'),            /* MenuTrackingMode*/
-        typeMenuEventOptions = FOUR_CHAR_CODE('meop'),            /* MenuEventOptions*/
-        typeThemeMenuState = FOUR_CHAR_CODE('tmns'),              /* ThemeMenuState*/
-        typeThemeMenuItemType = FOUR_CHAR_CODE('tmit')            /* ThemeMenuItemType*/
-    };
+    // Generic toolbox parameters and types
+            FOUR_CHAR_CODE('nmtm'),                                // typeMenuTrackingMode        kEventParamMenuFirstOpen = FOUR_CHAR_CODE('1sto'),         // typeBoolean        kEventParamMenuItemIndex = FOUR_CHAR_CODE('item'),         // typeMenuItemIndex        kEventParamMenuCommand = FOUR_CHAR_CODE('mcmd'),           // typeMenuCommand        kEventParamEnableMenuForKeyEvent = FOUR_CHAR_CODE('fork'), // typeBoolean        kEventParamMenuEventOptions =
+            FOUR_CHAR_CODE('meop'),                               // typeMenuEventOptions        kEventParamMenuContext = FOUR_CHAR_CODE('mctx'),          // typeUInt32        kEventParamMenuItemBounds = FOUR_CHAR_CODE('mitb'),       // typeQDRectangle        kEventParamMenuMarkBounds = FOUR_CHAR_CODE('mmkb'),       // typeQDRectangle        kEventParamMenuIconBounds = FOUR_CHAR_CODE('micb'),       // typeQDRectangle        kEventParamMenuTextBounds = FOUR_CHAR_CODE('mtxb'),       // typeQDRectangle        kEventParamMenuTextBaseline = FOUR_CHAR_CODE('mtbl'),     // typeShortInteger        kEventParamMenuCommandKeyBounds = FOUR_CHAR_CODE('mcmb'), // typeQDRectangle        kEventParamMenuVirtualTop = FOUR_CHAR_CODE('mvrt'),       // typeLongInteger        kEventParamMenuVirtualBottom = FOUR_CHAR_CODE('mvrb'),    // typeLongInteger        kEventParamMenuDrawState = FOUR_CHAR_CODE('mdrs'),        // typeThemeDrawState        kEventParamMenuItemType = FOUR_CHAR_CODE('mitp'),         // typeThemeMenuItemType        kEventParamMenuItemWidth = FOUR_CHAR_CODE('mitw'),        // typeShortInteger        kEventParamMenuItemHeight = FOUR_CHAR_CODE('mith'),       // typeShortInteger        typeMenuItemIndex = FOUR_CHAR_CODE('midx'),               // MenuItemIndex        typeMenuCommand = FOUR_CHAR_CODE('mcmd'),                 // MenuCommand        typeMenuTrackingMode = FOUR_CHAR_CODE('mtmd'),            // MenuTrackingMode        typeMenuEventOptions = FOUR_CHAR_CODE('meop'),            // MenuEventOptions        typeThemeMenuState = FOUR_CHAR_CODE('tmns'),              // ThemeMenuState        typeThemeMenuItemType = FOUR_CHAR_CODE('tmit')            // ThemeMenuItemType    };
 
-    /* Application event parameters*/
-
-    enum
-    {
-        kEventParamProcessID = FOUR_CHAR_CODE('psn '),    /* typeProcessSerialNumber*/
-        kEventParamLaunchRefCon = FOUR_CHAR_CODE('lref'), /* typeUInt32*/
-        kEventParamLaunchErr = FOUR_CHAR_CODE('err ')     /* typeOSStatus*/
-    };
-
-    /* Tablet event parameters and types*/
-
-    enum
-    {
-        kEventParamTabletPointRec = FOUR_CHAR_CODE('tbrc'), /* typeTabletPointRec*/
-        kEventParamTabletProximityRec =
-            FOUR_CHAR_CODE('tbpx'),                  /* typeTabletProximityRec*/
-        typeTabletPointRec = FOUR_CHAR_CODE('tbrc'), /* kEventParamTabletPointRec*/
-        typeTabletProximityRec =
-            FOUR_CHAR_CODE('tbpx'), /* kEventParamTabletProximityRec*/
-        kEventParamTabletPointerRec =
-            FOUR_CHAR_CODE('tbrc'), /* typeTabletPointerRec      -- deprecated, for
-                                       compatibility only*/
-        typeTabletPointerRec =
-            FOUR_CHAR_CODE('tbrc') /* kEventParamTabletPointerRec    -- deprecated,
-                                      for compatibility only*/
-    };
-
-    /* Appearance event parameters*/
-
-    enum
-    {
-        kEventParamNewScrollBarVariant = FOUR_CHAR_CODE('nsbv') /* typeShortInteger*/
-    };
-
-    /* Service event parameters*/
-
-    enum
-    {
-        kEventParamScrapRef = FOUR_CHAR_CODE('scrp'), /*    typeScrapRef*/
-        kEventParamServiceCopyTypes =
-            FOUR_CHAR_CODE('svsd'), /*    typeCFMutableArrayRef*/
-        kEventParamServicePasteTypes =
-            FOUR_CHAR_CODE('svpt'), /*    typeCFMutableArrayRef*/
-        kEventParamServiceMessageName =
-            FOUR_CHAR_CODE('svmg'),                          /*    typeCFStringRef*/
-        kEventParamServiceUserData = FOUR_CHAR_CODE('svud'), /*    typeCFStringRef*/
-        typeScrapRef = FOUR_CHAR_CODE('scrp'),               /*    ScrapRef*/
-        typeCFMutableArrayRef = FOUR_CHAR_CODE('cfma')       /*    CFMutableArrayRef*/
-    };
+    // Application event parameters// typeWindowRef
+    enum// typeGrafPtr
+    {// typeDragRef
+        kEventParamProcessID = FOUR_CHAR_CODE('psn '),    // // typeMenuRef
+// typeEventRef
+    // Tablet event parameters and types// typeControlRef
+    enum// typeQDRgnHandle
+    {// typeBoolean
+        kEventParamTabletPointRec = FOUR_CHAR_CODE('tbrc'), /// typeQDPoint
+            FOUR_CHAR_CODE('tbpx'),                  // typeT// typeQDRectangle
+            FOUR_CHAR_CODE('tbpx'), // kEventParamTabletProxi// typeType
+            FOUR_CHAR_CODE('tbrc'), /* typeTabletPointerRec  // typeType
+                                       compatibility only*/// typeCGContextRef
+        typeTabletPointerRec =// typeShortInteger
+            FOUR_CHAR_CODE('tbrc') /* kEventParamTabletPointe// typeBoolean
+                                      for compatibility only*// WindowRef
+    };// CGrafPtr
+// GWorldPtr
+    // Appearance event parameters// DragRef
+    enum// MenuRef
+    {// ControlRef
+        kEventParamNewScrollBarVariant = FOUR_CHAR_CODE('nsbv// Collection
+// RgnHandle
+    // Service event parameters// OSStatus
+    enum// CFStringRef
+    {// CGContextRef
+        kEventParamScrapRef = FOUR_CHAR_CODE('scrp'), //    t// HIPoint
+            FOUR_CHAR_CODE('svsd'), //    typeCFMutableArrayRef        kEventParamServicePasteTypes =
+            FOUR_CHAR_CODE('svpt'), //    typeCFMutableArrayRef        kEventParamServiceMessageName =
+    // Mouse event parameters and types
 
     /*======================================================================================*/
-    /*  EVENT HANDLERS */
-    /*======================================================================================*/
-
-    typedef struct OpaqueEventHandlerRef *EventHandlerRef;
-    typedef struct OpaqueEventHandlerCallRef *EventHandlerCallRef;
-
-    /*��������������������������������������������������������������������������������������*/
-    /*  � EventHandler specification */
-    /*��������������������������������������������������������������������������������������*/
-
-    /**
-     *  EventHandlerProcPtr
-     *
+    //  EVENT HANDLERS     /*======================================================================================*/
+// typeQDPoint
+    typedef struct OpaqueEventHandlerRef *EventHandlerRef;// typeMouseButton
+    typedef struct OpaqueEventHandlerCallRef *EventHandlerCal// typeUInt32
+// typeMouseWheelAxis
+    /*�������������������������������������������������������// typeSInt32
+    //  � EventHandler specification     /*������������������// typeQDPoint
+// typeUInt32
+    /**// typeUInt32
+     *  EventHandlerProcPtr// EventMouseButton
+     *// EventMouseWheelAxis
      *  Discussion:
      *    Callback for receiving events sent to a target this callback is
-     *    installed on.
+    // Keyboard event parameter and types
      *
      *  Parameters:
      *
-     *    inHandlerCallRef:
-     *      A reference to the current handler call chain. This is sent to
-     *      your handler so that you can call CallNextEventHandler if you
-     *      need to.
-     *
-     *    inEvent:
+     *    inHandlerCallRef:// typeUInt32
+     *      A reference to the current handler call chain. Th// typeChar
+     *      your handler so that you can call CallNextEventHa// typeUInt32
+     *      need to.// typeUnicodeText
+     *// typeUInt32
+     *    inEvent:// EventHotKeyID
      *      The Event.
      *
-     *    inUserData:
+    // TextInput event parameters
      *      The app-specified data you passed in a call to
      *      InstallEventHandler.
      *
      *  Result:
-     *    An operating system result code. Returning noErr indicates you
+     *    An operating system result//    typeLongInteger
      *    handled the event. Returning eventNotHandledErr indicates you did
-     *    not handle the event and perhaps the toolbox should take other
+     *    not handle the event and p//    typeComponentInstance
      *    action.
-     */
+     *///    typeIntlWritingCode
     typedef CALLBACK_API(OSStatus,
-                         EventHandlerProcPtr)(EventHandlerCallRef inHandlerCallRef,
+                         EventHandle//    typeIntlWritingCode
                                               EventRef inEvent, void *inUserData);
     typedef STACK_UPP_TYPE(EventHandlerProcPtr) EventHandlerUPP;
     /**
@@ -4892,191 +4639,181 @@ extern "C"
      *
      *  Availability:
      *    \non_carbon_cfm   available as macro/inline
-     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \carbon_lib        in Carb//    typeTextRangeArray
      *    \mac_os_x         in version 10.0 and later
-     */
+     *///    typeTextRangeArray
     EventHandlerUPP
-    NewEventHandlerUPP(EventHandlerProcPtr userRoutine);
-#if !OPAQUE_UPP_TYPES
+    NewEventHandlerUPP(EventHandlerProcPtr userRoutine);//    typeOffsetArray
+#if !OPAQUE_UPP_TYPES//    typeTextRange
     enum
-    {
+    {//    typeLongInteger
         uppEventHandlerProcInfo = 0x00000FF0
-    }; /* pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+    }; // pascal 4_bytes Func(4_byte//    typeBoolean
     inline EventHandlerUPP NewEventHandlerUPP(EventHandlerProcPtr userRoutine)
-    {
+    {//    typeBoolean
         return (EventHandlerUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                     uppEventHandlerProcInfo,
+                                    //    typeLongInteger
                                                      GetCurrentArchitecture());
-    }
+    }//    typeLongInteger
 #else
-#define NewEventHandlerUPP(userRoutine)                                       \
+#define NewEventHandlerUPP(userRouti//    typeLongInteger
     (EventHandlerUPP)                                                         \
-        NewRoutineDescriptor((ProcPtr)(userRoutine), uppEventHandlerProcInfo, \
+        NewRoutineDescriptor((ProcPt//    typeQDPoint
                              GetCurrentArchitecture())
-#endif
-#endif
+#endif//    typeBoolean
+#endif//    typeQDPoint
 
-    /**
-     *  DisposeEventHandlerUPP()
-     *
+    /**//    typeLongInteger
+     *  DisposeEventHandlerUPP()//    typeUInt32
+     *//    typeFixed
      *  Availability:
-     *    \non_carbon_cfm   available as macro/inline
+     *    \non_carbon_cfm   availabl//    typeShortInteger
      *    \carbon_lib        in CarbonLib 1.1 and later
-     *    \mac_os_x         in version 10.0 and later
-     */
-    void
+     *    \mac_os_x         in version 10.0 and later//    typeShortInteger
+     *///    typeFixed
+    void//    typeBoolean
     DisposeEventHandlerUPP(EventHandlerUPP userUPP);
-#if !OPAQUE_UPP_TYPES
+#if !OPAQUE_UPP_TYPES//    typeBoolean
 #ifdef __cplusplus
-    inline void DisposeEventHandlerUPP(EventHandlerUPP userUPP)
+    inline void DisposeEventHandlerU//    typeEventRef
     {
-        DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+        DisposeRoutineDescriptor((Un//    typeUInt32
     }
-#else
+#else//    typeUInt32
 #define DisposeEventHandlerUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
-#endif
+#end// Command event parameters and types
 
     /**
      *  InvokeEventHandlerUPP()
-     *
-     *  Availability:
+     *// typeHICommand
+     *  Availability:// HICommand
      *    \non_carbon_cfm   available as macro/inline
      *    \carbon_lib        in CarbonLib 1.1 and later
-     *    \mac_os_x         in version 10.0 and later
+    // Window event parameters and types
      */
     OSStatus
     InvokeEventHandlerUPP(EventHandlerCallRef inHandlerCallRef, EventRef inEvent,
-                          void *inUserData, EventHandlerUPP userUPP);
-#if !OPAQUE_UPP_TYPES
-#ifdef __cplusplus
-    inline OSStatus InvokeEventHandlerUPP(EventHandlerCallRef inHandlerCallRef,
-                                          EventRef inEvent, void *inUserData,
+                          void *inUserData, EventHandlerUPP // typeUInt32
+#if !OPAQUE_UPP_TYPES// typeWindowDefPartCode
+#ifdef __cplusplus// typeQDRectangle
+    inline OSStatus InvokeEventHandlerUPP(EventHandlerCallRe// typeQDRectangle
+                                          EventRef inEvent, // typeQDRectangle
                                           EventHandlerUPP userUPP)
-    {
+    {// typeClickActivationResult
         return (OSStatus)CALL_THREE_PARAMETER_UPP(
-            userUPP, uppEventHandlerProcInfo, inHandlerCallRef, inEvent, inUserData);
-    }
-#else
-#define InvokeEventHandlerUPP(inHandlerCallRef, inEvent, inUserData, userUPP) \
-    (OSStatus)                                                                \
+            userUPP, uppEventHandlerProcInfo, inHandlerCallRef, in// typeWindowRegionCode
+    }// typeBoolean
+#else// typeBoolean
+#define InvokeEventHandlerUPP(inHandlerCallRef, inEvent, inUserDat// typeGWorldPtr
+    (OSStatus)                                                    // typeQDRgnHandle
         CALL_THREE_PARAMETER_UPP((userUPP), uppEventHandlerProcInfo,          \
-                                 (inHandlerCallRef), (inEvent), (inUserData))
-#endif
-#endif
-
-#if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewEventHandlerProc(userRoutine) NewEventHandlerUPP(userRoutine)
-#define CallEventHandlerProc(userRoutine, inHandlerCallRef, inEvent, \
-                             inUserData)                             \
-    InvokeEventHandlerUPP(inHandlerCallRef, inEvent, inUserData, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+                                 (inHandlerCallRef), (inEvent), (inUs// typeQDRgnHandle
+#endif// typeUInt32 
+#endif// typeSInt16
+// typeSInt16
+#if CALL_NOT_IN_CARBON || OLDROUTINENAMES// typeQDRectangle
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #d// typeUInt32
+#define CallEventHandlerProc(userRoutine, inHandlerCallRef, inEvent, // WindowRegionCode
+                             inUserData)                             // WindowDefPartCode
+    InvokeEventHandlerUPP(inHandlerCallRef, inEvent, inUserData, user// ClickActivationResult
+#endif // CALL_NOT_IN_CARBON 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Installing Event Handlers */
-    /*                                                                                      */
-    /* Use these routines to install event handlers for a specific toolbox object.
+    // Control event parameters and types
      * You may  */
     /* pass zero for inNumTypes and NULL for inList if you need to be in a situation
      * where  */
-    /* you know you will be receiving events, but not exactly which ones at the time
-     * you    */
-    /* are installing the handler. Later, your application can call the Add/Remove
-     * routines */
-    /* listed below this section. */
-    /*                                                                                      */
-    /* You can only install a specific handler once. The combination of inHandler
-     * and       */
-    /* inUserData is considered the 'signature' of a handler. Any attempt to install
+    /* you know you will be receiving events, but not exactl// typeControlPartCode
+     * you    */// typeCollection
+    /* are installing the handler. Later, your application c// typeShortInteger
+     * routines */// typeLongInteger
+    // listed below this section.     //                    // typeLongInteger
+     * and       */// typeQDRgnHandle
+    /* inUserData is considered the 'signature' of a handler// typeControlActionUPP
      * a new  */
-    /* handler with the same proc and user data as an already-installed handler will
+    /* handler with the same proc an// typeIndicatorDragConstraint
      * result */
-    /* in eventHandlerAlreadyInstalledErr. Installing the same proc and user data on
-     * a      */
-    /* different object is legal. */
-    /*                                                                                      */
-    /* Upon successful completion of this routine, you are returned an
+    /* in eventHandlerAlreadyInstalledErr. Installing the same proc // typeQDRgnHandle
+     * a      */// typeBoolean
+    // different object is legal.     //                            // typeQDPoint
      * EventHandlerRef,     */
-    /* which you can use in various other calls, and is passed to your event
-     * handler. You   */
-    /* use it to extract information about the handler, such as the target (window,
+    /* which you can use in various other calls, and is passed to // typeClickActivationResult
+     * handler. You   */// typeControlRef
+    /* use it to extract information about the handler, such as th// typeQDRectangle
      * etc.)   */
-    /* if you have the same handler installed for different objects and need to
-     * perform     */
-    /* actions on the current target (say, call a window manager function). */
-    /*��������������������������������������������������������������������������������������*/
+    /* if you have the same handler installed for different obj// typeShortInteger
+     * perform     */// typeEnumeration
+    // actions on the current target (say, call a window manage// typePtr
     typedef struct OpaqueEventTargetRef *EventTargetRef;
-    /**
-     *  GetWindowEventTarget()
-     *
-     *  Discussion:
-     *    Returns the EventTargetRef for the specified window. Once you
+    /**// typeLongInteger
+     *  GetWindowEventTarget()// typeShortInteger
+     *// typeBoolean
+     *  Discussion:// typeUInt32
+     *    Returns the EventTargetRef for the specified window. O// typeQDRectangle
      *    obtain this reference, you can send events to the target and
-     *    install an event handler on it.
+     *    install an event handler o// typeWindowRef
      *
-     *  Parameters:
-     *
+     *  Parameters:// typeWindowRef
+     *// ControlActionUPP
      *    inWindow:
-     *      The window to return the target for.
-     *
+     *      The window to return the target for.// IndicatorDragConstraint
+     *// ControlPartCode
      *  Result:
      *    An EventTargetRef.
-     *
+    // Menu event parameters and types
      *  Availability:
      *    \non_carbon_cfm   not available
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
-     */
+     */// typeMenuTrackingMode
     EventTargetRef
-    GetWindowEventTarget(WindowRef inWindow);
-
-    /**
-     *  GetControlEventTarget()
-     *
+    GetWindowEventTarget(WindowRef inWindow);// typeMenuTrackingMode
+// typeBoolean
+    /**// typeMenuItemIndex
+     *  GetControlEventTarget()// typeMenuCommand
+     *// typeBoolean
      *  Discussion:
-     *    Returns the EventTargetRef for the specified control. Once you
-     *    obtain this reference, you can send events to the target and
-     *    install event handler on it.
-     *
-     *  Parameters:
-     *
-     *    inControl:
-     *      The control to return the target for.
-     *
-     *  Result:
-     *    An EventTargetRef.
-     *
-     *  Availability:
-     *    \non_carbon_cfm   not available
-     *    \carbon_lib        in CarbonLib 1.1 and later
-     *    \mac_os_x         in version 10.0 and later
-     */
-    EventTargetRef
-    GetControlEventTarget(ControlRef inControl);
-
+     *    Returns the EventTargetRef for the specified control. On// typeMenuEventOptions
+     *    obtain this reference, you can send events to the target// typeUInt32
+     *    install event handler on it.// typeQDRectangle
+     *// typeQDRectangle
+     *  Parameters:// typeQDRectangle
+     *// typeQDRectangle
+     *    inControl:// typeShortInteger
+     *      The control to return the target for.// typeQDRectangle
+     *// typeLongInteger
+     *  Result:// typeLongInteger
+     *    An EventTargetRef.// typeThemeDrawState
+     *// typeThemeMenuItemType
+     *  Availability:// typeShortInteger
+     *    \non_carbon_cfm   not available// typeShortInteger
+     *    \carbon_lib        in CarbonLib 1.1 and later// MenuItemIndex
+     *    \mac_os_x         in version 10.0 and later// MenuCommand
+     */// MenuTrackingMode
+    EventTargetRef// MenuEventOptions
+    GetControlEventTarget(ControlRef inControl);// ThemeMenuState
+// ThemeMenuItemType
     /**
      *  GetMenuEventTarget()
-     *
+    // Application event parameters
      *  Discussion:
      *    Returns the EventTargetRef for the specified menu. Once you
      *    obtain this reference, you can send events to the target and
-     *    install event handler on it.
-     *
-     *  Parameters:
+     *    install event handler on it.// typeProcessSerialNumber
+     *// typeUInt32
+     *  Parameters:// typeOSStatus
      *
      *    inMenu:
-     *      The menu to return the target for.
+    // Tablet event parameters and types
      *
      *  Result:
      *    An EventTargetRef.
-     *
+     *// typeTabletPointRec
      *  Availability:
-     *    \non_carbon_cfm   not available
-     *    \carbon_lib        in CarbonLib 1.1 and later
+     *    \non_carbon_cfm   not available// typeTabletProximityRec
+     *    \carbon_lib        in CarbonLib 1.1 and lat// kEventParamTabletPointRec
      *    \mac_os_x         in version 10.0 and later
-     */
+     */// kEventParamTabletProximityRec
     EventTargetRef
     GetMenuEventTarget(MenuRef inMenu);
 
@@ -5085,38 +4822,38 @@ extern "C"
      *
      *  Discussion:
      *    Returns the EventTargetRef for the application. Once you obtain
-     *    this reference, you can send events to the target and install
+    // Appearance event parameters
      *    event handler on it.
      *
      *  Result:
-     *    An EventTargetRef.
+     *    An EventTargetRef.// typeShortInteger
      *
      *  Availability:
-     *    \non_carbon_cfm   not available
+    // Service event parameters
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
      */
-    EventTargetRef
+    EventTargetRef//    typeScrapRef
     GetApplicationEventTarget(void);
-
+//    typeCFMutableArrayRef
     /**
-     *  GetUserFocusEventTarget()
+     *  GetUserFocusEventTarget()//    typeCFMutableArrayRef
      *
-     *  Discussion:
-     *    Returns the EventTargetRef for the current user focus at the time
-     *    of the call. Keyboard events are always sent to this target.
-     *
+     *  Discussion://    typeCFStringRef
+     *    Returns the EventTargetRef for the current user foc//    typeCFStringRef
+     *    of the call. Keyboard events are always sent to thi//    ScrapRef
+     *//    CFMutableArrayRef
      *  Result:
      *    An EventTargetRef.
      *
-     *  Availability:
+    //  EVENT HANDLERS 
      *    \non_carbon_cfm   not available
      *    \carbon_lib        in CarbonLib 1.1 and later
      *    \mac_os_x         in version 10.0 and later
      */
     EventTargetRef
     GetUserFocusEventTarget(void);
-
+//  � EventHandler specification 
     /**
      *  GetEventDispatcherTarget()
      *
@@ -5164,7 +4901,7 @@ extern "C"
      *
      *    inUserData:
      *      The value passed in this parameter is passed on to your event
-     *      handler proc when it is called.
+     * // pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes) 
      *
      *    outRef:
      *      Receives an EventHandlerRef, which you can use later to remove
@@ -5184,8 +4921,7 @@ extern "C"
     InstallEventHandler(EventTargetRef inTarget, EventHandlerUPP inHandler,
                         UInt32 inNumTypes, const EventTypeSpec *inList,
                         void *inUserData,
-                        EventHandlerRef *outRef); /* can be NULL */
-
+                        EventHandlerRef *outRef); // can be NULL 
     /**
      *  InstallStandardEventHandler()
      *
@@ -5231,16 +4967,16 @@ extern "C"
      *
      *  Discussion:
      *    Removes an event handler from the target it was bound to.
-     *
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
      *  Parameters:
      *
      *    inHandlerRef:
      *      The handler ref to remove (returned in a call to
-     *      InstallEventHandler). After you call this function, the handler
+     * // CALL_NOT_IN_CARBON 
      *      ref is considered to be invalid and can no longer be used.
      *
-     *  Result:
-     *    An operating system result code.
+    //  � Installing Event Handlers 
+    //                                                                                      
      *
      *  Availability:
      *    \non_carbon_cfm   not available
@@ -5249,11 +4985,9 @@ extern "C"
      */
     OSStatus
     RemoveEventHandler(EventHandlerRef inHandlerRef);
-
-    /*��������������������������������������������������������������������������������������*/
-    /*  � Adjusting set of event types after a handler is created */
-    /*                                                                                      */
-    /* After installing a handler with the routine above, you can adjust the event
+// listed below this section. 
+    //                                                                                      
+    //  � Adjusting set of event types after a handler is created     //                                                                                          /* After installing a handler with the routine above, you can adjust the event
      * type     */
     /* list telling the toolbox what events to send to that handler by calling the
      * two      */
@@ -5261,8 +4995,8 @@ extern "C"
      * handler    */
     /* will only be called once, but it will take two RemoveEventType calls to stop
      * your    */
-    /* handler from being called with that event type. In other words, the install
-     * count    */
+    // different object is legal. 
+    //                                                                                      
     /* for each event type is maintained by the toolbox. This might allow you, for
      * example  */
     /* to have subclasses of a window object register for types without caring if
@@ -5271,8 +5005,7 @@ extern "C"
      * types, it  */
     /* can successfully do so without affecting the base class's reception of its
      * event     */
-    /* types, yielding eternal bliss. */
-    /*��������������������������������������������������������������������������������������*/
+    // actions on the current target (say, call a window manager function). 
 
     /**
      *  AddEventTypesToHandler()
@@ -5335,9 +5068,7 @@ extern "C"
                                 const EventTypeSpec *inList);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Explicit Propogation */
-    /*                                                                                      */
-    /*  CallNextEventHandler can be used to call thru to all handlers below the
+    //  � Explicit Propogation     //                                                                                          /*  CallNextEventHandler can be used to call thru to all handlers below the
      * current     */
     /*  handler being called. You pass the EventHandlerCallRef passed to your
      * EventHandler  */
@@ -5381,8 +5112,7 @@ extern "C"
     CallNextEventHandler(EventHandlerCallRef inCallRef, EventRef inEvent);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Sending Events */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Sending Events     /*��������������������������������������������������������������������������������������*/
     /**
      *  SendEventToEventTarget()
      *
@@ -5423,9 +5153,7 @@ extern "C"
     SendEventToEventTarget((e), GetUserFocusEventTarget())
 
     /*======================================================================================*/
-    /*  EVENT-BASED OBJECT CLASSES */
-    /*                                                                                      */
-    /*  Here it is - the replacement for classic defprocs. This is also a convenient
+    //  EVENT-BASED OBJECT CLASSES     //                                                                                          /*  Here it is - the replacement for classic defprocs. This is also a convenient
      * way    */
     /*  to create toolbox objects (windows, etc.) that have a specific behavior
      * without     */
@@ -5449,15 +5177,14 @@ extern "C"
      */
     OSStatus
     RegisterToolboxObjectClass(CFStringRef inClassID,
-                               ToolboxObjectClassRef inBaseClass, /* can be NULL */
-                               UInt32 inNumEvents, const EventTypeSpec *inEventList,
+                               ToolboxObjectClassRef inBaseClass, // can be NULL                                UInt32 inNumEvents, const EventTypeSpec *inEventList,
                                EventHandlerUPP inEventHandler,
                                void *inEventHandlerData,
                                ToolboxObjectClassRef *outClassRef);
 
     /**
      *  UnregisterToolboxObjectClass()
-     *
+     *// can be NULL 
      *  Availability:
      *    \non_carbon_cfm   not available
      *    \carbon_lib        in CarbonLib 1.1 and later
@@ -5467,8 +5194,7 @@ extern "C"
     UnregisterToolboxObjectClass(ToolboxObjectClassRef inClassRef);
 
     /*======================================================================================*/
-    /*  � Command Routines */
-    /*======================================================================================*/
+    //  � Command Routines     /*======================================================================================*/
 
     /**
      *  ProcessHICommand()
@@ -5482,8 +5208,7 @@ extern "C"
     ProcessHICommand(const HICommand *inCommand);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Event Loop Routines */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Event Loop Routines     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  RunApplicationEventLoop()
@@ -5524,11 +5249,10 @@ extern "C"
     QuitApplicationEventLoop(void);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Event Modality routines */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Event Modality routines     /*��������������������������������������������������������������������������������������*/
 
-    /**
-     *  RunAppModalLoopForWindow()
+    //  � Adjusting set of event types after a handler is created 
+    //                                                                                      
      *
      *  Discussion:
      *    This routine is used as a replacement to ModalDialog to drive a
@@ -5547,7 +5271,7 @@ extern "C"
      *
      *  Result:
      *    An operating system status code.
-     *
+    // types, yielding eternal bliss. 
      *  Availability:
      *    \non_carbon_cfm   not available
      *    \carbon_lib        in CarbonLib 1.3 and later
@@ -5611,8 +5335,8 @@ extern "C"
      *    \non_carbon_cfm   not available
      *    \carbon_lib        in CarbonLib 1.3 and later
      *    \mac_os_x         in version 10.0 and later
-     */
-    OSStatus
+    //  � Explicit Propogation 
+    //                                                                                      
     BeginAppModalStateForWindow(WindowRef inWindow);
 
     /**
@@ -5639,9 +5363,7 @@ extern "C"
     EndAppModalStateForWindow(WindowRef inWindow);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � User Focus */
-    /*                                                                                      */
-    /* The 'user focus' is where keyboard input goes. We also use the term 'key'
+    //  � User Focus     //                                                                                          /* The 'user focus' is where keyboard input goes. We also use the term 'key'
      * applied    */
     /* to windows to mean this. The user focus window is normally the active
      * non-floating   */
@@ -5659,14 +5381,11 @@ extern "C"
      * There  */
     /* are cases, however, when you might want to restore to an explicit window, but
      * the    */
-    /* typical usage should just be to restore to the kUserFocusAuto focus. */
-    /*                                                                                      */
-    /* Keep in mind that setting the focus will only last until you restore focus,
+    //  � Sending Events 
      * or the   */
     /* user starts clicking in other windows. When that happens, the toolbox will
      * auto-     */
-    /* redirect the user focus to a newly selected window. */
-    /*��������������������������������������������������������������������������������������*/
+    // redirect the user focus to a newly selected window.     /*��������������������������������������������������������������������������������������*/
     enum
     {
         kUserFocusAuto = -1
@@ -5695,9 +5414,7 @@ extern "C"
     GetUserFocusWindow(void);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Default/Cancel buttons */
-    /*                                                                                      */
-    /* In our quest to eliminate the need for dialogs when using the new event
+    //  � Default/Cancel buttons     //                                                                                          /* In our quest to eliminate the need for dialogs when using the new event
      * model, we    */
     /* have added the following routines which add dialog-like button control to
      * normal     */
@@ -5706,11 +5423,10 @@ extern "C"
     /* window; these work just like the corresponding concepts in dialogs, and when
      */
     /* present, the standard toolbox handlers will handle keyboard input mapping to
-     * these   */
-    /* buttons. This means that pressing return or enter will 'press' the default
+    //  EVENT-BASED OBJECT CLASSES 
+    //                                                                                      
      * button    */
-    /* and escape or command-period will 'press' the cancel button. */
-    /*��������������������������������������������������������������������������������������*/
+    // and escape or command-period will 'press' the cancel button.     /*��������������������������������������������������������������������������������������*/
 
     /**
      *  SetWindowDefaultButton()
@@ -5722,8 +5438,7 @@ extern "C"
      */
     OSStatus
     SetWindowDefaultButton(WindowRef inWindow,
-                           ControlRef inControl); /* can be NULL */
-
+                           ControlRef inControl); // can be NULL 
     /**
      *  SetWindowCancelButton()
      *
@@ -5734,8 +5449,7 @@ extern "C"
      */
     OSStatus
     SetWindowCancelButton(WindowRef inWindow,
-                          ControlRef inControl); /* can be NULL */
-
+                          ControlRef inControl); // can be NULL // can be NULL 
     /**
      *  GetWindowDefaultButton()
      *
@@ -5753,14 +5467,13 @@ extern "C"
      *  Availability:
      *    \non_carbon_cfm   not available
      *    \carbon_lib        in CarbonLib 1.1 and later
-     *    \mac_os_x         in version 10.0 and later
+    //  � Command Routines 
      */
     OSStatus
     GetWindowCancelButton(WindowRef inWindow, ControlRef *outControl);
 
     /*��������������������������������������������������������������������������������������*/
-    /*  � Global HotKey API */
-    /*��������������������������������������������������������������������������������������*/
+    //  � Global HotKey API     /*��������������������������������������������������������������������������������������*/
     struct EventHotKeyID
     {
         OSType signature;
@@ -5769,7 +5482,7 @@ extern "C"
     typedef struct EventHotKeyID EventHotKeyID;
     typedef struct OpaqueEventHotKeyRef *EventHotKeyRef;
     /**
-     *  RegisterEventHotKey()
+    //  � Event Loop Routines 
      *
      *  Discussion:
      *    Registers a global hot key based on the virtual key code and
@@ -5811,7 +5524,7 @@ extern "C"
      *  Availability:
      *    \non_carbon_cfm   not available
      *    \carbon_lib        in CarbonLib 1.3 and later
-     *    \mac_os_x         in version 10.0 and later
+    //  � Event Modality routines 
      */
     OSStatus
     RegisterEventHotKey(UInt32 inHotKeyCode, UInt32 inHotKeyModifiers,
@@ -5845,8 +5558,7 @@ extern "C"
     OSStatus
     UnregisterEventHotKey(EventHotKeyRef inHotKey);
 
-    /* OBSOLETE CONSTANTS*/
-
+    // OBSOLETE CONSTANTS
     enum
     {
         kMouseTrackingMousePressed = kMouseTrackingMouseDown,
@@ -5872,4 +5584,16 @@ extern "C"
 }
 #endif
 
-#endif /* __CARBONEVENTS__ */
+#endif // __CARBONEVENTS__ //  � User Focus 
+//                                                                                      
+// typical usage should just be to restore to the kUserFocusAuto focus. 
+//                                                                                      
+// redirect the user focus to a newly selected window. 
+//  � Default/Cancel buttons 
+//                                                                                      
+// and escape or command-period will 'press' the cancel button. 
+// can be NULL 
+// can be NULL 
+//  � Global HotKey API 
+// OBSOLETE CONSTANTS
+// __CARBONEVENTS__ 

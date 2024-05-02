@@ -85,8 +85,7 @@ typedef unsigned long TQ3DisplayGroupState;
  **                 Group Routines (apply to all groups)                     **
  **                                                                          **
  *****************************************************************************/
-/* May contain any shared object */
-#if CALL_NOT_IN_CARBON
+// May contain any shared object #if CALL_NOT_IN_CARBON
 /**
  *  Q3Group_New()
  *
@@ -375,9 +374,8 @@ Q3Group_GetPreviousObjectPosition(TQ3GroupObject group, TQ3Object object,
  **                         Group Subclasses                                 **
  **                                                                          **
  *****************************************************************************/
-/* Must contain only lights */
-/**
- *  Q3LightGroup_New()
+// Must contain only lights /**
+// Must contain only lights 
  *
  *  Availability:
  *    \non_carbon_cfm   not available
@@ -387,10 +385,9 @@ Q3Group_GetPreviousObjectPosition(TQ3GroupObject group, TQ3Object object,
 TQ3GroupObject
 Q3LightGroup_New(void);
 
-/* Must contain only strings */
-/**
+// Must contain only strings /**
  *  Q3InfoGroup_New()
- *
+// Must contain only strings 
  *  Availability:
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -404,11 +401,10 @@ Q3InfoGroup_New(void);
  **                     Display Group Routines                               **
  **                                                                          **
  *****************************************************************************/
-/* May contain only drawables */
-/**
+// May contain only drawables /**
  *  Q3DisplayGroup_New()
  *
- *  Availability:
+// May contain only drawables 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         not available
@@ -585,12 +581,11 @@ Q3IOProxyDisplayGroup_New(void);
 /**
  *  Searching methods - OPTIONAL
  */
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum { kQ3XMethodType_GroupAcceptObject = FOUR_CHAR_CODE('gaco') };
 
 typedef CALLBACK_API_C(TQ3Boolean,
-                       TQ3XGroupAcceptObjectMethod)(TQ3GroupObject group,
+       // CALL_NOT_IN_CARBON 
                                                     TQ3Object object);
 enum { kQ3XMethodType_GroupAddObject = FOUR_CHAR_CODE('gado') };
 
@@ -738,13 +733,12 @@ typedef CALLBACK_API_C(TQ3Status, TQ3XGroupEndReadMethod)(TQ3GroupObject group);
 void *
 Q3XGroup_GetPositionPrivate(TQ3GroupObject group, TQ3GroupPosition position);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __QD3DGROUP__RESTORE_TWOBYTEINTS
 #pragma fourbyteints off
-#endif
+#endif// CALL_NOT_IN_CARBON 
 #elif PRAGMA_ENUM_OPTIONS
 #pragma option enum =reset
 #elif defined(__QD3DGROUP__RESTORE_PACKED_ENUMS)
@@ -769,4 +763,4 @@ Q3XGroup_GetPositionPrivate(TQ3GroupObject group, TQ3GroupPosition position);
 }
 #endif
 
-#endif /* __QD3DGROUP__ */
+#endif // __QD3DGROUP__ // __QD3DGROUP__ 

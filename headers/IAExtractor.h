@@ -55,25 +55,21 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* modes for IASetDocAccessorReadPositionProc */
-enum { kIAFromStartMode = 0, kIAFromCurrMode = 1, kIAFromEndMode = 2 };
+// modes for IASetDocAccessorReadPositionProc enum { kIAFromStartMode = 0, kIAFromCurrMode = 1, kIAFromEndMode = 2 };
 
-/* versions for plug-ins */
-enum {
-  kIAExtractorVersion1 = 0x00010001,
+// versions for plug-ins enum {
+// versions for plug-ins 
   kIAExtractorCurrentVersion = kIAExtractorVersion1
 };
 
-/* types */
-typedef OSStatus IAResult;
+// types typedef OSStatus IAResult;
 typedef struct OpaqueIAPluginRef *IAPluginRef;
-typedef struct OpaqueIADocAccessorRef *IADocAccessorRef;
+// types 
 typedef struct OpaqueIADocRef *IADocRef;
-/* IAPluginInitBlock functions */
-typedef CALLBACK_API_C(void *, IAAllocProcPtr)(UInt32 inSize);
+// IAPluginInitBlock functions typedef CALLBACK_API_C(void *, IAAllocProcPtr)(UInt32 inSize);
 typedef CALLBACK_API_C(void, IAFreeProcPtr)(void *inObject);
 typedef CALLBACK_API_C(UInt8, IAIdleProcPtr)(void);
-typedef STACK_UPP_TYPE(IAAllocProcPtr) IAAllocUPP;
+// IAPluginInitBlock functions 
 typedef STACK_UPP_TYPE(IAFreeProcPtr) IAFreeUPP;
 typedef STACK_UPP_TYPE(IAIdleProcPtr) IAIdleUPP;
 #if CALL_NOT_IN_CARBON
@@ -88,12 +84,11 @@ typedef STACK_UPP_TYPE(IAIdleProcPtr) IAIdleUPP;
 IAAllocUPP
 NewIAAllocUPP(IAAllocProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppIAAllocProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+enum { uppIAAllocProcInfo = 0x000000F1 }; // 4_bytes Func(4_bytes) #ifdef __cplusplus
 inline IAAllocUPP NewIAAllocUPP(IAAllocProcPtr userRoutine) {
   return (IAAllocUPP)NewRoutineDescriptor(
       (ProcPtr)(userRoutine), uppIAAllocProcInfo, GetCurrentArchitecture());
-}
+}// 4_bytes Func(4_bytes) 
 #else
 #define NewIAAllocUPP(userRoutine)                                             \
   (IAAllocUPP) NewRoutineDescriptor(                                           \
@@ -112,13 +107,12 @@ inline IAAllocUPP NewIAAllocUPP(IAAllocProcPtr userRoutine) {
 IAFreeUPP
 NewIAFreeUPP(IAFreeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppIAFreeProcInfo = 0x000000C1 }; /* no_return_value Func(4_bytes) */
-#ifdef __cplusplus
+enum { uppIAFreeProcInfo = 0x000000C1 }; // no_return_value Func(4_bytes) #ifdef __cplusplus
 inline IAFreeUPP NewIAFreeUPP(IAFreeProcPtr userRoutine) {
   return (IAFreeUPP)NewRoutineDescriptor(
       (ProcPtr)(userRoutine), uppIAFreeProcInfo, GetCurrentArchitecture());
 }
-#else
+#else// no_return_value Func(4_bytes) 
 #define NewIAFreeUPP(userRoutine)                                              \
   (IAFreeUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppIAFreeProcInfo,  \
                                    GetCurrentArchitecture())
@@ -136,14 +130,13 @@ inline IAFreeUPP NewIAFreeUPP(IAFreeProcPtr userRoutine) {
 IAIdleUPP
 NewIAIdleUPP(IAIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppIAIdleProcInfo = 0x00000011 }; /* 1_byte Func() */
-#ifdef __cplusplus
+enum { uppIAIdleProcInfo = 0x00000011 }; // 1_byte Func() #ifdef __cplusplus
 inline IAIdleUPP NewIAIdleUPP(IAIdleProcPtr userRoutine) {
   return (IAIdleUPP)NewRoutineDescriptor(
       (ProcPtr)(userRoutine), uppIAIdleProcInfo, GetCurrentArchitecture());
 }
 #else
-#define NewIAIdleUPP(userRoutine)                                              \
+#define NewIAIdleUPP(userRoutine)        // 1_byte Func() 
   (IAIdleUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppIAIdleProcInfo,  \
                                    GetCurrentArchitecture())
 #endif
@@ -272,20 +265,17 @@ inline UInt8 InvokeIAIdleUPP(IAIdleUPP userUPP) {
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewIAAllocProc(userRoutine) NewIAAllocUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewIAAllocProc(userRoutine) NewIAAllocUPP(userRoutine)
 #define NewIAFreeProc(userRoutine) NewIAFreeUPP(userRoutine)
 #define NewIAIdleProc(userRoutine) NewIAIdleUPP(userRoutine)
 #define CallIAAllocProc(userRoutine, inSize)                                   \
   InvokeIAAllocUPP(inSize, userRoutine)
-#define CallIAFreeProc(userRoutine, inObject)                                  \
+#define// CALL_NOT_IN_CARBON 
   InvokeIAFreeUPP(inObject, userRoutine)
 #define CallIAIdleProc(userRoutine) InvokeIAIdleUPP(userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
 struct IAPluginInitBlock {
   IAAllocUPP Alloc;
   IAFreeUPP Free;
@@ -293,9 +283,8 @@ struct IAPluginInitBlock {
 };
 typedef struct IAPluginInitBlock IAPluginInitBlock;
 typedef IAPluginInitBlock *IAPluginInitBlockPtr;
-/* IADocAccessorRecord  functions */
-typedef CALLBACK_API_C(OSStatus,
-                       IADocAccessorOpenProcPtr)(IADocAccessorRef inAccessor);
+// IADocAccessorRecord  functions typedef CALLBACK_API_C(OSStatus,
+       // CALL_NOT_IN_CARBON 
 typedef CALLBACK_API_C(OSStatus,
                        IADocAccessorCloseProcPtr)(IADocAccessorRef inAccessor);
 typedef CALLBACK_API_C(OSStatus,
@@ -304,7 +293,7 @@ typedef CALLBACK_API_C(OSStatus,
 typedef CALLBACK_API_C(OSStatus, IASetDocAccessorReadPositionProcPtr)(
     IADocAccessorRef inAccessor, SInt32 inMode, SInt32 inOffset);
 typedef CALLBACK_API_C(OSStatus, IAGetDocAccessorReadPositionProcPtr)(
-    IADocAccessorRef inAccessor, SInt32 *outPostion);
+// IADocAccessorRecord  functions 
 typedef CALLBACK_API_C(OSStatus,
                        IAGetDocAccessorEOFProcPtr)(IADocAccessorRef inAccessor,
                                                    SInt32 *outEOF);
@@ -328,8 +317,7 @@ typedef STACK_UPP_TYPE(IAGetDocAccessorEOFProcPtr) IAGetDocAccessorEOFUPP;
 IADocAccessorOpenUPP
 NewIADocAccessorOpenUPP(IADocAccessorOpenProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppIADocAccessorOpenProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+enum { uppIADocAccessorOpenProcInfo = 0x000000F1 }; // 4_bytes Func(4_bytes) #ifdef __cplusplus
 inline IADocAccessorOpenUPP
 NewIADocAccessorOpenUPP(IADocAccessorOpenProcPtr userRoutine) {
   return (IADocAccessorOpenUPP)NewRoutineDescriptor(
@@ -340,7 +328,7 @@ NewIADocAccessorOpenUPP(IADocAccessorOpenProcPtr userRoutine) {
 #define NewIADocAccessorOpenUPP(userRoutine)                                   \
   (IADocAccessorOpenUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),          \
                                               uppIADocAccessorOpenProcInfo,    \
-                                              GetCurrentArchitecture())
+                                              GetCur// 4_bytes Func(4_bytes) 
 #endif
 #endif
 
@@ -355,8 +343,7 @@ NewIADocAccessorOpenUPP(IADocAccessorOpenProcPtr userRoutine) {
 IADocAccessorCloseUPP
 NewIADocAccessorCloseUPP(IADocAccessorCloseProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppIADocAccessorCloseProcInfo = 0x000000F1 }; /* 4_bytes Func(4_bytes) */
-#ifdef __cplusplus
+enum { uppIADocAccessorCloseProcInfo = 0x000000F1 }; // 4_bytes Func(4_bytes) #ifdef __cplusplus
 inline IADocAccessorCloseUPP
 NewIADocAccessorCloseUPP(IADocAccessorCloseProcPtr userRoutine) {
   return (IADocAccessorCloseUPP)NewRoutineDescriptor(
@@ -368,7 +355,7 @@ NewIADocAccessorCloseUPP(IADocAccessorCloseProcPtr userRoutine) {
   (IADocAccessorCloseUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),         \
                                                uppIADocAccessorCloseProcInfo,  \
                                                GetCurrentArchitecture())
-#endif
+#endif// 4_bytes Func(4_bytes) 
 #endif
 
 /**
@@ -384,8 +371,7 @@ NewIADocAccessorReadUPP(IADocAccessorReadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppIADocAccessorReadProcInfo = 0x00000FF1
-}; /* 4_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // 4_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline IADocAccessorReadUPP
 NewIADocAccessorReadUPP(IADocAccessorReadProcPtr userRoutine) {
   return (IADocAccessorReadUPP)NewRoutineDescriptor(
@@ -398,7 +384,7 @@ NewIADocAccessorReadUPP(IADocAccessorReadProcPtr userRoutine) {
                                               uppIADocAccessorReadProcInfo,    \
                                               GetCurrentArchitecture())
 #endif
-#endif
+#en// 4_bytes Func(4_bytes, 4_bytes, 4_bytes) 
 
 /**
  *  NewIASetDocAccessorReadPositionUPP()
@@ -414,8 +400,7 @@ NewIASetDocAccessorReadPositionUPP(
 #if !OPAQUE_UPP_TYPES
 enum {
   uppIASetDocAccessorReadPositionProcInfo = 0x00000FF1
-}; /* 4_bytes Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // 4_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
 inline IASetDocAccessorReadPositionUPP NewIASetDocAccessorReadPositionUPP(
     IASetDocAccessorReadPositionProcPtr userRoutine) {
   return (IASetDocAccessorReadPositionUPP)NewRoutineDescriptor(
@@ -429,7 +414,7 @@ inline IASetDocAccessorReadPositionUPP NewIASetDocAccessorReadPositionUPP(
       GetCurrentArchitecture())
 #endif
 #endif
-
+// 4_bytes Func(4_bytes, 4_bytes, 4_bytes) 
 /**
  *  NewIAGetDocAccessorReadPositionUPP()
  *
@@ -444,8 +429,7 @@ NewIAGetDocAccessorReadPositionUPP(
 #if !OPAQUE_UPP_TYPES
 enum {
   uppIAGetDocAccessorReadPositionProcInfo = 0x000003F1
-}; /* 4_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline IAGetDocAccessorReadPositionUPP NewIAGetDocAccessorReadPositionUPP(
     IAGetDocAccessorReadPositionProcPtr userRoutine) {
   return (IAGetDocAccessorReadPositionUPP)NewRoutineDescriptor(
@@ -460,7 +444,7 @@ inline IAGetDocAccessorReadPositionUPP NewIAGetDocAccessorReadPositionUPP(
 #endif
 #endif
 
-/**
+/**// 4_bytes Func(4_bytes, 4_bytes) 
  *  NewIAGetDocAccessorEOFUPP()
  *
 
@@ -473,8 +457,7 @@ NewIAGetDocAccessorEOFUPP(IAGetDocAccessorEOFProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
   uppIAGetDocAccessorEOFProcInfo = 0x000003F1
-}; /* 4_bytes Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+}; // 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline IAGetDocAccessorEOFUPP
 NewIAGetDocAccessorEOFUPP(IAGetDocAccessorEOFProcPtr userRoutine) {
   return (IAGetDocAccessorEOFUPP)NewRoutineDescriptor(
@@ -490,7 +473,7 @@ NewIAGetDocAccessorEOFUPP(IAGetDocAccessorEOFProcPtr userRoutine) {
 #endif
 
 /**
- *  DisposeIADocAccessorOpenUPP()
+ * // 4_bytes Func(4_bytes, 4_bytes) 
  *
 
  *    \non_carbon_cfm   available as macro/inline
@@ -775,11 +758,9 @@ inline OSStatus InvokeIAGetDocAccessorEOFUPP(IADocAccessorRef inAccessor,
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewIADocAccessorOpenProc(userRoutine)                                  \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewIADocAccessorOpenProc(userRoutine)                                  \
   NewIADocAccessorOpenUPP(userRoutine)
 #define NewIADocAccessorCloseProc(userRoutine)                                 \
   NewIADocAccessorCloseUPP(userRoutine)
@@ -794,10 +775,10 @@ inline OSStatus InvokeIAGetDocAccessorEOFUPP(IADocAccessorRef inAccessor,
 #define CallIADocAccessorOpenProc(userRoutine, inAccessor)                     \
   InvokeIADocAccessorOpenUPP(inAccessor, userRoutine)
 #define CallIADocAccessorCloseProc(userRoutine, inAccessor)                    \
-  InvokeIADocAccessorCloseUPP(inAccessor, userRoutine)
+  Invok// CALL_NOT_IN_CARBON 
 #define CallIADocAccessorReadProc(userRoutine, inAccessor, buffer, ioSize)     \
   InvokeIADocAccessorReadUPP(inAccessor, buffer, ioSize, userRoutine)
-#define CallIASetDocAccessorReadPositionProc(userRoutine, inAccessor, inMode,  \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
                                              inOffset)                         \
   InvokeIASetDocAccessorReadPositionUPP(inAccessor, inMode, inOffset,          \
                                         userRoutine)
@@ -806,10 +787,8 @@ inline OSStatus InvokeIAGetDocAccessorEOFUPP(IADocAccessorRef inAccessor,
   InvokeIAGetDocAccessorReadPositionUPP(inAccessor, outPostion, userRoutine)
 #define CallIAGetDocAccessorEOFProc(userRoutine, inAccessor, outEOF)           \
   InvokeIAGetDocAccessorEOFUPP(inAccessor, outEOF, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
-/* IADocAccessorRecord */
-struct IADocAccessorRecord {
+#endif // CALL_NOT_IN_CARBON 
+// IADocAccessorRecord struct IADocAccessorRecord {
   IADocAccessorRef docAccessor;
   IADocAccessorOpenUPP OpenDoc;
   IADocAccessorCloseUPP CloseDoc;
@@ -827,9 +806,9 @@ typedef IADocAccessorRecord *IADocAccessorPtr;
    exported.
 */
 #ifndef BUILDING_IAEXTRACTOR
-#define BUILDING_IAEXTRACTOR 1
+#define// CALL_NOT_IN_CARBON 
 #endif
-#if BUILDING_IAEXTRACTOR
+// IADocAccessorRecord 
 #if PRAGMA_IMPORT
 #pragma export on
 #endif
@@ -993,8 +972,7 @@ IAGetTextRunInfo(IADocRef inDoc, char **outEncoding, char **outLanguage);
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1013,4 +991,5 @@ IAGetTextRunInfo(IADocRef inDoc, char **outEncoding, char **outLanguage);
 }
 #endif
 
-#endif /* __IAEXTRACTOR__ */
+#endif // __IAEXTRACTOR__ // CALL_NOT_IN_CARBON 
+// __IAEXTRACTOR__ 

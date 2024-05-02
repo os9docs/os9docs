@@ -88,16 +88,14 @@ struct TECPluginStateRec {
 typedef struct TECPluginStateRec TECPluginStateRec;
 struct TECConverterContextRec {
 
-  /* public - manipulated externally and by plugin*/
-  Ptr pluginRec;
+  // public - manipulated externally and by plugin  Ptr pluginRec;
   TextEncoding sourceEncoding;
   TextEncoding destEncoding;
   UInt32 reserved1;
   UInt32 reserved2;
   TECBufferContextRec bufferContext;
-  /* private - manipulated only within Plugin*/
-  UInt32 contextRefCon;
-  ProcPtr conversionProc;
+  // private - manipulated only within Plugin  UInt32 contextRefCon;
+  // private - manipulated only within Plugin
   ProcPtr flushProc;
   ProcPtr clearContextInfoProc;
   UInt32 options1;
@@ -106,20 +104,18 @@ struct TECConverterContextRec {
 };
 typedef struct TECConverterContextRec TECConverterContextRec;
 struct TECSnifferContextRec {
-  /* public - manipulated externally*/
-  Ptr pluginRec;
+  // public - manipulated externally  Ptr pluginRec;
   TextEncoding encoding;
-  ItemCount maxErrors;
+  // public - manipulated externally
   ItemCount maxFeatures;
   TextPtr textInputBuffer;
   TextPtr textInputBufferEnd;
   ItemCount numFeatures;
   ItemCount numErrors;
-  /* private - manipulated only within Plugin*/
-  UInt32 contextRefCon;
+  // private - manipulated only within Plugin  UInt32 contextRefCon;
   ProcPtr sniffProc;
   ProcPtr clearContextInfoProc;
-  TECPluginStateRec pluginState;
+  // private - manipulated only within Plugin
 };
 typedef struct TECSnifferContextRec TECSnifferContextRec;
 /**
@@ -181,16 +177,13 @@ typedef CALLBACK_API_C(OSStatus, TECPluginGetCountMailEncodingsPtr)(
 */
 
 enum {
-  kTECPluginDispatchTableVersion1 = 0x00010000, /* 1.0 through 1.0.3 releases*/
-  kTECPluginDispatchTableVersion1_1 = 0x00010001, /* 1.1 releases*/
-  kTECPluginDispatchTableVersion1_2 = 0x00010002, /* 1.2 releases*/
-  kTECPluginDispatchTableCurrentVersion = kTECPluginDispatchTableVersion1_2
+  kTECPluginDispatchTableVersion1 = 0x00010000, // 1.0 through 1.0.3 releases  kTECPluginDispatchTableVersion1_1 = 0x00010001, // 1.1 releases  kTECPluginDispatchTableVersion1_2 = 0x00010002, // 1.2 releases  kTECPluginDispatchTableCurrentVersion = kTECPluginDispatchTableVersion1_2
 };
 
 struct TECPluginDispatchTable {
-
-  TECPluginVersion version;
-  TECPluginVersion compatibleVersion;
+// 1.0 through 1.0.3 releases
+  TECPluginVersion version;// 1.1 releases
+  TECPluginVersion compatibleVersion;// 1.2 releases
   TECPluginSignature PluginID;
 
   TECPluginNewEncodingConverterPtr PluginNewEncodingConverter;
@@ -239,4 +232,4 @@ typedef struct TECPluginDispatchTable TECPluginDispatchTable;
 }
 #endif
 
-#endif /* __TEXTENCODINGPLUGIN__ */
+#endif // __TEXTENCODINGPLUGIN__ // __TEXTENCODINGPLUGIN__ 

@@ -75,8 +75,7 @@ extern "C"
   };
 
   /*------------------------------------------*/
-  /* GetSpeechInfo & SetSpeechInfo selectors  */
-  /*------------------------------------------*/
+  // GetSpeechInfo & SetSpeechInfo selectors    /*------------------------------------------*/
   enum
   {
     soStatus = FOUR_CHAR_CODE('stat'),
@@ -97,34 +96,26 @@ extern "C"
     soCurrentA5 = FOUR_CHAR_CODE('myA5'),
     soRefCon = FOUR_CHAR_CODE('refc'),
     soTextDoneCallBack =
-        FOUR_CHAR_CODE('tdcb'),                    /* use with SpeechTextDoneProcPtr*/
-    soSpeechDoneCallBack = FOUR_CHAR_CODE('sdcb'), /* use with SpeechDoneProcPtr*/
-    soSyncCallBack = FOUR_CHAR_CODE('sycb'),       /* use with SpeechSyncProcPtr*/
-    soErrorCallBack = FOUR_CHAR_CODE('ercb'),      /* use with SpeechErrorProcPtr*/
-    soPhonemeCallBack = FOUR_CHAR_CODE('phcb'),    /* use with SpeechPhonemeProcPtr*/
-    soWordCallBack = FOUR_CHAR_CODE('wdcb'),
-    soSynthExtension = FOUR_CHAR_CODE('xtnd'),
-    soSoundOutput = FOUR_CHAR_CODE('sndo')
-  };
-
-  /*------------------------------------------*/
-  /* Speaking Mode Constants                  */
-  /*------------------------------------------*/
+        FOUR_CHAR_CODE('tdcb'),                    // use with SpeechTextDoneProcPtr    soSpeechDoneCallBack = FOUR_CHAR_CODE('sdcb'), // use with SpeechDoneProcPtr    soSyncCallBack = FOUR_CHAR_CODE('sycb'),       // use with SpeechSyncProcPtr    soErrorCallBack = FOUR_CHAR_CODE('ercb'),      // use with SpeechErrorProcPtr    soPhonemeCallBack = FOUR_CHAR_CODE('phcb'),    // use with SpeechPhonemeProcPtr    soWordCallBack = FOUR_CHAR_CODE('wdcb'),
+    soSynthExtension = FOUR_CHAR_CODE('xtnd'),// use with SpeechTextDoneProcPtr
+    soSoundOutput = FOUR_CHAR_CODE('sndo')// use with SpeechDoneProcPtr
+  };// use with SpeechSyncProcPtr
+// use with SpeechErrorProcPtr
+  /*------------------------------------------*/// use with SpeechPhonemeProcPtr
+  // Speaking Mode Constants                    /*------------------------------------------*/
   enum
   {
-    modeText = FOUR_CHAR_CODE('TEXT'), /* input mode constants             */
-    modePhonemes = FOUR_CHAR_CODE('PHON'),
+    modeText = FOUR_CHAR_CODE('TEXT'), // input mode constants                 modePhonemes = FOUR_CHAR_CODE('PHON'),
     modeNormal =
-        FOUR_CHAR_CODE('NORM'), /* character mode and number mode constants */
-    modeLiteral = FOUR_CHAR_CODE('LTRL')
-  };
+        FOUR_CHAR_CODE('NORM'), // character mode and number mode constants     modeLiteral = FOUR_CHAR_CODE('LTRL')
+  // Speaking Mode Constants                  
 
   enum
   {
-    soVoiceDescription = FOUR_CHAR_CODE('info'),
+    soVoiceDescription = FOUR_CHAR_CODE// input mode constants             
     soVoiceFile = FOUR_CHAR_CODE('fref')
   };
-
+// character mode and number mode constants 
   typedef struct OpaqueSpeechChannel *SpeechChannel;
 
   struct VoiceSpec
@@ -291,8 +282,7 @@ extern "C"
   enum
   {
     uppSpeechDoneProcInfo = 0x000003C0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes) #ifdef __cplusplus
   inline SpeechDoneUPP NewSpeechDoneUPP(SpeechDoneProcPtr userRoutine)
   {
     return (SpeechDoneUPP)NewRoutineDescriptor(
@@ -301,7 +291,7 @@ extern "C"
 #else
 #define NewSpeechDoneUPP(userRoutine)   \
   (SpeechDoneUPP) NewRoutineDescriptor( \
-      (ProcPtr)(userRoutine), uppSpeechDoneProcInfo, GetCurrentArchitecture())
+     // pascal no_return_value Func(4_bytes, 4_bytes) 
 #endif
 #endif
 
@@ -319,8 +309,7 @@ extern "C"
   enum
   {
     uppSpeechSyncProcInfo = 0x00000FC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline SpeechSyncUPP NewSpeechSyncUPP(SpeechSyncProcPtr userRoutine)
   {
     return (SpeechSyncUPP)NewRoutineDescriptor(
@@ -330,7 +319,7 @@ extern "C"
 #define NewSpeechSyncUPP(userRoutine)   \
   (SpeechSyncUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppSpeechSyncProcInfo, GetCurrentArchitecture())
-#endif
+#endi// pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) 
 #endif
 
   /**
@@ -347,8 +336,7 @@ extern "C"
   enum
   {
     uppSpeechErrorProcInfo = 0x00003BC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 4_bytes) #ifdef __cplusplus
   inline SpeechErrorUPP NewSpeechErrorUPP(SpeechErrorProcPtr userRoutine)
   {
     return (SpeechErrorUPP)NewRoutineDescriptor(
@@ -359,7 +347,7 @@ extern "C"
   (SpeechErrorUPP)                                                         \
       NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechErrorProcInfo, \
                            GetCurrentArchitecture())
-#endif
+#endi// pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 4_bytes) 
 #endif
 
   /**
@@ -376,8 +364,7 @@ extern "C"
   enum
   {
     uppSpeechPhonemeProcInfo = 0x00000BC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes) #ifdef __cplusplus
   inline SpeechPhonemeUPP NewSpeechPhonemeUPP(SpeechPhonemeProcPtr userRoutine)
   {
     return (SpeechPhonemeUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -389,7 +376,7 @@ extern "C"
   (SpeechPhonemeUPP)                                                         \
       NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechPhonemeProcInfo, \
                            GetCurrentArchitecture())
-#endif
+#endi// pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes) 
 #endif
 
   /**
@@ -406,8 +393,7 @@ extern "C"
   enum
   {
     uppSpeechWordProcInfo = 0x00002FC0
-  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) */
-#ifdef __cplusplus
+  }; // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) #ifdef __cplusplus
   inline SpeechWordUPP NewSpeechWordUPP(SpeechWordProcPtr userRoutine)
   {
     return (SpeechWordUPP)NewRoutineDescriptor(
@@ -420,7 +406,7 @@ extern "C"
 #endif
 #endif
 
-  /**
+  /**// pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) 
    *  DisposeSpeechTextDoneUPP()
    *
 
@@ -707,8 +693,7 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewSpeechTextDoneProc(userRoutine) NewSpeechTextDoneUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewSpeechTextDoneProc(userRoutine) NewSpeechTextDoneUPP(userRoutine)
 #define NewSpeechDoneProc(userRoutine) NewSpeechDoneUPP(userRoutine)
 #define NewSpeechSyncProc(userRoutine) NewSpeechSyncUPP(userRoutine)
 #define NewSpeechErrorProc(userRoutine) NewSpeechErrorUPP(userRoutine)
@@ -722,14 +707,13 @@ extern "C"
   InvokeSpeechDoneUPP(chan, refCon, userRoutine)
 #define CallSpeechSyncProc(userRoutine, chan, refCon, syncMessage) \
   InvokeSpeechSyncUPP(chan, refCon, syncMessage, userRoutine)
-#define CallSpeechErrorProc(userRoutine, chan, refCon, theError, bytePos) \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
   InvokeSpeechErrorUPP(chan, refCon, theError, bytePos, userRoutine)
 #define CallSpeechPhonemeProc(userRoutine, chan, refCon, phonemeOpcode) \
   InvokeSpeechPhonemeUPP(chan, refCon, phonemeOpcode, userRoutine)
 #define CallSpeechWordProc(userRoutine, chan, refCon, wordPos, wordLen) \
   InvokeSpeechWordUPP(chan, refCon, wordPos, wordLen, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
   /**
    *  SpeechManagerVersion()
    *
@@ -744,7 +728,7 @@ extern "C"
   /**
    *  MakeVoiceSpec()
    *
-
+// CALL_NOT_IN_CARBON 
    *    \non_carbon_cfm   in SpeechLib 1.0 and later
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
@@ -810,8 +794,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  NewSpeechChannel(VoiceSpec *voice, /* can be NULL */
-                   SpeechChannel *chan)
+  NewSpeechChannel(VoiceSpec *voice, // can be NULL                    SpeechChannel *chan)
       FOURWORDINLINE(0x203C, 0x0418, 0x000C, 0xA800);
 
   /**
@@ -827,7 +810,7 @@ extern "C"
       FOURWORDINLINE(0x203C, 0x021C, 0x000C, 0xA800);
 
   /**
-   *  SpeakString()
+   *  SpeakString()// can be NULL 
    *
 
    *    \non_carbon_cfm   in SpeechLib 1.0 and later
@@ -1046,4 +1029,4 @@ extern "C"
 }
 #endif
 
-#endif /* __SPEECHSYNTHESIS__ */
+#endif // __SPEECHSYNTHESIS__ // __SPEECHSYNTHESIS__ 

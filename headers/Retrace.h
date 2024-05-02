@@ -100,7 +100,7 @@ extern "C"
 	enum
 	{
 		uppVBLProcInfo = 0x00009802
-	}; /* register no_return_value Func(4_bytes:A0) */
+	}; // register no_return_value Func(4_bytes:A0)
 #ifdef __cplusplus
 	inline VBLUPP NewVBLUPP(VBLProcPtr userRoutine)
 	{
@@ -161,14 +161,14 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #define NewVBLProc(userRoutine) NewVBLUPP(userRoutine)
 #define CallVBLProc(userRoutine, vblTaskPtr) \
 	InvokeVBLUPP(vblTaskPtr, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON
 
@@ -188,7 +188,7 @@ are currently executing. Thus:
 VBLTask *qep;
 printf( "a VBL task %s executing\n",
 (VBLQueue .qHead & 0x40) ? "IS" : "IS NOT");
-qep = (VBLTask *)VBLQueue .qHead; /* get global variable */
+qep = (VBLTask *)VBLQueue .qHead; // get global variable
 	while (qep != 0)
 	{
 		printf("Task at %lx has %d ticks to go\n", qep, qep->vblCount);
@@ -419,7 +419,7 @@ vTypErr (-2) VBLTask.qType must be vType
 	OSErr
 	VRemove(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA034);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -439,5 +439,5 @@ vTypErr (-2) VBLTask.qType must be vType
 }
 #endif
 
-#endif /* __RETRACE__ */
+#endif // __RETRACE__
 * /*/*/ * /*/*/ * /

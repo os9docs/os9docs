@@ -58,8 +58,7 @@ extern "C" {
 #endif
 #endif
 
-/* Types used for error and error handler */
-enum CGError {
+// Types used for error and error handler enum CGError {
   kCGErrorSuccess = 0,
   kCGErrorFirst = 1000,
   kCGErrorFailure = kCGErrorFirst,
@@ -107,4 +106,4 @@ typedef enum CGError CGError;
 }
 #endif
 
-#endif /* __CGERROR__ */
+#endif // __CGERROR__ // __CGERROR__ 

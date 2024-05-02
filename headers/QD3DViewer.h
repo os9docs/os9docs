@@ -40,8 +40,7 @@
 #include <Quickdraw.h>
 #endif
 
-#endif /* TARGET_OS_MAC */
-
+#endif // TARGET_OS_MAC 
 #if PRAGMA_ONCE
 #pragma once
 #endif
@@ -893,12 +892,10 @@ Q3ViewerSetPhongShading(TQ3ViewerObject theViewer, TQ3Boolean phong);
 OSErr
 Q3ViewerGetPhongShading(TQ3ViewerObject theViewer, TQ3Boolean *phong);
 
-#endif /* CALL_NOT_IN_CARBON */
-
-#endif /* TARGET_OS_MAC */
-
+#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_ENUM_ALWAYSINT
-#pragma enumsalwaysint reset
+#pragma// TARGET_OS_MAC 
 #ifdef __QD3DVIEWER__RESTORE_TWOBYTEINTS
 #pragma fourbyteints off
 #endif
@@ -926,4 +923,4 @@ Q3ViewerGetPhongShading(TQ3ViewerObject theViewer, TQ3Boolean *phong);
 }
 #endif
 
-#endif /* __QD3DVIEWER__ */
+#endif // __QD3DVIEWER__ // __QD3DVIEWER__ 

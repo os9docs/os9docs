@@ -50,26 +50,19 @@ struct sfntDirectoryEntry {
   UInt32 length;
 };
 typedef struct sfntDirectoryEntry sfntDirectoryEntry;
-/* The search fields limits numOffsets to 4096. */
-struct sfntDirectory {
+// The search fields limits numOffsets to 4096. struct sfntDirectory {
   FourCharCode format;
-  UInt16 numOffsets;           /* number of tables */
-  UInt16 searchRange;          /* (max2 <= numOffsets)*16 */
-  UInt16 entrySelector;        /* log2(max2 <= numOffsets) */
-  UInt16 rangeShift;           /* numOffsets*16-searchRange*/
-  sfntDirectoryEntry table[1]; /* table[numOffsets] */
-};
-typedef struct sfntDirectory sfntDirectory;
-enum { sizeof_sfntDirectory = 12 };
-
-/* Cmap - character id to glyph id mapping */
-enum { cmapFontTableTag = FOUR_CHAR_CODE('cmap') };
-
+  UInt16 numOffsets;           // number of tables   UInt16 searchRange;          // (max2 <= numOffsets)*16   UInt16 entrySelector;        // log2(max2 <= numOffsets)   UInt16 rangeShift;           // numOffsets*16-searchRange  sfntDirectoryEntry table[1]; // table[numOffsets] };
+typedef struct sfntDirectory sf// number of tables 
+enum { sizeof_sfntDirectory = 1// (max2 <= numOffsets)*16 
+// log2(max2 <= numOffsets) 
+// Cmap - character id to glyph// numOffsets*16-searchRange
+// table[numOffsets] 
 enum {
   kFontUnicodePlatform = 0,
   kFontMacintoshPlatform = 1,
   kFontReservedPlatform = 2,
-  kFontMicrosoftPlatform = 3,
+// Cmap - character id to glyph id mapping 
   kFontCustomPlatform = 4
 };
 
@@ -133,15 +126,14 @@ enum {
   kFontCustom16BitScript = 2
 };
 
-/* Language codes are zero based everywhere but within a 'cmap' table */
-enum {
+// Language codes are zero based everywhere but within a 'cmap' table enum {
   kFontEnglishLanguage = 0,
   kFontFrenchLanguage = 1,
   kFontGermanLanguage = 2,
   kFontItalianLanguage = 3,
   kFontDutchLanguage = 4,
   kFontSwedishLanguage = 5,
-  kFontSpanishLanguage = 6,
+// Language codes are zero based everywhere but within a 'cmap' table 
   kFontDanishLanguage = 7,
   kFontPortugueseLanguage = 8,
   kFontNorwegianLanguage = 9,
@@ -248,35 +240,30 @@ enum {
   kFontSundaneseRomLanguage = 139
 };
 
-/* The following are special "don't care" values to be used in interfaces */
-enum { kFontNoPlatform = -1, kFontNoScript = -1, kFontNoLanguage = -1 };
+// The following are special "don't care" values to be used in interfaces enum { kFontNoPlatform = -1, kFontNoScript = -1, kFontNoLanguage = -1 };
 
 struct sfntCMapSubHeader {
   UInt16 format;
   UInt16 length;
-  UInt16 languageID; /* base-1 */
-};
+  UInt16 languageID; // base-1 };
 typedef struct sfntCMapSubHeader sfntCMapSubHeader;
 enum { sizeof_sfntCMapSubHeader = 6 };
-
+// The following are special "don't care" values to be used in interfaces 
 struct sfntCMapEncoding {
-  UInt16 platformID; /* base-0 */
-  UInt16 scriptID;   /* base-0 */
-  UInt32 offset;
+  UInt16 platformID; // base-0   UInt16 scriptID;   // base-0   UInt32 offset;
 };
 typedef struct sfntCMapEncoding sfntCMapEncoding;
 enum { sizeof_sfntCMapEncoding = 8 };
-
+// base-1 
 struct sfntCMapHeader {
   UInt16 version;
   UInt16 numTables;
   sfntCMapEncoding encoding[1];
 };
-typedef struct sfntCMapHeader sfntCMapHeader;
-enum { sizeof_sfntCMapHeader = 4 };
+typedef struct sfntCM// base-0 
+enum { sizeof_sfntCMa// base-0 
 
-/* Name table */
-enum { nameFontTableTag = FOUR_CHAR_CODE('name') };
+// Name table enum { nameFontTableTag = FOUR_CHAR_CODE('name') };
 
 enum {
   kFontCopyrightName = 0,
@@ -288,7 +275,7 @@ enum {
   kFontPostscriptName = 6,
   kFontTrademarkName = 7,
   kFontManufacturerName = 8,
-  kFontDesignerName = 9,
+// Name table 
   kFontDescriptionName = 10,
   kFontVendorURLName = 11,
   kFontDesignerURLName = 12,
@@ -297,15 +284,10 @@ enum {
   kFontLastReservedName = 255
 };
 
-/* The following is a special "don't care" value to be used in interfaces */
-enum { kFontNoName = -1 };
+// The following is a special "don't care" value to be used in interfaces enum { kFontNoName = -1 };
 
 struct sfntNameRecord {
-  UInt16 platformID; /* base-0 */
-  UInt16 scriptID;   /* base-0 */
-  UInt16 languageID; /* base-0 */
-  UInt16 nameID;     /* base-0 */
-  UInt16 length;
+  UInt16 platformID; // base-0   UInt16 scriptID;   // base-0   UInt16 languageID; // base-0   UInt16 nameID;     // base-0   UInt16 length;
   UInt16 offset;
 };
 typedef struct sfntNameRecord sfntNameRecord;
@@ -315,16 +297,14 @@ struct sfntNameHeader {
   UInt16 format;
   UInt16 count;
   UInt16 stringOffset;
-  sfntNameRecord rec[1];
+// The following is a special "don't care" value to be used in interfaces 
 };
 typedef struct sfntNameHeader sfntNameHeader;
 enum { sizeof_sfntNameHeader = 6 };
-
-/* Fvar table - font variations */
-enum { variationFontTableTag = FOUR_CHAR_CODE('fvar') };
-
-/* These define each font variation */
-struct sfntVariationAxis {
+// base-0 
+// Fvar table - font // base-0 
+// base-0 
+// These define each // base-0 
   FourCharCode axisTag;
   Fixed minValue;
   Fixed defaultValue;
@@ -335,89 +315,71 @@ struct sfntVariationAxis {
 typedef struct sfntVariationAxis sfntVariationAxis;
 enum { sizeof_sfntVariationAxis = 20 };
 
-/* These are named locations in style-space for the user */
-struct sfntInstance {
+// These are named locations in style-space for the user struct sfntInstance {
   SInt16 nameID;
   SInt16 flags;
-  Fixed coord[1]; /* [axisCount] */
-                  /* room to grow since the header carries a tupleSize field */
-};
+  Fixed coord[1]; // [axisCount]                   // room to grow since the header carries a tupleSize field };
 typedef struct sfntInstance sfntInstance;
-enum { sizeof_sfntInstance = 4 };
+// Fvar table - font variations 
 
 struct sfntVariationHeader {
-  Fixed version;         /* 1.0 Fixed */
-  UInt16 offsetToData;   /* to first axis = 16*/
-  UInt16 countSizePairs; /* axis+inst = 2 */
-  UInt16 axisCount;
+// These define each font variation 
   UInt16 axisSize;
   UInt16 instanceCount;
   UInt16 instanceSize;
-  /* �other <count,size> pairs */
-  sfntVariationAxis axis[1]; /* [axisCount] */
-  sfntInstance instance[1];  /* [instanceCount]  �other arrays of data */
-};
+  // �other <count,size> pairs   sfntVariationAxis axis[1]; // [axisCount]   sfntInstance instance[1];  // [instanceCount]  �other arrays of data };
 typedef struct sfntVariationHeader sfntVariationHeader;
 enum { sizeof_sfntVariationHeader = 16 };
 
-/* Fdsc table - font descriptor */
-enum { descriptorFontTableTag = FOUR_CHAR_CODE('fdsc') };
+// Fdsc table - font descriptor enum { descriptorFontTableTag = FOUR_CHAR_CODE('fdsc') };
 
 struct sfntFontDescriptor {
   FourCharCode name;
-  Fixed value;
+// These are named locations in style-space for the user 
 };
 typedef struct sfntFontDescriptor sfntFontDescriptor;
 struct sfntDescriptorHeader {
-  Fixed version; /* 1.0 in Fixed */
-  SInt32 descriptorCount;
-  sfntFontDescriptor descriptor[1];
+  Fixed version; /// [axisCount] 
+  sfntFontDescript// room to grow since the header carries a tupleSize field 
 };
 typedef struct sfntDescriptorHeader sfntDescriptorHeader;
 enum { sizeof_sfntDescriptorHeader = 8 };
 
-/* Feat Table - layout feature table */
-enum { featureFontTableTag = FOUR_CHAR_CODE('feat') };
-
-struct sfntFeatureName {
-  UInt16 featureType;
+// Feat Table - layout feature table enum { featureFontTableTag = FOUR_CHAR_CODE('feat') };
+// 1.0 Fixed 
+struct sfntFeatureName {// to first axis = 16
+  UInt16 featureType;// axis+inst = 2 
   UInt16 settingCount;
   SInt32 offsetToSettings;
   UInt16 featureFlags;
   UInt16 nameID;
-};
-typedef struct sfntFeatureName sfntFeatureName;
-struct sfntFontFeatureSetting {
+};// �other <count,size> pairs 
+typedef struct sfntFeatureNam// [axisCount] 
+struct sfntFontFeatureSetting// [instanceCount]  �other arrays of data 
   UInt16 setting;
   UInt16 nameID;
 };
 typedef struct sfntFontFeatureSetting sfntFontFeatureSetting;
-struct sfntFontRunFeature {
+// Fdsc table - font descriptor 
   UInt16 featureType;
   UInt16 setting;
 };
 typedef struct sfntFontRunFeature sfntFontRunFeature;
 struct sfntFeatureHeader {
-  SInt32 version; /* 1.0 */
-  UInt16 featureNameCount;
+  SInt32 version; // 1.0   UInt16 featureNameCount;
   UInt16 featureSetCount;
-  SInt32 reserved; /* set to 0 */
-  sfntFeatureName names[1];
-  sfntFontFeatureSetting settings[1];
+  SInt32 reserved; // set to 0   sfntFeatureName names[1];
+  sfntFontFeature// 1.0 in Fixed 
   sfntFontRunFeature runs[1];
 };
 typedef struct sfntFeatureHeader sfntFeatureHeader;
-/* OS/2 Table */
-enum { os2FontTableTag = FOUR_CHAR_CODE('OS/2') };
+// OS/2 Table enum { os2FontTableTag = FOUR_CHAR_CODE('OS/2') };
 
-/*  Special invalid glyph ID value, useful as a sentinel value, for example */
-enum { nonGlyphID = 65535L };
-
-/*  Data type used to access names from font name table */
-
+//  Special invalid glyph ID value, useful as a sentinel value, for example enum { nonGlyphID = 65535L };
+// Feat Table - layout feature table 
+//  Data type used to access names from font name table 
 typedef UInt32 FontNameCode;
-/* Data types for encoding components as used in interfaces */
-typedef UInt32 FontPlatformCode;
+// Data types for encoding components as used in interfaces typedef UInt32 FontPlatformCode;
 typedef UInt32 FontScriptCode;
 typedef UInt32 FontLanguageCode;
 /**
@@ -436,17 +398,19 @@ typedef struct FontVariation FontVariation;
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-#pragma pack()
+#pragma pack()// 1.0 
 #endif
 
-#ifdef PRAGMA_IMPORT_OFF
+#ifdef PRAGMA_IMPOR// set to 0 
 #pragma import off
 #elif PRAGMA_IMPORT
 #pragma import reset
 #endif
 
-#ifdef __cplusplus
+// OS/2 Table 
 }
 #endif
-
-#endif /* __SFNTTYPES__ */
+//  Special invalid glyph ID value, useful as a sentinel value, for example 
+#endif // __SFNTTYPES__ //  Data type used to access names from font name table 
+// Data types for encoding components as used in interfaces 
+// __SFNTTYPES__ 

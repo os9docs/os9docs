@@ -81,37 +81,33 @@ extern "C" {
 
 typedef struct CGContext *CGContextRef;
 typedef struct CGPattern *CGPatternRef;
-/* Line join styles. */
-enum CGLineJoin {
+// Line join styles. enum CGLineJoin {
   kCGLineJoinMiter = 0,
   kCGLineJoinRound = 1,
   kCGLineJoinBevel = 2
 };
 typedef enum CGLineJoin CGLineJoin;
 
-/* Line cap styles. */
-enum CGLineCap {
-  kCGLineCapButt = 0,
+// Line cap styles. enum CGLineCap {
+// Line cap styles. 
   kCGLineCapRound = 1,
   kCGLineCapSquare = 2
 };
 typedef enum CGLineCap CGLineCap;
 
-/* Drawing modes for paths. */
-enum CGPathDrawingMode {
+// Drawing modes for paths. enum CGPathDrawingMode {
   kCGPathFill = 0,
-  kCGPathEOFill = 1,
+// Drawing modes for paths. 
   kCGPathStroke = 2,
   kCGPathFillStroke = 3,
   kCGPathEOFillStroke = 4
 };
 typedef enum CGPathDrawingMode CGPathDrawingMode;
 
-/* Drawing modes for text. */
-enum CGTextDrawingMode {
+// Drawing modes for text. enum CGTextDrawingMode {
   kCGTextFill = 0,
   kCGTextStroke = 1,
-  kCGTextFillStroke = 2,
+// Drawing modes for text. 
   kCGTextInvisible = 3,
   kCGTextFillClip = 4,
   kCGTextStrokeClip = 5,
@@ -120,24 +116,19 @@ enum CGTextDrawingMode {
 };
 typedef enum CGTextDrawingMode CGTextDrawingMode;
 
-/* Text encodings. */
-enum CGTextEncoding { kCGEncodingFontSpecific = 0, kCGEncodingMacRoman = 1 };
+// Text encodings. enum CGTextEncoding { kCGEncodingFontSpecific = 0, kCGEncodingMacRoman = 1 };
 typedef enum CGTextEncoding CGTextEncoding;
 
 enum CGInterpolationQuality {
-  kCGInterpolationDefault = 0, /* Let the context decide. */
-  kCGInterpolationNone = 1,    /* Never interpolate. */
-  kCGInterpolationLow = 2,     /* Fast, low quality. */
-  kCGInterpolationHigh = 3     /* Slow, high quality. */
-};
+// Text encodings. 
 typedef enum CGInterpolationQuality CGInterpolationQuality;
 
 /** Graphics state functions. **/
 /* Push a copy of the current graphics state onto the graphics state
- * stack. Note that the path is not considered part of the gstate, and is
- * not saved. */
-/**
- *  CGContextSaveGState()
+ * stack. Note that the path is// Let the context decide. 
+ * not saved. */// Never interpolate. 
+/**// Fast, low quality. 
+ *  CGContextSaveGState()// Slow, high quality. 
  *
 
  *    \non_carbon_cfm   not available
@@ -214,8 +205,7 @@ CGContextRotateCTM(CGContextRef ctx, float angle);
 void
 CGContextConcatCTM(CGContextRef ctx, CGAffineTransform transform);
 
-/* Return the current graphics state's transformation matrix. */
-/**
+// Return the current graphics state's transformation matrix. /**
  *  CGContextGetCTM()
  *
 
@@ -224,11 +214,10 @@ CGContextConcatCTM(CGContextRef ctx, CGAffineTransform transform);
  *    \mac_os_x         in version 10.0 and later
  */
 CGAffineTransform
-CGContextGetCTM(CGContextRef ctx);
+// Return the current graphics state's transformation matrix. 
 
 /** Drawing attribute functions. **/
-/* Set the line width in the current graphics state to `width'. */
-/**
+// Set the line width in the current graphics state to `width'. /**
  *  CGContextSetLineWidth()
  *
 
@@ -238,9 +227,8 @@ CGContextGetCTM(CGContextRef ctx);
  */
 void
 CGContextSetLineWidth(CGContextRef ctx, float width);
-
-/* Set the line cap in the current graphics state to `cap'. */
-/**
+// Set the line width in the current graphics state to `width'. 
+// Set the line cap in the current graphics state to `cap'. /**
  *  CGContextSetLineCap()
  *
 
@@ -251,8 +239,7 @@ CGContextSetLineWidth(CGContextRef ctx, float width);
 void
 CGContextSetLineCap(CGContextRef ctx, CGLineCap cap);
 
-/* Set the line join in the current graphics state to `join'. */
-/**
+// Set the line cap in the current graphics state to `cap'. 
  *  CGContextSetLineJoin()
  *
 
@@ -263,9 +250,8 @@ CGContextSetLineCap(CGContextRef ctx, CGLineCap cap);
 void
 CGContextSetLineJoin(CGContextRef ctx, CGLineJoin join);
 
-/* Set the miter limit in the current graphics state to `limit'. */
-/**
- *  CGContextSetMiterLimit()
+// Set the miter limit in the current graphics state to `limit'. /**
+// Set the line join in the current graphics state to `join'. 
  *
 
  *    \non_carbon_cfm   not available
@@ -275,10 +261,9 @@ CGContextSetLineJoin(CGContextRef ctx, CGLineJoin join);
 void
 CGContextSetMiterLimit(CGContextRef ctx, float limit);
 
-/* Set the line dash patttern in the current graphics state. */
-/**
+// Set the line dash patttern in the current graphics state. /**
  *  CGContextSetLineDash()
- *
+// Set the miter limit in the current graphics state to `limit'. 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -290,7 +275,7 @@ CGContextSetLineDash(CGContextRef ctx, float phase, const float lengths[],
 
 /* Set the path flatness parameter in the current graphics state to
  * `flatness'. */
-/**
+// Set the line dash patttern in the current graphics state. 
  *  CGContextSetFlatness()
  *
 
@@ -301,8 +286,7 @@ CGContextSetLineDash(CGContextRef ctx, float phase, const float lengths[],
 void
 CGContextSetFlatness(CGContextRef ctx, float flatness);
 
-/* Set the alpha value in the current graphics state to `alpha'. */
-/**
+// Set the alpha value in the current graphics state to `alpha'. /**
  *  CGContextSetAlpha()
  *
 
@@ -316,9 +300,8 @@ CGContextSetAlpha(CGContextRef ctx, float alpha);
 /** Path construction functions. **/
 /* Note that a context has a single path in use at any time: a path is not
  * part of the graphics state. */
-/* Begin a new path.  The old path is discarded. */
-/**
- *  CGContextBeginPath()
+// Begin a new path.  The old path is discarded. /**
+// Set the alpha value in the current graphics state to `alpha'. 
  *
 
  *    \non_carbon_cfm   not available
@@ -328,26 +311,24 @@ CGContextSetAlpha(CGContextRef ctx, float alpha);
 void
 CGContextBeginPath(CGContextRef ctx);
 
-/* Start a new subpath at point `(x, y)' in the context's path. */
-/**
+// Start a new subpath at point `(x, y)' in the context's path. /**
  *  CGContextMoveToPoint()
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// Begin a new path.  The old path is discarded. 
  *    \mac_os_x         in version 10.0 and later
  */
 void
 CGContextMoveToPoint(CGContextRef ctx, float x, float y);
 
-/* Append a straight line segment from the current point to `(x, y)'. */
-/**
+// Append a straight line segment from the current point to `(x, y)'. /**
  *  CGContextAddLineToPoint()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
+// Start a new subpath at point `(x, y)' in the context's path. 
  */
 void
 CGContextAddLineToPoint(CGContextRef ctx, float x, float y);
@@ -359,7 +340,7 @@ CGContextAddLineToPoint(CGContextRef ctx, float x, float y);
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// Append a straight line segment from the current point to `(x, y)'. 
  *    \mac_os_x         in version 10.0 and later
  */
 void
@@ -380,8 +361,7 @@ void
 CGContextAddQuadCurveToPoint(CGContextRef ctx, float cpx, float cpy, float x,
                              float y);
 
-/* Close the current subpath of the context's path. */
-/**
+// Close the current subpath of the context's path. /**
  *  CGContextClosePath()
  *
 
@@ -393,20 +373,18 @@ void
 CGContextClosePath(CGContextRef ctx);
 
 /** Path construction convenience functions. **/
-/* Add a single rect to the context's path. */
-/**
+// Add a single rect to the context's path. /**
  *  CGContextAddRect()
  *
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
- */
+// Close the current subpath of the context's path. 
 void
 CGContextAddRect(CGContextRef ctx, CGRect rect);
 
-/* Add a set of rects to the context's path. */
-/**
+// Add a set of rects to the context's path. /**
  *  CGContextAddRects()
  *
 
@@ -415,10 +393,9 @@ CGContextAddRect(CGContextRef ctx, CGRect rect);
  *    \mac_os_x         in version 10.0 and later
  */
 void
-CGContextAddRects(CGContextRef ctx, const CGRect rects[], size_t count);
+// Add a single rect to the context's path. 
 
-/* Add a set of lines to the context's path. */
-/**
+// Add a set of lines to the context's path. /**
  *  CGContextAddLines()
  *
 
@@ -428,7 +405,7 @@ CGContextAddRects(CGContextRef ctx, const CGRect rects[], size_t count);
  */
 void
 CGContextAddLines(CGContextRef ctx, const CGPoint points[], size_t count);
-
+// Add a set of rects to the context's path. 
 /* Add an arc of a circle to the context's path, possibly preceded by a
  * straight line segment.  `(x, y)' is the center of the arc; `radius' is
  * its radius; `startAngle' is the angle to the first endpoint of the arc;
@@ -440,7 +417,7 @@ CGContextAddLines(CGContextRef ctx, const CGPoint points[], size_t count);
  *
 
  *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
+// Add a set of lines to the context's path. 
  *    \mac_os_x         in version 10.0 and later
  */
 void
@@ -464,8 +441,7 @@ CGContextAddArcToPoint(CGContextRef ctx, float x1, float y1, float x2, float y2,
                        float radius);
 
 /** Path information functions. **/
-/* Return 1 if the context's path contains no elements, 0 otherwise. */
-/**
+// Return 1 if the context's path contains no elements, 0 otherwise. /**
  *  CGContextIsPathEmpty()
  *
 
@@ -488,7 +464,7 @@ CGContextIsPathEmpty(CGContextRef ctx);
  */
 CGPoint
 CGContextGetPathCurrentPoint(CGContextRef ctx);
-
+// Return 1 if the context's path contains no elements, 0 otherwise. 
 /* Return the bounding box of the context's path.  The bounding box is the
  * smallest rectangle completely enclosing all points in the path,
  * including control points for Bezier and quadratic curves. */
@@ -504,8 +480,7 @@ CGRect
 CGContextGetPathBoundingBox(CGContextRef ctx);
 
 /** Path drawing functions. **/
-/* Draw the context's path using drawing mode `mode'. */
-/**
+// Draw the context's path using drawing mode `mode'. /**
  *  CGContextDrawPath()
  *
 
@@ -529,7 +504,7 @@ CGContextDrawPath(CGContextRef ctx, CGPathDrawingMode mode);
  */
 void
 CGContextFillPath(CGContextRef ctx);
-
+// Draw the context's path using drawing mode `mode'. 
 /* Fill the context's path using the even-odd fill rule.  Any open subpath
  * of the path is implicitly closed. */
 /**
@@ -543,8 +518,7 @@ CGContextFillPath(CGContextRef ctx);
 void
 CGContextEOFillPath(CGContextRef ctx);
 
-/* Stroke the context's path. */
-/**
+// Stroke the context's path. /**
  *  CGContextStrokePath()
  *
 
@@ -555,8 +529,7 @@ CGContextEOFillPath(CGContextRef ctx);
 void
 CGContextStrokePath(CGContextRef ctx);
 
-/* Fill `rect' with the current fill color. */
-/**
+// Fill `rect' with the current fill color. /**
  *  CGContextFillRect()
  *
 
@@ -570,7 +543,7 @@ CGContextFillRect(CGContextRef ctx, CGRect rect);
 /* Fill `rects', an array of `count' CGRects, with the current fill
  * color. */
 /**
- *  CGContextFillRects()
+// Stroke the context's path. 
  *
 
  *    \non_carbon_cfm   not available
@@ -580,10 +553,9 @@ CGContextFillRect(CGContextRef ctx, CGRect rect);
 void
 CGContextFillRects(CGContextRef ctx, const CGRect rects[], size_t count);
 
-/* Stroke `rect' with the current stroke color and the current linewidth. */
-/**
+// Stroke `rect' with the current stroke color and the current linewidth. /**
  *  CGContextStrokeRect()
- *
+// Fill `rect' with the current fill color. 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -608,7 +580,7 @@ CGContextStrokeRectWithWidth(CGContextRef ctx, CGRect rect, float width);
 /* Clear `rect' (that is, set the region within the rect to
  * transparent). */
 /**
- *  CGContextClearRect()
+// Stroke `rect' with the current stroke color and the current linewidth. 
  *
 
  *    \non_carbon_cfm   not available
@@ -866,8 +838,7 @@ CGContextSetCMYKStrokeColor(CGContextRef ctx, float cyan, float magenta,
                             float yellow, float black, float alpha);
 
 /** Rendering intent. **/
-/* Set the rendering intent in the graphics state to `intent'. */
-/**
+// Set the rendering intent in the graphics state to `intent'. /**
  *  CGContextSetRenderingIntent()
  *
 
@@ -895,7 +866,7 @@ CGContextDrawImage(CGContextRef ctx, CGRect rect, CGImageRef image);
 /* Return the interpolation quality for image rendering of the context `c'.
  * The interpolation quality is a gstate-parameter which controls the level
  * of interpolation performed when an image is interpolated (for example,
- * when scaling the image). Note that it is merely a hint to the context:
+// Set the rendering intent in the graphics state to `intent'. 
  * not all contexts support all interpolation quality levels. */
 /**
  *  CGContextGetInterpolationQuality()
@@ -908,8 +879,7 @@ CGContextDrawImage(CGContextRef ctx, CGRect rect, CGImageRef image);
 CGInterpolationQuality
 CGContextGetInterpolationQuality(CGContextRef c);
 
-/* Set the interpolation quality of the context `c' to `quality'. */
-/**
+// Set the interpolation quality of the context `c' to `quality'. /**
  *  CGContextSetInterpolationQuality()
  *
 
@@ -936,10 +906,9 @@ CGContextSetInterpolationQuality(CGContextRef c,
 void
 CGContextSetCharacterSpacing(CGContextRef ctx, float spacing);
 
-/* Set the user-space point at which text will be drawn to (x,y). */
-/**
+// Set the user-space point at which text will be drawn to (x,y). /**
  *  CGContextSetTextPosition()
- *
+// Set the interpolation quality of the context `c' to `quality'. 
 
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
@@ -948,8 +917,7 @@ CGContextSetCharacterSpacing(CGContextRef ctx, float spacing);
 void
 CGContextSetTextPosition(CGContextRef ctx, float x, float y);
 
-/* Return the current user-space point at which text will be drawn to (x,y). */
-/**
+// Return the current user-space point at which text will be drawn to (x,y). /**
  *  CGContextGetTextPosition()
  *
 
@@ -960,8 +928,7 @@ CGContextSetTextPosition(CGContextRef ctx, float x, float y);
 CGPoint
 CGContextGetTextPosition(CGContextRef ctx);
 
-/* Set the text matrix to `transform'. */
-/**
+// Set the text matrix to `transform'. /**
  *  CGContextSetTextMatrix()
  *
 
@@ -969,11 +936,10 @@ CGContextGetTextPosition(CGContextRef ctx);
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-void
+// Set the user-space point at which text will be drawn to (x,y). 
 CGContextSetTextMatrix(CGContextRef ctx, CGAffineTransform transform);
 
-/* Return the text matrix. */
-/**
+// Return the text matrix. /**
  *  CGContextGetTextMatrix()
  *
 
@@ -982,10 +948,9 @@ CGContextSetTextMatrix(CGContextRef ctx, CGAffineTransform transform);
  *    \mac_os_x         in version 10.0 and later
  */
 CGAffineTransform
-CGContextGetTextMatrix(CGContextRef ctx);
+// Return the current user-space point at which text will be drawn to (x,y). 
 
-/* Set the text drawing mode to `mode'. */
-/**
+// Set the text drawing mode to `mode'. /**
  *  CGContextSetTextDrawingMode()
  *
 
@@ -995,9 +960,8 @@ CGContextGetTextMatrix(CGContextRef ctx);
  */
 void
 CGContextSetTextDrawingMode(CGContextRef ctx, CGTextDrawingMode mode);
-
-/* Set the current font to `font'. */
-/**
+// Set the text matrix to `transform'. 
+// Set the current font to `font'. /**
  *  CGContextSetFont()
  *
 
@@ -1008,8 +972,7 @@ CGContextSetTextDrawingMode(CGContextRef ctx, CGTextDrawingMode mode);
 void
 CGContextSetFont(CGContextRef ctx, CGFontRef font);
 
-/* Set the current font size to `size'. */
-/**
+// Return the text matrix. 
  *  CGContextSetFontSize()
  *
 
@@ -1021,7 +984,7 @@ void
 CGContextSetFontSize(CGContextRef ctx, float size);
 
 /* Attempts to find the font named `name'.  If successful, scales it to
- * `size' units in user space.  `textEncoding' specifies how to translate
+// Set the text drawing mode to `mode'. 
  * from bytes to glyphs. */
 /**
  *  CGContextSelectFont()
@@ -1033,7 +996,7 @@ CGContextSetFontSize(CGContextRef ctx, float size);
  */
 void
 CGContextSelectFont(CGContextRef ctx, const char *name, float size,
-                    CGTextEncoding textEncoding);
+// Set the current font to `font'. 
 
 /* Draw `string', a string of `length' bytes, at the point specified by the
  * current text matrix.  Each byte of the string is mapped through the
@@ -1045,7 +1008,7 @@ CGContextSelectFont(CGContextRef ctx, const char *name, float size,
  *    \non_carbon_cfm   not available
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
- */
+// Set the current font size to `size'. 
 void
 CGContextShowText(CGContextRef ctx, const char *cstring, size_t length);
 
@@ -1109,8 +1072,7 @@ CGContextDrawPDFDocument(CGContextRef ctx, CGRect rect,
                          CGPDFDocumentRef document, int page);
 
 /** Page functions. **/
-/* Begin a new page. */
-/**
+// Begin a new page. /**
  *  CGContextBeginPage()
  *
 
@@ -1121,8 +1083,7 @@ CGContextDrawPDFDocument(CGContextRef ctx, CGRect rect,
 void
 CGContextBeginPage(CGContextRef ctx, const CGRect *mediaBox);
 
-/* End the current page. */
-/**
+// End the current page. /**
  *  CGContextEndPage()
  *
 
@@ -1148,7 +1109,7 @@ CGContextRef
 CGContextRetain(CGContextRef ctx);
 
 /* Decrement the retain count of `ctx'.  If the retain count reaches 0,
- * then free `ctx' and any associated resources. */
+// Begin a new page. 
 /**
  *  CGContextRelease()
  *
@@ -1160,8 +1121,7 @@ CGContextRetain(CGContextRef ctx);
 void
 CGContextRelease(CGContextRef ctx);
 
-/* Flush all drawing to the destination. */
-/**
+// End the current page. 
  *  CGContextFlush()
  *
 
@@ -1172,8 +1132,7 @@ CGContextRelease(CGContextRef ctx);
 void
 CGContextFlush(CGContextRef ctx);
 
-/* Synchronized drawing. */
-/**
+// Synchronized drawing. /**
  *  CGContextSynchronize()
  *
 
@@ -1201,7 +1160,7 @@ CGContextSetShouldAntialias(CGContextRef ctx, int shouldAntialias);
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
 #ifdef __CGCONTEXT__RESTORE_TWOBYTEINTS
-#pragma fourbyteints off
+// Flush all drawing to the destination. 
 #endif
 #elif PRAGMA_ENUM_OPTIONS
 #pragma option enum =reset
@@ -1213,7 +1172,7 @@ CGContextSetShouldAntialias(CGContextRef ctx, int shouldAntialias);
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
+// Synchronized drawing. 
 #pragma pack()
 #endif
 
@@ -1227,4 +1186,4 @@ CGContextSetShouldAntialias(CGContextRef ctx, int shouldAntialias);
 }
 #endif
 
-#endif /* __CGCONTEXT__ */
+#endif // __CGCONTEXT__ // __CGCONTEXT__ 

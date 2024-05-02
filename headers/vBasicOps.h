@@ -787,8 +787,7 @@ vL128Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
 vector unsigned int
 vR128Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
 
-#endif /* defined(__VEC__) */
-
+#endif // defined(__VEC__) 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -807,4 +806,4 @@ vR128Rotate(vector unsigned int vA, vector unsigned char vRotateFactor);
 }
 #endif
 
-#endif /* __VBASICOPS__ */
+#endif // __VBASICOPS__ // __VBASICOPS__ 

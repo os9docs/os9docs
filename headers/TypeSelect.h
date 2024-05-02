@@ -131,8 +131,7 @@ extern "C"
   enum
   {
     uppIndexToStringProcInfo = 0x00003F90
-  }; /* pascal 1_byte Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
-#ifdef __cplusplus
+  }; // pascal 1_byte Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline IndexToStringUPP NewIndexToStringUPP(IndexToStringProcPtr userRoutine)
   {
     return (IndexToStringUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
@@ -201,16 +200,14 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewIndexToStringProc(userRoutine) NewIndexToStringUPP(userRoutine)
-#define CallIndexToStringProc(userRoutine, item, itemsScript, itemsStringPtr, \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewIndexToStringProc(userRoutine) NewIndexToStringUPP(userRoutine)
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
                               yourDataPtr)                                    \
   InvokeIndexToStringUPP(item, itemsScript, itemsStringPtr, yourDataPtr,      \
                          userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
+#pragma// CALL_NOT_IN_CARBON 
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
@@ -227,4 +224,4 @@ extern "C"
 }
 #endif
 
-#endif /* __TYPESELECT__ */
+#endif // __TYPESELECT__ // __TYPESELECT__ 

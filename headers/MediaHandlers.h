@@ -81,7 +81,7 @@ extern "C"
         handlerCanPicSave = 1 << 13
     };
 
-    /* media task flags */
+    // media task flags
     enum
     {
         mMustDraw = 1 << 3,
@@ -94,7 +94,7 @@ extern "C"
         mDisableIdleActions = 1 << 12
     };
 
-    /* media task result flags */
+    // media task result flags
     enum
     {
         mDidDraw = 1 << 0,
@@ -110,25 +110,25 @@ extern "C"
         forceUpdateNewBuffer = 1 << 1
     };
 
-    /* media hit test flags */
+    // media hit test flags
     enum
     {
         mHitTestBounds =
-            1L << 0, /*    point must only be within targetRefCon's bounding box */
+            1L << 0, //    point must only be within targetRefCon's bounding box
         mHitTestImage =
-            1L << 1,                 /*  point must be within the shape of the targetRefCon's image */
-        mHitTestInvisible = 1L << 2, /*  invisible targetRefCon's may be hit tested */
-        mHitTestIsClick = 1L << 3    /*  for codecs that want mouse events */
+            1L << 1,                 //  point must be within the shape of the targetRefCon's image
+        mHitTestInvisible = 1L << 2, //  invisible targetRefCon's may be hit tested
+        mHitTestIsClick = 1L << 3    //  for codecs that want mouse events
     };
 
-    /* media is opaque flags */
+    // media is opaque flags
     enum
     {
         mOpaque = 1L << 0,
         mInvisible = 1L << 1
     };
 
-    /* MediaSetPublicInfo/MediaGetPublicInfo selectors */
+    // MediaSetPublicInfo/MediaGetPublicInfo selectors
     enum
     {
         kMediaQTIdleFrequencySelector = FOUR_CHAR_CODE('idfq')
@@ -168,14 +168,14 @@ extern "C"
         kMediaVideoParamWhiteLevel = 7
     };
 
-    /* These are for MediaGetInfo() and MediaSetInfo().*/
+    // These are for MediaGetInfo() and MediaSetInfo().
     enum
     {
         kMHInfoEncodedFrameRate =
-            FOUR_CHAR_CODE('orat') /* Parameter is a MHInfoEncodedFrameRateRecord*.*/
+            FOUR_CHAR_CODE('orat') // Parameter is a MHInfoEncodedFrameRateRecord*.
     };
 
-    /* This holds the frame rate at which the track was encoded.*/
+    // This holds the frame rate at which the track was encoded.
     struct MHInfoEncodedFrameRateRecord
     {
         Fixed encodedFrameRate;
@@ -202,7 +202,7 @@ extern "C"
     struct MediaEQSpectrumBandsRecord
     {
         short count;
-        UnsignedFixedPtr frequency; /* pointer to array of frequencies*/
+        UnsignedFixedPtr frequency; // pointer to array of frequencies
     };
     typedef struct MediaEQSpectrumBandsRecord MediaEQSpectrumBandsRecord;
     typedef MediaEQSpectrumBandsRecord *MediaEQSpectrumBandsRecordPtr;
@@ -223,9 +223,9 @@ extern "C"
                                     QTEventRecordPtr event)
         FIVEWORDINLINE(0x2F3C, 0x0010, 0xFFF7, 0x7000, 0xA82A);
 
-    /* MediaCallRange2 */
-    /* These are unique to each type of media handler */
-    /* They are also included in the public interfaces */
+    // MediaCallRange2
+    // These are unique to each type of media handler
+    // They are also included in the public interfaces
 
     /***** These are the calls for dealing with the Generic media handler *****/
     /**
@@ -1423,7 +1423,7 @@ extern "C"
                                 CodecComponentHandle userPreferredCodecs)
         FIVEWORDINLINE(0x2F3C, 0x0004, 0x0568, 0x7000, 0xA82A);
 
-    /* selectors for component calls */
+    // selectors for component calls
     enum
     {
         kCallComponentExecuteWiredActionSelect = -9,
@@ -1532,7 +1532,7 @@ extern "C"
     enum
     {
         uppPrePrerollCompleteProcInfo = 0x00000EC0
-    }; /* pascal no_return_value Func(4_bytes, 2_bytes, 4_bytes) */
+    }; // pascal no_return_value Func(4_bytes, 2_bytes, 4_bytes)
 #ifdef __cplusplus
     inline PrePrerollCompleteUPP
     NewPrePrerollCompleteUPP(PrePrerollCompleteProcPtr userRoutine)
@@ -1597,15 +1597,15 @@ extern "C"
 #endif
 #endif
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #define NewPrePrerollCompleteProc(userRoutine) \
     NewPrePrerollCompleteUPP(userRoutine)
 #define CallPrePrerollCompleteProc(userRoutine, mh, err, refcon) \
     InvokePrePrerollCompleteUPP(mh, err, refcon, userRoutine)
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -1625,4 +1625,4 @@ extern "C"
 }
 #endif
 
-#endif /* __MEDIAHANDLERS__ */
+#endif // __MEDIAHANDLERS__

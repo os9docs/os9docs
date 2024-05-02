@@ -43,25 +43,21 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* ICC Profile version constants  */
-enum {
+// ICC Profile version constants  enum {
   cmICCProfileVersion2 = 0x02000000,
   cmICCProfileVersion21 = 0x02100000,
   cmCS2ProfileVersion = cmICCProfileVersion2,
-  cmCS1ProfileVersion = 0x00000100 /* ColorSync 1.0 profile version */
-};
-
-/* Current Major version number */
-enum {
+  cmCS1ProfileVersion = 0x00000100 // ColorSync 1.0 profile version };
+// ColorSync 1.0 profile version 
+// Current Major version number enum {
   cmProfileMajorVersionMask = (long)0xFF000000,
-  cmCurrentProfileMajorVersion = 0x02000000
+// Current Major version number 
 };
 
-/* magic cookie number for anonymous file ID */
-enum { cmMagicNumber = FOUR_CHAR_CODE('acsp') };
+// magic cookie number for anonymous file ID enum { cmMagicNumber = FOUR_CHAR_CODE('acsp') };
 
 /************************************************************************/
-/*************** ColorSync 2.0 profile specification ********************/
+// magic cookie number for anonymous file ID 
 /************************************************************************/
 /**** flags field  ****/
 enum {
@@ -77,96 +73,73 @@ enum {
   cmQualityMask = 0x00030000, /* if bits 16-17 is 0 then normal, if 1 then
                                  draft, if 2 then best */
   cmInterpolationMask =
-      0x00040000, /* if bit 18 is 0 then interpolation, if 1 then lookup only */
-  cmGamutCheckingMask = 0x00080000 /* if bit 19 is 0 then create gamut checking
+      0x00040000, // if bit 18 is 0 then interpolation, if 1 then lookup only   cmGamutCheckingMask = 0x00080000 /* if bit 19 is 0 then create gamut checking
                                       info, if 1 then no gamut checking info */
 };
 
-/* copyright-protection flag options */
-enum {
-  cmEmbeddedProfile = 0, /* 0 is not embedded profile, 1 is embedded profile */
-  cmEmbeddedUse =
-      1 /* 0 is to use anywhere, 1 is to use as embedded profile only */
-};
+// copyright-prote// if bit 18 is 0 then interpolation, if 1 then lookup only 
+  cmEmbeddedProfile = 0, // 0 is not embedded profile, 1 is embedded profile   cmEmbeddedUse =
+      1 // 0 is to use anywhere, 1 is to use as embedded profile only };
 
-/* speed and quality flag options */
-enum {
-  cmNormalMode =
-      0, /* it uses the least significent two bits in the high word of flag */
-  cmDraftMode = 1, /* it should be evaulated like this: right shift 16 bits
-                      first, mask off the */
+// speed and quality flag options enum {
+// copyright-protection flag options 
+      0, // it uses the least significent two bits in the high word of flag   cmDraftMode = 1, /* it should be evaulated like this: right shift 16 bits
+                      fir// 0 is not embedded profile, 1 is embedded profile 
   cmBestMode = 2   /* high 14 bits, and then compare with the enum to determine
-                      the option value */
+        // 0 is to use anywhere, 1 is to use as embedded profile only 
 };
 
-/**** deviceAttributes fields ****/
-/* deviceAttributes[0] is defined by and reserved for device vendors */
-/* deviceAttributes[1] is defined by and reserved for ICC */
-/* The following bits of deviceAttributes[1] are currently defined */
-enum {
+// speed and quality flag options 
+// deviceAttributes[0] is defined by and reserved for device vendors // deviceAttributes[1] is defined by and reserved for ICC // The following bits of deviceAttributes[1] are currently defined enum {
   cmReflectiveTransparentMask =
-      0x00000001, /* if bit 0 is 0 then reflective media, if 1 then transparency
+      0x0// it uses the least significent two bits in the high word of flag 
                      media */
   cmGlossyMatteMask =
-      0x00000002 /* if bit 1 is 0 then glossy, if 1 then matte */
-};
+      0x00000002 // if bit 1 is 0 then glossy, if 1 then matte };
 
-/* device/media attributes element values  */
-enum {
+// device/media attributes element values  enum {
   cmReflective =
-      0, /* if bit 0 is 0 then reflective media, if 1 then transparency media */
-  cmGlossy = 1 /* if bit 1 is 0 then glossy, if 1 then matte */
-};
+      0, // if bit 0 is 0 then reflective media, if 1 then transparency media   cmGlossy = 1 // if bit 1 is 0 then glossy, if 1 then matte };
+// deviceAttributes[0] is defined by and reserved for device vendors 
+// deviceAttributes[1] is defined by and reserved for ICC 
+// The following bits of deviceAttributes[1] are currently defined 
+  cmPerceptual = 0,           // Photographic images   cmRelativeColorimetric = 1, // Logo Colors   cmSaturation = 2,           // Business graphics   cmAbsoluteColorimetric = 3  // Logo Colors };
 
-/**** renderingIntent field ****/
-enum {
-  cmPerceptual = 0,           /* Photographic images */
-  cmRelativeColorimetric = 1, /* Logo Colors */
-  cmSaturation = 2,           /* Business graphics */
-  cmAbsoluteColorimetric = 3  /* Logo Colors */
-};
+// data type element values enum { cmAsciiData = 0, cmBinaryData = 1 };
 
-/* data type element values */
-enum { cmAsciiData = 0, cmBinaryData = 1 };
+// screen encodings  enum {
+  cmPrtrDefaultSc// if bit 1 is 0 then glossy, if 1 then matte 
+      0,         // Use printer default screens.  0 is false, 1 is ture   cmLinesPer = 1 // 0 is LinesPerCm, 1 is LinesPerInch };
 
-/* screen encodings  */
-enum {
-  cmPrtrDefaultScreens =
-      0,         /* Use printer default screens.  0 is false, 1 is ture */
-  cmLinesPer = 1 /* 0 is LinesPerCm, 1 is LinesPerInch */
-};
+// device/media attributes element values  
 
-/* 2.0 tag type information */
-enum { cmNumHeaderElements = 10 };
-
-/* public tags */
-enum {
-  cmAToB0Tag = FOUR_CHAR_CODE('A2B0'),
-  cmAToB1Tag = FOUR_CHAR_CODE('A2B1'),
+// public tags enum {
+  cmAToB0// if bit 0 is 0 then reflective media, if 1 then transparency media 
+  cmAToB1Tag = // if bit 1 is 0 then glossy, if 1 then matte 
   cmAToB2Tag = FOUR_CHAR_CODE('A2B2'),
   cmBlueColorantTag = FOUR_CHAR_CODE('bXYZ'),
   cmBlueTRCTag = FOUR_CHAR_CODE('bTRC'),
   cmBToA0Tag = FOUR_CHAR_CODE('B2A0'),
-  cmBToA1Tag = FOUR_CHAR_CODE('B2A1'),
-  cmBToA2Tag = FOUR_CHAR_CODE('B2A2'),
-  cmCalibrationDateTimeTag = FOUR_CHAR_CODE('calt'),
-  cmChromaticAdaptationTag = FOUR_CHAR_CODE('chad'),
+  cmBToA1Tag = FOUR_CHAR_CODE(// Photographic images 
+  cmBToA2Tag = FOUR_CHAR_CODE(// Logo Colors 
+  cmCalibrationDateTimeTag = F// Business graphics 
+  cmChromaticAdaptationTag = F// Logo Colors 
   cmCharTargetTag = FOUR_CHAR_CODE('targ'),
   cmCopyrightTag = FOUR_CHAR_CODE('cprt'),
-  cmDeviceMfgDescTag = FOUR_CHAR_CODE('dmnd'),
+// data type element values 
   cmDeviceModelDescTag = FOUR_CHAR_CODE('dmdd'),
   cmGamutTag = FOUR_CHAR_CODE('gamt'),
-  cmGrayTRCTag = FOUR_CHAR_CODE('kTRC'),
+// screen encodings  
   cmGreenColorantTag = FOUR_CHAR_CODE('gXYZ'),
   cmGreenTRCTag = FOUR_CHAR_CODE('gTRC'),
-  cmLuminanceTag = FOUR_CHAR_CODE('lumi'),
-  cmMeasurementTag = FOUR_CHAR_CODE('meas'),
+  cmLuminanceTag // Use printer default screens.  0 is false, 1 is ture 
+  cmMeasurementTa// 0 is LinesPerCm, 1 is LinesPerInch 
   cmMediaBlackPointTag = FOUR_CHAR_CODE('bkpt'),
   cmMediaWhitePointTag = FOUR_CHAR_CODE('wtpt'),
-  cmNamedColorTag = FOUR_CHAR_CODE('ncol'),
+// 2.0 tag type information 
   cmNamedColor2Tag = FOUR_CHAR_CODE('ncl2'),
   cmPreview0Tag = FOUR_CHAR_CODE('pre0'),
-  cmPreview1Tag = FOUR_CHAR_CODE('pre1'),
+// public tags 
   cmPreview2Tag = FOUR_CHAR_CODE('pre2'),
   cmProfileDescriptionTag = FOUR_CHAR_CODE('desc'),
   cmProfileSequenceDescTag = FOUR_CHAR_CODE('pseq'),
@@ -186,16 +159,14 @@ enum {
   cmViewingConditionsTag = FOUR_CHAR_CODE('view')
 };
 
-/* custom tags */
-enum {
+// custom tags enum {
   cmPS2CRDVMSizeTag = FOUR_CHAR_CODE('psvm'),
   cmVideoCardGammaTag = FOUR_CHAR_CODE('vcgt'),
   cmMakeAndModelTag = FOUR_CHAR_CODE('mmod'),
   cmProfileDescriptionMLTag = FOUR_CHAR_CODE('dscm')
 };
 
-/* technology tag descriptions */
-enum {
+// technology tag descriptions enum {
   cmTechnologyFilmScanner = FOUR_CHAR_CODE('fscn'),
   cmTechnologyReflectiveScanner = FOUR_CHAR_CODE('rscn'),
   cmTechnologyInkJetPrinter = FOUR_CHAR_CODE('ijet'),
@@ -215,16 +186,15 @@ enum {
   cmTechnologyPhotoImageSetter = FOUR_CHAR_CODE('imgs'),
   cmTechnologyGravure = FOUR_CHAR_CODE('grav'),
   cmTechnologyOffsetLithography = FOUR_CHAR_CODE('offs'),
-  cmTechnologySilkscreen = FOUR_CHAR_CODE('silk'),
+// custom tags 
   cmTechnologyFlexography = FOUR_CHAR_CODE('flex')
 };
 
-/* public type signatures */
-enum {
+// public type signatures enum {
   cmSigCurveType = FOUR_CHAR_CODE('curv'),
   cmSigDataType = FOUR_CHAR_CODE('data'),
   cmSigDateTimeType = FOUR_CHAR_CODE('dtim'),
-  cmSigLut16Type = FOUR_CHAR_CODE('mft2'),
+// technology tag descriptions 
   cmSigLut8Type = FOUR_CHAR_CODE('mft1'),
   cmSigMeasurementType = FOUR_CHAR_CODE('meas'),
   cmSigNamedColorType = FOUR_CHAR_CODE('ncol'),
@@ -246,34 +216,28 @@ enum {
   cmSigXYZType = FOUR_CHAR_CODE('XYZ ')
 };
 
-/* custom type signatures */
-enum {
+// custom type signatures enum {
   cmSigPS2CRDVMSizeType = FOUR_CHAR_CODE('psvm'),
   cmSigVideoCardGammaType = FOUR_CHAR_CODE('vcgt'),
-  cmSigMakeAndModelType = FOUR_CHAR_CODE('mmod'),
+// public type signatures 
   cmSigMultiLocalizedUniCodeType = FOUR_CHAR_CODE('mluc')
 };
 
-/* Measurement type encodings */
-/* Measurement Flare */
-enum { cmFlare0 = 0x00000000, cmFlare100 = 0x00000001 };
+// Measurement type encodings // Measurement Flare enum { cmFlare0 = 0x00000000, cmFlare100 = 0x00000001 };
 
-/* Measurement Geometry */
-enum {
+// Measurement Geometry enum {
   cmGeometryUnknown = 0x00000000,
   cmGeometry045or450 = 0x00000001,
   cmGeometry0dord0 = 0x00000002
 };
 
-/* Standard Observer    */
-enum {
+// Standard Observer    enum {
   cmStdobsUnknown = 0x00000000,
   cmStdobs1931TwoDegrees = 0x00000001,
   cmStdobs1964TenDegrees = 0x00000002
 };
 
-/* Standard Illuminant */
-enum {
+// Standard Illuminant enum {
   cmIlluminantUnknown = 0x00000000,
   cmIlluminantD50 = 0x00000001,
   cmIlluminantD65 = 0x00000002,
@@ -282,35 +246,33 @@ enum {
   cmIlluminantD55 = 0x00000005,
   cmIlluminantA = 0x00000006,
   cmIlluminantEquiPower = 0x00000007,
-  cmIlluminantF8 = 0x00000008
+// custom type signatures 
 };
 
-/* Spot Function Value */
-enum {
+// Spot Function Value enum {
   cmSpotFunctionUnknown = 0,
   cmSpotFunctionDefault = 1,
   cmSpotFunctionRound = 2,
   cmSpotFunctionDiamond = 3,
-  cmSpotFunctionEllipse = 4,
-  cmSpotFunctionLine = 5,
+// Measurement type encodings 
+// Measurement Flare 
   cmSpotFunctionSquare = 6,
   cmSpotFunctionCross = 7
-};
+// Measurement Geometry 
 
-/* Color Space Signatures */
-enum {
+// Color Space Signatures enum {
   cmXYZData = FOUR_CHAR_CODE('XYZ '),
   cmLabData = FOUR_CHAR_CODE('Lab '),
   cmLuvData = FOUR_CHAR_CODE('Luv '),
   cmYxyData = FOUR_CHAR_CODE('Yxy '),
-  cmRGBData = FOUR_CHAR_CODE('RGB '),
+// Standard Observer    
   cmSRGBData = FOUR_CHAR_CODE('sRGB'),
   cmGrayData = FOUR_CHAR_CODE('GRAY'),
   cmHSVData = FOUR_CHAR_CODE('HSV '),
   cmHLSData = FOUR_CHAR_CODE('HLS '),
   cmCMYKData = FOUR_CHAR_CODE('CMYK'),
   cmCMYData = FOUR_CHAR_CODE('CMY '),
-  cmMCH5Data = FOUR_CHAR_CODE('MCH5'),
+// Standard Illuminant 
   cmMCH6Data = FOUR_CHAR_CODE('MCH6'),
   cmMCH7Data = FOUR_CHAR_CODE('MCH7'),
   cmMCH8Data = FOUR_CHAR_CODE('MCH8'),
@@ -323,8 +285,7 @@ enum {
   cmNamedData = FOUR_CHAR_CODE('NAME')
 };
 
-/* profileClass enumerations */
-enum {
+// Spot Function Value 
   cmInputClass = FOUR_CHAR_CODE('scnr'),
   cmDisplayClass = FOUR_CHAR_CODE('mntr'),
   cmOutputClass = FOUR_CHAR_CODE('prtr'),
@@ -334,25 +295,22 @@ enum {
   cmNamedColorClass = FOUR_CHAR_CODE('nmcl')
 };
 
-/* platform enumerations */
-enum {
+// platform enumerations enum {
   cmMacintosh = FOUR_CHAR_CODE('APPL'),
-  cmMicrosoft = FOUR_CHAR_CODE('MSFT'),
+// Color Space Signatures 
   cmSolaris = FOUR_CHAR_CODE('SUNW'),
   cmSiliconGraphics = FOUR_CHAR_CODE('SGI '),
   cmTaligent = FOUR_CHAR_CODE('TGNT')
 };
 
-/* ColorSync 1.0 elements */
-enum {
+// ColorSync 1.0 elements enum {
   cmCS1ChromTag = FOUR_CHAR_CODE('chrm'),
   cmCS1TRCTag = FOUR_CHAR_CODE('trc '),
   cmCS1NameTag = FOUR_CHAR_CODE('name'),
   cmCS1CustTag = FOUR_CHAR_CODE('cust')
 };
 
-/* General element data types */
-struct CMDateTime {
+// General element data types struct CMDateTime {
   UInt16 year;
   UInt16 month;
   UInt16 dayOfTheMonth;
@@ -365,7 +323,7 @@ struct CMFixedXYZColor {
   Fixed X;
   Fixed Y;
   Fixed Z;
-};
+// profileClass enumerations 
 typedef struct CMFixedXYZColor CMFixedXYZColor;
 
 typedef UInt16 CMXYZComponent;
@@ -376,525 +334,378 @@ struct CMXYZColor {
 };
 typedef struct CMXYZColor CMXYZColor;
 struct CM2Header {
-  UInt32 size;           /* This is the total size of the Profile */
-  OSType CMMType;        /* CMM signature,  Registered with CS2 consortium  */
-  UInt32 profileVersion; /* Version of CMProfile format */
-  OSType profileClass; /* input, display, output, devicelink, abstract, or color
+// platform enumerations 
                           conversion profile type */
-  OSType dataColorSpace;         /* color space of data */
-  OSType profileConnectionSpace; /* profile connection color space */
-  CMDateTime dateTime;           /* date and time of profile creation */
-  OSType CS2profileSignature;    /* 'acsp' constant ColorSync 2.0 file ID */
-  OSType
-      platform; /* primary profile platform, Registered with CS2 consortium */
-  UInt32 flags; /* profile flags */
-  OSType deviceManufacturer;  /* Registered with ICC consortium */
-  UInt32 deviceModel;         /* Registered with ICC consortium */
-  UInt32 deviceAttributes[2]; /* Attributes[0] is for device vendors, [1] is for
+  OSType dataColorSpace;         // color space of data   OSType profileConnectionSpace; // profile connection color space   CMDateTime dateTime;           // date and time of profile creation   OSType CS2profileSignature;    // 'acsp' constant ColorSync 2.0 file ID   OSType
+      platform; // primary profile platform, Registered with CS2 consortium   UInt32 flags; // profile flags   OSType deviceManufacturer;  // Registered with ICC consortium   UInt32 deviceModel;         // Registered with ICC consortium   UInt32 deviceAttributes[2]; /* Attributes[0] is for device vendors, [1] is for
                                  ICC */
-  UInt32 renderingIntent;     /* preferred rendering intent of tagged object */
-  CMFixedXYZColor white;      /* profile illuminant */
-  OSType creator;             /* profile creator */
-  char reserved[44];          /* reserved for future use */
-};
+  UInt32 renderingIntent;     // preferred rendering intent of tagged object   CMFixedXYZColor white;      // profile illuminant   OSType creator;             // profile creator   char reserved[44];          // reserved for future use };
 typedef struct CM2Header CM2Header;
 struct CMTagRecord {
-  OSType tag;           /* Registered with CS2 consortium */
-  UInt32 elementOffset; /* Relative to start of CMProfile */
-  UInt32 elementSize;
-};
+  OSType tag;           // Registered with CS2 consortium   UInt32 elementOffset; // Relative to start of CMProfile   UInt32 elementSize;
+// ColorSync 1.0 elements 
 typedef struct CMTagRecord CMTagRecord;
 struct CMTagElemTable {
   UInt32 count;
-  CMTagRecord tagList[1]; /* variable size, determined by count */
-};
+  CMTagRecord tagList[1]; // variable size, determined by count };
 typedef struct CMTagElemTable CMTagElemTable;
 struct CM2Profile {
   CM2Header header;
-  CMTagElemTable tagTable;
-  char elemData[1]; /* variable size data for tagged element storage */
-};
+// General element data types 
+  char elemData[1]; // variable size data for tagged element storage };
 typedef struct CM2Profile CM2Profile;
 typedef CM2Profile *CM2ProfilePtr;
 typedef CM2ProfilePtr *CM2ProfileHandle;
-/* Tag Type Definitions */
-struct CMAdaptationMatrixType {
-  OSType typeDescriptor;     /* 'sf32' = cmSigS15Fixed16Type */
-  unsigned long reserved;    /* fill with 0x00 */
-  Fixed adaptationMatrix[9]; /* fixed size of nine matrix entries */
-};
+// Tag Type Definitions struct CMAdaptationMatrixType {
+  OSType typeDescriptor;     // 'sf32' = cmSigS15Fixed16Type   unsigned long reserved;    // fill with 0x00   Fixed adaptationMatrix[9]; // fixed size of nine matrix entries };
 typedef struct CMAdaptationMatrixType CMAdaptationMatrixType;
 struct CMCurveType {
-  OSType typeDescriptor; /* 'curv' = cmSigCurveType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 countValue;     /* number of entries in table that follows */
-  UInt16 data[1];        /* variable size, determined by countValue */
-};
+  OSType typeDescriptor; // 'curv' = cmSigCurveType   UInt32 reserved;       // fill with 0x00   UInt32 countValue;     // number of entries in table that follows   UInt16 data[1];        // variable size, determined by countValue };
 typedef struct CMCurveType CMCurveType;
 struct CMDataType {
-  OSType typeDescriptor; /* 'data' = cmSigDataType*/
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 dataFlag;       /* 0 = ASCII, 1 = binary */
-  char data[1];          /* variable size, determined by tag element size */
-};
+  OSType typeDescriptor; // 'data' = cmSigDataType  UInt32 reserved;       // fill with 0x00   UInt32 dataFlag;       // 0 = ASCII, 1 = binary   char data[1];          // variable size, determined by tag element size };
 typedef struct CMDataType CMDataType;
 struct CMDateTimeType {
-  OSType typeDescriptor; /* 'dtim' = cmSigDateTimeType */
-  UInt32 reserved;       /* fill with 0x00 */
-  CMDateTime dateTime;   /* */
-};
+  OSType typeDescriptor; // 'dtim' = cmSigDateTimeType   UInt32 reserved;       // fill with 0x00   CMDateTime dateTime;   // };
 typedef struct CMDateTimeType CMDateTimeType;
 struct CMLut16Type {
-  OSType typeDescriptor;     /* 'mft2' = cmSigLut16Type */
-  UInt32 reserved;           /* fill with 0x00 */
-  UInt8 inputChannels;       /* Number of input channels */
-  UInt8 outputChannels;      /* Number of output channels */
-  UInt8 gridPoints;          /* Number of clutTable grid points */
-  UInt8 reserved2;           /* fill with 0x00 */
-  Fixed matrix[3][3];        /* */
-  UInt16 inputTableEntries;  /* Number of entries in 1-D input luts */
-  UInt16 outputTableEntries; /* Number of entries in 1-D output luts */
-  UInt16 inputTable[1];      /* variable size, determined by
+  OSType typeDescriptor;     // 'mft2' = cmSigLut16Type   UInt32 reserved;           // fill with 0x00   UInt8 inputChannels;       // Number of input channels   UInt8 outputChannels;      // Number of output channels   UInt8 gridPoints;          // Number of clutTable grid points   UInt8 reserved2;           // fill with 0x00   Fixed matrix[3][3];        //   UInt16 inputTableEntries;  // Number of entries in 1-D input luts   UInt16 outputTableEntries; // Number of entries in 1-D output luts   UInt16 inputTable[1];      /* variable size, determined by
                                 inputChannels*inputTableEntries */
-#if 0 /* NOTE: Field offsets are variable from here on. */
-  /* In order to correctly reflect the actual format of this tag, some of the fields in */
-  /* this structure have been removed because they follow an array field of variable size. */
-  /* As a result, the size of this structure has changed from previous versions of this interface. */
-  /* Code that relies on sizeof(CMLut16Type) should be changed. */
-  UInt16              CLUT[];                 /* variable size, determined by (gridPoints^inputChannels)*outputChannels */
-  UInt16              outputTable[];          /* variable size, determined by outputChannels*outputTableEntries */
-#endif
+#if 0 // NOTE: Field offsets are variable from here on.   // In order to correctly reflect the actual format of this tag, some of the fields in   // this structure have been removed because they follow an array field of variable size.   // As a result, the size of this structure has changed from previous versions of this interface.   // Code that relies on sizeof(CMLut16Type) should be changed.   UInt16              CLUT[];                 // variable size, determined by (gridPoints^inputChannels)*outputChannels   UInt16              outputTable[];          // variable size, determined by outputChannels*outputTableEntries #endif
 };
 typedef struct CMLut16Type CMLut16Type;
 struct CMLut8Type {
-  OSType typeDescriptor; /* 'mft1' = cmSigLut8Type */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt8 inputChannels;   /* Number of input channels */
-  UInt8 outputChannels;  /* Number of output channels */
-  UInt8 gridPoints;      /* Number of clutTable grid points */
-  UInt8 reserved2;       /* fill with 0x00 */
-  Fixed matrix[3][3];    /* */
-  UInt8 inputTable[1];   /* variable size, determined by inputChannels*256 */
-#if 0                    /* NOTE: Field offsets are variable from here on. */
-  /* In order to correctly reflect the actual format of this tag, some of the fields in */
-  /* this structure have been removed because they follow an array field of variable size. */
-  /* As a result, the size of this structure has changed from previous versions of this interface. */
-  /* Code that relies on sizeof(CMLut8Type) should be changed. */
-  UInt8               CLUT[];                 /* variable size, determined by (gridPoints^inputChannels)*outputChannels */
-  UInt8               outputTable[];          /* variable size, determined by outputChannels*256 */
-#endif
-};
-typedef struct CMLut8Type CMLut8Type;
-struct CMMeasurementType {
-  OSType typeDescriptor;      /* 'meas' = cmSigMeasurementType */
-  UInt32 reserved;            /* fill with 0x00 */
-  UInt32 standardObserver;    /* cmStdobsUnknown, cmStdobs1931TwoDegrees,
+  OSType typeDescriptor; // 'mft1' = cmSigLut8Type   UInt32 reserved;       // fill with 0x00   UInt8 inputChannels;   // Number of input channels   UInt8 outputChannels;  // Number of output channels   UInt8 gridPoints;      // Number of clutTable grid points   UInt8 reserved2;       // fill with 0x00   Fixed matrix[3][3];    //   UInt8 inputTable[1];   // variable size, determined by inputChannels*256 #if 0                    // NOTE: Field offsets are variable from here on.   // In order to correctly reflect the actual format of this tag, some of the fields in   // this structure have been removed because they follow an array field of variable size.   // As a result, the size of this structure has changed from previous versions of this interface.   // Code that relies on sizeof(CMLut8Type) should be changed.   UInt8               CLUT[];                 // variable size, determined by (gridPoints^inputChannels)*outputChannels   UInt8               outputTable[];          // variable size, determined by outputChannels*256 #endif
+};// This is the total size of the Profile 
+typedef struct CMLut8Type// CMM signature,  Registered with CS2 consortium  
+struct CMMeasurementType // Version of CMProfile format 
+  OSType typeDescriptor;      // 'meas' = cmSigMeasurementType   UInt32 reserved;            // fill with 0x00   UInt32 standardObserver;    /* cmStdobsUnknown, cmStdobs1931TwoDegrees,
                                  cmStdobs1964TenDegrees */
-  CMFixedXYZColor backingXYZ; /* absolute XYZ values of backing */
-  UInt32 geometry;            /* cmGeometryUnknown, cmGeometry045or450 (0/45),
-                                 cmGeometry0dord0 (0/d or d/0) */
-  UInt32 flare;               /* cmFlare0, cmFlare100 */
-  UInt32 illuminant;          /* cmIlluminantUnknown, cmIlluminantD50, ... */
-};
-typedef struct CMMeasurementType CMMeasurementType;
+  CMFixedXYZColor backingXYZ; // // color space of data 
+                                 // profile connection color space 
+  UInt32 flare;               // // date and time of profile creation 
+typedef struct CMMeasurementType // 'acsp' constant ColorSync 2.0 file ID 
 struct CMNamedColorType {
-  OSType typeDescriptor; /* 'ncol' = cmSigNamedColorType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 vendorFlag;     /* */
-  UInt32 count;          /* count of named colors in array that follows */
-  UInt8 prefixName[1];   /* variable size, max = 32 */
-#if 0                    /* NOTE: Field offsets are variable from here on. */
-  /* In order to correctly reflect the actual format of this tag, some of the fields in */
-  /* this structure have been removed because they follow an array field of variable size. */
-  /* As a result, the size of this structure has changed from previous versions of this interface. */
-  /* Code that relies on sizeof(CMNamedColorType) should be changed. */
-  UInt8               suffixName[];           /* variable size, max = 32 */
-  struct {
-    UInt8             rootName[];             /* variable size, max = 32 */
-    UInt8             colorCoords[];          /* variable size */
-  } colorName[];                              /* variable size */
-#endif
-};
-typedef struct CMNamedColorType CMNamedColorType;
+  OSType typeDes// primary profile platform, Registered with CS2 consortium 
+    UInt8       // profile flags 
+};// Registered with ICC consortium 
+typedef struct CMNamedColorTyp// Registered with ICC consortium 
 struct CMNamedColor2EntryType {
-  UInt8 rootName[32];          /* 32 byte field.  7 bit ASCII null terminated */
-  UInt16 PCSColorCoords[3];    /* Lab or XYZ color */
-  UInt16 DeviceColorCoords[1]; /* variable size */
-};
-typedef struct CMNamedColor2EntryType CMNamedColor2EntryType;
-struct CMNamedColor2Type {
-  OSType typeDescriptor;     /* 'ncl2' = cmSigNamedColor2Type */
-  UInt32 reserved;           /* fill with 0x00 */
-  UInt32 vendorFlag;         /* lower 16 bits reserved for ICC use */
-  UInt32 count;              /* count of named colors in array that follows */
-  UInt32 deviceChannelCount; /* number of device channels, 0 indicates no device
-                                value available */
-  UInt8 prefixName[32]; /* Fixed 32 byte size.  7 bit ASCII null terminated */
-  UInt8 suffixName[32]; /* Fixed 32 byte size.  7 bit ASCII null terminated */
-  char data[1];         /* variable size data for CMNamedColor2EntryType */
-};
+  UInt8 rootName[32];          // 32 byte field.  7 bit ASCII null terminated   UInt16 PCSColorCoords[3];    // Lab or XYZ color   UInt16 DeviceColorCoords[1]; // variable size };
+typedef struct CMNamedColor2En// preferred rendering intent of tagged object 
+struct CMNamedColor2Type {// profile illuminant 
+  OSType typeDescriptor;     /// profile creator 
+                              // reserved for future use 
+  UInt8 prefixName[32]; // Fixed 32 byte size.  7 bit ASCII null terminated   UInt8 suffixName[32]; // Fixed 32 byte size.  7 bit ASCII null terminated   char data[1];         // variable size data for CMNamedColor2EntryType };
 typedef struct CMNamedColor2Type CMNamedColor2Type;
 struct CMTextDescriptionType {
-  OSType typeDescriptor; /* 'desc' = cmSigProfileDescriptionType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 ASCIICount;     /* Count of bytes (including null terminator)  */
-  UInt8 ASCIIName[2]; /* variable size, determined by ASCIICount.  7 bit ASCII
-                         null terminated */
-#if 0                 /* NOTE: Field offsets are variable from here on. */
-  /* In order to correctly reflect the actual format of this tag, some of the fields in */
-  /* this structure have been removed because they follow an array field of variable size. */
-  /* As a result, the size of this structure has changed from previous versions of this interface. */
-  /* Code that relies on sizeof(CMTextDescriptionType) should be changed. */
-  UInt32              UniCodeCode;            /* Unused */
-  UInt32              UniCodeCount;           /* Count of 2-byte characters (including null terminator) */
-  UInt8               UniCodeName[];          /* variable size, determined by UniCodeCount */
-  SInt16              ScriptCodeCode;         /* Mac-defined script code */
-  UInt8               ScriptCodeCount;        /* Count of bytes (including null terminator) */
-  UInt8               ScriptCodeName[];       /* variable size, determined by ScriptCodeCount */
-#endif
+  OSType typeDescriptor;// Registered with CS2 consortium 
+                        // Relative to start of CMProfile 
+#if 0                 // NOTE: Field offsets are variable from here on.   // In order to correctly reflect the actual format of this tag, some of the fields in   // this structure have been removed because they follow an array field of variable size.   // As a result, the size of this structure has changed from previous versions of this interface.   // Code that relies on sizeof(CMTextDescriptionType) should be changed.   UInt32              UniCodeCode;            // Unused   UInt32              UniCodeCount;           // Count of 2-byte characters (including null terminator)   UInt8               UniCodeName[];          // variable size, determined by UniCodeCount   SInt16              ScriptCodeCode;         // Mac-defined script code   UInt8               ScriptCodeCount;        // Count of bytes (including null terminator)   UInt8               ScriptCodeName[];       // variable size, determined by ScriptCodeCount #endif
 };
 typedef struct CMTextDescriptionType CMTextDescriptionType;
 struct CMTextType {
-  OSType typeDescriptor; /* 'text' = cmSigTextType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt8 text[1];         /* variable size, determined by tag element size */
-};
-typedef struct CMTextType CMTextType;
+  OSType typeDescriptor; // 'text' = cmSigTextType   UInt32 reserved;       // fill with 0x00   UInt8 text[1];         // variable size, determined by tag element size };
+typedef struct CMTextType // variable size, determined by count 
 struct CMUnicodeTextType {
-  OSType typeDescriptor; /* 'utxt' = cmSigUnicodeTextType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UniChar text[1];       /* variable size, determined by tag element size  */
-};
+  OSType typeDescriptor; // 'utxt' = cmSigUnicodeTextType   UInt32 reserved;       // fill with 0x00   UniChar text[1];       // variable size, determined by tag element size  };
 typedef struct CMUnicodeTextType CMUnicodeTextType;
 struct CMScreeningChannelRec {
   Fixed frequency;
-  Fixed angle;
+  Fixed angle;// variable size data for tagged element storage 
   UInt32 spotFunction;
 };
 typedef struct CMScreeningChannelRec CMScreeningChannelRec;
 struct CMScreeningType {
-  OSType typeDescriptor; /* 'scrn' = cmSigScreeningType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32
-      screeningFlag; /* bit 0 : use printer default screens, bit 1 : inch/cm */
-  UInt32 channelCount; /* */
-  CMScreeningChannelRec
-      channelInfo[1]; /* variable size, determined by channelCount */
-};
-typedef struct CMScreeningType CMScreeningType;
-struct CMSignatureType {
-  OSType typeDescriptor; /* 'sig ' = cmSigSignatureType */
-  UInt32 reserved;       /* fill with 0x00 */
-  OSType signature;
+// Tag Type Definitions 
+      screeningFlag; // bit 0 : use printer default screens, bit 1 : inch/cm   UInt32 channelCount; //   CMScreeningChannelRec
+      channelInfo[1]; // vari// 'sf32' = cmSigS15Fixed16Type 
+typedef struct CMScreeningTyp// fill with 0x00 
+struct CMSignatureType {// fixed size of nine matrix entries 
+  OSType typeDescriptor; // 'sig ' = cmSigSignatureType   UInt32 reserved;       // fill with 0x00   OSType signature;
 };
 typedef struct CMSignatureType CMSignatureType;
-struct CMS15Fixed16ArrayType {
-  OSType typeDescriptor; /* 'sf32' = cmSigS15Fixed16Type */
-  UInt32 reserved;       /* fill with 0x00 */
-  Fixed value[1];        /* variable size, determined by tag element size */
-};
-typedef struct CMS15Fixed16ArrayType CMS15Fixed16ArrayType;
-struct CMU16Fixed16ArrayType {
-  OSType typeDescriptor; /* 'uf32' = cmSigU16Fixed16Type */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 value[1];       /* variable size, determined by tag element size */
-};
+struct CMS15Fixed16ArrayT// 'curv' = cmSigCurveType 
+  OSType typeDescriptor; // fill with 0x00 
+typedef struct CMS15Fixed// number of entries in table that follows 
+struct CMU16Fixed16ArrayT// variable size, determined by countValue 
+  OSType typeDescriptor; // 'uf32' = cmSigU16Fixed16Type   UInt32 reserved;       // fill with 0x00   UInt32 value[1];       // variable size, determined by tag element size };
 typedef struct CMU16Fixed16ArrayType CMU16Fixed16ArrayType;
 struct CMUInt8ArrayType {
-  OSType typeDescriptor; /* 'ui08' = cmSigUInt8Type */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt8 value[1];        /* variable size, determined by tag element size */
-};
-typedef struct CMUInt8ArrayType CMUInt8ArrayType;
-struct CMUInt16ArrayType {
-  OSType typeDescriptor; /* 'ui16' = cmSigUInt16Type */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt16 value[1];       /* variable size, determined by tag element size */
-};
+  OSType typeDescriptor; // 'data' = cmSigDataType
+typedef struct CMUInt8Arr// fill with 0x00 
+struct CMUInt16ArrayType // 0 = ASCII, 1 = binary 
+  OSType typeDescriptor; // variable size, determined by tag element size 
 typedef struct CMUInt16ArrayType CMUInt16ArrayType;
 struct CMUInt32ArrayType {
-  OSType typeDescriptor; /* 'ui32' = cmSigUInt32Type */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 value[1];       /* variable size, determined by tag element size */
-};
-typedef struct CMUInt32ArrayType CMUInt32ArrayType;
-struct CMUInt64ArrayType {
-  OSType typeDescriptor; /* 'ui64' = cmSigUInt64Type */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 value[1];       /* variable size, determined by tag element size */
-};
+  OSType typeDescriptor; // 'ui32' = cmSigUInt32Type   UInt32 reserved;       // fill with 0x00   UInt32 value[1];       // variable size, determined by tag element size };
+typedef struct CMUInt32Ar// 'dtim' = cmSigDateTimeType 
+struct CMUInt64ArrayType // fill with 0x00 
+  OSType typeDescriptor; // 
 typedef struct CMUInt64ArrayType CMUInt64ArrayType;
 struct CMViewingConditionsType {
-  OSType typeDescriptor;      /* 'view' = cmSigViewingConditionsType */
-  UInt32 reserved;            /* fill with 0x00 */
-  CMFixedXYZColor illuminant; /* absolute XYZs of illuminant  in cd/m^2 */
-  CMFixedXYZColor surround;   /* absolute XYZs of surround in cd/m^2 */
-  UInt32 stdIlluminant;       /* see definitions of std illuminants */
-};
-typedef struct CMViewingConditionsType CMViewingConditionsType;
-struct CMXYZType {
-  OSType typeDescriptor;  /* 'XYZ ' = cmSigXYZType */
-  UInt32 reserved;        /* fill with 0x00 */
-  CMFixedXYZColor XYZ[1]; /* variable size, determined by tag element size */
-};
-typedef struct CMXYZType CMXYZType;
-struct CMProfileSequenceDescType {
-  OSType typeDescriptor; /* 'pseq' = cmProfileSequenceDescTag */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 count;          /* Number of descriptions */
-  char data[1];          /* variable size data explained in ICC spec */
-};
-typedef struct CMProfileSequenceDescType CMProfileSequenceDescType;
-struct CMUcrBgType {
-  OSType typeDescriptor; /* 'bfd ' = cmSigUcrBgType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 ucrCount;       /* Number of UCR entries */
-  UInt16 ucrValues[1];   /* variable size, determined by ucrCount */
-#if 0                    /* NOTE: Field offsets are variable from here on. */
-  /* In order to correctly reflect the actual format of this tag, some of the fields in */
-  /* this structure have been removed because they follow an array field of variable size. */
-  /* As a result, the size of this structure has changed from previous versions of this interface. */
-  /* Code that relies on sizeof(CMUcrBgType) should be changed. */
-  UInt32              bgCount;                /* Number of BG entries */
-  UInt16              bgValues[];             /* variable size, determined by bgCount */
-  UInt8               ucrbgASCII[];           /* null terminated ASCII string */
-#endif
+  OSType typeDescriptor;      // 'view' = cmSigViewingConditionsType   UInt32 reserved;            // fill with 0x00   CMFixedXYZColor illuminant; // absolute XYZs of illuminant  in cd/m^2   CMFixedXYZColor surround;   // absolute XYZs of surround in cd/m^2   UInt32 stdIlluminant;       // see definitions of std illuminants };
+typedef struct CMViewingCondi// 'mft2' = cmSigLut16Type 
+struct CMXYZType {// fill with 0x00 
+  OSType typeDescriptor;  // // Number of input channels 
+typedef struct CMXYZType CMXY// Number of output channels 
+struct CMProfileSequenceDescT// Number of clutTable grid points 
+  OSType typeDescriptor; // '// fill with 0x00 
+typedef struct CMProfileSeque// 
+struct CMUcrBgType {// Number of entries in 1-D input luts 
+  OSType typeDescriptor; // '// Number of entries in 1-D output luts 
 };
 typedef struct CMUcrBgType CMUcrBgType;
-/* Private Tag Type Definitions */
-struct CMIntentCRDVMSize {
-  long renderingIntent; /* rendering intent */
-  UInt32 VMSize;        /* VM size taken up by the CRD */
-};
-typedef struct CMIntentCRDVMSize CMIntentCRDVMSize;
-struct CMPS2CRDVMSizeType {
-  OSType typeDescriptor;          /* 'psvm' = cmSigPS2CRDVMSizeType */
-  UInt32 reserved;                /* fill with 0x00 */
-  UInt32 count;                   /* number of intent entries */
-  CMIntentCRDVMSize intentCRD[1]; /* variable size, determined by count */
-};
-typedef struct CMPS2CRDVMSizeType CMPS2CRDVMSizeType;
-enum { cmVideoCardGammaTableType = 0, cmVideoCardGammaFormulaType = 1 };
+// Pri// NOTE: Field offsets are variable from here on. 
+  // In order to correctly reflect the actual format of this tag, some of the fields in 
+ty// this structure have been removed because they follow an array field of variable size. 
+st// As a result, the size of this structure has changed from previous versions of this interface. 
+  // Code that relies on sizeof(CMLut16Type) should be changed. 
+typedef struct CMPS2CRDVMSizeType CMPS2CRDVMSi// variable size, determined by (gridPoints^inputChannels)*outputChannels 
+enum { cmVideoCardGammaTableType = 0, cmVideoC// variable size, determined by outputChannels*outputTableEntries 
 
 struct CMVideoCardGammaTable {
-  UInt16 channels;   /* # of gamma channels (1 or 3) */
-  UInt16 entryCount; /* 1-based number of entries per channel */
-  UInt16 entrySize;  /* size in bytes of each entry */
-  char data[1]; /* variable size, determined by channels*entryCount*entrySize */
-};
+  UInt16 channels;   // # of gamma channels (1 or 3)   UInt16 entryCount; // 1-based number of entries per channel   UInt16 entrySize;  // size in bytes of each entry   char data[1]; // variable size, determined by channels*entryCount*entrySize };
 typedef struct CMVideoCardGammaTable CMVideoCardGammaTable;
-struct CMVideoCardGammaFormula {
-  Fixed redGamma;   /* must be > 0.0 */
-  Fixed redMin;     /* must be > 0.0 and < 1.0 */
-  Fixed redMax;     /* must be > 0.0 and < 1.0 */
-  Fixed greenGamma; /* must be > 0.0 */
-  Fixed greenMin;   /* must be > 0.0 and < 1.0 */
-  Fixed greenMax;   /* must be > 0.0 and < 1.0 */
-  Fixed blueGamma;  /* must be > 0.0 */
-  Fixed blueMin;    /* must be > 0.0 and < 1.0 */
-  Fixed blueMax;    /* must be > 0.0 and < 1.0 */
-};
-typedef struct CMVideoCardGammaFormula CMVideoCardGammaFormula;
-struct CMVideoCardGamma {
-  UInt32 tagType;
-  union {
-    CMVideoCardGammaTable table;
-    CMVideoCardGammaFormula formula;
-  } u;
-};
-typedef struct CMVideoCardGamma CMVideoCardGamma;
-struct CMVideoCardGammaType {
-  OSType typeDescriptor; /* 'vcgt' = cmSigVideoCardGammaType */
-  UInt32 reserved;       /* fill with 0x00 */
-  CMVideoCardGamma gamma;
-};
-typedef struct CMVideoCardGammaType CMVideoCardGammaType;
+struct CMVideoCardGammaFo// 'mft1' = cmSigLut8Type 
+  Fixed redGamma;   // mu// fill with 0x00 
+typedef struct CMVideoCar// Number of input channels 
+struct CMVideoCardGamma {// Number of output channels 
+  UInt32 tagType;// Number of clutTable grid points 
+  union {// fill with 0x00 
+    CMVideoCardGammaTable// 
+    CMVideoCardGammaFormu// variable size, determined by inputChannels*256 
+  } u;// NOTE: Field offsets are variable from here on. 
+};// In order to correctly reflect the actual format of this tag, some of the fields in 
+ty// this structure have been removed because they follow an array field of variable size. 
+st// As a result, the size of this structure has changed from previous versions of this interface. 
+  // Code that relies on sizeof(CMLut8Type) should be changed. 
+};// variable size, determined by (gridPoints^inputChannels)*outputChannels 
+typedef struct CMVideoCardGammaType CMVideoCar// variable size, determined by outputChannels*256 
 struct CMMakeAndModel {
   OSType manufacturer;
   UInt32 model;
   UInt32 serialNumber;
-  UInt32 manufactureDate;
-  UInt32 reserved1; /* fill with 0x00 */
-  UInt32 reserved2; /* fill with 0x00 */
-  UInt32 reserved3; /* fill with 0x00 */
-  UInt32 reserved4; /* fill with 0x00 */
-};
+  UInt32 manufactureDate;// 'meas' = cmSigMeasurementType 
+  UInt32 reserved1; // fill wi// fill with 0x00 
 typedef struct CMMakeAndModel CMMakeAndModel;
 struct CMMakeAndModelType {
-  OSType typeDescriptor; /* 'mmod' = cmSigMakeAndModelType */
-  UInt32 reserved;       /* fill with 0x00 */
-  CMMakeAndModel makeAndModel;
+  OSType typeDescriptor; // 'm// absolute XYZ values of backing 
 };
 typedef struct CMMakeAndModelType CMMakeAndModelType;
-struct CMMultiLocalizedUniCodeEntryRec {
-  char languageCode[2]; /* language code from ISO-639 */
-  char regionCode[2];   /* region code from ISO-3166 */
-  UInt32 textLength;    /* the length in bytes of the string */
-  UInt32 textOffset;    /* the offset from the start of tag in bytes */
-};
+struct CMMultiLocalizedUniCode// cmFlare0, cmFlare100 
+  char languageCode[2]; // lan// cmIlluminantUnknown, cmIlluminantD50, ... 
 typedef struct CMMultiLocalizedUniCodeEntryRec CMMultiLocalizedUniCodeEntryRec;
 struct CMMultiLocalizedUniCodeType {
-  OSType typeDescriptor; /* 'mluc' = cmSigMultiLocalizedUniCodeType */
-  UInt32 reserved;       /* fill with 0x00 */
-  UInt32 entryCount;     /* 1-based number of name records that follow */
-  UInt32 entrySize;      /* size in bytes of name records that follow */
-
-  /* variable-length data for storage of CMMultiLocalizedUniCodeEntryRec */
-
-  /* variable-length data for storage of Unicode strings*/
-};
-typedef struct CMMultiLocalizedUniCodeType CMMultiLocalizedUniCodeType;
-/************************************************************************/
-/*************** ColorSync 1.0 profile specification ********************/
-/************************************************************************/
-enum {
-  cmGrayResponse = 0,
-  cmRedResponse = 1,
-  cmGreenResponse = 2,
-  cmBlueResponse = 3,
+  OSType typeDescriptor; // 'mluc' = cmSigMultiLocalizedUniCodeType   UInt32 reserved;       // fill with 0x00   UInt32 entryCount;     // 1-based number of name records that follow   UInt32 entrySize;      // size in bytes of name records that follow 
+  // variable-length data// 'ncol' = cmSigNamedColorType 
+  // variable-length data// fill with 0x00 
+typedef struct CMMultiLoc// 
+/************************// count of named colors in array that follows 
+/*************** ColorSyn// variable size, max = 32 
+/************************// NOTE: Field offsets are variable from here on. 
+en// In order to correctly reflect the actual format of this tag, some of the fields in 
+  // this structure have been removed because they follow an array field of variable size. 
+  // As a result, the size of this structure has changed from previous versions of this interface. 
+  // Code that relies on sizeof(CMNamedColorType) should be changed. 
+  cmBlueResponse = 3,// variable size, max = 32 
   cmCyanResponse = 4,
-  cmMagentaResponse = 5,
-  cmYellowResponse = 6,
-  cmUcrResponse = 7,
+  cmMagentaResponse = 5,// variable size, max = 32 
+  cmYellowResponse = 6,// variable size 
+  cmUcrResponse = 7,// variable size 
   cmBgResponse = 8,
   cmOnePlusLastResponse = 9
 };
 
-/* Device types */
-enum {
-  cmMonitorDevice = FOUR_CHAR_CODE('mntr'),
-  cmScannerDevice = FOUR_CHAR_CODE('scnr'),
+// Device types enum {// 32 byte field.  7 bit ASCII null terminated 
+  cmMonitorDevice = FOUR_CHAR_C// Lab or XYZ color 
+  cmScannerDevice = FOUR_CHAR_C// variable size 
   cmPrinterDevice = FOUR_CHAR_CODE('prtr')
 };
 
-struct CMIString {
-  ScriptCode theScript;
-  Str63 theString;
-};
+struct CMIString {// 'ncl2' = cmSigNamedColor2Type 
+  ScriptCode theScript;// fill with 0x00 
+  Str63 theString;// lower 16 bits reserved for ICC use 
+};// count of named colors in array that follows 
 typedef struct CMIString CMIString;
-/* Profile options */
-enum {
-  cmPerceptualMatch = 0x0000,   /* Default. For photographic images */
-  cmColorimetricMatch = 0x0001, /* Exact matching when possible */
-  cmSaturationMatch = 0x0002    /* For solid colors */
-};
-
-/* Profile flags */
-enum {
-  cmNativeMatchingPreferred = 0x00000001, /* Default to native not preferred */
-  cmTurnOffCache = 0x00000002             /* Default to turn on CMM cache */
-};
+// Profile options enum {
+  cmPerceptualMatch = 0x// Fixed 32 byte size.  7 bit ASCII null terminated 
+// Fixed 32 byte size.  7 bit ASCII null terminated 
+// Profile flags enum {// variable size data for CMNamedColor2EntryType 
+  cmNativeMatchingPreferred = 0x00000001, // Default to native not preferred   cmTurnOffCache = 0x00000002             // Default to turn on CMM cache };
 
 typedef long CMMatchOption;
-typedef long CMMatchFlag;
-struct CMHeader {
-  UInt32 size;
+typedef long CMMatchFlag;// 'desc' = cmSigProfileDescriptionType 
+struct CMHeader {// fill with 0x00 
+  UInt32 size;// Count of bytes (including null terminator)  
   OSType CMMType;
   UInt32 applProfileVersion;
-  OSType dataType;
-  OSType deviceType;
-  OSType deviceManufacturer;
-  UInt32 deviceModel;
-  UInt32 deviceAttributes[2];
-  UInt32 profileNameOffset;
-  UInt32 customDataOffset;
-  CMMatchFlag flags;
-  CMMatchOption options;
-  CMXYZColor white;
-  CMXYZColor black;
+  OSType dataType;// NOTE: Field offsets are variable from here on. 
+  // In order to correctly reflect the actual format of this tag, some of the fields in 
+  // this structure have been removed because they follow an array field of variable size. 
+  // As a result, the size of this structure has changed from previous versions of this interface. 
+  // Code that relies on sizeof(CMTextDescriptionType) should be changed. 
+  UInt32 profileNameOffset;// Unused 
+  UInt32 customDataOffset;// Count of 2-byte characters (including null terminator) 
+  CMMatchFlag flags;// variable size, determined by UniCodeCount 
+  CMMatchOption options;// Mac-defined script code 
+  CMXYZColor white;// Count of bytes (including null terminator) 
+  CMXYZColor black;// variable size, determined by ScriptCodeCount 
 };
 typedef struct CMHeader CMHeader;
 struct CMProfileChromaticities {
   CMXYZColor red;
-  CMXYZColor green;
-  CMXYZColor blue;
-  CMXYZColor cyan;
+  CMXYZColor green;// 'text' = cmSigTextType 
+  CMXYZColor blue;// fill with 0x00 
+  CMXYZColor cyan;// variable size, determined by tag element size 
   CMXYZColor magenta;
   CMXYZColor yellow;
 };
-typedef struct CMProfileChromaticities CMProfileChromaticities;
-struct CMProfileResponse {
-  UInt16 counts[9];
-  UInt16 data[1]; /* Variable size */
-};
+typedef struct CMProfileC// 'utxt' = cmSigUnicodeTextType 
+struct CMProfileResponse // fill with 0x00 
+  UInt16 counts[9];// variable size, determined by tag element size  
+  UInt16 data[1]; // Variable size };
 typedef struct CMProfileResponse CMProfileResponse;
 struct CMProfile {
   CMHeader header;
   CMProfileChromaticities profile;
   CMProfileResponse response;
   CMIString profileName;
-  char customData[1]; /* Variable size */
-};
+  char customData[1]; // Variable size };
 typedef struct CMProfile CMProfile;
-typedef CMProfile *CMProfilePtr;
-typedef CMProfilePtr *CMProfileHandle;
+typedef CMProfile *CMProf// 'scrn' = cmSigScreeningType 
+typedef CMProfilePtr *CMP// fill with 0x00 
 #if OLDROUTINENAMES
-enum { kCMApplProfileVersion = cmCS1ProfileVersion };
-
+enum { kCMApplProfile// bit 0 : use printer default screens, bit 1 : inch/cm 
+// 
 enum {
-  grayResponse = cmGrayResponse,
+  grayResponse = cmGra// variable size, determined by channelCount 
   redResponse = cmRedResponse,
   greenResponse = cmGreenResponse,
   blueResponse = cmBlueResponse,
-  cyanResponse = cmCyanResponse,
-  magentaResponse = cmMagentaResponse,
+  cyanResponse = cmCyanRe// 'sig ' = cmSigSignatureType 
+  magentaResponse = cmMag// fill with 0x00 
   yellowResponse = cmYellowResponse,
   ucrResponse = cmUcrResponse,
   bgResponse = cmBgResponse,
   onePlusLastResponse = cmOnePlusLastResponse
-};
-
-enum {
+};// 'sf32' = cmSigS15Fixed16Type 
+// fill with 0x00 
+enum {// variable size, determined by tag element size 
   rgbData = cmRGBData,
   cmykData = cmCMYKData,
   grayData = cmGrayData,
-  xyzData = cmXYZData
-};
-
+  xyzData = cmXYZData// 'uf32' = cmSigU16Fixed16Type 
+};// fill with 0x00 
+// variable size, determined by tag element size 
 enum { XYZData = cmXYZData };
 
 enum {
-  monitorDevice = cmMonitorDevice,
-  scannerDevice = cmScannerDevice,
-  printerDevice = cmPrinterDevice
+  monitorDevice = cmMonit// 'ui08' = cmSigUInt8Type 
+  scannerDevice = cmScann// fill with 0x00 
+  printerDevice = cmPrint// variable size, determined by tag element size 
 };
 
 enum {
-  CMNativeMatchingPreferred =
-      cmNativeMatchingPreferred,  /* Default to native not preferred */
-  CMTurnOffCache = cmTurnOffCache /* Default to turn on CMM cache */
-};
-
+  CMNativeMatchingPreferr// 'ui16' = cmSigUInt16Type 
+      cmNativeMatchingPre// fill with 0x00 
+// variable size, determined by tag element size 
 enum {
-  CMPerceptualMatch = cmPerceptualMatch, /* Default. For photographic images */
-  CMColorimetricMatch = cmColorimetricMatch, /* Exact matching when possible */
-  CMSaturationMatch = cmSaturationMatch      /* For solid colors */
-};
+  CMPerceptualMatch = cmPerceptualMatch, // Default. For photographic images   CMColorimetricMatch = cmColorimetricMatch, // Exact matching when possible   CMSaturationMatch = cmSaturationMatch      // For solid colors };
 
-typedef UInt16 XYZComponent;
-typedef CMXYZColor XYZColor;
-typedef UInt16 CMResponseData;
+typedef UInt16 XYZCompone// 'ui32' = cmSigUInt32Type 
+typedef CMXYZColor XYZCol// fill with 0x00 
+typedef UInt16 CMResponse// variable size, determined by tag element size 
 typedef CMIString IString;
 typedef long CMResponseColor;
 typedef CMResponseColor responseColor;
-#endif /* OLDROUTINENAMES */
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
+#endif // OLDROUTINENAMES// 'ui64' = cmSigUInt64Type 
+#if PRAGMA_STRUCT_ALIGN// fill with 0x00 
+#pragma options align = r// variable size, determined by tag element size 
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
+#pragma pack()// 'view' = cmSigViewingConditionsType 
+#endif// fill with 0x00 
+// absolute XYZs of illuminant  in cd/m^2 
+#ifdef PRAGMA_IMPORT_OFF// absolute XYZs of surround in cd/m^2 
+#pragma import off// see definitions of std illuminants 
 #elif PRAGMA_IMPORT
 #pragma import reset
 #endif
-
-#ifdef __cplusplus
-}
+// 'XYZ ' = cmSigXYZType 
+#ifdef __cplusplus// fill with 0x00 
+}// variable size, determined by tag element size 
 #endif
 
-#endif /* __CMICCPROFILE__ */
+#endif // __CMICCPROFILE__ // 'pseq' = cmProfileSequenceDescTag 
+// fill with 0x00 
+// Number of descriptions 
+// variable size data explained in ICC spec 
+// 'bfd ' = cmSigUcrBgType 
+// fill with 0x00 
+// Number of UCR entries 
+// variable size, determined by ucrCount 
+// NOTE: Field offsets are variable from here on. 
+// In order to correctly reflect the actual format of this tag, some of the fields in 
+// this structure have been removed because they follow an array field of variable size. 
+// As a result, the size of this structure has changed from previous versions of this interface. 
+// Code that relies on sizeof(CMUcrBgType) should be changed. 
+// Number of BG entries 
+// variable size, determined by bgCount 
+// null terminated ASCII string 
+// Private Tag Type Definitions 
+// rendering intent 
+// VM size taken up by the CRD 
+// 'psvm' = cmSigPS2CRDVMSizeType 
+// fill with 0x00 
+// number of intent entries 
+// variable size, determined by count 
+// # of gamma channels (1 or 3) 
+// 1-based number of entries per channel 
+// size in bytes of each entry 
+// variable size, determined by channels*entryCount*entrySize 
+// must be > 0.0 
+// must be > 0.0 and < 1.0 
+// must be > 0.0 and < 1.0 
+// must be > 0.0 
+// must be > 0.0 and < 1.0 
+// must be > 0.0 and < 1.0 
+// must be > 0.0 
+// must be > 0.0 and < 1.0 
+// must be > 0.0 and < 1.0 
+// 'vcgt' = cmSigVideoCardGammaType 
+// fill with 0x00 
+// fill with 0x00 
+// fill with 0x00 
+// fill with 0x00 
+// fill with 0x00 
+// 'mmod' = cmSigMakeAndModelType 
+// fill with 0x00 
+// language code from ISO-639 
+// region code from ISO-3166 
+// the length in bytes of the string 
+// the offset from the start of tag in bytes 
+// 'mluc' = cmSigMultiLocalizedUniCodeType 
+// fill with 0x00 
+// 1-based number of name records that follow 
+// size in bytes of name records that follow 
+// variable-length data for storage of CMMultiLocalizedUniCodeEntryRec 
+// variable-length data for storage of Unicode strings
+// Device types 
+// Profile options 
+// Default. For photographic images 
+// Exact matching when possible 
+// For solid colors 
+// Profile flags 
+// Default to native not preferred 
+// Default to turn on CMM cache 
+// Variable size 
+// Variable size 
+// Default to native not preferred 
+// Default to turn on CMM cache 
+// Default. For photographic images 
+// Exact matching when possible 
+// For solid colors 
+// OLDROUTINENAMES 
+// __CMICCPROFILE__ 

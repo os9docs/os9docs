@@ -59,8 +59,7 @@ extern "C" {
 void
 SynchronizeIO(void) ONEWORDINLINE(0x4E71);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 /**
  *  CompareAndSwap()
  *
@@ -310,4 +309,4 @@ BitXorAtomic(UInt32 mask, UInt32 *value);
 }
 #endif
 
-#endif /* __DRIVERSYNCHRONIZATION__ */
+#endif // __DRIVERSYNCHRONIZATION__ // __DRIVERSYNCHRONIZATION__ 

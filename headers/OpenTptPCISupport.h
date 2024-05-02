@@ -28,4 +28,4 @@
    OpenTransportKernel.h
 */
 
-#endif /* __OPENTPTPCISUPPORT__ */
+#endif // __OPENTPTPCISUPPORT__

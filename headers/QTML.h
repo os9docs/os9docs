@@ -85,7 +85,7 @@ extern "C"
     void
     QTMLYieldCPUTime(long milliSeconds, unsigned long flags);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
     typedef struct OpaqueQTMLMutex *QTMLMutex;
 #if !(TARGET_OS_MAC && TARGET_API_MAC_OS8)
@@ -94,11 +94,11 @@ extern "C"
     enum
     {
         kInitializeQTMLNoSoundFlag =
-            (1L << 0), /* flag for requesting no sound when calling InitializeQTML*/
+            (1L << 0), // flag for requesting no sound when calling InitializeQTML
         kInitializeQTMLUseGDIFlag =
-            (1L << 1), /* flag for requesting GDI when calling InitializeQTML*/
+            (1L << 1), // flag for requesting GDI when calling InitializeQTML
         kInitializeQTMLDisableDirectSound =
-            (1L << 2), /* disables QTML's use of DirectSound*/
+            (1L << 2), // disables QTML's use of DirectSound
         kInitializeQTMLUseExclusiveFullScreenModeFlag =
             (1L << 3), /* later than QTML 3.0: qtml starts up in exclusive full screen
                           mode*/
@@ -110,9 +110,9 @@ extern "C"
     enum
     {
         kQTMLHandlePortEvents =
-            (1L << 0), /* flag for requesting requesting QTML to handle events*/
+            (1L << 0), // flag for requesting requesting QTML to handle events
         kQTMLNoIdleEvents =
-            (1L << 1) /* flag for requesting requesting QTML not to send Idle Events*/
+            (1L << 1) // flag for requesting requesting QTML not to send Idle Events
     };
 
 #if CALL_NOT_IN_CARBON
@@ -373,7 +373,7 @@ extern "C"
     long
     NativeEventToMacEvent(void *nativeEvent, EventRecord *macEvent);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
 #if TARGET_OS_WIN32
 #if CALL_NOT_IN_CARBON
@@ -414,7 +414,7 @@ extern "C"
     void
     ShowHideTaskBar(Boolean showIt);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
     enum
     {
@@ -496,9 +496,9 @@ extern "C"
     void *
     QTMLGetWindowWndProc(WindowRef theWindow);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
-#endif /* TARGET_OS_WIN32 */
+#endif // TARGET_OS_WIN32
 
 #if CALL_NOT_IN_CARBON
     /**
@@ -513,7 +513,7 @@ extern "C"
     OSErr
     QTMLGetCanonicalPathName(char *inName, char *outName, unsigned long outLen);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
     enum
     {
@@ -524,7 +524,7 @@ extern "C"
         kTryVDIMask = (1 << 3), /*    Used in NativePathNameToFSSpec to specify to
                                    search VDI mountpoints*/
         kFullPathSpecifiedMask =
-            (1 << 4) /*    the passed in name is a fully qualified full path*/
+            (1 << 4) //    the passed in name is a fully qualified full path
     };
 
 #if CALL_NOT_IN_CARBON
@@ -541,7 +541,7 @@ extern "C"
     FSSpecToNativePathName(const FSSpec *inFile, char *outName,
                            unsigned long outLen, long flags);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
     enum
     {
@@ -574,9 +574,9 @@ extern "C"
     QTGetAliasInfo(AliasHandle alias, AliasInfoType index, char *outBuf,
                    long bufLen, long *outLen, unsigned long flags);
 
-#endif /* CALL_NOT_IN_CARBON */
+#endif // CALL_NOT_IN_CARBON
 
-#endif /* !(TARGET_OS_MAC && TARGET_API_MAC_OS8) */
+#endif // !(TARGET_OS_MAC && TARGET_API_MAC_OS8)
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -596,4 +596,4 @@ extern "C"
 }
 #endif
 
-#endif /* __QTML__ */
+#endif // __QTML__

@@ -82,157 +82,99 @@ typedef UInt32 PCCardVoltage;
     If your software used any of these flags, you should delete any references
     to them.  These event codes are being recycled for new features.
 */
-/* Client notification bit flags */
-enum {
+// Client notification bit flags enum {
   kPCCardNullMessage =
-      0x00000000, /* no messages pending (not sent to clients)*/
-  kPCCardInsertionMessage =
-      0x00000001, /* card has been inserted into the socket*/
-  kPCCardRemovalMessage = 0x00000002, /* card has been removed from the socket-
+      0x00000000, // no messages pending (not sent to clients)  kPCCardInsertionMessage =
+      0x00000001, // no messages pending (not sent to clients)
                                          do not touch hardware!*/
-  /* Lock and Unlock may be used for a hardware locking card-cage. */
-  kPCCardLockMessage =
-      0x00000004, /* card is locked into the socket with a mechanical latch */
-  kPCCardUnlockMessage =
-      0x00000008, /* card is no longer locked into the socket */
-  /* Ready and Reset are holdovers from PC Card 2.x, but someone might be using
-     them (!?) */
+  // Lock and Unlo// card has been inserted into the socket
+      0x00000004, // card is locked into the socket with a mechanical latch   kPCCardUnlockMessage =
+      0x00000008, // card is no longer locked into the socket   /* Ready and Reset are holdovers from PC Card 2.x, but someone might be using
+  // Lock and Unlock may be used for a hardware locking card-cage. 
   kPCCardReadyMessage =
-      0x00000010, /* card is ready to be accessed -- do not use! this event is
+      0x00000010, // card is locked into the socket with a mechanical latch 
                      never sent! (use kPCCardInsertion instead) */
-  kPCCardResetMessage =
+  kPCCardResetMess// card is no longer locked into the socket 
       0x00000020, /* physical reset has completed -- do not use! this event is
                      never sent! (use kPCCardResetComplete instead) */
   /* InsertionRequest and InsertionComplete may be used with certain cages (??)
    */
   kPCCardInsertionRequestMessage =
-      0x00000040, /* request to insert a card using insertion motor */
-  kPCCardInsertionCompleteMessage =
-      0x00000080, /* insertion motor has finished inserting a card */
-  kPCCardEjectionRequestMessage =
-      0x00000100, /* user or other client is requesting a card ejection*/
-  kPCCardEjectionCompleteMessage =
-      0x00000200, /* card ejection succeeded- do not touch hardware! */
-  kPCCardEjectionFailedMessage =
-      0x00000400, /* eject failure due to electrical/mechanical problems*/
-  kPCCardPMResumeMessage = 0x00000800,  /* power management resume */
-  kPCCardPMSuspendMessage = 0x00001000, /* power management suspend */
-  kPCCardPMSuspendRequest = 0x00002000, /* power management sleep request */
-  kPCCardPMSuspendRevoke = 0x00004000,  /* power management sleep revoke */
-  kPCCardResetPhysicalMessage =
+      0x00000040, // request to insert a card using insertion motor   kPCCardInsertionCompleteMessage =
+      0x00000080, // insertion motor has finished inserting a card   kPCCardEjectionRequestMessage =
+      0x00000100, // user or other client is requesting a card ejection  kPCCardEjectionCompleteMessage =
+      0x00000200, // card ejection succeeded- do not touch hardware!   kPCCardEjectionFailedMessage =
+      0x00000400, // eject failure due to electrical/mechanical problems  kPCCardPMResumeMessage = 0x00000800,  // power management resume   kPCCardPMSuspendMessage = 0x00001000, // power management suspend   kPCCardPMSuspendRequest = 0x00002000, // power management sleep request   kPCCardPMSuspendRevoke = 0x00004000,  // power management sleep revoke   kPCCardResetPhysicalMessage =
       0x00008000, /* physical reset is about to occur on this card -- this event
-                     is never sent! */
+                  // request to insert a card using insertion motor 
   kPCCardResetRequestMessage =
-      0x00010000, /* physical reset has been requested by a client*/
-  kPCCardResetCompleteMessage =
-      0x00020000, /* ResetCard() background reset has completed*/
-  kPCCardBatteryDeadMessage =
-      0x00040000, /* battery is no longer useable, data will be lost*/
-  kPCCardBatteryLowMessage =
-      0x00080000, /* battery is weak and should be replaced*/
-  kPCCardWriteProtectMessage = 0x00100000, /* card is now write protected*/
-  kPCCardWriteEnabledMessage = 0x00200000, /* card is now write enabled*/
-  kPCCardDisplayEjectDSATMessage =
-      0x00400000, /* about to display a DSAT for the user to re-insert a
+      0x00010000, // insertion motor has finished inserting a card 
+      0x00020000, // ResetCard() background reset has completed  kPCCardBatteryDeadMessage =
+      0x00040000, // user or other client is requesting a card ejection
+      0x00080000, // battery is weak and should be replaced  kPCCardWriteProtectMessage = 0x00100000, // card is now write protected  kPCCardWriteEnabledMessage = 0x00200000, // card is now write enabled  kPCCardDisplayEjectDSATMessage =
+      0x00400000, // card ejection succeeded- do not touch hardware! 
                      manually ejected card */
-  kPCCardUnexpectedRemovalMessage =
-      0x02000000, /* card has unexpectedly been manually ejected */
-  /* Unconfigured is a (currently unused) holdover from PC Card 2.x */
-  kPCCardUnconfiguredMessage =
-      0x04000000, /* a CARD_READY was delivered to all clients and no client */
-  /*    requested a configuration for the socket -- this event is never sent
-     under PCCard 3.0! */
-  kPCCardStatusChangedMessage =
-      0x08000000, /* status change for cards in I/O mode*/
-  kPCCardTimerExpiredMessage =
-      0x10000000, /* message sent when requested time has expired */
-  kPCCardRequestAttentionMessage = 0x20000000,
+  kPCCardUnexpecte// eject failure due to electrical/mechanical problems
+      0x02000000, // card has unexpected// power management resume 
+      0x04000000, // a CARD_READY was de// power management suspend 
+     under PCCard 3.0! */// power management sleep request 
+  kPCCardStatusChangedMessage =// power management sleep revoke 
+      0x08000000, // status change for cards in I/O mode  kPCCardTimerExpiredMessage =
+      0x10000000, // message sent when requested time has expired   kPCCardRequestAttentionMessage = 0x20000000,
   kPCCardEraseCompleteMessage = 0x40000000,
   kPCCardRegistrationCompleteMessage =
-      (long)0x80000000, /* notifications available only in PCCard 3.1 and later
+      (long)0x8000// physical reset has been requested by a client
                          */
-  kPCCardPMEnabledMessage =
+  kPCCardPMEnabled// ResetCard() background reset has completed
       0x00800000 /* power management has been enabled by the user; if
-                    appropriate, clients should call PCCardSetPowerLevel(off) */
+                  // battery is no longer useable, data will be lost
 };
-
-typedef OptionBits PCCardWindowAttributes;
-/*  window state (values of PCCardWindowAttributes) */
-enum {
-  kWSCommon = 0x0001,       /* common memory window */
-  kWSAttribute = 0x0002,    /* attribute memory window*/
-  kWSIO = 0x0004,           /* I/O window*/
-  kWSCardBus = 0x0800,      /* CardBus bridge window */
-  kWSTypeMask = 0x0807,     /* window type mask*/
-  kWSEnabled = 0x0008,      /* window enabled*/
-  kWS8bit = 0x0010,         /* 8-bit data width window*/
-  kWS16bit = 0x0020,        /* 16-bit data width window*/
-  kWS32bit = 0x0040,        /* 32-bit data width window*/
-  kWSAutoSize = 0x0080,     /* auto-size data width window*/
-  kWSWidthMask = 0x00F0,    /* window data width mask*/
-  kWSProtected = 0x0100,    /* window write protected*/
-  kWSPrefetchable = 0x0200, /* bridge window prefetchable*/
-  kWSPageShared = 0x0400,   /* page register is shared*/
-  kWSWindowSizeOffset = 0x4000,
-  kWSChangeAccessSpeed = 0x8000 /* Used by CSModifyWindow only */
-};
+// battery is weak and should be replaced
+typedef OptionBits PCCardWindowAttributes;// card is now write protected
+//  window state (values of PCCardWindowAtt// card is now write enabled
+  kWSCommon = 0x0001,       // common memory window   kWSAttribute = 0x0002,    // attribute memory window  kWSIO = 0x0004,           // I/O window  kWSCardBus = 0x0800,      // CardBus bridge window   kWSTypeMask = 0x0807,     // window type mask  kWSEnabled = 0x0008,      // window enabled  kWS8bit = 0x0010,         // 8-bit data width window  kWS16bit = 0x0020,        // 16-bit data width window  kWS32bit = 0x0040,        // 32-bit data width window  kWSAutoSize = 0x0080,     // auto-size data width window  kWSWidthMask = 0x00F0,    // window data width mask  kWSProtected = 0x0100,    // window write protected  kWSPrefetchable = 0x0200, // bridge window prefetchable  kWSPageShared = 0x0400,   // page register is shared  kWSWindowSizeOffset = 0x4000,
+  kWSChangeAccessSpeed = 0x8000 // Used by CSModifyWindow only };
 
 /* window speed (sample values of PCCardAccessSpeed) for use in
- * PCCardRequestWindow  */
-enum {
+ * PCCardRequestWi// card has unexpectedly been manually ejected 
+en// Unconfigured is a (currently unused) holdover from PC Card 2.x 
   kAccessSpeed600ns = 0x006A,
-  kAccessSpeed500ns = 0x005A,
+  kAccessSpeed500n// a CARD_READY was delivered to all clients and no client 
   kAccessSpeed400ns = 0x004A,
   kAccessSpeed300ns = 0x003A,
   kAccessSpeed250ns = 0x0001,
-  kAccessSpeed200ns = 0x0002,
+  kAccessSpeed200n// status change for cards in I/O mode
   kAccessSpeed150ns = 0x0003,
-  kAccessSpeed100ns = 0x0004
+  kAccessSpeed100n// message sent when requested time has expired 
 };
 
 typedef UInt32 PCCardInterfaceType;
-/* InterfaceType bit-mask (values of PCCardInterfaceType) */
-enum {
-  kIFTypeMask = 0x03, /* IO & memory type mask*/
-  kIFCardBus = 0x00,  /* if bits 0 & 1 are zero then cardbus interface*/
-  kIFMemory = 0x01,   /* if bit 0 set memory IF*/
-  kIFIO = 0x02,       /* if bit 1 set IO IF*/
-  kIFReserved = 0x03, /* bits 0 and 1 set is reserved */
-  kIFDMA = 0x08,      /* if bit 3 set DMA supported*/
-  kIFVSKey = 0x10,    /* if bit 4 set supports low Voltage key*/
-  kIF33VCC = 0x20,    /* if bit 5 set socket suports 3.3v*/
-  kIFXXVCC = 0x40,    /* if bit 6 set socket supports X.X voltage*/
-  kIFYYVCC = 0x80     /* if bit 7 set socket supports Y.Y voltage*/
-};
+// InterfaceType bit-mask (values of PCCardInterfaceType) enum {
+  kIFTypeMask = 0x03, // IO & memory type mask  kIFCardBus = 0x00,  // if bits 0 & 1 are zero then cardbus interface  kIFMemory = 0x01,   // if bit 0 set memory IF  kIFIO = 0x02,       // if bit 1 set IO IF  kIFReserved = 0x03, // bits 0 and 1 set is reserved   kIFDMA = 0x08,      // if bit 3 set DMA supported  kIFVSKey = 0x10,    // if bit 4 set supports low Voltage key  kIF33VCC = 0x20,    // if bit 5 set socket suports 3.3v  kIFXXVCC = 0x40,    // if bit 6 set socket supports X.X voltage  kIFYYVCC = 0x80     // if bit 7 set socket supports Y.Y voltage};
 
 typedef UInt32 PCCardCustomInterfaceID;
-/* Custom Interface Identifiers (values of PCCardCustomInterfaceID) */
-enum {
-  kIFCustom_None = 0x00, /* no custom interface ID */
-  kIFCustom_ZOOM = 0x41  /* ZOOM Video Mode custom interface identifier */
-};
+// Custom Interface Identifiers (values of PCCardCustomInterfaceID) enum {
+  kIFCustom_None = 0x00, // no custom interface ID   kIFCustom_ZOOM = 0x41  // ZOOM Video Mode custom interface identifier };
 
 typedef OptionBits PCCardConfigOptions;
-/* Bit mask values for PCCardConfigOptions in the configuration calls */
-enum {
+//  window state (values of PCCardWindowAttributes) 
   kEnableIRQSteering = 0x0002,
-  kIRQChangeValid = 0x0004,
-  kVppChangeValid = 0x0010,
-  kEnableDMAChannel = 0x0040,
-  kDMAChangeValid = 0x0080,
-  kVSOverride = 0x0200 /* Bits 10..31 reserved */
-};
-
-/**
-   Configuration Registers Presence Mask for the FCR
-   Used by PCCardConfigPresentMask
-*/
-enum {
-  kConfigOptionPresent = 0x00000001,
-  kConfigStatusPresent = 0x00000002,
-  kPinReplacePresent = 0x00000004,
+  kIRQChangeValid = 0x0004,// common memory window 
+  kVppChangeValid = 0x0010,// attribute memory window
+  kEnableDMAChannel = 0x0040// I/O window
+  kDMAChangeValid = 0x0080,// CardBus bridge window 
+  kVSOverride = 0x0200 // Bi// window type mask
+// window enabled
+/**// 8-bit data width window
+   Configuration Registers P// 16-bit data width window
+   Used by PCCardConfigPrese// 32-bit data width window
+*/// auto-size data width window
+enum {// window data width mask
+  kConfigOptionPresent = 0x0// window write protected
+  kConfigStatusPresent = 0x0// bridge window prefetchable
+  kPinReplacePresent = 0x000// page register is shared
   kSocketCopyPresent = 0x00000008,
-  kExtendedStatusPresent = 0x00000010,
+  kExtendedStatusPresent = 0x000// Used by CSModifyWindow only 
   kIOBase0Present = 0x00000020,
   kIOBase1Present = 0x00000040,
   kIOBase2Present = 0x00000080,
@@ -249,56 +191,37 @@ struct PCCardFunctionConfigReg {
   Byte pinReplaceReg;
   Byte socketCopyReg;
   Byte extendedStatusReg;
-  Byte ioBase0;
+// InterfaceType bit-mask (values of PCCardInterfaceType) 
   Byte ioBase1;
-  Byte ioBase2;
-  Byte ioBase3;
-  Byte ioLimit;
-};
-typedef struct PCCardFunctionConfigReg PCCardFunctionConfigReg;
+  Byte ioBase2;// IO & memory type mask
+  Byte ioBase3;// if bits 0 & 1 are zero then cardbus interface
+  Byte ioLimit;// if bit 0 set memory IF
+};// if bit 1 set IO IF
+typedef struct PCCardF// bits 0 and 1 set is reserved 
+// if bit 3 set DMA supported
+typedef OptionBits PCC// if bit 4 set supports low Voltage key
+//  general socket sta// if bit 5 set socket suports 3.3v
+  kSTBatteryDead = 0x0// if bit 6 set socket supports X.X voltage
+};// if bit 7 set socket supports Y.Y voltage
 
-typedef OptionBits PCCardSocketStatus;
-/*  general socket status bits (values of PCCardSocketStatus) */
+// Bit mask for PCCardPowerOptions in the power management calls typedef OptionBits PCCardPowerOptions;
 enum {
-  kSTBatteryDead = 0x0001,  /* battery dead*/
-  kSTBatteryLow = 0x0002,   /* battery low*/
-  kSTBatteryGood = 0x0004,  /* battery good*/
-  kSTPower = 0x0008,        /* power is applied*/
-  kST16bit = 0x0010,        /* 16-bit PC Card present*/
-  kSTCardBus = 0x0020,      /* CardBus PC Card present*/
-  kSTMemoryCard = 0x0040,   /* memory card present*/
-  kSTIOCard = 0x0080,       /* I/O card present*/
-  kSTNotACard = 0x0100,     /* unrecognizable PC Card detected*/
-  kSTReady = 0x0200,        /* ready*/
-  kSTWriteProtect = 0x0400, /* card is write-protected*/
-  kSTDataLost = 0x0800,     /* data may have been lost due to card removal*/
-  kSTRingIndicate = 0x1000, /* ring indicator is active*/
-  kSTReserved = 0xE000
-};
-
-/* Bit mask for PCCardPowerOptions in the power management calls */
-typedef OptionBits PCCardPowerOptions;
-enum {
-  kPCCardPowerOn = 0x00000001,
+// Custom Interface Identifiers (values of PCCardCustomInterfaceID) 
   kPCCardPowerOff = 0x00000002,
-  kPCCardLowPower = 0x00000004
-};
+  kPCCardLowPower = 0x000// no custom interface ID 
+};// ZOOM Video Mode custom interface identifier 
 
 typedef OptionBits PCCardAdapterCapabilities;
 typedef UInt32 PCCardAdapterPowerState;
-typedef OptionBits PCCardSCEvents;
+// Bit mask values for PCCardConfigOptions in the configuration calls 
 typedef UInt32 PCCardWindow;
 typedef UInt32 PCCardIRQ;
 typedef UInt32 PCCardDMA;
-/* Selectors for PCCardGetGlobalOptions */
-/*  The type of the "value" parameter is provided for each selector. */
-typedef UInt32 PCCardOptionSelector;
+// Selectors for PCCardGetGlobalOptions //  The type of the "value" parameter is provided for each selector. typedef UInt32 PCCardOptionSelector;
 enum {
-  kPCCardPowerManagementAttrib = 1 /* value = (Boolean*) enabled  */
-};
-
-/* Types and structures for accessing the PCCard Assigned-Address property.*/
-
+  kPCCardPowerManagementAttrib = 1 // value = (Boolean*) enabled  };
+// Bits 10..31 reserved 
+// Types and structures for accessing the PCCard Assigned-Address property.
 #define kPCCardAssignedAddressProperty "assigned-addresses"
 enum {
   kPCCardNonRelocatableSpace = 0x80,
@@ -335,26 +258,25 @@ typedef PCCardAssignedAddress *PCCardAssignedAddressPtr;
 #define GetPCCardIsNonRelocatable(AssignedAddressPtr)                          \
   ((AssignedAddressPtr)->addressSpaceFlags & kPCCardNonRelocatableSpace)
 #define GetPCCardIsPrefetchable(AssignedAddressPtr)                            \
-  ((AssignedAddressPtr)->addressSpaceFlags & kPCCardPrefetchableSpace)
+//  general socket status bits (values of PCCardSocketStatus) 
 #define GetPCCardIs16BitSpace(AssignedAddressPtr)                              \
-  ((AssignedAddressPtr)->addressSpaceFlags & kPCCard16BitSpace)
-#define GetPCCardAddressSpaceType(AssignedAddressPtr)                          \
-  ((AssignedAddressPtr)->addressSpaceFlags & kPCCardAddressTypeCodeMask)
-#define GetPCCardSocketNumber(AssignedAddressPtr)                              \
-  (((AssignedAddressPtr)->socketFunctionNumber & kPCCardSocketNumberMask) >> 3)
-#define GetPCCardFunctionNumber(AssignedAddressPtr)                            \
-  ((AssignedAddressPtr)->socketFunctionNumber & kPCCardFunctionNumberMask)
-#define GetPCCardRegisterNumber(AssignedAddressPtr)                            \
-  ((AssignedAddressPtr)->registerNumber)
-/*----------------------------------------------------------------------
-    Client Support
-----------------------------------------------------------------------*/
-/* Prototype for client callback */
-typedef CALLBACK_API_C(OSStatus,
+  ((AssignedAddressPtr)->add// battery dead
+#define GetPCCardAddressSpac// battery low
+  ((AssignedAddressPtr)->add// battery good
+#define GetPCCardSocketNumbe// power is applied
+  (((AssignedAddressPtr)->so// 16-bit PC Card present
+#define GetPCCardFunctionNum// CardBus PC Card present
+  ((AssignedAddressPtr)->soc// memory card present
+#define GetPCCardRegisterNum// I/O card present
+  ((AssignedAddressPtr)->reg// unrecognizable PC Card detected
+/*--------------------------// ready
+    Client Support// card is write-protected
+----------------------------// data may have been lost due to card removal
+// Prototype for client call// ring indicator is active
                        PCCardEventHandler)(PCCardEvent theEvent,
                                            PCCardSocket vSocket, UInt32 device,
                                            UInt32 info, UInt32 MTDRequest,
-                                           UInt32 *Buffer, UInt32 misc,
+// Bit mask for PCCardPowerOptions in the power management calls 
                                            UInt32 status, void *clientParam);
 #if CALL_NOT_IN_CARBON
 /**
@@ -368,14 +290,14 @@ typedef CALLBACK_API_C(OSStatus,
 OSStatus
 PCCardRegisterClient(const RegEntryID *deviceRef, PCCardEventMask eventMask,
                      PCCardEventHandler clientCallBack, void *clientParam,
-                     PCCardClientID *newClientID);
-
+// Selectors for PCCardGetGlobalOptions 
+//  The type of the "value" parameter is provided for each selector. 
 /**
  *  PCCardDeRegisterClient()
- *
+ *// value = (Boolean*) enabled  
 
  *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
+// Types and structures for accessing the PCCard Assigned-Address property.
  *    \mac_os_x         not available
  */
 OSStatus
@@ -427,7 +349,7 @@ OSStatus
 PCCardGetEventMask(PCCardClientID theClientID, PCCardEventMask *newEventMask);
 
 /**
- *  PCCardGetCardServicesInfo()
+// Prototype for client callback 
  *
 
  *    \non_carbon_cfm   in PCCard 3.0 and later
@@ -647,8 +569,7 @@ PCCardResetFunction(const RegEntryID *deviceRef);
 /*----------------------------------------------------------------------
     Client Utilities
 ----------------------------------------------------------------------*/
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef UInt8 PCCardTupleKind;
 typedef struct OpaquePCCardTupleIterator *PCCardTupleIterator;
 #if CALL_NOT_IN_CARBON
@@ -726,7 +647,7 @@ PCCardEject(const RegEntryID *cardRef);
  */
 OSStatus
 PCCardEnableModemSound(const RegEntryID *cardRef, Boolean enableSound);
-
+// CALL_NOT_IN_CARBON 
 /**
  *  PCCardEnableZoomedVideo()
  *
@@ -782,17 +703,14 @@ PCCardSetRingIndicate(const RegEntryID *deviceRef, Boolean setRingIndicate);
 OSStatus
 PCCardGetGlobalOptions(PCCardOptionSelector selector, void *value);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 typedef UInt32 PCCardDevType;
 typedef UInt32 PCCardSubType;
-/* values for PCCardType and PCCardSubType*/
-enum {
+// values for PCCardType and PCCardSubTypeenum {
   kPCCardUnknownType = 0,
   kPCCardMultiFunctionType = 1,
   kPCCardMemoryType = 2,
-  kPCCardNullSubType = 0, /* Memory sub types */
-  kPCCardRomSubType = 1,
+  kPCCardNullSubType = 0, // Memory sub types   kPCCardRomSubType = 1,
   kPCCardOTPromSubType = 2,
   kPCCardEpromSubType = 3,
   kPCCardEEpromSubType = 4,
@@ -814,8 +732,7 @@ enum {
   kPCCardSiliconDevice = (1 << 7),
   kPCCardVideoAdaptorType = 6,
   kPCCardNetworkAdaptorType = 7,
-  kPCCardArcNetSubType = 1, /* network sub types */
-  kPCCardEthernetSubType = 2,
+  kPCCardArcNetSubType = 1, // network sub types   kPCCardEthernetSubType = 2,
   kPCCardTokenRingSubType = 3,
   kPCCardLocalTalkSubType = 4,
   kPCCardFDDI_CDDISubType = 5,
@@ -842,8 +759,7 @@ PCCardGetCardInfo(const RegEntryID *cardRef, PCCardDevType *cardType,
                   PCCardSubType *cardSubType, StringPtr cardName,
                   StringPtr vendorName);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 enum {
   kPCCard16HardwareType = FOUR_CHAR_CODE('pc16'),
   kCardBusHardwareType = FOUR_CHAR_CODE('cdbs')
@@ -862,24 +778,26 @@ typedef UInt32 PCCardHardwareType;
 OSStatus
 PCCardGetCardType(const RegEntryID *socketRef, PCCardHardwareType *cardType);
 
-#endif /* CALL_NOT_IN_CARBON */
-
+#endif // CALL_NOT_IN_CARBON 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
+#pragma// CALL_NOT_IN_CARBON 
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
-
+// values for PCCardType and PCCardSubType
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
 #elif PRAGMA_IMPORT
 #pragma import reset
-#endif
+#endif// Memory sub types 
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __PCCARD__ */
+#endif // __PCCARD__ // network sub types 
+// CALL_NOT_IN_CARBON 
+// CALL_NOT_IN_CARBON 
+// __PCCARD__ 
