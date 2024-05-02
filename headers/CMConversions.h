@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright © 1993-2001 by Apple Computer, Inc. All rights reserved.
-    
+
     \ingroup ColorSync
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,194 +52,198 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum { CMConversionInterfaceVersion = 1 };
+    enum
+    {
+        CMConversionInterfaceVersion = 1
+    };
 
-/** Component function selectors */
-enum {
-  kCMXYZToLab = 0,
-  kCMLabToXYZ = 1,
-  kCMXYZToLuv = 2,
-  kCMLuvToXYZ = 3,
-  kCMXYZToYxy = 4,
-  kCMYxyToXYZ = 5,
-  kCMRGBToHLS = 6,
-  kCMHLSToRGB = 7,
-  kCMRGBToHSV = 8,
-  kCMHSVToRGB = 9,
-  kCMRGBToGRAY = 10,
-  kCMXYZToFixedXYZ = 11,
-  kCMFixedXYZToXYZ = 12
-};
+    /** Component function selectors */
+    enum
+    {
+        kCMXYZToLab = 0,
+        kCMLabToXYZ = 1,
+        kCMXYZToLuv = 2,
+        kCMLuvToXYZ = 3,
+        kCMXYZToYxy = 4,
+        kCMYxyToXYZ = 5,
+        kCMRGBToHLS = 6,
+        kCMHLSToRGB = 7,
+        kCMRGBToHSV = 8,
+        kCMHSVToRGB = 9,
+        kCMRGBToGRAY = 10,
+        kCMXYZToFixedXYZ = 11,
+        kCMFixedXYZToXYZ = 12
+    };
 
 #if CALL_NOT_IN_CARBON
-/**
- *  CMXYZToLab()
- *
+    /**
+     *  CMXYZToLab()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMXYZToLab(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-           CMColor *dst, unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x0010, 0x0000, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMXYZToLab(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
+               CMColor *dst, unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0000, 0x7000, 0xA82A);
 
-/**
- *  CMLabToXYZ()
- *
+    /**
+     *  CMLabToXYZ()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMLabToXYZ(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-           CMColor *dst, unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x0010, 0x0001, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMLabToXYZ(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
+               CMColor *dst, unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0001, 0x7000, 0xA82A);
 
-/**
- *  CMXYZToLuv()
- *
+    /**
+     *  CMXYZToLuv()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMXYZToLuv(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-           CMColor *dst, unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x0010, 0x0002, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMXYZToLuv(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
+               CMColor *dst, unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0002, 0x7000, 0xA82A);
 
-/**
- *  CMLuvToXYZ()
- *
+    /**
+     *  CMLuvToXYZ()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMLuvToXYZ(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-           CMColor *dst, unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x0010, 0x0003, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMLuvToXYZ(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
+               CMColor *dst, unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0003, 0x7000, 0xA82A);
 
-/**
- *  CMXYZToYxy()
- *
+    /**
+     *  CMXYZToYxy()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMXYZToYxy(ComponentInstance ci, const CMColor *src, CMColor *dst,
-           unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0004, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMXYZToYxy(ComponentInstance ci, const CMColor *src, CMColor *dst,
+               unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0004, 0x7000, 0xA82A);
 
-/**
- *  CMYxyToXYZ()
- *
+    /**
+     *  CMYxyToXYZ()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMYxyToXYZ(ComponentInstance ci, const CMColor *src, CMColor *dst,
-           unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0005, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMYxyToXYZ(ComponentInstance ci, const CMColor *src, CMColor *dst,
+               unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0005, 0x7000, 0xA82A);
 
-/**
- *  CMRGBToHLS()
- *
+    /**
+     *  CMRGBToHLS()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMRGBToHLS(ComponentInstance ci, const CMColor *src, CMColor *dst,
-           unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0006, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMRGBToHLS(ComponentInstance ci, const CMColor *src, CMColor *dst,
+               unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0006, 0x7000, 0xA82A);
 
-/**
- *  CMHLSToRGB()
- *
+    /**
+     *  CMHLSToRGB()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMHLSToRGB(ComponentInstance ci, const CMColor *src, CMColor *dst,
-           unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0007, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMHLSToRGB(ComponentInstance ci, const CMColor *src, CMColor *dst,
+               unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0007, 0x7000, 0xA82A);
 
-/**
- *  CMRGBToHSV()
- *
+    /**
+     *  CMRGBToHSV()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMRGBToHSV(ComponentInstance ci, const CMColor *src, CMColor *dst,
-           unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0008, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMRGBToHSV(ComponentInstance ci, const CMColor *src, CMColor *dst,
+               unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0008, 0x7000, 0xA82A);
 
-/**
- *  CMHSVToRGB()
- *
+    /**
+     *  CMHSVToRGB()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMHSVToRGB(ComponentInstance ci, const CMColor *src, CMColor *dst,
-           unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0009, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMHSVToRGB(ComponentInstance ci, const CMColor *src, CMColor *dst,
+               unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0009, 0x7000, 0xA82A);
 
-/**
- *  CMRGBToGray()
- *
+    /**
+     *  CMRGBToGray()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMRGBToGray(ComponentInstance ci, const CMColor *src, CMColor *dst,
-            unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x000A, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMRGBToGray(ComponentInstance ci, const CMColor *src, CMColor *dst,
+                unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000A, 0x7000, 0xA82A);
 
-/**
- *  CMXYZToFixedXYZ()
- *
+    /**
+     *  CMXYZToFixedXYZ()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMXYZToFixedXYZ(ComponentInstance ci, const CMXYZColor *src,
-                CMFixedXYZColor *dst, unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x000B, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMXYZToFixedXYZ(ComponentInstance ci, const CMXYZColor *src,
+                    CMFixedXYZColor *dst, unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000B, 0x7000, 0xA82A);
 
-/**
- *  CMFixedXYZToXYZ()
- *
+    /**
+     *  CMFixedXYZToXYZ()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ComponentResult)
-CMFixedXYZToXYZ(ComponentInstance ci, const CMFixedXYZColor *src,
-                CMXYZColor *dst, unsigned long count)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x000C, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    ComponentResult
+    CMFixedXYZToXYZ(ComponentInstance ci, const CMFixedXYZColor *src,
+                    CMXYZColor *dst, unsigned long count)
+        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000C, 0x7000, 0xA82A);
 
 #endif /** CALL_NOT_IN_CARBON */
 

@@ -9,7 +9,7 @@
     \copyright © 1999-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Networking
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -44,7 +44,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -59,83 +60,84 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/**
-    Data structures and types
-*/
-typedef struct OpaqueSecTypeRef *SecTypeRef;
-typedef struct OpaqueSecSignerRef *SecSignerRef;
+  /**
+      Data structures and types
+  */
+  typedef struct OpaqueSecTypeRef *SecTypeRef;
+  typedef struct OpaqueSecSignerRef *SecSignerRef;
 /** Signer object manipulation */
 #if CALL_NOT_IN_CARBON
-/**
- *  SecSignerGetStatus()
- *
+  /**
+   *  SecSignerGetStatus()
+   *
 
- *    \non_carbon_cfm   in CMSLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSStatus)
-SecSignerGetStatus(SecSignerRef signer);
+   *    \non_carbon_cfm   in CMSLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  SecSignerGetStatus(SecSignerRef signer);
 
-/**
- *  SecRetain()
- *
+  /**
+   *  SecRetain()
+   *
 
- *    \non_carbon_cfm   in CMSLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SecTypeRef)
-SecRetain(SecTypeRef sec);
+   *    \non_carbon_cfm   in CMSLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SecTypeRef
+  SecRetain(SecTypeRef sec);
 
-/**
- *  SecRelease()
- *
+  /**
+   *  SecRelease()
+   *
 
- *    \non_carbon_cfm   in CMSLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-SecRelease(SecTypeRef sec);
+   *    \non_carbon_cfm   in CMSLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  SecRelease(SecTypeRef sec);
 
-/**
- *  SecRetainCount()
- *
+  /**
+   *  SecRetainCount()
+   *
 
- *    \non_carbon_cfm   in CMSLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt32)
-SecRetainCount(SecTypeRef sec);
+   *    \non_carbon_cfm   in CMSLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt32
+  SecRetainCount(SecTypeRef sec);
 
 /** Errors Codes  */
 #endif /** CALL_NOT_IN_CARBON */
 
-enum {
-  errSecUnsupported = -13843,
-  errSecInvalidData = -13844,
-  errSecTooMuchData = -13845,
-  errSecMissingData = -13846,
-  errSecNoSigners = -13847,
-  errSecSignerFailed = -13848,
-  errSecInvalidPolicy = -13849,
-  errSecUnknownPolicy = -13850,
-  errSecInvalidStopOn = -13851,
-  errSecMissingCert = -13852,
-  errSecInvalidCert = -13853,
-  errSecNotSigner = -13854,
-  errSecNotTrusted = -13855,
-  errSecMissingAttribute = -13856,
-  errSecMissingDigest = -13857,
-  errSecDigestMismatch = -13858,
-  errSecInvalidSignature = -13859,
-  errSecAlgMismatch = -13860,
-  errSecUnsupportedAlgorithm = -13864,
-  errSecContentTypeMismatch = -13865,
-  errSecDebugRoot = -13866
-};
+  enum
+  {
+    errSecUnsupported = -13843,
+    errSecInvalidData = -13844,
+    errSecTooMuchData = -13845,
+    errSecMissingData = -13846,
+    errSecNoSigners = -13847,
+    errSecSignerFailed = -13848,
+    errSecInvalidPolicy = -13849,
+    errSecUnknownPolicy = -13850,
+    errSecInvalidStopOn = -13851,
+    errSecMissingCert = -13852,
+    errSecInvalidCert = -13853,
+    errSecNotSigner = -13854,
+    errSecNotTrusted = -13855,
+    errSecMissingAttribute = -13856,
+    errSecMissingDigest = -13857,
+    errSecDigestMismatch = -13858,
+    errSecInvalidSignature = -13859,
+    errSecAlgMismatch = -13860,
+    errSecUnsupportedAlgorithm = -13864,
+    errSecContentTypeMismatch = -13865,
+    errSecDebugRoot = -13866
+  };
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

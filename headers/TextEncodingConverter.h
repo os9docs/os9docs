@@ -9,7 +9,7 @@
     \copyright © 1994-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup Font
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,428 +48,430 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef OSType TECPluginSignature;
-typedef UInt32 TECPluginVersion;
-/** plugin signatures */
-enum {
-  kTECSignature = FOUR_CHAR_CODE('encv'),
-  kTECUnicodePluginSignature = FOUR_CHAR_CODE('puni'),
-  kTECJapanesePluginSignature = FOUR_CHAR_CODE('pjpn'),
-  kTECChinesePluginSignature = FOUR_CHAR_CODE('pzho'),
-  kTECKoreanPluginSignature = FOUR_CHAR_CODE('pkor')
-};
+  typedef OSType TECPluginSignature;
+  typedef UInt32 TECPluginVersion;
+  /** plugin signatures */
+  enum
+  {
+    kTECSignature = FOUR_CHAR_CODE('encv'),
+    kTECUnicodePluginSignature = FOUR_CHAR_CODE('puni'),
+    kTECJapanesePluginSignature = FOUR_CHAR_CODE('pjpn'),
+    kTECChinesePluginSignature = FOUR_CHAR_CODE('pzho'),
+    kTECKoreanPluginSignature = FOUR_CHAR_CODE('pkor')
+  };
 
-/** converter object reference */
-typedef struct OpaqueTECObjectRef *TECObjectRef;
-typedef struct OpaqueTECSnifferObjectRef *TECSnifferObjectRef;
-typedef OSType TECPluginSig;
-struct TECConversionInfo {
-  TextEncoding sourceEncoding;
-  TextEncoding destinationEncoding;
-  UInt16 reserved1;
-  UInt16 reserved2;
-};
-typedef struct TECConversionInfo TECConversionInfo;
-/** return number of encodings types supported by user's configuraton of the
- * encoding converter */
-/**
- *  TECCountAvailableTextEncodings()
- *
+  /** converter object reference */
+  typedef struct OpaqueTECObjectRef *TECObjectRef;
+  typedef struct OpaqueTECSnifferObjectRef *TECSnifferObjectRef;
+  typedef OSType TECPluginSig;
+  struct TECConversionInfo
+  {
+    TextEncoding sourceEncoding;
+    TextEncoding destinationEncoding;
+    UInt16 reserved1;
+    UInt16 reserved2;
+  };
+  typedef struct TECConversionInfo TECConversionInfo;
+  /** return number of encodings types supported by user's configuraton of the
+   * encoding converter */
+  /**
+   *  TECCountAvailableTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCountAvailableTextEncodings(ItemCount *numberEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCountAvailableTextEncodings(ItemCount *numberEncodings);
 
-/** fill in an array of type TextEncoding passed in by the user with types of
- * encodings the current configuration of the encoder can handle. */
-/**
- *  TECGetAvailableTextEncodings()
- *
+  /** fill in an array of type TextEncoding passed in by the user with types of
+   * encodings the current configuration of the encoder can handle. */
+  /**
+   *  TECGetAvailableTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetAvailableTextEncodings(TextEncoding availableEncodings[],
-                             ItemCount maxAvailableEncodings,
-                             ItemCount *actualAvailableEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetAvailableTextEncodings(TextEncoding availableEncodings[],
+                               ItemCount maxAvailableEncodings,
+                               ItemCount *actualAvailableEncodings);
 
-/** return number of from-to encoding conversion pairs supported  */
-/**
- *  TECCountDirectTextEncodingConversions()
- *
+  /** return number of from-to encoding conversion pairs supported  */
+  /**
+   *  TECCountDirectTextEncodingConversions()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCountDirectTextEncodingConversions(ItemCount *numberOfEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCountDirectTextEncodingConversions(ItemCount *numberOfEncodings);
 
-/** fill in an array of type TextEncodingPair passed in by the user with types
- * of encoding pairs the current configuration of the encoder can handle. */
-/**
- *  TECGetDirectTextEncodingConversions()
- *
+  /** fill in an array of type TextEncodingPair passed in by the user with types
+   * of encoding pairs the current configuration of the encoder can handle. */
+  /**
+   *  TECGetDirectTextEncodingConversions()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetDirectTextEncodingConversions(TECConversionInfo availableConversions[],
-                                    ItemCount maxAvailableConversions,
-                                    ItemCount *actualAvailableConversions);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetDirectTextEncodingConversions(TECConversionInfo availableConversions[],
+                                      ItemCount maxAvailableConversions,
+                                      ItemCount *actualAvailableConversions);
 
-/** return number of encodings a given encoding can be converter into */
-/**
- *  TECCountDestinationTextEncodings()
- *
+  /** return number of encodings a given encoding can be converter into */
+  /**
+   *  TECCountDestinationTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCountDestinationTextEncodings(TextEncoding inputEncoding,
-                                 ItemCount *numberOfEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCountDestinationTextEncodings(TextEncoding inputEncoding,
+                                   ItemCount *numberOfEncodings);
 
-/** fill in an array of type TextEncodingPair passed in by the user with types
- * of encodings pairs the current configuration of the encoder can handle. */
-/**
- *  TECGetDestinationTextEncodings()
- *
+  /** fill in an array of type TextEncodingPair passed in by the user with types
+   * of encodings pairs the current configuration of the encoder can handle. */
+  /**
+   *  TECGetDestinationTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetDestinationTextEncodings(TextEncoding inputEncoding,
-                               TextEncoding destinationEncodings[],
-                               ItemCount maxDestinationEncodings,
-                               ItemCount *actualDestinationEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetDestinationTextEncodings(TextEncoding inputEncoding,
+                                 TextEncoding destinationEncodings[],
+                                 ItemCount maxDestinationEncodings,
+                                 ItemCount *actualDestinationEncodings);
 
-/** get info about a text encoding */
-/**
- *  TECGetTextEncodingInternetName()
- *
+  /** get info about a text encoding */
+  /**
+   *  TECGetTextEncodingInternetName()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetTextEncodingInternetName(TextEncoding textEncoding, Str255 encodingName);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetTextEncodingInternetName(TextEncoding textEncoding, Str255 encodingName);
 
-/**
- *  TECGetTextEncodingFromInternetName()
- *
+  /**
+   *  TECGetTextEncodingFromInternetName()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetTextEncodingFromInternetName(TextEncoding *textEncoding,
-                                   ConstStr255Param encodingName);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetTextEncodingFromInternetName(TextEncoding *textEncoding,
+                                     ConstStr255Param encodingName);
 
-/** create/dispose converters */
-/**
- *  TECCreateConverter()
- *
+  /** create/dispose converters */
+  /**
+   *  TECCreateConverter()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCreateConverter(TECObjectRef *newEncodingConverter,
-                   TextEncoding inputEncoding, TextEncoding outputEncoding);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCreateConverter(TECObjectRef *newEncodingConverter,
+                     TextEncoding inputEncoding, TextEncoding outputEncoding);
 
-/**
- *  TECCreateConverterFromPath()
- *
+  /**
+   *  TECCreateConverterFromPath()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCreateConverterFromPath(TECObjectRef *newEncodingConverter,
-                           const TextEncoding inPath[], ItemCount inEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCreateConverterFromPath(TECObjectRef *newEncodingConverter,
+                             const TextEncoding inPath[], ItemCount inEncodings);
 
-/**
- *  TECDisposeConverter()
- *
+  /**
+   *  TECDisposeConverter()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECDisposeConverter(TECObjectRef newEncodingConverter);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECDisposeConverter(TECObjectRef newEncodingConverter);
 
-/** convert text encodings */
-/**
- *  TECClearConverterContextInfo()
- *
+  /** convert text encodings */
+  /**
+   *  TECClearConverterContextInfo()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECClearConverterContextInfo(TECObjectRef encodingConverter);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECClearConverterContextInfo(TECObjectRef encodingConverter);
 
-/**
- *  TECConvertText()
- *
+  /**
+   *  TECConvertText()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECConvertText(TECObjectRef encodingConverter, ConstTextPtr inputBuffer,
-               ByteCount inputBufferLength, ByteCount *actualInputLength,
-               TextPtr outputBuffer, ByteCount outputBufferLength,
-               ByteCount *actualOutputLength);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECConvertText(TECObjectRef encodingConverter, ConstTextPtr inputBuffer,
+                 ByteCount inputBufferLength, ByteCount *actualInputLength,
+                 TextPtr outputBuffer, ByteCount outputBufferLength,
+                 ByteCount *actualOutputLength);
 
-/**
- *  TECFlushText()
- *
+  /**
+   *  TECFlushText()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECFlushText(TECObjectRef encodingConverter, TextPtr outputBuffer,
-             ByteCount outputBufferLength, ByteCount *actualOutputLength);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECFlushText(TECObjectRef encodingConverter, TextPtr outputBuffer,
+               ByteCount outputBufferLength, ByteCount *actualOutputLength);
 
-/** one-to-many routines */
-/**
- *  TECCountSubTextEncodings()
- *
+  /** one-to-many routines */
+  /**
+   *  TECCountSubTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCountSubTextEncodings(TextEncoding inputEncoding,
-                         ItemCount *numberOfEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCountSubTextEncodings(TextEncoding inputEncoding,
+                           ItemCount *numberOfEncodings);
 
-/**
- *  TECGetSubTextEncodings()
- *
+  /**
+   *  TECGetSubTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetSubTextEncodings(TextEncoding inputEncoding, TextEncoding subEncodings[],
-                       ItemCount maxSubEncodings,
-                       ItemCount *actualSubEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetSubTextEncodings(TextEncoding inputEncoding, TextEncoding subEncodings[],
+                         ItemCount maxSubEncodings,
+                         ItemCount *actualSubEncodings);
 
-/**
- *  TECGetEncodingList()
- *
+  /**
+   *  TECGetEncodingList()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetEncodingList(TECObjectRef encodingConverter, ItemCount *numEncodings,
-                   Handle *encodingList);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetEncodingList(TECObjectRef encodingConverter, ItemCount *numEncodings,
+                     Handle *encodingList);
 
-/**
- *  TECCreateOneToManyConverter()
- *
+  /**
+   *  TECCreateOneToManyConverter()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCreateOneToManyConverter(TECObjectRef *newEncodingConverter,
-                            TextEncoding inputEncoding,
-                            ItemCount numOutputEncodings,
-                            const TextEncoding outputEncodings[]);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCreateOneToManyConverter(TECObjectRef *newEncodingConverter,
+                              TextEncoding inputEncoding,
+                              ItemCount numOutputEncodings,
+                              const TextEncoding outputEncodings[]);
 
-/**
- *  TECConvertTextToMultipleEncodings()
- *
+  /**
+   *  TECConvertTextToMultipleEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECConvertTextToMultipleEncodings(
-    TECObjectRef encodingConverter, ConstTextPtr inputBuffer,
-    ByteCount inputBufferLength, ByteCount *actualInputLength,
-    TextPtr outputBuffer, ByteCount outputBufferLength,
-    ByteCount *actualOutputLength, TextEncodingRun outEncodingsBuffer[],
-    ItemCount maxOutEncodingRuns, ItemCount *actualOutEncodingRuns);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECConvertTextToMultipleEncodings(
+      TECObjectRef encodingConverter, ConstTextPtr inputBuffer,
+      ByteCount inputBufferLength, ByteCount *actualInputLength,
+      TextPtr outputBuffer, ByteCount outputBufferLength,
+      ByteCount *actualOutputLength, TextEncodingRun outEncodingsBuffer[],
+      ItemCount maxOutEncodingRuns, ItemCount *actualOutEncodingRuns);
 
-/**
- *  TECFlushMultipleEncodings()
- *
+  /**
+   *  TECFlushMultipleEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECFlushMultipleEncodings(TECObjectRef encodingConverter, TextPtr outputBuffer,
-                          ByteCount outputBufferLength,
-                          ByteCount *actualOutputLength,
-                          TextEncodingRun outEncodingsBuffer[],
-                          ItemCount maxOutEncodingRuns,
-                          ItemCount *actualOutEncodingRuns);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECFlushMultipleEncodings(TECObjectRef encodingConverter, TextPtr outputBuffer,
+                            ByteCount outputBufferLength,
+                            ByteCount *actualOutputLength,
+                            TextEncodingRun outEncodingsBuffer[],
+                            ItemCount maxOutEncodingRuns,
+                            ItemCount *actualOutEncodingRuns);
 
-/** international internet info */
-/**
- *  TECCountWebTextEncodings()
- *
+  /** international internet info */
+  /**
+   *  TECCountWebTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCountWebTextEncodings(RegionCode locale, ItemCount *numberEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCountWebTextEncodings(RegionCode locale, ItemCount *numberEncodings);
 
-/**
- *  TECGetWebTextEncodings()
- *
+  /**
+   *  TECGetWebTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetWebTextEncodings(RegionCode locale, TextEncoding availableEncodings[],
-                       ItemCount maxAvailableEncodings,
-                       ItemCount *actualAvailableEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetWebTextEncodings(RegionCode locale, TextEncoding availableEncodings[],
+                         ItemCount maxAvailableEncodings,
+                         ItemCount *actualAvailableEncodings);
 
-/**
- *  TECCountMailTextEncodings()
- *
+  /**
+   *  TECCountMailTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCountMailTextEncodings(RegionCode locale, ItemCount *numberEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCountMailTextEncodings(RegionCode locale, ItemCount *numberEncodings);
 
-/**
- *  TECGetMailTextEncodings()
- *
+  /**
+   *  TECGetMailTextEncodings()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetMailTextEncodings(RegionCode locale, TextEncoding availableEncodings[],
-                        ItemCount maxAvailableEncodings,
-                        ItemCount *actualAvailableEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetMailTextEncodings(RegionCode locale, TextEncoding availableEncodings[],
+                          ItemCount maxAvailableEncodings,
+                          ItemCount *actualAvailableEncodings);
 
-/** examine text encodings */
-/**
- *  TECCountAvailableSniffers()
- *
+  /** examine text encodings */
+  /**
+   *  TECCountAvailableSniffers()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCountAvailableSniffers(ItemCount *numberOfEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCountAvailableSniffers(ItemCount *numberOfEncodings);
 
-/**
- *  TECGetAvailableSniffers()
- *
+  /**
+   *  TECGetAvailableSniffers()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECGetAvailableSniffers(TextEncoding availableSniffers[],
-                        ItemCount maxAvailableSniffers,
-                        ItemCount *actualAvailableSniffers);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECGetAvailableSniffers(TextEncoding availableSniffers[],
+                          ItemCount maxAvailableSniffers,
+                          ItemCount *actualAvailableSniffers);
 
-/**
- *  TECCreateSniffer()
- *
+  /**
+   *  TECCreateSniffer()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECCreateSniffer(TECSnifferObjectRef *encodingSniffer,
-                 TextEncoding testEncodings[], ItemCount numTextEncodings);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECCreateSniffer(TECSnifferObjectRef *encodingSniffer,
+                   TextEncoding testEncodings[], ItemCount numTextEncodings);
 
-/**
- *  TECSniffTextEncoding()
- *
+  /**
+   *  TECSniffTextEncoding()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECSniffTextEncoding(TECSnifferObjectRef encodingSniffer, TextPtr inputBuffer,
-                     ByteCount inputBufferLength, TextEncoding testEncodings[],
-                     ItemCount numTextEncodings, ItemCount numErrsArray[],
-                     ItemCount maxErrs, ItemCount numFeaturesArray[],
-                     ItemCount maxFeatures);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECSniffTextEncoding(TECSnifferObjectRef encodingSniffer, TextPtr inputBuffer,
+                       ByteCount inputBufferLength, TextEncoding testEncodings[],
+                       ItemCount numTextEncodings, ItemCount numErrsArray[],
+                       ItemCount maxErrs, ItemCount numFeaturesArray[],
+                       ItemCount maxFeatures);
 
-/**
- *  TECDisposeSniffer()
- *
+  /**
+   *  TECDisposeSniffer()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECDisposeSniffer(TECSnifferObjectRef encodingSniffer);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECDisposeSniffer(TECSnifferObjectRef encodingSniffer);
 
-/**
- *  TECClearSnifferContextInfo()
- *
+  /**
+   *  TECClearSnifferContextInfo()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-TECClearSnifferContextInfo(TECSnifferObjectRef encodingSniffer);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.2 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  TECClearSnifferContextInfo(TECSnifferObjectRef encodingSniffer);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  TECSetBasicOptions()
- *
+  /**
+   *  TECSetBasicOptions()
+   *
 
- *    \non_carbon_cfm   in TextEncodingConverter 1.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSStatus)
-TECSetBasicOptions(TECObjectRef encodingConverter, OptionBits controlFlags);
+   *    \non_carbon_cfm   in TextEncodingConverter 1.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  TECSetBasicOptions(TECObjectRef encodingConverter, OptionBits controlFlags);
 
 #endif /** CALL_NOT_IN_CARBON */
 

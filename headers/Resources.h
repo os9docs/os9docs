@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,80 +52,86 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  resSysHeap = 64,   /*System or application heap?*/
-  resPurgeable = 32, /*Purgeable resource?*/
-  resLocked = 16,    /*Load it in locked?*/
-  resProtected = 8,  /*Protected?*/
-  resPreload = 4,    /*Load in on OpenResFile?*/
-  resChanged = 2,    /*Resource changed?*/
-  mapReadOnly = 128, /*Resource file read-only*/
-  mapCompact = 64,   /*Compact resource file*/
-  mapChanged = 32    /*Write map out at update*/
-};
+  enum
+  {
+    resSysHeap = 64,   /*System or application heap?*/
+    resPurgeable = 32, /*Purgeable resource?*/
+    resLocked = 16,    /*Load it in locked?*/
+    resProtected = 8,  /*Protected?*/
+    resPreload = 4,    /*Load in on OpenResFile?*/
+    resChanged = 2,    /*Resource changed?*/
+    mapReadOnly = 128, /*Resource file read-only*/
+    mapCompact = 64,   /*Compact resource file*/
+    mapChanged = 32    /*Write map out at update*/
+  };
 
-enum {
-  resSysRefBit = 7,    /*reference to system/local reference*/
-  resSysHeapBit = 6,   /*In system/in application heap*/
-  resPurgeableBit = 5, /*Purgeable/not purgeable*/
-  resLockedBit = 4,    /*Locked/not locked*/
-  resProtectedBit = 3, /*Protected/not protected*/
-  resPreloadBit = 2,   /*Read in at OpenResource?*/
-  resChangedBit = 1,   /*Existing resource changed since last update*/
-  mapReadOnlyBit = 7,  /*is this file read-only?*/
-  mapCompactBit = 6,   /*Is a compact necessary?*/
-  mapChangedBit = 5    /*Is it necessary to write map?*/
-};
+  enum
+  {
+    resSysRefBit = 7,    /*reference to system/local reference*/
+    resSysHeapBit = 6,   /*In system/in application heap*/
+    resPurgeableBit = 5, /*Purgeable/not purgeable*/
+    resLockedBit = 4,    /*Locked/not locked*/
+    resProtectedBit = 3, /*Protected/not protected*/
+    resPreloadBit = 2,   /*Read in at OpenResource?*/
+    resChangedBit = 1,   /*Existing resource changed since last update*/
+    mapReadOnlyBit = 7,  /*is this file read-only?*/
+    mapCompactBit = 6,   /*Is a compact necessary?*/
+    mapChangedBit = 5    /*Is it necessary to write map?*/
+  };
 
-enum {
-  kResFileNotOpened =
-      -1,            /*ref num return as error when opening a resource file*/
-  kSystemResFile = 0 /*this is the default ref num to the system file*/
-};
+  enum
+  {
+    kResFileNotOpened =
+        -1,            /*ref num return as error when opening a resource file*/
+    kSystemResFile = 0 /*this is the default ref num to the system file*/
+  };
 
-typedef CALLBACK_API_REGISTER68K(void, ResErrProcPtr, (OSErr thErr));
-typedef REGISTER_UPP_TYPE(ResErrProcPtr) ResErrUPP;
-/**
- *  NewResErrUPP()
- *
+  typedef CALLBACK_API_REGISTER68K(void, ResErrProcPtr, (OSErr thErr));
+  typedef REGISTER_UPP_TYPE(ResErrProcPtr) ResErrUPP;
+  /**
+   *  NewResErrUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ResErrUPP
-NewResErrUPP(ResErrProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ResErrUPP
+  NewResErrUPP(ResErrProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppResErrProcInfo = 0x00001002
-}; /* register no_return_value Func(2_bytes:D0) */
+  enum
+  {
+    uppResErrProcInfo = 0x00001002
+  }; /* register no_return_value Func(2_bytes:D0) */
 #ifdef __cplusplus
-inline ResErrUPP NewResErrUPP(ResErrProcPtr userRoutine) {
-  return (ResErrUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppResErrProcInfo, GetCurrentArchitecture());
-}
+  inline ResErrUPP NewResErrUPP(ResErrProcPtr userRoutine)
+  {
+    return (ResErrUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppResErrProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewResErrUPP(userRoutine)                                              \
-  (ResErrUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppResErrProcInfo,  \
+#define NewResErrUPP(userRoutine)                                             \
+  (ResErrUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppResErrProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeResErrUPP()
- *
+  /**
+   *  DisposeResErrUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeResErrUPP(ResErrUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeResErrUPP(ResErrUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeResErrUPP(ResErrUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeResErrUPP(ResErrUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeResErrUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
@@ -141,16 +148,17 @@ inline void DisposeResErrUPP(ResErrUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeResErrUPP(__D0, __A0)
 #endif
-void
-InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP) ONEWORDINLINE(0x4E90);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+  void
+  InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP) ONEWORDINLINE(0x4E90);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppResErrProcInfo, thErr);
-}
+  inline void InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppResErrProcInfo, thErr);
+  }
 #else
-#define InvokeResErrUPP(thErr, userUPP)                                        \
+#define InvokeResErrUPP(thErr, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppResErrProcInfo, (thErr))
 #endif
 #endif
@@ -161,54 +169,53 @@ inline void InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP) {
 #define CallResErrProc(userRoutine, thErr) InvokeResErrUPP(thErr, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/* QuickTime 3.0*/
-typedef CALLBACK_API(OSErr,
-                     ResourceEndianFilterPtr)(Handle theResource,
-                                              Boolean currentlyNativeEndian);
+  /* QuickTime 3.0*/
+  typedef CALLBACK_API(OSErr,
+                       ResourceEndianFilterPtr)(Handle theResource,
+                                                Boolean currentlyNativeEndian);
 #if CALL_NOT_IN_CARBON
-/**
- *  InitResources()
- *
+  /**
+   *  InitResources()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(short)
-InitResources(void) ONEWORDINLINE(0xA995);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  InitResources(void) ONEWORDINLINE(0xA995);
 
-/**
- *  RsrcZoneInit()
- *
+  /**
+   *  RsrcZoneInit()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-RsrcZoneInit(void) ONEWORDINLINE(0xA996);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  RsrcZoneInit(void) ONEWORDINLINE(0xA996);
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  CloseResFile()
- *
+  /**
+   *  CloseResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CloseResFile(short refNum) ONEWORDINLINE(0xA99A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  CloseResFile(short refNum) ONEWORDINLINE(0xA99A);
 
+  /**
+  \brief Find if an error occurred in a resource operation
 
-			/** 
-			\brief Find if an error occurred in a resource operation 
-			
-			<pre>You can use ResError to read that code and see if the most recent operation
+  <pre>You can use ResError to read that code and see if the most recent operation
 caused an error, and if so, what the error was.
 </pre>
- * \returns <pre>an integer; the Error Code of the most recent resource-related
+* \returns <pre>an integer; the Error Code of the most recent resource-related
 operation. It may be a file system error or one of the following
 resource error constants:
 noErr(0)No Error (this constant is defined in MacTypes.h)
@@ -220,7 +227,7 @@ rmvResFailed (-196)RmveResource failed
 resAttrErr (-198)Attribute does not permit operation
 mapReadErr (-199)Error reading resource map
 </pre>
- * \note <pre>ResError is functionally equivalent to reading the low-memory global,
+* \note <pre>ResError is functionally equivalent to reading the low-memory global,
 ResErr; i.e., the following are the same, except the latter generates less
 code and is faster:
 if ( ResError () ){ ... an error occurred ... }
@@ -231,24 +238,23 @@ A few Resource Manager functions indicate errors by returning a NIL
 handle (e.g., GetResource ). When these calls fail, ResError returns
 noErr, so be sure to check for NIL handles!
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ResError(void) ONEWORDINLINE(0xA9AF);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  OSErr
+  ResError(void) ONEWORDINLINE(0xA9AF);
 
+  /**
+  \brief Get reference number of current resource file
 
-			/** 
-			\brief Get reference number of current resource file 
-			
-			<pre>CurResFile returns the file reference number of the "current resource
+  <pre>CurResFile returns the file reference number of the "current resource
 file" - the first file searched during a resource request.
 </pre>
- * \returns <pre>an integer; the reference number of the current resource file.
+* \returns <pre>an integer; the reference number of the current resource file.
 </pre>
- * \note <pre>You can use this function early in an application to determine the reference
+* \note <pre>You can use this function early in an application to determine the reference
 number of the application's resource file.
 The global variable CurMap (at 0x0A5A) contains the same information
 that this call returns. Thus, the following are the same except that the
@@ -256,70 +262,68 @@ latter generates less code:
 fRef= CurResFile ();
 fRef= CurMap;
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-CurResFile(void) ONEWORDINLINE(0xA994);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  CurResFile(void) ONEWORDINLINE(0xA994);
 
-
-			/** 
-			\brief Given a resource handle, return a file reference number 
-			\param    rHandle generic Handle of resource of interest
-			<pre>In the 64K ROMs, HomeResFile can be used to make sure a resource is
+  /**
+  \brief Given a resource handle, return a file reference number
+  \param    rHandle generic Handle of resource of interest
+  <pre>In the 64K ROMs, HomeResFile can be used to make sure a resource is
 from the application's resource file. The "one-deep" functions
 (Get1Resource , Get1IndResource , etc.) of the 128K ROMs make this
 usage unnecessary.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-HomeResFile(Handle theResource) ONEWORDINLINE(0xA9A4);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  HomeResFile(Handle theResource) ONEWORDINLINE(0xA9A4);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  CreateResFile()
- *
+  /**
+   *  CreateResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-CreateResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA9B1);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  CreateResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA9B1);
 
-/**
- *  OpenResFile()
- *
+  /**
+   *  OpenResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(short)
-OpenResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA997);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  OpenResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA997);
 
 #endif /* CALL_NOT_IN_CARBON */
 
+  /**
+  \brief Make specified resource file the "current file".
 
-			/** 
-			\brief Make specified resource file the "current file". 
-			
-			<pre>UseResFile selects a different file (already open) as the current resource
+  <pre>UseResFile selects a different file (already open) as the current resource
 file. On subsequent resource requests, the specified file will be searched first
 and none of the more recently opened resource files will be searched.
 rfRefNum is a resource file reference number; typically a value obtained from
 OpenResFile , HomeResFile , or CurResFile . Use 0 to specify
 the system resource file.
 </pre>
- * \returns <pre>none (use ResError to determine success/failure)
+* \returns <pre>none (use ResError to determine success/failure)
 </pre>
- * \note <pre>Open resource files are arranged as a linked list; the most recently opened
+* \note <pre>Open resource files are arranged as a linked list; the most recently opened
 file is at the end of the list and is the first one the Resource Manager
 searches when looking for a resource. UseResFile lets you start the search
 with a file opened earlier; the file(s) following it in the list are then left out
@@ -343,26 +347,25 @@ The resource search order is affected by the setting of the low-memory
 globals RomMapInsert and TmpResLoad . These affect whether ROM-based
 resources are considered to be in the normal lookup list.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-UseResFile(short refNum) ONEWORDINLINE(0xA998);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  UseResFile(short refNum) ONEWORDINLINE(0xA998);
 
+  /**
+  \brief Get total number of resource types in open files
 
-			/** 
-			\brief Get total number of resource types in open files 
-			
-			<pre>CountTypes returns the total number of resource types in all
+  <pre>CountTypes returns the total number of resource types in all
 currently-opened resource files. It can be used as a first step in a
 system-wide examination of resources.
 </pre>
- * \returns <pre>a positive integer; it is the total number of distinct resource types
+* \returns <pre>a positive integer; it is the total number of distinct resource types
 in all open resource files.
 </pre>
- * \note <pre>CountTypes is only needed by resource-management utilities such as
+* \note <pre>CountTypes is only needed by resource-management utilities such as
 ResEdit or Resorcerer. This function is the first step in generating a list of
 all the different resource types, thus making it possible to look up each
 individual resource. Subsequent calls to GetIndType will return the
@@ -375,53 +378,55 @@ number of such resources, contained in all open resource files.
 Example
 #include < Resources.h >
 #include <stdio.h> /* for printf() */
-short rTotal, j;
-ResType rt;
-char *rtp;
-rTotal = CountTypes ();
-for ( j=1; j <= rTotal; j++ ) {
-GetIndType ( &rt, j );
-rtp = &rt;
-printf( "Type '%c%c%c%c' has %d resources\n",
-rtp[0], rtp[1], rtp[2], rtp[3], CountResources ( rt ) );
-}
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-CountTypes(void) ONEWORDINLINE(0xA99E);
+  short rTotal, j;
+  ResType rt;
+  char *rtp;
+  rTotal = CountTypes();
+  for (j = 1; j <= rTotal; j++)
+  {
+    GetIndType(&rt, j);
+    rtp = &rt;
+    printf("Type '%c%c%c%c' has %d resources\n",
+           rtp[0], rtp[1], rtp[2], rtp[3], CountResources(rt));
+  }
+  </ pre>
+              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          short
+          CountTypes(void) ONEWORDINLINE(0xA99E);
 
+  /**
+  \brief Get total number of resource types in current file
 
-			/** 
-			\brief Get total number of resource types in current file 
-			
-			<pre>Count1Types returns the number of resource types in the current resource
+  <pre>Count1Types returns the number of resource types in the current resource
 file. It can be used as a first step in "1-deep" examination of resources.
 </pre>
- * \returns <pre>a positive integer; it is the total number of distinct resource types
+* \returns <pre>a positive integer; it is the total number of distinct resource types
 in the current resource file.
 </pre>
- * \note <pre>Count1Types works exactly like CountTypes except that it limits the
+* \note <pre>Count1Types works exactly like CountTypes except that it limits the
 type search to the current resource file.  This is normally followed by a
 series of calls to Get1IndType .
 Refer to CountTypes for related details.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-Count1Types(void) ONEWORDINLINE(0xA81C);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  Count1Types(void) ONEWORDINLINE(0xA81C);
 
+  /**
+  \brief Get the ResType of a resource, given its index
 
-			/** 
-			\brief Get the ResType of a resource, given its index 
-			
-			<pre>GetIndType obtains the 4-byte ResType of a resource, given an
+  <pre>GetIndType obtains the 4-byte ResType of a resource, given an
 arbitrarily-defined index number.
 rTypeis the address of a 4-byte ResType value. Upon return, it will
 contain the resource type code associated with the resource identified
@@ -430,9 +435,9 @@ NULs) indicates that index was an invalid value.
 indexis a positive integer. It should range from 1 to the total number of
 distinct resources available (see CountTypes ).
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>GetIndType is usually only needed by resource-management utilities
+* \note <pre>GetIndType is usually only needed by resource-management utilities
 such as ResEdit. This function is the second step (following CountTypes )
 in generating a list of all the different resource types, thus making it
 possible to look up each individual resource.
@@ -443,30 +448,29 @@ starting with the current resource file and working chronologically
 backward toward the system file).
 See CountTypes for an example of usage.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetIndType(ResType *theType, short index) ONEWORDINLINE(0xA99F);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  GetIndType(ResType *theType, short index) ONEWORDINLINE(0xA99F);
 
-/**
- *  Get1IndType()
- *
+  /**
+   *  Get1IndType()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-Get1IndType(ResType *theType, short index) ONEWORDINLINE(0xA80F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  Get1IndType(ResType *theType, short index) ONEWORDINLINE(0xA80F);
 
+  /**
+  \brief Set state of automatic resource loading
 
-			/** 
-			\brief Set state of automatic resource loading 
-			
-			<pre>After using SetResLoad (FALSE), be sure to use SetResLoad (TRUE) as
+  <pre>After using SetResLoad (FALSE), be sure to use SetResLoad (TRUE) as
 soon as possible. Some toolbox calls malfunction when resources do not
 automatically load. Furthermore, remember to use SetResLoad (TRUE)
 before exiting from your application; otherwise the Finder's code resource
@@ -478,28 +482,27 @@ The following calls set ResLoad to TRUE (enable auto-loading) as a
 side-effect: GetFNum , GetFontName , RealFont and AddResMenu .
 See CountResources for an example of usage.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetResLoad(Boolean load) ONEWORDINLINE(0xA99B);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  SetResLoad(Boolean load) ONEWORDINLINE(0xA99B);
 
+  /**
+  \brief Find how many of a selected resource type exist
 
-			/** 
-			\brief Find how many of a selected resource type exist 
-			
-			<pre>CountResources returns the number of resources of a specified resource
+  <pre>CountResources returns the number of resources of a specified resource
 type that exist among the currently-open resource files.
 rTypeis a 4-byte ResType value identifying the resource type you wish to
 count (e.g. 'FONT', 'MENU', etc.).
 </pre>
- * \returns <pre>a positive integer; the number of resources of the specified type
+* \returns <pre>a positive integer; the number of resources of the specified type
 contained in all currently-open resource files. Returns 0 if none are
 found.
 </pre>
- * \note <pre>This function is used as the first step in generating a list of
+* \note <pre>This function is used as the first step in generating a list of
 currently-available resources of a particular type. To generate the list,
 use GetIndResource with an index ranging from 1 to the
 CountResources return value.
@@ -514,115 +517,118 @@ Handle rHandle;
 ResType rType;
 Str255 rName;
 printf("\n"); /* ensure printf can get fonts */
-/* before calling SetResLoad */
-rCount = CountResources ( 'DRVR' );
-SetResLoad ( FALSE ); /* do not need resource, just info */
-for( j=1; j <= rCount; j++ ) {
-rHandle = GetIndResource ('DRVR', j );
-GetResInfo ( rHandle, &rID, &rType, rName );
-printf(" 'DRVR' Rsrc ID: %6d, Name: %s\n", rID, PtoCstr(rName)+1);
-}
-SetResLoad (TRUE); /* better do this! */
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-CountResources(ResType theType) ONEWORDINLINE(0xA99C);
+  /* before calling SetResLoad */
+  rCount = CountResources('DRVR');
+  SetResLoad(FALSE); /* do not need resource, just info */
+  for (j = 1; j <= rCount; j++)
+  {
+    rHandle = GetIndResource('DRVR', j);
+    GetResInfo(rHandle, &rID, &rType, rName);
+    printf(" 'DRVR' Rsrc ID: %6d, Name: %s\n", rID, PtoCstr(rName) + 1);
+  }
+  SetResLoad(TRUE); /* better do this! */
+  </ pre>
+              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          short
+          CountResources(ResType theType) ONEWORDINLINE(0xA99C);
 
+  /**
+  \brief Get "1-deep" count of resources of selected type
 
-			/** 
-			\brief Get "1-deep" count of resources of selected type 
-			
-			<pre>Count1Resources returns the number of resources of a specified type
+  <pre>Count1Resources returns the number of resources of a specified type
 which exist in the current resource file.
 rTypeis a 4-byte ResType value identifying the resource type you wish to
 count (e.g. 'FONT', 'MENU', etc.).
 </pre>
- * \returns <pre>a positive integer; the number of resources of the specified type in
+* \returns <pre>a positive integer; the number of resources of the specified type in
 the current resource file. Returns 0 if none found.
 </pre>
- * \note <pre>This function is the "1-deep" version of CountResources . To generate a
+* \note <pre>This function is the "1-deep" version of CountResources . To generate a
 list of resources of type rType for the current resource file, use
 Get1IndResource with an index ranging from 1 to the value obtained via
 Count1Resources .
 Refer to CountTypes and GetIndResource for related details.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-Count1Resources(ResType theType) ONEWORDINLINE(0xA80D);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  Count1Resources(ResType theType) ONEWORDINLINE(0xA80D);
 
-/**
- *  GetIndResource()
- *
+  /**
+   *  GetIndResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-GetIndResource(ResType theType, short index) ONEWORDINLINE(0xA99D);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  GetIndResource(ResType theType, short index) ONEWORDINLINE(0xA99D);
 
-/**
- *  Get1IndResource()
- *
+  /**
+   *  Get1IndResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-Get1IndResource(ResType theType, short index) ONEWORDINLINE(0xA80E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  Get1IndResource(ResType theType, short index) ONEWORDINLINE(0xA80E);
 
-/**
- *  GetResource()
- *
+  /**
+   *  GetResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-GetResource(ResType theType, short theID) ONEWORDINLINE(0xA9A0);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  GetResource(ResType theType, short theID) ONEWORDINLINE(0xA9A0);
 
-/**
- *  Get1Resource()
- *
+  /**
+   *  Get1Resource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-Get1Resource(ResType theType, short theID) ONEWORDINLINE(0xA81F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  Get1Resource(ResType theType, short theID) ONEWORDINLINE(0xA81F);
 
-/**
- *  GetNamedResource()
- *
+  /**
+   *  GetNamedResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-GetNamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA9A1);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  GetNamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA9A1);
 
-/**
- *  Get1NamedResource()
- *
+  /**
+   *  Get1NamedResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-Get1NamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA820);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  Get1NamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA820);
 
 /**
  *  [Mac]LoadResource()
@@ -635,35 +641,34 @@ Get1NamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA820);
 #if TARGET_OS_MAC
 #define MacLoadResource LoadResource
 #endif
-EXTERN_API(void)
-MacLoadResource(Handle theResource) ONEWORDINLINE(0xA9A2);
+  void
+  MacLoadResource(Handle theResource) ONEWORDINLINE(0xA9A2);
 
-/**
- *  ReleaseResource()
- *
+  /**
+   *  ReleaseResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ReleaseResource(Handle theResource) ONEWORDINLINE(0xA9A3);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ReleaseResource(Handle theResource) ONEWORDINLINE(0xA9A3);
 
+  /**
+  \brief Prevent resource from being discarded when file is closed
 
-			/** 
-			\brief Prevent resource from being discarded when file is closed 
-			
-			<pre>DetachResource removes a resource handle from the resource map
+  <pre>DetachResource removes a resource handle from the resource map
 without releasing it from memory. This can be used to keep one or more
 resources in memory after closing a resource file.
 rHandle is a handle leading to some variable length resource data. This
 should be a valid handle obtained via GetResource ,
 GetNamedResource , etc.
 </pre>
- * \returns <pre>none (if rHandle is not a handle to a resource, or if detachment is
+* \returns <pre>none (if rHandle is not a handle to a resource, or if detachment is
 disallowed, ResError will return an error).
 </pre>
- * \note <pre>DetachResource causes rHandle 's resource map pointer to be set to
+* \note <pre>DetachResource causes rHandle 's resource map pointer to be set to
 NIL while maintaining the resource in memory and keeping the handle's
 master pointer valid. One significant effect is that when a resource's file is
 closed (see CloseResFile ), the resource data is not purged from memory.
@@ -676,27 +681,26 @@ resource data, use DisposHandle .
 This function is not valid for resources tagged with the resChanged
 attribute ( ResError returns resAttrErr ).
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-DetachResource(Handle theResource) ONEWORDINLINE(0xA992);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  DetachResource(Handle theResource) ONEWORDINLINE(0xA992);
 
+  /**
+  \brief Get unique resource ID (before adding a resource)
 
-			/** 
-			\brief Get unique resource ID (before adding a resource) 
-			
-			<pre>UniqueID returns a unique, unused resource ID that will not collide with any
+  <pre>UniqueID returns a unique, unused resource ID that will not collide with any
 resource of the specified type in any open resource file.
 rTypeis a 4-byte ResType value. It identifies the resource type for which
 you wish a unique resource ID (e.g., 'FONT', 'WIND', etc.)
 </pre>
- * \returns <pre>an integer; a resource ID number that is unique with respect to all
+* \returns <pre>an integer; a resource ID number that is unique with respect to all
 resources of type rType in all currently-open resource files.
 </pre>
- * \note <pre>UniqueID and Unique1ID are used by applications that create resources;
+* \note <pre>UniqueID and Unique1ID are used by applications that create resources;
 especially temporary resources that are removed when the program
 terminates. After making this call, you can safely add to the resource list,
 e.g.,:
@@ -711,80 +715,77 @@ This call may return IDs less than 128 which, by convention, are reserved
 for system resources. Just call it again until you get an ID greater than
 127.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-UniqueID(ResType theType) ONEWORDINLINE(0xA9C1);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  UniqueID(ResType theType) ONEWORDINLINE(0xA9C1);
 
+  /**
+  \brief 1-deep, get unique resource ID
 
-			/** 
-			\brief 1-deep, get unique resource ID 
-			
-			<pre>Unique1ID returns a unique, unused resource ID that will not collide with
+  <pre>Unique1ID returns a unique, unused resource ID that will not collide with
 any resource of the specified type in the current resource file.
 rTypeis a 4-byte ResType value. It identifies the resource type for which
 you wish a unique resource ID (e.g., 'FONT', 'WIND', etc.)
 </pre>
- * \returns <pre>an integer; a resource ID number that is unique with respect to
+* \returns <pre>an integer; a resource ID number that is unique with respect to
 resources of type rType in the current resource file.
 </pre>
- * \note <pre>This function is the "1-deep" version of UniqueID . It generates a
+* \note <pre>This function is the "1-deep" version of UniqueID . It generates a
 resource ID that is unique with respect to resources in the current resource
 file (see UseResFile ).  Refer to UniqueID for related details.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-Unique1ID(ResType theType) ONEWORDINLINE(0xA810);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  Unique1ID(ResType theType) ONEWORDINLINE(0xA810);
 
-/**
- *  GetResAttrs()
- *
+  /**
+   *  GetResAttrs()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-GetResAttrs(Handle theResource) ONEWORDINLINE(0xA9A6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  GetResAttrs(Handle theResource) ONEWORDINLINE(0xA9A6);
 
-
-			/** 
-			\brief Given a handle, obtain resource ID, type, and name 
-			
-			
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetResInfo(Handle theResource, short *theID, ResType *theType, Str255 name)
-    ONEWORDINLINE(0xA9A8);
-
-/**
- *  SetResInfo()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetResInfo(Handle theResource, short theID, ConstStr255Param name)
-    ONEWORDINLINE(0xA9A9);
+  /**
+  \brief Given a handle, obtain resource ID, type, and name
 
 
-			/** 
-			\brief Make arbitrary data in memory into a resource 
-			
-			<pre>
- * \note <pre>AddResource converts an existing handle (either one that points to any
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  GetResInfo(Handle theResource, short *theID, ResType *theType, Str255 name)
+      ONEWORDINLINE(0xA9A8);
+
+  /**
+   *  SetResInfo()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  SetResInfo(Handle theResource, short theID, ConstStr255Param name)
+      ONEWORDINLINE(0xA9A9);
+
+  /**
+  \brief Make arbitrary data in memory into a resource
+
+  <pre>
+* \note <pre>AddResource converts an existing handle (either one that points to any
 existing data or even an empty handle) into a handle recognized by the
 Resource Manager and saved in the resource map . This affects the
 map of the current resource file (see UseResFile ).
@@ -798,70 +799,69 @@ handle into a generic handle. To duplicate a resource, use DetachResource
 followed by AddResource .
 Example
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-AddResource(Handle theData, ResType theType, short theID, ConstStr255Param name)
-    ONEWORDINLINE(0xA9AB);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  AddResource(Handle theData, ResType theType, short theID, ConstStr255Param name)
+      ONEWORDINLINE(0xA9AB);
 
-/**
- *  GetResourceSizeOnDisk()
- *
+  /**
+   *  GetResourceSizeOnDisk()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-GetResourceSizeOnDisk(Handle theResource) ONEWORDINLINE(0xA9A5);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long
+  GetResourceSizeOnDisk(Handle theResource) ONEWORDINLINE(0xA9A5);
 
-/**
- *  GetMaxResourceSize()
- *
+  /**
+   *  GetMaxResourceSize()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-GetMaxResourceSize(Handle theResource) ONEWORDINLINE(0xA821);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long
+  GetMaxResourceSize(Handle theResource) ONEWORDINLINE(0xA821);
 
 #if CALL_NOT_IN_CARBON
 
-			/** 
-			\brief Obtain offset in resource map for a handle's entry 
-			
-			<pre>RsrcMapEntry returns an offset from the start of the resource map . The
+  /**
+  \brief Obtain offset in resource map for a handle's entry
+
+  <pre>RsrcMapEntry returns an offset from the start of the resource map . The
 offset specifies the location of a particular resource entry.
 rHandle is a valid resource handle. It is a value obtained via GetResource ,
 GetIndResource , et. al.
 </pre>
- * \returns <pre>a 32-bit long integer; the offset from the start of the resource
+* \returns <pre>a 32-bit long integer; the offset from the start of the resource
 map which contains the start of the resource entry for rHandle . A
 return value of NIL indicates an error and ResError will return
 resNotFound .
 </pre>
- * \note <pre>The low-memory global variable TopMapHndl (0xA50) contains a handle
+* \note <pre>The low-memory global variable TopMapHndl (0xA50) contains a handle
 leading to the start of the resource map of the current resource file.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(long)
-RsrcMapEntry(Handle theResource) ONEWORDINLINE(0xA9C5);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+  long
+  RsrcMapEntry(Handle theResource) ONEWORDINLINE(0xA9C5);
 
 #endif /* CALL_NOT_IN_CARBON */
 
+  /**
+  \brief Set resource attributes (purgeable, locked, etc.)
 
-			/** 
-			\brief Set resource attributes (purgeable, locked, etc.) 
-			
-			<pre>SetResAttrs sets resource attributes in the resource map . The modified
+  <pre>SetResAttrs sets resource attributes in the resource map . The modified
 attributes will not take effect until the next time the resource is loaded.
 rHandle is a resource handle. It is a handle obtained via GetResource ,
 GetIndResource , et. al.
@@ -869,13 +869,13 @@ rAttrsis a 16-bit resource attribute word - a bit record which specifies
 how the resource is to be handled when loaded subsequently (see
 below).
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>SetResAttrs is normally needed only by resource-management utilities
+* \note <pre>SetResAttrs is normally needed only by resource-management utilities
 such as ResEdit; it is a rare application that needs to modify attributes by
 using this function.
 The rAttrs parameter specifies resource attributes as follows:
-  7  6  5 4  3  2  1  0
+7  6  5 4  3  2  1  0
 0x01
 0x02
 0x04
@@ -907,50 +907,49 @@ to update the resource map . This is illustrated in the following example:
 Example
 #include < Resources.h >
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetResAttrs(Handle theResource, short attrs) ONEWORDINLINE(0xA9A7);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  SetResAttrs(Handle theResource, short attrs) ONEWORDINLINE(0xA9A7);
 
-/**
- *  ChangedResource()
- *
+  /**
+   *  ChangedResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ChangedResource(Handle theResource) ONEWORDINLINE(0xA9AA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ChangedResource(Handle theResource) ONEWORDINLINE(0xA9AA);
 
-/**
- *  RemoveResource()
- *
+  /**
+   *  RemoveResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-RemoveResource(Handle theResource) ONEWORDINLINE(0xA9AD);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  RemoveResource(Handle theResource) ONEWORDINLINE(0xA9AD);
 
+  /**
+  \brief Write changed resource map and data to disk
 
-			/** 
-			\brief Write changed resource map and data to disk 
-			
-			<pre>UpdateResFile writes the resource map and all changed data of the
+  <pre>UpdateResFile writes the resource map and all changed data of the
 specified resource file to disk. Data is written only if one or more resources
 are tagged as having been modified.
 rfRefNum identifies the resource file to update. It is a value obtained from
 OpenResFile , HomeResFile , or CurResFile . A value of 0
 refers to the system resource file.
 </pre>
- * \returns <pre>none (use ResError to determine success/failure)
+* \returns <pre>none (use ResError to determine success/failure)
 </pre>
- * \note <pre>All changed resource data (as tagged with the resChanged attribute set via
+* \note <pre>All changed resource data (as tagged with the resChanged attribute set via
 ChangedResource ) is written to disk as described in WriteResource .
 All changes to the resource map of the file are recorded, including changes
 made by AddResource and RmveResource . The file data is compacted, if
@@ -965,49 +964,51 @@ of your application's resource file.
 This function is called automatically when the file is closed via
 CloseResFile .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-UpdateResFile(short refNum) ONEWORDINLINE(0xA999);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  UpdateResFile(short refNum) ONEWORDINLINE(0xA999);
 
+  /**
+  \brief Write data of one resource to disk
 
-			/** 
-			\brief Write data of one resource to disk 
-			
-			<pre>
- * \note <pre>WriteResource is called automatically by UpdateResFile and
+  <pre>
+* \note <pre>WriteResource is called automatically by UpdateResFile and
 CloseResFile .
 Remember that if a resource has been purged, these file operations will
 write a 0-length resource to the file. Thus, a typical use of this function is
 in a sequence that locks a resource, changes it, writes the changes, and
 unlocks the resource:
 HNoPurge ( rHandle ); /* inhibit purging */
-/*... modify the handle data... */
-ChangedResource ( rHandle ); /* tag as changed */
-if (ResError () == noErr ) { /* always check this! */
-WriteResource ( rHandle ); /* record changes to disk */
-}
-HPurge ( rHandle ); /* allow purge */
-Make sure you check ResError after calling ChangedResource (or
-AddResource ) and before calling WriteResource .
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-WriteResource(Handle theResource) ONEWORDINLINE(0xA9B0);
+  /*... modify the handle data... */
+  ChangedResource(rHandle); /* tag as changed */
+  if (ResError() == noErr)
+  {                         /* always check this! */
+    WriteResource(rHandle); /* record changes to disk */
+  }
+  HPurge(rHandle); /* allow purge */
+  Make sure you check ResError after calling ChangedResource(or
+                                                             AddResource) and
+      before calling WriteResource.</ pre>
+              * \copyright THINK Reference © 1991 -
+          1992 Symantec Corporation
+              *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          void WriteResource(Handle theResource) ONEWORDINLINE(0xA9B0);
 
+  /**
+  \brief Force resource changes to be written before purge
 
-			/** 
-			\brief Force resource changes to be written before purge 
-			
-			<pre>
- * \note <pre>SetResPurge is an attempt to avoid the "silent error" of writing a
+  <pre>
+* \note <pre>SetResPurge is an attempt to avoid the "silent error" of writing a
 0-length resource to disk when a resource file is updated. It is needed only
 by applications that modify a resource tagged as resPurgeable (see
 GetResAttrs ).
@@ -1024,30 +1025,29 @@ use LoadResource before each access of an unlocked purgeable resource.
 See HNoPurge for a way to force any purgeable handle to remain in
 memory.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetResPurge(Boolean install) ONEWORDINLINE(0xA993);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  SetResPurge(Boolean install) ONEWORDINLINE(0xA993);
 
+  /**
+  \brief Obtain resource file attributes
 
-			/** 
-			\brief Obtain resource file attributes 
-			
-			<pre>GetResFileAttrs returns a value representing the bit record that holds a
+  <pre>GetResFileAttrs returns a value representing the bit record that holds a
 resource file's attributes. In doing so, it tests whether a resource file is
 marked as read-only, has changed, or needs compacting.
 rfRefNum identifies the resource file to query. It is a value obtained from
 OpenResFile , HomeResFile , or CurResFile . A value of 0
 refers to the system resource file.
 </pre>
- * \returns <pre>a signed short; a bit record identifying the current resource file
+* \returns <pre>a signed short; a bit record identifying the current resource file
 attributes of rfRefNum  (see below). Note: Use ResError to check
 whether this function succeeded before assuming a valid return value.
 </pre>
- * \note <pre>You will want to use this function before calling SetResFileAttrs , in
+* \note <pre>You will want to use this function before calling SetResFileAttrs , in
 order to modify one or two attributes while leaving others unchanged.
 Resource file attributes are defined as follows:
 7  6  5 4  3  2  1  0
@@ -1080,19 +1080,18 @@ The mapReadOnly attribute overrides all resource resChanged attributes in
 that WriteResource , UpdateResFile , and CloseResFile will NOT cause
 data to be written to the file.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-GetResFileAttrs(short refNum) ONEWORDINLINE(0xA9F6);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  GetResFileAttrs(short refNum) ONEWORDINLINE(0xA9F6);
 
+  /**
+  \brief Set resource file attributes
 
-			/** 
-			\brief Set resource file attributes 
-			
-			<pre>SetResFileAttrs sets resource file attributes. It specifies whether a
+  <pre>SetResFileAttrs sets resource file attributes. It specifies whether a
 resource file is marked as read-only, has changed, or needs compacting. This
 is needed rarely, since file attributes are modified automatically by the
 Resource Manager .
@@ -1103,9 +1102,9 @@ resource file.
 rfAttrsidentifies the desired attributes you wish to apply to the resource
 file. See below..
 </pre>
- * \returns <pre>none (use ResError to check for success/failure)
+* \returns <pre>none (use ResError to check for success/failure)
 </pre>
- * \note <pre>Resource file attributes are defined as follows:
+* \note <pre>Resource file attributes are defined as follows:
 7  6  5 4  3  2  1  0
 0x01
 0x02
@@ -1130,69 +1129,68 @@ wanted to recover the file space that had been occupied by a resource after it
 was shortened. Since this was fixed, there was little reason to modify
 resource file attributes.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetResFileAttrs(short refNum, short attrs) ONEWORDINLINE(0xA9F7);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  SetResFileAttrs(short refNum, short attrs) ONEWORDINLINE(0xA9F7);
 
-/**
- *  OpenRFPerm()
- *
+  /**
+   *  OpenRFPerm()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-OpenRFPerm(ConstStr255Param fileName, short vRefNum, SInt8 permission)
-    ONEWORDINLINE(0xA9C4);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  OpenRFPerm(ConstStr255Param fileName, short vRefNum, SInt8 permission)
+      ONEWORDINLINE(0xA9C4);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  RGetResource()
- *
+  /**
+   *  RGetResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-RGetResource(ResType theType, short theID) ONEWORDINLINE(0xA80C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  RGetResource(ResType theType, short theID) ONEWORDINLINE(0xA80C);
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  HOpenResFile()
- *
+  /**
+   *  HOpenResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-HOpenResFile(short vRefNum, long dirID, ConstStr255Param fileName,
-             SInt8 permission) ONEWORDINLINE(0xA81A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  HOpenResFile(short vRefNum, long dirID, ConstStr255Param fileName,
+               SInt8 permission) ONEWORDINLINE(0xA81A);
 
-/**
- *  HCreateResFile()
- *
+  /**
+   *  HCreateResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HCreateResFile(short vRefNum, long dirID, ConstStr255Param fileName)
-    ONEWORDINLINE(0xA81B);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HCreateResFile(short vRefNum, long dirID, ConstStr255Param fileName)
+      ONEWORDINLINE(0xA81B);
 
+  /**
+  \brief Open resource file specified by an FSSpec
 
-			/** 
-			\brief Open resource file specified by an FSSpec 
-			
-			<pre>The FSpOpenResFile function creates the file named in the spec parameter.
+  <pre>The FSpOpenResFile function creates the file named in the spec parameter.
 The FSpOpenResFile function lets you open a resource file without creating a
 working directory. The permission parameter can contain any one of the
 following constants:
@@ -1206,319 +1204,320 @@ Low-Level File Manager section of the File Manager . If the
 FSpOpenResFile function failed to open the resource file, the reference
 number returned is -1. Call the ResError function to check for errors.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-FSpOpenResFile(const FSSpec *spec, SignedByte permission)
-    TWOWORDINLINE(0x700D, 0xAA52);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  short
+  FSpOpenResFile(const FSSpec *spec, SignedByte permission)
+      TWOWORDINLINE(0x700D, 0xAA52);
 
-/**
- *  FSpCreateResFile()
- *
+  /**
+   *  FSpCreateResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FSpCreateResFile(const FSSpec *spec, OSType creator, OSType fileType,
-                 ScriptCode scriptTag) TWOWORDINLINE(0x700E, 0xAA52);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FSpCreateResFile(const FSSpec *spec, OSType creator, OSType fileType,
+                   ScriptCode scriptTag) TWOWORDINLINE(0x700E, 0xAA52);
 
-/**
- *  ReadPartialResource()
- *
+  /**
+   *  ReadPartialResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ReadPartialResource(Handle theResource, long offset, void *buffer, long count)
-    TWOWORDINLINE(0x7001, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ReadPartialResource(Handle theResource, long offset, void *buffer, long count)
+      TWOWORDINLINE(0x7001, 0xA822);
 
-/**
- *  WritePartialResource()
- *
+  /**
+   *  WritePartialResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-WritePartialResource(Handle theResource, long offset, const void *buffer,
-                     long count) TWOWORDINLINE(0x7002, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  WritePartialResource(Handle theResource, long offset, const void *buffer,
+                       long count) TWOWORDINLINE(0x7002, 0xA822);
 
-/**
- *  SetResourceSize()
- *
+  /**
+   *  SetResourceSize()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetResourceSize(Handle theResource, long newSize) TWOWORDINLINE(0x7003, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  SetResourceSize(Handle theResource, long newSize) TWOWORDINLINE(0x7003, 0xA822);
 
-/**
- *  GetNextFOND()
- *
+  /**
+   *  GetNextFOND()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-GetNextFOND(Handle fondHandle) TWOWORDINLINE(0x700A, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle
+  GetNextFOND(Handle fondHandle) TWOWORDINLINE(0x700A, 0xA822);
 
 /* QuickTime 3.0*/
 #if CALL_NOT_IN_CARBON
-/**
- *  RegisterResourceEndianFilter()
- *
+  /**
+   *  RegisterResourceEndianFilter()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSErr
-RegisterResourceEndianFilter(ResType theType,
-                             ResourceEndianFilterPtr theFilterProc);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  RegisterResourceEndianFilter(ResType theType,
+                               ResourceEndianFilterPtr theFilterProc);
 
-/* Use TempInsertROMMap to force the ROM resource map to be
-   inserted into the chain in front of the system. Note that
-   this call is only temporary - the modified resource chain
-   is only used for the next call to the resource manager.
-   See IM IV 19 for more information.
-*/
-/**
- *  TempInsertROMMap()
- *
+  /* Use TempInsertROMMap to force the ROM resource map to be
+     inserted into the chain in front of the system. Note that
+     this call is only temporary - the modified resource chain
+     is only used for the next call to the resource manager.
+     See IM IV 19 for more information.
+  */
+  /**
+   *  TempInsertROMMap()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-TempInsertROMMap(Boolean tempResLoad)
-    FIVEWORDINLINE(0x70FF, 0x4A1F, 0x56C0, 0x31C0, 0x0B9E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  TempInsertROMMap(Boolean tempResLoad)
+      FIVEWORDINLINE(0x70FF, 0x4A1F, 0x56C0, 0x31C0, 0x0B9E);
 
-/**
-  _________________________________________________________________________________________________________
+  /**
+    _________________________________________________________________________________________________________
 
-   © RESOURCE CHAIN LOCATION - for use with the Resource Manager chain
-  manipulation routines under Carbon.
-  _________________________________________________________________________________________________________
-*/
+     © RESOURCE CHAIN LOCATION - for use with the Resource Manager chain
+    manipulation routines under Carbon.
+    _________________________________________________________________________________________________________
+  */
 
 #endif /* CALL_NOT_IN_CARBON */
 
-typedef SInt16 RsrcChainLocation;
-enum {
-  kRsrcChainBelowSystemMap = 0,      /* Below the system's resource map*/
-  kRsrcChainBelowApplicationMap = 1, /* Below the application's resource map*/
-  kRsrcChainAboveApplicationMap = 2, /* Above the application's resource map*/
-  kRsrcChainAboveAllMaps = 4         /* Above all resource maps*/
-};
+  typedef SInt16 RsrcChainLocation;
+  enum
+  {
+    kRsrcChainBelowSystemMap = 0,      /* Below the system's resource map*/
+    kRsrcChainBelowApplicationMap = 1, /* Below the application's resource map*/
+    kRsrcChainAboveApplicationMap = 2, /* Above the application's resource map*/
+    kRsrcChainAboveAllMaps = 4         /* Above all resource maps*/
+  };
 
-/**
-   If the file is already in the resource chain, it is removed and re-inserted
-   at the specified location If the file has been detached, it is added to the
-   resource chain at the specified location Returns resFNotFound if it's not
-   currently open.
-*/
-/**
- *  InsertResourceFile()
- *
+  /**
+     If the file is already in the resource chain, it is removed and re-inserted
+     at the specified location If the file has been detached, it is added to the
+     resource chain at the specified location Returns resFNotFound if it's not
+     currently open.
+  */
+  /**
+   *  InsertResourceFile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-InsertResourceFile(SInt16 refNum, RsrcChainLocation where);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  InsertResourceFile(SInt16 refNum, RsrcChainLocation where);
 
-/**
-   If the file is not currently in the resource chain, this returns resNotFound
-   Otherwise, the resource file is removed from the resource chain.
-*/
-/**
- *  DetachResourceFile()
- *
+  /**
+     If the file is not currently in the resource chain, this returns resNotFound
+     Otherwise, the resource file is removed from the resource chain.
+  */
+  /**
+   *  DetachResourceFile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-DetachResourceFile(SInt16 refNum);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  DetachResourceFile(SInt16 refNum);
 
-/**
-   Returns true if the resource file is already open and known by the Resource
-   Manager (i.e., it is either in the current resource chain or it's a detached
-   resource file.)  If it's in the resource chain, the inChain Boolean is set to
-   true on exit and true is returned.  If it's an open file, but the file is
-   currently detached, inChain is set to false and true is returned.  If the
-   file is open, the refNum to the file is returned.
-*/
-/**
- *  FSpResourceFileAlreadyOpen()
- *
+  /**
+     Returns true if the resource file is already open and known by the Resource
+     Manager (i.e., it is either in the current resource chain or it's a detached
+     resource file.)  If it's in the resource chain, the inChain Boolean is set to
+     true on exit and true is returned.  If it's an open file, but the file is
+     currently detached, inChain is set to false and true is returned.  If the
+     file is open, the refNum to the file is returned.
+  */
+  /**
+   *  FSpResourceFileAlreadyOpen()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 9.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-FSpResourceFileAlreadyOpen(const FSSpec *resourceFile, Boolean *inChain,
-                           SInt16 *refNum) TWOWORDINLINE(0x7010, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 9.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  FSpResourceFileAlreadyOpen(const FSSpec *resourceFile, Boolean *inChain,
+                             SInt16 *refNum) TWOWORDINLINE(0x7010, 0xA822);
 
-/**
-   FSpOpenOrphanResFile should be used to open a resource file that is
-   persistent across all contexts, because using OpenResFile normally loads a
-   map and all preloaded resources into the application context.
-   FSpOpenOrphanResFile loads everything into the system context and detaches
-   the file from the context in which it was opened.  If the file is already in
-   the resource chain and a new instance is not opened, FSpOpenOrphanResFile
-   will return a paramErr. Use with care, as can and will fail if the map is
-   very large or a lot of preload resources exist.
-*/
-/**
- *  FSpOpenOrphanResFile()
- *
+  /**
+     FSpOpenOrphanResFile should be used to open a resource file that is
+     persistent across all contexts, because using OpenResFile normally loads a
+     map and all preloaded resources into the application context.
+     FSpOpenOrphanResFile loads everything into the system context and detaches
+     the file from the context in which it was opened.  If the file is already in
+     the resource chain and a new instance is not opened, FSpOpenOrphanResFile
+     will return a paramErr. Use with care, as can and will fail if the map is
+     very large or a lot of preload resources exist.
+  */
+  /**
+   *  FSpOpenOrphanResFile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSpOpenOrphanResFile(const FSSpec *spec, SignedByte permission, SInt16 *refNum);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSpOpenOrphanResFile(const FSSpec *spec, SignedByte permission, SInt16 *refNum);
 
-/**
-   GetTopResourceFile returns the refNum of the top most resource map in the
-   current resource chain. If the resource chain is empty it returns
-   resFNotFound.
-*/
-/**
- *  GetTopResourceFile()
- *
+  /**
+     GetTopResourceFile returns the refNum of the top most resource map in the
+     current resource chain. If the resource chain is empty it returns
+     resFNotFound.
+  */
+  /**
+   *  GetTopResourceFile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetTopResourceFile(SInt16 *refNum);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetTopResourceFile(SInt16 *refNum);
 
-/**
-   GetNextResourceFile can be used to iterate over resource files in the
-   resource chain. By passing a valid refNum in curRefNum it will return in
-   nextRefNum the refNum of the next file in the chain. If curRefNum is not
-   found in the resource chain, GetNextResourceFile returns resFNotFound. When
-   the end of the chain is reached GetNextResourceFile will return noErr and
-   nextRefNum will be NIL.
-*/
-/**
- *  GetNextResourceFile()
- *
+  /**
+     GetNextResourceFile can be used to iterate over resource files in the
+     resource chain. By passing a valid refNum in curRefNum it will return in
+     nextRefNum the refNum of the next file in the chain. If curRefNum is not
+     found in the resource chain, GetNextResourceFile returns resFNotFound. When
+     the end of the chain is reached GetNextResourceFile will return noErr and
+     nextRefNum will be NIL.
+  */
+  /**
+   *  GetNextResourceFile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetNextResourceFile(SInt16 curRefNum, SInt16 *nextRefNum);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetNextResourceFile(SInt16 curRefNum, SInt16 *nextRefNum);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  getnamedresource()
- *
+  /**
+   *  getnamedresource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-Handle
-getnamedresource(ResType theType, const char *name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  getnamedresource(ResType theType, const char *name);
 
-/**
- *  get1namedresource()
- *
+  /**
+   *  get1namedresource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-Handle
-get1namedresource(ResType theType, const char *name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  get1namedresource(ResType theType, const char *name);
 
-/**
- *  openrfperm()
- *
+  /**
+   *  openrfperm()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-short
-openrfperm(const char *fileName, short vRefNum, char permission);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  openrfperm(const char *fileName, short vRefNum, char permission);
 
-/**
- *  openresfile()
- *
+  /**
+   *  openresfile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-short
-openresfile(const char *fileName);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  openresfile(const char *fileName);
 
-/**
- *  createresfile()
- *
+  /**
+   *  createresfile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-createresfile(const char *fileName);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  createresfile(const char *fileName);
 
-/**
- *  getresinfo()
- *
+  /**
+   *  getresinfo()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-getresinfo(Handle theResource, short *theID, ResType *theType, char *name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  getresinfo(Handle theResource, short *theID, ResType *theType, char *name);
 
-/**
- *  setresinfo()
- *
+  /**
+   *  setresinfo()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-setresinfo(Handle theResource, short theID, const char *name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  setresinfo(Handle theResource, short theID, const char *name);
 
-/**
- *  addresource()
- *
+  /**
+   *  addresource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-addresource(Handle theResource, ResType theType, short theID, const char *name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  addresource(Handle theResource, ResType theType, short theID, const char *name);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -1528,144 +1527,144 @@ addresource(Handle theResource, ResType theType, short theID, const char *name);
 #define RmveResource(theResource) RemoveResource(theResource)
 #endif /* OLDROUTINENAMES */
 
-/**
- *  FSOpenResFile()
- *
+  /**
+   *  FSOpenResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-FSOpenResFile(const FSRef *ref, SInt8 permission) TWOWORDINLINE(0x7013, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  FSOpenResFile(const FSRef *ref, SInt8 permission) TWOWORDINLINE(0x7013, 0xA822);
 
-/**
- *  FSCreateResFile()
- *
+  /**
+   *  FSCreateResFile()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FSCreateResFile(const FSRef *parentRef, UniCharCount nameLength,
-                const UniChar *name, FSCatalogInfoBitmap whichInfo,
-                const FSCatalogInfo *catalogInfo, FSRef *newRef,
-                FSSpec *newSpec) TWOWORDINLINE(0x7014, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FSCreateResFile(const FSRef *parentRef, UniCharCount nameLength,
+                  const UniChar *name, FSCatalogInfoBitmap whichInfo,
+                  const FSCatalogInfo *catalogInfo, FSRef *newRef,
+                  FSSpec *newSpec) TWOWORDINLINE(0x7014, 0xA822);
 
-/**
- *  FSResourceFileAlreadyOpen()
- *
+  /**
+   *  FSResourceFileAlreadyOpen()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-FSResourceFileAlreadyOpen(const FSRef *resourceFileRef, Boolean *inChain,
-                          SInt16 *refNum) TWOWORDINLINE(0x7015, 0xA822);
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  FSResourceFileAlreadyOpen(const FSRef *resourceFileRef, Boolean *inChain,
+                            SInt16 *refNum) TWOWORDINLINE(0x7015, 0xA822);
 
-/**
- *  FSCreateResourceFile()
- *
- *  Summary:
- *    Creates a new resource file.
- *
- *  Discussion:
- *    This function creates a new file and initializes the specified
- *    named fork as an empty resource fork.  This function allows for
- *    the creation of data fork only files which can be used for
- *    storing resources.  Passing in a null name defaults to using the
- *    data fork.
- *
- *  Parameters:
- *
- *    parentRef:
- *      The directory where the file is to be created
- *
- *    nameLength:
- *      Number of Unicode characters in the file's name
- *
- *    name:
- *      A pointer to the Unicode name
- *
- *    whichInfo:
- *      Which catalog info fields to set
- *
- *    catalogInfo:
- *      The values for catalog info fields to set; may be NULL
- *
- *    forkNameLength:
- *      The length of the fork name (in Unicode characters)
- *
- *    forkName:
- *      The name of the fork to initialize (in Unicode); may be NULL
- *
- *    newRef:
- *      A pointer to the FSRef for the new file; may be NULL
- *
- *    newSpec:
- *      A pointer to the FSSpec for the new directory; may be NULL
- *
+  /**
+   *  FSCreateResourceFile()
+   *
+   *  Summary:
+   *    Creates a new resource file.
+   *
+   *  Discussion:
+   *    This function creates a new file and initializes the specified
+   *    named fork as an empty resource fork.  This function allows for
+   *    the creation of data fork only files which can be used for
+   *    storing resources.  Passing in a null name defaults to using the
+   *    data fork.
+   *
+   *  Parameters:
+   *
+   *    parentRef:
+   *      The directory where the file is to be created
+   *
+   *    nameLength:
+   *      Number of Unicode characters in the file's name
+   *
+   *    name:
+   *      A pointer to the Unicode name
+   *
+   *    whichInfo:
+   *      Which catalog info fields to set
+   *
+   *    catalogInfo:
+   *      The values for catalog info fields to set; may be NULL
+   *
+   *    forkNameLength:
+   *      The length of the fork name (in Unicode characters)
+   *
+   *    forkName:
+   *      The name of the fork to initialize (in Unicode); may be NULL
+   *
+   *    newRef:
+   *      A pointer to the FSRef for the new file; may be NULL
+   *
+   *    newSpec:
+   *      A pointer to the FSSpec for the new directory; may be NULL
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSCreateResourceFile(const FSRef *parentRef, UniCharCount nameLength,
-                     const UniChar *name, FSCatalogInfoBitmap whichInfo,
-                     const FSCatalogInfo *catalogInfo, /* can be NULL */
-                     UniCharCount forkNameLength,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSCreateResourceFile(const FSRef *parentRef, UniCharCount nameLength,
+                       const UniChar *name, FSCatalogInfoBitmap whichInfo,
+                       const FSCatalogInfo *catalogInfo, /* can be NULL */
+                       UniCharCount forkNameLength,
+                       const UniChar *forkName, /* can be NULL */
+                       FSRef *newRef,           /* can be NULL */
+                       FSSpec *newSpec);        /* can be NULL */
+
+  /**
+   *  FSOpenResourceFile()
+   *
+   *  Summary:
+   *    Opens the specified named fork as a resource fork.
+   *
+   *  Discussion:
+   *    This function allows any named fork of a file to be used for
+   *    storing resources.  Passing in a null forkname will result in the
+   *    data fork being used.
+   *
+   *  Parameters:
+   *
+   *    ref:
+   *      The file containing the fork to open
+   *
+   *    forkNameLength:
+   *      The length of the fork name (in Unicode characters)
+   *
+   *    forkName:
+   *      The name of the fork to open (in Unicode); may be NULL
+   *
+   *    permissions:
+   *      The access (read and/or write) you want
+   *
+   *    refNum:
+   *      On exit the reference number for accessing the open fork
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSOpenResourceFile(const FSRef *ref, UniCharCount forkNameLength,
                      const UniChar *forkName, /* can be NULL */
-                     FSRef *newRef,           /* can be NULL */
-                     FSSpec *newSpec);        /* can be NULL */
+                     SInt8 permissions, SInt16 *refNum);
 
-/**
- *  FSOpenResourceFile()
- *
- *  Summary:
- *    Opens the specified named fork as a resource fork.
- *
- *  Discussion:
- *    This function allows any named fork of a file to be used for
- *    storing resources.  Passing in a null forkname will result in the
- *    data fork being used.
- *
- *  Parameters:
- *
- *    ref:
- *      The file containing the fork to open
- *
- *    forkNameLength:
- *      The length of the fork name (in Unicode characters)
- *
- *    forkName:
- *      The name of the fork to open (in Unicode); may be NULL
- *
- *    permissions:
- *      The access (read and/or write) you want
- *
- *    refNum:
- *      On exit the reference number for accessing the open fork
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSOpenResourceFile(const FSRef *ref, UniCharCount forkNameLength,
-                   const UniChar *forkName, /* can be NULL */
-                   SInt8 permissions, SInt16 *refNum);
-
-/**
-    These typedefs were originally created for the Copland Resource Mangager
-*/
-typedef short ResFileRefNum;
-typedef short ResID;
-typedef short ResAttributes;
-typedef short ResFileAttributes;
+  /**
+      These typedefs were originally created for the Copland Resource Mangager
+  */
+  typedef short ResFileRefNum;
+  typedef short ResID;
+  typedef short ResAttributes;
+  typedef short ResFileAttributes;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -1686,7 +1685,7 @@ typedef short ResFileAttributes;
 #endif
 
 #endif /* __RESOURCES__ */
-*/FileAttributes;
+* / FileAttributes;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -1707,4 +1706,4 @@ typedef short ResFileAttributes;
 #endif
 
 #endif /* __RESOURCES__ */
-*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /

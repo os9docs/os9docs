@@ -26,7 +26,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -41,149 +42,155 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef SInt16 TSCode;
-enum {
-  tsPreviousSelectMode = -1,
-  tsNormalSelectMode = 0,
-  tsNextSelectMode = 1
-};
+  typedef SInt16 TSCode;
+  enum
+  {
+    tsPreviousSelectMode = -1,
+    tsNormalSelectMode = 0,
+    tsNextSelectMode = 1
+  };
 
-struct TypeSelectRecord {
-  unsigned long tsrLastKeyTime;
-  ScriptCode tsrScript;
-  Str63 tsrKeyStrokes;
-};
-typedef struct TypeSelectRecord TypeSelectRecord;
-typedef CALLBACK_API(Boolean, IndexToStringProcPtr)(short item,
-                                                    ScriptCode *itemsScript,
-                                                    StringPtr *itemsStringPtr,
-                                                    void *yourDataPtr);
-typedef STACK_UPP_TYPE(IndexToStringProcPtr) IndexToStringUPP;
-/**
- *  TypeSelectClear()
- *
+  struct TypeSelectRecord
+  {
+    unsigned long tsrLastKeyTime;
+    ScriptCode tsrScript;
+    Str63 tsrKeyStrokes;
+  };
+  typedef struct TypeSelectRecord TypeSelectRecord;
+  typedef CALLBACK_API(Boolean, IndexToStringProcPtr)(short item,
+                                                      ScriptCode *itemsScript,
+                                                      StringPtr *itemsStringPtr,
+                                                      void *yourDataPtr);
+  typedef STACK_UPP_TYPE(IndexToStringProcPtr) IndexToStringUPP;
+  /**
+   *  TypeSelectClear()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TypeSelectClear(TypeSelectRecord *tsr) THREEWORDINLINE(0x3F3C, 0x0028, 0xA9ED);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TypeSelectClear(TypeSelectRecord *tsr) THREEWORDINLINE(0x3F3C, 0x0028, 0xA9ED);
 
-/**
-        Long ago the implementation of TypeSelectNewKey had a bug that
-        required the high word of D0 to be zero or the function did not work.
-        Although fixed now, we are continuing to clear the high word
-        just in case someone tries to run on an older system.
-    */
-/**
- *  TypeSelectNewKey()
- *
+  /**
+          Long ago the implementation of TypeSelectNewKey had a bug that
+          required the high word of D0 to be zero or the function did not work.
+          Although fixed now, we are continuing to clear the high word
+          just in case someone tries to run on an older system.
+      */
+  /**
+   *  TypeSelectNewKey()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-TypeSelectNewKey(const EventRecord *theEvent, TypeSelectRecord *tsr)
-    FOURWORDINLINE(0x7000, 0x3F3C, 0x002A, 0xA9ED);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  TypeSelectNewKey(const EventRecord *theEvent, TypeSelectRecord *tsr)
+      FOURWORDINLINE(0x7000, 0x3F3C, 0x002A, 0xA9ED);
 
-/**
- *  TypeSelectFindItem()
- *
+  /**
+   *  TypeSelectFindItem()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-TypeSelectFindItem(const TypeSelectRecord *tsr, short listSize,
-                   TSCode selectMode, IndexToStringUPP getStringProc,
-                   void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x002C, 0xA9ED);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  TypeSelectFindItem(const TypeSelectRecord *tsr, short listSize,
+                     TSCode selectMode, IndexToStringUPP getStringProc,
+                     void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x002C, 0xA9ED);
 
-/**
- *  TypeSelectCompare()
- *
+  /**
+   *  TypeSelectCompare()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-TypeSelectCompare(const TypeSelectRecord *tsr, ScriptCode testStringScript,
-                  StringPtr testStringPtr)
-    THREEWORDINLINE(0x3F3C, 0x002E, 0xA9ED);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  TypeSelectCompare(const TypeSelectRecord *tsr, ScriptCode testStringScript,
+                    StringPtr testStringPtr)
+      THREEWORDINLINE(0x3F3C, 0x002E, 0xA9ED);
 
-/**
- *  NewIndexToStringUPP()
- *
+  /**
+   *  NewIndexToStringUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-IndexToStringUPP
-NewIndexToStringUPP(IndexToStringProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  IndexToStringUPP
+  NewIndexToStringUPP(IndexToStringProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppIndexToStringProcInfo = 0x00003F90
-}; /* pascal 1_byte Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppIndexToStringProcInfo = 0x00003F90
+  }; /* pascal 1_byte Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline IndexToStringUPP NewIndexToStringUPP(IndexToStringProcPtr userRoutine) {
-  return (IndexToStringUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppIndexToStringProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline IndexToStringUPP NewIndexToStringUPP(IndexToStringProcPtr userRoutine)
+  {
+    return (IndexToStringUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppIndexToStringProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewIndexToStringUPP(userRoutine)                                       \
-  (IndexToStringUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppIndexToStringProcInfo,   \
+#define NewIndexToStringUPP(userRoutine)                                     \
+  (IndexToStringUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppIndexToStringProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeIndexToStringUPP()
- *
+  /**
+   *  DisposeIndexToStringUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeIndexToStringUPP(IndexToStringUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeIndexToStringUPP(IndexToStringUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeIndexToStringUPP(IndexToStringUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeIndexToStringUPP(IndexToStringUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeIndexToStringUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeIndexToStringUPP()
- *
+  /**
+   *  InvokeIndexToStringUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeIndexToStringUPP(short item, ScriptCode *itemsScript,
-                       StringPtr *itemsStringPtr, void *yourDataPtr,
-                       IndexToStringUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeIndexToStringUPP(short item, ScriptCode *itemsScript,
+                         StringPtr *itemsStringPtr, void *yourDataPtr,
+                         IndexToStringUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeIndexToStringUPP(short item, ScriptCode *itemsScript,
-                                      StringPtr *itemsStringPtr,
-                                      void *yourDataPtr,
-                                      IndexToStringUPP userUPP) {
-  return (Boolean)CALL_FOUR_PARAMETER_UPP(userUPP, uppIndexToStringProcInfo,
-                                          item, itemsScript, itemsStringPtr,
-                                          yourDataPtr);
-}
+  inline Boolean InvokeIndexToStringUPP(short item, ScriptCode *itemsScript,
+                                        StringPtr *itemsStringPtr,
+                                        void *yourDataPtr,
+                                        IndexToStringUPP userUPP)
+  {
+    return (Boolean)CALL_FOUR_PARAMETER_UPP(userUPP, uppIndexToStringProcInfo,
+                                            item, itemsScript, itemsStringPtr,
+                                            yourDataPtr);
+  }
 #else
 #define InvokeIndexToStringUPP(item, itemsScript, itemsStringPtr, yourDataPtr, \
                                userUPP)                                        \
@@ -196,9 +203,9 @@ inline Boolean InvokeIndexToStringUPP(short item, ScriptCode *itemsScript,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewIndexToStringProc(userRoutine) NewIndexToStringUPP(userRoutine)
-#define CallIndexToStringProc(userRoutine, item, itemsScript, itemsStringPtr,  \
-                              yourDataPtr)                                     \
-  InvokeIndexToStringUPP(item, itemsScript, itemsStringPtr, yourDataPtr,       \
+#define CallIndexToStringProc(userRoutine, item, itemsScript, itemsStringPtr, \
+                              yourDataPtr)                                    \
+  InvokeIndexToStringUPP(item, itemsScript, itemsStringPtr, yourDataPtr,      \
                          userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 

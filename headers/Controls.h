@@ -9,7 +9,7 @@
     \copyright � 1985-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Managers
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -56,7 +56,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -71,63 +72,68 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Resource Types */
-/*������������������������������������������������������������������������������������������������������*/
-enum {
-  kControlDefProcType = FOUR_CHAR_CODE('CDEF'),
-  kControlTemplateResourceType = FOUR_CHAR_CODE('CNTL'),
-  kControlColorTableResourceType = FOUR_CHAR_CODE('cctb'),
-  kControlDefProcResourceType = FOUR_CHAR_CODE('CDEF')
-};
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Resource Types */
+  /*������������������������������������������������������������������������������������������������������*/
+  enum
+  {
+    kControlDefProcType = FOUR_CHAR_CODE('CDEF'),
+    kControlTemplateResourceType = FOUR_CHAR_CODE('CNTL'),
+    kControlColorTableResourceType = FOUR_CHAR_CODE('cctb'),
+    kControlDefProcResourceType = FOUR_CHAR_CODE('CDEF')
+  };
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Format of a �CNTL� resource */
-/*������������������������������������������������������������������������������������������������������*/
-struct ControlTemplate {
-  Rect controlRect;
-  SInt16 controlValue;
-  Boolean controlVisible;
-  UInt8 fill;
-  SInt16 controlMaximum;
-  SInt16 controlMinimum;
-  SInt16 controlDefProcID;
-  SInt32 controlReference;
-  Str255 controlTitle;
-};
-typedef struct ControlTemplate ControlTemplate;
-typedef ControlTemplate *ControlTemplatePtr;
-typedef ControlTemplatePtr *ControlTemplateHandle;
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Format of a �CNTL� resource */
+  /*������������������������������������������������������������������������������������������������������*/
+  struct ControlTemplate
+  {
+    Rect controlRect;
+    SInt16 controlValue;
+    Boolean controlVisible;
+    UInt8 fill;
+    SInt16 controlMaximum;
+    SInt16 controlMinimum;
+    SInt16 controlDefProcID;
+    SInt32 controlReference;
+    Str255 controlTitle;
+  };
+  typedef struct ControlTemplate ControlTemplate;
+  typedef ControlTemplate *ControlTemplatePtr;
+  typedef ControlTemplatePtr *ControlTemplateHandle;
 
 #if !TARGET_OS_MAC
-/**
-  ���������������������������������������������������������������������������������������������������������
-   � NON-MAC COMPATIBILITY CODES (QuickTime 3.0)
-  ���������������������������������������������������������������������������������������������������������
-*/
-typedef UInt32 ControlNotification;
-enum {
-  controlNotifyNothing = FOUR_CHAR_CODE('nada'), /* No (null) notification*/
-  controlNotifyClick = FOUR_CHAR_CODE('clik'),   /* Control was clicked*/
-  controlNotifyFocus = FOUR_CHAR_CODE('focu'),   /* Control got keyboard focus*/
-  controlNotifyKey = FOUR_CHAR_CODE('key ')      /* Control got a keypress*/
-};
+  /**
+    ���������������������������������������������������������������������������������������������������������
+     � NON-MAC COMPATIBILITY CODES (QuickTime 3.0)
+    ���������������������������������������������������������������������������������������������������������
+  */
+  typedef UInt32 ControlNotification;
+  enum
+  {
+    controlNotifyNothing = FOUR_CHAR_CODE('nada'), /* No (null) notification*/
+    controlNotifyClick = FOUR_CHAR_CODE('clik'),   /* Control was clicked*/
+    controlNotifyFocus = FOUR_CHAR_CODE('focu'),   /* Control got keyboard focus*/
+    controlNotifyKey = FOUR_CHAR_CODE('key ')      /* Control got a keypress*/
+  };
 
-typedef UInt32 ControlCapabilities;
-enum {
-  kControlCanAutoInvalidate =
-      1L << 0 /* Control component automatically invalidates areas left behind
-                 after hide/move operation.*/
-};
+  typedef UInt32 ControlCapabilities;
+  enum
+  {
+    kControlCanAutoInvalidate =
+        1L << 0 /* Control component automatically invalidates areas left behind
+                   after hide/move operation.*/
+  };
 
-/* procID's for our added "controls"*/
-enum {
-  staticTextProc = 256, /* static text*/
-  editTextProc = 272,   /* editable text*/
-  iconProc = 288,       /* icon*/
-  userItemProc = 304,   /* user drawn item*/
-  pictItemProc = 320    /* pict*/
-};
+  /* procID's for our added "controls"*/
+  enum
+  {
+    staticTextProc = 256, /* static text*/
+    editTextProc = 272,   /* editable text*/
+    iconProc = 288,       /* icon*/
+    userItemProc = 304,   /* user drawn item*/
+    pictItemProc = 320    /* pict*/
+  };
 
 #endif /* !TARGET_OS_MAC */
 
@@ -135,122 +141,126 @@ enum {
 /*  � ControlRef */
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
-typedef struct ControlRecord ControlRecord;
-typedef ControlRecord *ControlPtr;
-typedef ControlPtr *ControlRef;
+  typedef struct ControlRecord ControlRecord;
+  typedef ControlRecord *ControlPtr;
+  typedef ControlPtr *ControlRef;
 #else
 typedef struct OpaqueControlRef *ControlRef;
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
-/* ControlHandle is obsolete. Use ControlRef.*/
-typedef ControlRef ControlHandle;
-typedef SInt16 ControlPartCode;
-/*������������������������������������������������������������������������������������������������������*/
-/* � Control ActionProcPtr */
-/*������������������������������������������������������������������������������������������������������*/
-typedef CALLBACK_API(void, ControlActionProcPtr)(ControlRef theControl,
-                                                 ControlPartCode partCode);
-typedef STACK_UPP_TYPE(ControlActionProcPtr) ControlActionUPP;
+  /* ControlHandle is obsolete. Use ControlRef.*/
+  typedef ControlRef ControlHandle;
+  typedef SInt16 ControlPartCode;
+  /*������������������������������������������������������������������������������������������������������*/
+  /* � Control ActionProcPtr */
+  /*������������������������������������������������������������������������������������������������������*/
+  typedef CALLBACK_API(void, ControlActionProcPtr)(ControlRef theControl,
+                                                   ControlPartCode partCode);
+  typedef STACK_UPP_TYPE(ControlActionProcPtr) ControlActionUPP;
 /*������������������������������������������������������������������������������������������������������*/
 /*  � ControlRecord */
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct ControlRecord  {
-	ControlHandle nextControl;/**< Leads to next control in window*/
-	WindowPtr contrlOwner;/**< Window in which this control is*/
-	Rect contrlRect;/**< Enclosing rectangle MoveControl*/
-	Byte contrlVis;/**< =visible HideControl*/
-	Byte contrlHilite;/**< =none, else=control part*/
-	short contrlValue;/**< Current setting SetCtlValue*/
-	short contrlMin;/**< Minimum value SetCtlMin*/
-	short contrlMax;/**< Maximum value SetCtlMax*/
-	Handle contrlDefProc;/**< Control definition proc, for more*/
-	Handle contrlData;/**< Additional data or */
-	ProcPtr contrlAction;/**< proc addr  SetCtlAction ,*/
-	long contrlRfCon;/**< Reference for application usage*/
-	Str contrlTitle;/**< nLength-prefixed title text*/
-	} ControlRecord  ;/**< +n*/
-
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct ControlRecord
+  {
+    ControlHandle nextControl; /**< Leads to next control in window*/
+    WindowPtr contrlOwner;     /**< Window in which this control is*/
+    Rect contrlRect;           /**< Enclosing rectangle MoveControl*/
+    Byte contrlVis;            /**< =visible HideControl*/
+    Byte contrlHilite;         /**< =none, else=control part*/
+    short contrlValue;         /**< Current setting SetCtlValue*/
+    short contrlMin;           /**< Minimum value SetCtlMin*/
+    short contrlMax;           /**< Maximum value SetCtlMax*/
+    Handle contrlDefProc;      /**< Control definition proc, for more*/
+    Handle contrlData;         /**< Additional data or */
+    ProcPtr contrlAction;      /**< proc addr  SetCtlAction ,*/
+    long contrlRfCon;          /**< Reference for application usage*/
+    Str contrlTitle;           /**< nLength-prefixed title text*/
+  } ControlRecord;             /**< +n*/
 
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
-/*������������������������������������������������������������������������������������������������������*/
-/* � Control ActionProcPtr : Epilogue */
-/*������������������������������������������������������������������������������������������������������*/
-/**
- *  NewControlActionUPP()
- *
+  /*������������������������������������������������������������������������������������������������������*/
+  /* � Control ActionProcPtr : Epilogue */
+  /*������������������������������������������������������������������������������������������������������*/
+  /**
+   *  NewControlActionUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ControlActionUPP
-NewControlActionUPP(ControlActionProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ControlActionUPP
+  NewControlActionUPP(ControlActionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppControlActionProcInfo = 0x000002C0
-}; /* pascal no_return_value Func(4_bytes, 2_bytes) */
+  enum
+  {
+    uppControlActionProcInfo = 0x000002C0
+  }; /* pascal no_return_value Func(4_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline ControlActionUPP NewControlActionUPP(ControlActionProcPtr userRoutine) {
-  return (ControlActionUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppControlActionProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline ControlActionUPP NewControlActionUPP(ControlActionProcPtr userRoutine)
+  {
+    return (ControlActionUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppControlActionProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewControlActionUPP(userRoutine)                                       \
-  (ControlActionUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppControlActionProcInfo,   \
+#define NewControlActionUPP(userRoutine)                                     \
+  (ControlActionUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppControlActionProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeControlActionUPP()
- *
+  /**
+   *  DisposeControlActionUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeControlActionUPP(ControlActionUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeControlActionUPP(ControlActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeControlActionUPP(ControlActionUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeControlActionUPP(ControlActionUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeControlActionUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeControlActionUPP()
- *
+  /**
+   *  InvokeControlActionUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeControlActionUPP(ControlRef theControl, ControlPartCode partCode,
-                       ControlActionUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeControlActionUPP(ControlRef theControl, ControlPartCode partCode,
+                         ControlActionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeControlActionUPP(ControlRef theControl,
-                                   ControlPartCode partCode,
-                                   ControlActionUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppControlActionProcInfo, theControl,
-                         partCode);
-}
+  inline void InvokeControlActionUPP(ControlRef theControl,
+                                     ControlPartCode partCode,
+                                     ControlActionUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppControlActionProcInfo, theControl,
+                           partCode);
+  }
 #else
-#define InvokeControlActionUPP(theControl, partCode, userUPP)                  \
-  CALL_TWO_PARAMETER_UPP((userUPP), uppControlActionProcInfo, (theControl),    \
+#define InvokeControlActionUPP(theControl, partCode, userUPP)               \
+  CALL_TWO_PARAMETER_UPP((userUPP), uppControlActionProcInfo, (theControl), \
                          (partCode))
 #endif
 #endif
@@ -258,680 +268,734 @@ inline void InvokeControlActionUPP(ControlRef theControl,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewControlActionProc(userRoutine) NewControlActionUPP(userRoutine)
-#define CallControlActionProc(userRoutine, theControl, partCode)               \
+#define CallControlActionProc(userRoutine, theControl, partCode) \
   InvokeControlActionUPP(theControl, partCode, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Color Table */
-/*������������������������������������������������������������������������������������������������������*/
-enum {
-  cFrameColor = 0,
-  cBodyColor = 1,
-  cTextColor = 2,
-  cThumbColor = 3,
-  kNumberCtlCTabEntries = 4
-};
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Control Color Table */
+  /*������������������������������������������������������������������������������������������������������*/
+  enum
+  {
+    cFrameColor = 0,
+    cBodyColor = 1,
+    cTextColor = 2,
+    cThumbColor = 3,
+    kNumberCtlCTabEntries = 4
+  };
 
-/**
-<pre>
- * \note <pre> A colorSpec record holds an identifying short that says which part of the
-control it is coloring ( cFrameColor , cBodyColor , cTextColor or
-cThumbColor ) and three shorts that define the values of the color's red,
-green and blue components. The part identifiers can be listed in any order,
-but if a part is not identified at all, it will be drawn with the first color in
-the table.
-If the color table is stored as resource type 'cctb' it still has this
-structure, and resides in the system in the same format as a 'clut' color
-table resource. A call to InitWindows loads the default color control
-resource 'cctb' = 0 into the application heap when your program starts up.
-The default is shared by all controls, regardless of type, and will be used in
-cases where there's no AuxCtlRec  with an acOwner field pointing to the
-control being drawn.  If you choose to set up your own color tables for your
-controls they can be as big as you want. You can also define them any way
-you want, except for using reserved part index numbers 1 through 127.
-When a plain button is highlighted, it swaps colors 1 and 2, while
-highlighted check boxes and radio buttons change appearance but keep their
-colors the same. A deactivated button of any variety is indicated by dimmed
-text with no color change.  The cThumbColor field is not used.
-Scrollbars use the same partIdentifier and partRGB fields as the buttons,
-except that the cThumbColor field is filled in, while the cTextColor field is
-not. Highlighted arrows are an outlined foreground color while a
-deactivated scrollbar lacks an indicator and shows a solid background color.
-Creating a new control with NewControl doesn't simultaneously create a
-new entry on the AuxList. Your controls will use the default color table
-unless you call SetCtlColor  or create the control from a 'CNTL' resource
-by a call to GetNewControl and there is also an associated 'cctb' resource
-with the same ID in the resource file.  If both types of resources exist, and
-they both have the same ID, GetNewControl will execute SetCtlColor .
-Further, your control's colors will be limited to the eight accommodated
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct CtlCTab  {
-	long ccSeed;/**< Unused, value = */
-	short ccReserved;/**< Unused, value = */
-	short ctSize;/**< Elements in control's color table,*/
-	ColorSpec ctTable[];/**< Address of colorSpec records*/
-	} CtlCTab ;/**< */
+  /**
+  <pre>
+   * \note <pre> A colorSpec record holds an identifying short that says which part of the
+  control it is coloring ( cFrameColor , cBodyColor , cTextColor or
+  cThumbColor ) and three shorts that define the values of the color's red,
+  green and blue components. The part identifiers can be listed in any order,
+  but if a part is not identified at all, it will be drawn with the first color in
+  the table.
+  If the color table is stored as resource type 'cctb' it still has this
+  structure, and resides in the system in the same format as a 'clut' color
+  table resource. A call to InitWindows loads the default color control
+  resource 'cctb' = 0 into the application heap when your program starts up.
+  The default is shared by all controls, regardless of type, and will be used in
+  cases where there's no AuxCtlRec  with an acOwner field pointing to the
+  control being drawn.  If you choose to set up your own color tables for your
+  controls they can be as big as you want. You can also define them any way
+  you want, except for using reserved part index numbers 1 through 127.
+  When a plain button is highlighted, it swaps colors 1 and 2, while
+  highlighted check boxes and radio buttons change appearance but keep their
+  colors the same. A deactivated button of any variety is indicated by dimmed
+  text with no color change.  The cThumbColor field is not used.
+  Scrollbars use the same partIdentifier and partRGB fields as the buttons,
+  except that the cThumbColor field is filled in, while the cTextColor field is
+  not. Highlighted arrows are an outlined foreground color while a
+  deactivated scrollbar lacks an indicator and shows a solid background color.
+  Creating a new control with NewControl doesn't simultaneously create a
+  new entry on the AuxList. Your controls will use the default color table
+  unless you call SetCtlColor  or create the control from a 'CNTL' resource
+  by a call to GetNewControl and there is also an associated 'cctb' resource
+  with the same ID in the resource file.  If both types of resources exist, and
+  they both have the same ID, GetNewControl will execute SetCtlColor .
+  Further, your control's colors will be limited to the eight accommodated
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct CtlCTab
+  {
+    long ccSeed;         /**< Unused, value = */
+    short ccReserved;    /**< Unused, value = */
+    short ctSize;        /**< Elements in control's color table,*/
+    ColorSpec ctTable[]; /**< Address of colorSpec records*/
+  } CtlCTab;             /**< */
 
-typedef struct CtlCTab CtlCTab;
-typedef CtlCTab *CCTabPtr;
-typedef CCTabPtr *CCTabHandle;
+  typedef struct CtlCTab CtlCTab;
+  typedef CtlCTab *CCTabPtr;
+  typedef CCTabPtr *CCTabHandle;
 /*������������������������������������������������������������������������������������������������������*/
 /*  � Auxiliary Control Record */
 /*������������������������������������������������������������������������������������������������������*/
 #if !OPAQUE_TOOLBOX_STRUCTS
-/**
-<pre>
- * \note <pre>Controls you create don't initially have an AuxCtlRec and if you wish to use
-non-standard colors you'll need to provide a control record and color table
-by calling SetCtlColor .  Controls should be created invisible then colors
-are set, and then displayed by calling ShowControl .  When you make your
-controls using the 'CNTL' resource, you can also stipulate that the color
-table be a resource, specifically, type 'cctb'.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct AuxCtlRec  {
-	AuxCtlHandle acNext;/**< Leads to next control in list*/
-	ControlHandle acOwner;/**< Handle to control that owns this*/
-	CCTabHandle acCTable;/**< Handle to individual control's color*/
-	short acFlags;/**< Reserved flag field*/
-	long acReserved;/**< Set to , reserved for the future*/
-	long acRefCon;/**< Field for application's reference*/
-	} AuxCtlRec ;/**< */
+  /**
+  <pre>
+   * \note <pre>Controls you create don't initially have an AuxCtlRec and if you wish to use
+  non-standard colors you'll need to provide a control record and color table
+  by calling SetCtlColor .  Controls should be created invisible then colors
+  are set, and then displayed by calling ShowControl .  When you make your
+  controls using the 'CNTL' resource, you can also stipulate that the color
+  table be a resource, specifically, type 'cctb'.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct AuxCtlRec
+  {
+    AuxCtlHandle acNext;   /**< Leads to next control in list*/
+    ControlHandle acOwner; /**< Handle to control that owns this*/
+    CCTabHandle acCTable;  /**< Handle to individual control's color*/
+    short acFlags;         /**< Reserved flag field*/
+    long acReserved;       /**< Set to , reserved for the future*/
+    long acRefCon;         /**< Field for application's reference*/
+  } AuxCtlRec;             /**< */
 
-typedef struct AuxCtlRec AuxCtlRec;
-typedef AuxCtlRec *AuxCtlPtr;
-typedef AuxCtlPtr *AuxCtlHandle;
+  typedef struct AuxCtlRec AuxCtlRec;
+  typedef AuxCtlRec *AuxCtlPtr;
+  typedef AuxCtlPtr *AuxCtlHandle;
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Variants */
-/*��������������������������������������������������������������������������������������*/
-typedef SInt16 ControlVariant;
-enum {
-  kControlNoVariant = 0, /* No variant*/
-  kControlUsesOwningWindowsFontVariant =
-      1 << 3 /* Control uses owning windows font to display text*/
-};
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Control Variants */
+  /*��������������������������������������������������������������������������������������*/
+  typedef SInt16 ControlVariant;
+  enum
+  {
+    kControlNoVariant = 0, /* No variant*/
+    kControlUsesOwningWindowsFontVariant =
+        1 << 3 /* Control uses owning windows font to display text*/
+  };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Part Codes */
-/*��������������������������������������������������������������������������������������*/
-/* Basic part codes */
-enum {
-  kControlNoPart = 0,
-  kControlIndicatorPart = 129,
-  kControlDisabledPart = 254,
-  kControlInactivePart = 255
-};
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Control Part Codes */
+  /*��������������������������������������������������������������������������������������*/
+  /* Basic part codes */
+  enum
+  {
+    kControlNoPart = 0,
+    kControlIndicatorPart = 129,
+    kControlDisabledPart = 254,
+    kControlInactivePart = 255
+  };
 
-/* Use this constant in Get/SetControlData when the data referred to is not */
-/* specific to a part, but rather the entire control, e.g. the list handle of a
- */
-/* list box control. */
-enum { kControlEntireControl = 0 };
+  /* Use this constant in Get/SetControlData when the data referred to is not */
+  /* specific to a part, but rather the entire control, e.g. the list handle of a
+   */
+  /* list box control. */
+  enum
+  {
+    kControlEntireControl = 0
+  };
 
-/*  Meta-Parts */
-/*                                                                                      */
-/*  If you haven't guessed from looking at other toolbox headers. We like the
- * word      */
-/*  'meta'. It's cool. So here's one more for you. A meta-part is a part used in
- * a call */
-/*  to the GetControlRegion API. These parts are parts that might be defined by
- * a       */
-/*  control, but should not be returned from calls like TestControl, et al. They
- * define */
-/*  a region of a control, presently the structure and the content region. The
- * content  */
-/*  region is only defined by controls that can embed other controls. It is the
- * area    */
-/*  that embedded content can live. */
-/*                                                                                      */
-/*  Along with these parts, you can also pass in normal part codes to get the
- * regions   */
-/*  of the parts. Not all controls fully support this at the time this was
- * written.     */
-enum { kControlStructureMetaPart = -1, kControlContentMetaPart = -2 };
+  /*  Meta-Parts */
+  /*                                                                                      */
+  /*  If you haven't guessed from looking at other toolbox headers. We like the
+   * word      */
+  /*  'meta'. It's cool. So here's one more for you. A meta-part is a part used in
+   * a call */
+  /*  to the GetControlRegion API. These parts are parts that might be defined by
+   * a       */
+  /*  control, but should not be returned from calls like TestControl, et al. They
+   * define */
+  /*  a region of a control, presently the structure and the content region. The
+   * content  */
+  /*  region is only defined by controls that can embed other controls. It is the
+   * area    */
+  /*  that embedded content can live. */
+  /*                                                                                      */
+  /*  Along with these parts, you can also pass in normal part codes to get the
+   * regions   */
+  /*  of the parts. Not all controls fully support this at the time this was
+   * written.     */
+  enum
+  {
+    kControlStructureMetaPart = -1,
+    kControlContentMetaPart = -2
+  };
 
-/* focusing part codes */
-enum {
-  kControlFocusNoPart = 0,    /* tells control to clear its focus*/
-  kControlFocusNextPart = -1, /* tells control to focus on the next part*/
-  kControlFocusPrevPart = -2  /* tells control to focus on the previous part*/
-};
+  /* focusing part codes */
+  enum
+  {
+    kControlFocusNoPart = 0,    /* tells control to clear its focus*/
+    kControlFocusNextPart = -1, /* tells control to focus on the next part*/
+    kControlFocusPrevPart = -2  /* tells control to focus on the previous part*/
+  };
 
-typedef SInt16 ControlFocusPart;
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Collection Tags */
-/*������������������������������������������������������������������������������������������������������*/
-/*  These are standard tags that you will find in the initial data Collection
- * that is passed in the     */
-/*  'param' parameter to the initCntl message (Carbon only). */
-/*                                                                                                      */
-/*  All tags at ID zero in a Control's Collection are reserved for Control
- * Manager use.                 */
-/*  Custom control definitions should use other IDs. */
-/*                                                                                                      */
-/*  Most of these tags are interpreted when you call CreateCustomControl; the
- * Control Manager will      */
-/*  put value in the right place before calling the Control Definition with the
- * initialization message. */
-enum {
-  kControlCollectionTagBounds =
-      FOUR_CHAR_CODE('boun'), /* Rect - the bounding rectangle*/
-  kControlCollectionTagValue = FOUR_CHAR_CODE('valu'), /* SInt32 - the value*/
-  kControlCollectionTagMinimum =
-      FOUR_CHAR_CODE('min '), /* SInt32 - the minimum*/
-  kControlCollectionTagMaximum =
-      FOUR_CHAR_CODE('max '), /* SInt32 - the maximum*/
-  kControlCollectionTagViewSize =
-      FOUR_CHAR_CODE('view'), /* SInt32 - the view size*/
-  kControlCollectionTagVisibility =
-      FOUR_CHAR_CODE('visi'), /* Boolean - the visible state*/
-  kControlCollectionTagRefCon = FOUR_CHAR_CODE('refc'), /* SInt32 - the refCon*/
-  kControlCollectionTagTitle =
-      FOUR_CHAR_CODE('titl'), /* arbitrarily sized character array - the title*/
-  kControlCollectionTagUnicodeTitle = FOUR_CHAR_CODE(
-      'uttl'), /* bytes as received via CFStringCreateExternalRepresentation*/
-  kControlCollectionTagIDSignature =
-      FOUR_CHAR_CODE('idsi'), /* OSType - the ControlID signature*/
-  kControlCollectionTagIDID =
-      FOUR_CHAR_CODE('idid'), /* SInt32 - the ControlID id*/
-  kControlCollectionTagCommand =
-      FOUR_CHAR_CODE('cmd '), /* UInt32 - the command*/
-  kControlCollectionTagVarCode =
-      FOUR_CHAR_CODE('varc') /* SInt16 - the variant*/
-};
+  typedef SInt16 ControlFocusPart;
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Control Collection Tags */
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  These are standard tags that you will find in the initial data Collection
+   * that is passed in the     */
+  /*  'param' parameter to the initCntl message (Carbon only). */
+  /*                                                                                                      */
+  /*  All tags at ID zero in a Control's Collection are reserved for Control
+   * Manager use.                 */
+  /*  Custom control definitions should use other IDs. */
+  /*                                                                                                      */
+  /*  Most of these tags are interpreted when you call CreateCustomControl; the
+   * Control Manager will      */
+  /*  put value in the right place before calling the Control Definition with the
+   * initialization message. */
+  enum
+  {
+    kControlCollectionTagBounds =
+        FOUR_CHAR_CODE('boun'),                          /* Rect - the bounding rectangle*/
+    kControlCollectionTagValue = FOUR_CHAR_CODE('valu'), /* SInt32 - the value*/
+    kControlCollectionTagMinimum =
+        FOUR_CHAR_CODE('min '), /* SInt32 - the minimum*/
+    kControlCollectionTagMaximum =
+        FOUR_CHAR_CODE('max '), /* SInt32 - the maximum*/
+    kControlCollectionTagViewSize =
+        FOUR_CHAR_CODE('view'), /* SInt32 - the view size*/
+    kControlCollectionTagVisibility =
+        FOUR_CHAR_CODE('visi'),                           /* Boolean - the visible state*/
+    kControlCollectionTagRefCon = FOUR_CHAR_CODE('refc'), /* SInt32 - the refCon*/
+    kControlCollectionTagTitle =
+        FOUR_CHAR_CODE('titl'), /* arbitrarily sized character array - the title*/
+    kControlCollectionTagUnicodeTitle = FOUR_CHAR_CODE(
+        'uttl'), /* bytes as received via CFStringCreateExternalRepresentation*/
+    kControlCollectionTagIDSignature =
+        FOUR_CHAR_CODE('idsi'), /* OSType - the ControlID signature*/
+    kControlCollectionTagIDID =
+        FOUR_CHAR_CODE('idid'), /* SInt32 - the ControlID id*/
+    kControlCollectionTagCommand =
+        FOUR_CHAR_CODE('cmd '), /* UInt32 - the command*/
+    kControlCollectionTagVarCode =
+        FOUR_CHAR_CODE('varc') /* SInt16 - the variant*/
+  };
 
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Image Content */
-/*������������������������������������������������������������������������������������������������������*/
-enum {
-  kControlContentTextOnly = 0,
-  kControlNoContent = 0,
-  kControlContentIconSuiteRes = 1,
-  kControlContentCIconRes = 2,
-  kControlContentPictRes = 3,
-  kControlContentICONRes = 4,
-  kControlContentIconSuiteHandle = 129,
-  kControlContentCIconHandle = 130,
-  kControlContentPictHandle = 131,
-  kControlContentIconRef = 132,
-  kControlContentICON = 133
-};
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Control Image Content */
+  /*������������������������������������������������������������������������������������������������������*/
+  enum
+  {
+    kControlContentTextOnly = 0,
+    kControlNoContent = 0,
+    kControlContentIconSuiteRes = 1,
+    kControlContentCIconRes = 2,
+    kControlContentPictRes = 3,
+    kControlContentICONRes = 4,
+    kControlContentIconSuiteHandle = 129,
+    kControlContentCIconHandle = 130,
+    kControlContentPictHandle = 131,
+    kControlContentIconRef = 132,
+    kControlContentICON = 133
+  };
 
-typedef SInt16 ControlContentType;
-struct ControlButtonContentInfo {
-  ControlContentType contentType;
-  union {
-    SInt16 resID;
-    CIconHandle cIconHandle;
-    Handle iconSuite;
-    IconRef iconRef;
-    PicHandle picture;
-    Handle ICONHandle;
-  } u;
-};
-typedef struct ControlButtonContentInfo ControlButtonContentInfo;
-typedef ControlButtonContentInfo *ControlButtonContentInfoPtr;
-typedef ControlButtonContentInfo ControlImageContentInfo;
-typedef ControlButtonContentInfo *ControlImageContentInfoPtr;
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Key Script Behavior */
-/*������������������������������������������������������������������������������������������������������*/
-enum {
-  kControlKeyScriptBehaviorAllowAnyScript =
-      FOUR_CHAR_CODE('any '), /* leaves the current keyboard alone and allows
-                                 user to change the keyboard.*/
-  kControlKeyScriptBehaviorPrefersRoman =
-      FOUR_CHAR_CODE('prmn'), /* switches the keyboard to roman, but allows them
-                                 to change it as desired.*/
-  kControlKeyScriptBehaviorRequiresRoman =
-      FOUR_CHAR_CODE('rrmn') /* switches the keyboard to roman and prevents the
-                                user from changing it.*/
-};
+  typedef SInt16 ControlContentType;
+  struct ControlButtonContentInfo
+  {
+    ControlContentType contentType;
+    union
+    {
+      SInt16 resID;
+      CIconHandle cIconHandle;
+      Handle iconSuite;
+      IconRef iconRef;
+      PicHandle picture;
+      Handle ICONHandle;
+    } u;
+  };
+  typedef struct ControlButtonContentInfo ControlButtonContentInfo;
+  typedef ControlButtonContentInfo *ControlButtonContentInfoPtr;
+  typedef ControlButtonContentInfo ControlImageContentInfo;
+  typedef ControlButtonContentInfo *ControlImageContentInfoPtr;
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Control Key Script Behavior */
+  /*������������������������������������������������������������������������������������������������������*/
+  enum
+  {
+    kControlKeyScriptBehaviorAllowAnyScript =
+        FOUR_CHAR_CODE('any '), /* leaves the current keyboard alone and allows
+                                   user to change the keyboard.*/
+    kControlKeyScriptBehaviorPrefersRoman =
+        FOUR_CHAR_CODE('prmn'), /* switches the keyboard to roman, but allows them
+                                   to change it as desired.*/
+    kControlKeyScriptBehaviorRequiresRoman =
+        FOUR_CHAR_CODE('rrmn') /* switches the keyboard to roman and prevents the
+                                  user from changing it.*/
+  };
 
-typedef UInt32 ControlKeyScriptBehavior;
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Font Style */
-/*������������������������������������������������������������������������������������������������������*/
-/*    SPECIAL FONT USAGE NOTES: You can specify the font to use for many control
-   types. The constants below are meta-font numbers which you can use to set a
-   particular control's font usage. There are essentially two modes you can use:
-   1) default, which is essentially the same as it always has been, i.e. it uses
-   the system font, unless directed to use the window font via a control
-   variant. 2) you can specify to use the big or small system font in a generic
-   manner. The Big system font is the font used in menus, etc. Chicago has
-   filled that role for some time now. Small system font is currently Geneva 10.
-   The meta-font number implies the size and style.
+  typedef UInt32 ControlKeyScriptBehavior;
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Control Font Style */
+  /*������������������������������������������������������������������������������������������������������*/
+  /*    SPECIAL FONT USAGE NOTES: You can specify the font to use for many control
+     types. The constants below are meta-font numbers which you can use to set a
+     particular control's font usage. There are essentially two modes you can use:
+     1) default, which is essentially the same as it always has been, i.e. it uses
+     the system font, unless directed to use the window font via a control
+     variant. 2) you can specify to use the big or small system font in a generic
+     manner. The Big system font is the font used in menus, etc. Chicago has
+     filled that role for some time now. Small system font is currently Geneva 10.
+     The meta-font number implies the size and style.
 
-    NOTE:       Not all font attributes are used by all controls. Most, in fact,
-   ignore the fore and back color (Static Text is the only one that does, for
-                backwards compatibility). Also size, face, and addFontSize are
-   ignored when using the meta-font numbering.
-*/
-/* Meta-font numbering - see note above */
-enum {
-  kControlFontBigSystemFont = -1,       /* force to big system font*/
-  kControlFontSmallSystemFont = -2,     /* force to small system font*/
-  kControlFontSmallBoldSystemFont = -3, /* force to small bold system font*/
-  kControlFontViewSystemFont =
-      -4 /* force to views system font (DataBrowser control only)*/
-};
+      NOTE:       Not all font attributes are used by all controls. Most, in fact,
+     ignore the fore and back color (Static Text is the only one that does, for
+                  backwards compatibility). Also size, face, and addFontSize are
+     ignored when using the meta-font numbering.
+  */
+  /* Meta-font numbering - see note above */
+  enum
+  {
+    kControlFontBigSystemFont = -1,       /* force to big system font*/
+    kControlFontSmallSystemFont = -2,     /* force to small system font*/
+    kControlFontSmallBoldSystemFont = -3, /* force to small bold system font*/
+    kControlFontViewSystemFont =
+        -4 /* force to views system font (DataBrowser control only)*/
+  };
 
-/* Add these masks together to set the flags field of a ControlFontStyleRec */
-/* They specify which fields to apply to the text. It is important to make  */
-/* sure that you specify only the fields that you wish to set.              */
-enum {
-  kControlUseFontMask = 0x0001,
-  kControlUseFaceMask = 0x0002,
-  kControlUseSizeMask = 0x0004,
-  kControlUseForeColorMask = 0x0008,
-  kControlUseBackColorMask = 0x0010,
-  kControlUseModeMask = 0x0020,
-  kControlUseJustMask = 0x0040,
-  kControlUseAllMask = 0x00FF,
-  kControlAddFontSizeMask = 0x0100
-};
+  /* Add these masks together to set the flags field of a ControlFontStyleRec */
+  /* They specify which fields to apply to the text. It is important to make  */
+  /* sure that you specify only the fields that you wish to set.              */
+  enum
+  {
+    kControlUseFontMask = 0x0001,
+    kControlUseFaceMask = 0x0002,
+    kControlUseSizeMask = 0x0004,
+    kControlUseForeColorMask = 0x0008,
+    kControlUseBackColorMask = 0x0010,
+    kControlUseModeMask = 0x0020,
+    kControlUseJustMask = 0x0040,
+    kControlUseAllMask = 0x00FF,
+    kControlAddFontSizeMask = 0x0100
+  };
 
-/* AddToMetaFont indicates that we want to start with a standard system     */
-/* font, but then we'd like to add the other attributes. Normally, the meta */
-/* font ignores all other flags                                             */
-enum {
-  kControlAddToMetaFontMask = 0x0200 /* Available in Appearance 1.1 or later*/
-};
+  /* AddToMetaFont indicates that we want to start with a standard system     */
+  /* font, but then we'd like to add the other attributes. Normally, the meta */
+  /* font ignores all other flags                                             */
+  enum
+  {
+    kControlAddToMetaFontMask = 0x0200 /* Available in Appearance 1.1 or later*/
+  };
 
-/* UseThemeFontID indicates that the font field of the ControlFontStyleRec  */
-/* should be interpreted as a ThemeFontID (see Appearance.h). In all other  */
-/* ways, specifying a ThemeFontID is just like using one of the control     */
-/* meta-fonts IDs.                                                          */
-enum {
-  kControlUseThemeFontIDMask = 0x0080 /* Available in Mac OS X or later*/
-};
+  /* UseThemeFontID indicates that the font field of the ControlFontStyleRec  */
+  /* should be interpreted as a ThemeFontID (see Appearance.h). In all other  */
+  /* ways, specifying a ThemeFontID is just like using one of the control     */
+  /* meta-fonts IDs.                                                          */
+  enum
+  {
+    kControlUseThemeFontIDMask = 0x0080 /* Available in Mac OS X or later*/
+  };
 
-struct ControlFontStyleRec {
-  SInt16 flags;
-  SInt16 font;
-  SInt16 size;
-  SInt16 style;
-  SInt16 mode;
-  SInt16 just;
-  RGBColor foreColor;
-  RGBColor backColor;
-};
-typedef struct ControlFontStyleRec ControlFontStyleRec;
-typedef ControlFontStyleRec *ControlFontStylePtr;
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Click Activation Results */
-/*������������������������������������������������������������������������������������������������������*/
-/*  These are for use with GetControlClickActivation. The enumerated values
- * should be pretty            */
-/*  self-explanatory, but just in case: */
-/*  � Activate/DoNotActivate indicates whether or not to change the owning
- * window's z-ordering before   */
-/*      processing the click. If activation is requested, you may also want to
- * immediately redraw the   */
-/*      newly exposed portion of the window. */
-/*  � Ignore/Handle Click indicates whether or not to call an appropriate click
- * handling API (like      */
-/*      HandleControlClick) in respose to the event. */
-enum {
-  kDoNotActivateAndIgnoreClick =
-      0, /* probably never used. here for completeness.*/
-  kDoNotActivateAndHandleClick = 1, /* let the control handle the click while
-                                       the window is still in the background.*/
-  kActivateAndIgnoreClick =
-      2, /* control doesn't want to respond directly to the click, but window
-            should still be brought forward.*/
-  kActivateAndHandleClick = 3 /* control wants to respond to the click, but only
-                                 after the window has been activated.*/
-};
+  struct ControlFontStyleRec
+  {
+    SInt16 flags;
+    SInt16 font;
+    SInt16 size;
+    SInt16 style;
+    SInt16 mode;
+    SInt16 just;
+    RGBColor foreColor;
+    RGBColor backColor;
+  };
+  typedef struct ControlFontStyleRec ControlFontStyleRec;
+  typedef ControlFontStyleRec *ControlFontStylePtr;
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Click Activation Results */
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  These are for use with GetControlClickActivation. The enumerated values
+   * should be pretty            */
+  /*  self-explanatory, but just in case: */
+  /*  � Activate/DoNotActivate indicates whether or not to change the owning
+   * window's z-ordering before   */
+  /*      processing the click. If activation is requested, you may also want to
+   * immediately redraw the   */
+  /*      newly exposed portion of the window. */
+  /*  � Ignore/Handle Click indicates whether or not to call an appropriate click
+   * handling API (like      */
+  /*      HandleControlClick) in respose to the event. */
+  enum
+  {
+    kDoNotActivateAndIgnoreClick =
+        0,                            /* probably never used. here for completeness.*/
+    kDoNotActivateAndHandleClick = 1, /* let the control handle the click while
+                                         the window is still in the background.*/
+    kActivateAndIgnoreClick =
+        2,                      /* control doesn't want to respond directly to the click, but window
+                                   should still be brought forward.*/
+    kActivateAndHandleClick = 3 /* control wants to respond to the click, but only
+                                   after the window has been activated.*/
+  };
 
-typedef UInt32 ClickActivationResult;
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Common data tags for Get/SetControlData */
-/*������������������������������������������������������������������������������������������������������*/
-
-/**
- *  Discussion:
- *    Get/SetControlData Common Tags
- */
-enum {
-  kControlFontStyleTag = FOUR_CHAR_CODE('font'),
-  kControlKeyFilterTag = FOUR_CHAR_CODE('fltr'),
+  typedef UInt32 ClickActivationResult;
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Common data tags for Get/SetControlData */
+  /*������������������������������������������������������������������������������������������������������*/
 
   /**
-   * Sent with a pointer to a ControlKind record to be filled in. Only
-   * valid for GetControlData.
+   *  Discussion:
+   *    Get/SetControlData Common Tags
    */
-  kControlKindTag = FOUR_CHAR_CODE('kind'),
+  enum
+  {
+    kControlFontStyleTag = FOUR_CHAR_CODE('font'),
+    kControlKeyFilterTag = FOUR_CHAR_CODE('fltr'),
 
+    /**
+     * Sent with a pointer to a ControlKind record to be filled in. Only
+     * valid for GetControlData.
+     */
+    kControlKindTag = FOUR_CHAR_CODE('kind'),
+
+    /**
+     * Sent with a pointer to a ControlSize. Only valid with explicitly
+     * sizeable controls.
+     */
+    kControlSizeTag = FOUR_CHAR_CODE('size')
+  };
+
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Control Feature Bits */
+  /*������������������������������������������������������������������������������������������������������*/
+  enum
+  {
+    /* Control feature bits - returned by GetControlFeatures */
+    kControlSupportsGhosting = 1 << 0,
+    kControlSupportsEmbedding = 1 << 1,
+    kControlSupportsFocus = 1 << 2,
+    kControlWantsIdle = 1 << 3,
+    kControlWantsActivate = 1 << 4,
+    kControlHandlesTracking = 1 << 5,
+    kControlSupportsDataAccess = 1 << 6,
+    kControlHasSpecialBackground = 1 << 7,
+    kControlGetsFocusOnClick = 1 << 8,
+    kControlSupportsCalcBestRect = 1 << 9,
+    kControlSupportsLiveFeedback = 1 << 10,
+    kControlHasRadioBehavior = 1
+                               << 11,          /* Available in Appearance 1.0.1 or later*/
+    kControlSupportsDragAndDrop = 1 << 12,     /* Available in Carbon*/
+    kControlAutoToggles = 1 << 14,             /* Available in Appearance 1.1 or later*/
+    kControlSupportsGetRegion = 1 << 17,       /* Available in Appearance 1.1 or later*/
+    kControlSupportsFlattening = 1 << 19,      /* Available in Carbon*/
+    kControlSupportsSetCursor = 1 << 20,       /* Available in Carbon*/
+    kControlSupportsContextualMenus = 1 << 21, /* Available in Carbon*/
+    kControlSupportsClickActivation = 1 << 22, /* Available in Carbon*/
+    kControlIdlesWithTimer = 1 << 23           /* Available in Carbon - this bit indicates
+                                                  that the control animates automatically*/
+  };
+
+  /*������������������������������������������������������������������������������������������������������*/
+  /*  � Control Messages */
+  /*������������������������������������������������������������������������������������������������������*/
+  enum
+  {
+    drawCntl = 0,
+    testCntl = 1,
+    calcCRgns = 2,
+    initCntl = 3, /* Param is Collection, result is OSStatus*/
+    dispCntl = 4,
+    posCntl = 5,
+    thumbCntl = 6,
+    dragCntl = 7,
+    autoTrack = 8,
+    calcCntlRgn = 10,
+    calcThumbRgn = 11,
+    drawThumbOutline = 12,
+    kControlMsgDrawGhost = 13,
+    kControlMsgCalcBestRect =
+        14, /* Calculate best fitting rectangle for control*/
+    kControlMsgHandleTracking = 15,
+    kControlMsgFocus = 16, /* param indicates action.*/
+    kControlMsgKeyDown = 17,
+    kControlMsgIdle = 18,
+    kControlMsgGetFeatures = 19,
+    kControlMsgSetData = 20,
+    kControlMsgGetData = 21,
+    kControlMsgActivate = 22,
+    kControlMsgSetUpBackground = 23,
+    kControlMsgCalcValueFromPos = 26,
+    kControlMsgTestNewMsgSupport =
+        27,                            /* See if this control supports new messaging*/
+    kControlMsgSubValueChanged = 25,   /* Available in Appearance 1.0.1 or later*/
+    kControlMsgSubControlAdded = 28,   /* Available in Appearance 1.0.1 or later*/
+    kControlMsgSubControlRemoved = 29, /* Available in Appearance 1.0.1 or later*/
+    kControlMsgApplyTextColor = 30,    /* Available in Appearance 1.1 or later*/
+    kControlMsgGetRegion = 31,         /* Available in Appearance 1.1 or later*/
+    kControlMsgFlatten = 32,           /* Available in Carbon. Param is Collection.*/
+    kControlMsgSetCursor =
+        33,                           /* Available in Carbon. Param is ControlSetCursorRec*/
+    kControlMsgDragEnter = 38,        /* Available in Carbon. Param is DragRef, result is
+                                         boolean indicating acceptibility of drag.*/
+    kControlMsgDragLeave = 39,        /* Available in Carbon. As above.*/
+    kControlMsgDragWithin = 40,       /* Available in Carbon. As above.*/
+    kControlMsgDragReceive = 41,      /* Available in Carbon. Param is DragRef, result
+                                         is OSStatus indicating success/failure.*/
+    kControlMsgDisplayDebugInfo = 46, /* Available in Carbon on X.*/
+    kControlMsgContextualMenuClick =
+        47, /* Available in Carbon. Param is ControlContextualMenuClickRec*/
+    kControlMsgGetClickActivation =
+        48 /* Available in Carbon. Param is ControlClickActivationRec*/
+  };
+
+  typedef SInt16 ControlDefProcMessage;
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Control Sizes */
+  /*��������������������������������������������������������������������������������������*/
+  enum
+  {
+    kControlSizeNormal = 0,
+    kControlSizeSmall = 1,
+    kControlSizeLarge = 2,
+    kControlSizeAuto = 0xFFFF
+  };
+
+  typedef UInt16 ControlSize;
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Constants for drawCntl message (passed in param) */
+  /*��������������������������������������������������������������������������������������*/
+  enum
+  {
+    kDrawControlEntireControl = 0,
+    kDrawControlIndicatorOnly = 129
+  };
+
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Constants for dragCntl message (passed in param) */
+  /*��������������������������������������������������������������������������������������*/
+  enum
+  {
+    kDragControlEntireControl = 0,
+    kDragControlIndicator = 1
+  };
+
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Drag Constraint Structure for thumbCntl message (passed in param) */
+  /*��������������������������������������������������������������������������������������*/
+  struct IndicatorDragConstraint
+  {
+    Rect limitRect;
+    Rect slopRect;
+    DragConstraint axis;
+  };
+  typedef struct IndicatorDragConstraint IndicatorDragConstraint;
+  typedef IndicatorDragConstraint *IndicatorDragConstraintPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /*  CDEF should return as result of kControlMsgTestNewMsgSupport */
+  /*��������������������������������������������������������������������������������������*/
+  enum
+  {
+    kControlSupportsNewMessages = FOUR_CHAR_CODE(' ok ')
+  };
+
+  /*��������������������������������������������������������������������������������������*/
+  /*  This structure is passed into a CDEF when called with the
+   * kControlMsgHandleTracking */
+  /*  message */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlTrackingRec
+  {
+    Point startPt;
+    EventModifiers modifiers;
+    ControlActionUPP action;
+  };
+  typedef struct ControlTrackingRec ControlTrackingRec;
+  typedef ControlTrackingRec *ControlTrackingPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when called with the kControlMsgKeyDown
+   * message */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlKeyDownRec
+  {
+    EventModifiers modifiers;
+    SInt16 keyCode;
+    SInt16 charCode;
+  };
+  typedef struct ControlKeyDownRec ControlKeyDownRec;
+  typedef ControlKeyDownRec *ControlKeyDownPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when called with the kControlMsgGetData
+   * or      */
+  /* kControlMsgSetData message */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlDataAccessRec
+  {
+    ResType tag;
+    ResType part;
+    Size size;
+    Ptr dataPtr;
+  };
+  typedef struct ControlDataAccessRec ControlDataAccessRec;
+  typedef ControlDataAccessRec *ControlDataAccessPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when called with the
+   * kControlCalcBestRect msg   */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlCalcSizeRec
+  {
+    SInt16 height;
+    SInt16 width;
+    SInt16 baseLine;
+  };
+  typedef struct ControlCalcSizeRec ControlCalcSizeRec;
+  typedef ControlCalcSizeRec *ControlCalcSizePtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when called with the
+   * kControlMsgSetUpBackground */
+  /* message is sent */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlBackgroundRec
+  {
+    SInt16 depth;
+    Boolean colorDevice;
+  };
+  typedef struct ControlBackgroundRec ControlBackgroundRec;
+  typedef ControlBackgroundRec *ControlBackgroundPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when called with the
+   * kControlMsgApplyTextColor  */
+  /* message is sent */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlApplyTextColorRec
+  {
+    SInt16 depth;
+    Boolean colorDevice;
+    Boolean active;
+  };
+  typedef struct ControlApplyTextColorRec ControlApplyTextColorRec;
+  typedef ControlApplyTextColorRec *ControlApplyTextColorPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when called with the
+   * kControlMsgGetRegion       */
+  /* message is sent */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlGetRegionRec
+  {
+    RgnHandle region;
+    ControlPartCode part;
+  };
+  typedef struct ControlGetRegionRec ControlGetRegionRec;
+  typedef ControlGetRegionRec *ControlGetRegionPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when the kControlMsgSetCursor message is
+   * sent   */
+  /* Only sent on Carbon */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlSetCursorRec
+  {
+    Point localPoint;
+    EventModifiers modifiers;
+    Boolean cursorWasSet; /* your CDEF must set this to true if you set the
+                             cursor, or false otherwise*/
+  };
+  typedef struct ControlSetCursorRec ControlSetCursorRec;
+  typedef ControlSetCursorRec *ControlSetCursorPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when the kControlMsgContextualMenuClick
+   * message */
+  /* is sent */
+  /* Only sent on Carbon */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlContextualMenuClickRec
+  {
+    Point localPoint;
+    Boolean menuDisplayed; /* your CDEF must set this to true if you displayed a
+                              menu, or false otherwise*/
+  };
+  typedef struct ControlContextualMenuClickRec ControlContextualMenuClickRec;
+  typedef ControlContextualMenuClickRec *ControlContextualMenuClickPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /* This structure is passed into a CDEF when the kControlMsgGetClickActivation
+   * message  */
+  /* is sent */
+  /* Only sent on Carbon */
+  /*��������������������������������������������������������������������������������������*/
+  struct ControlClickActivationRec
+  {
+    Point localPoint;
+    EventModifiers modifiers;
+    ClickActivationResult result; /* your CDEF must pass the desired result back*/
+  };
+  typedef struct ControlClickActivationRec ControlClickActivationRec;
+  typedef ControlClickActivationRec *ControlClickActivationPtr;
+  /*��������������������������������������������������������������������������������������*/
+  /*  � �CDEF� entrypoint */
+  /*��������������������������������������������������������������������������������������*/
+  typedef CALLBACK_API(SInt32, ControlDefProcPtr)(SInt16 varCode,
+                                                  ControlRef theControl,
+                                                  ControlDefProcMessage message,
+                                                  SInt32 param);
+  typedef STACK_UPP_TYPE(ControlDefProcPtr) ControlDefUPP;
   /**
-   * Sent with a pointer to a ControlSize. Only valid with explicitly
-   * sizeable controls.
+   *  NewControlDefUPP()
+   *
+
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
    */
-  kControlSizeTag = FOUR_CHAR_CODE('size')
-};
-
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Feature Bits */
-/*������������������������������������������������������������������������������������������������������*/
-enum {
-  /* Control feature bits - returned by GetControlFeatures */
-  kControlSupportsGhosting = 1 << 0,
-  kControlSupportsEmbedding = 1 << 1,
-  kControlSupportsFocus = 1 << 2,
-  kControlWantsIdle = 1 << 3,
-  kControlWantsActivate = 1 << 4,
-  kControlHandlesTracking = 1 << 5,
-  kControlSupportsDataAccess = 1 << 6,
-  kControlHasSpecialBackground = 1 << 7,
-  kControlGetsFocusOnClick = 1 << 8,
-  kControlSupportsCalcBestRect = 1 << 9,
-  kControlSupportsLiveFeedback = 1 << 10,
-  kControlHasRadioBehavior = 1
-                             << 11, /* Available in Appearance 1.0.1 or later*/
-  kControlSupportsDragAndDrop = 1 << 12, /* Available in Carbon*/
-  kControlAutoToggles = 1 << 14,       /* Available in Appearance 1.1 or later*/
-  kControlSupportsGetRegion = 1 << 17, /* Available in Appearance 1.1 or later*/
-  kControlSupportsFlattening = 1 << 19,      /* Available in Carbon*/
-  kControlSupportsSetCursor = 1 << 20,       /* Available in Carbon*/
-  kControlSupportsContextualMenus = 1 << 21, /* Available in Carbon*/
-  kControlSupportsClickActivation = 1 << 22, /* Available in Carbon*/
-  kControlIdlesWithTimer = 1 << 23 /* Available in Carbon - this bit indicates
-                                      that the control animates automatically*/
-};
-
-/*������������������������������������������������������������������������������������������������������*/
-/*  � Control Messages */
-/*������������������������������������������������������������������������������������������������������*/
-enum {
-  drawCntl = 0,
-  testCntl = 1,
-  calcCRgns = 2,
-  initCntl = 3, /* Param is Collection, result is OSStatus*/
-  dispCntl = 4,
-  posCntl = 5,
-  thumbCntl = 6,
-  dragCntl = 7,
-  autoTrack = 8,
-  calcCntlRgn = 10,
-  calcThumbRgn = 11,
-  drawThumbOutline = 12,
-  kControlMsgDrawGhost = 13,
-  kControlMsgCalcBestRect =
-      14, /* Calculate best fitting rectangle for control*/
-  kControlMsgHandleTracking = 15,
-  kControlMsgFocus = 16, /* param indicates action.*/
-  kControlMsgKeyDown = 17,
-  kControlMsgIdle = 18,
-  kControlMsgGetFeatures = 19,
-  kControlMsgSetData = 20,
-  kControlMsgGetData = 21,
-  kControlMsgActivate = 22,
-  kControlMsgSetUpBackground = 23,
-  kControlMsgCalcValueFromPos = 26,
-  kControlMsgTestNewMsgSupport =
-      27, /* See if this control supports new messaging*/
-  kControlMsgSubValueChanged = 25,   /* Available in Appearance 1.0.1 or later*/
-  kControlMsgSubControlAdded = 28,   /* Available in Appearance 1.0.1 or later*/
-  kControlMsgSubControlRemoved = 29, /* Available in Appearance 1.0.1 or later*/
-  kControlMsgApplyTextColor = 30,    /* Available in Appearance 1.1 or later*/
-  kControlMsgGetRegion = 31,         /* Available in Appearance 1.1 or later*/
-  kControlMsgFlatten = 32, /* Available in Carbon. Param is Collection.*/
-  kControlMsgSetCursor =
-      33, /* Available in Carbon. Param is ControlSetCursorRec*/
-  kControlMsgDragEnter = 38, /* Available in Carbon. Param is DragRef, result is
-                                boolean indicating acceptibility of drag.*/
-  kControlMsgDragLeave = 39, /* Available in Carbon. As above.*/
-  kControlMsgDragWithin = 40,  /* Available in Carbon. As above.*/
-  kControlMsgDragReceive = 41, /* Available in Carbon. Param is DragRef, result
-                                  is OSStatus indicating success/failure.*/
-  kControlMsgDisplayDebugInfo = 46, /* Available in Carbon on X.*/
-  kControlMsgContextualMenuClick =
-      47, /* Available in Carbon. Param is ControlContextualMenuClickRec*/
-  kControlMsgGetClickActivation =
-      48 /* Available in Carbon. Param is ControlClickActivationRec*/
-};
-
-typedef SInt16 ControlDefProcMessage;
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Sizes */
-/*��������������������������������������������������������������������������������������*/
-enum {
-  kControlSizeNormal = 0,
-  kControlSizeSmall = 1,
-  kControlSizeLarge = 2,
-  kControlSizeAuto = 0xFFFF
-};
-
-typedef UInt16 ControlSize;
-/*��������������������������������������������������������������������������������������*/
-/*  � Constants for drawCntl message (passed in param) */
-/*��������������������������������������������������������������������������������������*/
-enum { kDrawControlEntireControl = 0, kDrawControlIndicatorOnly = 129 };
-
-/*��������������������������������������������������������������������������������������*/
-/*  � Constants for dragCntl message (passed in param) */
-/*��������������������������������������������������������������������������������������*/
-enum { kDragControlEntireControl = 0, kDragControlIndicator = 1 };
-
-/*��������������������������������������������������������������������������������������*/
-/*  � Drag Constraint Structure for thumbCntl message (passed in param) */
-/*��������������������������������������������������������������������������������������*/
-struct IndicatorDragConstraint {
-  Rect limitRect;
-  Rect slopRect;
-  DragConstraint axis;
-};
-typedef struct IndicatorDragConstraint IndicatorDragConstraint;
-typedef IndicatorDragConstraint *IndicatorDragConstraintPtr;
-/*��������������������������������������������������������������������������������������*/
-/*  CDEF should return as result of kControlMsgTestNewMsgSupport */
-/*��������������������������������������������������������������������������������������*/
-enum { kControlSupportsNewMessages = FOUR_CHAR_CODE(' ok ') };
-
-/*��������������������������������������������������������������������������������������*/
-/*  This structure is passed into a CDEF when called with the
- * kControlMsgHandleTracking */
-/*  message */
-/*��������������������������������������������������������������������������������������*/
-struct ControlTrackingRec {
-  Point startPt;
-  EventModifiers modifiers;
-  ControlActionUPP action;
-};
-typedef struct ControlTrackingRec ControlTrackingRec;
-typedef ControlTrackingRec *ControlTrackingPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when called with the kControlMsgKeyDown
- * message */
-/*��������������������������������������������������������������������������������������*/
-struct ControlKeyDownRec {
-  EventModifiers modifiers;
-  SInt16 keyCode;
-  SInt16 charCode;
-};
-typedef struct ControlKeyDownRec ControlKeyDownRec;
-typedef ControlKeyDownRec *ControlKeyDownPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when called with the kControlMsgGetData
- * or      */
-/* kControlMsgSetData message */
-/*��������������������������������������������������������������������������������������*/
-struct ControlDataAccessRec {
-  ResType tag;
-  ResType part;
-  Size size;
-  Ptr dataPtr;
-};
-typedef struct ControlDataAccessRec ControlDataAccessRec;
-typedef ControlDataAccessRec *ControlDataAccessPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when called with the
- * kControlCalcBestRect msg   */
-/*��������������������������������������������������������������������������������������*/
-struct ControlCalcSizeRec {
-  SInt16 height;
-  SInt16 width;
-  SInt16 baseLine;
-};
-typedef struct ControlCalcSizeRec ControlCalcSizeRec;
-typedef ControlCalcSizeRec *ControlCalcSizePtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when called with the
- * kControlMsgSetUpBackground */
-/* message is sent */
-/*��������������������������������������������������������������������������������������*/
-struct ControlBackgroundRec {
-  SInt16 depth;
-  Boolean colorDevice;
-};
-typedef struct ControlBackgroundRec ControlBackgroundRec;
-typedef ControlBackgroundRec *ControlBackgroundPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when called with the
- * kControlMsgApplyTextColor  */
-/* message is sent */
-/*��������������������������������������������������������������������������������������*/
-struct ControlApplyTextColorRec {
-  SInt16 depth;
-  Boolean colorDevice;
-  Boolean active;
-};
-typedef struct ControlApplyTextColorRec ControlApplyTextColorRec;
-typedef ControlApplyTextColorRec *ControlApplyTextColorPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when called with the
- * kControlMsgGetRegion       */
-/* message is sent */
-/*��������������������������������������������������������������������������������������*/
-struct ControlGetRegionRec {
-  RgnHandle region;
-  ControlPartCode part;
-};
-typedef struct ControlGetRegionRec ControlGetRegionRec;
-typedef ControlGetRegionRec *ControlGetRegionPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when the kControlMsgSetCursor message is
- * sent   */
-/* Only sent on Carbon */
-/*��������������������������������������������������������������������������������������*/
-struct ControlSetCursorRec {
-  Point localPoint;
-  EventModifiers modifiers;
-  Boolean cursorWasSet; /* your CDEF must set this to true if you set the
-                           cursor, or false otherwise*/
-};
-typedef struct ControlSetCursorRec ControlSetCursorRec;
-typedef ControlSetCursorRec *ControlSetCursorPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when the kControlMsgContextualMenuClick
- * message */
-/* is sent */
-/* Only sent on Carbon */
-/*��������������������������������������������������������������������������������������*/
-struct ControlContextualMenuClickRec {
-  Point localPoint;
-  Boolean menuDisplayed; /* your CDEF must set this to true if you displayed a
-                            menu, or false otherwise*/
-};
-typedef struct ControlContextualMenuClickRec ControlContextualMenuClickRec;
-typedef ControlContextualMenuClickRec *ControlContextualMenuClickPtr;
-/*��������������������������������������������������������������������������������������*/
-/* This structure is passed into a CDEF when the kControlMsgGetClickActivation
- * message  */
-/* is sent */
-/* Only sent on Carbon */
-/*��������������������������������������������������������������������������������������*/
-struct ControlClickActivationRec {
-  Point localPoint;
-  EventModifiers modifiers;
-  ClickActivationResult result; /* your CDEF must pass the desired result back*/
-};
-typedef struct ControlClickActivationRec ControlClickActivationRec;
-typedef ControlClickActivationRec *ControlClickActivationPtr;
-/*��������������������������������������������������������������������������������������*/
-/*  � �CDEF� entrypoint */
-/*��������������������������������������������������������������������������������������*/
-typedef CALLBACK_API(SInt32, ControlDefProcPtr)(SInt16 varCode,
-                                                ControlRef theControl,
-                                                ControlDefProcMessage message,
-                                                SInt32 param);
-typedef STACK_UPP_TYPE(ControlDefProcPtr) ControlDefUPP;
-/**
- *  NewControlDefUPP()
- *
-
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ControlDefUPP
-NewControlDefUPP(ControlDefProcPtr userRoutine);
+  ControlDefUPP
+  NewControlDefUPP(ControlDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppControlDefProcInfo = 0x00003BB0
-}; /* pascal 4_bytes Func(2_bytes, 4_bytes, 2_bytes, 4_bytes) */
+  enum
+  {
+    uppControlDefProcInfo = 0x00003BB0
+  }; /* pascal 4_bytes Func(2_bytes, 4_bytes, 2_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ControlDefUPP NewControlDefUPP(ControlDefProcPtr userRoutine) {
-  return (ControlDefUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppControlDefProcInfo, GetCurrentArchitecture());
-}
+  inline ControlDefUPP NewControlDefUPP(ControlDefProcPtr userRoutine)
+  {
+    return (ControlDefUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppControlDefProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewControlDefUPP(userRoutine)                                          \
-  (ControlDefUPP) NewRoutineDescriptor(                                        \
+#define NewControlDefUPP(userRoutine)   \
+  (ControlDefUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppControlDefProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeControlDefUPP()
- *
+  /**
+   *  DisposeControlDefUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeControlDefUPP(ControlDefUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeControlDefUPP(ControlDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeControlDefUPP(ControlDefUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeControlDefUPP(ControlDefUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeControlDefUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeControlDefUPP()
- *
+  /**
+   *  InvokeControlDefUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt32
-InvokeControlDefUPP(SInt16 varCode, ControlRef theControl,
-                    ControlDefProcMessage message, SInt32 param,
-                    ControlDefUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32
+  InvokeControlDefUPP(SInt16 varCode, ControlRef theControl,
+                      ControlDefProcMessage message, SInt32 param,
+                      ControlDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline SInt32 InvokeControlDefUPP(SInt16 varCode, ControlRef theControl,
-                                  ControlDefProcMessage message, SInt32 param,
-                                  ControlDefUPP userUPP) {
-  return (SInt32)CALL_FOUR_PARAMETER_UPP(userUPP, uppControlDefProcInfo,
-                                         varCode, theControl, message, param);
-}
+  inline SInt32 InvokeControlDefUPP(SInt16 varCode, ControlRef theControl,
+                                    ControlDefProcMessage message, SInt32 param,
+                                    ControlDefUPP userUPP)
+  {
+    return (SInt32)CALL_FOUR_PARAMETER_UPP(userUPP, uppControlDefProcInfo,
+                                           varCode, theControl, message, param);
+  }
 #else
-#define InvokeControlDefUPP(varCode, theControl, message, param, userUPP)      \
-  (SInt32)                                                                     \
-      CALL_FOUR_PARAMETER_UPP((userUPP), uppControlDefProcInfo, (varCode),     \
+#define InvokeControlDefUPP(varCode, theControl, message, param, userUPP)  \
+  (SInt32)                                                                 \
+      CALL_FOUR_PARAMETER_UPP((userUPP), uppControlDefProcInfo, (varCode), \
                               (theControl), (message), (param))
 #endif
 #endif
@@ -939,107 +1003,115 @@ inline SInt32 InvokeControlDefUPP(SInt16 varCode, ControlRef theControl,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewControlDefProc(userRoutine) NewControlDefUPP(userRoutine)
-#define CallControlDefProc(userRoutine, varCode, theControl, message, param)   \
+#define CallControlDefProc(userRoutine, varCode, theControl, message, param) \
   InvokeControlDefUPP(varCode, theControl, message, param, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/*��������������������������������������������������������������������������������������*/
-/*  Control Key Filter */
-/*��������������������������������������������������������������������������������������*/
-/* Certain controls can have a keyfilter attached to them. */
-/* Definition of a key filter for intercepting and possibly changing keystrokes
- */
-/* which are destined for a control. */
-/* Key Filter Result Codes */
-/* The filter proc should return one of the two constants below. If */
-/* kKeyFilterBlockKey is returned, the key is blocked and never makes it to the
- */
-/* control. If kKeyFilterPassKey is returned, the control receives the
- * keystroke.   */
-enum { kControlKeyFilterBlockKey = 0, kControlKeyFilterPassKey = 1 };
+  /*��������������������������������������������������������������������������������������*/
+  /*  Control Key Filter */
+  /*��������������������������������������������������������������������������������������*/
+  /* Certain controls can have a keyfilter attached to them. */
+  /* Definition of a key filter for intercepting and possibly changing keystrokes
+   */
+  /* which are destined for a control. */
+  /* Key Filter Result Codes */
+  /* The filter proc should return one of the two constants below. If */
+  /* kKeyFilterBlockKey is returned, the key is blocked and never makes it to the
+   */
+  /* control. If kKeyFilterPassKey is returned, the control receives the
+   * keystroke.   */
+  enum
+  {
+    kControlKeyFilterBlockKey = 0,
+    kControlKeyFilterPassKey = 1
+  };
 
-typedef SInt16 ControlKeyFilterResult;
-typedef CALLBACK_API(ControlKeyFilterResult,
-                     ControlKeyFilterProcPtr)(ControlRef theControl,
-                                              SInt16 *keyCode, SInt16 *charCode,
-                                              EventModifiers *modifiers);
-typedef STACK_UPP_TYPE(ControlKeyFilterProcPtr) ControlKeyFilterUPP;
-/**
- *  NewControlKeyFilterUPP()
- *
+  typedef SInt16 ControlKeyFilterResult;
+  typedef CALLBACK_API(ControlKeyFilterResult,
+                       ControlKeyFilterProcPtr)(ControlRef theControl,
+                                                SInt16 *keyCode, SInt16 *charCode,
+                                                EventModifiers *modifiers);
+  typedef STACK_UPP_TYPE(ControlKeyFilterProcPtr) ControlKeyFilterUPP;
+  /**
+   *  NewControlKeyFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ControlKeyFilterUPP
-NewControlKeyFilterUPP(ControlKeyFilterProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ControlKeyFilterUPP
+  NewControlKeyFilterUPP(ControlKeyFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppControlKeyFilterProcInfo = 0x00003FE0
-}; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppControlKeyFilterProcInfo = 0x00003FE0
+  }; /* pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ControlKeyFilterUPP
-NewControlKeyFilterUPP(ControlKeyFilterProcPtr userRoutine) {
-  return (ControlKeyFilterUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                   uppControlKeyFilterProcInfo,
-                                                   GetCurrentArchitecture());
-}
+  inline ControlKeyFilterUPP
+  NewControlKeyFilterUPP(ControlKeyFilterProcPtr userRoutine)
+  {
+    return (ControlKeyFilterUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                     uppControlKeyFilterProcInfo,
+                                                     GetCurrentArchitecture());
+  }
 #else
-#define NewControlKeyFilterUPP(userRoutine)                                    \
-  (ControlKeyFilterUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),           \
-                                             uppControlKeyFilterProcInfo,      \
+#define NewControlKeyFilterUPP(userRoutine)                               \
+  (ControlKeyFilterUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),      \
+                                             uppControlKeyFilterProcInfo, \
                                              GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeControlKeyFilterUPP()
- *
+  /**
+   *  DisposeControlKeyFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeControlKeyFilterUPP(ControlKeyFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeControlKeyFilterUPP(ControlKeyFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeControlKeyFilterUPP(ControlKeyFilterUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeControlKeyFilterUPP(ControlKeyFilterUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeControlKeyFilterUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeControlKeyFilterUPP()
- *
+  /**
+   *  InvokeControlKeyFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ControlKeyFilterResult
-InvokeControlKeyFilterUPP(ControlRef theControl, SInt16 *keyCode,
-                          SInt16 *charCode, EventModifiers *modifiers,
-                          ControlKeyFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ControlKeyFilterResult
+  InvokeControlKeyFilterUPP(ControlRef theControl, SInt16 *keyCode,
+                            SInt16 *charCode, EventModifiers *modifiers,
+                            ControlKeyFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline ControlKeyFilterResult
-InvokeControlKeyFilterUPP(ControlRef theControl, SInt16 *keyCode,
-                          SInt16 *charCode, EventModifiers *modifiers,
-                          ControlKeyFilterUPP userUPP) {
-  return (ControlKeyFilterResult)CALL_FOUR_PARAMETER_UPP(
-      userUPP, uppControlKeyFilterProcInfo, theControl, keyCode, charCode,
-      modifiers);
-}
+  inline ControlKeyFilterResult
+  InvokeControlKeyFilterUPP(ControlRef theControl, SInt16 *keyCode,
+                            SInt16 *charCode, EventModifiers *modifiers,
+                            ControlKeyFilterUPP userUPP)
+  {
+    return (ControlKeyFilterResult)CALL_FOUR_PARAMETER_UPP(
+        userUPP, uppControlKeyFilterProcInfo, theControl, keyCode, charCode,
+        modifiers);
+  }
 #else
-#define InvokeControlKeyFilterUPP(theControl, keyCode, charCode, modifiers,    \
-                                  userUPP)                                     \
-  (ControlKeyFilterResult) CALL_FOUR_PARAMETER_UPP(                            \
-      (userUPP), uppControlKeyFilterProcInfo, (theControl), (keyCode),         \
+#define InvokeControlKeyFilterUPP(theControl, keyCode, charCode, modifiers, \
+                                  userUPP)                                  \
+  (ControlKeyFilterResult) CALL_FOUR_PARAMETER_UPP(                         \
+      (userUPP), uppControlKeyFilterProcInfo, (theControl), (keyCode),      \
       (charCode), (modifiers))
 #endif
 #endif
@@ -1047,406 +1119,418 @@ InvokeControlKeyFilterUPP(ControlRef theControl, SInt16 *keyCode,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewControlKeyFilterProc(userRoutine) NewControlKeyFilterUPP(userRoutine)
-#define CallControlKeyFilterProc(userRoutine, theControl, keyCode, charCode,   \
-                                 modifiers)                                    \
-  InvokeControlKeyFilterUPP(theControl, keyCode, charCode, modifiers,          \
+#define CallControlKeyFilterProc(userRoutine, theControl, keyCode, charCode, \
+                                 modifiers)                                  \
+  InvokeControlKeyFilterUPP(theControl, keyCode, charCode, modifiers,        \
                             userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/*��������������������������������������������������������������������������������������*/
-/*  � DragGrayRgn Constatns */
-/*                                                                                      */
-/*   For DragGrayRgnUPP used in TrackControl() */
-/*��������������������������������������������������������������������������������������*/
-enum { noConstraint = kNoConstraint, hAxisOnly = 1, vAxisOnly = 2 };
+  /*��������������������������������������������������������������������������������������*/
+  /*  � DragGrayRgn Constatns */
+  /*                                                                                      */
+  /*   For DragGrayRgnUPP used in TrackControl() */
+  /*��������������������������������������������������������������������������������������*/
+  enum
+  {
+    noConstraint = kNoConstraint,
+    hAxisOnly = 1,
+    vAxisOnly = 2
+  };
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Creation/Deletion/Persistence */
-/*��������������������������������������������������������������������������������������*/
-/*  CreateCustomControl is only available as part of Carbon */
-enum {
-  kControlDefProcPtr = 0,    /* raw proc-ptr based access*/
-  kControlDefObjectClass = 1 /* event-based definition (Mac OS X only)*/
-};
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Control Creation/Deletion/Persistence */
+  /*��������������������������������������������������������������������������������������*/
+  /*  CreateCustomControl is only available as part of Carbon */
+  enum
+  {
+    kControlDefProcPtr = 0,    /* raw proc-ptr based access*/
+    kControlDefObjectClass = 1 /* event-based definition (Mac OS X only)*/
+  };
 
-typedef UInt32 ControlDefType;
-struct ControlDefSpec {
-  ControlDefType defType;
-  union {
-    ControlDefUPP defProc;
-    void *classRef;
-  } u;
-};
-typedef struct ControlDefSpec ControlDefSpec;
-/**
- *  CreateCustomControl()
- *
+  typedef UInt32 ControlDefType;
+  struct ControlDefSpec
+  {
+    ControlDefType defType;
+    union
+    {
+      ControlDefUPP defProc;
+      void *classRef;
+    } u;
+  };
+  typedef struct ControlDefSpec ControlDefSpec;
+  /**
+   *  CreateCustomControl()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-CreateCustomControl(WindowRef owningWindow, const Rect *contBounds,
-                    const ControlDefSpec *def, Collection initData,
-                    ControlRef *outControl);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  CreateCustomControl(WindowRef owningWindow, const Rect *contBounds,
+                      const ControlDefSpec *def, Collection initData,
+                      ControlRef *outControl);
 
-/**
- *  NewControl()
- *
+  /**
+   *  NewControl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ControlRef)
-NewControl(WindowRef owningWindow, const Rect *boundsRect,
-           ConstStr255Param controlTitle, Boolean initiallyVisible,
-           SInt16 initialValue, SInt16 minimumValue, SInt16 maximumValue,
-           SInt16 procID, SInt32 controlReference) ONEWORDINLINE(0xA954);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ControlRef
+  NewControl(WindowRef owningWindow, const Rect *boundsRect,
+             ConstStr255Param controlTitle, Boolean initiallyVisible,
+             SInt16 initialValue, SInt16 minimumValue, SInt16 maximumValue,
+             SInt16 procID, SInt32 controlReference) ONEWORDINLINE(0xA954);
 
-/**
- *  GetNewControl()
- *
+  /**
+   *  GetNewControl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ControlRef)
-GetNewControl(SInt16 resourceID, WindowRef owningWindow) ONEWORDINLINE(0xA9BE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ControlRef
+  GetNewControl(SInt16 resourceID, WindowRef owningWindow) ONEWORDINLINE(0xA9BE);
 
-/**
- *  DisposeControl()
- *
+  /**
+   *  DisposeControl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-DisposeControl(ControlRef theControl) ONEWORDINLINE(0xA955);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeControl(ControlRef theControl) ONEWORDINLINE(0xA955);
 
-/**
- *  KillControls()
- *
+  /**
+   *  KillControls()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-KillControls(WindowRef theWindow) ONEWORDINLINE(0xA956);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  KillControls(WindowRef theWindow) ONEWORDINLINE(0xA956);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Definition Registration */
-/*��������������������������������������������������������������������������������������*/
-typedef CALLBACK_API(OSStatus, ControlCNTLToCollectionProcPtr)(
-    const Rect *bounds, SInt16 value, Boolean visible, SInt16 max, SInt16 min,
-    SInt16 procID, SInt32 refCon, ConstStr255Param title,
-    Collection collection);
-typedef STACK_UPP_TYPE(ControlCNTLToCollectionProcPtr)
-    ControlCNTLToCollectionUPP;
-/**
- *  NewControlCNTLToCollectionUPP()
- *
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Control Definition Registration */
+  /*��������������������������������������������������������������������������������������*/
+  typedef CALLBACK_API(OSStatus, ControlCNTLToCollectionProcPtr)(
+      const Rect *bounds, SInt16 value, Boolean visible, SInt16 max, SInt16 min,
+      SInt16 procID, SInt32 refCon, ConstStr255Param title,
+      Collection collection);
+  typedef STACK_UPP_TYPE(ControlCNTLToCollectionProcPtr)
+      ControlCNTLToCollectionUPP;
+  /**
+   *  NewControlCNTLToCollectionUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ControlCNTLToCollectionUPP
-NewControlCNTLToCollectionUPP(ControlCNTLToCollectionProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ControlCNTLToCollectionUPP
+  NewControlCNTLToCollectionUPP(ControlCNTLToCollectionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppControlCNTLToCollectionProcInfo = 0x00FEA6F0
-}; /* pascal 4_bytes Func(4_bytes, 2_bytes, 1_byte, 2_bytes, 2_bytes, 2_bytes,
-      4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppControlCNTLToCollectionProcInfo = 0x00FEA6F0
+  }; /* pascal 4_bytes Func(4_bytes, 2_bytes, 1_byte, 2_bytes, 2_bytes, 2_bytes,
+        4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ControlCNTLToCollectionUPP
-NewControlCNTLToCollectionUPP(ControlCNTLToCollectionProcPtr userRoutine) {
-  return (ControlCNTLToCollectionUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppControlCNTLToCollectionProcInfo,
-      GetCurrentArchitecture());
-}
+  inline ControlCNTLToCollectionUPP
+  NewControlCNTLToCollectionUPP(ControlCNTLToCollectionProcPtr userRoutine)
+  {
+    return (ControlCNTLToCollectionUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppControlCNTLToCollectionProcInfo,
+        GetCurrentArchitecture());
+  }
 #else
-#define NewControlCNTLToCollectionUPP(userRoutine)                             \
-  (ControlCNTLToCollectionUPP) NewRoutineDescriptor(                           \
-      (ProcPtr)(userRoutine), uppControlCNTLToCollectionProcInfo,              \
+#define NewControlCNTLToCollectionUPP(userRoutine)                \
+  (ControlCNTLToCollectionUPP) NewRoutineDescriptor(              \
+      (ProcPtr)(userRoutine), uppControlCNTLToCollectionProcInfo, \
       GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeControlCNTLToCollectionUPP()
- *
+  /**
+   *  DisposeControlCNTLToCollectionUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeControlCNTLToCollectionUPP(ControlCNTLToCollectionUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeControlCNTLToCollectionUPP(ControlCNTLToCollectionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void
-DisposeControlCNTLToCollectionUPP(ControlCNTLToCollectionUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void
+  DisposeControlCNTLToCollectionUPP(ControlCNTLToCollectionUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
-#define DisposeControlCNTLToCollectionUPP(userUPP)                             \
+#define DisposeControlCNTLToCollectionUPP(userUPP) \
   DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeControlCNTLToCollectionUPP()
- *
+  /**
+   *  InvokeControlCNTLToCollectionUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSStatus
-InvokeControlCNTLToCollectionUPP(const Rect *bounds, SInt16 value,
-                                 Boolean visible, SInt16 max, SInt16 min,
-                                 SInt16 procID, SInt32 refCon,
-                                 ConstStr255Param title, Collection collection,
-                                 ControlCNTLToCollectionUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  InvokeControlCNTLToCollectionUPP(const Rect *bounds, SInt16 value,
+                                   Boolean visible, SInt16 max, SInt16 min,
+                                   SInt16 procID, SInt32 refCon,
+                                   ConstStr255Param title, Collection collection,
+                                   ControlCNTLToCollectionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline OSStatus InvokeControlCNTLToCollectionUPP(
-    const Rect *bounds, SInt16 value, Boolean visible, SInt16 max, SInt16 min,
-    SInt16 procID, SInt32 refCon, ConstStr255Param title, Collection collection,
-    ControlCNTLToCollectionUPP userUPP) {
-  return (OSStatus)CALL_NINE_PARAMETER_UPP(
-      userUPP, uppControlCNTLToCollectionProcInfo, bounds, value, visible, max,
-      min, procID, refCon, title, collection);
-}
+  inline OSStatus InvokeControlCNTLToCollectionUPP(
+      const Rect *bounds, SInt16 value, Boolean visible, SInt16 max, SInt16 min,
+      SInt16 procID, SInt32 refCon, ConstStr255Param title, Collection collection,
+      ControlCNTLToCollectionUPP userUPP)
+  {
+    return (OSStatus)CALL_NINE_PARAMETER_UPP(
+        userUPP, uppControlCNTLToCollectionProcInfo, bounds, value, visible, max,
+        min, procID, refCon, title, collection);
+  }
 #else
-#define InvokeControlCNTLToCollectionUPP(bounds, value, visible, max, min,     \
-                                         procID, refCon, title, collection,    \
-                                         userUPP)                              \
-  (OSStatus) CALL_NINE_PARAMETER_UPP(                                          \
-      (userUPP), uppControlCNTLToCollectionProcInfo, (bounds), (value),        \
+#define InvokeControlCNTLToCollectionUPP(bounds, value, visible, max, min,  \
+                                         procID, refCon, title, collection, \
+                                         userUPP)                           \
+  (OSStatus) CALL_NINE_PARAMETER_UPP(                                       \
+      (userUPP), uppControlCNTLToCollectionProcInfo, (bounds), (value),     \
       (visible), (max), (min), (procID), (refCon), (title), (collection))
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
-#define NewControlCNTLToCollectionProc(userRoutine)                            \
+#define NewControlCNTLToCollectionProc(userRoutine) \
   NewControlCNTLToCollectionUPP(userRoutine)
-#define CallControlCNTLToCollectionProc(userRoutine, bounds, value, visible,   \
-                                        max, min, procID, refCon, title,       \
-                                        collection)                            \
-  InvokeControlCNTLToCollectionUPP(bounds, value, visible, max, min, procID,   \
+#define CallControlCNTLToCollectionProc(userRoutine, bounds, value, visible, \
+                                        max, min, procID, refCon, title,     \
+                                        collection)                          \
+  InvokeControlCNTLToCollectionUPP(bounds, value, visible, max, min, procID, \
                                    refCon, title, collection, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  RegisterControlDefinition()
- *
- *  Summary:
- *    Associates or dissociates a control definition with a virtual
- *    CDEF resource ID.
- *
- *  Discussion:
- *    In GetNewControl or NewControl on Carbon, the Control Manager
- *    needs to know how to map the procID to a ControlDefSpec. With
- *    RegisterControlDefinition, your application can inform the
- *    Control Manager which ControlDefSpec to call when it sees a
- *    request to use a 'CDEF' of a particular resource ID. Since custom
- *    control definitions receive their initialization data in a
- *    Collection passed in the 'param' parameter, you must also provide
- *    a procedure to convert the bounds, min, max, and other parameters
- *    to NewControl into a Collection. If you don't provide a
- *    conversion proc, your control will receive an empty collection
- *    when it is sent the initialization message. If you want the
- *    value, min, visibility, etc. to be given to the control, you must
- *    add the appropriate tagged data to the collection. See the
- *    Control Collection Tags above. If you want to unregister a
- *    ControlDefSpec that you have already registered, call
- *    RegisterControlDefinition with the same CDEF resource ID, but
- *    pass NULL for the inControlDef parameter. In this situation,
- *    inConversionProc is effectively ignored.
- *
- *  Parameters:
- *
- *    inCDEFResID:
- *      The virtual CDEF resource ID to which you'd like to associate
- *      or dissociate the control definition.
- *
- *    inControlDef:
- *      A pointer to a ControlDefSpec which represents the control
- *      definition you want to register, or NULL if you are attempting
- *      to unregister a control definition.
- *
- *    inConversionProc:
- *      The conversion proc which will translate the NewControl
- *      parameters into a Collection.
- *
- *  Result:
- *    An OSStatus code indicating success or failure.
- *
+  /**
+   *  RegisterControlDefinition()
+   *
+   *  Summary:
+   *    Associates or dissociates a control definition with a virtual
+   *    CDEF resource ID.
+   *
+   *  Discussion:
+   *    In GetNewControl or NewControl on Carbon, the Control Manager
+   *    needs to know how to map the procID to a ControlDefSpec. With
+   *    RegisterControlDefinition, your application can inform the
+   *    Control Manager which ControlDefSpec to call when it sees a
+   *    request to use a 'CDEF' of a particular resource ID. Since custom
+   *    control definitions receive their initialization data in a
+   *    Collection passed in the 'param' parameter, you must also provide
+   *    a procedure to convert the bounds, min, max, and other parameters
+   *    to NewControl into a Collection. If you don't provide a
+   *    conversion proc, your control will receive an empty collection
+   *    when it is sent the initialization message. If you want the
+   *    value, min, visibility, etc. to be given to the control, you must
+   *    add the appropriate tagged data to the collection. See the
+   *    Control Collection Tags above. If you want to unregister a
+   *    ControlDefSpec that you have already registered, call
+   *    RegisterControlDefinition with the same CDEF resource ID, but
+   *    pass NULL for the inControlDef parameter. In this situation,
+   *    inConversionProc is effectively ignored.
+   *
+   *  Parameters:
+   *
+   *    inCDEFResID:
+   *      The virtual CDEF resource ID to which you'd like to associate
+   *      or dissociate the control definition.
+   *
+   *    inControlDef:
+   *      A pointer to a ControlDefSpec which represents the control
+   *      definition you want to register, or NULL if you are attempting
+   *      to unregister a control definition.
+   *
+   *    inConversionProc:
+   *      The conversion proc which will translate the NewControl
+   *      parameters into a Collection.
+   *
+   *  Result:
+   *    An OSStatus code indicating success or failure.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-RegisterControlDefinition(SInt16 inCDEFResID,
-                          const ControlDefSpec *inControlDef,
-                          ControlCNTLToCollectionUPP inConversionProc);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  RegisterControlDefinition(SInt16 inCDEFResID,
+                            const ControlDefSpec *inControlDef,
+                            ControlCNTLToCollectionUPP inConversionProc);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Visible State */
-/*��������������������������������������������������������������������������������������*/
-/**
- *  HiliteControl()
- *
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Control Visible State */
+  /*��������������������������������������������������������������������������������������*/
+  /**
+   *  HiliteControl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HiliteControl(ControlRef theControl, ControlPartCode hiliteState)
-    ONEWORDINLINE(0xA95D);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HiliteControl(ControlRef theControl, ControlPartCode hiliteState)
+      ONEWORDINLINE(0xA95D);
 
-/**
- *  ShowControl()
- *
+  /**
+   *  ShowControl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ShowControl(ControlRef theControl) ONEWORDINLINE(0xA957);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ShowControl(ControlRef theControl) ONEWORDINLINE(0xA957);
 
-/**
- *  HideControl()
- *
+  /**
+   *  HideControl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HideControl(ControlRef theControl) ONEWORDINLINE(0xA958);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HideControl(ControlRef theControl) ONEWORDINLINE(0xA958);
 
-/* following state routines available only with Appearance 1.0 and later*/
-/**
- *  IsControlActive()
- *
+  /* following state routines available only with Appearance 1.0 and later*/
+  /**
+   *  IsControlActive()
+   *
 
- *    \non_carbon_cfm   in AppearanceLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-IsControlActive(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0005, 0xAA73);
+   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  IsControlActive(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0005, 0xAA73);
 
-/**
- *  IsControlVisible()
- *
+  /**
+   *  IsControlVisible()
+   *
 
- *    \non_carbon_cfm   in AppearanceLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-IsControlVisible(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0006, 0xAA73);
+   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  IsControlVisible(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0006, 0xAA73);
 
-/**
- *  ActivateControl()
- *
+  /**
+   *  ActivateControl()
+   *
 
- *    \non_carbon_cfm   in AppearanceLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ActivateControl(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0007, 0xAA73);
+   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ActivateControl(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0007, 0xAA73);
 
-/**
- *  DeactivateControl()
- *
+  /**
+   *  DeactivateControl()
+   *
 
- *    \non_carbon_cfm   in AppearanceLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-DeactivateControl(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0008, 0xAA73);
+   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  DeactivateControl(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0008, 0xAA73);
 
-/**
- *  SetControlVisibility()
- *
+  /**
+   *  SetControlVisibility()
+   *
 
- *    \non_carbon_cfm   in AppearanceLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetControlVisibility(ControlRef inControl, Boolean inIsVisible,
-                     Boolean inDoDraw) THREEWORDINLINE(0x303C, 0x001E, 0xAA73);
+   *    \non_carbon_cfm   in AppearanceLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetControlVisibility(ControlRef inControl, Boolean inIsVisible,
+                       Boolean inDoDraw) THREEWORDINLINE(0x303C, 0x001E, 0xAA73);
 
-/* following state routines available only on Mac OS X and later*/
-/**
- *  IsControlEnabled()
- *
+  /* following state routines available only on Mac OS X and later*/
+  /**
+   *  IsControlEnabled()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-IsControlEnabled(ControlRef inControl);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  IsControlEnabled(ControlRef inControl);
 
-/**
- *  EnableControl()
- *
+  /**
+   *  EnableControl()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-EnableControl(ControlRef inControl);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  EnableControl(ControlRef inControl);
 
-/**
- *  DisableControl()
- *
+  /**
+   *  DisableControl()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-DisableControl(ControlRef inControl);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  DisableControl(ControlRef inControl);
 
-/*��������������������������������������������������������������������������������������*/
-/*  � Control Imaging */
-/*��������������������������������������������������������������������������������������*/
+  /*��������������������������������������������������������������������������������������*/
+  /*  � Control Imaging */
+  /*��������������������������������������������������������������������������������������*/
 
-			/** 
-			\brief Draw all controls visible in a window 
-			
-			<pre>DrawControls draws all of a window's currently active and visible controls.
+  /**
+  \brief Draw all controls visible in a window
+
+  <pre>DrawControls draws all of a window's currently active and visible controls.
 This (or UpdtControl ) should be used upon detecting an update event for a
 window that contains controls.
 theWindow is a pointer to a 108-byte GrafPort structure (actually a 156-byte
 WindowRecord ). It is typically a value obtained from
 EventRecord .message after calling WaitNextEvent .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This can be used at any time to draw the controls in a window. It works by
+* \note <pre>This can be used at any time to draw the controls in a window. It works by
 drawing all the controls, and letting the off-screen or covered controls be
 clipped. The 128K ROM UpdtControl function is more efficient since it
 doesn't waste time drawing outside of the window's visible region.
@@ -1461,26 +1545,27 @@ SetPort ( updtWin)
 BeginUpdate ( updtWin );
 DrawControls ( updtWin );
 DrawGrowIcon ( updtWin); /* if needed */
-MyDrawWin( updtWin); /* draw window contents */
-EndUpdate ( updtWin );
-SetPort ( savePort )
-break;
-case mouseDown :
-.
-. ... etc ...
-.
+  MyDrawWin(updtWin); /* draw window contents */
+  EndUpdate(updtWin);
+  SetPort(savePort) break;
+case mouseDown:
+  .
+      .... etc...
+      .
 }
 }
-The ’size icon' (if used) is also part of the content region of a window and
-will need to be redrawn when it is uncovered.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-DrawControls(WindowRef theWindow) ONEWORDINLINE(0xA969);
+The ’size icon' (if used) is also part of the content region of a window and will need to be redrawn when it is uncovered.</ pre>
+            * \copyright THINK Reference © 1991 -
+        1992 Symantec Corporation
+            *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        void
+        DrawControls(WindowRef theWindow) ONEWORDINLINE(0xA969);
 
 /**
  *  Draw1Control()
@@ -1490,8 +1575,7 @@ DrawControls(WindowRef theWindow) ONEWORDINLINE(0xA969);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-Draw1Control(ControlRef theControl) ONEWORDINLINE(0xA96D);
+void Draw1Control(ControlRef theControl) ONEWORDINLINE(0xA96D);
 
 #define DrawOneControl(theControl) Draw1Control(theControl)
 
@@ -1518,8 +1602,7 @@ Draw1Control(ControlRef theControl) ONEWORDINLINE(0xA96D);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-UpdateControls(
+void UpdateControls(
     WindowRef inWindow,
     RgnHandle inUpdateRegion) /* can be NULL */ ONEWORDINLINE(0xA953);
 
@@ -1532,9 +1615,8 @@ UpdateControls(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetBestControlRect(ControlRef inControl, Rect *outRect,
-                   SInt16 *outBaseLineOffset)
+OSErr GetBestControlRect(ControlRef inControl, Rect *outRect,
+                         SInt16 *outBaseLineOffset)
     THREEWORDINLINE(0x303C, 0x001B, 0xAA73);
 
 /**
@@ -1545,8 +1627,7 @@ GetBestControlRect(ControlRef inControl, Rect *outRect,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetControlFontStyle(ControlRef inControl, const ControlFontStyleRec *inStyle)
+OSErr SetControlFontStyle(ControlRef inControl, const ControlFontStyleRec *inStyle)
     THREEWORDINLINE(0x303C, 0x001C, 0xAA73);
 
 /**
@@ -1557,8 +1638,7 @@ SetControlFontStyle(ControlRef inControl, const ControlFontStyleRec *inStyle)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DrawControlInCurrentPort(ControlRef inControl)
+void DrawControlInCurrentPort(ControlRef inControl)
     THREEWORDINLINE(0x303C, 0x0018, 0xAA73);
 
 /**
@@ -1610,9 +1690,8 @@ DrawControlInCurrentPort(ControlRef inControl)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetUpControlBackground(ControlRef inControl, SInt16 inDepth,
-                       Boolean inIsColorDevice)
+OSErr SetUpControlBackground(ControlRef inControl, SInt16 inDepth,
+                             Boolean inIsColorDevice)
     THREEWORDINLINE(0x303C, 0x001D, 0xAA73);
 
 /**
@@ -1663,9 +1742,8 @@ SetUpControlBackground(ControlRef inControl, SInt16 inDepth,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetUpControlTextColor(ControlRef inControl, SInt16 inDepth,
-                      Boolean inIsColorDevice);
+OSErr SetUpControlTextColor(ControlRef inControl, SInt16 inDepth,
+                            Boolean inIsColorDevice);
 
 /**
  *  ControlColorProcPtr
@@ -1735,19 +1813,21 @@ typedef STACK_UPP_TYPE(ControlColorProcPtr) ControlColorUPP;
 ControlColorUPP
 NewControlColorUPP(ControlColorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
+enum
+{
   uppControlColorProcInfo = 0x00001AF0
 }; /* pascal 4_bytes Func(4_bytes, 2_bytes, 2_bytes, 1_byte) */
 #ifdef __cplusplus
-inline ControlColorUPP NewControlColorUPP(ControlColorProcPtr userRoutine) {
+inline ControlColorUPP NewControlColorUPP(ControlColorProcPtr userRoutine)
+{
   return (ControlColorUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                uppControlColorProcInfo,
                                                GetCurrentArchitecture());
 }
 #else
-#define NewControlColorUPP(userRoutine)                                        \
-  (ControlColorUPP)                                                            \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppControlColorProcInfo,    \
+#define NewControlColorUPP(userRoutine)                                     \
+  (ControlColorUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppControlColorProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
@@ -1760,11 +1840,11 @@ inline ControlColorUPP NewControlColorUPP(ControlColorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-void
-DisposeControlColorUPP(ControlColorUPP userUPP);
+void DisposeControlColorUPP(ControlColorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeControlColorUPP(ControlColorUPP userUPP) {
+inline void DisposeControlColorUPP(ControlColorUPP userUPP)
+{
   DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
 }
 #else
@@ -1788,7 +1868,8 @@ InvokeControlColorUPP(ControlRef inControl, SInt16 inMessage,
 #ifdef __cplusplus
 inline OSStatus InvokeControlColorUPP(ControlRef inControl, SInt16 inMessage,
                                       SInt16 inDrawDepth, Boolean inDrawInColor,
-                                      ControlColorUPP userUPP) {
+                                      ControlColorUPP userUPP)
+{
   return (OSStatus)CALL_FOUR_PARAMETER_UPP(userUPP, uppControlColorProcInfo,
                                            inControl, inMessage, inDrawDepth,
                                            inDrawInColor);
@@ -1805,9 +1886,9 @@ inline OSStatus InvokeControlColorUPP(ControlRef inControl, SInt16 inMessage,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewControlColorProc(userRoutine) NewControlColorUPP(userRoutine)
-#define CallControlColorProc(userRoutine, inControl, inMessage, inDrawDepth,   \
-                             inDrawInColor)                                    \
-  InvokeControlColorUPP(inControl, inMessage, inDrawDepth, inDrawInColor,      \
+#define CallControlColorProc(userRoutine, inControl, inMessage, inDrawDepth, \
+                             inDrawInColor)                                  \
+  InvokeControlColorUPP(inControl, inMessage, inDrawDepth, inDrawInColor,    \
                         userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -1857,7 +1938,7 @@ inline OSStatus InvokeControlColorUPP(ControlRef inControl, SInt16 inMessage,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetControlColorProc(ControlRef inControl, ControlColorUPP inProc);
 
 /*��������������������������������������������������������������������������������������*/
@@ -1882,7 +1963,7 @@ SetControlColorProc(ControlRef inControl, ControlColorUPP inProc);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlPartCode)
+ControlPartCode
 TrackControl(
     ControlRef theControl, Point startPoint,
     ControlActionUPP actionProc) /* can be NULL */ ONEWORDINLINE(0xA968);
@@ -1895,9 +1976,8 @@ TrackControl(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DragControl(ControlRef theControl, Point startPoint, const Rect *limitRect,
-            const Rect *slopRect, DragConstraint axis) ONEWORDINLINE(0xA967);
+void DragControl(ControlRef theControl, Point startPoint, const Rect *limitRect,
+                 const Rect *slopRect, DragConstraint axis) ONEWORDINLINE(0xA967);
 
 /**
  *  TestControl()
@@ -1907,7 +1987,7 @@ DragControl(ControlRef theControl, Point startPoint, const Rect *limitRect,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlPartCode)
+ControlPartCode
 TestControl(ControlRef theControl, Point testPoint) ONEWORDINLINE(0xA966);
 
 /**
@@ -1918,7 +1998,7 @@ TestControl(ControlRef theControl, Point testPoint) ONEWORDINLINE(0xA966);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlPartCode)
+ControlPartCode
 FindControl(Point testPoint, WindowRef theWindow, ControlRef *theControl)
     ONEWORDINLINE(0xA96C);
 
@@ -1937,7 +2017,7 @@ FindControl(Point testPoint, WindowRef theWindow, ControlRef *theControl)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlRef)
+ControlRef
 FindControlUnderMouse(Point inWhere, WindowRef inWindow,
                       ControlPartCode *outPart)
     THREEWORDINLINE(0x303C, 0x0009, 0xAA73);
@@ -1950,7 +2030,7 @@ FindControlUnderMouse(Point inWhere, WindowRef inWindow,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlPartCode)
+ControlPartCode
 HandleControlClick(
     ControlRef inControl, Point inWhere, EventModifiers inModifiers,
     ControlActionUPP inAction) /* can be NULL */ THREEWORDINLINE(0x303C, 0x000A,
@@ -1971,7 +2051,7 @@ HandleControlClick(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 HandleControlContextualMenuClick(ControlRef inControl, Point inWhere,
                                  Boolean *menuDisplayed);
 
@@ -1989,7 +2069,7 @@ HandleControlContextualMenuClick(ControlRef inControl, Point inWhere,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlClickActivation(ControlRef inControl, Point inWhere,
                           EventModifiers inModifiers,
                           ClickActivationResult *outResult);
@@ -2005,7 +2085,7 @@ GetControlClickActivation(ControlRef inControl, Point inWhere,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlPartCode)
+ControlPartCode
 HandleControlKey(ControlRef inControl, SInt16 inKeyCode, SInt16 inCharCode,
                  EventModifiers inModifiers)
     THREEWORDINLINE(0x303C, 0x000B, 0xAA73);
@@ -2018,8 +2098,7 @@ HandleControlKey(ControlRef inControl, SInt16 inKeyCode, SInt16 inCharCode,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-IdleControls(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x000C, 0xAA73);
+void IdleControls(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x000C, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
 /* � Control Mouse Tracking (available with Carbon) */
@@ -2040,7 +2119,7 @@ IdleControls(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x000C, 0xAA73);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 HandleControlSetCursor(ControlRef control, Point localPoint,
                        EventModifiers modifiers, Boolean *cursorWasSet);
 
@@ -2055,8 +2134,7 @@ HandleControlSetCursor(ControlRef control, Point localPoint,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-MoveControl(ControlRef theControl, SInt16 h, SInt16 v) ONEWORDINLINE(0xA959);
+void MoveControl(ControlRef theControl, SInt16 h, SInt16 v) ONEWORDINLINE(0xA959);
 
 /**
  *  SizeControl()
@@ -2066,8 +2144,7 @@ MoveControl(ControlRef theControl, SInt16 h, SInt16 v) ONEWORDINLINE(0xA959);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SizeControl(ControlRef theControl, SInt16 w, SInt16 h) ONEWORDINLINE(0xA95C);
+void SizeControl(ControlRef theControl, SInt16 w, SInt16 h) ONEWORDINLINE(0xA95C);
 
 /*��������������������������������������������������������������������������������������*/
 /*  � Control Title */
@@ -2080,8 +2157,7 @@ SizeControl(ControlRef theControl, SInt16 w, SInt16 h) ONEWORDINLINE(0xA95C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlTitle(ControlRef theControl, ConstStr255Param title)
+void SetControlTitle(ControlRef theControl, ConstStr255Param title)
     ONEWORDINLINE(0xA95F);
 
 /**
@@ -2092,8 +2168,7 @@ SetControlTitle(ControlRef theControl, ConstStr255Param title)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-GetControlTitle(ControlRef theControl, Str255 title) ONEWORDINLINE(0xA95E);
+void GetControlTitle(ControlRef theControl, Str255 title) ONEWORDINLINE(0xA95E);
 
 /**
  *  SetControlTitleWithCFString()
@@ -2103,7 +2178,7 @@ GetControlTitle(ControlRef theControl, Str255 title) ONEWORDINLINE(0xA95E);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetControlTitleWithCFString(ControlRef inControl, CFStringRef inString);
 
 /**
@@ -2114,7 +2189,7 @@ SetControlTitleWithCFString(ControlRef inControl, CFStringRef inString);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CopyControlTitleAsCFString(ControlRef inControl, CFStringRef *outString);
 
 /*��������������������������������������������������������������������������������������*/
@@ -2128,7 +2203,7 @@ CopyControlTitleAsCFString(ControlRef inControl, CFStringRef *outString);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt16)
+SInt16
 GetControlValue(ControlRef theControl) ONEWORDINLINE(0xA960);
 
 /**
@@ -2139,8 +2214,7 @@ GetControlValue(ControlRef theControl) ONEWORDINLINE(0xA960);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlValue(ControlRef theControl, SInt16 newValue) ONEWORDINLINE(0xA963);
+void SetControlValue(ControlRef theControl, SInt16 newValue) ONEWORDINLINE(0xA963);
 
 /**
  *  GetControlMinimum()
@@ -2150,7 +2224,7 @@ SetControlValue(ControlRef theControl, SInt16 newValue) ONEWORDINLINE(0xA963);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt16)
+SInt16
 GetControlMinimum(ControlRef theControl) ONEWORDINLINE(0xA961);
 
 /**
@@ -2161,8 +2235,7 @@ GetControlMinimum(ControlRef theControl) ONEWORDINLINE(0xA961);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlMinimum(ControlRef theControl, SInt16 newMinimum)
+void SetControlMinimum(ControlRef theControl, SInt16 newMinimum)
     ONEWORDINLINE(0xA964);
 
 /**
@@ -2173,7 +2246,7 @@ SetControlMinimum(ControlRef theControl, SInt16 newMinimum)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt16)
+SInt16
 GetControlMaximum(ControlRef theControl) ONEWORDINLINE(0xA962);
 
 /**
@@ -2184,8 +2257,7 @@ GetControlMaximum(ControlRef theControl) ONEWORDINLINE(0xA962);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlMaximum(ControlRef theControl, SInt16 newMaximum)
+void SetControlMaximum(ControlRef theControl, SInt16 newMaximum)
     ONEWORDINLINE(0xA965);
 
 /* proportional scrolling/32-bit value support is new with Appearance 1.1*/
@@ -2198,7 +2270,7 @@ SetControlMaximum(ControlRef theControl, SInt16 newMaximum)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetControlViewSize(ControlRef theControl);
 
 /**
@@ -2209,8 +2281,7 @@ GetControlViewSize(ControlRef theControl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlViewSize(ControlRef theControl, SInt32 newViewSize);
+void SetControlViewSize(ControlRef theControl, SInt32 newViewSize);
 
 /**
  *  GetControl32BitValue()
@@ -2220,7 +2291,7 @@ SetControlViewSize(ControlRef theControl, SInt32 newViewSize);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetControl32BitValue(ControlRef theControl);
 
 /**
@@ -2231,8 +2302,7 @@ GetControl32BitValue(ControlRef theControl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControl32BitValue(ControlRef theControl, SInt32 newValue);
+void SetControl32BitValue(ControlRef theControl, SInt32 newValue);
 
 /**
  *  GetControl32BitMaximum()
@@ -2242,7 +2312,7 @@ SetControl32BitValue(ControlRef theControl, SInt32 newValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetControl32BitMaximum(ControlRef theControl);
 
 /**
@@ -2253,8 +2323,7 @@ GetControl32BitMaximum(ControlRef theControl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControl32BitMaximum(ControlRef theControl, SInt32 newMaximum);
+void SetControl32BitMaximum(ControlRef theControl, SInt32 newMaximum);
 
 /**
  *  GetControl32BitMinimum()
@@ -2264,7 +2333,7 @@ SetControl32BitMaximum(ControlRef theControl, SInt32 newMaximum);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetControl32BitMinimum(ControlRef theControl);
 
 /**
@@ -2275,8 +2344,7 @@ GetControl32BitMinimum(ControlRef theControl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControl32BitMinimum(ControlRef theControl, SInt32 newMinimum);
+void SetControl32BitMinimum(ControlRef theControl, SInt32 newMinimum);
 
 /**
     IsValidControlHandle will tell you if the handle you pass in belongs to a
@@ -2292,14 +2360,15 @@ SetControl32BitMinimum(ControlRef theControl, SInt32 newMinimum);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsValidControlHandle(ControlRef theControl);
 
 /*��������������������������������������������������������������������������������������*/
 /* � Control IDs */
 /* Carbon only. */
 /*��������������������������������������������������������������������������������������*/
-struct ControlID {
+struct ControlID
+{
   OSType signature;
   SInt32 id;
 };
@@ -2312,7 +2381,7 @@ typedef struct ControlID ControlID;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetControlID(ControlRef inControl, const ControlID *inID);
 
 /**
@@ -2323,7 +2392,7 @@ SetControlID(ControlRef inControl, const ControlID *inID);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlID(ControlRef inControl, ControlID *outID);
 
 /**
@@ -2334,7 +2403,7 @@ GetControlID(ControlRef inControl, ControlID *outID);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlByID(WindowRef inWindow, const ControlID *inID,
                ControlRef *outControl);
 
@@ -2350,7 +2419,7 @@ GetControlByID(WindowRef inWindow, const ControlID *inID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetControlCommandID(ControlRef inControl, UInt32 inCommandID);
 
 /**
@@ -2361,14 +2430,15 @@ SetControlCommandID(ControlRef inControl, UInt32 inCommandID);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlCommandID(ControlRef inControl, UInt32 *outCommandID);
 
 /*��������������������������������������������������������������������������������������*/
 /* � Control Identification */
 /* Carbon only. */
 /*��������������������������������������������������������������������������������������*/
-struct ControlKind {
+struct ControlKind
+{
   OSType signature;
   OSType kind;
 };
@@ -2378,7 +2448,8 @@ typedef struct ControlKind ControlKind;
  *  Discussion:
  *    Control signature kind
  */
-enum {
+enum
+{
 
   /**
    * Signature of all system controls.
@@ -2411,13 +2482,14 @@ enum {
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlKind(ControlRef inControl, ControlKind *outControlKind);
 
 /*��������������������������������������������������������������������������������������*/
 /* � Properties */
 /*��������������������������������������������������������������������������������������*/
-enum {
+enum
+{
   kControlPropertyPersistent = 0x00000001 /* whether this property gets saved
                                              when flattening the control*/
 };
@@ -2430,7 +2502,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlProperty(ControlRef control, OSType propertyCreator,
                    OSType propertyTag, UInt32 bufferSize, UInt32 *actualSize,
                    void *propertyBuffer);
@@ -2443,7 +2515,7 @@ GetControlProperty(ControlRef control, OSType propertyCreator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlPropertySize(ControlRef control, OSType propertyCreator,
                        OSType propertyTag, UInt32 *size);
 
@@ -2455,7 +2527,7 @@ GetControlPropertySize(ControlRef control, OSType propertyCreator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetControlProperty(ControlRef control, OSType propertyCreator,
                    OSType propertyTag, UInt32 propertySize, void *propertyData);
 
@@ -2467,7 +2539,7 @@ SetControlProperty(ControlRef control, OSType propertyCreator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RemoveControlProperty(ControlRef control, OSType propertyCreator,
                       OSType propertyTag);
 
@@ -2479,7 +2551,7 @@ RemoveControlProperty(ControlRef control, OSType propertyCreator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlPropertyAttributes(ControlRef control, OSType propertyCreator,
                              OSType propertyTag, UInt32 *attributes);
 
@@ -2491,7 +2563,7 @@ GetControlPropertyAttributes(ControlRef control, OSType propertyCreator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ChangeControlPropertyAttributes(ControlRef control, OSType propertyCreator,
                                 OSType propertyTag, UInt32 attributesToSet,
                                 UInt32 attributesToClear);
@@ -2509,7 +2581,7 @@ ChangeControlPropertyAttributes(ControlRef control, OSType propertyCreator,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetControlRegion(ControlRef inControl, ControlPartCode inPart,
                  RgnHandle outRegion);
 
@@ -2524,7 +2596,7 @@ GetControlRegion(ControlRef inControl, ControlPartCode inPart,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlVariant)
+ControlVariant
 GetControlVariant(ControlRef theControl) ONEWORDINLINE(0xA809);
 
 /*��������������������������������������������������������������������������������������*/
@@ -2538,8 +2610,7 @@ GetControlVariant(ControlRef theControl) ONEWORDINLINE(0xA809);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlAction(ControlRef theControl, ControlActionUPP actionProc)
+void SetControlAction(ControlRef theControl, ControlActionUPP actionProc)
     ONEWORDINLINE(0xA96B);
 
 /**
@@ -2550,7 +2621,7 @@ SetControlAction(ControlRef theControl, ControlActionUPP actionProc)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlActionUPP)
+ControlActionUPP
 GetControlAction(ControlRef theControl) ONEWORDINLINE(0xA96A);
 
 /*��������������������������������������������������������������������������������������*/
@@ -2564,8 +2635,7 @@ GetControlAction(ControlRef theControl) ONEWORDINLINE(0xA96A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlReference(ControlRef theControl, SInt32 data) ONEWORDINLINE(0xA95B);
+void SetControlReference(ControlRef theControl, SInt32 data) ONEWORDINLINE(0xA95B);
 
 /**
  *  GetControlReference()
@@ -2575,7 +2645,7 @@ SetControlReference(ControlRef theControl, SInt32 data) ONEWORDINLINE(0xA95B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetControlReference(ControlRef theControl) ONEWORDINLINE(0xA95A);
 
 #if !OPAQUE_TOOLBOX_STRUCTS
@@ -2588,7 +2658,7 @@ GetControlReference(ControlRef theControl) ONEWORDINLINE(0xA95A);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 GetAuxiliaryControlRecord(ControlRef theControl, AuxCtlHandle *acHndl)
     ONEWORDINLINE(0xAA44);
 
@@ -2605,8 +2675,7 @@ GetAuxiliaryControlRecord(ControlRef theControl, AuxCtlHandle *acHndl)
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
-SetControlColor(ControlRef theControl, CCTabHandle newColorTable)
+void SetControlColor(ControlRef theControl, CCTabHandle newColorTable)
     ONEWORDINLINE(0xAA43);
 
 /*��������������������������������������������������������������������������������������*/
@@ -2622,7 +2691,7 @@ SetControlColor(ControlRef theControl, CCTabHandle newColorTable)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 SendControlMessage(ControlRef inControl, SInt16 inMessage, void *inParam)
     THREEWORDINLINE(0x303C, 0xFFFE, 0xAA73);
 
@@ -2634,8 +2703,7 @@ SendControlMessage(ControlRef inControl, SInt16 inMessage, void *inParam)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-DumpControlHierarchy(WindowRef inWindow, const FSSpec *inDumpFile)
+OSErr DumpControlHierarchy(WindowRef inWindow, const FSSpec *inDumpFile)
     THREEWORDINLINE(0x303C, 0xFFFF, 0xAA73);
 
 /**
@@ -2663,8 +2731,7 @@ DumpControlHierarchy(WindowRef inWindow, const FSSpec *inDumpFile)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-CreateRootControl(
+OSErr CreateRootControl(
     WindowRef inWindow,
     ControlRef *outControl) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0001,
                                                               0xAA73);
@@ -2677,8 +2744,7 @@ CreateRootControl(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetRootControl(WindowRef inWindow, ControlRef *outControl)
+OSErr GetRootControl(WindowRef inWindow, ControlRef *outControl)
     THREEWORDINLINE(0x303C, 0x0002, 0xAA73);
 
 /**
@@ -2689,8 +2755,7 @@ GetRootControl(WindowRef inWindow, ControlRef *outControl)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-EmbedControl(ControlRef inControl, ControlRef inContainer)
+OSErr EmbedControl(ControlRef inControl, ControlRef inContainer)
     THREEWORDINLINE(0x303C, 0x0003, 0xAA73);
 
 /**
@@ -2701,8 +2766,7 @@ EmbedControl(ControlRef inControl, ControlRef inContainer)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-AutoEmbedControl(ControlRef inControl, WindowRef inWindow)
+OSErr AutoEmbedControl(ControlRef inControl, WindowRef inWindow)
     THREEWORDINLINE(0x303C, 0x0004, 0xAA73);
 
 /**
@@ -2713,8 +2777,7 @@ AutoEmbedControl(ControlRef inControl, WindowRef inWindow)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetSuperControl(ControlRef inControl, ControlRef *outParent)
+OSErr GetSuperControl(ControlRef inControl, ControlRef *outParent)
     THREEWORDINLINE(0x303C, 0x0015, 0xAA73);
 
 /**
@@ -2725,8 +2788,7 @@ GetSuperControl(ControlRef inControl, ControlRef *outParent)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-CountSubControls(ControlRef inControl, UInt16 *outNumChildren)
+OSErr CountSubControls(ControlRef inControl, UInt16 *outNumChildren)
     THREEWORDINLINE(0x303C, 0x0016, 0xAA73);
 
 /**
@@ -2737,9 +2799,8 @@ CountSubControls(ControlRef inControl, UInt16 *outNumChildren)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetIndexedSubControl(ControlRef inControl, UInt16 inIndex,
-                     ControlRef *outSubControl)
+OSErr GetIndexedSubControl(ControlRef inControl, UInt16 inIndex,
+                           ControlRef *outSubControl)
     THREEWORDINLINE(0x303C, 0x0017, 0xAA73);
 
 /**
@@ -2750,8 +2811,7 @@ GetIndexedSubControl(ControlRef inControl, UInt16 inIndex,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetControlSupervisor(ControlRef inControl, ControlRef inBoss)
+OSErr SetControlSupervisor(ControlRef inControl, ControlRef inBoss)
     THREEWORDINLINE(0x303C, 0x001A, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
@@ -2765,8 +2825,7 @@ SetControlSupervisor(ControlRef inControl, ControlRef inBoss)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetKeyboardFocus(WindowRef inWindow, ControlRef *outControl)
+OSErr GetKeyboardFocus(WindowRef inWindow, ControlRef *outControl)
     THREEWORDINLINE(0x303C, 0x000D, 0xAA73);
 
 /**
@@ -2777,9 +2836,8 @@ GetKeyboardFocus(WindowRef inWindow, ControlRef *outControl)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetKeyboardFocus(WindowRef inWindow, ControlRef inControl,
-                 ControlFocusPart inPart)
+OSErr SetKeyboardFocus(WindowRef inWindow, ControlRef inControl,
+                       ControlFocusPart inPart)
     THREEWORDINLINE(0x303C, 0x000E, 0xAA73);
 
 /**
@@ -2790,8 +2848,7 @@ SetKeyboardFocus(WindowRef inWindow, ControlRef inControl,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-AdvanceKeyboardFocus(WindowRef inWindow)
+OSErr AdvanceKeyboardFocus(WindowRef inWindow)
     THREEWORDINLINE(0x303C, 0x000F, 0xAA73);
 
 /**
@@ -2802,8 +2859,7 @@ AdvanceKeyboardFocus(WindowRef inWindow)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-ReverseKeyboardFocus(WindowRef inWindow)
+OSErr ReverseKeyboardFocus(WindowRef inWindow)
     THREEWORDINLINE(0x303C, 0x0010, 0xAA73);
 
 /**
@@ -2814,8 +2870,7 @@ ReverseKeyboardFocus(WindowRef inWindow)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-ClearKeyboardFocus(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x0019, 0xAA73);
+OSErr ClearKeyboardFocus(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x0019, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
 /*  � Control Data (available only with Appearance 1.0 and later) */
@@ -2829,8 +2884,7 @@ ClearKeyboardFocus(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x0019, 0xAA73);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetControlFeatures(ControlRef inControl, UInt32 *outFeatures)
+OSErr GetControlFeatures(ControlRef inControl, UInt32 *outFeatures)
     THREEWORDINLINE(0x303C, 0x0011, 0xAA73);
 
 /**
@@ -2841,9 +2895,8 @@ GetControlFeatures(ControlRef inControl, UInt32 *outFeatures)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
-               Size inSize, const void *inData)
+OSErr SetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
+                     Size inSize, const void *inData)
     THREEWORDINLINE(0x303C, 0x0012, 0xAA73);
 
 /**
@@ -2854,9 +2907,8 @@ SetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
-               Size inBufferSize, void *inBuffer, Size *outActualSize)
+OSErr GetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
+                     Size inBufferSize, void *inBuffer, Size *outActualSize)
     THREEWORDINLINE(0x303C, 0x0013, 0xAA73);
 
 /**
@@ -2867,9 +2919,8 @@ GetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetControlDataSize(ControlRef inControl, ControlPartCode inPart,
-                   ResType inTagName, Size *outMaxSize)
+OSErr GetControlDataSize(ControlRef inControl, ControlPartCode inPart,
+                         ResType inTagName, Size *outMaxSize)
     THREEWORDINLINE(0x303C, 0x0014, 0xAA73);
 
 /*��������������������������������������������������������������������������������������*/
@@ -2877,7 +2928,8 @@ GetControlDataSize(ControlRef inControl, ControlPartCode inPart,
 /*      Carbon only. */
 /*��������������������������������������������������������������������������������������*/
 /* some simple redefinitions of the similar values found in the Drag header*/
-enum {
+enum
+{
   kDragTrackingEnterControl = 2,
   kDragTrackingInControl = 3,
   kDragTrackingLeaveControl = 4
@@ -2891,7 +2943,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 HandleControlDragTracking(ControlRef inControl, DragTrackingMessage inMessage,
                           DragReference inDrag, Boolean *outLikesDrag);
 
@@ -2903,7 +2955,7 @@ HandleControlDragTracking(ControlRef inControl, DragTrackingMessage inMessage,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 HandleControlDragReceive(ControlRef inControl, DragReference inDrag);
 
 /**
@@ -2914,7 +2966,7 @@ HandleControlDragReceive(ControlRef inControl, DragReference inDrag);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetControlDragTrackingEnabled(ControlRef theControl, Boolean tracks);
 
 /**
@@ -2925,7 +2977,7 @@ SetControlDragTrackingEnabled(ControlRef theControl, Boolean tracks);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 IsControlDragTrackingEnabled(ControlRef theControl, Boolean *tracks);
 
 /**
@@ -2936,7 +2988,7 @@ IsControlDragTrackingEnabled(ControlRef theControl, Boolean *tracks);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetAutomaticControlDragTrackingEnabledForWindow(WindowRef theWindow,
                                                 Boolean tracks);
 
@@ -2948,7 +3000,7 @@ SetAutomaticControlDragTrackingEnabledForWindow(WindowRef theWindow,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 IsAutomaticControlDragTrackingEnabledForWindow(WindowRef theWindow,
                                                Boolean *tracks);
 
@@ -2977,8 +3029,7 @@ typedef CALLBACK_API_C(Boolean, PreFilterEventProc)(ControlRef theControl,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-long
-GetControlComponentInstance(ControlRef theControl);
+long GetControlComponentInstance(ControlRef theControl);
 
 /**
  *  GetControlHandleFromCookie()
@@ -3000,8 +3051,7 @@ GetControlHandleFromCookie(long cookie);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-SetControlDefProc(short resID, ControlDefProcPtr proc);
+void SetControlDefProc(short resID, ControlDefProcPtr proc);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -3021,9 +3071,8 @@ typedef ControlNotificationProcPtr ControlNotificationUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-dragcontrol(ControlRef theControl, Point *startPt, const Rect *limitRect,
-            const Rect *slopRect, short axis);
+void dragcontrol(ControlRef theControl, Point *startPt, const Rect *limitRect,
+                 const Rect *slopRect, short axis);
 
 /**
  *  newcontrol()
@@ -3046,8 +3095,7 @@ newcontrol(WindowRef theWindow, const Rect *boundsRect, const char *title,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-short
-findcontrol(Point *thePoint, WindowRef theWindow, ControlRef *theControl);
+short findcontrol(Point *thePoint, WindowRef theWindow, ControlRef *theControl);
 
 /**
  *  getcontroltitle()
@@ -3057,8 +3105,7 @@ findcontrol(Point *thePoint, WindowRef theWindow, ControlRef *theControl);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-getcontroltitle(ControlRef theControl, char *title);
+void getcontroltitle(ControlRef theControl, char *title);
 
 /**
  *  setcontroltitle()
@@ -3068,8 +3115,7 @@ getcontroltitle(ControlRef theControl, char *title);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-setcontroltitle(ControlRef theControl, const char *title);
+void setcontroltitle(ControlRef theControl, const char *title);
 
 /**
  *  trackcontrol()
@@ -3079,9 +3125,8 @@ setcontroltitle(ControlRef theControl, const char *title);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-short
-trackcontrol(ControlRef theControl, Point *thePoint,
-             ControlActionUPP actionProc);
+short trackcontrol(ControlRef theControl, Point *thePoint,
+                   ControlActionUPP actionProc);
 
 /**
  *  testcontrol()
@@ -3091,8 +3136,7 @@ trackcontrol(ControlRef theControl, Point *thePoint,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-short
-testcontrol(ControlRef theControl, Point *thePt);
+short testcontrol(ControlRef theControl, Point *thePt);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -3102,9 +3146,13 @@ testcontrol(ControlRef theControl, Point *thePt);
 /*��������������������������������������������������������������������������������������*/
 /*  � OLDROUTINENAMES */
 /*��������������������������������������������������������������������������������������*/
-enum { useWFont = kControlUsesOwningWindowsFontVariant };
+enum
+{
+  useWFont = kControlUsesOwningWindowsFontVariant
+};
 
-enum {
+enum
+{
   inThumb = kControlIndicatorPart,
   kNoHiliteControlPart = kControlNoPart,
   kInIndicatorControlPart = kControlIndicatorPart,
@@ -3121,14 +3169,14 @@ enum {
 #define GetCtlMin(theControl) GetControlMinimum(theControl)
 #define SetCtlMax(theControl, maxValue) SetControlMaximum(theControl, maxValue)
 #define GetCtlMax(theControl) GetControlMaximum(theControl)
-#define GetAuxCtl(theControl, acHndl)                                          \
+#define GetAuxCtl(theControl, acHndl) \
   GetAuxiliaryControlRecord(theControl, acHndl)
 #define SetCRefCon(theControl, data) SetControlReference(theControl, data)
 #define GetCRefCon(theControl) GetControlReference(theControl)
-#define SetCtlAction(theControl, actionProc)                                   \
+#define SetCtlAction(theControl, actionProc) \
   SetControlAction(theControl, actionProc)
 #define GetCtlAction(theControl) GetControlAction(theControl)
-#define SetCtlColor(theControl, newColorTable)                                 \
+#define SetCtlColor(theControl, newColorTable) \
   SetControlColor(theControl, newColorTable)
 #define GetCVariant(theControl) GetControlVariant(theControl)
 #define getctitle(theControl, title) getcontroltitle(theControl, title)
@@ -3145,7 +3193,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetControlBounds(ControlRef control, Rect *bounds);
 
 /**
@@ -3156,7 +3204,7 @@ GetControlBounds(ControlRef control, Rect *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsControlHilited(ControlRef control);
 
 /**
@@ -3167,7 +3215,7 @@ IsControlHilited(ControlRef control);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt16)
+UInt16
 GetControlHilite(ControlRef control);
 
 /**
@@ -3178,7 +3226,7 @@ GetControlHilite(ControlRef control);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(WindowRef)
+WindowRef
 GetControlOwner(ControlRef control);
 
 /**
@@ -3189,7 +3237,7 @@ GetControlOwner(ControlRef control);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 GetControlDataHandle(ControlRef control);
 
 /**
@@ -3200,7 +3248,7 @@ GetControlDataHandle(ControlRef control);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(MenuRef)
+MenuRef
 GetControlPopupMenuHandle(ControlRef control);
 
 #define GetControlPopupMenuRef GetControlPopupMenuHandle
@@ -3212,8 +3260,7 @@ GetControlPopupMenuHandle(ControlRef control);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetControlPopupMenuID(ControlRef control);
+short GetControlPopupMenuID(ControlRef control);
 
 /* Setters */
 /**
@@ -3224,8 +3271,7 @@ GetControlPopupMenuID(ControlRef control);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlDataHandle(ControlRef control, Handle dataHandle);
+void SetControlDataHandle(ControlRef control, Handle dataHandle);
 
 /**
  *  SetControlBounds()
@@ -3235,8 +3281,7 @@ SetControlDataHandle(ControlRef control, Handle dataHandle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlBounds(ControlRef control, const Rect *bounds);
+void SetControlBounds(ControlRef control, const Rect *bounds);
 
 /**
  *  SetControlPopupMenuHandle()
@@ -3246,8 +3291,7 @@ SetControlBounds(ControlRef control, const Rect *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
+void SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
 
 #define SetControlPopupMenuRef SetControlPopupMenuHandle
 /**
@@ -3258,15 +3302,14 @@ SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlPopupMenuID(ControlRef control, short menuID);
+void SetControlPopupMenuID(ControlRef control, short menuID);
 
 #endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
 
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#define GetControlListFromWindow(theWindow)                                    \
+#define GetControlListFromWindow(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
-#define GetControlOwningWindowControlList(theWindow)                           \
+#define GetControlOwningWindowControlList(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
 #endif /* !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS */
 
@@ -3299,8 +3342,7 @@ SetControlPopupMenuID(ControlRef control, short menuID);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlBounds(ControlRef control, const Rect *bounds);
+void SetControlBounds(ControlRef control, const Rect *bounds);
 
 /**
  *  SetControlPopupMenuHandle()
@@ -3310,8 +3352,7 @@ SetControlBounds(ControlRef control, const Rect *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
+void SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
 
 #define SetControlPopupMenuRef SetControlPopupMenuHandle
 /**
@@ -3322,15 +3363,14 @@ SetControlPopupMenuHandle(ControlRef control, MenuRef popupMenu);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetControlPopupMenuID(ControlRef control, short menuID);
+void SetControlPopupMenuID(ControlRef control, short menuID);
 
 #endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
 
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#define GetControlListFromWindow(theWindow)                                    \
+#define GetControlListFromWindow(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
-#define GetControlOwningWindowControlList(theWindow)                           \
+#define GetControlOwningWindowControlList(theWindow) \
   (*(ControlRef *)(((UInt8 *)theWindow) + sizeof(GrafPort) + 0x20))
 #endif /* !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS */
 

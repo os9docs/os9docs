@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup Misc
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -43,117 +44,122 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/**
---------------- Completion Procs ---------------
-*/
-/**
+  /**
+  --------------- Completion Procs ---------------
+  */
+  /**
 
-   NOTE: the parameter for the completion proc (ICDHeader*) has to be casted to
-   the appropriate type e.g. (ICD_BuildObjectChildrenPB*), ...
+     NOTE: the parameter for the completion proc (ICDHeader*) has to be casted to
+     the appropriate type e.g. (ICD_BuildObjectChildrenPB*), ...
 
-*/
-typedef struct ICDHeader ICDHeader;
-typedef CALLBACK_API_C(void, ICDCompletion)(ICDHeader *pb);
-/**
---------------- ICDHeader ---------------
-*/
-struct ICDHeader {
-  OSErr err;     /* --> */
-  UInt32 refcon; /* <-- */
-};
+  */
+  typedef struct ICDHeader ICDHeader;
+  typedef CALLBACK_API_C(void, ICDCompletion)(ICDHeader *pb);
+  /**
+  --------------- ICDHeader ---------------
+  */
+  struct ICDHeader
+  {
+    OSErr err;     /* --> */
+    UInt32 refcon; /* <-- */
+  };
 
-/**
---------------- Object parameter blocks ---------------
-*/
-struct ICD_NewObjectPB {
-  ICDHeader header;
+  /**
+  --------------- Object parameter blocks ---------------
+  */
+  struct ICD_NewObjectPB
+  {
+    ICDHeader header;
 
-  ICAObject parentObject;   /* <-- */
-  ICAObjectInfo objectInfo; /* <-- */
+    ICAObject parentObject;   /* <-- */
+    ICAObjectInfo objectInfo; /* <-- */
 
-  ICAObject object; /* --> */
-};
-typedef struct ICD_NewObjectPB ICD_NewObjectPB;
-struct ICD_DisposeObjectPB {
-  ICDHeader header;
+    ICAObject object; /* --> */
+  };
+  typedef struct ICD_NewObjectPB ICD_NewObjectPB;
+  struct ICD_DisposeObjectPB
+  {
+    ICDHeader header;
 
-  ICAObject object; /* <-- */
-};
-typedef struct ICD_DisposeObjectPB ICD_DisposeObjectPB;
-/**
---------------- Property parameter blocks ---------------
-*/
-struct ICD_NewPropertyPB {
-  ICDHeader header;
+    ICAObject object; /* <-- */
+  };
+  typedef struct ICD_DisposeObjectPB ICD_DisposeObjectPB;
+  /**
+  --------------- Property parameter blocks ---------------
+  */
+  struct ICD_NewPropertyPB
+  {
+    ICDHeader header;
 
-  ICAObject object;             /* <-- */
-  ICAPropertyInfo propertyInfo; /* <-- */
+    ICAObject object;             /* <-- */
+    ICAPropertyInfo propertyInfo; /* <-- */
 
-  ICAProperty property; /* --> */
-};
-typedef struct ICD_NewPropertyPB ICD_NewPropertyPB;
-struct ICD_DisposePropertyPB {
-  ICDHeader header;
+    ICAProperty property; /* --> */
+  };
+  typedef struct ICD_NewPropertyPB ICD_NewPropertyPB;
+  struct ICD_DisposePropertyPB
+  {
+    ICDHeader header;
 
-  ICAProperty property; /* <-- */
-};
-typedef struct ICD_DisposePropertyPB ICD_DisposePropertyPB;
-/**
+    ICAProperty property; /* <-- */
+  };
+  typedef struct ICD_DisposePropertyPB ICD_DisposePropertyPB;
+  /**
 
-   NOTE: for all APIs - pass NULL as completion parameter to make a synchronous
-   call
+     NOTE: for all APIs - pass NULL as completion parameter to make a synchronous
+     call
 
-*/
+  */
 
-/**
---------------- Object utilities for device libraries ---------------
-*/
-/**
- *  ICDNewObject()
- *
+  /**
+  --------------- Object utilities for device libraries ---------------
+  */
+  /**
+   *  ICDNewObject()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICDNewObject(ICD_NewObjectPB *pb, ICDCompletion completion); /* can be NULL */
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICDNewObject(ICD_NewObjectPB *pb, ICDCompletion completion); /* can be NULL */
 
-/**
- *  ICDDisposeObject()
- *
+  /**
+   *  ICDDisposeObject()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICDDisposeObject(ICD_DisposeObjectPB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICDDisposeObject(ICD_DisposeObjectPB *pb,
+                   ICDCompletion completion); /* can be NULL */
+
+  /**
+   *  ICDNewProperty()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICDNewProperty(ICD_NewPropertyPB *pb,
                  ICDCompletion completion); /* can be NULL */
 
-/**
- *  ICDNewProperty()
- *
+  /**
+   *  ICDDisposeProperty()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICDNewProperty(ICD_NewPropertyPB *pb,
-               ICDCompletion completion); /* can be NULL */
-
-/**
- *  ICDDisposeProperty()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICDDisposeProperty(ICD_DisposePropertyPB *pb,
-                   ICDCompletion completion); /* can be NULL */
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICDDisposeProperty(ICD_DisposePropertyPB *pb,
+                     ICDCompletion completion); /* can be NULL */
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

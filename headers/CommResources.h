@@ -9,7 +9,7 @@
     \copyright © 1988-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup CommunicationsToolbox
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -48,319 +49,322 @@ extern "C" {
 #endif
 
 #if CALL_NOT_IN_CARBON
-enum {
-  /**    tool classes (also the tool file types)    */
-  classCM = FOUR_CHAR_CODE('cbnd'),
-  classFT = FOUR_CHAR_CODE('fbnd'),
-  classTM = FOUR_CHAR_CODE('tbnd')
-};
+  enum
+  {
+    /**    tool classes (also the tool file types)    */
+    classCM = FOUR_CHAR_CODE('cbnd'),
+    classFT = FOUR_CHAR_CODE('fbnd'),
+    classTM = FOUR_CHAR_CODE('tbnd')
+  };
 
-enum {
-  /**    version of the Comm Resource Manager   */
-  curCRMVersion = 2, /** constants general to the use of the Communications
-                        Resource Manager */
-  crmType = 9,       /** queue type */
-  crmRecVersion = 1, /** version of queue structure */
-                     /**    error codes */
-  crmGenericError = -1,
-  crmNoErr = 0
-};
+  enum
+  {
+    /**    version of the Comm Resource Manager   */
+    curCRMVersion = 2, /** constants general to the use of the Communications
+                          Resource Manager */
+    crmType = 9,       /** queue type */
+    crmRecVersion = 1, /** version of queue structure */
+                       /**    error codes */
+    crmGenericError = -1,
+    crmNoErr = 0
+  };
 
-/** data structures general to the use of the Communications Resource Manager */
-typedef OSErr CRMErr;
-struct CRMRec {
-  QElemPtr qLink;     /**reserved*/
-  short qType;        /**queue type -- ORD(crmType) = 9*/
-  short crmVersion;   /**version of queue element data structure*/
-  long crmPrivate;    /**reserved*/
-  short crmReserved;  /**reserved*/
-  long crmDeviceType; /**type of device, assigned by DTS*/
-  long crmDeviceID;   /**device ID; assigned when CRMInstall is called*/
-  long crmAttributes; /**pointer to attribute block*/
-  long crmStatus;     /**status variable - device specific*/
-  long crmRefCon;     /**for device private use*/
-};
-typedef struct CRMRec CRMRec;
-typedef CRMRec *CRMRecPtr;
+  /** data structures general to the use of the Communications Resource Manager */
+  typedef OSErr CRMErr;
+  struct CRMRec
+  {
+    QElemPtr qLink;     /**reserved*/
+    short qType;        /**queue type -- ORD(crmType) = 9*/
+    short crmVersion;   /**version of queue element data structure*/
+    long crmPrivate;    /**reserved*/
+    short crmReserved;  /**reserved*/
+    long crmDeviceType; /**type of device, assigned by DTS*/
+    long crmDeviceID;   /**device ID; assigned when CRMInstall is called*/
+    long crmAttributes; /**pointer to attribute block*/
+    long crmStatus;     /**status variable - device specific*/
+    long crmRefCon;     /**for device private use*/
+  };
+  typedef struct CRMRec CRMRec;
+  typedef CRMRec *CRMRecPtr;
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  InitCRM()
- *
+  /**
+   *  InitCRM()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CRMErr)
-InitCRM(void);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  CRMErr
+  InitCRM(void);
 
-/**
- *  CRMGetHeader()
- *
+  /**
+   *  CRMGetHeader()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(QHdrPtr)
-CRMGetHeader(void);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  QHdrPtr
+  CRMGetHeader(void);
 
-/**
- *  CRMInstall()
- *
+  /**
+   *  CRMInstall()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-CRMInstall(CRMRecPtr crmReqPtr);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  CRMInstall(CRMRecPtr crmReqPtr);
 
-/**
- *  CRMRemove()
- *
+  /**
+   *  CRMRemove()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-CRMRemove(CRMRecPtr crmReqPtr);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  CRMRemove(CRMRecPtr crmReqPtr);
 
-/**
- *  CRMSearch()
- *
+  /**
+   *  CRMSearch()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CRMRecPtr)
-CRMSearch(CRMRecPtr crmReqPtr);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  CRMRecPtr
+  CRMSearch(CRMRecPtr crmReqPtr);
 
-/**
- *  CRMGetCRMVersion()
- *
+  /**
+   *  CRMGetCRMVersion()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(short)
-CRMGetCRMVersion(void);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  CRMGetCRMVersion(void);
 
-/**
- *  CRMGetResource()
- *
+  /**
+   *  CRMGetResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGetResource(ResType theType, short theID);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGetResource(ResType theType, short theID);
 
-/**
- *  CRMGet1Resource()
- *
+  /**
+   *  CRMGet1Resource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGet1Resource(ResType theType, short theID);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGet1Resource(ResType theType, short theID);
 
-/**
- *  CRMGetIndResource()
- *
+  /**
+   *  CRMGetIndResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGetIndResource(ResType theType, short index);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGetIndResource(ResType theType, short index);
 
-/**
- *  CRMGet1IndResource()
- *
+  /**
+   *  CRMGet1IndResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGet1IndResource(ResType theType, short index);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGet1IndResource(ResType theType, short index);
 
-/**
- *  CRMGetNamedResource()
- *
+  /**
+   *  CRMGetNamedResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGetNamedResource(ResType theType, ConstStr255Param name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGetNamedResource(ResType theType, ConstStr255Param name);
 
-/**
- *  CRMGet1NamedResource()
- *
+  /**
+   *  CRMGet1NamedResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGet1NamedResource(ResType theType, ConstStr255Param name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGet1NamedResource(ResType theType, ConstStr255Param name);
 
-/**
- *  CRMReleaseResource()
- *
+  /**
+   *  CRMReleaseResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-CRMReleaseResource(Handle theHandle);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  CRMReleaseResource(Handle theHandle);
 
-/**
- *  CRMGetToolResource()
- *
+  /**
+   *  CRMGetToolResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGetToolResource(short procID, ResType theType, short theID);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGetToolResource(short procID, ResType theType, short theID);
 
-/**
- *  CRMGetToolNamedResource()
- *
+  /**
+   *  CRMGetToolNamedResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle)
-CRMGetToolNamedResource(short procID, ResType theType, ConstStr255Param name);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle
+  CRMGetToolNamedResource(short procID, ResType theType, ConstStr255Param name);
 
-/**
- *  CRMReleaseToolResource()
- *
+  /**
+   *  CRMReleaseToolResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-CRMReleaseToolResource(short procID, Handle theHandle);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  CRMReleaseToolResource(short procID, Handle theHandle);
 
-/**
- *  CRMGetIndex()
- *
+  /**
+   *  CRMGetIndex()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(long)
-CRMGetIndex(Handle theHandle);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  long
+  CRMGetIndex(Handle theHandle);
 
-/**
- *  CRMLocalToRealID()
- *
+  /**
+   *  CRMLocalToRealID()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(short)
-CRMLocalToRealID(ResType bundleType, short toolID, ResType theType,
-                 short localID);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  CRMLocalToRealID(ResType bundleType, short toolID, ResType theType,
+                   short localID);
 
-/**
- *  CRMRealToLocalID()
- *
+  /**
+   *  CRMRealToLocalID()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(short)
-CRMRealToLocalID(ResType bundleType, short toolID, ResType theType,
-                 short realID);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  CRMRealToLocalID(ResType bundleType, short toolID, ResType theType,
+                   short realID);
 
-/**
- *  CRMGetIndToolName()
- *
+  /**
+   *  CRMGetIndToolName()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-CRMGetIndToolName(OSType bundleType, short index, Str255 toolName);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  CRMGetIndToolName(OSType bundleType, short index, Str255 toolName);
 
-/**
- *  CRMFindCommunications()
- *
+  /**
+   *  CRMFindCommunications()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-CRMFindCommunications(short *vRefNum, long *dirID);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  CRMFindCommunications(short *vRefNum, long *dirID);
 
-/**
- *  CRMIsDriverOpen()
- *
+  /**
+   *  CRMIsDriverOpen()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Boolean)
-CRMIsDriverOpen(ConstStr255Param driverName);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Boolean
+  CRMIsDriverOpen(ConstStr255Param driverName);
 
-/**
- *  CRMParseCAPSResource()
- *
+  /**
+   *  CRMParseCAPSResource()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CRMErr)
-CRMParseCAPSResource(Handle theHandle, ResType selector, unsigned long *value);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  CRMErr
+  CRMParseCAPSResource(Handle theHandle, ResType selector, unsigned long *value);
 
-/**
- *  CRMReserveRF()
- *
+  /**
+   *  CRMReserveRF()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-CRMReserveRF(short refNum);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  CRMReserveRF(short refNum);
 
-/**
- *  CRMReleaseRF()
- *
+  /**
+   *  CRMReleaseRF()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-CRMReleaseRF(short refNum);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  CRMReleaseRF(short refNum);
 
 #endif /** CALL_NOT_IN_CARBON */
 

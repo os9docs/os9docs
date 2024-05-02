@@ -1,19 +1,19 @@
 /**
-     \file       Patches.h
+	 \file       Patches.h
 
-    \brief   Patch Manager Interfaces.
+	\brief   Patch Manager Interfaces.
 
-    \introduced_in  System 8
-    \avaliable_from Universal Interfaces 3.4.1
+	\introduced_in  System 8
+	\avaliable_from Universal Interfaces 3.4.1
 
-    \copyright © 1994-2001 by Apple Computer, Inc., all rights reserved
+	\copyright © 1994-2001 by Apple Computer, Inc., all rights reserved
 
-    \ingroup Managers
+	\ingroup Managers
 
-    For bug reports, consult the following page on
-                 the World Wide Web:
+	For bug reports, consult the following page on
+				 the World Wide Web:
 
-                     http://developer.apple.com/bugreporter/
+					 http://developer.apple.com/bugreporter/
 
 */
 
@@ -29,7 +29,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -45,38 +46,43 @@ extern "C" {
 #endif
 
 #if CALL_NOT_IN_CARBON
-enum { kOSTrapType = 0, kToolboxTrapType = 1 };
+	enum
+	{
+		kOSTrapType = 0,
+		kToolboxTrapType = 1
+	};
 
-typedef SignedByte TrapType;
-enum {
-  OSTrap = kOSTrapType,       /** old name */
-  ToolTrap = kToolboxTrapType /** old name */
-};
+	typedef SignedByte TrapType;
+	enum
+	{
+		OSTrap = kOSTrapType,		/** old name */
+		ToolTrap = kToolboxTrapType /** old name */
+	};
 
 #endif /** CALL_NOT_IN_CARBON */
 
 /**
-    GetTrapAddress and SetTrapAddress are obsolete and should not
-    be used. Always use NGetTrapAddress and NSetTrapAddress instead.
-    The old routines will not be supported for PowerPC apps.
+	GetTrapAddress and SetTrapAddress are obsolete and should not
+	be used. Always use NGetTrapAddress and NSetTrapAddress instead.
+	The old routines will not be supported for PowerPC apps.
 */
 #if TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #if CALL_NOT_IN_CARBON
 
-			/** 
-			\brief Obtain address of code executing system functions 
-			
-			<pre>GetTrapAddress returns the address of a system routine - an element of the
+	/**
+	\brief Obtain address of code executing system functions
+
+	<pre>GetTrapAddress returns the address of a system routine - an element of the
 trap dispatch table. This can be used to intercept or patch ROM routines. Use
 NGetTrapAddress , GetToolTrapAddress or GetOSTrapAddress if you
 know you are running on 128K ROMs or later (see About Compatibility for
 more information).
 trapNum identifies the ROM routine whose address you want.
 </pre>
- * \returns <pre>a 32-bit value; the address of the system routine that corresponds
+* \returns <pre>a 32-bit value; the address of the system routine that corresponds
 to trapNum .
 </pre>
- * \note <pre>GetTrapAddress can help you to speed up your program. Also, if you
+* \note <pre>GetTrapAddress can help you to speed up your program. Also, if you
 know what you're doing, its possible to intercept OS or Toolbox calls and
 perform pre- or post-processing, or even replace the function altogether.
 Note: If a ROM routine has already been patched, you should NOT do any
@@ -92,22 +98,21 @@ using GetTrapAddress or NGetTrapAddress , see
 About Compatibility to check the ROM version and be aware that the
 value of trapNum  must be correct for that version of the ROM.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   not available
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 GetTrapAddress(__D0)
 #endif
-EXTERN_API(UniversalProcPtr)
-GetTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA146);
+	UniversalProcPtr
+	GetTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA146);
 
+	/**
+	\brief Install custom code to replace a system routine
 
-			/** 
-			\brief Install custom code to replace a system routine 
-			
-			<pre>SetTrapAddress changes an element of the trap dispatch table so that
+	<pre>SetTrapAddress changes an element of the trap dispatch table so that
 subsequent invocations of that trap will cause execution to go to a specified
 address. Use NSetTrapAddress , SetToolTrapAddress or
 SetOSTrapAddress if you know you are running on a 128K ROM or later.
@@ -118,9 +123,9 @@ with a jump to your code).
 trapNum identifies the ROM routine you wish to replace. See TrapWords for a
 list.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Be sure not to depend on register A5 within your patch. This is because you
+* \note <pre>Be sure not to depend on register A5 within your patch. This is because you
 may have intercepted a trap used by a desk accessory. Use SetCurrentA5
 and SetA5 to be sure you do it right.
 Note: Be sure to change all traps back to their original addresses before
@@ -128,16 +133,16 @@ your application exits!
 The trap dispatcher changed between the 64K and 128K ROMs. For more
 information, see About Compatibility .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   not available
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetTrapAddress(__A0, __D0)
 #endif
-EXTERN_API(void)
-SetTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum) ONEWORDINLINE(0xA047);
+	void
+	SetTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum) ONEWORDINLINE(0xA047);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -145,10 +150,10 @@ SetTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum) ONEWORDINLINE(0xA047);
 
 #if CALL_NOT_IN_CARBON
 
-			/** 
-			\brief Obtain address of system functions 
-			
-			<pre>NGetTrapAddress returns the address of a system routine - an element of
+	/**
+	\brief Obtain address of system functions
+
+	<pre>NGetTrapAddress returns the address of a system routine - an element of
 the trap dispatch table. Starting with the 128K ROMs, the Toolbox routines
 have a trap dispatch table separate from the Operating System routines. You
 must use this function (and not GetTrapAddress ) if you are running with
@@ -160,10 +165,10 @@ two separate trap dispatch tables. This must be one of:
 OSTrap (0)Operating System trap
 ToolTrap (1)Toolbox trap
 </pre>
- * \returns <pre>a 32-bit value; the address of the system routine that corresponds
+* \returns <pre>a 32-bit value; the address of the system routine that corresponds
 to trapNum .
 </pre>
- * \note <pre>There is a new interface to this routine, consisting of the calls
+* \note <pre>There is a new interface to this routine, consisting of the calls
 GetToolTrapAddress and GetOSTrapAddress . These calls do not
 require the specification of the trap type as a parameter.
 It is possible to intercept OS or Toolbox calls and perform pre- or
@@ -176,19 +181,18 @@ invocation of a trap.
 The trap dispatcher changed between the 64K and 128K ROMs.See
 About Compatibility for more information.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr)
-NGetTrapAddress(UInt16 trapNum, TrapType tTyp);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+	UniversalProcPtr
+	NGetTrapAddress(UInt16 trapNum, TrapType tTyp);
 
+	/**
+	\brief Install custom code to replace a system routine
 
-			/** 
-			\brief Install custom code to replace a system routine 
-			
-			<pre>NSetTrapAddress changes an element of the trap dispatch table so that
+	<pre>NSetTrapAddress changes an element of the trap dispatch table so that
 subsequent invocations of that trap will cause execution to go to a specified
 address. Use this function (and not SetTrapAddress ) if your application
 will run in a Mac equipped with a ROM version later than the 64K ROMs (see
@@ -202,9 +206,9 @@ separate trap dispatch tables. This must be one of:
 OSTrap (0)Operating System trap
 ToolTrap (1)Toolbox trap
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>There is a new interface to this routine, consisting of the calls
+* \note <pre>There is a new interface to this routine, consisting of the calls
 SetToolTrapAddress and SetOSTrapAddress . These calls do not
 require the specification of the trap type as a parameter.
 NSetTrapAddress is used mostly by assembly-language programers . It
@@ -215,22 +219,22 @@ your application exits!
 The trap dispatcher changed between the 64K and 128K ROMs. For more
 information see About Compatibility .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-NSetTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum, TrapType tTyp);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+	void
+	NSetTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum, TrapType tTyp);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
 
-			/** 
-			\brief GetOSTrapAddress Obtain address of operating system function 
-			
-			<pre>GetOSTrapAddress returns the address of a system routine - an element of
+	/**
+	\brief GetOSTrapAddress Obtain address of operating system function
+
+	<pre>GetOSTrapAddress returns the address of a system routine - an element of
 the operating system trap dispatch table. Starting with the 128K ROMs, the
 Toolbox routines have a trap dispatch table separate from the Operating System
 routines. You must use this function (and not GetTrapAddress ) if you are
@@ -238,10 +242,10 @@ running with 128K ROMs or later (see About Compatibility ).
 trapNum identifies the ROM routine whose address you want. See TrapWords
 for a list.
 </pre>
- * \returns <pre>a 32-bit value; the address of the system routine that corresponds
+* \returns <pre>a 32-bit value; the address of the system routine that corresponds
 to trapNum .
 </pre>
- * \note <pre>GetOSTrapAddress is part of a new interface to the routine
+* \note <pre>GetOSTrapAddress is part of a new interface to the routine
 NGetTrapAddress . GetOSTrapAddress does not require the
 specification of the trap type as a parameter as NGetTrapAddress does.
 Instead, either GetToolTrapAddress or GetOSTrapAddress should be
@@ -259,22 +263,21 @@ invocation of a trap.
 The trap dispatcher changed between the 64K and 128K ROMs.See
 About Compatibility for more information.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 GetOSTrapAddress(__D0)
 #endif
-EXTERN_API(UniversalProcPtr)
-GetOSTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA346);
+	UniversalProcPtr
+	GetOSTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA346);
 
+	/**
+	\brief SetOSTrapAddress Install custom code to replace an operating system routine
 
-			/** 
-			\brief SetOSTrapAddress Install custom code to replace an operating system routine 
-			
-			<pre>SetOSTrapAddress changes an element of the operating system trap
+	<pre>SetOSTrapAddress changes an element of the operating system trap
 dispatch table so that subsequent invocations of that trap will cause execution
 to go to a specified address. Use this function (and not SetTrapAddress ) if
 your application will run in a Mac equipped with a ROM version later than the
@@ -284,9 +287,9 @@ function.
 trapNum identifies the ROM routine you wish to replace. See TrapWords for a
 list.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>SetOSTrapAddress is part of a new interface to the routine
+* \note <pre>SetOSTrapAddress is part of a new interface to the routine
 NSetTrapAddress . SetOSTrapAddress does not require the
 specification of the trap type as a parameter as NSetTrapAddress does.
 Instead, either SetToolTrapAddress or SetOSTrapAddress should be
@@ -302,23 +305,22 @@ your application exits!
 The trap dispatcher changed between the 64K and 128K ROMs. For more
 information see About Compatibility .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetOSTrapAddress(__A0, __D0)
 #endif
-EXTERN_API(void)
-SetOSTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
-    ONEWORDINLINE(0xA247);
+	void
+	SetOSTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
+		ONEWORDINLINE(0xA247);
 
+	/**
+	\brief GetToolTrapAddress Obtain address of toolbox function
 
-			/** 
-			\brief GetToolTrapAddress Obtain address of toolbox function 
-			
-			<pre>GetToolTrapAddress returns the address of a system routine - an element
+	<pre>GetToolTrapAddress returns the address of a system routine - an element
 of the toolbox trap dispatch table. Starting with the 128K ROMs, the Toolbox
 routines have a trap dispatch table separate from the Operating System
 routines. You must use this function (and not GetTrapAddress ) if you are
@@ -326,10 +328,10 @@ running with 128K ROMs or later (see About Compatibility ).
 trapNum identifies the ROM routine whose address you want. See TrapWords
 for a list.
 </pre>
- * \returns <pre>a 32-bit value; the address of the system routine that corresponds
+* \returns <pre>a 32-bit value; the address of the system routine that corresponds
 to trapNum .
 </pre>
- * \note <pre>GetToolTrapAddress is part of a new interface to the routine
+* \note <pre>GetToolTrapAddress is part of a new interface to the routine
 NGetTrapAddress . GetToolTrapAddress does not require the
 specification of the trap type as a parameter as NGetTrapAddress does.
 Instead, either GetToolTrapAddress or GetOSTrapAddress should be
@@ -347,22 +349,21 @@ invocation of a trap.
 The trap dispatcher changed between the 64K and 128K ROMs.See
 About Compatibility for more information.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 GetToolTrapAddress(__D0)
 #endif
-EXTERN_API(UniversalProcPtr)
-GetToolTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA746);
+	UniversalProcPtr
+	GetToolTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA746);
 
+	/**
+	\brief SetToolTrapAddress Install custom code to replace an operating system routine
 
-			/** 
-			\brief SetToolTrapAddress Install custom code to replace an operating system routine 
-			
-			<pre>SetToolTrapAddress changes an element of the toolbox trap dispatch table
+	<pre>SetToolTrapAddress changes an element of the toolbox trap dispatch table
 so that subsequent invocations of that trap will cause execution to go to a
 specified address. Use this function (and not SetTrapAddress ) if your
 application will run in a Mac equipped with a ROM version later than the 64K
@@ -371,9 +372,9 @@ trapAddr is the address of some code to handle execution of a Toolbox function.
 trapNum identifies the ROM routine you wish to replace. See TrapWords for a
 list.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>SetToolTrapAddress is part of a new interface to the routine
+* \note <pre>SetToolTrapAddress is part of a new interface to the routine
 NSetTrapAddress . SetToolTrapAddress does not require the
 specification of the trap type as a parameter as NSetTrapAddress does.
 Instead, either SetToolTrapAddress or SetOSTrapAddress should be
@@ -389,17 +390,17 @@ your application exits!
 The trap dispatcher changed between the 64K and 128K ROMs. For more
 information see About Compatibility .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetToolTrapAddress(__A0, __D0)
 #endif
-EXTERN_API(void)
-SetToolTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
-    ONEWORDINLINE(0xA647);
+	void
+	SetToolTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
+		ONEWORDINLINE(0xA647);
 
 /**
  *  GetToolboxTrapAddress()
@@ -412,8 +413,8 @@ SetToolTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 GetToolboxTrapAddress(__D0)
 #endif
-EXTERN_API(UniversalProcPtr)
-GetToolboxTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA746);
+	UniversalProcPtr
+	GetToolboxTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA746);
 
 /**
  *  SetToolboxTrapAddress()
@@ -426,24 +427,24 @@ GetToolboxTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA746);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetToolboxTrapAddress(__A0, __D0)
 #endif
-EXTERN_API(void)
-SetToolboxTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
-    ONEWORDINLINE(0xA647);
+	void
+	SetToolboxTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
+		ONEWORDINLINE(0xA647);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #if TARGET_CPU_PPC
 #if CALL_NOT_IN_CARBON
-/**
- *  GetTrapVector()
- *
+	/**
+	 *  GetTrapVector()
+	 *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcHandle)
-GetTrapVector(UInt16 trapNumber);
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+	 *    \carbon_lib        not available
+	 *    \mac_os_x         not available
+	 */
+	UniversalProcHandle
+	GetTrapVector(UInt16 trapNumber);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -468,4 +469,4 @@ GetTrapVector(UInt16 trapNumber);
 #endif
 
 #endif /** __PATCHES__ */
-*/*/*/*/*/*/*/*/
+* /*/*/ * /*/*/ */*/

@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,137 +48,141 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  rAliasType =
-      FOUR_CHAR_CODE('alis') /** Aliases are stored as resources of this type */
-};
+  enum
+  {
+    rAliasType =
+        FOUR_CHAR_CODE('alis') /** Aliases are stored as resources of this type */
+  };
 
-enum {
-  /** define alias resolution action rules mask */
-  kARMMountVol = 0x00000001, /** mount the volume automatically */
-  kARMNoUI = 0x00000002,     /** no user interface allowed during resolution */
-  kARMMultVols = 0x00000008, /** search on multiple volumes */
-  kARMSearch = 0x00000100,   /** search quickly */
-  kARMSearchMore = 0x00000200,    /** search further */
-  kARMSearchRelFirst = 0x00000400 /** search target on a relative path first */
-};
+  enum
+  {
+    /** define alias resolution action rules mask */
+    kARMMountVol = 0x00000001,      /** mount the volume automatically */
+    kARMNoUI = 0x00000002,          /** no user interface allowed during resolution */
+    kARMMultVols = 0x00000008,      /** search on multiple volumes */
+    kARMSearch = 0x00000100,        /** search quickly */
+    kARMSearchMore = 0x00000200,    /** search further */
+    kARMSearchRelFirst = 0x00000400 /** search target on a relative path first */
+  };
 
-enum {
-  /** define alias record information types */
-  asiZoneName = -3,   /** get zone name */
-  asiServerName = -2, /** get server name */
-  asiVolumeName = -1, /** get volume name */
-  asiAliasName = 0,   /** get aliased file/folder/volume name */
-  asiParentName = 1   /** get parent folder name */
-};
+  enum
+  {
+    /** define alias record information types */
+    asiZoneName = -3,   /** get zone name */
+    asiServerName = -2, /** get server name */
+    asiVolumeName = -1, /** get volume name */
+    asiAliasName = 0,   /** get aliased file/folder/volume name */
+    asiParentName = 1   /** get parent folder name */
+  };
 
-/** ResolveAliasFileWithMountFlags options */
-enum {
-  kResolveAliasFileNoUI =
-      0x00000001 /** no user interaction during resolution */
-};
+  /** ResolveAliasFileWithMountFlags options */
+  enum
+  {
+    kResolveAliasFileNoUI =
+        0x00000001 /** no user interaction during resolution */
+  };
 
-/** define the alias record that will be the blackbox for the caller */
-/**
-<pre>
- * \note <pre>Your application can use the userType field to store its own signature or
-any other data that fits into 4 bytes. When the Alias Manager creates an
-AliasRecord , it stores 0 in that field.
-The Alias Manager stores the size of the record when it was created in
-the aliasSize field. Knowing the starting size allows you to store and
-retrieve data of your own at the end of the record (see Customizing Alias
-Records under Using the Alias Manager ). An AliasRecord is typically
-200 to 300 bytes long.
-The private Alias Manager data includes all of the location, verification,
-and mounting information needed to resolve the AliasRecord with the
-various search strategies described in
-Search Strategies for Resolving Alias Records .
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct AliasRecord  {
-	OSType userType;/**< application's signature*/
-	unsigned short aliasSize;/**< size of record when created*/
-	} AliasRecord ;/**<*/
+  /** define the alias record that will be the blackbox for the caller */
+  /**
+  <pre>
+   * \note <pre>Your application can use the userType field to store its own signature or
+  any other data that fits into 4 bytes. When the Alias Manager creates an
+  AliasRecord , it stores 0 in that field.
+  The Alias Manager stores the size of the record when it was created in
+  the aliasSize field. Knowing the starting size allows you to store and
+  retrieve data of your own at the end of the record (see Customizing Alias
+  Records under Using the Alias Manager ). An AliasRecord is typically
+  200 to 300 bytes long.
+  The private Alias Manager data includes all of the location, verification,
+  and mounting information needed to resolve the AliasRecord with the
+  various search strategies described in
+  Search Strategies for Resolving Alias Records .
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct AliasRecord
+  {
+    OSType userType;          /**< application's signature*/
+    unsigned short aliasSize; /**< size of record when created*/
+  } AliasRecord;              /**<*/
 
-typedef struct AliasRecord AliasRecord;
-typedef AliasRecord *AliasPtr;
-typedef AliasPtr *AliasHandle;
-/** alias record information type */
-typedef short AliasInfoType;
-/**
- *  NewAlias()
- *
- *  Summary:
- *    create a new alias between fromFile and target, returns alias
- *    record handle
- *
+  typedef struct AliasRecord AliasRecord;
+  typedef AliasRecord *AliasPtr;
+  typedef AliasPtr *AliasHandle;
+  /** alias record information type */
+  typedef short AliasInfoType;
+  /**
+   *  NewAlias()
+   *
+   *  Summary:
+   *    create a new alias between fromFile and target, returns alias
+   *    record handle
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-NewAlias(const FSSpec *fromFile, /** can be NULL */
-         const FSSpec *target, AliasHandle *alias)
-    TWOWORDINLINE(0x7002, 0xA823);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  NewAlias(const FSSpec *fromFile, /** can be NULL */
+           const FSSpec *target, AliasHandle *alias)
+      TWOWORDINLINE(0x7002, 0xA823);
 
-/**
- *  NewAliasMinimal()
- *
- *  Summary:
- *    create a minimal new alias for a target and return alias record
- *    handle
- *
+  /**
+   *  NewAliasMinimal()
+   *
+   *  Summary:
+   *    create a minimal new alias for a target and return alias record
+   *    handle
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-NewAliasMinimal(const FSSpec *target, AliasHandle *alias)
-    TWOWORDINLINE(0x7008, 0xA823);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  NewAliasMinimal(const FSSpec *target, AliasHandle *alias)
+      TWOWORDINLINE(0x7008, 0xA823);
 
-/**
- *  NewAliasMinimalFromFullPath()
- *
- *  Summary:
- *    create a minimal new alias from a target fullpath (optional zone
- *    and server name) and return alias record handle
- *
+  /**
+   *  NewAliasMinimalFromFullPath()
+   *
+   *  Summary:
+   *    create a minimal new alias from a target fullpath (optional zone
+   *    and server name) and return alias record handle
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-NewAliasMinimalFromFullPath(short fullPathLength, const void *fullPath,
-                            ConstStr32Param zoneName,
-                            ConstStr31Param serverName, AliasHandle *alias)
-    TWOWORDINLINE(0x7009, 0xA823);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  NewAliasMinimalFromFullPath(short fullPathLength, const void *fullPath,
+                              ConstStr32Param zoneName,
+                              ConstStr31Param serverName, AliasHandle *alias)
+      TWOWORDINLINE(0x7009, 0xA823);
 
-/**
- *  ResolveAlias()
- *
- *  Summary:
- *    given an alias handle and fromFile, resolve the alias, update the
- *    alias record and return aliased filename and wasChanged flag.
- *
+  /**
+   *  ResolveAlias()
+   *
+   *  Summary:
+   *    given an alias handle and fromFile, resolve the alias, update the
+   *    alias record and return aliased filename and wasChanged flag.
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ResolveAlias(const FSSpec *fromFile, /** can be NULL */
-             AliasHandle alias, FSSpec *target, Boolean *wasChanged)
-    TWOWORDINLINE(0x7003, 0xA823);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ResolveAlias(const FSSpec *fromFile, /** can be NULL */
+               AliasHandle alias, FSSpec *target, Boolean *wasChanged)
+      TWOWORDINLINE(0x7003, 0xA823);
 
+  /**
+  \brief Get information from an AliasRecord
 
-			/** 
-			\brief Get information from an AliasRecord 
-			
-			<pre>You use the GetAliasInfo function to get information from an AliasRecord
+  <pre>You use the GetAliasInfo function to get information from an AliasRecord
 without actually resolving the record.
 alias is a handle to the AliasRecord to be read.
 index specifies the kind of information to be retrieved. If index is a
@@ -214,180 +219,184 @@ valid FSSpec record
 paramErr (-50)Alias, theString, or both are NIL, the index is less than
 asiZoneName, or the AliasRecord is corrupt
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetAliasInfo(AliasHandle alias, AliasInfoType index, Str63 theString)
-    TWOWORDINLINE(0x7007, 0xA823);
-
-/**
- *  IsAliasFile()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-IsAliasFile(const FSSpec *fileFSSpec, Boolean *aliasFileFlag,
-            Boolean *folderFlag) TWOWORDINLINE(0x702A, 0xA823);
-
-/**
- *  ResolveAliasWithMountFlags()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ResolveAliasWithMountFlags(const FSSpec *fromFile, /** can be NULL */
-                           AliasHandle alias, FSSpec *target,
-                           Boolean *wasChanged, unsigned long mountFlags)
-    TWOWORDINLINE(0x702B, 0xA823);
-
-/**
- *  ResolveAliasFile()
- *
- *  Summary:
- *    Given a file spec, return target file spec if input file spec is
- *    an alias. It resolves the entire alias chain or one step of the
- *    chain.  It returns info about whether the target is a folder or
- *    file; and whether the input file spec was an alias or not.
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ResolveAliasFile(FSSpec *theSpec, Boolean resolveAliasChains,
-                 Boolean *targetIsFolder, Boolean *wasAliased)
-    TWOWORDINLINE(0x700C, 0xA823);
-
-/**
- *  ResolveAliasFileWithMountFlags()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ResolveAliasFileWithMountFlags(FSSpec *theSpec, Boolean resolveAliasChains,
-                               Boolean *targetIsFolder, Boolean *wasAliased,
-                               unsigned long mountFlags)
-    TWOWORDINLINE(0x7029, 0xA823);
-
-/**
- *  FollowFinderAlias()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FollowFinderAlias(const FSSpec *fromFile, /** can be NULL */
-                  AliasHandle alias, Boolean logon, FSSpec *target,
-                  Boolean *wasChanged) TWOWORDINLINE(0x700F, 0xA823);
-
-/**
-   Low Level Routines
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
 */
-/**
- *  UpdateAlias()
- *
- *  Summary:
- *    given a fromFile-target pair and an alias handle, update the
- *    alias record pointed to by alias handle to represent target as
- *    the new alias.
- *
+  OSErr
+  GetAliasInfo(AliasHandle alias, AliasInfoType index, Str63 theString)
+      TWOWORDINLINE(0x7007, 0xA823);
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-UpdateAlias(const FSSpec *fromFile, /** can be NULL */
-            const FSSpec *target, AliasHandle alias, Boolean *wasChanged)
-    TWOWORDINLINE(0x7006, 0xA823);
+  /**
+   *  IsAliasFile()
+   *
 
-typedef CALLBACK_API(Boolean, AliasFilterProcPtr)(CInfoPBPtr cpbPtr,
-                                                  Boolean *quitFlag,
-                                                  Ptr myDataPtr);
-typedef STACK_UPP_TYPE(AliasFilterProcPtr) AliasFilterUPP;
-/**
- *  NewAliasFilterUPP()
- *
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  IsAliasFile(const FSSpec *fileFSSpec, Boolean *aliasFileFlag,
+              Boolean *folderFlag) TWOWORDINLINE(0x702A, 0xA823);
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-AliasFilterUPP
-NewAliasFilterUPP(AliasFilterProcPtr userRoutine);
+  /**
+   *  ResolveAliasWithMountFlags()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ResolveAliasWithMountFlags(const FSSpec *fromFile, /** can be NULL */
+                             AliasHandle alias, FSSpec *target,
+                             Boolean *wasChanged, unsigned long mountFlags)
+      TWOWORDINLINE(0x702B, 0xA823);
+
+  /**
+   *  ResolveAliasFile()
+   *
+   *  Summary:
+   *    Given a file spec, return target file spec if input file spec is
+   *    an alias. It resolves the entire alias chain or one step of the
+   *    chain.  It returns info about whether the target is a folder or
+   *    file; and whether the input file spec was an alias or not.
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ResolveAliasFile(FSSpec *theSpec, Boolean resolveAliasChains,
+                   Boolean *targetIsFolder, Boolean *wasAliased)
+      TWOWORDINLINE(0x700C, 0xA823);
+
+  /**
+   *  ResolveAliasFileWithMountFlags()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ResolveAliasFileWithMountFlags(FSSpec *theSpec, Boolean resolveAliasChains,
+                                 Boolean *targetIsFolder, Boolean *wasAliased,
+                                 unsigned long mountFlags)
+      TWOWORDINLINE(0x7029, 0xA823);
+
+  /**
+   *  FollowFinderAlias()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FollowFinderAlias(const FSSpec *fromFile, /** can be NULL */
+                    AliasHandle alias, Boolean logon, FSSpec *target,
+                    Boolean *wasChanged) TWOWORDINLINE(0x700F, 0xA823);
+
+  /**
+     Low Level Routines
+  */
+  /**
+   *  UpdateAlias()
+   *
+   *  Summary:
+   *    given a fromFile-target pair and an alias handle, update the
+   *    alias record pointed to by alias handle to represent target as
+   *    the new alias.
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  UpdateAlias(const FSSpec *fromFile, /** can be NULL */
+              const FSSpec *target, AliasHandle alias, Boolean *wasChanged)
+      TWOWORDINLINE(0x7006, 0xA823);
+
+  typedef CALLBACK_API(Boolean, AliasFilterProcPtr)(CInfoPBPtr cpbPtr,
+                                                    Boolean *quitFlag,
+                                                    Ptr myDataPtr);
+  typedef STACK_UPP_TYPE(AliasFilterProcPtr) AliasFilterUPP;
+  /**
+   *  NewAliasFilterUPP()
+   *
+
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  AliasFilterUPP
+  NewAliasFilterUPP(AliasFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppAliasFilterProcInfo = 0x00000FD0
-}; /** pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppAliasFilterProcInfo = 0x00000FD0
+  }; /** pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline AliasFilterUPP NewAliasFilterUPP(AliasFilterProcPtr userRoutine) {
-  return (AliasFilterUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppAliasFilterProcInfo, GetCurrentArchitecture());
-}
+  inline AliasFilterUPP NewAliasFilterUPP(AliasFilterProcPtr userRoutine)
+  {
+    return (AliasFilterUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppAliasFilterProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewAliasFilterUPP(userRoutine)                                         \
-  (AliasFilterUPP)                                                             \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppAliasFilterProcInfo,     \
+#define NewAliasFilterUPP(userRoutine)                                     \
+  (AliasFilterUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppAliasFilterProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeAliasFilterUPP()
- *
+  /**
+   *  DisposeAliasFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeAliasFilterUPP(AliasFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeAliasFilterUPP(AliasFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeAliasFilterUPP(AliasFilterUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeAliasFilterUPP(AliasFilterUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeAliasFilterUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeAliasFilterUPP()
- *
+  /**
+   *  InvokeAliasFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeAliasFilterUPP(CInfoPBPtr cpbPtr, Boolean *quitFlag, Ptr myDataPtr,
-                     AliasFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeAliasFilterUPP(CInfoPBPtr cpbPtr, Boolean *quitFlag, Ptr myDataPtr,
+                       AliasFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeAliasFilterUPP(CInfoPBPtr cpbPtr, Boolean *quitFlag,
-                                    Ptr myDataPtr, AliasFilterUPP userUPP) {
-  return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppAliasFilterProcInfo,
-                                           cpbPtr, quitFlag, myDataPtr);
-}
+  inline Boolean InvokeAliasFilterUPP(CInfoPBPtr cpbPtr, Boolean *quitFlag,
+                                      Ptr myDataPtr, AliasFilterUPP userUPP)
+  {
+    return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppAliasFilterProcInfo,
+                                             cpbPtr, quitFlag, myDataPtr);
+  }
 #else
-#define InvokeAliasFilterUPP(cpbPtr, quitFlag, myDataPtr, userUPP)             \
-  (Boolean) CALL_THREE_PARAMETER_UPP((userUPP), uppAliasFilterProcInfo,        \
+#define InvokeAliasFilterUPP(cpbPtr, quitFlag, myDataPtr, userUPP)      \
+  (Boolean) CALL_THREE_PARAMETER_UPP((userUPP), uppAliasFilterProcInfo, \
                                      (cpbPtr), (quitFlag), (myDataPtr))
 #endif
 #endif
@@ -395,179 +404,179 @@ inline Boolean InvokeAliasFilterUPP(CInfoPBPtr cpbPtr, Boolean *quitFlag,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /** support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewAliasFilterProc(userRoutine) NewAliasFilterUPP(userRoutine)
-#define CallAliasFilterProc(userRoutine, cpbPtr, quitFlag, myDataPtr)          \
+#define CallAliasFilterProc(userRoutine, cpbPtr, quitFlag, myDataPtr) \
   InvokeAliasFilterUPP(cpbPtr, quitFlag, myDataPtr, userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  MatchAlias()
- *
- *  Summary:
- *    Given an alias handle and fromFile, match the alias and return
- *    aliased filename(s) and needsUpdate flag
- *
+  /**
+   *  MatchAlias()
+   *
+   *  Summary:
+   *    Given an alias handle and fromFile, match the alias and return
+   *    aliased filename(s) and needsUpdate flag
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-MatchAlias(const FSSpec *fromFile, /** can be NULL */
-           unsigned long rulesMask, AliasHandle alias, short *aliasCount,
-           FSSpecArrayPtr aliasList, Boolean *needsUpdate,
-           AliasFilterUPP aliasFilter, void *yourDataPtr)
-    TWOWORDINLINE(0x7005, 0xA823);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  MatchAlias(const FSSpec *fromFile, /** can be NULL */
+             unsigned long rulesMask, AliasHandle alias, short *aliasCount,
+             FSSpecArrayPtr aliasList, Boolean *needsUpdate,
+             AliasFilterUPP aliasFilter, void *yourDataPtr)
+      TWOWORDINLINE(0x7005, 0xA823);
 
-/**
- *  ResolveAliasFileWithMountFlagsNoUI()
- *
- *  Summary:
- *    variation on ResolveAliasFile that does not prompt user with a
- *    dialog
- *
+  /**
+   *  ResolveAliasFileWithMountFlagsNoUI()
+   *
+   *  Summary:
+   *    variation on ResolveAliasFile that does not prompt user with a
+   *    dialog
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ResolveAliasFileWithMountFlagsNoUI(FSSpec *theSpec, Boolean resolveAliasChains,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ResolveAliasFileWithMountFlagsNoUI(FSSpec *theSpec, Boolean resolveAliasChains,
+                                     Boolean *targetIsFolder, Boolean *wasAliased,
+                                     unsigned long mountFlags);
+
+  /**
+   *  MatchAliasNoUI()
+   *
+   *  Summary:
+   *    variation on MatchAlias that does not prompt user with a dialog
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  MatchAliasNoUI(const FSSpec *fromFile, /** can be NULL */
+                 unsigned long rulesMask, AliasHandle alias, short *aliasCount,
+                 FSSpecArrayPtr aliasList, Boolean *needsUpdate,
+                 AliasFilterUPP aliasFilter, void *yourDataPtr);
+
+  /**
+   *  FSNewAlias()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSNewAlias(const FSRef *fromFile, /** can be NULL */
+             const FSRef *target, AliasHandle *inAlias)
+      TWOWORDINLINE(0x7036, 0xA823);
+
+  /**
+   *  FSNewAliasMinimal()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSNewAliasMinimal(const FSRef *target, AliasHandle *inAlias)
+      TWOWORDINLINE(0x7037, 0xA823);
+
+  /**
+   *  FSIsAliasFile()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSIsAliasFile(const FSRef *fileRef, Boolean *aliasFileFlag, Boolean *folderFlag)
+      TWOWORDINLINE(0x7038, 0xA823);
+
+  /**
+   *  FSResolveAliasWithMountFlags()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSResolveAliasWithMountFlags(const FSRef *fromFile, /** can be NULL */
+                               AliasHandle inAlias, FSRef *target,
+                               Boolean *wasChanged, unsigned long mountFlags)
+      TWOWORDINLINE(0x7039, 0xA823);
+
+  /**
+   *  FSResolveAlias()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSResolveAlias(const FSRef *fromFile, /** can be NULL */
+                 AliasHandle alias, FSRef *target, Boolean *wasChanged)
+      TWOWORDINLINE(0x703A, 0xA823);
+
+  /**
+   *  FSResolveAliasFileWithMountFlags()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSResolveAliasFileWithMountFlags(FSRef *theRef, Boolean resolveAliasChains,
                                    Boolean *targetIsFolder, Boolean *wasAliased,
-                                   unsigned long mountFlags);
+                                   unsigned long mountFlags)
+      TWOWORDINLINE(0x703B, 0xA823);
 
-/**
- *  MatchAliasNoUI()
- *
- *  Summary:
- *    variation on MatchAlias that does not prompt user with a dialog
- *
+  /**
+   *  FSResolveAliasFile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-MatchAliasNoUI(const FSSpec *fromFile, /** can be NULL */
-               unsigned long rulesMask, AliasHandle alias, short *aliasCount,
-               FSSpecArrayPtr aliasList, Boolean *needsUpdate,
-               AliasFilterUPP aliasFilter, void *yourDataPtr);
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSResolveAliasFile(FSRef *theRef, Boolean resolveAliasChains,
+                     Boolean *targetIsFolder, Boolean *wasAliased)
+      TWOWORDINLINE(0x703C, 0xA823);
 
-/**
- *  FSNewAlias()
- *
+  /**
+   *  FSFollowFinderAlias()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSNewAlias(const FSRef *fromFile, /** can be NULL */
-           const FSRef *target, AliasHandle *inAlias)
-    TWOWORDINLINE(0x7036, 0xA823);
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSFollowFinderAlias(FSRef *fromFile, /** can be NULL */
+                      AliasHandle alias, Boolean logon, FSRef *target,
+                      Boolean *wasChanged) TWOWORDINLINE(0x703D, 0xA823);
 
-/**
- *  FSNewAliasMinimal()
- *
+  /**
+   *  FSUpdateAlias()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSNewAliasMinimal(const FSRef *target, AliasHandle *inAlias)
-    TWOWORDINLINE(0x7037, 0xA823);
-
-/**
- *  FSIsAliasFile()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSIsAliasFile(const FSRef *fileRef, Boolean *aliasFileFlag, Boolean *folderFlag)
-    TWOWORDINLINE(0x7038, 0xA823);
-
-/**
- *  FSResolveAliasWithMountFlags()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSResolveAliasWithMountFlags(const FSRef *fromFile, /** can be NULL */
-                             AliasHandle inAlias, FSRef *target,
-                             Boolean *wasChanged, unsigned long mountFlags)
-    TWOWORDINLINE(0x7039, 0xA823);
-
-/**
- *  FSResolveAlias()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSResolveAlias(const FSRef *fromFile, /** can be NULL */
-               AliasHandle alias, FSRef *target, Boolean *wasChanged)
-    TWOWORDINLINE(0x703A, 0xA823);
-
-/**
- *  FSResolveAliasFileWithMountFlags()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSResolveAliasFileWithMountFlags(FSRef *theRef, Boolean resolveAliasChains,
-                                 Boolean *targetIsFolder, Boolean *wasAliased,
-                                 unsigned long mountFlags)
-    TWOWORDINLINE(0x703B, 0xA823);
-
-/**
- *  FSResolveAliasFile()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSResolveAliasFile(FSRef *theRef, Boolean resolveAliasChains,
-                   Boolean *targetIsFolder, Boolean *wasAliased)
-    TWOWORDINLINE(0x703C, 0xA823);
-
-/**
- *  FSFollowFinderAlias()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSFollowFinderAlias(FSRef *fromFile, /** can be NULL */
-                    AliasHandle alias, Boolean logon, FSRef *target,
-                    Boolean *wasChanged) TWOWORDINLINE(0x703D, 0xA823);
-
-/**
- *  FSUpdateAlias()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-FSUpdateAlias(const FSRef *fromFile, /** can be NULL */
-              const FSRef *target, AliasHandle alias, Boolean *wasChanged)
-    TWOWORDINLINE(0x703E, 0xA823);
+   *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  FSUpdateAlias(const FSRef *fromFile, /** can be NULL */
+                const FSRef *target, AliasHandle alias, Boolean *wasChanged)
+      TWOWORDINLINE(0x703E, 0xA823);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -588,4 +597,4 @@ FSUpdateAlias(const FSRef *fromFile, /** can be NULL */
 #endif
 
 #endif /** __ALIASES__ */
-*/
+* /

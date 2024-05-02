@@ -9,7 +9,7 @@
     \copyright � 1990-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup File
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,486 +52,516 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  /* resource IDs of pre-7.0 get and put dialogs */
-  putDlgID = -3999,
-  getDlgID = -4000
-};
+  enum
+  {
+    /* resource IDs of pre-7.0 get and put dialogs */
+    putDlgID = -3999,
+    getDlgID = -4000
+  };
 
-enum {
-  /* item offsets of pre-7.0 get and put dialogs */
-  putSave = 1,
-  putCancel = 2,
-  putEject = 5,
-  putDrive = 6,
-  putName = 7,
-  getOpen = 1,
-  getCancel = 3,
-  getEject = 5,
-  getDrive = 6,
-  getNmList = 7,
-  getScroll = 8
-};
+  enum
+  {
+    /* item offsets of pre-7.0 get and put dialogs */
+    putSave = 1,
+    putCancel = 2,
+    putEject = 5,
+    putDrive = 6,
+    putName = 7,
+    getOpen = 1,
+    getCancel = 3,
+    getEject = 5,
+    getDrive = 6,
+    getNmList = 7,
+    getScroll = 8
+  };
 
-enum {
-  /* resource IDs of 7.0 get and put dialogs */
-  sfPutDialogID = -6043,
-  sfGetDialogID = -6042
-};
+  enum
+  {
+    /* resource IDs of 7.0 get and put dialogs */
+    sfPutDialogID = -6043,
+    sfGetDialogID = -6042
+  };
 
-enum {
-  /* item offsets of 7.0 get and put dialogs */
-  sfItemOpenButton = 1,
-  sfItemCancelButton = 2,
-  sfItemBalloonHelp = 3,
-  sfItemVolumeUser = 4,
-  sfItemEjectButton = 5,
-  sfItemDesktopButton = 6,
-  sfItemFileListUser = 7,
-  sfItemPopUpMenuUser = 8,
-  sfItemDividerLinePict = 9,
-  sfItemFileNameTextEdit = 10,
-  sfItemPromptStaticText = 11,
-  sfItemNewFolderUser = 12
-};
+  enum
+  {
+    /* item offsets of 7.0 get and put dialogs */
+    sfItemOpenButton = 1,
+    sfItemCancelButton = 2,
+    sfItemBalloonHelp = 3,
+    sfItemVolumeUser = 4,
+    sfItemEjectButton = 5,
+    sfItemDesktopButton = 6,
+    sfItemFileListUser = 7,
+    sfItemPopUpMenuUser = 8,
+    sfItemDividerLinePict = 9,
+    sfItemFileNameTextEdit = 10,
+    sfItemPromptStaticText = 11,
+    sfItemNewFolderUser = 12
+  };
 
-enum {
-  /* pseudo-item hits for use in DlgHook */
-  sfHookFirstCall = -1,
-  sfHookCharOffset = 0x1000,
-  sfHookNullEvent = 100,
-  sfHookRebuildList = 101,
-  sfHookFolderPopUp = 102,
-  sfHookOpenFolder = 103, /* the following are only in system 7.0+ */
-  sfHookLastCall = -2,
-  sfHookOpenAlias = 104,
-  sfHookGoToDesktop = 105,
-  sfHookGoToAliasTarget = 106,
-  sfHookGoToParent = 107,
-  sfHookGoToNextDrive = 108,
-  sfHookGoToPrevDrive = 109,
-  sfHookChangeSelection = 110,
-  sfHookSetActiveOffset = 200
-};
+  enum
+  {
+    /* pseudo-item hits for use in DlgHook */
+    sfHookFirstCall = -1,
+    sfHookCharOffset = 0x1000,
+    sfHookNullEvent = 100,
+    sfHookRebuildList = 101,
+    sfHookFolderPopUp = 102,
+    sfHookOpenFolder = 103, /* the following are only in system 7.0+ */
+    sfHookLastCall = -2,
+    sfHookOpenAlias = 104,
+    sfHookGoToDesktop = 105,
+    sfHookGoToAliasTarget = 106,
+    sfHookGoToParent = 107,
+    sfHookGoToNextDrive = 108,
+    sfHookGoToPrevDrive = 109,
+    sfHookChangeSelection = 110,
+    sfHookSetActiveOffset = 200
+  };
 
-/* the refcon field of the dialog record during a
- modalfilter or dialoghook contains one of the following */
-enum {
-  sfMainDialogRefCon = FOUR_CHAR_CODE('stdf'),
-  sfNewFolderDialogRefCon = FOUR_CHAR_CODE('nfdr'),
-  sfReplaceDialogRefCon = FOUR_CHAR_CODE('rplc'),
-  sfStatWarnDialogRefCon = FOUR_CHAR_CODE('stat'),
-  sfLockWarnDialogRefCon = FOUR_CHAR_CODE('lock'),
-  sfErrorDialogRefCon = FOUR_CHAR_CODE('err ')
-};
+  /* the refcon field of the dialog record during a
+   modalfilter or dialoghook contains one of the following */
+  enum
+  {
+    sfMainDialogRefCon = FOUR_CHAR_CODE('stdf'),
+    sfNewFolderDialogRefCon = FOUR_CHAR_CODE('nfdr'),
+    sfReplaceDialogRefCon = FOUR_CHAR_CODE('rplc'),
+    sfStatWarnDialogRefCon = FOUR_CHAR_CODE('stat'),
+    sfLockWarnDialogRefCon = FOUR_CHAR_CODE('lock'),
+    sfErrorDialogRefCon = FOUR_CHAR_CODE('err ')
+  };
 
-/**
-<pre>
- * \note <pre>The SFReply structure is used in all Standard File functions, including:
-SFPutFile SFPPutFile SFGetFile SFPGetFile
-If the good field is FALSE upon return from one of these functions, then the
-contents of all other fields are undefined.
-The version field will always be 0 on files created by HFS.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct SFReply  {
-	Boolean good;/**<  FALSE if user canceled, etc.*/
-	Boolean copy;/**<  (not used)*/
-	OSType fType;/**<  File type (like OSType), eg: 'TEXT'*/
-	short vRefNum;/**<  Volume number or working*/
-	short version;/**<  File version number (normally )*/
-	unsigned char fName[];/**<  Pascal string filename*/
-	} SFReply ;/**< */
+  /**
+  <pre>
+   * \note <pre>The SFReply structure is used in all Standard File functions, including:
+  SFPutFile SFPPutFile SFGetFile SFPGetFile
+  If the good field is FALSE upon return from one of these functions, then the
+  contents of all other fields are undefined.
+  The version field will always be 0 on files created by HFS.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct SFReply
+  {
+    Boolean good;          /**<  FALSE if user canceled, etc.*/
+    Boolean copy;          /**<  (not used)*/
+    OSType fType;          /**<  File type (like OSType), eg: 'TEXT'*/
+    short vRefNum;         /**<  Volume number or working*/
+    short version;         /**<  File version number (normally )*/
+    unsigned char fName[]; /**<  Pascal string filename*/
+  } SFReply;               /**< */
 
-typedef struct SFReply SFReply;
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct StandardFileReply {
-	Boolean sfGood;/**< user did not cancel*/
-	Boolean sfReplacing;/**< replace file with same name*/
-	OSType sfType;/**< file type*/
-	FSSpec sfFile;/**< selected file, folder, or*/
-	ScriptCode sfScript;/**< script of file, folder, or*/
-	short sfFlags;/**< finder flags*/
-	Boolean sfIsFolder;/**< selected item is a folder*/
-	Boolean sfIsVolume;/**< selected item is a volume*/
-	long sfReserved;/**< reserved*/
-	short sfReserved;/**< reserved*/
-	}StandardFileReply ;/**<*/
+  typedef struct SFReply SFReply;
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct StandardFileReply
+  {
+    Boolean sfGood;      /**< user did not cancel*/
+    Boolean sfReplacing; /**< replace file with same name*/
+    OSType sfType;       /**< file type*/
+    FSSpec sfFile;       /**< selected file, folder, or*/
+    ScriptCode sfScript; /**< script of file, folder, or*/
+    short sfFlags;       /**< finder flags*/
+    Boolean sfIsFolder;  /**< selected item is a folder*/
+    Boolean sfIsVolume;  /**< selected item is a volume*/
+    long sfReserved;     /**< reserved*/
+    short sfReserved;    /**< reserved*/
+  } StandardFileReply;   /**<*/
 
-typedef struct StandardFileReply StandardFileReply;
-/* for CustomXXXFile, ActivationOrderListPtr parameter is a pointer to an array
- * of item numbers */
+  typedef struct StandardFileReply StandardFileReply;
+  /* for CustomXXXFile, ActivationOrderListPtr parameter is a pointer to an array
+   * of item numbers */
 
-typedef const short *ActivationOrderListPtr;
-typedef CALLBACK_API(short, DlgHookProcPtr)(short item, DialogRef theDialog);
-typedef CALLBACK_API(Boolean, FileFilterProcPtr)(CInfoPBPtr pb);
-/* the following also include an extra parameter of "your data pointer" */
-typedef CALLBACK_API(short, DlgHookYDProcPtr)(short item, DialogRef theDialog,
-                                              void *yourDataPtr);
-/* ModalFilterYDProcPtr moved to Dialogs.h */
-typedef CALLBACK_API(Boolean, FileFilterYDProcPtr)(CInfoPBPtr pb,
-                                                   void *yourDataPtr);
-typedef CALLBACK_API(void, ActivateYDProcPtr)(DialogRef theDialog, short itemNo,
-                                              Boolean activating,
-                                              void *yourDataPtr);
-typedef STACK_UPP_TYPE(DlgHookProcPtr) DlgHookUPP;
-typedef STACK_UPP_TYPE(FileFilterProcPtr) FileFilterUPP;
-typedef STACK_UPP_TYPE(DlgHookYDProcPtr) DlgHookYDUPP;
-typedef STACK_UPP_TYPE(FileFilterYDProcPtr) FileFilterYDUPP;
-typedef STACK_UPP_TYPE(ActivateYDProcPtr) ActivateYDUPP;
+  typedef const short *ActivationOrderListPtr;
+  typedef CALLBACK_API(short, DlgHookProcPtr)(short item, DialogRef theDialog);
+  typedef CALLBACK_API(Boolean, FileFilterProcPtr)(CInfoPBPtr pb);
+  /* the following also include an extra parameter of "your data pointer" */
+  typedef CALLBACK_API(short, DlgHookYDProcPtr)(short item, DialogRef theDialog,
+                                                void *yourDataPtr);
+  /* ModalFilterYDProcPtr moved to Dialogs.h */
+  typedef CALLBACK_API(Boolean, FileFilterYDProcPtr)(CInfoPBPtr pb,
+                                                     void *yourDataPtr);
+  typedef CALLBACK_API(void, ActivateYDProcPtr)(DialogRef theDialog, short itemNo,
+                                                Boolean activating,
+                                                void *yourDataPtr);
+  typedef STACK_UPP_TYPE(DlgHookProcPtr) DlgHookUPP;
+  typedef STACK_UPP_TYPE(FileFilterProcPtr) FileFilterUPP;
+  typedef STACK_UPP_TYPE(DlgHookYDProcPtr) DlgHookYDUPP;
+  typedef STACK_UPP_TYPE(FileFilterYDProcPtr) FileFilterYDUPP;
+  typedef STACK_UPP_TYPE(ActivateYDProcPtr) ActivateYDUPP;
 #if CALL_NOT_IN_CARBON
-/**
- *  NewDlgHookUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-DlgHookUPP
-NewDlgHookUPP(DlgHookProcPtr userRoutine);
+  /**
+   *  NewDlgHookUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  DlgHookUPP
+  NewDlgHookUPP(DlgHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppDlgHookProcInfo = 0x000003A0
-}; /* pascal 2_bytes Func(2_bytes, 4_bytes) */
+  enum
+  {
+    uppDlgHookProcInfo = 0x000003A0
+  }; /* pascal 2_bytes Func(2_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline DlgHookUPP NewDlgHookUPP(DlgHookProcPtr userRoutine) {
-  return (DlgHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppDlgHookProcInfo, GetCurrentArchitecture());
-}
+  inline DlgHookUPP NewDlgHookUPP(DlgHookProcPtr userRoutine)
+  {
+    return (DlgHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppDlgHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewDlgHookUPP(userRoutine)                                             \
-  (DlgHookUPP) NewRoutineDescriptor(                                           \
+#define NewDlgHookUPP(userRoutine)   \
+  (DlgHookUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppDlgHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewFileFilterUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-FileFilterUPP
-NewFileFilterUPP(FileFilterProcPtr userRoutine);
+  /**
+   *  NewFileFilterUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  FileFilterUPP
+  NewFileFilterUPP(FileFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppFileFilterProcInfo = 0x000000D0 }; /* pascal 1_byte Func(4_bytes) */
+  enum
+  {
+    uppFileFilterProcInfo = 0x000000D0
+  }; /* pascal 1_byte Func(4_bytes) */
 #ifdef __cplusplus
-inline FileFilterUPP NewFileFilterUPP(FileFilterProcPtr userRoutine) {
-  return (FileFilterUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppFileFilterProcInfo, GetCurrentArchitecture());
-}
+  inline FileFilterUPP NewFileFilterUPP(FileFilterProcPtr userRoutine)
+  {
+    return (FileFilterUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppFileFilterProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewFileFilterUPP(userRoutine)                                          \
-  (FileFilterUPP) NewRoutineDescriptor(                                        \
+#define NewFileFilterUPP(userRoutine)   \
+  (FileFilterUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppFileFilterProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewDlgHookYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-DlgHookYDUPP
-NewDlgHookYDUPP(DlgHookYDProcPtr userRoutine);
+  /**
+   *  NewDlgHookYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  DlgHookYDUPP
+  NewDlgHookYDUPP(DlgHookYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppDlgHookYDProcInfo = 0x00000FA0
-}; /* pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppDlgHookYDProcInfo = 0x00000FA0
+  }; /* pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline DlgHookYDUPP NewDlgHookYDUPP(DlgHookYDProcPtr userRoutine) {
-  return (DlgHookYDUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppDlgHookYDProcInfo, GetCurrentArchitecture());
-}
+  inline DlgHookYDUPP NewDlgHookYDUPP(DlgHookYDProcPtr userRoutine)
+  {
+    return (DlgHookYDUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppDlgHookYDProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewDlgHookYDUPP(userRoutine)                                           \
-  (DlgHookYDUPP) NewRoutineDescriptor(                                         \
+#define NewDlgHookYDUPP(userRoutine)   \
+  (DlgHookYDUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppDlgHookYDProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewFileFilterYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-FileFilterYDUPP
-NewFileFilterYDUPP(FileFilterYDProcPtr userRoutine);
+  /**
+   *  NewFileFilterYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  FileFilterYDUPP
+  NewFileFilterYDUPP(FileFilterYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppFileFilterYDProcInfo = 0x000003D0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes) */
+  enum
+  {
+    uppFileFilterYDProcInfo = 0x000003D0
+  }; /* pascal 1_byte Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline FileFilterYDUPP NewFileFilterYDUPP(FileFilterYDProcPtr userRoutine) {
-  return (FileFilterYDUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                               uppFileFilterYDProcInfo,
-                                               GetCurrentArchitecture());
-}
+  inline FileFilterYDUPP NewFileFilterYDUPP(FileFilterYDProcPtr userRoutine)
+  {
+    return (FileFilterYDUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                 uppFileFilterYDProcInfo,
+                                                 GetCurrentArchitecture());
+  }
 #else
-#define NewFileFilterYDUPP(userRoutine)                                        \
-  (FileFilterYDUPP)                                                            \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppFileFilterYDProcInfo,    \
+#define NewFileFilterYDUPP(userRoutine)                                     \
+  (FileFilterYDUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppFileFilterYDProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewActivateYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-ActivateYDUPP
-NewActivateYDUPP(ActivateYDProcPtr userRoutine);
+  /**
+   *  NewActivateYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  ActivateYDUPP
+  NewActivateYDUPP(ActivateYDProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppActivateYDProcInfo = 0x000036C0
-}; /* pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) */
+  enum
+  {
+    uppActivateYDProcInfo = 0x000036C0
+  }; /* pascal no_return_value Func(4_bytes, 2_bytes, 1_byte, 4_bytes) */
 #ifdef __cplusplus
-inline ActivateYDUPP NewActivateYDUPP(ActivateYDProcPtr userRoutine) {
-  return (ActivateYDUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppActivateYDProcInfo, GetCurrentArchitecture());
-}
+  inline ActivateYDUPP NewActivateYDUPP(ActivateYDProcPtr userRoutine)
+  {
+    return (ActivateYDUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppActivateYDProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewActivateYDUPP(userRoutine)                                          \
-  (ActivateYDUPP) NewRoutineDescriptor(                                        \
+#define NewActivateYDUPP(userRoutine)   \
+  (ActivateYDUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppActivateYDProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeDlgHookUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-DisposeDlgHookUPP(DlgHookUPP userUPP);
+  /**
+   *  DisposeDlgHookUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeDlgHookUPP(DlgHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDlgHookUPP(DlgHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeDlgHookUPP(DlgHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeDlgHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeFileFilterUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-DisposeFileFilterUPP(FileFilterUPP userUPP);
+  /**
+   *  DisposeFileFilterUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeFileFilterUPP(FileFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeFileFilterUPP(FileFilterUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeFileFilterUPP(FileFilterUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeFileFilterUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeDlgHookYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-DisposeDlgHookYDUPP(DlgHookYDUPP userUPP);
+  /**
+   *  DisposeDlgHookYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeDlgHookYDUPP(DlgHookYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDlgHookYDUPP(DlgHookYDUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeDlgHookYDUPP(DlgHookYDUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeDlgHookYDUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeFileFilterYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-DisposeFileFilterYDUPP(FileFilterYDUPP userUPP);
+  /**
+   *  DisposeFileFilterYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeFileFilterYDUPP(FileFilterYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeFileFilterYDUPP(FileFilterYDUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeFileFilterYDUPP(FileFilterYDUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeFileFilterYDUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeActivateYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-DisposeActivateYDUPP(ActivateYDUPP userUPP);
+  /**
+   *  DisposeActivateYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeActivateYDUPP(ActivateYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeActivateYDUPP(ActivateYDUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeActivateYDUPP(ActivateYDUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeActivateYDUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeDlgHookUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-short
-InvokeDlgHookUPP(short item, DialogRef theDialog, DlgHookUPP userUPP);
+  /**
+   *  InvokeDlgHookUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  InvokeDlgHookUPP(short item, DialogRef theDialog, DlgHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline short InvokeDlgHookUPP(short item, DialogRef theDialog,
-                              DlgHookUPP userUPP) {
-  return (short)CALL_TWO_PARAMETER_UPP(userUPP, uppDlgHookProcInfo, item,
-                                       theDialog);
-}
+  inline short InvokeDlgHookUPP(short item, DialogRef theDialog,
+                                DlgHookUPP userUPP)
+  {
+    return (short)CALL_TWO_PARAMETER_UPP(userUPP, uppDlgHookProcInfo, item,
+                                         theDialog);
+  }
 #else
-#define InvokeDlgHookUPP(item, theDialog, userUPP)                             \
-  (short)CALL_TWO_PARAMETER_UPP((userUPP), uppDlgHookProcInfo, (item),         \
+#define InvokeDlgHookUPP(item, theDialog, userUPP)                     \
+  (short)CALL_TWO_PARAMETER_UPP((userUPP), uppDlgHookProcInfo, (item), \
                                 (theDialog))
 #endif
 #endif
 
-/**
- *  InvokeFileFilterUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-Boolean
-InvokeFileFilterUPP(CInfoPBPtr pb, FileFilterUPP userUPP);
+  /**
+   *  InvokeFileFilterUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Boolean
+  InvokeFileFilterUPP(CInfoPBPtr pb, FileFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeFileFilterUPP(CInfoPBPtr pb, FileFilterUPP userUPP) {
-  return (Boolean)CALL_ONE_PARAMETER_UPP(userUPP, uppFileFilterProcInfo, pb);
-}
+  inline Boolean InvokeFileFilterUPP(CInfoPBPtr pb, FileFilterUPP userUPP)
+  {
+    return (Boolean)CALL_ONE_PARAMETER_UPP(userUPP, uppFileFilterProcInfo, pb);
+  }
 #else
-#define InvokeFileFilterUPP(pb, userUPP)                                       \
+#define InvokeFileFilterUPP(pb, userUPP) \
   (Boolean) CALL_ONE_PARAMETER_UPP((userUPP), uppFileFilterProcInfo, (pb))
 #endif
 #endif
 
-/**
- *  InvokeDlgHookYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-short
-InvokeDlgHookYDUPP(short item, DialogRef theDialog, void *yourDataPtr,
-                   DlgHookYDUPP userUPP);
+  /**
+   *  InvokeDlgHookYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  InvokeDlgHookYDUPP(short item, DialogRef theDialog, void *yourDataPtr,
+                     DlgHookYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline short InvokeDlgHookYDUPP(short item, DialogRef theDialog,
-                                void *yourDataPtr, DlgHookYDUPP userUPP) {
-  return (short)CALL_THREE_PARAMETER_UPP(userUPP, uppDlgHookYDProcInfo, item,
-                                         theDialog, yourDataPtr);
-}
+  inline short InvokeDlgHookYDUPP(short item, DialogRef theDialog,
+                                  void *yourDataPtr, DlgHookYDUPP userUPP)
+  {
+    return (short)CALL_THREE_PARAMETER_UPP(userUPP, uppDlgHookYDProcInfo, item,
+                                           theDialog, yourDataPtr);
+  }
 #else
-#define InvokeDlgHookYDUPP(item, theDialog, yourDataPtr, userUPP)              \
-  (short)CALL_THREE_PARAMETER_UPP((userUPP), uppDlgHookYDProcInfo, (item),     \
+#define InvokeDlgHookYDUPP(item, theDialog, yourDataPtr, userUPP)          \
+  (short)CALL_THREE_PARAMETER_UPP((userUPP), uppDlgHookYDProcInfo, (item), \
                                   (theDialog), (yourDataPtr))
 #endif
 #endif
 
-/**
- *  InvokeFileFilterYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-Boolean
-InvokeFileFilterYDUPP(CInfoPBPtr pb, void *yourDataPtr,
-                      FileFilterYDUPP userUPP);
+  /**
+   *  InvokeFileFilterYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Boolean
+  InvokeFileFilterYDUPP(CInfoPBPtr pb, void *yourDataPtr,
+                        FileFilterYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeFileFilterYDUPP(CInfoPBPtr pb, void *yourDataPtr,
-                                     FileFilterYDUPP userUPP) {
-  return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppFileFilterYDProcInfo, pb,
-                                         yourDataPtr);
-}
+  inline Boolean InvokeFileFilterYDUPP(CInfoPBPtr pb, void *yourDataPtr,
+                                       FileFilterYDUPP userUPP)
+  {
+    return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppFileFilterYDProcInfo, pb,
+                                           yourDataPtr);
+  }
 #else
-#define InvokeFileFilterYDUPP(pb, yourDataPtr, userUPP)                        \
-  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppFileFilterYDProcInfo, (pb),   \
+#define InvokeFileFilterYDUPP(pb, yourDataPtr, userUPP)                      \
+  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppFileFilterYDProcInfo, (pb), \
                                    (yourDataPtr))
 #endif
 #endif
 
-/**
- *  InvokeActivateYDUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-InvokeActivateYDUPP(DialogRef theDialog, short itemNo, Boolean activating,
-                    void *yourDataPtr, ActivateYDUPP userUPP);
+  /**
+   *  InvokeActivateYDUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  InvokeActivateYDUPP(DialogRef theDialog, short itemNo, Boolean activating,
+                      void *yourDataPtr, ActivateYDUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeActivateYDUPP(DialogRef theDialog, short itemNo,
-                                Boolean activating, void *yourDataPtr,
-                                ActivateYDUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppActivateYDProcInfo, theDialog, itemNo,
-                          activating, yourDataPtr);
-}
+  inline void InvokeActivateYDUPP(DialogRef theDialog, short itemNo,
+                                  Boolean activating, void *yourDataPtr,
+                                  ActivateYDUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppActivateYDProcInfo, theDialog, itemNo,
+                            activating, yourDataPtr);
+  }
 #else
-#define InvokeActivateYDUPP(theDialog, itemNo, activating, yourDataPtr,        \
-                            userUPP)                                           \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppActivateYDProcInfo, (theDialog),       \
+#define InvokeActivateYDUPP(theDialog, itemNo, activating, yourDataPtr,  \
+                            userUPP)                                     \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppActivateYDProcInfo, (theDialog), \
                           (itemNo), (activating), (yourDataPtr))
 #endif
 #endif
@@ -544,224 +575,224 @@ inline void InvokeActivateYDUPP(DialogRef theDialog, short itemNo,
 #define NewDlgHookYDProc(userRoutine) NewDlgHookYDUPP(userRoutine)
 #define NewFileFilterYDProc(userRoutine) NewFileFilterYDUPP(userRoutine)
 #define NewActivateYDProc(userRoutine) NewActivateYDUPP(userRoutine)
-#define CallDlgHookProc(userRoutine, item, theDialog)                          \
+#define CallDlgHookProc(userRoutine, item, theDialog) \
   InvokeDlgHookUPP(item, theDialog, userRoutine)
 #define CallFileFilterProc(userRoutine, pb) InvokeFileFilterUPP(pb, userRoutine)
-#define CallDlgHookYDProc(userRoutine, item, theDialog, yourDataPtr)           \
+#define CallDlgHookYDProc(userRoutine, item, theDialog, yourDataPtr) \
   InvokeDlgHookYDUPP(item, theDialog, yourDataPtr, userRoutine)
-#define CallFileFilterYDProc(userRoutine, pb, yourDataPtr)                     \
+#define CallFileFilterYDProc(userRoutine, pb, yourDataPtr) \
   InvokeFileFilterYDUPP(pb, yourDataPtr, userRoutine)
-#define CallActivateYDProc(userRoutine, theDialog, itemNo, activating,         \
-                           yourDataPtr)                                        \
+#define CallActivateYDProc(userRoutine, theDialog, itemNo, activating, \
+                           yourDataPtr)                                \
   InvokeActivateYDUPP(theDialog, itemNo, activating, yourDataPtr, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-typedef OSType SFTypeList[4];
-/**
-    The GetFile "typeList" parameter type has changed from "SFTypeList" to
-   "ConstSFTypeListPtr". For C, this will add "const" and make it an in-only
-   parameter. For Pascal, this will require client code to use the @ operator,
-   but make it easier to specify long lists.
+  typedef OSType SFTypeList[4];
+  /**
+      The GetFile "typeList" parameter type has changed from "SFTypeList" to
+     "ConstSFTypeListPtr". For C, this will add "const" and make it an in-only
+     parameter. For Pascal, this will require client code to use the @ operator,
+     but make it easier to specify long lists.
 
-    ConstSFTypeListPtr is a pointer to an array of OSTypes.
-*/
-typedef const OSType *ConstSFTypeListPtr;
+      ConstSFTypeListPtr is a pointer to an array of OSTypes.
+  */
+  typedef const OSType *ConstSFTypeListPtr;
 #if CALL_NOT_IN_CARBON
-/**
- *  SFPutFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-SFPutFile(Point where, ConstStr255Param prompt,          /* can be NULL */
-          ConstStr255Param origName, DlgHookUPP dlgHook, /* can be NULL */
-          SFReply *reply) THREEWORDINLINE(0x3F3C, 0x0001, 0xA9EA);
+  /**
+   *  SFPutFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  SFPutFile(Point where, ConstStr255Param prompt,          /* can be NULL */
+            ConstStr255Param origName, DlgHookUPP dlgHook, /* can be NULL */
+            SFReply *reply) THREEWORDINLINE(0x3F3C, 0x0001, 0xA9EA);
 
-/**
- *  SFGetFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-SFGetFile(Point where, ConstStr255Param prompt,
-          FileFilterUPP fileFilter,                    /* can be NULL */
-          short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
-          DlgHookUPP dlgHook,                          /* can be NULL */
-          SFReply *reply) THREEWORDINLINE(0x3F3C, 0x0002, 0xA9EA);
+  /**
+   *  SFGetFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  SFGetFile(Point where, ConstStr255Param prompt,
+            FileFilterUPP fileFilter,                    /* can be NULL */
+            short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
+            DlgHookUPP dlgHook,                          /* can be NULL */
+            SFReply *reply) THREEWORDINLINE(0x3F3C, 0x0002, 0xA9EA);
 
-/**
- *  SFPPutFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-SFPPutFile(Point where, ConstStr255Param prompt, /* can be NULL */
-           ConstStr255Param origName, DlgHookUPP dlgHook, SFReply *reply,
-           short dlgID,
-           ModalFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x3F3C,
-                                                                        0x0003,
-                                                                        0xA9EA);
+  /**
+   *  SFPPutFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  SFPPutFile(Point where, ConstStr255Param prompt, /* can be NULL */
+             ConstStr255Param origName, DlgHookUPP dlgHook, SFReply *reply,
+             short dlgID,
+             ModalFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x3F3C,
+                                                                          0x0003,
+                                                                          0xA9EA);
 
-/**
- *  SFPGetFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-SFPGetFile(Point where, ConstStr255Param prompt,
-           FileFilterUPP fileFilter,                    /* can be NULL */
-           short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
-           DlgHookUPP dlgHook,                          /* can be NULL */
-           SFReply *reply, short dlgID,
-           ModalFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x3F3C,
-                                                                        0x0004,
-                                                                        0xA9EA);
+  /**
+   *  SFPGetFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  SFPGetFile(Point where, ConstStr255Param prompt,
+             FileFilterUPP fileFilter,                    /* can be NULL */
+             short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
+             DlgHookUPP dlgHook,                          /* can be NULL */
+             SFReply *reply, short dlgID,
+             ModalFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x3F3C,
+                                                                          0x0004,
+                                                                          0xA9EA);
 
-/**
- *  StandardPutFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-StandardPutFile(ConstStr255Param prompt, /* can be NULL */
-                ConstStr255Param defaultName, StandardFileReply *reply)
-    THREEWORDINLINE(0x3F3C, 0x0005, 0xA9EA);
+  /**
+   *  StandardPutFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  StandardPutFile(ConstStr255Param prompt, /* can be NULL */
+                  ConstStr255Param defaultName, StandardFileReply *reply)
+      THREEWORDINLINE(0x3F3C, 0x0005, 0xA9EA);
 
-/**
- *  StandardGetFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-StandardGetFile(FileFilterUPP fileFilter,                    /* can be NULL */
+  /**
+   *  StandardGetFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  StandardGetFile(FileFilterUPP fileFilter,                    /* can be NULL */
+                  short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
+                  StandardFileReply *reply)
+      THREEWORDINLINE(0x3F3C, 0x0006, 0xA9EA);
+
+  /**
+   *  CustomPutFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  CustomPutFile(ConstStr255Param prompt, /* can be NULL */
+                ConstStr255Param defaultName, StandardFileReply *reply,
+                short dlgID, Point where, DlgHookYDUPP dlgHook, /* can be NULL */
+                ModalFilterYDUPP filterProc,                    /* can be NULL */
+                ActivationOrderListPtr activeList,              /* can be NULL */
+                ActivateYDUPP activate,                         /* can be NULL */
+                void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x0007, 0xA9EA);
+
+  /**
+   *  CustomGetFile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  CustomGetFile(FileFilterYDUPP fileFilter,                  /* can be NULL */
                 short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
-                StandardFileReply *reply)
-    THREEWORDINLINE(0x3F3C, 0x0006, 0xA9EA);
+                StandardFileReply *reply, short dlgID, Point where,
+                DlgHookYDUPP dlgHook,              /* can be NULL */
+                ModalFilterYDUPP filterProc,       /* can be NULL */
+                ActivationOrderListPtr activeList, /* can be NULL */
+                ActivateYDUPP activate,            /* can be NULL */
+                void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x0008, 0xA9EA);
 
-/**
- *  CustomPutFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-CustomPutFile(ConstStr255Param prompt, /* can be NULL */
-              ConstStr255Param defaultName, StandardFileReply *reply,
-              short dlgID, Point where, DlgHookYDUPP dlgHook, /* can be NULL */
-              ModalFilterYDUPP filterProc,                    /* can be NULL */
-              ActivationOrderListPtr activeList,              /* can be NULL */
-              ActivateYDUPP activate,                         /* can be NULL */
-              void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x0007, 0xA9EA);
-
-/**
- *  CustomGetFile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-CustomGetFile(FileFilterYDUPP fileFilter,                  /* can be NULL */
-              short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
-              StandardFileReply *reply, short dlgID, Point where,
-              DlgHookYDUPP dlgHook,              /* can be NULL */
-              ModalFilterYDUPP filterProc,       /* can be NULL */
-              ActivationOrderListPtr activeList, /* can be NULL */
-              ActivateYDUPP activate,            /* can be NULL */
-              void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x0008, 0xA9EA);
-
-/**
- *  StandardOpenDialog()
- *
- *  Availability:
- *    \non_carbon_cfm   in Translation 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-StandardOpenDialog(StandardFileReply *reply);
+  /**
+   *  StandardOpenDialog()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in Translation 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  StandardOpenDialog(StandardFileReply *reply);
 
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  sfpputfile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-sfpputfile(Point *where, const char *prompt, const char *origName,
-           DlgHookUPP dlgHook, /* can be NULL */
-           SFReply *reply, short dlgID,
-           ModalFilterUPP filterProc); /* can be NULL */
+  /**
+   *  sfpputfile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  sfpputfile(Point *where, const char *prompt, const char *origName,
+             DlgHookUPP dlgHook, /* can be NULL */
+             SFReply *reply, short dlgID,
+             ModalFilterUPP filterProc); /* can be NULL */
 
-/**
- *  sfgetfile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-sfgetfile(Point *where, const char *prompt,
-          FileFilterUPP fileFilter,                    /* can be NULL */
-          short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
-          DlgHookUPP dlgHook,                          /* can be NULL */
-          SFReply *reply);
+  /**
+   *  sfgetfile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  sfgetfile(Point *where, const char *prompt,
+            FileFilterUPP fileFilter,                    /* can be NULL */
+            short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
+            DlgHookUPP dlgHook,                          /* can be NULL */
+            SFReply *reply);
 
-/**
- *  sfpgetfile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-sfpgetfile(Point *where, const char *prompt,
-           FileFilterUPP fileFilter,                    /* can be NULL */
-           short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
-           DlgHookUPP dlgHook,                          /* can be NULL */
-           SFReply *reply, short dlgID,
-           ModalFilterUPP filterProc); /* can be NULL */
+  /**
+   *  sfpgetfile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  sfpgetfile(Point *where, const char *prompt,
+             FileFilterUPP fileFilter,                    /* can be NULL */
+             short numTypes, ConstSFTypeListPtr typeList, /* can be NULL */
+             DlgHookUPP dlgHook,                          /* can be NULL */
+             SFReply *reply, short dlgID,
+             ModalFilterUPP filterProc); /* can be NULL */
 
-/**
- *  sfputfile()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-sfputfile(Point *where, const char *prompt, const char *origName,
-          DlgHookUPP dlgHook, /* can be NULL */
-          SFReply *reply);
+  /**
+   *  sfputfile()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  sfputfile(Point *where, const char *prompt, const char *origName,
+            DlgHookUPP dlgHook, /* can be NULL */
+            SFReply *reply);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -783,7 +814,7 @@ sfputfile(Point *where, const char *prompt, const char *origName,
 }
 #endif
 
-#endif /* __STANDARDFILE__ */
+#endif               /* __STANDARDFILE__ */
  DlgHookUPP dlgHook, /* can be NULL */
           SFReply *reply);
 
@@ -804,7 +835,7 @@ sfputfile(Point *where, const char *prompt, const char *origName,
 #endif
 
 #ifdef __cplusplus
-}
+ }
 #endif
 
 #endif /* __STANDARDFILE__ */

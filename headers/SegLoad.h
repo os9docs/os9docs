@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -44,50 +45,52 @@ extern "C" {
 #endif
 
 #if TARGET_CPU_68K && !TARGET_RT_MAC_CFM || !TARGET_OS_MAC
-/**
-   CountAppFiles, GetAppFiles, ClrAppFiles, GetAppParms, getappparms,
-   and the AppFile data structure and enums are obsolete.
-   They are still supported for writing old style 68K apps,
-   but they are not supported for CFM-based apps.
-   Use AppleEvents to determine which files are to be
-   opened or printed from the Finder.
-*/
-enum {
-  appOpen = 0, /*Open the Document (s)*/
-  appPrint = 1 /*Print the Document (s)*/
-};
+   /**
+      CountAppFiles, GetAppFiles, ClrAppFiles, GetAppParms, getappparms,
+      and the AppFile data structure and enums are obsolete.
+      They are still supported for writing old style 68K apps,
+      but they are not supported for CFM-based apps.
+      Use AppleEvents to determine which files are to be
+      opened or printed from the Finder.
+   */
+   enum
+   {
+      appOpen = 0, /*Open the Document (s)*/
+      appPrint = 1 /*Print the Document (s)*/
+   };
 
-/**
-<pre>
- * \note <pre>The AppFile structure is used in calls to GetAppFiles . Or, if you want,
-you can parse the Finder information independently: The global variable
-AppParmHandle (at 0x0AEC) leads to a block of information as follows:
-File Action (word) 0=appOpen, 1=appPrint
-Count (word) Number of AppFile structures to follow
-AppFile 1 Information about first file (variable length)
-.
-.
-.
-AppFile n Information about last file
-Note that the data is packed. Each structure starting on the first
-even-numbered byte directly after the last character of the filename of the
-previous structure.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct AppFile {
-	short vRefNum;/**< Volume or working directory*/
-	OSType fType;/**< File type, eg, 'TEXT' or 'MSWD', etc.*/
-	Str fName;/**< length-prefixed p-string of file*/
-	} AppFile ;/**<  (data will probably be shorter)*/
+   /**
+   <pre>
+    * \note <pre>The AppFile structure is used in calls to GetAppFiles . Or, if you want,
+   you can parse the Finder information independently: The global variable
+   AppParmHandle (at 0x0AEC) leads to a block of information as follows:
+   File Action (word) 0=appOpen, 1=appPrint
+   Count (word) Number of AppFile structures to follow
+   AppFile 1 Information about first file (variable length)
+   .
+   .
+   .
+   AppFile n Information about last file
+   Note that the data is packed. Each structure starting on the first
+   even-numbered byte directly after the last character of the filename of the
+   previous structure.
+   </pre>
+    * \copyright THINK Reference © 1991-1992 Symantec Corporation
+   */
+   struct AppFile
+   {
+      short vRefNum; /**< Volume or working directory*/
+      OSType fType;  /**< File type, eg, 'TEXT' or 'MSWD', etc.*/
+      Str fName;     /**< length-prefixed p-string of file*/
+   } AppFile;        /**<  (data will probably be shorter)*/
 
-typedef struct AppFile AppFile;
+   typedef struct AppFile AppFile;
 #if CALL_NOT_IN_CARBON
 
-			/** 
-			\brief Count selected files; determine Open or Print 
-			
-			<pre>Call CountAppFiles to determine how many files the user had selected in the
+   /**
+   \brief Count selected files; determine Open or Print
+
+   <pre>Call CountAppFiles to determine how many files the user had selected in the
 Finder. This is the first step in determining which file or files the user wants
 you to process and what the user wants you to do with it (them).
 doWhatis the address of a short. Upon return, it contains one of the
@@ -99,9 +102,9 @@ files the user selected in the Finder before selecting Open or Print.
 If the user double-clicked a document, fileCnt will return containing
 a 1.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>After initializing the various managers, most applications will want to
+* \note <pre>After initializing the various managers, most applications will want to
 follow these steps to determine what files the user wishes to open or print:
 •Call CountAppFiles . If fileCnt =0, open a blank, untitled document.
 Otherwise...
@@ -116,25 +119,23 @@ Example
 shortfileCnt, doWhat, index;
 AppFile fileStuff;
 char*cp = (char *)&fileStuff.ftype;  /* ease handling of file type */
-CountAppFiles ( &doWhat, &fileCnt );
-for (index = 1; index <= fileCnt; index++ ) {
-GetAppFiles ( index, &fileStuff );
-/* --- normally you'd open or print the file here ---
-*/
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-CountAppFiles(short *message, short *count);
+   CountAppFiles(&doWhat, &fileCnt);
+   for (index = 1; index <= fileCnt; index++)
+   {
+      GetAppFiles(index, &fileStuff);
+      /* --- normally you'd open or print the file here ---
+       */
+      </ pre>
+              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                            *    \non_carbon_cfm not available *    \carbon_lib not available *    \mac_os_x not available *
+                                                        /
+                                                        void
+                                                        CountAppFiles(short *message, short *count);
 
+      /**
+      \brief Get information about files selected in the Finder
 
-			/** 
-			\brief Get information about files selected in the Finder 
-			
-			<pre>GetAppFiles obtains the filename, type, and volume of one of the files
+      <pre>GetAppFiles obtains the filename, type, and volume of one of the files
 selected by the user when the Finder started your application.
 indexspecifies which file you want to query. It should range from 1 to the
 fileCnt value obtained through a previous call to CountAppFiles .
@@ -142,9 +143,9 @@ fileStuff is the address of a 264-byte AppFile structure. Upon return, it
 contains information about the index-th file selected when the Finder
 started your application.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>When a user double-clicks a document whose FInfo.fdCreator field (see
+* \note <pre>When a user double-clicks a document whose FInfo.fdCreator field (see
 GetFInfo ) contains your signature, your application will begin executing.
 At that time, you should call CountAppFiles and use GetAppFiles to
 obtain the information needed to open that document.
@@ -157,26 +158,25 @@ See AppFile for a description of the information returned by this call.
 GetAppParms returns a handle to a block of data that contains this same
 application file information - in a slightly different form.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-GetAppFiles(short index, AppFile *theFile);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+       *    \non_carbon_cfm   not available
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+      void
+      GetAppFiles(short index, AppFile *theFile);
 
+      /**
+      \brief Let the Finder know have processed a file
 
-			/** 
-			\brief Let the Finder know have processed a file 
-			
-			<pre>via GetAppFiles , call ClrAppFiles to mark it as having been processed.
+      <pre>via GetAppFiles , call ClrAppFiles to mark it as having been processed.
 indexspecifies which file you want to "clear". It should range from 1 to
 the fileCnt value obtained through a previous call to
 CountAppFiles .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>ClrAppFiles simply clears (sets to 0) the ftype field of the index-th
+* \note <pre>ClrAppFiles simply clears (sets to 0) the ftype field of the index-th
 AppFile structure. See CountAppFiles for an example of usage.
 This function seems to have no effect whatsoever on how the Finder or
 Segment Loader calls respond. However, you could use this function to help
@@ -184,19 +184,18 @@ make multiple passes at the file list. For instance, you could process all
 'TEXT' files, followed by all files of a second type, and so forth. Once
 cleared, the file's type won't match with any subsequently-compared type.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-ClrAppFiles(short index);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+       *    \non_carbon_cfm   not available
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+      void
+      ClrAppFiles(short index);
 
+      /**
+      \brief Get application name, resource file reference, et.al.
 
-			/** 
-			\brief Get application name, resource file reference, et.al. 
-			
-			<pre>You can use GetAppParms to obtain your application's filename, your
+      <pre>You can use GetAppParms to obtain your application's filename, your
 resource fork's file reference number, and a handle. The handle leads to the list
 of Finder file information about documents that were selected when your
 program was launched.
@@ -210,9 +209,9 @@ Handle leading to information about the files selected in the Finder
 when your application was opened. The format of this data is
 described in the AppFile topic.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>There are other ways to get information besides GetAppParms :
+* \note <pre>There are other ways to get information besides GetAppParms :
 •You can get the fRefNum of your open resource file by calling
 CurResFile early on.
 •Use CountAppFiles and GetAppFiles to index easily through the Finder
@@ -220,28 +219,28 @@ information about documents you're supposed to process.
 Furthermore, you can examine the global variables CurApName (at
 0x0910), CurApRefNum (at 0x0900), and AppParmHandle (at 0x0AEC).
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-GetAppParms(Str255 apName, short *apRefNum, Handle *apParam)
-    ONEWORDINLINE(0xA9F5);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+       *    \non_carbon_cfm   not available
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+      void
+      GetAppParms(Str255 apName, short *apRefNum, Handle *apParam)
+          ONEWORDINLINE(0xA9F5);
 
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  getappparms()
- *
+      /**
+       *  getappparms()
+       *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-getappparms(char *apName, short *apRefNum, Handle *apParam);
+       *    \non_carbon_cfm   not available
+       *    \carbon_lib        not available
+       *    \mac_os_x         not available
+       */
+      void
+      getappparms(char *apName, short *apRefNum, Handle *apParam);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -254,16 +253,16 @@ getappparms(char *apName, short *apRefNum, Handle *apParam);
 */
 #if TARGET_CPU_68K
 #if CALL_NOT_IN_CARBON
-/**
- *  UnloadSeg()
- *
+      /**
+       *  UnloadSeg()
+       *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
+       *    \non_carbon_cfm   not available
+       *    \carbon_lib        not available
+       *    \mac_os_x         not available
+       */
+      void
+      UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -271,7 +270,7 @@ UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
 #define UnloadSeg(x)
 #endif /* TARGET_CPU_68K */
 
-/* ExitToShell() has moved to Process.h*/
+      /* ExitToShell() has moved to Process.h*/
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -288,8 +287,8 @@ UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
 #endif
 
 #ifdef __cplusplus
-}
+   }
 #endif
 
 #endif /* __SEGLOAD__ */
-*/*/*/*/
+   * /*/*/ * /

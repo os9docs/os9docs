@@ -43,7 +43,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -58,786 +59,853 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  invalColReq = -1 /*invalid color table request*/
-};
+  enum
+  {
+    invalColReq = -1 /*invalid color table request*/
+  };
 
-enum {
-  /* transfer modes */
-  srcCopy = 0, /*the 16 transfer modes*/
-  srcOr = 1,
-  srcXor = 2,
-  srcBic = 3,
-  notSrcCopy = 4,
-  notSrcOr = 5,
-  notSrcXor = 6,
-  notSrcBic = 7,
-  patCopy = 8,
-  patOr = 9,
-  patXor = 10,
-  patBic = 11,
-  notPatCopy = 12,
-  notPatOr = 13,
-  notPatXor = 14,
-  notPatBic = 15, /* Special Text Transfer Mode */
-  grayishTextOr = 49,
-  hilitetransfermode = 50,
-  hilite = 50, /* Arithmetic transfer modes */
-  blend = 32,
-  addPin = 33,
-  addOver = 34,
-  subPin = 35,
-  addMax = 37,
-  adMax = 37,
-  subOver = 38,
-  adMin = 39,
-  ditherCopy = 64, /* Transparent mode constant */
-  transparent = 36
-};
+  enum
+  {
+    /* transfer modes */
+    srcCopy = 0, /*the 16 transfer modes*/
+    srcOr = 1,
+    srcXor = 2,
+    srcBic = 3,
+    notSrcCopy = 4,
+    notSrcOr = 5,
+    notSrcXor = 6,
+    notSrcBic = 7,
+    patCopy = 8,
+    patOr = 9,
+    patXor = 10,
+    patBic = 11,
+    notPatCopy = 12,
+    notPatOr = 13,
+    notPatXor = 14,
+    notPatBic = 15, /* Special Text Transfer Mode */
+    grayishTextOr = 49,
+    hilitetransfermode = 50,
+    hilite = 50, /* Arithmetic transfer modes */
+    blend = 32,
+    addPin = 33,
+    addOver = 34,
+    subPin = 35,
+    addMax = 37,
+    adMax = 37,
+    subOver = 38,
+    adMin = 39,
+    ditherCopy = 64, /* Transparent mode constant */
+    transparent = 36
+  };
 
-enum {
-  italicBit = 1,
-  ulineBit = 2,
-  outlineBit = 3,
-  shadowBit = 4,
-  condenseBit = 5,
-  extendBit = 6
-};
+  enum
+  {
+    italicBit = 1,
+    ulineBit = 2,
+    outlineBit = 3,
+    shadowBit = 4,
+    condenseBit = 5,
+    extendBit = 6
+  };
 
-enum {
-  /* QuickDraw color separation constants */
-  normalBit = 0,  /*normal screen mapping*/
-  inverseBit = 1, /*inverse screen mapping*/
-  redBit = 4,     /*RGB additive mapping*/
-  greenBit = 3,
-  blueBit = 2,
-  cyanBit = 8, /*CMYBk subtractive mapping*/
-  magentaBit = 7,
-  yellowBit = 6,
-  blackBit = 5
-};
+  enum
+  {
+    /* QuickDraw color separation constants */
+    normalBit = 0,  /*normal screen mapping*/
+    inverseBit = 1, /*inverse screen mapping*/
+    redBit = 4,     /*RGB additive mapping*/
+    greenBit = 3,
+    blueBit = 2,
+    cyanBit = 8, /*CMYBk subtractive mapping*/
+    magentaBit = 7,
+    yellowBit = 6,
+    blackBit = 5
+  };
 
-enum {
-  blackColor = 33, /*colors expressed in these mappings*/
-  whiteColor = 30,
-  redColor = 205,
-  greenColor = 341,
-  blueColor = 409,
-  cyanColor = 273,
-  magentaColor = 137,
-  yellowColor = 69
-};
+  enum
+  {
+    blackColor = 33, /*colors expressed in these mappings*/
+    whiteColor = 30,
+    redColor = 205,
+    greenColor = 341,
+    blueColor = 409,
+    cyanColor = 273,
+    magentaColor = 137,
+    yellowColor = 69
+  };
 
-enum {
-  picLParen = 0, /*standard picture comments*/
-  picRParen = 1,
-  clutType = 0,   /*0 if lookup table*/
-  fixedType = 1,  /*1 if fixed table*/
-  directType = 2, /*2 if direct values*/
-  gdDevType = 0   /*0 = monochrome 1 = color*/
-};
+  enum
+  {
+    picLParen = 0, /*standard picture comments*/
+    picRParen = 1,
+    clutType = 0,   /*0 if lookup table*/
+    fixedType = 1,  /*1 if fixed table*/
+    directType = 2, /*2 if direct values*/
+    gdDevType = 0   /*0 = monochrome 1 = color*/
+  };
 
-enum {
-  interlacedDevice = 2, /* 1 if single pixel lines look bad */
-  hwMirroredDevice = 4, /* 1 if device is HW mirrored */
-  roundedDevice = 5, /* 1 if device has been �rounded� into the GrayRgn */
-  hasAuxMenuBar = 6, /* 1 if device has an aux menu bar on it */
-  burstDevice = 7,
-  ext32Device = 8,
-  ramInit = 10,      /*1 if initialized from 'scrn' resource*/
-  mainScreen = 11,   /* 1 if main screen */
-  allInit = 12,      /* 1 if all devices initialized */
-  screenDevice = 13, /*1 if screen device [not used]*/
-  noDriver = 14,     /* 1 if no driver for this GDevice */
-  screenActive = 15, /*1 if in use*/
-  hiliteBit = 7,     /*flag bit in LMGet/SetHiliteMode*/
-  pHiliteBit = 0,    /*flag bit in LMGet/SetHiliteMode when used with BitClr*/
-  defQDColors = 127, /*resource ID of clut for default QDColors*/
-                     /* pixel type */
-  RGBDirect = 16,    /* 16 & 32 bits/pixel pixelType value */
-                     /* pmVersion values */
-  baseAddr32 = 4     /*pixmap base address is 32-bit address*/
-};
+  enum
+  {
+    interlacedDevice = 2, /* 1 if single pixel lines look bad */
+    hwMirroredDevice = 4, /* 1 if device is HW mirrored */
+    roundedDevice = 5,    /* 1 if device has been �rounded� into the GrayRgn */
+    hasAuxMenuBar = 6,    /* 1 if device has an aux menu bar on it */
+    burstDevice = 7,
+    ext32Device = 8,
+    ramInit = 10,      /*1 if initialized from 'scrn' resource*/
+    mainScreen = 11,   /* 1 if main screen */
+    allInit = 12,      /* 1 if all devices initialized */
+    screenDevice = 13, /*1 if screen device [not used]*/
+    noDriver = 14,     /* 1 if no driver for this GDevice */
+    screenActive = 15, /*1 if in use*/
+    hiliteBit = 7,     /*flag bit in LMGet/SetHiliteMode*/
+    pHiliteBit = 0,    /*flag bit in LMGet/SetHiliteMode when used with BitClr*/
+    defQDColors = 127, /*resource ID of clut for default QDColors*/
+                       /* pixel type */
+    RGBDirect = 16,    /* 16 & 32 bits/pixel pixelType value */
+                       /* pmVersion values */
+    baseAddr32 = 4     /*pixmap base address is 32-bit address*/
+  };
 
-enum {
-  sysPatListID = 0,
-  iBeamCursor = 1,
-  crossCursor = 2,
-  plusCursor = 3,
-  watchCursor = 4
-};
+  enum
+  {
+    sysPatListID = 0,
+    iBeamCursor = 1,
+    crossCursor = 2,
+    plusCursor = 3,
+    watchCursor = 4
+  };
 
-enum {
-  kQDGrafVerbFrame = 0,
-  kQDGrafVerbPaint = 1,
-  kQDGrafVerbErase = 2,
-  kQDGrafVerbInvert = 3,
-  kQDGrafVerbFill = 4
-};
+  enum
+  {
+    kQDGrafVerbFrame = 0,
+    kQDGrafVerbPaint = 1,
+    kQDGrafVerbErase = 2,
+    kQDGrafVerbInvert = 3,
+    kQDGrafVerbFill = 4
+  };
 
 #if OLDROUTINENAMES
-enum {
-  frame = kQDGrafVerbFrame,
-  paint = kQDGrafVerbPaint,
-  erase = kQDGrafVerbErase,
-  invert = kQDGrafVerbInvert,
-  fill = kQDGrafVerbFill
-};
+  enum
+  {
+    frame = kQDGrafVerbFrame,
+    paint = kQDGrafVerbPaint,
+    erase = kQDGrafVerbErase,
+    invert = kQDGrafVerbInvert,
+    fill = kQDGrafVerbFill
+  };
 
 #endif /* OLDROUTINENAMES */
 
-typedef SInt8 GrafVerb;
-enum { chunky = 0, chunkyPlanar = 1, planar = 2 };
+  typedef SInt8 GrafVerb;
+  enum
+  {
+    chunky = 0,
+    chunkyPlanar = 1,
+    planar = 2
+  };
 
-typedef SInt8 PixelType;
-typedef short Bits16[16];
+  typedef SInt8 PixelType;
+  typedef short Bits16[16];
 
-/***************   IMPORTANT NOTE REGARDING Pattern
-************************************** Patterns were originally defined as:
+  /***************   IMPORTANT NOTE REGARDING Pattern
+  ************************************** Patterns were originally defined as:
 
-        C:          typedef unsigned char Pattern[8];
-        Pascal:     Pattern = PACKED ARRAY [0..7] OF 0..255;
+          C:          typedef unsigned char Pattern[8];
+          Pascal:     Pattern = PACKED ARRAY [0..7] OF 0..255;
 
-   The old array definition of Pattern would cause 68000 based CPU's to crash in
-certain circum- stances. The new struct definition is safe, but may require
-source code changes to compile.
+     The old array definition of Pattern would cause 68000 based CPU's to crash in
+  certain circum- stances. The new struct definition is safe, but may require
+  source code changes to compile.
 
-*********************************************************************************************/
-struct Pattern {
-  UInt8 pat[8];
-};
-typedef struct Pattern Pattern;
-/**
- ConstPatternParam is no longer needed.  It was first created when Pattern was
- an array. Now that Pattern is a struct, it is more straight forward to just add
- the "const" qualifier on the parameter type (e.g. "const Pattern * pat" instead
- of "ConstPatternParam pat").
-*/
-typedef const Pattern *ConstPatternParam;
-typedef Pattern *PatPtr;
-typedef PatPtr *PatHandle;
-typedef SignedByte QDByte;
-typedef QDByte *QDPtr;
-typedef QDPtr *QDHandle;
-typedef short QDErr;
-enum { singleDevicesBit = 0, dontMatchSeedsBit = 1, allDevicesBit = 2 };
+  *********************************************************************************************/
+  struct Pattern
+  {
+    UInt8 pat[8];
+  };
+  typedef struct Pattern Pattern;
+  /**
+   ConstPatternParam is no longer needed.  It was first created when Pattern was
+   an array. Now that Pattern is a struct, it is more straight forward to just add
+   the "const" qualifier on the parameter type (e.g. "const Pattern * pat" instead
+   of "ConstPatternParam pat").
+  */
+  typedef const Pattern *ConstPatternParam;
+  typedef Pattern *PatPtr;
+  typedef PatPtr *PatHandle;
+  typedef SignedByte QDByte;
+  typedef QDByte *QDPtr;
+  typedef QDPtr *QDHandle;
+  typedef short QDErr;
+  enum
+  {
+    singleDevicesBit = 0,
+    dontMatchSeedsBit = 1,
+    allDevicesBit = 2
+  };
 
-enum {
-  singleDevices = 1 << singleDevicesBit,
-  dontMatchSeeds = 1 << dontMatchSeedsBit,
-  allDevices = 1 << allDevicesBit
-};
+  enum
+  {
+    singleDevices = 1 << singleDevicesBit,
+    dontMatchSeeds = 1 << dontMatchSeedsBit,
+    allDevices = 1 << allDevicesBit
+  };
 
-typedef unsigned long DeviceLoopFlags;
-/**
-    PrinterStatusOpcode.  For communication with downloading and printing
-   services.
-*/
-typedef SInt32 PrinterStatusOpcode;
-enum { kPrinterFontStatus = 0, kPrinterScalingStatus = 1 };
+  typedef unsigned long DeviceLoopFlags;
+  /**
+      PrinterStatusOpcode.  For communication with downloading and printing
+     services.
+  */
+  typedef SInt32 PrinterStatusOpcode;
+  enum
+  {
+    kPrinterFontStatus = 0,
+    kPrinterScalingStatus = 1
+  };
 
-struct PrinterFontStatus {
-  SInt32 oResult;
-  SInt16 iFondID;
-  Style iStyle;
-};
-typedef struct PrinterFontStatus PrinterFontStatus;
-struct PrinterScalingStatus {
-  Point oScalingFactors;
-};
-typedef struct PrinterScalingStatus PrinterScalingStatus;
-/**
-<pre>
- * \note <pre>The BitMap structure is used in calls to CopyBits , CopyMask , and
-SetPortBits . Each GrafPort (including the QD global thePort) contains a
-BitMap identifying the memory area in which drawing will take place.
-The Quickdraw global variable screenBits is a BitMap identifying the size
-and location of the actual video memory.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct BitMap {
-	QDPtr baseAddr;/**< Address of start of bitmap data*/
-	short rowBytes;/**< Bytes per row in the bitmap data*/
-	Rect bounds;/**< Coordinates imposed over the bitmap*/
-	} BitMap ;/**< */
+  struct PrinterFontStatus
+  {
+    SInt32 oResult;
+    SInt16 iFondID;
+    Style iStyle;
+  };
+  typedef struct PrinterFontStatus PrinterFontStatus;
+  struct PrinterScalingStatus
+  {
+    Point oScalingFactors;
+  };
+  typedef struct PrinterScalingStatus PrinterScalingStatus;
+  /**
+  <pre>
+   * \note <pre>The BitMap structure is used in calls to CopyBits , CopyMask , and
+  SetPortBits . Each GrafPort (including the QD global thePort) contains a
+  BitMap identifying the memory area in which drawing will take place.
+  The Quickdraw global variable screenBits is a BitMap identifying the size
+  and location of the actual video memory.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct BitMap
+  {
+    QDPtr baseAddr; /**< Address of start of bitmap data*/
+    short rowBytes; /**< Bytes per row in the bitmap data*/
+    Rect bounds;    /**< Coordinates imposed over the bitmap*/
+  } BitMap;         /**< */
 
-typedef struct BitMap BitMap;
-typedef BitMap *BitMapPtr;
-typedef BitMapPtr *BitMapHandle;
-struct Cursor {
-  Bits16 data;
-  Bits16 mask;
-  Point hotSpot;
-};
-typedef struct Cursor Cursor;
-typedef Cursor *CursPtr;
-typedef CursPtr *CursHandle;
-/**
-<pre>
- * \note <pre>Use the PenState structure in calls to GetPenState and SetPenState .
-See Transfer Modes for possible values in the pnMode field.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct PenState {
-	Point pnLoc ;/**< Current location, in local coordinates*/
-	Point pnSize ;/**< Current size (.h is width, .v is height)*/
-	short pnMode ;/**< Current transfer mode ( srcCopy, et al.)*/
-	Pattern pnPat ;/**< Current Pattern used for drawing*/
-	} PenState ;/**< */
+  typedef struct BitMap BitMap;
+  typedef BitMap *BitMapPtr;
+  typedef BitMapPtr *BitMapHandle;
+  struct Cursor
+  {
+    Bits16 data;
+    Bits16 mask;
+    Point hotSpot;
+  };
+  typedef struct Cursor Cursor;
+  typedef Cursor *CursPtr;
+  typedef CursPtr *CursHandle;
+  /**
+  <pre>
+   * \note <pre>Use the PenState structure in calls to GetPenState and SetPenState .
+  See Transfer Modes for possible values in the pnMode field.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct PenState
+  {
+    Point pnLoc;   /**< Current location, in local coordinates*/
+    Point pnSize;  /**< Current size (.h is width, .v is height)*/
+    short pnMode;  /**< Current transfer mode ( srcCopy, et al.)*/
+    Pattern pnPat; /**< Current Pattern used for drawing*/
+  } PenState;      /**< */
 
-typedef struct PenState PenState;
+  typedef struct PenState PenState;
 #if !OPAQUE_TOOLBOX_STRUCTS
-struct MacRegion {
-  unsigned short rgnSize; /* size in bytes; don't rely on it */
-  Rect rgnBBox; /* enclosing rectangle; in Carbon use GetRegionBounds */
-};
-typedef struct MacRegion MacRegion;
+  struct MacRegion
+  {
+    unsigned short rgnSize; /* size in bytes; don't rely on it */
+    Rect rgnBBox;           /* enclosing rectangle; in Carbon use GetRegionBounds */
+  };
+  typedef struct MacRegion MacRegion;
 /**
    The type name "Region" has a name space collision on Win32.
    Use MacRegion to be cross-platfrom safe.
 */
 #if TARGET_OS_MAC
-typedef MacRegion Region;
+  typedef MacRegion Region;
 #endif /* TARGET_OS_MAC */
 
-typedef MacRegion *RgnPtr;
-typedef RgnPtr *RgnHandle;
+  typedef MacRegion *RgnPtr;
+  typedef RgnPtr *RgnHandle;
 #else
 typedef struct OpaqueRgnHandle *RgnHandle;
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
-/**
-<pre>
- * \note <pre>A Picture structure may need to be accessed in order to determine its
-unscaled original size; eg, after reading it from a resource. A PicHandle is
-used in the following system calls:
-DrawPicture GetPicture KillPicture OpenPicture
-GetWindowPic SetWindowPic
-The ClosePicture function completes the operation of recording a picture
-which is started via OpenPicture (the picture data is accumulated in the
-picSave handle in the current active GrafPort ). PicComment lets you
-insert custom data into the picture's definition. A picture can be stored in a
-type 'PICT' resource.
-The picSize field may be inaccurate. Use GetHandleSize to obtain the
-actual size.
-A PicHandle may reside in the windowPic field of a WindowRecord , in
-which case the picture is assumed to be the entire contents of a window.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct Picture {
-	short picSize ;/**<  Size, in bytes, of this structure*/
-	Rect picFrame ;/**<  Area in which picture is drawn, in*/
-	n (picture definition;/**< internal*/
-	} Picture  ;/**<*/
+  /**
+  <pre>
+   * \note <pre>A Picture structure may need to be accessed in order to determine its
+  unscaled original size; eg, after reading it from a resource. A PicHandle is
+  used in the following system calls:
+  DrawPicture GetPicture KillPicture OpenPicture
+  GetWindowPic SetWindowPic
+  The ClosePicture function completes the operation of recording a picture
+  which is started via OpenPicture (the picture data is accumulated in the
+  picSave handle in the current active GrafPort ). PicComment lets you
+  insert custom data into the picture's definition. A picture can be stored in a
+  type 'PICT' resource.
+  The picSize field may be inaccurate. Use GetHandleSize to obtain the
+  actual size.
+  A PicHandle may reside in the windowPic field of a WindowRecord , in
+  which case the picture is assumed to be the entire contents of a window.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct Picture
+  {
+    short picSize;      /**<  Size, in bytes, of this structure*/
+    Rect picFrame;      /**<  Area in which picture is drawn, in*/
+  n (picture definition;/**< internal*/
+  } Picture;            /**<*/
 
-typedef struct Picture Picture;
-typedef Picture *PicPtr;
-typedef PicPtr *PicHandle;
-struct MacPolygon {
-  short polySize;
-  Rect polyBBox;
-  Point polyPoints[1];
-};
-typedef struct MacPolygon MacPolygon;
+  typedef struct Picture Picture;
+  typedef Picture *PicPtr;
+  typedef PicPtr *PicHandle;
+  struct MacPolygon
+  {
+    short polySize;
+    Rect polyBBox;
+    Point polyPoints[1];
+  };
+  typedef struct MacPolygon MacPolygon;
 /**
    The type name "Polygon" has a name space collision on Win32.
    Use MacPolygon to be cross-platfrom safe.
 */
 #if TARGET_OS_MAC
-typedef MacPolygon Polygon;
+  typedef MacPolygon Polygon;
 #endif /* TARGET_OS_MAC */
 
-typedef MacPolygon *PolyPtr;
-typedef PolyPtr *PolyHandle;
-typedef CALLBACK_API(void, QDTextProcPtr)(short byteCount, const void *textBuf,
-                                          Point numer, Point denom);
-typedef CALLBACK_API(void, QDLineProcPtr)(Point newPt);
-typedef CALLBACK_API(void, QDRectProcPtr)(GrafVerb verb, const Rect *r);
-typedef CALLBACK_API(void, QDRRectProcPtr)(GrafVerb verb, const Rect *r,
-                                           short ovalWidth, short ovalHeight);
-typedef CALLBACK_API(void, QDOvalProcPtr)(GrafVerb verb, const Rect *r);
-typedef CALLBACK_API(void, QDArcProcPtr)(GrafVerb verb, const Rect *r,
-                                         short startAngle, short arcAngle);
-typedef CALLBACK_API(void, QDPolyProcPtr)(GrafVerb verb, PolyHandle poly);
-typedef CALLBACK_API(void, QDRgnProcPtr)(GrafVerb verb, RgnHandle rgn);
-typedef CALLBACK_API(void, QDBitsProcPtr)(const BitMap *srcBits,
-                                          const Rect *srcRect,
-                                          const Rect *dstRect, short mode,
-                                          RgnHandle maskRgn);
-typedef CALLBACK_API(void, QDCommentProcPtr)(short kind, short dataSize,
-                                             Handle dataHandle);
-typedef CALLBACK_API(short, QDTxMeasProcPtr)(short byteCount,
-                                             const void *textAddr, Point *numer,
-                                             Point *denom, FontInfo *info);
-typedef CALLBACK_API(void, QDGetPicProcPtr)(void *dataPtr, short byteCount);
-typedef CALLBACK_API(void, QDPutPicProcPtr)(const void *dataPtr,
-                                            short byteCount);
-typedef CALLBACK_API(void, QDOpcodeProcPtr)(const Rect *fromRect,
-                                            const Rect *toRect, UInt16 opcode,
-                                            SInt16 version);
-typedef CALLBACK_API_C(OSStatus, QDStdGlyphsProcPtr)(void *dataStream,
-                                                     ByteCount size);
-typedef CALLBACK_API(void, QDJShieldCursorProcPtr)(short left, short top,
-                                                   short right, short bottom);
-typedef STACK_UPP_TYPE(QDTextProcPtr) QDTextUPP;
-typedef STACK_UPP_TYPE(QDLineProcPtr) QDLineUPP;
-typedef STACK_UPP_TYPE(QDRectProcPtr) QDRectUPP;
-typedef STACK_UPP_TYPE(QDRRectProcPtr) QDRRectUPP;
-typedef STACK_UPP_TYPE(QDOvalProcPtr) QDOvalUPP;
-typedef STACK_UPP_TYPE(QDArcProcPtr) QDArcUPP;
-typedef STACK_UPP_TYPE(QDPolyProcPtr) QDPolyUPP;
-typedef STACK_UPP_TYPE(QDRgnProcPtr) QDRgnUPP;
-typedef STACK_UPP_TYPE(QDBitsProcPtr) QDBitsUPP;
-typedef STACK_UPP_TYPE(QDCommentProcPtr) QDCommentUPP;
-typedef STACK_UPP_TYPE(QDTxMeasProcPtr) QDTxMeasUPP;
-typedef STACK_UPP_TYPE(QDGetPicProcPtr) QDGetPicUPP;
-typedef STACK_UPP_TYPE(QDPutPicProcPtr) QDPutPicUPP;
-typedef STACK_UPP_TYPE(QDOpcodeProcPtr) QDOpcodeUPP;
-typedef STACK_UPP_TYPE(QDStdGlyphsProcPtr) QDStdGlyphsUPP;
-typedef STACK_UPP_TYPE(QDJShieldCursorProcPtr) QDJShieldCursorUPP;
-/**
-<pre>
- * \note <pre>The QDProcs structure is used in calls to SetStdProcs  Call that function
-to fill the structure with addresses of the standard Quickdraw bottleneck
-routines, then set one or more fields to point to your own custom handlers.
-See StdComment , et al. for descriptions of parameters.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct QDProcs {
-	QDPtr textProc;/**<  Addr of text-drawing proc StdText*/
-	QDPtr lineProc;/**<  Addr of line-drawing proc StdLine*/
-	QDPtr rectProc;/**<  Addr of rectangle-drawing proc StdRect*/
-	QDPtr rRectProc;/**<  Addr of roundRect-draw proc StdRRect*/
-	QDPtr ovalProc;/**<  Addr of oval/circle-draw proc StdOval*/
-	QDPtr arcProc;/**<  Addr of arc-drawing proc StdArc*/
-	QDPtr polyProc;/**<  Addr of polygon-drawing proc StdPoly*/
-	QDPtr rgnProc;/**<  Addr of region-drawing proc StdRgn*/
-	QDPtr bitsProc;/**<  Addr of bit transfer proc StdBits*/
-	QDPtr commentProc;/**<   Addr pict comment handler StdComment*/
-	QDPtr txMeasProc;/**<  Addr of text width measurer StdTxMeas*/
-	QDPtr getPicProc;/**<  Addr of picture retrieval proc StdGetPic*/
-	QDPtr putPicProc;/**<  Addr of picture saving proc StdPutPic*/
-	} QDProcs ;/**< */
+  typedef MacPolygon *PolyPtr;
+  typedef PolyPtr *PolyHandle;
+  typedef CALLBACK_API(void, QDTextProcPtr)(short byteCount, const void *textBuf,
+                                            Point numer, Point denom);
+  typedef CALLBACK_API(void, QDLineProcPtr)(Point newPt);
+  typedef CALLBACK_API(void, QDRectProcPtr)(GrafVerb verb, const Rect *r);
+  typedef CALLBACK_API(void, QDRRectProcPtr)(GrafVerb verb, const Rect *r,
+                                             short ovalWidth, short ovalHeight);
+  typedef CALLBACK_API(void, QDOvalProcPtr)(GrafVerb verb, const Rect *r);
+  typedef CALLBACK_API(void, QDArcProcPtr)(GrafVerb verb, const Rect *r,
+                                           short startAngle, short arcAngle);
+  typedef CALLBACK_API(void, QDPolyProcPtr)(GrafVerb verb, PolyHandle poly);
+  typedef CALLBACK_API(void, QDRgnProcPtr)(GrafVerb verb, RgnHandle rgn);
+  typedef CALLBACK_API(void, QDBitsProcPtr)(const BitMap *srcBits,
+                                            const Rect *srcRect,
+                                            const Rect *dstRect, short mode,
+                                            RgnHandle maskRgn);
+  typedef CALLBACK_API(void, QDCommentProcPtr)(short kind, short dataSize,
+                                               Handle dataHandle);
+  typedef CALLBACK_API(short, QDTxMeasProcPtr)(short byteCount,
+                                               const void *textAddr, Point *numer,
+                                               Point *denom, FontInfo *info);
+  typedef CALLBACK_API(void, QDGetPicProcPtr)(void *dataPtr, short byteCount);
+  typedef CALLBACK_API(void, QDPutPicProcPtr)(const void *dataPtr,
+                                              short byteCount);
+  typedef CALLBACK_API(void, QDOpcodeProcPtr)(const Rect *fromRect,
+                                              const Rect *toRect, UInt16 opcode,
+                                              SInt16 version);
+  typedef CALLBACK_API_C(OSStatus, QDStdGlyphsProcPtr)(void *dataStream,
+                                                       ByteCount size);
+  typedef CALLBACK_API(void, QDJShieldCursorProcPtr)(short left, short top,
+                                                     short right, short bottom);
+  typedef STACK_UPP_TYPE(QDTextProcPtr) QDTextUPP;
+  typedef STACK_UPP_TYPE(QDLineProcPtr) QDLineUPP;
+  typedef STACK_UPP_TYPE(QDRectProcPtr) QDRectUPP;
+  typedef STACK_UPP_TYPE(QDRRectProcPtr) QDRRectUPP;
+  typedef STACK_UPP_TYPE(QDOvalProcPtr) QDOvalUPP;
+  typedef STACK_UPP_TYPE(QDArcProcPtr) QDArcUPP;
+  typedef STACK_UPP_TYPE(QDPolyProcPtr) QDPolyUPP;
+  typedef STACK_UPP_TYPE(QDRgnProcPtr) QDRgnUPP;
+  typedef STACK_UPP_TYPE(QDBitsProcPtr) QDBitsUPP;
+  typedef STACK_UPP_TYPE(QDCommentProcPtr) QDCommentUPP;
+  typedef STACK_UPP_TYPE(QDTxMeasProcPtr) QDTxMeasUPP;
+  typedef STACK_UPP_TYPE(QDGetPicProcPtr) QDGetPicUPP;
+  typedef STACK_UPP_TYPE(QDPutPicProcPtr) QDPutPicUPP;
+  typedef STACK_UPP_TYPE(QDOpcodeProcPtr) QDOpcodeUPP;
+  typedef STACK_UPP_TYPE(QDStdGlyphsProcPtr) QDStdGlyphsUPP;
+  typedef STACK_UPP_TYPE(QDJShieldCursorProcPtr) QDJShieldCursorUPP;
+  /**
+  <pre>
+   * \note <pre>The QDProcs structure is used in calls to SetStdProcs  Call that function
+  to fill the structure with addresses of the standard Quickdraw bottleneck
+  routines, then set one or more fields to point to your own custom handlers.
+  See StdComment , et al. for descriptions of parameters.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct QDProcs
+  {
+    QDPtr textProc;    /**<  Addr of text-drawing proc StdText*/
+    QDPtr lineProc;    /**<  Addr of line-drawing proc StdLine*/
+    QDPtr rectProc;    /**<  Addr of rectangle-drawing proc StdRect*/
+    QDPtr rRectProc;   /**<  Addr of roundRect-draw proc StdRRect*/
+    QDPtr ovalProc;    /**<  Addr of oval/circle-draw proc StdOval*/
+    QDPtr arcProc;     /**<  Addr of arc-drawing proc StdArc*/
+    QDPtr polyProc;    /**<  Addr of polygon-drawing proc StdPoly*/
+    QDPtr rgnProc;     /**<  Addr of region-drawing proc StdRgn*/
+    QDPtr bitsProc;    /**<  Addr of bit transfer proc StdBits*/
+    QDPtr commentProc; /**<   Addr pict comment handler StdComment*/
+    QDPtr txMeasProc;  /**<  Addr of text width measurer StdTxMeas*/
+    QDPtr getPicProc;  /**<  Addr of picture retrieval proc StdGetPic*/
+    QDPtr putPicProc;  /**<  Addr of picture saving proc StdPutPic*/
+  } QDProcs;           /**< */
 
-typedef struct QDProcs QDProcs;
-typedef QDProcs *QDProcsPtr;
-/**
- *  NewQDTextUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDTextUPP
-NewQDTextUPP(QDTextProcPtr userRoutine);
+  typedef struct QDProcs QDProcs;
+  typedef QDProcs *QDProcsPtr;
+  /**
+   *  NewQDTextUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDTextUPP
+  NewQDTextUPP(QDTextProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDTextProcInfo = 0x00003F80
-}; /* pascal no_return_value Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppQDTextProcInfo = 0x00003F80
+  }; /* pascal no_return_value Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline QDTextUPP NewQDTextUPP(QDTextProcPtr userRoutine) {
-  return (QDTextUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDTextProcInfo, GetCurrentArchitecture());
-}
+  inline QDTextUPP NewQDTextUPP(QDTextProcPtr userRoutine)
+  {
+    return (QDTextUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDTextProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDTextUPP(userRoutine)                                              \
-  (QDTextUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDTextProcInfo,  \
+#define NewQDTextUPP(userRoutine)                                             \
+  (QDTextUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDTextProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDLineUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDLineUPP
-NewQDLineUPP(QDLineProcPtr userRoutine);
+  /**
+   *  NewQDLineUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDLineUPP
+  NewQDLineUPP(QDLineProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDLineProcInfo = 0x000000C0
-}; /* pascal no_return_value Func(4_bytes) */
+  enum
+  {
+    uppQDLineProcInfo = 0x000000C0
+  }; /* pascal no_return_value Func(4_bytes) */
 #ifdef __cplusplus
-inline QDLineUPP NewQDLineUPP(QDLineProcPtr userRoutine) {
-  return (QDLineUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDLineProcInfo, GetCurrentArchitecture());
-}
+  inline QDLineUPP NewQDLineUPP(QDLineProcPtr userRoutine)
+  {
+    return (QDLineUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDLineProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDLineUPP(userRoutine)                                              \
-  (QDLineUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDLineProcInfo,  \
+#define NewQDLineUPP(userRoutine)                                             \
+  (QDLineUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDLineProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDRectUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDRectUPP
-NewQDRectUPP(QDRectProcPtr userRoutine);
+  /**
+   *  NewQDRectUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDRectUPP
+  NewQDRectUPP(QDRectProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDRectProcInfo = 0x00000340
-}; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  enum
+  {
+    uppQDRectProcInfo = 0x00000340
+  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
 #ifdef __cplusplus
-inline QDRectUPP NewQDRectUPP(QDRectProcPtr userRoutine) {
-  return (QDRectUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDRectProcInfo, GetCurrentArchitecture());
-}
+  inline QDRectUPP NewQDRectUPP(QDRectProcPtr userRoutine)
+  {
+    return (QDRectUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDRectProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDRectUPP(userRoutine)                                              \
-  (QDRectUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDRectProcInfo,  \
+#define NewQDRectUPP(userRoutine)                                             \
+  (QDRectUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDRectProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDRRectUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDRRectUPP
-NewQDRRectUPP(QDRRectProcPtr userRoutine);
+  /**
+   *  NewQDRRectUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDRRectUPP
+  NewQDRRectUPP(QDRRectProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDRRectProcInfo = 0x00002B40
-}; /* pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) */
+  enum
+  {
+    uppQDRRectProcInfo = 0x00002B40
+  }; /* pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline QDRRectUPP NewQDRRectUPP(QDRRectProcPtr userRoutine) {
-  return (QDRRectUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDRRectProcInfo, GetCurrentArchitecture());
-}
+  inline QDRRectUPP NewQDRRectUPP(QDRRectProcPtr userRoutine)
+  {
+    return (QDRRectUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDRRectProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDRRectUPP(userRoutine)                                             \
-  (QDRRectUPP) NewRoutineDescriptor(                                           \
+#define NewQDRRectUPP(userRoutine)   \
+  (QDRRectUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppQDRRectProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDOvalUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDOvalUPP
-NewQDOvalUPP(QDOvalProcPtr userRoutine);
+  /**
+   *  NewQDOvalUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDOvalUPP
+  NewQDOvalUPP(QDOvalProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDOvalProcInfo = 0x00000340
-}; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  enum
+  {
+    uppQDOvalProcInfo = 0x00000340
+  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
 #ifdef __cplusplus
-inline QDOvalUPP NewQDOvalUPP(QDOvalProcPtr userRoutine) {
-  return (QDOvalUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDOvalProcInfo, GetCurrentArchitecture());
-}
+  inline QDOvalUPP NewQDOvalUPP(QDOvalProcPtr userRoutine)
+  {
+    return (QDOvalUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDOvalProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDOvalUPP(userRoutine)                                              \
-  (QDOvalUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDOvalProcInfo,  \
+#define NewQDOvalUPP(userRoutine)                                             \
+  (QDOvalUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDOvalProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDArcUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDArcUPP
-NewQDArcUPP(QDArcProcPtr userRoutine);
+  /**
+   *  NewQDArcUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDArcUPP
+  NewQDArcUPP(QDArcProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDArcProcInfo = 0x00002B40
-}; /* pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) */
+  enum
+  {
+    uppQDArcProcInfo = 0x00002B40
+  }; /* pascal no_return_value Func(1_byte, 4_bytes, 2_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline QDArcUPP NewQDArcUPP(QDArcProcPtr userRoutine) {
-  return (QDArcUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDArcProcInfo, GetCurrentArchitecture());
-}
+  inline QDArcUPP NewQDArcUPP(QDArcProcPtr userRoutine)
+  {
+    return (QDArcUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDArcProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDArcUPP(userRoutine)                                               \
-  (QDArcUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDArcProcInfo,    \
+#define NewQDArcUPP(userRoutine)                                            \
+  (QDArcUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDArcProcInfo, \
                                   GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDPolyUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDPolyUPP
-NewQDPolyUPP(QDPolyProcPtr userRoutine);
+  /**
+   *  NewQDPolyUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDPolyUPP
+  NewQDPolyUPP(QDPolyProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDPolyProcInfo = 0x00000340
-}; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  enum
+  {
+    uppQDPolyProcInfo = 0x00000340
+  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
 #ifdef __cplusplus
-inline QDPolyUPP NewQDPolyUPP(QDPolyProcPtr userRoutine) {
-  return (QDPolyUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDPolyProcInfo, GetCurrentArchitecture());
-}
+  inline QDPolyUPP NewQDPolyUPP(QDPolyProcPtr userRoutine)
+  {
+    return (QDPolyUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDPolyProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDPolyUPP(userRoutine)                                              \
-  (QDPolyUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDPolyProcInfo,  \
+#define NewQDPolyUPP(userRoutine)                                             \
+  (QDPolyUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDPolyProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDRgnUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDRgnUPP
-NewQDRgnUPP(QDRgnProcPtr userRoutine);
+  /**
+   *  NewQDRgnUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDRgnUPP
+  NewQDRgnUPP(QDRgnProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDRgnProcInfo = 0x00000340
-}; /* pascal no_return_value Func(1_byte, 4_bytes) */
+  enum
+  {
+    uppQDRgnProcInfo = 0x00000340
+  }; /* pascal no_return_value Func(1_byte, 4_bytes) */
 #ifdef __cplusplus
-inline QDRgnUPP NewQDRgnUPP(QDRgnProcPtr userRoutine) {
-  return (QDRgnUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDRgnProcInfo, GetCurrentArchitecture());
-}
+  inline QDRgnUPP NewQDRgnUPP(QDRgnProcPtr userRoutine)
+  {
+    return (QDRgnUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDRgnProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDRgnUPP(userRoutine)                                               \
-  (QDRgnUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDRgnProcInfo,    \
+#define NewQDRgnUPP(userRoutine)                                            \
+  (QDRgnUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDRgnProcInfo, \
                                   GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDBitsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDBitsUPP
-NewQDBitsUPP(QDBitsProcPtr userRoutine);
+  /**
+   *  NewQDBitsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDBitsUPP
+  NewQDBitsUPP(QDBitsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDBitsProcInfo = 0x0000EFC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 4_bytes)
-    */
+  enum
+  {
+    uppQDBitsProcInfo = 0x0000EFC0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 4_bytes)
+      */
 #ifdef __cplusplus
-inline QDBitsUPP NewQDBitsUPP(QDBitsProcPtr userRoutine) {
-  return (QDBitsUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDBitsProcInfo, GetCurrentArchitecture());
-}
+  inline QDBitsUPP NewQDBitsUPP(QDBitsProcPtr userRoutine)
+  {
+    return (QDBitsUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDBitsProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDBitsUPP(userRoutine)                                              \
-  (QDBitsUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDBitsProcInfo,  \
+#define NewQDBitsUPP(userRoutine)                                             \
+  (QDBitsUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDBitsProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDCommentUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDCommentUPP
-NewQDCommentUPP(QDCommentProcPtr userRoutine);
+  /**
+   *  NewQDCommentUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDCommentUPP
+  NewQDCommentUPP(QDCommentProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDCommentProcInfo = 0x00000E80
-}; /* pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes) */
+  enum
+  {
+    uppQDCommentProcInfo = 0x00000E80
+  }; /* pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline QDCommentUPP NewQDCommentUPP(QDCommentProcPtr userRoutine) {
-  return (QDCommentUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDCommentProcInfo, GetCurrentArchitecture());
-}
+  inline QDCommentUPP NewQDCommentUPP(QDCommentProcPtr userRoutine)
+  {
+    return (QDCommentUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDCommentProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDCommentUPP(userRoutine)                                           \
-  (QDCommentUPP) NewRoutineDescriptor(                                         \
+#define NewQDCommentUPP(userRoutine)   \
+  (QDCommentUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppQDCommentProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDTxMeasUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDTxMeasUPP
-NewQDTxMeasUPP(QDTxMeasProcPtr userRoutine);
+  /**
+   *  NewQDTxMeasUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDTxMeasUPP
+  NewQDTxMeasUPP(QDTxMeasProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDTxMeasProcInfo = 0x0000FFA0
-}; /* pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppQDTxMeasProcInfo = 0x0000FFA0
+  }; /* pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline QDTxMeasUPP NewQDTxMeasUPP(QDTxMeasProcPtr userRoutine) {
-  return (QDTxMeasUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDTxMeasProcInfo, GetCurrentArchitecture());
-}
+  inline QDTxMeasUPP NewQDTxMeasUPP(QDTxMeasProcPtr userRoutine)
+  {
+    return (QDTxMeasUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDTxMeasProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDTxMeasUPP(userRoutine)                                            \
-  (QDTxMeasUPP) NewRoutineDescriptor(                                          \
+#define NewQDTxMeasUPP(userRoutine)   \
+  (QDTxMeasUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppQDTxMeasProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDGetPicUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDGetPicUPP
-NewQDGetPicUPP(QDGetPicProcPtr userRoutine);
+  /**
+   *  NewQDGetPicUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDGetPicUPP
+  NewQDGetPicUPP(QDGetPicProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDGetPicProcInfo = 0x000002C0
-}; /* pascal no_return_value Func(4_bytes, 2_bytes) */
+  enum
+  {
+    uppQDGetPicProcInfo = 0x000002C0
+  }; /* pascal no_return_value Func(4_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline QDGetPicUPP NewQDGetPicUPP(QDGetPicProcPtr userRoutine) {
-  return (QDGetPicUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDGetPicProcInfo, GetCurrentArchitecture());
-}
+  inline QDGetPicUPP NewQDGetPicUPP(QDGetPicProcPtr userRoutine)
+  {
+    return (QDGetPicUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDGetPicProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDGetPicUPP(userRoutine)                                            \
-  (QDGetPicUPP) NewRoutineDescriptor(                                          \
+#define NewQDGetPicUPP(userRoutine)   \
+  (QDGetPicUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppQDGetPicProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDPutPicUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDPutPicUPP
-NewQDPutPicUPP(QDPutPicProcPtr userRoutine);
+  /**
+   *  NewQDPutPicUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDPutPicUPP
+  NewQDPutPicUPP(QDPutPicProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDPutPicProcInfo = 0x000002C0
-}; /* pascal no_return_value Func(4_bytes, 2_bytes) */
+  enum
+  {
+    uppQDPutPicProcInfo = 0x000002C0
+  }; /* pascal no_return_value Func(4_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline QDPutPicUPP NewQDPutPicUPP(QDPutPicProcPtr userRoutine) {
-  return (QDPutPicUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDPutPicProcInfo, GetCurrentArchitecture());
-}
+  inline QDPutPicUPP NewQDPutPicUPP(QDPutPicProcPtr userRoutine)
+  {
+    return (QDPutPicUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDPutPicProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDPutPicUPP(userRoutine)                                            \
-  (QDPutPicUPP) NewRoutineDescriptor(                                          \
+#define NewQDPutPicUPP(userRoutine)   \
+  (QDPutPicUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppQDPutPicProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDOpcodeUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDOpcodeUPP
-NewQDOpcodeUPP(QDOpcodeProcPtr userRoutine);
+  /**
+   *  NewQDOpcodeUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDOpcodeUPP
+  NewQDOpcodeUPP(QDOpcodeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDOpcodeProcInfo = 0x00002BC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 2_bytes) */
+  enum
+  {
+    uppQDOpcodeProcInfo = 0x00002BC0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline QDOpcodeUPP NewQDOpcodeUPP(QDOpcodeProcPtr userRoutine) {
-  return (QDOpcodeUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDOpcodeProcInfo, GetCurrentArchitecture());
-}
+  inline QDOpcodeUPP NewQDOpcodeUPP(QDOpcodeProcPtr userRoutine)
+  {
+    return (QDOpcodeUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDOpcodeProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDOpcodeUPP(userRoutine)                                            \
-  (QDOpcodeUPP) NewRoutineDescriptor(                                          \
+#define NewQDOpcodeUPP(userRoutine)   \
+  (QDOpcodeUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppQDOpcodeProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDStdGlyphsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDStdGlyphsUPP
-NewQDStdGlyphsUPP(QDStdGlyphsProcPtr userRoutine);
+  /**
+   *  NewQDStdGlyphsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDStdGlyphsUPP
+  NewQDStdGlyphsUPP(QDStdGlyphsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDStdGlyphsProcInfo = 0x000003F1
-}; /* 4_bytes Func(4_bytes, 4_bytes) */
+  enum
+  {
+    uppQDStdGlyphsProcInfo = 0x000003F1
+  }; /* 4_bytes Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline QDStdGlyphsUPP NewQDStdGlyphsUPP(QDStdGlyphsProcPtr userRoutine) {
-  return (QDStdGlyphsUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppQDStdGlyphsProcInfo, GetCurrentArchitecture());
-}
+  inline QDStdGlyphsUPP NewQDStdGlyphsUPP(QDStdGlyphsProcPtr userRoutine)
+  {
+    return (QDStdGlyphsUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppQDStdGlyphsProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewQDStdGlyphsUPP(userRoutine)                                         \
-  (QDStdGlyphsUPP)                                                             \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDStdGlyphsProcInfo,     \
+#define NewQDStdGlyphsUPP(userRoutine)                                     \
+  (QDStdGlyphsUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppQDStdGlyphsProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewQDJShieldCursorUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-QDJShieldCursorUPP
-NewQDJShieldCursorUPP(QDJShieldCursorProcPtr userRoutine);
+  /**
+   *  NewQDJShieldCursorUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  QDJShieldCursorUPP
+  NewQDJShieldCursorUPP(QDJShieldCursorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDJShieldCursorProcInfo = 0x00002A80
-}; /* pascal no_return_value Func(2_bytes, 2_bytes, 2_bytes, 2_bytes) */
+  enum
+  {
+    uppQDJShieldCursorProcInfo = 0x00002A80
+  }; /* pascal no_return_value Func(2_bytes, 2_bytes, 2_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline QDJShieldCursorUPP
-NewQDJShieldCursorUPP(QDJShieldCursorProcPtr userRoutine) {
-  return (QDJShieldCursorUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                  uppQDJShieldCursorProcInfo,
-                                                  GetCurrentArchitecture());
-}
+  inline QDJShieldCursorUPP
+  NewQDJShieldCursorUPP(QDJShieldCursorProcPtr userRoutine)
+  {
+    return (QDJShieldCursorUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                    uppQDJShieldCursorProcInfo,
+                                                    GetCurrentArchitecture());
+  }
 #else
 #define NewQDJShieldCursorUPP(userRoutine)                                     \
   (QDJShieldCursorUPP)                                                         \
@@ -846,698 +914,730 @@ NewQDJShieldCursorUPP(QDJShieldCursorProcPtr userRoutine) {
 #endif
 #endif
 
-/**
- *  DisposeQDTextUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDTextUPP(QDTextUPP userUPP);
+  /**
+   *  DisposeQDTextUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDTextUPP(QDTextUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDTextUPP(QDTextUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDTextUPP(QDTextUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDTextUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDLineUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDLineUPP(QDLineUPP userUPP);
+  /**
+   *  DisposeQDLineUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDLineUPP(QDLineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDLineUPP(QDLineUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDLineUPP(QDLineUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDLineUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDRectUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDRectUPP(QDRectUPP userUPP);
+  /**
+   *  DisposeQDRectUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDRectUPP(QDRectUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDRectUPP(QDRectUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDRectUPP(QDRectUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDRectUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDRRectUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDRRectUPP(QDRRectUPP userUPP);
+  /**
+   *  DisposeQDRRectUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDRRectUPP(QDRRectUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDRRectUPP(QDRRectUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDRRectUPP(QDRRectUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDRRectUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDOvalUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDOvalUPP(QDOvalUPP userUPP);
+  /**
+   *  DisposeQDOvalUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDOvalUPP(QDOvalUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDOvalUPP(QDOvalUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDOvalUPP(QDOvalUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDOvalUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDArcUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDArcUPP(QDArcUPP userUPP);
+  /**
+   *  DisposeQDArcUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDArcUPP(QDArcUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDArcUPP(QDArcUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDArcUPP(QDArcUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDArcUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDPolyUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDPolyUPP(QDPolyUPP userUPP);
+  /**
+   *  DisposeQDPolyUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDPolyUPP(QDPolyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDPolyUPP(QDPolyUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDPolyUPP(QDPolyUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDPolyUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDRgnUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDRgnUPP(QDRgnUPP userUPP);
+  /**
+   *  DisposeQDRgnUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDRgnUPP(QDRgnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDRgnUPP(QDRgnUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDRgnUPP(QDRgnUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDRgnUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDBitsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDBitsUPP(QDBitsUPP userUPP);
+  /**
+   *  DisposeQDBitsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDBitsUPP(QDBitsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDBitsUPP(QDBitsUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDBitsUPP(QDBitsUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDBitsUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDCommentUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDCommentUPP(QDCommentUPP userUPP);
+  /**
+   *  DisposeQDCommentUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDCommentUPP(QDCommentUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDCommentUPP(QDCommentUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDCommentUPP(QDCommentUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDCommentUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDTxMeasUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDTxMeasUPP(QDTxMeasUPP userUPP);
+  /**
+   *  DisposeQDTxMeasUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDTxMeasUPP(QDTxMeasUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDTxMeasUPP(QDTxMeasUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDTxMeasUPP(QDTxMeasUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDTxMeasUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDGetPicUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDGetPicUPP(QDGetPicUPP userUPP);
+  /**
+   *  DisposeQDGetPicUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDGetPicUPP(QDGetPicUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDGetPicUPP(QDGetPicUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDGetPicUPP(QDGetPicUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDGetPicUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDPutPicUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDPutPicUPP(QDPutPicUPP userUPP);
+  /**
+   *  DisposeQDPutPicUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDPutPicUPP(QDPutPicUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDPutPicUPP(QDPutPicUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDPutPicUPP(QDPutPicUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDPutPicUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDOpcodeUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDOpcodeUPP(QDOpcodeUPP userUPP);
+  /**
+   *  DisposeQDOpcodeUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDOpcodeUPP(QDOpcodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDOpcodeUPP(QDOpcodeUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDOpcodeUPP(QDOpcodeUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDOpcodeUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDStdGlyphsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDStdGlyphsUPP(QDStdGlyphsUPP userUPP);
+  /**
+   *  DisposeQDStdGlyphsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDStdGlyphsUPP(QDStdGlyphsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDStdGlyphsUPP(QDStdGlyphsUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDStdGlyphsUPP(QDStdGlyphsUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDStdGlyphsUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeQDJShieldCursorUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeQDJShieldCursorUPP(QDJShieldCursorUPP userUPP);
+  /**
+   *  DisposeQDJShieldCursorUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeQDJShieldCursorUPP(QDJShieldCursorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDJShieldCursorUPP(QDJShieldCursorUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDJShieldCursorUPP(QDJShieldCursorUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDJShieldCursorUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeQDTextUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDTextUPP(short byteCount, const void *textBuf, Point numer, Point denom,
-                QDTextUPP userUPP);
+  /**
+   *  InvokeQDTextUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDTextUPP(short byteCount, const void *textBuf, Point numer, Point denom,
+                  QDTextUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDTextUPP(short byteCount, const void *textBuf, Point numer,
-                            Point denom, QDTextUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppQDTextProcInfo, byteCount, textBuf, numer,
-                          denom);
-}
+  inline void InvokeQDTextUPP(short byteCount, const void *textBuf, Point numer,
+                              Point denom, QDTextUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppQDTextProcInfo, byteCount, textBuf, numer,
+                            denom);
+  }
 #else
-#define InvokeQDTextUPP(byteCount, textBuf, numer, denom, userUPP)             \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDTextProcInfo, (byteCount),           \
+#define InvokeQDTextUPP(byteCount, textBuf, numer, denom, userUPP)   \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDTextProcInfo, (byteCount), \
                           (textBuf), (numer), (denom))
 #endif
 #endif
 
-/**
- *  InvokeQDLineUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDLineUPP(Point newPt, QDLineUPP userUPP);
+  /**
+   *  InvokeQDLineUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDLineUPP(Point newPt, QDLineUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDLineUPP(Point newPt, QDLineUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppQDLineProcInfo, newPt);
-}
+  inline void InvokeQDLineUPP(Point newPt, QDLineUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppQDLineProcInfo, newPt);
+  }
 #else
-#define InvokeQDLineUPP(newPt, userUPP)                                        \
+#define InvokeQDLineUPP(newPt, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppQDLineProcInfo, (newPt))
 #endif
 #endif
 
-/**
- *  InvokeQDRectUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDRectUPP(GrafVerb verb, const Rect *r, QDRectUPP userUPP);
+  /**
+   *  InvokeQDRectUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDRectUPP(GrafVerb verb, const Rect *r, QDRectUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDRectUPP(GrafVerb verb, const Rect *r, QDRectUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppQDRectProcInfo, verb, r);
-}
+  inline void InvokeQDRectUPP(GrafVerb verb, const Rect *r, QDRectUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppQDRectProcInfo, verb, r);
+  }
 #else
-#define InvokeQDRectUPP(verb, r, userUPP)                                      \
+#define InvokeQDRectUPP(verb, r, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppQDRectProcInfo, (verb), (r))
 #endif
 #endif
 
-/**
- *  InvokeQDRRectUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDRRectUPP(GrafVerb verb, const Rect *r, short ovalWidth,
-                 short ovalHeight, QDRRectUPP userUPP);
+  /**
+   *  InvokeQDRRectUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDRRectUPP(GrafVerb verb, const Rect *r, short ovalWidth,
+                   short ovalHeight, QDRRectUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDRRectUPP(GrafVerb verb, const Rect *r, short ovalWidth,
-                             short ovalHeight, QDRRectUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppQDRRectProcInfo, verb, r, ovalWidth,
-                          ovalHeight);
-}
+  inline void InvokeQDRRectUPP(GrafVerb verb, const Rect *r, short ovalWidth,
+                               short ovalHeight, QDRRectUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppQDRRectProcInfo, verb, r, ovalWidth,
+                            ovalHeight);
+  }
 #else
-#define InvokeQDRRectUPP(verb, r, ovalWidth, ovalHeight, userUPP)              \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDRRectProcInfo, (verb), (r),          \
+#define InvokeQDRRectUPP(verb, r, ovalWidth, ovalHeight, userUPP)     \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDRRectProcInfo, (verb), (r), \
                           (ovalWidth), (ovalHeight))
 #endif
 #endif
 
-/**
- *  InvokeQDOvalUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDOvalUPP(GrafVerb verb, const Rect *r, QDOvalUPP userUPP);
+  /**
+   *  InvokeQDOvalUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDOvalUPP(GrafVerb verb, const Rect *r, QDOvalUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDOvalUPP(GrafVerb verb, const Rect *r, QDOvalUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppQDOvalProcInfo, verb, r);
-}
+  inline void InvokeQDOvalUPP(GrafVerb verb, const Rect *r, QDOvalUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppQDOvalProcInfo, verb, r);
+  }
 #else
-#define InvokeQDOvalUPP(verb, r, userUPP)                                      \
+#define InvokeQDOvalUPP(verb, r, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppQDOvalProcInfo, (verb), (r))
 #endif
 #endif
 
-/**
- *  InvokeQDArcUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDArcUPP(GrafVerb verb, const Rect *r, short startAngle, short arcAngle,
-               QDArcUPP userUPP);
+  /**
+   *  InvokeQDArcUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDArcUPP(GrafVerb verb, const Rect *r, short startAngle, short arcAngle,
+                 QDArcUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDArcUPP(GrafVerb verb, const Rect *r, short startAngle,
-                           short arcAngle, QDArcUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppQDArcProcInfo, verb, r, startAngle,
-                          arcAngle);
-}
+  inline void InvokeQDArcUPP(GrafVerb verb, const Rect *r, short startAngle,
+                             short arcAngle, QDArcUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppQDArcProcInfo, verb, r, startAngle,
+                            arcAngle);
+  }
 #else
-#define InvokeQDArcUPP(verb, r, startAngle, arcAngle, userUPP)                 \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDArcProcInfo, (verb), (r),            \
+#define InvokeQDArcUPP(verb, r, startAngle, arcAngle, userUPP)      \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDArcProcInfo, (verb), (r), \
                           (startAngle), (arcAngle))
 #endif
 #endif
 
-/**
- *  InvokeQDPolyUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDPolyUPP(GrafVerb verb, PolyHandle poly, QDPolyUPP userUPP);
+  /**
+   *  InvokeQDPolyUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDPolyUPP(GrafVerb verb, PolyHandle poly, QDPolyUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDPolyUPP(GrafVerb verb, PolyHandle poly, QDPolyUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppQDPolyProcInfo, verb, poly);
-}
+  inline void InvokeQDPolyUPP(GrafVerb verb, PolyHandle poly, QDPolyUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppQDPolyProcInfo, verb, poly);
+  }
 #else
-#define InvokeQDPolyUPP(verb, poly, userUPP)                                   \
+#define InvokeQDPolyUPP(verb, poly, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppQDPolyProcInfo, (verb), (poly))
 #endif
 #endif
 
-/**
- *  InvokeQDRgnUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDRgnUPP(GrafVerb verb, RgnHandle rgn, QDRgnUPP userUPP);
+  /**
+   *  InvokeQDRgnUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDRgnUPP(GrafVerb verb, RgnHandle rgn, QDRgnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDRgnUPP(GrafVerb verb, RgnHandle rgn, QDRgnUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppQDRgnProcInfo, verb, rgn);
-}
+  inline void InvokeQDRgnUPP(GrafVerb verb, RgnHandle rgn, QDRgnUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppQDRgnProcInfo, verb, rgn);
+  }
 #else
-#define InvokeQDRgnUPP(verb, rgn, userUPP)                                     \
+#define InvokeQDRgnUPP(verb, rgn, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppQDRgnProcInfo, (verb), (rgn))
 #endif
 #endif
 
-/**
- *  InvokeQDBitsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDBitsUPP(const BitMap *srcBits, const Rect *srcRect, const Rect *dstRect,
-                short mode, RgnHandle maskRgn, QDBitsUPP userUPP);
+  /**
+   *  InvokeQDBitsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDBitsUPP(const BitMap *srcBits, const Rect *srcRect, const Rect *dstRect,
+                  short mode, RgnHandle maskRgn, QDBitsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDBitsUPP(const BitMap *srcBits, const Rect *srcRect,
-                            const Rect *dstRect, short mode, RgnHandle maskRgn,
-                            QDBitsUPP userUPP) {
-  CALL_FIVE_PARAMETER_UPP(userUPP, uppQDBitsProcInfo, srcBits, srcRect, dstRect,
-                          mode, maskRgn);
-}
+  inline void InvokeQDBitsUPP(const BitMap *srcBits, const Rect *srcRect,
+                              const Rect *dstRect, short mode, RgnHandle maskRgn,
+                              QDBitsUPP userUPP)
+  {
+    CALL_FIVE_PARAMETER_UPP(userUPP, uppQDBitsProcInfo, srcBits, srcRect, dstRect,
+                            mode, maskRgn);
+  }
 #else
-#define InvokeQDBitsUPP(srcBits, srcRect, dstRect, mode, maskRgn, userUPP)     \
-  CALL_FIVE_PARAMETER_UPP((userUPP), uppQDBitsProcInfo, (srcBits), (srcRect),  \
+#define InvokeQDBitsUPP(srcBits, srcRect, dstRect, mode, maskRgn, userUPP)    \
+  CALL_FIVE_PARAMETER_UPP((userUPP), uppQDBitsProcInfo, (srcBits), (srcRect), \
                           (dstRect), (mode), (maskRgn))
 #endif
 #endif
 
-/**
- *  InvokeQDCommentUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDCommentUPP(short kind, short dataSize, Handle dataHandle,
-                   QDCommentUPP userUPP);
+  /**
+   *  InvokeQDCommentUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDCommentUPP(short kind, short dataSize, Handle dataHandle,
+                     QDCommentUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDCommentUPP(short kind, short dataSize, Handle dataHandle,
-                               QDCommentUPP userUPP) {
-  CALL_THREE_PARAMETER_UPP(userUPP, uppQDCommentProcInfo, kind, dataSize,
-                           dataHandle);
-}
+  inline void InvokeQDCommentUPP(short kind, short dataSize, Handle dataHandle,
+                                 QDCommentUPP userUPP)
+  {
+    CALL_THREE_PARAMETER_UPP(userUPP, uppQDCommentProcInfo, kind, dataSize,
+                             dataHandle);
+  }
 #else
-#define InvokeQDCommentUPP(kind, dataSize, dataHandle, userUPP)                \
-  CALL_THREE_PARAMETER_UPP((userUPP), uppQDCommentProcInfo, (kind),            \
+#define InvokeQDCommentUPP(kind, dataSize, dataHandle, userUPP)     \
+  CALL_THREE_PARAMETER_UPP((userUPP), uppQDCommentProcInfo, (kind), \
                            (dataSize), (dataHandle))
 #endif
 #endif
 
-/**
- *  InvokeQDTxMeasUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-short
-InvokeQDTxMeasUPP(short byteCount, const void *textAddr, Point *numer,
-                  Point *denom, FontInfo *info, QDTxMeasUPP userUPP);
+  /**
+   *  InvokeQDTxMeasUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  InvokeQDTxMeasUPP(short byteCount, const void *textAddr, Point *numer,
+                    Point *denom, FontInfo *info, QDTxMeasUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline short InvokeQDTxMeasUPP(short byteCount, const void *textAddr,
-                               Point *numer, Point *denom, FontInfo *info,
-                               QDTxMeasUPP userUPP) {
-  return (short)CALL_FIVE_PARAMETER_UPP(userUPP, uppQDTxMeasProcInfo, byteCount,
-                                        textAddr, numer, denom, info);
-}
+  inline short InvokeQDTxMeasUPP(short byteCount, const void *textAddr,
+                                 Point *numer, Point *denom, FontInfo *info,
+                                 QDTxMeasUPP userUPP)
+  {
+    return (short)CALL_FIVE_PARAMETER_UPP(userUPP, uppQDTxMeasProcInfo, byteCount,
+                                          textAddr, numer, denom, info);
+  }
 #else
-#define InvokeQDTxMeasUPP(byteCount, textAddr, numer, denom, info, userUPP)    \
-  (short)CALL_FIVE_PARAMETER_UPP((userUPP), uppQDTxMeasProcInfo, (byteCount),  \
+#define InvokeQDTxMeasUPP(byteCount, textAddr, numer, denom, info, userUPP)   \
+  (short)CALL_FIVE_PARAMETER_UPP((userUPP), uppQDTxMeasProcInfo, (byteCount), \
                                  (textAddr), (numer), (denom), (info))
 #endif
 #endif
 
-/**
- *  InvokeQDGetPicUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDGetPicUPP(void *dataPtr, short byteCount, QDGetPicUPP userUPP);
+  /**
+   *  InvokeQDGetPicUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDGetPicUPP(void *dataPtr, short byteCount, QDGetPicUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDGetPicUPP(void *dataPtr, short byteCount,
-                              QDGetPicUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppQDGetPicProcInfo, dataPtr, byteCount);
-}
+  inline void InvokeQDGetPicUPP(void *dataPtr, short byteCount,
+                                QDGetPicUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppQDGetPicProcInfo, dataPtr, byteCount);
+  }
 #else
-#define InvokeQDGetPicUPP(dataPtr, byteCount, userUPP)                         \
+#define InvokeQDGetPicUPP(dataPtr, byteCount, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppQDGetPicProcInfo, (dataPtr), (byteCount))
 #endif
 #endif
 
-/**
- *  InvokeQDPutPicUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDPutPicUPP(const void *dataPtr, short byteCount, QDPutPicUPP userUPP);
+  /**
+   *  InvokeQDPutPicUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDPutPicUPP(const void *dataPtr, short byteCount, QDPutPicUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDPutPicUPP(const void *dataPtr, short byteCount,
-                              QDPutPicUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppQDPutPicProcInfo, dataPtr, byteCount);
-}
+  inline void InvokeQDPutPicUPP(const void *dataPtr, short byteCount,
+                                QDPutPicUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppQDPutPicProcInfo, dataPtr, byteCount);
+  }
 #else
-#define InvokeQDPutPicUPP(dataPtr, byteCount, userUPP)                         \
+#define InvokeQDPutPicUPP(dataPtr, byteCount, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppQDPutPicProcInfo, (dataPtr), (byteCount))
 #endif
 #endif
 
-/**
- *  InvokeQDOpcodeUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDOpcodeUPP(const Rect *fromRect, const Rect *toRect, UInt16 opcode,
-                  SInt16 version, QDOpcodeUPP userUPP);
+  /**
+   *  InvokeQDOpcodeUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDOpcodeUPP(const Rect *fromRect, const Rect *toRect, UInt16 opcode,
+                    SInt16 version, QDOpcodeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDOpcodeUPP(const Rect *fromRect, const Rect *toRect,
-                              UInt16 opcode, SInt16 version,
-                              QDOpcodeUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppQDOpcodeProcInfo, fromRect, toRect,
-                          opcode, version);
-}
+  inline void InvokeQDOpcodeUPP(const Rect *fromRect, const Rect *toRect,
+                                UInt16 opcode, SInt16 version,
+                                QDOpcodeUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppQDOpcodeProcInfo, fromRect, toRect,
+                            opcode, version);
+  }
 #else
-#define InvokeQDOpcodeUPP(fromRect, toRect, opcode, version, userUPP)          \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDOpcodeProcInfo, (fromRect),          \
+#define InvokeQDOpcodeUPP(fromRect, toRect, opcode, version, userUPP) \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDOpcodeProcInfo, (fromRect), \
                           (toRect), (opcode), (version))
 #endif
 #endif
 
-/**
- *  InvokeQDStdGlyphsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSStatus
-InvokeQDStdGlyphsUPP(void *dataStream, ByteCount size, QDStdGlyphsUPP userUPP);
+  /**
+   *  InvokeQDStdGlyphsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  InvokeQDStdGlyphsUPP(void *dataStream, ByteCount size, QDStdGlyphsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline OSStatus InvokeQDStdGlyphsUPP(void *dataStream, ByteCount size,
-                                     QDStdGlyphsUPP userUPP) {
-  return (OSStatus)CALL_TWO_PARAMETER_UPP(userUPP, uppQDStdGlyphsProcInfo,
-                                          dataStream, size);
-}
+  inline OSStatus InvokeQDStdGlyphsUPP(void *dataStream, ByteCount size,
+                                       QDStdGlyphsUPP userUPP)
+  {
+    return (OSStatus)CALL_TWO_PARAMETER_UPP(userUPP, uppQDStdGlyphsProcInfo,
+                                            dataStream, size);
+  }
 #else
-#define InvokeQDStdGlyphsUPP(dataStream, size, userUPP)                        \
-  (OSStatus) CALL_TWO_PARAMETER_UPP((userUPP), uppQDStdGlyphsProcInfo,         \
+#define InvokeQDStdGlyphsUPP(dataStream, size, userUPP)                \
+  (OSStatus) CALL_TWO_PARAMETER_UPP((userUPP), uppQDStdGlyphsProcInfo, \
                                     (dataStream), (size))
 #endif
 #endif
 
-/**
- *  InvokeQDJShieldCursorUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeQDJShieldCursorUPP(short left, short top, short right, short bottom,
-                         QDJShieldCursorUPP userUPP);
+  /**
+   *  InvokeQDJShieldCursorUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeQDJShieldCursorUPP(short left, short top, short right, short bottom,
+                           QDJShieldCursorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeQDJShieldCursorUPP(short left, short top, short right,
-                                     short bottom, QDJShieldCursorUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppQDJShieldCursorProcInfo, left, top, right,
-                          bottom);
-}
+  inline void InvokeQDJShieldCursorUPP(short left, short top, short right,
+                                       short bottom, QDJShieldCursorUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppQDJShieldCursorProcInfo, left, top, right,
+                            bottom);
+  }
 #else
-#define InvokeQDJShieldCursorUPP(left, top, right, bottom, userUPP)            \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDJShieldCursorProcInfo, (left),       \
+#define InvokeQDJShieldCursorUPP(left, top, right, bottom, userUPP)      \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppQDJShieldCursorProcInfo, (left), \
                           (top), (right), (bottom))
 #endif
 #endif
@@ -1560,202 +1660,215 @@ inline void InvokeQDJShieldCursorUPP(short left, short top, short right,
 #define NewQDOpcodeProc(userRoutine) NewQDOpcodeUPP(userRoutine)
 #define NewQDStdGlyphsProc(userRoutine) NewQDStdGlyphsUPP(userRoutine)
 #define NewQDJShieldCursorProc(userRoutine) NewQDJShieldCursorUPP(userRoutine)
-#define CallQDTextProc(userRoutine, byteCount, textBuf, numer, denom)          \
+#define CallQDTextProc(userRoutine, byteCount, textBuf, numer, denom) \
   InvokeQDTextUPP(byteCount, textBuf, numer, denom, userRoutine)
 #define CallQDLineProc(userRoutine, newPt) InvokeQDLineUPP(newPt, userRoutine)
-#define CallQDRectProc(userRoutine, verb, r)                                   \
+#define CallQDRectProc(userRoutine, verb, r) \
   InvokeQDRectUPP(verb, r, userRoutine)
-#define CallQDRRectProc(userRoutine, verb, r, ovalWidth, ovalHeight)           \
+#define CallQDRRectProc(userRoutine, verb, r, ovalWidth, ovalHeight) \
   InvokeQDRRectUPP(verb, r, ovalWidth, ovalHeight, userRoutine)
-#define CallQDOvalProc(userRoutine, verb, r)                                   \
+#define CallQDOvalProc(userRoutine, verb, r) \
   InvokeQDOvalUPP(verb, r, userRoutine)
-#define CallQDArcProc(userRoutine, verb, r, startAngle, arcAngle)              \
+#define CallQDArcProc(userRoutine, verb, r, startAngle, arcAngle) \
   InvokeQDArcUPP(verb, r, startAngle, arcAngle, userRoutine)
-#define CallQDPolyProc(userRoutine, verb, poly)                                \
+#define CallQDPolyProc(userRoutine, verb, poly) \
   InvokeQDPolyUPP(verb, poly, userRoutine)
-#define CallQDRgnProc(userRoutine, verb, rgn)                                  \
+#define CallQDRgnProc(userRoutine, verb, rgn) \
   InvokeQDRgnUPP(verb, rgn, userRoutine)
-#define CallQDBitsProc(userRoutine, srcBits, srcRect, dstRect, mode, maskRgn)  \
+#define CallQDBitsProc(userRoutine, srcBits, srcRect, dstRect, mode, maskRgn) \
   InvokeQDBitsUPP(srcBits, srcRect, dstRect, mode, maskRgn, userRoutine)
-#define CallQDCommentProc(userRoutine, kind, dataSize, dataHandle)             \
+#define CallQDCommentProc(userRoutine, kind, dataSize, dataHandle) \
   InvokeQDCommentUPP(kind, dataSize, dataHandle, userRoutine)
 #define CallQDTxMeasProc(userRoutine, byteCount, textAddr, numer, denom, info) \
   InvokeQDTxMeasUPP(byteCount, textAddr, numer, denom, info, userRoutine)
-#define CallQDGetPicProc(userRoutine, dataPtr, byteCount)                      \
+#define CallQDGetPicProc(userRoutine, dataPtr, byteCount) \
   InvokeQDGetPicUPP(dataPtr, byteCount, userRoutine)
-#define CallQDPutPicProc(userRoutine, dataPtr, byteCount)                      \
+#define CallQDPutPicProc(userRoutine, dataPtr, byteCount) \
   InvokeQDPutPicUPP(dataPtr, byteCount, userRoutine)
-#define CallQDOpcodeProc(userRoutine, fromRect, toRect, opcode, version)       \
+#define CallQDOpcodeProc(userRoutine, fromRect, toRect, opcode, version) \
   InvokeQDOpcodeUPP(fromRect, toRect, opcode, version, userRoutine)
-#define CallQDStdGlyphsProc(userRoutine, dataStream, size)                     \
+#define CallQDStdGlyphsProc(userRoutine, dataStream, size) \
   InvokeQDStdGlyphsUPP(dataStream, size, userRoutine)
-#define CallQDJShieldCursorProc(userRoutine, left, top, right, bottom)         \
+#define CallQDJShieldCursorProc(userRoutine, left, top, right, bottom) \
   InvokeQDJShieldCursorUPP(left, top, right, bottom, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
 #if !OPAQUE_TOOLBOX_STRUCTS
-/**
-<pre>
- * \note <pre>The GrafPort structure is used indirectly in virtually every Quickdraw,
-Window Manager, Dialog Manager, etc. function.  A GrafPtr is used directly
-in calls to:
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct GrafPort  {
-	short device;/**< Device-specific info;/**< =screen*/
-	BitMap portBits;/**< baseAddr , rowBytes , bounds*/
-	Rect portRect;/**< Writeable interior PortSize ,*/
-	RgnHandle visRgn;/**< Portion not covered by other*/
-	RgnHandle clipRgn;/**< User-definable clipping region*/
-	Pattern bkPat;/**< Background pattern BackPat*/
-	Pattern fillPat;/**< Fill pattern FillRect , FillOval ,...*/
-	Point pnLoc;/**< Pen location in local coords*/
-	Point pnSize;/**< .v=height, . h=width of pen PenSize*/
-	short pnMode;/**< Transfer Mode ;/**<  patCopy, PenMode*/
-	Pattern pnPat;/**< Pattern used in drawing PenPat*/
-	short pnVis;/**< If <, pen is invisible HidePen ,*/
-	short txFont;/**< Font;/**< =system, =application*/
-	Style txFace;/**< Text style;/**< bold, italic, TextFace*/
-	char filler;/**<*/
-	short txMode;/**< Transfer Mode;/**< srcOr, srcXor,*/
-	short txSize;/**< Text size in points TextSize*/
-	Fixed spExtra;/**< Spacing for full justification*/
-	long fgColor;/**< Old-model color for foreground*/
-	long bkColor;/**< Old-model color for background*/
-	short colrBit;/**< Old-model color plane ColorBit*/
-	short patStretch;/**< Used internally;/**< printer aspect ratio*/
-	Handle picSave;/**< PicHandle  if pict being saved*/
-	Handle rgnSave;/**< RgnHandle  if region is being saved*/
-	Handle polySave;/**< PolyHandle  if polygon being saved*/
-	QDProcsPtr grafProcs;/**< Addr of struct with addresses of*/
-	} GrafPort ;/**< */
+  /**
+  <pre>
+   * \note <pre>The GrafPort structure is used indirectly in virtually every Quickdraw,
+  Window Manager, Dialog Manager, etc. function.  A GrafPtr is used directly
+  in calls to:
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct GrafPort
+  {
+    short device;         /**< Device-specific info;/**< =screen*/
+    BitMap portBits;      /**< baseAddr , rowBytes , bounds*/
+    Rect portRect;        /**< Writeable interior PortSize ,*/
+    RgnHandle visRgn;     /**< Portion not covered by other*/
+    RgnHandle clipRgn;    /**< User-definable clipping region*/
+    Pattern bkPat;        /**< Background pattern BackPat*/
+    Pattern fillPat;      /**< Fill pattern FillRect , FillOval ,...*/
+    Point pnLoc;          /**< Pen location in local coords*/
+    Point pnSize;         /**< .v=height, . h=width of pen PenSize*/
+    short pnMode;         /**< Transfer Mode ;/**<  patCopy, PenMode*/
+    Pattern pnPat;        /**< Pattern used in drawing PenPat*/
+    short pnVis;          /**< If <, pen is invisible HidePen ,*/
+    short txFont;         /**< Font;/**< =system, =application*/
+    Style txFace;         /**< Text style;/**< bold, italic, TextFace*/
+    char filler;          /**<*/
+    short txMode;         /**< Transfer Mode;/**< srcOr, srcXor,*/
+    short txSize;         /**< Text size in points TextSize*/
+    Fixed spExtra;        /**< Spacing for full justification*/
+    long fgColor;         /**< Old-model color for foreground*/
+    long bkColor;         /**< Old-model color for background*/
+    short colrBit;        /**< Old-model color plane ColorBit*/
+    short patStretch;     /**< Used internally;/**< printer aspect ratio*/
+    Handle picSave;       /**< PicHandle  if pict being saved*/
+    Handle rgnSave;       /**< RgnHandle  if region is being saved*/
+    Handle polySave;      /**< PolyHandle  if polygon being saved*/
+    QDProcsPtr grafProcs; /**< Addr of struct with addresses of*/
+  } GrafPort;             /**< */
 
-typedef struct GrafPort GrafPort;
-typedef GrafPort *GrafPtr;
-/**
- *  This set of definitions "belongs" in Windows.
- *  But, there is a circularity in the headers where Windows includes Controls
- * and Controls includes Windows. To break the circle, the information needed by
- * Controls is moved from Windows to Quickdraw.
- */
-typedef GrafPtr WindowPtr;
-typedef WindowPtr DialogPtr;
+  typedef struct GrafPort GrafPort;
+  typedef GrafPort *GrafPtr;
+  /**
+   *  This set of definitions "belongs" in Windows.
+   *  But, there is a circularity in the headers where Windows includes Controls
+   * and Controls includes Windows. To break the circle, the information needed by
+   * Controls is moved from Windows to Quickdraw.
+   */
+  typedef GrafPtr WindowPtr;
+  typedef WindowPtr DialogPtr;
 #else
 typedef struct OpaqueWindowPtr *WindowPtr;
 typedef struct OpaqueDialogPtr *DialogPtr;
 typedef struct OpaqueGrafPtr *GrafPtr;
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
-typedef WindowPtr WindowRef;
-/* DragConstraint constants to pass to DragGray,DragTheRgn, or
- * ConstrainedDragRgn*/
-typedef UInt16 DragConstraint;
-enum { kNoConstraint = 0, kVerticalConstraint = 1, kHorizontalConstraint = 2 };
+  typedef WindowPtr WindowRef;
+  /* DragConstraint constants to pass to DragGray,DragTheRgn, or
+   * ConstrainedDragRgn*/
+  typedef UInt16 DragConstraint;
+  enum
+  {
+    kNoConstraint = 0,
+    kVerticalConstraint = 1,
+    kHorizontalConstraint = 2
+  };
 
-typedef CALLBACK_API(void, DragGrayRgnProcPtr)(void);
-/**
- *  Here ends the list of things that "belong" in Windows.
- */
+  typedef CALLBACK_API(void, DragGrayRgnProcPtr)(void);
+  /**
+   *  Here ends the list of things that "belong" in Windows.
+   */
 
-/**
-<pre>
- * \note <pre>Color Manager supplies the values for the red, green, and blue
-components when the color is drawn. Values actually appearing will vary
-depending on the capabilities of the current device.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct RGBColor {
-	unsigned short red;/**< red component*/
-	unsigned short green;/**< green component*/
-	unsigned short blue;/**< blue component*/
-	} RGBColor ;/**< */
+  /**
+  <pre>
+   * \note <pre>Color Manager supplies the values for the red, green, and blue
+  components when the color is drawn. Values actually appearing will vary
+  depending on the capabilities of the current device.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct RGBColor
+  {
+    unsigned short red;   /**< red component*/
+    unsigned short green; /**< green component*/
+    unsigned short blue;  /**< blue component*/
+  } RGBColor;             /**< */
 
-typedef struct RGBColor RGBColor;
-typedef RGBColor *RGBColorPtr;
-typedef RGBColorPtr *RGBColorHdl;
-typedef CALLBACK_API(Boolean, ColorSearchProcPtr)(RGBColor *rgb,
-                                                  long *position);
-typedef CALLBACK_API(Boolean, ColorComplementProcPtr)(RGBColor *rgb);
-typedef STACK_UPP_TYPE(DragGrayRgnProcPtr) DragGrayRgnUPP;
-typedef STACK_UPP_TYPE(ColorSearchProcPtr) ColorSearchUPP;
-typedef STACK_UPP_TYPE(ColorComplementProcPtr) ColorComplementUPP;
-/**
- *  NewDragGrayRgnUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-DragGrayRgnUPP
-NewDragGrayRgnUPP(DragGrayRgnProcPtr userRoutine);
+  typedef struct RGBColor RGBColor;
+  typedef RGBColor *RGBColorPtr;
+  typedef RGBColorPtr *RGBColorHdl;
+  typedef CALLBACK_API(Boolean, ColorSearchProcPtr)(RGBColor *rgb,
+                                                    long *position);
+  typedef CALLBACK_API(Boolean, ColorComplementProcPtr)(RGBColor *rgb);
+  typedef STACK_UPP_TYPE(DragGrayRgnProcPtr) DragGrayRgnUPP;
+  typedef STACK_UPP_TYPE(ColorSearchProcPtr) ColorSearchUPP;
+  typedef STACK_UPP_TYPE(ColorComplementProcPtr) ColorComplementUPP;
+  /**
+   *  NewDragGrayRgnUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  DragGrayRgnUPP
+  NewDragGrayRgnUPP(DragGrayRgnProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppDragGrayRgnProcInfo = 0x00000000
-}; /* pascal no_return_value Func() */
+  enum
+  {
+    uppDragGrayRgnProcInfo = 0x00000000
+  }; /* pascal no_return_value Func() */
 #ifdef __cplusplus
-inline DragGrayRgnUPP NewDragGrayRgnUPP(DragGrayRgnProcPtr userRoutine) {
-  return (DragGrayRgnUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppDragGrayRgnProcInfo, GetCurrentArchitecture());
-}
+  inline DragGrayRgnUPP NewDragGrayRgnUPP(DragGrayRgnProcPtr userRoutine)
+  {
+    return (DragGrayRgnUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppDragGrayRgnProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewDragGrayRgnUPP(userRoutine)                                         \
-  (DragGrayRgnUPP)                                                             \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppDragGrayRgnProcInfo,     \
+#define NewDragGrayRgnUPP(userRoutine)                                     \
+  (DragGrayRgnUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppDragGrayRgnProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewColorSearchUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ColorSearchUPP
-NewColorSearchUPP(ColorSearchProcPtr userRoutine);
+  /**
+   *  NewColorSearchUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ColorSearchUPP
+  NewColorSearchUPP(ColorSearchProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppColorSearchProcInfo = 0x000003D0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes) */
+  enum
+  {
+    uppColorSearchProcInfo = 0x000003D0
+  }; /* pascal 1_byte Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ColorSearchUPP NewColorSearchUPP(ColorSearchProcPtr userRoutine) {
-  return (ColorSearchUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppColorSearchProcInfo, GetCurrentArchitecture());
-}
+  inline ColorSearchUPP NewColorSearchUPP(ColorSearchProcPtr userRoutine)
+  {
+    return (ColorSearchUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppColorSearchProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewColorSearchUPP(userRoutine)                                         \
-  (ColorSearchUPP)                                                             \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppColorSearchProcInfo,     \
+#define NewColorSearchUPP(userRoutine)                                     \
+  (ColorSearchUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppColorSearchProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewColorComplementUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ColorComplementUPP
-NewColorComplementUPP(ColorComplementProcPtr userRoutine);
+  /**
+   *  NewColorComplementUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ColorComplementUPP
+  NewColorComplementUPP(ColorComplementProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppColorComplementProcInfo = 0x000000D0
-}; /* pascal 1_byte Func(4_bytes) */
+  enum
+  {
+    uppColorComplementProcInfo = 0x000000D0
+  }; /* pascal 1_byte Func(4_bytes) */
 #ifdef __cplusplus
-inline ColorComplementUPP
-NewColorComplementUPP(ColorComplementProcPtr userRoutine) {
-  return (ColorComplementUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                  uppColorComplementProcInfo,
-                                                  GetCurrentArchitecture());
-}
+  inline ColorComplementUPP
+  NewColorComplementUPP(ColorComplementProcPtr userRoutine)
+  {
+    return (ColorComplementUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                    uppColorComplementProcInfo,
+                                                    GetCurrentArchitecture());
+  }
 #else
 #define NewColorComplementUPP(userRoutine)                                     \
   (ColorComplementUPP)                                                         \
@@ -1764,130 +1877,136 @@ NewColorComplementUPP(ColorComplementProcPtr userRoutine) {
 #endif
 #endif
 
-/**
- *  DisposeDragGrayRgnUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeDragGrayRgnUPP(DragGrayRgnUPP userUPP);
+  /**
+   *  DisposeDragGrayRgnUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeDragGrayRgnUPP(DragGrayRgnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDragGrayRgnUPP(DragGrayRgnUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeDragGrayRgnUPP(DragGrayRgnUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeDragGrayRgnUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeColorSearchUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeColorSearchUPP(ColorSearchUPP userUPP);
+  /**
+   *  DisposeColorSearchUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeColorSearchUPP(ColorSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeColorSearchUPP(ColorSearchUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeColorSearchUPP(ColorSearchUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeColorSearchUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeColorComplementUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeColorComplementUPP(ColorComplementUPP userUPP);
+  /**
+   *  DisposeColorComplementUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeColorComplementUPP(ColorComplementUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeColorComplementUPP(ColorComplementUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeColorComplementUPP(ColorComplementUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeColorComplementUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeDragGrayRgnUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeDragGrayRgnUPP(DragGrayRgnUPP userUPP);
+  /**
+   *  InvokeDragGrayRgnUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeDragGrayRgnUPP(DragGrayRgnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeDragGrayRgnUPP(DragGrayRgnUPP userUPP) {
-  CALL_ZERO_PARAMETER_UPP(userUPP, uppDragGrayRgnProcInfo);
-}
+  inline void InvokeDragGrayRgnUPP(DragGrayRgnUPP userUPP)
+  {
+    CALL_ZERO_PARAMETER_UPP(userUPP, uppDragGrayRgnProcInfo);
+  }
 #else
-#define InvokeDragGrayRgnUPP(userUPP)                                          \
+#define InvokeDragGrayRgnUPP(userUPP) \
   CALL_ZERO_PARAMETER_UPP((userUPP), uppDragGrayRgnProcInfo)
 #endif
 #endif
 
-/**
- *  InvokeColorSearchUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeColorSearchUPP(RGBColor *rgb, long *position, ColorSearchUPP userUPP);
+  /**
+   *  InvokeColorSearchUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeColorSearchUPP(RGBColor *rgb, long *position, ColorSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeColorSearchUPP(RGBColor *rgb, long *position,
-                                    ColorSearchUPP userUPP) {
-  return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppColorSearchProcInfo, rgb,
-                                         position);
-}
+  inline Boolean InvokeColorSearchUPP(RGBColor *rgb, long *position,
+                                      ColorSearchUPP userUPP)
+  {
+    return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppColorSearchProcInfo, rgb,
+                                           position);
+  }
 #else
-#define InvokeColorSearchUPP(rgb, position, userUPP)                           \
-  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppColorSearchProcInfo, (rgb),   \
+#define InvokeColorSearchUPP(rgb, position, userUPP)                         \
+  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppColorSearchProcInfo, (rgb), \
                                    (position))
 #endif
 #endif
 
-/**
- *  InvokeColorComplementUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeColorComplementUPP(RGBColor *rgb, ColorComplementUPP userUPP);
+  /**
+   *  InvokeColorComplementUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeColorComplementUPP(RGBColor *rgb, ColorComplementUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeColorComplementUPP(RGBColor *rgb,
-                                        ColorComplementUPP userUPP) {
-  return (Boolean)CALL_ONE_PARAMETER_UPP(userUPP, uppColorComplementProcInfo,
-                                         rgb);
-}
+  inline Boolean InvokeColorComplementUPP(RGBColor *rgb,
+                                          ColorComplementUPP userUPP)
+  {
+    return (Boolean)CALL_ONE_PARAMETER_UPP(userUPP, uppColorComplementProcInfo,
+                                           rgb);
+  }
 #else
-#define InvokeColorComplementUPP(rgb, userUPP)                                 \
+#define InvokeColorComplementUPP(rgb, userUPP) \
   (Boolean) CALL_ONE_PARAMETER_UPP((userUPP), uppColorComplementProcInfo, (rgb))
 #endif
 #endif
@@ -1898,60 +2017,64 @@ inline Boolean InvokeColorComplementUPP(RGBColor *rgb,
 #define NewColorSearchProc(userRoutine) NewColorSearchUPP(userRoutine)
 #define NewColorComplementProc(userRoutine) NewColorComplementUPP(userRoutine)
 #define CallDragGrayRgnProc(userRoutine) InvokeDragGrayRgnUPP(userRoutine)
-#define CallColorSearchProc(userRoutine, rgb, position)                        \
+#define CallColorSearchProc(userRoutine, rgb, position) \
   InvokeColorSearchUPP(rgb, position, userRoutine)
-#define CallColorComplementProc(userRoutine, rgb)                              \
+#define CallColorComplementProc(userRoutine, rgb) \
   InvokeColorComplementUPP(rgb, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct ColorSpec  {
-	short value;/**<  this field is reserved for use by the*/
-	RGBColor rgb;/**< n this field is reserved for use by the*/
-	} ColorSpec ;/**<  +n*/
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct ColorSpec
+  {
+    short value;  /**<  this field is reserved for use by the*/
+    RGBColor rgb; /**< n this field is reserved for use by the*/
+  } ColorSpec;    /**<  +n*/
 
-typedef struct ColorSpec ColorSpec;
-typedef ColorSpec *ColorSpecPtr;
-typedef ColorSpec CSpecArray[1];
-/**
-<pre>
- * \note <pre>Resource type 'clut' is identical to ColorTable .
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct ColorTable {
-	long ctSeed;/**< Unique identifier*/
-	short ctFlags;/**< Flags describing specArray*/
-	short ctSize;/**< CtTable entries minus one*/
-	CSpecArray ctTable;/**< nValue of n=*( ctSize+ )*/
-	} ColorTable ;/**< +n*/
+  typedef struct ColorSpec ColorSpec;
+  typedef ColorSpec *ColorSpecPtr;
+  typedef ColorSpec CSpecArray[1];
+  /**
+  <pre>
+   * \note <pre>Resource type 'clut' is identical to ColorTable .
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct ColorTable
+  {
+    long ctSeed;        /**< Unique identifier*/
+    short ctFlags;      /**< Flags describing specArray*/
+    short ctSize;       /**< CtTable entries minus one*/
+    CSpecArray ctTable; /**< nValue of n=*( ctSize+ )*/
+  } ColorTable;         /**< +n*/
 
-typedef struct ColorTable ColorTable;
-typedef ColorTable *CTabPtr;
-typedef CTabPtr *CTabHandle;
-struct xColorSpec {
-  short value;  /*index or other value*/
-  RGBColor rgb; /*true color*/
-  short xalpha;
-};
-typedef struct xColorSpec xColorSpec;
-typedef xColorSpec *xColorSpecPtr;
-typedef xColorSpec xCSpecArray[1];
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct MatchRec {
-	short red;/**< red component*/
-	short green;/**< green component*/
-	short blue;/**< blue component*/
-	long matchData;/**< color identifier*/
-	} MatchRec ;/**< */
+  typedef struct ColorTable ColorTable;
+  typedef ColorTable *CTabPtr;
+  typedef CTabPtr *CTabHandle;
+  struct xColorSpec
+  {
+    short value;  /*index or other value*/
+    RGBColor rgb; /*true color*/
+    short xalpha;
+  };
+  typedef struct xColorSpec xColorSpec;
+  typedef xColorSpec *xColorSpecPtr;
+  typedef xColorSpec xCSpecArray[1];
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct MatchRec
+  {
+    short red;      /**< red component*/
+    short green;    /**< green component*/
+    short blue;     /**< blue component*/
+    long matchData; /**< color identifier*/
+  } MatchRec;       /**< */
 
-typedef struct MatchRec MatchRec;
+  typedef struct MatchRec MatchRec;
 /**
     QuickTime 3.0 makes PixMap data structure available on non-Mac OS's.
     In order to implement PixMap in these alternate environments, the PixMap
@@ -1972,7 +2095,7 @@ typedef struct MatchRec MatchRec;
 #if OLDPIXMAPSTRUCT
 #define GETPIXMAPPIXELFORMAT(pm) ((pm)->pixelSize)
 #else
-#define GETPIXMAPPIXELFORMAT(pm)                                               \
+#define GETPIXMAPPIXELFORMAT(pm) \
   (((pm)->pixelFormat != 0) ? (pm)->pixelFormat : (pm)->pixelSize)
 #endif
 
@@ -1982,234 +2105,243 @@ typedef struct MatchRec MatchRec;
 #define NON_MAC_PIXEL_FORMATS 1
 #endif
 
-/* pixel formats*/
-enum {
-  k1MonochromePixelFormat = 0x00000001,  /* 1 bit indexed*/
-  k2IndexedPixelFormat = 0x00000002,     /* 2 bit indexed*/
-  k4IndexedPixelFormat = 0x00000004,     /* 4 bit indexed*/
-  k8IndexedPixelFormat = 0x00000008,     /* 8 bit indexed*/
-  k16BE555PixelFormat = 0x00000010,      /* 16 bit BE rgb 555 (Mac)*/
-  k24RGBPixelFormat = 0x00000018,        /* 24 bit rgb */
-  k32ARGBPixelFormat = 0x00000020,       /* 32 bit argb    (Mac)*/
-  k1IndexedGrayPixelFormat = 0x00000021, /* 1 bit indexed gray*/
-  k2IndexedGrayPixelFormat = 0x00000022, /* 2 bit indexed gray*/
-  k4IndexedGrayPixelFormat = 0x00000024, /* 4 bit indexed gray*/
-  k8IndexedGrayPixelFormat = 0x00000028  /* 8 bit indexed gray*/
-};
+  /* pixel formats*/
+  enum
+  {
+    k1MonochromePixelFormat = 0x00000001,  /* 1 bit indexed*/
+    k2IndexedPixelFormat = 0x00000002,     /* 2 bit indexed*/
+    k4IndexedPixelFormat = 0x00000004,     /* 4 bit indexed*/
+    k8IndexedPixelFormat = 0x00000008,     /* 8 bit indexed*/
+    k16BE555PixelFormat = 0x00000010,      /* 16 bit BE rgb 555 (Mac)*/
+    k24RGBPixelFormat = 0x00000018,        /* 24 bit rgb */
+    k32ARGBPixelFormat = 0x00000020,       /* 32 bit argb    (Mac)*/
+    k1IndexedGrayPixelFormat = 0x00000021, /* 1 bit indexed gray*/
+    k2IndexedGrayPixelFormat = 0x00000022, /* 2 bit indexed gray*/
+    k4IndexedGrayPixelFormat = 0x00000024, /* 4 bit indexed gray*/
+    k8IndexedGrayPixelFormat = 0x00000028  /* 8 bit indexed gray*/
+  };
 
-/* values for PixMap.pixelFormat*/
-enum {
-  k16LE555PixelFormat = FOUR_CHAR_CODE('L555'),  /* 16 bit LE rgb 555 (PC)*/
-  k16LE5551PixelFormat = FOUR_CHAR_CODE('5551'), /* 16 bit LE rgb 5551*/
-  k16BE565PixelFormat = FOUR_CHAR_CODE('B565'),  /* 16 bit BE rgb 565*/
-  k16LE565PixelFormat = FOUR_CHAR_CODE('L565'),  /* 16 bit LE rgb 565*/
-  k24BGRPixelFormat = FOUR_CHAR_CODE('24BG'),    /* 24 bit bgr */
-  k32BGRAPixelFormat = FOUR_CHAR_CODE('BGRA'),   /* 32 bit bgra    (Matrox)*/
-  k32ABGRPixelFormat = FOUR_CHAR_CODE('ABGR'),   /* 32 bit abgr    */
-  k32RGBAPixelFormat = FOUR_CHAR_CODE('RGBA'),   /* 32 bit rgba    */
-  kYUVSPixelFormat =
-      FOUR_CHAR_CODE('yuvs'), /* YUV 4:2:2 byte ordering 16-unsigned = 'YUY2'*/
-  kYUVUPixelFormat =
-      FOUR_CHAR_CODE('yuvu'), /* YUV 4:2:2 byte ordering 16-signed*/
-  kYVU9PixelFormat = FOUR_CHAR_CODE('YVU9'),    /* YVU9 Planar    9*/
-  kYUV411PixelFormat = FOUR_CHAR_CODE('Y411'),  /* YUV 4:1:1 Interleaved  16*/
-  kYVYU422PixelFormat = FOUR_CHAR_CODE('YVYU'), /* YVYU 4:2:2 byte ordering 16*/
-  kUYVY422PixelFormat = FOUR_CHAR_CODE('UYVY'), /* UYVY 4:2:2 byte ordering 16*/
-  kYUV211PixelFormat = FOUR_CHAR_CODE('Y211'),  /* YUV 2:1:1 Packed   8*/
-  k2vuyPixelFormat = FOUR_CHAR_CODE('2vuy') /* UYVY 4:2:2 byte ordering   16*/
-};
+  /* values for PixMap.pixelFormat*/
+  enum
+  {
+    k16LE555PixelFormat = FOUR_CHAR_CODE('L555'),  /* 16 bit LE rgb 555 (PC)*/
+    k16LE5551PixelFormat = FOUR_CHAR_CODE('5551'), /* 16 bit LE rgb 5551*/
+    k16BE565PixelFormat = FOUR_CHAR_CODE('B565'),  /* 16 bit BE rgb 565*/
+    k16LE565PixelFormat = FOUR_CHAR_CODE('L565'),  /* 16 bit LE rgb 565*/
+    k24BGRPixelFormat = FOUR_CHAR_CODE('24BG'),    /* 24 bit bgr */
+    k32BGRAPixelFormat = FOUR_CHAR_CODE('BGRA'),   /* 32 bit bgra    (Matrox)*/
+    k32ABGRPixelFormat = FOUR_CHAR_CODE('ABGR'),   /* 32 bit abgr    */
+    k32RGBAPixelFormat = FOUR_CHAR_CODE('RGBA'),   /* 32 bit rgba    */
+    kYUVSPixelFormat =
+        FOUR_CHAR_CODE('yuvs'), /* YUV 4:2:2 byte ordering 16-unsigned = 'YUY2'*/
+    kYUVUPixelFormat =
+        FOUR_CHAR_CODE('yuvu'),                   /* YUV 4:2:2 byte ordering 16-signed*/
+    kYVU9PixelFormat = FOUR_CHAR_CODE('YVU9'),    /* YVU9 Planar    9*/
+    kYUV411PixelFormat = FOUR_CHAR_CODE('Y411'),  /* YUV 4:1:1 Interleaved  16*/
+    kYVYU422PixelFormat = FOUR_CHAR_CODE('YVYU'), /* YVYU 4:2:2 byte ordering 16*/
+    kUYVY422PixelFormat = FOUR_CHAR_CODE('UYVY'), /* UYVY 4:2:2 byte ordering 16*/
+    kYUV211PixelFormat = FOUR_CHAR_CODE('Y211'),  /* YUV 2:1:1 Packed   8*/
+    k2vuyPixelFormat = FOUR_CHAR_CODE('2vuy')     /* UYVY 4:2:2 byte ordering   16*/
+  };
 
-/**
-<pre><table><tbody>
-<tr>
-	<td>rowBytes</td>
-	<td><pre>The restriction that the value of rowBytes be less than $2000 has
-relaxed: rowBytes must be less than $4000. The value must be
-and for best performance it should be a multiple of 4.
-	</pre></td>
-</tr>
+  /**
+  <pre><table><tbody>
+  <tr>
+    <td>rowBytes</td>
+    <td><pre>The restriction that the value of rowBytes be less than $2000 has
+  relaxed: rowBytes must be less than $4000. The value must be
+  and for best performance it should be a multiple of 4.
+    </pre></td>
+  </tr>
 
-<tr>
-	<td>pmVersion</td>
-	<td><pre>The value of pmVersion is normally 0. If pmVersion is 4, Color
- treats the pixel map's baseAddr field as being 32-bit
-(All other flags are private.) Most applications never need to set
-pmVersion.
-	</pre></td>
-</tr>
+  <tr>
+    <td>pmVersion</td>
+    <td><pre>The value of pmVersion is normally 0. If pmVersion is 4, Color
+   treats the pixel map's baseAddr field as being 32-bit
+  (All other flags are private.) Most applications never need to set
+  pmVersion.
+    </pre></td>
+  </tr>
 
-<tr>
-	<td>pixelType</td>
-	<td><pre>Direct pixel values are specified by a pixelType field value of
-, or 16. In a pixel map of the graphics device record for a
-device, the pixelType field is set to the constant RGBDirect when
-screen depth is set.
-	</pre></td>
-</tr>
+  <tr>
+    <td>pixelType</td>
+    <td><pre>Direct pixel values are specified by a pixelType field value of
+  , or 16. In a pixel map of the graphics device record for a
+  device, the pixelType field is set to the constant RGBDirect when
+  screen depth is set.
+    </pre></td>
+  </tr>
 
-<tr>
-	<td>pixelSize</td>
-	<td><pre>Pixel sizes must be powers of 2. The original Color QuickDraw
-pixel sizes of 1, 2, 4, and 8 bits; with direct pixels, pixel
-may also be 16 and 32 bits.
-	</pre></td>
-</tr>
+  <tr>
+    <td>pixelSize</td>
+    <td><pre>Pixel sizes must be powers of 2. The original Color QuickDraw
+  pixel sizes of 1, 2, 4, and 8 bits; with direct pixels, pixel
+  may also be 16 and 32 bits.
+    </pre></td>
+  </tr>
 
-<tr>
-	<td>cmpCount</td>
-	<td><pre>With indexed pixels, each pixel is a single value representing an index
-a color table, and therefore the cmpCount field of a pixel map record
-1- the index is the single component. With direct pixels, each pixel
-three components, one integer each for the intensities of red,
-and blue, so cmpCount is 3. Other values are undefined.
-	</pre></td>
-</tr>
+  <tr>
+    <td>cmpCount</td>
+    <td><pre>With indexed pixels, each pixel is a single value representing an index
+  a color table, and therefore the cmpCount field of a pixel map record
+  1- the index is the single component. With direct pixels, each pixel
+  three components, one integer each for the intensities of red,
+  and blue, so cmpCount is 3. Other values are undefined.
+    </pre></td>
+  </tr>
 
-<tr>
-	<td>cmpSize</td>
-	<td><pre>For an indexed pixel value, which has only one component, the value of
-is the same as the value of pixelSize: 1, 2, 4, or 8. A 32-bit
-consists of three components (red, green, and blue values) of 8
-Reference © 1991-1992 Symantec Corporation
-	</pre></td>
-</tr>
-</tbody></table>*/
-struct PixMap {
-	Ptr baseAddr;/**< Address of start of bitmap data*/
-	short rowBytes;/**< Bytes per row in the bitmap data*/
-	Rect bounds;/**< Coordinates imposed over the bitmap*/
-	short pmVersion;/**< Version of Color QuickDraw*/
-	short packType;/**< Format of packing algorithm*/
-	long packSize;/**< Image's size after compression*/
-	fixed hRes;/**< Horizontal resolution in pixels per*/
-	fixed vRes;/**< Vertical resolution (hres=vres=)*/
-	short pixelType;/**< Pixel image storage format*/
-	short pixelSize;/**< Bits per pixel (always a power of )*/
-	short cmpCount;/**< Color components per pixel*/
-	short cmpSize;/**< Logical bits per RGBColor component*/
-	long planeBytes;/**< Offset in bytes to next plane*/
-	CTabHandle pmTable;/**< Handle to color table*/
-	long pmReserved;/**< Reserved for future expansion*/
-	} PixMap ;/**< */
+  <tr>
+    <td>cmpSize</td>
+    <td><pre>For an indexed pixel value, which has only one component, the value of
+  is the same as the value of pixelSize: 1, 2, 4, or 8. A 32-bit
+  consists of three components (red, green, and blue values) of 8
+  Reference © 1991-1992 Symantec Corporation
+    </pre></td>
+  </tr>
+  </tbody></table>*/
+  struct PixMap
+  {
+    Ptr baseAddr;       /**< Address of start of bitmap data*/
+    short rowBytes;     /**< Bytes per row in the bitmap data*/
+    Rect bounds;        /**< Coordinates imposed over the bitmap*/
+    short pmVersion;    /**< Version of Color QuickDraw*/
+    short packType;     /**< Format of packing algorithm*/
+    long packSize;      /**< Image's size after compression*/
+    fixed hRes;         /**< Horizontal resolution in pixels per*/
+    fixed vRes;         /**< Vertical resolution (hres=vres=)*/
+    short pixelType;    /**< Pixel image storage format*/
+    short pixelSize;    /**< Bits per pixel (always a power of )*/
+    short cmpCount;     /**< Color components per pixel*/
+    short cmpSize;      /**< Logical bits per RGBColor component*/
+    long planeBytes;    /**< Offset in bytes to next plane*/
+    CTabHandle pmTable; /**< Handle to color table*/
+    long pmReserved;    /**< Reserved for future expansion*/
+  } PixMap;             /**< */
 
-typedef struct PixMap PixMap;
-typedef PixMap *PixMapPtr;
-typedef PixMapPtr *PixMapHandle;
-/**
-<pre>
- * \note <pre>While old QuickDraw patterns are still supported, routines PenPat and
-BackPat place their information within pnPixPat and BkPixPat and
-indicate that the contents are old-style data by setting the patType to 0.
-The new resource types 'cicn', 'clut', 'crsr', and 'ppat', all contain PixPat
-records.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct PixPat {
-	short patType;/**< What kind of pattern*/
-	PixMapHandle patMap;/**< Handle to map holding pattern's pixel*/
-	Handle patData;/**< Handle to pixel image*/
-	Handle patXData;/**< Handle to expanded pixel image*/
-	short patXValid;/**< Invalidate expanded data*/
-	Handle patXMap;/**< Reserved field points to expanded*/
-	Pattern patData;/**< Old-style pattern for use with*/
-	} PixPat;/**< */
+  typedef struct PixMap PixMap;
+  typedef PixMap *PixMapPtr;
+  typedef PixMapPtr *PixMapHandle;
+  /**
+  <pre>
+   * \note <pre>While old QuickDraw patterns are still supported, routines PenPat and
+  BackPat place their information within pnPixPat and BkPixPat and
+  indicate that the contents are old-style data by setting the patType to 0.
+  The new resource types 'cicn', 'clut', 'crsr', and 'ppat', all contain PixPat
+  records.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct PixPat
+  {
+    short patType;       /**< What kind of pattern*/
+    PixMapHandle patMap; /**< Handle to map holding pattern's pixel*/
+    Handle patData;      /**< Handle to pixel image*/
+    Handle patXData;     /**< Handle to expanded pixel image*/
+    short patXValid;     /**< Invalidate expanded data*/
+    Handle patXMap;      /**< Reserved field points to expanded*/
+    Pattern patData;     /**< Old-style pattern for use with*/
+  } PixPat;              /**< */
 
-typedef struct PixPat PixPat;
-typedef PixPat *PixPatPtr;
-typedef PixPatPtr *PixPatHandle;
-/**
-<pre>
- * \note <pre>See Standard Cursors for a graphic depiction of various cursors.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct CCrsr {
-	short crsrType;/**< Old or new cursor*/
-	PixMapHandle crsrMap;/**< Handle to cursor's PixMap*/
-	Handle crsrData;/**< Handle to pixel data*/
-	Handle crsrXData;/**< Internal use, expanded image handle*/
-	short crsrXValid;/**< Set to  if you change cursor data or*/
-	Handle crsrXHandle;/**< Reserved*/
-	Bits crsrdata;/**<  x  bits defines cursor visible*/
-	Bits crsrMask;/**<  x  bits defines area to mask*/
-	Point crsrHotSpot;/**< Part of the cursor which selects*/
-	long crsrXtable;/**< Reserved*/
-	long crsrID;/**< Color table seed for expanded cursor*/
-	} CCrsr ;/**< */
+  typedef struct PixPat PixPat;
+  typedef PixPat *PixPatPtr;
+  typedef PixPatPtr *PixPatHandle;
+  /**
+  <pre>
+   * \note <pre>See Standard Cursors for a graphic depiction of various cursors.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct CCrsr
+  {
+    short crsrType;       /**< Old or new cursor*/
+    PixMapHandle crsrMap; /**< Handle to cursor's PixMap*/
+    Handle crsrData;      /**< Handle to pixel data*/
+    Handle crsrXData;     /**< Internal use, expanded image handle*/
+    short crsrXValid;     /**< Set to  if you change cursor data or*/
+    Handle crsrXHandle;   /**< Reserved*/
+    Bits crsrdata;        /**<  x  bits defines cursor visible*/
+    Bits crsrMask;        /**<  x  bits defines area to mask*/
+    Point crsrHotSpot;    /**< Part of the cursor which selects*/
+    long crsrXtable;      /**< Reserved*/
+    long crsrID;          /**< Color table seed for expanded cursor*/
+  } CCrsr;                /**< */
 
-typedef struct CCrsr CCrsr;
-typedef CCrsr *CCrsrPtr;
-typedef CCrsrPtr *CCrsrHandle;
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct GammaTbl {
-	short gVersion;/**< gamma version number*/
-	short gType;/**< gamma data type*/
-	short gFormulaSize;/**< Formula data size*/
-	short gChanCnt;/**< number of channels of data*/
-	short gDataCnt;/**< number of values/channel*/
-	short gDataWidth;/**< bits/corrected value (data packed to*/
-	short gFormulaData[];/**< data for formulas followed by gamma*/
-	} GammaTbl ;/**<*/
+  typedef struct CCrsr CCrsr;
+  typedef CCrsr *CCrsrPtr;
+  typedef CCrsrPtr *CCrsrHandle;
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct GammaTbl
+  {
+    short gVersion;       /**< gamma version number*/
+    short gType;          /**< gamma data type*/
+    short gFormulaSize;   /**< Formula data size*/
+    short gChanCnt;       /**< number of channels of data*/
+    short gDataCnt;       /**< number of values/channel*/
+    short gDataWidth;     /**< bits/corrected value (data packed to*/
+    short gFormulaData[]; /**< data for formulas followed by gamma*/
+  } GammaTbl;             /**<*/
 
-typedef struct GammaTbl GammaTbl;
-typedef GammaTbl *GammaTblPtr;
-typedef GammaTblPtr *GammaTblHandle;
-/**
-<pre>
- * \note <pre>The inverse table's size is determined by concatenating the high-order bit
-of red, green and blue color components, while its size is calculated on the
-basis of the resolution. The number of significant bits per color component
-is contained in iResTab and a sample table would look like:
-resolution RGB iTab index size
-4-bit red = 0x1234
-green = 0x5678
-blue = 0x9ABC 0x0159 2^12 = 4K bytes
-5-bit red = 0x1234
-green = 0x5678
-blue = 0x9ABC 0x0935 2^15 = 32K bytes
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct ITab {
-	long iTabSeed;/**< Copy of color table seed*/
-	short iTabRes;/**< Table's resolution*/
-	unsigned char  iTTable[];/**< n*/
-	} ITab;/**< +n*/
+  typedef struct GammaTbl GammaTbl;
+  typedef GammaTbl *GammaTblPtr;
+  typedef GammaTblPtr *GammaTblHandle;
+  /**
+  <pre>
+   * \note <pre>The inverse table's size is determined by concatenating the high-order bit
+  of red, green and blue color components, while its size is calculated on the
+  basis of the resolution. The number of significant bits per color component
+  is contained in iResTab and a sample table would look like:
+  resolution RGB iTab index size
+  4-bit red = 0x1234
+  green = 0x5678
+  blue = 0x9ABC 0x0159 2^12 = 4K bytes
+  5-bit red = 0x1234
+  green = 0x5678
+  blue = 0x9ABC 0x0935 2^15 = 32K bytes
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct ITab
+  {
+    long iTabSeed;           /**< Copy of color table seed*/
+    short iTabRes;           /**< Table's resolution*/
+    unsigned char iTTable[]; /**< n*/
+  } ITab;                    /**< +n*/
 
-typedef struct ITab ITab;
-typedef ITab *ITabPtr;
-typedef ITabPtr *ITabHandle;
-struct SProcRec {
-  Handle nxtSrch;          /*SProcHndl Handle to next SProcRec*/
-  ColorSearchUPP srchProc; /*search procedure proc ptr*/
-};
-typedef struct SProcRec SProcRec;
-typedef SProcRec *SProcPtr;
-typedef SProcPtr *SProcHndl;
-/**
-<pre>
- * \note <pre>Applications can all have their own custom search procedures to find the
-complement of a specified color, yet share the same gDevice. The search
-procedures form the elements in a linked list that starts in the device port's
-gdCompProc field. The complement search procedures work the same way
-as the standard search procedures defined in the SProcRec record
-type--except that they use the 1's complement of RGB components before
-searching through the inverse table.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct CProcRec {
-	CProcHandle nxtComp;/**< Handle to next CProcRec*/
-	ColorComplementProcPtr compProc;/**< Points to search procedure*/
-	} CProcRec ;/**< */
+  typedef struct ITab ITab;
+  typedef ITab *ITabPtr;
+  typedef ITabPtr *ITabHandle;
+  struct SProcRec
+  {
+    Handle nxtSrch;          /*SProcHndl Handle to next SProcRec*/
+    ColorSearchUPP srchProc; /*search procedure proc ptr*/
+  };
+  typedef struct SProcRec SProcRec;
+  typedef SProcRec *SProcPtr;
+  typedef SProcPtr *SProcHndl;
+  /**
+  <pre>
+   * \note <pre>Applications can all have their own custom search procedures to find the
+  complement of a specified color, yet share the same gDevice. The search
+  procedures form the elements in a linked list that starts in the device port's
+  gdCompProc field. The complement search procedures work the same way
+  as the standard search procedures defined in the SProcRec record
+  type--except that they use the 1's complement of RGB components before
+  searching through the inverse table.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct CProcRec
+  {
+    CProcHandle nxtComp;             /**< Handle to next CProcRec*/
+    ColorComplementProcPtr compProc; /**< Points to search procedure*/
+  } CProcRec;                        /**< */
 
-typedef struct CProcRec CProcRec;
-typedef CProcRec *CProcPtr;
-typedef CProcPtr *CProcHndl;
+  typedef struct CProcRec CProcRec;
+  typedef CProcRec *CProcPtr;
+  typedef CProcPtr *CProcHndl;
 /**
     QuickTime 3.0 makes GDevice data structure available on non-Mac OS's.
     In order to implement GDevice in these alternate environments, the GDevice
@@ -2225,229 +2357,240 @@ typedef CProcPtr *CProcHndl;
 
 #endif /* !defined(OLDGDEVICESTRUCT) */
 
-typedef struct GDevice GDevice;
-typedef GDevice *GDPtr;
-typedef GDPtr *GDHandle;
-/**
-<pre>
- * \note <pre>The graphics devices themselves can be monitors, offscreen memory areas
-or printers. The gDevice record was created to match output devices with
-their associated drivers, describe the screen or print area of monitors and
-printers, define their color-display capabilities, locate monitors with
-respect to each other in a multiple screen setup and change the Color
-Manager's default matching routine when the output devices are of different
-types.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct GDevice {
-	short gdRefNum;/**< Display device driver's reference*/
-	short gdID;/**< Application definable ID for port*/
-	short gdType;/**<  = 'clut',  = fixed colors,  =*/
-	ITabHandle gdITable;/**< Pointer to inverse table . For more*/
-	short gdResPref;/**< Inverse table  preferred resolution*/
-	SProcHndl gdSearchProc;/**< Pointer to search procedures list*/
-	CProcHndl gdCompProc;/**< Points to complement procedures*/
-	short gdFlags;/**< gDevice's attributes*/
-	PixMapHandle gdPMap;/**< Handle to map holding buffer image*/
-	long gdRefCon;/**< Passes device-related values*/
-	Handle gdNextGD;/**< Handle to next device in deviceList*/
-	Rect gdRect;/**< Boundary rectangle of gDevice*/
-	long gdMode;/**< Value that tells driver how to set*/
-	short gdCCBytes;/**< Holds rowBytes of expanded cursor*/
-	short gdCCDepth;/**< Holds expanded cursor's depth*/
-	Handle gdCCXData;/**< Handle to expanded cursor data*/
-	Handle gdCCXMask;/**< Handle to expanded cursor's mask*/
-	long gdReserved;/**< Reserved, set to */
-	} GDevice ;/**< */
+  typedef struct GDevice GDevice;
+  typedef GDevice *GDPtr;
+  typedef GDPtr *GDHandle;
+  /**
+  <pre>
+   * \note <pre>The graphics devices themselves can be monitors, offscreen memory areas
+  or printers. The gDevice record was created to match output devices with
+  their associated drivers, describe the screen or print area of monitors and
+  printers, define their color-display capabilities, locate monitors with
+  respect to each other in a multiple screen setup and change the Color
+  Manager's default matching routine when the output devices are of different
+  types.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct GDevice
+  {
+    short gdRefNum;         /**< Display device driver's reference*/
+    short gdID;             /**< Application definable ID for port*/
+    short gdType;           /**<  = 'clut',  = fixed colors,  =*/
+    ITabHandle gdITable;    /**< Pointer to inverse table . For more*/
+    short gdResPref;        /**< Inverse table  preferred resolution*/
+    SProcHndl gdSearchProc; /**< Pointer to search procedures list*/
+    CProcHndl gdCompProc;   /**< Points to complement procedures*/
+    short gdFlags;          /**< gDevice's attributes*/
+    PixMapHandle gdPMap;    /**< Handle to map holding buffer image*/
+    long gdRefCon;          /**< Passes device-related values*/
+    Handle gdNextGD;        /**< Handle to next device in deviceList*/
+    Rect gdRect;            /**< Boundary rectangle of gDevice*/
+    long gdMode;            /**< Value that tells driver how to set*/
+    short gdCCBytes;        /**< Holds rowBytes of expanded cursor*/
+    short gdCCDepth;        /**< Holds expanded cursor's depth*/
+    Handle gdCCXData;       /**< Handle to expanded cursor data*/
+    Handle gdCCXMask;       /**< Handle to expanded cursor's mask*/
+    long gdReserved;        /**< Reserved, set to */
+  } GDevice;                /**< */
 
+  /**
+  <pre>
+   * \note <pre> The portPixMap isn't given a color table of its own. Instead, the handle to
+  the current device's color table is copied from InitCPort . See
+  NewCWindow , OpenCPort , and GetNewCWindow .
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct GrafVars
+  {
+    RGBColor rgbOpColor;     /**< naddPin, subPin and blend color (initialized*/
+    RGBColor rgbHiliteColor; /**< nInitialized as default HiliteRGB*/
+    Handle pmFgColor;        /**< nForeground color table handle*/
+    short pmFGIndex;         /**< Initialized at */
+    Handle pmBkColor;        /**< nInitialized at */
+    short pmBkIndex;         /**< Initialized at */
+    short pmFlags;           /**< Initialized at */
+  } GrafVar;                 /**<*/
 
-/**
-<pre>
- * \note <pre> The portPixMap isn't given a color table of its own. Instead, the handle to
-the current device's color table is copied from InitCPort . See
-NewCWindow , OpenCPort , and GetNewCWindow .
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct GrafVars {
-	RGBColor rgbOpColor;/**< naddPin, subPin and blend color (initialized*/
-	RGBColor rgbHiliteColor;/**< nInitialized as default HiliteRGB*/
-	Handle pmFgColor;/**< nForeground color table handle*/
-	short pmFGIndex;/**< Initialized at */
-	Handle pmBkColor;/**< nInitialized at */
-	short pmBkIndex;/**< Initialized at */
-	short pmFlags;/**< Initialized at */
-	} GrafVar ;/**<*/
-
-typedef struct GrafVars GrafVars;
-typedef GrafVars *GVarPtr;
-typedef GVarPtr *GVarHandle;
+  typedef struct GrafVars GrafVars;
+  typedef GrafVars *GVarPtr;
+  typedef GVarPtr *GVarHandle;
 
 #if !OPAQUE_TOOLBOX_STRUCTS
-typedef struct CGrafPort CGrafPort;
-typedef CGrafPort *CGrafPtr;
+  typedef struct CGrafPort CGrafPort;
+  typedef CGrafPort *CGrafPtr;
 #else
 typedef GrafPtr CGrafPtr;
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
-typedef CALLBACK_API_C(OSStatus,
-                       QDPrinterStatusProcPtr)(PrinterStatusOpcode opcode,
-                                               CGrafPtr currentPort,
-                                               void *printerStatus);
-typedef STACK_UPP_TYPE(QDPrinterStatusProcPtr) QDPrinterStatusUPP;
+  typedef CALLBACK_API_C(OSStatus,
+                         QDPrinterStatusProcPtr)(PrinterStatusOpcode opcode,
+                                                 CGrafPtr currentPort,
+                                                 void *printerStatus);
+  typedef STACK_UPP_TYPE(QDPrinterStatusProcPtr) QDPrinterStatusUPP;
 
-/**
-<pre>
- * \note <pre>The CQDProcs structure completely replaces the QDProcs structure for
-Color QuickDraw. Do not use the SetStdProcs routine in a CGrafPort since
-that will return a QDProcs record (one without a stdOpcodeProc) and your
-system will likely crash when you bring up a color picture.
-The last seven fields are new. The rest are the same as a QDProcs record.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct CQDProcs {
-	Ptr textProc;/**< Addr of text-drawing proc StdText*/
-	Ptr lineProc;/**< Addr of line-drawing proc StdLine*/
-	Ptr rectProc;/**< Addr of rectangle-drawing proc*/
-	Ptr rRectProc;/**< Addr of roundRect-draw proc*/
-	Ptr ovalProc;/**< Addr of oval/circle-draw proc*/
-	Ptr arcProc;/**< Addr of arc-drawing proc StdArc*/
-	Ptr polyProc;/**< Addr of polygon-drawing proc*/
-	Ptr rgnProc;/**< Addr of region-drawing proc*/
-	Ptr bitsProc;/**< Addr of bit transfer proc StdBits*/
-	Ptr commentProc;/**< Addr pict comment handler*/
-	Ptr txMeasProc;/**< Addr of text width measurer*/
-	Ptr getPicProc;/**< Addr of picture retrieval proc*/
-	Ptr putPicProc;/**< Addr of picture saving proc*/
-	Ptr opcodeProc;/**< New fields all reserved for future*/
-	Ptr newProc ;/**< reserved*/
-	Ptr newProc ;/**< reserved*/
-	Ptr newProc ;/**< reserved*/
-	Ptr tnewProc;/**< reserved*/
-	Ptr newProc ;/**< reserved*/
-	Ptr newProc ;/**< reserved*/
-	} CQDProcs ;/**< */
+  /**
+  <pre>
+   * \note <pre>The CQDProcs structure completely replaces the QDProcs structure for
+  Color QuickDraw. Do not use the SetStdProcs routine in a CGrafPort since
+  that will return a QDProcs record (one without a stdOpcodeProc) and your
+  system will likely crash when you bring up a color picture.
+  The last seven fields are new. The rest are the same as a QDProcs record.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct CQDProcs
+  {
+    Ptr textProc;    /**< Addr of text-drawing proc StdText*/
+    Ptr lineProc;    /**< Addr of line-drawing proc StdLine*/
+    Ptr rectProc;    /**< Addr of rectangle-drawing proc*/
+    Ptr rRectProc;   /**< Addr of roundRect-draw proc*/
+    Ptr ovalProc;    /**< Addr of oval/circle-draw proc*/
+    Ptr arcProc;     /**< Addr of arc-drawing proc StdArc*/
+    Ptr polyProc;    /**< Addr of polygon-drawing proc*/
+    Ptr rgnProc;     /**< Addr of region-drawing proc*/
+    Ptr bitsProc;    /**< Addr of bit transfer proc StdBits*/
+    Ptr commentProc; /**< Addr pict comment handler*/
+    Ptr txMeasProc;  /**< Addr of text width measurer*/
+    Ptr getPicProc;  /**< Addr of picture retrieval proc*/
+    Ptr putPicProc;  /**< Addr of picture saving proc*/
+    Ptr opcodeProc;  /**< New fields all reserved for future*/
+    Ptr newProc;     /**< reserved*/
+    Ptr newProc;     /**< reserved*/
+    Ptr newProc;     /**< reserved*/
+    Ptr tnewProc;    /**< reserved*/
+    Ptr newProc;     /**< reserved*/
+    Ptr newProc;     /**< reserved*/
+  } CQDProcs;        /**< */
 
-typedef struct CQDProcs CQDProcs;
-typedef CQDProcs *CQDProcsPtr;
+  typedef struct CQDProcs CQDProcs;
+  typedef CQDProcs *CQDProcsPtr;
 #if !OPAQUE_TOOLBOX_STRUCTS
-/**
-<pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct CGrafPort {
-	short device;/**< Device-specific info;/**< =screen*/
-	PixMapHandle portPixMap;/**< port's pixel map*/
-	short portVersion;/**< High bits set*/
-	Handle grafVars;/**< Handle to additional fields*/
-	short chExtra;/**< Widen text and numeric characters,*/
-	short pnLocHFrac;/**< Fractional horizontal pen position*/
-	Rect portRect;/**< Writeable interior, for more*/
-	RgnHandle visRgn;/**< Portion not covered by other*/
-	RgnHandle clipRgn;/**< User-definable clipping region, see*/
-	PixPatHandle bkPixPat;/**<  Color background pattern see*/
-	RGBColor rgbFgColor;/**< requested foreground color see*/
-	RGBColor rgbBkColor;/**< requested background color see*/
-	Point pnLoc;/**< Pen location in local coords see*/
-	Point pnSize;/**< .v=height, .h=width of pen see*/
-	short pnMode;/**< see PenMode*/
-	PixPatHandle pnPixPat;/**< Color pen pattern used in drawing,*/
-	Pattern fillPixPat;/**< Color fill pattern*/
-	short pnVis;/**< If <, pen is invisible*/
-	short txFont;/**< Font;/**< =system, =application see*/
-	Style txFace;/**< Text style;/**< see TextFace*/
-	char filler;/**< */
-	short txMode;/**< Transfer Mode*/
-	short txSize;/**< Text size in points*/
-	Fixed spExtra;/**< Spacing for full justification*/
-	long fgColor;/**< Old-model color for foreground see*/
-	long bkColor;/**< Old-model color for background, see*/
-	short colrBit;/**< Old-model color plane*/
-	short patStretch;/**< Used internally;/**< printer aspect ratio*/
-	Handle picSave;/**< PicHandle if pict being saved.*/
-	Handle rgnSave;/**< RgnHandle if region is being saved.*/
-	Handle polySave;/**< PolyHandle if polygon being saved.*/
-	CQDProcsPtr grafProcs;/**< Addr of struct with addresses of*/
-	} CGrafPort ;/**< */
-
+  /**
+  <pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct CGrafPort
+  {
+    short device;            /**< Device-specific info;/**< =screen*/
+    PixMapHandle portPixMap; /**< port's pixel map*/
+    short portVersion;       /**< High bits set*/
+    Handle grafVars;         /**< Handle to additional fields*/
+    short chExtra;           /**< Widen text and numeric characters,*/
+    short pnLocHFrac;        /**< Fractional horizontal pen position*/
+    Rect portRect;           /**< Writeable interior, for more*/
+    RgnHandle visRgn;        /**< Portion not covered by other*/
+    RgnHandle clipRgn;       /**< User-definable clipping region, see*/
+    PixPatHandle bkPixPat;   /**<  Color background pattern see*/
+    RGBColor rgbFgColor;     /**< requested foreground color see*/
+    RGBColor rgbBkColor;     /**< requested background color see*/
+    Point pnLoc;             /**< Pen location in local coords see*/
+    Point pnSize;            /**< .v=height, .h=width of pen see*/
+    short pnMode;            /**< see PenMode*/
+    PixPatHandle pnPixPat;   /**< Color pen pattern used in drawing,*/
+    Pattern fillPixPat;      /**< Color fill pattern*/
+    short pnVis;             /**< If <, pen is invisible*/
+    short txFont;            /**< Font;/**< =system, =application see*/
+    Style txFace;            /**< Text style;/**< see TextFace*/
+    char filler;             /**< */
+    short txMode;            /**< Transfer Mode*/
+    short txSize;            /**< Text size in points*/
+    Fixed spExtra;           /**< Spacing for full justification*/
+    long fgColor;            /**< Old-model color for foreground see*/
+    long bkColor;            /**< Old-model color for background, see*/
+    short colrBit;           /**< Old-model color plane*/
+    short patStretch;        /**< Used internally;/**< printer aspect ratio*/
+    Handle picSave;          /**< PicHandle if pict being saved.*/
+    Handle rgnSave;          /**< RgnHandle if region is being saved.*/
+    Handle polySave;         /**< PolyHandle if polygon being saved.*/
+    CQDProcsPtr grafProcs;   /**< Addr of struct with addresses of*/
+  } CGrafPort;               /**< */
 
 #endif /* !OPAQUE_TOOLBOX_STRUCTS */
 
 #if OPAQUE_TOOLBOX_STRUCTS
-typedef WindowPtr CWindowPtr;
+  typedef WindowPtr CWindowPtr;
 #else
 typedef CGrafPtr CWindowPtr;
 #endif /* OPAQUE_TOOLBOX_STRUCTS */
 
-/**
-<pre>
- * \note <pre>The selection parameter of the SaveEntries procedure uses the ReqListRec
-data structure to hold the list of entries to be saved.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct ReqListRec {
-	short reqLSize;/**< Request list size -*/
-	unsigned char reqLData[];/**< nData from request list*/
-	} ReqListRec ;/**< +n*/
+  /**
+  <pre>
+   * \note <pre>The selection parameter of the SaveEntries procedure uses the ReqListRec
+  data structure to hold the list of entries to be saved.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct ReqListRec
+  {
+    short reqLSize;           /**< Request list size -*/
+    unsigned char reqLData[]; /**< nData from request list*/
+  } ReqListRec;               /**< +n*/
 
-typedef struct ReqListRec ReqListRec;
-/**
-<pre>
- * \note <pre>Note that in the header to a version 2 picture the information is reordered,
-and appears in the format described by the PictureHeader structure.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct OpenCPicParams  {
-	RectsrcRect;/**< source rectangle for best display at*/
-	FixedhRes;/**< best horizontal resolution*/
-	FixedvRes;/**< best vertical resolution*/
-	shortversion;/**< set to -*/
-	shortreserved;/**< reserved for future use*/
-	longreserved;/**< reserved for future use*/
-	} OpenCPicParams ;/**< */
+  typedef struct ReqListRec ReqListRec;
+  /**
+  <pre>
+   * \note <pre>Note that in the header to a version 2 picture the information is reordered,
+  and appears in the format described by the PictureHeader structure.
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct OpenCPicParams
+  {
+    RectsrcRect;    /**< source rectangle for best display at*/
+    FixedhRes;      /**< best horizontal resolution*/
+    FixedvRes;      /**< best vertical resolution*/
+    shortversion;   /**< set to -*/
+    shortreserved;  /**< reserved for future use*/
+    longreserved;   /**< reserved for future use*/
+  } OpenCPicParams; /**< */
 
-typedef struct OpenCPicParams OpenCPicParams;
-enum { kCursorImageMajorVersion = 0x0001, kCursorImageMinorVersion = 0x0000 };
+  typedef struct OpenCPicParams OpenCPicParams;
+  enum
+  {
+    kCursorImageMajorVersion = 0x0001,
+    kCursorImageMinorVersion = 0x0000
+  };
 
-struct CursorImageRec {
-  UInt16 majorVersion;
-  UInt16 minorVersion;
-  PixMapHandle cursorPixMap;
-  BitMapHandle cursorBitMask;
-};
-typedef struct CursorImageRec CursorImageRec;
-typedef CursorImageRec *CursorImagePtr;
-typedef CALLBACK_API(void, DeviceLoopDrawingProcPtr)(short depth,
-                                                     short deviceFlags,
-                                                     GDHandle targetDevice,
-                                                     long userData);
-typedef STACK_UPP_TYPE(DeviceLoopDrawingProcPtr) DeviceLoopDrawingUPP;
+  struct CursorImageRec
+  {
+    UInt16 majorVersion;
+    UInt16 minorVersion;
+    PixMapHandle cursorPixMap;
+    BitMapHandle cursorBitMask;
+  };
+  typedef struct CursorImageRec CursorImageRec;
+  typedef CursorImageRec *CursorImagePtr;
+  typedef CALLBACK_API(void, DeviceLoopDrawingProcPtr)(short depth,
+                                                       short deviceFlags,
+                                                       GDHandle targetDevice,
+                                                       long userData);
+  typedef STACK_UPP_TYPE(DeviceLoopDrawingProcPtr) DeviceLoopDrawingUPP;
 #if CALL_NOT_IN_CARBON
-/**
- *  NewQDPrinterStatusUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-QDPrinterStatusUPP
-NewQDPrinterStatusUPP(QDPrinterStatusProcPtr userRoutine);
+  /**
+   *  NewQDPrinterStatusUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  QDPrinterStatusUPP
+  NewQDPrinterStatusUPP(QDPrinterStatusProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppQDPrinterStatusProcInfo = 0x00000FF1
-}; /* 4_bytes Func(4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppQDPrinterStatusProcInfo = 0x00000FF1
+  }; /* 4_bytes Func(4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline QDPrinterStatusUPP
-NewQDPrinterStatusUPP(QDPrinterStatusProcPtr userRoutine) {
-  return (QDPrinterStatusUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                  uppQDPrinterStatusProcInfo,
-                                                  GetCurrentArchitecture());
-}
+  inline QDPrinterStatusUPP
+  NewQDPrinterStatusUPP(QDPrinterStatusProcPtr userRoutine)
+  {
+    return (QDPrinterStatusUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                    uppQDPrinterStatusProcInfo,
+                                                    GetCurrentArchitecture());
+  }
 #else
 #define NewQDPrinterStatusUPP(userRoutine)                                     \
   (QDPrinterStatusUPP)                                                         \
@@ -2458,51 +2601,54 @@ NewQDPrinterStatusUPP(QDPrinterStatusProcPtr userRoutine) {
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  NewDeviceLoopDrawingUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-DeviceLoopDrawingUPP
-NewDeviceLoopDrawingUPP(DeviceLoopDrawingProcPtr userRoutine);
+  /**
+   *  NewDeviceLoopDrawingUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  DeviceLoopDrawingUPP
+  NewDeviceLoopDrawingUPP(DeviceLoopDrawingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppDeviceLoopDrawingProcInfo = 0x00003E80
-}; /* pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppDeviceLoopDrawingProcInfo = 0x00003E80
+  }; /* pascal no_return_value Func(2_bytes, 2_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline DeviceLoopDrawingUPP
-NewDeviceLoopDrawingUPP(DeviceLoopDrawingProcPtr userRoutine) {
-  return (DeviceLoopDrawingUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppDeviceLoopDrawingProcInfo,
-      GetCurrentArchitecture());
-}
+  inline DeviceLoopDrawingUPP
+  NewDeviceLoopDrawingUPP(DeviceLoopDrawingProcPtr userRoutine)
+  {
+    return (DeviceLoopDrawingUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppDeviceLoopDrawingProcInfo,
+        GetCurrentArchitecture());
+  }
 #else
-#define NewDeviceLoopDrawingUPP(userRoutine)                                   \
-  (DeviceLoopDrawingUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),          \
-                                              uppDeviceLoopDrawingProcInfo,    \
+#define NewDeviceLoopDrawingUPP(userRoutine)                                \
+  (DeviceLoopDrawingUPP) NewRoutineDescriptor((ProcPtr)(userRoutine),       \
+                                              uppDeviceLoopDrawingProcInfo, \
                                               GetCurrentArchitecture())
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON
-/**
- *  DisposeQDPrinterStatusUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-DisposeQDPrinterStatusUPP(QDPrinterStatusUPP userUPP);
+  /**
+   *  DisposeQDPrinterStatusUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeQDPrinterStatusUPP(QDPrinterStatusUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeQDPrinterStatusUPP(QDPrinterStatusUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeQDPrinterStatusUPP(QDPrinterStatusUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeQDPrinterStatusUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
@@ -2510,77 +2656,80 @@ inline void DisposeQDPrinterStatusUPP(QDPrinterStatusUPP userUPP) {
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  DisposeDeviceLoopDrawingUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeDeviceLoopDrawingUPP(DeviceLoopDrawingUPP userUPP);
+  /**
+   *  DisposeDeviceLoopDrawingUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeDeviceLoopDrawingUPP(DeviceLoopDrawingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDeviceLoopDrawingUPP(DeviceLoopDrawingUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeDeviceLoopDrawingUPP(DeviceLoopDrawingUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeDeviceLoopDrawingUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON
-/**
- *  InvokeQDPrinterStatusUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-InvokeQDPrinterStatusUPP(PrinterStatusOpcode opcode, CGrafPtr currentPort,
-                         void *printerStatus, QDPrinterStatusUPP userUPP);
+  /**
+   *  InvokeQDPrinterStatusUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  InvokeQDPrinterStatusUPP(PrinterStatusOpcode opcode, CGrafPtr currentPort,
+                           void *printerStatus, QDPrinterStatusUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline OSStatus InvokeQDPrinterStatusUPP(PrinterStatusOpcode opcode,
-                                         CGrafPtr currentPort,
-                                         void *printerStatus,
-                                         QDPrinterStatusUPP userUPP) {
-  return (OSStatus)CALL_THREE_PARAMETER_UPP(userUPP, uppQDPrinterStatusProcInfo,
-                                            opcode, currentPort, printerStatus);
-}
+  inline OSStatus InvokeQDPrinterStatusUPP(PrinterStatusOpcode opcode,
+                                           CGrafPtr currentPort,
+                                           void *printerStatus,
+                                           QDPrinterStatusUPP userUPP)
+  {
+    return (OSStatus)CALL_THREE_PARAMETER_UPP(userUPP, uppQDPrinterStatusProcInfo,
+                                              opcode, currentPort, printerStatus);
+  }
 #else
-#define InvokeQDPrinterStatusUPP(opcode, currentPort, printerStatus, userUPP)  \
-  (OSStatus)                                                                   \
-      CALL_THREE_PARAMETER_UPP((userUPP), uppQDPrinterStatusProcInfo,          \
+#define InvokeQDPrinterStatusUPP(opcode, currentPort, printerStatus, userUPP) \
+  (OSStatus)                                                                  \
+      CALL_THREE_PARAMETER_UPP((userUPP), uppQDPrinterStatusProcInfo,         \
                                (opcode), (currentPort), (printerStatus))
 #endif
 #endif
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  InvokeDeviceLoopDrawingUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeDeviceLoopDrawingUPP(short depth, short deviceFlags,
-                           GDHandle targetDevice, long userData,
-                           DeviceLoopDrawingUPP userUPP);
+  /**
+   *  InvokeDeviceLoopDrawingUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeDeviceLoopDrawingUPP(short depth, short deviceFlags,
+                             GDHandle targetDevice, long userData,
+                             DeviceLoopDrawingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeDeviceLoopDrawingUPP(short depth, short deviceFlags,
-                                       GDHandle targetDevice, long userData,
-                                       DeviceLoopDrawingUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppDeviceLoopDrawingProcInfo, depth,
-                          deviceFlags, targetDevice, userData);
-}
+  inline void InvokeDeviceLoopDrawingUPP(short depth, short deviceFlags,
+                                         GDHandle targetDevice, long userData,
+                                         DeviceLoopDrawingUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppDeviceLoopDrawingProcInfo, depth,
+                            deviceFlags, targetDevice, userData);
+  }
 #else
 #define InvokeDeviceLoopDrawingUPP(depth, deviceFlags, targetDevice, userData, \
                                    userUPP)                                    \
@@ -2592,81 +2741,82 @@ inline void InvokeDeviceLoopDrawingUPP(short depth, short deviceFlags,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewQDPrinterStatusProc(userRoutine) NewQDPrinterStatusUPP(userRoutine)
-#define NewDeviceLoopDrawingProc(userRoutine)                                  \
+#define NewDeviceLoopDrawingProc(userRoutine) \
   NewDeviceLoopDrawingUPP(userRoutine)
-#define CallQDPrinterStatusProc(userRoutine, opcode, currentPort,              \
-                                printerStatus)                                 \
+#define CallQDPrinterStatusProc(userRoutine, opcode, currentPort, \
+                                printerStatus)                    \
   InvokeQDPrinterStatusUPP(opcode, currentPort, printerStatus, userRoutine)
-#define CallDeviceLoopDrawingProc(userRoutine, depth, deviceFlags,             \
-                                  targetDevice, userData)                      \
-  InvokeDeviceLoopDrawingUPP(depth, deviceFlags, targetDevice, userData,       \
+#define CallDeviceLoopDrawingProc(userRoutine, depth, deviceFlags,       \
+                                  targetDevice, userData)                \
+  InvokeDeviceLoopDrawingUPP(depth, deviceFlags, targetDevice, userData, \
                              userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
 #if !OPAQUE_TOOLBOX_STRUCTS || !TARGET_API_MAC_CARBON
-struct QDGlobals {
-  char privates[76];
-  long randSeed;     /* in Carbon use GetQDGlobalsRandomSeed*/
-  BitMap screenBits; /* in Carbon use GetQDGlobalsScreenBits*/
-  Cursor arrow;      /* in Carbon use GetQDGlobalsArrow*/
-  Pattern dkGray;    /* in Carbon use GetQDGlobalsDarkGray*/
-  Pattern ltGray;    /* in Carbon use GetQDGlobalsLightGray*/
-  Pattern gray;      /* in Carbon use GetQDGlobalsGray*/
-  Pattern black;     /* in Carbon use GetQDGlobalsBlack*/
-  Pattern white;     /* in Carbon use GetQDGlobalsWhite*/
-  GrafPtr thePort;   /* in Carbon use GetQDGlobalsThePort*/
-};
-typedef struct QDGlobals QDGlobals;
-typedef QDGlobals *QDGlobalsPtr;
-typedef QDGlobalsPtr *QDGlobalsHdl;
-extern QDGlobals qd;
+  struct QDGlobals
+  {
+    char privates[76];
+    long randSeed;     /* in Carbon use GetQDGlobalsRandomSeed*/
+    BitMap screenBits; /* in Carbon use GetQDGlobalsScreenBits*/
+    Cursor arrow;      /* in Carbon use GetQDGlobalsArrow*/
+    Pattern dkGray;    /* in Carbon use GetQDGlobalsDarkGray*/
+    Pattern ltGray;    /* in Carbon use GetQDGlobalsLightGray*/
+    Pattern gray;      /* in Carbon use GetQDGlobalsGray*/
+    Pattern black;     /* in Carbon use GetQDGlobalsBlack*/
+    Pattern white;     /* in Carbon use GetQDGlobalsWhite*/
+    GrafPtr thePort;   /* in Carbon use GetQDGlobalsThePort*/
+  };
+  typedef struct QDGlobals QDGlobals;
+  typedef QDGlobals *QDGlobalsPtr;
+  typedef QDGlobalsPtr *QDGlobalsHdl;
+  extern QDGlobals qd;
 
 #endif /* !OPAQUE_TOOLBOX_STRUCTS || !TARGET_API_MAC_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  InitGraf()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-InitGraf(void *globalPtr) ONEWORDINLINE(0xA86E);
+  /**
+   *  InitGraf()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  InitGraf(void *globalPtr) ONEWORDINLINE(0xA86E);
 
-/**
- *  OpenPort()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-OpenPort(GrafPtr port) ONEWORDINLINE(0xA86F);
+  /**
+   *  OpenPort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  OpenPort(GrafPtr port) ONEWORDINLINE(0xA86F);
 
-/**
- *  InitPort()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-InitPort(GrafPtr port) ONEWORDINLINE(0xA86D);
+  /**
+   *  InitPort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  InitPort(GrafPtr port) ONEWORDINLINE(0xA86D);
 
-/**
- *  ClosePort()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-ClosePort(GrafPtr port) ONEWORDINLINE(0xA87D);
+  /**
+   *  ClosePort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  ClosePort(GrafPtr port) ONEWORDINLINE(0xA87D);
 
 /**
    These are Carbon only routines. They do nothing at all on
@@ -2674,121 +2824,127 @@ ClosePort(GrafPtr port) ONEWORDINLINE(0xA87D);
 */
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  LockPortBits()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-LockPortBits(GrafPtr port);
+  /**
+   *  LockPortBits()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  LockPortBits(GrafPtr port);
 
-/**
- *  UnlockPortBits()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-UnlockPortBits(GrafPtr port);
+  /**
+   *  UnlockPortBits()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  UnlockPortBits(GrafPtr port);
 
-/* Break a region up into rectangles.*/
+  /* Break a region up into rectangles.*/
 
-enum {
-  kQDParseRegionFromTop = (1 << 0),
-  kQDParseRegionFromBottom = (1 << 1),
-  kQDParseRegionFromLeft = (1 << 2),
-  kQDParseRegionFromRight = (1 << 3),
-  kQDParseRegionFromTopLeft = kQDParseRegionFromTop | kQDParseRegionFromLeft,
-  kQDParseRegionFromBottomRight =
-      kQDParseRegionFromBottom | kQDParseRegionFromRight
-};
+  enum
+  {
+    kQDParseRegionFromTop = (1 << 0),
+    kQDParseRegionFromBottom = (1 << 1),
+    kQDParseRegionFromLeft = (1 << 2),
+    kQDParseRegionFromRight = (1 << 3),
+    kQDParseRegionFromTopLeft = kQDParseRegionFromTop | kQDParseRegionFromLeft,
+    kQDParseRegionFromBottomRight =
+        kQDParseRegionFromBottom | kQDParseRegionFromRight
+  };
 
-typedef SInt32 QDRegionParseDirection;
-enum {
-  kQDRegionToRectsMsgInit = 1,
-  kQDRegionToRectsMsgParse = 2,
-  kQDRegionToRectsMsgTerminate = 3
-};
+  typedef SInt32 QDRegionParseDirection;
+  enum
+  {
+    kQDRegionToRectsMsgInit = 1,
+    kQDRegionToRectsMsgParse = 2,
+    kQDRegionToRectsMsgTerminate = 3
+  };
 
-typedef CALLBACK_API_C(OSStatus,
-                       RegionToRectsProcPtr)(UInt16 message, RgnHandle rgn,
-                                             const Rect *rect, void *refCon);
-typedef STACK_UPP_TYPE(RegionToRectsProcPtr) RegionToRectsUPP;
-/**
- *  NewRegionToRectsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-RegionToRectsUPP
-NewRegionToRectsUPP(RegionToRectsProcPtr userRoutine);
+  typedef CALLBACK_API_C(OSStatus,
+                         RegionToRectsProcPtr)(UInt16 message, RgnHandle rgn,
+                                               const Rect *rect, void *refCon);
+  typedef STACK_UPP_TYPE(RegionToRectsProcPtr) RegionToRectsUPP;
+  /**
+   *  NewRegionToRectsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  RegionToRectsUPP
+  NewRegionToRectsUPP(RegionToRectsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppRegionToRectsProcInfo = 0x00003FB1
-}; /* 4_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppRegionToRectsProcInfo = 0x00003FB1
+  }; /* 4_bytes Func(2_bytes, 4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline RegionToRectsUPP NewRegionToRectsUPP(RegionToRectsProcPtr userRoutine) {
-  return (RegionToRectsUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppRegionToRectsProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline RegionToRectsUPP NewRegionToRectsUPP(RegionToRectsProcPtr userRoutine)
+  {
+    return (RegionToRectsUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppRegionToRectsProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewRegionToRectsUPP(userRoutine)                                       \
-  (RegionToRectsUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppRegionToRectsProcInfo,   \
+#define NewRegionToRectsUPP(userRoutine)                                     \
+  (RegionToRectsUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppRegionToRectsProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeRegionToRectsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeRegionToRectsUPP(RegionToRectsUPP userUPP);
+  /**
+   *  DisposeRegionToRectsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeRegionToRectsUPP(RegionToRectsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeRegionToRectsUPP(RegionToRectsUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeRegionToRectsUPP(RegionToRectsUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeRegionToRectsUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeRegionToRectsUPP()
- *
- *  Availability:
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSStatus
-InvokeRegionToRectsUPP(UInt16 message, RgnHandle rgn, const Rect *rect,
-                       void *refCon, RegionToRectsUPP userUPP);
+  /**
+   *  InvokeRegionToRectsUPP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  InvokeRegionToRectsUPP(UInt16 message, RgnHandle rgn, const Rect *rect,
+                         void *refCon, RegionToRectsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline OSStatus InvokeRegionToRectsUPP(UInt16 message, RgnHandle rgn,
-                                       const Rect *rect, void *refCon,
-                                       RegionToRectsUPP userUPP) {
-  return (OSStatus)CALL_FOUR_PARAMETER_UPP(userUPP, uppRegionToRectsProcInfo,
-                                           message, rgn, rect, refCon);
-}
+  inline OSStatus InvokeRegionToRectsUPP(UInt16 message, RgnHandle rgn,
+                                         const Rect *rect, void *refCon,
+                                         RegionToRectsUPP userUPP)
+  {
+    return (OSStatus)CALL_FOUR_PARAMETER_UPP(userUPP, uppRegionToRectsProcInfo,
+                                             message, rgn, rect, refCon);
+  }
 #else
-#define InvokeRegionToRectsUPP(message, rgn, rect, refCon, userUPP)            \
-  (OSStatus) CALL_FOUR_PARAMETER_UPP((userUPP), uppRegionToRectsProcInfo,      \
+#define InvokeRegionToRectsUPP(message, rgn, rect, refCon, userUPP)       \
+  (OSStatus) CALL_FOUR_PARAMETER_UPP((userUPP), uppRegionToRectsProcInfo, \
                                      (message), (rgn), (rect), (refCon))
 #endif
 #endif
@@ -2796,94 +2952,93 @@ inline OSStatus InvokeRegionToRectsUPP(UInt16 message, RgnHandle rgn,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewRegionToRectsProc(userRoutine) NewRegionToRectsUPP(userRoutine)
-#define CallRegionToRectsProc(userRoutine, message, rgn, rect, refCon)         \
+#define CallRegionToRectsProc(userRoutine, message, rgn, rect, refCon) \
   InvokeRegionToRectsUPP(message, rgn, rect, refCon, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  QDRegionToRects()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSStatus
-QDRegionToRects(RgnHandle rgn, QDRegionParseDirection dir,
-                RegionToRectsUPP proc, void *userData);
+  /**
+   *  QDRegionToRects()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  QDRegionToRects(RgnHandle rgn, QDRegionParseDirection dir,
+                  RegionToRectsUPP proc, void *userData);
 
 #if !TARGET_OS_MAC
 #if CALL_NOT_IN_CARBON
-/**
- *  UpdatePort()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-UpdatePort(GrafPtr port);
+  /**
+   *  UpdatePort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  UpdatePort(GrafPtr port);
 
+  /**
+  \brief Find which GrafPort is currently active
 
-			/** 
-			\brief Find which GrafPort is currently active 
-			
-			<pre>GetPort copies a pointer to the current active GrafPort into a local variable.
+  <pre>GetPort copies a pointer to the current active GrafPort into a local variable.
 savePort is the address of a GrafPtr. Upon return, it will contain a copy of
 the global variable thePort (i.e., a pointer to the current active
 GrafPort ).
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>GetPort is often used to save the value of the current GrafPort before
+* \note <pre>GetPort is often used to save the value of the current GrafPort before
 activating a different one. See SetPort for an example.
 You may prefer to access the global variable thePort directly:
 GetPort ( &savePort );
- ... is synonymous with ...
+... is synonymous with ...
 savePort = thePort;
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-GetPortNativeWindow(GrafPtr macPort);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
-/**
- *  GetNativeWindowPort()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(GrafPtr)
-GetNativeWindowPort(void *nativeWindow);
+*    \non_carbon_cfm   not available
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+  void *
+  GetPortNativeWindow(GrafPtr macPort);
 
-/**
- *  MacRegionToNativeRegion()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-MacRegionToNativeRegion(RgnHandle macRegion);
+  /**
+   *  GetNativeWindowPort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  GrafPtr
+  GetNativeWindowPort(void *nativeWindow);
 
-/**
- *  NativeRegionToMacRegion()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(RgnHandle)
-NativeRegionToMacRegion(void *nativeRegion);
+  /**
+   *  MacRegionToNativeRegion()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  MacRegionToNativeRegion(RgnHandle macRegion);
+
+  /**
+   *  NativeRegionToMacRegion()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  RgnHandle
+  NativeRegionToMacRegion(void *nativeRegion);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -2891,95 +3046,95 @@ NativeRegionToMacRegion(void *nativeRegion);
 
 #if TARGET_OS_WIN32
 #if CALL_NOT_IN_CARBON
-/**
- *  GetPortHWND()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-GetPortHWND(GrafPtr port);
+  /**
+   *  GetPortHWND()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  GetPortHWND(GrafPtr port);
 
-/**
- *  GetHWNDPort()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(GrafPtr)
-GetHWNDPort(void *theHWND);
+  /**
+   *  GetHWNDPort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  GrafPtr
+  GetHWNDPort(void *theHWND);
 
 #define GetPortHWND(port) (HWND) GetPortNativeWindow(port)
 #define GetHWNDPort(theHWND) GetNativeWindowPort(theHWND)
-/**
- *  GetPortHDC()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-GetPortHDC(GrafPtr port);
+  /**
+   *  GetPortHDC()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  GetPortHDC(GrafPtr port);
 
-/**
- *  GetPortHBITMAP()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-GetPortHBITMAP(GrafPtr port);
+  /**
+   *  GetPortHBITMAP()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  GetPortHBITMAP(GrafPtr port);
 
-/**
- *  GetPortHPALETTE()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-GetPortHPALETTE(GrafPtr port);
+  /**
+   *  GetPortHPALETTE()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  GetPortHPALETTE(GrafPtr port);
 
-/**
- *  GetPortHFONT()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-GetPortHFONT(GrafPtr port);
+  /**
+   *  GetPortHFONT()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  GetPortHFONT(GrafPtr port);
 
-/**
- *  GetDIBFromPICT()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void *)
-GetDIBFromPICT(PicHandle hPict);
+  /**
+   *  GetDIBFromPICT()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  GetDIBFromPICT(PicHandle hPict);
 
-/**
- *  GetPICTFromDIB()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(PicHandle)
-GetPICTFromDIB(void *h);
+  /**
+   *  GetPICTFromDIB()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  PicHandle
+  GetPICTFromDIB(void *h);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -2996,66 +3151,64 @@ GetPICTFromDIB(void *h);
 #if TARGET_OS_MAC
 #define MacSetPort SetPort
 #endif
-EXTERN_API(void)
-MacSetPort(GrafPtr port) ONEWORDINLINE(0xA873);
+  void
+  MacSetPort(GrafPtr port) ONEWORDINLINE(0xA873);
 
-/**
- *  GetPort()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetPort(GrafPtr *port) ONEWORDINLINE(0xA874);
+  /**
+   *  GetPort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  GetPort(GrafPtr *port) ONEWORDINLINE(0xA874);
 
-/**
- *  QDSwapPort()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.5 and later
- *    \mac_os_x         in version 10.1 and later
- */
-EXTERN_API(Boolean)
-QDSwapPort(CGrafPtr inNewPort, CGrafPtr *outOldPort);
+  /**
+   *  QDSwapPort()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.5 and later
+   *    \mac_os_x         in version 10.1 and later
+   */
+  Boolean
+  QDSwapPort(CGrafPtr inNewPort, CGrafPtr *outOldPort);
 
+  /**
+  \brief Set the device field for a GrafPort
 
-			/** 
-			\brief Set the device field for a GrafPort 
-			
-			<pre>GrafDevice is used in communications between Quickdraw and the Font
+  <pre>GrafDevice is used in communications between Quickdraw and the Font
 Manager. It sets device-specific information that affects the way characters
 are drawn.
 theDevice is a device specific value. It is broken into 2 bytes as follows:
 high byte device driver reference number (always negative)
 low byte device-dependent modifier code
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This stores theDevice  into the device field of the current GrafPort . You
+* \note <pre>This stores theDevice  into the device field of the current GrafPort . You
 will not use this function in normal applications.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GrafDevice(short device) ONEWORDINLINE(0xA872);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  GrafDevice(short device) ONEWORDINLINE(0xA872);
 
-			/** 
-			\brief Assigns a new bit map to the active GrafPort 
-			
-			<pre>SetPortBits replaces the portBits field of the active GrafPort with a new
+  /**
+  \brief Assigns a new bit map to the active GrafPort
+
+  <pre>SetPortBits replaces the portBits field of the active GrafPort with a new
 value, effectively changing the entire contents of the port.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>SetPortBits is useful for performing off-screen drawing. For instance,
+* \note <pre>SetPortBits is useful for performing off-screen drawing. For instance,
 you can use a series of Quickdraw calls to create an image in an off-screen
 memory buffer, then use CopyBits to copy the bit-mapped image into the
 normal screen.
@@ -3079,65 +3232,66 @@ OffScreenDraw( short rWide, short rHigh, Rect rDest )
 // rWide, rHigh; size of off-screen rectangle
 // rDest; on-screen destination */
 {
-BitMap saveBits;
-BitMap tempBits;
-short bytesPerRow;
-saveBits = thePort->portBits; /* save current */
-/* now create an off-screen "canvas" */
-bytesPerRow = (( (rWide -1) / 16) + 1) * 2;
-tempBits.baseAddr = ( QDPtr)NewPtr ( bytesPerRow * rHigh );
-tempBits.rowBytes = bytesPerRow;
-SetRect ( &tempBits.bounds, 0,0, rWide, rHigh );
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetPortBits(const BitMap *bm) ONEWORDINLINE(0xA875);
+  BitMap saveBits;
+  BitMap tempBits;
+  short bytesPerRow;
+  saveBits = thePort->portBits; /* save current */
+  /* now create an off-screen "canvas" */
+  bytesPerRow = (((rWide - 1) / 16) + 1) * 2;
+  tempBits.baseAddr = (QDPtr)NewPtr(bytesPerRow * rHigh);
+  tempBits.rowBytes = bytesPerRow;
+  SetRect(&tempBits.bounds, 0, 0, rWide, rHigh);
+  </ pre>
+              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          void
+          SetPortBits(const BitMap *bm) ONEWORDINLINE(0xA875);
 
-			/** 
-			\brief Change height and width of current GrafPort 
-			
-			<pre>PortSize modifies the width and height of the current GrafPort 's portRect .
+  /**
+  \brief Change height and width of current GrafPort
+
+  <pre>PortSize modifies the width and height of the current GrafPort 's portRect .
 It is normally called by the Window Manager for window-sizing functions.
 newWidth and . . .
 newHeight are the desired width and height for the portRect.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This is a simple way to extend the size of the current port's portRect - the
+* \note <pre>This is a simple way to extend the size of the current port's portRect - the
 active area of the current GrafPort .
 The portRect.top and portRect.left fields stay the same. The portRect.right
 and portRect.bottom change to reflect the desired newWidth  and newHeight .
 Note that this does not affect other fields of the GrafPort ; drawing continues
 to be clipped to the intersection of portRect , visRgn, and clipRgn.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PortSize(short width, short height) ONEWORDINLINE(0xA876);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  PortSize(short width, short height) ONEWORDINLINE(0xA876);
 
-			/** 
-			\brief Change position of top-left corner of portRect 
-			
-			<pre>MovePortTo repositions the portRect of the current GrafPort . It is used by
+  /**
+  \brief Change position of top-left corner of portRect
+
+  <pre>MovePortTo repositions the portRect of the current GrafPort . It is used by
 the Window Manager to reposition windows.
 leftGlobal and . . .
 topGlobal are the desired coordinates for the top and left fields of the
 GrafPort 's portRect .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This changes the position at which subsequent drawing will appear for the
+* \note <pre>This changes the position at which subsequent drawing will appear for the
 active GrafPort . It effectively moves the active area of the GrafPort by
 adding offsets to all fields of the portRect such that the top-left corner is
 moved to the global coordinate pair leftGlobal , topGlobal . The height and
@@ -3149,91 +3303,90 @@ clipRgn.
 Unlike SetOrigin , this has no effect on the local coordinate system. It
 moves the port to a different part of the BitMap.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-MovePortTo(short leftGlobal, short topGlobal) ONEWORDINLINE(0xA877);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
-/**
- *  SetOrigin()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetOrigin(short h, short v) ONEWORDINLINE(0xA878);
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  MovePortTo(short leftGlobal, short topGlobal) ONEWORDINLINE(0xA877);
 
-/**
- *  SetClip()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetClip(RgnHandle rgn) ONEWORDINLINE(0xA879);
+  /**
+   *  SetOrigin()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  SetOrigin(short h, short v) ONEWORDINLINE(0xA878);
 
-/**
- *  GetClip()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetClip(RgnHandle rgn) ONEWORDINLINE(0xA87A);
+  /**
+   *  SetClip()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  SetClip(RgnHandle rgn) ONEWORDINLINE(0xA879);
 
-/**
- *  ClipRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ClipRect(const Rect *r) ONEWORDINLINE(0xA87B);
+  /**
+   *  GetClip()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  GetClip(RgnHandle rgn) ONEWORDINLINE(0xA87A);
 
-/**
- *  BackPat()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-BackPat(const Pattern *pat) ONEWORDINLINE(0xA87C);
+  /**
+   *  ClipRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ClipRect(const Rect *r) ONEWORDINLINE(0xA87B);
 
+  /**
+   *  BackPat()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  BackPat(const Pattern *pat) ONEWORDINLINE(0xA87C);
 
-			/** 
-			\brief Initialize cursor to the standard arrow 
-			
-			<pre>InitCursor sets the cursor shape to the standard arrow cursor and sets the
+  /**
+  \brief Initialize cursor to the standard arrow
+
+  <pre>InitCursor sets the cursor shape to the standard arrow cursor and sets the
 cursor level to 0, making it visible. It is normally called once, in the early
 part of a program.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The 68-byte Cursor structure for the standard arrow cursor can be found
+* \note <pre>The 68-byte Cursor structure for the standard arrow cursor can be found
 in the Quickdraw data area. Its symbolic name is arrow.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-InitCursor(void) ONEWORDINLINE(0xA850);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  InitCursor(void) ONEWORDINLINE(0xA850);
 
 /**
  *  [Mac]SetCursor()
@@ -3246,15 +3399,14 @@ InitCursor(void) ONEWORDINLINE(0xA850);
 #if TARGET_OS_MAC
 #define MacSetCursor SetCursor
 #endif
-EXTERN_API(void)
-MacSetCursor(const Cursor *crsr) ONEWORDINLINE(0xA851);
+    void
+    MacSetCursor(const Cursor *crsr) ONEWORDINLINE(0xA851);
 
+    /**
+    \brief Remove the mouse cursor from the screen
 
-			/** 
-			\brief Remove the mouse cursor from the screen 
-			
-			<pre>
- * \note <pre>Each use of HideCursor must be balanced with a subsequent call to
+    <pre>
+* \note <pre>Each use of HideCursor must be balanced with a subsequent call to
 ShowCursor .
 This call decrements the cursor level: the cursor level is set to 0 when you
 call InitCursor , and is decremented by each call to HideCursor and
@@ -3265,14 +3417,14 @@ currently positioned within a specified rectangle.
 A related function, ObscureCursor , hides the cursor until the mouse is
 moved.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HideCursor(void) ONEWORDINLINE(0xA852);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+    void
+    HideCursor(void) ONEWORDINLINE(0xA852);
 
 /**
  *  [Mac]ShowCursor()
@@ -3285,32 +3437,30 @@ HideCursor(void) ONEWORDINLINE(0xA852);
 #if TARGET_OS_MAC
 #define MacShowCursor ShowCursor
 #endif
-EXTERN_API(void)
-MacShowCursor(void) ONEWORDINLINE(0xA853);
+    void
+    MacShowCursor(void) ONEWORDINLINE(0xA853);
+
+    /**
+    \brief Hide cursor until mouse moves
 
 
-			/** 
-			\brief Hide cursor until mouse moves 
-			
-			
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ObscureCursor(void) ONEWORDINLINE(0xA856);
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+    void
+    ObscureCursor(void) ONEWORDINLINE(0xA856);
 
-			/** 
-			\brief Make subsequent pen motion invisible 
-			
-			<pre>HidePen decrements the "pen level". If the level is set to a value other than
+    /**
+    \brief Make subsequent pen motion invisible
+
+    <pre>HidePen decrements the "pen level". If the level is set to a value other than
 0, the pen is hidden and subsequent draw operations are not visible.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>HidePen manipulates the pnVis field of the current GrafPort . Using
+* \note <pre>HidePen manipulates the pnVis field of the current GrafPort . Using
 HidePen decrements the field and ShowPen increments it. When pnVis
 is not equal 0, then the pen is hidden and drawing functions ( LineTo,
 FrameRect , etc.) do not affect the BitMap. The pnVis field is set to 0
@@ -3323,20 +3473,19 @@ only when pnVis==0.
 The OpenRgn , OpenPicture , and OpenPoly functions automatically call
 HidePen so, by default, subsequent drawing activities are hidden.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HidePen(void) ONEWORDINLINE(0xA896);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+    void
+    HidePen(void) ONEWORDINLINE(0xA896);
 
-			/** 
-			\brief Balance a previous HidePen ; make pen visible 
-			
-			<pre>HidePen decrements the field and ShowPen increments it. When the
+    /**
+    \brief Balance a previous HidePen ; make pen visible
+
+    <pre>HidePen decrements the field and ShowPen increments it. When the
 pnVis field is not equal 0, the pen is hidden and drawing functions ( LineTo,
 FrameRect , etc.) do not affect the bitMap. The pnVis field is set to 0
 (visible) when the GrafPort is initialized.
@@ -3348,54 +3497,52 @@ only when pnVis == 0.
 The CloseRgn , ClosePicture , and ClosePoly functions automatically
 call ShowPen to balance the previous automatic call to HidePen .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ShowPen(void) ONEWORDINLINE(0xA897);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+    void
+    ShowPen(void) ONEWORDINLINE(0xA897);
 
-			/** 
-			\brief Obtain current pen position 
-			
-			<pre>GetPen obtains the current pen position, in local coordinates.
+    /**
+    \brief Obtain current pen position
+
+    <pre>GetPen obtains the current pen position, in local coordinates.
 penPtis the address of a 4-byte Point structure. Upon return, it will
 contain the pen position of the current GrafPort , in local coordinates.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This stores the Point into a local variable, e.g.:
+* \note <pre>This stores the Point into a local variable, e.g.:
 PointthePt;
 GetPen( &thePt );
 You can obtain this and other pen-related information via GetPenState .
 You can position the pen via MoveTo .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetPen(Point *pt) ONEWORDINLINE(0xA89A);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+    void
+        GetPen(Point * pt) ONEWORDINLINE(0xA89A);
 
-			/** 
-			\brief Obtain current location, size, and mode of pen 
-			
-			<pre>GetPenState fills a structure with pen-related information, including the
+    /**
+    \brief Obtain current location, size, and mode of pen
+
+    <pre>GetPenState fills a structure with pen-related information, including the
 pen location, size, transfer mode, and pattern. It is useful in writing nested
 drawing functions.
 thePnState is the address of an 18-byte PenState structure. Upon return, the
 structure is filled with information about the pen of the current
 GrafPort .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The PenState structure receives information copied directly from the
+* \note <pre>The PenState structure receives information copied directly from the
 current GrafPort ; pnLoc, pnSize, pnMode, and pnPat.
 Nested drawing procedures can use this function to obtain the current
 status of the pen, in order to restore the state later. This may be coupled
@@ -3406,55 +3553,56 @@ DrawSomething()
 {
 PenState savePenState;
 GetPenState ( &savePenState ); /* save current state */
-ShowPen (); /* we want pen to be visible */
-/* ...draw some figure here which may change the state... */
-SetPenState ( &savePenState ); /* restore the pen's visible state */
-}
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetPenState(PenState *pnState) ONEWORDINLINE(0xA898);
+    ShowPen(); /* we want pen to be visible */
+    /* ...draw some figure here which may change the state... */
+    SetPenState(&savePenState); /* restore the pen's visible state */
+  }
+  </ pre>
+              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          void
+          GetPenState(PenState *pnState) ONEWORDINLINE(0xA898);
 
-			/** 
-			\brief Set the pen location, size, pattern and mode 
-			
-			<pre>SetPenState sets the location, size, pattern and transfer mode of the pen of
+  /**
+  \brief Set the pen location, size, pattern and mode
+
+  <pre>SetPenState sets the location, size, pattern and transfer mode of the pen of
 the current GrafPort . It is typically used to restore the pen characteristics
 after they were saved via a prior call to GetPenState .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>You can reset the pen characteristics to their initial state via
+* \note <pre>You can reset the pen characteristics to their initial state via
 PenNormal .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetPenState(const PenState *pnState) ONEWORDINLINE(0xA899);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  SetPenState(const PenState *pnState) ONEWORDINLINE(0xA899);
 
-			/** 
-			\brief Set dimensions of pen for current GrafPort 
-			
-			<pre>PenSize selects the height and width, in pixels, of the graphics pen for the
+  /**
+  \brief Set dimensions of pen for current GrafPort
+
+  <pre>PenSize selects the height and width, in pixels, of the graphics pen for the
 current GrafPort . The initial pen size is (1,1).
 wideand . . .
 highare the desired width and height of the pen. A setting of (0,0) - or
 setting either parameter less than 0 - makes the pen invisible
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The wide and high values are stored in pnSize field of the current
+* \note <pre>The wide and high values are stored in pnSize field of the current
 GrafPort structure, except that if either value is less than 0, then both
 parts of pnSize are set to 0, making the pen invisible.
 You can also set the pen size and other pen-related parameters via the
@@ -3465,20 +3613,19 @@ width = thePort -> pnSize.h;
 height = thePort -> pnSize.v;
 You can obtain this and related information via GetPenState .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PenSize(short width, short height) ONEWORDINLINE(0xA89B);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  PenSize(short width, short height) ONEWORDINLINE(0xA89B);
 
-			/** 
-			\brief Set the graphics pen pattern transfer mode 
-			
-			<pre>PenMode selects the pattern transfer mode to be used in pen drawing and
+  /**
+  \brief Set the graphics pen pattern transfer mode
+
+  <pre>PenMode selects the pattern transfer mode to be used in pen drawing and
 painting operations.
 newPnMode is a short and may be one of the following constants defined in
 Quickdraw.h :
@@ -3491,9 +3638,9 @@ notPatOr 13invert pattern, then patOr
 notPatXor 14invert pattern, then patXor
 notPatBic 15invert pattern, then patBic
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This function modifies the pnMode field of the current GrafPort structure.
+* \note <pre>This function modifies the pnMode field of the current GrafPort structure.
 It affects all drawing operations such as LineTo and FrameRect , as well
 as painting operations such as PaintOval , PaintRoundRect , etc.
 See Transfer Modes for a graphic depiction of the effect of the various
@@ -3504,89 +3651,87 @@ curPnMode = thePort->pnMode;
 This function does not affect how text is drawn. Use TextMode to modify
 the text-drawing pen's transfer mode.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PenMode(short mode) ONEWORDINLINE(0xA89C);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
-/**
- *  PenPat()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PenPat(const Pattern *pat) ONEWORDINLINE(0xA89D);
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  PenMode(short mode) ONEWORDINLINE(0xA89C);
 
-/**
- *  PenNormal()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PenNormal(void) ONEWORDINLINE(0xA89E);
+  /**
+   *  PenPat()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PenPat(const Pattern *pat) ONEWORDINLINE(0xA89D);
 
+  /**
+   *  PenNormal()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PenNormal(void) ONEWORDINLINE(0xA89E);
 
-			/** 
-			\brief Set pen location without drawing 
-			
-			<pre>MoveTo moves the pen to the specified location, in local coordinates. This
+  /**
+  \brief Set pen location without drawing
+
+  <pre>MoveTo moves the pen to the specified location, in local coordinates. This
 does no drawing.
 horizand . . .
 vertare a location in local coordinates of the current GrafPort .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The pen is repositioned at the selected point without performing any
+* \note <pre>The pen is repositioned at the selected point without performing any
 drawing. The position is "absolute" as it relates to the origin of the current
 GrafPort . Use Move to move the pen to a position relative to its current
 position.
 Use Line or LineTo to draw a line as the pen is moved.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-MoveTo(short h, short v) ONEWORDINLINE(0xA893);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  MoveTo(short h, short v) ONEWORDINLINE(0xA893);
 
-			/** 
-			\brief the pen relative to its current location 
-			
-			<pre>Move moves the pen a specified distance from its current location. It does not
+  /**
+  \brief the pen relative to its current location
+
+  <pre>Move moves the pen a specified distance from its current location. It does not
 perform any drawing.
 distHoriz is the distance, in pixels, to move the pen horizontally. Positive
 values move to the right; negative to the left.
 distVert is the distance, in pixels, to move the pen vertically. Positive
 values move down; negative move up.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>MoveTo is functionally identical to:
+* \note <pre>MoveTo is functionally identical to:
 MoveTo ( thePort->pnLoc.h+distHoriz , thePort->pnLoc.v+distVert );
 This does not do any drawing. Use Line or LineTo draw as the pen is
 moved.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-Move(short dh, short dv) ONEWORDINLINE(0xA894);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  Move(short dh, short dv) ONEWORDINLINE(0xA894);
 
 /**
  *  [Mac]LineTo()
@@ -3599,67 +3744,66 @@ Move(short dh, short dv) ONEWORDINLINE(0xA894);
 #if TARGET_OS_MAC
 #define MacLineTo LineTo
 #endif
-EXTERN_API(void)
-MacLineTo(short h, short v) ONEWORDINLINE(0xA891);
+  void
+  MacLineTo(short h, short v) ONEWORDINLINE(0xA891);
 
-/**
- *  Line()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-Line(short dh, short dv) ONEWORDINLINE(0xA892);
+  /**
+   *  Line()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  Line(short dh, short dv) ONEWORDINLINE(0xA892);
 
-/**
- *  ForeColor()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ForeColor(long color) ONEWORDINLINE(0xA862);
+  /**
+   *  ForeColor()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ForeColor(long color) ONEWORDINLINE(0xA862);
 
-/**
- *  BackColor()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-BackColor(long color) ONEWORDINLINE(0xA863);
+  /**
+   *  BackColor()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  BackColor(long color) ONEWORDINLINE(0xA863);
 
+  /**
+  \brief Select color plane for subsequent drawing
 
-			/** 
-			\brief Select color plane for subsequent drawing 
-			
-			<pre>ColorBit selects the "color plane" to which Quickdraw should direct
+  <pre>ColorBit selects the "color plane" to which Quickdraw should direct
 subsequent drawing operations. This function is part of the "old model"
 Quickdraw color support.
 whichPlane specifies the plane number. Black-and-white devices have only one
 color plane (plane 0). Quickdraw supports drawing to devices that
 can interpret up to 32 planes of color information.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This sets the value of the colrBit field of the current GrafPort structure.
+* \note <pre>This sets the value of the colrBit field of the current GrafPort structure.
 It is used for drawing in color while remaining compatible with pre-MacII
 Macs. It may also be used in sophisticated applications for creating overlays.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ColorBit(short whichBit) ONEWORDINLINE(0xA864);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  ColorBit(short whichBit) ONEWORDINLINE(0xA864);
 
 /**
  *  [Mac]SetRect()
@@ -3672,9 +3816,9 @@ ColorBit(short whichBit) ONEWORDINLINE(0xA864);
 #if TARGET_OS_MAC
 #define MacSetRect SetRect
 #endif
-EXTERN_API(void)
-MacSetRect(Rect *r, short left, short top, short right, short bottom)
-    ONEWORDINLINE(0xA8A7);
+  void
+  MacSetRect(Rect *r, short left, short top, short right, short bottom)
+      ONEWORDINLINE(0xA8A7);
 
 /**
  *  [Mac]OffsetRect()
@@ -3687,8 +3831,8 @@ MacSetRect(Rect *r, short left, short top, short right, short bottom)
 #if TARGET_OS_MAC
 #define MacOffsetRect OffsetRect
 #endif
-EXTERN_API(void)
-MacOffsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A8);
+  void
+  MacOffsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A8);
 
 /**
  *  [Mac]InsetRect()
@@ -3701,15 +3845,14 @@ MacOffsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A8);
 #if TARGET_OS_MAC
 #define MacInsetRect InsetRect
 #endif
-EXTERN_API(void)
-MacInsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A9);
+  void
+  MacInsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A9);
 
-
-			/** 
-			\brief Get the intersection of two rectangles; check for overlap 
-			\param    *rect1 addresses of two Rect ...
-	\param    *rect2 ... structures to intersect
-			<pre>SectRect checks to see if two rectangles share any points in common and
+  /**
+  \brief Get the intersection of two rectangles; check for overlap
+  \param    *rect1 addresses of two Rect ...
+\param    *rect2 ... structures to intersect
+  <pre>SectRect checks to see if two rectangles share any points in common and
 obtains the coordinates of the intersecting rectangle
 rect1and . . .
 rect2are addresses of two 8-byte Rect structures. They should use the
@@ -3719,13 +3862,13 @@ the coordinates of the intersection of rect1 and rect2 . If rect1 and
 rect2 share no common points, this returns as the empty rectangle
 (0,0)(0,0).
 </pre>
- * \returns <pre>a Boolean value indicating whether or not rect1 and rect2 share
+* \returns <pre>a Boolean value indicating whether or not rect1 and rect2 share
 any common points. It is one of:
 FALSENo overlap
 TRUESome overlap; resultRect  is non-empty.
 </pre>
- * \note <pre>The figures below illustrate:
-  
+* \note <pre>The figures below illustrate:
+
 In the figure on the left, the intersection of rectangles A and B is shown in
 black, labeled as rectangle C. The call to SectRect will return TRUE, and
 resultRect  will contain the coordinates of rectangle C.
@@ -3742,15 +3885,15 @@ rectangles A and B, and store its coordinates into rectangle A, overwriting
 the original value.
 SectRect ( &rA, &rB, &rA );
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-SectRect(const Rect *src1, const Rect *src2, Rect *dstRect)
-    ONEWORDINLINE(0xA8AA);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Boolean
+  SectRect(const Rect *src1, const Rect *src2, Rect *dstRect)
+      ONEWORDINLINE(0xA8AA);
 
 /**
  *  [Mac]UnionRect()
@@ -3763,9 +3906,9 @@ SectRect(const Rect *src1, const Rect *src2, Rect *dstRect)
 #if TARGET_OS_MAC
 #define MacUnionRect UnionRect
 #endif
-EXTERN_API(void)
-MacUnionRect(const Rect *src1, const Rect *src2, Rect *dstRect)
-    ONEWORDINLINE(0xA8AB);
+  void
+  MacUnionRect(const Rect *src1, const Rect *src2, Rect *dstRect)
+      ONEWORDINLINE(0xA8AB);
 
 /**
  *  [Mac]EqualRect()
@@ -3778,36 +3921,35 @@ MacUnionRect(const Rect *src1, const Rect *src2, Rect *dstRect)
 #if TARGET_OS_MAC
 #define MacEqualRect EqualRect
 #endif
-EXTERN_API(Boolean)
-MacEqualRect(const Rect *rect1, const Rect *rect2) ONEWORDINLINE(0xA8A6);
+  Boolean
+  MacEqualRect(const Rect *rect1, const Rect *rect2) ONEWORDINLINE(0xA8A6);
 
+  /**
+  \brief Determine if a rectangle is empty
 
-			/** 
-			\brief Determine if a rectangle is empty 
-			
-			<pre>EmptyRect tests to see if a rectangle is empty; i.e., if the bottom border is
+  <pre>EmptyRect tests to see if a rectangle is empty; i.e., if the bottom border is
 less than or equal to the top, or the right border is less than or equal to the
 left.
 theRectis the address of an 8-byte Rect structure.
 </pre>
- * \returns <pre>a Boolean indicating whether the rectangle is empty . It is one of:
+* \returns <pre>a Boolean indicating whether the rectangle is empty . It is one of:
 FALSENot empty; encloses at least one pixel
 TRUEEmpty
 </pre>
- * \note <pre>This is functionally equivalent to the following equality test:
+* \note <pre>This is functionally equivalent to the following equality test:
 ( (theRect.bottom <= theRect.top) || (theRect.right <= theRect.left) )
 When a Toolbox function returns "the empty rectangle", it returns a
 rectangle with borders (0,0)(0,0). However, in this function, the
 meaning is broader, including all rectangles not enclosing any pixels.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-EmptyRect(const Rect *r) ONEWORDINLINE(0xA8AE);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Boolean
+  EmptyRect(const Rect *r) ONEWORDINLINE(0xA8AE);
 
 /**
  *  [Mac]FrameRect()
@@ -3820,30 +3962,30 @@ EmptyRect(const Rect *r) ONEWORDINLINE(0xA8AE);
 #if TARGET_OS_MAC
 #define MacFrameRect FrameRect
 #endif
-EXTERN_API(void)
-MacFrameRect(const Rect *r) ONEWORDINLINE(0xA8A1);
+  void
+  MacFrameRect(const Rect *r) ONEWORDINLINE(0xA8A1);
 
-/**
- *  PaintRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PaintRect(const Rect *r) ONEWORDINLINE(0xA8A2);
+  /**
+   *  PaintRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PaintRect(const Rect *r) ONEWORDINLINE(0xA8A2);
 
-/**
- *  EraseRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-EraseRect(const Rect *r) ONEWORDINLINE(0xA8A3);
+  /**
+   *  EraseRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  EraseRect(const Rect *r) ONEWORDINLINE(0xA8A3);
 
 /**
  *  [Mac]InvertRect()
@@ -3856,8 +3998,8 @@ EraseRect(const Rect *r) ONEWORDINLINE(0xA8A3);
 #if TARGET_OS_MAC
 #define MacInvertRect InvertRect
 #endif
-EXTERN_API(void)
-MacInvertRect(const Rect *r) ONEWORDINLINE(0xA8A4);
+  void
+  MacInvertRect(const Rect *r) ONEWORDINLINE(0xA8A4);
 
 /**
  *  [Mac]FillRect()
@@ -3870,257 +4012,257 @@ MacInvertRect(const Rect *r) ONEWORDINLINE(0xA8A4);
 #if TARGET_OS_MAC
 #define MacFillRect FillRect
 #endif
-EXTERN_API(void)
-MacFillRect(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8A5);
+  void
+  MacFillRect(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8A5);
 
-/**
- *  FrameOval()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FrameOval(const Rect *r) ONEWORDINLINE(0xA8B7);
+  /**
+   *  FrameOval()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FrameOval(const Rect *r) ONEWORDINLINE(0xA8B7);
 
-/**
- *  PaintOval()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PaintOval(const Rect *r) ONEWORDINLINE(0xA8B8);
+  /**
+   *  PaintOval()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PaintOval(const Rect *r) ONEWORDINLINE(0xA8B8);
 
-/**
- *  EraseOval()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-EraseOval(const Rect *r) ONEWORDINLINE(0xA8B9);
+  /**
+   *  EraseOval()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  EraseOval(const Rect *r) ONEWORDINLINE(0xA8B9);
 
-/**
- *  InvertOval()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-InvertOval(const Rect *r) ONEWORDINLINE(0xA8BA);
+  /**
+   *  InvertOval()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvertOval(const Rect *r) ONEWORDINLINE(0xA8BA);
 
-/**
- *  FillOval()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FillOval(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8BB);
+  /**
+   *  FillOval()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FillOval(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8BB);
 
-/**
- *  FrameRoundRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FrameRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
-    ONEWORDINLINE(0xA8B0);
+  /**
+   *  FrameRoundRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FrameRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
+      ONEWORDINLINE(0xA8B0);
 
-/**
- *  PaintRoundRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PaintRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
-    ONEWORDINLINE(0xA8B1);
+  /**
+   *  PaintRoundRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PaintRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
+      ONEWORDINLINE(0xA8B1);
 
-/**
- *  EraseRoundRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-EraseRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
-    ONEWORDINLINE(0xA8B2);
+  /**
+   *  EraseRoundRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  EraseRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
+      ONEWORDINLINE(0xA8B2);
 
-/**
- *  InvertRoundRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-InvertRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
-    ONEWORDINLINE(0xA8B3);
+  /**
+   *  InvertRoundRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvertRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
+      ONEWORDINLINE(0xA8B3);
 
-/**
- *  FillRoundRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FillRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
-              const Pattern *pat) ONEWORDINLINE(0xA8B4);
+  /**
+   *  FillRoundRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FillRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
+                const Pattern *pat) ONEWORDINLINE(0xA8B4);
 
-/**
- *  FrameArc()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FrameArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BE);
+  /**
+   *  FrameArc()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FrameArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BE);
 
-/**
- *  PaintArc()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PaintArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BF);
+  /**
+   *  PaintArc()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PaintArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BF);
 
-/**
- *  EraseArc()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-EraseArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8C0);
+  /**
+   *  EraseArc()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  EraseArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8C0);
 
-/**
- *  InvertArc()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-InvertArc(const Rect *r, short startAngle, short arcAngle)
-    ONEWORDINLINE(0xA8C1);
+  /**
+   *  InvertArc()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvertArc(const Rect *r, short startAngle, short arcAngle)
+      ONEWORDINLINE(0xA8C1);
 
-/**
- *  FillArc()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FillArc(const Rect *r, short startAngle, short arcAngle, const Pattern *pat)
-    ONEWORDINLINE(0xA8C2);
+  /**
+   *  FillArc()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FillArc(const Rect *r, short startAngle, short arcAngle, const Pattern *pat)
+      ONEWORDINLINE(0xA8C2);
 
-/**
- *  NewRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(RgnHandle)
-NewRgn(void) ONEWORDINLINE(0xA8D8);
+  /**
+   *  NewRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  RgnHandle
+  NewRgn(void) ONEWORDINLINE(0xA8D8);
 
-/**
- *  OpenRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-OpenRgn(void) ONEWORDINLINE(0xA8DA);
+  /**
+   *  OpenRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  OpenRgn(void) ONEWORDINLINE(0xA8DA);
 
-/**
- *  CloseRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CloseRgn(RgnHandle dstRgn) ONEWORDINLINE(0xA8DB);
+  /**
+   *  CloseRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  CloseRgn(RgnHandle dstRgn) ONEWORDINLINE(0xA8DB);
 
-/**
- *  BitMapToRegion()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-BitMapToRegion(RgnHandle region, const BitMap *bMap) ONEWORDINLINE(0xA8D7);
+  /**
+   *  BitMapToRegion()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  BitMapToRegion(RgnHandle region, const BitMap *bMap) ONEWORDINLINE(0xA8D7);
 
-/**
- *  HandleToRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HandleToRgn(Handle oldRegion, RgnHandle region);
+  /**
+   *  HandleToRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HandleToRgn(Handle oldRegion, RgnHandle region);
 
-/**
- *  RgnToHandle()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.1 and later
- */
-EXTERN_API(void)
-RgnToHandle(RgnHandle region, Handle flattenedRgnDataHdl);
+  /**
+   *  RgnToHandle()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.1 and later
+   */
+  void
+  RgnToHandle(RgnHandle region, Handle flattenedRgnDataHdl);
 
-/**
- *  DisposeRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-DisposeRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D9);
+  /**
+   *  DisposeRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D9);
 
 /**
  *  [Mac]CopyRgn()
@@ -4133,19 +4275,19 @@ DisposeRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D9);
 #if TARGET_OS_MAC
 #define MacCopyRgn CopyRgn
 #endif
-EXTERN_API(void)
-MacCopyRgn(RgnHandle srcRgn, RgnHandle dstRgn) ONEWORDINLINE(0xA8DC);
+  void
+  MacCopyRgn(RgnHandle srcRgn, RgnHandle dstRgn) ONEWORDINLINE(0xA8DC);
 
-/**
- *  SetEmptyRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetEmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8DD);
+  /**
+   *  SetEmptyRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  SetEmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8DD);
 
 /**
  *  [Mac]SetRectRgn()
@@ -4158,20 +4300,20 @@ SetEmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8DD);
 #if TARGET_OS_MAC
 #define MacSetRectRgn SetRectRgn
 #endif
-EXTERN_API(void)
-MacSetRectRgn(RgnHandle rgn, short left, short top, short right, short bottom)
-    ONEWORDINLINE(0xA8DE);
+  void
+  MacSetRectRgn(RgnHandle rgn, short left, short top, short right, short bottom)
+      ONEWORDINLINE(0xA8DE);
 
-/**
- *  RectRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-RectRgn(RgnHandle rgn, const Rect *r) ONEWORDINLINE(0xA8DF);
+  /**
+   *  RectRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  RectRgn(RgnHandle rgn, const Rect *r) ONEWORDINLINE(0xA8DF);
 
 /**
  *  [Mac]OffsetRgn()
@@ -4184,31 +4326,31 @@ RectRgn(RgnHandle rgn, const Rect *r) ONEWORDINLINE(0xA8DF);
 #if TARGET_OS_MAC
 #define MacOffsetRgn OffsetRgn
 #endif
-EXTERN_API(void)
-MacOffsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E0);
+  void
+  MacOffsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E0);
 
-/**
- *  InsetRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-InsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E1);
+  /**
+   *  InsetRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E1);
 
-/**
- *  SectRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SectRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
-    ONEWORDINLINE(0xA8E4);
+  /**
+   *  SectRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  SectRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
+      ONEWORDINLINE(0xA8E4);
 
 /**
  *  [Mac]UnionRgn()
@@ -4221,21 +4363,21 @@ SectRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
 #if TARGET_OS_MAC
 #define MacUnionRgn UnionRgn
 #endif
-EXTERN_API(void)
-MacUnionRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
-    ONEWORDINLINE(0xA8E5);
+  void
+  MacUnionRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
+      ONEWORDINLINE(0xA8E5);
 
-/**
- *  DiffRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-DiffRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
-    ONEWORDINLINE(0xA8E6);
+  /**
+   *  DiffRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DiffRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
+      ONEWORDINLINE(0xA8E6);
 
 /**
  *  [Mac]XorRgn()
@@ -4248,27 +4390,26 @@ DiffRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
 #if TARGET_OS_MAC
 #define MacXorRgn XorRgn
 #endif
-EXTERN_API(void)
-MacXorRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
-    ONEWORDINLINE(0xA8E7);
+  void
+  MacXorRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
+      ONEWORDINLINE(0xA8E7);
 
+  /**
+  \brief Check if a rectangle intersects a region
 
-			/** 
-			\brief Check if a rectangle intersects a region 
-			
-			<pre>RectInRgn returns an indication of whether any pixel enclosed by a specified
+  <pre>RectInRgn returns an indication of whether any pixel enclosed by a specified
 rectangle intersects with a specified region.
 theRectis the address of an 8-byte Rect structure, defined in local or global
 coordinates.
 theRgnis a handle to a region. It should be defined in the same coordinate
 system as theRect .
 </pre>
- * \returns <pre>a Boolean value indicating whether the rectangle intersects with the
+* \returns <pre>a Boolean value indicating whether the rectangle intersects with the
 region. It is one of:
 FALSENo intersection
 TRUEAt least one pixel is in both areas
 </pre>
- * \note <pre>Remember that the outlines of theRect and theRgn are infinitely thin, so
+* \note <pre>Remember that the outlines of theRect and theRgn are infinitely thin, so
 just sharing a line or point does not constitute an intersection. This
 returns TRUE when a pixel (the dot below and to the right of the point
 coordinates) is enclosed by both areas.
@@ -4278,14 +4419,14 @@ not share any pixels). You may need to convert the rectangle to a region
 (RectRgn ) and intersect the regions ( SectRgn ) to be real sure of the
 answer here. Later versions of the ROMs work correctly.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-RectInRgn(const Rect *r, RgnHandle rgn) ONEWORDINLINE(0xA8E9);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Boolean
+  RectInRgn(const Rect *r, RgnHandle rgn) ONEWORDINLINE(0xA8E9);
 
 /**
  *  [Mac]EqualRgn()
@@ -4298,21 +4439,20 @@ RectInRgn(const Rect *r, RgnHandle rgn) ONEWORDINLINE(0xA8E9);
 #if TARGET_OS_MAC
 #define MacEqualRgn EqualRgn
 #endif
-EXTERN_API(Boolean)
-MacEqualRgn(RgnHandle rgnA, RgnHandle rgnB) ONEWORDINLINE(0xA8E3);
+  Boolean
+  MacEqualRgn(RgnHandle rgnA, RgnHandle rgnB) ONEWORDINLINE(0xA8E3);
 
+  /**
+  \brief Determine if a Region is empty
 
-			/** 
-			\brief Determine if a Region is empty 
-			
-			<pre>EmptyRgn returns an indication of whether a region is empty.
+  <pre>EmptyRgn returns an indication of whether a region is empty.
 theRgnis the handle of a region, in local or global coordinates.
 </pre>
- * \returns <pre>a Boolean value indicating whether the region is empty. It is one of:
+* \returns <pre>a Boolean value indicating whether the region is empty. It is one of:
 FALSENot empty, encloses at least one pixel
 TRUEEmpty
 </pre>
- * \note <pre>Use this after performing region calculations. For instance:
+* \note <pre>Use this after performing region calculations. For instance:
 SectRgn ( srcRgnA, srcRgnB, destRgn );
 if ( EmptyRgn ( destRgn ) ) {
 .
@@ -4323,14 +4463,14 @@ This is also useful after InsetRgn to see if the region has been shrunk
 infinitely small. Or, you might use this to check up on GrafPort structure
 fields such as visRgn or clipRgn.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-EmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8E2);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Boolean
+  EmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8E2);
 
 /**
  *  [Mac]FrameRgn()
@@ -4343,8 +4483,8 @@ EmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8E2);
 #if TARGET_OS_MAC
 #define MacFrameRgn FrameRgn
 #endif
-EXTERN_API(void)
-MacFrameRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D2);
+  void
+  MacFrameRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D2);
 
 /**
  *  [Mac]PaintRgn()
@@ -4357,19 +4497,19 @@ MacFrameRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D2);
 #if TARGET_OS_MAC
 #define MacPaintRgn PaintRgn
 #endif
-EXTERN_API(void)
-MacPaintRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D3);
+  void
+  MacPaintRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D3);
 
-/**
- *  EraseRgn()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-EraseRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D4);
+  /**
+   *  EraseRgn()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  EraseRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D4);
 
 /**
  *  [Mac]InvertRgn()
@@ -4382,8 +4522,8 @@ EraseRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D4);
 #if TARGET_OS_MAC
 #define MacInvertRgn InvertRgn
 #endif
-EXTERN_API(void)
-MacInvertRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D5);
+  void
+  MacInvertRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D5);
 
 /**
  *  [Mac]FillRgn()
@@ -4396,40 +4536,39 @@ MacInvertRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D5);
 #if TARGET_OS_MAC
 #define MacFillRgn FillRgn
 #endif
-EXTERN_API(void)
-MacFillRgn(RgnHandle rgn, const Pattern *pat) ONEWORDINLINE(0xA8D6);
+  void
+  MacFillRgn(RgnHandle rgn, const Pattern *pat) ONEWORDINLINE(0xA8D6);
 
-/**
- *  ScrollRect()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ScrollRect(const Rect *r, short dh, short dv, RgnHandle updateRgn)
-    ONEWORDINLINE(0xA8EF);
+  /**
+   *  ScrollRect()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ScrollRect(const Rect *r, short dh, short dv, RgnHandle updateRgn)
+      ONEWORDINLINE(0xA8EF);
 
-/**
- *  CopyBits()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CopyBits(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
-         const Rect *dstRect, short mode,
-         RgnHandle maskRgn) /* can be NULL */ ONEWORDINLINE(0xA8EC);
+  /**
+   *  CopyBits()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  CopyBits(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
+           const Rect *dstRect, short mode,
+           RgnHandle maskRgn) /* can be NULL */ ONEWORDINLINE(0xA8EC);
 
-
-			/** 
-			\brief Calculate a mask for use in CopyMask 
-			\param    srcPtr address within a BitMap of place to start calculating
-	\param    destPtr address within a BitMap of where to store 1s and 0s
-			<pre>SeedFill examines a portion of a source bitmap and fills a portion of a
+  /**
+  \brief Calculate a mask for use in CopyMask
+  \param    srcPtr address within a BitMap of place to start calculating
+\param    destPtr address within a BitMap of where to store 1s and 0s
+  <pre>SeedFill examines a portion of a source bitmap and fills a portion of a
 destination bitMap with 1s. It finds an enclosed area surrounding a specified
 point in the source, and floods that area in the destination (as in the lasso tool
 of many paint programs) with 1s (black paint).  Use this function as one step
@@ -4456,141 +4595,140 @@ seedVidentify the point to start flooding. These are offsets, in pixels,
 from the boundary of the implied rectangle defined by srcPtr ,
 height, and wrdsWide .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Use SeedFill to flood an area of a destination bitMap with black paint
+* \note <pre>Use SeedFill to flood an area of a destination bitMap with black paint
 (i.e., 1s). The flooded area will match the inside and boundary of a section
 of the source that is enclosed by black pixels. Note that destPtr and srcPtr
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SeedFill(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
-         short height, short words, short seedH, short seedV)
-    ONEWORDINLINE(0xA839);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
-/**
- *  CalcMask()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CalcMask(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
-         short height, short words) ONEWORDINLINE(0xA838);
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  SeedFill(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
+           short height, short words, short seedH, short seedV)
+      ONEWORDINLINE(0xA839);
 
-/**
- *  CopyMask()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CopyMask(const BitMap *srcBits, const BitMap *maskBits, const BitMap *dstBits,
-         const Rect *srcRect, const Rect *maskRect, const Rect *dstRect)
-    ONEWORDINLINE(0xA817);
+  /**
+   *  CalcMask()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  CalcMask(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
+           short height, short words) ONEWORDINLINE(0xA838);
 
-/**
- *  OpenPicture()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(PicHandle)
-OpenPicture(const Rect *picFrame) ONEWORDINLINE(0xA8F3);
+  /**
+   *  CopyMask()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  CopyMask(const BitMap *srcBits, const BitMap *maskBits, const BitMap *dstBits,
+           const Rect *srcRect, const Rect *maskRect, const Rect *dstRect)
+      ONEWORDINLINE(0xA817);
 
-/**
- *  PicComment()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PicComment(short kind, short dataSize, Handle dataHandle) ONEWORDINLINE(0xA8F2);
+  /**
+   *  OpenPicture()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  PicHandle
+  OpenPicture(const Rect *picFrame) ONEWORDINLINE(0xA8F3);
 
-/**
- *  ClosePicture()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ClosePicture(void) ONEWORDINLINE(0xA8F4);
+  /**
+   *  PicComment()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PicComment(short kind, short dataSize, Handle dataHandle) ONEWORDINLINE(0xA8F2);
 
-/**
- *  DrawPicture()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-DrawPicture(PicHandle myPicture, const Rect *dstRect) ONEWORDINLINE(0xA8F6);
+  /**
+   *  ClosePicture()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ClosePicture(void) ONEWORDINLINE(0xA8F4);
 
-/**
- *  KillPicture()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-KillPicture(PicHandle myPicture) ONEWORDINLINE(0xA8F5);
+  /**
+   *  DrawPicture()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DrawPicture(PicHandle myPicture, const Rect *dstRect) ONEWORDINLINE(0xA8F6);
 
-/**
- *  OpenPoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(PolyHandle)
-OpenPoly(void) ONEWORDINLINE(0xA8CB);
+  /**
+   *  KillPicture()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  KillPicture(PicHandle myPicture) ONEWORDINLINE(0xA8F5);
 
-/**
- *  ClosePoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ClosePoly(void) ONEWORDINLINE(0xA8CC);
+  /**
+   *  OpenPoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  PolyHandle
+  OpenPoly(void) ONEWORDINLINE(0xA8CB);
 
-/**
- *  KillPoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-KillPoly(PolyHandle poly) ONEWORDINLINE(0xA8CD);
+  /**
+   *  ClosePoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ClosePoly(void) ONEWORDINLINE(0xA8CC);
 
+  /**
+   *  KillPoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  KillPoly(PolyHandle poly) ONEWORDINLINE(0xA8CD);
 
-			/** 
-			\brief Move a polygon 
-			
-			<pre>OffsetPoly modifies a polygon's definition, moving it in any direction on the
+  /**
+  \brief Move a polygon
+
+  <pre>OffsetPoly modifies a polygon's definition, moving it in any direction on the
 coordinate plane. Note that this does not have any visible effect on the screen,
 until such time as the polygon is drawn or filled.
 thePoly is a handle leading to a variable-length Polygon structure. It is
@@ -4600,83 +4738,82 @@ Positive values move to the right; negative to the left.
 distVert specifies the vertical distance, in pixels, to move the polygon.
 Positive values move downward; negative upward.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The polygon retains its shape and size. Use MapPoly to shrink or expand
+* \note <pre>The polygon retains its shape and size. Use MapPoly to shrink or expand
 the polygon.
 This is an especially efficient operation, since it changes only the value in
 the polyBBox field of the Polygon structure; all endpoints that make up the
 bulk of the data are stored relative to first point.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-OffsetPoly(PolyHandle poly, short dh, short dv) ONEWORDINLINE(0xA8CE);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
-/**
- *  FramePoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FramePoly(PolyHandle poly) ONEWORDINLINE(0xA8C6);
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  OffsetPoly(PolyHandle poly, short dh, short dv) ONEWORDINLINE(0xA8CE);
 
-/**
- *  PaintPoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PaintPoly(PolyHandle poly) ONEWORDINLINE(0xA8C7);
+  /**
+   *  FramePoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FramePoly(PolyHandle poly) ONEWORDINLINE(0xA8C6);
 
-/**
- *  ErasePoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ErasePoly(PolyHandle poly) ONEWORDINLINE(0xA8C8);
+  /**
+   *  PaintPoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  PaintPoly(PolyHandle poly) ONEWORDINLINE(0xA8C7);
 
-/**
- *  InvertPoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-InvertPoly(PolyHandle poly) ONEWORDINLINE(0xA8C9);
+  /**
+   *  ErasePoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  ErasePoly(PolyHandle poly) ONEWORDINLINE(0xA8C8);
 
-/**
- *  FillPoly()
- *
- *  Availability:
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-FillPoly(PolyHandle poly, const Pattern *pat) ONEWORDINLINE(0xA8CA);
+  /**
+   *  InvertPoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvertPoly(PolyHandle poly) ONEWORDINLINE(0xA8C9);
 
+  /**
+   *  FillPoly()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  FillPoly(PolyHandle poly, const Pattern *pat) ONEWORDINLINE(0xA8CA);
 
-			/** 
-			\brief Pack horizontal and vertical coordinates into Point 
-			
-			<pre>SetPt stores two coordinate values into a Point structure.
+  /**
+  \brief Pack horizontal and vertical coordinates into Point
+
+  <pre>SetPt stores two coordinate values into a Point structure.
 thePoint is the address of a 4-byte Point structure. Upon return, it will
 contain the coordinates specified by horiz and vert .
 horizand . . .
@@ -4684,26 +4821,25 @@ vertare coordinate values, ranging from -32767 to 32767. Negative
 values are upward and toward the left; positive values are downward
 and toward the right.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>SetPt is functionally equivalent to the faster:
+* \note <pre>SetPt is functionally equivalent to the faster:
 thePoint-> h = horiz;
 thePoint-> v = vert;
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetPt(Point *pt, short h, short v) ONEWORDINLINE(0xA880);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  SetPt(Point *pt, short h, short v) ONEWORDINLINE(0xA880);
 
-			/** 
-			\brief Obtain global (screen) value of local point 
-			
-			<pre>LocalToGlobal converts the coordinates of a local point (relative to the
+  /**
+  \brief Obtain global (screen) value of local point
+
+  <pre>LocalToGlobal converts the coordinates of a local point (relative to the
 current GrafPort origin) to global (screen) coordinates. It can then be
 compared to other global points or converted to the local coordinates of a
 different GrafPort .
@@ -4711,9 +4847,9 @@ thePoint is the address of a 4-byte Point structure, expressed in coordinates
 of the current GrafPort . Upon return, it will contain the coordinates
 of that same position, expressed to the global, screen coordinates.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The result of the conversion is based relative to coordinate (0,0) of the
+* \note <pre>The result of the conversion is based relative to coordinate (0,0) of the
 device's BitMap; typically the screen.
 To convert the coordinates of a rectangle from local to global, you can apply
 this call to both corners; e.g.:
@@ -4732,24 +4868,26 @@ coordinates:
 Point tmpPt,localPt;
 PolyHandle thePoly;
 tmpPt=localPt=topLeft( (*thePoly)-> polyBBox );/* get corner */
-LocalToGlobal ( &tmpPt ); /* convert to global */
-SubPt( localPt, &tmpPt ); /* find difference */
-OffsetPoly ( thePoly, tmpPt. h, tmpPt.v );/* move the item */
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-LocalToGlobal(Point *pt) ONEWORDINLINE(0xA870);
+  LocalToGlobal(&tmpPt);                 /* convert to global */
+  SubPt(localPt, &tmpPt);                /* find difference */
+  OffsetPoly(thePoly, tmpPt.h, tmpPt.v); /* move the item */
+  </ pre>
+              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          void
+          LocalToGlobal(Point *pt) ONEWORDINLINE(0xA870);
 
-			/** 
-			\brief Obtain local coordinates of global point 
-			
-			<pre>GlobalToLocal converts a point from global (screen) coordinates to values
+  /**
+  \brief Obtain local coordinates of global point
+
+  <pre>GlobalToLocal converts a point from global (screen) coordinates to values
 expressed in coordinates of the current GrafPort . It is used to obtain the local
 address of a mouse-down event and as a step in converting between coordinates
 of two different grafPorts.
@@ -4758,9 +4896,9 @@ thePoint is the address of a 4-byte Point structure, expressed in global
 that same position, expressed in the coordinate system of the current
 GrafPort .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The specified Point is converted, in place. Upon return, it is the same
+* \note <pre>The specified Point is converted, in place. Upon return, it is the same
 physical location, expressed in global coordinates.
 For instance, mouse-down events are reported in global coordinates, but
 TextEdit and the Control Manager functions expect local (window-relative)
@@ -4771,42 +4909,44 @@ short ctlCode;
 GetNextEvent ( everyEvent , &myEvent );
 if ( myEvent.what ) == mouseDown {
 GlobalToLocal ( &myEvent. where );/* get local equivalent */
-ctlCode=FindControl ( myEvent. where, myWindow, &myCtl );
-if ( ctlCode == inThumb )
-/*. . . etc. . . */
+  ctlCode = FindControl(myEvent.where, myWindow, &myCtl);
+  if (ctlCode == inThumb)
+  /*. . . etc. . . */
 }
 This function is also used as an intermediate step in converting between
-coordinates of two different grafPorts (e.g., windows). For instance, to
-convert the position of rectangle theRect from the coordinates of windowA
-to the coordinates of windowB :
-SetPort ( windowA );
-LocalToGlobal ( & topLeft( theRect ) );
-LocalToGlobal ( & botRight( theRect ) );
-SetPort ( windowB );
-GlobalToLocal ( & topLeft( theRect ) );
-GlobalToLocal ( & botRight( theRect ) );
-To convert between the coordinates of regions and polygons, calculate the
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GlobalToLocal(Point *pt) ONEWORDINLINE(0xA871);
+    coordinates of two different grafPorts(e.g., windows)
+        .For instance,
+    to
+    convert the position of rectangle theRect from the coordinates of windowA
+    to the coordinates of windowB : SetPort(windowA);
+LocalToGlobal(&topLeft(theRect));
+LocalToGlobal(&botRight(theRect));
+SetPort(windowB);
+GlobalToLocal(&topLeft(theRect));
+GlobalToLocal(&botRight(theRect));
+To convert between the coordinates of regions and polygons, calculate the</ pre>
+                                                                        * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                                                                                  *    \non_carbon_cfm in InterfaceLib 7.1 and
+                                                                later
+                                                                    *    \carbon_lib in CarbonLib 1.0 and
+                                                                later
+                                                                    *    \mac_os_x in version 10.0 and
+                                                                later
+                                                                        * /
+                                                                    void
+                                                                    GlobalToLocal(Point *pt) ONEWORDINLINE(0xA871);
 
-			/** 
-			\brief Obtain pseudo-random signed integer 
-			
-			<pre>Random generates and returns a different pseudo-random number each time
+/**
+\brief Obtain pseudo-random signed integer
+
+<pre>Random generates and returns a different pseudo-random number each time
 it is called. The return value ranges from -32767 to 32767.
 </pre>
- * \returns <pre>a signed integer; the next in a sequence of pseudo-random values,
+* \returns <pre>a signed integer; the next in a sequence of pseudo-random values,
 uniformly distributed over the range -32767 to 32767.
 </pre>
- * \note <pre>To obtain a number within a selected range multiply the return value by
+* \note <pre>To obtain a number within a selected range multiply the return value by
 the range, divide by 65536, and add the desired minimum value. See the
 Example, below.
 The numbers are generated in a sequence based upon the starting, or "seed"
@@ -4816,37 +4956,40 @@ a value in randSeed , you can restart the same sequence by setting randSeed
 to the same value. A more typical operation is to start the sequence with
 some relatively unguessable value, such as the system time:
 GetDateTime ( &randSeed ); /* store 32-bit value in seed */
-theRand = Random (); /* get a random number */
+theRand = Random(); /* get a random number */
 The Quickdraw global variable randSeed can also be used as a seed to start a
-pseudo-random sequence.
-Example
+        pseudo -
+    random sequence.Example
 /* example function returns value between min and max */
 #include < Quickdraw.h >
-unsigned short RangedRdm( unsigned short min, unsigned short max )
+    unsigned short
+    RangedRdm(unsigned short min, unsigned short max)
 /* assume that min is less than max */
 {
-unsigned qdRdm;/* treat return value as 0-65536 */
-long range, t;
-qdRdm = Random ();
-range = max - min;
-t = (qdRdm * range) / 65536; /* now 0 <= t <= range */
-return( t+min );
+  unsigned qdRdm; /* treat return value as 0-65536 */
+  long range, t;
+  qdRdm = Random();
+  range = max - min;
+  t = (qdRdm * range) / 65536; /* now 0 <= t <= range */
+  return (t + min);
 }
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-Random(void) ONEWORDINLINE(0xA861);
+</ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        short
+        Random(void) ONEWORDINLINE(0xA861);
 
-			/** 
-			\brief Convert a string of hex digits to binary data 
-			\param    destPtr generic pointer; address of any data type
-			<pre>StuffHex reads a pascal-style string of hexadecimal digits, converts them to
+/**
+\brief Convert a string of hex digits to binary data
+\param    destPtr generic pointer; address of any data type
+<pre>StuffHex reads a pascal-style string of hexadecimal digits, converts them to
 binary data and stores the result into any data type.
 destPtris the address of any type of data object; typically the address of a
 Pattern or Cursor, even a BitMap. Upon return, the memory
@@ -4855,9 +4998,9 @@ hexString is the address of a Pascal-style string (a length-prefixed array of
 characters). Following the length byte, all characters must be in the
 range '0' to '9' and 'A' to 'F'.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This call performs no range checking , so make sure that the buffer at
+* \note <pre>This call performs no range checking , so make sure that the buffer at
 destPtr is large enough to receive all the binary data defined in hexString .
 The destination buffer may need to be as large as 127 bytes.
 This function can be useful during program development, but it is rarely
@@ -4869,14 +5012,13 @@ Pattern myPat = { 0x1, 0x3, 0x7, 0xF, 0x1F, 0x3F, 0x7F, 0xFF };
 Furthermore, most objects that you might wish to pack with binary data
 should probably be predefined and available as a program resource.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-StuffHex(void *thingPtr, ConstStr255Param s) ONEWORDINLINE(0xA866);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void StuffHex(void *thingPtr, ConstStr255Param s) ONEWORDINLINE(0xA866);
 
 /**
  *  [Mac]GetPixel()
@@ -4889,14 +5031,13 @@ StuffHex(void *thingPtr, ConstStr255Param s) ONEWORDINLINE(0xA866);
 #if TARGET_OS_MAC
 #define MacGetPixel GetPixel
 #endif
-EXTERN_API(Boolean)
+Boolean
 MacGetPixel(short h, short v) ONEWORDINLINE(0xA865);
 
+/**
+\brief Resize coordinate pair to ratio of two rectangles
 
-			/** 
-			\brief Resize coordinate pair to ratio of two rectangles 
-			
-			<pre>ScalePt converts each coordinate of a point to a value calculated as the ratio
+<pre>ScalePt converts each coordinate of a point to a value calculated as the ratio
 of the sizes of two rectangles. You could use this function to scale an object
 (such as a pen size or a character rectangle) to match the size of a smaller or
 larger window.
@@ -4909,9 +5050,9 @@ denomRect are addresses of rectangles. Their location is irrelevant; their
 widths and heights are used to calculate ratios, which are applied to
 the coordinates of thePoint .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Since a point is an undimensional object, you can't really scale it. The
+* \note <pre>Since a point is an undimensional object, you can't really scale it. The
 ScalePt function treats thePoint as if it were the bottom-right corner of
 a rectangle whose top-left corner is at (0,0). That imaginary rectangle is
 scaled to the ratio of numerRect  divided by denomRect . This call is
@@ -4927,21 +5068,19 @@ Use MapPt to perform the more common operation of finding the
 coordinates of a point inside one rectangle that corresponds to a
 similarly-located point within another.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ScalePt(Point *pt, const Rect *srcRect, const Rect *dstRect)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void ScalePt(Point *pt, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8F8);
 
+/**
+\brief Map point relative to two rectangles
 
-			/** 
-			\brief Map point relative to two rectangles 
-			
-			<pre>MapPt maps a point within one rectangle to a similarly-located position in a
+<pre>MapPt maps a point within one rectangle to a similarly-located position in a
 different rectangle. Use this to scale individual points of an object being moved
 to a larger or smaller rectangle.
 thePoint is the address of a 4-byte Point structure. On entry, it is the
@@ -4953,9 +5092,9 @@ destRect are the addresses of two 8-byte Rect structures.  For typical
 operations, thePoint is an element of an object enclosed by srcRect .
 It gets mapped to a similar position within destRect .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This function is typically used to convert individual points of an object
+* \note <pre>This function is typically used to convert individual points of an object
 (e.g., a "freehand" drawing) within one rectangle to similar positions
 within a larger or smaller rectangle. Other tools exist to scale rectangles
 (MapRect ), regions ( MapRgn ), and polygons ( MapPoly ).
@@ -4968,24 +5107,27 @@ It is OK if the two rectangles overlap, and thePoint need not be enclosed by
 srcRect (in that case, its remapped position will be outside of destRect ).
 This call is functionally equivalent to the long-winded:
 h1=r1.bottom-r1.top; h2=r2.bottom - r2.top; /* calc heights */
-w1=r1.right-r1.left; w2=r2.right - r2.left; /* and widths */
+w1 = r1.right - r1.left;
+w2 = r2.right - r2.left;             /* and widths */
 thePoint.h = (thePoint.h * w1) / w2; /* apply ratio of sizes */
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-MapPt(Point *pt, const Rect *srcRect, const Rect *dstRect)
-    ONEWORDINLINE(0xA8F9);
+</ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        void
+        MapPt(Point *pt, const Rect *srcRect, const Rect *dstRect)
+            ONEWORDINLINE(0xA8F9);
 
-			/** 
-			\brief Scale and reposition a rectangle 
-			
-			<pre>MapRect maps the corner points of a rectangle, converting them by a size
+/**
+\brief Scale and reposition a rectangle
+
+<pre>MapRect maps the corner points of a rectangle, converting them by a size
 ratio and offset of two other rectangles. Use this to scale or reposition an
 object that is being moved to a larger or smaller rectangle.
 theRectis the address of an 8-byte Rect structure. On entry, it describes a
@@ -4997,9 +5139,9 @@ destRect are the addresses of two 8-byte Rect structures.  For typical
 operations, theRect is an element of an object enclosed by srcRect .
 It gets mapped to a similar position within destRect .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Use this function to resize and reposition a rectangle that you wish to
+* \note <pre>Use this function to resize and reposition a rectangle that you wish to
 expand or shrink as you move it from one rectangular area to another
 (typically smaller or larger) one.
 theRect is expanded or shrunk by the ratio of the sizes of srcRect and
@@ -5010,14 +5152,13 @@ This call is functionally equivalent to:
 MapPt( & topleft(theRect), &srcRect, &destRect );
 MapPt( & bottomRight(theRect), &srcRect, &destRect );
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-MapRect(Rect *r, const Rect *srcRect, const Rect *dstRect)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void MapRect(Rect *r, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8FA);
 
 /**
@@ -5028,15 +5169,13 @@ MapRect(Rect *r, const Rect *srcRect, const Rect *dstRect)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-MapRgn(RgnHandle rgn, const Rect *srcRect, const Rect *dstRect)
+void MapRgn(RgnHandle rgn, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8FB);
 
+/**
+\brief Scale and reposition a polygon
 
-			/** 
-			\brief Scale and reposition a polygon 
-			
-			<pre>MapPoly resizes and repositions a polygon, converting its coordinates by the
+<pre>MapPoly resizes and repositions a polygon, converting its coordinates by the
 size-ratio and offset of two rectangles. Use this to scale and reposition a
 polygon.
 thePoly is a handle leading to a variable-length Polygon structure. On
@@ -5048,41 +5187,39 @@ destRect are the addresses of two 8-byte Rect structures.  For typical
 operations, thePoly is enclosed by srcRect . It gets mapped to a
 similar position within destRect .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Use this function to resize and reposition a polygon that you wish to expand
+* \note <pre>Use this function to resize and reposition a polygon that you wish to expand
 or shrink as you move it from one rectangular area to another (typically
 smaller or larger) one.
-  
+
 srcRect destRect
 thePoly is expanded or shrunk by the ratio of the sizes of srcRect and
 destRect. It is moved to a similarly-located position within destRect . This
 is a purely mathematical operation and has no effect on the screen unless
 thePoly is subsequently drawn or filled.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-MapPoly(PolyHandle poly, const Rect *srcRect, const Rect *dstRect)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void MapPoly(PolyHandle poly, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8FC);
 
+/**
+\brief Set graphProcs field to point to custom routines
 
-			/** 
-			\brief Set graphProcs field to point to custom routines 
-			
-			<pre>SetStdProcs stores the addresses of the standard Quickdraw procedures into
+<pre>SetStdProcs stores the addresses of the standard Quickdraw procedures into
 a structure intended to be used in a GrafPort .
 ll_procs is the address of a 52-byte QDProcs structure. Upon return, all
 fields of the structure have been set to contain the addresses of the
 standard low-level routines used by Quickdraw.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>SetStdProcs is used by applications that want to intercept selected
+* \note <pre>SetStdProcs is used by applications that want to intercept selected
 low-level routines (e.g., the picture-comment handler) while continuing
 to use the other standard routines.
 Since Quickdraw lives up to its name, most applications won't need to
@@ -5106,19 +5243,22 @@ Example
 #include < Quickdraw.h >
 #define MY_COMMENT 1234
 QDProcs myQDProcs; /* uninitialized data structure */
-pascal short myCommentProc(void); /* declare the function */
-SetStdProcs ( &myQDProcs ); /* initialize with defaults */
-myQDProcs. commentProc = (QDPtr)myCommentProc; /* change one proc */
-thePort->grafProcs = &myQDProcs; /* install the change */
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetStdProcs(QDProcs *procs) ONEWORDINLINE(0xA8EA);
+pascal short myCommentProc(void);             /* declare the function */
+SetStdProcs(&myQDProcs);                      /* initialize with defaults */
+myQDProcs.commentProc = (QDPtr)myCommentProc; /* change one proc */
+thePort->grafProcs = &myQDProcs;              /* install the change */
+</ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+
+                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        void
+        SetStdProcs(QDProcs *procs) ONEWORDINLINE(0xA8EA);
 
 /**
  *  StdRect()
@@ -5128,8 +5268,7 @@ SetStdProcs(QDProcs *procs) ONEWORDINLINE(0xA8EA);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdRect(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8A0);
+void StdRect(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8A0);
 
 /**
  *  StdRRect()
@@ -5139,8 +5278,7 @@ StdRect(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8A0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdRRect(GrafVerb verb, const Rect *r, short ovalWidth, short ovalHeight)
+void StdRRect(GrafVerb verb, const Rect *r, short ovalWidth, short ovalHeight)
     ONEWORDINLINE(0xA8AF);
 
 /**
@@ -5151,8 +5289,7 @@ StdRRect(GrafVerb verb, const Rect *r, short ovalWidth, short ovalHeight)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdOval(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8B6);
+void StdOval(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8B6);
 
 /**
  *  StdArc()
@@ -5162,8 +5299,7 @@ StdOval(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8B6);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdArc(GrafVerb verb, const Rect *r, short startAngle, short arcAngle)
+void StdArc(GrafVerb verb, const Rect *r, short startAngle, short arcAngle)
     ONEWORDINLINE(0xA8BD);
 
 /**
@@ -5174,8 +5310,7 @@ StdArc(GrafVerb verb, const Rect *r, short startAngle, short arcAngle)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdPoly(GrafVerb verb, PolyHandle poly) ONEWORDINLINE(0xA8C5);
+void StdPoly(GrafVerb verb, PolyHandle poly) ONEWORDINLINE(0xA8C5);
 
 /**
  *  StdRgn()
@@ -5185,8 +5320,7 @@ StdPoly(GrafVerb verb, PolyHandle poly) ONEWORDINLINE(0xA8C5);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdRgn(GrafVerb verb, RgnHandle rgn) ONEWORDINLINE(0xA8D1);
+void StdRgn(GrafVerb verb, RgnHandle rgn) ONEWORDINLINE(0xA8D1);
 
 /**
  *  StdBits()
@@ -5196,9 +5330,8 @@ StdRgn(GrafVerb verb, RgnHandle rgn) ONEWORDINLINE(0xA8D1);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdBits(const BitMap *srcBits, const Rect *srcRect, const Rect *dstRect,
-        short mode, RgnHandle maskRgn) ONEWORDINLINE(0xA8EB);
+void StdBits(const BitMap *srcBits, const Rect *srcRect, const Rect *dstRect,
+             short mode, RgnHandle maskRgn) ONEWORDINLINE(0xA8EB);
 
 /**
  *  StdComment()
@@ -5208,29 +5341,26 @@ StdBits(const BitMap *srcBits, const Rect *srcRect, const Rect *dstRect,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdComment(short kind, short dataSize, Handle dataHandle) ONEWORDINLINE(0xA8F1);
+void StdComment(short kind, short dataSize, Handle dataHandle) ONEWORDINLINE(0xA8F1);
 
-
-			/** 
-			\brief The default Quickdraw  picture-retrieving routine 
-			\param    destPtr where to store the picture definition data
-			<pre>
- * \note <pre>Use StdGetPic only if your applicatin intercepts the Quickdraw
+/**
+\brief The default Quickdraw  picture-retrieving routine
+\param    destPtr where to store the picture definition data
+<pre>
+* \note <pre>Use StdGetPic only if your applicatin intercepts the Quickdraw
 bottleneck routines (see SetStdProcs ).
 This is a bottleneck routine that is frequently intercepted by application
 programs. By creating a custom version of StdGetPic and StdPutPic that
 is able to access a disk file, you can store and retrieve pictures larger than
 the maximum limits set by Quickdraw.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-StdGetPic(void *dataPtr, short byteCount) ONEWORDINLINE(0xA8EE);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void StdGetPic(void *dataPtr, short byteCount) ONEWORDINLINE(0xA8EE);
 
 /**
  *  StdPutPic()
@@ -5240,8 +5370,7 @@ StdGetPic(void *dataPtr, short byteCount) ONEWORDINLINE(0xA8EE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdPutPic(const void *dataPtr, short byteCount) ONEWORDINLINE(0xA8F0);
+void StdPutPic(const void *dataPtr, short byteCount) ONEWORDINLINE(0xA8F0);
 
 /**
  *  StdOpcode()
@@ -5251,72 +5380,61 @@ StdPutPic(const void *dataPtr, short byteCount) ONEWORDINLINE(0xA8F0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdOpcode(const Rect *fromRect, const Rect *toRect, UInt16 opcode,
-          SInt16 version) ONEWORDINLINE(0xABF8);
+void StdOpcode(const Rect *fromRect, const Rect *toRect, UInt16 opcode,
+               SInt16 version) ONEWORDINLINE(0xABF8);
 
+/**
+\brief Add coordinates of two points
 
-			/** 
-			\brief Add coordinates of two points 
-			
-			<pre>AddPt adds the coordinates of two Points, storing the result into the second.
+<pre>AddPt adds the coordinates of two Points, storing the result into the second.
 srcPtis a 4-byte Point structure. Its low word is the horizontal
 coordinate and its high word is the vertical coordinate.
 destPtis the address of a 4-byte Point structure. Upon return, it will
 contain the sums (srcPt.h+destPt.h) and (srcPt.v+destPt.v).
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>AddPt is functionally equivalent to:
+* \note <pre>AddPt is functionally equivalent to:
 destPt.h += srcPt.h;
 destPt.v += srcPt.v;
 Use SubPt or DeltaPoint to calculate the difference between two Points.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-AddPt(Point src, Point *dst) ONEWORDINLINE(0xA87E);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void AddPt(Point src, Point *dst) ONEWORDINLINE(0xA87E);
 
-			/** 
-			\brief Check if two points are identical 
-			
-			<pre>EqualPt compares the coordinates of two points and returns an indication
+/**
+\brief Check if two points are identical
+
+<pre>EqualPt compares the coordinates of two points and returns an indication
 whether they are identical. This function is used if you have no need
 whatsoever of execution speed.
 point1and . . .
 point2are 4-byte Point structures.
 </pre>
- * \returns <pre>a Boolean indicating whether the points are identical. It is one of:
+* \returns <pre>a Boolean indicating whether the points are identical. It is one of:
 FALSENot the same
 TRUEExactly the same
 </pre>
- * \note <pre>EqualPt can be used to make your code more readable. The sequence:
+* \note <pre>EqualPt can be used to make your code more readable. The sequence:
 if (EqualPt ( point1, point2 ) {
- ... they are equal ...
+... they are equal ...
 }
 is functionally equivalent to:
 if ( (pt1.h == pt2.h) && (pt1.v==pt2.v) ) { /* compare shorts twice
 */
- ... they are equal ...
+... they are equal...
 }
-or the more efficient:
-if ( *(long *)&pt1 == *( long *)&pt2) { /* compare longs once */
- ... they are equal ...
-}
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-EqualPt(Point pt1, Point pt2) ONEWORDINLINE(0xA881);
+or the more efficient : if (*(long *)&pt1 == *(long *)&pt2){/* compare longs once */
+                                                            ... they are equal...} < / pre >
+                        * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+
+                                                                  *    \non_carbon_cfm in InterfaceLib 7.1 and
+        later *    \carbon_lib in CarbonLib 1.0 and later *    \mac_os_x in version 10.0 and later * / Boolean EqualPt(Point pt1, Point pt2) ONEWORDINLINE(0xA881);
 
 /**
  *  [Mac]PtInRect()
@@ -5329,42 +5447,39 @@ EqualPt(Point pt1, Point pt2) ONEWORDINLINE(0xA881);
 #if TARGET_OS_MAC
 #define MacPtInRect PtInRect
 #endif
-EXTERN_API(Boolean)
+Boolean
 MacPtInRect(Point pt, const Rect *r) ONEWORDINLINE(0xA8AD);
 
+/**
+\brief Find smallest rectangle enclosing two points
 
-			/** 
-			\brief Find smallest rectangle enclosing two points 
-			
-			<pre>Pt2Rect determines the coordinates of the smallest rectangle that will
+<pre>Pt2Rect determines the coordinates of the smallest rectangle that will
 enclose the pixels represented by two points.
 pt1and . . .
 pt2are any two 4-byte Point structures.
 resultRect is the address of an 8-byte Rect structure. Upon return it will
 contain the coordinates of a rectangle that encloses pt1 and pt2 .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>If pt1 or pt2 have the same horizontal or vertical coordinate resultRect
+* \note <pre>If pt1 or pt2 have the same horizontal or vertical coordinate resultRect
 is set to the empty rectangle (0,0)(0,0).
 The points may be in any order. The points are stored into the correct part
 of the Rect structure; i.e., the highest vertical coordinate of either point is
 stored as resultRect.top, and so forth.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-Pt2Rect(Point pt1, Point pt2, Rect *dstRect) ONEWORDINLINE(0xA8AC);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void Pt2Rect(Point pt1, Point pt2, Rect *dstRect) ONEWORDINLINE(0xA8AC);
 
-			/** 
-			\brief Obtain angle between point and rectangle center 
-			
-			<pre>PtToAngle determines an angular measure between the vertical center of a
+/**
+\brief Obtain angle between point and rectangle center
+
+<pre>PtToAngle determines an angular measure between the vertical center of a
 rectangle and a specified point.
 theRectis the address of an 8-byte Rect structure.
 thePtis a point, in the same coordinate system as theRect .
@@ -5372,41 +5487,39 @@ angleis the address of an integer. Upon return, it will contain an angle
 measured from a line extending from the center of theRect to the
 middle of its top line. See the diagram, below.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This can be used to obtain an angle value for use in any of the arc paint and
+* \note <pre>This can be used to obtain an angle value for use in any of the arc paint and
 fill functions that require an angle parameter.
 The angle is not a true mathematical angle in circular degrees; as with arc
 and wedge functions, all angles are based on the corners of a rectangle as
 shown:
 Thus, the angles are distorted to match the shape of the rectangle. For
 instance:
-  
+
 In the figures, both "angles" are 45 °, even though the one on the right is
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PtToAngle(const Rect *r, Point pt, short *angle) ONEWORDINLINE(0xA8C3);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void PtToAngle(const Rect *r, Point pt, short *angle) ONEWORDINLINE(0xA8C3);
 
-			/** 
-			\brief Subtract coordinates of one point from another 
-			
-			<pre>SubPt subtracts the coordinates of one Point from another, storing the result
+/**
+\brief Subtract coordinates of one point from another
+
+<pre>SubPt subtracts the coordinates of one Point from another, storing the result
 into the second.
 srcPtis a 4-byte Point structure. Its low word is the horizontal
 coordinate and its high word is the vertical coordinate.
 destPtis the address of a 4-byte Point structure. Upon return, it will
 contain the differences: (destPt.h-srcPt.h) and (destPt.v-destPt.v).
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The SubPt operation separates the horizontal coordinate from the vertical
+* \note <pre>The SubPt operation separates the horizontal coordinate from the vertical
 coordinates before calculating the difference. It is functionally equivalent
 to:
 destPt.h -= srcPt. h;
@@ -5414,31 +5527,29 @@ destPt.v -= srcPt. v;
 Perhaps more useful is DeltaPoint , which returns the difference as the
 return value of the function.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SubPt(Point src, Point *dst) ONEWORDINLINE(0xA87F);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SubPt(Point src, Point *dst) ONEWORDINLINE(0xA87F);
 
-			/** 
-			\brief Check if a specified pixel is enclosed by a region 
-			
-			<pre>PtInRgn returns an indication of whether or not a point (actually, the pixel
+/**
+\brief Check if a specified pixel is enclosed by a region
+
+<pre>PtInRgn returns an indication of whether or not a point (actually, the pixel
 below and to the right of a mathematical coordinate) is enclosed by the outline
 of a region.
 thePtis a Point, expressed in local or global coordinates.
 theRgnis the handle of a region, in the same coordinate system as thePt.
 </pre>
- * \returns <pre>a Boolean value indicating whether the point is inside of the region.
+* \returns <pre>a Boolean value indicating whether the point is inside of the region.
 It is one of:
 FALSENot in the region
 TRUEIn the region
 </pre>
- * \note <pre>This is useful in determining if a mouse-down event has occurred while
+* \note <pre>This is useful in determining if a mouse-down event has occurred while
 the cursor was positioned in the area of a region. Note that since the
 EventRecord .where field is expressed in global coordinates, so you may
 need to convert as follows:
@@ -5447,17 +5558,21 @@ GetNextEvent ( everyEvent , &theEvent );
 :
 GlobalToLocal ( &theEvent.where );
 if (PtInRgn ( theEvent.where, theRgn ) {
-... /* yes, it was in that region */ ...
+... /* yes, it was in that region */
+...
 }
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-PtInRgn(Point pt, RgnHandle rgn) ONEWORDINLINE(0xA8E8);
+</ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+
+                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        Boolean
+        PtInRgn(Point pt, RgnHandle rgn) ONEWORDINLINE(0xA8E8);
 
 /**
  *  StdLine()
@@ -5467,8 +5582,7 @@ PtInRgn(Point pt, RgnHandle rgn) ONEWORDINLINE(0xA8E8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-StdLine(Point newPt) ONEWORDINLINE(0xA890);
+void StdLine(Point newPt) ONEWORDINLINE(0xA890);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -5479,8 +5593,7 @@ StdLine(Point newPt) ONEWORDINLINE(0xA890);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
-OpenCPort(CGrafPtr port) ONEWORDINLINE(0xAA00);
+void OpenCPort(CGrafPtr port) ONEWORDINLINE(0xAA00);
 
 /**
  *  InitCPort()
@@ -5490,8 +5603,7 @@ OpenCPort(CGrafPtr port) ONEWORDINLINE(0xAA00);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
-InitCPort(CGrafPtr port) ONEWORDINLINE(0xAA01);
+void InitCPort(CGrafPtr port) ONEWORDINLINE(0xAA01);
 
 /**
  *  CloseCPort()
@@ -5501,8 +5613,7 @@ InitCPort(CGrafPtr port) ONEWORDINLINE(0xAA01);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
-CloseCPort(CGrafPtr port) ONEWORDINLINE(0xAA02);
+void CloseCPort(CGrafPtr port) ONEWORDINLINE(0xAA02);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -5514,7 +5625,7 @@ CloseCPort(CGrafPtr port) ONEWORDINLINE(0xAA02);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixMapHandle)
+PixMapHandle
 NewPixMap(void) ONEWORDINLINE(0xAA03);
 
 /**
@@ -5525,32 +5636,29 @@ NewPixMap(void) ONEWORDINLINE(0xAA03);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DisposePixMap(PixMapHandle pm) ONEWORDINLINE(0xAA04);
+void DisposePixMap(PixMapHandle pm) ONEWORDINLINE(0xAA04);
 
+/**
+\brief Duplicate pixMap's structure to an existing pixmap
 
-			/** 
-			\brief Duplicate pixMap's structure to an existing pixmap 
-			
-			<pre>CopyPixMap copies the data of one pixel map into another.
+<pre>CopyPixMap copies the data of one pixel map into another.
 srcPm is the handle of an existing pixel map you wish to duplicate.
 destPm is the handle of destination pixel map.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>CopyPixMap copies the contents of the color table, giving the destination
+* \note <pre>CopyPixMap copies the contents of the color table, giving the destination
 PixMap its own.
 The image is not copied -- only the pointer that is the pixMap's baseAddr
 field (base address).
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CopyPixMap(PixMapHandle srcPM, PixMapHandle dstPM) ONEWORDINLINE(0xAA05);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void CopyPixMap(PixMapHandle srcPM, PixMapHandle dstPM) ONEWORDINLINE(0xAA05);
 
 /**
  *  NewPixPat()
@@ -5560,7 +5668,7 @@ CopyPixMap(PixMapHandle srcPM, PixMapHandle dstPM) ONEWORDINLINE(0xAA05);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 NewPixPat(void) ONEWORDINLINE(0xAA07);
 
 /**
@@ -5571,31 +5679,28 @@ NewPixPat(void) ONEWORDINLINE(0xAA07);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DisposePixPat(PixPatHandle pp) ONEWORDINLINE(0xAA08);
+void DisposePixPat(PixPatHandle pp) ONEWORDINLINE(0xAA08);
 
+/**
+\brief Duplicate pixPat's structure to an existing region
 
-			/** 
-			\brief Duplicate pixPat's structure to an existing region 
-			
-			<pre>CopyPixPat copies the data of one pixPat into another.
+<pre>CopyPixPat copies the data of one pixPat into another.
 srcPP is the handle of an existing pixPat you wish to duplicate.
 destPP is the handle of destination pixPat.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>CopyPixPat copies the entire contents of the pixel pattern, including
+* \note <pre>CopyPixPat copies the entire contents of the pixel pattern, including
 color table, data handle, expanded data handle, expanded map, and pixMap
 handle.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CopyPixPat(PixPatHandle srcPP, PixPatHandle dstPP) ONEWORDINLINE(0xAA09);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void CopyPixPat(PixPatHandle srcPP, PixPatHandle dstPP) ONEWORDINLINE(0xAA09);
 
 /**
  *  PenPixPat()
@@ -5605,8 +5710,7 @@ CopyPixPat(PixPatHandle srcPP, PixPatHandle dstPP) ONEWORDINLINE(0xAA09);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-PenPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0A);
+void PenPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0A);
 
 /**
  *  BackPixPat()
@@ -5616,8 +5720,7 @@ PenPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-BackPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0B);
+void BackPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0B);
 
 /**
  *  GetPixPat()
@@ -5627,20 +5730,19 @@ BackPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPixPat(short patID) ONEWORDINLINE(0xAA0C);
 
+/**
+\brief Provides best possible RGB match on current device
 
-			/** 
-			\brief Provides best possible RGB match on current device 
-			
-			<pre>MakeRGBPat generates a pixPat that approximates the requested color.
+<pre>MakeRGBPat generates a pixPat that approximates the requested color.
 thePpat is the handle of the pixel pattern to create in memory.
 myColor is the closest match to the requested RGB currently available.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>MakeRGBPat generates the closest possible color match to the requested
+* \note <pre>MakeRGBPat generates the closest possible color match to the requested
 RGB, given the current equipment.  On a device with 4 bits per pixel,
 MakeRGBPat will yield 125 possible colors -- as opposed to 16 colors
 on the same device if you'd just set the foreground color and commenced
@@ -5659,14 +5761,13 @@ Value RGB
 1computed RGB color
 2computed RGB color
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-MakeRGBPat(PixPatHandle pp, const RGBColor *myColor) ONEWORDINLINE(0xAA0D);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void MakeRGBPat(PixPatHandle pp, const RGBColor *myColor) ONEWORDINLINE(0xAA0D);
 
 /**
  *  FillCRect()
@@ -5676,8 +5777,7 @@ MakeRGBPat(PixPatHandle pp, const RGBColor *myColor) ONEWORDINLINE(0xAA0D);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-FillCRect(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0E);
+void FillCRect(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0E);
 
 /**
  *  FillCOval()
@@ -5687,8 +5787,7 @@ FillCRect(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0E);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-FillCOval(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0F);
+void FillCOval(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0F);
 
 /**
  *  FillCRoundRect()
@@ -5698,9 +5797,8 @@ FillCOval(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0F);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-FillCRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
-               PixPatHandle pp) ONEWORDINLINE(0xAA10);
+void FillCRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
+                    PixPatHandle pp) ONEWORDINLINE(0xAA10);
 
 /**
  *  FillCArc()
@@ -5710,8 +5808,7 @@ FillCRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-FillCArc(const Rect *r, short startAngle, short arcAngle, PixPatHandle pp)
+void FillCArc(const Rect *r, short startAngle, short arcAngle, PixPatHandle pp)
     ONEWORDINLINE(0xAA11);
 
 /**
@@ -5722,8 +5819,7 @@ FillCArc(const Rect *r, short startAngle, short arcAngle, PixPatHandle pp)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-FillCRgn(RgnHandle rgn, PixPatHandle pp) ONEWORDINLINE(0xAA12);
+void FillCRgn(RgnHandle rgn, PixPatHandle pp) ONEWORDINLINE(0xAA12);
 
 /**
  *  FillCPoly()
@@ -5733,8 +5829,7 @@ FillCRgn(RgnHandle rgn, PixPatHandle pp) ONEWORDINLINE(0xAA12);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-FillCPoly(PolyHandle poly, PixPatHandle pp) ONEWORDINLINE(0xAA13);
+void FillCPoly(PolyHandle poly, PixPatHandle pp) ONEWORDINLINE(0xAA13);
 
 /**
  *  RGBForeColor()
@@ -5744,8 +5839,7 @@ FillCPoly(PolyHandle poly, PixPatHandle pp) ONEWORDINLINE(0xAA13);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-RGBForeColor(const RGBColor *color) ONEWORDINLINE(0xAA14);
+void RGBForeColor(const RGBColor *color) ONEWORDINLINE(0xAA14);
 
 /**
  *  RGBBackColor()
@@ -5755,8 +5849,7 @@ RGBForeColor(const RGBColor *color) ONEWORDINLINE(0xAA14);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-RGBBackColor(const RGBColor *color) ONEWORDINLINE(0xAA15);
+void RGBBackColor(const RGBColor *color) ONEWORDINLINE(0xAA15);
 
 /**
  *  SetCPixel()
@@ -5766,19 +5859,17 @@ RGBBackColor(const RGBColor *color) ONEWORDINLINE(0xAA15);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetCPixel(short h, short v, const RGBColor *cPix) ONEWORDINLINE(0xAA16);
+void SetCPixel(short h, short v, const RGBColor *cPix) ONEWORDINLINE(0xAA16);
 
+/**
+\brief Replaces a portPixMap of the active CGrafPort with a handle
 
-			/** 
-			\brief Replaces a portPixMap of the active CGrafPort with a handle 
-			
-			<pre>SetPortPix replaces the portPixMap field of the active CGrafPort with a
+<pre>SetPortPix replaces the portPixMap field of the active CGrafPort with a
 new value, effectively changing the entire contents of the port.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This is the Color Quickdraw equivalent of the SetPortBits procedure that
+* \note <pre>This is the Color Quickdraw equivalent of the SetPortBits procedure that
 QuickDraw uses on GrafPorts.  SetPortPix cannot be used at all on
 old-style GrafPort s. Conversely, a SetPortBits call used in conjunction
 with a cGrafPort , will likewise yield nothing.
@@ -5787,48 +5878,44 @@ drawing. For instance, you can use a series of Color Quickdraw calls to
 create an image in an off-screen memory buffer, then use CopyBits to
 copy the bit-mapped image into the normal screen.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetPortPix(PixMapHandle pm) ONEWORDINLINE(0xAA06);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SetPortPix(PixMapHandle pm) ONEWORDINLINE(0xAA06);
 
-			/** 
-			\brief Find the RGB of a specified pixel 
-			
-			<pre>GetCPixel obtains the RGB of a pixel associated with a coordinate pair.
+/**
+\brief Find the RGB of a specified pixel
+
+<pre>GetCPixel obtains the RGB of a pixel associated with a coordinate pair.
 horizand . . .
 vert identify the pixel in question (which hangs below and to the
 right of the specified point). These are expressed in the
 coordinate system of the current CGrafPort .
 color is the RGB color of the pixel.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetCPixel(short h, short v, RGBColor *cPix) ONEWORDINLINE(0xAA17);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void GetCPixel(short h, short v, RGBColor *cPix) ONEWORDINLINE(0xAA17);
 
-			/** 
-			\brief Obtain foreground color set in current port 
-			
-			<pre>GetForeColor is used to obtain the red, green, and blue complements of the
+/**
+\brief Obtain foreground color set in current port
+
+<pre>GetForeColor is used to obtain the red, green, and blue complements of the
 foreground color in the current port.
 color is the address of either the rgbFgColor field or the global variable
 QDColors , depending on whether the current port is a grafPort or a
 cGrafPort.
 </pre>
- * \returns <pre> none
+* \returns <pre> none
 Notes :GetForeColor works regardless of whether the current port is a grafPort
 or a cGrafPort. The difference is that for CGrafPort , the value comes from
 the rgbFgColor field while GrafPort colors are specific values set by the
@@ -5844,26 +5931,24 @@ Value Color Red Green Blue
 6 blue 0x0000 0x0000 0xD400
 7 white 0xFFFF 0xFFFF 0xFFFF
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetForeColor(RGBColor *color) ONEWORDINLINE(0xAA19);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void GetForeColor(RGBColor *color) ONEWORDINLINE(0xAA19);
 
-			/** 
-			\brief Obtain foreground color set in current port 
-			
-			<pre>GetBackColor is used to obtain the red, green and blue, components of the
+/**
+\brief Obtain foreground color set in current port
+
+<pre>GetBackColor is used to obtain the red, green and blue, components of the
 foreground color in the current port.
 color is the address of either the rgbBkColor field or the global variable
 QDColors , depending on whether the current port is a grafPort or a
 cGrafPort.
 </pre>
- * \returns <pre> none
+* \returns <pre> none
 Notes :GetBackColor works regardless of whether the current port is a grafPort
 or a cGrafPort. The difference is that for CGrafPort , the value comes from
 the rgbBkColor field while GrafPort colors are specific values set by the
@@ -5879,20 +5964,18 @@ Value Color Red Green Blue
 6 blue 0x0000 0x0000 0xD400
 7 white 0xFFFF 0xFFFF 0xFFFF
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-GetBackColor(RGBColor *color) ONEWORDINLINE(0xAA1A);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void GetBackColor(RGBColor *color) ONEWORDINLINE(0xAA1A);
 
-			/** 
-			\brief Calculate a mask for use in CopyMask or CopyBits 
-			\param    matchProc pointer to match seed RGB values
-			<pre>SeedCFill examines a portion of a source bitMap or pixMap and fills a
+/**
+\brief Calculate a mask for use in CopyMask or CopyBits
+\param    matchProc pointer to match seed RGB values
+<pre>SeedCFill examines a portion of a source bitMap or pixMap and fills a
 portion of a destination bitMap or pixMap with 1s where paint can flow. It
 finds an enclosed area surrounding a specified point in the source (seed), and
 floods that area in the destination with 1s (RGB value equals that of seed).
@@ -5914,9 +5997,9 @@ matchProc returns 0s for RGB values to be filled -- returns 1s when the
 values should not be filled.
 matchData returns the value assigned.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>The default setting for SeedCFill allows paint to flow from the seed
+* \note <pre>The default setting for SeedCFill allows paint to flow from the seed
 position to all positions that touch it and whose RGB value equals that of the
 seed. Setting matchProc and matchData to zero calls the default mode.
 Use SeedCFill to flood an area of a destination bitMap pixMap with paint
@@ -5925,22 +6008,20 @@ inside and boundary of a section of the source which is enclosed by RGB
 pixels.
 To flood with some other pattern requires intermediate steps of using
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SeedCFill(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
-          const Rect *dstRect, short seedH, short seedV,
-          ColorSearchUPP matchProc, long matchData) ONEWORDINLINE(0xAA50);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SeedCFill(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
+               const Rect *dstRect, short seedH, short seedV,
+               ColorSearchUPP matchProc, long matchData) ONEWORDINLINE(0xAA50);
 
-			/** 
-			\brief Calculate a mask for use in CopyMask 
-			\param    matchProc custom matching routine; NIL = default
-			<pre>CalcCMask examines a portion of a bitmap and creates a mask that can be
+/**
+\brief Calculate a mask for use in CopyMask
+\param    matchProc custom matching routine; NIL = default
+<pre>CalcCMask examines a portion of a bitmap and creates a mask that can be
 used with CopyMask . It finds the outermost outline of any figure in the
 bitmap (as in the lasso tool of many paint programs) and creates a mask having
 1s in the places where paint would "leak" were you to pour it inside the figure.
@@ -5967,23 +6048,22 @@ writing a custom searchProc.
 matchData  holds application specific data. Pass 0 in this parameter to obtain
 the default behavior.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Use CalcCMask to build a mask which can be used in conjunction with
+* \note <pre>Use CalcCMask to build a mask which can be used in conjunction with
 CopyMask to implement the "lasso" tool of many paint programs.
 CalcCMask creates an area into which paint won't flow. By default, paint
 can leak to all adjacent pixels whose RGB values don't match that of the
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-CalcCMask(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
-          const Rect *dstRect, const RGBColor *seedRGB,
-          ColorSearchUPP matchProc, long matchData) ONEWORDINLINE(0xAA4F);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void CalcCMask(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
+               const Rect *dstRect, const RGBColor *seedRGB,
+               ColorSearchUPP matchProc, long matchData) ONEWORDINLINE(0xAA4F);
 
 /**
  *  OpenCPicture()
@@ -5993,56 +6073,52 @@ CalcCMask(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PicHandle)
+PicHandle
 OpenCPicture(const OpenCPicParams *newHeader) ONEWORDINLINE(0xAA20);
 
+/**
+\brief Set RGB values used by addPin, subPin and blend modes
 
-			/** 
-			\brief Set RGB values used by addPin, subPin and blend modes 
-			
-			<pre>OpColor sets the red, green, and blue values used by addPin, subPin, and
+<pre>OpColor sets the red, green, and blue values used by addPin, subPin, and
 blend modes.
 RGBColor  is a record type which specifies a color's red, green,
 and blue components as 16-bit unsigned integers.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This sets drawing mode color values, which are stored in the grafVars
+* \note <pre>This sets drawing mode color values, which are stored in the grafVars
 handle in the CGrafPort . This procedure will have no effect unless the
 current port is a cGrafPort.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-OpColor(const RGBColor *color) ONEWORDINLINE(0xAA21);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void OpColor(const RGBColor *color) ONEWORDINLINE(0xAA21);
 
-			/** 
-			\brief Choose new highlighting color 
-			
-			<pre>HiliteColor lets you change the highlighting color used by current
+/**
+\brief Choose new highlighting color
+
+<pre>HiliteColor lets you change the highlighting color used by current
 cGrafPort.
 RGBColor  is a record type which specifies a color's red, green, and blue
 components as 16-bit unsigned integers.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Highlight color is used whenever a drawing operation uses the highlight
+* \note <pre>Highlight color is used whenever a drawing operation uses the highlight
 transfer mode. A cGrafPort's highlight colors are initialized from the
 HiliteRGB global variable stored in the port's grafVars handle.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HiliteColor(const RGBColor *color) ONEWORDINLINE(0xAA22);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void HiliteColor(const RGBColor *color) ONEWORDINLINE(0xAA22);
 
 /**
  *  DisposeCTable()
@@ -6052,8 +6128,7 @@ HiliteColor(const RGBColor *color) ONEWORDINLINE(0xAA22);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DisposeCTable(CTabHandle cTable) ONEWORDINLINE(0xAA24);
+void DisposeCTable(CTabHandle cTable) ONEWORDINLINE(0xAA24);
 
 /**
  *  GetCTable()
@@ -6063,7 +6138,7 @@ DisposeCTable(CTabHandle cTable) ONEWORDINLINE(0xAA24);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CTabHandle)
+CTabHandle
 GetCTable(short ctID) ONEWORDINLINE(0xAA18);
 
 /**
@@ -6074,7 +6149,7 @@ GetCTable(short ctID) ONEWORDINLINE(0xAA18);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CCrsrHandle)
+CCrsrHandle
 GetCCursor(short crsrID) ONEWORDINLINE(0xAA1B);
 
 /**
@@ -6085,8 +6160,7 @@ GetCCursor(short crsrID) ONEWORDINLINE(0xAA1B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA1C);
+void SetCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA1C);
 
 /**
  *  AllocCursor()
@@ -6096,8 +6170,7 @@ SetCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA1C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-AllocCursor(void) ONEWORDINLINE(0xAA1D);
+void AllocCursor(void) ONEWORDINLINE(0xAA1D);
 
 /**
  *  DisposeCCursor()
@@ -6107,24 +6180,22 @@ AllocCursor(void) ONEWORDINLINE(0xAA1D);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DisposeCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA26);
+void DisposeCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA26);
 
 /* GetCIcon(), PlotCIcon(), and DisposeCIcon() moved to Icons.h*/
 
+/**
+\brief Set graphProcs field to point to custom routines
 
-			/** 
-			\brief Set graphProcs field to point to custom routines 
-			
-			<pre>SetStdCProcs stores the addresses of the standard Quickdraw procedures
+<pre>SetStdCProcs stores the addresses of the standard Quickdraw procedures
 into a structure intended to be used in a CGrafPort .
 *cProcsis the address a CQDProcs structure. Upon return, all fields of
 the structure have been set to contain the addresses of the standard
 low-level routines used by Color Quickdraw.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This is used by applications that wish to intercept selected low-level
+* \note <pre>This is used by applications that wish to intercept selected low-level
 routines (e.g., the picture-comment handler) while continuing to use the
 other standard routines.
 SetStdCProcs has to be used in place of the older SetStdProcs
@@ -6147,27 +6218,25 @@ You need not replace all the functionality of a bottleneck -- you may choose
 to simply pre-process the parameters passed to you and then invoke the
 original handler.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetStdCProcs(CQDProcs *procs) ONEWORDINLINE(0xAA4E);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SetStdCProcs(CQDProcs *procs) ONEWORDINLINE(0xAA4E);
 
-			/** 
-			\brief Gives a handle to device with the deepest pixMap 
-			\param    CGrafPort and 5) call SetGDevice  yet again to bring back the formerly
-			<pre>GetMaxDevice provides a handle to the greatest pixel-depth gDevice in
+/**
+\brief Gives a handle to device with the deepest pixMap
+\param    CGrafPort and 5) call SetGDevice  yet again to bring back the formerly
+<pre>GetMaxDevice provides a handle to the greatest pixel-depth gDevice in
 the entire global rectangle.
 globalRect is the rectangle in global coordinates.
 </pre>
- * \returns <pre>a GDHandle ; a handle leading to the device in
+* \returns <pre>a GDHandle ; a handle leading to the device in
 the list with the most available colors.
 </pre>
- * \note <pre>You can use this routine when creating an offscreen PixMap for subsequent
+* \note <pre>You can use this routine when creating an offscreen PixMap for subsequent
 transfer to visible display areas. Alternatively, you might want control of a
 drawing's colors, especially if it's going to be printed on a device with a
 different color table than the screen. In either case, you need control of the
@@ -6199,132 +6268,125 @@ drawing operation is complete.
 After you've done all of this preparation, be sure to protect it since all of
 the above can be brought to nothing if the user changes the depth of the
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(GDHandle)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+GDHandle
 GetMaxDevice(const Rect *globalRect) ONEWORDINLINE(0xAA27);
 
+/**
+\brief Get unique seed value for color table
 
-			/** 
-			\brief Get unique seed value for color table 
-			
-			<pre>GetCTSeed returns a seed value unique to the application's color table and is
+<pre>GetCTSeed returns a seed value unique to the application's color table and is
 for use in its ctSeed field.
 </pre>
- * \returns <pre>a 32-bit long; a value greater than that stored in minSeed.
+* \returns <pre>a 32-bit long; a value greater than that stored in minSeed.
 </pre>
- * \note <pre>GetCTSeed distinquishes the color table from the destination and ensures
+* \note <pre>GetCTSeed distinquishes the color table from the destination and ensures
 proper color table translation.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-GetCTSeed(void) ONEWORDINLINE(0xAA28);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+long GetCTSeed(void) ONEWORDINLINE(0xAA28);
 
-			/** 
-			\brief Provides a handle to the first gDevice in the DeviceList 
-			
-			<pre>GetDeviceList  can be used to show which device is first on the Device list.
+/**
+\brief Provides a handle to the first gDevice in the DeviceList
+
+<pre>GetDeviceList  can be used to show which device is first on the Device list.
 Returns: a GDHandle ; a handle to the first gDevice.
 </pre>
- * \note <pre> A handle to the first item in the device list can be found in the
+* \note <pre> A handle to the first item in the device list can be found in the
 DeviceList global variable.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(GDHandle)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+GDHandle
 GetDeviceList(void) ONEWORDINLINE(0xAA29);
 
+/**
+\brief Provides a handle to the startup gDevice.
 
-			/** 
-			\brief Provides a handle to the startup gDevice. 
-			
-			<pre>GetMainDevice  can be used to show which device is listed as the monitor with
+<pre>GetMainDevice  can be used to show which device is listed as the monitor with
 the menu bar. GetMainDevice gets this value from the MainDevice global
 variable.
 Returns: a GDHandle ; a handle to the gDevice that carries the menu bar.
 </pre>
- * \note <pre> Contains information on the size and depth of the gDevice of the
+* \note <pre> Contains information on the size and depth of the gDevice of the
 monitor containing the menu bar. Unless a different screen has been
 called out in parameter RAM as the main device, this is the screen with
 its video card in the lowest-numbered slot.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(GDHandle)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+GDHandle
 GetMainDevice(void) ONEWORDINLINE(0xAA2A);
 
-
-			/** 
-			\brief Allocate new gDevice structure 
-			\param    gdh Handle to gDevice
-			<pre>GetNextDevice provide the location of the next gDevice and returns a NIL if
+/**
+\brief Allocate new gDevice structure
+\param    gdh Handle to gDevice
+<pre>GetNextDevice provide the location of the next gDevice and returns a NIL if
 the list doesn't have any more devices. It is often used with GetDeviceList
 and TestDeviceAttribute to determine the system's screen setup.
 gdhis the handle to the next handle.
 </pre>
- * \returns <pre>a GDHandle ; a handle leading to the next device on the list, returns a
+* \returns <pre>a GDHandle ; a handle leading to the next device on the list, returns a
 NIL if the request fails.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(GDHandle)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+GDHandle
 GetNextDevice(GDHandle curDevice) ONEWORDINLINE(0xAA2B);
 
+/**
+\brief TestDeviceAttribute Check whether or not an attribute is set
 
-			/** 
-			\brief TestDeviceAttribute Check whether or not an attribute is set 
-			
-			<pre>TestDeviceAttribute returns an indication as to what kind of gDevice you
+<pre>TestDeviceAttribute returns an indication as to what kind of gDevice you
 have and whether or not it is set.
 curDevice is the handle that leads to the device being tested in the gDevice
 record.
 attribute is one of seven graphics device characteristics that can be on or off.
 </pre>
- * \returns <pre> a Boolean value indicating the status of a particular
+* \returns <pre> a Boolean value indicating the status of a particular
 attribute It is one of:
 FALSE Not set
 TRUE Attribute set
 </pre>
- * \note <pre>Scanning through a device list, TestDeviceAttribute tells you if your
+* \note <pre>Scanning through a device list, TestDeviceAttribute tells you if your
 device is a display and if it's active. It does not necessarily tell if the
 monitor is turned on, or if there is a monitor attached to the card.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+Boolean
 TestDeviceAttribute(GDHandle gdh, short attribute) ONEWORDINLINE(0xAA2C);
 
+/**
+\brief SetDeviceAttribute Set the device's display characteristics
 
-			/** 
-			\brief SetDeviceAttribute Set the device's display characteristics 
-			
-			<pre>Use SetDeviceAttribute to set a device's display characteristics. This
+<pre>Use SetDeviceAttribute to set a device's display characteristics. This
 routine is rarely called by applications.
 gdhis the handle that communicates with the gDevice record.
 attribute is one of seven graphics device characteristics that can be on or off.
@@ -6338,17 +6400,16 @@ screenDevice: TRUE = Device is a display monitor
 noDriver: TRUE = No driver for device
 screenActive: TRUE = Active device
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 For more information, see The 'scrn' Resource .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetDeviceAttribute(GDHandle gdh, short attribute, Boolean value)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SetDeviceAttribute(GDHandle gdh, short attribute, Boolean value)
     ONEWORDINLINE(0xAA2D);
 
 /**
@@ -6359,8 +6420,7 @@ SetDeviceAttribute(GDHandle gdh, short attribute, Boolean value)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-InitGDevice(short qdRefNum, long mode, GDHandle gdh) ONEWORDINLINE(0xAA2E);
+void InitGDevice(short qdRefNum, long mode, GDHandle gdh) ONEWORDINLINE(0xAA2E);
 
 /**
  *  NewGDevice()
@@ -6370,7 +6430,7 @@ InitGDevice(short qdRefNum, long mode, GDHandle gdh) ONEWORDINLINE(0xAA2E);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 NewGDevice(short refNum, long mode) ONEWORDINLINE(0xAA2F);
 
 /**
@@ -6381,40 +6441,36 @@ NewGDevice(short refNum, long mode) ONEWORDINLINE(0xAA2F);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DisposeGDevice(GDHandle gdh) ONEWORDINLINE(0xAA30);
+void DisposeGDevice(GDHandle gdh) ONEWORDINLINE(0xAA30);
 
+/**
+\brief Set the current device to the specified device
 
-			/** 
-			\brief Set the current device to the specified device 
-			
-			<pre>SetGDevice sets the specified graphics device record as the current device.
+<pre>SetGDevice sets the specified graphics device record as the current device.
 Your application won't generally need to use this procedure except to draw
 offscreen graphics devices.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetGDevice(GDHandle gd) ONEWORDINLINE(0xAA31);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SetGDevice(GDHandle gd) ONEWORDINLINE(0xAA31);
 
-			/** 
-			\brief Get handle to current GDevice 
-			
-			<pre>GetGDevice returns a handle to the current GDevice. You can use the
+/**
+\brief Get handle to current GDevice
+
+<pre>GetGDevice returns a handle to the current GDevice. You can use the
 functions GetDeviceList and GetNextDevice to step through all devices.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(GDHandle)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+GDHandle
 GetGDevice(void) ONEWORDINLINE(0xAA32);
 
 /**
@@ -6425,55 +6481,50 @@ GetGDevice(void) ONEWORDINLINE(0xAA32);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(long)
-Color2Index(const RGBColor *myColor) ONEWORDINLINE(0xAA33);
+long Color2Index(const RGBColor *myColor) ONEWORDINLINE(0xAA33);
 
+/**
+\brief Find specific RGB
 
-			/** 
-			\brief Find specific RGB 
-			
-			<pre>Index2Color finds the RGB color that matches an indexed value on a color
+<pre>Index2Color finds the RGB color that matches an indexed value on a color
 table.
 indexis the padded pixel value
 rgbis the RGB read from the current device
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Index2Color is a color conversion procedure that finds the RGB color
+* \note <pre>Index2Color is a color conversion procedure that finds the RGB color
 that best matches a given color table index. This color does not have to be
 the same color originally requested through RGBForeColor ,
 RGBBackColor , SetCPixel , or Color2Index since it is the RGB that is
 available from the current gDevice.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-Index2Color(long index, RGBColor *aColor) ONEWORDINLINE(0xAA34);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void Index2Color(long index, RGBColor *aColor) ONEWORDINLINE(0xAA34);
 
-			/** 
-			\brief Find a color's complement 
-			
-			<pre>InvertColor finds the RGB color that complements a specified color
+/**
+\brief Find a color's complement
+
+<pre>InvertColor finds the RGB color that complements a specified color
 theColor is an RGB's complement
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>InvertColor' s default procedure for finding a color's complement is to
+* \note <pre>InvertColor' s default procedure for finding a color's complement is to
 use the 1's complement of each component of the requested color.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-InvertColor(RGBColor *myColor) ONEWORDINLINE(0xAA35);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void InvertColor(RGBColor *myColor) ONEWORDINLINE(0xAA35);
 
 /**
  *  RealColor()
@@ -6483,7 +6534,7 @@ InvertColor(RGBColor *myColor) ONEWORDINLINE(0xAA35);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 RealColor(const RGBColor *color) ONEWORDINLINE(0xAA36);
 
 /**
@@ -6494,8 +6545,7 @@ RealColor(const RGBColor *color) ONEWORDINLINE(0xAA36);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-GetSubTable(CTabHandle myColors, short iTabRes, CTabHandle targetTbl)
+void GetSubTable(CTabHandle myColors, short iTabRes, CTabHandle targetTbl)
     ONEWORDINLINE(0xAA37);
 
 /**
@@ -6506,8 +6556,7 @@ GetSubTable(CTabHandle myColors, short iTabRes, CTabHandle targetTbl)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-MakeITable(CTabHandle cTabH, ITabHandle iTabH, short res) ONEWORDINLINE(0xAA39);
+void MakeITable(CTabHandle cTabH, ITabHandle iTabH, short res) ONEWORDINLINE(0xAA39);
 
 /**
  *  AddSearch()
@@ -6517,8 +6566,7 @@ MakeITable(CTabHandle cTabH, ITabHandle iTabH, short res) ONEWORDINLINE(0xAA39);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-AddSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA3A);
+void AddSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA3A);
 
 /**
  *  AddComp()
@@ -6528,8 +6576,7 @@ AddSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA3A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-AddComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA3B);
+void AddComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA3B);
 
 /**
  *  DelSearch()
@@ -6539,8 +6586,7 @@ AddComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA3B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DelSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA4C);
+void DelSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA4C);
 
 /**
  *  DelComp()
@@ -6550,33 +6596,29 @@ DelSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DelComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA4D);
+void DelComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA4D);
 
+/**
+\brief Identify this client to search and complement procedures
 
-			/** 
-			\brief Identify this client to search and complement procedures 
-			
-			<pre>SetClientID sets the gdID field in the device record so that its search and
+<pre>SetClientID sets the gdID field in the device record so that its search and
 complement procedures will recognize this particular client program.
 idis the client program being given identification
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetClientID(short id) ONEWORDINLINE(0xAA3C);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SetClientID(short id) ONEWORDINLINE(0xAA3C);
 
-			/** 
-			\brief Protect or un-protect color table entry 
-			
-			<pre>ProtectEntry is used by the Color Manager to provide protection or remove
+/**
+\brief Protect or un-protect color table entry
+
+<pre>ProtectEntry is used by the Color Manager to provide protection or remove
 protection from a color table entry.
 indexis the identification of the entry to be affected by this procedure.
 protectFlag specifies whether to protect the entry or remove its protection . It
@@ -6585,24 +6627,22 @@ FALSEremove protection from any specified entry
 TRUEprotect entry, returns a protection error if entry is already
 protected.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Once an entry is protected, other clients cannot affect it.
+* \note <pre>Once an entry is protected, other clients cannot affect it.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ProtectEntry(short index, Boolean protect) ONEWORDINLINE(0xAA3D);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void ProtectEntry(short index, Boolean protect) ONEWORDINLINE(0xAA3D);
 
-			/** 
-			\brief Reserve or dereserve color table entry 
-			
-			<pre>ReserveEntry is used by the Color Manager to provide selective protection
+/**
+\brief Reserve or dereserve color table entry
+
+<pre>ReserveEntry is used by the Color Manager to provide selective protection
 or remove reservation from a color table entry.
 indexis the identification of the entry to be affected by this procedure.
 ReserveFlag specifies whether to reserve the entry or remove its reservation .
@@ -6612,36 +6652,34 @@ TRUEReserve an entry so another client's search procedure won't be
 able to match it and it won't be returned to another client by
 Color2Index , RGBForeColor , RGBBackColor , etc.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>ReserveEntry acts like selective protection by copying the low byte of
+* \note <pre>ReserveEntry acts like selective protection by copying the low byte of
 gdID into the low byte of colorSpec .value while leaving the high byte alone.
 It won't allow changes if the current gdID is different than the one in the
 colorSpec .value field of the reserved entry.  Returns a protection error if
 a requested match is already reserved. All entries are subject to being
 dereserved.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ReserveEntry(short index, Boolean reserve) ONEWORDINLINE(0xAA3E);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void ReserveEntry(short index, Boolean reserve) ONEWORDINLINE(0xAA3E);
 
-			/** 
-			\brief Set a group of color table entries for the current gDevice 
-			
-			<pre>SetEntries sets the enumerated color table entries for the current gDevice.
+/**
+\brief Set a group of color table entries for the current gDevice
+
+<pre>SetEntries sets the enumerated color table entries for the current gDevice.
 startis the given position where the specified number of entries begin.
 count yields the total number of color table entries in the group being set.
 aTableis a cSpecArray, not a color table
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>SetEntries sets many color table entries to the current gDevice. Its
+* \note <pre>SetEntries sets many color table entries to the current gDevice. Its
 aTable parameter points to a cSpecArray (rather than a color table) in
 which the colorSpec .value field of the entries has to fall within the logical
 range for the gDevice's assigned pixel depth. For example, if the gDevice
@@ -6672,27 +6710,25 @@ operation. If any requested entry is protected or out of range, you get a
 protection error and nothing else. If a requested entry is reserved, the
 gDevice's gdID has to match the low byte of the intended colorSpec .value
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SetEntries(short start, short count, CSpecArray aTable) ONEWORDINLINE(0xAA3F);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SetEntries(short start, short count, CSpecArray aTable) ONEWORDINLINE(0xAA3F);
 
-			/** 
-			\brief Saves selected entries to a result table 
-			
-			<pre>SaveEntries saves selected entries from a source table to a result table
+/**
+\brief Saves selected entries to a result table
+
+<pre>SaveEntries saves selected entries from a source table to a result table
 scrTable is the source of the entries to be saved.
 ResultTable is the table in which the saved entries are placed.
 *selection is the parameter enumerating the entries to be saved.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>If an entry is missing from the source table, its position on the request list
+* \note <pre>If an entry is missing from the source table, its position on the request list
 part of the ReqListRec data structure is set to colReqErr , and that position
 of the result table has random values returned. When an entry can't be
 found, an error is posted to QDError , but every entry that is found yields
@@ -6702,28 +6738,26 @@ You can have a NIL as the source table parameter but if you do, the active
 gDevice's color table is used as the source. SaveEntries ' output is
 identical to RestoreEntries ' input.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-SaveEntries(CTabHandle srcTable, CTabHandle resultTable, ReqListRec *selection)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void SaveEntries(CTabHandle srcTable, CTabHandle resultTable, ReqListRec *selection)
     ONEWORDINLINE(0xAA49);
 
+/**
+\brief Sets entries into dstTable without rebuilding inverse table
 
-			/** 
-			\brief Sets entries into dstTable without rebuilding inverse table 
-			
-			<pre>RestoreEntries saves selected entries so you can put them back later
+<pre>RestoreEntries saves selected entries so you can put them back later
 scrTable is the source of the entries to be saved.
 dstTable is the table in which the restorable entries are placed.
 *selection is the parameter enumerating the entries for saving and retrieval.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>RestoreEntries lets you change the color table without changing its
+* \note <pre>RestoreEntries lets you change the color table without changing its
 ctSeed. You can then execute an application and restore the original colors.
 What may happen, however, is that the background will be in the wrong
 color after restoration since it is not redrawn. Getting around this means
@@ -6741,30 +6775,28 @@ change. RestoreEntries ignores color table protection and reservation.
 Since Palette Manager was designed to give applications their own set of
 colors, you'll likely have little need for RestoreEntries .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-RestoreEntries(CTabHandle srcTable, CTabHandle dstTable, ReqListRec *selection)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void RestoreEntries(CTabHandle srcTable, CTabHandle dstTable, ReqListRec *selection)
     ONEWORDINLINE(0xAA4A);
 
+/**
+\brief Return error result from last QuickDraw  call
 
-			/** 
-			\brief Return error result from last QuickDraw  call 
-			
-			<pre>The QDError function, introduced with Color QuickDraw  returns the
+<pre>The QDError function, introduced with Color QuickDraw  returns the
 error result from the last Color QuickDraw or Color Manager call. It has
 a number of new result codes, and it has also been modified so that it does not
 fail on a black-and-white system (where it always returns FALSE). Its format
 is the same:
 </pre>
- * \returns <pre>the error result from the last Color QuickDraw or
+* \returns <pre>the error result from the last Color QuickDraw or
 Color Manager call
 </pre>
- * \note <pre>QuickDraw uses stack space for work buffers. For complex operations
+* \note <pre>QuickDraw uses stack space for work buffers. For complex operations
 such as depth conversion, dithering, and image resizing, stack space may
 not be sufficient. Color QuickDraw now attempts to get temporary
 memory from other parts of the system. If that is still not enough, QDError
@@ -6786,14 +6818,13 @@ pixmapTooDeepErr (-148)Pixel map record is deeper than 1 bit per pixel
 You may be able to recover from this problem by imaging your too-deep pixel
 map into a 1-bit pixel map and calling BitMapToRegion again.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-QDError(void) ONEWORDINLINE(0xAA40);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+short QDError(void) ONEWORDINLINE(0xAA40);
 
 /**
  *  CopyDeepMask()
@@ -6803,11 +6834,10 @@ QDError(void) ONEWORDINLINE(0xAA40);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-CopyDeepMask(const BitMap *srcBits, const BitMap *maskBits,
-             const BitMap *dstBits, const Rect *srcRect, const Rect *maskRect,
-             const Rect *dstRect, short mode,
-             RgnHandle maskRgn) /* can be NULL */ ONEWORDINLINE(0xAA51);
+void CopyDeepMask(const BitMap *srcBits, const BitMap *maskBits,
+                  const BitMap *dstBits, const Rect *srcRect, const Rect *maskRect,
+                  const Rect *dstRect, short mode,
+                  RgnHandle maskRgn) /* can be NULL */ ONEWORDINLINE(0xAA51);
 
 /**
  *  DeviceLoop()
@@ -6817,15 +6847,13 @@ CopyDeepMask(const BitMap *srcBits, const BitMap *maskBits,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DeviceLoop(RgnHandle drawingRgn, DeviceLoopDrawingUPP drawingProc,
-           long userData, DeviceLoopFlags flags) ONEWORDINLINE(0xABCA);
+void DeviceLoop(RgnHandle drawingRgn, DeviceLoopDrawingUPP drawingProc,
+                long userData, DeviceLoopFlags flags) ONEWORDINLINE(0xABCA);
 
+/**
+\brief Get table of masks from ROM
 
-			/** 
-			\brief Get table of masks from ROM 
-			
-			<pre>GetMaskTable returns a pointer to a ROM table containing the following
+<pre>GetMaskTable returns a pointer to a ROM table containing the following
 useful masks:
 0x0000, 0x8000, 0xC000, 0xE000 Table of 16 right masks
 0xF000, 0xF800, 0xFC00, 0xFE00
@@ -6840,19 +6868,18 @@ useful masks:
 0x0080, 0x0040, 0x0020, 0x0010
 0x0008, 0x0004, 0x0002, 0x0001
 </pre>
- * \returns <pre> a pointer to a table of 48 masks
+* \returns <pre> a pointer to a table of 48 masks
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 GetMaskTable
 #endif
-EXTERN_API(Ptr)
-GetMaskTable(void) ONEWORDINLINE(0xA836);
+Ptr GetMaskTable(void) ONEWORDINLINE(0xA836);
 
 /**
  *  GetPattern()
@@ -6862,7 +6889,7 @@ GetMaskTable(void) ONEWORDINLINE(0xA836);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PatHandle)
+PatHandle
 GetPattern(short patternID) ONEWORDINLINE(0xA9B8);
 
 /**
@@ -6876,7 +6903,7 @@ GetPattern(short patternID) ONEWORDINLINE(0xA9B8);
 #if TARGET_OS_MAC
 #define MacGetCursor GetCursor
 #endif
-EXTERN_API(CursHandle)
+CursHandle
 MacGetCursor(short cursorID) ONEWORDINLINE(0xA9B9);
 
 /**
@@ -6887,70 +6914,69 @@ MacGetCursor(short cursorID) ONEWORDINLINE(0xA9B9);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PicHandle)
+PicHandle
 GetPicture(short pictureID) ONEWORDINLINE(0xA9BC);
 
-
-			/** 
-			\brief Calculate distance between two points 
-			\param    aPt any Point
-	\param    bPt any other point, same coordinate system
-			<pre>DeltaPoint returns the distance between two points, returned as a 32-bit
+/**
+\brief Calculate distance between two points
+\param    aPt any Point
+\param    bPt any other point, same coordinate system
+<pre>DeltaPoint returns the distance between two points, returned as a 32-bit
 value with the high-order word being the vertical distance and the low-order
 word being the horizontal distance.
 aPtand . . .
 bPtare any two points, expressed in the same coordinate system.
 </pre>
- * \returns <pre>a 32-bit long integer; it identifies the distance between aPt and
+* \returns <pre>a 32-bit long integer; it identifies the distance between aPt and
 bPt.  The high word is the vertical offset and the low word is the
 horizontal offset. Negative values indicate that bPt is above and to
 the left of aPt ; positive values indicate below and to the right.
 </pre>
- * \note <pre>This performs the same function as SubPt, except the difference is given
+* \note <pre>This performs the same function as SubPt, except the difference is given
 as the returned value instead of stored into a variable.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-DeltaPoint(Point ptA, Point ptB) ONEWORDINLINE(0xA94F);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+long DeltaPoint(Point ptA, Point ptB) ONEWORDINLINE(0xA94F);
 
-			/** 
-			\brief Hide cursor while moving (or while in) a rectangle 
-			
-			<pre>ShieldCursor ( &shieldRect, thePort->portBits.bounds.topLeft );
+/**
+\brief Hide cursor while moving (or while in) a rectangle
+
+<pre>ShieldCursor ( &shieldRect, thePort->portBits.bounds.topLeft );
 .
 :
 ShowCursor ();/* when you no longer need to shield */
-An alternative method is to convert shieldRect  to global coordinates (via
-LocalToGlobal ) before the call, and pass (0,0) as offsetPt .
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ShieldCursor(const Rect *shieldRect, Point offsetPt) ONEWORDINLINE(0xA855);
+An alternative method is to convert shieldRect to global coordinates(via
+                                                                         LocalToGlobal) before the call,
+    and pass(0, 0) as offsetPt.</ pre>
+                * \copyright THINK Reference © 1991 -
+            1992 Symantec Corporation
 
+                *    \non_carbon_cfm in InterfaceLib 7.1 and
+        later
+            *    \carbon_lib in CarbonLib 1.0 and
+        later
+            *    \mac_os_x in version 10.0 and
+        later
+                * /
+            void ShieldCursor(const Rect *shieldRect, Point offsetPt) ONEWORDINLINE(0xA855);
 
-			/** 
-			\brief Obtain screen resolution in pixels-per-inch 
-			
-			<pre>ScreenRes lets you obtain the screen resolution in pixels-per-inch. It can
+/**
+\brief Obtain screen resolution in pixels-per-inch
+
+<pre>ScreenRes lets you obtain the screen resolution in pixels-per-inch. It can
 be useful in scaling objects to make maximum use of the screen real estate.
 horizPPI and . . .
 vertPPI are the addresses of a 16-bit integers. Upon return, they will
 contain the screen resolution, expressed in pixels-per-inch.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>This function just copies the values of the low-memory variables ScrHRes
+* \note <pre>This function just copies the values of the low-memory variables ScrHRes
 and ScrVRes to your own variables. The addresses of these variables are
 defined in Quickdraw.h. Thus, ScreenRes is functionally equivalent to:
 horizPPI = ScrHRes;
@@ -6963,14 +6989,13 @@ The global variable, GrayRgn (a RgnHandle ) describes the size and shape of
 the desktop. This is especially handy to take advantage of Macs that have
 more than one screen.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-ScreenRes(short *scrnHRes, short *scrnVRes)
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void ScreenRes(short *scrnHRes, short *scrnVRes)
     SIXWORDINLINE(0x225F, 0x32B8, 0x0102, 0x225F, 0x32B8, 0x0104);
 
 /**
@@ -6981,8 +7006,7 @@ ScreenRes(short *scrnHRes, short *scrnVRes)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-GetIndPattern(Pattern *thePat, short patternListID, short index);
+void GetIndPattern(Pattern *thePat, short patternListID, short index);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -7004,8 +7028,7 @@ ptinrect(const Point *pt, const Rect *r);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-pt2rect(const Point *pt1, const Point *pt2, Rect *destRect);
+void pt2rect(const Point *pt1, const Point *pt2, Rect *destRect);
 
 /**
  *  pttoangle()
@@ -7015,8 +7038,7 @@ pt2rect(const Point *pt1, const Point *pt2, Rect *destRect);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-pttoangle(const Rect *r, const Point *pt, short *angle);
+void pttoangle(const Rect *r, const Point *pt, short *angle);
 
 /**
  *  ptinrgn()
@@ -7037,8 +7059,7 @@ ptinrgn(const Point *pt, RgnHandle rgn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-addpt(const Point *src, Point *dst);
+void addpt(const Point *src, Point *dst);
 
 /**
  *  subpt()
@@ -7048,8 +7069,7 @@ addpt(const Point *src, Point *dst);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-subpt(const Point *src, Point *dst);
+void subpt(const Point *src, Point *dst);
 
 /**
  *  equalpt()
@@ -7070,8 +7090,7 @@ equalpt(const Point *pt1, const Point *pt2);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-stuffhex(void *thingPtr, const char *s);
+void stuffhex(void *thingPtr, const char *s);
 
 /**
  *  stdline()
@@ -7081,8 +7100,7 @@ stuffhex(void *thingPtr, const char *s);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-stdline(const Point *newPt);
+void stdline(const Point *newPt);
 
 /**
  *  shieldcursor()
@@ -7092,8 +7110,7 @@ stdline(const Point *newPt);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-shieldcursor(const Rect *shieldRect, Point *offsetPt);
+void shieldcursor(const Rect *shieldRect, Point *offsetPt);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -7105,8 +7122,7 @@ shieldcursor(const Rect *shieldRect, Point *offsetPt);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-long
-deltapoint(Point *ptA, Point *ptB);
+long deltapoint(Point *ptA, Point *ptB);
 
 #if OLDROUTINENAMES
 #define DisposPixMap(pm) DisposePixMap(pm)
@@ -7120,10 +7136,10 @@ deltapoint(Point *ptA, Point *ptB);
     From ToolUtils.i
 */
 
-			/** 
-			\brief Perform RLL byte compression on arbitrary data 
-			
-			<pre>PackBits compresses up to 32,768 bytes of data by replacing sequences of 3
+/**
+\brief Perform RLL byte compression on arbitrary data
+
+<pre>PackBits compresses up to 32,768 bytes of data by replacing sequences of 3
 or more identical bytes with a 2-byte code. It is most often used to compress
 image data, as found in a BitMap or a PixMap. The worst case compression can
 be calculated using the formula: (srcLen + (srcLen + 126) / 127).
@@ -7135,9 +7151,9 @@ Upon return, it has been adjusted to just beyond the end of the
 compressed data.
 srcLenis the size, in bytes, of the data to be compressed.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>Since image data is often full of "white-space", this is ideal for packing
+* \note <pre>Since image data is often full of "white-space", this is ideal for packing
 data for long-term RAM storage and before writing it to disk or storing it in
 a resource. It is not quite so useful for compressing text or other data. Note
 the misnomer: PackBits does not pack bits; it packs sequences of bytes.
@@ -7157,68 +7173,70 @@ PtrsavePtr;
 longmapSize, PackScreen( Ptr);
 mapSize = (long) screenBits .bounds.bottom * screenBits .rowBytes;
 savePtr = NewPtr ( mapSize + 1 ); /* allocate storage buffer */
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-PackBits(Ptr *srcPtr, Ptr *dstPtr, short srcBytes) ONEWORDINLINE(0xA8CF);
+</ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        void
+        PackBits(Ptr *srcPtr, Ptr *dstPtr, short srcBytes) ONEWORDINLINE(0xA8CF);
 
-			/** 
-			\brief Uncompress data stored via PackBits 
-			
-			<pre>restoring it via UnpackBits .
+/**
+\brief Uncompress data stored via PackBits
+
+<pre>restoring it via UnpackBits .
 Since the destLen value must be known in advance, any generalized
 packed-data save/restore procedure would need to have this value
 accompany the compressed data.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-UnpackBits(Ptr *srcPtr, Ptr *dstPtr, short dstBytes) ONEWORDINLINE(0xA8D0);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void UnpackBits(Ptr *srcPtr, Ptr *dstPtr, short dstBytes) ONEWORDINLINE(0xA8D0);
 
-			/** 
-			\brief Calculate slope given an angle 
-			
-			<pre>theSlope = SlopeFromAngle ( 17 ); /* get slope of 17 ° angle */
+/**
+\brief Calculate slope given an angle
+
+<pre>theSlope = SlopeFromAngle ( 17 ); /* get slope of 17 ° angle */
 /* -------- calculate dv and dh; the vertical and horizontal distance */
-dv = startPt. v - endPt. v; /* vertical is easy */
-dh = FixRound ( FixMul( INT2FIX(dv), theSlope ) );
-MoveTo ( startPt. h, startPt. v ); /* move to start point */
-Line( dh,dv ); /* draw calculated distance */
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Fixed)
-SlopeFromAngle(short angle) ONEWORDINLINE(0xA8BC);
+dv = startPt.v - endPt.v; /* vertical is easy */
+dh = FixRound(FixMul(INT2FIX(dv), theSlope));
+MoveTo(startPt.h, startPt.v); /* move to start point */
+Line(dh, dv);                 /* draw calculated distance */
+</ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 
+                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        Fixed
+        SlopeFromAngle(short angle) ONEWORDINLINE(0xA8BC);
 
-			/** 
-			\brief Calculate angle given slope 
-			
-			<pre>vertical change between any two points on the line) AngleFromSlope
+/**
+\brief Calculate angle given slope
+
+<pre>vertical change between any two points on the line) AngleFromSlope
 calculates the angle of that line. The calculation is approximate to the nearest
 degree.
 theSlope a 4-byte Fixed value; the dh/dv ratio of points on a line.
 </pre>
- * \returns <pre>a signed short integer representing the angle most closely matching
+* \returns <pre>a signed short integer representing the angle most closely matching
 the specified slope ratio. Positive values are clockwise from vertical
 and negative values are counterclockwise.
 </pre>
- * \note <pre>The returned angle is expressed in circular degrees, going clockwise with
+* \note <pre>The returned angle is expressed in circular degrees, going clockwise with
 12 o'clock at 0 °, 3 o'clock at 90 °, etc.  Negative values are
 counterclockwise from straight up; e.g., 9 o'clock is -90 °.
 The following example calculates the slope of a line represented by two
@@ -7229,31 +7247,41 @@ Example
 Fixed theSlope;
 Point startPt, endPt;
 short theAngle, dh, dv;
-dh = startPt.h - endPt. h; /* calculate the deltas */
-dv = startPt.v - endPt. v;
-theSlope = FixRatio ( INT2FIX(dh), INT2FIX(dv) ); /* slope=dh/dv */
-theAngle = AngleFromSlope ( theSlope );
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-AngleFromSlope(Fixed slope) ONEWORDINLINE(0xA8C4);
+dh = startPt.h - endPt.h; /* calculate the deltas */
+dv = startPt.v - endPt.v;
+theSlope = FixRatio(INT2FIX(dh), INT2FIX(dv)); /* slope=dh/dv */
+theAngle = AngleFromSlope(theSlope);
+</ pre>
+            * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+
+                                                      *    \non_carbon_cfm in InterfaceLib 7.1 and
+    later
+        *    \carbon_lib in CarbonLib 1.0 and
+    later
+        *    \mac_os_x in version 10.0 and
+    later
+            * /
+        short
+        AngleFromSlope(Fixed slope) ONEWORDINLINE(0xA8C4);
 
 /* New transfer modes */
-enum { colorXorXFer = 52, noiseXFer = 53, customXFer = 54 };
+enum
+{
+  colorXorXFer = 52,
+  noiseXFer = 53,
+  customXFer = 54
+};
 
 /* Custom XFer flags */
-enum {
+enum
+{
   kXFer1PixelAtATime = 0x00000001, /* 1 pixel passed to custom XFer proc*/
   kXFerConvertPixelToRGB32 =
       0x00000002 /* All color depths converted to 32 bit RGB*/
 };
 
-struct CustomXFerRec {
+struct CustomXFerRec
+{
   UInt32 version;
   void *srcPixels;
   void *destPixels;
@@ -7275,9 +7303,8 @@ typedef CALLBACK_API(void, CustomXFerProcPtr)(CustomXFerRecPtr info);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-GetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr *proc, UInt32 *flags,
-                      UInt32 *refCon)
+OSErr GetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr *proc, UInt32 *flags,
+                            UInt32 *refCon)
     FOURWORDINLINE(0x203C, 0x0010, 0x0019, 0xAB1D);
 
 /**
@@ -7288,27 +7315,38 @@ GetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr *proc, UInt32 *flags,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr proc, UInt32 flags,
-                      UInt32 refCon)
+OSErr SetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr proc, UInt32 flags,
+                            UInt32 refCon)
     FOURWORDINLINE(0x203C, 0x0010, 0x001A, 0xAB1D);
 
-enum { kCursorComponentsVersion = 0x00010001 };
+enum
+{
+  kCursorComponentsVersion = 0x00010001
+};
 
-enum { kCursorComponentType = FOUR_CHAR_CODE('curs') };
+enum
+{
+  kCursorComponentType = FOUR_CHAR_CODE('curs')
+};
 
 /* Cursor Component capabilities flags */
-enum {
+enum
+{
   cursorDoesAnimate = 1L << 0,
   cursorDoesHardware = 1L << 1,
   cursorDoesUnreadableScreenBits = 1L << 2
 };
 
 /* Cursor Component output mode flags */
-enum { kRenderCursorInHardware = 1L << 0, kRenderCursorInSoftware = 1L << 1 };
+enum
+{
+  kRenderCursorInHardware = 1L << 0,
+  kRenderCursorInSoftware = 1L << 1
+};
 
 /* Cursor Component Info */
-struct CursorInfo {
+struct CursorInfo
+{
   long version; /* use kCursorComponentsVersion */
   long capabilities;
   long animateDuration; /* approximate time between animate tickles */
@@ -7318,7 +7356,8 @@ struct CursorInfo {
 };
 typedef struct CursorInfo CursorInfo;
 /* Cursor Component Selectors */
-enum {
+enum
+{
   kCursorComponentInit = 0x0001,
   kCursorComponentGetInfo = 0x0002,
   kCursorComponentSetOutputMode = 0x0003,
@@ -7339,8 +7378,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-OpenCursorComponent(Component c, ComponentInstance *ci)
+OSErr OpenCursorComponent(Component c, ComponentInstance *ci)
     FOURWORDINLINE(0x203C, 0x0008, 0x000B, 0xABE0);
 
 /**
@@ -7351,8 +7389,7 @@ OpenCursorComponent(Component c, ComponentInstance *ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-CloseCursorComponent(ComponentInstance ci)
+OSErr CloseCursorComponent(ComponentInstance ci)
     FOURWORDINLINE(0x203C, 0x0004, 0x000C, 0xABE0);
 
 /**
@@ -7363,8 +7400,7 @@ CloseCursorComponent(ComponentInstance ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-SetCursorComponent(ComponentInstance ci)
+OSErr SetCursorComponent(ComponentInstance ci)
     FOURWORDINLINE(0x203C, 0x0004, 0x000D, 0xABE0);
 
 /**
@@ -7375,8 +7411,7 @@ SetCursorComponent(ComponentInstance ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-CursorComponentChanged(ComponentInstance ci)
+OSErr CursorComponentChanged(ComponentInstance ci)
     FOURWORDINLINE(0x203C, 0x0004, 0x000E, 0xABE0);
 
 /**
@@ -7387,8 +7422,7 @@ CursorComponentChanged(ComponentInstance ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-CursorComponentSetData(ComponentInstance ci, long data)
+OSErr CursorComponentSetData(ComponentInstance ci, long data)
     FOURWORDINLINE(0x203C, 0x0008, 0x000F, 0xABE0);
 
 /* Quickdraw-specific ColorSync matching */
@@ -7401,7 +7435,7 @@ CursorComponentSetData(ComponentInstance ci, long data)
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsValidPort(CGrafPtr port);
 
 #if ACCESSOR_CALLS_ARE_FUNCTIONS
@@ -7415,7 +7449,7 @@ IsValidPort(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixMapHandle)
+PixMapHandle
 GetPortPixMap(CGrafPtr port);
 
 /**
@@ -7437,7 +7471,7 @@ GetPortPixMap(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(const BitMap *)
+const BitMap *
 GetPortBitMapForCopyBits(CGrafPtr port);
 
 /**
@@ -7448,7 +7482,7 @@ GetPortBitMapForCopyBits(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetPortBounds(CGrafPtr port, Rect *rect);
 
 /**
@@ -7459,7 +7493,7 @@ GetPortBounds(CGrafPtr port, Rect *rect);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortForeColor(CGrafPtr port, RGBColor *foreColor);
 
 /**
@@ -7470,7 +7504,7 @@ GetPortForeColor(CGrafPtr port, RGBColor *foreColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortBackColor(CGrafPtr port, RGBColor *backColor);
 
 /**
@@ -7481,7 +7515,7 @@ GetPortBackColor(CGrafPtr port, RGBColor *backColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortOpColor(CGrafPtr port, RGBColor *opColor);
 
 /**
@@ -7492,7 +7526,7 @@ GetPortOpColor(CGrafPtr port, RGBColor *opColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortHiliteColor(CGrafPtr port, RGBColor *hiliteColor);
 
 /**
@@ -7503,7 +7537,7 @@ GetPortHiliteColor(CGrafPtr port, RGBColor *hiliteColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CQDProcsPtr)
+CQDProcsPtr
 GetPortGrafProcs(CGrafPtr port);
 
 /**
@@ -7514,8 +7548,7 @@ GetPortGrafProcs(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetPortTextFont(CGrafPtr port);
+short GetPortTextFont(CGrafPtr port);
 
 /**
  *  GetPortTextFace()
@@ -7525,8 +7558,7 @@ GetPortTextFont(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Style)
-GetPortTextFace(CGrafPtr port);
+Style GetPortTextFace(CGrafPtr port);
 
 /**
  *  GetPortTextMode()
@@ -7536,8 +7568,7 @@ GetPortTextFace(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetPortTextMode(CGrafPtr port);
+short GetPortTextMode(CGrafPtr port);
 
 /**
  *  GetPortTextSize()
@@ -7547,8 +7578,7 @@ GetPortTextMode(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetPortTextSize(CGrafPtr port);
+short GetPortTextSize(CGrafPtr port);
 
 /**
  *  GetPortChExtra()
@@ -7558,8 +7588,7 @@ GetPortTextSize(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetPortChExtra(CGrafPtr port);
+short GetPortChExtra(CGrafPtr port);
 
 /**
  *  GetPortFracHPenLocation()
@@ -7569,8 +7598,7 @@ GetPortChExtra(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetPortFracHPenLocation(CGrafPtr port);
+short GetPortFracHPenLocation(CGrafPtr port);
 
 /**
  *  GetPortSpExtra()
@@ -7580,8 +7608,7 @@ GetPortFracHPenLocation(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Fixed)
-GetPortSpExtra(CGrafPtr port);
+Fixed GetPortSpExtra(CGrafPtr port);
 
 /**
  *  GetPortPenVisibility()
@@ -7591,8 +7618,7 @@ GetPortSpExtra(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetPortPenVisibility(CGrafPtr port);
+short GetPortPenVisibility(CGrafPtr port);
 
 /**
  *  GetPortVisibleRegion()
@@ -7602,7 +7628,7 @@ GetPortPenVisibility(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RgnHandle)
+RgnHandle
 GetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
 
 /**
@@ -7613,7 +7639,7 @@ GetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RgnHandle)
+RgnHandle
 GetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
 
 /**
@@ -7624,7 +7650,7 @@ GetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
 
 /**
@@ -7635,7 +7661,7 @@ GetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
 
 /**
@@ -7646,7 +7672,7 @@ GetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPortFillPixPat(CGrafPtr port, PixPatHandle fillPattern);
 
 /**
@@ -7657,7 +7683,7 @@ GetPortFillPixPat(CGrafPtr port, PixPatHandle fillPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetPortPenSize(CGrafPtr port, Point *penSize);
 
 /**
@@ -7668,7 +7694,7 @@ GetPortPenSize(CGrafPtr port, Point *penSize);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetPortPenMode(CGrafPtr port);
 
 /**
@@ -7679,7 +7705,7 @@ GetPortPenMode(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetPortPenLocation(CGrafPtr port, Point *penLocation);
 
 /**
@@ -7690,7 +7716,7 @@ GetPortPenLocation(CGrafPtr port, Point *penLocation);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortRegionBeingDefined(CGrafPtr port);
 
 /**
@@ -7701,7 +7727,7 @@ IsPortRegionBeingDefined(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortPictureBeingDefined(CGrafPtr port);
 
 /**
@@ -7712,7 +7738,7 @@ IsPortPictureBeingDefined(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortPolyBeingDefined(CGrafPtr port);
 
 /**
@@ -7723,7 +7749,7 @@ IsPortPolyBeingDefined(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortOffscreen(CGrafPtr port);
 
 /**
@@ -7734,7 +7760,7 @@ IsPortOffscreen(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortColor(CGrafPtr port);
 
 /**
@@ -7745,7 +7771,7 @@ IsPortColor(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortVisibleRegionEmpty(CGrafPtr port);
 
 /**
@@ -7756,7 +7782,7 @@ IsPortVisibleRegionEmpty(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortClipRegionEmpty(CGrafPtr port);
 
 /**
@@ -7767,8 +7793,7 @@ IsPortClipRegionEmpty(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
-SectRegionWithPortClipRegion(CGrafPtr port, RgnHandle ioRegion);
+void SectRegionWithPortClipRegion(CGrafPtr port, RgnHandle ioRegion);
 
 /**
  *  SectRegionWithPortVisibleRegion()
@@ -7778,8 +7803,7 @@ SectRegionWithPortClipRegion(CGrafPtr port, RgnHandle ioRegion);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
-SectRegionWithPortVisibleRegion(CGrafPtr port, RgnHandle ioRegion);
+void SectRegionWithPortVisibleRegion(CGrafPtr port, RgnHandle ioRegion);
 
 /* Swappers */
 /**
@@ -7811,7 +7835,7 @@ SectRegionWithPortVisibleRegion(CGrafPtr port, RgnHandle ioRegion);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(Handle)
+Handle
 SwapPortPicSaveHandle(CGrafPtr port, Handle inPicSaveHdl);
 
 /* Setters */
@@ -7823,8 +7847,7 @@ SwapPortPicSaveHandle(CGrafPtr port, Handle inPicSaveHdl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortBounds(CGrafPtr port, const Rect *rect);
+void SetPortBounds(CGrafPtr port, const Rect *rect);
 
 /**
  *  SetPortOpColor()
@@ -7834,8 +7857,7 @@ SetPortBounds(CGrafPtr port, const Rect *rect);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortOpColor(CGrafPtr port, const RGBColor *opColor);
+void SetPortOpColor(CGrafPtr port, const RGBColor *opColor);
 
 /**
  *  SetPortGrafProcs()
@@ -7845,8 +7867,7 @@ SetPortOpColor(CGrafPtr port, const RGBColor *opColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortGrafProcs(CGrafPtr port, CQDProcsPtr procs);
+void SetPortGrafProcs(CGrafPtr port, CQDProcsPtr procs);
 
 /**
  *  SetPortTextFont()
@@ -7856,8 +7877,7 @@ SetPortGrafProcs(CGrafPtr port, CQDProcsPtr procs);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
-SetPortTextFont(CGrafPtr port, short txFont);
+void SetPortTextFont(CGrafPtr port, short txFont);
 
 /**
  *  SetPortTextSize()
@@ -7867,8 +7887,7 @@ SetPortTextFont(CGrafPtr port, short txFont);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
-SetPortTextSize(CGrafPtr port, short txSize);
+void SetPortTextSize(CGrafPtr port, short txSize);
 
 /**
  *  SetPortTextFace()
@@ -7878,8 +7897,7 @@ SetPortTextSize(CGrafPtr port, short txSize);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
-SetPortTextFace(CGrafPtr port, StyleParameter face);
+void SetPortTextFace(CGrafPtr port, StyleParameter face);
 
 /**
  *  SetPortTextMode()
@@ -7889,8 +7907,7 @@ SetPortTextFace(CGrafPtr port, StyleParameter face);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
-SetPortTextMode(CGrafPtr port, short mode);
+void SetPortTextMode(CGrafPtr port, short mode);
 
 /**
  *  SetPortVisibleRegion()
@@ -7900,8 +7917,7 @@ SetPortTextMode(CGrafPtr port, short mode);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
+void SetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
 
 /**
  *  SetPortClipRegion()
@@ -7911,8 +7927,7 @@ SetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
+void SetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
 
 /**
  *  SetPortPenPixPat()
@@ -7922,8 +7937,7 @@ SetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
+void SetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
 
 /**
  *  SetPortFillPixPat()
@@ -7933,8 +7947,7 @@ SetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
  *    \carbon_lib        in CarbonLib 1.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortFillPixPat(CGrafPtr port, PixPatHandle penPattern);
+void SetPortFillPixPat(CGrafPtr port, PixPatHandle penPattern);
 
 /**
  *  SetPortBackPixPat()
@@ -7944,8 +7957,7 @@ SetPortFillPixPat(CGrafPtr port, PixPatHandle penPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
+void SetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
 
 /**
  *  SetPortPenSize()
@@ -7955,8 +7967,7 @@ SetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortPenSize(CGrafPtr port, Point penSize);
+void SetPortPenSize(CGrafPtr port, Point penSize);
 
 /**
  *  SetPortPenMode()
@@ -7966,8 +7977,7 @@ SetPortPenSize(CGrafPtr port, Point penSize);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortPenMode(CGrafPtr port, SInt32 penMode);
+void SetPortPenMode(CGrafPtr port, SInt32 penMode);
 
 /**
  *  SetPortFracHPenLocation()
@@ -7977,8 +7987,7 @@ SetPortPenMode(CGrafPtr port, SInt32 penMode);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetPortFracHPenLocation(CGrafPtr port, short pnLocHFrac);
+void SetPortFracHPenLocation(CGrafPtr port, short pnLocHFrac);
 
 /* PixMap */
 /**
@@ -7989,7 +7998,7 @@ SetPortFracHPenLocation(CGrafPtr port, short pnLocHFrac);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetPixBounds(PixMapHandle pixMap, Rect *bounds);
 
 /**
@@ -8000,8 +8009,7 @@ GetPixBounds(PixMapHandle pixMap, Rect *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
-GetPixDepth(PixMapHandle pixMap);
+short GetPixDepth(PixMapHandle pixMap);
 
 /* QDGlobals */
 /* Getters */
@@ -8013,8 +8021,7 @@ GetPixDepth(PixMapHandle pixMap);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(long)
-GetQDGlobalsRandomSeed(void);
+long GetQDGlobalsRandomSeed(void);
 
 /**
  *  GetQDGlobalsScreenBits()
@@ -8024,7 +8031,7 @@ GetQDGlobalsRandomSeed(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(BitMap *)
+BitMap *
 GetQDGlobalsScreenBits(BitMap *screenBits);
 
 /**
@@ -8035,7 +8042,7 @@ GetQDGlobalsScreenBits(BitMap *screenBits);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Cursor *)
+Cursor *
 GetQDGlobalsArrow(Cursor *arrow);
 
 /**
@@ -8046,7 +8053,7 @@ GetQDGlobalsArrow(Cursor *arrow);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsDarkGray(Pattern *dkGray);
 
 /**
@@ -8057,7 +8064,7 @@ GetQDGlobalsDarkGray(Pattern *dkGray);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsLightGray(Pattern *ltGray);
 
 /**
@@ -8068,7 +8075,7 @@ GetQDGlobalsLightGray(Pattern *ltGray);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsGray(Pattern *gray);
 
 /**
@@ -8079,7 +8086,7 @@ GetQDGlobalsGray(Pattern *gray);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsBlack(Pattern *black);
 
 /**
@@ -8090,7 +8097,7 @@ GetQDGlobalsBlack(Pattern *black);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsWhite(Pattern *white);
 
 /**
@@ -8101,7 +8108,7 @@ GetQDGlobalsWhite(Pattern *white);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CGrafPtr)
+CGrafPtr
 GetQDGlobalsThePort(void);
 
 /* Setters */
@@ -8113,8 +8120,7 @@ GetQDGlobalsThePort(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetQDGlobalsRandomSeed(long randomSeed);
+void SetQDGlobalsRandomSeed(long randomSeed);
 
 /**
  *  SetQDGlobalsArrow()
@@ -8124,8 +8130,7 @@ SetQDGlobalsRandomSeed(long randomSeed);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetQDGlobalsArrow(const Cursor *arrow);
+void SetQDGlobalsArrow(const Cursor *arrow);
 
 /* Regions */
 /**
@@ -8136,7 +8141,7 @@ SetQDGlobalsArrow(const Cursor *arrow);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetRegionBounds(RgnHandle region, Rect *bounds);
 
 /**
@@ -8147,7 +8152,7 @@ GetRegionBounds(RgnHandle region, Rect *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsRegionRectangular(RgnHandle region);
 
 /* Utilities */
@@ -8163,7 +8168,7 @@ IsRegionRectangular(RgnHandle region);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CGrafPtr)
+CGrafPtr
 CreateNewPort(void);
 
 /**
@@ -8174,8 +8179,7 @@ CreateNewPort(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-DisposePort(CGrafPtr port);
+void DisposePort(CGrafPtr port);
 
 /**
  *  SetQDError()
@@ -8185,8 +8189,7 @@ DisposePort(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-SetQDError(OSErr err);
+void SetQDError(OSErr err);
 
 #endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
 
@@ -8204,7 +8207,7 @@ SetQDError(OSErr err);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 QDIsPortBuffered(CGrafPtr port);
 
 /**
@@ -8215,7 +8218,7 @@ QDIsPortBuffered(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 QDIsPortBufferDirty(CGrafPtr port);
 
 /**
@@ -8226,8 +8229,7 @@ QDIsPortBufferDirty(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-QDFlushPortBuffer(CGrafPtr port, RgnHandle region); /* can be NULL */
+void QDFlushPortBuffer(CGrafPtr port, RgnHandle region); /* can be NULL */
 
 /**
  *  QDGetDirtyRegion()
@@ -8237,7 +8239,7 @@ QDFlushPortBuffer(CGrafPtr port, RgnHandle region); /* can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDGetDirtyRegion(CGrafPtr port, RgnHandle rgn);
 
 /**
@@ -8248,7 +8250,7 @@ QDGetDirtyRegion(CGrafPtr port, RgnHandle rgn);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDSetDirtyRegion(CGrafPtr port, RgnHandle rgn);
 
 /**
@@ -8370,7 +8372,7 @@ typedef struct OpaqueQDRegionBitsRef *QDRegionBitsRef;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(QDRegionBitsRef)
+QDRegionBitsRef
 QDSaveRegionBits(RgnHandle region);
 
 /**
@@ -8381,7 +8383,7 @@ QDSaveRegionBits(RgnHandle region);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDRestoreRegionBits(RgnHandle region, QDRegionBitsRef regionBits);
 
 /**
@@ -8392,7 +8394,7 @@ QDRestoreRegionBits(RgnHandle region, QDRegionBitsRef regionBits);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDDisposeRegionBits(QDRegionBitsRef regionBits);
 
 /**
@@ -8427,8 +8429,7 @@ CreateNewPortForCGDisplayID(UInt32 inCGDisplayID);
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.0 and later \mac_os_x         in version 10.0 and later
  */
-void
-QDDisplayWaitCursor(Boolean forceWaitCursor);
+void QDDisplayWaitCursor(Boolean forceWaitCursor);
 
 /**
  *  QDSetPatternOrigin()
@@ -8464,8 +8465,7 @@ QDDisplayWaitCursor(Boolean forceWaitCursor);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-void
-QDSetPatternOrigin(Point origin);
+void QDSetPatternOrigin(Point origin);
 
 /**
  *  QDGetPatternOrigin()
@@ -8483,8 +8483,7 @@ QDSetPatternOrigin(Point origin);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-void
-QDGetPatternOrigin(Point *origin);
+void QDGetPatternOrigin(Point *origin);
 
 /**
     LowMem accessor functions previously in LowMem.h
@@ -8497,7 +8496,7 @@ QDGetPatternOrigin(Point *origin);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt16)
+SInt16
 LMGetScrVRes(void) TWOWORDINLINE(0x3EB8, 0x0102);
 
 /**
@@ -8508,8 +8507,7 @@ LMGetScrVRes(void) TWOWORDINLINE(0x3EB8, 0x0102);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetScrVRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0102);
+void LMSetScrVRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0102);
 
 /**
  *  LMGetScrHRes()
@@ -8519,7 +8517,7 @@ LMSetScrVRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0102);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt16)
+SInt16
 LMGetScrHRes(void) TWOWORDINLINE(0x3EB8, 0x0104);
 
 /**
@@ -8530,8 +8528,7 @@ LMGetScrHRes(void) TWOWORDINLINE(0x3EB8, 0x0104);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetScrHRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0104);
+void LMSetScrHRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0104);
 
 /**
  *  LMGetMainDevice()
@@ -8541,7 +8538,7 @@ LMSetScrHRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0104);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetMainDevice(void) TWOWORDINLINE(0x2EB8, 0x08A4);
 
 /**
@@ -8552,8 +8549,7 @@ LMGetMainDevice(void) TWOWORDINLINE(0x2EB8, 0x08A4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetMainDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A4);
+void LMSetMainDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A4);
 
 /**
  *  LMGetDeviceList()
@@ -8563,7 +8559,7 @@ LMSetMainDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetDeviceList(void) TWOWORDINLINE(0x2EB8, 0x08A8);
 
 /**
@@ -8574,8 +8570,7 @@ LMGetDeviceList(void) TWOWORDINLINE(0x2EB8, 0x08A8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetDeviceList(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A8);
+void LMSetDeviceList(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A8);
 
 /**
  *  LMGetQDColors()
@@ -8585,7 +8580,7 @@ LMSetDeviceList(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetQDColors(void) TWOWORDINLINE(0x2EB8, 0x08B0);
 
 /**
@@ -8596,8 +8591,7 @@ LMGetQDColors(void) TWOWORDINLINE(0x2EB8, 0x08B0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetQDColors(Handle value) TWOWORDINLINE(0x21DF, 0x08B0);
+void LMSetQDColors(Handle value) TWOWORDINLINE(0x21DF, 0x08B0);
 
 /**
  *  LMGetWidthListHand()
@@ -8607,7 +8601,7 @@ LMSetQDColors(Handle value) TWOWORDINLINE(0x21DF, 0x08B0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetWidthListHand(void) TWOWORDINLINE(0x2EB8, 0x08E4);
 
 /**
@@ -8618,8 +8612,7 @@ LMGetWidthListHand(void) TWOWORDINLINE(0x2EB8, 0x08E4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetWidthListHand(Handle value) TWOWORDINLINE(0x21DF, 0x08E4);
+void LMSetWidthListHand(Handle value) TWOWORDINLINE(0x21DF, 0x08E4);
 
 /**
  *  LMGetHiliteMode()
@@ -8629,8 +8622,7 @@ LMSetWidthListHand(Handle value) TWOWORDINLINE(0x21DF, 0x08E4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
-LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
+UInt8 LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
 
 /**
  *  LMSetHiliteMode()
@@ -8640,8 +8632,7 @@ LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
+void LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
 
 /**
  *  LMGetWidthPtr()
@@ -8651,8 +8642,7 @@ LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Ptr)
-LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
+Ptr LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
 
 /**
  *  LMSetWidthPtr()
@@ -8662,8 +8652,7 @@ LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
+void LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
 
 /**
  *  LMGetWidthTabHandle()
@@ -8673,7 +8662,7 @@ LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
 
 /**
@@ -8684,8 +8673,7 @@ LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
+void LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
 
 /**
  *  LMGetLastSPExtra()
@@ -8695,7 +8683,7 @@ LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
 
 /**
@@ -8706,8 +8694,7 @@ LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
+void LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
 
 /**
  *  LMGetLastFOND()
@@ -8717,7 +8704,7 @@ LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
 
 /**
@@ -8728,8 +8715,7 @@ LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
+void LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
 
 /**
  *  LMGetFractEnable()
@@ -8739,8 +8725,7 @@ LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
-LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
+UInt8 LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
 
 /**
  *  LMSetFractEnable()
@@ -8750,8 +8735,7 @@ LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
+void LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
 
 /**
  *  LMGetTheGDevice()
@@ -8761,7 +8745,7 @@ LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
 
 /**
@@ -8772,12 +8756,11 @@ LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
+void LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
 
 #if TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #define LMGetHiliteRGB(hiliteRGBValue) (*(hiliteRGBValue) = *(RGBColor *)0x0DA0)
-#define LMSetHiliteRGB(hiliteRGBValue)                                         \
+#define LMSetHiliteRGB(hiliteRGBValue) \
   ((*(RGBColor *)0x0DA0) = *(hiliteRGBValue))
 #else
 /**
@@ -8788,8 +8771,7 @@ LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMGetHiliteRGB(RGBColor *hiliteRGBValue);
+void LMGetHiliteRGB(RGBColor *hiliteRGBValue);
 
 /**
  *  LMSetHiliteRGB()
@@ -8799,8 +8781,7 @@ LMGetHiliteRGB(RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
+void LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
 
 #endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM */
 
@@ -8812,7 +8793,7 @@ LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
 
 /**
@@ -8823,8 +8804,7 @@ LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
+void LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -8845,11 +8825,7 @@ LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 #endif
 
 #endif /* __QUICKDRAW__ */
-  in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8)
-LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
+in CarbonLib 1.0 and later *    \mac_os_x in version 10.0 and later * / UInt8 LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
 
 /**
  *  LMSetHiliteMode()
@@ -8859,8 +8835,7 @@ LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
+void LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
 
 /**
  *  LMGetWidthPtr()
@@ -8870,8 +8845,7 @@ LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Ptr)
-LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
+Ptr LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
 
 /**
  *  LMSetWidthPtr()
@@ -8881,8 +8855,7 @@ LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
+void LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
 
 /**
  *  LMGetWidthTabHandle()
@@ -8892,7 +8865,7 @@ LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
 
 /**
@@ -8903,8 +8876,7 @@ LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
+void LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
 
 /**
  *  LMGetLastSPExtra()
@@ -8914,7 +8886,7 @@ LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
 
 /**
@@ -8925,8 +8897,7 @@ LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
+void LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
 
 /**
  *  LMGetLastFOND()
@@ -8936,7 +8907,7 @@ LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
 
 /**
@@ -8947,8 +8918,7 @@ LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
+void LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
 
 /**
  *  LMGetFractEnable()
@@ -8958,8 +8928,7 @@ LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
-LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
+UInt8 LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
 
 /**
  *  LMSetFractEnable()
@@ -8969,8 +8938,7 @@ LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
+void LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
 
 /**
  *  LMGetTheGDevice()
@@ -8980,7 +8948,7 @@ LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
 
 /**
@@ -8991,12 +8959,11 @@ LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
+void LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
 
 #if TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #define LMGetHiliteRGB(hiliteRGBValue) (*(hiliteRGBValue) = *(RGBColor *)0x0DA0)
-#define LMSetHiliteRGB(hiliteRGBValue)                                         \
+#define LMSetHiliteRGB(hiliteRGBValue) \
   ((*(RGBColor *)0x0DA0) = *(hiliteRGBValue))
 #else
 /**
@@ -9007,8 +8974,7 @@ LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMGetHiliteRGB(RGBColor *hiliteRGBValue);
+void LMGetHiliteRGB(RGBColor *hiliteRGBValue);
 
 /**
  *  LMSetHiliteRGB()
@@ -9018,8 +8984,7 @@ LMGetHiliteRGB(RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
+void LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
 
 #endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM */
 
@@ -9031,7 +8996,7 @@ LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
 
 /**
@@ -9042,8 +9007,7 @@ LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
+void LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

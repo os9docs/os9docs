@@ -1,19 +1,19 @@
 /**
-     \file       Timer.h
+	 \file       Timer.h
 
-    \brief   Time Manager interfaces.
+	\brief   Time Manager interfaces.
 
-    \introduced_in  Mac OS 8.5
-    \avaliable_from Universal Interfaces 3.4.1
+	\introduced_in  Mac OS 8.5
+	\avaliable_from Universal Interfaces 3.4.1
 
-    \copyright � 1985-2001 by Apple Computer, Inc., all rights reserved
+	\copyright � 1985-2001 by Apple Computer, Inc., all rights reserved
 
-    \ingroup System
-    
-    For bug reports, consult the following page on
-                 the World Wide Web:
+	\ingroup System
 
-                     http://developer.apple.com/bugreporter/
+	For bug reports, consult the following page on
+				 the World Wide Web:
+
+					 http://developer.apple.com/bugreporter/
 
 */
 #ifndef __TIMER__
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,47 +52,47 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  /* high bit of qType is set if task is active */
-  kTMTaskActive = (1L << 15)
-};
+	enum
+	{
+		/* high bit of qType is set if task is active */
+		kTMTaskActive = (1L << 15)
+	};
 
-typedef struct TMTask TMTask;
-typedef TMTask *TMTaskPtr;
-typedef CALLBACK_API_REGISTER68K(void, TimerProcPtr, (TMTaskPtr tmTaskPtr));
-typedef REGISTER_UPP_TYPE(TimerProcPtr) TimerUPP;
-/**
-<pre>
- * \note <pre>The TMTask structure is used in calls to InsTime , PrimeTime , and
-RmvTime .
-Time Manager tasks are stored in a standard Operating System queue
-The qType field is undefined and apparently remains unchanged from its
-setting when you call InsTime .
-The tmAddr field is the address of the routine which will get control after
-the interval specified in a call to PrimeTime . Refer to that function for
-information on the various requirements you must follow when writing a
-Time Manager task routine.
-The tmCount field is set in the PrimeTime call and is decremented every
-millisecond (1/1000 second) thereafter, until it reaches 0-at which time
-the routine whose address is in tmAddr is called.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct TMTask  {
-	QElemPtr qLink;/**< Address of next element in the queue*/
-	short qType;/**< Queue Type (value is undocumented)*/
-	ProcPtr tmAddr;/**< Addr of routine to get control at requested*/
-	short tmCount;/**< Time in milliseconds until end of interval*/
-	long tmWakeUp;/**< */
-	long tmReserved;/**< */
-	} TMTask ;/**< */
+	typedef struct TMTask TMTask;
+	typedef TMTask *TMTaskPtr;
+	typedef CALLBACK_API_REGISTER68K(void, TimerProcPtr, (TMTaskPtr tmTaskPtr));
+	typedef REGISTER_UPP_TYPE(TimerProcPtr) TimerUPP;
+	/**
+	<pre>
+	 * \note <pre>The TMTask structure is used in calls to InsTime , PrimeTime , and
+	RmvTime .
+	Time Manager tasks are stored in a standard Operating System queue
+	The qType field is undefined and apparently remains unchanged from its
+	setting when you call InsTime .
+	The tmAddr field is the address of the routine which will get control after
+	the interval specified in a call to PrimeTime . Refer to that function for
+	information on the various requirements you must follow when writing a
+	Time Manager task routine.
+	The tmCount field is set in the PrimeTime call and is decremented every
+	millisecond (1/1000 second) thereafter, until it reaches 0-at which time
+	the routine whose address is in tmAddr is called.
+	</pre>
+	 * \copyright THINK Reference © 1991-1992 Symantec Corporation
+	*/
+	struct TMTask
+	{
+		QElemPtr qLink;	 /**< Address of next element in the queue*/
+		short qType;	 /**< Queue Type (value is undocumented)*/
+		ProcPtr tmAddr;	 /**< Addr of routine to get control at requested*/
+		short tmCount;	 /**< Time in milliseconds until end of interval*/
+		long tmWakeUp;	 /**< */
+		long tmReserved; /**< */
+	} TMTask;			 /**< */
 
+	/**
+	\brief Install timer task
 
-
-			/** 
-			\brief Install timer task 
-			
-			<pre>Trap macro _InsTime
+	<pre>Trap macro _InsTime
 On entry A0:address of TMTask record
 On exit D0:result code
 InsTime adds the Time Manager task record specified by tmTaskPtr to the
@@ -113,9 +114,9 @@ tmTaskPtr is the address of a 12-byte TMTask structure. You must set the
 tmAddr field of this structure to point to the code you wish executed
 when the alarm is triggered. Other fields are set automatically.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre> Time Manager alarms have resolution of 1ms (1/1000th of
+* \note <pre> Time Manager alarms have resolution of 1ms (1/1000th of
 a second). You may enqueue any number of these "wakeup" requests. None
 takes effect until you call PrimeTime and the specified interval elapses.
 The code of the timer task is executed at interrupt time, so it must be
@@ -129,22 +130,21 @@ memory.Note: it is OK to call PrimeTime to set up for another alarm.
 is valid.
 The latter requirement is important. At interrupt time, you cannot depend
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InsTime(__A0)
 #endif
-EXTERN_API(void)
-InsTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA058);
+	void
+	InsTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA058);
 
+	/**
+	\brief Install extended Time Manager  task
 
-			/** 
-			\brief Install extended Time Manager  task 
-			
-			<pre>Trap macro _InsXTime
+	<pre>Trap macro _InsXTime
 On entry A0:address of TMTask record
 On exit D0:result code
 InsXTime adds the Time Manager task record specified by tmTaskPtr to
@@ -159,24 +159,23 @@ The PrimeTime procedure schedules the routine specified by the tmAddr
 field of tmTaskPtr for execution after the delay specified by the count
 parameter has elapsed.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InsXTime(__A0)
 #endif
-EXTERN_API(void)
-InsXTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA458);
+	void
+	InsXTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA458);
 
+	/**
+	\brief Set interval for timer and start it ticking
 
-			/** 
-			\brief Set interval for timer and start it ticking 
-			
-			<pre>Trap macro _PrimeTime
+	<pre>Trap macro _PrimeTime
 On entry A0:address of TMTask record
 D0:specified delay time (long)
 On exit D0:result code
@@ -202,9 +201,9 @@ call to InsTime .
 msCount specifies how long, in milliseconds, to wait before calling your
 wakeup routine.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre> PrimeTime may be called more than once for any previously
+* \note <pre> PrimeTime may be called more than once for any previously
 installed Time Manager task (see InsTime ). Secondary calls override
 the previously set interval. Thus, you can use this as a "watchdog" timer to
 be called before you start some event that is prone to getting locked into a
@@ -214,22 +213,21 @@ can be called from inside your alarm handling routine in order to set a new
 interval for that routine.
 See InsTime for an example of usage.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter PrimeTime(__A0, __D0)
 #endif
-EXTERN_API(void)
-PrimeTime(QElemPtr tmTaskPtr, long count) ONEWORDINLINE(0xA05A);
+	void
+	PrimeTime(QElemPtr tmTaskPtr, long count) ONEWORDINLINE(0xA05A);
 
+	/**
+	\brief Remove task from Time Manager queue
 
-			/** 
-			\brief Remove task from Time Manager queue 
-			
-			<pre>Trap macro _RmvTime
+	<pre>Trap macro _RmvTime
 On entry A0:address of TMTask record
 On exit D0:result code
 RmvTime removes a previously installed element from the
@@ -249,18 +247,18 @@ bit of the qType field to 0.
 tmTaskPtr is the address of a 12-byte TMTask structure previously used in a
 call to InsTime .
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter RmvTime(__A0)
 #endif
-EXTERN_API(void)
-RmvTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
+	void
+	RmvTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
 
 /* InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work */
 /* just like InsTime, InsXTime, PrimeTime, and RmvTime except that they */
@@ -276,8 +274,8 @@ RmvTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InstallTimeTask(__A0)
 #endif
-EXTERN_API(OSErr)
-InstallTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA058);
+	OSErr
+	InstallTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA058);
 
 /**
  *  InstallXTimeTask()
@@ -290,8 +288,8 @@ InstallTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA058);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InstallXTimeTask(__A0)
 #endif
-EXTERN_API(OSErr)
-InstallXTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA458);
+	OSErr
+	InstallXTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA458);
 
 /**
  *  PrimeTimeTask()
@@ -304,8 +302,8 @@ InstallXTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA458);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 PrimeTimeTask(__A0, __D0)
 #endif
-EXTERN_API(OSErr)
-PrimeTimeTask(QElemPtr tmTaskPtr, long count) ONEWORDINLINE(0xA05A);
+	OSErr
+	PrimeTimeTask(QElemPtr tmTaskPtr, long count) ONEWORDINLINE(0xA05A);
 
 /**
  *  RemoveTimeTask()
@@ -318,62 +316,65 @@ PrimeTimeTask(QElemPtr tmTaskPtr, long count) ONEWORDINLINE(0xA05A);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 RemoveTimeTask(__A0)
 #endif
-EXTERN_API(OSErr)
-RemoveTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
+	OSErr
+	RemoveTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
 
-/**
- *  Microseconds()
- *
+	/**
+	 *  Microseconds()
+	 *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-Microseconds(UnsignedWide *microTickCount)
-    FOURWORDINLINE(0xA193, 0x225F, 0x22C8, 0x2280);
+	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+	 *    \carbon_lib        in CarbonLib 1.0 and later
+	 *    \mac_os_x         in version 10.0 and later
+	 */
+	void
+	Microseconds(UnsignedWide *microTickCount)
+		FOURWORDINLINE(0xA193, 0x225F, 0x22C8, 0x2280);
 
-/**
- *  NewTimerUPP()
- *
+	/**
+	 *  NewTimerUPP()
+	 *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-TimerUPP
-NewTimerUPP(TimerProcPtr userRoutine);
+	 *    \non_carbon_cfm   available as macro/inline
+	 *    \carbon_lib        in CarbonLib 1.0 and later
+	 *    \mac_os_x         in version 10.0 and later
+	 */
+	TimerUPP
+	NewTimerUPP(TimerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppTimerProcInfo = 0x0000B802
-}; /* register no_return_value Func(4_bytes:A1) */
+	enum
+	{
+		uppTimerProcInfo = 0x0000B802
+	}; /* register no_return_value Func(4_bytes:A1) */
 #ifdef __cplusplus
-inline TimerUPP NewTimerUPP(TimerProcPtr userRoutine) {
-  return (TimerUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppTimerProcInfo, GetCurrentArchitecture());
-}
+	inline TimerUPP NewTimerUPP(TimerProcPtr userRoutine)
+	{
+		return (TimerUPP)NewRoutineDescriptor(
+			(ProcPtr)(userRoutine), uppTimerProcInfo, GetCurrentArchitecture());
+	}
 #else
-#define NewTimerUPP(userRoutine)                                               \
-  (TimerUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppTimerProcInfo,    \
-                                  GetCurrentArchitecture())
+#define NewTimerUPP(userRoutine)                                              \
+	(TimerUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppTimerProcInfo, \
+									GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeTimerUPP()
- *
+	/**
+	 *  DisposeTimerUPP()
+	 *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeTimerUPP(TimerUPP userUPP);
+	 *    \non_carbon_cfm   available as macro/inline
+	 *    \carbon_lib        in CarbonLib 1.0 and later
+	 *    \mac_os_x         in version 10.0 and later
+	 */
+	void
+	DisposeTimerUPP(TimerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeTimerUPP(TimerUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+	inline void DisposeTimerUPP(TimerUPP userUPP)
+	{
+		DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+	}
 #else
 #define DisposeTimerUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
@@ -390,25 +391,26 @@ inline void DisposeTimerUPP(TimerUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeTimerUPP(__A1, __A0)
 #endif
-void
-InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP) ONEWORDINLINE(0x4E90);
-#if !OPAQUE_UPP_TYPES &&                                                       \
-    (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
+	void
+	InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP) ONEWORDINLINE(0x4E90);
+#if !OPAQUE_UPP_TYPES && \
+	(!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppTimerProcInfo, tmTaskPtr);
-}
+	inline void InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP)
+	{
+		CALL_ONE_PARAMETER_UPP(userUPP, uppTimerProcInfo, tmTaskPtr);
+	}
 #else
-#define InvokeTimerUPP(tmTaskPtr, userUPP)                                     \
-  CALL_ONE_PARAMETER_UPP((userUPP), uppTimerProcInfo, (tmTaskPtr))
+#define InvokeTimerUPP(tmTaskPtr, userUPP) \
+	CALL_ONE_PARAMETER_UPP((userUPP), uppTimerProcInfo, (tmTaskPtr))
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewTimerProc(userRoutine) NewTimerUPP(userRoutine)
-#define CallTimerProc(userRoutine, tmTaskPtr)                                  \
-  InvokeTimerUPP(tmTaskPtr, userRoutine)
+#define CallTimerProc(userRoutine, tmTaskPtr) \
+	InvokeTimerUPP(tmTaskPtr, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
 #if PRAGMA_STRUCT_ALIGN
@@ -430,4 +432,4 @@ inline void InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP) {
 #endif
 
 #endif /* __TIMER__ */
-*/*/*/*/
+* /*/*/ * /

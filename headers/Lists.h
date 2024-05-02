@@ -9,7 +9,7 @@
     \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Managers
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,289 +48,309 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef Point Cell;
-typedef Rect ListBounds;
-typedef char DataArray[32001];
-typedef char *DataPtr;
-typedef DataPtr *DataHandle;
-typedef CALLBACK_API(short, ListSearchProcPtr)(Ptr aPtr, Ptr bPtr, short aLen,
-                                               short bLen);
-typedef CALLBACK_API_REGISTER68K(Boolean, ListClickLoopProcPtr, (void));
-typedef STACK_UPP_TYPE(ListSearchProcPtr) ListSearchUPP;
-typedef REGISTER_UPP_TYPE(ListClickLoopProcPtr) ListClickLoopUPP;
+  typedef Point Cell;
+  typedef Rect ListBounds;
+  typedef char DataArray[32001];
+  typedef char *DataPtr;
+  typedef DataPtr *DataHandle;
+  typedef CALLBACK_API(short, ListSearchProcPtr)(Ptr aPtr, Ptr bPtr, short aLen,
+                                                 short bLen);
+  typedef CALLBACK_API_REGISTER68K(Boolean, ListClickLoopProcPtr, (void));
+  typedef STACK_UPP_TYPE(ListSearchProcPtr) ListSearchUPP;
+  typedef REGISTER_UPP_TYPE(ListClickLoopProcPtr) ListClickLoopUPP;
 #if !TARGET_OS_MAC
-/** QuickTime 3.0 */
-typedef long ListNotification;
-enum {
-  listNotifyNothing = FOUR_CHAR_CODE('nada'), /** No (null) notification*/
-  listNotifyClick = FOUR_CHAR_CODE('clik'),   /** Control was clicked*/
-  listNotifyDoubleClick =
-      FOUR_CHAR_CODE('dblc'),                 /** Control was double-clicked*/
-  listNotifyPreClick = FOUR_CHAR_CODE('pclk') /** Control about to be clicked*/
-};
+  /** QuickTime 3.0 */
+  typedef long ListNotification;
+  enum
+  {
+    listNotifyNothing = FOUR_CHAR_CODE('nada'), /** No (null) notification*/
+    listNotifyClick = FOUR_CHAR_CODE('clik'),   /** Control was clicked*/
+    listNotifyDoubleClick =
+        FOUR_CHAR_CODE('dblc'),                 /** Control was double-clicked*/
+    listNotifyPreClick = FOUR_CHAR_CODE('pclk') /** Control about to be clicked*/
+  };
 
 #endif /** !TARGET_OS_MAC */
 
-/**
-<pre>long
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-struct ListRec  {
-	Rect rView;/**< Display rectangle, in local coords*/
-	GrafPtr port;/**< Where list resides (usually*/
-	Point indent;/**< Horiz and vert offset for text in each*/
-	Point cellSize;/**< Width and height of each cell*/
-	Rect visible;/**< Currently-visible cells, in cell coords*/
-	ControlHandle vScroll;/**< Leads to ControlRecord  for vert scroll*/
-	ControlHandle hScroll;/**< Leads to ControlRecord  for horiz scroll*/
-	char selFlags;/**< Mouse-selection options (see Notes)*/
-	Boolean lActive;/**< TRUE when list active ( LActivate )*/
-	char lReserved;/**< (reserved, internal flags)*/
-	char listFlags;/**< Auto scroll:*/
-	long clikTime;/**< Time of last click (ticks since*/
-	Point clikLoc;/**< Location of previous click, in local*/
-	Point mouseLoc;/**< Current mouse location, in local*/
-	ProcPtr lClikLoop;/**< Addr called while mouse is down*/
-	Cell lastClick;/**< Last cell clicked (cell*/
-	long refCon;/**< Available for application use*/
-	Handle listDefProc;/**< Leads to custom LDEF code*/
-	Handle userHandle;/**< Available for app or list definition*/
-	Rect dataBounds;/**< Bounds of data cells, in cell coords*/
-	DataHandle cells;/**< Leads to cell contents (see LFind for*/
-	short maxIndex;/**< (used internally)*/
-	short cellArray[];/**< nArray of offsets to the cell data*/
-	} ListRec ;/**< +nn  is(dataBounds width*height*) bytes*/
+  /**
+  <pre>long
+  </pre>
+   * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  struct ListRec
+  {
+    Rect rView;            /**< Display rectangle, in local coords*/
+    GrafPtr port;          /**< Where list resides (usually*/
+    Point indent;          /**< Horiz and vert offset for text in each*/
+    Point cellSize;        /**< Width and height of each cell*/
+    Rect visible;          /**< Currently-visible cells, in cell coords*/
+    ControlHandle vScroll; /**< Leads to ControlRecord  for vert scroll*/
+    ControlHandle hScroll; /**< Leads to ControlRecord  for horiz scroll*/
+    char selFlags;         /**< Mouse-selection options (see Notes)*/
+    Boolean lActive;       /**< TRUE when list active ( LActivate )*/
+    char lReserved;        /**< (reserved, internal flags)*/
+    char listFlags;        /**< Auto scroll:*/
+    long clikTime;         /**< Time of last click (ticks since*/
+    Point clikLoc;         /**< Location of previous click, in local*/
+    Point mouseLoc;        /**< Current mouse location, in local*/
+    ProcPtr lClikLoop;     /**< Addr called while mouse is down*/
+    Cell lastClick;        /**< Last cell clicked (cell*/
+    long refCon;           /**< Available for application use*/
+    Handle listDefProc;    /**< Leads to custom LDEF code*/
+    Handle userHandle;     /**< Available for app or list definition*/
+    Rect dataBounds;       /**< Bounds of data cells, in cell coords*/
+    DataHandle cells;      /**< Leads to cell contents (see LFind for*/
+    short maxIndex;        /**< (used internally)*/
+    short cellArray[];     /**< nArray of offsets to the cell data*/
+  } ListRec;               /**< +nn  is(dataBounds width*height*) bytes*/
 
-typedef struct ListRec ListRec;
-typedef ListRec *ListPtr;
-typedef ListPtr *ListHandle;
-/** ListRef is obsolete.  Use ListHandle. */
-typedef ListHandle ListRef;
+  typedef struct ListRec ListRec;
+  typedef ListRec *ListPtr;
+  typedef ListPtr *ListHandle;
+  /** ListRef is obsolete.  Use ListHandle. */
+  typedef ListHandle ListRef;
 
-enum {
-  /** ListRec.listFlags bits*/
-  lDrawingModeOffBit = 3,
-  lDoVAutoscrollBit = 1,
-  lDoHAutoscrollBit = 0
-};
+  enum
+  {
+    /** ListRec.listFlags bits*/
+    lDrawingModeOffBit = 3,
+    lDoVAutoscrollBit = 1,
+    lDoHAutoscrollBit = 0
+  };
 
-enum {
-  /** ListRec.listFlags masks*/
-  lDrawingModeOff = 8,
-  lDoVAutoscroll = 2,
-  lDoHAutoscroll = 1
-};
+  enum
+  {
+    /** ListRec.listFlags masks*/
+    lDrawingModeOff = 8,
+    lDoVAutoscroll = 2,
+    lDoHAutoscroll = 1
+  };
 
-enum {
-  /** ListRec.selFlags bits*/
-  lOnlyOneBit = 7,
-  lExtendDragBit = 6,
-  lNoDisjointBit = 5,
-  lNoExtendBit = 4,
-  lNoRectBit = 3,
-  lUseSenseBit = 2,
-  lNoNilHiliteBit = 1
-};
+  enum
+  {
+    /** ListRec.selFlags bits*/
+    lOnlyOneBit = 7,
+    lExtendDragBit = 6,
+    lNoDisjointBit = 5,
+    lNoExtendBit = 4,
+    lNoRectBit = 3,
+    lUseSenseBit = 2,
+    lNoNilHiliteBit = 1
+  };
 
-enum {
-  /** ListRec.selFlags masks*/
-  lOnlyOne = -128,
-  lExtendDrag = 64,
-  lNoDisjoint = 32,
-  lNoExtend = 16,
-  lNoRect = 8,
-  lUseSense = 4,
-  lNoNilHilite = 2
-};
+  enum
+  {
+    /** ListRec.selFlags masks*/
+    lOnlyOne = -128,
+    lExtendDrag = 64,
+    lNoDisjoint = 32,
+    lNoExtend = 16,
+    lNoRect = 8,
+    lUseSense = 4,
+    lNoNilHilite = 2
+  };
 
-enum {
-  /** LDEF messages*/
-  lInitMsg = 0,
-  lDrawMsg = 1,
-  lHiliteMsg = 2,
-  lCloseMsg = 3
-};
+  enum
+  {
+    /** LDEF messages*/
+    lInitMsg = 0,
+    lDrawMsg = 1,
+    lHiliteMsg = 2,
+    lCloseMsg = 3
+  };
 
-/**
-   StandardIconListCellDataRec is the cell data format for
-   use with the standard icon list (kListDefStandardIconType).
-*/
-struct StandardIconListCellDataRec {
-  Handle iconHandle;
-  short font;
-  short face;
-  short size;
-  Str255 name;
-};
-typedef struct StandardIconListCellDataRec StandardIconListCellDataRec;
-typedef StandardIconListCellDataRec *StandardIconListCellDataPtr;
+  /**
+     StandardIconListCellDataRec is the cell data format for
+     use with the standard icon list (kListDefStandardIconType).
+  */
+  struct StandardIconListCellDataRec
+  {
+    Handle iconHandle;
+    short font;
+    short face;
+    short size;
+    Str255 name;
+  };
+  typedef struct StandardIconListCellDataRec StandardIconListCellDataRec;
+  typedef StandardIconListCellDataRec *StandardIconListCellDataPtr;
 
-typedef CALLBACK_API(void, ListDefProcPtr)(short lMessage, Boolean lSelect,
-                                           Rect *lRect, Cell lCell,
-                                           short lDataOffset, short lDataLen,
-                                           ListHandle lHandle);
-typedef STACK_UPP_TYPE(ListDefProcPtr) ListDefUPP;
-/**
- *  NewListSearchUPP()
- *
+  typedef CALLBACK_API(void, ListDefProcPtr)(short lMessage, Boolean lSelect,
+                                             Rect *lRect, Cell lCell,
+                                             short lDataOffset, short lDataLen,
+                                             ListHandle lHandle);
+  typedef STACK_UPP_TYPE(ListDefProcPtr) ListDefUPP;
+  /**
+   *  NewListSearchUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ListSearchUPP
-NewListSearchUPP(ListSearchProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ListSearchUPP
+  NewListSearchUPP(ListSearchProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppListSearchProcInfo = 0x00002BE0
-}; /** pascal 2_bytes Func(4_bytes, 4_bytes, 2_bytes, 2_bytes) */
+  enum
+  {
+    uppListSearchProcInfo = 0x00002BE0
+  }; /** pascal 2_bytes Func(4_bytes, 4_bytes, 2_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline ListSearchUPP NewListSearchUPP(ListSearchProcPtr userRoutine) {
-  return (ListSearchUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppListSearchProcInfo, GetCurrentArchitecture());
-}
+  inline ListSearchUPP NewListSearchUPP(ListSearchProcPtr userRoutine)
+  {
+    return (ListSearchUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppListSearchProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewListSearchUPP(userRoutine)                                          \
-  (ListSearchUPP) NewRoutineDescriptor(                                        \
+#define NewListSearchUPP(userRoutine)   \
+  (ListSearchUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppListSearchProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewListClickLoopUPP()
- *
+  /**
+   *  NewListClickLoopUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ListClickLoopUPP
-NewListClickLoopUPP(ListClickLoopProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ListClickLoopUPP
+  NewListClickLoopUPP(ListClickLoopProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppListClickLoopProcInfo = 0x00000012 }; /** register 1_byte:D0 Func() */
+  enum
+  {
+    uppListClickLoopProcInfo = 0x00000012
+  }; /** register 1_byte:D0 Func() */
 #ifdef __cplusplus
-inline ListClickLoopUPP NewListClickLoopUPP(ListClickLoopProcPtr userRoutine) {
-  return (ListClickLoopUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppListClickLoopProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline ListClickLoopUPP NewListClickLoopUPP(ListClickLoopProcPtr userRoutine)
+  {
+    return (ListClickLoopUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppListClickLoopProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewListClickLoopUPP(userRoutine)                                       \
-  (ListClickLoopUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppListClickLoopProcInfo,   \
+#define NewListClickLoopUPP(userRoutine)                                     \
+  (ListClickLoopUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppListClickLoopProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewListDefUPP()
- *
+  /**
+   *  NewListDefUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ListDefUPP
-NewListDefUPP(ListDefProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ListDefUPP
+  NewListDefUPP(ListDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppListDefProcInfo = 0x000EBD80
-}; /** pascal no_return_value Func(2_bytes, 1_byte, 4_bytes, 4_bytes, 2_bytes,
-      2_bytes, 4_bytes) */
+  enum
+  {
+    uppListDefProcInfo = 0x000EBD80
+  }; /** pascal no_return_value Func(2_bytes, 1_byte, 4_bytes, 4_bytes, 2_bytes,
+        2_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ListDefUPP NewListDefUPP(ListDefProcPtr userRoutine) {
-  return (ListDefUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppListDefProcInfo, GetCurrentArchitecture());
-}
+  inline ListDefUPP NewListDefUPP(ListDefProcPtr userRoutine)
+  {
+    return (ListDefUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppListDefProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewListDefUPP(userRoutine)                                             \
-  (ListDefUPP) NewRoutineDescriptor(                                           \
+#define NewListDefUPP(userRoutine)   \
+  (ListDefUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppListDefProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeListSearchUPP()
- *
+  /**
+   *  DisposeListSearchUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeListSearchUPP(ListSearchUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeListSearchUPP(ListSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeListSearchUPP(ListSearchUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeListSearchUPP(ListSearchUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeListSearchUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeListClickLoopUPP()
- *
+  /**
+   *  DisposeListClickLoopUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeListClickLoopUPP(ListClickLoopUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeListClickLoopUPP(ListClickLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeListClickLoopUPP(ListClickLoopUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeListClickLoopUPP(ListClickLoopUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeListClickLoopUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeListDefUPP()
- *
+  /**
+   *  DisposeListDefUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeListDefUPP(ListDefUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeListDefUPP(ListDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeListDefUPP(ListDefUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeListDefUPP(ListDefUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeListDefUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeListSearchUPP()
- *
+  /**
+   *  InvokeListSearchUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-short
-InvokeListSearchUPP(Ptr aPtr, Ptr bPtr, short aLen, short bLen,
-                    ListSearchUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  InvokeListSearchUPP(Ptr aPtr, Ptr bPtr, short aLen, short bLen,
+                      ListSearchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline short InvokeListSearchUPP(Ptr aPtr, Ptr bPtr, short aLen, short bLen,
-                                 ListSearchUPP userUPP) {
-  return (short)CALL_FOUR_PARAMETER_UPP(userUPP, uppListSearchProcInfo, aPtr,
-                                        bPtr, aLen, bLen);
-}
+  inline short InvokeListSearchUPP(Ptr aPtr, Ptr bPtr, short aLen, short bLen,
+                                   ListSearchUPP userUPP)
+  {
+    return (short)CALL_FOUR_PARAMETER_UPP(userUPP, uppListSearchProcInfo, aPtr,
+                                          bPtr, aLen, bLen);
+  }
 #else
-#define InvokeListSearchUPP(aPtr, bPtr, aLen, bLen, userUPP)                   \
-  (short)CALL_FOUR_PARAMETER_UPP((userUPP), uppListSearchProcInfo, (aPtr),     \
+#define InvokeListSearchUPP(aPtr, bPtr, aLen, bLen, userUPP)               \
+  (short)CALL_FOUR_PARAMETER_UPP((userUPP), uppListSearchProcInfo, (aPtr), \
                                  (bPtr), (aLen), (bLen))
 #endif
 #endif
@@ -345,45 +366,47 @@ inline short InvokeListSearchUPP(Ptr aPtr, Ptr bPtr, short aLen, short bLen,
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InvokeListClickLoopUPP(__A0)
 #endif
-Boolean
-InvokeListClickLoopUPP(ListClickLoopUPP userUPP) ONEWORDINLINE(0x4E90);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+  Boolean
+  InvokeListClickLoopUPP(ListClickLoopUPP userUPP) ONEWORDINLINE(0x4E90);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline Boolean InvokeListClickLoopUPP(ListClickLoopUPP userUPP) {
-  return (Boolean)CALL_ZERO_PARAMETER_UPP(userUPP, uppListClickLoopProcInfo);
-}
+  inline Boolean InvokeListClickLoopUPP(ListClickLoopUPP userUPP)
+  {
+    return (Boolean)CALL_ZERO_PARAMETER_UPP(userUPP, uppListClickLoopProcInfo);
+  }
 #else
-#define InvokeListClickLoopUPP(userUPP)                                        \
+#define InvokeListClickLoopUPP(userUPP) \
   (Boolean) CALL_ZERO_PARAMETER_UPP((userUPP), uppListClickLoopProcInfo)
 #endif
 #endif
 
-/**
- *  InvokeListDefUPP()
- *
+  /**
+   *  InvokeListDefUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeListDefUPP(short lMessage, Boolean lSelect, Rect *lRect, Cell lCell,
-                 short lDataOffset, short lDataLen, ListHandle lHandle,
-                 ListDefUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeListDefUPP(short lMessage, Boolean lSelect, Rect *lRect, Cell lCell,
+                   short lDataOffset, short lDataLen, ListHandle lHandle,
+                   ListDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeListDefUPP(short lMessage, Boolean lSelect, Rect *lRect,
-                             Cell lCell, short lDataOffset, short lDataLen,
-                             ListHandle lHandle, ListDefUPP userUPP) {
-  CALL_SEVEN_PARAMETER_UPP(userUPP, uppListDefProcInfo, lMessage, lSelect,
-                           lRect, lCell, lDataOffset, lDataLen, lHandle);
-}
+  inline void InvokeListDefUPP(short lMessage, Boolean lSelect, Rect *lRect,
+                               Cell lCell, short lDataOffset, short lDataLen,
+                               ListHandle lHandle, ListDefUPP userUPP)
+  {
+    CALL_SEVEN_PARAMETER_UPP(userUPP, uppListDefProcInfo, lMessage, lSelect,
+                             lRect, lCell, lDataOffset, lDataLen, lHandle);
+  }
 #else
-#define InvokeListDefUPP(lMessage, lSelect, lRect, lCell, lDataOffset,         \
-                         lDataLen, lHandle, userUPP)                           \
-  CALL_SEVEN_PARAMETER_UPP((userUPP), uppListDefProcInfo, (lMessage),          \
-                           (lSelect), (lRect), (lCell), (lDataOffset),         \
+#define InvokeListDefUPP(lMessage, lSelect, lRect, lCell, lDataOffset, \
+                         lDataLen, lHandle, userUPP)                   \
+  CALL_SEVEN_PARAMETER_UPP((userUPP), uppListDefProcInfo, (lMessage),  \
+                           (lSelect), (lRect), (lCell), (lDataOffset), \
                            (lDataLen), (lHandle))
 #endif
 #endif
@@ -393,105 +416,107 @@ inline void InvokeListDefUPP(short lMessage, Boolean lSelect, Rect *lRect,
 #define NewListSearchProc(userRoutine) NewListSearchUPP(userRoutine)
 #define NewListClickLoopProc(userRoutine) NewListClickLoopUPP(userRoutine)
 #define NewListDefProc(userRoutine) NewListDefUPP(userRoutine)
-#define CallListSearchProc(userRoutine, aPtr, bPtr, aLen, bLen)                \
+#define CallListSearchProc(userRoutine, aPtr, bPtr, aLen, bLen) \
   InvokeListSearchUPP(aPtr, bPtr, aLen, bLen, userRoutine)
 #define CallListClickLoopProc(userRoutine) InvokeListClickLoopUPP(userRoutine)
-#define CallListDefProc(userRoutine, lMessage, lSelect, lRect, lCell,          \
-                        lDataOffset, lDataLen, lHandle)                        \
-  InvokeListDefUPP(lMessage, lSelect, lRect, lCell, lDataOffset, lDataLen,     \
+#define CallListDefProc(userRoutine, lMessage, lSelect, lRect, lCell,      \
+                        lDataOffset, lDataLen, lHandle)                    \
+  InvokeListDefUPP(lMessage, lSelect, lRect, lCell, lDataOffset, lDataLen, \
                    lHandle, userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 
-enum {
-  kListDefProcPtr = 0,
-  kListDefUserProcType = kListDefProcPtr,
-  kListDefStandardTextType = 1,
-  kListDefStandardIconType = 2
-};
+  enum
+  {
+    kListDefProcPtr = 0,
+    kListDefUserProcType = kListDefProcPtr,
+    kListDefStandardTextType = 1,
+    kListDefStandardIconType = 2
+  };
 
-typedef UInt32 ListDefType;
-struct ListDefSpec {
-  ListDefType defType;
-  union {
-    ListDefUPP userProc;
-  } u;
-};
-typedef struct ListDefSpec ListDefSpec;
-typedef ListDefSpec *ListDefSpecPtr;
-/**
- *  CreateCustomList()
- *
+  typedef UInt32 ListDefType;
+  struct ListDefSpec
+  {
+    ListDefType defType;
+    union
+    {
+      ListDefUPP userProc;
+    } u;
+  };
+  typedef struct ListDefSpec ListDefSpec;
+  typedef ListDefSpec *ListDefSpecPtr;
+  /**
+   *  CreateCustomList()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-CreateCustomList(const Rect *rView, const ListBounds *dataBounds,
-                 Point cellSize, const ListDefSpec *theSpec,
-                 WindowRef theWindow, Boolean drawIt, Boolean hasGrow,
-                 Boolean scrollHoriz, Boolean scrollVert, ListHandle *outList);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  CreateCustomList(const Rect *rView, const ListBounds *dataBounds,
+                   Point cellSize, const ListDefSpec *theSpec,
+                   WindowRef theWindow, Boolean drawIt, Boolean hasGrow,
+                   Boolean scrollHoriz, Boolean scrollVert, ListHandle *outList);
 
 #if !TARGET_OS_MAC
-/** QuickTime 3.0 */
-typedef CALLBACK_API(void,
-                     ListNotificationProcPtr)(ListHandle theList,
-                                              ListNotification notification,
-                                              long param);
-typedef ListNotificationProcPtr ListNotificationUPP;
+  /** QuickTime 3.0 */
+  typedef CALLBACK_API(void,
+                       ListNotificationProcPtr)(ListHandle theList,
+                                                ListNotification notification,
+                                                long param);
+  typedef ListNotificationProcPtr ListNotificationUPP;
 #if CALL_NOT_IN_CARBON
-/**
- *  LSetNotificationCallback()
- *
+  /**
+   *  LSetNotificationCallback()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-LSetNotificationCallback(ListNotificationProcPtr callBack, ListHandle lHandle);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LSetNotificationCallback(ListNotificationProcPtr callBack, ListHandle lHandle);
 
-/**
- *  GetListVisibleBounds()
- *
+  /**
+   *  GetListVisibleBounds()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-GetListVisibleBounds(ListHandle theList, Rect *visibleBounds);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  GetListVisibleBounds(ListHandle theList, Rect *visibleBounds);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #endif /** !TARGET_OS_MAC */
 
-/**
- *  LNew()
- *
+  /**
+   *  LNew()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(ListHandle)
-LNew(const Rect *rView, const ListBounds *dataBounds, Point cSize,
-     short theProc, WindowRef theWindow, Boolean drawIt, Boolean hasGrow,
-     Boolean scrollHoriz, Boolean scrollVert)
-    THREEWORDINLINE(0x3F3C, 0x0044, 0xA9E7);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ListHandle
+  LNew(const Rect *rView, const ListBounds *dataBounds, Point cSize,
+       short theProc, WindowRef theWindow, Boolean drawIt, Boolean hasGrow,
+       Boolean scrollHoriz, Boolean scrollVert)
+      THREEWORDINLINE(0x3F3C, 0x0044, 0xA9E7);
 
+  /**
+  \brief Discard a list and release all its memory
 
-			/** 
-			\brief Discard a list and release all its memory 
-			
-			<pre>LDispose frees up all memory associated with a list. Use it only after you no
+  <pre>LDispose frees up all memory associated with a list. Use it only after you no
 longer need the list.
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre> none
+* \returns <pre> none
 </pre>
- * \note <pre>LDispose frees up the list data (the handle in ListRec.cells), the memory
+* \note <pre>LDispose frees up the list data (the handle in ListRec.cells), the memory
 associated with the scroll bar controls (if any) and the memory containing
 the ListRec itself (including the variable-length portion - the array of
 offsets to the data).
@@ -499,19 +524,18 @@ If you have allocated additional data and stored the handle in
 ListRec.userHandle or ListRec.refCon, it is your responsibility to dispose
 of this memory before calling LDispose .
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-LDispose(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0028, 0xA9E7);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  LDispose(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0028, 0xA9E7);
 
-
-			/** 
-			\brief Insert column(s) of empty cells into a list 
-			\param    count how many columns to insert
-			<pre>LAddColumn inserts one or more columns of empty cells into a list. If
+  /**
+  \brief Insert column(s) of empty cells into a list
+  \param    count how many columns to insert
+  <pre>LAddColumn inserts one or more columns of empty cells into a list. If
 drawing is on, the list display and the horizontal scroll bar (if any) are
 updated.
 countspecifies the number of columns to insert.
@@ -526,33 +550,35 @@ is returned.
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>a short; the column number of the first column inserted. When
+* \returns <pre>a short; the column number of the first column inserted. When
 inserting within the array bounds, this simply returns clmNum.
 But, if you attempt to insert beyond the current bounds, the return
 value is the current horizontal size of the list (i.e.,
 ListRec.dataBounds.right).
 </pre>
- * \note <pre>LAddColumn increases the size of the ListRec structure by ( count *
+* \note <pre>LAddColumn increases the size of the ListRec structure by ( count *
 ListRec.dataBounds.bottom) * 2 bytes. ListRec.dataBounds.right is
 increased by count.
 For instance, after:
 LAddColumn( 1,1, theList ); /* insert 1 column at column 1 */
-The list shown in the LNew example changes to look like:
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-LAddColumn(short count, short colNum, ListHandle lHandle)
-    THREEWORDINLINE(0x3F3C, 0x0004, 0xA9E7);
+  The list shown in the LNew example changes to look like : </ pre>
+                                                                * \copyright THINK Reference © 1991 -
+                                                            1992 Symantec Corporation
+                                                                *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          short
+          LAddColumn(short count, short colNum, ListHandle lHandle)
+              THREEWORDINLINE(0x3F3C, 0x0004, 0xA9E7);
 
-
-			/** 
-			\brief Insert row(s) of empty cells into a list 
-			\param    count how many rows to insert
-			<pre>LAddRow inserts one or more rows of empty cells into a list. If drawing is
+  /**
+  \brief Insert row(s) of empty cells into a list
+  \param    count how many rows to insert
+  <pre>LAddRow inserts one or more rows of empty cells into a list. If drawing is
 on, the list display and the vertical scroll bar (if any) are updated.
 countis the desired number of rows to insert.
 rowNum specifies where to start inserting rows. Rows are inserted before
@@ -565,33 +591,35 @@ list. The row where they were actually added is returned.
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>a short; the row number of the first new row inserted. When
+* \returns <pre>a short; the row number of the first new row inserted. When
 inserting within the array bounds, this simply returns rowNum.
 But, if you attempt to insert beyond the current bounds, the return
 value is the current vertical size of the list (i.e.,
 ListRec.dataBounds.bottom).
 </pre>
- * \note <pre>LAddRow increases the size of the ListRec structure by ( count *
+* \note <pre>LAddRow increases the size of the ListRec structure by ( count *
 ListRec.dataBounds.right) * 2 bytes. ListRec.dataBounds.bottom is
 increased by count.
 For instance, after:
 LAddRow( 3,2, theList ); /* insert 3 rows at row 2 */
-The list shown in the LNew example would look like:
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-LAddRow(short count, short rowNum, ListHandle lHandle)
-    THREEWORDINLINE(0x3F3C, 0x0008, 0xA9E7);
+  The list shown in the LNew example would look like : </ pre>
+                                                           * \copyright THINK Reference © 1991 -
+                                                       1992 Symantec Corporation
+                                                           *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          short
+          LAddRow(short count, short rowNum, ListHandle lHandle)
+              THREEWORDINLINE(0x3F3C, 0x0008, 0xA9E7);
 
+  /**
+  \brief Delete column(s) of cells from a list
 
-			/** 
-			\brief Delete column(s) of cells from a list 
-			
-			<pre>LDelColumn deletes one or more columns of cells from a list. If drawing is
+  <pre>LDelColumn deletes one or more columns of cells from a list. If drawing is
 on, the list display and the horizontal scroll bar (if any) are updated.
 countis the desired number of columns to delete. If count=0, all cell are
 deleted and ListRec.dataBounds.right is set to dataBounds.left.
@@ -603,31 +631,32 @@ width), then nothing happens.
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>LDelColumn decreases the size of the ListRec structure by ( count *
+* \note <pre>LDelColumn decreases the size of the ListRec structure by ( count *
 ListRec.dataBounds.bottom) * 2 bytes. ListRec.dataBounds.right is
 decreased by count.
 For instance, after:
 LDelColumn ( 1,1, theList ); /* delete column 1 */
-the list shown in the LNew example might look like:
-It is a lot faster to delete multiple columns in one call than to delete one at
-a time. Use LDispose (or set count to 0) to delete them all.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-LDelColumn(short count, short colNum, ListHandle lHandle)
-    THREEWORDINLINE(0x3F3C, 0x0020, 0xA9E7);
+  the list shown in the LNew example might look like : It is a lot faster to delete multiple columns in one call than to delete one at
+                                                           a time.Use
+                                                           LDispose(or set count to 0) to delete them all.</ pre>
+                                                               * \copyright THINK Reference © 1991 -
+          1992 Symantec Corporation
+              *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          void LDelColumn(short count, short colNum, ListHandle lHandle)
+              THREEWORDINLINE(0x3F3C, 0x0020, 0xA9E7);
 
+  /**
+  \brief Delete rows(s) of cells from a list
 
-			/** 
-			\brief Delete rows(s) of cells from a list 
-			
-			<pre>LDelRow deletes one or more rows of cells from a list. If drawing is on, the
+  <pre>LDelRow deletes one or more rows of cells from a list. If drawing is on, the
 list display and the horizontal scroll bar (if any) are updated.
 countis the desired number of rows to delete. If count=0, all cells are
 deleted and ListRec.dataBounds.bottom is set to dataBounds.top.
@@ -639,31 +668,30 @@ If rowNum > ListRec.dataBounds.bottom, then nothing happens.
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>none
+* \returns <pre>none
 </pre>
- * \note <pre>LDelRow decreases the size of the ListRec structure by ( count *
+* \note <pre>LDelRow decreases the size of the ListRec structure by ( count *
 ListRec.dataBounds.right) * 2 bytes. ListRec.dataBounds.bottom is
 decreased by count.
 For instance, after:
 LDelRow ( 4,3, theList ); /* delete 4 rows, starting at row 3 */
-The list shown in the LNew example might look like:
-It is a lot faster to delete multiple rows with one call than than to delete
-one at a time. Use LDispose (or set count to 0) to delete them all.
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-LDelRow(short count, short rowNum, ListHandle lHandle)
-    THREEWORDINLINE(0x3F3C, 0x0024, 0xA9E7);
+  The list shown in the LNew example might look like : It is a lot faster to delete multiple rows with one call than than to delete one at a time.Use LDispose(or set count to 0) to delete them all.</ pre>
+                                                           * \copyright THINK Reference © 1991 -
+          1992 Symantec Corporation
+              *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          void LDelRow(short count, short rowNum, ListHandle lHandle)
+              THREEWORDINLINE(0x3F3C, 0x0024, 0xA9E7);
 
+  /**
+  \brief Query if a cell is selected; get next selected cell
 
-			/** 
-			\brief Query if a cell is selected; get next selected cell 
-			
-			<pre>LGetSelect performs two different operations. It can query to see if a
+  <pre>LGetSelect performs two different operations. It can query to see if a
 specific cell is currently selected OR it can check cells until it finds one that
 is selected.
 advanceIt is a Boolean specifying which operation to perform. It is one of:
@@ -680,7 +708,7 @@ coordinates of the selected cell (if the return value is TRUE).
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>a Boolean identifying whether theCell is selected (if
+* \returns <pre>a Boolean identifying whether theCell is selected (if
 advance=FALSE) OR whether the search for a selected cell
 succeeded. It is one of:
 FALSEtheCell is NOT currently selected OR none of the cells to the
@@ -689,7 +717,7 @@ TRUEtheCell IS currently selected OR another selected cell was
 found by scanning the list (its coordinates have been stored in
 theCell ).
 </pre>
- * \note <pre>LGetSelect is designed for locating selected (highlighted) cells in a list.
+* \note <pre>LGetSelect is designed for locating selected (highlighted) cells in a list.
 You might use it after LLastClick to verify that a certain cell is currently
 selected, but it is most often used to search for selected cells.
 If advanceIt  is TRUE, the search starts at theCell and proceeds from left to
@@ -699,49 +727,47 @@ Note that in searching for all selections in a list, you will need to advance
 theCell after a selection is found.  For example:
 CelltheCell;
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-LGetSelect(Boolean next, Cell *theCell, ListHandle lHandle)
-    THREEWORDINLINE(0x3F3C, 0x003C, 0xA9E7);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Boolean
+  LGetSelect(Boolean next, Cell *theCell, ListHandle lHandle)
+      THREEWORDINLINE(0x3F3C, 0x003C, 0xA9E7);
 
+  /**
+  \brief Query which cell was clicked last
 
-			/** 
-			\brief Query which cell was clicked last 
-			
-			<pre>Use LLastClick after calling LClick. It returns the list coordinates of the
+  <pre>Use LLastClick after calling LClick. It returns the list coordinates of the
 cell most recently clicked.
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>either a 32-bit long integer, or a Cell, depending on your
+* \returns <pre>either a 32-bit long integer, or a Cell, depending on your
 programming environment. The low word is the horizontal index and
 the high word is the vertical index of the most recently clicked cell.
 </pre>
- * \note <pre>LLastClick returns the same value as that stored in the lastClick field of
+* \note <pre>LLastClick returns the same value as that stored in the lastClick field of
 the ListRec.
 Note that this does NOT necessarily identify the last cell selected or a cell
 in which a double-click occurred. It is simply the last cell in which a
 mouseDown occurred. However, if called directly after a call to LClick
 that returns TRUE, it does return the cell that was double clicked.
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Cell)
-LLastClick(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0040, 0xA9E7);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Cell
+  LLastClick(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0040, 0xA9E7);
 
-
-			/** 
-			\brief Query which cell is next in a list 
-			\param    hNext look horizontally (toward the right)?
-	\param    vNext look vertically (toward the bottom)?
-			<pre>LNextCell advances from one cell position to the next. You can advance
+  /**
+  \brief Query which cell is next in a list
+  \param    hNext look horizontally (toward the right)?
+\param    vNext look vertically (toward the bottom)?
+  <pre>LNextCell advances from one cell position to the next. You can advance
 horizontally only (across a row), vertically only (down a column), or both
 (horizontally until at the end of a row and wrapping from row to row).
 hNextand . . .
@@ -762,13 +788,13 @@ undefined upon exit.
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>a Boolean identifying whether a valid 'next' cell was obtained. It is
+* \returns <pre>a Boolean identifying whether a valid 'next' cell was obtained. It is
 one of:
 FALSENo more cells - either at the end of a row, column, or list. The
 value of theCell is now undefined.
 TRUEA valid 'next' cell was found, its coordinates are in theCell.
 </pre>
- * \note <pre>You can use LNextCell in place of a set of nested loops. For instance, you
+* \note <pre>You can use LNextCell in place of a set of nested loops. For instance, you
 could use it to loop through and deselect all cells (a function NOT provided
 by the List Manager). Another example: given a mouse location in local
 coordinates, you could determine which cell was currently pointed to via:
@@ -777,21 +803,23 @@ Rect cellRect;
 Point mousePt;
 Boolean found;
 found = FALSE; theCell. h=theCell. v=0; /* start at top left */
-</pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-LNextCell(Boolean hNext, Boolean vNext, Cell *theCell, ListHandle lHandle)
-    THREEWORDINLINE(0x3F3C, 0x0048, 0xA9E7);
+  </ pre>
+              * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+                                                        *    \non_carbon_cfm in InterfaceLib 7.1 and
+      later
+          *    \carbon_lib in CarbonLib 1.0 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later
+              * /
+          Boolean
+          LNextCell(Boolean hNext, Boolean vNext, Cell *theCell, ListHandle lHandle)
+              THREEWORDINLINE(0x3F3C, 0x0048, 0xA9E7);
 
-
-			/** 
-			\brief Search cells for a match with specific data 
-			\param    dataPtr address of data to match
-			<pre>LSearch examines the contents of cells in a list, attempting to find a cell
+  /**
+  \brief Search cells for a match with specific data
+  \param    dataPtr address of data to match
+  <pre>LSearch examines the contents of cells in a list, attempting to find a cell
 containing specified data.
 dataPtris the address of some data to match. Unless you have written a
 custom 'LDEF', this is the address of some text.
@@ -806,11 +834,11 @@ in which a match was found (if the returned value is TRUE).
 theListis a handle leading to a variable-length ListRec structure. It is a
 value previously obtained via LNew.
 </pre>
- * \returns <pre>a Boolean. It is one of:
+* \returns <pre>a Boolean. It is one of:
 FALSEMatch not found.
 TRUEA match was found.
 </pre>
- * \note <pre>The list is searched in row-major order, starting at theCell and advancing
+* \note <pre>The list is searched in row-major order, starting at theCell and advancing
 left-to-right and top-to-bottom as with LNextCell (TRUE,TRUE,...).
 You can use LSearch as a lookup routine to locate a cell if you happen to
 know its contents. In this respect, the List Manager can be used in simple
@@ -819,8 +847,8 @@ LSetSelect and LAutoScroll in order to pre-select a default (e.g.,
 highlight the current font in a font-selection list).
 SetPt( &theCell, 0,0 ); /* search from top of list */
 if ( LSearch ( "Geneva", 6, NIL, &theCell, theList ) {
-LSetSelect ( TRUE, theCell, theList );
-LAutoScroll ( theList );
+    LSetSelect(TRUE, theCell, theList);
+    LAutoScroll(theList);
 }
 Callback Comparison Function
 By default, LSearch uses IUMagIDString as the comparison function (a
@@ -830,7 +858,7 @@ By default, LSearch uses IUMagIDString as the comparison function (a
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 LSearch(const void *dataPtr, short dataLen, ListSearchUPP searchProc,
         Cell *theCell, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0054, 0xA9E7);
@@ -871,7 +899,7 @@ DrawGrowIcon ( listWindow );
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LSize(short listWidth, short listHeight, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0060, 0xA9E7);
 
@@ -883,7 +911,7 @@ LSize(short listWidth, short listHeight, ListHandle lHandle)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LSetDrawingMode(Boolean drawIt, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x002C, 0xA9E7);
 
@@ -933,7 +961,7 @@ the top of the list by scrolling up and left by 1000. The scroll will actually
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LScroll(short dCols, short dRows, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0050, 0xA9E7);
 
@@ -964,7 +992,7 @@ See LSetSelect for an example of usage.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LAutoScroll(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0010, 0xA9E7);
 
 
@@ -992,14 +1020,16 @@ LUpdate to force the List Manager to redraw the parts of the list that need
 updating. For instance:
 WindowPtr listWindow; /* assumed to be created */
 if(WaitNextEvent (everyEvent , &theEvent, 0, nil)) {/* in event loop */
-if ( theEvent. what == updateEvt ) {
-if ( theEvent. message == (long)listWindow ) {
-BeginUpdate ( listWindow );
-LUpdate ( listWindow->visRgn, theList );
-DrawGrowIcon ( listWindow ); /* if needed */
-EndUpdate ( listWindow )
-}
-}
+    if (theEvent.what == updateEvt)
+    {
+      if (theEvent.message == (long)listWindow)
+      {
+        BeginUpdate(listWindow);
+        LUpdate(listWindow->visRgn, theList);
+        DrawGrowIcon(listWindow); /* if needed */
+        EndUpdate(listWindow)
+      }
+    }
 }
 Update events are generated when you call InvalRect for a portion of the
 list window or when another window gets moved, uncovering all or a
@@ -1013,7 +1043,7 @@ its window's WindowRecord .refCon field; that way, you can use
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LUpdate(RgnHandle theRgn, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0064, 0xA9E7);
 
@@ -1060,7 +1090,7 @@ entirely.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LActivate(Boolean act, ListHandle lHandle) TWOWORDINLINE(0x4267, 0xA9E7);
 
 
@@ -1099,7 +1129,7 @@ LUpdate ( listWindow->visRgn, theList ); /*force update (in evt loop)*/
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LCellSize(Point cSize, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0014, 0xA9E7);
 
@@ -1148,7 +1178,7 @@ Here's a skeletal example:
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 LClick(Point pt, EventModifiers modifiers, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0018, 0xA9E7);
 
@@ -1177,7 +1207,7 @@ rectangle or drawing is off (see LDoDraw ).
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LAddToCell(const void *dataPtr, short dataLen, Cell theCell, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x000C, 0xA9E7);
 
@@ -1203,7 +1233,7 @@ collection).
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LClrCell(Cell theCell, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x001C, 0xA9E7);
 
@@ -1238,7 +1268,7 @@ See LNew for an example usage of LGetCell .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LGetCell(void *dataPtr, short *dataLen, Cell theCell, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0038, 0xA9E7);
 
@@ -1275,7 +1305,7 @@ ListRec.dataBounds), cellRect gets set to the empty rectangle (0,0)(0,0).
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LRect(Rect *cellRect, Cell theCell, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x004C, 0xA9E7);
 
@@ -1308,7 +1338,7 @@ See LNew for an example usage of LSetCell .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LSetCell(const void *dataPtr, short dataLen, Cell theCell, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0058, 0xA9E7);
 
@@ -1343,8 +1373,8 @@ chartheChar; /* a keyboard character */
 CelltheCell;
 pascal Boolean cmp1stChar(); /* custom comparison function */
 if ( LSearch ( &theChar, 1, cmp1stChar, &theCell, theList ) ){
-LSetSelect ( TRUE, theCell, theList );
-LAutoScroll ( theList ); /* make sure selection is visible */
+    LSetSelect(TRUE, theCell, theList);
+    LAutoScroll(theList); /* make sure selection is visible */
 }
 See LSearch for an example of how to make a first-character search
 routine, similar to that used by Standard File.
@@ -1355,7 +1385,7 @@ Another use for LSetSelect might be to make a double-clicked selection
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LSetSelect(Boolean setIt, Cell theCell, ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x005C, 0xA9E7);
 
@@ -1403,7 +1433,7 @@ LDraw( theCell, theList ); /* force cell to be redrawn */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LDraw(Cell theCell, ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0030, 0xA9E7);
 
 /**
@@ -1414,7 +1444,7 @@ LDraw(Cell theCell, ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0030, 0xA9E7);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LGetCellDataLocation(short *offset, short *len, Cell theCell,
                      ListHandle lHandle)
     THREEWORDINLINE(0x3F3C, 0x0034, 0xA9E7);
@@ -1452,7 +1482,7 @@ LGetCellDataLocation(short *offset, short *len, Cell theCell,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RegisterListDefinition(SInt16 inResID, ListDefSpecPtr inDefSpec);
 
 #if CALL_NOT_IN_CARBON
@@ -1465,7 +1495,7 @@ RegisterListDefinition(SInt16 inResID, ListDefSpecPtr inDefSpec);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSErr)
+OSErr
 SetListDefinitionProc(SInt16 resID, ListDefUPP defProc);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -1622,10 +1652,10 @@ lcellsize(Point *cSize, ListHandle lHandle);
 
 #if OLDROUTINENAMES
 #define LDoDraw(drawIt, lHandle) LSetDrawingMode(drawIt, lHandle)
-#define LFind(offset, len, theCell, lHandle)                                   \
+#define LFind(offset, len, theCell, lHandle) \
   LGetCellDataLocation(offset, len, theCell, lHandle)
 #if CGLUESUPPORTED
-#define lfind(offset, len, theCell, lHandle)                                   \
+#define lfind(offset, len, theCell, lHandle) \
   lgetcelldatalocation(offset, len, theCell, lHandle)
 #endif
 #endif /** OLDROUTINENAMES */
@@ -1640,7 +1670,7 @@ lcellsize(Point *cSize, ListHandle lHandle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetListViewBounds(ListRef list, Rect *view);
 
 /**
@@ -1651,7 +1681,7 @@ GetListViewBounds(ListRef list, Rect *view);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CGrafPtr)
+CGrafPtr
 GetListPort(ListRef list);
 
 /**
@@ -1662,7 +1692,7 @@ GetListPort(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetListCellIndent(ListRef list, Point *indent);
 
 /**
@@ -1673,7 +1703,7 @@ GetListCellIndent(ListRef list, Point *indent);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetListCellSize(ListRef list, Point *size);
 
 /**
@@ -1684,7 +1714,7 @@ GetListCellSize(ListRef list, Point *size);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ListBounds *)
+ListBounds *
 GetListVisibleCells(ListRef list, ListBounds *visible);
 
 /**
@@ -1695,7 +1725,7 @@ GetListVisibleCells(ListRef list, ListBounds *visible);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlRef)
+ControlRef
 GetListVerticalScrollBar(ListRef list);
 
 /**
@@ -1706,7 +1736,7 @@ GetListVerticalScrollBar(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ControlRef)
+ControlRef
 GetListHorizontalScrollBar(ListRef list);
 
 /**
@@ -1717,7 +1747,7 @@ GetListHorizontalScrollBar(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 GetListActive(ListRef list);
 
 /**
@@ -1728,7 +1758,7 @@ GetListActive(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetListClickTime(ListRef list);
 
 /**
@@ -1739,7 +1769,7 @@ GetListClickTime(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetListClickLocation(ListRef list, Point *click);
 
 /**
@@ -1750,7 +1780,7 @@ GetListClickLocation(ListRef list, Point *click);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetListMouseLocation(ListRef list, Point *mouse);
 
 /**
@@ -1761,7 +1791,7 @@ GetListMouseLocation(ListRef list, Point *mouse);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ListClickLoopUPP)
+ListClickLoopUPP
 GetListClickLoop(ListRef list);
 
 /**
@@ -1772,7 +1802,7 @@ GetListClickLoop(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetListRefCon(ListRef list);
 
 /**
@@ -1783,7 +1813,7 @@ GetListRefCon(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 GetListDefinition(ListRef list);
 
 /**
@@ -1794,7 +1824,7 @@ GetListDefinition(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 GetListUserHandle(ListRef list);
 
 /**
@@ -1805,7 +1835,7 @@ GetListUserHandle(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(ListBounds *)
+ListBounds *
 GetListDataBounds(ListRef list, ListBounds *bounds);
 
 /**
@@ -1816,7 +1846,7 @@ GetListDataBounds(ListRef list, ListBounds *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(DataHandle)
+DataHandle
 GetListDataHandle(ListRef list);
 
 /**
@@ -1827,7 +1857,7 @@ GetListDataHandle(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OptionBits)
+OptionBits
 GetListFlags(ListRef list);
 
 /**
@@ -1838,7 +1868,7 @@ GetListFlags(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OptionBits)
+OptionBits
 GetListSelectionFlags(ListRef list);
 
 /** Setters */
@@ -1850,7 +1880,7 @@ GetListSelectionFlags(ListRef list);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListViewBounds(ListRef list, const Rect *view);
 
 /**
@@ -1861,7 +1891,7 @@ SetListViewBounds(ListRef list, const Rect *view);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListPort(ListRef list, CGrafPtr port);
 
 /**
@@ -1872,7 +1902,7 @@ SetListPort(ListRef list, CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListCellIndent(ListRef list, Point *indent);
 
 /**
@@ -1883,7 +1913,7 @@ SetListCellIndent(ListRef list, Point *indent);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListClickTime(ListRef list, SInt32 time);
 
 /**
@@ -1894,7 +1924,7 @@ SetListClickTime(ListRef list, SInt32 time);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListClickLoop(ListRef list, ListClickLoopUPP clickLoop);
 
 /**
@@ -1905,7 +1935,7 @@ SetListClickLoop(ListRef list, ListClickLoopUPP clickLoop);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListLastClick(ListRef list, Cell *lastClick);
 
 /**
@@ -1916,7 +1946,7 @@ SetListLastClick(ListRef list, Cell *lastClick);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListRefCon(ListRef list, SInt32 refCon);
 
 /**
@@ -1927,7 +1957,7 @@ SetListRefCon(ListRef list, SInt32 refCon);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListUserHandle(ListRef list, Handle userHandle);
 
 /**
@@ -1938,7 +1968,7 @@ SetListUserHandle(ListRef list, Handle userHandle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListFlags(ListRef list, OptionBits listFlags);
 
 /**
@@ -1949,7 +1979,7 @@ SetListFlags(ListRef list, OptionBits listFlags);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetListSelectionFlags(ListRef list, OptionBits selectionFlags);
 
 #endif /** ACCESSOR_CALLS_ARE_FUNCTIONS */
@@ -1972,16 +2002,16 @@ SetListSelectionFlags(ListRef list, OptionBits selectionFlags);
 }
 #endif
 
-#endif /** __LISTS__ */
-*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/A_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
+#endif                                                    /** __LISTS__ */
+* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/A_IMPORT_OFF
+               #pragma import off
+               #elif PRAGMA_IMPORT
+               #pragma import reset
+               #endif
 
-#ifdef __cplusplus
-}
-#endif
+               #ifdef __cplusplus
+               }
+               #endif
 
-#endif /** __LISTS__ */
-*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+               #endif /** __LISTS__ */
+    * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ */*/

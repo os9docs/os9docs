@@ -9,7 +9,7 @@
     \copyright © 1991-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup System
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,551 +52,586 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* Thread states*/
-typedef UInt16 ThreadState;
-enum {
-  kReadyThreadState = 0,
-  kStoppedThreadState = 1,
-  kRunningThreadState = 2
-};
+  /* Thread states*/
+  typedef UInt16 ThreadState;
+  enum
+  {
+    kReadyThreadState = 0,
+    kStoppedThreadState = 1,
+    kRunningThreadState = 2
+  };
 
-/* Error codes have been moved to Errors.(pah)*/
+  /* Error codes have been moved to Errors.(pah)*/
 
-/* Thread environment characteristics*/
-typedef void *ThreadTaskRef;
-/* Thread characteristics*/
-typedef UInt32 ThreadStyle;
-enum { kCooperativeThread = 1L << 0, kPreemptiveThread = 1L << 1 };
+  /* Thread environment characteristics*/
+  typedef void *ThreadTaskRef;
+  /* Thread characteristics*/
+  typedef UInt32 ThreadStyle;
+  enum
+  {
+    kCooperativeThread = 1L << 0,
+    kPreemptiveThread = 1L << 1
+  };
 
-/* Thread identifiers*/
-typedef UInt32 ThreadID;
-enum { kNoThreadID = 0, kCurrentThreadID = 1, kApplicationThreadID = 2 };
+  /* Thread identifiers*/
+  typedef UInt32 ThreadID;
+  enum
+  {
+    kNoThreadID = 0,
+    kCurrentThreadID = 1,
+    kApplicationThreadID = 2
+  };
 
-/* Options when creating a thread*/
-typedef UInt32 ThreadOptions;
-enum {
-  kNewSuspend = (1 << 0),
-  kUsePremadeThread = (1 << 1),
-  kCreateIfNeeded = (1 << 2),
-  kFPUNotNeeded = (1 << 3),
-  kExactMatchThread = (1 << 4)
-};
+  /* Options when creating a thread*/
+  typedef UInt32 ThreadOptions;
+  enum
+  {
+    kNewSuspend = (1 << 0),
+    kUsePremadeThread = (1 << 1),
+    kCreateIfNeeded = (1 << 2),
+    kFPUNotNeeded = (1 << 3),
+    kExactMatchThread = (1 << 4)
+  };
 
-/* Information supplied to the custom scheduler*/
-struct SchedulerInfoRec {
-  UInt32 InfoRecSize;
-  ThreadID CurrentThreadID;
-  ThreadID SuggestedThreadID;
-  ThreadID InterruptedCoopThreadID;
-};
-typedef struct SchedulerInfoRec SchedulerInfoRec;
-typedef SchedulerInfoRec *SchedulerInfoRecPtr;
+  /* Information supplied to the custom scheduler*/
+  struct SchedulerInfoRec
+  {
+    UInt32 InfoRecSize;
+    ThreadID CurrentThreadID;
+    ThreadID SuggestedThreadID;
+    ThreadID InterruptedCoopThreadID;
+  };
+  typedef struct SchedulerInfoRec SchedulerInfoRec;
+  typedef SchedulerInfoRec *SchedulerInfoRecPtr;
 
-/**
-    The following ProcPtrs cannot be interchanged with UniversalProcPtrs because
-    of differences between 680x0 and PowerPC runtime architectures with regard
-   to the implementation of the Thread Manager.
- */
-typedef void *voidPtr;
-/* Prototype for thread's entry (main) routine*/
-typedef CALLBACK_API(voidPtr, ThreadEntryProcPtr)(void *threadParam);
-/* Prototype for custom thread scheduler routine*/
-typedef CALLBACK_API(ThreadID,
-                     ThreadSchedulerProcPtr)(SchedulerInfoRecPtr schedulerInfo);
-/* Prototype for custom thread switcher routine*/
-typedef CALLBACK_API(void, ThreadSwitchProcPtr)(ThreadID threadBeingSwitched,
-                                                void *switchProcParam);
-/* Prototype for thread termination notification routine*/
-typedef CALLBACK_API(void,
-                     ThreadTerminationProcPtr)(ThreadID threadTerminated,
-                                               void *terminationProcParam);
-/* Prototype for debugger NewThread notification*/
-typedef CALLBACK_API(void, DebuggerNewThreadProcPtr)(ThreadID threadCreated);
-/* Prototype for debugger DisposeThread notification*/
-typedef CALLBACK_API(void,
-                     DebuggerDisposeThreadProcPtr)(ThreadID threadDeleted);
-/* Prototype for debugger schedule notification*/
-typedef CALLBACK_API(ThreadID, DebuggerThreadSchedulerProcPtr)(
-    SchedulerInfoRecPtr schedulerInfo);
-typedef TVECTOR_UPP_TYPE(ThreadEntryProcPtr) ThreadEntryUPP;
-typedef TVECTOR_UPP_TYPE(ThreadSchedulerProcPtr) ThreadSchedulerUPP;
-typedef TVECTOR_UPP_TYPE(ThreadSwitchProcPtr) ThreadSwitchUPP;
-typedef TVECTOR_UPP_TYPE(ThreadTerminationProcPtr) ThreadTerminationUPP;
-typedef TVECTOR_UPP_TYPE(DebuggerNewThreadProcPtr) DebuggerNewThreadUPP;
-typedef TVECTOR_UPP_TYPE(DebuggerDisposeThreadProcPtr) DebuggerDisposeThreadUPP;
-typedef TVECTOR_UPP_TYPE(DebuggerThreadSchedulerProcPtr)
-    DebuggerThreadSchedulerUPP;
-/**
- *  NewThreadEntryUPP()
- *
+  /**
+      The following ProcPtrs cannot be interchanged with UniversalProcPtrs because
+      of differences between 680x0 and PowerPC runtime architectures with regard
+     to the implementation of the Thread Manager.
+   */
+  typedef void *voidPtr;
+  /* Prototype for thread's entry (main) routine*/
+  typedef CALLBACK_API(voidPtr, ThreadEntryProcPtr)(void *threadParam);
+  /* Prototype for custom thread scheduler routine*/
+  typedef CALLBACK_API(ThreadID,
+                       ThreadSchedulerProcPtr)(SchedulerInfoRecPtr schedulerInfo);
+  /* Prototype for custom thread switcher routine*/
+  typedef CALLBACK_API(void, ThreadSwitchProcPtr)(ThreadID threadBeingSwitched,
+                                                  void *switchProcParam);
+  /* Prototype for thread termination notification routine*/
+  typedef CALLBACK_API(void,
+                       ThreadTerminationProcPtr)(ThreadID threadTerminated,
+                                                 void *terminationProcParam);
+  /* Prototype for debugger NewThread notification*/
+  typedef CALLBACK_API(void, DebuggerNewThreadProcPtr)(ThreadID threadCreated);
+  /* Prototype for debugger DisposeThread notification*/
+  typedef CALLBACK_API(void,
+                       DebuggerDisposeThreadProcPtr)(ThreadID threadDeleted);
+  /* Prototype for debugger schedule notification*/
+  typedef CALLBACK_API(ThreadID, DebuggerThreadSchedulerProcPtr)(
+      SchedulerInfoRecPtr schedulerInfo);
+  typedef TVECTOR_UPP_TYPE(ThreadEntryProcPtr) ThreadEntryUPP;
+  typedef TVECTOR_UPP_TYPE(ThreadSchedulerProcPtr) ThreadSchedulerUPP;
+  typedef TVECTOR_UPP_TYPE(ThreadSwitchProcPtr) ThreadSwitchUPP;
+  typedef TVECTOR_UPP_TYPE(ThreadTerminationProcPtr) ThreadTerminationUPP;
+  typedef TVECTOR_UPP_TYPE(DebuggerNewThreadProcPtr) DebuggerNewThreadUPP;
+  typedef TVECTOR_UPP_TYPE(DebuggerDisposeThreadProcPtr) DebuggerDisposeThreadUPP;
+  typedef TVECTOR_UPP_TYPE(DebuggerThreadSchedulerProcPtr)
+      DebuggerThreadSchedulerUPP;
+  /**
+   *  NewThreadEntryUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ThreadEntryUPP
-NewThreadEntryUPP(ThreadEntryProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ThreadEntryUPP
+  NewThreadEntryUPP(ThreadEntryProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppThreadEntryProcInfo = 0x000000F0 }; /* pascal 4_bytes Func(4_bytes) */
+  enum
+  {
+    uppThreadEntryProcInfo = 0x000000F0
+  }; /* pascal 4_bytes Func(4_bytes) */
 #ifdef __cplusplus
-inline ThreadEntryUPP NewThreadEntryUPP(ThreadEntryProcPtr userRoutine) {
-  return userRoutine;
-}
+  inline ThreadEntryUPP NewThreadEntryUPP(ThreadEntryProcPtr userRoutine)
+  {
+    return userRoutine;
+  }
 #else
 #define NewThreadEntryUPP(userRoutine) (userRoutine)
 #endif
 #endif
 
-/**
- *  NewThreadSchedulerUPP()
- *
+  /**
+   *  NewThreadSchedulerUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ThreadSchedulerUPP
-NewThreadSchedulerUPP(ThreadSchedulerProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ThreadSchedulerUPP
+  NewThreadSchedulerUPP(ThreadSchedulerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppThreadSchedulerProcInfo = 0x000000F0
-}; /* pascal 4_bytes Func(4_bytes) */
+  enum
+  {
+    uppThreadSchedulerProcInfo = 0x000000F0
+  }; /* pascal 4_bytes Func(4_bytes) */
 #ifdef __cplusplus
-inline ThreadSchedulerUPP
-NewThreadSchedulerUPP(ThreadSchedulerProcPtr userRoutine) {
-  return userRoutine;
-}
+  inline ThreadSchedulerUPP
+  NewThreadSchedulerUPP(ThreadSchedulerProcPtr userRoutine)
+  {
+    return userRoutine;
+  }
 #else
 #define NewThreadSchedulerUPP(userRoutine) (userRoutine)
 #endif
 #endif
 
-/**
- *  NewThreadSwitchUPP()
- *
+  /**
+   *  NewThreadSwitchUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ThreadSwitchUPP
-NewThreadSwitchUPP(ThreadSwitchProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ThreadSwitchUPP
+  NewThreadSwitchUPP(ThreadSwitchProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppThreadSwitchProcInfo = 0x000003C0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes) */
+  enum
+  {
+    uppThreadSwitchProcInfo = 0x000003C0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ThreadSwitchUPP NewThreadSwitchUPP(ThreadSwitchProcPtr userRoutine) {
-  return userRoutine;
-}
+  inline ThreadSwitchUPP NewThreadSwitchUPP(ThreadSwitchProcPtr userRoutine)
+  {
+    return userRoutine;
+  }
 #else
 #define NewThreadSwitchUPP(userRoutine) (userRoutine)
 #endif
 #endif
 
-/**
- *  NewThreadTerminationUPP()
- *
+  /**
+   *  NewThreadTerminationUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ThreadTerminationUPP
-NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ThreadTerminationUPP
+  NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppThreadTerminationProcInfo = 0x000003C0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes) */
+  enum
+  {
+    uppThreadTerminationProcInfo = 0x000003C0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline ThreadTerminationUPP
-NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine) {
-  return userRoutine;
-}
+  inline ThreadTerminationUPP
+  NewThreadTerminationUPP(ThreadTerminationProcPtr userRoutine)
+  {
+    return userRoutine;
+  }
 #else
 #define NewThreadTerminationUPP(userRoutine) (userRoutine)
 #endif
 #endif
 
-/**
- *  NewDebuggerNewThreadUPP()
- *
+  /**
+   *  NewDebuggerNewThreadUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-DebuggerNewThreadUPP
-NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  DebuggerNewThreadUPP
+  NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppDebuggerNewThreadProcInfo = 0x000000C0
-}; /* pascal no_return_value Func(4_bytes) */
+  enum
+  {
+    uppDebuggerNewThreadProcInfo = 0x000000C0
+  }; /* pascal no_return_value Func(4_bytes) */
 #ifdef __cplusplus
-inline DebuggerNewThreadUPP
-NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine) {
-  return userRoutine;
-}
+  inline DebuggerNewThreadUPP
+  NewDebuggerNewThreadUPP(DebuggerNewThreadProcPtr userRoutine)
+  {
+    return userRoutine;
+  }
 #else
 #define NewDebuggerNewThreadUPP(userRoutine) (userRoutine)
 #endif
 #endif
 
-/**
- *  NewDebuggerDisposeThreadUPP()
- *
+  /**
+   *  NewDebuggerDisposeThreadUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-DebuggerDisposeThreadUPP
-NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  DebuggerDisposeThreadUPP
+  NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppDebuggerDisposeThreadProcInfo = 0x000000C0
-}; /* pascal no_return_value Func(4_bytes) */
+  enum
+  {
+    uppDebuggerDisposeThreadProcInfo = 0x000000C0
+  }; /* pascal no_return_value Func(4_bytes) */
 #ifdef __cplusplus
-inline DebuggerDisposeThreadUPP
-NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine) {
-  return userRoutine;
-}
+  inline DebuggerDisposeThreadUPP
+  NewDebuggerDisposeThreadUPP(DebuggerDisposeThreadProcPtr userRoutine)
+  {
+    return userRoutine;
+  }
 #else
 #define NewDebuggerDisposeThreadUPP(userRoutine) (userRoutine)
 #endif
 #endif
 
-/**
- *  NewDebuggerThreadSchedulerUPP()
- *
+  /**
+   *  NewDebuggerThreadSchedulerUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-DebuggerThreadSchedulerUPP
-NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  DebuggerThreadSchedulerUPP
+  NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppDebuggerThreadSchedulerProcInfo = 0x000000F0
-}; /* pascal 4_bytes Func(4_bytes) */
+  enum
+  {
+    uppDebuggerThreadSchedulerProcInfo = 0x000000F0
+  }; /* pascal 4_bytes Func(4_bytes) */
 #ifdef __cplusplus
-inline DebuggerThreadSchedulerUPP
-NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine) {
-  return userRoutine;
-}
+  inline DebuggerThreadSchedulerUPP
+  NewDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerProcPtr userRoutine)
+  {
+    return userRoutine;
+  }
 #else
 #define NewDebuggerThreadSchedulerUPP(userRoutine) (userRoutine)
 #endif
 #endif
 
-/**
- *  DisposeThreadEntryUPP()
- *
+  /**
+   *  DisposeThreadEntryUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeThreadEntryUPP(ThreadEntryUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeThreadEntryUPP(ThreadEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeThreadEntryUPP(ThreadEntryUPP) {}
+  inline void DisposeThreadEntryUPP(ThreadEntryUPP) {}
 #else
 #define DisposeThreadEntryUPP(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeThreadSchedulerUPP()
- *
+  /**
+   *  DisposeThreadSchedulerUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeThreadSchedulerUPP(ThreadSchedulerUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeThreadSchedulerUPP(ThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeThreadSchedulerUPP(ThreadSchedulerUPP) {}
+  inline void DisposeThreadSchedulerUPP(ThreadSchedulerUPP) {}
 #else
 #define DisposeThreadSchedulerUPP(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeThreadSwitchUPP()
- *
+  /**
+   *  DisposeThreadSwitchUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeThreadSwitchUPP(ThreadSwitchUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeThreadSwitchUPP(ThreadSwitchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeThreadSwitchUPP(ThreadSwitchUPP) {}
+  inline void DisposeThreadSwitchUPP(ThreadSwitchUPP) {}
 #else
 #define DisposeThreadSwitchUPP(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeThreadTerminationUPP()
- *
+  /**
+   *  DisposeThreadTerminationUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeThreadTerminationUPP(ThreadTerminationUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeThreadTerminationUPP(ThreadTerminationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeThreadTerminationUPP(ThreadTerminationUPP) {}
+  inline void DisposeThreadTerminationUPP(ThreadTerminationUPP) {}
 #else
 #define DisposeThreadTerminationUPP(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeDebuggerNewThreadUPP()
- *
+  /**
+   *  DisposeDebuggerNewThreadUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeDebuggerNewThreadUPP(DebuggerNewThreadUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeDebuggerNewThreadUPP(DebuggerNewThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDebuggerNewThreadUPP(DebuggerNewThreadUPP) {}
+  inline void DisposeDebuggerNewThreadUPP(DebuggerNewThreadUPP) {}
 #else
 #define DisposeDebuggerNewThreadUPP(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeDebuggerDisposeThreadUPP()
- *
+  /**
+   *  DisposeDebuggerDisposeThreadUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeDebuggerDisposeThreadUPP(DebuggerDisposeThreadUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeDebuggerDisposeThreadUPP(DebuggerDisposeThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDebuggerDisposeThreadUPP(DebuggerDisposeThreadUPP) {}
+  inline void DisposeDebuggerDisposeThreadUPP(DebuggerDisposeThreadUPP) {}
 #else
 #define DisposeDebuggerDisposeThreadUPP(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeDebuggerThreadSchedulerUPP()
- *
+  /**
+   *  DisposeDebuggerThreadSchedulerUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerUPP) {}
+  inline void DisposeDebuggerThreadSchedulerUPP(DebuggerThreadSchedulerUPP) {}
 #else
 #define DisposeDebuggerThreadSchedulerUPP(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeThreadEntryUPP()
- *
+  /**
+   *  InvokeThreadEntryUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-voidPtr
-InvokeThreadEntryUPP(void *threadParam, ThreadEntryUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  voidPtr
+  InvokeThreadEntryUPP(void *threadParam, ThreadEntryUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline voidPtr InvokeThreadEntryUPP(void *threadParam, ThreadEntryUPP userUPP) {
-  return (*userUPP)(threadParam);
-}
+  inline voidPtr InvokeThreadEntryUPP(void *threadParam, ThreadEntryUPP userUPP)
+  {
+    return (*userUPP)(threadParam);
+  }
 #else
 #define InvokeThreadEntryUPP(threadParam, userUPP) (*userUPP)(threadParam)
 #endif
 #endif
 
-/**
- *  InvokeThreadSchedulerUPP()
- *
+  /**
+   *  InvokeThreadSchedulerUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ThreadID
-InvokeThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
-                         ThreadSchedulerUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ThreadID
+  InvokeThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
+                           ThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline ThreadID InvokeThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
-                                         ThreadSchedulerUPP userUPP) {
-  return (*userUPP)(schedulerInfo);
-}
+  inline ThreadID InvokeThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
+                                           ThreadSchedulerUPP userUPP)
+  {
+    return (*userUPP)(schedulerInfo);
+  }
 #else
-#define InvokeThreadSchedulerUPP(schedulerInfo, userUPP)                       \
+#define InvokeThreadSchedulerUPP(schedulerInfo, userUPP) \
   (*userUPP)(schedulerInfo)
 #endif
 #endif
 
-/**
- *  InvokeThreadSwitchUPP()
- *
+  /**
+   *  InvokeThreadSwitchUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeThreadSwitchUPP(ThreadID threadBeingSwitched, void *switchProcParam,
-                      ThreadSwitchUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeThreadSwitchUPP(ThreadID threadBeingSwitched, void *switchProcParam,
+                        ThreadSwitchUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeThreadSwitchUPP(ThreadID threadBeingSwitched,
-                                  void *switchProcParam,
-                                  ThreadSwitchUPP userUPP) {
-  (*userUPP)(threadBeingSwitched, switchProcParam);
-}
+  inline void InvokeThreadSwitchUPP(ThreadID threadBeingSwitched,
+                                    void *switchProcParam,
+                                    ThreadSwitchUPP userUPP)
+  {
+    (*userUPP)(threadBeingSwitched, switchProcParam);
+  }
 #else
-#define InvokeThreadSwitchUPP(threadBeingSwitched, switchProcParam, userUPP)   \
+#define InvokeThreadSwitchUPP(threadBeingSwitched, switchProcParam, userUPP) \
   (*userUPP)(threadBeingSwitched, switchProcParam)
 #endif
 #endif
 
-/**
- *  InvokeThreadTerminationUPP()
- *
+  /**
+   *  InvokeThreadTerminationUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeThreadTerminationUPP(ThreadID threadTerminated,
-                           void *terminationProcParam,
-                           ThreadTerminationUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeThreadTerminationUPP(ThreadID threadTerminated,
+                             void *terminationProcParam,
+                             ThreadTerminationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeThreadTerminationUPP(ThreadID threadTerminated,
-                                       void *terminationProcParam,
-                                       ThreadTerminationUPP userUPP) {
-  (*userUPP)(threadTerminated, terminationProcParam);
-}
+  inline void InvokeThreadTerminationUPP(ThreadID threadTerminated,
+                                         void *terminationProcParam,
+                                         ThreadTerminationUPP userUPP)
+  {
+    (*userUPP)(threadTerminated, terminationProcParam);
+  }
 #else
-#define InvokeThreadTerminationUPP(threadTerminated, terminationProcParam,     \
-                                   userUPP)                                    \
+#define InvokeThreadTerminationUPP(threadTerminated, terminationProcParam, \
+                                   userUPP)                                \
   (*userUPP)(threadTerminated, terminationProcParam)
 #endif
 #endif
 
-/**
- *  InvokeDebuggerNewThreadUPP()
- *
+  /**
+   *  InvokeDebuggerNewThreadUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeDebuggerNewThreadUPP(ThreadID threadCreated,
-                           DebuggerNewThreadUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeDebuggerNewThreadUPP(ThreadID threadCreated,
+                             DebuggerNewThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeDebuggerNewThreadUPP(ThreadID threadCreated,
-                                       DebuggerNewThreadUPP userUPP) {
-  (*userUPP)(threadCreated);
-}
+  inline void InvokeDebuggerNewThreadUPP(ThreadID threadCreated,
+                                         DebuggerNewThreadUPP userUPP)
+  {
+    (*userUPP)(threadCreated);
+  }
 #else
-#define InvokeDebuggerNewThreadUPP(threadCreated, userUPP)                     \
+#define InvokeDebuggerNewThreadUPP(threadCreated, userUPP) \
   (*userUPP)(threadCreated)
 #endif
 #endif
 
-/**
- *  InvokeDebuggerDisposeThreadUPP()
- *
+  /**
+   *  InvokeDebuggerDisposeThreadUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-InvokeDebuggerDisposeThreadUPP(ThreadID threadDeleted,
-                               DebuggerDisposeThreadUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeDebuggerDisposeThreadUPP(ThreadID threadDeleted,
+                                 DebuggerDisposeThreadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeDebuggerDisposeThreadUPP(ThreadID threadDeleted,
-                                           DebuggerDisposeThreadUPP userUPP) {
-  (*userUPP)(threadDeleted);
-}
+  inline void InvokeDebuggerDisposeThreadUPP(ThreadID threadDeleted,
+                                             DebuggerDisposeThreadUPP userUPP)
+  {
+    (*userUPP)(threadDeleted);
+  }
 #else
-#define InvokeDebuggerDisposeThreadUPP(threadDeleted, userUPP)                 \
+#define InvokeDebuggerDisposeThreadUPP(threadDeleted, userUPP) \
   (*userUPP)(threadDeleted)
 #endif
 #endif
 
-/**
- *  InvokeDebuggerThreadSchedulerUPP()
- *
+  /**
+   *  InvokeDebuggerThreadSchedulerUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-ThreadID
-InvokeDebuggerThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
-                                 DebuggerThreadSchedulerUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ThreadID
+  InvokeDebuggerThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
+                                   DebuggerThreadSchedulerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline ThreadID
-InvokeDebuggerThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
-                                 DebuggerThreadSchedulerUPP userUPP) {
-  return (*userUPP)(schedulerInfo);
-}
+  inline ThreadID
+  InvokeDebuggerThreadSchedulerUPP(SchedulerInfoRecPtr schedulerInfo,
+                                   DebuggerThreadSchedulerUPP userUPP)
+  {
+    return (*userUPP)(schedulerInfo);
+  }
 #else
-#define InvokeDebuggerThreadSchedulerUPP(schedulerInfo, userUPP)               \
+#define InvokeDebuggerThreadSchedulerUPP(schedulerInfo, userUPP) \
   (*userUPP)(schedulerInfo)
 #endif
 #endif
 
-/**
-   Thread Manager function pointers (TPP):
-   on classic 68k use raw function pointers (same as UPP's)
-   on classic PowerPC, use raw function pointers
-   on classic PowerPC with OPAQUE_UPP_TYPES=1, use UPP's
-   on CFM-68K, use UPP's
-   on Carbon, use UPP's
-*/
+  /**
+     Thread Manager function pointers (TPP):
+     on classic 68k use raw function pointers (same as UPP's)
+     on classic PowerPC, use raw function pointers
+     on classic PowerPC with OPAQUE_UPP_TYPES=1, use UPP's
+     on CFM-68K, use UPP's
+     on Carbon, use UPP's
+  */
 
 #if TARGET_OS_MAC && TARGET_CPU_PPC && !OPAQUE_UPP_TYPES
-/* use raw function pointers*/
-typedef ThreadEntryProcPtr ThreadEntryTPP;
-typedef ThreadSchedulerProcPtr ThreadSchedulerTPP;
-typedef ThreadSwitchProcPtr ThreadSwitchTPP;
-typedef ThreadTerminationProcPtr ThreadTerminationTPP;
-typedef DebuggerNewThreadProcPtr DebuggerNewThreadTPP;
-typedef DebuggerDisposeThreadProcPtr DebuggerDisposeThreadTPP;
-typedef DebuggerThreadSchedulerProcPtr DebuggerThreadSchedulerTPP;
+  /* use raw function pointers*/
+  typedef ThreadEntryProcPtr ThreadEntryTPP;
+  typedef ThreadSchedulerProcPtr ThreadSchedulerTPP;
+  typedef ThreadSwitchProcPtr ThreadSwitchTPP;
+  typedef ThreadTerminationProcPtr ThreadTerminationTPP;
+  typedef DebuggerNewThreadProcPtr DebuggerNewThreadTPP;
+  typedef DebuggerDisposeThreadProcPtr DebuggerDisposeThreadTPP;
+  typedef DebuggerThreadSchedulerProcPtr DebuggerThreadSchedulerTPP;
 #else
 /* use UPP's*/
 typedef ThreadEntryUPP ThreadEntryTPP;
@@ -607,166 +643,166 @@ typedef DebuggerDisposeThreadUPP DebuggerDisposeThreadTPP;
 typedef DebuggerThreadSchedulerUPP DebuggerThreadSchedulerTPP;
 #endif /* TARGET_OS_MAC && TARGET_CPU_PPC && !OPAQUE_UPP_TYPES */
 
-/**
- *  NewThread()
- *
+  /**
+   *  NewThread()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-NewThread(ThreadStyle threadStyle, ThreadEntryTPP threadEntry,
-          void *threadParam, Size stackSize, ThreadOptions options,
-          void **threadResult, /* can be NULL */
-          ThreadID *threadMade) THREEWORDINLINE(0x303C, 0x0E03, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  NewThread(ThreadStyle threadStyle, ThreadEntryTPP threadEntry,
+            void *threadParam, Size stackSize, ThreadOptions options,
+            void **threadResult, /* can be NULL */
+            ThreadID *threadMade) THREEWORDINLINE(0x303C, 0x0E03, 0xABF2);
 
-/**
- *  SetThreadScheduler()
- *
+  /**
+   *  SetThreadScheduler()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetThreadScheduler(ThreadSchedulerTPP threadScheduler)
-    THREEWORDINLINE(0x303C, 0x0209, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetThreadScheduler(ThreadSchedulerTPP threadScheduler)
+      THREEWORDINLINE(0x303C, 0x0209, 0xABF2);
 
-/**
- *  SetThreadSwitcher()
- *
+  /**
+   *  SetThreadSwitcher()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetThreadSwitcher(ThreadID thread, ThreadSwitchTPP threadSwitcher,
-                  void *switchProcParam, Boolean inOrOut)
-    THREEWORDINLINE(0x303C, 0x070A, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetThreadSwitcher(ThreadID thread, ThreadSwitchTPP threadSwitcher,
+                    void *switchProcParam, Boolean inOrOut)
+      THREEWORDINLINE(0x303C, 0x070A, 0xABF2);
 
-/**
- *  SetThreadTerminator()
- *
+  /**
+   *  SetThreadTerminator()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetThreadTerminator(ThreadID thread, ThreadTerminationTPP threadTerminator,
-                    void *terminationProcParam)
-    THREEWORDINLINE(0x303C, 0x0611, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetThreadTerminator(ThreadID thread, ThreadTerminationTPP threadTerminator,
+                      void *terminationProcParam)
+      THREEWORDINLINE(0x303C, 0x0611, 0xABF2);
 
-/**
- *  SetDebuggerNotificationProcs()
- *
+  /**
+   *  SetDebuggerNotificationProcs()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetDebuggerNotificationProcs(DebuggerNewThreadTPP notifyNewThread,
-                             DebuggerDisposeThreadTPP notifyDisposeThread,
-                             DebuggerThreadSchedulerTPP notifyThreadScheduler)
-    THREEWORDINLINE(0x303C, 0x060D, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetDebuggerNotificationProcs(DebuggerNewThreadTPP notifyNewThread,
+                               DebuggerDisposeThreadTPP notifyDisposeThread,
+                               DebuggerThreadSchedulerTPP notifyThreadScheduler)
+      THREEWORDINLINE(0x303C, 0x060D, 0xABF2);
 
-/**
- *  CreateThreadPool()
- *
+  /**
+   *  CreateThreadPool()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-CreateThreadPool(ThreadStyle threadStyle, SInt16 numToCreate, Size stackSize)
-    THREEWORDINLINE(0x303C, 0x0501, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  CreateThreadPool(ThreadStyle threadStyle, SInt16 numToCreate, Size stackSize)
+      THREEWORDINLINE(0x303C, 0x0501, 0xABF2);
 
-/**
- *  GetFreeThreadCount()
- *
+  /**
+   *  GetFreeThreadCount()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetFreeThreadCount(ThreadStyle threadStyle, SInt16 *freeCount)
-    THREEWORDINLINE(0x303C, 0x0402, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetFreeThreadCount(ThreadStyle threadStyle, SInt16 *freeCount)
+      THREEWORDINLINE(0x303C, 0x0402, 0xABF2);
 
-/**
- *  GetSpecificFreeThreadCount()
- *
+  /**
+   *  GetSpecificFreeThreadCount()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetSpecificFreeThreadCount(ThreadStyle threadStyle, Size stackSize,
-                           SInt16 *freeCount)
-    THREEWORDINLINE(0x303C, 0x0615, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetSpecificFreeThreadCount(ThreadStyle threadStyle, Size stackSize,
+                             SInt16 *freeCount)
+      THREEWORDINLINE(0x303C, 0x0615, 0xABF2);
 
-/**
- *  GetDefaultThreadStackSize()
- *
+  /**
+   *  GetDefaultThreadStackSize()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetDefaultThreadStackSize(ThreadStyle threadStyle, Size *stackSize)
-    THREEWORDINLINE(0x303C, 0x0413, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetDefaultThreadStackSize(ThreadStyle threadStyle, Size *stackSize)
+      THREEWORDINLINE(0x303C, 0x0413, 0xABF2);
 
-/**
- *  ThreadCurrentStackSpace()
- *
+  /**
+   *  ThreadCurrentStackSpace()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ThreadCurrentStackSpace(ThreadID thread, UInt32 *freeStack)
-    THREEWORDINLINE(0x303C, 0x0414, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ThreadCurrentStackSpace(ThreadID thread, UInt32 *freeStack)
+      THREEWORDINLINE(0x303C, 0x0414, 0xABF2);
 
-/**
- *  DisposeThread()
- *
+  /**
+   *  DisposeThread()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-DisposeThread(ThreadID threadToDump, void *threadResult, Boolean recycleThread)
-    THREEWORDINLINE(0x303C, 0x0504, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  DisposeThread(ThreadID threadToDump, void *threadResult, Boolean recycleThread)
+      THREEWORDINLINE(0x303C, 0x0504, 0xABF2);
 
-/**
- *  YieldToThread()
- *
+  /**
+   *  YieldToThread()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-YieldToThread(ThreadID suggestedThread) THREEWORDINLINE(0x303C, 0x0205, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  YieldToThread(ThreadID suggestedThread) THREEWORDINLINE(0x303C, 0x0205, 0xABF2);
 
-/**
- *  YieldToAnyThread()
- *
+  /**
+   *  YieldToAnyThread()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-YieldToAnyThread(void) FOURWORDINLINE(0x42A7, 0x303C, 0x0205, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  YieldToAnyThread(void) FOURWORDINLINE(0x42A7, 0x303C, 0x0205, 0xABF2);
 
 /**
  *  [Mac]GetCurrentThread()
@@ -779,106 +815,106 @@ YieldToAnyThread(void) FOURWORDINLINE(0x42A7, 0x303C, 0x0205, 0xABF2);
 #if TARGET_OS_MAC
 #define MacGetCurrentThread GetCurrentThread
 #endif
-EXTERN_API(OSErr)
-MacGetCurrentThread(ThreadID *currentThreadID)
-    THREEWORDINLINE(0x303C, 0x0206, 0xABF2);
+  OSErr
+  MacGetCurrentThread(ThreadID *currentThreadID)
+      THREEWORDINLINE(0x303C, 0x0206, 0xABF2);
 
-/**
- *  GetThreadState()
- *
+  /**
+   *  GetThreadState()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetThreadState(ThreadID threadToGet, ThreadState *threadState)
-    THREEWORDINLINE(0x303C, 0x0407, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetThreadState(ThreadID threadToGet, ThreadState *threadState)
+      THREEWORDINLINE(0x303C, 0x0407, 0xABF2);
 
-/**
- *  SetThreadState()
- *
+  /**
+   *  SetThreadState()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetThreadState(ThreadID threadToSet, ThreadState newState,
-               ThreadID suggestedThread)
-    THREEWORDINLINE(0x303C, 0x0508, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetThreadState(ThreadID threadToSet, ThreadState newState,
+                 ThreadID suggestedThread)
+      THREEWORDINLINE(0x303C, 0x0508, 0xABF2);
 
-/**
- *  SetThreadStateEndCritical()
- *
+  /**
+   *  SetThreadStateEndCritical()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetThreadStateEndCritical(ThreadID threadToSet, ThreadState newState,
-                          ThreadID suggestedThread)
-    THREEWORDINLINE(0x303C, 0x0512, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetThreadStateEndCritical(ThreadID threadToSet, ThreadState newState,
+                            ThreadID suggestedThread)
+      THREEWORDINLINE(0x303C, 0x0512, 0xABF2);
 
-/**
- *  ThreadBeginCritical()
- *
+  /**
+   *  ThreadBeginCritical()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ThreadBeginCritical(void) THREEWORDINLINE(0x303C, 0x000B, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ThreadBeginCritical(void) THREEWORDINLINE(0x303C, 0x000B, 0xABF2);
 
-/**
- *  ThreadEndCritical()
- *
+  /**
+   *  ThreadEndCritical()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ThreadEndCritical(void) THREEWORDINLINE(0x303C, 0x000C, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ThreadEndCritical(void) THREEWORDINLINE(0x303C, 0x000C, 0xABF2);
 
-/**
- *  GetThreadCurrentTaskRef()
- *
+  /**
+   *  GetThreadCurrentTaskRef()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetThreadCurrentTaskRef(ThreadTaskRef *threadTRef)
-    THREEWORDINLINE(0x303C, 0x020E, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetThreadCurrentTaskRef(ThreadTaskRef *threadTRef)
+      THREEWORDINLINE(0x303C, 0x020E, 0xABF2);
 
-/**
- *  GetThreadStateGivenTaskRef()
- *
+  /**
+   *  GetThreadStateGivenTaskRef()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetThreadStateGivenTaskRef(ThreadTaskRef threadTRef, ThreadID threadToGet,
-                           ThreadState *threadState)
-    THREEWORDINLINE(0x303C, 0x060F, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetThreadStateGivenTaskRef(ThreadTaskRef threadTRef, ThreadID threadToGet,
+                             ThreadState *threadState)
+      THREEWORDINLINE(0x303C, 0x060F, 0xABF2);
 
-/**
- *  SetThreadReadyGivenTaskRef()
- *
+  /**
+   *  SetThreadReadyGivenTaskRef()
+   *
 
- *    \non_carbon_cfm   in ThreadsLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetThreadReadyGivenTaskRef(ThreadTaskRef threadTRef, ThreadID threadToSet)
-    THREEWORDINLINE(0x303C, 0x0410, 0xABF2);
+   *    \non_carbon_cfm   in ThreadsLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetThreadReadyGivenTaskRef(ThreadTaskRef threadTRef, ThreadID threadToSet)
+      THREEWORDINLINE(0x303C, 0x0410, 0xABF2);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

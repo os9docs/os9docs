@@ -9,7 +9,7 @@
     \copyright © 1993-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup System
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -71,7 +71,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -86,1268 +87,1268 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/***************************************************************************************
+  /***************************************************************************************
 
-    SIMPLE LOWMEM ACCESSORS
+      SIMPLE LOWMEM ACCESSORS
 
-**************************************************************************************/
-/**
-    The following functions were moved to Quickdraw.h:
+  **************************************************************************************/
+  /**
+      The following functions were moved to Quickdraw.h:
 
-        LMSetDeviceList
-        LMSetLastSPExtra
-        LMGetWidthListHand
-        LMSetWidthListHand
-        LMGetScrHRes
-        LMSetScrHRes
-        LMSetScrVRes
-        LMGetScrVRes
-        LMGetHiliteMode
-        LMSetHiliteMode
-        LMGetMainDevice
-        LMSetMainDevice
-        LMGetDeviceList
-        LMGetQDColors
-        LMSetQDColors
-        LMGetWidthPtr
-        LMSetWidthPtr
-        LMGetWidthTabHandle
-        LMSetWidthTabHandle
-        LMGetLastSPExtra
-        LMGetLastFOND
-        LMSetLastFOND
-        LMGetFractEnable
-        LMSetFractEnable
-        LMGetTheGDevice
-        LMSetTheGDevice
-        LMGetCursorNew
-        LMSetCursorNew
-        LMGetHiliteRGB
-        LMSetHiliteRGB
+          LMSetDeviceList
+          LMSetLastSPExtra
+          LMGetWidthListHand
+          LMSetWidthListHand
+          LMGetScrHRes
+          LMSetScrHRes
+          LMSetScrVRes
+          LMGetScrVRes
+          LMGetHiliteMode
+          LMSetHiliteMode
+          LMGetMainDevice
+          LMSetMainDevice
+          LMGetDeviceList
+          LMGetQDColors
+          LMSetQDColors
+          LMGetWidthPtr
+          LMSetWidthPtr
+          LMGetWidthTabHandle
+          LMSetWidthTabHandle
+          LMGetLastSPExtra
+          LMGetLastFOND
+          LMSetLastFOND
+          LMGetFractEnable
+          LMSetFractEnable
+          LMGetTheGDevice
+          LMSetTheGDevice
+          LMGetCursorNew
+          LMSetCursorNew
+          LMGetHiliteRGB
+          LMSetHiliteRGB
 
-    The following functions were moved to TextEdit.h:
+      The following functions were moved to TextEdit.h:
 
-        LMGetWordRedraw
-        LMSetWordRedraw
+          LMGetWordRedraw
+          LMSetWordRedraw
 
-    The following functions were moved to Menus.h:
+      The following functions were moved to Menus.h:
 
-        LMGetTheMenu
+          LMGetTheMenu
 
-    The following functions were moved to Events.h:
+      The following functions were moved to Events.h:
 
-        LMGetKeyRepThresh
-        LMSetKeyRepThresh
-        LMGetKeyThresh
-        LMSetKeyRepThresh
-        LMGetKbdLast
-        LMSetKbdLast
-        LMGetKbdType
-        LMSetKbdType
+          LMGetKeyRepThresh
+          LMSetKeyRepThresh
+          LMGetKeyThresh
+          LMSetKeyRepThresh
+          LMGetKbdLast
+          LMSetKbdLast
+          LMGetKbdType
+          LMSetKbdType
 
-*/
+  */
 
-/**
- *  LMGetMemTop()
- *
+  /**
+   *  LMGetMemTop()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetMemTop(void) TWOWORDINLINE(0x2EB8, 0x0108);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetMemTop(void) TWOWORDINLINE(0x2EB8, 0x0108);
 
-/**
- *  LMSetMemTop()
- *
+  /**
+   *  LMSetMemTop()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetMemTop(Ptr value) TWOWORDINLINE(0x21DF, 0x0108);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetMemTop(Ptr value) TWOWORDINLINE(0x21DF, 0x0108);
 
-/**
- *  LMGetBufPtr()
- *
+  /**
+   *  LMGetBufPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetBufPtr(void) TWOWORDINLINE(0x2EB8, 0x010C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetBufPtr(void) TWOWORDINLINE(0x2EB8, 0x010C);
 
-/**
- *  LMSetBufPtr()
- *
+  /**
+   *  LMSetBufPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetBufPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x010C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetBufPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x010C);
 
-/**
- *  LMGetHeapEnd()
- *
+  /**
+   *  LMGetHeapEnd()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetHeapEnd(void) TWOWORDINLINE(0x2EB8, 0x0114);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetHeapEnd(void) TWOWORDINLINE(0x2EB8, 0x0114);
 
-/**
- *  LMSetHeapEnd()
- *
+  /**
+   *  LMSetHeapEnd()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetHeapEnd(Ptr value) TWOWORDINLINE(0x21DF, 0x0114);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetHeapEnd(Ptr value) TWOWORDINLINE(0x21DF, 0x0114);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetTheZone()
- *
+  /**
+   *  LMGetTheZone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(THz) LMGetTheZone(void) TWOWORDINLINE(0x2EB8, 0x0118);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  THz LMGetTheZone(void) TWOWORDINLINE(0x2EB8, 0x0118);
 
-/**
- *  LMSetTheZone()
- *
+  /**
+   *  LMSetTheZone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTheZone(THz value) TWOWORDINLINE(0x21DF, 0x0118);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTheZone(THz value) TWOWORDINLINE(0x21DF, 0x0118);
 
-/**
- *  LMGetUTableBase()
- *
+  /**
+   *  LMGetUTableBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetUTableBase(void) TWOWORDINLINE(0x2EB8, 0x011C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetUTableBase(void) TWOWORDINLINE(0x2EB8, 0x011C);
 
-/**
- *  LMSetUTableBase()
- *
+  /**
+   *  LMSetUTableBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetUTableBase(Ptr value) TWOWORDINLINE(0x21DF, 0x011C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetUTableBase(Ptr value) TWOWORDINLINE(0x21DF, 0x011C);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetCPUFlag()
- *
+  /**
+   *  LMGetCPUFlag()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8) LMGetCPUFlag(void) TWOWORDINLINE(0x1EB8, 0x012F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetCPUFlag(void) TWOWORDINLINE(0x1EB8, 0x012F);
 
-/**
- *  LMSetCPUFlag()
- *
+  /**
+   *  LMSetCPUFlag()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetCPUFlag(UInt8 value) TWOWORDINLINE(0x11DF, 0x012F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetCPUFlag(UInt8 value) TWOWORDINLINE(0x11DF, 0x012F);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetApplLimit()
- *
+  /**
+   *  LMGetApplLimit()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetApplLimit(void) TWOWORDINLINE(0x2EB8, 0x0130);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetApplLimit(void) TWOWORDINLINE(0x2EB8, 0x0130);
 
-/**
- *  LMSetApplLimit()
- *
+  /**
+   *  LMSetApplLimit()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetApplLimit(Ptr value) TWOWORDINLINE(0x21DF, 0x0130);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetApplLimit(Ptr value) TWOWORDINLINE(0x21DF, 0x0130);
 
-/**
- *  LMGetSysEvtMask()
- *
+  /**
+   *  LMGetSysEvtMask()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetSysEvtMask(void) TWOWORDINLINE(0x3EB8, 0x0144);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetSysEvtMask(void) TWOWORDINLINE(0x3EB8, 0x0144);
 
-/** Carbon Usage: use SetEventMask*/
-/**
- *  LMSetSysEvtMask()
- *
+  /** Carbon Usage: use SetEventMask*/
+  /**
+   *  LMSetSysEvtMask()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSysEvtMask(SInt16 value) TWOWORDINLINE(0x31DF, 0x0144);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSysEvtMask(SInt16 value) TWOWORDINLINE(0x31DF, 0x0144);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetRndSeed()
- *
+  /**
+   *  LMGetRndSeed()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32) LMGetRndSeed(void) TWOWORDINLINE(0x2EB8, 0x0156);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32 LMGetRndSeed(void) TWOWORDINLINE(0x2EB8, 0x0156);
 
-/**
- *  LMSetRndSeed()
- *
+  /**
+   *  LMSetRndSeed()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetRndSeed(SInt32 value) TWOWORDINLINE(0x21DF, 0x0156);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetRndSeed(SInt32 value) TWOWORDINLINE(0x21DF, 0x0156);
 
-/**
- *  LMGetSEvtEnb()
- *
+  /**
+   *  LMGetSEvtEnb()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8) LMGetSEvtEnb(void) TWOWORDINLINE(0x1EB8, 0x015C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetSEvtEnb(void) TWOWORDINLINE(0x1EB8, 0x015C);
 
-/**
- *  LMSetSEvtEnb()
- *
+  /**
+   *  LMSetSEvtEnb()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSEvtEnb(UInt8 value) TWOWORDINLINE(0x11DF, 0x015C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSEvtEnb(UInt8 value) TWOWORDINLINE(0x11DF, 0x015C);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetTicks()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt32) LMGetTicks(void) TWOWORDINLINE(0x2EB8, 0x016A);
-
-/**
- *  LMSetTicks()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTicks(UInt32 value) TWOWORDINLINE(0x21DF, 0x016A);
-
-/**
- *  LMGetVIA()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetVIA(void) TWOWORDINLINE(0x2EB8, 0x01D4);
-
-/**
- *  LMSetVIA()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetVIA(Ptr value) TWOWORDINLINE(0x21DF, 0x01D4);
-
-/**
- *  LMGetSCCRd()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetSCCRd(void) TWOWORDINLINE(0x2EB8, 0x01D8);
-
-/**
- *  LMSetSCCRd()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSCCRd(Ptr value) TWOWORDINLINE(0x21DF, 0x01D8);
-
-/**
- *  LMGetSCCWr()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetSCCWr(void) TWOWORDINLINE(0x2EB8, 0x01DC);
-
-/**
- *  LMSetSCCWr()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSCCWr(Ptr value) TWOWORDINLINE(0x21DF, 0x01DC);
-
-/**
- *  LMGetSPValid()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPValid(void) TWOWORDINLINE(0x1EB8, 0x01F8);
-
-/**
- *  LMSetSPValid()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPValid(UInt8 value) TWOWORDINLINE(0x11DF, 0x01F8);
-
-/**
- *  LMGetSPATalkA()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPATalkA(void) TWOWORDINLINE(0x1EB8, 0x01F9);
-
-/**
- *  LMSetSPATalkA()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPATalkA(UInt8 value) TWOWORDINLINE(0x11DF, 0x01F9);
-
-/**
- *  LMGetSPATalkB()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPATalkB(void) TWOWORDINLINE(0x1EB8, 0x01FA);
-
-/**
- *  LMSetSPATalkB()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPATalkB(UInt8 value) TWOWORDINLINE(0x11DF, 0x01FA);
-
-/**
- *  LMGetSPConfig()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPConfig(void) TWOWORDINLINE(0x1EB8, 0x01FB);
-
-/**
- *  LMSetSPConfig()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPConfig(UInt8 value) TWOWORDINLINE(0x11DF, 0x01FB);
-
-/**
- *  LMGetSPPortA()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetSPPortA(void) TWOWORDINLINE(0x3EB8, 0x01FC);
-
-/**
- *  LMSetSPPortA()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPPortA(SInt16 value) TWOWORDINLINE(0x31DF, 0x01FC);
-
-/**
- *  LMGetSPPortB()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetSPPortB(void) TWOWORDINLINE(0x3EB8, 0x01FE);
-
-/**
- *  LMSetSPPortB()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPPortB(SInt16 value) TWOWORDINLINE(0x31DF, 0x01FE);
-
-/**
- *  LMGetSPAlarm()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt32) LMGetSPAlarm(void) TWOWORDINLINE(0x2EB8, 0x0200);
-
-/**
- *  LMSetSPAlarm()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPAlarm(SInt32 value) TWOWORDINLINE(0x21DF, 0x0200);
-
-/**
- *  LMGetSPFont()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetSPFont(void) TWOWORDINLINE(0x3EB8, 0x0204);
-
-/**
- *  LMSetSPFont()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPFont(SInt16 value) TWOWORDINLINE(0x31DF, 0x0204);
-
-/**
- *  LMGetSPKbd()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPKbd(void) TWOWORDINLINE(0x1EB8, 0x0206);
-
-/**
- *  LMSetSPKbd()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPKbd(UInt8 value) TWOWORDINLINE(0x11DF, 0x0206);
-
-/**
- *  LMGetSPPrint()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPPrint(void) TWOWORDINLINE(0x1EB8, 0x0207);
-
-/**
- *  LMSetSPPrint()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPPrint(UInt8 value) TWOWORDINLINE(0x11DF, 0x0207);
-
-/**
- *  LMGetSPVolCtl()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPVolCtl(void) TWOWORDINLINE(0x1EB8, 0x0208);
-
-/**
- *  LMSetSPVolCtl()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPVolCtl(UInt8 value) TWOWORDINLINE(0x11DF, 0x0208);
-
-/**
- *  LMGetSPClikCaret()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPClikCaret(void) TWOWORDINLINE(0x1EB8, 0x0209);
-
-/**
- *  LMSetSPClikCaret()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPClikCaret(UInt8 value) TWOWORDINLINE(0x11DF, 0x0209);
-
-/**
- *  LMGetSPMisc2()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetSPMisc2(void) TWOWORDINLINE(0x1EB8, 0x020B);
-
-/**
- *  LMSetSPMisc2()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSPMisc2(UInt8 value) TWOWORDINLINE(0x11DF, 0x020B);
-
-/** Carbon Usage: use GetDateTime*/
-/**
- *  LMGetTime()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt32) LMGetTime(void) TWOWORDINLINE(0x2EB8, 0x020C);
-
-/** Carbon Usage: use SetDateTime*/
-/**
- *  LMSetTime()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTime(SInt32 value) TWOWORDINLINE(0x21DF, 0x020C);
+  /**
+   *  LMGetTicks()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt32 LMGetTicks(void) TWOWORDINLINE(0x2EB8, 0x016A);
+
+  /**
+   *  LMSetTicks()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTicks(UInt32 value) TWOWORDINLINE(0x21DF, 0x016A);
+
+  /**
+   *  LMGetVIA()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetVIA(void) TWOWORDINLINE(0x2EB8, 0x01D4);
+
+  /**
+   *  LMSetVIA()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetVIA(Ptr value) TWOWORDINLINE(0x21DF, 0x01D4);
+
+  /**
+   *  LMGetSCCRd()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetSCCRd(void) TWOWORDINLINE(0x2EB8, 0x01D8);
+
+  /**
+   *  LMSetSCCRd()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSCCRd(Ptr value) TWOWORDINLINE(0x21DF, 0x01D8);
+
+  /**
+   *  LMGetSCCWr()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetSCCWr(void) TWOWORDINLINE(0x2EB8, 0x01DC);
+
+  /**
+   *  LMSetSCCWr()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSCCWr(Ptr value) TWOWORDINLINE(0x21DF, 0x01DC);
+
+  /**
+   *  LMGetSPValid()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPValid(void) TWOWORDINLINE(0x1EB8, 0x01F8);
+
+  /**
+   *  LMSetSPValid()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPValid(UInt8 value) TWOWORDINLINE(0x11DF, 0x01F8);
+
+  /**
+   *  LMGetSPATalkA()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPATalkA(void) TWOWORDINLINE(0x1EB8, 0x01F9);
+
+  /**
+   *  LMSetSPATalkA()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPATalkA(UInt8 value) TWOWORDINLINE(0x11DF, 0x01F9);
+
+  /**
+   *  LMGetSPATalkB()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPATalkB(void) TWOWORDINLINE(0x1EB8, 0x01FA);
+
+  /**
+   *  LMSetSPATalkB()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPATalkB(UInt8 value) TWOWORDINLINE(0x11DF, 0x01FA);
+
+  /**
+   *  LMGetSPConfig()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPConfig(void) TWOWORDINLINE(0x1EB8, 0x01FB);
+
+  /**
+   *  LMSetSPConfig()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPConfig(UInt8 value) TWOWORDINLINE(0x11DF, 0x01FB);
+
+  /**
+   *  LMGetSPPortA()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetSPPortA(void) TWOWORDINLINE(0x3EB8, 0x01FC);
+
+  /**
+   *  LMSetSPPortA()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPPortA(SInt16 value) TWOWORDINLINE(0x31DF, 0x01FC);
+
+  /**
+   *  LMGetSPPortB()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetSPPortB(void) TWOWORDINLINE(0x3EB8, 0x01FE);
+
+  /**
+   *  LMSetSPPortB()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPPortB(SInt16 value) TWOWORDINLINE(0x31DF, 0x01FE);
+
+  /**
+   *  LMGetSPAlarm()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt32 LMGetSPAlarm(void) TWOWORDINLINE(0x2EB8, 0x0200);
+
+  /**
+   *  LMSetSPAlarm()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPAlarm(SInt32 value) TWOWORDINLINE(0x21DF, 0x0200);
+
+  /**
+   *  LMGetSPFont()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetSPFont(void) TWOWORDINLINE(0x3EB8, 0x0204);
+
+  /**
+   *  LMSetSPFont()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPFont(SInt16 value) TWOWORDINLINE(0x31DF, 0x0204);
+
+  /**
+   *  LMGetSPKbd()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPKbd(void) TWOWORDINLINE(0x1EB8, 0x0206);
+
+  /**
+   *  LMSetSPKbd()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPKbd(UInt8 value) TWOWORDINLINE(0x11DF, 0x0206);
+
+  /**
+   *  LMGetSPPrint()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPPrint(void) TWOWORDINLINE(0x1EB8, 0x0207);
+
+  /**
+   *  LMSetSPPrint()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPPrint(UInt8 value) TWOWORDINLINE(0x11DF, 0x0207);
+
+  /**
+   *  LMGetSPVolCtl()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPVolCtl(void) TWOWORDINLINE(0x1EB8, 0x0208);
+
+  /**
+   *  LMSetSPVolCtl()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPVolCtl(UInt8 value) TWOWORDINLINE(0x11DF, 0x0208);
+
+  /**
+   *  LMGetSPClikCaret()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPClikCaret(void) TWOWORDINLINE(0x1EB8, 0x0209);
+
+  /**
+   *  LMSetSPClikCaret()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPClikCaret(UInt8 value) TWOWORDINLINE(0x11DF, 0x0209);
+
+  /**
+   *  LMGetSPMisc2()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetSPMisc2(void) TWOWORDINLINE(0x1EB8, 0x020B);
+
+  /**
+   *  LMSetSPMisc2()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSPMisc2(UInt8 value) TWOWORDINLINE(0x11DF, 0x020B);
+
+  /** Carbon Usage: use GetDateTime*/
+  /**
+   *  LMGetTime()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt32 LMGetTime(void) TWOWORDINLINE(0x2EB8, 0x020C);
+
+  /** Carbon Usage: use SetDateTime*/
+  /**
+   *  LMSetTime()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTime(SInt32 value) TWOWORDINLINE(0x21DF, 0x020C);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetBootDrive()
- *
+  /**
+   *  LMGetBootDrive()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetBootDrive(void) TWOWORDINLINE(0x3EB8, 0x0210);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetBootDrive(void) TWOWORDINLINE(0x3EB8, 0x0210);
 
-/**
- *  LMSetBootDrive()
- *
+  /**
+   *  LMSetBootDrive()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetBootDrive(SInt16 value) TWOWORDINLINE(0x31DF, 0x0210);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetBootDrive(SInt16 value) TWOWORDINLINE(0x31DF, 0x0210);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetSFSaveDisk()
- *
+  /**
+   *  LMGetSFSaveDisk()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetSFSaveDisk(void) TWOWORDINLINE(0x3EB8, 0x0214);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetSFSaveDisk(void) TWOWORDINLINE(0x3EB8, 0x0214);
 
-/**
- *  LMSetSFSaveDisk()
- *
+  /**
+   *  LMSetSFSaveDisk()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSFSaveDisk(SInt16 value) TWOWORDINLINE(0x31DF, 0x0214);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSFSaveDisk(SInt16 value) TWOWORDINLINE(0x31DF, 0x0214);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetMemErr()
- *
+  /**
+   *  LMGetMemErr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetMemErr(void) TWOWORDINLINE(0x3EB8, 0x0220);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetMemErr(void) TWOWORDINLINE(0x3EB8, 0x0220);
 
-/**
- *  LMSetMemErr()
- *
+  /**
+   *  LMSetMemErr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetMemErr(SInt16 value) TWOWORDINLINE(0x31DF, 0x0220);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetMemErr(SInt16 value) TWOWORDINLINE(0x31DF, 0x0220);
 
-/**
- *  LMGetSdVolume()
- *
+  /**
+   *  LMGetSdVolume()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8) LMGetSdVolume(void) TWOWORDINLINE(0x1EB8, 0x0260);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetSdVolume(void) TWOWORDINLINE(0x1EB8, 0x0260);
 
-/**
- *  LMSetSdVolume()
- *
+  /**
+   *  LMSetSdVolume()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSdVolume(UInt8 value) TWOWORDINLINE(0x11DF, 0x0260);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSdVolume(UInt8 value) TWOWORDINLINE(0x11DF, 0x0260);
 
-/**
- *  LMGetSoundPtr()
- *
+  /**
+   *  LMGetSoundPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetSoundPtr(void) TWOWORDINLINE(0x2EB8, 0x0262);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetSoundPtr(void) TWOWORDINLINE(0x2EB8, 0x0262);
 
-/**
- *  LMSetSoundPtr()
- *
+  /**
+   *  LMSetSoundPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSoundPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0262);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSoundPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0262);
 
-/**
- *  LMGetSoundBase()
- *
+  /**
+   *  LMGetSoundBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetSoundBase(void) TWOWORDINLINE(0x2EB8, 0x0266);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetSoundBase(void) TWOWORDINLINE(0x2EB8, 0x0266);
 
-/**
- *  LMSetSoundBase()
- *
+  /**
+   *  LMSetSoundBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSoundBase(Ptr value) TWOWORDINLINE(0x21DF, 0x0266);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSoundBase(Ptr value) TWOWORDINLINE(0x21DF, 0x0266);
 
-/**
- *  LMGetSoundLevel()
- *
+  /**
+   *  LMGetSoundLevel()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8) LMGetSoundLevel(void) TWOWORDINLINE(0x1EB8, 0x027F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetSoundLevel(void) TWOWORDINLINE(0x1EB8, 0x027F);
 
-/**
- *  LMSetSoundLevel()
- *
+  /**
+   *  LMSetSoundLevel()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSoundLevel(UInt8 value) TWOWORDINLINE(0x11DF, 0x027F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSoundLevel(UInt8 value) TWOWORDINLINE(0x11DF, 0x027F);
 
-/**
- *  LMGetCurPitch()
- *
+  /**
+   *  LMGetCurPitch()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetCurPitch(void) TWOWORDINLINE(0x3EB8, 0x0280);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetCurPitch(void) TWOWORDINLINE(0x3EB8, 0x0280);
 
-/**
- *  LMSetCurPitch()
- *
+  /**
+   *  LMSetCurPitch()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetCurPitch(SInt16 value) TWOWORDINLINE(0x31DF, 0x0280);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetCurPitch(SInt16 value) TWOWORDINLINE(0x31DF, 0x0280);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetROM85()
- *
+  /**
+   *  LMGetROM85()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetROM85(void) TWOWORDINLINE(0x3EB8, 0x028E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetROM85(void) TWOWORDINLINE(0x3EB8, 0x028E);
 
-/**
- *  LMSetROM85()
- *
+  /**
+   *  LMSetROM85()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetROM85(SInt16 value) TWOWORDINLINE(0x31DF, 0x028E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetROM85(SInt16 value) TWOWORDINLINE(0x31DF, 0x028E);
 
-/**
- *  LMGetPortBUse()
- *
+  /**
+   *  LMGetPortBUse()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetPortBUse(void) TWOWORDINLINE(0x1EB8, 0x0291);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetPortBUse(void) TWOWORDINLINE(0x1EB8, 0x0291);
 
-/**
- *  LMSetPortBUse()
- *
+  /**
+   *  LMSetPortBUse()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetPortBUse(UInt8 value) TWOWORDINLINE(0x11DF, 0x0291);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetPortBUse(UInt8 value) TWOWORDINLINE(0x11DF, 0x0291);
 
-/**
- *  LMGetGNEFilter()
- *
+  /**
+   *  LMGetGNEFilter()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(GetNextEventFilterUPP)
-LMGetGNEFilter(void) TWOWORDINLINE(0x2EB8, 0x029A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  GetNextEventFilterUPP
+  LMGetGNEFilter(void) TWOWORDINLINE(0x2EB8, 0x029A);
 
-/**
- *  LMSetGNEFilter()
- *
+  /**
+   *  LMSetGNEFilter()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetGNEFilter(GetNextEventFilterUPP value) TWOWORDINLINE(0x21DF, 0x029A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetGNEFilter(GetNextEventFilterUPP value) TWOWORDINLINE(0x21DF, 0x029A);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetSysZone()
- *
+  /**
+   *  LMGetSysZone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(THz) LMGetSysZone(void) TWOWORDINLINE(0x2EB8, 0x02A6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  THz LMGetSysZone(void) TWOWORDINLINE(0x2EB8, 0x02A6);
 
-/**
- *  LMSetSysZone()
- *
+  /**
+   *  LMSetSysZone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSysZone(THz value) TWOWORDINLINE(0x21DF, 0x02A6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSysZone(THz value) TWOWORDINLINE(0x21DF, 0x02A6);
 
-/**
- *  LMGetApplZone()
- *
+  /**
+   *  LMGetApplZone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(THz) LMGetApplZone(void) TWOWORDINLINE(0x2EB8, 0x02AA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  THz LMGetApplZone(void) TWOWORDINLINE(0x2EB8, 0x02AA);
 
-/**
- *  LMSetApplZone()
- *
+  /**
+   *  LMSetApplZone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetApplZone(THz value) TWOWORDINLINE(0x21DF, 0x02AA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetApplZone(THz value) TWOWORDINLINE(0x21DF, 0x02AA);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetROMBase()
- *
+  /**
+   *  LMGetROMBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetROMBase(void) TWOWORDINLINE(0x2EB8, 0x02AE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetROMBase(void) TWOWORDINLINE(0x2EB8, 0x02AE);
 
-/**
- *  LMSetROMBase()
- *
+  /**
+   *  LMSetROMBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetROMBase(Ptr value) TWOWORDINLINE(0x21DF, 0x02AE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetROMBase(Ptr value) TWOWORDINLINE(0x21DF, 0x02AE);
 
-/**
- *  LMGetRAMBase()
- *
+  /**
+   *  LMGetRAMBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetRAMBase(void) TWOWORDINLINE(0x2EB8, 0x02B2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetRAMBase(void) TWOWORDINLINE(0x2EB8, 0x02B2);
 
-/**
- *  LMSetRAMBase()
- *
+  /**
+   *  LMSetRAMBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetRAMBase(Ptr value) TWOWORDINLINE(0x21DF, 0x02B2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetRAMBase(Ptr value) TWOWORDINLINE(0x21DF, 0x02B2);
 
-/**
- *  LMGetDSAlertTab()
- *
+  /**
+   *  LMGetDSAlertTab()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetDSAlertTab(void) TWOWORDINLINE(0x2EB8, 0x02BA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetDSAlertTab(void) TWOWORDINLINE(0x2EB8, 0x02BA);
 
-/**
- *  LMSetDSAlertTab()
- *
+  /**
+   *  LMSetDSAlertTab()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetDSAlertTab(Ptr value) TWOWORDINLINE(0x21DF, 0x02BA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetDSAlertTab(Ptr value) TWOWORDINLINE(0x21DF, 0x02BA);
 
-/**
-    NOTE:   LMGetABusVars and LMSetABusVars have been removed.
-            Their implememtation in InterfaceLib was inconsistent
-            with their prototypes here.  In InterfaceLib LMSetABusVars
-            would copy eight bytes and LMGetABusVars would return the
-            value 0x02D8 instead of the long at that location.
+  /**
+      NOTE:   LMGetABusVars and LMSetABusVars have been removed.
+              Their implememtation in InterfaceLib was inconsistent
+              with their prototypes here.  In InterfaceLib LMSetABusVars
+              would copy eight bytes and LMGetABusVars would return the
+              value 0x02D8 instead of the long at that location.
 
-            Use LMGetABusGlobals/LMSetABusGlobals to get/set the
-            long at location 0x02D8 which is a pointer to the AppleTalk
-            globals.  Use LMGetABusDCE/LMSetABusDCE to get/set the
-            long at location 0x02DC which is the .MPP driver
-            Device Control Entry.
+              Use LMGetABusGlobals/LMSetABusGlobals to get/set the
+              long at location 0x02D8 which is a pointer to the AppleTalk
+              globals.  Use LMGetABusDCE/LMSetABusDCE to get/set the
+              long at location 0x02DC which is the .MPP driver
+              Device Control Entry.
 
-*/
-/**
- *  LMGetABusGlobals()
- *
+  */
+  /**
+   *  LMGetABusGlobals()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetABusGlobals(void) TWOWORDINLINE(0x2EB8, 0x02D8);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetABusGlobals(void) TWOWORDINLINE(0x2EB8, 0x02D8);
 
-/**
- *  LMGetABusDCE()
- *
+  /**
+   *  LMGetABusDCE()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetABusDCE(void) TWOWORDINLINE(0x2EB8, 0x02DC);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetABusDCE(void) TWOWORDINLINE(0x2EB8, 0x02DC);
 
-/**
- *  LMSetABusGlobals()
- *
+  /**
+   *  LMSetABusGlobals()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetABusGlobals(Ptr value) TWOWORDINLINE(0x21DF, 0x02D8);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetABusGlobals(Ptr value) TWOWORDINLINE(0x21DF, 0x02D8);
 
-/**
- *  LMSetABusDCE()
- *
+  /**
+   *  LMSetABusDCE()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetABusDCE(Ptr value) TWOWORDINLINE(0x21DF, 0x02DC);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetABusDCE(Ptr value) TWOWORDINLINE(0x21DF, 0x02DC);
 
-/** Carbon Usage: use GetDblTime*/
-/**
- *  LMGetDoubleTime()
- *
+  /** Carbon Usage: use GetDblTime*/
+  /**
+   *  LMGetDoubleTime()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt32) LMGetDoubleTime(void) TWOWORDINLINE(0x2EB8, 0x02F0);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt32 LMGetDoubleTime(void) TWOWORDINLINE(0x2EB8, 0x02F0);
 
-/**
- *  LMSetDoubleTime()
- *
+  /**
+   *  LMSetDoubleTime()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetDoubleTime(UInt32 value) TWOWORDINLINE(0x21DF, 0x02F0);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetDoubleTime(UInt32 value) TWOWORDINLINE(0x21DF, 0x02F0);
 
-/** Carbon Usage: use GetCaretTime*/
-/**
- *  LMGetCaretTime()
- *
+  /** Carbon Usage: use GetCaretTime*/
+  /**
+   *  LMGetCaretTime()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt32) LMGetCaretTime(void) TWOWORDINLINE(0x2EB8, 0x02F4);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt32 LMGetCaretTime(void) TWOWORDINLINE(0x2EB8, 0x02F4);
 
-/**
- *  LMSetCaretTime()
- *
+  /**
+   *  LMSetCaretTime()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetCaretTime(UInt32 value) TWOWORDINLINE(0x21DF, 0x02F4);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetCaretTime(UInt32 value) TWOWORDINLINE(0x21DF, 0x02F4);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetScrDmpEnb()
- *
+  /**
+   *  LMGetScrDmpEnb()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8) LMGetScrDmpEnb(void) TWOWORDINLINE(0x1EB8, 0x02F8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetScrDmpEnb(void) TWOWORDINLINE(0x1EB8, 0x02F8);
 
-/**
- *  LMSetScrDmpEnb()
- *
+  /**
+   *  LMSetScrDmpEnb()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetScrDmpEnb(UInt8 value) TWOWORDINLINE(0x11DF, 0x02F8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetScrDmpEnb(UInt8 value) TWOWORDINLINE(0x11DF, 0x02F8);
 
-/**
- *  LMGetBufTgFNum()
- *
+  /**
+   *  LMGetBufTgFNum()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32) LMGetBufTgFNum(void) TWOWORDINLINE(0x2EB8, 0x02FC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32 LMGetBufTgFNum(void) TWOWORDINLINE(0x2EB8, 0x02FC);
 
-/**
- *  LMSetBufTgFNum()
- *
+  /**
+   *  LMSetBufTgFNum()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetBufTgFNum(SInt32 value) TWOWORDINLINE(0x21DF, 0x02FC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetBufTgFNum(SInt32 value) TWOWORDINLINE(0x21DF, 0x02FC);
 
-/**
- *  LMGetBufTgFFlg()
- *
+  /**
+   *  LMGetBufTgFFlg()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetBufTgFFlg(void) TWOWORDINLINE(0x3EB8, 0x0300);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetBufTgFFlg(void) TWOWORDINLINE(0x3EB8, 0x0300);
 
-/**
- *  LMSetBufTgFFlg()
- *
+  /**
+   *  LMSetBufTgFFlg()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetBufTgFFlg(SInt16 value) TWOWORDINLINE(0x31DF, 0x0300);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetBufTgFFlg(SInt16 value) TWOWORDINLINE(0x31DF, 0x0300);
 
-/**
- *  LMGetBufTgFBkNum()
- *
+  /**
+   *  LMGetBufTgFBkNum()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetBufTgFBkNum(void) TWOWORDINLINE(0x3EB8, 0x0302);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetBufTgFBkNum(void) TWOWORDINLINE(0x3EB8, 0x0302);
 
-/**
- *  LMSetBufTgFBkNum()
- *
+  /**
+   *  LMSetBufTgFBkNum()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetBufTgFBkNum(SInt16 value) TWOWORDINLINE(0x31DF, 0x0302);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetBufTgFBkNum(SInt16 value) TWOWORDINLINE(0x31DF, 0x0302);
 
-/**
- *  LMGetBufTgDate()
- *
+  /**
+   *  LMGetBufTgDate()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32) LMGetBufTgDate(void) TWOWORDINLINE(0x2EB8, 0x0304);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32 LMGetBufTgDate(void) TWOWORDINLINE(0x2EB8, 0x0304);
 
-/**
- *  LMSetBufTgDate()
- *
+  /**
+   *  LMSetBufTgDate()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetBufTgDate(SInt32 value) TWOWORDINLINE(0x21DF, 0x0304);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetBufTgDate(SInt32 value) TWOWORDINLINE(0x21DF, 0x0304);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetLo3Bytes()
- *
+  /**
+   *  LMGetLo3Bytes()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt32) LMGetLo3Bytes(void) TWOWORDINLINE(0x2EB8, 0x031A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt32 LMGetLo3Bytes(void) TWOWORDINLINE(0x2EB8, 0x031A);
 
-/**
- *  LMSetLo3Bytes()
- *
+  /**
+   *  LMSetLo3Bytes()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetLo3Bytes(SInt32 value) TWOWORDINLINE(0x21DF, 0x031A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetLo3Bytes(SInt32 value) TWOWORDINLINE(0x21DF, 0x031A);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetMinStack()
- *
+  /**
+   *  LMGetMinStack()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32) LMGetMinStack(void) TWOWORDINLINE(0x2EB8, 0x031E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32 LMGetMinStack(void) TWOWORDINLINE(0x2EB8, 0x031E);
 
-/**
- *  LMSetMinStack()
- *
+  /**
+   *  LMSetMinStack()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetMinStack(SInt32 value) TWOWORDINLINE(0x21DF, 0x031E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetMinStack(SInt32 value) TWOWORDINLINE(0x21DF, 0x031E);
 
-/**
- *  LMGetDefltStack()
- *
+  /**
+   *  LMGetDefltStack()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32) LMGetDefltStack(void) TWOWORDINLINE(0x2EB8, 0x0322);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32 LMGetDefltStack(void) TWOWORDINLINE(0x2EB8, 0x0322);
 
-/**
- *  LMSetDefltStack()
- *
+  /**
+   *  LMSetDefltStack()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetDefltStack(SInt32 value) TWOWORDINLINE(0x21DF, 0x0322);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetDefltStack(SInt32 value) TWOWORDINLINE(0x21DF, 0x0322);
 
-/**
- *  LMGetGZRootHnd()
- *
+  /**
+   *  LMGetGZRootHnd()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle) LMGetGZRootHnd(void) TWOWORDINLINE(0x2EB8, 0x0328);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle LMGetGZRootHnd(void) TWOWORDINLINE(0x2EB8, 0x0328);
 
-/**
- *  LMSetGZRootHnd()
- *
+  /**
+   *  LMSetGZRootHnd()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetGZRootHnd(Handle value) TWOWORDINLINE(0x21DF, 0x0328);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetGZRootHnd(Handle value) TWOWORDINLINE(0x21DF, 0x0328);
 
-/**
- *  LMGetGZMoveHnd()
- *
+  /**
+   *  LMGetGZMoveHnd()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle) LMGetGZMoveHnd(void) TWOWORDINLINE(0x2EB8, 0x0330);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Handle LMGetGZMoveHnd(void) TWOWORDINLINE(0x2EB8, 0x0330);
 
-/**
- *  LMSetGZMoveHnd()
- *
+  /**
+   *  LMSetGZMoveHnd()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetGZMoveHnd(Handle value) TWOWORDINLINE(0x21DF, 0x0330);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetGZMoveHnd(Handle value) TWOWORDINLINE(0x21DF, 0x0330);
 
 /**
    LMGetFCBSPtr, LMSetFCBSPtr and LMSetFSFCBLen are not supported with Mac OS 9
@@ -1368,35 +1369,35 @@ EXTERN_API(void) LMSetGZMoveHnd(Handle value) TWOWORDINLINE(0x21DF, 0x0330);
 
 #if ENABLE_FCB_ARRAY_ACCESS
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetFCBSPtr()
- *
+  /**
+   *  LMGetFCBSPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetFCBSPtr(void) TWOWORDINLINE(0x2EB8, 0x034E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetFCBSPtr(void) TWOWORDINLINE(0x2EB8, 0x034E);
 
-/**
- *  LMSetFCBSPtr()
- *
+  /**
+   *  LMSetFCBSPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetFCBSPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x034E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetFCBSPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x034E);
 
-/**
- *  LMSetFSFCBLen()
- *
+  /**
+   *  LMSetFSFCBLen()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetFSFCBLen(SInt16 value) TWOWORDINLINE(0x31DF, 0x03F6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetFSFCBLen(SInt16 value) TWOWORDINLINE(0x31DF, 0x03F6);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1409,1799 +1410,1799 @@ EXTERN_API(void) LMSetFSFCBLen(SInt16 value) TWOWORDINLINE(0x31DF, 0x03F6);
    FSFCBLen other than testing it for a positive value.
 */
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetFSFCBLen()
- *
+  /**
+   *  LMGetFSFCBLen()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetFSFCBLen(void) TWOWORDINLINE(0x3EB8, 0x03F6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetFSFCBLen(void) TWOWORDINLINE(0x3EB8, 0x03F6);
 
-/**
- *  LMGetDefVCBPtr()
- *
+  /**
+   *  LMGetDefVCBPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetDefVCBPtr(void) TWOWORDINLINE(0x2EB8, 0x0352);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetDefVCBPtr(void) TWOWORDINLINE(0x2EB8, 0x0352);
 
-/**
- *  LMSetDefVCBPtr()
- *
+  /**
+   *  LMSetDefVCBPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetDefVCBPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0352);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetDefVCBPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0352);
 
-/**
- *  LMGetCurDirStore()
- *
+  /**
+   *  LMGetCurDirStore()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt32) LMGetCurDirStore(void) TWOWORDINLINE(0x2EB8, 0x0398);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt32 LMGetCurDirStore(void) TWOWORDINLINE(0x2EB8, 0x0398);
 
-/**
- *  LMSetCurDirStore()
- *
+  /**
+   *  LMSetCurDirStore()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetCurDirStore(SInt32 value) TWOWORDINLINE(0x21DF, 0x0398);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetCurDirStore(SInt32 value) TWOWORDINLINE(0x21DF, 0x0398);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetToExtFS()
- *
+  /**
+   *  LMGetToExtFS()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UniversalProcPtr) LMGetToExtFS(void) TWOWORDINLINE(0x2EB8, 0x03F2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UniversalProcPtr LMGetToExtFS(void) TWOWORDINLINE(0x2EB8, 0x03F2);
 
-/**
- *  LMSetToExtFS()
- *
+  /**
+   *  LMSetToExtFS()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-LMSetToExtFS(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x03F2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  LMSetToExtFS(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x03F2);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetScrnBase()
- *
+  /**
+   *  LMGetScrnBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetScrnBase(void) TWOWORDINLINE(0x2EB8, 0x0824);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetScrnBase(void) TWOWORDINLINE(0x2EB8, 0x0824);
 
-/**
- *  LMSetScrnBase()
- *
+  /**
+   *  LMSetScrnBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetScrnBase(Ptr value) TWOWORDINLINE(0x21DF, 0x0824);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetScrnBase(Ptr value) TWOWORDINLINE(0x21DF, 0x0824);
 
-/**
- *  LMGetCrsrBusy()
- *
+  /**
+   *  LMGetCrsrBusy()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetCrsrBusy(void) TWOWORDINLINE(0x1EB8, 0x08CD);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetCrsrBusy(void) TWOWORDINLINE(0x1EB8, 0x08CD);
 
-/**
- *  LMSetCrsrBusy()
- *
+  /**
+   *  LMSetCrsrBusy()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetCrsrBusy(UInt8 value) TWOWORDINLINE(0x11DF, 0x08CD);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetCrsrBusy(UInt8 value) TWOWORDINLINE(0x11DF, 0x08CD);
 
-/**
- *  LMGetJournalRef()
- *
+  /**
+   *  LMGetJournalRef()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetJournalRef(void) TWOWORDINLINE(0x3EB8, 0x08E8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetJournalRef(void) TWOWORDINLINE(0x3EB8, 0x08E8);
 
-/**
- *  LMSetJournalRef()
- *
+  /**
+   *  LMSetJournalRef()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetJournalRef(SInt16 value) TWOWORDINLINE(0x31DF, 0x08E8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetJournalRef(SInt16 value) TWOWORDINLINE(0x31DF, 0x08E8);
 
-/**
- *  LMGetCrsrThresh()
- *
+  /**
+   *  LMGetCrsrThresh()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetCrsrThresh(void) TWOWORDINLINE(0x3EB8, 0x08EC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetCrsrThresh(void) TWOWORDINLINE(0x3EB8, 0x08EC);
 
-/**
- *  LMSetCrsrThresh()
- *
+  /**
+   *  LMSetCrsrThresh()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetCrsrThresh(SInt16 value) TWOWORDINLINE(0x31DF, 0x08EC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetCrsrThresh(SInt16 value) TWOWORDINLINE(0x31DF, 0x08EC);
 
-/**
- *  LMGetJFetch()
- *
+  /**
+   *  LMGetJFetch()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr) LMGetJFetch(void) TWOWORDINLINE(0x2EB8, 0x08F4);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr LMGetJFetch(void) TWOWORDINLINE(0x2EB8, 0x08F4);
 
-/**
- *  LMSetJFetch()
- *
+  /**
+   *  LMSetJFetch()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetJFetch(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x08F4);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetJFetch(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x08F4);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetJStash()
- *
+  /**
+   *  LMGetJStash()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UniversalProcPtr) LMGetJStash(void) TWOWORDINLINE(0x2EB8, 0x08F8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UniversalProcPtr LMGetJStash(void) TWOWORDINLINE(0x2EB8, 0x08F8);
 
-/**
- *  LMSetJStash()
- *
+  /**
+   *  LMSetJStash()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-LMSetJStash(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x08F8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  LMSetJStash(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x08F8);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetJIODone()
- *
+  /**
+   *  LMGetJIODone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr) LMGetJIODone(void) TWOWORDINLINE(0x2EB8, 0x08FC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr LMGetJIODone(void) TWOWORDINLINE(0x2EB8, 0x08FC);
 
-/**
- *  LMSetJIODone()
- *
+  /**
+   *  LMSetJIODone()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetJIODone(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x08FC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetJIODone(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x08FC);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetCurApRefNum()
- *
+  /**
+   *  LMGetCurApRefNum()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetCurApRefNum(void) TWOWORDINLINE(0x3EB8, 0x0900);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetCurApRefNum(void) TWOWORDINLINE(0x3EB8, 0x0900);
 
-/**
- *  LMSetCurApRefNum()
- *
+  /**
+   *  LMSetCurApRefNum()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetCurApRefNum(SInt16 value) TWOWORDINLINE(0x31DF, 0x0900);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetCurApRefNum(SInt16 value) TWOWORDINLINE(0x31DF, 0x0900);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetCurrentA5()
- *
+  /**
+   *  LMGetCurrentA5()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetCurrentA5(void) TWOWORDINLINE(0x2EB8, 0x0904);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetCurrentA5(void) TWOWORDINLINE(0x2EB8, 0x0904);
 
-/**
- *  LMSetCurrentA5()
- *
+  /**
+   *  LMSetCurrentA5()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetCurrentA5(Ptr value) TWOWORDINLINE(0x21DF, 0x0904);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetCurrentA5(Ptr value) TWOWORDINLINE(0x21DF, 0x0904);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetCurStackBase()
- *
+  /**
+   *  LMGetCurStackBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetCurStackBase(void) TWOWORDINLINE(0x2EB8, 0x0908);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetCurStackBase(void) TWOWORDINLINE(0x2EB8, 0x0908);
 
-/**
- *  LMSetCurStackBase()
- *
+  /**
+   *  LMSetCurStackBase()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetCurStackBase(Ptr value) TWOWORDINLINE(0x21DF, 0x0908);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetCurStackBase(Ptr value) TWOWORDINLINE(0x21DF, 0x0908);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetCurJTOffset()
- *
+  /**
+   *  LMGetCurJTOffset()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetCurJTOffset(void) TWOWORDINLINE(0x3EB8, 0x0934);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetCurJTOffset(void) TWOWORDINLINE(0x3EB8, 0x0934);
 
-/**
- *  LMSetCurJTOffset()
- *
+  /**
+   *  LMSetCurJTOffset()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetCurJTOffset(SInt16 value) TWOWORDINLINE(0x31DF, 0x0934);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetCurJTOffset(SInt16 value) TWOWORDINLINE(0x31DF, 0x0934);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetCurPageOption()
- *
+  /**
+   *  LMGetCurPageOption()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetCurPageOption(void) TWOWORDINLINE(0x3EB8, 0x0936);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetCurPageOption(void) TWOWORDINLINE(0x3EB8, 0x0936);
 
-/**
- *  LMSetCurPageOption()
- *
+  /**
+   *  LMSetCurPageOption()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetCurPageOption(SInt16 value) TWOWORDINLINE(0x31DF, 0x0936);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetCurPageOption(SInt16 value) TWOWORDINLINE(0x31DF, 0x0936);
 
-/**
- *  LMGetPrintErr()
- *
+  /**
+   *  LMGetPrintErr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetPrintErr(void) TWOWORDINLINE(0x3EB8, 0x0944);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetPrintErr(void) TWOWORDINLINE(0x3EB8, 0x0944);
 
-/**
- *  LMSetPrintErr()
- *
+  /**
+   *  LMSetPrintErr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetPrintErr(SInt16 value) TWOWORDINLINE(0x31DF, 0x0944);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetPrintErr(SInt16 value) TWOWORDINLINE(0x31DF, 0x0944);
 
-/**  Carbon Scrap Manager does not support low memory.*/
+  /**  Carbon Scrap Manager does not support low memory.*/
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetScrapSize()
- *
+  /**
+   *  LMGetScrapSize()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt32) LMGetScrapSize(void) TWOWORDINLINE(0x2EB8, 0x0960);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt32 LMGetScrapSize(void) TWOWORDINLINE(0x2EB8, 0x0960);
 
-/**
- *  LMSetScrapSize()
- *
+  /**
+   *  LMSetScrapSize()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetScrapSize(SInt32 value) TWOWORDINLINE(0x21DF, 0x0960);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetScrapSize(SInt32 value) TWOWORDINLINE(0x21DF, 0x0960);
 
-/**
- *  LMGetScrapHandle()
- *
+  /**
+   *  LMGetScrapHandle()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetScrapHandle(void) TWOWORDINLINE(0x2EB8, 0x0964);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetScrapHandle(void) TWOWORDINLINE(0x2EB8, 0x0964);
 
-/**
- *  LMSetScrapHandle()
- *
+  /**
+   *  LMSetScrapHandle()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetScrapHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0964);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetScrapHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0964);
 
-/**
- *  LMGetScrapCount()
- *
+  /**
+   *  LMGetScrapCount()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetScrapCount(void) TWOWORDINLINE(0x3EB8, 0x0968);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetScrapCount(void) TWOWORDINLINE(0x3EB8, 0x0968);
 
-/**
- *  LMSetScrapCount()
- *
+  /**
+   *  LMSetScrapCount()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetScrapCount(SInt16 value) TWOWORDINLINE(0x31DF, 0x0968);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetScrapCount(SInt16 value) TWOWORDINLINE(0x31DF, 0x0968);
 
-/**
- *  LMGetScrapState()
- *
+  /**
+   *  LMGetScrapState()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetScrapState(void) TWOWORDINLINE(0x3EB8, 0x096A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetScrapState(void) TWOWORDINLINE(0x3EB8, 0x096A);
 
-/**
- *  LMSetScrapState()
- *
+  /**
+   *  LMSetScrapState()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetScrapState(SInt16 value) TWOWORDINLINE(0x31DF, 0x096A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetScrapState(SInt16 value) TWOWORDINLINE(0x31DF, 0x096A);
 
-/**
- *  LMGetScrapName()
- *
+  /**
+   *  LMGetScrapName()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(StringPtr) LMGetScrapName(void) TWOWORDINLINE(0x2EB8, 0x096C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  StringPtr LMGetScrapName(void) TWOWORDINLINE(0x2EB8, 0x096C);
 
-/**
- *  LMSetScrapName()
- *
+  /**
+   *  LMSetScrapName()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetScrapName(StringPtr value) TWOWORDINLINE(0x21DF, 0x096C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetScrapName(StringPtr value) TWOWORDINLINE(0x21DF, 0x096C);
 
-/**
- *  LMGetROMFont0()
- *
+  /**
+   *  LMGetROMFont0()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetROMFont0(void) TWOWORDINLINE(0x2EB8, 0x0980);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetROMFont0(void) TWOWORDINLINE(0x2EB8, 0x0980);
 
-/**
- *  LMSetROMFont0()
- *
+  /**
+   *  LMSetROMFont0()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetROMFont0(Handle value) TWOWORDINLINE(0x21DF, 0x0980);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetROMFont0(Handle value) TWOWORDINLINE(0x21DF, 0x0980);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetApFontID()
- *
+  /**
+   *  LMGetApFontID()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetApFontID(void) TWOWORDINLINE(0x3EB8, 0x0984);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetApFontID(void) TWOWORDINLINE(0x3EB8, 0x0984);
 
-/**
- *  LMSetApFontID()
- *
+  /**
+   *  LMSetApFontID()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetApFontID(SInt16 value) TWOWORDINLINE(0x31DF, 0x0984);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetApFontID(SInt16 value) TWOWORDINLINE(0x31DF, 0x0984);
 
 /** Carbon versions of the Window Manager do not support LowMem. */
 /** Carbon Usage: use GetWindowList*/
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetWindowList()
- *
+  /**
+   *  LMGetWindowList()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(WindowRef) LMGetWindowList(void) TWOWORDINLINE(0x2EB8, 0x09D6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  WindowRef LMGetWindowList(void) TWOWORDINLINE(0x2EB8, 0x09D6);
 
-/**
- *  LMGetSaveUpdate()
- *
+  /**
+   *  LMGetSaveUpdate()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetSaveUpdate(void) TWOWORDINLINE(0x3EB8, 0x09DA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetSaveUpdate(void) TWOWORDINLINE(0x3EB8, 0x09DA);
 
-/**
- *  LMSetSaveUpdate()
- *
+  /**
+   *  LMSetSaveUpdate()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSaveUpdate(SInt16 value) TWOWORDINLINE(0x31DF, 0x09DA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSaveUpdate(SInt16 value) TWOWORDINLINE(0x31DF, 0x09DA);
 
-/**
- *  LMGetPaintWhite()
- *
+  /**
+   *  LMGetPaintWhite()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetPaintWhite(void) TWOWORDINLINE(0x3EB8, 0x09DC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetPaintWhite(void) TWOWORDINLINE(0x3EB8, 0x09DC);
 
-/** Carbon Usage : use InstallWindowContentPaintProc*/
-/**
- *  LMSetPaintWhite()
- *
+  /** Carbon Usage : use InstallWindowContentPaintProc*/
+  /**
+   *  LMSetPaintWhite()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetPaintWhite(SInt16 value) TWOWORDINLINE(0x31DF, 0x09DC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetPaintWhite(SInt16 value) TWOWORDINLINE(0x31DF, 0x09DC);
 
-/**
- *  LMGetWMgrPort()
- *
+  /**
+   *  LMGetWMgrPort()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(GrafPtr) LMGetWMgrPort(void) TWOWORDINLINE(0x2EB8, 0x09DE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  GrafPtr LMGetWMgrPort(void) TWOWORDINLINE(0x2EB8, 0x09DE);
 
-/**
- *  LMSetWMgrPort()
- *
+  /**
+   *  LMSetWMgrPort()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetWMgrPort(GrafPtr value) TWOWORDINLINE(0x21DF, 0x09DE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetWMgrPort(GrafPtr value) TWOWORDINLINE(0x21DF, 0x09DE);
 
-/** Carbon Usage: use GetGrayRgn*/
-/**
- *  LMGetGrayRgn()
- *
+  /** Carbon Usage: use GetGrayRgn*/
+  /**
+   *  LMGetGrayRgn()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(RgnHandle) LMGetGrayRgn(void) TWOWORDINLINE(0x2EB8, 0x09EE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  RgnHandle LMGetGrayRgn(void) TWOWORDINLINE(0x2EB8, 0x09EE);
 
-/**
- *  LMGetDragHook()
- *
+  /**
+   *  LMGetDragHook()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(DragGrayRgnUPP) LMGetDragHook(void) TWOWORDINLINE(0x2EB8, 0x09F6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  DragGrayRgnUPP LMGetDragHook(void) TWOWORDINLINE(0x2EB8, 0x09F6);
 
-/**
- *  LMSetDragHook()
- *
+  /**
+   *  LMSetDragHook()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetDragHook(DragGrayRgnUPP value) TWOWORDINLINE(0x21DF, 0x09F6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetDragHook(DragGrayRgnUPP value) TWOWORDINLINE(0x21DF, 0x09F6);
 
-/**
- *  LMSetWindowList()
- *
+  /**
+   *  LMSetWindowList()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetWindowList(WindowRef value) TWOWORDINLINE(0x21DF, 0x09D6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetWindowList(WindowRef value) TWOWORDINLINE(0x21DF, 0x09D6);
 
-/**
- *  LMGetGhostWindow()
- *
+  /**
+   *  LMGetGhostWindow()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(WindowRef) LMGetGhostWindow(void) TWOWORDINLINE(0x2EB8, 0x0A84);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  WindowRef LMGetGhostWindow(void) TWOWORDINLINE(0x2EB8, 0x0A84);
 
-/**
- *  LMSetGhostWindow()
- *
+  /**
+   *  LMSetGhostWindow()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetGhostWindow(WindowRef value) TWOWORDINLINE(0x21DF, 0x0A84);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetGhostWindow(WindowRef value) TWOWORDINLINE(0x21DF, 0x0A84);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #if !OPAQUE_TOOLBOX_STRUCTS
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetAuxWinHead()
- *
+  /**
+   *  LMGetAuxWinHead()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(AuxWinHandle) LMGetAuxWinHead(void) TWOWORDINLINE(0x2EB8, 0x0CD0);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  AuxWinHandle LMGetAuxWinHead(void) TWOWORDINLINE(0x2EB8, 0x0CD0);
 
-/**
- *  LMSetAuxWinHead()
- *
+  /**
+   *  LMSetAuxWinHead()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetAuxWinHead(AuxWinHandle value) TWOWORDINLINE(0x21DF, 0x0CD0);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetAuxWinHead(AuxWinHandle value) TWOWORDINLINE(0x21DF, 0x0CD0);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #endif /** !OPAQUE_TOOLBOX_STRUCTS */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetCurActivate()
- *
+  /**
+   *  LMGetCurActivate()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(WindowRef) LMGetCurActivate(void) TWOWORDINLINE(0x2EB8, 0x0A64);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  WindowRef LMGetCurActivate(void) TWOWORDINLINE(0x2EB8, 0x0A64);
 
-/**
- *  LMSetCurActivate()
- *
+  /**
+   *  LMSetCurActivate()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetCurActivate(WindowRef value) TWOWORDINLINE(0x21DF, 0x0A64);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetCurActivate(WindowRef value) TWOWORDINLINE(0x21DF, 0x0A64);
 
-/**
- *  LMGetCurDeactive()
- *
+  /**
+   *  LMGetCurDeactive()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(WindowRef) LMGetCurDeactive(void) TWOWORDINLINE(0x2EB8, 0x0A68);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  WindowRef LMGetCurDeactive(void) TWOWORDINLINE(0x2EB8, 0x0A68);
 
-/**
- *  LMSetCurDeactive()
- *
+  /**
+   *  LMSetCurDeactive()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetCurDeactive(WindowRef value) TWOWORDINLINE(0x21DF, 0x0A68);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetCurDeactive(WindowRef value) TWOWORDINLINE(0x21DF, 0x0A68);
 
-/**
- *  LMGetOldStructure()
- *
+  /**
+   *  LMGetOldStructure()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(RgnHandle) LMGetOldStructure(void) TWOWORDINLINE(0x2EB8, 0x09E6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  RgnHandle LMGetOldStructure(void) TWOWORDINLINE(0x2EB8, 0x09E6);
 
-/**
- *  LMSetOldStructure()
- *
+  /**
+   *  LMSetOldStructure()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetOldStructure(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09E6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetOldStructure(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09E6);
 
-/**
- *  LMGetOldContent()
- *
+  /**
+   *  LMGetOldContent()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(RgnHandle) LMGetOldContent(void) TWOWORDINLINE(0x2EB8, 0x09EA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  RgnHandle LMGetOldContent(void) TWOWORDINLINE(0x2EB8, 0x09EA);
 
-/**
- *  LMSetOldContent()
- *
+  /**
+   *  LMSetOldContent()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetOldContent(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09EA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetOldContent(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09EA);
 
-/**
- *  LMSetGrayRgn()
- *
+  /**
+   *  LMSetGrayRgn()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetGrayRgn(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09EE);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetGrayRgn(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09EE);
 
-/**
- *  LMGetSaveVisRgn()
- *
+  /**
+   *  LMGetSaveVisRgn()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(RgnHandle) LMGetSaveVisRgn(void) TWOWORDINLINE(0x2EB8, 0x09F2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  RgnHandle LMGetSaveVisRgn(void) TWOWORDINLINE(0x2EB8, 0x09F2);
 
-/**
- *  LMSetSaveVisRgn()
- *
+  /**
+   *  LMSetSaveVisRgn()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSaveVisRgn(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09F2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSaveVisRgn(RgnHandle value) TWOWORDINLINE(0x21DF, 0x09F2);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetOneOne()
- *
+  /**
+   *  LMGetOneOne()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32) LMGetOneOne(void) TWOWORDINLINE(0x2EB8, 0x0A02);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32 LMGetOneOne(void) TWOWORDINLINE(0x2EB8, 0x0A02);
 
-/**
- *  LMSetOneOne()
- *
+  /**
+   *  LMSetOneOne()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetOneOne(SInt32 value) TWOWORDINLINE(0x21DF, 0x0A02);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetOneOne(SInt32 value) TWOWORDINLINE(0x21DF, 0x0A02);
 
-/**
- *  LMGetMinusOne()
- *
+  /**
+   *  LMGetMinusOne()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32) LMGetMinusOne(void) TWOWORDINLINE(0x2EB8, 0x0A06);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32 LMGetMinusOne(void) TWOWORDINLINE(0x2EB8, 0x0A06);
 
-/**
- *  LMSetMinusOne()
- *
+  /**
+   *  LMSetMinusOne()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetMinusOne(SInt32 value) TWOWORDINLINE(0x21DF, 0x0A06);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetMinusOne(SInt32 value) TWOWORDINLINE(0x21DF, 0x0A06);
 
 /** Carbon Usage: use GetMenuTrackingData*/
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetTopMenuItem()
- *
+  /**
+   *  LMGetTopMenuItem()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetTopMenuItem(void) TWOWORDINLINE(0x3EB8, 0x0A0A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetTopMenuItem(void) TWOWORDINLINE(0x3EB8, 0x0A0A);
 
-/** Carbon Usage: replaced by MDEF messages and GetMenuTrackingData API*/
-/**
- *  LMSetTopMenuItem()
- *
+  /** Carbon Usage: replaced by MDEF messages and GetMenuTrackingData API*/
+  /**
+   *  LMSetTopMenuItem()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTopMenuItem(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A0A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTopMenuItem(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A0A);
 
-/** Carbon Usage: use GetMenuTrackingData*/
-/**
- *  LMGetAtMenuBottom()
- *
+  /** Carbon Usage: use GetMenuTrackingData*/
+  /**
+   *  LMGetAtMenuBottom()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetAtMenuBottom(void) TWOWORDINLINE(0x3EB8, 0x0A0C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetAtMenuBottom(void) TWOWORDINLINE(0x3EB8, 0x0A0C);
 
-/** Carbon Usage: replaced by MDEF messages and GetMenuTrackingData API*/
-/**
- *  LMSetAtMenuBottom()
- *
+  /** Carbon Usage: replaced by MDEF messages and GetMenuTrackingData API*/
+  /**
+   *  LMSetAtMenuBottom()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetAtMenuBottom(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A0C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetAtMenuBottom(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A0C);
 
-/**
-   Carbon usage: use GetMenuBar (which returns a newly allocated handle in
-   the same format as that returned by LMGetMenuList; dispose with
-   DisposeMenuBar) or GetRootMenu.
-*/
-/**
- *  LMGetMenuList()
- *
+  /**
+     Carbon usage: use GetMenuBar (which returns a newly allocated handle in
+     the same format as that returned by LMGetMenuList; dispose with
+     DisposeMenuBar) or GetRootMenu.
+  */
+  /**
+   *  LMGetMenuList()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetMenuList(void) TWOWORDINLINE(0x2EB8, 0x0A1C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetMenuList(void) TWOWORDINLINE(0x2EB8, 0x0A1C);
 
-/**
- *  LMSetMenuList()
- *
+  /**
+   *  LMSetMenuList()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMenuList(Handle value) TWOWORDINLINE(0x21DF, 0x0A1C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMenuList(Handle value) TWOWORDINLINE(0x21DF, 0x0A1C);
 
-/** Carbon usage: no replacement*/
-/**
- *  LMGetMBarEnable()
- *
+  /** Carbon usage: no replacement*/
+  /**
+   *  LMGetMBarEnable()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetMBarEnable(void) TWOWORDINLINE(0x3EB8, 0x0A20);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetMBarEnable(void) TWOWORDINLINE(0x3EB8, 0x0A20);
 
-/**
- *  LMSetMBarEnable()
- *
+  /**
+   *  LMSetMBarEnable()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMBarEnable(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A20);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMBarEnable(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A20);
 
-/** Carbon usage: no replacement*/
-/**
- *  LMGetMenuFlash()
- *
+  /** Carbon usage: no replacement*/
+  /**
+   *  LMGetMenuFlash()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetMenuFlash(void) TWOWORDINLINE(0x3EB8, 0x0A24);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetMenuFlash(void) TWOWORDINLINE(0x3EB8, 0x0A24);
 
-/**
- *  LMSetMenuFlash()
- *
+  /**
+   *  LMSetMenuFlash()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMenuFlash(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A24);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMenuFlash(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A24);
 
-/** LMGetTheMenu() moved to Menus.h */
-/**
- *  LMSetTheMenu()
- *
+  /** LMGetTheMenu() moved to Menus.h */
+  /**
+   *  LMSetTheMenu()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTheMenu(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A26);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTheMenu(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A26);
 
-/**
- *  LMGetMBarHook()
- *
+  /**
+   *  LMGetMBarHook()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(MBarHookUPP) LMGetMBarHook(void) TWOWORDINLINE(0x2EB8, 0x0A2C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  MBarHookUPP LMGetMBarHook(void) TWOWORDINLINE(0x2EB8, 0x0A2C);
 
-/**
- *  LMSetMBarHook()
- *
+  /**
+   *  LMSetMBarHook()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMBarHook(MBarHookUPP value) TWOWORDINLINE(0x21DF, 0x0A2C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMBarHook(MBarHookUPP value) TWOWORDINLINE(0x21DF, 0x0A2C);
 
-/**
- *  LMGetMenuHook()
- *
+  /**
+   *  LMGetMenuHook()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(MenuHookUPP) LMGetMenuHook(void) TWOWORDINLINE(0x2EB8, 0x0A30);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  MenuHookUPP LMGetMenuHook(void) TWOWORDINLINE(0x2EB8, 0x0A30);
 
-/**
- *  LMSetMenuHook()
- *
+  /**
+   *  LMSetMenuHook()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMenuHook(MenuHookUPP value) TWOWORDINLINE(0x21DF, 0x0A30);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMenuHook(MenuHookUPP value) TWOWORDINLINE(0x21DF, 0x0A30);
 
-/**
- *  LMGetTopMapHndl()
- *
+  /**
+   *  LMGetTopMapHndl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetTopMapHndl(void) TWOWORDINLINE(0x2EB8, 0x0A50);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetTopMapHndl(void) TWOWORDINLINE(0x2EB8, 0x0A50);
 
-/**
- *  LMSetTopMapHndl()
- *
+  /**
+   *  LMSetTopMapHndl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTopMapHndl(Handle value) TWOWORDINLINE(0x21DF, 0x0A50);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTopMapHndl(Handle value) TWOWORDINLINE(0x21DF, 0x0A50);
 
-/**
- *  LMGetSysMapHndl()
- *
+  /**
+   *  LMGetSysMapHndl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetSysMapHndl(void) TWOWORDINLINE(0x2EB8, 0x0A54);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetSysMapHndl(void) TWOWORDINLINE(0x2EB8, 0x0A54);
 
-/**
- *  LMSetSysMapHndl()
- *
+  /**
+   *  LMSetSysMapHndl()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSysMapHndl(Handle value) TWOWORDINLINE(0x21DF, 0x0A54);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSysMapHndl(Handle value) TWOWORDINLINE(0x21DF, 0x0A54);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetSysMap()
- *
+  /**
+   *  LMGetSysMap()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetSysMap(void) TWOWORDINLINE(0x3EB8, 0x0A58);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetSysMap(void) TWOWORDINLINE(0x3EB8, 0x0A58);
 
-/**
- *  LMSetSysMap()
- *
+  /**
+   *  LMSetSysMap()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSysMap(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A58);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSysMap(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A58);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetCurMap()
- *
+  /**
+   *  LMGetCurMap()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetCurMap(void) TWOWORDINLINE(0x3EB8, 0x0A5A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetCurMap(void) TWOWORDINLINE(0x3EB8, 0x0A5A);
 
-/**
- *  LMSetCurMap()
- *
+  /**
+   *  LMSetCurMap()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetCurMap(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A5A);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetCurMap(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A5A);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetResLoad()
- *
+  /**
+   *  LMGetResLoad()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8) LMGetResLoad(void) TWOWORDINLINE(0x1EB8, 0x0A5E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetResLoad(void) TWOWORDINLINE(0x1EB8, 0x0A5E);
 
-/**
- *  LMSetResLoad()
- *
+  /**
+   *  LMSetResLoad()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetResLoad(UInt8 value) TWOWORDINLINE(0x11DF, 0x0A5E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetResLoad(UInt8 value) TWOWORDINLINE(0x11DF, 0x0A5E);
 
-/**
- *  LMGetResErr()
- *
+  /**
+   *  LMGetResErr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetResErr(void) TWOWORDINLINE(0x3EB8, 0x0A60);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetResErr(void) TWOWORDINLINE(0x3EB8, 0x0A60);
 
-/**
- *  LMSetResErr()
- *
+  /**
+   *  LMSetResErr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetResErr(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A60);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetResErr(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A60);
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetFScaleDisable()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetFScaleDisable(void) TWOWORDINLINE(0x1EB8, 0x0A63);
-
-/**
- *  LMSetFScaleDisable()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetFScaleDisable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0A63);
-
-/**
- *  LMGetDeskHook()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr) LMGetDeskHook(void) TWOWORDINLINE(0x2EB8, 0x0A6C);
-
-/**
- *  LMSetDeskHook()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetDeskHook(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A6C);
-
-/** Carbon Usage: Use TEGetDoTextHook.*/
-/**
- *  LMGetTEDoText()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr) LMGetTEDoText(void) TWOWORDINLINE(0x2EB8, 0x0A70);
-
-/** Carbon Usage: Use TESetDoTextHook.*/
-/**
- *  LMSetTEDoText()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetTEDoText(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A70);
-
-/** Carbon Usage: Use TEGetRecalcHook.*/
-/**
- *  LMGetTERecal()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr) LMGetTERecal(void) TWOWORDINLINE(0x2EB8, 0x0A74);
-
-/** Carbon Usage: Use TESetRecalcHook.*/
-/**
- *  LMSetTERecal()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetTERecal(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A74);
-
-/**
- *  LMGetResumeProc()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr)
-LMGetResumeProc(void) TWOWORDINLINE(0x2EB8, 0x0A8C);
-
-/**
- *  LMSetResumeProc()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetResumeProc(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A8C);
-
-/**
- *  LMGetANumber()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetANumber(void) TWOWORDINLINE(0x3EB8, 0x0A98);
-
-/**
- *  LMSetANumber()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetANumber(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A98);
-
-/** Carbon Usage: Use GetAlertStage.*/
-/**
- *  LMGetACount()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetACount(void) TWOWORDINLINE(0x3EB8, 0x0A9A);
-
-/** Carbon Usage: Use ResetAlertStage.*/
-/**
- *  LMSetACount()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetACount(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A9A);
-
-/**
- *  LMGetDABeeper()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr) LMGetDABeeper(void) TWOWORDINLINE(0x2EB8, 0x0A9C);
-
-/**
- *  LMSetDABeeper()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetDABeeper(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A9C);
-
-/** Carbon Usage: use TEGetScrapLength*/
-/**
- *  LMGetTEScrpLength()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt16) LMGetTEScrpLength(void) TWOWORDINLINE(0x3EB8, 0x0AB0);
-
-/** Carbon Usage: use TESetScrapLength*/
-/**
- *  LMSetTEScrpLength()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTEScrpLength(UInt16 value) TWOWORDINLINE(0x31DF, 0x0AB0);
-
-/** Carbon Usage: use TEGetScrapHandle*/
-/**
- *  LMGetTEScrpHandle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetTEScrpHandle(void) TWOWORDINLINE(0x2EB8, 0x0AB4);
-
-/** Carbon Usage: use TESetScrapHandle*/
-/**
- *  LMSetTEScrpHandle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTEScrpHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0AB4);
-
-/**
- *  LMGetAppParmHandle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetAppParmHandle(void) TWOWORDINLINE(0x2EB8, 0x0AEC);
-
-/**
- *  LMSetAppParmHandle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetAppParmHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0AEC);
-
-/**
- *  LMGetDSErrCode()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetDSErrCode(void) TWOWORDINLINE(0x3EB8, 0x0AF0);
-
-/**
- *  LMSetDSErrCode()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetDSErrCode(SInt16 value) TWOWORDINLINE(0x31DF, 0x0AF0);
-
-/**
- *  LMGetResErrProc()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(ResErrUPP) LMGetResErrProc(void) TWOWORDINLINE(0x2EB8, 0x0AF2);
-
-/**
- *  LMSetResErrProc()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetResErrProc(ResErrUPP value) TWOWORDINLINE(0x21DF, 0x0AF2);
-
-/**
- *  LMGetDlgFont()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetDlgFont(void) TWOWORDINLINE(0x3EB8, 0x0AFA);
-
-/** Carbon Usage: use SetDialogFont*/
-/**
- *  LMSetDlgFont()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetDlgFont(SInt16 value) TWOWORDINLINE(0x31DF, 0x0AFA);
-
-/**
- *  LMGetATalkHk2()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Ptr) LMGetATalkHk2(void) TWOWORDINLINE(0x2EB8, 0x0B18);
-
-/**
- *  LMSetATalkHk2()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetATalkHk2(Ptr value) TWOWORDINLINE(0x21DF, 0x0B18);
-
-/**
- *  LMGetHWCfgFlags()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetHWCfgFlags(void) TWOWORDINLINE(0x3EB8, 0x0B22);
-
-/**
- *  LMSetHWCfgFlags()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetHWCfgFlags(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B22);
-
-/** Carbon Usage: use GetMenuTrackingData*/
-/**
- *  LMGetMenuDisable()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt32) LMGetMenuDisable(void) TWOWORDINLINE(0x2EB8, 0x0B54);
-
-/** Carbon Usage: use new MDEF messages*/
-/**
- *  LMSetMenuDisable()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMenuDisable(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B54);
-
-/**
- *  LMGetROMMapInsert()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetROMMapInsert(void) TWOWORDINLINE(0x1EB8, 0x0B9E);
-
-/**
- *  LMSetROMMapInsert()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetROMMapInsert(UInt8 value) TWOWORDINLINE(0x11DF, 0x0B9E);
+  /**
+   *  LMGetFScaleDisable()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetFScaleDisable(void) TWOWORDINLINE(0x1EB8, 0x0A63);
+
+  /**
+   *  LMSetFScaleDisable()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetFScaleDisable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0A63);
+
+  /**
+   *  LMGetDeskHook()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr LMGetDeskHook(void) TWOWORDINLINE(0x2EB8, 0x0A6C);
+
+  /**
+   *  LMSetDeskHook()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetDeskHook(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A6C);
+
+  /** Carbon Usage: Use TEGetDoTextHook.*/
+  /**
+   *  LMGetTEDoText()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr LMGetTEDoText(void) TWOWORDINLINE(0x2EB8, 0x0A70);
+
+  /** Carbon Usage: Use TESetDoTextHook.*/
+  /**
+   *  LMSetTEDoText()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetTEDoText(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A70);
+
+  /** Carbon Usage: Use TEGetRecalcHook.*/
+  /**
+   *  LMGetTERecal()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr LMGetTERecal(void) TWOWORDINLINE(0x2EB8, 0x0A74);
+
+  /** Carbon Usage: Use TESetRecalcHook.*/
+  /**
+   *  LMSetTERecal()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetTERecal(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A74);
+
+  /**
+   *  LMGetResumeProc()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr
+  LMGetResumeProc(void) TWOWORDINLINE(0x2EB8, 0x0A8C);
+
+  /**
+   *  LMSetResumeProc()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetResumeProc(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A8C);
+
+  /**
+   *  LMGetANumber()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetANumber(void) TWOWORDINLINE(0x3EB8, 0x0A98);
+
+  /**
+   *  LMSetANumber()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetANumber(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A98);
+
+  /** Carbon Usage: Use GetAlertStage.*/
+  /**
+   *  LMGetACount()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetACount(void) TWOWORDINLINE(0x3EB8, 0x0A9A);
+
+  /** Carbon Usage: Use ResetAlertStage.*/
+  /**
+   *  LMSetACount()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetACount(SInt16 value) TWOWORDINLINE(0x31DF, 0x0A9A);
+
+  /**
+   *  LMGetDABeeper()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr LMGetDABeeper(void) TWOWORDINLINE(0x2EB8, 0x0A9C);
+
+  /**
+   *  LMSetDABeeper()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetDABeeper(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0A9C);
+
+  /** Carbon Usage: use TEGetScrapLength*/
+  /**
+   *  LMGetTEScrpLength()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt16 LMGetTEScrpLength(void) TWOWORDINLINE(0x3EB8, 0x0AB0);
+
+  /** Carbon Usage: use TESetScrapLength*/
+  /**
+   *  LMSetTEScrpLength()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTEScrpLength(UInt16 value) TWOWORDINLINE(0x31DF, 0x0AB0);
+
+  /** Carbon Usage: use TEGetScrapHandle*/
+  /**
+   *  LMGetTEScrpHandle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetTEScrpHandle(void) TWOWORDINLINE(0x2EB8, 0x0AB4);
+
+  /** Carbon Usage: use TESetScrapHandle*/
+  /**
+   *  LMSetTEScrpHandle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTEScrpHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0AB4);
+
+  /**
+   *  LMGetAppParmHandle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetAppParmHandle(void) TWOWORDINLINE(0x2EB8, 0x0AEC);
+
+  /**
+   *  LMSetAppParmHandle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetAppParmHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0AEC);
+
+  /**
+   *  LMGetDSErrCode()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetDSErrCode(void) TWOWORDINLINE(0x3EB8, 0x0AF0);
+
+  /**
+   *  LMSetDSErrCode()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetDSErrCode(SInt16 value) TWOWORDINLINE(0x31DF, 0x0AF0);
+
+  /**
+   *  LMGetResErrProc()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  ResErrUPP LMGetResErrProc(void) TWOWORDINLINE(0x2EB8, 0x0AF2);
+
+  /**
+   *  LMSetResErrProc()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetResErrProc(ResErrUPP value) TWOWORDINLINE(0x21DF, 0x0AF2);
+
+  /**
+   *  LMGetDlgFont()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetDlgFont(void) TWOWORDINLINE(0x3EB8, 0x0AFA);
+
+  /** Carbon Usage: use SetDialogFont*/
+  /**
+   *  LMSetDlgFont()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetDlgFont(SInt16 value) TWOWORDINLINE(0x31DF, 0x0AFA);
+
+  /**
+   *  LMGetATalkHk2()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Ptr LMGetATalkHk2(void) TWOWORDINLINE(0x2EB8, 0x0B18);
+
+  /**
+   *  LMSetATalkHk2()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetATalkHk2(Ptr value) TWOWORDINLINE(0x21DF, 0x0B18);
+
+  /**
+   *  LMGetHWCfgFlags()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetHWCfgFlags(void) TWOWORDINLINE(0x3EB8, 0x0B22);
+
+  /**
+   *  LMSetHWCfgFlags()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetHWCfgFlags(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B22);
+
+  /** Carbon Usage: use GetMenuTrackingData*/
+  /**
+   *  LMGetMenuDisable()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt32 LMGetMenuDisable(void) TWOWORDINLINE(0x2EB8, 0x0B54);
+
+  /** Carbon Usage: use new MDEF messages*/
+  /**
+   *  LMSetMenuDisable()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMenuDisable(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B54);
+
+  /**
+   *  LMGetROMMapInsert()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetROMMapInsert(void) TWOWORDINLINE(0x1EB8, 0x0B9E);
+
+  /**
+   *  LMSetROMMapInsert()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetROMMapInsert(UInt8 value) TWOWORDINLINE(0x11DF, 0x0B9E);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetTmpResLoad()
- *
+  /**
+   *  LMGetTmpResLoad()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(UInt8) LMGetTmpResLoad(void) TWOWORDINLINE(0x1EB8, 0x0B9F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetTmpResLoad(void) TWOWORDINLINE(0x1EB8, 0x0B9F);
 
-/**
- *  LMSetTmpResLoad()
- *
+  /**
+   *  LMSetTmpResLoad()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetTmpResLoad(UInt8 value) TWOWORDINLINE(0x11DF, 0x0B9F);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetTmpResLoad(UInt8 value) TWOWORDINLINE(0x11DF, 0x0B9F);
 
-/**
- *  LMGetIntlSpec()
- *
+  /**
+   *  LMGetIntlSpec()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetIntlSpec(void) TWOWORDINLINE(0x2EB8, 0x0BA0);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetIntlSpec(void) TWOWORDINLINE(0x2EB8, 0x0BA0);
 
-/**
- *  LMSetIntlSpec()
- *
+  /**
+   *  LMSetIntlSpec()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetIntlSpec(Ptr value) TWOWORDINLINE(0x21DF, 0x0BA0);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetIntlSpec(Ptr value) TWOWORDINLINE(0x21DF, 0x0BA0);
 
-/** LMGetWordRedraw and LMSetWordRedraw moved to TextEdit.h */
-/**
- *  LMGetSysFontFam()
- *
+  /** LMGetWordRedraw and LMSetWordRedraw moved to TextEdit.h */
+  /**
+   *  LMGetSysFontFam()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetSysFontFam(void) TWOWORDINLINE(0x3EB8, 0x0BA6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetSysFontFam(void) TWOWORDINLINE(0x3EB8, 0x0BA6);
 
-/**
- *  LMSetSysFontFam()
- *
+  /**
+   *  LMSetSysFontFam()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSysFontFam(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BA6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSysFontFam(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BA6);
 
-/**
- *  LMGetSysFontSize()
- *
+  /**
+   *  LMGetSysFontSize()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt16) LMGetSysFontSize(void) TWOWORDINLINE(0x3EB8, 0x0BA8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16 LMGetSysFontSize(void) TWOWORDINLINE(0x3EB8, 0x0BA8);
 
-/**
- *  LMSetSysFontSize()
- *
+  /**
+   *  LMSetSysFontSize()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetSysFontSize(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BA8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetSysFontSize(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BA8);
 
 /** Carbon Usge: use GetMBarHeight*/
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetMBarHeight()
- *
+  /**
+   *  LMGetMBarHeight()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetMBarHeight(void) TWOWORDINLINE(0x3EB8, 0x0BAA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetMBarHeight(void) TWOWORDINLINE(0x3EB8, 0x0BAA);
 
-/** Carbon Usage: use Hide/ShowMenuBar*/
-/**
- *  LMSetMBarHeight()
- *
+  /** Carbon Usage: use Hide/ShowMenuBar*/
+  /**
+   *  LMSetMBarHeight()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMBarHeight(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BAA);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMBarHeight(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BAA);
 
-/**
- *  LMGetTESysJust()
- *
+  /**
+   *  LMGetTESysJust()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetTESysJust(void) TWOWORDINLINE(0x3EB8, 0x0BAC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetTESysJust(void) TWOWORDINLINE(0x3EB8, 0x0BAC);
 
-/**
- *  LMSetTESysJust()
- *
+  /**
+   *  LMSetTESysJust()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTESysJust(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BAC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTESysJust(SInt16 value) TWOWORDINLINE(0x31DF, 0x0BAC);
 
-/**
- *  LMGetMMU32Bit()
- *
+  /**
+   *  LMGetMMU32Bit()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetMMU32Bit(void) TWOWORDINLINE(0x1EB8, 0x0CB2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetMMU32Bit(void) TWOWORDINLINE(0x1EB8, 0x0CB2);
 
-/**
- *  LMSetMMU32Bit()
- *
+  /**
+   *  LMSetMMU32Bit()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMMU32Bit(UInt8 value) TWOWORDINLINE(0x11DF, 0x0CB2);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMMU32Bit(UInt8 value) TWOWORDINLINE(0x11DF, 0x0CB2);
 
-/**
- *  LMGetDeskCPat()
- *
+  /**
+   *  LMGetDeskCPat()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(PixPatHandle) LMGetDeskCPat(void) TWOWORDINLINE(0x2EB8, 0x0CD8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  PixPatHandle LMGetDeskCPat(void) TWOWORDINLINE(0x2EB8, 0x0CD8);
 
-/**
- *  LMSetDeskCPat()
- *
+  /**
+   *  LMSetDeskCPat()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetDeskCPat(PixPatHandle value) TWOWORDINLINE(0x21DF, 0x0CD8);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetDeskCPat(PixPatHandle value) TWOWORDINLINE(0x21DF, 0x0CD8);
 
-/**
- *  LMGetTimeDBRA()
- *
+  /**
+   *  LMGetTimeDBRA()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetTimeDBRA(void) TWOWORDINLINE(0x3EB8, 0x0D00);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetTimeDBRA(void) TWOWORDINLINE(0x3EB8, 0x0D00);
 
-/**
- *  LMSetTimeDBRA()
- *
+  /**
+   *  LMSetTimeDBRA()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTimeDBRA(SInt16 value) TWOWORDINLINE(0x31DF, 0x0D00);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTimeDBRA(SInt16 value) TWOWORDINLINE(0x31DF, 0x0D00);
 
-/**
- *  LMGetTimeSCCDB()
- *
+  /**
+   *  LMGetTimeSCCDB()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetTimeSCCDB(void) TWOWORDINLINE(0x3EB8, 0x0D02);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetTimeSCCDB(void) TWOWORDINLINE(0x3EB8, 0x0D02);
 
-/**
- *  LMSetTimeSCCDB()
- *
+  /**
+   *  LMSetTimeSCCDB()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTimeSCCDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0D02);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTimeSCCDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0D02);
 
-/**
- *  LMGetJVBLTask()
- *
+  /**
+   *  LMGetJVBLTask()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr) LMGetJVBLTask(void) TWOWORDINLINE(0x2EB8, 0x0D28);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr LMGetJVBLTask(void) TWOWORDINLINE(0x2EB8, 0x0D28);
 
-/**
- *  LMSetJVBLTask()
- *
+  /**
+   *  LMSetJVBLTask()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetJVBLTask(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0D28);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetJVBLTask(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0D28);
 
-/**
- *  LMGetSynListHandle()
- *
+  /**
+   *  LMGetSynListHandle()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetSynListHandle(void) TWOWORDINLINE(0x2EB8, 0x0D32);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetSynListHandle(void) TWOWORDINLINE(0x2EB8, 0x0D32);
 
-/**
- *  LMSetSynListHandle()
- *
+  /**
+   *  LMSetSynListHandle()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetSynListHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0D32);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetSynListHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0D32);
 
-/**
- *  LMGetMenuCInfo()
- *
+  /**
+   *  LMGetMenuCInfo()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(MCTableHandle) LMGetMenuCInfo(void) TWOWORDINLINE(0x2EB8, 0x0D50);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  MCTableHandle LMGetMenuCInfo(void) TWOWORDINLINE(0x2EB8, 0x0D50);
 
-/**
- *  LMSetMenuCInfo()
- *
+  /**
+   *  LMSetMenuCInfo()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetMenuCInfo(MCTableHandle value) TWOWORDINLINE(0x21DF, 0x0D50);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetMenuCInfo(MCTableHandle value) TWOWORDINLINE(0x21DF, 0x0D50);
 
-/**
- *  LMGetJDTInstall()
- *
+  /**
+   *  LMGetJDTInstall()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UniversalProcPtr)
-LMGetJDTInstall(void) TWOWORDINLINE(0x2EB8, 0x0D9C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UniversalProcPtr
+  LMGetJDTInstall(void) TWOWORDINLINE(0x2EB8, 0x0D9C);
 
-/**
- *  LMSetJDTInstall()
- *
+  /**
+   *  LMSetJDTInstall()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetJDTInstall(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0D9C);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetJDTInstall(UniversalProcPtr value) TWOWORDINLINE(0x21DF, 0x0D9C);
 
-/**
- *  LMGetTimeSCSIDB()
- *
+  /**
+   *  LMGetTimeSCSIDB()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(SInt16) LMGetTimeSCSIDB(void) TWOWORDINLINE(0x3EB8, 0x0B24);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  SInt16 LMGetTimeSCSIDB(void) TWOWORDINLINE(0x3EB8, 0x0B24);
 
-/**
- *  LMSetTimeSCSIDB()
- *
+  /**
+   *  LMSetTimeSCSIDB()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetTimeSCSIDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B24);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTimeSCSIDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B24);
 
 /***************************************************************************************
 
@@ -3216,32 +3217,32 @@ EXTERN_API(void) LMSetTimeSCSIDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B24);
 
         These lowmem accessors access big (> 4 bytes) values.
 **************************************************************************************/
-#define LMGetDSAlertRect(dsAlertRectValue)                                     \
+#define LMGetDSAlertRect(dsAlertRectValue) \
   (*(dsAlertRectValue) = *(Rect *)0x03F8)
-#define LMSetDSAlertRect(dsAlertRectValue)                                     \
+#define LMSetDSAlertRect(dsAlertRectValue) \
   ((*(Rect *)0x03F8) = *(dsAlertRectValue))
-#define LMGetDragPattern(dragPatternValue)                                     \
+#define LMGetDragPattern(dragPatternValue) \
   (*(dragPatternValue) = *(Pattern *)0x0A34)
-#define LMSetDragPattern(dragPatternValue)                                     \
+#define LMSetDragPattern(dragPatternValue) \
   ((*(Pattern *)0x0A34) = *(dragPatternValue))
-#define LMGetDeskPattern(deskPatternValue)                                     \
+#define LMGetDeskPattern(deskPatternValue) \
   (*(deskPatternValue) = *(Pattern *)0x0A3C)
-#define LMSetDeskPattern(deskPatternValue)                                     \
+#define LMSetDeskPattern(deskPatternValue) \
   ((*(Pattern *)0x0A3C) = *(deskPatternValue))
 #define LMGetEventQueue() ((QHdrPtr)0x014A)
-#define LMSetEventQueue(eventQueueValue)                                       \
+#define LMSetEventQueue(eventQueueValue) \
   ((*(QHdrPtr)0x014A) = *(QHdrPtr)(eventQueueValue))
 #define LMGetVBLQueue() ((QHdrPtr)0x0160)
-#define LMSetVBLQueue(vblQueueValue)                                           \
+#define LMSetVBLQueue(vblQueueValue) \
   ((*(QHdrPtr)0x0160) = *(QHdrPtr)(vblQueueValue))
 #define LMGetDrvQHdr() ((QHdrPtr)0x0308)
-#define LMSetDrvQHdr(drvQHdrValue)                                             \
+#define LMSetDrvQHdr(drvQHdrValue) \
   ((*(QHdrPtr)0x0308) = *(QHdrPtr)(drvQHdrValue))
 #define LMGetVCBQHdr() ((QHdrPtr)0x0356)
-#define LMSetVCBQHdr(vcbQHdrValue)                                             \
+#define LMSetVCBQHdr(vcbQHdrValue) \
   ((*(QHdrPtr)0x0356) = *(QHdrPtr)(vcbQHdrValue))
 #define LMGetDTQueue() ((QHdrPtr)0x0D92)
-#define LMSetDTQueue(dtQueueValue)                                             \
+#define LMSetDTQueue(dtQueueValue) \
   ((*(QHdrPtr)0x0D92) = *(QHdrPtr)(dtQueueValue))
 #define LMGetFSQHdr() ((QHdrPtr)0x0360)
 /***************************************************************************************
@@ -3250,22 +3251,22 @@ EXTERN_API(void) LMSetTimeSCSIDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B24);
         These lowmem accessors use the BlockMove to set
 **************************************************************************************/
 #define LMGetCurApName() ((StringPtr)0x0910)
-#define LMSetCurApName(curApNameValue)                                         \
+#define LMSetCurApName(curApNameValue) \
   (BlockMoveData((Ptr)(curApNameValue), (Ptr)0x0910, sizeof(Str31)))
 #define LMGetSysResName() ((StringPtr)0x0AD8)
-#define LMSetSysResName(sysResNameValue)                                       \
+#define LMSetSysResName(sysResNameValue) \
   (BlockMoveData((Ptr)(sysResNameValue), (Ptr)0x0AD8, sizeof(Str15)))
 #define LMGetFinderName() ((StringPtr)0x02E0)
-#define LMSetFinderName(finderName)                                            \
+#define LMSetFinderName(finderName) \
   (BlockMoveData((Ptr)(finderName), (Ptr)0x02E0, sizeof(Str15)))
 #define LMGetScratch20() ((Ptr)0x01E4)
-#define LMSetScratch20(scratch20Value)                                         \
+#define LMSetScratch20(scratch20Value) \
   (BlockMoveData((Ptr)(scratch20Value), (Ptr)0x01E4, 20))
 #define LMGetToolScratch() ((Ptr)0x09CE)
-#define LMSetToolScratch(toolScratchValue)                                     \
+#define LMSetToolScratch(toolScratchValue) \
   (BlockMoveData((Ptr)(toolScratchValue), (Ptr)0x09CE, 8))
 #define LMGetApplScratch() ((Ptr)0x0A78)
-#define LMSetApplScratch(applScratchValue)                                     \
+#define LMSetApplScratch(applScratchValue) \
   (BlockMoveData((Ptr)(applScratchValue), (Ptr)0x0A78, 12))
 /***************************************************************************************
     "INDEXED ACCESSORS"
@@ -3278,13 +3279,13 @@ EXTERN_API(void) LMSetTimeSCSIDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B24);
     GetParamText instead.
 **************************************************************************************/
 #define LMGetDAStrings(whichString) (((StringHandle *)0x0AA0)[whichString])
-#define LMSetDAStrings(stringsValue, whichString)                              \
+#define LMSetDAStrings(stringsValue, whichString) \
   (((StringHandle *)0x0AA0)[whichString] = (stringsValue))
 #define LMGetLvl2DT(vectorNumber) (((UniversalProcPtr *)0x01B2)[vectorNumber])
-#define LMSetLvl2DT(lvl2DTValue, vectorNumber)                                 \
+#define LMSetLvl2DT(lvl2DTValue, vectorNumber) \
   (((UniversalProcPtr *)0x01B2)[vectorNumber] = (lvl2DTValue))
 #define LMGetExtStsDT(vectorNumber) (((UniversalProcPtr *)0x02BE)[vectorNumber])
-#define LMSetExtStsDT(extStsDTValue, vectorNumber)                             \
+#define LMSetExtStsDT(extStsDTValue, vectorNumber) \
   (((UniversalProcPtr *)0x02BE)[vectorNumber] = (extStsDTValue))
 
 #else
@@ -3303,7 +3304,7 @@ EXTERN_API(void) LMSetTimeSCSIDB(SInt16 value) TWOWORDINLINE(0x31DF, 0x0B24);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMGetDSAlertRect(Rect *dsAlertRectValue);
+void LMGetDSAlertRect(Rect *dsAlertRectValue);
 
 /**
  *  LMSetDSAlertRect()
@@ -3313,7 +3314,7 @@ EXTERN_API(void) LMGetDSAlertRect(Rect *dsAlertRectValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetDSAlertRect(const Rect *dsAlertRectValue);
+void LMSetDSAlertRect(const Rect *dsAlertRectValue);
 
 /**
  *  LMGetDragPattern()
@@ -3323,7 +3324,7 @@ EXTERN_API(void) LMSetDSAlertRect(const Rect *dsAlertRectValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMGetDragPattern(Pattern *dragPatternValue);
+void LMGetDragPattern(Pattern *dragPatternValue);
 
 /**
  *  LMSetDragPattern()
@@ -3333,7 +3334,7 @@ EXTERN_API(void) LMGetDragPattern(Pattern *dragPatternValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetDragPattern(const Pattern *dragPatternValue);
+void LMSetDragPattern(const Pattern *dragPatternValue);
 
 /**
  *  LMGetDeskPattern()
@@ -3343,7 +3344,7 @@ EXTERN_API(void) LMSetDragPattern(const Pattern *dragPatternValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMGetDeskPattern(Pattern *deskPatternValue);
+void LMGetDeskPattern(Pattern *deskPatternValue);
 
 /**
  *  LMSetDeskPattern()
@@ -3353,7 +3354,7 @@ EXTERN_API(void) LMGetDeskPattern(Pattern *deskPatternValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetDeskPattern(const Pattern *deskPatternValue);
+void LMSetDeskPattern(const Pattern *deskPatternValue);
 
 /**
  *  LMGetEventQueue()
@@ -3363,7 +3364,7 @@ EXTERN_API(void) LMSetDeskPattern(const Pattern *deskPatternValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(QHdrPtr) LMGetEventQueue(void);
+QHdrPtr LMGetEventQueue(void);
 
 /**
  *  LMSetEventQueue()
@@ -3373,7 +3374,7 @@ EXTERN_API(QHdrPtr) LMGetEventQueue(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetEventQueue(QHdrPtr eventQueueValue);
+void LMSetEventQueue(QHdrPtr eventQueueValue);
 
 /**
  *  LMGetVBLQueue()
@@ -3383,7 +3384,7 @@ EXTERN_API(void) LMSetEventQueue(QHdrPtr eventQueueValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(QHdrPtr) LMGetVBLQueue(void);
+QHdrPtr LMGetVBLQueue(void);
 
 /**
  *  LMSetVBLQueue()
@@ -3393,7 +3394,7 @@ EXTERN_API(QHdrPtr) LMGetVBLQueue(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetVBLQueue(QHdrPtr vblQueueValue);
+void LMSetVBLQueue(QHdrPtr vblQueueValue);
 
 /**
  *  LMGetDrvQHdr()
@@ -3403,7 +3404,7 @@ EXTERN_API(void) LMSetVBLQueue(QHdrPtr vblQueueValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(QHdrPtr) LMGetDrvQHdr(void);
+QHdrPtr LMGetDrvQHdr(void);
 
 /**
  *  LMSetDrvQHdr()
@@ -3413,7 +3414,7 @@ EXTERN_API(QHdrPtr) LMGetDrvQHdr(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetDrvQHdr(QHdrPtr drvQHdrValue);
+void LMSetDrvQHdr(QHdrPtr drvQHdrValue);
 
 /**
  *  LMGetVCBQHdr()
@@ -3423,7 +3424,7 @@ EXTERN_API(void) LMSetDrvQHdr(QHdrPtr drvQHdrValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(QHdrPtr) LMGetVCBQHdr(void);
+QHdrPtr LMGetVCBQHdr(void);
 
 /**
  *  LMSetVCBQHdr()
@@ -3433,7 +3434,7 @@ EXTERN_API(QHdrPtr) LMGetVCBQHdr(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetVCBQHdr(QHdrPtr vcbQHdrValue);
+void LMSetVCBQHdr(QHdrPtr vcbQHdrValue);
 
 /**
  *  LMGetDTQueue()
@@ -3443,7 +3444,7 @@ EXTERN_API(void) LMSetVCBQHdr(QHdrPtr vcbQHdrValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(QHdrPtr) LMGetDTQueue(void);
+QHdrPtr LMGetDTQueue(void);
 
 /**
  *  LMSetDTQueue()
@@ -3453,7 +3454,7 @@ EXTERN_API(QHdrPtr) LMGetDTQueue(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetDTQueue(QHdrPtr dtQueueValue);
+void LMSetDTQueue(QHdrPtr dtQueueValue);
 
 /**
  *  LMGetFSQHdr()
@@ -3463,7 +3464,7 @@ EXTERN_API(void) LMSetDTQueue(QHdrPtr dtQueueValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(QHdrPtr) LMGetFSQHdr(void);
+QHdrPtr LMGetFSQHdr(void);
 
 /***************************************************************************************
     "BLOCKMOVE ACCESSORS"
@@ -3480,7 +3481,7 @@ EXTERN_API(QHdrPtr) LMGetFSQHdr(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(StringPtr) LMGetCurApName(void);
+StringPtr LMGetCurApName(void);
 
 /**
  *  LMSetCurApName()
@@ -3490,7 +3491,7 @@ EXTERN_API(StringPtr) LMGetCurApName(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void) LMSetCurApName(ConstStr31Param curApNameValue);
+void LMSetCurApName(ConstStr31Param curApNameValue);
 
 /**
  *  LMGetSysResName()
@@ -3500,7 +3501,7 @@ EXTERN_API(void) LMSetCurApName(ConstStr31Param curApNameValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(StringPtr) LMGetSysResName(void);
+StringPtr LMGetSysResName(void);
 
 /**
  *  LMSetSysResName()
@@ -3510,7 +3511,7 @@ EXTERN_API(StringPtr) LMGetSysResName(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void) LMSetSysResName(ConstStr15Param sysResNameValue);
+void LMSetSysResName(ConstStr15Param sysResNameValue);
 
 /**
  *  LMGetFinderName()
@@ -3520,7 +3521,7 @@ EXTERN_API(void) LMSetSysResName(ConstStr15Param sysResNameValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(StringPtr) LMGetFinderName(void);
+StringPtr LMGetFinderName(void);
 
 /**
  *  LMSetFinderName()
@@ -3530,7 +3531,7 @@ EXTERN_API(StringPtr) LMGetFinderName(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void) LMSetFinderName(ConstStr15Param finderNameValue);
+void LMSetFinderName(ConstStr15Param finderNameValue);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -3541,7 +3542,7 @@ EXTERN_API(void) LMSetFinderName(ConstStr15Param finderNameValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Ptr) LMGetScratch20(void);
+Ptr LMGetScratch20(void);
 
 /**
  *  LMSetScratch20()
@@ -3551,7 +3552,7 @@ EXTERN_API(Ptr) LMGetScratch20(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetScratch20(const void *scratch20Value);
+void LMSetScratch20(const void *scratch20Value);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -3563,7 +3564,7 @@ EXTERN_API(void) LMSetScratch20(const void *scratch20Value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Ptr) LMGetToolScratch(void);
+Ptr LMGetToolScratch(void);
 
 /**
  *  LMSetToolScratch()
@@ -3573,7 +3574,7 @@ EXTERN_API(Ptr) LMGetToolScratch(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void) LMSetToolScratch(const void *toolScratchValue);
+void LMSetToolScratch(const void *toolScratchValue);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -3584,7 +3585,7 @@ EXTERN_API(void) LMSetToolScratch(const void *toolScratchValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Ptr) LMGetApplScratch(void);
+Ptr LMGetApplScratch(void);
 
 /**
  *  LMSetApplScratch()
@@ -3594,7 +3595,7 @@ EXTERN_API(Ptr) LMGetApplScratch(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetApplScratch(const void *applScratchValue);
+void LMSetApplScratch(const void *applScratchValue);
 
 /***************************************************************************************
     "INDEXED ACCESSORS"
@@ -3612,7 +3613,7 @@ EXTERN_API(void) LMSetApplScratch(const void *applScratchValue);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(StringHandle) LMGetDAStrings(short whichString);
+StringHandle LMGetDAStrings(short whichString);
 
 /** Carbon Usage: use ParamText*/
 /**
@@ -3623,7 +3624,7 @@ EXTERN_API(StringHandle) LMGetDAStrings(short whichString);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void) LMSetDAStrings(StringHandle stringsValue, short whichString);
+void LMSetDAStrings(StringHandle stringsValue, short whichString);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -3635,7 +3636,7 @@ EXTERN_API(void) LMSetDAStrings(StringHandle stringsValue, short whichString);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UniversalProcPtr) LMGetLvl2DT(short vectorNumber);
+UniversalProcPtr LMGetLvl2DT(short vectorNumber);
 
 /**
  *  LMSetLvl2DT()
@@ -3645,7 +3646,7 @@ EXTERN_API(UniversalProcPtr) LMGetLvl2DT(short vectorNumber);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void) LMSetLvl2DT(UniversalProcPtr Lvl2DTValue, short vectorNumber);
+void LMSetLvl2DT(UniversalProcPtr Lvl2DTValue, short vectorNumber);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -3656,7 +3657,7 @@ EXTERN_API(void) LMSetLvl2DT(UniversalProcPtr Lvl2DTValue, short vectorNumber);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(UniversalProcPtr) LMGetExtStsDT(short vectorNumber);
+UniversalProcPtr LMGetExtStsDT(short vectorNumber);
 
 /**
  *  LMSetExtStsDT()
@@ -3666,316 +3667,314 @@ EXTERN_API(UniversalProcPtr) LMGetExtStsDT(short vectorNumber);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
-LMSetExtStsDT(UniversalProcPtr ExtStsDTValue, short vectorNumber);
+void LMSetExtStsDT(UniversalProcPtr ExtStsDTValue, short vectorNumber);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #endif /** TARGET_CPU_68K && !TARGET_RT_MAC_CFM */
 
-/***************************************************************************************
-    "Missing Accessors"
+  /***************************************************************************************
+      "Missing Accessors"
 
-        These lowmem accessors are not in the original InterfaceLib.  They were
-        added to InterfaceLib in Mac OS 8.5.  In Universal Interfaces 3.2 they
-        were defined via a macro. In you want to use these functions on a
-pre-8.5 systems, you must write your own macros to override the function
-prototype or write your own implementation.
+          These lowmem accessors are not in the original InterfaceLib.  They were
+          added to InterfaceLib in Mac OS 8.5.  In Universal Interfaces 3.2 they
+          were defined via a macro. In you want to use these functions on a
+  pre-8.5 systems, you must write your own macros to override the function
+  prototype or write your own implementation.
 
-**************************************************************************************/
+  **************************************************************************************/
 
 #if CALL_NOT_IN_CARBON
-/**
- *  LMSetMouseTemp()
- *
+  /**
+   *  LMSetMouseTemp()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMouseTemp(Point value) TWOWORDINLINE(0x21DF, 0x0828);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMouseTemp(Point value) TWOWORDINLINE(0x21DF, 0x0828);
 
-/** accesses "MTemp"*/
-/**
- *  LMGetMouseTemp()
- *
+  /** accesses "MTemp"*/
+  /**
+   *  LMGetMouseTemp()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Point) LMGetMouseTemp(void) TWOWORDINLINE(0x2EB8, 0x0828);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Point LMGetMouseTemp(void) TWOWORDINLINE(0x2EB8, 0x0828);
 
-/**
-   accesses "MBState"
-   Carbon Usage: use Button()
-*/
-/**
- *  LMGetMouseButtonState()
- *
+  /**
+     accesses "MBState"
+     Carbon Usage: use Button()
+  */
+  /**
+   *  LMGetMouseButtonState()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetMouseButtonState(void) TWOWORDINLINE(0x1EB8, 0x0172);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetMouseButtonState(void) TWOWORDINLINE(0x1EB8, 0x0172);
 
-/**
- *  LMSetMouseButtonState()
- *
+  /**
+   *  LMSetMouseButtonState()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetMouseButtonState(UInt8 value) TWOWORDINLINE(0x11DF, 0x0172);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetMouseButtonState(UInt8 value) TWOWORDINLINE(0x11DF, 0x0172);
 
-/**
-   accesses "RawMouse"
-   Carbon Usage: use GetGlobalMouse
-*/
-/**
- *  LMGetRawMouseLocation()
- *
+  /**
+     accesses "RawMouse"
+     Carbon Usage: use GetGlobalMouse
+  */
+  /**
+   *  LMGetRawMouseLocation()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Point) LMGetRawMouseLocation(void) TWOWORDINLINE(0x2EB8, 0x082C);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Point LMGetRawMouseLocation(void) TWOWORDINLINE(0x2EB8, 0x082C);
 
-/** Carbon Usage: use GetGlobalMouse*/
-/**
- *  LMSetRawMouseLocation()
- *
+  /** Carbon Usage: use GetGlobalMouse*/
+  /**
+   *  LMSetRawMouseLocation()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetRawMouseLocation(Point value) TWOWORDINLINE(0x21DF, 0x082C);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetRawMouseLocation(Point value) TWOWORDINLINE(0x21DF, 0x082C);
 
-/**
-   accesses "Mouse"
-   Carbon Usage: use GetGlobalMouse
-*/
-/**
- *  LMGetMouseLocation()
- *
+  /**
+     accesses "Mouse"
+     Carbon Usage: use GetGlobalMouse
+  */
+  /**
+   *  LMGetMouseLocation()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Point) LMGetMouseLocation(void) TWOWORDINLINE(0x2EB8, 0x0830);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Point LMGetMouseLocation(void) TWOWORDINLINE(0x2EB8, 0x0830);
 
-/**
- *  LMSetMouseLocation()
- *
+  /**
+   *  LMSetMouseLocation()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMouseLocation(Point value) TWOWORDINLINE(0x21DF, 0x0830);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMouseLocation(Point value) TWOWORDINLINE(0x21DF, 0x0830);
 
-/** accesses "TheCrsr"*/
-/**
- *  LMGetTheCursor()
- *
+  /** accesses "TheCrsr"*/
+  /**
+   *  LMGetTheCursor()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void LMGetTheCursor(Cursor *currentCursor);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMGetTheCursor(Cursor *currentCursor);
 
-/**
- *  LMSetTheCursor()
- *
+  /**
+   *  LMSetTheCursor()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void LMSetTheCursor(const Cursor *newCursor);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetTheCursor(const Cursor *newCursor);
 
 /** accesses "HiHeapMark"*/
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetHighHeapMark()
- *
+  /**
+   *  LMGetHighHeapMark()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetHighHeapMark(void) TWOWORDINLINE(0x2EB8, 0x0BAE);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetHighHeapMark(void) TWOWORDINLINE(0x2EB8, 0x0BAE);
 
-/**
- *  LMSetHighHeapMark()
- *
+  /**
+   *  LMSetHighHeapMark()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetHighHeapMark(Ptr value) TWOWORDINLINE(0x21DF, 0x0BAE);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetHighHeapMark(Ptr value) TWOWORDINLINE(0x21DF, 0x0BAE);
 
-/** accesses "StkLowPt"*/
-/**
- *  LMGetStackLowPoint()
- *
+  /** accesses "StkLowPt"*/
+  /**
+   *  LMGetStackLowPoint()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr) LMGetStackLowPoint(void) TWOWORDINLINE(0x2EB8, 0x0110);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetStackLowPoint(void) TWOWORDINLINE(0x2EB8, 0x0110);
 
-/**
- *  LMSetStackLowPoint()
- *
+  /**
+   *  LMSetStackLowPoint()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void) LMSetStackLowPoint(Ptr value) TWOWORDINLINE(0x21DF, 0x0110);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetStackLowPoint(Ptr value) TWOWORDINLINE(0x21DF, 0x0110);
 
 /** accesses "ROMMapHndl"*/
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetROMMapHandle()
- *
+  /**
+   *  LMGetROMMapHandle()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(Handle) LMGetROMMapHandle(void) TWOWORDINLINE(0x2EB8, 0x0B06);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Handle LMGetROMMapHandle(void) TWOWORDINLINE(0x2EB8, 0x0B06);
 
-/**
- *  LMSetROMMapHandle()
- *
+  /**
+   *  LMSetROMMapHandle()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetROMMapHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B06);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetROMMapHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B06);
 
-/** accesses "UnitNtryCnt"*/
-/**
- *  LMGetUnitTableEntryCount()
- *
+  /** accesses "UnitNtryCnt"*/
+  /**
+   *  LMGetUnitTableEntryCount()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(short) LMGetUnitTableEntryCount(void) TWOWORDINLINE(0x3EB8, 0x01D2);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short LMGetUnitTableEntryCount(void) TWOWORDINLINE(0x3EB8, 0x01D2);
 
-/**
- *  LMSetUnitTableEntryCount()
- *
+  /**
+   *  LMSetUnitTableEntryCount()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-LMSetUnitTableEntryCount(short value) TWOWORDINLINE(0x31DF, 0x01D2);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  LMSetUnitTableEntryCount(short value) TWOWORDINLINE(0x31DF, 0x01D2);
 
 /** accesses "FmtDefaults"*/
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  LMGetDiskFormatingHFSDefaults()
- *
+  /**
+   *  LMGetDiskFormatingHFSDefaults()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Ptr)
-LMGetDiskFormatingHFSDefaults(void) TWOWORDINLINE(0x2EB8, 0x039E);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Ptr LMGetDiskFormatingHFSDefaults(void) TWOWORDINLINE(0x2EB8, 0x039E);
 
-/**
- *  LMSetDiskFormatingHFSDefaults()
- *
+  /**
+   *  LMSetDiskFormatingHFSDefaults()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-LMSetDiskFormatingHFSDefaults(Ptr value) TWOWORDINLINE(0x21DF, 0x039E);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  LMSetDiskFormatingHFSDefaults(Ptr value) TWOWORDINLINE(0x21DF, 0x039E);
 
 /** accesses "PortAUse"*/
 #if CALL_NOT_IN_CARBON
-/**
- *  LMGetPortAInfo()
- *
+  /**
+   *  LMGetPortAInfo()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(UInt8) LMGetPortAInfo(void) TWOWORDINLINE(0x1EB8, 0x0290);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  UInt8 LMGetPortAInfo(void) TWOWORDINLINE(0x1EB8, 0x0290);
 
-/**
- *  LMSetPortAInfo()
- *
+  /**
+   *  LMSetPortAInfo()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetPortAInfo(UInt8 value) TWOWORDINLINE(0x11DF, 0x0290);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetPortAInfo(UInt8 value) TWOWORDINLINE(0x11DF, 0x0290);
 
-/**
- *  LMGetMBTicks()
- *
+  /**
+   *  LMGetMBTicks()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(long) LMGetMBTicks(void) TWOWORDINLINE(0x2EB8, 0x016E);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  long LMGetMBTicks(void) TWOWORDINLINE(0x2EB8, 0x016E);
 
-/**
- *  LMSetMBTicks()
- *
+  /**
+   *  LMSetMBTicks()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetMBTicks(long value) TWOWORDINLINE(0x21DF, 0x016E);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetMBTicks(long value) TWOWORDINLINE(0x21DF, 0x016E);
 
-/**
- *  LMGetKeyTime()
- *
+  /**
+   *  LMGetKeyTime()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(long) LMGetKeyTime(void) TWOWORDINLINE(0x2EB8, 0x0186);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  long LMGetKeyTime(void) TWOWORDINLINE(0x2EB8, 0x0186);
 
-/**
- *  LMSetKeyTime()
- *
+  /**
+   *  LMSetKeyTime()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void) LMSetKeyTime(long value) TWOWORDINLINE(0x21DF, 0x0186);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void LMSetKeyTime(long value) TWOWORDINLINE(0x21DF, 0x0186);
 
 #endif /** CALL_NOT_IN_CARBON */
 

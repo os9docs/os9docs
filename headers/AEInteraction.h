@@ -10,7 +10,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup AppleEvent
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -37,7 +37,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -52,84 +53,84 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/**************************************************************************
-  AppleEvent callbacks.
-**************************************************************************/
-typedef CALLBACK_API(Boolean, AEIdleProcPtr)(EventRecord *theEvent,
-                                             long *sleepTime,
-                                             RgnHandle *mouseRgn);
-typedef CALLBACK_API(Boolean, AEFilterProcPtr)(EventRecord *theEvent,
-                                               long returnID,
-                                               long transactionID,
-                                               const AEAddressDesc *sender);
-typedef STACK_UPP_TYPE(AEIdleProcPtr) AEIdleUPP;
-typedef STACK_UPP_TYPE(AEFilterProcPtr) AEFilterUPP;
+  /**************************************************************************
+    AppleEvent callbacks.
+  **************************************************************************/
+  typedef CALLBACK_API(Boolean, AEIdleProcPtr)(EventRecord *theEvent,
+                                               long *sleepTime,
+                                               RgnHandle *mouseRgn);
+  typedef CALLBACK_API(Boolean, AEFilterProcPtr)(EventRecord *theEvent,
+                                                 long returnID,
+                                                 long transactionID,
+                                                 const AEAddressDesc *sender);
+  typedef STACK_UPP_TYPE(AEIdleProcPtr) AEIdleUPP;
+  typedef STACK_UPP_TYPE(AEFilterProcPtr) AEFilterUPP;
 
-/**************************************************************************
-  The next couple of calls are basic routines used to create, send,
-  and process AppleEvents.
-**************************************************************************/
-/**
- *  AESend()
- *
+  /**************************************************************************
+    The next couple of calls are basic routines used to create, send,
+    and process AppleEvents.
+  **************************************************************************/
+  /**
+   *  AESend()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AESend(const AppleEvent *theAppleEvent, AppleEvent *reply, AESendMode sendMode,
-       AESendPriority sendPriority, long timeOutInTicks,
-       AEIdleUPP idleProc, /* can be NULL */
-       AEFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0D17,
-                                                                 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AESend(const AppleEvent *theAppleEvent, AppleEvent *reply, AESendMode sendMode,
+         AESendPriority sendPriority, long timeOutInTicks,
+         AEIdleUPP idleProc, /* can be NULL */
+         AEFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0D17,
+                                                                   0xA816);
 
-/**
- *  AEProcessAppleEvent()
- *
+  /**
+   *  AEProcessAppleEvent()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AEProcessAppleEvent(const EventRecord *theEventRecord)
-    THREEWORDINLINE(0x303C, 0x021B, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AEProcessAppleEvent(const EventRecord *theEventRecord)
+      THREEWORDINLINE(0x303C, 0x021B, 0xA816);
 
-/**
- Note: during event processing, an event handler may realize that it is likely
- to exceed the client's timeout limit. Passing the reply to this
- routine causes a wait event to be generated that asks the client
- for more time.
-*/
-/**
- *  AEResetTimer()
- *
+  /**
+   Note: during event processing, an event handler may realize that it is likely
+   to exceed the client's timeout limit. Passing the reply to this
+   routine causes a wait event to be generated that asks the client
+   for more time.
+  */
+  /**
+   *  AEResetTimer()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AEResetTimer(const AppleEvent *reply) THREEWORDINLINE(0x303C, 0x0219, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AEResetTimer(const AppleEvent *reply) THREEWORDINLINE(0x303C, 0x0219, 0xA816);
 
-/**************************************************************************
-  The following three calls are used to allow applications to behave
-  courteously when a user interaction such as a dialog box is needed.
-**************************************************************************/
+  /**************************************************************************
+    The following three calls are used to allow applications to behave
+    courteously when a user interaction such as a dialog box is needed.
+  **************************************************************************/
 
-typedef SInt8 AEInteractAllowed;
-enum {
-  kAEInteractWithSelf = 0,
-  kAEInteractWithLocal = 1,
-  kAEInteractWithAll = 2
-};
+  typedef SInt8 AEInteractAllowed;
+  enum
+  {
+    kAEInteractWithSelf = 0,
+    kAEInteractWithLocal = 1,
+    kAEInteractWithAll = 2
+  };
 
+  /**
+  \brief AEGetInteractionAllowed Get user interaction preferences
 
-			/** 
-			\brief AEGetInteractionAllowed Get user interaction preferences 
-			
-			<pre>You can use the AEGetInteractionAllowed function to get the current user
+  <pre>You can use the AEGetInteractionAllowed function to get the current user
 interaction preferences for responding to an Apple event.
 The AEGetInteractionAllowed function returns a value in the level
 paramter that indicates the user interaction preferences for responding to an
@@ -154,53 +155,53 @@ interact with the user in response to an Apple event sent from any client
 Result codes
 noErr (0)No error
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AEGetInteractionAllowed(AEInteractAllowed *level)
-    THREEWORDINLINE(0x303C, 0x021D, 0xA816);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  OSErr
+  AEGetInteractionAllowed(AEInteractAllowed *level)
+      THREEWORDINLINE(0x303C, 0x021D, 0xA816);
 
-/**
- *  AESetInteractionAllowed()
- *
+  /**
+   *  AESetInteractionAllowed()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AESetInteractionAllowed(AEInteractAllowed level)
-    THREEWORDINLINE(0x303C, 0x011E, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AESetInteractionAllowed(AEInteractAllowed level)
+      THREEWORDINLINE(0x303C, 0x011E, 0xA816);
 
-/**
- *  AEInteractWithUser()
- *
+  /**
+   *  AEInteractWithUser()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AEInteractWithUser(long timeOutInTicks, NMRecPtr nmReqPtr, AEIdleUPP idleProc)
-    THREEWORDINLINE(0x303C, 0x061C, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AEInteractWithUser(long timeOutInTicks, NMRecPtr nmReqPtr, AEIdleUPP idleProc)
+      THREEWORDINLINE(0x303C, 0x061C, 0xA816);
 
-/**************************************************************************
- The following four calls are available for applications which need more
- sophisticated control over when and how events are processed. Applications
- which implement multi-session servers or which implement their own
- internal event queueing will probably be the major clients of these
- routines. They can be called from within a handler to prevent the AEM from
- disposing of the AppleEvent when the handler returns. They can be used to
- asynchronously process the event (as MacApp does).
-**************************************************************************/
+  /**************************************************************************
+   The following four calls are available for applications which need more
+   sophisticated control over when and how events are processed. Applications
+   which implement multi-session servers or which implement their own
+   internal event queueing will probably be the major clients of these
+   routines. They can be called from within a handler to prevent the AEM from
+   disposing of the AppleEvent when the handler returns. They can be used to
+   asynchronously process the event (as MacApp does).
+  **************************************************************************/
 
-			/** 
-			\brief AESuspendTheCurrentEvent Suspend Apple Event processing 
-			
-			<pre>You can use the AESuspendTheCurrentEvent function to suspend the
+  /**
+  \brief AESuspendTheCurrentEvent Suspend Apple Event processing
+
+  <pre>You can use the AESuspendTheCurrentEvent function to suspend the
 processing of an Apple event that is currently being handled.
 The AESuspendTheCurrentEvent function suspends the processing of the
 Apple event that is currently being handled.
@@ -226,74 +227,75 @@ them.
 Result codes
 noErr(0)No error
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AESuspendTheCurrentEvent(const AppleEvent *theAppleEvent)
-    THREEWORDINLINE(0x303C, 0x022B, 0xA816);
-
-/**
- Note: The following routine tells the AppleEvent manager that processing
- is either about to resume or has been completed on a previously suspended
- event. The procPtr passed in as the dispatcher parameter will be called to
- attempt to redispatch the event. Several constants for the dispatcher
- parameter allow special behavior. They are:
-    - kAEUseStandardDispatch means redispatch as if the event was just
-      received, using the standard AppleEvent dispatch mechanism.
-    - kAENoDispatch means ignore the parameter.
-      Use this in the case where the event has been handled and no
-      redispatch is needed.
-    - non nil means call the routine which the dispatcher points to.
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
 */
-/* Constants for Refcon in AEResumeTheCurrentEvent with kAEUseStandardDispatch
- */
-enum {
-  kAEDoNotIgnoreHandler = 0x00000000,
-  kAEIgnoreAppPhacHandler =
-      0x00000001, /* available only in vers 1.0.1 and greater */
-  kAEIgnoreAppEventHandler =
-      0x00000002, /* available only in vers 1.0.1 and greater */
-  kAEIgnoreSysPhacHandler =
-      0x00000004, /* available only in vers 1.0.1 and greater */
-  kAEIgnoreSysEventHandler =
-      0x00000008, /* available only in vers 1.0.1 and greater */
-  kAEIngoreBuiltInEventHandler =
-      0x00000010, /* available only in vers 1.0.1 and greater */
-  kAEDontDisposeOnResume =
-      (long)0x80000000 /* available only in vers 1.0.1 and greater */
-};
+  OSErr
+  AESuspendTheCurrentEvent(const AppleEvent *theAppleEvent)
+      THREEWORDINLINE(0x303C, 0x022B, 0xA816);
 
-/* Constants for AEResumeTheCurrentEvent */
-enum {
-  kAENoDispatch = 0, /* dispatch parameter to AEResumeTheCurrentEvent takes a
-                        pointer to a dispatch */
-  kAEUseStandardDispatch =
-      (long)0xFFFFFFFF /* table, or one of these two constants */
-};
+  /**
+   Note: The following routine tells the AppleEvent manager that processing
+   is either about to resume or has been completed on a previously suspended
+   event. The procPtr passed in as the dispatcher parameter will be called to
+   attempt to redispatch the event. Several constants for the dispatcher
+   parameter allow special behavior. They are:
+      - kAEUseStandardDispatch means redispatch as if the event was just
+        received, using the standard AppleEvent dispatch mechanism.
+      - kAENoDispatch means ignore the parameter.
+        Use this in the case where the event has been handled and no
+        redispatch is needed.
+      - non nil means call the routine which the dispatcher points to.
+  */
+  /* Constants for Refcon in AEResumeTheCurrentEvent with kAEUseStandardDispatch
+   */
+  enum
+  {
+    kAEDoNotIgnoreHandler = 0x00000000,
+    kAEIgnoreAppPhacHandler =
+        0x00000001, /* available only in vers 1.0.1 and greater */
+    kAEIgnoreAppEventHandler =
+        0x00000002, /* available only in vers 1.0.1 and greater */
+    kAEIgnoreSysPhacHandler =
+        0x00000004, /* available only in vers 1.0.1 and greater */
+    kAEIgnoreSysEventHandler =
+        0x00000008, /* available only in vers 1.0.1 and greater */
+    kAEIngoreBuiltInEventHandler =
+        0x00000010, /* available only in vers 1.0.1 and greater */
+    kAEDontDisposeOnResume =
+        (long)0x80000000 /* available only in vers 1.0.1 and greater */
+  };
 
-/**
- *  AEResumeTheCurrentEvent()
- *
+  /* Constants for AEResumeTheCurrentEvent */
+  enum
+  {
+    kAENoDispatch = 0, /* dispatch parameter to AEResumeTheCurrentEvent takes a
+                          pointer to a dispatch */
+    kAEUseStandardDispatch =
+        (long)0xFFFFFFFF /* table, or one of these two constants */
+  };
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AEResumeTheCurrentEvent(const AppleEvent *theAppleEvent,
-                        const AppleEvent *reply,
-                        AEEventHandlerUPP dispatcher, /* can be NULL */
-                        long handlerRefcon)
-    THREEWORDINLINE(0x303C, 0x0818, 0xA816);
+  /**
+   *  AEResumeTheCurrentEvent()
+   *
 
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AEResumeTheCurrentEvent(const AppleEvent *theAppleEvent,
+                          const AppleEvent *reply,
+                          AEEventHandlerUPP dispatcher, /* can be NULL */
+                          long handlerRefcon)
+      THREEWORDINLINE(0x303C, 0x0818, 0xA816);
 
-			/** 
-			\brief AEGetTheCurrentEvent Return the Apple Event currently being handled 
-			
-			<pre>You can use the AEGetTheCurrentEvent function to get the Apple event that
+  /**
+  \brief AEGetTheCurrentEvent Return the Apple Event currently being handled
+
+  <pre>You can use the AEGetTheCurrentEvent function to get the Apple event that
 is currently being handled.
 The AEGetTheCurrentEvent function returns the Apple event that is
 currently being handled. In many applications, the handling of an
@@ -314,20 +316,19 @@ parameter theAppleEvent .
 Result codes
 noErr(0)No error
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AEGetTheCurrentEvent(AppleEvent *theAppleEvent)
-    THREEWORDINLINE(0x303C, 0x021A, 0xA816);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  OSErr
+  AEGetTheCurrentEvent(AppleEvent *theAppleEvent)
+      THREEWORDINLINE(0x303C, 0x021A, 0xA816);
 
+  /**
+  \brief AESetTheCurrentEvent Specify Apple Event to be handled
 
-			/** 
-			\brief AESetTheCurrentEvent Specify Apple Event to be handled 
-			
-			<pre>You can use the AESetTheCurrentEvent function to specify the Apple event
+  <pre>You can use the AESetTheCurrentEvent function to specify the Apple event
 to be handled.
 The AESetTheCurrentEvent function specifies the Apple event to be
 handled. There is generally no reason for your application to use this function.
@@ -351,128 +352,135 @@ and that the Apple event does not need to be dispatched.
 Result codes
 noErr(0)No error
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-AESetTheCurrentEvent(const AppleEvent *theAppleEvent)
-    THREEWORDINLINE(0x303C, 0x022C, 0xA816);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  OSErr
+  AESetTheCurrentEvent(const AppleEvent *theAppleEvent)
+      THREEWORDINLINE(0x303C, 0x022C, 0xA816);
 
-/**************************************************************************
-  AppleEvent callbacks.
-**************************************************************************/
-/**
- *  NewAEIdleUPP()
- *
+  /**************************************************************************
+    AppleEvent callbacks.
+  **************************************************************************/
+  /**
+   *  NewAEIdleUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-AEIdleUPP
-NewAEIdleUPP(AEIdleProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  AEIdleUPP
+  NewAEIdleUPP(AEIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppAEIdleProcInfo = 0x00000FD0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppAEIdleProcInfo = 0x00000FD0
+  }; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline AEIdleUPP NewAEIdleUPP(AEIdleProcPtr userRoutine) {
-  return (AEIdleUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppAEIdleProcInfo, GetCurrentArchitecture());
-}
+  inline AEIdleUPP NewAEIdleUPP(AEIdleProcPtr userRoutine)
+  {
+    return (AEIdleUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppAEIdleProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewAEIdleUPP(userRoutine)                                              \
-  (AEIdleUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppAEIdleProcInfo,  \
+#define NewAEIdleUPP(userRoutine)                                             \
+  (AEIdleUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppAEIdleProcInfo, \
                                    GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewAEFilterUPP()
- *
+  /**
+   *  NewAEFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-AEFilterUPP
-NewAEFilterUPP(AEFilterProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  AEFilterUPP
+  NewAEFilterUPP(AEFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppAEFilterProcInfo = 0x00003FD0
-}; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppAEFilterProcInfo = 0x00003FD0
+  }; /* pascal 1_byte Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline AEFilterUPP NewAEFilterUPP(AEFilterProcPtr userRoutine) {
-  return (AEFilterUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppAEFilterProcInfo, GetCurrentArchitecture());
-}
+  inline AEFilterUPP NewAEFilterUPP(AEFilterProcPtr userRoutine)
+  {
+    return (AEFilterUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppAEFilterProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewAEFilterUPP(userRoutine)                                            \
-  (AEFilterUPP) NewRoutineDescriptor(                                          \
+#define NewAEFilterUPP(userRoutine)   \
+  (AEFilterUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppAEFilterProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeAEIdleUPP()
- *
+  /**
+   *  DisposeAEIdleUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeAEIdleUPP(AEIdleUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeAEIdleUPP(AEIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeAEIdleUPP(AEIdleUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeAEIdleUPP(AEIdleUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeAEIdleUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeAEFilterUPP()
- *
+  /**
+   *  DisposeAEFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void
-DisposeAEFilterUPP(AEFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeAEFilterUPP(AEFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeAEFilterUPP(AEFilterUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeAEFilterUPP(AEFilterUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeAEFilterUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeAEIdleUPP()
- *
+  /**
+   *  InvokeAEIdleUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeAEIdleUPP(EventRecord *theEvent, long *sleepTime, RgnHandle *mouseRgn,
-                AEIdleUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeAEIdleUPP(EventRecord *theEvent, long *sleepTime, RgnHandle *mouseRgn,
+                  AEIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeAEIdleUPP(EventRecord *theEvent, long *sleepTime,
-                               RgnHandle *mouseRgn, AEIdleUPP userUPP) {
-  return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppAEIdleProcInfo, theEvent,
-                                           sleepTime, mouseRgn);
-}
+  inline Boolean InvokeAEIdleUPP(EventRecord *theEvent, long *sleepTime,
+                                 RgnHandle *mouseRgn, AEIdleUPP userUPP)
+  {
+    return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppAEIdleProcInfo, theEvent,
+                                             sleepTime, mouseRgn);
+  }
 #else
 #define InvokeAEIdleUPP(theEvent, sleepTime, mouseRgn, userUPP)                \
   (Boolean) CALL_THREE_PARAMETER_UPP((userUPP), uppAEIdleProcInfo, (theEvent), \
@@ -480,30 +488,31 @@ inline Boolean InvokeAEIdleUPP(EventRecord *theEvent, long *sleepTime,
 #endif
 #endif
 
-/**
- *  InvokeAEFilterUPP()
- *
+  /**
+   *  InvokeAEFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-InvokeAEFilterUPP(EventRecord *theEvent, long returnID, long transactionID,
-                  const AEAddressDesc *sender, AEFilterUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeAEFilterUPP(EventRecord *theEvent, long returnID, long transactionID,
+                    const AEAddressDesc *sender, AEFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeAEFilterUPP(EventRecord *theEvent, long returnID,
-                                 long transactionID,
-                                 const AEAddressDesc *sender,
-                                 AEFilterUPP userUPP) {
-  return (Boolean)CALL_FOUR_PARAMETER_UPP(
-      userUPP, uppAEFilterProcInfo, theEvent, returnID, transactionID, sender);
-}
+  inline Boolean InvokeAEFilterUPP(EventRecord *theEvent, long returnID,
+                                   long transactionID,
+                                   const AEAddressDesc *sender,
+                                   AEFilterUPP userUPP)
+  {
+    return (Boolean)CALL_FOUR_PARAMETER_UPP(
+        userUPP, uppAEFilterProcInfo, theEvent, returnID, transactionID, sender);
+  }
 #else
-#define InvokeAEFilterUPP(theEvent, returnID, transactionID, sender, userUPP)  \
-  (Boolean)                                                                    \
-      CALL_FOUR_PARAMETER_UPP((userUPP), uppAEFilterProcInfo, (theEvent),      \
+#define InvokeAEFilterUPP(theEvent, returnID, transactionID, sender, userUPP) \
+  (Boolean)                                                                   \
+      CALL_FOUR_PARAMETER_UPP((userUPP), uppAEFilterProcInfo, (theEvent),     \
                               (returnID), (transactionID), (sender))
 #endif
 #endif
@@ -512,10 +521,10 @@ inline Boolean InvokeAEFilterUPP(EventRecord *theEvent, long returnID,
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewAEIdleProc(userRoutine) NewAEIdleUPP(userRoutine)
 #define NewAEFilterProc(userRoutine) NewAEFilterUPP(userRoutine)
-#define CallAEIdleProc(userRoutine, theEvent, sleepTime, mouseRgn)             \
+#define CallAEIdleProc(userRoutine, theEvent, sleepTime, mouseRgn) \
   InvokeAEIdleUPP(theEvent, sleepTime, mouseRgn, userRoutine)
-#define CallAEFilterProc(userRoutine, theEvent, returnID, transactionID,       \
-                         sender)                                               \
+#define CallAEFilterProc(userRoutine, theEvent, returnID, transactionID, \
+                         sender)                                         \
   InvokeAEFilterUPP(theEvent, returnID, transactionID, sender, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -538,4 +547,4 @@ inline Boolean InvokeAEFilterUPP(EventRecord *theEvent, long returnID,
 #endif
 
 #endif /* __AEINTERACTION__ */
-*/*/*/*/
+* /*/*/ * /

@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright © 1991-2001 by Apple Computer, Inc., all rights reserved
-    
+
     \ingroup AppleEvent
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -43,67 +44,67 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/** These are the object packing routines.  */
-/**
- *  CreateOffsetDescriptor()
- *
+    /** These are the object packing routines.  */
+    /**
+     *  CreateOffsetDescriptor()
+     *
 
- *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-CreateOffsetDescriptor(long theOffset, AEDesc *theDescriptor);
+     *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    OSErr
+    CreateOffsetDescriptor(long theOffset, AEDesc *theDescriptor);
 
-/**
- *  CreateCompDescriptor()
- *
+    /**
+     *  CreateCompDescriptor()
+     *
 
- *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-CreateCompDescriptor(DescType comparisonOperator, AEDesc *operand1,
-                     AEDesc *operand2, Boolean disposeInputs,
-                     AEDesc *theDescriptor);
+     *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    OSErr
+    CreateCompDescriptor(DescType comparisonOperator, AEDesc *operand1,
+                         AEDesc *operand2, Boolean disposeInputs,
+                         AEDesc *theDescriptor);
 
-/**
- *  CreateLogicalDescriptor()
- *
+    /**
+     *  CreateLogicalDescriptor()
+     *
 
- *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-CreateLogicalDescriptor(AEDescList *theLogicalTerms, DescType theLogicOperator,
-                        Boolean disposeInputs, AEDesc *theDescriptor);
+     *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    OSErr
+    CreateLogicalDescriptor(AEDescList *theLogicalTerms, DescType theLogicOperator,
+                            Boolean disposeInputs, AEDesc *theDescriptor);
 
-/**
- *  CreateObjSpecifier()
- *
+    /**
+     *  CreateObjSpecifier()
+     *
 
- *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-CreateObjSpecifier(DescType desiredClass, AEDesc *theContainer,
-                   DescType keyForm, AEDesc *keyData, Boolean disposeInputs,
-                   AEDesc *objSpecifier);
+     *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    OSErr
+    CreateObjSpecifier(DescType desiredClass, AEDesc *theContainer,
+                       DescType keyForm, AEDesc *keyData, Boolean disposeInputs,
+                       AEDesc *objSpecifier);
 
-/**
- *  CreateRangeDescriptor()
- *
+    /**
+     *  CreateRangeDescriptor()
+     *
 
- *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-CreateRangeDescriptor(AEDesc *rangeStart, AEDesc *rangeStop,
-                      Boolean disposeInputs, AEDesc *theDescriptor);
+     *    \non_carbon_cfm   in ObjectSupportLib 1.0 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    OSErr
+    CreateRangeDescriptor(AEDesc *rangeStart, AEDesc *rangeStop,
+                          Boolean disposeInputs, AEDesc *theDescriptor);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

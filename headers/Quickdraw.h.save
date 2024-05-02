@@ -2632,7 +2632,7 @@ extern QDGlobals qd;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 InitGraf(void *globalPtr) ONEWORDINLINE(0xA86E);
 
 /**
@@ -2643,7 +2643,7 @@ InitGraf(void *globalPtr) ONEWORDINLINE(0xA86E);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 OpenPort(GrafPtr port) ONEWORDINLINE(0xA86F);
 
 /**
@@ -2654,7 +2654,7 @@ OpenPort(GrafPtr port) ONEWORDINLINE(0xA86F);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 InitPort(GrafPtr port) ONEWORDINLINE(0xA86D);
 
 /**
@@ -2665,7 +2665,7 @@ InitPort(GrafPtr port) ONEWORDINLINE(0xA86D);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 ClosePort(GrafPtr port) ONEWORDINLINE(0xA87D);
 
 /**
@@ -2682,7 +2682,7 @@ ClosePort(GrafPtr port) ONEWORDINLINE(0xA87D);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 LockPortBits(GrafPtr port);
 
 /**
@@ -2693,7 +2693,7 @@ LockPortBits(GrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 UnlockPortBits(GrafPtr port);
 
 /* Break a region up into rectangles.*/
@@ -2822,7 +2822,7 @@ QDRegionToRects(RgnHandle rgn, QDRegionParseDirection dir,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSErr)
+OSErr
 UpdatePort(GrafPtr port);
 
 
@@ -2849,7 +2849,7 @@ savePort = thePort;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 GetPortNativeWindow(GrafPtr macPort);
 
 /**
@@ -2860,7 +2860,7 @@ GetPortNativeWindow(GrafPtr macPort);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(GrafPtr)
+GrafPtr
 GetNativeWindowPort(void *nativeWindow);
 
 /**
@@ -2871,7 +2871,7 @@ GetNativeWindowPort(void *nativeWindow);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 MacRegionToNativeRegion(RgnHandle macRegion);
 
 /**
@@ -2882,7 +2882,7 @@ MacRegionToNativeRegion(RgnHandle macRegion);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(RgnHandle)
+RgnHandle
 NativeRegionToMacRegion(void *nativeRegion);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -2899,7 +2899,7 @@ NativeRegionToMacRegion(void *nativeRegion);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 GetPortHWND(GrafPtr port);
 
 /**
@@ -2910,7 +2910,7 @@ GetPortHWND(GrafPtr port);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(GrafPtr)
+GrafPtr
 GetHWNDPort(void *theHWND);
 
 #define GetPortHWND(port) (HWND) GetPortNativeWindow(port)
@@ -2923,7 +2923,7 @@ GetHWNDPort(void *theHWND);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 GetPortHDC(GrafPtr port);
 
 /**
@@ -2934,7 +2934,7 @@ GetPortHDC(GrafPtr port);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 GetPortHBITMAP(GrafPtr port);
 
 /**
@@ -2945,7 +2945,7 @@ GetPortHBITMAP(GrafPtr port);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 GetPortHPALETTE(GrafPtr port);
 
 /**
@@ -2956,7 +2956,7 @@ GetPortHPALETTE(GrafPtr port);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 GetPortHFONT(GrafPtr port);
 
 /**
@@ -2967,7 +2967,7 @@ GetPortHFONT(GrafPtr port);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void *)
+void *
 GetDIBFromPICT(PicHandle hPict);
 
 /**
@@ -2978,7 +2978,7 @@ GetDIBFromPICT(PicHandle hPict);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(PicHandle)
+PicHandle
 GetPICTFromDIB(void *h);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -2996,7 +2996,7 @@ GetPICTFromDIB(void *h);
 #if TARGET_OS_MAC
 #define MacSetPort SetPort
 #endif
-EXTERN_API(void)
+void
 MacSetPort(GrafPtr port) ONEWORDINLINE(0xA873);
 
 /**
@@ -3007,7 +3007,7 @@ MacSetPort(GrafPtr port) ONEWORDINLINE(0xA873);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetPort(GrafPtr *port) ONEWORDINLINE(0xA874);
 
 /**
@@ -3018,7 +3018,7 @@ GetPort(GrafPtr *port) ONEWORDINLINE(0xA874);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(Boolean)
+Boolean
 QDSwapPort(CGrafPtr inNewPort, CGrafPtr *outOldPort);
 
 
@@ -3043,7 +3043,7 @@ will not use this function in normal applications.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GrafDevice(short device) ONEWORDINLINE(0xA872);
 
 
@@ -3095,7 +3095,7 @@ SetRect ( &tempBits.bounds, 0,0, rWide, rHigh );
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortBits(const BitMap *bm) ONEWORDINLINE(0xA875);
 
 
@@ -3122,7 +3122,7 @@ to be clipped to the intersection of portRect , visRgn, and clipRgn.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PortSize(short width, short height) ONEWORDINLINE(0xA876);
 
 
@@ -3155,7 +3155,7 @@ moves the port to a different part of the BitMap.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MovePortTo(short leftGlobal, short topGlobal) ONEWORDINLINE(0xA877);
 
 /**
@@ -3166,7 +3166,7 @@ MovePortTo(short leftGlobal, short topGlobal) ONEWORDINLINE(0xA877);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetOrigin(short h, short v) ONEWORDINLINE(0xA878);
 
 /**
@@ -3177,7 +3177,7 @@ SetOrigin(short h, short v) ONEWORDINLINE(0xA878);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetClip(RgnHandle rgn) ONEWORDINLINE(0xA879);
 
 /**
@@ -3188,7 +3188,7 @@ SetClip(RgnHandle rgn) ONEWORDINLINE(0xA879);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetClip(RgnHandle rgn) ONEWORDINLINE(0xA87A);
 
 /**
@@ -3199,7 +3199,7 @@ GetClip(RgnHandle rgn) ONEWORDINLINE(0xA87A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ClipRect(const Rect *r) ONEWORDINLINE(0xA87B);
 
 /**
@@ -3210,7 +3210,7 @@ ClipRect(const Rect *r) ONEWORDINLINE(0xA87B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 BackPat(const Pattern *pat) ONEWORDINLINE(0xA87C);
 
 
@@ -3232,7 +3232,7 @@ in the Quickdraw data area. Its symbolic name is arrow.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InitCursor(void) ONEWORDINLINE(0xA850);
 
 /**
@@ -3246,7 +3246,7 @@ InitCursor(void) ONEWORDINLINE(0xA850);
 #if TARGET_OS_MAC
 #define MacSetCursor SetCursor
 #endif
-EXTERN_API(void)
+void
 MacSetCursor(const Cursor *crsr) ONEWORDINLINE(0xA851);
 
 
@@ -3271,7 +3271,7 @@ moved.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 HideCursor(void) ONEWORDINLINE(0xA852);
 
 /**
@@ -3285,7 +3285,7 @@ HideCursor(void) ONEWORDINLINE(0xA852);
 #if TARGET_OS_MAC
 #define MacShowCursor ShowCursor
 #endif
-EXTERN_API(void)
+void
 MacShowCursor(void) ONEWORDINLINE(0xA853);
 
 
@@ -3298,7 +3298,7 @@ MacShowCursor(void) ONEWORDINLINE(0xA853);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ObscureCursor(void) ONEWORDINLINE(0xA856);
 
 
@@ -3329,7 +3329,7 @@ HidePen so, by default, subsequent drawing activities are hidden.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 HidePen(void) ONEWORDINLINE(0xA896);
 
 
@@ -3354,7 +3354,7 @@ call ShowPen to balance the previous automatic call to HidePen .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ShowPen(void) ONEWORDINLINE(0xA897);
 
 
@@ -3379,7 +3379,7 @@ You can position the pen via MoveTo .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetPen(Point *pt) ONEWORDINLINE(0xA89A);
 
 
@@ -3417,7 +3417,7 @@ SetPenState ( &savePenState ); /* restore the pen's visible state */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetPenState(PenState *pnState) ONEWORDINLINE(0xA898);
 
 
@@ -3439,7 +3439,7 @@ PenNormal .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPenState(const PenState *pnState) ONEWORDINLINE(0xA899);
 
 
@@ -3471,7 +3471,7 @@ You can obtain this and related information via GetPenState .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PenSize(short width, short height) ONEWORDINLINE(0xA89B);
 
 
@@ -3510,7 +3510,7 @@ the text-drawing pen's transfer mode.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PenMode(short mode) ONEWORDINLINE(0xA89C);
 
 /**
@@ -3521,7 +3521,7 @@ PenMode(short mode) ONEWORDINLINE(0xA89C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PenPat(const Pattern *pat) ONEWORDINLINE(0xA89D);
 
 /**
@@ -3532,7 +3532,7 @@ PenPat(const Pattern *pat) ONEWORDINLINE(0xA89D);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PenNormal(void) ONEWORDINLINE(0xA89E);
 
 
@@ -3558,7 +3558,7 @@ Use Line or LineTo to draw a line as the pen is moved.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MoveTo(short h, short v) ONEWORDINLINE(0xA893);
 
 
@@ -3585,7 +3585,7 @@ moved.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 Move(short dh, short dv) ONEWORDINLINE(0xA894);
 
 /**
@@ -3599,7 +3599,7 @@ Move(short dh, short dv) ONEWORDINLINE(0xA894);
 #if TARGET_OS_MAC
 #define MacLineTo LineTo
 #endif
-EXTERN_API(void)
+void
 MacLineTo(short h, short v) ONEWORDINLINE(0xA891);
 
 /**
@@ -3610,7 +3610,7 @@ MacLineTo(short h, short v) ONEWORDINLINE(0xA891);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 Line(short dh, short dv) ONEWORDINLINE(0xA892);
 
 /**
@@ -3621,7 +3621,7 @@ Line(short dh, short dv) ONEWORDINLINE(0xA892);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ForeColor(long color) ONEWORDINLINE(0xA862);
 
 /**
@@ -3632,7 +3632,7 @@ ForeColor(long color) ONEWORDINLINE(0xA862);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 BackColor(long color) ONEWORDINLINE(0xA863);
 
 
@@ -3658,7 +3658,7 @@ Macs. It may also be used in sophisticated applications for creating overlays.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ColorBit(short whichBit) ONEWORDINLINE(0xA864);
 
 /**
@@ -3672,7 +3672,7 @@ ColorBit(short whichBit) ONEWORDINLINE(0xA864);
 #if TARGET_OS_MAC
 #define MacSetRect SetRect
 #endif
-EXTERN_API(void)
+void
 MacSetRect(Rect *r, short left, short top, short right, short bottom)
     ONEWORDINLINE(0xA8A7);
 
@@ -3687,7 +3687,7 @@ MacSetRect(Rect *r, short left, short top, short right, short bottom)
 #if TARGET_OS_MAC
 #define MacOffsetRect OffsetRect
 #endif
-EXTERN_API(void)
+void
 MacOffsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A8);
 
 /**
@@ -3701,7 +3701,7 @@ MacOffsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A8);
 #if TARGET_OS_MAC
 #define MacInsetRect InsetRect
 #endif
-EXTERN_API(void)
+void
 MacInsetRect(Rect *r, short dh, short dv) ONEWORDINLINE(0xA8A9);
 
 
@@ -3748,7 +3748,7 @@ SectRect ( &rA, &rB, &rA );
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 SectRect(const Rect *src1, const Rect *src2, Rect *dstRect)
     ONEWORDINLINE(0xA8AA);
 
@@ -3763,7 +3763,7 @@ SectRect(const Rect *src1, const Rect *src2, Rect *dstRect)
 #if TARGET_OS_MAC
 #define MacUnionRect UnionRect
 #endif
-EXTERN_API(void)
+void
 MacUnionRect(const Rect *src1, const Rect *src2, Rect *dstRect)
     ONEWORDINLINE(0xA8AB);
 
@@ -3778,7 +3778,7 @@ MacUnionRect(const Rect *src1, const Rect *src2, Rect *dstRect)
 #if TARGET_OS_MAC
 #define MacEqualRect EqualRect
 #endif
-EXTERN_API(Boolean)
+Boolean
 MacEqualRect(const Rect *rect1, const Rect *rect2) ONEWORDINLINE(0xA8A6);
 
 
@@ -3806,7 +3806,7 @@ meaning is broader, including all rectangles not enclosing any pixels.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 EmptyRect(const Rect *r) ONEWORDINLINE(0xA8AE);
 
 /**
@@ -3820,7 +3820,7 @@ EmptyRect(const Rect *r) ONEWORDINLINE(0xA8AE);
 #if TARGET_OS_MAC
 #define MacFrameRect FrameRect
 #endif
-EXTERN_API(void)
+void
 MacFrameRect(const Rect *r) ONEWORDINLINE(0xA8A1);
 
 /**
@@ -3831,7 +3831,7 @@ MacFrameRect(const Rect *r) ONEWORDINLINE(0xA8A1);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PaintRect(const Rect *r) ONEWORDINLINE(0xA8A2);
 
 /**
@@ -3842,7 +3842,7 @@ PaintRect(const Rect *r) ONEWORDINLINE(0xA8A2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 EraseRect(const Rect *r) ONEWORDINLINE(0xA8A3);
 
 /**
@@ -3856,7 +3856,7 @@ EraseRect(const Rect *r) ONEWORDINLINE(0xA8A3);
 #if TARGET_OS_MAC
 #define MacInvertRect InvertRect
 #endif
-EXTERN_API(void)
+void
 MacInvertRect(const Rect *r) ONEWORDINLINE(0xA8A4);
 
 /**
@@ -3870,7 +3870,7 @@ MacInvertRect(const Rect *r) ONEWORDINLINE(0xA8A4);
 #if TARGET_OS_MAC
 #define MacFillRect FillRect
 #endif
-EXTERN_API(void)
+void
 MacFillRect(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8A5);
 
 /**
@@ -3881,7 +3881,7 @@ MacFillRect(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8A5);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FrameOval(const Rect *r) ONEWORDINLINE(0xA8B7);
 
 /**
@@ -3892,7 +3892,7 @@ FrameOval(const Rect *r) ONEWORDINLINE(0xA8B7);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PaintOval(const Rect *r) ONEWORDINLINE(0xA8B8);
 
 /**
@@ -3903,7 +3903,7 @@ PaintOval(const Rect *r) ONEWORDINLINE(0xA8B8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 EraseOval(const Rect *r) ONEWORDINLINE(0xA8B9);
 
 /**
@@ -3914,7 +3914,7 @@ EraseOval(const Rect *r) ONEWORDINLINE(0xA8B9);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InvertOval(const Rect *r) ONEWORDINLINE(0xA8BA);
 
 /**
@@ -3925,7 +3925,7 @@ InvertOval(const Rect *r) ONEWORDINLINE(0xA8BA);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillOval(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8BB);
 
 /**
@@ -3936,7 +3936,7 @@ FillOval(const Rect *r, const Pattern *pat) ONEWORDINLINE(0xA8BB);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FrameRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
     ONEWORDINLINE(0xA8B0);
 
@@ -3948,7 +3948,7 @@ FrameRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PaintRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
     ONEWORDINLINE(0xA8B1);
 
@@ -3960,7 +3960,7 @@ PaintRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 EraseRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
     ONEWORDINLINE(0xA8B2);
 
@@ -3972,7 +3972,7 @@ EraseRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InvertRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
     ONEWORDINLINE(0xA8B3);
 
@@ -3984,7 +3984,7 @@ InvertRoundRect(const Rect *r, short ovalWidth, short ovalHeight)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
               const Pattern *pat) ONEWORDINLINE(0xA8B4);
 
@@ -3996,7 +3996,7 @@ FillRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FrameArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BE);
 
 /**
@@ -4007,7 +4007,7 @@ FrameArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PaintArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BF);
 
 /**
@@ -4018,7 +4018,7 @@ PaintArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8BF);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 EraseArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8C0);
 
 /**
@@ -4029,7 +4029,7 @@ EraseArc(const Rect *r, short startAngle, short arcAngle) ONEWORDINLINE(0xA8C0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InvertArc(const Rect *r, short startAngle, short arcAngle)
     ONEWORDINLINE(0xA8C1);
 
@@ -4041,7 +4041,7 @@ InvertArc(const Rect *r, short startAngle, short arcAngle)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillArc(const Rect *r, short startAngle, short arcAngle, const Pattern *pat)
     ONEWORDINLINE(0xA8C2);
 
@@ -4053,7 +4053,7 @@ FillArc(const Rect *r, short startAngle, short arcAngle, const Pattern *pat)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RgnHandle)
+RgnHandle
 NewRgn(void) ONEWORDINLINE(0xA8D8);
 
 /**
@@ -4064,7 +4064,7 @@ NewRgn(void) ONEWORDINLINE(0xA8D8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 OpenRgn(void) ONEWORDINLINE(0xA8DA);
 
 /**
@@ -4075,7 +4075,7 @@ OpenRgn(void) ONEWORDINLINE(0xA8DA);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CloseRgn(RgnHandle dstRgn) ONEWORDINLINE(0xA8DB);
 
 /**
@@ -4086,7 +4086,7 @@ CloseRgn(RgnHandle dstRgn) ONEWORDINLINE(0xA8DB);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 BitMapToRegion(RgnHandle region, const BitMap *bMap) ONEWORDINLINE(0xA8D7);
 
 /**
@@ -4097,7 +4097,7 @@ BitMapToRegion(RgnHandle region, const BitMap *bMap) ONEWORDINLINE(0xA8D7);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 HandleToRgn(Handle oldRegion, RgnHandle region);
 
 /**
@@ -4108,7 +4108,7 @@ HandleToRgn(Handle oldRegion, RgnHandle region);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
+void
 RgnToHandle(RgnHandle region, Handle flattenedRgnDataHdl);
 
 /**
@@ -4119,7 +4119,7 @@ RgnToHandle(RgnHandle region, Handle flattenedRgnDataHdl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DisposeRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D9);
 
 /**
@@ -4133,7 +4133,7 @@ DisposeRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D9);
 #if TARGET_OS_MAC
 #define MacCopyRgn CopyRgn
 #endif
-EXTERN_API(void)
+void
 MacCopyRgn(RgnHandle srcRgn, RgnHandle dstRgn) ONEWORDINLINE(0xA8DC);
 
 /**
@@ -4144,7 +4144,7 @@ MacCopyRgn(RgnHandle srcRgn, RgnHandle dstRgn) ONEWORDINLINE(0xA8DC);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetEmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8DD);
 
 /**
@@ -4158,7 +4158,7 @@ SetEmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8DD);
 #if TARGET_OS_MAC
 #define MacSetRectRgn SetRectRgn
 #endif
-EXTERN_API(void)
+void
 MacSetRectRgn(RgnHandle rgn, short left, short top, short right, short bottom)
     ONEWORDINLINE(0xA8DE);
 
@@ -4170,7 +4170,7 @@ MacSetRectRgn(RgnHandle rgn, short left, short top, short right, short bottom)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 RectRgn(RgnHandle rgn, const Rect *r) ONEWORDINLINE(0xA8DF);
 
 /**
@@ -4184,7 +4184,7 @@ RectRgn(RgnHandle rgn, const Rect *r) ONEWORDINLINE(0xA8DF);
 #if TARGET_OS_MAC
 #define MacOffsetRgn OffsetRgn
 #endif
-EXTERN_API(void)
+void
 MacOffsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E0);
 
 /**
@@ -4195,7 +4195,7 @@ MacOffsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E1);
 
 /**
@@ -4206,7 +4206,7 @@ InsetRgn(RgnHandle rgn, short dh, short dv) ONEWORDINLINE(0xA8E1);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SectRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
     ONEWORDINLINE(0xA8E4);
 
@@ -4221,7 +4221,7 @@ SectRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
 #if TARGET_OS_MAC
 #define MacUnionRgn UnionRgn
 #endif
-EXTERN_API(void)
+void
 MacUnionRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
     ONEWORDINLINE(0xA8E5);
 
@@ -4233,7 +4233,7 @@ MacUnionRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DiffRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
     ONEWORDINLINE(0xA8E6);
 
@@ -4248,7 +4248,7 @@ DiffRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
 #if TARGET_OS_MAC
 #define MacXorRgn XorRgn
 #endif
-EXTERN_API(void)
+void
 MacXorRgn(RgnHandle srcRgnA, RgnHandle srcRgnB, RgnHandle dstRgn)
     ONEWORDINLINE(0xA8E7);
 
@@ -4284,7 +4284,7 @@ answer here. Later versions of the ROMs work correctly.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 RectInRgn(const Rect *r, RgnHandle rgn) ONEWORDINLINE(0xA8E9);
 
 /**
@@ -4298,7 +4298,7 @@ RectInRgn(const Rect *r, RgnHandle rgn) ONEWORDINLINE(0xA8E9);
 #if TARGET_OS_MAC
 #define MacEqualRgn EqualRgn
 #endif
-EXTERN_API(Boolean)
+Boolean
 MacEqualRgn(RgnHandle rgnA, RgnHandle rgnB) ONEWORDINLINE(0xA8E3);
 
 
@@ -4329,7 +4329,7 @@ fields such as visRgn or clipRgn.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 EmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8E2);
 
 /**
@@ -4343,7 +4343,7 @@ EmptyRgn(RgnHandle rgn) ONEWORDINLINE(0xA8E2);
 #if TARGET_OS_MAC
 #define MacFrameRgn FrameRgn
 #endif
-EXTERN_API(void)
+void
 MacFrameRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D2);
 
 /**
@@ -4357,7 +4357,7 @@ MacFrameRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D2);
 #if TARGET_OS_MAC
 #define MacPaintRgn PaintRgn
 #endif
-EXTERN_API(void)
+void
 MacPaintRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D3);
 
 /**
@@ -4368,7 +4368,7 @@ MacPaintRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D3);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 EraseRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D4);
 
 /**
@@ -4382,7 +4382,7 @@ EraseRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D4);
 #if TARGET_OS_MAC
 #define MacInvertRgn InvertRgn
 #endif
-EXTERN_API(void)
+void
 MacInvertRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D5);
 
 /**
@@ -4396,7 +4396,7 @@ MacInvertRgn(RgnHandle rgn) ONEWORDINLINE(0xA8D5);
 #if TARGET_OS_MAC
 #define MacFillRgn FillRgn
 #endif
-EXTERN_API(void)
+void
 MacFillRgn(RgnHandle rgn, const Pattern *pat) ONEWORDINLINE(0xA8D6);
 
 /**
@@ -4407,7 +4407,7 @@ MacFillRgn(RgnHandle rgn, const Pattern *pat) ONEWORDINLINE(0xA8D6);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ScrollRect(const Rect *r, short dh, short dv, RgnHandle updateRgn)
     ONEWORDINLINE(0xA8EF);
 
@@ -4419,7 +4419,7 @@ ScrollRect(const Rect *r, short dh, short dv, RgnHandle updateRgn)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CopyBits(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
          const Rect *dstRect, short mode,
          RgnHandle maskRgn) /* can be NULL */ ONEWORDINLINE(0xA8EC);
@@ -4468,7 +4468,7 @@ of the source that is enclosed by black pixels. Note that destPtr and srcPtr
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SeedFill(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
          short height, short words, short seedH, short seedV)
     ONEWORDINLINE(0xA839);
@@ -4481,7 +4481,7 @@ SeedFill(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CalcMask(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
          short height, short words) ONEWORDINLINE(0xA838);
 
@@ -4493,7 +4493,7 @@ CalcMask(const void *srcPtr, void *dstPtr, short srcRow, short dstRow,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CopyMask(const BitMap *srcBits, const BitMap *maskBits, const BitMap *dstBits,
          const Rect *srcRect, const Rect *maskRect, const Rect *dstRect)
     ONEWORDINLINE(0xA817);
@@ -4506,7 +4506,7 @@ CopyMask(const BitMap *srcBits, const BitMap *maskBits, const BitMap *dstBits,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PicHandle)
+PicHandle
 OpenPicture(const Rect *picFrame) ONEWORDINLINE(0xA8F3);
 
 /**
@@ -4517,7 +4517,7 @@ OpenPicture(const Rect *picFrame) ONEWORDINLINE(0xA8F3);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PicComment(short kind, short dataSize, Handle dataHandle) ONEWORDINLINE(0xA8F2);
 
 /**
@@ -4528,7 +4528,7 @@ PicComment(short kind, short dataSize, Handle dataHandle) ONEWORDINLINE(0xA8F2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ClosePicture(void) ONEWORDINLINE(0xA8F4);
 
 /**
@@ -4539,7 +4539,7 @@ ClosePicture(void) ONEWORDINLINE(0xA8F4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DrawPicture(PicHandle myPicture, const Rect *dstRect) ONEWORDINLINE(0xA8F6);
 
 /**
@@ -4550,7 +4550,7 @@ DrawPicture(PicHandle myPicture, const Rect *dstRect) ONEWORDINLINE(0xA8F6);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 KillPicture(PicHandle myPicture) ONEWORDINLINE(0xA8F5);
 
 /**
@@ -4561,7 +4561,7 @@ KillPicture(PicHandle myPicture) ONEWORDINLINE(0xA8F5);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PolyHandle)
+PolyHandle
 OpenPoly(void) ONEWORDINLINE(0xA8CB);
 
 /**
@@ -4572,7 +4572,7 @@ OpenPoly(void) ONEWORDINLINE(0xA8CB);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ClosePoly(void) ONEWORDINLINE(0xA8CC);
 
 /**
@@ -4583,7 +4583,7 @@ ClosePoly(void) ONEWORDINLINE(0xA8CC);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 KillPoly(PolyHandle poly) ONEWORDINLINE(0xA8CD);
 
 
@@ -4614,7 +4614,7 @@ bulk of the data are stored relative to first point.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 OffsetPoly(PolyHandle poly, short dh, short dv) ONEWORDINLINE(0xA8CE);
 
 /**
@@ -4625,7 +4625,7 @@ OffsetPoly(PolyHandle poly, short dh, short dv) ONEWORDINLINE(0xA8CE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FramePoly(PolyHandle poly) ONEWORDINLINE(0xA8C6);
 
 /**
@@ -4636,7 +4636,7 @@ FramePoly(PolyHandle poly) ONEWORDINLINE(0xA8C6);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PaintPoly(PolyHandle poly) ONEWORDINLINE(0xA8C7);
 
 /**
@@ -4647,7 +4647,7 @@ PaintPoly(PolyHandle poly) ONEWORDINLINE(0xA8C7);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ErasePoly(PolyHandle poly) ONEWORDINLINE(0xA8C8);
 
 /**
@@ -4658,7 +4658,7 @@ ErasePoly(PolyHandle poly) ONEWORDINLINE(0xA8C8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InvertPoly(PolyHandle poly) ONEWORDINLINE(0xA8C9);
 
 /**
@@ -4669,7 +4669,7 @@ InvertPoly(PolyHandle poly) ONEWORDINLINE(0xA8C9);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillPoly(PolyHandle poly, const Pattern *pat) ONEWORDINLINE(0xA8CA);
 
 
@@ -4696,7 +4696,7 @@ thePoint-> v = vert;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPt(Point *pt, short h, short v) ONEWORDINLINE(0xA880);
 
 
@@ -4742,7 +4742,7 @@ OffsetPoly ( thePoly, tmpPt. h, tmpPt.v );/* move the item */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LocalToGlobal(Point *pt) ONEWORDINLINE(0xA870);
 
 
@@ -4793,7 +4793,7 @@ To convert between the coordinates of regions and polygons, calculate the
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GlobalToLocal(Point *pt) ONEWORDINLINE(0xA871);
 
 
@@ -4839,7 +4839,7 @@ return( t+min );
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 Random(void) ONEWORDINLINE(0xA861);
 
 
@@ -4875,7 +4875,7 @@ should probably be predefined and available as a program resource.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StuffHex(void *thingPtr, ConstStr255Param s) ONEWORDINLINE(0xA866);
 
 /**
@@ -4889,7 +4889,7 @@ StuffHex(void *thingPtr, ConstStr255Param s) ONEWORDINLINE(0xA866);
 #if TARGET_OS_MAC
 #define MacGetPixel GetPixel
 #endif
-EXTERN_API(Boolean)
+Boolean
 MacGetPixel(short h, short v) ONEWORDINLINE(0xA865);
 
 
@@ -4933,7 +4933,7 @@ similarly-located point within another.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ScalePt(Point *pt, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8F8);
 
@@ -4977,7 +4977,7 @@ thePoint.h = (thePoint.h * w1) / w2; /* apply ratio of sizes */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MapPt(Point *pt, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8F9);
 
@@ -5016,7 +5016,7 @@ MapPt( & bottomRight(theRect), &srcRect, &destRect );
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MapRect(Rect *r, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8FA);
 
@@ -5028,7 +5028,7 @@ MapRect(Rect *r, const Rect *srcRect, const Rect *dstRect)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MapRgn(RgnHandle rgn, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8FB);
 
@@ -5066,7 +5066,7 @@ thePoly is subsequently drawn or filled.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MapPoly(PolyHandle poly, const Rect *srcRect, const Rect *dstRect)
     ONEWORDINLINE(0xA8FC);
 
@@ -5117,7 +5117,7 @@ thePort->grafProcs = &myQDProcs; /* install the change */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetStdProcs(QDProcs *procs) ONEWORDINLINE(0xA8EA);
 
 /**
@@ -5128,7 +5128,7 @@ SetStdProcs(QDProcs *procs) ONEWORDINLINE(0xA8EA);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdRect(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8A0);
 
 /**
@@ -5139,7 +5139,7 @@ StdRect(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8A0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdRRect(GrafVerb verb, const Rect *r, short ovalWidth, short ovalHeight)
     ONEWORDINLINE(0xA8AF);
 
@@ -5151,7 +5151,7 @@ StdRRect(GrafVerb verb, const Rect *r, short ovalWidth, short ovalHeight)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdOval(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8B6);
 
 /**
@@ -5162,7 +5162,7 @@ StdOval(GrafVerb verb, const Rect *r) ONEWORDINLINE(0xA8B6);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdArc(GrafVerb verb, const Rect *r, short startAngle, short arcAngle)
     ONEWORDINLINE(0xA8BD);
 
@@ -5174,7 +5174,7 @@ StdArc(GrafVerb verb, const Rect *r, short startAngle, short arcAngle)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdPoly(GrafVerb verb, PolyHandle poly) ONEWORDINLINE(0xA8C5);
 
 /**
@@ -5185,7 +5185,7 @@ StdPoly(GrafVerb verb, PolyHandle poly) ONEWORDINLINE(0xA8C5);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdRgn(GrafVerb verb, RgnHandle rgn) ONEWORDINLINE(0xA8D1);
 
 /**
@@ -5196,7 +5196,7 @@ StdRgn(GrafVerb verb, RgnHandle rgn) ONEWORDINLINE(0xA8D1);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdBits(const BitMap *srcBits, const Rect *srcRect, const Rect *dstRect,
         short mode, RgnHandle maskRgn) ONEWORDINLINE(0xA8EB);
 
@@ -5208,7 +5208,7 @@ StdBits(const BitMap *srcBits, const Rect *srcRect, const Rect *dstRect,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdComment(short kind, short dataSize, Handle dataHandle) ONEWORDINLINE(0xA8F1);
 
 
@@ -5229,7 +5229,7 @@ the maximum limits set by Quickdraw.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdGetPic(void *dataPtr, short byteCount) ONEWORDINLINE(0xA8EE);
 
 /**
@@ -5240,7 +5240,7 @@ StdGetPic(void *dataPtr, short byteCount) ONEWORDINLINE(0xA8EE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdPutPic(const void *dataPtr, short byteCount) ONEWORDINLINE(0xA8F0);
 
 /**
@@ -5251,7 +5251,7 @@ StdPutPic(const void *dataPtr, short byteCount) ONEWORDINLINE(0xA8F0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdOpcode(const Rect *fromRect, const Rect *toRect, UInt16 opcode,
           SInt16 version) ONEWORDINLINE(0xABF8);
 
@@ -5278,7 +5278,7 @@ Use SubPt or DeltaPoint to calculate the difference between two Points.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 AddPt(Point src, Point *dst) ONEWORDINLINE(0xA87E);
 
 
@@ -5315,7 +5315,7 @@ if ( *(long *)&pt1 == *( long *)&pt2) { /* compare longs once */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 EqualPt(Point pt1, Point pt2) ONEWORDINLINE(0xA881);
 
 /**
@@ -5329,7 +5329,7 @@ EqualPt(Point pt1, Point pt2) ONEWORDINLINE(0xA881);
 #if TARGET_OS_MAC
 #define MacPtInRect PtInRect
 #endif
-EXTERN_API(Boolean)
+Boolean
 MacPtInRect(Point pt, const Rect *r) ONEWORDINLINE(0xA8AD);
 
 
@@ -5357,7 +5357,7 @@ stored as resultRect.top, and so forth.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 Pt2Rect(Point pt1, Point pt2, Rect *dstRect) ONEWORDINLINE(0xA8AC);
 
 
@@ -5390,7 +5390,7 @@ In the figures, both "angles" are 45 °, even though the one on the right is
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PtToAngle(const Rect *r, Point pt, short *angle) ONEWORDINLINE(0xA8C3);
 
 
@@ -5420,7 +5420,7 @@ return value of the function.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SubPt(Point src, Point *dst) ONEWORDINLINE(0xA87F);
 
 
@@ -5456,7 +5456,7 @@ if (PtInRgn ( theEvent.where, theRgn ) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 PtInRgn(Point pt, RgnHandle rgn) ONEWORDINLINE(0xA8E8);
 
 /**
@@ -5467,7 +5467,7 @@ PtInRgn(Point pt, RgnHandle rgn) ONEWORDINLINE(0xA8E8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 StdLine(Point newPt) ONEWORDINLINE(0xA890);
 
 #if CALL_NOT_IN_CARBON
@@ -5479,7 +5479,7 @@ StdLine(Point newPt) ONEWORDINLINE(0xA890);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 OpenCPort(CGrafPtr port) ONEWORDINLINE(0xAA00);
 
 /**
@@ -5490,7 +5490,7 @@ OpenCPort(CGrafPtr port) ONEWORDINLINE(0xAA00);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 InitCPort(CGrafPtr port) ONEWORDINLINE(0xAA01);
 
 /**
@@ -5501,7 +5501,7 @@ InitCPort(CGrafPtr port) ONEWORDINLINE(0xAA01);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CloseCPort(CGrafPtr port) ONEWORDINLINE(0xAA02);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -5514,7 +5514,7 @@ CloseCPort(CGrafPtr port) ONEWORDINLINE(0xAA02);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixMapHandle)
+PixMapHandle
 NewPixMap(void) ONEWORDINLINE(0xAA03);
 
 /**
@@ -5525,7 +5525,7 @@ NewPixMap(void) ONEWORDINLINE(0xAA03);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DisposePixMap(PixMapHandle pm) ONEWORDINLINE(0xAA04);
 
 
@@ -5549,7 +5549,7 @@ field (base address).
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CopyPixMap(PixMapHandle srcPM, PixMapHandle dstPM) ONEWORDINLINE(0xAA05);
 
 /**
@@ -5560,7 +5560,7 @@ CopyPixMap(PixMapHandle srcPM, PixMapHandle dstPM) ONEWORDINLINE(0xAA05);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 NewPixPat(void) ONEWORDINLINE(0xAA07);
 
 /**
@@ -5571,7 +5571,7 @@ NewPixPat(void) ONEWORDINLINE(0xAA07);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DisposePixPat(PixPatHandle pp) ONEWORDINLINE(0xAA08);
 
 
@@ -5594,7 +5594,7 @@ handle.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CopyPixPat(PixPatHandle srcPP, PixPatHandle dstPP) ONEWORDINLINE(0xAA09);
 
 /**
@@ -5605,7 +5605,7 @@ CopyPixPat(PixPatHandle srcPP, PixPatHandle dstPP) ONEWORDINLINE(0xAA09);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PenPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0A);
 
 /**
@@ -5616,7 +5616,7 @@ PenPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 BackPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0B);
 
 /**
@@ -5627,7 +5627,7 @@ BackPixPat(PixPatHandle pp) ONEWORDINLINE(0xAA0B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPixPat(short patID) ONEWORDINLINE(0xAA0C);
 
 
@@ -5665,7 +5665,7 @@ Value RGB
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MakeRGBPat(PixPatHandle pp, const RGBColor *myColor) ONEWORDINLINE(0xAA0D);
 
 /**
@@ -5676,7 +5676,7 @@ MakeRGBPat(PixPatHandle pp, const RGBColor *myColor) ONEWORDINLINE(0xAA0D);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillCRect(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0E);
 
 /**
@@ -5687,7 +5687,7 @@ FillCRect(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0E);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillCOval(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0F);
 
 /**
@@ -5698,7 +5698,7 @@ FillCOval(const Rect *r, PixPatHandle pp) ONEWORDINLINE(0xAA0F);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillCRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
                PixPatHandle pp) ONEWORDINLINE(0xAA10);
 
@@ -5710,7 +5710,7 @@ FillCRoundRect(const Rect *r, short ovalWidth, short ovalHeight,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillCArc(const Rect *r, short startAngle, short arcAngle, PixPatHandle pp)
     ONEWORDINLINE(0xAA11);
 
@@ -5722,7 +5722,7 @@ FillCArc(const Rect *r, short startAngle, short arcAngle, PixPatHandle pp)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillCRgn(RgnHandle rgn, PixPatHandle pp) ONEWORDINLINE(0xAA12);
 
 /**
@@ -5733,7 +5733,7 @@ FillCRgn(RgnHandle rgn, PixPatHandle pp) ONEWORDINLINE(0xAA12);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 FillCPoly(PolyHandle poly, PixPatHandle pp) ONEWORDINLINE(0xAA13);
 
 /**
@@ -5744,7 +5744,7 @@ FillCPoly(PolyHandle poly, PixPatHandle pp) ONEWORDINLINE(0xAA13);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 RGBForeColor(const RGBColor *color) ONEWORDINLINE(0xAA14);
 
 /**
@@ -5755,7 +5755,7 @@ RGBForeColor(const RGBColor *color) ONEWORDINLINE(0xAA14);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 RGBBackColor(const RGBColor *color) ONEWORDINLINE(0xAA15);
 
 /**
@@ -5766,7 +5766,7 @@ RGBBackColor(const RGBColor *color) ONEWORDINLINE(0xAA15);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetCPixel(short h, short v, const RGBColor *cPix) ONEWORDINLINE(0xAA16);
 
 
@@ -5793,7 +5793,7 @@ copy the bit-mapped image into the normal screen.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortPix(PixMapHandle pm) ONEWORDINLINE(0xAA06);
 
 
@@ -5815,7 +5815,7 @@ color is the RGB color of the pixel.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetCPixel(short h, short v, RGBColor *cPix) ONEWORDINLINE(0xAA17);
 
 
@@ -5850,7 +5850,7 @@ Value Color Red Green Blue
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetForeColor(RGBColor *color) ONEWORDINLINE(0xAA19);
 
 
@@ -5885,7 +5885,7 @@ Value Color Red Green Blue
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetBackColor(RGBColor *color) ONEWORDINLINE(0xAA1A);
 
 
@@ -5931,7 +5931,7 @@ To flood with some other pattern requires intermediate steps of using
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SeedCFill(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
           const Rect *dstRect, short seedH, short seedV,
           ColorSearchUPP matchProc, long matchData) ONEWORDINLINE(0xAA50);
@@ -5980,7 +5980,7 @@ can leak to all adjacent pixels whose RGB values don't match that of the
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CalcCMask(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
           const Rect *dstRect, const RGBColor *seedRGB,
           ColorSearchUPP matchProc, long matchData) ONEWORDINLINE(0xAA4F);
@@ -5993,7 +5993,7 @@ CalcCMask(const BitMap *srcBits, const BitMap *dstBits, const Rect *srcRect,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PicHandle)
+PicHandle
 OpenCPicture(const OpenCPicParams *newHeader) ONEWORDINLINE(0xAA20);
 
 
@@ -6017,7 +6017,7 @@ current port is a cGrafPort.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 OpColor(const RGBColor *color) ONEWORDINLINE(0xAA21);
 
 
@@ -6041,7 +6041,7 @@ HiliteRGB global variable stored in the port's grafVars handle.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 HiliteColor(const RGBColor *color) ONEWORDINLINE(0xAA22);
 
 /**
@@ -6052,7 +6052,7 @@ HiliteColor(const RGBColor *color) ONEWORDINLINE(0xAA22);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DisposeCTable(CTabHandle cTable) ONEWORDINLINE(0xAA24);
 
 /**
@@ -6063,7 +6063,7 @@ DisposeCTable(CTabHandle cTable) ONEWORDINLINE(0xAA24);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CTabHandle)
+CTabHandle
 GetCTable(short ctID) ONEWORDINLINE(0xAA18);
 
 /**
@@ -6074,7 +6074,7 @@ GetCTable(short ctID) ONEWORDINLINE(0xAA18);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CCrsrHandle)
+CCrsrHandle
 GetCCursor(short crsrID) ONEWORDINLINE(0xAA1B);
 
 /**
@@ -6085,7 +6085,7 @@ GetCCursor(short crsrID) ONEWORDINLINE(0xAA1B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA1C);
 
 /**
@@ -6096,7 +6096,7 @@ SetCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA1C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 AllocCursor(void) ONEWORDINLINE(0xAA1D);
 
 /**
@@ -6107,7 +6107,7 @@ AllocCursor(void) ONEWORDINLINE(0xAA1D);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DisposeCCursor(CCrsrHandle cCrsr) ONEWORDINLINE(0xAA26);
 
 /* GetCIcon(), PlotCIcon(), and DisposeCIcon() moved to Icons.h*/
@@ -6153,7 +6153,7 @@ original handler.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetStdCProcs(CQDProcs *procs) ONEWORDINLINE(0xAA4E);
 
 
@@ -6205,7 +6205,7 @@ the above can be brought to nothing if the user changes the depth of the
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 GetMaxDevice(const Rect *globalRect) ONEWORDINLINE(0xAA27);
 
 
@@ -6226,7 +6226,7 @@ proper color table translation.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(long)
+long
 GetCTSeed(void) ONEWORDINLINE(0xAA28);
 
 
@@ -6245,7 +6245,7 @@ DeviceList global variable.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 GetDeviceList(void) ONEWORDINLINE(0xAA29);
 
 
@@ -6268,7 +6268,7 @@ its video card in the lowest-numbered slot.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 GetMainDevice(void) ONEWORDINLINE(0xAA2A);
 
 
@@ -6289,7 +6289,7 @@ NIL if the request fails.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 GetNextDevice(GDHandle curDevice) ONEWORDINLINE(0xAA2B);
 
 
@@ -6317,7 +6317,7 @@ monitor is turned on, or if there is a monitor attached to the card.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 TestDeviceAttribute(GDHandle gdh, short attribute) ONEWORDINLINE(0xAA2C);
 
 
@@ -6347,7 +6347,7 @@ For more information, see The 'scrn' Resource .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetDeviceAttribute(GDHandle gdh, short attribute, Boolean value)
     ONEWORDINLINE(0xAA2D);
 
@@ -6359,7 +6359,7 @@ SetDeviceAttribute(GDHandle gdh, short attribute, Boolean value)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InitGDevice(short qdRefNum, long mode, GDHandle gdh) ONEWORDINLINE(0xAA2E);
 
 /**
@@ -6370,7 +6370,7 @@ InitGDevice(short qdRefNum, long mode, GDHandle gdh) ONEWORDINLINE(0xAA2E);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 NewGDevice(short refNum, long mode) ONEWORDINLINE(0xAA2F);
 
 /**
@@ -6381,7 +6381,7 @@ NewGDevice(short refNum, long mode) ONEWORDINLINE(0xAA2F);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DisposeGDevice(GDHandle gdh) ONEWORDINLINE(0xAA30);
 
 
@@ -6398,7 +6398,7 @@ offscreen graphics devices.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetGDevice(GDHandle gd) ONEWORDINLINE(0xAA31);
 
 
@@ -6414,7 +6414,7 @@ functions GetDeviceList and GetNextDevice to step through all devices.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 GetGDevice(void) ONEWORDINLINE(0xAA32);
 
 /**
@@ -6425,7 +6425,7 @@ GetGDevice(void) ONEWORDINLINE(0xAA32);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(long)
+long
 Color2Index(const RGBColor *myColor) ONEWORDINLINE(0xAA33);
 
 
@@ -6451,7 +6451,7 @@ available from the current gDevice.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 Index2Color(long index, RGBColor *aColor) ONEWORDINLINE(0xAA34);
 
 
@@ -6472,7 +6472,7 @@ use the 1's complement of each component of the requested color.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 InvertColor(RGBColor *myColor) ONEWORDINLINE(0xAA35);
 
 /**
@@ -6483,7 +6483,7 @@ InvertColor(RGBColor *myColor) ONEWORDINLINE(0xAA35);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 RealColor(const RGBColor *color) ONEWORDINLINE(0xAA36);
 
 /**
@@ -6494,7 +6494,7 @@ RealColor(const RGBColor *color) ONEWORDINLINE(0xAA36);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetSubTable(CTabHandle myColors, short iTabRes, CTabHandle targetTbl)
     ONEWORDINLINE(0xAA37);
 
@@ -6506,7 +6506,7 @@ GetSubTable(CTabHandle myColors, short iTabRes, CTabHandle targetTbl)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 MakeITable(CTabHandle cTabH, ITabHandle iTabH, short res) ONEWORDINLINE(0xAA39);
 
 /**
@@ -6517,7 +6517,7 @@ MakeITable(CTabHandle cTabH, ITabHandle iTabH, short res) ONEWORDINLINE(0xAA39);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 AddSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA3A);
 
 /**
@@ -6528,7 +6528,7 @@ AddSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA3A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 AddComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA3B);
 
 /**
@@ -6539,7 +6539,7 @@ AddComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA3B);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DelSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA4C);
 
 /**
@@ -6550,7 +6550,7 @@ DelSearch(ColorSearchUPP searchProc) ONEWORDINLINE(0xAA4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DelComp(ColorComplementUPP compProc) ONEWORDINLINE(0xAA4D);
 
 
@@ -6569,7 +6569,7 @@ idis the client program being given identification
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetClientID(short id) ONEWORDINLINE(0xAA3C);
 
 
@@ -6595,7 +6595,7 @@ protected.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ProtectEntry(short index, Boolean protect) ONEWORDINLINE(0xAA3D);
 
 
@@ -6627,7 +6627,7 @@ dereserved.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ReserveEntry(short index, Boolean reserve) ONEWORDINLINE(0xAA3E);
 
 
@@ -6678,7 +6678,7 @@ gDevice's gdID has to match the low byte of the intended colorSpec .value
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetEntries(short start, short count, CSpecArray aTable) ONEWORDINLINE(0xAA3F);
 
 
@@ -6708,7 +6708,7 @@ identical to RestoreEntries ' input.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SaveEntries(CTabHandle srcTable, CTabHandle resultTable, ReqListRec *selection)
     ONEWORDINLINE(0xAA49);
 
@@ -6747,7 +6747,7 @@ colors, you'll likely have little need for RestoreEntries .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 RestoreEntries(CTabHandle srcTable, CTabHandle dstTable, ReqListRec *selection)
     ONEWORDINLINE(0xAA4A);
 
@@ -6792,7 +6792,7 @@ map into a 1-bit pixel map and calling BitMapToRegion again.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 QDError(void) ONEWORDINLINE(0xAA40);
 
 /**
@@ -6803,7 +6803,7 @@ QDError(void) ONEWORDINLINE(0xAA40);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 CopyDeepMask(const BitMap *srcBits, const BitMap *maskBits,
              const BitMap *dstBits, const Rect *srcRect, const Rect *maskRect,
              const Rect *dstRect, short mode,
@@ -6817,7 +6817,7 @@ CopyDeepMask(const BitMap *srcBits, const BitMap *maskBits,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DeviceLoop(RgnHandle drawingRgn, DeviceLoopDrawingUPP drawingProc,
            long userData, DeviceLoopFlags flags) ONEWORDINLINE(0xABCA);
 
@@ -6851,7 +6851,7 @@ useful masks:
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 GetMaskTable
 #endif
-EXTERN_API(Ptr)
+Ptr
 GetMaskTable(void) ONEWORDINLINE(0xA836);
 
 /**
@@ -6862,7 +6862,7 @@ GetMaskTable(void) ONEWORDINLINE(0xA836);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PatHandle)
+PatHandle
 GetPattern(short patternID) ONEWORDINLINE(0xA9B8);
 
 /**
@@ -6876,7 +6876,7 @@ GetPattern(short patternID) ONEWORDINLINE(0xA9B8);
 #if TARGET_OS_MAC
 #define MacGetCursor GetCursor
 #endif
-EXTERN_API(CursHandle)
+CursHandle
 MacGetCursor(short cursorID) ONEWORDINLINE(0xA9B9);
 
 /**
@@ -6887,7 +6887,7 @@ MacGetCursor(short cursorID) ONEWORDINLINE(0xA9B9);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PicHandle)
+PicHandle
 GetPicture(short pictureID) ONEWORDINLINE(0xA9BC);
 
 
@@ -6915,7 +6915,7 @@ as the returned value instead of stored into a variable.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(long)
+long
 DeltaPoint(Point ptA, Point ptB) ONEWORDINLINE(0xA94F);
 
 
@@ -6935,7 +6935,7 @@ LocalToGlobal ) before the call, and pass (0,0) as offsetPt .
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ShieldCursor(const Rect *shieldRect, Point offsetPt) ONEWORDINLINE(0xA855);
 
 
@@ -6969,7 +6969,7 @@ more than one screen.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ScreenRes(short *scrnHRes, short *scrnVRes)
     SIXWORDINLINE(0x225F, 0x32B8, 0x0102, 0x225F, 0x32B8, 0x0104);
 
@@ -6981,7 +6981,7 @@ ScreenRes(short *scrnHRes, short *scrnVRes)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 GetIndPattern(Pattern *thePat, short patternListID, short index);
 
 #if CALL_NOT_IN_CARBON
@@ -7164,7 +7164,7 @@ savePtr = NewPtr ( mapSize + 1 ); /* allocate storage buffer */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 PackBits(Ptr *srcPtr, Ptr *dstPtr, short srcBytes) ONEWORDINLINE(0xA8CF);
 
 
@@ -7182,7 +7182,7 @@ accompany the compressed data.
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 UnpackBits(Ptr *srcPtr, Ptr *dstPtr, short dstBytes) ONEWORDINLINE(0xA8D0);
 
 
@@ -7202,7 +7202,7 @@ Line( dh,dv ); /* draw calculated distance */
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Fixed)
+Fixed
 SlopeFromAngle(short angle) ONEWORDINLINE(0xA8BC);
 
 
@@ -7240,7 +7240,7 @@ theAngle = AngleFromSlope ( theSlope );
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 AngleFromSlope(Fixed slope) ONEWORDINLINE(0xA8C4);
 
 /* New transfer modes */
@@ -7275,7 +7275,7 @@ typedef CALLBACK_API(void, CustomXFerProcPtr)(CustomXFerRecPtr info);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 GetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr *proc, UInt32 *flags,
                       UInt32 *refCon)
     FOURWORDINLINE(0x203C, 0x0010, 0x0019, 0xAB1D);
@@ -7288,7 +7288,7 @@ GetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr *proc, UInt32 *flags,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetPortCustomXFerProc(CGrafPtr port, CustomXFerProcPtr proc, UInt32 flags,
                       UInt32 refCon)
     FOURWORDINLINE(0x203C, 0x0010, 0x001A, 0xAB1D);
@@ -7339,7 +7339,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 OpenCursorComponent(Component c, ComponentInstance *ci)
     FOURWORDINLINE(0x203C, 0x0008, 0x000B, 0xABE0);
 
@@ -7351,7 +7351,7 @@ OpenCursorComponent(Component c, ComponentInstance *ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 CloseCursorComponent(ComponentInstance ci)
     FOURWORDINLINE(0x203C, 0x0004, 0x000C, 0xABE0);
 
@@ -7363,7 +7363,7 @@ CloseCursorComponent(ComponentInstance ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetCursorComponent(ComponentInstance ci)
     FOURWORDINLINE(0x203C, 0x0004, 0x000D, 0xABE0);
 
@@ -7375,7 +7375,7 @@ SetCursorComponent(ComponentInstance ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 CursorComponentChanged(ComponentInstance ci)
     FOURWORDINLINE(0x203C, 0x0004, 0x000E, 0xABE0);
 
@@ -7387,7 +7387,7 @@ CursorComponentChanged(ComponentInstance ci)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 CursorComponentSetData(ComponentInstance ci, long data)
     FOURWORDINLINE(0x203C, 0x0008, 0x000F, 0xABE0);
 
@@ -7401,7 +7401,7 @@ CursorComponentSetData(ComponentInstance ci, long data)
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsValidPort(CGrafPtr port);
 
 #if ACCESSOR_CALLS_ARE_FUNCTIONS
@@ -7415,7 +7415,7 @@ IsValidPort(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixMapHandle)
+PixMapHandle
 GetPortPixMap(CGrafPtr port);
 
 /**
@@ -7437,7 +7437,7 @@ GetPortPixMap(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(const BitMap *)
+const BitMap *
 GetPortBitMapForCopyBits(CGrafPtr port);
 
 /**
@@ -7448,7 +7448,7 @@ GetPortBitMapForCopyBits(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetPortBounds(CGrafPtr port, Rect *rect);
 
 /**
@@ -7459,7 +7459,7 @@ GetPortBounds(CGrafPtr port, Rect *rect);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortForeColor(CGrafPtr port, RGBColor *foreColor);
 
 /**
@@ -7470,7 +7470,7 @@ GetPortForeColor(CGrafPtr port, RGBColor *foreColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortBackColor(CGrafPtr port, RGBColor *backColor);
 
 /**
@@ -7481,7 +7481,7 @@ GetPortBackColor(CGrafPtr port, RGBColor *backColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortOpColor(CGrafPtr port, RGBColor *opColor);
 
 /**
@@ -7492,7 +7492,7 @@ GetPortOpColor(CGrafPtr port, RGBColor *opColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RGBColor *)
+RGBColor *
 GetPortHiliteColor(CGrafPtr port, RGBColor *hiliteColor);
 
 /**
@@ -7503,7 +7503,7 @@ GetPortHiliteColor(CGrafPtr port, RGBColor *hiliteColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CQDProcsPtr)
+CQDProcsPtr
 GetPortGrafProcs(CGrafPtr port);
 
 /**
@@ -7514,7 +7514,7 @@ GetPortGrafProcs(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 GetPortTextFont(CGrafPtr port);
 
 /**
@@ -7525,7 +7525,7 @@ GetPortTextFont(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Style)
+Style
 GetPortTextFace(CGrafPtr port);
 
 /**
@@ -7536,7 +7536,7 @@ GetPortTextFace(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 GetPortTextMode(CGrafPtr port);
 
 /**
@@ -7547,7 +7547,7 @@ GetPortTextMode(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 GetPortTextSize(CGrafPtr port);
 
 /**
@@ -7558,7 +7558,7 @@ GetPortTextSize(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 GetPortChExtra(CGrafPtr port);
 
 /**
@@ -7569,7 +7569,7 @@ GetPortChExtra(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 GetPortFracHPenLocation(CGrafPtr port);
 
 /**
@@ -7580,7 +7580,7 @@ GetPortFracHPenLocation(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Fixed)
+Fixed
 GetPortSpExtra(CGrafPtr port);
 
 /**
@@ -7591,7 +7591,7 @@ GetPortSpExtra(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 GetPortPenVisibility(CGrafPtr port);
 
 /**
@@ -7602,7 +7602,7 @@ GetPortPenVisibility(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RgnHandle)
+RgnHandle
 GetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
 
 /**
@@ -7613,7 +7613,7 @@ GetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(RgnHandle)
+RgnHandle
 GetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
 
 /**
@@ -7624,7 +7624,7 @@ GetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
 
 /**
@@ -7635,7 +7635,7 @@ GetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
 
 /**
@@ -7646,7 +7646,7 @@ GetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(PixPatHandle)
+PixPatHandle
 GetPortFillPixPat(CGrafPtr port, PixPatHandle fillPattern);
 
 /**
@@ -7657,7 +7657,7 @@ GetPortFillPixPat(CGrafPtr port, PixPatHandle fillPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetPortPenSize(CGrafPtr port, Point *penSize);
 
 /**
@@ -7668,7 +7668,7 @@ GetPortPenSize(CGrafPtr port, Point *penSize);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 GetPortPenMode(CGrafPtr port);
 
 /**
@@ -7679,7 +7679,7 @@ GetPortPenMode(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Point *)
+Point *
 GetPortPenLocation(CGrafPtr port, Point *penLocation);
 
 /**
@@ -7690,7 +7690,7 @@ GetPortPenLocation(CGrafPtr port, Point *penLocation);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortRegionBeingDefined(CGrafPtr port);
 
 /**
@@ -7701,7 +7701,7 @@ IsPortRegionBeingDefined(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortPictureBeingDefined(CGrafPtr port);
 
 /**
@@ -7712,7 +7712,7 @@ IsPortPictureBeingDefined(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortPolyBeingDefined(CGrafPtr port);
 
 /**
@@ -7723,7 +7723,7 @@ IsPortPolyBeingDefined(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortOffscreen(CGrafPtr port);
 
 /**
@@ -7734,7 +7734,7 @@ IsPortOffscreen(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortColor(CGrafPtr port);
 
 /**
@@ -7745,7 +7745,7 @@ IsPortColor(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortVisibleRegionEmpty(CGrafPtr port);
 
 /**
@@ -7756,7 +7756,7 @@ IsPortVisibleRegionEmpty(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsPortClipRegionEmpty(CGrafPtr port);
 
 /**
@@ -7767,7 +7767,7 @@ IsPortClipRegionEmpty(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
+void
 SectRegionWithPortClipRegion(CGrafPtr port, RgnHandle ioRegion);
 
 /**
@@ -7778,7 +7778,7 @@ SectRegionWithPortClipRegion(CGrafPtr port, RgnHandle ioRegion);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
+void
 SectRegionWithPortVisibleRegion(CGrafPtr port, RgnHandle ioRegion);
 
 /* Swappers */
@@ -7811,7 +7811,7 @@ SectRegionWithPortVisibleRegion(CGrafPtr port, RgnHandle ioRegion);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(Handle)
+Handle
 SwapPortPicSaveHandle(CGrafPtr port, Handle inPicSaveHdl);
 
 /* Setters */
@@ -7823,7 +7823,7 @@ SwapPortPicSaveHandle(CGrafPtr port, Handle inPicSaveHdl);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortBounds(CGrafPtr port, const Rect *rect);
 
 /**
@@ -7834,7 +7834,7 @@ SetPortBounds(CGrafPtr port, const Rect *rect);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortOpColor(CGrafPtr port, const RGBColor *opColor);
 
 /**
@@ -7845,7 +7845,7 @@ SetPortOpColor(CGrafPtr port, const RGBColor *opColor);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortGrafProcs(CGrafPtr port, CQDProcsPtr procs);
 
 /**
@@ -7856,7 +7856,7 @@ SetPortGrafProcs(CGrafPtr port, CQDProcsPtr procs);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
+void
 SetPortTextFont(CGrafPtr port, short txFont);
 
 /**
@@ -7867,7 +7867,7 @@ SetPortTextFont(CGrafPtr port, short txFont);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
+void
 SetPortTextSize(CGrafPtr port, short txSize);
 
 /**
@@ -7878,7 +7878,7 @@ SetPortTextSize(CGrafPtr port, short txSize);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
+void
 SetPortTextFace(CGrafPtr port, StyleParameter face);
 
 /**
@@ -7889,7 +7889,7 @@ SetPortTextFace(CGrafPtr port, StyleParameter face);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(void)
+void
 SetPortTextMode(CGrafPtr port, short mode);
 
 /**
@@ -7900,7 +7900,7 @@ SetPortTextMode(CGrafPtr port, short mode);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
 
 /**
@@ -7911,7 +7911,7 @@ SetPortVisibleRegion(CGrafPtr port, RgnHandle visRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
 
 /**
@@ -7922,7 +7922,7 @@ SetPortClipRegion(CGrafPtr port, RgnHandle clipRgn);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
 
 /**
@@ -7933,7 +7933,7 @@ SetPortPenPixPat(CGrafPtr port, PixPatHandle penPattern);
  *    \carbon_lib        in CarbonLib 1.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortFillPixPat(CGrafPtr port, PixPatHandle penPattern);
 
 /**
@@ -7944,7 +7944,7 @@ SetPortFillPixPat(CGrafPtr port, PixPatHandle penPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
 
 /**
@@ -7955,7 +7955,7 @@ SetPortBackPixPat(CGrafPtr port, PixPatHandle backPattern);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortPenSize(CGrafPtr port, Point penSize);
 
 /**
@@ -7966,7 +7966,7 @@ SetPortPenSize(CGrafPtr port, Point penSize);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortPenMode(CGrafPtr port, SInt32 penMode);
 
 /**
@@ -7977,7 +7977,7 @@ SetPortPenMode(CGrafPtr port, SInt32 penMode);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetPortFracHPenLocation(CGrafPtr port, short pnLocHFrac);
 
 /* PixMap */
@@ -7989,7 +7989,7 @@ SetPortFracHPenLocation(CGrafPtr port, short pnLocHFrac);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetPixBounds(PixMapHandle pixMap, Rect *bounds);
 
 /**
@@ -8000,7 +8000,7 @@ GetPixBounds(PixMapHandle pixMap, Rect *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(short)
+short
 GetPixDepth(PixMapHandle pixMap);
 
 /* QDGlobals */
@@ -8013,7 +8013,7 @@ GetPixDepth(PixMapHandle pixMap);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(long)
+long
 GetQDGlobalsRandomSeed(void);
 
 /**
@@ -8024,7 +8024,7 @@ GetQDGlobalsRandomSeed(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(BitMap *)
+BitMap *
 GetQDGlobalsScreenBits(BitMap *screenBits);
 
 /**
@@ -8035,7 +8035,7 @@ GetQDGlobalsScreenBits(BitMap *screenBits);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Cursor *)
+Cursor *
 GetQDGlobalsArrow(Cursor *arrow);
 
 /**
@@ -8046,7 +8046,7 @@ GetQDGlobalsArrow(Cursor *arrow);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsDarkGray(Pattern *dkGray);
 
 /**
@@ -8057,7 +8057,7 @@ GetQDGlobalsDarkGray(Pattern *dkGray);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsLightGray(Pattern *ltGray);
 
 /**
@@ -8068,7 +8068,7 @@ GetQDGlobalsLightGray(Pattern *ltGray);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsGray(Pattern *gray);
 
 /**
@@ -8079,7 +8079,7 @@ GetQDGlobalsGray(Pattern *gray);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsBlack(Pattern *black);
 
 /**
@@ -8090,7 +8090,7 @@ GetQDGlobalsBlack(Pattern *black);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Pattern *)
+Pattern *
 GetQDGlobalsWhite(Pattern *white);
 
 /**
@@ -8101,7 +8101,7 @@ GetQDGlobalsWhite(Pattern *white);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CGrafPtr)
+CGrafPtr
 GetQDGlobalsThePort(void);
 
 /* Setters */
@@ -8113,7 +8113,7 @@ GetQDGlobalsThePort(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetQDGlobalsRandomSeed(long randomSeed);
 
 /**
@@ -8124,7 +8124,7 @@ SetQDGlobalsRandomSeed(long randomSeed);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetQDGlobalsArrow(const Cursor *arrow);
 
 /* Regions */
@@ -8136,7 +8136,7 @@ SetQDGlobalsArrow(const Cursor *arrow);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Rect *)
+Rect *
 GetRegionBounds(RgnHandle region, Rect *bounds);
 
 /**
@@ -8147,7 +8147,7 @@ GetRegionBounds(RgnHandle region, Rect *bounds);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsRegionRectangular(RgnHandle region);
 
 /* Utilities */
@@ -8163,7 +8163,7 @@ IsRegionRectangular(RgnHandle region);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(CGrafPtr)
+CGrafPtr
 CreateNewPort(void);
 
 /**
@@ -8174,7 +8174,7 @@ CreateNewPort(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 DisposePort(CGrafPtr port);
 
 /**
@@ -8185,7 +8185,7 @@ DisposePort(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 SetQDError(OSErr err);
 
 #endif /* ACCESSOR_CALLS_ARE_FUNCTIONS */
@@ -8204,7 +8204,7 @@ SetQDError(OSErr err);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 QDIsPortBuffered(CGrafPtr port);
 
 /**
@@ -8215,7 +8215,7 @@ QDIsPortBuffered(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 QDIsPortBufferDirty(CGrafPtr port);
 
 /**
@@ -8226,7 +8226,7 @@ QDIsPortBufferDirty(CGrafPtr port);
  *    \carbon_lib        in CarbonLib 1.0.2 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 QDFlushPortBuffer(CGrafPtr port, RgnHandle region); /* can be NULL */
 
 /**
@@ -8237,7 +8237,7 @@ QDFlushPortBuffer(CGrafPtr port, RgnHandle region); /* can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDGetDirtyRegion(CGrafPtr port, RgnHandle rgn);
 
 /**
@@ -8248,7 +8248,7 @@ QDGetDirtyRegion(CGrafPtr port, RgnHandle rgn);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDSetDirtyRegion(CGrafPtr port, RgnHandle rgn);
 
 /**
@@ -8370,7 +8370,7 @@ typedef struct OpaqueQDRegionBitsRef *QDRegionBitsRef;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(QDRegionBitsRef)
+QDRegionBitsRef
 QDSaveRegionBits(RgnHandle region);
 
 /**
@@ -8381,7 +8381,7 @@ QDSaveRegionBits(RgnHandle region);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDRestoreRegionBits(RgnHandle region, QDRegionBitsRef regionBits);
 
 /**
@@ -8392,7 +8392,7 @@ QDRestoreRegionBits(RgnHandle region, QDRegionBitsRef regionBits);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QDDisposeRegionBits(QDRegionBitsRef regionBits);
 
 /**
@@ -8497,7 +8497,7 @@ QDGetPatternOrigin(Point *origin);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt16)
+SInt16
 LMGetScrVRes(void) TWOWORDINLINE(0x3EB8, 0x0102);
 
 /**
@@ -8508,7 +8508,7 @@ LMGetScrVRes(void) TWOWORDINLINE(0x3EB8, 0x0102);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetScrVRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0102);
 
 /**
@@ -8519,7 +8519,7 @@ LMSetScrVRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0102);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt16)
+SInt16
 LMGetScrHRes(void) TWOWORDINLINE(0x3EB8, 0x0104);
 
 /**
@@ -8530,7 +8530,7 @@ LMGetScrHRes(void) TWOWORDINLINE(0x3EB8, 0x0104);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetScrHRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0104);
 
 /**
@@ -8541,7 +8541,7 @@ LMSetScrHRes(SInt16 value) TWOWORDINLINE(0x31DF, 0x0104);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetMainDevice(void) TWOWORDINLINE(0x2EB8, 0x08A4);
 
 /**
@@ -8552,7 +8552,7 @@ LMGetMainDevice(void) TWOWORDINLINE(0x2EB8, 0x08A4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetMainDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A4);
 
 /**
@@ -8563,7 +8563,7 @@ LMSetMainDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetDeviceList(void) TWOWORDINLINE(0x2EB8, 0x08A8);
 
 /**
@@ -8574,7 +8574,7 @@ LMGetDeviceList(void) TWOWORDINLINE(0x2EB8, 0x08A8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetDeviceList(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A8);
 
 /**
@@ -8585,7 +8585,7 @@ LMSetDeviceList(GDHandle value) TWOWORDINLINE(0x21DF, 0x08A8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetQDColors(void) TWOWORDINLINE(0x2EB8, 0x08B0);
 
 /**
@@ -8596,7 +8596,7 @@ LMGetQDColors(void) TWOWORDINLINE(0x2EB8, 0x08B0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetQDColors(Handle value) TWOWORDINLINE(0x21DF, 0x08B0);
 
 /**
@@ -8607,7 +8607,7 @@ LMSetQDColors(Handle value) TWOWORDINLINE(0x21DF, 0x08B0);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetWidthListHand(void) TWOWORDINLINE(0x2EB8, 0x08E4);
 
 /**
@@ -8618,7 +8618,7 @@ LMGetWidthListHand(void) TWOWORDINLINE(0x2EB8, 0x08E4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetWidthListHand(Handle value) TWOWORDINLINE(0x21DF, 0x08E4);
 
 /**
@@ -8629,7 +8629,7 @@ LMSetWidthListHand(Handle value) TWOWORDINLINE(0x21DF, 0x08E4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
+UInt8
 LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
 
 /**
@@ -8640,7 +8640,7 @@ LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
 
 /**
@@ -8651,7 +8651,7 @@ LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Ptr)
+Ptr
 LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
 
 /**
@@ -8662,7 +8662,7 @@ LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
 
 /**
@@ -8673,7 +8673,7 @@ LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
 
 /**
@@ -8684,7 +8684,7 @@ LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
 
 /**
@@ -8695,7 +8695,7 @@ LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
 
 /**
@@ -8706,7 +8706,7 @@ LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
 
 /**
@@ -8717,7 +8717,7 @@ LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
 
 /**
@@ -8728,7 +8728,7 @@ LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
 
 /**
@@ -8739,7 +8739,7 @@ LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
+UInt8
 LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
 
 /**
@@ -8750,7 +8750,7 @@ LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
 
 /**
@@ -8761,7 +8761,7 @@ LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
 
 /**
@@ -8772,7 +8772,7 @@ LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
 
 #if TARGET_CPU_68K && !TARGET_RT_MAC_CFM
@@ -8788,7 +8788,7 @@ LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMGetHiliteRGB(RGBColor *hiliteRGBValue);
 
 /**
@@ -8799,7 +8799,7 @@ LMGetHiliteRGB(RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
 
 #endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM */
@@ -8812,7 +8812,7 @@ LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
 
 /**
@@ -8823,7 +8823,7 @@ LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 
 #if PRAGMA_STRUCT_ALIGN
@@ -8848,7 +8848,7 @@ LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
   in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
+UInt8
 LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
 
 /**
@@ -8859,7 +8859,7 @@ LMGetHiliteMode(void) TWOWORDINLINE(0x1EB8, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
 
 /**
@@ -8870,7 +8870,7 @@ LMSetHiliteMode(UInt8 value) TWOWORDINLINE(0x11DF, 0x0938);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Ptr)
+Ptr
 LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
 
 /**
@@ -8881,7 +8881,7 @@ LMGetWidthPtr(void) TWOWORDINLINE(0x2EB8, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
 
 /**
@@ -8892,7 +8892,7 @@ LMSetWidthPtr(Ptr value) TWOWORDINLINE(0x21DF, 0x0B10);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
 
 /**
@@ -8903,7 +8903,7 @@ LMGetWidthTabHandle(void) TWOWORDINLINE(0x2EB8, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
 
 /**
@@ -8914,7 +8914,7 @@ LMSetWidthTabHandle(Handle value) TWOWORDINLINE(0x21DF, 0x0B2A);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(SInt32)
+SInt32
 LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
 
 /**
@@ -8925,7 +8925,7 @@ LMGetLastSPExtra(void) TWOWORDINLINE(0x2EB8, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
 
 /**
@@ -8936,7 +8936,7 @@ LMSetLastSPExtra(SInt32 value) TWOWORDINLINE(0x21DF, 0x0B4C);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
 
 /**
@@ -8947,7 +8947,7 @@ LMGetLastFOND(void) TWOWORDINLINE(0x2EB8, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
 
 /**
@@ -8958,7 +8958,7 @@ LMSetLastFOND(Handle value) TWOWORDINLINE(0x21DF, 0x0BC2);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
+UInt8
 LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
 
 /**
@@ -8969,7 +8969,7 @@ LMGetFractEnable(void) TWOWORDINLINE(0x1EB8, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
 
 /**
@@ -8980,7 +8980,7 @@ LMSetFractEnable(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BF4);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(GDHandle)
+GDHandle
 LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
 
 /**
@@ -8991,7 +8991,7 @@ LMGetTheGDevice(void) TWOWORDINLINE(0x2EB8, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
 
 #if TARGET_CPU_68K && !TARGET_RT_MAC_CFM
@@ -9007,7 +9007,7 @@ LMSetTheGDevice(GDHandle value) TWOWORDINLINE(0x21DF, 0x0CC8);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMGetHiliteRGB(RGBColor *hiliteRGBValue);
 
 /**
@@ -9018,7 +9018,7 @@ LMGetHiliteRGB(RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
 
 #endif /* TARGET_CPU_68K && !TARGET_RT_MAC_CFM */
@@ -9031,7 +9031,7 @@ LMSetHiliteRGB(const RGBColor *hiliteRGBValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
 
 /**
@@ -9042,7 +9042,7 @@ LMGetCursorNew(void) TWOWORDINLINE(0x1EB8, 0x08CE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 LMSetCursorNew(Boolean value) TWOWORDINLINE(0x11DF, 0x08CE);
 
 #if PRAGMA_STRUCT_ALIGN
