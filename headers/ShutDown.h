@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,60 +48,64 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  sdOnPowerOff = 1,        /**call procedure before power off.*/
-  sdOnRestart = 2,         /**call procedure before restart.*/
-  sdOnUnmount = 4,         /**call procedure before unmounting.*/
-  sdOnDrivers = 8,         /**call procedure before closing drivers.*/
-  sdOnBootVolUnmount = 16, /**call procedure before unmounting boot volume and
-                              VM volume but after unmounting all other volumes*/
-  sdRestartOrPower = 3     /**call before either power off or restart.*/
-};
+  enum
+  {
+    sdOnPowerOff = 1,        /**call procedure before power off.*/
+    sdOnRestart = 2,         /**call procedure before restart.*/
+    sdOnUnmount = 4,         /**call procedure before unmounting.*/
+    sdOnDrivers = 8,         /**call procedure before closing drivers.*/
+    sdOnBootVolUnmount = 16, /**call procedure before unmounting boot volume and
+                                VM volume but after unmounting all other volumes*/
+    sdRestartOrPower = 3     /**call before either power off or restart.*/
+  };
 
-typedef CALLBACK_API_REGISTER68K(void, ShutDwnProcPtr, (short shutDownStage));
-typedef REGISTER_UPP_TYPE(ShutDwnProcPtr) ShutDwnUPP;
+  typedef CALLBACK_API_REGISTER68K(void, ShutDwnProcPtr, (short shutDownStage));
+  typedef REGISTER_UPP_TYPE(ShutDwnProcPtr) ShutDwnUPP;
 #if CALL_NOT_IN_CARBON
-/**
- *  NewShutDwnUPP()
- *
+  /**
+   *  NewShutDwnUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(ShutDwnUPP)
-NewShutDwnUPP(ShutDwnProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  ShutDwnUPP
+  NewShutDwnUPP(ShutDwnProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppShutDwnProcInfo = 0x00001002
-}; /** register no_return_value Func(2_bytes:D0) */
+  enum
+  {
+    uppShutDwnProcInfo = 0x00001002
+  }; /** register no_return_value Func(2_bytes:D0) */
 #ifdef __cplusplus
-inline ShutDwnUPP NewShutDwnUPP(ShutDwnProcPtr userRoutine) {
-  return (ShutDwnUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppShutDwnProcInfo, GetCurrentArchitecture());
-}
+  inline ShutDwnUPP NewShutDwnUPP(ShutDwnProcPtr userRoutine)
+  {
+    return (ShutDwnUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppShutDwnProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewShutDwnUPP(userRoutine)                                             \
-  (ShutDwnUPP) NewRoutineDescriptor(                                           \
+#define NewShutDwnUPP(userRoutine)   \
+  (ShutDwnUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppShutDwnProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeShutDwnUPP()
- *
+  /**
+   *  DisposeShutDwnUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeShutDwnUPP(ShutDwnUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeShutDwnUPP(ShutDwnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeShutDwnUPP(ShutDwnUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeShutDwnUPP(ShutDwnUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeShutDwnUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
@@ -117,16 +122,17 @@ inline void DisposeShutDwnUPP(ShutDwnUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeShutDwnUPP(__D0, __A0)
 #endif
-EXTERN_API_C(void)
-InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP) ONEWORDINLINE(0x4E90);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+  void
+  InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppShutDwnProcInfo, shutDownStage);
-}
+  inline void InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppShutDwnProcInfo, shutDownStage);
+  }
 #else
-#define InvokeShutDwnUPP(shutDownStage, userUPP)                               \
+#define InvokeShutDwnUPP(shutDownStage, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppShutDwnProcInfo, (shutDownStage))
 #endif
 #endif
@@ -136,55 +142,67 @@ inline void InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP) {
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /** support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewShutDwnProc(userRoutine) NewShutDwnUPP(userRoutine)
-#define CallShutDwnProc(userRoutine, shutDownStage)                            \
+#define CallShutDwnProc(userRoutine, shutDownStage) \
   InvokeShutDwnUPP(shutDownStage, userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  ShutDwnPower()
- *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-ShutDwnPower(void) THREEWORDINLINE(0x3F3C, 0x0001, 0xA895);
+  /**
+  \brief Perform housekeeping and turn off the power
 
-/**
- *  ShutDwnStart()
- *
+  <pre>ShutDwnPower executes system and application-specific housekeeping and
+turns off the computer.
+</pre>
+* \note <pre>If the system must be manually toggled off, ShutDwnPower presents the
+user with an alert.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+  void
+  ShutDwnPower(void);
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-ShutDwnStart(void) THREEWORDINLINE(0x3F3C, 0x0002, 0xA895);
+  /**
+  \brief Perform housekeeping and reboot
 
-/**
- *  ShutDwnInstall()
- *
+  <pre>ShutDwnStart executes system and application-specific housekeeping and
+reboots the computer.
+</pre>
+* \note <pre>ShutDwnStart results in a Reset instruction and a jump to ROM boot
+code.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+  void
+  ShutDwnStart(void);
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-ShutDwnInstall(ShutDwnUPP shutDownProc, short flags)
-    THREEWORDINLINE(0x3F3C, 0x0003, 0xA895);
+  /**
+   *  ShutDwnInstall()
+   *
 
-/**
- *  ShutDwnRemove()
- *
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  ShutDwnInstall(ShutDwnUPP shutDownProc, short flags);
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-ShutDwnRemove(ShutDwnUPP shutDownProc) THREEWORDINLINE(0x3F3C, 0x0004, 0xA895);
+  /**
+   *  ShutDwnRemove()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  ShutDwnRemove(ShutDwnUPP shutDownProc);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -207,3 +225,4 @@ ShutDwnRemove(ShutDwnUPP shutDownProc) THREEWORDINLINE(0x3F3C, 0x0004, 0xA895);
 #endif
 
 #endif /** __SHUTDOWN__ */
+*/*/

@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright � 1993-2001 by Apple Computer, Inc. All rights reserved.
-    
+
     \ingroup ColorSync
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -40,7 +40,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -55,80 +56,79 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum { CMPRInterfaceVersion = 0 };
+    enum
+    {
+        CMPRInterfaceVersion = 0
+    };
 
-/* Component function selectors */
-enum {
-  kCMPRGetProfile = 0,
-  kCMPRSetProfile = 1,
-  kCMPRSetProfileDescription = 2,
-  kCMPRGetIndexedProfile = 3,
-  kCMPRDeleteDeviceProfile = 4
-};
+    /* Component function selectors */
+    enum
+    {
+        kCMPRGetProfile = 0,
+        kCMPRSetProfile = 1,
+        kCMPRSetProfileDescription = 2,
+        kCMPRGetIndexedProfile = 3,
+        kCMPRDeleteDeviceProfile = 4
+    };
 
 #if CALL_NOT_IN_CARBON
-/**
- *  CMGetProfile()
- *
+    /**
+     *  CMGetProfile()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CMError)
-CMGetProfile(ComponentInstance pr, CMProfileHandle aProfile,
-             CMProfileHandle *returnedProfile)
-    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0000, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    CMError
+    CMGetProfile(ComponentInstance pr, CMProfileHandle aProfile,
+                 CMProfileHandle *returnedProfile);
 
-/**
- *  CMSetProfile()
- *
+    /**
+     *  CMSetProfile()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CMError)
-CMSetProfile(ComponentInstance pr, CMProfileHandle newProfile)
-    FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    CMError
+    CMSetProfile(ComponentInstance pr, CMProfileHandle newProfile);
 
-/**
- *  CMSetProfileDescription()
- *
+    /**
+     *  CMSetProfileDescription()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CMError)
-CMSetProfileDescription(ComponentInstance pr, long DeviceData,
-                        CMProfileHandle hProfile)
-    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0002, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    CMError
+    CMSetProfileDescription(ComponentInstance pr, long DeviceData,
+                            CMProfileHandle hProfile);
 
-/**
- *  CMGetIndexedProfile()
- *
+    /**
+     *  CMGetIndexedProfile()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CMError)
-CMGetIndexedProfile(ComponentInstance pr, CMProfileSearchRecordHandle search,
-                    CMProfileHandle *returnProfile, long *index)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0003, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    CMError
+    CMGetIndexedProfile(ComponentInstance pr, CMProfileSearchRecordHandle search,
+                        CMProfileHandle *returnProfile, long *index);
 
-/**
- *  CMDeleteDeviceProfile()
- *
+    /**
+     *  CMDeleteDeviceProfile()
+     *
 
- *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(CMError)
-CMDeleteDeviceProfile(ComponentInstance pr, CMProfileHandle deleteMe)
-    FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+     *    \non_carbon_cfm   in ColorSyncLibPriv 2.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    CMError
+    CMDeleteDeviceProfile(ComponentInstance pr, CMProfileHandle deleteMe);
 
 #endif /* CALL_NOT_IN_CARBON */
 

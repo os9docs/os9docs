@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright © 1998-2001 by Apple Computer, Inc., all rights reserved.
-    
+
     \ingroup ColorSync
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,170 +48,172 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  /* ColorSync Scripting AppleEvent Errors */
-  cmspInvalidImageFile = -4220, /* Plugin cannot handle this image file type */
-  cmspInvalidImageSpace =
-      -4221, /* Plugin cannot create an image file of this colorspace */
-  cmspInvalidProfileEmbed = -4222, /* Specific invalid profile errors */
-  cmspInvalidProfileSource = -4223,
-  cmspInvalidProfileDest = -4224,
-  cmspInvalidProfileProof = -4225,
-  cmspInvalidProfileLink = -4226
-};
+    enum
+    {
+        /* ColorSync Scripting AppleEvent Errors */
+        cmspInvalidImageFile = -4220, /* Plugin cannot handle this image file type */
+        cmspInvalidImageSpace =
+            -4221,                       /* Plugin cannot create an image file of this colorspace */
+        cmspInvalidProfileEmbed = -4222, /* Specific invalid profile errors */
+        cmspInvalidProfileSource = -4223,
+        cmspInvalidProfileDest = -4224,
+        cmspInvalidProfileProof = -4225,
+        cmspInvalidProfileLink = -4226
+    };
 
-/**** embedFlags field  ****/
-/* reserved for future use: currently 0 */
+    /**** embedFlags field  ****/
+    /* reserved for future use: currently 0 */
 
-/**** matchFlags field  ****/
-enum {
-  cmspFavorEmbeddedMask =
-      0x00000001 /* if bit 0 is 0 then use srcProf profile, if 1 then use
-                    profile embedded in image if present*/
-};
+    /**** matchFlags field  ****/
+    enum
+    {
+        cmspFavorEmbeddedMask =
+            0x00000001 /* if bit 0 is 0 then use srcProf profile, if 1 then use
+                          profile embedded in image if present*/
+    };
 
-/**** scripting plugin entry points  ****/
-typedef CALLBACK_API_C(CMError, ValidateImageProcPtr)(const FSSpec *spec);
-typedef CALLBACK_API_C(CMError, GetImageSpaceProcPtr)(const FSSpec *spec,
-                                                      OSType *space);
-typedef CALLBACK_API_C(CMError, ValidateSpaceProcPtr)(const FSSpec *spec,
-                                                      OSType *space);
-typedef CALLBACK_API_C(CMError, EmbedImageProcPtr)(const FSSpec *specFrom,
-                                                   const FSSpec *specInto,
-                                                   CMProfileRef embedProf,
-                                                   UInt32 embedFlags);
-typedef CALLBACK_API_C(CMError, UnembedImageProcPtr)(const FSSpec *specFrom,
-                                                     const FSSpec *specInto);
-typedef CALLBACK_API_C(CMError, MatchImageProcPtr)(
-    const FSSpec *specFrom, const FSSpec *specInto, UInt32 qual,
-    UInt32 srcIntent, CMProfileRef srcProf, CMProfileRef dstProf,
-    CMProfileRef prfProf, UInt32 matchFlags);
-typedef CALLBACK_API_C(CMError, CountImageProfilesProcPtr)(const FSSpec *spec,
-                                                           UInt32 *count);
-typedef CALLBACK_API_C(CMError, GetIndImageProfileProcPtr)(const FSSpec *spec,
-                                                           UInt32 index,
-                                                           CMProfileRef *prof);
-typedef CALLBACK_API_C(CMError, SetIndImageProfileProcPtr)(
-    const FSSpec *specFrom, const FSSpec *specInto, UInt32 index,
-    CMProfileRef prof, UInt32 embedFlags);
-/**** CSScriptingLib API  ****/
+    /**** scripting plugin entry points  ****/
+    typedef CALLBACK_API_C(CMError, ValidateImageProcPtr)(const FSSpec *spec);
+    typedef CALLBACK_API_C(CMError, GetImageSpaceProcPtr)(const FSSpec *spec,
+                                                          OSType *space);
+    typedef CALLBACK_API_C(CMError, ValidateSpaceProcPtr)(const FSSpec *spec,
+                                                          OSType *space);
+    typedef CALLBACK_API_C(CMError, EmbedImageProcPtr)(const FSSpec *specFrom,
+                                                       const FSSpec *specInto,
+                                                       CMProfileRef embedProf,
+                                                       UInt32 embedFlags);
+    typedef CALLBACK_API_C(CMError, UnembedImageProcPtr)(const FSSpec *specFrom,
+                                                         const FSSpec *specInto);
+    typedef CALLBACK_API_C(CMError, MatchImageProcPtr)(
+        const FSSpec *specFrom, const FSSpec *specInto, UInt32 qual,
+        UInt32 srcIntent, CMProfileRef srcProf, CMProfileRef dstProf,
+        CMProfileRef prfProf, UInt32 matchFlags);
+    typedef CALLBACK_API_C(CMError, CountImageProfilesProcPtr)(const FSSpec *spec,
+                                                               UInt32 *count);
+    typedef CALLBACK_API_C(CMError, GetIndImageProfileProcPtr)(const FSSpec *spec,
+                                                               UInt32 index,
+                                                               CMProfileRef *prof);
+    typedef CALLBACK_API_C(CMError, SetIndImageProfileProcPtr)(
+        const FSSpec *specFrom, const FSSpec *specInto, UInt32 index,
+        CMProfileRef prof, UInt32 embedFlags);
+    /**** CSScriptingLib API  ****/
 
-/**
- *  CMValidImage()
- *
+    /**
+     *  CMValidImage()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMValidImage(const FSSpec *spec);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMValidImage(const FSSpec *spec);
 
-/**
- *  CMGetImageSpace()
- *
+    /**
+     *  CMGetImageSpace()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMGetImageSpace(const FSSpec *spec, OSType *space);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMGetImageSpace(const FSSpec *spec, OSType *space);
 
-/**
- *  CMEmbedImage()
- *
+    /**
+     *  CMEmbedImage()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMEmbedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
-             CMProfileRef embProf);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMEmbedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
+                 CMProfileRef embProf);
 
-/**
- *  CMUnembedImage()
- *
+    /**
+     *  CMUnembedImage()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMUnembedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMUnembedImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl);
 
-/**
- *  CMMatchImage()
- *
+    /**
+     *  CMMatchImage()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMMatchImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
-             UInt32 qual, CMProfileRef srcProf, UInt32 srcIntent,
-             CMProfileRef dstProf);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMMatchImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
+                 UInt32 qual, CMProfileRef srcProf, UInt32 srcIntent,
+                 CMProfileRef dstProf);
 
-/**
- *  CMProofImage()
- *
+    /**
+     *  CMProofImage()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMProofImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
-             UInt32 qual, CMProfileRef srcProf, UInt32 srcIntent,
-             CMProfileRef dstProf, CMProfileRef prfProf);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMProofImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
+                 UInt32 qual, CMProfileRef srcProf, UInt32 srcIntent,
+                 CMProfileRef dstProf, CMProfileRef prfProf);
 
-/**
- *  CMLinkImage()
- *
+    /**
+     *  CMLinkImage()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMLinkImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
-            UInt32 qual, CMProfileRef lnkProf, UInt32 lnkIntent);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMLinkImage(const FSSpec *specFrom, const FSSpec *specInto, Boolean repl,
+                UInt32 qual, CMProfileRef lnkProf, UInt32 lnkIntent);
 
-/**
- *  CMCountImageProfiles()
- *
+    /**
+     *  CMCountImageProfiles()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMCountImageProfiles(const FSSpec *spec, UInt32 *count);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMCountImageProfiles(const FSSpec *spec, UInt32 *count);
 
-/**
- *  CMGetIndImageProfile()
- *
+    /**
+     *  CMGetIndImageProfile()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMGetIndImageProfile(const FSSpec *spec, UInt32 index, CMProfileRef *prof);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMGetIndImageProfile(const FSSpec *spec, UInt32 index, CMProfileRef *prof);
 
-/**
- *  CMSetIndImageProfile()
- *
+    /**
+     *  CMSetIndImageProfile()
+     *
 
- *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in 3.0 and later
- */
-EXTERN_API_C(CMError)
-CMSetIndImageProfile(const FSSpec *specFrom, const FSSpec *specInto,
-                     Boolean repl, UInt32 index, CMProfileRef prof);
+     *    \non_carbon_cfm   in CSScriptingLib 2.6 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in 3.0 and later
+     */
+    CMError
+    CMSetIndImageProfile(const FSSpec *specFrom, const FSSpec *specInto,
+                         Boolean repl, UInt32 index, CMProfileRef prof);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

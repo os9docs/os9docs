@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup CoreGraphics
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -58,49 +59,49 @@ extern "C" {
 #endif
 #endif
 
-typedef struct CGFont *CGFontRef;
-typedef unsigned short CGGlyph;
-/**** Font creation. ***/
-/** Create a CGFont using `platformFontReference', a pointer to a
- * platform-specific font reference.  For MacOS X, `platformFontReference'
- * should be a pointer to an ATSFontRef. */
-/**
- *  CGFontCreateWithPlatformFont()
- *
+    typedef struct CGFont *CGFontRef;
+    typedef unsigned short CGGlyph;
+    /**** Font creation. ***/
+    /** Create a CGFont using `platformFontReference', a pointer to a
+     * platform-specific font reference.  For MacOS X, `platformFontReference'
+     * should be a pointer to an ATSFontRef. */
+    /**
+     *  CGFontCreateWithPlatformFont()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGFontRef)
-CGFontCreateWithPlatformFont(void *platformFontReference);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         in version 10.0 and later
+     */
+    CGFontRef
+    CGFontCreateWithPlatformFont(void *platformFontReference);
 
-/**** Retain & release. ***/
-/** Increment the retain count of `font' and return it.  All fonts are
- * created with an initial retain count of 1. */
-/**
- *  CGFontRetain()
- *
+    /**** Retain & release. ***/
+    /** Increment the retain count of `font' and return it.  All fonts are
+     * created with an initial retain count of 1. */
+    /**
+     *  CGFontRetain()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGFontRef)
-CGFontRetain(CGFontRef font);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         in version 10.0 and later
+     */
+    CGFontRef
+    CGFontRetain(CGFontRef font);
 
-/** Decrement the retain count of `font'.  If the retain count reaches 0,
- * then release it and any associated resources. */
-/**
- *  CGFontRelease()
- *
+    /** Decrement the retain count of `font'.  If the retain count reaches 0,
+     * then release it and any associated resources. */
+    /**
+     *  CGFontRelease()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-CGFontRelease(CGFontRef font);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         in version 10.0 and later
+     */
+    void
+    CGFontRelease(CGFontRef font);
 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset

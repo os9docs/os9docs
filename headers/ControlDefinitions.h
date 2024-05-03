@@ -331,7 +331,7 @@ enum { kControlKindBevelButton = FOUR_CHAR_CODE('bevl') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateBevelButtonControl(WindowRef window, const Rect *boundsRect,
                          CFStringRef title, ControlBevelThickness thickness,
                          ControlBevelButtonBehavior behavior,
@@ -432,7 +432,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 GetBevelButtonMenuValue(ControlRef inButton, SInt16 *outValue);
 
 /**
@@ -443,7 +443,7 @@ GetBevelButtonMenuValue(ControlRef inButton, SInt16 *outValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetBevelButtonMenuValue(ControlRef inButton, SInt16 inValue);
 
 /**
@@ -454,7 +454,7 @@ SetBevelButtonMenuValue(ControlRef inButton, SInt16 inValue);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 GetBevelButtonMenuHandle(ControlRef inButton, MenuHandle *outHandle);
 
 #define GetBevelButtonMenuRef GetBevelButtonMenuHandle
@@ -466,7 +466,7 @@ GetBevelButtonMenuHandle(ControlRef inButton, MenuHandle *outHandle);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 GetBevelButtonContentInfo(ControlRef inButton,
                           ControlButtonContentInfoPtr outContent);
 
@@ -478,7 +478,7 @@ GetBevelButtonContentInfo(ControlRef inButton,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetBevelButtonContentInfo(ControlRef inButton,
                           ControlButtonContentInfoPtr inContent);
 
@@ -490,7 +490,7 @@ SetBevelButtonContentInfo(ControlRef inButton,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetBevelButtonTransform(ControlRef inButton, IconTransformType transform);
 
 /**
@@ -501,7 +501,7 @@ SetBevelButtonTransform(ControlRef inButton, IconTransformType transform);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetBevelButtonGraphicAlignment(ControlRef inButton,
                                ControlButtonGraphicAlignment inAlign,
                                SInt16 inHOffset, SInt16 inVOffset);
@@ -514,7 +514,7 @@ SetBevelButtonGraphicAlignment(ControlRef inButton,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetBevelButtonTextAlignment(ControlRef inButton,
                             ControlButtonTextAlignment inAlign,
                             SInt16 inHOffset);
@@ -527,7 +527,7 @@ SetBevelButtonTextAlignment(ControlRef inButton,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetBevelButtonTextPlacement(ControlRef inButton,
                             ControlButtonTextPlacement inWhere);
 
@@ -605,7 +605,7 @@ enum { kControlKindSlider = FOUR_CHAR_CODE('sldr') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateSliderControl(WindowRef window, const Rect *boundsRect, SInt32 value,
                     SInt32 minimum, SInt32 maximum,
                     ControlSliderOrientation orientation, UInt16 numTickMarks,
@@ -711,7 +711,7 @@ enum { kControlKindDisclosureTriangle = FOUR_CHAR_CODE('dist') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateDisclosureTriangleControl(
     WindowRef inWindow, const Rect *inBoundsRect,
     ControlDisclosureTriangleOrientation inOrientation, CFStringRef inTitle,
@@ -732,7 +732,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetDisclosureTriangleLastValue(ControlRef inTabControl, SInt16 inValue);
 
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
@@ -767,7 +767,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateProgressBarControl(WindowRef window, const Rect *boundsRect, SInt32 value,
                          SInt32 minimum, SInt32 maximum, Boolean indeterminate,
                          ControlRef *outControl);
@@ -781,7 +781,7 @@ CreateProgressBarControl(WindowRef window, const Rect *boundsRect, SInt32 value,
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateRelevanceBarControl(WindowRef window, const Rect *boundsRect,
                           SInt32 value, SInt32 minimum, SInt32 maximum,
                           ControlRef *outControl);
@@ -813,7 +813,7 @@ enum { kControlKindLittleArrows = FOUR_CHAR_CODE('larr') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateLittleArrowsControl(WindowRef window, const Rect *boundsRect,
                           SInt32 value, SInt32 minimum, SInt32 maximum,
                           SInt32 increment, ControlRef *outControl);
@@ -838,7 +838,7 @@ enum { kControlKindChasingArrows = FOUR_CHAR_CODE('carr') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateChasingArrowsControl(WindowRef window, const Rect *boundsRect,
                            ControlRef *outControl);
 
@@ -921,7 +921,7 @@ enum { kControlKindTabs = FOUR_CHAR_CODE('tabs') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateTabsControl(WindowRef window, const Rect *boundsRect, ControlTabSize size,
                   ControlTabDirection direction, UInt16 numTabs,
                   const ControlTabEntry *tabArray, ControlRef *outControl);
@@ -972,7 +972,7 @@ typedef struct ControlTabInfoRecV1 ControlTabInfoRecV1;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 GetTabContentRect(ControlRef inTabControl, Rect *outContentRect);
 
 /**
@@ -983,7 +983,7 @@ GetTabContentRect(ControlRef inTabControl, Rect *outContentRect);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetTabEnabled(ControlRef inTabControl, SInt16 inTabToHilite, Boolean inEnabled);
 
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
@@ -1007,7 +1007,7 @@ enum { kControlKindSeparator = FOUR_CHAR_CODE('sepa') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateSeparatorControl(WindowRef window, const Rect *boundsRect,
                        ControlRef *outControl);
 
@@ -1045,7 +1045,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateGroupBoxControl(WindowRef window, const Rect *boundsRect,
                       CFStringRef title, Boolean primary,
                       ControlRef *outControl);
@@ -1058,7 +1058,7 @@ CreateGroupBoxControl(WindowRef window, const Rect *boundsRect,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateCheckGroupBoxControl(WindowRef window, const Rect *boundsRect,
                            CFStringRef title, SInt32 initialValue,
                            Boolean primary, Boolean autoToggle,
@@ -1072,7 +1072,7 @@ CreateCheckGroupBoxControl(WindowRef window, const Rect *boundsRect,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreatePopupGroupBoxControl(WindowRef window, const Rect *boundsRect,
                            CFStringRef title, Boolean primary, SInt16 menuID,
                            Boolean variableWidth, SInt16 titleWidth,
@@ -1144,7 +1144,7 @@ enum { kControlKindImageWell = FOUR_CHAR_CODE('well') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateImageWellControl(WindowRef window, const Rect *boundsRect,
                        const ControlButtonContentInfo *info,
                        ControlRef *outControl);
@@ -1165,7 +1165,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 GetImageWellContentInfo(ControlRef inButton,
                         ControlButtonContentInfoPtr outContent);
 
@@ -1177,7 +1177,7 @@ GetImageWellContentInfo(ControlRef inButton,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetImageWellContentInfo(ControlRef inButton,
                         ControlButtonContentInfoPtr inContent);
 
@@ -1189,7 +1189,7 @@ SetImageWellContentInfo(ControlRef inButton,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 SetImageWellTransform(ControlRef inButton, IconTransformType inTransform);
 
 /*©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
@@ -1240,7 +1240,7 @@ enum { kControlKindPopupArrow = FOUR_CHAR_CODE('parr') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreatePopupArrowControl(WindowRef window, const Rect *boundsRect,
                         ControlPopupArrowOrientation orientation,
                         ControlPopupArrowSize size, ControlRef *outControl);
@@ -1263,7 +1263,7 @@ enum { kControlKindPlacard = FOUR_CHAR_CODE('plac') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreatePlacardControl(WindowRef window, const Rect *boundsRect,
                      ControlRef *outControl);
 
@@ -1335,7 +1335,7 @@ enum { kControlKindClock = FOUR_CHAR_CODE('clck') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateClockControl(WindowRef window, const Rect *boundsRect,
                    ControlClockType clockType, ControlClockFlags clockFlags,
                    ControlRef *outControl);
@@ -1395,7 +1395,7 @@ enum { kControlKindUserPane = FOUR_CHAR_CODE('upan') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateUserPaneControl(WindowRef window, const Rect *boundsRect, UInt32 features,
                       ControlRef *outControl);
 
@@ -1458,7 +1458,7 @@ typedef STACK_UPP_TYPE(ControlUserPaneBackgroundProcPtr)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneDrawUPP)
+ControlUserPaneDrawUPP
 NewControlUserPaneDrawUPP(ControlUserPaneDrawProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1487,7 +1487,7 @@ NewControlUserPaneDrawUPP(ControlUserPaneDrawProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneHitTestUPP)
+ControlUserPaneHitTestUPP
 NewControlUserPaneHitTestUPP(ControlUserPaneHitTestProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1516,7 +1516,7 @@ NewControlUserPaneHitTestUPP(ControlUserPaneHitTestProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneTrackingUPP)
+ControlUserPaneTrackingUPP
 NewControlUserPaneTrackingUPP(ControlUserPaneTrackingProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1545,7 +1545,7 @@ NewControlUserPaneTrackingUPP(ControlUserPaneTrackingProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneIdleUPP)
+ControlUserPaneIdleUPP
 NewControlUserPaneIdleUPP(ControlUserPaneIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1574,7 +1574,7 @@ NewControlUserPaneIdleUPP(ControlUserPaneIdleProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneKeyDownUPP)
+ControlUserPaneKeyDownUPP
 NewControlUserPaneKeyDownUPP(ControlUserPaneKeyDownProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1603,7 +1603,7 @@ NewControlUserPaneKeyDownUPP(ControlUserPaneKeyDownProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneActivateUPP)
+ControlUserPaneActivateUPP
 NewControlUserPaneActivateUPP(ControlUserPaneActivateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1632,7 +1632,7 @@ NewControlUserPaneActivateUPP(ControlUserPaneActivateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneFocusUPP)
+ControlUserPaneFocusUPP
 NewControlUserPaneFocusUPP(ControlUserPaneFocusProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1661,7 +1661,7 @@ NewControlUserPaneFocusUPP(ControlUserPaneFocusProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlUserPaneBackgroundUPP)
+ControlUserPaneBackgroundUPP
 NewControlUserPaneBackgroundUPP(ControlUserPaneBackgroundProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1690,7 +1690,7 @@ NewControlUserPaneBackgroundUPP(ControlUserPaneBackgroundProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneDrawUPP(ControlUserPaneDrawUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1710,7 +1710,7 @@ inline void DisposeControlUserPaneDrawUPP(ControlUserPaneDrawUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneHitTestUPP(ControlUserPaneHitTestUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1732,7 +1732,7 @@ DisposeControlUserPaneHitTestUPP(ControlUserPaneHitTestUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneTrackingUPP(ControlUserPaneTrackingUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1754,7 +1754,7 @@ DisposeControlUserPaneTrackingUPP(ControlUserPaneTrackingUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneIdleUPP(ControlUserPaneIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1774,7 +1774,7 @@ inline void DisposeControlUserPaneIdleUPP(ControlUserPaneIdleUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneKeyDownUPP(ControlUserPaneKeyDownUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1796,7 +1796,7 @@ DisposeControlUserPaneKeyDownUPP(ControlUserPaneKeyDownUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneActivateUPP(ControlUserPaneActivateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1818,7 +1818,7 @@ DisposeControlUserPaneActivateUPP(ControlUserPaneActivateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneFocusUPP(ControlUserPaneFocusUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1839,7 +1839,7 @@ inline void DisposeControlUserPaneFocusUPP(ControlUserPaneFocusUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlUserPaneBackgroundUPP(ControlUserPaneBackgroundUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1861,7 +1861,7 @@ DisposeControlUserPaneBackgroundUPP(ControlUserPaneBackgroundUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneDrawUPP(ControlRef control, SInt16 part,
                              ControlUserPaneDrawUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1886,7 +1886,7 @@ inline void InvokeControlUserPaneDrawUPP(ControlRef control, SInt16 part,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneHitTestUPP(ControlRef control, Point where,
                                 ControlUserPaneHitTestUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1912,7 +1912,7 @@ InvokeControlUserPaneHitTestUPP(ControlRef control, Point where,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneTrackingUPP(ControlRef control, Point startPt,
                                  ControlActionUPP actionProc,
                                  ControlUserPaneTrackingUPP userUPP);
@@ -1943,7 +1943,7 @@ InvokeControlUserPaneTrackingUPP(ControlRef control, Point startPt,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneIdleUPP(ControlRef control,
                              ControlUserPaneIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1966,7 +1966,7 @@ inline void InvokeControlUserPaneIdleUPP(ControlRef control,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneKeyDownUPP(ControlRef control, SInt16 keyCode,
                                 SInt16 charCode, SInt16 modifiers,
                                 ControlUserPaneKeyDownUPP userUPP);
@@ -1997,7 +1997,7 @@ InvokeControlUserPaneKeyDownUPP(ControlRef control, SInt16 keyCode,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneActivateUPP(ControlRef control, Boolean activating,
                                  ControlUserPaneActivateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2023,7 +2023,7 @@ InvokeControlUserPaneActivateUPP(ControlRef control, Boolean activating,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlPartCode)
+ControlPartCode
 InvokeControlUserPaneFocusUPP(ControlRef control, ControlFocusPart action,
                               ControlUserPaneFocusUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2049,7 +2049,7 @@ InvokeControlUserPaneFocusUPP(ControlRef control, ControlFocusPart action,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlUserPaneBackgroundUPP(ControlRef control,
                                    ControlBackgroundPtr info,
                                    ControlUserPaneBackgroundUPP userUPP);
@@ -2134,7 +2134,7 @@ enum { kControlKindEditText = FOUR_CHAR_CODE('etxt') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateEditTextControl(WindowRef window, const Rect *boundsRect,
                       CFStringRef text, Boolean isPassword,
                       Boolean useInlineInput,
@@ -2202,7 +2202,7 @@ typedef STACK_UPP_TYPE(ControlEditTextValidationProcPtr)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(ControlEditTextValidationUPP)
+ControlEditTextValidationUPP
 NewControlEditTextValidationUPP(ControlEditTextValidationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -2231,7 +2231,7 @@ NewControlEditTextValidationUPP(ControlEditTextValidationProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeControlEditTextValidationUPP(ControlEditTextValidationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -2253,7 +2253,7 @@ DisposeControlEditTextValidationUPP(ControlEditTextValidationUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeControlEditTextValidationUPP(ControlRef control,
                                    ControlEditTextValidationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -2297,7 +2297,7 @@ enum { kControlKindStaticText = FOUR_CHAR_CODE('stxt') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateStaticTextControl(WindowRef window, const Rect *boundsRect,
                         CFStringRef text, const ControlFontStyleRec *style,
                         ControlRef *outControl);
@@ -2347,7 +2347,7 @@ enum { kControlKindPicture = FOUR_CHAR_CODE('pict') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreatePictureControl(WindowRef window, const Rect *boundsRect,
                      const ControlButtonContentInfo *content, Boolean dontTrack,
                      ControlRef *outControl);
@@ -2430,7 +2430,7 @@ enum { kControlKindIcon = FOUR_CHAR_CODE('icon') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateIconControl(WindowRef inWindow, const Rect *inBoundsRect,
                   const ControlButtonContentInfo *inIconContent,
                   Boolean inDontTrack, ControlRef *outControl);
@@ -2471,7 +2471,7 @@ enum { kControlKindWindowHeader = FOUR_CHAR_CODE('whed') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateWindowHeaderControl(WindowRef window, const Rect *boundsRect,
                           Boolean isListHeader, ControlRef *outControl);
 
@@ -2506,7 +2506,7 @@ enum { kControlKindListBox = FOUR_CHAR_CODE('lbox') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateListBoxControl(WindowRef window, const Rect *boundsRect, Boolean autoSize,
                      SInt16 numRows, SInt16 numColumns, Boolean horizScroll,
                      Boolean vertScroll, SInt16 cellHeight, SInt16 cellWidth,
@@ -2600,7 +2600,7 @@ enum {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreatePushButtonControl(WindowRef window, const Rect *boundsRect,
                         CFStringRef title, ControlRef *outControl);
 
@@ -2612,7 +2612,7 @@ CreatePushButtonControl(WindowRef window, const Rect *boundsRect,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreatePushButtonWithIconControl(WindowRef window, const Rect *boundsRect,
                                 CFStringRef title,
                                 ControlButtonContentInfo *icon,
@@ -2627,7 +2627,7 @@ CreatePushButtonWithIconControl(WindowRef window, const Rect *boundsRect,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateRadioButtonControl(WindowRef window, const Rect *boundsRect,
                          CFStringRef title, SInt32 initialValue,
                          Boolean autoToggle, ControlRef *outControl);
@@ -2640,7 +2640,7 @@ CreateRadioButtonControl(WindowRef window, const Rect *boundsRect,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateCheckBoxControl(WindowRef window, const Rect *boundsRect,
                       CFStringRef title, SInt32 initialValue,
                       Boolean autoToggle, ControlRef *outControl);
@@ -2675,7 +2675,7 @@ enum { kControlKindScrollBar = FOUR_CHAR_CODE('sbar') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateScrollBarControl(WindowRef window, const Rect *boundsRect, SInt32 value,
                        SInt32 minimum, SInt32 maximum, SInt32 viewSize,
                        Boolean liveTracking, ControlActionUPP liveTrackingProc,
@@ -2728,7 +2728,7 @@ enum { kControlKindPopupButton = FOUR_CHAR_CODE('popb') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreatePopupButtonControl(WindowRef window, const Rect *boundsRect,
                          CFStringRef title, SInt16 menuID,
                          Boolean variableWidth, SInt16 titleWidth,
@@ -2790,7 +2790,7 @@ enum { kControlKindRadioGroup = FOUR_CHAR_CODE('rgrp') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateRadioGroupControl(WindowRef window, const Rect *boundsRect,
                         ControlRef *outControl);
 
@@ -2834,7 +2834,7 @@ enum { kControlKindScrollingTextBox = FOUR_CHAR_CODE('stbx') };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateScrollingTextBoxControl(WindowRef window, const Rect *boundsRect,
                               SInt16 contentResID, Boolean autoScroll,
                               UInt32 delayBeforeAutoScroll,
@@ -2899,7 +2899,7 @@ enum {
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateDisclosureButtonControl(WindowRef inWindow, const Rect *inBoundsRect,
                               SInt32 inValue, Boolean inAutoToggles,
                               ControlRef *outControl);
@@ -2998,7 +2998,7 @@ enum { kControlKindRoundButton = FOUR_CHAR_CODE('rndb') };
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateRoundButtonControl(WindowRef inWindow, const Rect *inBoundsRect,
                          ControlRoundButtonSize inSize,
                          ControlButtonContentInfo *inContent,
@@ -3366,7 +3366,7 @@ typedef STACK_UPP_TYPE(DataBrowserItemProcPtr) DataBrowserItemUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemUPP)
+DataBrowserItemUPP
 NewDataBrowserItemUPP(DataBrowserItemProcPtr userRoutine);
 
 /**
@@ -3377,7 +3377,7 @@ NewDataBrowserItemUPP(DataBrowserItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemUPP(DataBrowserItemUPP userUPP);
 
 /**
@@ -3388,7 +3388,7 @@ DisposeDataBrowserItemUPP(DataBrowserItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemUPP(DataBrowserItemID item, DataBrowserItemState state,
                          void *clientData, DataBrowserItemUPP userUPP);
 
@@ -3401,7 +3401,7 @@ InvokeDataBrowserItemUPP(DataBrowserItemID item, DataBrowserItemState state,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateDataBrowserControl(WindowRef window, const Rect *boundsRect,
                          DataBrowserViewStyle style, ControlRef *outControl);
 
@@ -3413,7 +3413,7 @@ CreateDataBrowserControl(WindowRef window, const Rect *boundsRect,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserViewStyle(ControlRef browser, DataBrowserViewStyle *style);
 
 /**
@@ -3424,7 +3424,7 @@ GetDataBrowserViewStyle(ControlRef browser, DataBrowserViewStyle *style);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserViewStyle(ControlRef browser, DataBrowserViewStyle style);
 
 /* Item Manipulation */
@@ -3440,7 +3440,7 @@ SetDataBrowserViewStyle(ControlRef browser, DataBrowserViewStyle style);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 AddDataBrowserItems(ControlRef browser, DataBrowserItemID container,
                     UInt32 numItems,
                     const DataBrowserItemID *items, /* can be NULL */
@@ -3454,7 +3454,7 @@ AddDataBrowserItems(ControlRef browser, DataBrowserItemID container,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RemoveDataBrowserItems(ControlRef browser, DataBrowserItemID container,
                        UInt32 numItems,
                        const DataBrowserItemID *items, /* can be NULL */
@@ -3468,7 +3468,7 @@ RemoveDataBrowserItems(ControlRef browser, DataBrowserItemID container,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 UpdateDataBrowserItems(ControlRef browser, DataBrowserItemID container,
                        UInt32 numItems,
                        const DataBrowserItemID *items, /* can be NULL */
@@ -3484,7 +3484,7 @@ UpdateDataBrowserItems(ControlRef browser, DataBrowserItemID container,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 EnableDataBrowserEditCommand(ControlRef browser,
                              DataBrowserEditCommand command);
 
@@ -3496,7 +3496,7 @@ EnableDataBrowserEditCommand(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ExecuteDataBrowserEditCommand(ControlRef browser,
                               DataBrowserEditCommand command);
 
@@ -3508,7 +3508,7 @@ ExecuteDataBrowserEditCommand(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserSelectionAnchor(ControlRef browser, DataBrowserItemID *first,
                               DataBrowserItemID *last);
 
@@ -3520,7 +3520,7 @@ GetDataBrowserSelectionAnchor(ControlRef browser, DataBrowserItemID *first,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 MoveDataBrowserSelectionAnchor(ControlRef browser,
                                DataBrowserSelectionAnchorDirection direction,
                                Boolean extendSelection);
@@ -3534,7 +3534,7 @@ MoveDataBrowserSelectionAnchor(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 OpenDataBrowserContainer(ControlRef browser, DataBrowserItemID container);
 
 /**
@@ -3545,7 +3545,7 @@ OpenDataBrowserContainer(ControlRef browser, DataBrowserItemID container);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CloseDataBrowserContainer(ControlRef browser, DataBrowserItemID container);
 
 /**
@@ -3556,7 +3556,7 @@ CloseDataBrowserContainer(ControlRef browser, DataBrowserItemID container);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SortDataBrowserContainer(ControlRef browser, DataBrowserItemID container,
                          Boolean sortChildren);
 
@@ -3569,7 +3569,7 @@ SortDataBrowserContainer(ControlRef browser, DataBrowserItemID container,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItems(ControlRef browser, DataBrowserItemID container,
                     Boolean recurse, DataBrowserItemState state, Handle items);
 
@@ -3581,7 +3581,7 @@ GetDataBrowserItems(ControlRef browser, DataBrowserItemID container,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemCount(ControlRef browser, DataBrowserItemID container,
                         Boolean recurse, DataBrowserItemState state,
                         UInt32 *numItems);
@@ -3594,7 +3594,7 @@ GetDataBrowserItemCount(ControlRef browser, DataBrowserItemID container,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ForEachDataBrowserItem(ControlRef browser, DataBrowserItemID container,
                        Boolean recurse, DataBrowserItemState state,
                        DataBrowserItemUPP callback, void *clientData);
@@ -3608,7 +3608,7 @@ ForEachDataBrowserItem(ControlRef browser, DataBrowserItemID container,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsDataBrowserItemSelected(ControlRef browser, DataBrowserItemID item);
 
 /**
@@ -3619,7 +3619,7 @@ IsDataBrowserItemSelected(ControlRef browser, DataBrowserItemID item);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemState(ControlRef browser, DataBrowserItemID item,
                         DataBrowserItemState *state);
 
@@ -3631,7 +3631,7 @@ GetDataBrowserItemState(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RevealDataBrowserItem(ControlRef browser, DataBrowserItemID item,
                       DataBrowserPropertyID propertyID,
                       DataBrowserRevealOptions options);
@@ -3645,7 +3645,7 @@ RevealDataBrowserItem(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserSelectedItems(ControlRef browser, UInt32 numItems,
                             const DataBrowserItemID *items,
                             DataBrowserSetOption operation);
@@ -3660,7 +3660,7 @@ SetDataBrowserSelectedItems(ControlRef browser, UInt32 numItems,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserUserState(ControlRef browser, CFDataRef stateInfo);
 
 /**
@@ -3671,7 +3671,7 @@ SetDataBrowserUserState(ControlRef browser, CFDataRef stateInfo);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserUserState(ControlRef browser, CFDataRef *stateInfo);
 
 /* All items are active/enabled or not */
@@ -3683,7 +3683,7 @@ GetDataBrowserUserState(ControlRef browser, CFDataRef *stateInfo);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserActiveItems(ControlRef browser, Boolean active);
 
 /**
@@ -3694,7 +3694,7 @@ SetDataBrowserActiveItems(ControlRef browser, Boolean active);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserActiveItems(ControlRef browser, Boolean *active);
 
 /* Inset the scrollbars within the DataBrowser bounds */
@@ -3706,7 +3706,7 @@ GetDataBrowserActiveItems(ControlRef browser, Boolean *active);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserScrollBarInset(ControlRef browser, Rect *insetRect);
 
 /**
@@ -3717,7 +3717,7 @@ SetDataBrowserScrollBarInset(ControlRef browser, Rect *insetRect);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserScrollBarInset(ControlRef browser, Rect *insetRect);
 
 /* The "user focused" item */
@@ -3731,7 +3731,7 @@ GetDataBrowserScrollBarInset(ControlRef browser, Rect *insetRect);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTarget(ControlRef browser, DataBrowserItemID target);
 
 /**
@@ -3742,7 +3742,7 @@ SetDataBrowserTarget(ControlRef browser, DataBrowserItemID target);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTarget(ControlRef browser, DataBrowserItemID *target);
 
 /* Current sort ordering */
@@ -3755,7 +3755,7 @@ GetDataBrowserTarget(ControlRef browser, DataBrowserItemID *target);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserSortOrder(ControlRef browser, DataBrowserSortOrder order);
 
 /**
@@ -3766,7 +3766,7 @@ SetDataBrowserSortOrder(ControlRef browser, DataBrowserSortOrder order);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserSortOrder(ControlRef browser, DataBrowserSortOrder *order);
 
 /* Scrollbar values */
@@ -3778,7 +3778,7 @@ GetDataBrowserSortOrder(ControlRef browser, DataBrowserSortOrder *order);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserScrollPosition(ControlRef browser, UInt32 top, UInt32 left);
 
 /**
@@ -3789,7 +3789,7 @@ SetDataBrowserScrollPosition(ControlRef browser, UInt32 top, UInt32 left);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserScrollPosition(ControlRef browser, UInt32 *top, UInt32 *left);
 
 /* Show/Hide each scrollbar */
@@ -3801,7 +3801,7 @@ GetDataBrowserScrollPosition(ControlRef browser, UInt32 *top, UInt32 *left);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserHasScrollBars(ControlRef browser, Boolean horiz, Boolean vert);
 
 /**
@@ -3812,7 +3812,7 @@ SetDataBrowserHasScrollBars(ControlRef browser, Boolean horiz, Boolean vert);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserHasScrollBars(ControlRef browser, Boolean *horiz, Boolean *vert);
 
 /* Property passed to sort callback (ListView sort column) */
@@ -3824,7 +3824,7 @@ GetDataBrowserHasScrollBars(ControlRef browser, Boolean *horiz, Boolean *vert);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserSortProperty(ControlRef browser, DataBrowserPropertyID property);
 
 /**
@@ -3835,7 +3835,7 @@ SetDataBrowserSortProperty(ControlRef browser, DataBrowserPropertyID property);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserSortProperty(ControlRef browser, DataBrowserPropertyID *property);
 
 /* Modify selection behavior */
@@ -3847,7 +3847,7 @@ GetDataBrowserSortProperty(ControlRef browser, DataBrowserPropertyID *property);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserSelectionFlags(ControlRef browser,
                              DataBrowserSelectionFlags selectionFlags);
 
@@ -3859,7 +3859,7 @@ SetDataBrowserSelectionFlags(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserSelectionFlags(ControlRef browser,
                              DataBrowserSelectionFlags *selectionFlags);
 
@@ -3872,7 +3872,7 @@ GetDataBrowserSelectionFlags(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserPropertyFlags(ControlRef browser, DataBrowserPropertyID property,
                             DataBrowserPropertyFlags flags);
 
@@ -3884,7 +3884,7 @@ SetDataBrowserPropertyFlags(ControlRef browser, DataBrowserPropertyID property,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserPropertyFlags(ControlRef browser, DataBrowserPropertyID property,
                             DataBrowserPropertyFlags *flags);
 
@@ -3897,7 +3897,7 @@ GetDataBrowserPropertyFlags(ControlRef browser, DataBrowserPropertyID property,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserEditText(ControlRef browser, CFStringRef text);
 
 /**
@@ -3908,7 +3908,7 @@ SetDataBrowserEditText(ControlRef browser, CFStringRef text);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CopyDataBrowserEditText(ControlRef browser, CFStringRef *text);
 
 /**
@@ -3919,7 +3919,7 @@ CopyDataBrowserEditText(ControlRef browser, CFStringRef *text);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserEditText(ControlRef browser, CFMutableStringRef text);
 
 /* Item/property currently being edited */
@@ -3931,7 +3931,7 @@ GetDataBrowserEditText(ControlRef browser, CFMutableStringRef text);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserEditItem(ControlRef browser, DataBrowserItemID item,
                        DataBrowserPropertyID property);
 
@@ -3943,7 +3943,7 @@ SetDataBrowserEditItem(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserEditItem(ControlRef browser, DataBrowserItemID *item,
                        DataBrowserPropertyID *property);
 
@@ -3956,7 +3956,7 @@ GetDataBrowserEditItem(ControlRef browser, DataBrowserItemID *item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemPartBounds(ControlRef browser, DataBrowserItemID item,
                              DataBrowserPropertyID property,
                              DataBrowserPropertyPart part, Rect *bounds);
@@ -3972,7 +3972,7 @@ typedef void *DataBrowserItemDataRef;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataIcon(DataBrowserItemDataRef itemData, IconRef theData);
 
 /**
@@ -3983,7 +3983,7 @@ SetDataBrowserItemDataIcon(DataBrowserItemDataRef itemData, IconRef theData);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataIcon(DataBrowserItemDataRef itemData, IconRef *theData);
 
 /**
@@ -3994,7 +3994,7 @@ GetDataBrowserItemDataIcon(DataBrowserItemDataRef itemData, IconRef *theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataText(DataBrowserItemDataRef itemData,
                            CFStringRef theData);
 
@@ -4006,7 +4006,7 @@ SetDataBrowserItemDataText(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataText(DataBrowserItemDataRef itemData,
                            CFStringRef *theData);
 
@@ -4018,7 +4018,7 @@ GetDataBrowserItemDataText(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataValue(DataBrowserItemDataRef itemData, SInt32 theData);
 
 /**
@@ -4029,7 +4029,7 @@ SetDataBrowserItemDataValue(DataBrowserItemDataRef itemData, SInt32 theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataValue(DataBrowserItemDataRef itemData, SInt32 *theData);
 
 /**
@@ -4040,7 +4040,7 @@ GetDataBrowserItemDataValue(DataBrowserItemDataRef itemData, SInt32 *theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataMinimum(DataBrowserItemDataRef itemData, SInt32 theData);
 
 /**
@@ -4051,7 +4051,7 @@ SetDataBrowserItemDataMinimum(DataBrowserItemDataRef itemData, SInt32 theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataMinimum(DataBrowserItemDataRef itemData, SInt32 *theData);
 
 /**
@@ -4062,7 +4062,7 @@ GetDataBrowserItemDataMinimum(DataBrowserItemDataRef itemData, SInt32 *theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataMaximum(DataBrowserItemDataRef itemData, SInt32 theData);
 
 /**
@@ -4073,7 +4073,7 @@ SetDataBrowserItemDataMaximum(DataBrowserItemDataRef itemData, SInt32 theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataMaximum(DataBrowserItemDataRef itemData, SInt32 *theData);
 
 /**
@@ -4084,7 +4084,7 @@ GetDataBrowserItemDataMaximum(DataBrowserItemDataRef itemData, SInt32 *theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataBooleanValue(DataBrowserItemDataRef itemData,
                                    Boolean theData);
 
@@ -4096,7 +4096,7 @@ SetDataBrowserItemDataBooleanValue(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataBooleanValue(DataBrowserItemDataRef itemData,
                                    Boolean *theData);
 
@@ -4108,7 +4108,7 @@ GetDataBrowserItemDataBooleanValue(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataMenuRef(DataBrowserItemDataRef itemData, MenuRef theData);
 
 /**
@@ -4119,7 +4119,7 @@ SetDataBrowserItemDataMenuRef(DataBrowserItemDataRef itemData, MenuRef theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataMenuRef(DataBrowserItemDataRef itemData,
                               MenuRef *theData);
 
@@ -4131,7 +4131,7 @@ GetDataBrowserItemDataMenuRef(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataRGBColor(DataBrowserItemDataRef itemData,
                                const RGBColor *theData);
 
@@ -4143,7 +4143,7 @@ SetDataBrowserItemDataRGBColor(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataRGBColor(DataBrowserItemDataRef itemData,
                                RGBColor *theData);
 
@@ -4155,7 +4155,7 @@ GetDataBrowserItemDataRGBColor(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataDrawState(DataBrowserItemDataRef itemData,
                                 ThemeDrawState theData);
 
@@ -4167,7 +4167,7 @@ SetDataBrowserItemDataDrawState(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataDrawState(DataBrowserItemDataRef itemData,
                                 ThemeDrawState *theData);
 
@@ -4179,7 +4179,7 @@ GetDataBrowserItemDataDrawState(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataButtonValue(DataBrowserItemDataRef itemData,
                                   ThemeButtonValue theData);
 
@@ -4191,7 +4191,7 @@ SetDataBrowserItemDataButtonValue(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataButtonValue(DataBrowserItemDataRef itemData,
                                   ThemeButtonValue *theData);
 
@@ -4203,7 +4203,7 @@ GetDataBrowserItemDataButtonValue(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataIconTransform(DataBrowserItemDataRef itemData,
                                     IconTransformType theData);
 
@@ -4215,7 +4215,7 @@ SetDataBrowserItemDataIconTransform(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataIconTransform(DataBrowserItemDataRef itemData,
                                     IconTransformType *theData);
 
@@ -4227,7 +4227,7 @@ GetDataBrowserItemDataIconTransform(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataDateTime(DataBrowserItemDataRef itemData, long theData);
 
 /**
@@ -4238,7 +4238,7 @@ SetDataBrowserItemDataDateTime(DataBrowserItemDataRef itemData, long theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataDateTime(DataBrowserItemDataRef itemData, long *theData);
 
 /**
@@ -4249,7 +4249,7 @@ GetDataBrowserItemDataDateTime(DataBrowserItemDataRef itemData, long *theData);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataLongDateTime(DataBrowserItemDataRef itemData,
                                    const LongDateTime *theData);
 
@@ -4261,7 +4261,7 @@ SetDataBrowserItemDataLongDateTime(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataLongDateTime(DataBrowserItemDataRef itemData,
                                    LongDateTime *theData);
 
@@ -4273,7 +4273,7 @@ GetDataBrowserItemDataLongDateTime(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserItemDataItemID(DataBrowserItemDataRef itemData,
                              DataBrowserItemID theData);
 
@@ -4285,7 +4285,7 @@ SetDataBrowserItemDataItemID(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataItemID(DataBrowserItemDataRef itemData,
                              DataBrowserItemID *theData);
 
@@ -4297,7 +4297,7 @@ GetDataBrowserItemDataItemID(DataBrowserItemDataRef itemData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserItemDataProperty(DataBrowserItemDataRef itemData,
                                DataBrowserPropertyID *theData);
 
@@ -4399,7 +4399,7 @@ typedef STACK_UPP_TYPE(DataBrowserItemHelpContentProcPtr)
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemDataUPP)
+DataBrowserItemDataUPP
 NewDataBrowserItemDataUPP(DataBrowserItemDataProcPtr userRoutine);
 
 /**
@@ -4410,7 +4410,7 @@ NewDataBrowserItemDataUPP(DataBrowserItemDataProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemCompareUPP)
+DataBrowserItemCompareUPP
 NewDataBrowserItemCompareUPP(DataBrowserItemCompareProcPtr userRoutine);
 
 /**
@@ -4421,7 +4421,7 @@ NewDataBrowserItemCompareUPP(DataBrowserItemCompareProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemNotificationWithItemUPP)
+DataBrowserItemNotificationWithItemUPP
 NewDataBrowserItemNotificationWithItemUPP(
     DataBrowserItemNotificationWithItemProcPtr userRoutine);
 
@@ -4433,7 +4433,7 @@ NewDataBrowserItemNotificationWithItemUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemNotificationUPP)
+DataBrowserItemNotificationUPP
 NewDataBrowserItemNotificationUPP(
     DataBrowserItemNotificationProcPtr userRoutine);
 
@@ -4445,7 +4445,7 @@ NewDataBrowserItemNotificationUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserAddDragItemUPP)
+DataBrowserAddDragItemUPP
 NewDataBrowserAddDragItemUPP(DataBrowserAddDragItemProcPtr userRoutine);
 
 /**
@@ -4456,7 +4456,7 @@ NewDataBrowserAddDragItemUPP(DataBrowserAddDragItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserAcceptDragUPP)
+DataBrowserAcceptDragUPP
 NewDataBrowserAcceptDragUPP(DataBrowserAcceptDragProcPtr userRoutine);
 
 /**
@@ -4467,7 +4467,7 @@ NewDataBrowserAcceptDragUPP(DataBrowserAcceptDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserReceiveDragUPP)
+DataBrowserReceiveDragUPP
 NewDataBrowserReceiveDragUPP(DataBrowserReceiveDragProcPtr userRoutine);
 
 /**
@@ -4478,7 +4478,7 @@ NewDataBrowserReceiveDragUPP(DataBrowserReceiveDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserPostProcessDragUPP)
+DataBrowserPostProcessDragUPP
 NewDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragProcPtr userRoutine);
 
 /**
@@ -4489,7 +4489,7 @@ NewDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserGetContextualMenuUPP)
+DataBrowserGetContextualMenuUPP
 NewDataBrowserGetContextualMenuUPP(
     DataBrowserGetContextualMenuProcPtr userRoutine);
 
@@ -4501,7 +4501,7 @@ NewDataBrowserGetContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserSelectContextualMenuUPP)
+DataBrowserSelectContextualMenuUPP
 NewDataBrowserSelectContextualMenuUPP(
     DataBrowserSelectContextualMenuProcPtr userRoutine);
 
@@ -4513,7 +4513,7 @@ NewDataBrowserSelectContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(DataBrowserItemHelpContentUPP)
+DataBrowserItemHelpContentUPP
 NewDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentProcPtr userRoutine);
 
 /**
@@ -4524,7 +4524,7 @@ NewDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemDataUPP(DataBrowserItemDataUPP userUPP);
 
 /**
@@ -4535,7 +4535,7 @@ DisposeDataBrowserItemDataUPP(DataBrowserItemDataUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemCompareUPP(DataBrowserItemCompareUPP userUPP);
 
 /**
@@ -4546,7 +4546,7 @@ DisposeDataBrowserItemCompareUPP(DataBrowserItemCompareUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemNotificationWithItemUPP(
     DataBrowserItemNotificationWithItemUPP userUPP);
 
@@ -4558,7 +4558,7 @@ DisposeDataBrowserItemNotificationWithItemUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemNotificationUPP(DataBrowserItemNotificationUPP userUPP);
 
 /**
@@ -4569,7 +4569,7 @@ DisposeDataBrowserItemNotificationUPP(DataBrowserItemNotificationUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserAddDragItemUPP(DataBrowserAddDragItemUPP userUPP);
 
 /**
@@ -4580,7 +4580,7 @@ DisposeDataBrowserAddDragItemUPP(DataBrowserAddDragItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserAcceptDragUPP(DataBrowserAcceptDragUPP userUPP);
 
 /**
@@ -4591,7 +4591,7 @@ DisposeDataBrowserAcceptDragUPP(DataBrowserAcceptDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserReceiveDragUPP(DataBrowserReceiveDragUPP userUPP);
 
 /**
@@ -4602,7 +4602,7 @@ DisposeDataBrowserReceiveDragUPP(DataBrowserReceiveDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragUPP userUPP);
 
 /**
@@ -4613,7 +4613,7 @@ DisposeDataBrowserPostProcessDragUPP(DataBrowserPostProcessDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserGetContextualMenuUPP(DataBrowserGetContextualMenuUPP userUPP);
 
 /**
@@ -4624,7 +4624,7 @@ DisposeDataBrowserGetContextualMenuUPP(DataBrowserGetContextualMenuUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserSelectContextualMenuUPP(
     DataBrowserSelectContextualMenuUPP userUPP);
 
@@ -4636,7 +4636,7 @@ DisposeDataBrowserSelectContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentUPP userUPP);
 
 /**
@@ -4647,7 +4647,7 @@ DisposeDataBrowserItemHelpContentUPP(DataBrowserItemHelpContentUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeDataBrowserItemDataUPP(ControlRef browser, DataBrowserItemID item,
                              DataBrowserPropertyID property,
                              DataBrowserItemDataRef itemData, Boolean setValue,
@@ -4661,7 +4661,7 @@ InvokeDataBrowserItemDataUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserItemCompareUPP(ControlRef browser, DataBrowserItemID itemOne,
                                 DataBrowserItemID itemTwo,
                                 DataBrowserPropertyID sortProperty,
@@ -4675,7 +4675,7 @@ InvokeDataBrowserItemCompareUPP(ControlRef browser, DataBrowserItemID itemOne,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemNotificationWithItemUPP(
     ControlRef browser, DataBrowserItemID item,
     DataBrowserItemNotification message, DataBrowserItemDataRef itemData,
@@ -4689,7 +4689,7 @@ InvokeDataBrowserItemNotificationWithItemUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemNotificationUPP(ControlRef browser, DataBrowserItemID item,
                                      DataBrowserItemNotification message,
                                      DataBrowserItemNotificationUPP userUPP);
@@ -4702,7 +4702,7 @@ InvokeDataBrowserItemNotificationUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserAddDragItemUPP(ControlRef browser, DragReference theDrag,
                                 DataBrowserItemID item, ItemReference *itemRef,
                                 DataBrowserAddDragItemUPP userUPP);
@@ -4715,7 +4715,7 @@ InvokeDataBrowserAddDragItemUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserAcceptDragUPP(ControlRef browser, DragReference theDrag,
                                DataBrowserItemID item,
                                DataBrowserAcceptDragUPP userUPP);
@@ -4728,7 +4728,7 @@ InvokeDataBrowserAcceptDragUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserReceiveDragUPP(ControlRef browser, DragReference theDrag,
                                 DataBrowserItemID item,
                                 DataBrowserReceiveDragUPP userUPP);
@@ -4741,7 +4741,7 @@ InvokeDataBrowserReceiveDragUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserPostProcessDragUPP(ControlRef browser, DragReference theDrag,
                                     OSStatus trackDragResult,
                                     DataBrowserPostProcessDragUPP userUPP);
@@ -4754,7 +4754,7 @@ InvokeDataBrowserPostProcessDragUPP(ControlRef browser, DragReference theDrag,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserGetContextualMenuUPP(ControlRef browser, MenuRef *menu,
                                       UInt32 *helpType,
                                       CFStringRef *helpItemString,
@@ -4769,7 +4769,7 @@ InvokeDataBrowserGetContextualMenuUPP(ControlRef browser, MenuRef *menu,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserSelectContextualMenuUPP(
     ControlRef browser, MenuRef menu, UInt32 selectionType, SInt16 menuID,
     MenuItemIndex menuItem, DataBrowserSelectContextualMenuUPP userUPP);
@@ -4782,7 +4782,7 @@ InvokeDataBrowserSelectContextualMenuUPP(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemHelpContentUPP(ControlRef browser, DataBrowserItemID item,
                                     DataBrowserPropertyID property,
                                     HMContentRequest inRequest,
@@ -4822,7 +4822,7 @@ typedef struct DataBrowserCallbacks DataBrowserCallbacks;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 InitDataBrowserCallbacks(DataBrowserCallbacks *callbacks);
 
 /* Macro for initializing callback structure */
@@ -4840,7 +4840,7 @@ InitDataBrowserCallbacks(DataBrowserCallbacks *callbacks);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserCallbacks(ControlRef browser, DataBrowserCallbacks *callbacks);
 
 /**
@@ -4851,7 +4851,7 @@ GetDataBrowserCallbacks(ControlRef browser, DataBrowserCallbacks *callbacks);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserCallbacks(ControlRef browser,
                         const DataBrowserCallbacks *callbacks);
 
@@ -4906,7 +4906,7 @@ typedef STACK_UPP_TYPE(DataBrowserItemReceiveDragProcPtr)
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserDrawItemUPP)
+DataBrowserDrawItemUPP
 NewDataBrowserDrawItemUPP(DataBrowserDrawItemProcPtr userRoutine);
 
 /**
@@ -4917,7 +4917,7 @@ NewDataBrowserDrawItemUPP(DataBrowserDrawItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserEditItemUPP)
+DataBrowserEditItemUPP
 NewDataBrowserEditItemUPP(DataBrowserEditItemProcPtr userRoutine);
 
 /**
@@ -4928,7 +4928,7 @@ NewDataBrowserEditItemUPP(DataBrowserEditItemProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserHitTestUPP)
+DataBrowserHitTestUPP
 NewDataBrowserHitTestUPP(DataBrowserHitTestProcPtr userRoutine);
 
 /**
@@ -4939,7 +4939,7 @@ NewDataBrowserHitTestUPP(DataBrowserHitTestProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserTrackingUPP)
+DataBrowserTrackingUPP
 NewDataBrowserTrackingUPP(DataBrowserTrackingProcPtr userRoutine);
 
 /**
@@ -4950,7 +4950,7 @@ NewDataBrowserTrackingUPP(DataBrowserTrackingProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemDragRgnUPP)
+DataBrowserItemDragRgnUPP
 NewDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnProcPtr userRoutine);
 
 /**
@@ -4961,7 +4961,7 @@ NewDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemAcceptDragUPP)
+DataBrowserItemAcceptDragUPP
 NewDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragProcPtr userRoutine);
 
 /**
@@ -4972,7 +4972,7 @@ NewDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserItemReceiveDragUPP)
+DataBrowserItemReceiveDragUPP
 NewDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragProcPtr userRoutine);
 
 /**
@@ -4983,7 +4983,7 @@ NewDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserDrawItemUPP(DataBrowserDrawItemUPP userUPP);
 
 /**
@@ -4994,7 +4994,7 @@ DisposeDataBrowserDrawItemUPP(DataBrowserDrawItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserEditItemUPP(DataBrowserEditItemUPP userUPP);
 
 /**
@@ -5005,7 +5005,7 @@ DisposeDataBrowserEditItemUPP(DataBrowserEditItemUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserHitTestUPP(DataBrowserHitTestUPP userUPP);
 
 /**
@@ -5016,7 +5016,7 @@ DisposeDataBrowserHitTestUPP(DataBrowserHitTestUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserTrackingUPP(DataBrowserTrackingUPP userUPP);
 
 /**
@@ -5027,7 +5027,7 @@ DisposeDataBrowserTrackingUPP(DataBrowserTrackingUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnUPP userUPP);
 
 /**
@@ -5038,7 +5038,7 @@ DisposeDataBrowserItemDragRgnUPP(DataBrowserItemDragRgnUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragUPP userUPP);
 
 /**
@@ -5049,7 +5049,7 @@ DisposeDataBrowserItemAcceptDragUPP(DataBrowserItemAcceptDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 DisposeDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragUPP userUPP);
 
 /**
@@ -5060,7 +5060,7 @@ DisposeDataBrowserItemReceiveDragUPP(DataBrowserItemReceiveDragUPP userUPP);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserDrawItemUPP(ControlRef browser, DataBrowserItemID item,
                              DataBrowserPropertyID property,
                              DataBrowserItemState itemState,
@@ -5076,7 +5076,7 @@ InvokeDataBrowserDrawItemUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserEditItemUPP(ControlRef browser, DataBrowserItemID item,
                              DataBrowserPropertyID property,
                              CFStringRef theString, Rect *maxEditTextRect,
@@ -5091,7 +5091,7 @@ InvokeDataBrowserEditItemUPP(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserHitTestUPP(ControlRef browser, DataBrowserItemID itemID,
                             DataBrowserPropertyID property, const Rect *theRect,
                             const Rect *mouseRect,
@@ -5105,7 +5105,7 @@ InvokeDataBrowserHitTestUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserTrackingResult)
+DataBrowserTrackingResult
 InvokeDataBrowserTrackingUPP(ControlRef browser, DataBrowserItemID itemID,
                              DataBrowserPropertyID property,
                              const Rect *theRect, Point startPt,
@@ -5120,7 +5120,7 @@ InvokeDataBrowserTrackingUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(void)
+void
 InvokeDataBrowserItemDragRgnUPP(ControlRef browser, DataBrowserItemID itemID,
                                 DataBrowserPropertyID property,
                                 const Rect *theRect, RgnHandle dragRgn,
@@ -5134,7 +5134,7 @@ InvokeDataBrowserItemDragRgnUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(DataBrowserDragFlags)
+DataBrowserDragFlags
 InvokeDataBrowserItemAcceptDragUPP(ControlRef browser, DataBrowserItemID itemID,
                                    DataBrowserPropertyID property,
                                    const Rect *theRect, DragReference theDrag,
@@ -5148,7 +5148,7 @@ InvokeDataBrowserItemAcceptDragUPP(ControlRef browser, DataBrowserItemID itemID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeDataBrowserItemReceiveDragUPP(ControlRef browser,
                                     DataBrowserItemID itemID,
                                     DataBrowserPropertyID property,
@@ -5185,7 +5185,7 @@ typedef struct DataBrowserCustomCallbacks DataBrowserCustomCallbacks;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 InitDataBrowserCustomCallbacks(DataBrowserCustomCallbacks *callbacks);
 
 /* Macro for initializing custom callback structure */
@@ -5203,7 +5203,7 @@ InitDataBrowserCustomCallbacks(DataBrowserCustomCallbacks *callbacks);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserCustomCallbacks(ControlRef browser,
                               DataBrowserCustomCallbacks *callbacks);
 
@@ -5215,7 +5215,7 @@ GetDataBrowserCustomCallbacks(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserCustomCallbacks(ControlRef browser,
                               const DataBrowserCustomCallbacks *callbacks);
 
@@ -5252,7 +5252,7 @@ enum { kDataBrowserTableViewLastColumn = -1 };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RemoveDataBrowserTableViewColumn(ControlRef browser,
                                  DataBrowserTableViewColumnID column);
 
@@ -5264,7 +5264,7 @@ RemoveDataBrowserTableViewColumn(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewColumnCount(ControlRef browser, UInt32 *numColumns);
 
 /**
@@ -5275,7 +5275,7 @@ GetDataBrowserTableViewColumnCount(ControlRef browser, UInt32 *numColumns);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewHiliteStyle(ControlRef browser,
                                    DataBrowserTableViewHiliteStyle hiliteStyle);
 
@@ -5287,7 +5287,7 @@ SetDataBrowserTableViewHiliteStyle(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewHiliteStyle(
     ControlRef browser, DataBrowserTableViewHiliteStyle *hiliteStyle);
 
@@ -5299,7 +5299,7 @@ GetDataBrowserTableViewHiliteStyle(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewRowHeight(ControlRef browser, UInt16 height);
 
 /**
@@ -5310,7 +5310,7 @@ SetDataBrowserTableViewRowHeight(ControlRef browser, UInt16 height);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewRowHeight(ControlRef browser, UInt16 *height);
 
 /**
@@ -5321,7 +5321,7 @@ GetDataBrowserTableViewRowHeight(ControlRef browser, UInt16 *height);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewColumnWidth(ControlRef browser, UInt16 width);
 
 /**
@@ -5332,7 +5332,7 @@ SetDataBrowserTableViewColumnWidth(ControlRef browser, UInt16 width);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewColumnWidth(ControlRef browser, UInt16 *width);
 
 /**
@@ -5343,7 +5343,7 @@ GetDataBrowserTableViewColumnWidth(ControlRef browser, UInt16 *width);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewItemRowHeight(ControlRef browser, DataBrowserItemID item,
                                      UInt16 height);
 
@@ -5355,7 +5355,7 @@ SetDataBrowserTableViewItemRowHeight(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewItemRowHeight(ControlRef browser, DataBrowserItemID item,
                                      UInt16 *height);
 
@@ -5367,7 +5367,7 @@ GetDataBrowserTableViewItemRowHeight(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewNamedColumnWidth(ControlRef browser,
                                         DataBrowserTableViewColumnID column,
                                         UInt16 width);
@@ -5380,7 +5380,7 @@ SetDataBrowserTableViewNamedColumnWidth(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewNamedColumnWidth(ControlRef browser,
                                         DataBrowserTableViewColumnID column,
                                         UInt16 *width);
@@ -5393,7 +5393,7 @@ GetDataBrowserTableViewNamedColumnWidth(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewGeometry(ControlRef browser,
                                 Boolean variableWidthColumns,
                                 Boolean variableHeightRows);
@@ -5406,7 +5406,7 @@ SetDataBrowserTableViewGeometry(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewGeometry(ControlRef browser,
                                 Boolean *variableWidthColumns,
                                 Boolean *variableHeightRows);
@@ -5419,7 +5419,7 @@ GetDataBrowserTableViewGeometry(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewItemID(ControlRef browser,
                               DataBrowserTableViewRowIndex row,
                               DataBrowserItemID *item);
@@ -5432,7 +5432,7 @@ GetDataBrowserTableViewItemID(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewItemRow(ControlRef browser, DataBrowserItemID item,
                                DataBrowserTableViewRowIndex row);
 
@@ -5444,7 +5444,7 @@ SetDataBrowserTableViewItemRow(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewItemRow(ControlRef browser, DataBrowserItemID item,
                                DataBrowserTableViewRowIndex *row);
 
@@ -5456,7 +5456,7 @@ GetDataBrowserTableViewItemRow(ControlRef browser, DataBrowserItemID item,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserTableViewColumnPosition(ControlRef browser,
                                       DataBrowserTableViewColumnID column,
                                       DataBrowserTableViewColumnIndex position);
@@ -5469,7 +5469,7 @@ SetDataBrowserTableViewColumnPosition(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewColumnPosition(
     ControlRef browser, DataBrowserTableViewColumnID column,
     DataBrowserTableViewColumnIndex *position);
@@ -5482,7 +5482,7 @@ GetDataBrowserTableViewColumnPosition(
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserTableViewColumnProperty(ControlRef browser,
                                       DataBrowserTableViewColumnIndex column,
                                       DataBrowserTableViewColumnID *property);
@@ -5531,7 +5531,7 @@ enum { kDataBrowserListViewAppendColumn = kDataBrowserTableViewLastColumn };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 AutoSizeDataBrowserListViewColumns(ControlRef browser);
 
 /**
@@ -5542,7 +5542,7 @@ AutoSizeDataBrowserListViewColumns(ControlRef browser);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 AddDataBrowserListViewColumn(ControlRef browser,
                              DataBrowserListViewColumnDesc *columnDesc,
                              DataBrowserTableViewColumnIndex position);
@@ -5555,7 +5555,7 @@ AddDataBrowserListViewColumn(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserListViewHeaderDesc(ControlRef browser,
                                  DataBrowserTableViewColumnID column,
                                  DataBrowserListViewHeaderDesc *desc);
@@ -5568,7 +5568,7 @@ GetDataBrowserListViewHeaderDesc(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserListViewHeaderDesc(ControlRef browser,
                                  DataBrowserTableViewColumnID column,
                                  DataBrowserListViewHeaderDesc *desc);
@@ -5581,7 +5581,7 @@ SetDataBrowserListViewHeaderDesc(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserListViewHeaderBtnHeight(ControlRef browser, UInt16 height);
 
 /**
@@ -5592,7 +5592,7 @@ SetDataBrowserListViewHeaderBtnHeight(ControlRef browser, UInt16 height);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserListViewHeaderBtnHeight(ControlRef browser, UInt16 *height);
 
 /**
@@ -5603,7 +5603,7 @@ GetDataBrowserListViewHeaderBtnHeight(ControlRef browser, UInt16 *height);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserListViewUsePlainBackground(ControlRef browser,
                                          Boolean usePlainBackground);
 
@@ -5615,7 +5615,7 @@ SetDataBrowserListViewUsePlainBackground(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserListViewUsePlainBackground(ControlRef browser,
                                          Boolean *usePlainBackground);
 
@@ -5627,7 +5627,7 @@ GetDataBrowserListViewUsePlainBackground(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserListViewDisclosureColumn(ControlRef browser,
                                        DataBrowserTableViewColumnID column,
                                        Boolean expandableRows);
@@ -5640,7 +5640,7 @@ SetDataBrowserListViewDisclosureColumn(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserListViewDisclosureColumn(ControlRef browser,
                                        DataBrowserTableViewColumnID *column,
                                        Boolean *expandableRows);
@@ -5654,7 +5654,7 @@ GetDataBrowserListViewDisclosureColumn(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserColumnViewPath(ControlRef browser, Handle path);
 
 /**
@@ -5665,7 +5665,7 @@ GetDataBrowserColumnViewPath(ControlRef browser, Handle path);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserColumnViewPathLength(ControlRef browser, UInt32 *pathLength);
 
 /**
@@ -5676,7 +5676,7 @@ GetDataBrowserColumnViewPathLength(ControlRef browser, UInt32 *pathLength);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserColumnViewPath(ControlRef browser, UInt32 length,
                              const DataBrowserItemID *path);
 
@@ -5688,7 +5688,7 @@ SetDataBrowserColumnViewPath(ControlRef browser, UInt32 length,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetDataBrowserColumnViewDisplayType(ControlRef browser,
                                     DataBrowserPropertyType propertyType);
 
@@ -5700,7 +5700,7 @@ SetDataBrowserColumnViewDisplayType(ControlRef browser,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetDataBrowserColumnViewDisplayType(ControlRef browser,
                                     DataBrowserPropertyType *propertyType);
 
@@ -5736,7 +5736,7 @@ typedef STACK_UPP_TYPE(EditUnicodePostUpdateProcPtr) EditUnicodePostUpdateUPP;
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EditUnicodePostUpdateUPP)
+EditUnicodePostUpdateUPP
 NewEditUnicodePostUpdateUPP(EditUnicodePostUpdateProcPtr userRoutine);
 
 /**
@@ -5747,7 +5747,7 @@ NewEditUnicodePostUpdateUPP(EditUnicodePostUpdateProcPtr userRoutine);
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEditUnicodePostUpdateUPP(EditUnicodePostUpdateUPP userUPP);
 
 /**
@@ -5758,7 +5758,7 @@ DisposeEditUnicodePostUpdateUPP(EditUnicodePostUpdateUPP userUPP);
  *    \carbon_lib        in CarbonLib on Mac OS X
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeEditUnicodePostUpdateUPP(UniCharArrayHandle uniText,
                                UniCharCount uniTextLength,
                                UniCharArrayOffset iStartOffset,
@@ -5788,7 +5788,7 @@ enum { kControlKindEditUnicodeText = FOUR_CHAR_CODE('eutx') };
  X version 10.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateEditUnicodeTextControl(WindowRef window, const Rect *boundsRect,
                              CFStringRef text, Boolean isPassword,
                              const ControlFontStyleRec *style, /* can be NULL */

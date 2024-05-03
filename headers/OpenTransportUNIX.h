@@ -171,7 +171,7 @@ typedef struct t_opthdr t_opthdr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_accept(int fd, int resfd, t_call *call);
 
 /**
@@ -182,16 +182,16 @@ t_accept(int fd, int resfd, t_call *call);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(char *)
+char *
 t_alloc(int fd, int struct_type, int fields);
 
 #endif /** CALL_NOT_IN_CARBON */
 
-EXTERN_API(int) t_bind(int fd, struct t_bind *req, struct t_bind *ret);
-EXTERN_API(int) t_optmgmt(int fd, struct t_optmgmt *req, struct t_optmgmt *ret);
-EXTERN_API(int)
+int t_bind(int fd, struct t_bind *req, struct t_bind *ret);
+int t_optmgmt(int fd, struct t_optmgmt *req, struct t_optmgmt *ret);
+int
 t_getprotaddr(int fd, struct t_bind *boundaddr, struct t_bind *peeraddr);
-EXTERN_API(int)
+int
 t_resolveaddr(int fd, struct t_bind *reqAddr, struct t_bind *retAddr,
               OTTimeout timeout);
 #if CALL_NOT_IN_CARBON
@@ -203,7 +203,7 @@ t_resolveaddr(int fd, struct t_bind *reqAddr, struct t_bind *retAddr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_close(int fd);
 
 /**
@@ -214,7 +214,7 @@ t_close(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_connect(int fd, t_call *sndcall, t_call *rcvcall);
 
 /**
@@ -225,7 +225,7 @@ t_connect(int fd, t_call *sndcall, t_call *rcvcall);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_free(char *ptr, int struct_type);
 
 /**
@@ -236,7 +236,7 @@ t_free(char *ptr, int struct_type);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_getinfo(int fd, t_info *info);
 
 /**
@@ -247,7 +247,7 @@ t_getinfo(int fd, t_info *info);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_getstate(int fd);
 
 /**
@@ -258,7 +258,7 @@ t_getstate(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_listen(int fd, t_call *call);
 
 /**
@@ -269,7 +269,7 @@ t_listen(int fd, t_call *call);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_look(int fd);
 
 /**
@@ -280,7 +280,7 @@ t_look(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_open(char *path, int oflag, t_info *info);
 
 /**
@@ -291,7 +291,7 @@ t_open(char *path, int oflag, t_info *info);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_blocking(int fd);
 
 /**
@@ -302,7 +302,7 @@ t_blocking(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_nonblocking(int fd);
 
 /**
@@ -313,7 +313,7 @@ t_nonblocking(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcv(int fd, char *buf, size_t nbytes, int *flags);
 
 /**
@@ -324,7 +324,7 @@ t_rcv(int fd, char *buf, size_t nbytes, int *flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvconnect(int fd, t_call *call);
 
 /**
@@ -335,7 +335,7 @@ t_rcvconnect(int fd, t_call *call);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvdis(int fd, t_discon *discon);
 
 /**
@@ -346,7 +346,7 @@ t_rcvdis(int fd, t_discon *discon);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvrel(int fd);
 
 /**
@@ -357,7 +357,7 @@ t_rcvrel(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvudata(int fd, t_unitdata *unitdata, int *flags);
 
 /**
@@ -368,7 +368,7 @@ t_rcvudata(int fd, t_unitdata *unitdata, int *flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvuderr(int fd, t_uderr *uderr);
 
 /**
@@ -379,7 +379,7 @@ t_rcvuderr(int fd, t_uderr *uderr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_snd(int fd, char *buf, size_t nbytes, int flags);
 
 /**
@@ -390,7 +390,7 @@ t_snd(int fd, char *buf, size_t nbytes, int flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_snddis(int fd, t_call *call);
 
 /**
@@ -401,7 +401,7 @@ t_snddis(int fd, t_call *call);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_sndrel(int fd);
 
 /**
@@ -412,7 +412,7 @@ t_sndrel(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_sndudata(int fd, t_unitdata *unitdata);
 
 /**
@@ -423,7 +423,7 @@ t_sndudata(int fd, t_unitdata *unitdata);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_sync(int fd);
 
 /**
@@ -434,7 +434,7 @@ t_sync(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_unbind(int fd);
 
 /**
@@ -445,7 +445,7 @@ t_unbind(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_error(char *errmsg);
 
 /** Apple extensions*/
@@ -458,7 +458,7 @@ t_error(char *errmsg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_isnonblocking(int fd);
 
 /**
@@ -469,7 +469,7 @@ t_isnonblocking(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_asynchronous(int fd);
 
 /**
@@ -480,7 +480,7 @@ t_asynchronous(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_synchronous(int fd);
 
 /**
@@ -491,7 +491,7 @@ t_synchronous(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_issynchronous(int fd);
 
 /**
@@ -502,7 +502,7 @@ t_issynchronous(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_usesyncidleevents(int fd, int useEvents);
 
 /** Not XTI standard functions, but extensions for transaction endpoints */
@@ -515,7 +515,7 @@ t_usesyncidleevents(int fd, int useEvents);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_sndrequest(int fd, t_request *req, int flags);
 
 /**
@@ -526,7 +526,7 @@ t_sndrequest(int fd, t_request *req, int flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvreply(int fd, t_reply *rep, int *flags);
 
 /**
@@ -537,7 +537,7 @@ t_rcvreply(int fd, t_reply *rep, int *flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvrequest(int fd, t_request *req, int *flags);
 
 /**
@@ -548,7 +548,7 @@ t_rcvrequest(int fd, t_request *req, int *flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_sndreply(int fd, t_reply *rep, int flags);
 
 /**
@@ -559,7 +559,7 @@ t_sndreply(int fd, t_reply *rep, int flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_cancelrequest(int fd, long sequence);
 
 /**
@@ -570,7 +570,7 @@ t_cancelrequest(int fd, long sequence);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_cancelreply(int fd, long sequence);
 
 /**
@@ -581,7 +581,7 @@ t_cancelreply(int fd, long sequence);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_sndurequest(int fd, t_unitrequest *ureq, int flags);
 
 /**
@@ -592,7 +592,7 @@ t_sndurequest(int fd, t_unitrequest *ureq, int flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvureply(int fd, t_unitreply *urep, int *flags);
 
 /**
@@ -603,7 +603,7 @@ t_rcvureply(int fd, t_unitreply *urep, int *flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_rcvurequest(int fd, t_unitrequest *ureq, int *flags);
 
 /**
@@ -614,7 +614,7 @@ t_rcvurequest(int fd, t_unitrequest *ureq, int *flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_sndureply(int fd, t_unitreply *urep, int flags);
 
 /**
@@ -625,7 +625,7 @@ t_sndureply(int fd, t_unitreply *urep, int flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_cancelurequest(int fd, long sequence);
 
 /**
@@ -636,7 +636,7 @@ t_cancelurequest(int fd, long sequence);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_cancelureply(int fd, long sequence);
 
 /**
@@ -647,7 +647,7 @@ t_cancelureply(int fd, long sequence);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_cancelsynchronouscalls(int fd);
 
 /**
@@ -658,7 +658,7 @@ t_cancelsynchronouscalls(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 t_installnotifier(int fd, OTNotifyProcPtr proc, void *contextPtr);
 
 /**
@@ -669,7 +669,7 @@ t_installnotifier(int fd, OTNotifyProcPtr proc, void *contextPtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 t_removenotifier(int fd);
 
 /** STREAMS Primitives*/
@@ -682,7 +682,7 @@ t_removenotifier(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 getmsg(int fd, strbuf *ctlbuf, strbuf *databuf, int *flagsp);
 
 /**
@@ -693,7 +693,7 @@ getmsg(int fd, strbuf *ctlbuf, strbuf *databuf, int *flagsp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 putmsg(int fd, const strbuf *ctlbuf, const strbuf *databuf, int flags);
 
 /**
@@ -704,7 +704,7 @@ putmsg(int fd, const strbuf *ctlbuf, const strbuf *databuf, int flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 getpmsg(int fd, strbuf *ctlbuf, strbuf *databuf, int *bandp, int *flagsp);
 
 /**
@@ -715,7 +715,7 @@ getpmsg(int fd, strbuf *ctlbuf, strbuf *databuf, int *bandp, int *flagsp);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 putpmsg(int fd, const strbuf *ctlbuf, const strbuf *databuf, int band,
         int flags);
 
@@ -729,7 +729,7 @@ putpmsg(int fd, const strbuf *ctlbuf, const strbuf *databuf, int band,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_installnotifier(int fd, OTNotifyProcPtr proc, void *contextPtr);
 
 /**
@@ -740,7 +740,7 @@ stream_installnotifier(int fd, OTNotifyProcPtr proc, void *contextPtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_blocking(int fd);
 
 /**
@@ -751,7 +751,7 @@ stream_blocking(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_nonblocking(int fd);
 
 /**
@@ -762,7 +762,7 @@ stream_nonblocking(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_isblocking(int fd);
 
 /**
@@ -773,7 +773,7 @@ stream_isblocking(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_synchronous(int fd);
 
 /**
@@ -784,7 +784,7 @@ stream_synchronous(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_asynchronous(int fd);
 
 /**
@@ -795,7 +795,7 @@ stream_asynchronous(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_issynchronous(int fd);
 
 /**
@@ -806,7 +806,7 @@ stream_issynchronous(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_open(char *path, unsigned long flags);
 
 /**
@@ -817,7 +817,7 @@ stream_open(char *path, unsigned long flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_close(int fd);
 
 /**
@@ -828,7 +828,7 @@ stream_close(int fd);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_read(int fd, void *buf, size_t len);
 
 /**
@@ -839,7 +839,7 @@ stream_read(int fd, void *buf, size_t len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_write(int fd, void *buf, size_t len);
 
 /**
@@ -850,7 +850,7 @@ stream_write(int fd, void *buf, size_t len);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(int)
+int
 stream_ioctl(int fd, unsigned long cmd, ...);
 
 /**
@@ -861,7 +861,7 @@ stream_ioctl(int fd, unsigned long cmd, ...);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 stream_pipe(int *fds);
 
 #endif /** CALL_NOT_IN_CARBON */
@@ -882,7 +882,7 @@ typedef struct pollfd pollfd;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(int)
+int
 poll(pollfd *fds, size_t nfds, unsigned long timeout);
 
 #endif /** CALL_NOT_IN_CARBON */

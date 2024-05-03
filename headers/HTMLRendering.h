@@ -60,7 +60,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -75,26 +76,27 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef struct OpaqueHRReference *HRReference;
-/**
- *  HRGetHTMLRenderingLibVersion()
- *
+  typedef struct OpaqueHRReference *HRReference;
+  /**
+   *  HRGetHTMLRenderingLibVersion()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetHTMLRenderingLibVersion(NumVersion *returnVers);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetHTMLRenderingLibVersion(NumVersion *returnVers);
 
 #if TARGET_RT_MAC_CFM
 #ifdef __cplusplus
-inline pascal Boolean HRHTMLRenderingLibAvailable() {
-  return (
-      (HRGetHTMLRenderingLibVersion != (void *)kUnresolvedCFragSymbolAddress));
-}
+  inline pascal Boolean HRHTMLRenderingLibAvailable()
+  {
+    return (
+        (HRGetHTMLRenderingLibVersion != (void *)kUnresolvedCFragSymbolAddress));
+  }
 #else
-#define HRHTMLRenderingLibAvailable()                                          \
+#define HRHTMLRenderingLibAvailable() \
   ((HRGetHTMLRenderingLibVersion != (void *)kUnresolvedCFragSymbolAddress))
 #endif
 #elif TARGET_RT_MAC_MACHO
@@ -105,1084 +107,1093 @@ inline pascal Boolean HRHTMLRenderingLibAvailable() { return true; }
 #endif
 #endif /**  */
 
-enum {
-  kHRRendererHTML32Type = FOUR_CHAR_CODE('ht32') /** HTML 3.2 */
-};
+  enum
+  {
+    kHRRendererHTML32Type = FOUR_CHAR_CODE('ht32') /** HTML 3.2 */
+  };
 
-/**
- *  HRNewReference()
- *
+  /**
+   *  HRNewReference()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRNewReference(HRReference *hrRef, OSType rendererType, GrafPtr grafPtr);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRNewReference(HRReference *hrRef, OSType rendererType, GrafPtr grafPtr);
 
-/**
- *  HRNewReferenceInWindow()
- *
- *  Discussion:
- *    Use this API from  a Carbon App. All the contrrols created by the
- *    HTML renderer will be embedded in the root control of the window
- *    specified by the window ref.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Pointer to the new reference created and returned by the
- *      renderer.
- *
- *    rendererType:
- *      Type of the renderer e.g. kHRRendererHTML32Type. Only this type
- *      is supported for now.
- *
- *    inWindowRef:
- *      Reference to the window for which rendering area will be
- *      specified.
- *
+  /**
+   *  HRNewReferenceInWindow()
+   *
+   *  Discussion:
+   *    Use this API from  a Carbon App. All the contrrols created by the
+   *    HTML renderer will be embedded in the root control of the window
+   *    specified by the window ref.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Pointer to the new reference created and returned by the
+   *      renderer.
+   *
+   *    rendererType:
+   *      Type of the renderer e.g. kHRRendererHTML32Type. Only this type
+   *      is supported for now.
+   *
+   *    inWindowRef:
+   *      Reference to the window for which rendering area will be
+   *      specified.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRNewReferenceInWindow(HRReference *hrRef, OSType rendererType,
-                       WindowRef inWindowRef);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRNewReferenceInWindow(HRReference *hrRef, OSType rendererType,
+                         WindowRef inWindowRef);
 
-/**
- *  HRDisposeReference()
- *
+  /**
+   *  HRDisposeReference()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRDisposeReference(HRReference hrRef);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRDisposeReference(HRReference hrRef);
 
-/**
- *  HRFreeMemory()
- *
+  /**
+   *  HRFreeMemory()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(SInt32)
-HRFreeMemory(Size inBytesNeeded);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt32
+  HRFreeMemory(Size inBytesNeeded);
 
-/** System level notifications */
-/**
- *  HRScreenConfigurationChanged()
- *
+  /** System level notifications */
+  /**
+   *  HRScreenConfigurationChanged()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRScreenConfigurationChanged(void);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRScreenConfigurationChanged(void);
 
-/**
- *  HRIsHREvent()
- *
+  /**
+   *  HRIsHREvent()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-HRIsHREvent(const EventRecord *eventRecord);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  HRIsHREvent(const EventRecord *eventRecord);
 
-/** Drawing */
-/**
- *  HRSetGrafPtr()
- *
+  /** Drawing */
+  /**
+   *  HRSetGrafPtr()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRSetGrafPtr(HRReference hrRef, GrafPtr grafPtr);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRSetGrafPtr(HRReference hrRef, GrafPtr grafPtr);
 
-/**
- *  HRSetWindowRef()
- *
- *  Discussion:
- *    Use this API from  a Carbon App. All the contrrols created by the
- *    HTML renderer will be moved in the root control of the window
- *    specified by the window ref. All the drawing will now happen in
- *    the specified window.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    windowRef:
- *      new Reference to the window to be attached to the above hrRef.
- *
+  /**
+   *  HRSetWindowRef()
+   *
+   *  Discussion:
+   *    Use this API from  a Carbon App. All the contrrols created by the
+   *    HTML renderer will be moved in the root control of the window
+   *    specified by the window ref. All the drawing will now happen in
+   *    the specified window.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    windowRef:
+   *      new Reference to the window to be attached to the above hrRef.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRSetWindowRef(HRReference hrRef, WindowRef windowRef);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRSetWindowRef(HRReference hrRef, WindowRef windowRef);
 
-/**
- *  HRSetEmbeddingControl()
- *
- *  Discussion:
- *    Use this API to tell the HTML Renderer to embed all the controls
- *    it has created so far and the new controls it creates after this
- *    call to be embedded in the given control. Useful if you wish to
- *    have an HTML displayed with in your dialog. e.g. Software Update
- *    needs this.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    controlRef:
- *      all the future controls created by renderer are embeded in this
- *      controlRef.
- *
+  /**
+   *  HRSetEmbeddingControl()
+   *
+   *  Discussion:
+   *    Use this API to tell the HTML Renderer to embed all the controls
+   *    it has created so far and the new controls it creates after this
+   *    call to be embedded in the given control. Useful if you wish to
+   *    have an HTML displayed with in your dialog. e.g. Software Update
+   *    needs this.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    controlRef:
+   *      all the future controls created by renderer are embeded in this
+   *      controlRef.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRSetEmbeddingControl(HRReference hrRef, ControlRef controlRef);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRSetEmbeddingControl(HRReference hrRef, ControlRef controlRef);
 
-/**
- *  HRActivate()
- *
+  /**
+   *  HRActivate()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRActivate(HRReference hrRef);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRActivate(HRReference hrRef);
 
-/**
- *  HRDeactivate()
- *
+  /**
+   *  HRDeactivate()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRDeactivate(HRReference hrRef);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRDeactivate(HRReference hrRef);
 
-/**
- *  HRDraw()
- *
+  /**
+   *  HRDraw()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRDraw(HRReference hrRef, RgnHandle updateRgnH);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRDraw(HRReference hrRef, RgnHandle updateRgnH);
 
-/**
- *  HRDrawInPort()
- *
- *  Discussion:
- *    Use this API from  a Carbon App.  All the drawing will now happen
- *    in the specified port. This is the API you want to use to draw in
- *    an offscreen port, for example when printing. You could also use
- *    this API to draw in an on screen port.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    updateRgnH:
- *      Region to be updated.
- *
- *    grafPtr:
- *      A graf pointer to render HTML into.
- *
+  /**
+   *  HRDrawInPort()
+   *
+   *  Discussion:
+   *    Use this API from  a Carbon App.  All the drawing will now happen
+   *    in the specified port. This is the API you want to use to draw in
+   *    an offscreen port, for example when printing. You could also use
+   *    this API to draw in an on screen port.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    updateRgnH:
+   *      Region to be updated.
+   *
+   *    grafPtr:
+   *      A graf pointer to render HTML into.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRDrawInPort(HRReference hrRef, RgnHandle updateRgnH, CGrafPtr grafPtr);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRDrawInPort(HRReference hrRef, RgnHandle updateRgnH, CGrafPtr grafPtr);
 
-/**
- *  HRSetRenderingRect()
- *
+  /**
+   *  HRSetRenderingRect()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRSetRenderingRect(HRReference hrRef, const Rect *renderingRect);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRSetRenderingRect(HRReference hrRef, const Rect *renderingRect);
 
-/**
- *  HRGetRenderedImageSize()
- *
+  /**
+   *  HRGetRenderedImageSize()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetRenderedImageSize(HRReference hrRef, Point *renderingSize);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetRenderedImageSize(HRReference hrRef, Point *renderingSize);
 
-/**
- *  HRGetRenderedImageSize32()
- *
- *  Discussion:
- *    Use this API when the rendered image could have coordinates
- *    larger than what SInt16 can hold.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    height:
- *      Height of the image is returned in this parameter.
- *
- *    width:
- *      Width of the image is returned in this parameter.
- *
+  /**
+   *  HRGetRenderedImageSize32()
+   *
+   *  Discussion:
+   *    Use this API when the rendered image could have coordinates
+   *    larger than what SInt16 can hold.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    height:
+   *      Height of the image is returned in this parameter.
+   *
+   *    width:
+   *      Width of the image is returned in this parameter.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetRenderedImageSize32(HRReference hrRef, UInt32 *height, UInt32 *width);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetRenderedImageSize32(HRReference hrRef, UInt32 *height, UInt32 *width);
 
-/**
- *  HRScrollToLocation()
- *
+  /**
+   *  HRScrollToLocation()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRScrollToLocation(HRReference hrRef, Point *location);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRScrollToLocation(HRReference hrRef, Point *location);
 
-/**
- *  HRScrollToImageLocation32()
- *
- *  Discussion:
- *    Use this API when specifying location to scroll to. Location is
- *    specified in image space.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    h:
- *      Horizontal location.
- *
- *    v:
- *      Vertical location.
- *
+  /**
+   *  HRScrollToImageLocation32()
+   *
+   *  Discussion:
+   *    Use this API when specifying location to scroll to. Location is
+   *    specified in image space.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    h:
+   *      Horizontal location.
+   *
+   *    v:
+   *      Vertical location.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRScrollToImageLocation32(HRReference hrRef, SInt32 h, SInt32 v);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRScrollToImageLocation32(HRReference hrRef, SInt32 h, SInt32 v);
 
-/**
- *  HRForceQuickdraw()
- *
+  /**
+   *  HRForceQuickdraw()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRForceQuickdraw(HRReference hrRef, Boolean forceQuickdraw);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRForceQuickdraw(HRReference hrRef, Boolean forceQuickdraw);
 
-typedef SInt16 HRScrollbarState;
-enum { eHRScrollbarOn = 0, eHRScrollbarOff = 1, eHRScrollbarAuto = 2 };
+  typedef SInt16 HRScrollbarState;
+  enum
+  {
+    eHRScrollbarOn = 0,
+    eHRScrollbarOff = 1,
+    eHRScrollbarAuto = 2
+  };
 
-/**
- *  HRSetScrollbarState()
- *
+  /**
+   *  HRSetScrollbarState()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRSetScrollbarState(HRReference hrRef, HRScrollbarState hScrollbarState,
-                    HRScrollbarState vScrollbarState);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRSetScrollbarState(HRReference hrRef, HRScrollbarState hScrollbarState,
+                      HRScrollbarState vScrollbarState);
 
-/**
- *  HRSetDrawBorder()
- *
+  /**
+   *  HRSetDrawBorder()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRSetDrawBorder(HRReference hrRef, Boolean drawBorder);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRSetDrawBorder(HRReference hrRef, Boolean drawBorder);
 
-/**
- *  HRSetGrowboxCutout()
- *
+  /**
+   *  HRSetGrowboxCutout()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRSetGrowboxCutout(HRReference hrRef, Boolean allowCutout);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRSetGrowboxCutout(HRReference hrRef, Boolean allowCutout);
 
-/** Navigation */
-/**
- *  HRGoToFile()
- *
+  /** Navigation */
+  /**
+   *  HRGoToFile()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToFile(HRReference hrRef, const FSSpec *fsspec, Boolean addToHistory,
-           Boolean forceRefresh);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToFile(HRReference hrRef, const FSSpec *fsspec, Boolean addToHistory,
+             Boolean forceRefresh);
 
-/**
- *  HRGoToURL()
- *
+  /**
+   *  HRGoToURL()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToURL(HRReference hrRef, const char *url, Boolean addToHistory,
-          Boolean forceRefresh);
-
-/**
- *  HRGoToAnchor()
- *
-
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToAnchor(HRReference hrRef, const char *anchorName);
-
-/**
- *  HRGoToPtr()
- *
-
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToPtr(HRReference hrRef, char *buffer, UInt32 bufferSize,
-          Boolean addToHistory, Boolean forceRefresh);
-
-/**
- *  HRGoToFSRef()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGoToFile,
- *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
- *    behavior with their old counter parts. The only difference is
- *    that they take FSRef, CFURLRef, CFString, and CFData as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    fref:
- *      Reference to HTML file that is be opened and rendered.
- *
- *    addToHistory:
- *      true if this file URL should be added to history.
- *
- *    forceRefresh:
- *      true if the rendering area should be refreshed.
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToFSRef(HRReference hrRef, const FSRef *fref, Boolean addToHistory,
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToURL(HRReference hrRef, const char *url, Boolean addToHistory,
             Boolean forceRefresh);
 
-/**
- *  HRGoToCFURL()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGoToFile,
- *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
- *    behavior with their old counter parts. The only difference is
- *    that they take FSRef, CFURLRef, CFString, and CFData as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    url:
- *      Reference to url that is be rendered.
- *
- *    addToHistory:
- *      true if this URL should be added to history.
- *
- *    forceRefresh:
- *      true if the rendering area should be refreshed.
- *
+  /**
+   *  HRGoToAnchor()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToCFURL(HRReference hrRef, CFURLRef url, Boolean addToHistory,
-            Boolean forceRefresh);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToAnchor(HRReference hrRef, const char *anchorName);
 
-/**
- *  HRGoToAnchorCFString()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGoToFile,
- *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
- *    behavior with their old counter parts. The only difference is
- *    that they take FSRef, CFURLRef, CFString, and CFData as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    anchorName:
- *      Name of the anchor to be displayed.
- *
+  /**
+   *  HRGoToPtr()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToAnchorCFString(HRReference hrRef, CFStringRef anchorName);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToPtr(HRReference hrRef, char *buffer, UInt32 bufferSize,
+            Boolean addToHistory, Boolean forceRefresh);
 
-/**
- *  HRGoToData()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGoToFile,
- *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
- *    behavior with their old counter parts. The only difference is
- *    that they take FSRef, CFURLRef, CFString, and CFData as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    data:
- *      Reference to data in the memory that is be rendered.
- *
- *    addToHistory:
- *      true if this file URL should be added to history.
- *
- *    forceRefresh:
- *      true if the rendering area should be refreshed.
- *
+  /**
+   *  HRGoToFSRef()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGoToFile,
+   *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
+   *    behavior with their old counter parts. The only difference is
+   *    that they take FSRef, CFURLRef, CFString, and CFData as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    fref:
+   *      Reference to HTML file that is be opened and rendered.
+   *
+   *    addToHistory:
+   *      true if this file URL should be added to history.
+   *
+   *    forceRefresh:
+   *      true if the rendering area should be refreshed.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGoToData(HRReference hrRef, CFDataRef data, Boolean addToHistory,
-           Boolean forceRefresh);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToFSRef(HRReference hrRef, const FSRef *fref, Boolean addToHistory,
+              Boolean forceRefresh);
 
-/** Accessors */
-/** either file url or url of <base> tag */
-/**
- *  HRGetRootURL()
- *
+  /**
+   *  HRGoToCFURL()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGoToFile,
+   *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
+   *    behavior with their old counter parts. The only difference is
+   *    that they take FSRef, CFURLRef, CFString, and CFData as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    url:
+   *      Reference to url that is be rendered.
+   *
+   *    addToHistory:
+   *      true if this URL should be added to history.
+   *
+   *    forceRefresh:
+   *      true if the rendering area should be refreshed.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetRootURL(HRReference hrRef, Handle rootURLH);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToCFURL(HRReference hrRef, CFURLRef url, Boolean addToHistory,
+              Boolean forceRefresh);
 
-/** url of <base> tag */
-/**
- *  HRGetBaseURL()
- *
+  /**
+   *  HRGoToAnchorCFString()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGoToFile,
+   *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
+   *    behavior with their old counter parts. The only difference is
+   *    that they take FSRef, CFURLRef, CFString, and CFData as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    anchorName:
+   *      Name of the anchor to be displayed.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetBaseURL(HRReference hrRef, Handle baseURLH);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToAnchorCFString(HRReference hrRef, CFStringRef anchorName);
 
-/** file url */
-/**
- *  HRGetHTMLURL()
- *
+  /**
+   *  HRGoToData()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGoToFile,
+   *    HRGoToURL, HRGoToAnchor and HRGoToPtr. These APIs are same in
+   *    behavior with their old counter parts. The only difference is
+   *    that they take FSRef, CFURLRef, CFString, and CFData as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    data:
+   *      Reference to data in the memory that is be rendered.
+   *
+   *    addToHistory:
+   *      true if this file URL should be added to history.
+   *
+   *    forceRefresh:
+   *      true if the rendering area should be refreshed.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetHTMLURL(HRReference hrRef, Handle HTMLURLH);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGoToData(HRReference hrRef, CFDataRef data, Boolean addToHistory,
+             Boolean forceRefresh);
 
-/**
- *  HRGetTitle()
- *
+  /** Accessors */
+  /** either file url or url of <base> tag */
+  /**
+   *  HRGetRootURL()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetTitle(HRReference hrRef, StringPtr title);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetRootURL(HRReference hrRef, Handle rootURLH);
 
-/**
- *  HRGetHTMLFile()
- *
+  /** url of <base> tag */
+  /**
+   *  HRGetBaseURL()
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetHTMLFile(HRReference hrRef, FSSpec *fsspec);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetBaseURL(HRReference hrRef, Handle baseURLH);
 
-/**
- *  HRGetRootURLAsCFString()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGetRootURL,
- *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
- *    APIs are same in behavior with their old counter parts. The only
- *    difference is that they take CFString, CFURLRef, and FSRef as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    rootString:
- *      Get CFString equivalent for the root url.
- *
+  /** file url */
+  /**
+   *  HRGetHTMLURL()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetRootURLAsCFString(HRReference hrRef, CFStringRef *rootString);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetHTMLURL(HRReference hrRef, Handle HTMLURLH);
 
-/**
- *  HRGetBaseURLAsCFString()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGetRootURL,
- *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
- *    APIs are same in behavior with their old counter parts. The only
- *    difference is that they take CFString, CFURLRef, and FSRef as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    baseString:
- *      Get CFString equivalent for the base url.
- *
+  /**
+   *  HRGetTitle()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetBaseURLAsCFString(HRReference hrRef, CFStringRef *baseString);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetTitle(HRReference hrRef, StringPtr title);
 
-/**
- *  HRGetHTMLURLAsCFURL()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGetRootURL,
- *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
- *    APIs are same in behavior with their old counter parts. The only
- *    difference is that they take CFString, CFURLRef, and FSRef as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    theURL:
- *      Get currently displayed HTML as a CFURL.
- *
+  /**
+   *  HRGetHTMLFile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetHTMLURLAsCFURL(HRReference hrRef, CFURLRef *theURL);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetHTMLFile(HRReference hrRef, FSSpec *fsspec);
 
-/**
- *  HRGetTitleAsCFString()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGetRootURL,
- *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
- *    APIs are same in behavior with their old counter parts. The only
- *    difference is that they take CFString, CFURLRef, and FSRef as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    title:
- *      Get title of the currently displayed HTML as a CFString.
- *
+  /**
+   *  HRGetRootURLAsCFString()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGetRootURL,
+   *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
+   *    APIs are same in behavior with their old counter parts. The only
+   *    difference is that they take CFString, CFURLRef, and FSRef as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    rootString:
+   *      Get CFString equivalent for the root url.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetTitleAsCFString(HRReference hrRef, CFStringRef *title);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetRootURLAsCFString(HRReference hrRef, CFStringRef *rootString);
 
-/**
- *  HRGetHTMLFileAsFSRef()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using HRGetRootURL,
- *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
- *    APIs are same in behavior with their old counter parts. The only
- *    difference is that they take CFString, CFURLRef, and FSRef as
- *    parameters.
- *
- *  Parameters:
- *
- *    hrRef:
- *      Reference to the renderer object.
- *
- *    fref:
- *      Get currently displayed HTML as a FSRef.
- *
+  /**
+   *  HRGetBaseURLAsCFString()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGetRootURL,
+   *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
+   *    APIs are same in behavior with their old counter parts. The only
+   *    difference is that they take CFString, CFURLRef, and FSRef as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    baseString:
+   *      Get CFString equivalent for the base url.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRGetHTMLFileAsFSRef(HRReference hrRef, FSRef *fref);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetBaseURLAsCFString(HRReference hrRef, CFStringRef *baseString);
 
-/** Utilities */
-/**
- *  HRUtilCreateFullURL()
- *
+  /**
+   *  HRGetHTMLURLAsCFURL()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGetRootURL,
+   *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
+   *    APIs are same in behavior with their old counter parts. The only
+   *    difference is that they take CFString, CFURLRef, and FSRef as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    theURL:
+   *      Get currently displayed HTML as a CFURL.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRUtilCreateFullURL(const char *rootURL, const char *linkURL, Handle fullURLH);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetHTMLURLAsCFURL(HRReference hrRef, CFURLRef *theURL);
 
-/**
- *  HRUtilGetFSSpecFromURL()
- *
+  /**
+   *  HRGetTitleAsCFString()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGetRootURL,
+   *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
+   *    APIs are same in behavior with their old counter parts. The only
+   *    difference is that they take CFString, CFURLRef, and FSRef as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    title:
+   *      Get title of the currently displayed HTML as a CFString.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRUtilGetFSSpecFromURL(const char *rootURL, const char *linkURL,
-                       FSSpec *destSpec);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetTitleAsCFString(HRReference hrRef, CFStringRef *title);
 
-/** urlHandle should be valid on input */
-/**
- *  HRUtilGetURLFromFSSpec()
- *
+  /**
+   *  HRGetHTMLFileAsFSRef()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using HRGetRootURL,
+   *    HRGetBaseURL, HRGetHTMLURL, HRGetTitle and HRGetHTMLFile. These
+   *    APIs are same in behavior with their old counter parts. The only
+   *    difference is that they take CFString, CFURLRef, and FSRef as
+   *    parameters.
+   *
+   *  Parameters:
+   *
+   *    hrRef:
+   *      Reference to the renderer object.
+   *
+   *    fref:
+   *      Get currently displayed HTML as a FSRef.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRUtilGetURLFromFSSpec(const FSSpec *fsspec, Handle urlHandle);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRGetHTMLFileAsFSRef(HRReference hrRef, FSRef *fref);
 
-/**
- *  HRUtilCreateFullCFURL()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using
- *    HRUtilCreateFullURL, HRUtilGetFSSpecFromURL,
- *    HRUtilGetURLFromFSSpec. These APIs are same in behavior with
- *    their old counter parts. The only difference is that they take
- *    CFURLRef, and FSRef as parameters.
- *
- *  Parameters:
- *
- *    rootString:
- *      a CFString for the root.
- *
- *    linkString:
- *      a CFString for a partial link.
- *
- *    url:
- *      Fully qualified URL is returned after attaching a link string
- *      to the root.
- *
+  /** Utilities */
+  /**
+   *  HRUtilCreateFullURL()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRUtilCreateFullCFURL(CFStringRef rootString, CFStringRef linkString,
-                      CFURLRef *url);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRUtilCreateFullURL(const char *rootURL, const char *linkURL, Handle fullURLH);
 
-/**
- *  HRUtilGetFSRefFromURL()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using
- *    HRUtilCreateFullURL, HRUtilGetFSSpecFromURL,
- *    HRUtilGetURLFromFSSpec. These APIs are same in behavior with
- *    their old counter parts. The only difference is that they take
- *    CFURLRef, and FSRef as parameters.
- *
- *  Parameters:
- *
- *    rootString:
- *      a CFString for the root.
- *
- *    linkString:
- *      a CFString for a partial link.
- *
- *    destRef:
- *      File reference is returned for the complete path created after
- *      attaching link string to the root. If File does not exist,
- *      fnfErr is returned as a function result.
- *
+  /**
+   *  HRUtilGetFSSpecFromURL()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRUtilGetFSRefFromURL(CFStringRef rootString, CFStringRef linkString,
-                      FSRef *destRef);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRUtilGetFSSpecFromURL(const char *rootURL, const char *linkURL,
+                         FSSpec *destSpec);
 
-/**
- *  HRUtilGetURLFromFSRef()
- *
- *  Discussion:
- *    Use these API from  a Carbon App instead of using
- *    HRUtilCreateFullURL, HRUtilGetFSSpecFromURL,
- *    HRUtilGetURLFromFSSpec. These APIs are same in behavior with
- *    their old counter parts. The only difference is that they take
- *    CFURLRef, and FSRef as parameters.
- *
- *  Parameters:
- *
- *    fileRef:
- *      Refernce to a file whose URL is desired.
- *
- *    url:
- *      a fully qualified URL is returned in this parameter. The
- *      returned URL gives the path of the file specified in the above
- *      parameter.
- *
+  /** urlHandle should be valid on input */
+  /**
+   *  HRUtilGetURLFromFSSpec()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSStatus)
-HRUtilGetURLFromFSRef(const FSRef *fileRef, CFURLRef *url);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRUtilGetURLFromFSSpec(const FSSpec *fsspec, Handle urlHandle);
 
-/**
-    Visited links
+  /**
+   *  HRUtilCreateFullCFURL()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using
+   *    HRUtilCreateFullURL, HRUtilGetFSSpecFromURL,
+   *    HRUtilGetURLFromFSSpec. These APIs are same in behavior with
+   *    their old counter parts. The only difference is that they take
+   *    CFURLRef, and FSRef as parameters.
+   *
+   *  Parameters:
+   *
+   *    rootString:
+   *      a CFString for the root.
+   *
+   *    linkString:
+   *      a CFString for a partial link.
+   *
+   *    url:
+   *      Fully qualified URL is returned after attaching a link string
+   *      to the root.
+   *
 
-    If you register a function here, it will be called to determine
-    whether or not the given URL has been visited. It should return
-    true if the URL has been visited.
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRUtilCreateFullCFURL(CFStringRef rootString, CFStringRef linkString,
+                        CFURLRef *url);
 
-    In addition to the URLs that the application may add to the list
-    of visited links, it should also add URLs that the user clicks
-    on. These URLs can be caught by the "add URL to history" callback
-    below.
- */
-typedef CALLBACK_API(Boolean, HRWasURLVisitedProcPtr)(const char *url,
-                                                      void *refCon);
-typedef STACK_UPP_TYPE(HRWasURLVisitedProcPtr) HRWasURLVisitedUPP;
-/**
- *  HRRegisterWasURLVisitedUPP()
- *
+  /**
+   *  HRUtilGetFSRefFromURL()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using
+   *    HRUtilCreateFullURL, HRUtilGetFSSpecFromURL,
+   *    HRUtilGetURLFromFSSpec. These APIs are same in behavior with
+   *    their old counter parts. The only difference is that they take
+   *    CFURLRef, and FSRef as parameters.
+   *
+   *  Parameters:
+   *
+   *    rootString:
+   *      a CFString for the root.
+   *
+   *    linkString:
+   *      a CFString for a partial link.
+   *
+   *    destRef:
+   *      File reference is returned for the complete path created after
+   *      attaching link string to the root. If File does not exist,
+   *      fnfErr is returned as a function result.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRRegisterWasURLVisitedUPP(HRWasURLVisitedUPP inWasURLVisitedUPP,
-                           HRReference hrRef, void *inRefCon);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRUtilGetFSRefFromURL(CFStringRef rootString, CFStringRef linkString,
+                        FSRef *destRef);
 
-/**
- *  HRUnregisterWasURLVisitedUPP()
- *
+  /**
+   *  HRUtilGetURLFromFSRef()
+   *
+   *  Discussion:
+   *    Use these API from  a Carbon App instead of using
+   *    HRUtilCreateFullURL, HRUtilGetFSSpecFromURL,
+   *    HRUtilGetURLFromFSSpec. These APIs are same in behavior with
+   *    their old counter parts. The only difference is that they take
+   *    CFURLRef, and FSRef as parameters.
+   *
+   *  Parameters:
+   *
+   *    fileRef:
+   *      Refernce to a file whose URL is desired.
+   *
+   *    url:
+   *      a fully qualified URL is returned in this parameter. The
+   *      returned URL gives the path of the file specified in the above
+   *      parameter.
+   *
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRUnregisterWasURLVisitedUPP(HRReference hrRef);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  HRUtilGetURLFromFSRef(const FSRef *fileRef, CFURLRef *url);
 
-/**
-    Use these API from  a Carbon App instead of using
-   HRRegisterWasURLVisitedUPP, HRUnregisterWasURLVisitedUPP. These APIs are same
-   in behavior with their old counter parts. The only difference is that they
-   take CFURLRef as parameters.
+  /**
+      Visited links
 
-*/
-typedef CALLBACK_API(Boolean, HRWasCFURLVisitedProcPtr)(CFURLRef url,
+      If you register a function here, it will be called to determine
+      whether or not the given URL has been visited. It should return
+      true if the URL has been visited.
+
+      In addition to the URLs that the application may add to the list
+      of visited links, it should also add URLs that the user clicks
+      on. These URLs can be caught by the "add URL to history" callback
+      below.
+   */
+  typedef CALLBACK_API(Boolean, HRWasURLVisitedProcPtr)(const char *url,
                                                         void *refCon);
-typedef TVECTOR_UPP_TYPE(HRWasCFURLVisitedProcPtr) HRWasCFURLVisitedUPP;
-/**
- *  HRRegisterWasCFURLVisitedUPP()
- *
+  typedef STACK_UPP_TYPE(HRWasURLVisitedProcPtr) HRWasURLVisitedUPP;
+  /**
+   *  HRRegisterWasURLVisitedUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRRegisterWasCFURLVisitedUPP(HRWasCFURLVisitedUPP inWasCFURLVisitedUPP,
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRRegisterWasURLVisitedUPP(HRWasURLVisitedUPP inWasURLVisitedUPP,
                              HRReference hrRef, void *inRefCon);
 
-/**
- *  HRUnregisterWasCFURLVisitedUPP()
- *
+  /**
+   *  HRUnregisterWasURLVisitedUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRUnregisterWasCFURLVisitedUPP(HRReference hrRef);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRUnregisterWasURLVisitedUPP(HRReference hrRef);
 
-/**
-    New URL
+  /**
+      Use these API from  a Carbon App instead of using
+     HRRegisterWasURLVisitedUPP, HRUnregisterWasURLVisitedUPP. These APIs are same
+     in behavior with their old counter parts. The only difference is that they
+     take CFURLRef as parameters.
 
-    If you register a function here, it will be called every time
-    the renderer is going to display a new URL. A few examples of how
-    you might use this include...
+  */
+  typedef CALLBACK_API(Boolean, HRWasCFURLVisitedProcPtr)(CFURLRef url,
+                                                          void *refCon);
+  typedef TVECTOR_UPP_TYPE(HRWasCFURLVisitedProcPtr) HRWasCFURLVisitedUPP;
+  /**
+   *  HRRegisterWasCFURLVisitedUPP()
+   *
 
-        (a) maintaining a history of URLs
-        (b) maintainging a list of visited links
-        (c) setting a window title based on the new URL
-*/
-typedef CALLBACK_API(OSStatus,
-                     HRNewURLProcPtr)(const char *url, const char *targetFrame,
-                                      Boolean addToHistory, void *refCon);
-typedef STACK_UPP_TYPE(HRNewURLProcPtr) HRNewURLUPP;
-/**
- *  HRRegisterNewURLUPP()
- *
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRRegisterWasCFURLVisitedUPP(HRWasCFURLVisitedUPP inWasCFURLVisitedUPP,
+                               HRReference hrRef, void *inRefCon);
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRRegisterNewURLUPP(HRNewURLUPP inNewURLUPP, HRReference hrRef, void *inRefCon);
+  /**
+   *  HRUnregisterWasCFURLVisitedUPP()
+   *
 
-/**
- *  HRUnregisterNewURLUPP()
- *
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRUnregisterWasCFURLVisitedUPP(HRReference hrRef);
 
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRUnregisterNewURLUPP(HRReference hrRef);
+  /**
+      New URL
 
-/**
-    Use these API from  a Carbon App instead of using HRRegisterNewURLUPP,
-   HRUnregisterNewURLUPP. These APIs are same in behavior with their old counter
-   parts. The only difference is that they take CFURLRef as parameters.
-*/
-typedef CALLBACK_API(OSStatus,
-                     HRNewCFURLProcPtr)(CFURLRef url, CFStringRef targetString,
+      If you register a function here, it will be called every time
+      the renderer is going to display a new URL. A few examples of how
+      you might use this include...
+
+          (a) maintaining a history of URLs
+          (b) maintainging a list of visited links
+          (c) setting a window title based on the new URL
+  */
+  typedef CALLBACK_API(OSStatus,
+                       HRNewURLProcPtr)(const char *url, const char *targetFrame,
                                         Boolean addToHistory, void *refCon);
-typedef TVECTOR_UPP_TYPE(HRNewCFURLProcPtr) HRNewCFURLUPP;
-/**
- *  HRRegisterNewCFURLUPP()
- *
+  typedef STACK_UPP_TYPE(HRNewURLProcPtr) HRNewURLUPP;
+  /**
+   *  HRRegisterNewURLUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRRegisterNewCFURLUPP(HRNewCFURLUPP inURLUPP, HRReference hrRef,
-                      void *inRefCon);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRRegisterNewURLUPP(HRNewURLUPP inNewURLUPP, HRReference hrRef, void *inRefCon);
 
-/**
- *  HRUnregisterNewCFURLUPP()
- *
+  /**
+   *  HRUnregisterNewURLUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRUnregisterNewCFURLUPP(HRReference hrRef);
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRUnregisterNewURLUPP(HRReference hrRef);
 
-/**
-    URL to FSSpec function
+  /**
+      Use these API from  a Carbon App instead of using HRRegisterNewURLUPP,
+     HRUnregisterNewURLUPP. These APIs are same in behavior with their old counter
+     parts. The only difference is that they take CFURLRef as parameters.
+  */
+  typedef CALLBACK_API(OSStatus,
+                       HRNewCFURLProcPtr)(CFURLRef url, CFStringRef targetString,
+                                          Boolean addToHistory, void *refCon);
+  typedef TVECTOR_UPP_TYPE(HRNewCFURLProcPtr) HRNewCFURLUPP;
+  /**
+   *  HRRegisterNewCFURLUPP()
+   *
 
-    If you register a function here, it will be called every time
-    the renderer is going to locate a file. The function will be
-    passed an enum indicating the type of file being asked for.
- */
-typedef UInt16 URLSourceType;
-enum {
-  kHRLookingForHTMLSource = 1,
-  kHRLookingForImage = 2,
-  kHRLookingForEmbedded = 3,
-  kHRLookingForImageMap = 4,
-  kHRLookingForFrame = 5
-};
-
-typedef CALLBACK_API(OSStatus,
-                     HRURLToFSSpecProcPtr)(const char *rootURL,
-                                           const char *linkURL, FSSpec *fsspec,
-                                           URLSourceType urlSourceType,
-                                           void *refCon);
-typedef STACK_UPP_TYPE(HRURLToFSSpecProcPtr) HRURLToFSSpecUPP;
-/**
- *  HRRegisterURLToFSSpecUPP()
- *
-
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRRegisterURLToFSSpecUPP(HRURLToFSSpecUPP inURLToFSSpecUPP, HRReference hrRef,
-                         void *inRefCon);
-
-/**
- *  HRUnregisterURLToFSSpecUPP()
- *
-
- *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRUnregisterURLToFSSpecUPP(HRReference hrRef);
-
-/**
-    Use these API from  a Carbon App instead of using HRRegisterURLToFSSpecUPP,
-   HRUnregisterURLToFSSpecUPP. These APIs are same in behavior with their old
-   counter parts. The only difference is that they take FSRef as parameters.
-*/
-typedef CALLBACK_API(OSStatus, HRURLToFSRefProcPtr)(CFStringRef rootString,
-                                                    CFStringRef linkString,
-                                                    FSRef *fref,
-                                                    URLSourceType urlSourceType,
-                                                    void *refCon);
-typedef TVECTOR_UPP_TYPE(HRURLToFSRefProcPtr) HRURLToFSRefUPP;
-/**
- *  HRRegisterURLToFSRefUPP()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRRegisterURLToFSRefUPP(HRURLToFSRefUPP inURLToFSRefUPP, HRReference hrRef,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRRegisterNewCFURLUPP(HRNewCFURLUPP inURLUPP, HRReference hrRef,
                         void *inRefCon);
 
-/**
- *  HRUnregisterURLToFSRefUPP()
- *
+  /**
+   *  HRUnregisterNewCFURLUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-HRUnregisterURLToFSRefUPP(HRReference hrRef);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRUnregisterNewCFURLUPP(HRReference hrRef);
 
-/**
- *  NewHRWasURLVisitedUPP()
- *
+  /**
+      URL to FSSpec function
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HRWasURLVisitedUPP)
-NewHRWasURLVisitedUPP(HRWasURLVisitedProcPtr userRoutine);
+      If you register a function here, it will be called every time
+      the renderer is going to locate a file. The function will be
+      passed an enum indicating the type of file being asked for.
+   */
+  typedef UInt16 URLSourceType;
+  enum
+  {
+    kHRLookingForHTMLSource = 1,
+    kHRLookingForImage = 2,
+    kHRLookingForEmbedded = 3,
+    kHRLookingForImageMap = 4,
+    kHRLookingForFrame = 5
+  };
+
+  typedef CALLBACK_API(OSStatus,
+                       HRURLToFSSpecProcPtr)(const char *rootURL,
+                                             const char *linkURL, FSSpec *fsspec,
+                                             URLSourceType urlSourceType,
+                                             void *refCon);
+  typedef STACK_UPP_TYPE(HRURLToFSSpecProcPtr) HRURLToFSSpecUPP;
+  /**
+   *  HRRegisterURLToFSSpecUPP()
+   *
+
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRRegisterURLToFSSpecUPP(HRURLToFSSpecUPP inURLToFSSpecUPP, HRReference hrRef,
+                           void *inRefCon);
+
+  /**
+   *  HRUnregisterURLToFSSpecUPP()
+   *
+
+   *    \non_carbon_cfm   in HTMLRenderingLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRUnregisterURLToFSSpecUPP(HRReference hrRef);
+
+  /**
+      Use these API from  a Carbon App instead of using HRRegisterURLToFSSpecUPP,
+     HRUnregisterURLToFSSpecUPP. These APIs are same in behavior with their old
+     counter parts. The only difference is that they take FSRef as parameters.
+  */
+  typedef CALLBACK_API(OSStatus, HRURLToFSRefProcPtr)(CFStringRef rootString,
+                                                      CFStringRef linkString,
+                                                      FSRef *fref,
+                                                      URLSourceType urlSourceType,
+                                                      void *refCon);
+  typedef TVECTOR_UPP_TYPE(HRURLToFSRefProcPtr) HRURLToFSRefUPP;
+  /**
+   *  HRRegisterURLToFSRefUPP()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRRegisterURLToFSRefUPP(HRURLToFSRefUPP inURLToFSRefUPP, HRReference hrRef,
+                          void *inRefCon);
+
+  /**
+   *  HRUnregisterURLToFSRefUPP()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  HRUnregisterURLToFSRefUPP(HRReference hrRef);
+
+  /**
+   *  NewHRWasURLVisitedUPP()
+   *
+
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HRWasURLVisitedUPP
+  NewHRWasURLVisitedUPP(HRWasURLVisitedProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppHRWasURLVisitedProcInfo = 0x000003D0
-}; /** pascal 1_byte Func(4_bytes, 4_bytes) */
+  enum
+  {
+    uppHRWasURLVisitedProcInfo = 0x000003D0
+  }; /** pascal 1_byte Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline HRWasURLVisitedUPP
-NewHRWasURLVisitedUPP(HRWasURLVisitedProcPtr userRoutine) {
-  return (HRWasURLVisitedUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                  uppHRWasURLVisitedProcInfo,
-                                                  GetCurrentArchitecture());
-}
+  inline HRWasURLVisitedUPP
+  NewHRWasURLVisitedUPP(HRWasURLVisitedProcPtr userRoutine)
+  {
+    return (HRWasURLVisitedUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                    uppHRWasURLVisitedProcInfo,
+                                                    GetCurrentArchitecture());
+  }
 #else
 #define NewHRWasURLVisitedUPP(userRoutine)                                     \
   (HRWasURLVisitedUPP)                                                         \
@@ -1191,317 +1202,327 @@ NewHRWasURLVisitedUPP(HRWasURLVisitedProcPtr userRoutine) {
 #endif
 #endif
 
-/**
- *  NewHRWasCFURLVisitedUPP()
- *
+  /**
+   *  NewHRWasCFURLVisitedUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HRWasCFURLVisitedUPP)
-NewHRWasCFURLVisitedUPP(HRWasCFURLVisitedProcPtr userRoutine);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HRWasCFURLVisitedUPP
+  NewHRWasCFURLVisitedUPP(HRWasCFURLVisitedProcPtr userRoutine);
 
-/**
- *  NewHRNewURLUPP()
- *
+  /**
+   *  NewHRNewURLUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HRNewURLUPP)
-NewHRNewURLUPP(HRNewURLProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HRNewURLUPP
+  NewHRNewURLUPP(HRNewURLProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppHRNewURLProcInfo = 0x000037F0
-}; /** pascal 4_bytes Func(4_bytes, 4_bytes, 1_byte, 4_bytes) */
+  enum
+  {
+    uppHRNewURLProcInfo = 0x000037F0
+  }; /** pascal 4_bytes Func(4_bytes, 4_bytes, 1_byte, 4_bytes) */
 #ifdef __cplusplus
-inline HRNewURLUPP NewHRNewURLUPP(HRNewURLProcPtr userRoutine) {
-  return (HRNewURLUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppHRNewURLProcInfo, GetCurrentArchitecture());
-}
+  inline HRNewURLUPP NewHRNewURLUPP(HRNewURLProcPtr userRoutine)
+  {
+    return (HRNewURLUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppHRNewURLProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewHRNewURLUPP(userRoutine)                                            \
-  (HRNewURLUPP) NewRoutineDescriptor(                                          \
+#define NewHRNewURLUPP(userRoutine)   \
+  (HRNewURLUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppHRNewURLProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewHRNewCFURLUPP()
- *
+  /**
+   *  NewHRNewCFURLUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HRNewCFURLUPP)
-NewHRNewCFURLUPP(HRNewCFURLProcPtr userRoutine);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HRNewCFURLUPP
+  NewHRNewCFURLUPP(HRNewCFURLProcPtr userRoutine);
 
-/**
- *  NewHRURLToFSSpecUPP()
- *
+  /**
+   *  NewHRURLToFSSpecUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HRURLToFSSpecUPP)
-NewHRURLToFSSpecUPP(HRURLToFSSpecProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HRURLToFSSpecUPP
+  NewHRURLToFSSpecUPP(HRURLToFSSpecProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppHRURLToFSSpecProcInfo = 0x0000EFF0
-}; /** pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 4_bytes) */
+  enum
+  {
+    uppHRURLToFSSpecProcInfo = 0x0000EFF0
+  }; /** pascal 4_bytes Func(4_bytes, 4_bytes, 4_bytes, 2_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline HRURLToFSSpecUPP NewHRURLToFSSpecUPP(HRURLToFSSpecProcPtr userRoutine) {
-  return (HRURLToFSSpecUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppHRURLToFSSpecProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline HRURLToFSSpecUPP NewHRURLToFSSpecUPP(HRURLToFSSpecProcPtr userRoutine)
+  {
+    return (HRURLToFSSpecUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppHRURLToFSSpecProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewHRURLToFSSpecUPP(userRoutine)                                       \
-  (HRURLToFSSpecUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppHRURLToFSSpecProcInfo,   \
+#define NewHRURLToFSSpecUPP(userRoutine)                                     \
+  (HRURLToFSSpecUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppHRURLToFSSpecProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewHRURLToFSRefUPP()
- *
+  /**
+   *  NewHRURLToFSRefUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HRURLToFSRefUPP)
-NewHRURLToFSRefUPP(HRURLToFSRefProcPtr userRoutine);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HRURLToFSRefUPP
+  NewHRURLToFSRefUPP(HRURLToFSRefProcPtr userRoutine);
 
-/**
- *  DisposeHRWasURLVisitedUPP()
- *
+  /**
+   *  DisposeHRWasURLVisitedUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHRWasURLVisitedUPP(HRWasURLVisitedUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHRWasURLVisitedUPP(HRWasURLVisitedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeHRWasURLVisitedUPP(HRWasURLVisitedUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeHRWasURLVisitedUPP(HRWasURLVisitedUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeHRWasURLVisitedUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeHRWasCFURLVisitedUPP()
- *
+  /**
+   *  DisposeHRWasCFURLVisitedUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHRWasCFURLVisitedUPP(HRWasCFURLVisitedUPP userUPP);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHRWasCFURLVisitedUPP(HRWasCFURLVisitedUPP userUPP);
 
-/**
- *  DisposeHRNewURLUPP()
- *
+  /**
+   *  DisposeHRNewURLUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHRNewURLUPP(HRNewURLUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHRNewURLUPP(HRNewURLUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeHRNewURLUPP(HRNewURLUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeHRNewURLUPP(HRNewURLUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeHRNewURLUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeHRNewCFURLUPP()
- *
+  /**
+   *  DisposeHRNewCFURLUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHRNewCFURLUPP(HRNewCFURLUPP userUPP);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHRNewCFURLUPP(HRNewCFURLUPP userUPP);
 
-/**
- *  DisposeHRURLToFSSpecUPP()
- *
+  /**
+   *  DisposeHRURLToFSSpecUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHRURLToFSSpecUPP(HRURLToFSSpecUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHRURLToFSSpecUPP(HRURLToFSSpecUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeHRURLToFSSpecUPP(HRURLToFSSpecUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeHRURLToFSSpecUPP(HRURLToFSSpecUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeHRURLToFSSpecUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeHRURLToFSRefUPP()
- *
+  /**
+   *  DisposeHRURLToFSRefUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHRURLToFSRefUPP(HRURLToFSRefUPP userUPP);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHRURLToFSRefUPP(HRURLToFSRefUPP userUPP);
 
-/**
- *  InvokeHRWasURLVisitedUPP()
- *
+  /**
+   *  InvokeHRWasURLVisitedUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(Boolean)
-InvokeHRWasURLVisitedUPP(const char *url, void *refCon,
-                         HRWasURLVisitedUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeHRWasURLVisitedUPP(const char *url, void *refCon,
+                           HRWasURLVisitedUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline Boolean InvokeHRWasURLVisitedUPP(const char *url, void *refCon,
-                                        HRWasURLVisitedUPP userUPP) {
-  return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppHRWasURLVisitedProcInfo,
-                                         url, refCon);
-}
+  inline Boolean InvokeHRWasURLVisitedUPP(const char *url, void *refCon,
+                                          HRWasURLVisitedUPP userUPP)
+  {
+    return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppHRWasURLVisitedProcInfo,
+                                           url, refCon);
+  }
 #else
-#define InvokeHRWasURLVisitedUPP(url, refCon, userUPP)                         \
-  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppHRWasURLVisitedProcInfo,      \
+#define InvokeHRWasURLVisitedUPP(url, refCon, userUPP)                    \
+  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppHRWasURLVisitedProcInfo, \
                                    (url), (refCon))
 #endif
 #endif
 
-/**
- *  InvokeHRWasCFURLVisitedUPP()
- *
+  /**
+   *  InvokeHRWasCFURLVisitedUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(Boolean)
-InvokeHRWasCFURLVisitedUPP(CFURLRef url, void *refCon,
-                           HRWasCFURLVisitedUPP userUPP);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeHRWasCFURLVisitedUPP(CFURLRef url, void *refCon,
+                             HRWasCFURLVisitedUPP userUPP);
 
-/**
- *  InvokeHRNewURLUPP()
- *
+  /**
+   *  InvokeHRNewURLUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-InvokeHRNewURLUPP(const char *url, const char *targetFrame,
-                  Boolean addToHistory, void *refCon, HRNewURLUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  InvokeHRNewURLUPP(const char *url, const char *targetFrame,
+                    Boolean addToHistory, void *refCon, HRNewURLUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline OSStatus InvokeHRNewURLUPP(const char *url, const char *targetFrame,
-                                  Boolean addToHistory, void *refCon,
-                                  HRNewURLUPP userUPP) {
-  return (OSStatus)CALL_FOUR_PARAMETER_UPP(userUPP, uppHRNewURLProcInfo, url,
-                                           targetFrame, addToHistory, refCon);
-}
+  inline OSStatus InvokeHRNewURLUPP(const char *url, const char *targetFrame,
+                                    Boolean addToHistory, void *refCon,
+                                    HRNewURLUPP userUPP)
+  {
+    return (OSStatus)CALL_FOUR_PARAMETER_UPP(userUPP, uppHRNewURLProcInfo, url,
+                                             targetFrame, addToHistory, refCon);
+  }
 #else
-#define InvokeHRNewURLUPP(url, targetFrame, addToHistory, refCon, userUPP)     \
-  (OSStatus) CALL_FOUR_PARAMETER_UPP((userUPP), uppHRNewURLProcInfo, (url),    \
+#define InvokeHRNewURLUPP(url, targetFrame, addToHistory, refCon, userUPP)  \
+  (OSStatus) CALL_FOUR_PARAMETER_UPP((userUPP), uppHRNewURLProcInfo, (url), \
                                      (targetFrame), (addToHistory), (refCon))
 #endif
 #endif
 
-/**
- *  InvokeHRNewCFURLUPP()
- *
+  /**
+   *  InvokeHRNewCFURLUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-InvokeHRNewCFURLUPP(CFURLRef url, CFStringRef targetString,
-                    Boolean addToHistory, void *refCon, HRNewCFURLUPP userUPP);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  InvokeHRNewCFURLUPP(CFURLRef url, CFStringRef targetString,
+                      Boolean addToHistory, void *refCon, HRNewCFURLUPP userUPP);
 
-/**
- *  InvokeHRURLToFSSpecUPP()
- *
+  /**
+   *  InvokeHRURLToFSSpecUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-InvokeHRURLToFSSpecUPP(const char *rootURL, const char *linkURL, FSSpec *fsspec,
-                       URLSourceType urlSourceType, void *refCon,
-                       HRURLToFSSpecUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  InvokeHRURLToFSSpecUPP(const char *rootURL, const char *linkURL, FSSpec *fsspec,
+                         URLSourceType urlSourceType, void *refCon,
+                         HRURLToFSSpecUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline OSStatus InvokeHRURLToFSSpecUPP(const char *rootURL, const char *linkURL,
-                                       FSSpec *fsspec,
-                                       URLSourceType urlSourceType,
-                                       void *refCon, HRURLToFSSpecUPP userUPP) {
-  return (OSStatus)CALL_FIVE_PARAMETER_UPP(userUPP, uppHRURLToFSSpecProcInfo,
-                                           rootURL, linkURL, fsspec,
-                                           urlSourceType, refCon);
-}
+  inline OSStatus InvokeHRURLToFSSpecUPP(const char *rootURL, const char *linkURL,
+                                         FSSpec *fsspec,
+                                         URLSourceType urlSourceType,
+                                         void *refCon, HRURLToFSSpecUPP userUPP)
+  {
+    return (OSStatus)CALL_FIVE_PARAMETER_UPP(userUPP, uppHRURLToFSSpecProcInfo,
+                                             rootURL, linkURL, fsspec,
+                                             urlSourceType, refCon);
+  }
 #else
-#define InvokeHRURLToFSSpecUPP(rootURL, linkURL, fsspec, urlSourceType,        \
-                               refCon, userUPP)                                \
-  (OSStatus)                                                                   \
-      CALL_FIVE_PARAMETER_UPP((userUPP), uppHRURLToFSSpecProcInfo, (rootURL),  \
+#define InvokeHRURLToFSSpecUPP(rootURL, linkURL, fsspec, urlSourceType,       \
+                               refCon, userUPP)                               \
+  (OSStatus)                                                                  \
+      CALL_FIVE_PARAMETER_UPP((userUPP), uppHRURLToFSSpecProcInfo, (rootURL), \
                               (linkURL), (fsspec), (urlSourceType), (refCon))
 #endif
 #endif
 
-/**
- *  InvokeHRURLToFSRefUPP()
- *
+  /**
+   *  InvokeHRURLToFSRefUPP()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.3 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-InvokeHRURLToFSRefUPP(CFStringRef rootString, CFStringRef linkString,
-                      FSRef *fref, URLSourceType urlSourceType, void *refCon,
-                      HRURLToFSRefUPP userUPP);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.3 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  InvokeHRURLToFSRefUPP(CFStringRef rootString, CFStringRef linkString,
+                        FSRef *fref, URLSourceType urlSourceType, void *refCon,
+                        HRURLToFSRefUPP userUPP);
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /** support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewHRWasURLVisitedProc(userRoutine) NewHRWasURLVisitedUPP(userRoutine)
 #define NewHRNewURLProc(userRoutine) NewHRNewURLUPP(userRoutine)
 #define NewHRURLToFSSpecProc(userRoutine) NewHRURLToFSSpecUPP(userRoutine)
-#define CallHRWasURLVisitedProc(userRoutine, url, refCon)                      \
+#define CallHRWasURLVisitedProc(userRoutine, url, refCon) \
   InvokeHRWasURLVisitedUPP(url, refCon, userRoutine)
-#define CallHRNewURLProc(userRoutine, url, targetFrame, addToHistory, refCon)  \
+#define CallHRNewURLProc(userRoutine, url, targetFrame, addToHistory, refCon) \
   InvokeHRNewURLUPP(url, targetFrame, addToHistory, refCon, userRoutine)
-#define CallHRURLToFSSpecProc(userRoutine, rootURL, linkURL, fsspec,           \
-                              urlSourceType, refCon)                           \
-  InvokeHRURLToFSSpecUPP(rootURL, linkURL, fsspec, urlSourceType, refCon,      \
+#define CallHRURLToFSSpecProc(userRoutine, rootURL, linkURL, fsspec,      \
+                              urlSourceType, refCon)                      \
+  InvokeHRURLToFSSpecUPP(rootURL, linkURL, fsspec, urlSourceType, refCon, \
                          userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 

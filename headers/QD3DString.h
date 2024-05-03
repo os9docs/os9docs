@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -64,79 +65,79 @@ extern "C" {
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3String_GetType()
- *
+    /**
+     *  Q3String_GetType()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3ObjectType)
-Q3String_GetType(TQ3StringObject stringObj);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3ObjectType
+    Q3String_GetType(TQ3StringObject stringObj);
 
-/******************************************************************************
- **                                                                          **
- **                     C String Routines                                    **
- **                                                                          **
- *****************************************************************************/
-/**
- *  Q3CString_New()
- *
+    /******************************************************************************
+     **                                                                          **
+     **                     C String Routines                                    **
+     **                                                                          **
+     *****************************************************************************/
+    /**
+     *  Q3CString_New()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3StringObject)
-Q3CString_New(const char *str);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3StringObject
+    Q3CString_New(const char *str);
 
-/**
- *  Q3CString_GetLength()
- *
+    /**
+     *  Q3CString_GetLength()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3CString_GetLength(TQ3StringObject stringObj, unsigned long *length);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3CString_GetLength(TQ3StringObject stringObj, unsigned long *length);
 
-/**
- *  Q3CString_SetString()
- *
+    /**
+     *  Q3CString_SetString()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3CString_SetString(TQ3StringObject stringObj, const char *str);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3CString_SetString(TQ3StringObject stringObj, const char *str);
 
 #endif /* CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3CString_GetString()
- *
+    /**
+     *  Q3CString_GetString()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3CString_GetString(TQ3StringObject stringObj, char **str);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3CString_GetString(TQ3StringObject stringObj, char **str);
 
-/**
- *  Q3CString_EmptyData()
- *
+    /**
+     *  Q3CString_EmptyData()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3CString_EmptyData(char **str);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3CString_EmptyData(char **str);
 
 #endif /* CALL_NOT_IN_CARBON */
 

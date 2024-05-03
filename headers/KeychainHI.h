@@ -64,7 +64,7 @@ extern "C" {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 KCUnlock(KCRef keychain,      /** can be NULL */
          StringPtr password); /** can be NULL */
 
@@ -77,7 +77,7 @@ KCUnlock(KCRef keychain,      /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 KCAddItem(KCItemRef item);
 
 /** Creating a new keychain */
@@ -89,7 +89,7 @@ KCAddItem(KCItemRef item);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 KCCreateKeychain(StringPtr password, /** can be NULL */
                  KCRef *keychain);   /** can be NULL */
 
@@ -102,7 +102,7 @@ KCCreateKeychain(StringPtr password, /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 KCChangeSettings(KCRef keychain);
 
 /**
@@ -113,7 +113,7 @@ KCChangeSettings(KCRef keychain);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kcunlock(KCRef keychain,        /** can be NULL */
          const char *password); /** can be NULL */
 
@@ -125,7 +125,7 @@ kcunlock(KCRef keychain,        /** can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 kccreatekeychain(const char *password, /** can be NULL */
                  KCRef *keychain);     /** can be NULL */
 
@@ -139,7 +139,7 @@ kccreatekeychain(const char *password, /** can be NULL */
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 KCFindX509Certificates(KCRef keychain, CFStringRef name,
                        CFStringRef emailAddress, KCCertSearchOptions options,
                        CFMutableArrayRef *certificateItems); /** can be NULL */
@@ -152,7 +152,7 @@ KCFindX509Certificates(KCRef keychain, CFStringRef name,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 KCChooseCertificate(CFArrayRef items, KCItemRef *certificate,
                     CFArrayRef policyOIDs, KCVerifyStopOn stopOn);
 

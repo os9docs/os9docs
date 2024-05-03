@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -43,39 +44,40 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  listMgr = 0,    /** list manager */
-  dskInit = 2,    /** Disk Initializaton */
-  stdFile = 3,    /** Standard File */
-  flPoint = 4,    /** Floating-Point Arithmetic */
-  trFunc = 5,     /** Transcendental Functions */
-  intUtil = 6,    /** International Utilities */
-  bdConv = 7,     /** Binary/Decimal Conversion */
-  editionMgr = 11 /** Edition Manager */
-};
+  enum
+  {
+    listMgr = 0,    /** list manager */
+    dskInit = 2,    /** Disk Initializaton */
+    stdFile = 3,    /** Standard File */
+    flPoint = 4,    /** Floating-Point Arithmetic */
+    trFunc = 5,     /** Transcendental Functions */
+    intUtil = 6,    /** International Utilities */
+    bdConv = 7,     /** Binary/Decimal Conversion */
+    editionMgr = 11 /** Edition Manager */
+  };
 
 #if CALL_NOT_IN_CARBON
-/**
- *  InitPack()
- *
+  /**
+   *  InitPack()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-InitPack(short packID) ONEWORDINLINE(0xA9E5);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  InitPack(short packID);
 
-/**
- *  InitAllPacks()
- *
+  /**
+   *  InitAllPacks()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-InitAllPacks(void) ONEWORDINLINE(0xA9E6);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  InitAllPacks(void);
 
 #endif /** CALL_NOT_IN_CARBON */
 

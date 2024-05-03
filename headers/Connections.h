@@ -227,7 +227,7 @@ typedef CMIOPB *CMIOPBPtr;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionToolDefUPP)
+ConnectionToolDefUPP
 NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -256,7 +256,7 @@ NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionSearchCallBackUPP)
+ConnectionSearchCallBackUPP
 NewConnectionSearchCallBackUPP(ConnectionSearchCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -285,7 +285,7 @@ NewConnectionSearchCallBackUPP(ConnectionSearchCallBackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionCompletionUPP)
+ConnectionCompletionUPP
 NewConnectionCompletionUPP(ConnectionCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -314,7 +314,7 @@ NewConnectionCompletionUPP(ConnectionCompletionProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(ConnectionChooseIdleUPP)
+ConnectionChooseIdleUPP
 NewConnectionChooseIdleUPP(ConnectionChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -343,7 +343,7 @@ NewConnectionChooseIdleUPP(ConnectionChooseIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionToolDefUPP(ConnectionToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -363,7 +363,7 @@ inline void DisposeConnectionToolDefUPP(ConnectionToolDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionSearchCallBackUPP(ConnectionSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -385,7 +385,7 @@ DisposeConnectionSearchCallBackUPP(ConnectionSearchCallBackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionCompletionUPP(ConnectionCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -406,7 +406,7 @@ inline void DisposeConnectionCompletionUPP(ConnectionCompletionUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -427,7 +427,7 @@ inline void DisposeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeConnectionToolDefUPP(ConnHandle hConn, short msg, long p1, long p2,
                            long p3, ConnectionToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -453,7 +453,7 @@ inline long InvokeConnectionToolDefUPP(ConnHandle hConn, short msg, long p1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeConnectionSearchCallBackUPP(ConnHandle hConn, Ptr matchPtr, long refNum,
                                   ConnectionSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -479,7 +479,7 @@ InvokeConnectionSearchCallBackUPP(ConnHandle hConn, Ptr matchPtr, long refNum,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeConnectionCompletionUPP(ConnHandle hConn,
                               ConnectionCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -502,7 +502,7 @@ inline void InvokeConnectionCompletionUPP(ConnHandle hConn,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -548,7 +548,7 @@ inline void InvokeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 InitCM(void);
 
 /**
@@ -559,7 +559,7 @@ InitCM(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Handle)
+Handle
 CMGetVersion(ConnHandle hConn);
 
 /**
@@ -570,7 +570,7 @@ CMGetVersion(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 CMGetCMVersion(void);
 
 #endif /* CALL_NOT_IN_CARBON */
@@ -584,7 +584,7 @@ CMGetCMVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(ConnHandle)
+ConnHandle
 CMNew(short procID, CMRecFlags flags, ConstCMBufferSizesParam desiredSizes,
       long refCon, long userData);
 
@@ -599,7 +599,7 @@ CMNew(short procID, CMRecFlags flags, ConstCMBufferSizesParam desiredSizes,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMDispose(ConnHandle hConn);
 
 /**
@@ -610,7 +610,7 @@ CMDispose(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMListen(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
          long timeout);
 
@@ -622,7 +622,7 @@ CMListen(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMAccept(ConnHandle hConn, Boolean accept);
 
 /**
@@ -633,7 +633,7 @@ CMAccept(ConnHandle hConn, Boolean accept);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMOpen(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
        long timeout);
 
@@ -645,7 +645,7 @@ CMOpen(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMClose(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
         long timeout, Boolean now);
 
@@ -657,7 +657,7 @@ CMClose(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMAbort(ConnHandle hConn);
 
 /**
@@ -668,7 +668,7 @@ CMAbort(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMStatus(ConnHandle hConn, CMBufferSizes sizes, CMStatFlags *flags);
 
 /**
@@ -679,7 +679,7 @@ CMStatus(ConnHandle hConn, CMBufferSizes sizes, CMStatFlags *flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMIdle(ConnHandle hConn);
 
 /**
@@ -690,7 +690,7 @@ CMIdle(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMReset(ConnHandle hConn);
 
 /**
@@ -701,7 +701,7 @@ CMReset(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMBreak(ConnHandle hConn, long duration, Boolean async,
         ConnectionCompletionUPP completor);
 
@@ -713,7 +713,7 @@ CMBreak(ConnHandle hConn, long duration, Boolean async,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMRead(ConnHandle hConn, void *theBuffer, long *toRead, CMChannel theChannel,
        Boolean async, ConnectionCompletionUPP completor, long timeout,
        CMFlags *flags);
@@ -726,7 +726,7 @@ CMRead(ConnHandle hConn, void *theBuffer, long *toRead, CMChannel theChannel,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMWrite(ConnHandle hConn, const void *theBuffer, long *toWrite,
         CMChannel theChannel, Boolean async, ConnectionCompletionUPP completor,
         long timeout, CMFlags flags);
@@ -739,7 +739,7 @@ CMWrite(ConnHandle hConn, const void *theBuffer, long *toWrite,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMIOKill(ConnHandle hConn, short which);
 
 /**
@@ -750,7 +750,7 @@ CMIOKill(ConnHandle hConn, short which);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMActivate(ConnHandle hConn, Boolean activate);
 
 /**
@@ -761,7 +761,7 @@ CMActivate(ConnHandle hConn, Boolean activate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMResume(ConnHandle hConn, Boolean resume);
 
 /**
@@ -772,7 +772,7 @@ CMResume(ConnHandle hConn, Boolean resume);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 CMMenu(ConnHandle hConn, short menuID, short item);
 
 /**
@@ -783,7 +783,7 @@ CMMenu(ConnHandle hConn, short menuID, short item);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 CMValidate(ConnHandle hConn);
 
 /**
@@ -794,7 +794,7 @@ CMValidate(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMDefault(Ptr *theConfig, short procID, Boolean allocate);
 
 /**
@@ -805,7 +805,7 @@ CMDefault(Ptr *theConfig, short procID, Boolean allocate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Handle)
+Handle
 CMSetupPreflight(short procID, long *magicCookie);
 
 /**
@@ -816,7 +816,7 @@ CMSetupPreflight(short procID, long *magicCookie);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 CMSetupFilter(short procID, const void *theConfig, short count,
               DialogRef theDialog, EventRecord *theEvent, short *theItem,
               long *magicCookie);
@@ -829,7 +829,7 @@ CMSetupFilter(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMSetupSetup(short procID, const void *theConfig, short count,
              DialogRef theDialog, long *magicCookie);
 
@@ -841,7 +841,7 @@ CMSetupSetup(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMSetupItem(short procID, const void *theConfig, short count,
             DialogRef theDialog, short *theItem, long *magicCookie);
 
@@ -853,7 +853,7 @@ CMSetupItem(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMSetupXCleanup(short procID, const void *theConfig, short count,
                 DialogRef theDialog, Boolean OKed, long *magicCookie);
 
@@ -865,7 +865,7 @@ CMSetupXCleanup(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMSetupPostflight(short procID);
 
 /**
@@ -876,7 +876,7 @@ CMSetupPostflight(short procID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Ptr)
+Ptr
 CMGetConfig(ConnHandle hConn);
 
 /**
@@ -887,7 +887,7 @@ CMGetConfig(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 CMSetConfig(ConnHandle hConn, const void *thePtr);
 
 /**
@@ -898,7 +898,7 @@ CMSetConfig(ConnHandle hConn, const void *thePtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSErr)
+OSErr
 CMIntlToEnglish(ConnHandle hConn, const void *inputPtr, Ptr *outputPtr,
                 short language);
 
@@ -910,7 +910,7 @@ CMIntlToEnglish(ConnHandle hConn, const void *inputPtr, Ptr *outputPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSErr)
+OSErr
 CMEnglishToIntl(ConnHandle hConn, const void *inputPtr, Ptr *outputPtr,
                 short language);
 
@@ -922,7 +922,7 @@ CMEnglishToIntl(ConnHandle hConn, const void *inputPtr, Ptr *outputPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 CMAddSearch(ConnHandle hConn, ConstStr255Param theString, CMSearchFlags flags,
             ConnectionSearchCallBackUPP callBack);
 
@@ -934,7 +934,7 @@ CMAddSearch(ConnHandle hConn, ConstStr255Param theString, CMSearchFlags flags,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMRemoveSearch(ConnHandle hConn, long refnum);
 
 /**
@@ -945,7 +945,7 @@ CMRemoveSearch(ConnHandle hConn, long refnum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMClearSearch(ConnHandle hConn);
 
 /**
@@ -956,7 +956,7 @@ CMClearSearch(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMGetConnEnvirons(ConnHandle hConn, ConnEnvironRec *theEnvirons);
 
 /**
@@ -967,7 +967,7 @@ CMGetConnEnvirons(ConnHandle hConn, ConnEnvironRec *theEnvirons);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 CMChoose(ConnHandle *hConn, Point where, ConnectionChooseIdleUPP idle);
 
 /**
@@ -978,7 +978,7 @@ CMChoose(ConnHandle *hConn, Point where, ConnectionChooseIdleUPP idle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMEvent(ConnHandle hConn, const EventRecord *theEvent);
 
 /**
@@ -989,7 +989,7 @@ CMEvent(ConnHandle hConn, const EventRecord *theEvent);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMGetToolName(short procID, Str255 name);
 
 /**
@@ -1000,7 +1000,7 @@ CMGetToolName(short procID, Str255 name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 CMGetProcID(ConstStr255Param name);
 
 /**
@@ -1011,7 +1011,7 @@ CMGetProcID(ConstStr255Param name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMSetRefCon(ConnHandle hConn, long refCon);
 
 /**
@@ -1022,7 +1022,7 @@ CMSetRefCon(ConnHandle hConn, long refCon);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 CMGetRefCon(ConnHandle hConn);
 
 /**
@@ -1033,7 +1033,7 @@ CMGetRefCon(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 CMGetUserData(ConnHandle hConn);
 
 /**
@@ -1044,7 +1044,7 @@ CMGetUserData(ConnHandle hConn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMSetUserData(ConnHandle hConn, long userData);
 
 /**
@@ -1055,7 +1055,7 @@ CMSetUserData(ConnHandle hConn, long userData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 CMGetErrorString(ConnHandle hConn, short id, Str255 errMsg);
 
 /**
@@ -1066,7 +1066,7 @@ CMGetErrorString(ConnHandle hConn, short id, Str255 errMsg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMNewIOPB(ConnHandle hConn, CMIOPBPtr *theIOPB);
 
 /**
@@ -1077,7 +1077,7 @@ CMNewIOPB(ConnHandle hConn, CMIOPBPtr *theIOPB);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMDisposeIOPB(ConnHandle hConn, CMIOPBPtr theIOPB);
 
 /**
@@ -1088,7 +1088,7 @@ CMDisposeIOPB(ConnHandle hConn, CMIOPBPtr theIOPB);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMPBRead(ConnHandle hConn, CMIOPBPtr theIOPB, Boolean async);
 
 /**
@@ -1099,7 +1099,7 @@ CMPBRead(ConnHandle hConn, CMIOPBPtr theIOPB, Boolean async);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMPBWrite(ConnHandle hConn, CMIOPBPtr theIOPB, Boolean async);
 
 /**
@@ -1110,7 +1110,7 @@ CMPBWrite(ConnHandle hConn, CMIOPBPtr theIOPB, Boolean async);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CMErr)
+CMErr
 CMPBIOKill(ConnHandle hConn, CMIOPBPtr theIOPB);
 
 #endif /* CALL_NOT_IN_CARBON */

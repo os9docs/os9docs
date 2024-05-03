@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,87 +48,95 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/** Definitions for the PCI Config Registers*/
-enum {
-  kPCIConfigVendorID = 0x00,
-  kPCIConfigDeviceID = 0x02,
-  kPCIConfigCommand = 0x04,
-  kPCIConfigStatus = 0x06,
-  kPCIConfigRevisionID = 0x08,
-  kPCIConfigClassCode = 0x09,
-  kPCIConfigCacheLineSize = 0x0C,
-  kPCIConfigLatencyTimer = 0x0D,
-  kPCIConfigHeaderType = 0x0E,
-  kPCIConfigBIST = 0x0F,
-  kPCIConfigBaseAddress0 = 0x10,
-  kPCIConfigBaseAddress1 = 0x14,
-  kPCIConfigBaseAddress2 = 0x18,
-  kPCIConfigBaseAddress3 = 0x1C,
-  kPCIConfigBaseAddress4 = 0x20,
-  kPCIConfigBaseAddress5 = 0x24,
-  kPCIConfigCardBusCISPtr = 0x28,
-  kPCIConfigSubSystemVendorID = 0x2C,
-  kPCIConfigSubSystemID = 0x2E,
-  kPCIConfigExpansionROMBase = 0x30,
-  kPCIConfigCapabilitiesPtr = 0x34,
-  kPCIConfigInterruptLine = 0x3C,
-  kPCIConfigInterruptPin = 0x3D,
-  kPCIConfigMinimumGrant = 0x3E,
-  kPCIConfigMaximumLatency = 0x3F
-};
+  /** Definitions for the PCI Config Registers*/
+  enum
+  {
+    kPCIConfigVendorID = 0x00,
+    kPCIConfigDeviceID = 0x02,
+    kPCIConfigCommand = 0x04,
+    kPCIConfigStatus = 0x06,
+    kPCIConfigRevisionID = 0x08,
+    kPCIConfigClassCode = 0x09,
+    kPCIConfigCacheLineSize = 0x0C,
+    kPCIConfigLatencyTimer = 0x0D,
+    kPCIConfigHeaderType = 0x0E,
+    kPCIConfigBIST = 0x0F,
+    kPCIConfigBaseAddress0 = 0x10,
+    kPCIConfigBaseAddress1 = 0x14,
+    kPCIConfigBaseAddress2 = 0x18,
+    kPCIConfigBaseAddress3 = 0x1C,
+    kPCIConfigBaseAddress4 = 0x20,
+    kPCIConfigBaseAddress5 = 0x24,
+    kPCIConfigCardBusCISPtr = 0x28,
+    kPCIConfigSubSystemVendorID = 0x2C,
+    kPCIConfigSubSystemID = 0x2E,
+    kPCIConfigExpansionROMBase = 0x30,
+    kPCIConfigCapabilitiesPtr = 0x34,
+    kPCIConfigInterruptLine = 0x3C,
+    kPCIConfigInterruptPin = 0x3D,
+    kPCIConfigMinimumGrant = 0x3E,
+    kPCIConfigMaximumLatency = 0x3F
+  };
 
-/** Definitions for the Capabilities PCI Config Register*/
-enum {
-  kPCICapabilityIDOffset = 0x00,
-  kPCINextCapabilityOffset = 0x01,
-  kPCIPowerManagementCapability = 0x01,
-  kPCIAGPCapability = 0x02
-};
+  /** Definitions for the Capabilities PCI Config Register*/
+  enum
+  {
+    kPCICapabilityIDOffset = 0x00,
+    kPCINextCapabilityOffset = 0x01,
+    kPCIPowerManagementCapability = 0x01,
+    kPCIAGPCapability = 0x02
+  };
 
-/** Types and structures for accessing the PCI Assigned-Address property.*/
+  /** Types and structures for accessing the PCI Assigned-Address property.*/
 
 #define kPCIAssignedAddressProperty "assigned-addresses"
-enum {
-  kPCIRelocatableSpace = 0x80,
-  kPCIPrefetchableSpace = 0x40,
-  kPCIAliasedSpace = 0x20,
-  kPCIAddressTypeCodeMask = 0x03,
-  kPCIConfigSpace = 0,
-  kPCIIOSpace = 1,
-  kPCI32BitMemorySpace = 2,
-  kPCI64BitMemorySpace = 3
-};
+  enum
+  {
+    kPCIRelocatableSpace = 0x80,
+    kPCIPrefetchableSpace = 0x40,
+    kPCIAliasedSpace = 0x20,
+    kPCIAddressTypeCodeMask = 0x03,
+    kPCIConfigSpace = 0,
+    kPCIIOSpace = 1,
+    kPCI32BitMemorySpace = 2,
+    kPCI64BitMemorySpace = 3
+  };
 
-typedef UInt8 PCIAddressSpaceFlags;
-enum { kPCIDeviceNumberMask = 0x1F, kPCIFunctionNumberMask = 0x07 };
+  typedef UInt8 PCIAddressSpaceFlags;
+  enum
+  {
+    kPCIDeviceNumberMask = 0x1F,
+    kPCIFunctionNumberMask = 0x07
+  };
 
-typedef UInt8 PCIDeviceFunction;
-typedef UInt8 PCIBusNumber;
-typedef UInt8 PCIRegisterNumber;
-struct PCIAssignedAddress {
-  PCIAddressSpaceFlags addressSpaceFlags;
-  PCIBusNumber busNumber;
-  PCIDeviceFunction deviceFunctionNumber;
-  PCIRegisterNumber registerNumber;
-  UnsignedWide address;
-  UnsignedWide size;
-};
-typedef struct PCIAssignedAddress PCIAssignedAddress;
-typedef PCIAssignedAddress *PCIAssignedAddressPtr;
-#define GetPCIIsRelocatable(AssignedAddressPtr)                                \
+  typedef UInt8 PCIDeviceFunction;
+  typedef UInt8 PCIBusNumber;
+  typedef UInt8 PCIRegisterNumber;
+  struct PCIAssignedAddress
+  {
+    PCIAddressSpaceFlags addressSpaceFlags;
+    PCIBusNumber busNumber;
+    PCIDeviceFunction deviceFunctionNumber;
+    PCIRegisterNumber registerNumber;
+    UnsignedWide address;
+    UnsignedWide size;
+  };
+  typedef struct PCIAssignedAddress PCIAssignedAddress;
+  typedef PCIAssignedAddress *PCIAssignedAddressPtr;
+#define GetPCIIsRelocatable(AssignedAddressPtr) \
   ((AssignedAddressPtr)->addressSpaceFlags & kPCIRelocatableSpace)
-#define GetPCIIsPrefetchable(AssignedAddressPtr)                               \
+#define GetPCIIsPrefetchable(AssignedAddressPtr) \
   ((AssignedAddressPtr)->addressSpaceFlags & kPCIPrefetchableSpace)
-#define GetPCIIsAliased(AssignedAddressPtr)                                    \
+#define GetPCIIsAliased(AssignedAddressPtr) \
   ((AssignedAddressPtr)->addressSpaceFlags & kPCIAliasedSpace)
-#define GetPCIAddressSpaceType(AssignedAddressPtr)                             \
+#define GetPCIAddressSpaceType(AssignedAddressPtr) \
   ((AssignedAddressPtr)->addressSpaceFlags & kPCIAddressTypeCodeMask)
 #define GetPCIBusNumber(AssignedAddressPtr) ((AssignedAddressPtr)->busNumber)
-#define GetPCIDeviceNumber(AssignedAddressPtr)                                 \
+#define GetPCIDeviceNumber(AssignedAddressPtr) \
   (((AssignedAddressPtr)->deviceFunctionNumber >> 3) & kPCIDeviceNumberMask)
-#define GetPCIFunctionNumber(AssignedAddressPtr)                               \
+#define GetPCIFunctionNumber(AssignedAddressPtr) \
   ((AssignedAddressPtr)->deviceFunctionNumber & kPCIFunctionNumberMask)
-#define GetPCIRegisterNumber(AssignedAddressPtr)                               \
+#define GetPCIRegisterNumber(AssignedAddressPtr) \
   ((AssignedAddressPtr)->registerNumber)
 
 #if CALL_NOT_IN_CARBON
@@ -142,8 +151,8 @@ typedef PCIAssignedAddress *PCIAssignedAddressPtr;
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 EndianSwap16Bit(__D0)
 #endif
-EXTERN_API(UInt16)
-EndianSwap16Bit(UInt16 data16) ONEWORDINLINE(0xE158);
+  UInt16
+  EndianSwap16Bit(UInt16 data16);
 
 /**
  *  EndianSwap32Bit()
@@ -156,215 +165,204 @@ EndianSwap16Bit(UInt16 data16) ONEWORDINLINE(0xE158);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 EndianSwap32Bit(__D0)
 #endif
-EXTERN_API(UInt32)
-EndianSwap32Bit(UInt32 data32) THREEWORDINLINE(0xE158, 0x4840, 0xE158);
+  UInt32
+  EndianSwap32Bit(UInt32 data32);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  ExpMgrConfigReadByte()
- *
+  /**
+   *  ExpMgrConfigReadByte()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrConfigReadByte(RegEntryIDPtr node, LogicalAddress configAddr,
-                     UInt8 *valuePtr) THREEWORDINLINE(0x303C, 0x0620, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrConfigReadByte(RegEntryIDPtr node, LogicalAddress configAddr,
+                       UInt8 *valuePtr);
 
-/**
- *  ExpMgrConfigReadWord()
- *
+  /**
+   *  ExpMgrConfigReadWord()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrConfigReadWord(RegEntryIDPtr node, LogicalAddress configAddr,
-                     UInt16 *valuePtr) THREEWORDINLINE(0x303C, 0x0621, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrConfigReadWord(RegEntryIDPtr node, LogicalAddress configAddr,
+                       UInt16 *valuePtr);
 
-/**
- *  ExpMgrConfigReadLong()
- *
+  /**
+   *  ExpMgrConfigReadLong()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrConfigReadLong(RegEntryIDPtr node, LogicalAddress configAddr,
-                     UInt32 *valuePtr) THREEWORDINLINE(0x303C, 0x0622, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrConfigReadLong(RegEntryIDPtr node, LogicalAddress configAddr,
+                       UInt32 *valuePtr);
 
-/**
- *  ExpMgrConfigWriteByte()
- *
+  /**
+   *  ExpMgrConfigWriteByte()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrConfigWriteByte(RegEntryIDPtr node, LogicalAddress configAddr,
-                      UInt8 value) THREEWORDINLINE(0x303C, 0x0523, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrConfigWriteByte(RegEntryIDPtr node, LogicalAddress configAddr,
+                        UInt8 value);
 
-/**
- *  ExpMgrConfigWriteWord()
- *
+  /**
+   *  ExpMgrConfigWriteWord()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrConfigWriteWord(RegEntryIDPtr node, LogicalAddress configAddr,
-                      UInt16 value) THREEWORDINLINE(0x303C, 0x0524, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrConfigWriteWord(RegEntryIDPtr node, LogicalAddress configAddr,
+                        UInt16 value);
 
-/**
- *  ExpMgrConfigWriteLong()
- *
+  /**
+   *  ExpMgrConfigWriteLong()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrConfigWriteLong(RegEntryIDPtr node, LogicalAddress configAddr,
-                      UInt32 value) THREEWORDINLINE(0x303C, 0x0625, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrConfigWriteLong(RegEntryIDPtr node, LogicalAddress configAddr,
+                        UInt32 value);
 
-/**
- *  ExpMgrIOReadByte()
- *
+  /**
+   *  ExpMgrIOReadByte()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrIOReadByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 *valuePtr)
-    THREEWORDINLINE(0x303C, 0x0626, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrIOReadByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 *valuePtr);
 
-/**
- *  ExpMgrIOReadWord()
- *
+  /**
+   *  ExpMgrIOReadWord()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrIOReadWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 *valuePtr)
-    THREEWORDINLINE(0x303C, 0x0627, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrIOReadWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 *valuePtr);
 
-/**
- *  ExpMgrIOReadLong()
- *
+  /**
+   *  ExpMgrIOReadLong()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrIOReadLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 *valuePtr)
-    THREEWORDINLINE(0x303C, 0x0628, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrIOReadLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 *valuePtr);
 
-/**
- *  ExpMgrIOWriteByte()
- *
+  /**
+   *  ExpMgrIOWriteByte()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrIOWriteByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 value)
-    THREEWORDINLINE(0x303C, 0x0529, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrIOWriteByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 value);
 
-/**
- *  ExpMgrIOWriteWord()
- *
+  /**
+   *  ExpMgrIOWriteWord()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrIOWriteWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 value)
-    THREEWORDINLINE(0x303C, 0x052A, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrIOWriteWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 value);
 
-/**
- *  ExpMgrIOWriteLong()
- *
+  /**
+   *  ExpMgrIOWriteLong()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrIOWriteLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 value)
-    THREEWORDINLINE(0x303C, 0x062B, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrIOWriteLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 value);
 
-/**
- *  ExpMgrInterruptAcknowledgeReadByte()
- *
+  /**
+   *  ExpMgrInterruptAcknowledgeReadByte()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrInterruptAcknowledgeReadByte(RegEntryIDPtr entry, UInt8 *valuePtr)
-    THREEWORDINLINE(0x303C, 0x0411, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrInterruptAcknowledgeReadByte(RegEntryIDPtr entry, UInt8 *valuePtr);
 
-/**
- *  ExpMgrInterruptAcknowledgeReadWord()
- *
+  /**
+   *  ExpMgrInterruptAcknowledgeReadWord()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrInterruptAcknowledgeReadWord(RegEntryIDPtr entry, UInt16 *valuePtr)
-    THREEWORDINLINE(0x303C, 0x0412, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrInterruptAcknowledgeReadWord(RegEntryIDPtr entry, UInt16 *valuePtr);
 
-/**
- *  ExpMgrInterruptAcknowledgeReadLong()
- *
+  /**
+   *  ExpMgrInterruptAcknowledgeReadLong()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrInterruptAcknowledgeReadLong(RegEntryIDPtr entry, UInt32 *valuePtr)
-    THREEWORDINLINE(0x303C, 0x0413, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrInterruptAcknowledgeReadLong(RegEntryIDPtr entry, UInt32 *valuePtr);
 
-/**
- *  ExpMgrSpecialCycleWriteLong()
- *
+  /**
+   *  ExpMgrSpecialCycleWriteLong()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrSpecialCycleWriteLong(RegEntryIDPtr entry, UInt32 value)
-    THREEWORDINLINE(0x303C, 0x0419, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrSpecialCycleWriteLong(RegEntryIDPtr entry, UInt32 value);
 
-/**
- *  ExpMgrSpecialCycleBroadcastLong()
- *
+  /**
+   *  ExpMgrSpecialCycleBroadcastLong()
+   *
 
- *    \non_carbon_cfm   in PCILib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ExpMgrSpecialCycleBroadcastLong(UInt32 value)
-    THREEWORDINLINE(0x303C, 0x021A, 0xAAF3);
+   *    \non_carbon_cfm   in PCILib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ExpMgrSpecialCycleBroadcastLong(UInt32 value);
 
 #endif /** CALL_NOT_IN_CARBON */
 

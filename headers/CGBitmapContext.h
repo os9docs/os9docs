@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright � 2000-2001 by Apple Computer, Inc., all rights reserved.
-    
+
     \ingroup CoreGraphics
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -43,7 +43,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -58,18 +59,18 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/**
- *  CGBitmapContextCreate()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGContextRef)
-CGBitmapContextCreate(void *data, size_t width, size_t height,
-                      size_t bitsPerComponent, size_t bytesPerRow,
-                      CGColorSpaceRef colorspace, CGImageAlphaInfo alphaInfo);
+    /**
+     *  CGBitmapContextCreate()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         in version 10.0 and later
+     */
+    CGContextRef
+    CGBitmapContextCreate(void *data, size_t width, size_t height,
+                          size_t bitsPerComponent, size_t bytesPerRow,
+                          CGColorSpaceRef colorspace, CGImageAlphaInfo alphaInfo);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

@@ -35,7 +35,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -50,149 +51,170 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum { kQTSStreamMediaType = FOUR_CHAR_CODE('strm') };
+  enum
+  {
+    kQTSStreamMediaType = FOUR_CHAR_CODE('strm')
+  };
 
-struct QTSSampleDescription {
-  long descSize;
-  long dataFormat;
-  long resvd1;  /** set to 0*/
-  short resvd2; /** set to 0*/
-  short dataRefIndex;
-  UInt32 version;
-  UInt32 resvd3; /** set to 0*/
-  SInt32 flags;
-  /** qt atoms follow:*/
-  /**      long size, long type, some data*/
-  /**      repeat as necessary*/
-};
-typedef struct QTSSampleDescription QTSSampleDescription;
-typedef QTSSampleDescription *QTSSampleDescriptionPtr;
-typedef QTSSampleDescriptionPtr *QTSSampleDescriptionHandle;
-enum { kQTSSampleDescriptionVersion1 = 1L };
+  struct QTSSampleDescription
+  {
+    long descSize;
+    long dataFormat;
+    long resvd1;  /** set to 0*/
+    short resvd2; /** set to 0*/
+    short dataRefIndex;
+    UInt32 version;
+    UInt32 resvd3; /** set to 0*/
+    SInt32 flags;
+    /** qt atoms follow:*/
+    /**      long size, long type, some data*/
+    /**      repeat as necessary*/
+  };
+  typedef struct QTSSampleDescription QTSSampleDescription;
+  typedef QTSSampleDescription *QTSSampleDescriptionPtr;
+  typedef QTSSampleDescriptionPtr *QTSSampleDescriptionHandle;
+  enum
+  {
+    kQTSSampleDescriptionVersion1 = 1L
+  };
 
-enum { kQTSDefaultMediaTimeScale = 600L };
+  enum
+  {
+    kQTSDefaultMediaTimeScale = 600L
+  };
 
-/** sample description flags*/
-enum { kQTSSampleDescPassSampleDataAsHandleFlag = 0x00000001 };
+  /** sample description flags*/
+  enum
+  {
+    kQTSSampleDescPassSampleDataAsHandleFlag = 0x00000001
+  };
 
-/**============================================================================
-        Stream Media Handler
-============================================================================*/
-/**-----------------------------------------
-    Info Selectors
------------------------------------------*/
-/** all indexes start at 1 */
+  /**============================================================================
+          Stream Media Handler
+  ============================================================================*/
+  /**-----------------------------------------
+      Info Selectors
+  -----------------------------------------*/
+  /** all indexes start at 1 */
 
-enum {
-  kQTSMediaPresentationInfo =
-      FOUR_CHAR_CODE('pres'), /** QTSMediaPresentationParams* */
-  kQTSMediaNotificationInfo =
-      FOUR_CHAR_CODE('noti'), /** QTSMediaNotificationParams* */
-  kQTSMediaTotalDataRateInfo = FOUR_CHAR_CODE('dtrt'), /** UInt32*, bits/sec */
-  kQTSMediaLostPercentInfo = FOUR_CHAR_CODE('lspc'),   /** Fixed* */
-  kQTSMediaNumStreamsInfo = FOUR_CHAR_CODE('nstr'),    /** UInt32* */
-  kQTSMediaIndSampleDescriptionInfo =
-      FOUR_CHAR_CODE('isdc') /** QTSMediaIndSampleDescriptionParams* */
-};
+  enum
+  {
+    kQTSMediaPresentationInfo =
+        FOUR_CHAR_CODE('pres'), /** QTSMediaPresentationParams* */
+    kQTSMediaNotificationInfo =
+        FOUR_CHAR_CODE('noti'),                          /** QTSMediaNotificationParams* */
+    kQTSMediaTotalDataRateInfo = FOUR_CHAR_CODE('dtrt'), /** UInt32*, bits/sec */
+    kQTSMediaLostPercentInfo = FOUR_CHAR_CODE('lspc'),   /** Fixed* */
+    kQTSMediaNumStreamsInfo = FOUR_CHAR_CODE('nstr'),    /** UInt32* */
+    kQTSMediaIndSampleDescriptionInfo =
+        FOUR_CHAR_CODE('isdc') /** QTSMediaIndSampleDescriptionParams* */
+  };
 
-struct QTSMediaPresentationParams {
-  QTSPresentation presentationID;
-};
-typedef struct QTSMediaPresentationParams QTSMediaPresentationParams;
-struct QTSMediaNotificationParams {
-  QTSNotificationUPP notificationProc;
-  void *notificationRefCon;
-  SInt32 flags;
-};
-typedef struct QTSMediaNotificationParams QTSMediaNotificationParams;
-struct QTSMediaIndSampleDescriptionParams {
-  SInt32 index;
-  OSType returnedMediaType;
-  SampleDescriptionHandle returnedSampleDescription;
-};
-typedef struct QTSMediaIndSampleDescriptionParams
-    QTSMediaIndSampleDescriptionParams;
-/**-----------------------------------------
-    QTS Media Handler Selectors
------------------------------------------*/
-enum {
-  kQTSMediaSetInfoSelect = 0x0100,
-  kQTSMediaGetInfoSelect = 0x0101,
-  kQTSMediaSetIndStreamInfoSelect = 0x0102,
-  kQTSMediaGetIndStreamInfoSelect = 0x0103
-};
+  struct QTSMediaPresentationParams
+  {
+    QTSPresentation presentationID;
+  };
+  typedef struct QTSMediaPresentationParams QTSMediaPresentationParams;
+  struct QTSMediaNotificationParams
+  {
+    QTSNotificationUPP notificationProc;
+    void *notificationRefCon;
+    SInt32 flags;
+  };
+  typedef struct QTSMediaNotificationParams QTSMediaNotificationParams;
+  struct QTSMediaIndSampleDescriptionParams
+  {
+    SInt32 index;
+    OSType returnedMediaType;
+    SampleDescriptionHandle returnedSampleDescription;
+  };
+  typedef struct QTSMediaIndSampleDescriptionParams
+      QTSMediaIndSampleDescriptionParams;
+  /**-----------------------------------------
+      QTS Media Handler Selectors
+  -----------------------------------------*/
+  enum
+  {
+    kQTSMediaSetInfoSelect = 0x0100,
+    kQTSMediaGetInfoSelect = 0x0101,
+    kQTSMediaSetIndStreamInfoSelect = 0x0102,
+    kQTSMediaGetIndStreamInfoSelect = 0x0103
+  };
 
-/**-----------------------------------------
-    QTS Media Handler functions
------------------------------------------*/
-/**
- *  QTSMediaSetInfo()
- *
+  /**-----------------------------------------
+      QTS Media Handler functions
+  -----------------------------------------*/
+  /**
+   *  QTSMediaSetInfo()
+   *
 
- *    \non_carbon_cfm   in QTStreamLib 4.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 4.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSMediaSetInfo(MediaHandler mh, OSType inSelector, void *ioParams)
-    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0100, 0x7000, 0xA82A);
+   *    \non_carbon_cfm   in QTStreamLib 4.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   *    Windows:          in QTSClient.lib 4.0 and later
+   */
+  ComponentResult
+  QTSMediaSetInfo(MediaHandler mh, OSType inSelector, void *ioParams);
 
-/**
- *  QTSMediaGetInfo()
- *
+  /**
+   *  QTSMediaGetInfo()
+   *
 
- *    \non_carbon_cfm   in QTStreamLib 4.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 4.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSMediaGetInfo(MediaHandler mh, OSType inSelector, void *ioParams)
-    FIVEWORDINLINE(0x2F3C, 0x0008, 0x0101, 0x7000, 0xA82A);
+   *    \non_carbon_cfm   in QTStreamLib 4.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   *    Windows:          in QTSClient.lib 4.0 and later
+   */
+  ComponentResult
+  QTSMediaGetInfo(MediaHandler mh, OSType inSelector, void *ioParams);
 
-/**
- *  QTSMediaSetIndStreamInfo()
- *
+  /**
+   *  QTSMediaSetIndStreamInfo()
+   *
 
- *    \non_carbon_cfm   in QTStreamLib 4.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 4.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSMediaSetIndStreamInfo(MediaHandler mh, SInt32 inIndex, OSType inSelector,
-                         void *ioParams)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0102, 0x7000, 0xA82A);
+   *    \non_carbon_cfm   in QTStreamLib 4.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   *    Windows:          in QTSClient.lib 4.0 and later
+   */
+  ComponentResult
+  QTSMediaSetIndStreamInfo(MediaHandler mh, SInt32 inIndex, OSType inSelector,
+                           void *ioParams);
 
-/**
- *  QTSMediaGetIndStreamInfo()
- *
+  /**
+   *  QTSMediaGetIndStreamInfo()
+   *
 
- *    \non_carbon_cfm   in QTStreamLib 4.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- *    Windows:          in QTSClient.lib 4.0 and later
- */
-EXTERN_API(ComponentResult)
-QTSMediaGetIndStreamInfo(MediaHandler mh, SInt32 inIndex, OSType inSelector,
-                         void *ioParams)
-    FIVEWORDINLINE(0x2F3C, 0x000C, 0x0103, 0x7000, 0xA82A);
+   *    \non_carbon_cfm   in QTStreamLib 4.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   *    Windows:          in QTSClient.lib 4.0 and later
+   */
+  ComponentResult
+  QTSMediaGetIndStreamInfo(MediaHandler mh, SInt32 inIndex, OSType inSelector,
+                           void *ioParams);
 
-/**============================================================================
-        Hint Media Handler
-============================================================================*/
-enum { kQTSHintMediaType = FOUR_CHAR_CODE('hint') };
+  /**============================================================================
+          Hint Media Handler
+  ============================================================================*/
+  enum
+  {
+    kQTSHintMediaType = FOUR_CHAR_CODE('hint')
+  };
 
-enum { kQTSHintTrackReference = FOUR_CHAR_CODE('hint') };
+  enum
+  {
+    kQTSHintTrackReference = FOUR_CHAR_CODE('hint')
+  };
 
-/** MixedMode ProcInfo constants for component calls */
-enum {
-  uppQTSMediaSetInfoProcInfo = 0x00000FF0,
-  uppQTSMediaGetInfoProcInfo = 0x00000FF0,
-  uppQTSMediaSetIndStreamInfoProcInfo = 0x00003FF0,
-  uppQTSMediaGetIndStreamInfoProcInfo = 0x00003FF0
-};
+  /** MixedMode ProcInfo constants for component calls */
+  enum
+  {
+    uppQTSMediaSetInfoProcInfo = 0x00000FF0,
+    uppQTSMediaGetInfoProcInfo = 0x00000FF0,
+    uppQTSMediaSetIndStreamInfoProcInfo = 0x00003FF0,
+    uppQTSMediaGetIndStreamInfoProcInfo = 0x00003FF0
+  };
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

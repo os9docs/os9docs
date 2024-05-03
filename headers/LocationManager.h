@@ -9,7 +9,7 @@
     \copyright © 1995-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup Managers
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -44,7 +44,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -59,76 +60,86 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* Location Manager API Support
- * -------------------------------------------------------------------- */
-/* A Location Token uniquely identifies a Location on a machine... */
+  /* Location Manager API Support
+   * -------------------------------------------------------------------- */
+  /* A Location Token uniquely identifies a Location on a machine... */
 
-typedef struct OpaqueALMToken *ALMToken;
+  typedef struct OpaqueALMToken *ALMToken;
 /* ALMToken of "off" Location...*/
 #define kALMNoLocationToken ((ALMToken)(-1))
-enum {
-  kALMLocationNameMaxLen = 31, /* name (actually imposed by file system)... */
-  kALMNoLocationIndex =
-      -1 /* index for the "off" Location (kALMNoLocationToken)... */
-};
+  enum
+  {
+    kALMLocationNameMaxLen = 31, /* name (actually imposed by file system)... */
+    kALMNoLocationIndex =
+        -1 /* index for the "off" Location (kALMNoLocationToken)... */
+  };
 
-typedef Str31 ALMLocationName;
-/* Returned from ALMConfirmName... */
-typedef SInt16 ALMConfirmChoice;
-enum { kALMConfirmRename = 1, kALMConfirmReplace = 2 };
+  typedef Str31 ALMLocationName;
+  /* Returned from ALMConfirmName... */
+  typedef SInt16 ALMConfirmChoice;
+  enum
+  {
+    kALMConfirmRename = 1,
+    kALMConfirmReplace = 2
+  };
 
-/* ALMConfirmName dialog item numbers for use in callbacks (ALM 2.0)... */
+  /* ALMConfirmName dialog item numbers for use in callbacks (ALM 2.0)... */
 
-enum {
-  kALMDuplicateRenameButton =
-      1, /* if Window refcon is kALMDuplicateDialogRefCon... */
-  kALMDuplicateReplaceButton = 2,
-  kALMDuplicateCancelButton = 3,
-  kALMDuplicatePromptText = 5
-};
+  enum
+  {
+    kALMDuplicateRenameButton =
+        1, /* if Window refcon is kALMDuplicateDialogRefCon... */
+    kALMDuplicateReplaceButton = 2,
+    kALMDuplicateCancelButton = 3,
+    kALMDuplicatePromptText = 5
+  };
 
-enum {
-  kALMRenameRenameButton =
-      1, /* if Window refcon is kALMRenameDialogRefCon... */
-  kALMRenameCancelButton = 2,
-  kALMRenameEditText = 3,
-  kALMRenamePromptText = 4
-};
+  enum
+  {
+    kALMRenameRenameButton =
+        1, /* if Window refcon is kALMRenameDialogRefCon... */
+    kALMRenameCancelButton = 2,
+    kALMRenameEditText = 3,
+    kALMRenamePromptText = 4
+  };
 
-/* Refcons of two windows in ALMConfirmName (ALM 2.0)... */
+  /* Refcons of two windows in ALMConfirmName (ALM 2.0)... */
 
-enum {
-  kALMDuplicateDialogRefCon = FOUR_CHAR_CODE('dupl'),
-  kALMRenameDialogRefCon = FOUR_CHAR_CODE('rnam')
-};
+  enum
+  {
+    kALMDuplicateDialogRefCon = FOUR_CHAR_CODE('dupl'),
+    kALMRenameDialogRefCon = FOUR_CHAR_CODE('rnam')
+  };
 
-/* Callback routine for Location awareness (mimics AppleEvents) in
- * non-application code... */
+  /* Callback routine for Location awareness (mimics AppleEvents) in
+   * non-application code... */
 
-typedef CALLBACK_API(void, ALMNotificationProcPtr)(AppleEvent *theEvent);
-typedef STACK_UPP_TYPE(ALMNotificationProcPtr) ALMNotificationUPP;
+  typedef CALLBACK_API(void, ALMNotificationProcPtr)(AppleEvent *theEvent);
+  typedef STACK_UPP_TYPE(ALMNotificationProcPtr) ALMNotificationUPP;
 #if CALL_NOT_IN_CARBON
-/**
- *  NewALMNotificationUPP()
- *
+  /**
+   *  NewALMNotificationUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(ALMNotificationUPP)
-NewALMNotificationUPP(ALMNotificationProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  ALMNotificationUPP
+  NewALMNotificationUPP(ALMNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppALMNotificationProcInfo = 0x000000C0
-}; /* pascal no_return_value Func(4_bytes) */
+  enum
+  {
+    uppALMNotificationProcInfo = 0x000000C0
+  }; /* pascal no_return_value Func(4_bytes) */
 #ifdef __cplusplus
-inline ALMNotificationUPP
-NewALMNotificationUPP(ALMNotificationProcPtr userRoutine) {
-  return (ALMNotificationUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                  uppALMNotificationProcInfo,
-                                                  GetCurrentArchitecture());
-}
+  inline ALMNotificationUPP
+  NewALMNotificationUPP(ALMNotificationProcPtr userRoutine)
+  {
+    return (ALMNotificationUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                    uppALMNotificationProcInfo,
+                                                    GetCurrentArchitecture());
+  }
 #else
 #define NewALMNotificationUPP(userRoutine)                                     \
   (ALMNotificationUPP)                                                         \
@@ -137,44 +148,46 @@ NewALMNotificationUPP(ALMNotificationProcPtr userRoutine) {
 #endif
 #endif
 
-/**
- *  DisposeALMNotificationUPP()
- *
+  /**
+   *  DisposeALMNotificationUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeALMNotificationUPP(ALMNotificationUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeALMNotificationUPP(ALMNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeALMNotificationUPP(ALMNotificationUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeALMNotificationUPP(ALMNotificationUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeALMNotificationUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeALMNotificationUPP()
- *
+  /**
+   *  InvokeALMNotificationUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-InvokeALMNotificationUPP(AppleEvent *theEvent, ALMNotificationUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  InvokeALMNotificationUPP(AppleEvent *theEvent, ALMNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeALMNotificationUPP(AppleEvent *theEvent,
-                                     ALMNotificationUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppALMNotificationProcInfo, theEvent);
-}
+  inline void InvokeALMNotificationUPP(AppleEvent *theEvent,
+                                       ALMNotificationUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppALMNotificationProcInfo, theEvent);
+  }
 #else
-#define InvokeALMNotificationUPP(theEvent, userUPP)                            \
+#define InvokeALMNotificationUPP(theEvent, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppALMNotificationProcInfo, (theEvent))
 #endif
 #endif
@@ -184,310 +197,323 @@ inline void InvokeALMNotificationUPP(AppleEvent *theEvent,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewALMNotificationProc(userRoutine) NewALMNotificationUPP(userRoutine)
-#define CallALMNotificationProc(userRoutine, theEvent)                         \
+#define CallALMNotificationProc(userRoutine, theEvent) \
   InvokeALMNotificationUPP(theEvent, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/* Notification AppleEvents sent to apps/registered code...  */
-enum {
-  kAELocationChangedNoticeKey =
-      FOUR_CHAR_CODE('walk'), /* Current Location changed... */
-  kAELocationRescanNoticeKey =
-      FOUR_CHAR_CODE('trip') /* Location created/renamed/deleted... */
-};
+  /* Notification AppleEvents sent to apps/registered code...  */
+  enum
+  {
+    kAELocationChangedNoticeKey =
+        FOUR_CHAR_CODE('walk'), /* Current Location changed... */
+    kAELocationRescanNoticeKey =
+        FOUR_CHAR_CODE('trip') /* Location created/renamed/deleted... */
+  };
 
-/* ALMSwitchToLocation masks... */
-typedef SInt32 ALMSwitchActionFlags;
-enum {
-  kALMDefaultSwitchFlags = 0x00000000,   /* No special action to take... */
-  kALMDontShowStatusWindow = 0x00000001, /* Suppress "switching" window... */
-  kALMSignalViaAE = 0x00000002 /* Switch by sending Finder AppleEvent... */
-};
+  /* ALMSwitchToLocation masks... */
+  typedef SInt32 ALMSwitchActionFlags;
+  enum
+  {
+    kALMDefaultSwitchFlags = 0x00000000,   /* No special action to take... */
+    kALMDontShowStatusWindow = 0x00000001, /* Suppress "switching" window... */
+    kALMSignalViaAE = 0x00000002           /* Switch by sending Finder AppleEvent... */
+  };
 
-/* Parameters for Get/Put/Merge Location calls... */
+  /* Parameters for Get/Put/Merge Location calls... */
 
-typedef const OSType *ConstALMModuleTypeListPtr;
-enum {
-  kALMAddAllOnSimple = 0, /* Add all single-instance, non-action modules... */
-  kALMAddAllOff = -1      /* Add all modules but turn them off... */
-};
+  typedef const OSType *ConstALMModuleTypeListPtr;
+  enum
+  {
+    kALMAddAllOnSimple = 0, /* Add all single-instance, non-action modules... */
+    kALMAddAllOff = -1      /* Add all modules but turn them off... */
+  };
 
-/* Item numbers for use in Get/Put/Merge Location filters... */
+  /* Item numbers for use in Get/Put/Merge Location filters... */
 
-enum {
-  kALMLocationSelectButton = 1,
-  kALMLocationCancelButton = 2,
-  kALMLocationBalloonHelp = 3,
-  kALMLocationLocationList = 7,
-  kALMLocationLocationNameEdit = 10,
-  kALMLocationPromptText = 11
-};
+  enum
+  {
+    kALMLocationSelectButton = 1,
+    kALMLocationCancelButton = 2,
+    kALMLocationBalloonHelp = 3,
+    kALMLocationLocationList = 7,
+    kALMLocationLocationNameEdit = 10,
+    kALMLocationPromptText = 11
+  };
 
-enum { kALMLocationSaveButton = kALMLocationSelectButton };
+  enum
+  {
+    kALMLocationSaveButton = kALMLocationSelectButton
+  };
 
-/* Location Manager Module API Support
- * ------------------------------------------------------------- */
+  /* Location Manager Module API Support
+   * ------------------------------------------------------------- */
 
-/* ALMGetScriptInfo stuff... */
+  /* ALMGetScriptInfo stuff... */
 
-enum {
-  kALMScriptInfoVersion =
-      2 /* Customarily put in resource for localization... */
-};
+  enum
+  {
+    kALMScriptInfoVersion =
+        2 /* Customarily put in resource for localization... */
+  };
 
-struct ALMScriptManagerInfo {
-  SInt16 version; /* Set to kALMScriptInfoVersion... */
-  SInt16 scriptCode;
-  SInt16 regionCode;
-  SInt16 langCode;
-  SInt16 fontNum;
-  SInt16 fontSize;
-};
-typedef struct ALMScriptManagerInfo ALMScriptManagerInfo;
-typedef ALMScriptManagerInfo *ALMScriptManagerInfoPtr;
-/**
-   Alternate form of ScriptInfo is easier to localize in resources; it is used
-   extensively in samples and internally, so....
-*/
-struct ALMAltScriptManagerInfo {
-  SInt16 version;
-  SInt16 scriptCode;
-  SInt16 regionCode;
-  SInt16 langCode;
-  SInt16 fontSize;
-  Str63 fontName;
-};
-typedef struct ALMAltScriptManagerInfo ALMAltScriptManagerInfo;
-typedef ALMAltScriptManagerInfo *ALMAltScriptManagerInfoPtr;
-typedef ALMAltScriptManagerInfoPtr *ALMAltScriptManagerInfoHandle;
-enum {
-  kALMAltScriptManagerInfoRsrcType = FOUR_CHAR_CODE('trip'),
-  kALMAltScriptManagerInfoRsrcID = 0
-};
+  struct ALMScriptManagerInfo
+  {
+    SInt16 version; /* Set to kALMScriptInfoVersion... */
+    SInt16 scriptCode;
+    SInt16 regionCode;
+    SInt16 langCode;
+    SInt16 fontNum;
+    SInt16 fontSize;
+  };
+  typedef struct ALMScriptManagerInfo ALMScriptManagerInfo;
+  typedef ALMScriptManagerInfo *ALMScriptManagerInfoPtr;
+  /**
+     Alternate form of ScriptInfo is easier to localize in resources; it is used
+     extensively in samples and internally, so....
+  */
+  struct ALMAltScriptManagerInfo
+  {
+    SInt16 version;
+    SInt16 scriptCode;
+    SInt16 regionCode;
+    SInt16 langCode;
+    SInt16 fontSize;
+    Str63 fontName;
+  };
+  typedef struct ALMAltScriptManagerInfo ALMAltScriptManagerInfo;
+  typedef ALMAltScriptManagerInfo *ALMAltScriptManagerInfoPtr;
+  typedef ALMAltScriptManagerInfoPtr *ALMAltScriptManagerInfoHandle;
+  enum
+  {
+    kALMAltScriptManagerInfoRsrcType = FOUR_CHAR_CODE('trip'),
+    kALMAltScriptManagerInfoRsrcID = 0
+  };
 
-/* Reboot information used on ALMSetCurrent (input/output parameter)... */
-typedef UInt32 ALMRebootFlags;
-enum {
-  kALMNoChange = 0,
-  kALMAvailableNow = 1,
-  kALMFinderRestart = 2,
-  kALMProcesses = 3,
-  kALMExtensions = 4,
-  kALMWarmBoot = 5,
-  kALMColdBoot = 6,
-  kALMShutdown = 7
-};
+  /* Reboot information used on ALMSetCurrent (input/output parameter)... */
+  typedef UInt32 ALMRebootFlags;
+  enum
+  {
+    kALMNoChange = 0,
+    kALMAvailableNow = 1,
+    kALMFinderRestart = 2,
+    kALMProcesses = 3,
+    kALMExtensions = 4,
+    kALMWarmBoot = 5,
+    kALMColdBoot = 6,
+    kALMShutdown = 7
+  };
 
-/**
-   File types and signatures...
-   Note: auto-routing of modules will not be supported for 'thng' files...
-*/
+  /**
+     File types and signatures...
+     Note: auto-routing of modules will not be supported for 'thng' files...
+  */
 
-enum {
-  kALMFileCreator =
-      FOUR_CHAR_CODE('fall'), /* Creator of Location Manager files... */
-  kALMComponentModuleFileType = FOUR_CHAR_CODE(
-      'thng'), /* Type of a Component Manager Module file [v1.0]... */
-  kALMComponentStateModuleFileType =
-      FOUR_CHAR_CODE('almn'), /* Type of a CM 'state' Module file... */
-  kALMComponentActionModuleFileType =
-      FOUR_CHAR_CODE('almb'), /* Type of a CM 'action' Module file... */
-  kALMCFMStateModuleFileType =
-      FOUR_CHAR_CODE('almm'), /* Type of a CFM 'state' Module file... */
-  kALMCFMActionModuleFileType =
-      FOUR_CHAR_CODE('alma') /* Type of a CFM 'action' Module file... */
-};
+  enum
+  {
+    kALMFileCreator =
+        FOUR_CHAR_CODE('fall'), /* Creator of Location Manager files... */
+    kALMComponentModuleFileType = FOUR_CHAR_CODE(
+        'thng'), /* Type of a Component Manager Module file [v1.0]... */
+    kALMComponentStateModuleFileType =
+        FOUR_CHAR_CODE('almn'), /* Type of a CM 'state' Module file... */
+    kALMComponentActionModuleFileType =
+        FOUR_CHAR_CODE('almb'), /* Type of a CM 'action' Module file... */
+    kALMCFMStateModuleFileType =
+        FOUR_CHAR_CODE('almm'), /* Type of a CFM 'state' Module file... */
+    kALMCFMActionModuleFileType =
+        FOUR_CHAR_CODE('alma') /* Type of a CFM 'action' Module file... */
+  };
 
-/* Component Manager 'thng' info... */
+  /* Component Manager 'thng' info... */
 
-enum {
-  kALMComponentRsrcType = FOUR_CHAR_CODE('thng'),
-  kALMComponentType = FOUR_CHAR_CODE('walk')
-};
+  enum
+  {
+    kALMComponentRsrcType = FOUR_CHAR_CODE('thng'),
+    kALMComponentType = FOUR_CHAR_CODE('walk')
+  };
 
-/* CFM Modules require a bit of information (replacing some of the 'thng'
- * resource)... */
+  /* CFM Modules require a bit of information (replacing some of the 'thng'
+   * resource)... */
 
-enum {
-  kALMModuleInfoRsrcType = FOUR_CHAR_CODE('walk'),
-  kALMModuleInfoOriginalVersion = 0
-};
+  enum
+  {
+    kALMModuleInfoRsrcType = FOUR_CHAR_CODE('walk'),
+    kALMModuleInfoOriginalVersion = 0
+  };
 
-/* These masks apply to the "Flags" field in the 'thng' or 'walk' resource... */
+  /* These masks apply to the "Flags" field in the 'thng' or 'walk' resource... */
 
-enum {
-  kALMMultiplePerLocation =
-      0x00000001, /* Module can be added more than once to a Location... */
-  kALMDescriptionGetsStale =
-      0x00000002 /* Descriptions may change though the setting didn't...  */
-};
+  enum
+  {
+    kALMMultiplePerLocation =
+        0x00000001, /* Module can be added more than once to a Location... */
+    kALMDescriptionGetsStale =
+        0x00000002 /* Descriptions may change though the setting didn't...  */
+  };
 
-/* Misc stuff for older implementations
- * ------------------------------------------------------------ */
+  /* Misc stuff for older implementations
+   * ------------------------------------------------------------ */
 
 #if OLDROUTINENAMES
-/* Old error codes for compatibility - new names are in Errors interface... */
-enum {
-  ALMInternalErr = -30049,            /* use kALMInternalErr */
-  ALMLocationNotFound = -30048,       /* use kALMLocationNotFoundErr */
-  ALMNoSuchModuleErr = -30047,        /* use kALMNoSuchModuleErr */
-  ALMModuleCommunicationErr = -30046, /* use kALMModuleCommunicationErr */
-  ALMDuplicateModuleErr = -30045,     /* use kALMDuplicateModuleErr */
-  ALMInstallationErr = -30044,        /* use kALMInstallationErr */
-  ALMDeferSwitchErr = -30043          /* use kALMDeferSwitchErr */
-};
+  /* Old error codes for compatibility - new names are in Errors interface... */
+  enum
+  {
+    ALMInternalErr = -30049,            /* use kALMInternalErr */
+    ALMLocationNotFound = -30048,       /* use kALMLocationNotFoundErr */
+    ALMNoSuchModuleErr = -30047,        /* use kALMNoSuchModuleErr */
+    ALMModuleCommunicationErr = -30046, /* use kALMModuleCommunicationErr */
+    ALMDuplicateModuleErr = -30045,     /* use kALMDuplicateModuleErr */
+    ALMInstallationErr = -30044,        /* use kALMInstallationErr */
+    ALMDeferSwitchErr = -30043          /* use kALMDeferSwitchErr */
+  };
 
-/* Old ALMConfirmName constants... */
+  /* Old ALMConfirmName constants... */
 
-enum {
-  ALMConfirmRenameConfig = kALMConfirmRename,
-  ALMConfirmReplaceConfig = kALMConfirmReplace
-};
+  enum
+  {
+    ALMConfirmRenameConfig = kALMConfirmRename,
+    ALMConfirmReplaceConfig = kALMConfirmReplace
+  };
 
-/* Old AppleEvents... */
+  /* Old AppleEvents... */
 
-enum { kAELocationNotice = kAELocationChangedNoticeKey };
+  enum
+  {
+    kAELocationNotice = kAELocationChangedNoticeKey
+  };
 
-typedef ALMScriptManagerInfo ALMScriptMgrInfo;
-typedef UInt32 ALMComponentFlagsEnum;
+  typedef ALMScriptManagerInfo ALMScriptMgrInfo;
+  typedef UInt32 ALMComponentFlagsEnum;
 #endif /* OLDROUTINENAMES */
 
-/* Location Manager API
- * ----------------------------------------------------------------------------
- */
+  /* Location Manager API
+   * ----------------------------------------------------------------------------
+   */
 
-/* The following 7 routines are present if gestaltALMAttr has bit
- * gestaltALMPresent set... */
+  /* The following 7 routines are present if gestaltALMAttr has bit
+   * gestaltALMPresent set... */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  ALMGetCurrentLocation()
- *
+  /**
+   *  ALMGetCurrentLocation()
+   *
 
- *    \non_carbon_cfm   in Walkabout 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMGetCurrentLocation(SInt16 *index, ALMToken *token, ALMLocationName name)
-    THREEWORDINLINE(0x303C, 0x0600, 0xAAA4);
+   *    \non_carbon_cfm   in Walkabout 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMGetCurrentLocation(SInt16 *index, ALMToken *token, ALMLocationName name);
 
-/**
- *  ALMGetIndLocation()
- *
+  /**
+   *  ALMGetIndLocation()
+   *
 
- *    \non_carbon_cfm   in Walkabout 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMGetIndLocation(SInt16 index, ALMToken *token, ALMLocationName name)
-    THREEWORDINLINE(0x303C, 0x0501, 0xAAA4);
+   *    \non_carbon_cfm   in Walkabout 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMGetIndLocation(SInt16 index, ALMToken *token, ALMLocationName name);
 
-/**
- *  ALMCountLocations()
- *
+  /**
+   *  ALMCountLocations()
+   *
 
- *    \non_carbon_cfm   in Walkabout 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMCountLocations(SInt16 *locationCount)
-    THREEWORDINLINE(0x303C, 0x0202, 0xAAA4);
+   *    \non_carbon_cfm   in Walkabout 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMCountLocations(SInt16 *locationCount);
 
-/**
- *  ALMSwitchToLocation()
- *
+  /**
+   *  ALMSwitchToLocation()
+   *
 
- *    \non_carbon_cfm   in Walkabout 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMSwitchToLocation(ALMToken newLocation, ALMSwitchActionFlags switchFlags)
-    THREEWORDINLINE(0x303C, 0x0403, 0xAAA4);
+   *    \non_carbon_cfm   in Walkabout 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMSwitchToLocation(ALMToken newLocation, ALMSwitchActionFlags switchFlags);
 
-/**
- *  ALMRegisterNotifyProc()
- *
+  /**
+   *  ALMRegisterNotifyProc()
+   *
 
- *    \non_carbon_cfm   in Walkabout 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMRegisterNotifyProc(ALMNotificationUPP notificationProc,
-                      const ProcessSerialNumber *whichPSN)
-    THREEWORDINLINE(0x303C, 0x0404, 0xAAA4);
+   *    \non_carbon_cfm   in Walkabout 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMRegisterNotifyProc(ALMNotificationUPP notificationProc,
+                        const ProcessSerialNumber *whichPSN);
 
-/**
- *  ALMRemoveNotifyProc()
- *
+  /**
+   *  ALMRemoveNotifyProc()
+   *
 
- *    \non_carbon_cfm   in Walkabout 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMRemoveNotifyProc(ALMNotificationUPP notificationProc,
-                    const ProcessSerialNumber *whichPSN)
-    THREEWORDINLINE(0x303C, 0x0405, 0xAAA4);
+   *    \non_carbon_cfm   in Walkabout 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMRemoveNotifyProc(ALMNotificationUPP notificationProc,
+                      const ProcessSerialNumber *whichPSN);
 
-/**
- *  ALMConfirmName()
- *
+  /**
+   *  ALMConfirmName()
+   *
 
- *    \non_carbon_cfm   in Walkabout 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMConfirmName(ConstStr255Param message, Str255 theName,
-               ALMConfirmChoice *choice, ModalFilterUPP filter)
-    THREEWORDINLINE(0x303C, 0x0806, 0xAAA4);
+   *    \non_carbon_cfm   in Walkabout 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMConfirmName(ConstStr255Param message, Str255 theName,
+                 ALMConfirmChoice *choice, ModalFilterUPP filter);
 
-/* The following 3 routines are present if gestaltALMAttr has bit
- * gestaltALMHasSFLocation set... */
+  /* The following 3 routines are present if gestaltALMAttr has bit
+   * gestaltALMHasSFLocation set... */
 
-/**
- *  ALMPutLocation()
- *
+  /**
+   *  ALMPutLocation()
+   *
 
- *    \non_carbon_cfm   in Walkabout 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMPutLocation(ConstStr255Param prompt, ALMLocationName name, SInt16 numTypes,
-               ConstALMModuleTypeListPtr typeList, ModalFilterYDUPP filter,
-               void *yourDataPtr) THREEWORDINLINE(0x303C, 0x0B07, 0xAAA4);
-
-/**
- *  ALMGetLocation()
- *
-
- *    \non_carbon_cfm   in Walkabout 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMGetLocation(ConstStr255Param prompt, ALMLocationName name,
-               ModalFilterYDUPP filter, void *yourDataPtr)
-    THREEWORDINLINE(0x303C, 0x0808, 0xAAA4);
-
-/**
- *  ALMMergeLocation()
- *
-
- *    \non_carbon_cfm   in Walkabout 2.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-ALMMergeLocation(ConstStr255Param prompt, ALMLocationName name, SInt16 numTypes,
+   *    \non_carbon_cfm   in Walkabout 2.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMPutLocation(ConstStr255Param prompt, ALMLocationName name, SInt16 numTypes,
                  ConstALMModuleTypeListPtr typeList, ModalFilterYDUPP filter,
-                 void *yourDataPtr) THREEWORDINLINE(0x303C, 0x0B09, 0xAAA4);
+                 void *yourDataPtr);
+
+  /**
+   *  ALMGetLocation()
+   *
+
+   *    \non_carbon_cfm   in Walkabout 2.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMGetLocation(ConstStr255Param prompt, ALMLocationName name,
+                 ModalFilterYDUPP filter, void *yourDataPtr);
+
+  /**
+   *  ALMMergeLocation()
+   *
+
+   *    \non_carbon_cfm   in Walkabout 2.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  ALMMergeLocation(ConstStr255Param prompt, ALMLocationName name, SInt16 numTypes,
+                   ConstALMModuleTypeListPtr typeList, ModalFilterYDUPP filter,
+                   void *yourDataPtr);
 
 #endif /* CALL_NOT_IN_CARBON */
 

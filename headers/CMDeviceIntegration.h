@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
-    
+
     \ingroup ColorSync
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -40,7 +40,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -56,83 +57,96 @@ extern "C" {
 #endif
 
 #if TARGET_API_MAC_OSX
-/**
-    The current versions of the data structure
-    containing information on registered devices.
-*/
-enum {
-  cmDeviceInfoVersion1 = 0x00010000,
-  cmDeviceProfileInfoVersion1 = 0x00010000
-};
+  /**
+      The current versions of the data structure
+      containing information on registered devices.
+  */
+  enum
+  {
+    cmDeviceInfoVersion1 = 0x00010000,
+    cmDeviceProfileInfoVersion1 = 0x00010000
+  };
 
-enum {
-  cmCurrentDeviceInfoVersion = cmDeviceInfoVersion1,
-  cmCurrentProfileInfoVersion = cmDeviceProfileInfoVersion1
-};
+  enum
+  {
+    cmCurrentDeviceInfoVersion = cmDeviceInfoVersion1,
+    cmCurrentProfileInfoVersion = cmDeviceProfileInfoVersion1
+  };
 
-/**
-    Certain APIs require a device ID or profile ID.
-    In some cases, a "default ID" can be used.
-*/
-enum { cmDefaultDeviceID = 0, cmDefaultProfileID = 0 };
+  /**
+      Certain APIs require a device ID or profile ID.
+      In some cases, a "default ID" can be used.
+  */
+  enum
+  {
+    cmDefaultDeviceID = 0,
+    cmDefaultProfileID = 0
+  };
 
-/**
-    Possible values for device states accessible by the
-    CMGetDeviceState() and CMSetDeviceState() APIs.
-*/
-enum {
-  cmDeviceStateDefault = 0x00000000,
-  cmDeviceStateOffline = 0x00000001,
-  cmDeviceStateBusy = 0x00000002,
-  cmDeviceStateForceNotify = (long)0x80000000,
-  cmDeviceStateDeviceRsvdBits = 0x00FF0000,
-  cmDeviceStateAppleRsvdBits = (long)0xFF00FFFF
-};
+  /**
+      Possible values for device states accessible by the
+      CMGetDeviceState() and CMSetDeviceState() APIs.
+  */
+  enum
+  {
+    cmDeviceStateDefault = 0x00000000,
+    cmDeviceStateOffline = 0x00000001,
+    cmDeviceStateBusy = 0x00000002,
+    cmDeviceStateForceNotify = (long)0x80000000,
+    cmDeviceStateDeviceRsvdBits = 0x00FF0000,
+    cmDeviceStateAppleRsvdBits = (long)0xFF00FFFF
+  };
 
-/**
-    Possible values for flags passed to the
-    CMIterateDeviceProfiles() API.
+  /**
+      Possible values for flags passed to the
+      CMIterateDeviceProfiles() API.
 
-    "Factory" profiles are registered via the
-    CMSetDeviceFactoryProfiles() API.
+      "Factory" profiles are registered via the
+      CMSetDeviceFactoryProfiles() API.
 
-    "Custom" profiles are those which are meant to take
-    the place of the factory profiles, as a result of
-    customization or calibration.  These profiles are
-    registered via the CMSetDeviceProfiles() API.
+      "Custom" profiles are those which are meant to take
+      the place of the factory profiles, as a result of
+      customization or calibration.  These profiles are
+      registered via the CMSetDeviceProfiles() API.
 
-    To retrieve all of the the former for all devices,
-    use cmIterateFactoryDeviceProfiles as the flags
-    value when calling CMIterateDeviceProfiles().
+      To retrieve all of the the former for all devices,
+      use cmIterateFactoryDeviceProfiles as the flags
+      value when calling CMIterateDeviceProfiles().
 
-    To retrieve only the latter for all devices, use
-    the cmIterateCustomDeviceProfiles, as the flags
-    value when calling CMIterateDeviceProfiles().
+      To retrieve only the latter for all devices, use
+      the cmIterateCustomDeviceProfiles, as the flags
+      value when calling CMIterateDeviceProfiles().
 
-    To get the profiles in use for all devices, use
-    cmIterateCurrentDeviceProfiles as the flags value.
-    This will replace the factory profiles with any
-    overrides, yielding the currently used set.
-*/
-enum {
-  cmIterateFactoryDeviceProfiles = 0x00000001,
-  cmIterateCustomDeviceProfiles = 0x00000002,
-  cmIterateCurrentDeviceProfiles = 0x00000003,
-  cmIterateDeviceProfilesMask = cmIterateCurrentDeviceProfiles
-};
+      To get the profiles in use for all devices, use
+      cmIterateCurrentDeviceProfiles as the flags value.
+      This will replace the factory profiles with any
+      overrides, yielding the currently used set.
+  */
+  enum
+  {
+    cmIterateFactoryDeviceProfiles = 0x00000001,
+    cmIterateCustomDeviceProfiles = 0x00000002,
+    cmIterateCurrentDeviceProfiles = 0x00000003,
+    cmIterateDeviceProfilesMask = cmIterateCurrentDeviceProfiles
+  };
 
-enum { kMaxDeviceNameLength = 256, kMaxProfileNameLength = 256 };
+  enum
+  {
+    kMaxDeviceNameLength = 256,
+    kMaxProfileNameLength = 256
+  };
 
-/**
-    Errors returned by CMDeviceIntegration APIs
-*/
-enum {
-  cmDeviceDBNotFoundErr = -4227,     /** Prefs not found/loaded */
-  cmDeviceAlreadyRegistered = -4228, /** Re-registration of device */
-  cmDeviceNotRegistered = -4229,     /** Device not found */
-  cmDeviceProfilesNotFound = -4230,  /** Profiles not found */
-  cmInternalCFErr = -4231            /** CoreFoundation failure */
-};
+  /**
+      Errors returned by CMDeviceIntegration APIs
+  */
+  enum
+  {
+    cmDeviceDBNotFoundErr = -4227,     /** Prefs not found/loaded */
+    cmDeviceAlreadyRegistered = -4228, /** Re-registration of device */
+    cmDeviceNotRegistered = -4229,     /** Device not found */
+    cmDeviceProfilesNotFound = -4230,  /** Profiles not found */
+    cmInternalCFErr = -4231            /** CoreFoundation failure */
+  };
 
 /**
     Clients can register for notifications of device evolutions:
@@ -147,319 +161,324 @@ enum {
     DefaultDeviceProfile            The default profile for any device changed
 */
 #define kCMDeviceRegisteredNotification CFSTR("CMDeviceRegisteredNotification")
-#define kCMDeviceUnregisteredNotification                                      \
+#define kCMDeviceUnregisteredNotification \
   CFSTR("CMDeviceUnregisteredNotification")
 #define kCMDeviceOnlineNotification CFSTR("CMDeviceOnlineNotification")
 #define kCMDeviceOfflineNotification CFSTR("CMDeviceOfflineNotification")
 #define kCMDeviceStateNotification CFSTR("CMDeviceStateNotification")
 #define kCMDefaultDeviceNotification CFSTR("CMDefaultDeviceNotification")
 #define kCMDeviceProfilesNotification CFSTR("CMDeviceProfilesNotification")
-#define kCMDefaultDeviceProfileNotification                                    \
+#define kCMDefaultDeviceProfileNotification \
   CFSTR("CMDefaultDeviceProfileNotification")
 
-/**
-    Device state data.
-*/
-typedef UInt32 CMDeviceState;
-/**
-    A CMDeviceID must be unique within a device's class.
-*/
-typedef UInt32 CMDeviceID;
-/**
-    A CMDeviceProfileID must only be unique per device.
-*/
-typedef UInt32 CMDeviceProfileID;
-/**
-    DeviceClass type.
-*/
-enum {
-  cmScannerDeviceClass = FOUR_CHAR_CODE('scnr'),
-  cmCameraDeviceClass = FOUR_CHAR_CODE('cmra'),
-  cmDisplayDeviceClass = FOUR_CHAR_CODE('mntr'),
-  cmPrinterDeviceClass = FOUR_CHAR_CODE('prtr'),
-  cmProofDeviceClass = FOUR_CHAR_CODE('pruf')
-};
+  /**
+      Device state data.
+  */
+  typedef UInt32 CMDeviceState;
+  /**
+      A CMDeviceID must be unique within a device's class.
+  */
+  typedef UInt32 CMDeviceID;
+  /**
+      A CMDeviceProfileID must only be unique per device.
+  */
+  typedef UInt32 CMDeviceProfileID;
+  /**
+      DeviceClass type.
+  */
+  enum
+  {
+    cmScannerDeviceClass = FOUR_CHAR_CODE('scnr'),
+    cmCameraDeviceClass = FOUR_CHAR_CODE('cmra'),
+    cmDisplayDeviceClass = FOUR_CHAR_CODE('mntr'),
+    cmPrinterDeviceClass = FOUR_CHAR_CODE('prtr'),
+    cmProofDeviceClass = FOUR_CHAR_CODE('pruf')
+  };
 
-typedef OSType CMDeviceClass;
-/**
-    CMDeviceScope
-    Structure specifying a device's or a device setting's scope.
-*/
-struct CMDeviceScope {
-  CFStringRef deviceUser; /** kCFPreferencesCurrentUser | _AnyUser */
-  CFStringRef deviceHost; /** kCFPreferencesCurrentHost | _AnyHost */
-};
-typedef struct CMDeviceScope CMDeviceScope;
-/**
-    CMDeviceInfo
-    Structure containing information on a given device.
-*/
-struct CMDeviceInfo {
-  UInt32 dataVersion;                 /** cmDeviceInfoVersion1 */
-  CMDeviceClass deviceClass;          /** device class */
-  CMDeviceID deviceID;                /** device ID */
-  CMDeviceScope deviceScope;          /** device's scope */
-  CMDeviceState deviceState;          /** Device State flags */
-  CMDeviceProfileID defaultProfileID; /** Can change */
-  CFDictionaryRef *deviceName;        /** Ptr to storage for CFDictionary of */
-  /** localized device names (could be nil) */
-  UInt32 profileCount; /** Count of registered profiles */
-  UInt32 reserved;     /** Reserved for use by ColorSync */
-};
-typedef struct CMDeviceInfo CMDeviceInfo;
-typedef CMDeviceInfo *CMDeviceInfoPtr;
-/**
-    CMDeviceProfileInfo
-    Structure containing information on a device profile.
-*/
-struct CMDeviceProfileInfo {
-  UInt32 dataVersion;           /** cmProfileInfoVersion1 */
-  CMDeviceProfileID profileID;  /** The identifier for this profile */
-  CMProfileLocation profileLoc; /** The profile's location */
-  CFDictionaryRef profileName;  /** CFDictionary of localized device names */
-  UInt32 reserved;              /** Reserved for use by ColorSync */
-};
-typedef struct CMDeviceProfileInfo CMDeviceProfileInfo;
-/**
-    CMDeviceProfileArray
-    Structure containing the profiles for a device.
-*/
-struct CMDeviceProfileArray {
-  UInt32 profileCount;             /** Count of profiles in array */
-  CMDeviceProfileInfo profiles[1]; /** The profile info records */
-};
-typedef struct CMDeviceProfileArray CMDeviceProfileArray;
-typedef CMDeviceProfileArray *CMDeviceProfileArrayPtr;
-/**
-    Caller-supplied iterator functions
-*/
-typedef CALLBACK_API_C(OSErr, CMIterateDeviceInfoProcPtr)(
-    const CMDeviceInfo *deviceInfo, void *refCon);
-typedef CALLBACK_API_C(OSErr, CMIterateDeviceProfileProcPtr)(
-    const CMDeviceInfo *deviceInfo, const CMDeviceProfileInfo *profileData,
-    void *refCon);
-/**
-    Device Registration
-*/
-/**
- *  CMRegisterColorDevice()
- *
+  typedef OSType CMDeviceClass;
+  /**
+      CMDeviceScope
+      Structure specifying a device's or a device setting's scope.
+  */
+  struct CMDeviceScope
+  {
+    CFStringRef deviceUser; /** kCFPreferencesCurrentUser | _AnyUser */
+    CFStringRef deviceHost; /** kCFPreferencesCurrentHost | _AnyHost */
+  };
+  typedef struct CMDeviceScope CMDeviceScope;
+  /**
+      CMDeviceInfo
+      Structure containing information on a given device.
+  */
+  struct CMDeviceInfo
+  {
+    UInt32 dataVersion;                 /** cmDeviceInfoVersion1 */
+    CMDeviceClass deviceClass;          /** device class */
+    CMDeviceID deviceID;                /** device ID */
+    CMDeviceScope deviceScope;          /** device's scope */
+    CMDeviceState deviceState;          /** Device State flags */
+    CMDeviceProfileID defaultProfileID; /** Can change */
+    CFDictionaryRef *deviceName;        /** Ptr to storage for CFDictionary of */
+    /** localized device names (could be nil) */
+    UInt32 profileCount; /** Count of registered profiles */
+    UInt32 reserved;     /** Reserved for use by ColorSync */
+  };
+  typedef struct CMDeviceInfo CMDeviceInfo;
+  typedef CMDeviceInfo *CMDeviceInfoPtr;
+  /**
+      CMDeviceProfileInfo
+      Structure containing information on a device profile.
+  */
+  struct CMDeviceProfileInfo
+  {
+    UInt32 dataVersion;           /** cmProfileInfoVersion1 */
+    CMDeviceProfileID profileID;  /** The identifier for this profile */
+    CMProfileLocation profileLoc; /** The profile's location */
+    CFDictionaryRef profileName;  /** CFDictionary of localized device names */
+    UInt32 reserved;              /** Reserved for use by ColorSync */
+  };
+  typedef struct CMDeviceProfileInfo CMDeviceProfileInfo;
+  /**
+      CMDeviceProfileArray
+      Structure containing the profiles for a device.
+  */
+  struct CMDeviceProfileArray
+  {
+    UInt32 profileCount;             /** Count of profiles in array */
+    CMDeviceProfileInfo profiles[1]; /** The profile info records */
+  };
+  typedef struct CMDeviceProfileArray CMDeviceProfileArray;
+  typedef CMDeviceProfileArray *CMDeviceProfileArrayPtr;
+  /**
+      Caller-supplied iterator functions
+  */
+  typedef CALLBACK_API_C(OSErr, CMIterateDeviceInfoProcPtr)(
+      const CMDeviceInfo *deviceInfo, void *refCon);
+  typedef CALLBACK_API_C(OSErr, CMIterateDeviceProfileProcPtr)(
+      const CMDeviceInfo *deviceInfo, const CMDeviceProfileInfo *profileData,
+      void *refCon);
+  /**
+      Device Registration
+  */
+  /**
+   *  CMRegisterColorDevice()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMRegisterColorDevice(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                      CFDictionaryRef deviceName,
-                      const CMDeviceScope *deviceScope);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMRegisterColorDevice(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                        CFDictionaryRef deviceName,
+                        const CMDeviceScope *deviceScope);
 
-/**
- *  CMUnregisterColorDevice()
- *
+  /**
+   *  CMUnregisterColorDevice()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMUnregisterColorDevice(CMDeviceClass deviceClass, CMDeviceID deviceID);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMUnregisterColorDevice(CMDeviceClass deviceClass, CMDeviceID deviceID);
 
-/**
-    Default Device accessors
-*/
-/**
- *  CMSetDefaultDevice()
- *
+  /**
+      Default Device accessors
+  */
+  /**
+   *  CMSetDefaultDevice()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMSetDefaultDevice(CMDeviceClass deviceClass, CMDeviceID deviceID);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMSetDefaultDevice(CMDeviceClass deviceClass, CMDeviceID deviceID);
 
-/**
- *  CMGetDefaultDevice()
- *
+  /**
+   *  CMGetDefaultDevice()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMGetDefaultDevice(CMDeviceClass deviceClass, CMDeviceID *deviceID);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMGetDefaultDevice(CMDeviceClass deviceClass, CMDeviceID *deviceID);
 
-/**
-    Device Profile Registration & Access
-*/
-/**
- *  CMSetDeviceFactoryProfiles()
- *
+  /**
+      Device Profile Registration & Access
+  */
+  /**
+   *  CMSetDeviceFactoryProfiles()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMSetDeviceFactoryProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                           CMDeviceProfileID defaultProfID,
-                           const CMDeviceProfileArray *deviceProfiles);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMSetDeviceFactoryProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                             CMDeviceProfileID defaultProfID,
+                             const CMDeviceProfileArray *deviceProfiles);
 
-/**
- *  CMGetDeviceFactoryProfiles()
- *
+  /**
+   *  CMGetDeviceFactoryProfiles()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMGetDeviceFactoryProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                           CMDeviceProfileID *defaultProfID, UInt32 *arraySize,
-                           CMDeviceProfileArray *deviceProfiles);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMGetDeviceFactoryProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                             CMDeviceProfileID *defaultProfID, UInt32 *arraySize,
+                             CMDeviceProfileArray *deviceProfiles);
 
-/**
- *  CMSetDeviceProfiles()
- *
+  /**
+   *  CMSetDeviceProfiles()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMSetDeviceProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                    const CMDeviceScope *profileScope,
-                    const CMDeviceProfileArray *deviceProfiles);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMSetDeviceProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                      const CMDeviceScope *profileScope,
+                      const CMDeviceProfileArray *deviceProfiles);
 
-/**
- *  CMGetDeviceProfiles()
- *
+  /**
+   *  CMGetDeviceProfiles()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMGetDeviceProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                    UInt32 *arraySize, CMDeviceProfileArray *deviceProfiles);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMGetDeviceProfiles(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                      UInt32 *arraySize, CMDeviceProfileArray *deviceProfiles);
 
-/**
- *  CMSetDeviceDefaultProfileID()
- *
+  /**
+   *  CMSetDeviceDefaultProfileID()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMSetDeviceDefaultProfileID(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                            CMDeviceProfileID defaultProfID);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMSetDeviceDefaultProfileID(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                              CMDeviceProfileID defaultProfID);
 
-/**
- *  CMGetDeviceDefaultProfileID()
- *
+  /**
+   *  CMGetDeviceDefaultProfileID()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMGetDeviceDefaultProfileID(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                            CMDeviceProfileID *defaultProfID);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMGetDeviceDefaultProfileID(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                              CMDeviceProfileID *defaultProfID);
 
-/**
- *  CMGetDeviceProfile()
- *
+  /**
+   *  CMGetDeviceProfile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMGetDeviceProfile(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                   CMDeviceProfileID profileID,
-                   CMProfileLocation *deviceProfLoc);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMGetDeviceProfile(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                     CMDeviceProfileID profileID,
+                     CMProfileLocation *deviceProfLoc);
 
-/**
- *  CMSetDeviceProfile()
- *
+  /**
+   *  CMSetDeviceProfile()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMSetDeviceProfile(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                   const CMDeviceScope *profileScope,
-                   CMDeviceProfileID profileID,
-                   const CMProfileLocation *deviceProfLoc);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMSetDeviceProfile(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                     const CMDeviceScope *profileScope,
+                     CMDeviceProfileID profileID,
+                     const CMProfileLocation *deviceProfLoc);
 
-/**
-    Other Device State/Info accessors
-*/
-/**
- *  CMSetDeviceState()
- *
+  /**
+      Other Device State/Info accessors
+  */
+  /**
+   *  CMSetDeviceState()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMSetDeviceState(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                 CMDeviceState deviceState);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMSetDeviceState(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                   CMDeviceState deviceState);
 
-/**
- *  CMGetDeviceState()
- *
+  /**
+   *  CMGetDeviceState()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMGetDeviceState(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                 CMDeviceState *deviceState);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMGetDeviceState(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                   CMDeviceState *deviceState);
 
-/**
- *  CMGetDeviceInfo()
- *
+  /**
+   *  CMGetDeviceInfo()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMGetDeviceInfo(CMDeviceClass deviceClass, CMDeviceID deviceID,
-                CMDeviceInfo *deviceInfo);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMGetDeviceInfo(CMDeviceClass deviceClass, CMDeviceID deviceID,
+                  CMDeviceInfo *deviceInfo);
 
-/**
-    Device Data & Profile Iterators
-*/
-/**
- *  CMIterateColorDevices()
- *
+  /**
+      Device Data & Profile Iterators
+  */
+  /**
+   *  CMIterateColorDevices()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMIterateColorDevices(CMIterateDeviceInfoProcPtr proc, UInt32 *seed,
-                      UInt32 *count, void *refCon);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMIterateColorDevices(CMIterateDeviceInfoProcPtr proc, UInt32 *seed,
+                        UInt32 *count, void *refCon);
 
-/**
- *  CMIterateDeviceProfiles()
- *
+  /**
+   *  CMIterateDeviceProfiles()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in 3.1 and later
- */
-EXTERN_API(CMError)
-CMIterateDeviceProfiles(CMIterateDeviceProfileProcPtr proc, UInt32 *seed,
-                        UInt32 *count, UInt32 flags, void *refCon);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in 3.1 and later
+   */
+  CMError
+  CMIterateDeviceProfiles(CMIterateDeviceProfileProcPtr proc, UInt32 *seed,
+                          UInt32 *count, UInt32 flags, void *refCon);
 
 #endif /** TARGET_API_MAC_OSX */
 

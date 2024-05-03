@@ -195,7 +195,7 @@ struct TermRecord {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalSendUPP)
+TerminalSendUPP
 NewTerminalSendUPP(TerminalSendProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -223,7 +223,7 @@ inline TerminalSendUPP NewTerminalSendUPP(TerminalSendProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalBreakUPP)
+TerminalBreakUPP
 NewTerminalBreakUPP(TerminalBreakProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -251,7 +251,7 @@ inline TerminalBreakUPP NewTerminalBreakUPP(TerminalBreakProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalCacheUPP)
+TerminalCacheUPP
 NewTerminalCacheUPP(TerminalCacheProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -279,7 +279,7 @@ inline TerminalCacheUPP NewTerminalCacheUPP(TerminalCacheProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalSearchCallBackUPP)
+TerminalSearchCallBackUPP
 NewTerminalSearchCallBackUPP(TerminalSearchCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -308,7 +308,7 @@ NewTerminalSearchCallBackUPP(TerminalSearchCallBackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalClikLoopUPP)
+TerminalClikLoopUPP
 NewTerminalClikLoopUPP(TerminalClikLoopProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -337,7 +337,7 @@ NewTerminalClikLoopUPP(TerminalClikLoopProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalEnvironsUPP)
+TerminalEnvironsUPP
 NewTerminalEnvironsUPP(TerminalEnvironsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -366,7 +366,7 @@ NewTerminalEnvironsUPP(TerminalEnvironsProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalChooseIdleUPP)
+TerminalChooseIdleUPP
 NewTerminalChooseIdleUPP(TerminalChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -395,7 +395,7 @@ NewTerminalChooseIdleUPP(TerminalChooseIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(TerminalToolDefUPP)
+TerminalToolDefUPP
 NewTerminalToolDefUPP(TerminalToolDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -424,7 +424,7 @@ NewTerminalToolDefUPP(TerminalToolDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalSendUPP(TerminalSendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -444,7 +444,7 @@ inline void DisposeTerminalSendUPP(TerminalSendUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalBreakUPP(TerminalBreakUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -464,7 +464,7 @@ inline void DisposeTerminalBreakUPP(TerminalBreakUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalCacheUPP(TerminalCacheUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -484,7 +484,7 @@ inline void DisposeTerminalCacheUPP(TerminalCacheUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalSearchCallBackUPP(TerminalSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -506,7 +506,7 @@ DisposeTerminalSearchCallBackUPP(TerminalSearchCallBackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalClikLoopUPP(TerminalClikLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -526,7 +526,7 @@ inline void DisposeTerminalClikLoopUPP(TerminalClikLoopUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalEnvironsUPP(TerminalEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -546,7 +546,7 @@ inline void DisposeTerminalEnvironsUPP(TerminalEnvironsUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -566,7 +566,7 @@ inline void DisposeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeTerminalToolDefUPP(TerminalToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -586,7 +586,7 @@ inline void DisposeTerminalToolDefUPP(TerminalToolDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeTerminalSendUPP(Ptr thePtr, long theSize, long refCon, CMFlags flags,
                       TerminalSendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -611,7 +611,7 @@ inline long InvokeTerminalSendUPP(Ptr thePtr, long theSize, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTerminalBreakUPP(long duration, long refCon, TerminalBreakUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -634,7 +634,7 @@ inline void InvokeTerminalBreakUPP(long duration, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeTerminalCacheUPP(long refCon, TermDataBlockPtr theTermData,
                        TerminalCacheUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -659,7 +659,7 @@ inline long InvokeTerminalCacheUPP(long refCon, TermDataBlockPtr theTermData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTerminalSearchCallBackUPP(TermHandle hTerm, short refNum, Rect *foundRect,
                                 TerminalSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -685,7 +685,7 @@ inline void InvokeTerminalSearchCallBackUPP(TermHandle hTerm, short refNum,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeTerminalClikLoopUPP(long refCon, TerminalClikLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -709,7 +709,7 @@ inline Boolean InvokeTerminalClikLoopUPP(long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(CMErr)
+CMErr
 InvokeTerminalEnvironsUPP(long refCon, ConnEnvironRec *theEnvirons,
                           TerminalEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -734,7 +734,7 @@ inline CMErr InvokeTerminalEnvironsUPP(long refCon, ConnEnvironRec *theEnvirons,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -755,7 +755,7 @@ inline void InvokeTerminalChooseIdleUPP(TerminalChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeTerminalToolDefUPP(TermHandle hTerm, short msg, long p1, long p2, long p3,
                          TerminalToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -814,7 +814,7 @@ inline long InvokeTerminalToolDefUPP(TermHandle hTerm, short msg, long p1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(TMErr)
+TMErr
 InitTM(void);
 
 /**
@@ -825,7 +825,7 @@ InitTM(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Handle)
+Handle
 TMGetVersion(TermHandle hTerm);
 
 /**
@@ -836,7 +836,7 @@ TMGetVersion(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 TMGetTMVersion(void);
 
 /**
@@ -847,7 +847,7 @@ TMGetTMVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(TermHandle)
+TermHandle
 TMNew(const Rect *termRect, const Rect *viewRect, TMFlags flags, short procID,
       WindowRef owner, TerminalSendUPP sendProc, TerminalCacheUPP cacheProc,
       TerminalBreakUPP breakProc, TerminalClikLoopUPP clikLoop,
@@ -861,7 +861,7 @@ TMNew(const Rect *termRect, const Rect *viewRect, TMFlags flags, short procID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMDispose(TermHandle hTerm);
 
 /**
@@ -872,7 +872,7 @@ TMDispose(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMKey(TermHandle hTerm, const EventRecord *theEvent);
 
 /**
@@ -883,7 +883,7 @@ TMKey(TermHandle hTerm, const EventRecord *theEvent);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMUpdate(TermHandle hTerm, RgnHandle visRgn);
 
 /**
@@ -894,7 +894,7 @@ TMUpdate(TermHandle hTerm, RgnHandle visRgn);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMPaint(TermHandle hTerm, const TermDataBlock *theTermData,
         const Rect *theRect);
 
@@ -906,7 +906,7 @@ TMPaint(TermHandle hTerm, const TermDataBlock *theTermData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMActivate(TermHandle hTerm, Boolean activate);
 
 /**
@@ -917,7 +917,7 @@ TMActivate(TermHandle hTerm, Boolean activate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMResume(TermHandle hTerm, Boolean resume);
 
 /**
@@ -928,7 +928,7 @@ TMResume(TermHandle hTerm, Boolean resume);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMClick(TermHandle hTerm, const EventRecord *theEvent);
 
 /**
@@ -939,7 +939,7 @@ TMClick(TermHandle hTerm, const EventRecord *theEvent);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMIdle(TermHandle hTerm);
 
 /**
@@ -950,7 +950,7 @@ TMIdle(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 TMStream(TermHandle hTerm, void *theBuffer, long theLength, CMFlags flags);
 
 /**
@@ -961,7 +961,7 @@ TMStream(TermHandle hTerm, void *theBuffer, long theLength, CMFlags flags);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 TMMenu(TermHandle hTerm, short menuID, short item);
 
 /**
@@ -972,7 +972,7 @@ TMMenu(TermHandle hTerm, short menuID, short item);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMReset(TermHandle hTerm);
 
 /**
@@ -983,7 +983,7 @@ TMReset(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMClear(TermHandle hTerm);
 
 /**
@@ -994,7 +994,7 @@ TMClear(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMResize(TermHandle hTerm, const Rect *newViewRect);
 
 /**
@@ -1005,7 +1005,7 @@ TMResize(TermHandle hTerm, const Rect *newViewRect);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 TMGetSelect(TermHandle hTerm, Handle theData, ResType *theType);
 
 /**
@@ -1016,7 +1016,7 @@ TMGetSelect(TermHandle hTerm, Handle theData, ResType *theType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMGetLine(TermHandle hTerm, short lineNo, TermDataBlock *theTermData);
 
 /**
@@ -1027,7 +1027,7 @@ TMGetLine(TermHandle hTerm, short lineNo, TermDataBlock *theTermData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMSetSelection(TermHandle hTerm, const TMSelection *theSelection,
                TMSelTypes selType);
 
@@ -1039,7 +1039,7 @@ TMSetSelection(TermHandle hTerm, const TMSelection *theSelection,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMScroll(TermHandle hTerm, short dh, short dv);
 
 /**
@@ -1050,7 +1050,7 @@ TMScroll(TermHandle hTerm, short dh, short dv);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 TMValidate(TermHandle hTerm);
 
 /**
@@ -1061,7 +1061,7 @@ TMValidate(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMDefault(Ptr *theConfig, short procID, Boolean allocate);
 
 /**
@@ -1072,7 +1072,7 @@ TMDefault(Ptr *theConfig, short procID, Boolean allocate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Handle)
+Handle
 TMSetupPreflight(short procID, long *magicCookie);
 
 /**
@@ -1083,7 +1083,7 @@ TMSetupPreflight(short procID, long *magicCookie);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMSetupSetup(short procID, const void *theConfig, short count,
              DialogRef theDialog, long *magicCookie);
 
@@ -1095,7 +1095,7 @@ TMSetupSetup(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 TMSetupFilter(short procID, const void *theConfig, short count,
               DialogRef theDialog, EventRecord *theEvent, short *theItem,
               long *magicCookie);
@@ -1108,7 +1108,7 @@ TMSetupFilter(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMSetupItem(short procID, const void *theConfig, short count,
             DialogRef theDialog, short *theItem, long *magicCookie);
 
@@ -1120,7 +1120,7 @@ TMSetupItem(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMSetupXCleanup(short procID, const void *theConfig, short count,
                 DialogRef theDialog, Boolean OKed, long *magicCookie);
 
@@ -1132,7 +1132,7 @@ TMSetupXCleanup(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMSetupPostflight(short procID);
 
 /**
@@ -1143,7 +1143,7 @@ TMSetupPostflight(short procID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Ptr)
+Ptr
 TMGetConfig(TermHandle hTerm);
 
 /**
@@ -1154,7 +1154,7 @@ TMGetConfig(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 TMSetConfig(TermHandle hTerm, const void *thePtr);
 
 /**
@@ -1165,7 +1165,7 @@ TMSetConfig(TermHandle hTerm, const void *thePtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSErr)
+OSErr
 TMIntlToEnglish(TermHandle hTerm, const void *inputPtr, Ptr *outputPtr,
                 short language);
 
@@ -1177,7 +1177,7 @@ TMIntlToEnglish(TermHandle hTerm, const void *inputPtr, Ptr *outputPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSErr)
+OSErr
 TMEnglishToIntl(TermHandle hTerm, const void *inputPtr, Ptr *outputPtr,
                 short language);
 
@@ -1189,7 +1189,7 @@ TMEnglishToIntl(TermHandle hTerm, const void *inputPtr, Ptr *outputPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMGetToolName(short id, Str255 name);
 
 /**
@@ -1200,7 +1200,7 @@ TMGetToolName(short id, Str255 name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 TMGetProcID(ConstStr255Param name);
 
 /**
@@ -1211,7 +1211,7 @@ TMGetProcID(ConstStr255Param name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMSetRefCon(TermHandle hTerm, long refCon);
 
 /**
@@ -1222,7 +1222,7 @@ TMSetRefCon(TermHandle hTerm, long refCon);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 TMGetRefCon(TermHandle hTerm);
 
 /**
@@ -1233,7 +1233,7 @@ TMGetRefCon(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMSetUserData(TermHandle hTerm, long userData);
 
 /**
@@ -1244,7 +1244,7 @@ TMSetUserData(TermHandle hTerm, long userData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 TMGetUserData(TermHandle hTerm);
 
 /**
@@ -1255,7 +1255,7 @@ TMGetUserData(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 TMAddSearch(TermHandle hTerm, ConstStr255Param theString, const Rect *where,
             TMSearchTypes searchType, TerminalSearchCallBackUPP callBack);
 
@@ -1267,7 +1267,7 @@ TMAddSearch(TermHandle hTerm, ConstStr255Param theString, const Rect *where,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMRemoveSearch(TermHandle hTerm, short refnum);
 
 /**
@@ -1278,7 +1278,7 @@ TMRemoveSearch(TermHandle hTerm, short refnum);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMClearSearch(TermHandle hTerm);
 
 /**
@@ -1289,7 +1289,7 @@ TMClearSearch(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Point)
+Point
 TMGetCursor(TermHandle hTerm, TMCursorTypes cursType);
 
 /**
@@ -1300,7 +1300,7 @@ TMGetCursor(TermHandle hTerm, TMCursorTypes cursType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(TMErr)
+TMErr
 TMGetTermEnvirons(TermHandle hTerm, TermEnvironRec *theEnvirons);
 
 /**
@@ -1311,7 +1311,7 @@ TMGetTermEnvirons(TermHandle hTerm, TermEnvironRec *theEnvirons);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 TMChoose(TermHandle *hTerm, Point where, TerminalChooseIdleUPP idleProc);
 
 /**
@@ -1322,7 +1322,7 @@ TMChoose(TermHandle *hTerm, Point where, TerminalChooseIdleUPP idleProc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMEvent(TermHandle hTerm, const EventRecord *theEvent);
 
 /**
@@ -1333,7 +1333,7 @@ TMEvent(TermHandle hTerm, const EventRecord *theEvent);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 TMDoTermKey(TermHandle hTerm, ConstStr255Param theKey);
 
 /**
@@ -1344,7 +1344,7 @@ TMDoTermKey(TermHandle hTerm, ConstStr255Param theKey);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 TMCountTermKeys(TermHandle hTerm);
 
 /**
@@ -1355,7 +1355,7 @@ TMCountTermKeys(TermHandle hTerm);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMGetIndTermKey(TermHandle hTerm, short id, Str255 theKey);
 
 /**
@@ -1366,7 +1366,7 @@ TMGetIndTermKey(TermHandle hTerm, short id, Str255 theKey);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TMGetErrorString(TermHandle hTerm, short id, Str255 errMsg);
 
 #endif /** CALL_NOT_IN_CARBON */

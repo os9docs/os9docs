@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -56,508 +57,487 @@ extern "C" {
 #pragma pointers_in_D0
 #endif
 
-struct gxPoint {
-  Fixed x;
-  Fixed y;
-};
-typedef struct gxPoint gxPoint;
+    struct gxPoint
+    {
+        Fixed x;
+        Fixed y;
+    };
+    typedef struct gxPoint gxPoint;
 
-typedef unsigned short gxColorValue;
-struct gxPolar {
-  Fixed radius;
-  Fixed angle;
-};
-typedef struct gxPolar gxPolar;
-struct gxMapping {
-  Fixed map[3][3];
-};
-typedef struct gxMapping gxMapping;
+    typedef unsigned short gxColorValue;
+    struct gxPolar
+    {
+        Fixed radius;
+        Fixed angle;
+    };
+    typedef struct gxPolar gxPolar;
+    struct gxMapping
+    {
+        Fixed map[3][3];
+    };
+    typedef struct gxMapping gxMapping;
 #define gxColorValue1 ((gxColorValue)0x0000FFFF)
 #define gxPositiveInfinity ((long)0x7FFFFFFFL)
 #define gxNegativeInfinity ((long)0x80000000L)
 
 #if CALL_NOT_IN_CARBON
-/**
- *  CopyToMapping()
- *
+    /**
+     *  CopyToMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-CopyToMapping(gxMapping *target, const gxMapping *source)
-    THREEWORDINLINE(0x303C, 0x0031, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    CopyToMapping(gxMapping *target, const gxMapping *source);
 
-/**
- *  InvertMapping()
- *
+    /**
+     *  InvertMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-InvertMapping(gxMapping *target, const gxMapping *source)
-    THREEWORDINLINE(0x303C, 0x0032, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    InvertMapping(gxMapping *target, const gxMapping *source);
 
-/**
- *  MapMapping()
- *
+    /**
+     *  MapMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-MapMapping(gxMapping *target, const gxMapping *source)
-    THREEWORDINLINE(0x303C, 0x0033, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    MapMapping(gxMapping *target, const gxMapping *source);
 
-/**
- *  MoveMapping()
- *
+    /**
+     *  MoveMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-MoveMapping(gxMapping *target, Fixed hOffset, Fixed vOffset)
-    THREEWORDINLINE(0x303C, 0x0034, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    MoveMapping(gxMapping *target, Fixed hOffset, Fixed vOffset);
 
-/**
- *  MoveMappingTo()
- *
+    /**
+     *  MoveMappingTo()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-MoveMappingTo(gxMapping *target, Fixed hPosition, Fixed vPosition)
-    THREEWORDINLINE(0x303C, 0x0035, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    MoveMappingTo(gxMapping *target, Fixed hPosition, Fixed vPosition);
 
-/**
- *  NormalizeMapping()
- *
+    /**
+     *  NormalizeMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-NormalizeMapping(gxMapping *target) THREEWORDINLINE(0x303C, 0x0036, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    NormalizeMapping(gxMapping *target);
 
-/**
- *  RotateMapping()
- *
+    /**
+     *  RotateMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-RotateMapping(gxMapping *target, Fixed angle, Fixed xCenter, Fixed yCenter)
-    THREEWORDINLINE(0x303C, 0x0037, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    RotateMapping(gxMapping *target, Fixed angle, Fixed xCenter, Fixed yCenter);
 
-/**
- *  ScaleMapping()
- *
+    /**
+     *  ScaleMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-ScaleMapping(gxMapping *target, Fixed hFactor, Fixed vFactor, Fixed xCenter,
-             Fixed yCenter) THREEWORDINLINE(0x303C, 0x0038, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    ScaleMapping(gxMapping *target, Fixed hFactor, Fixed vFactor, Fixed xCenter,
+                 Fixed yCenter);
 
-/**
- *  ResetMapping()
- *
+    /**
+     *  ResetMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-ResetMapping(gxMapping *target) THREEWORDINLINE(0x303C, 0x0039, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    ResetMapping(gxMapping *target);
 
-/**
- *  SkewMapping()
- *
+    /**
+     *  SkewMapping()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxMapping *)
-SkewMapping(gxMapping *target, Fixed skewX, Fixed skewY, Fixed xCenter,
-            Fixed yCenter) THREEWORDINLINE(0x303C, 0x003A, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxMapping *
+    SkewMapping(gxMapping *target, Fixed skewX, Fixed skewY, Fixed xCenter,
+                Fixed yCenter);
 
-/**
- *  MapPoints()
- *
+    /**
+     *  MapPoints()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-MapPoints(const gxMapping *source, long count, gxPoint theVector[])
-    THREEWORDINLINE(0x303C, 0x003B, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    void
+    MapPoints(const gxMapping *source, long count, gxPoint theVector[]);
 
-/**
- *  FirstBit()
- *
+    /**
+     *  FirstBit()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(short)
-FirstBit(unsigned long x) THREEWORDINLINE(0x303C, 0x003C, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    short
+    FirstBit(unsigned long x);
 
-/**
- *  WideScale()
- *
+    /**
+     *  WideScale()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(short)
-WideScale(const wide *source) THREEWORDINLINE(0x303C, 0x003D, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    short
+    WideScale(const wide *source);
 
-/**
- *  LinearRoot()
- *
+    /**
+     *  LinearRoot()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(short)
-LinearRoot(Fixed first, Fixed last, Fract t[])
-    THREEWORDINLINE(0x303C, 0x003E, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    short
+    LinearRoot(Fixed first, Fixed last, Fract t[]);
 
-/**
- *  QuadraticRoot()
- *
+    /**
+     *  QuadraticRoot()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(short)
-QuadraticRoot(Fixed first, Fixed control, Fixed last, Fract t[])
-    THREEWORDINLINE(0x303C, 0x003F, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    short
+    QuadraticRoot(Fixed first, Fixed control, Fixed last, Fract t[]);
 
-/**
- *  PolarToPoint()
- *
+    /**
+     *  PolarToPoint()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxPoint *)
-PolarToPoint(const gxPolar *ra, gxPoint *xy)
-    THREEWORDINLINE(0x303C, 0x0040, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxPoint *
+    PolarToPoint(const gxPolar *ra, gxPoint *xy);
 
-/**
- *  PointToPolar()
- *
+    /**
+     *  PointToPolar()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(gxPolar *)
-PointToPolar(const gxPoint *xy, gxPolar *ra)
-    THREEWORDINLINE(0x303C, 0x0041, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    gxPolar *
+    PointToPolar(const gxPoint *xy, gxPolar *ra);
 
-/**
- *  FractCubeRoot()
- *
+    /**
+     *  FractCubeRoot()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Fract)
-FractCubeRoot(Fract source) THREEWORDINLINE(0x303C, 0x0042, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Fract
+    FractCubeRoot(Fract source);
 
-/**
- *  FractDivide()
- *
+    /**
+     *  FractDivide()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Fract)
-FractDivide(Fract dividend, Fract divisor)
-    THREEWORDINLINE(0x303C, 0x0043, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Fract
+    FractDivide(Fract dividend, Fract divisor);
 
-/**
- *  FractMultiply()
- *
+    /**
+     *  FractMultiply()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Fract)
-FractMultiply(Fract multiplicand, Fract multiplier)
-    THREEWORDINLINE(0x303C, 0x0044, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Fract
+    FractMultiply(Fract multiplicand, Fract multiplier);
 
-/**
- *  FractSineCosine()
- *
+    /**
+     *  FractSineCosine()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Fract)
-FractSineCosine(Fixed degrees, Fract *cosine)
-    THREEWORDINLINE(0x303C, 0x0045, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Fract
+    FractSineCosine(Fixed degrees, Fract *cosine);
 
-/**
- *  FractSquareRoot()
- *
+    /**
+     *  FractSquareRoot()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Fract)
-FractSquareRoot(Fract source) THREEWORDINLINE(0x303C, 0x0046, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Fract
+    FractSquareRoot(Fract source);
 
-/**
- *  FixedDivide()
- *
+    /**
+     *  FixedDivide()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Fixed)
-FixedDivide(Fixed dividend, Fixed divisor)
-    THREEWORDINLINE(0x303C, 0x0047, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Fixed
+    FixedDivide(Fixed dividend, Fixed divisor);
 
-/**
- *  FixedMultiply()
- *
+    /**
+     *  FixedMultiply()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Fixed)
-FixedMultiply(Fixed multiplicand, Fixed multiplier)
-    THREEWORDINLINE(0x303C, 0x0048, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Fixed
+    FixedMultiply(Fixed multiplicand, Fixed multiplier);
 
-/** This next call is (source * multiplier / divisor) -- it avoids underflow,
- * overflow by using wides */
-/**
- *  MultiplyDivide()
- *
+    /** This next call is (source * multiplier / divisor) -- it avoids underflow,
+     * overflow by using wides */
+    /**
+     *  MultiplyDivide()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long)
-MultiplyDivide(long source, long multiplier, long divisor)
-    THREEWORDINLINE(0x303C, 0x0049, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    long
+    MultiplyDivide(long source, long multiplier, long divisor);
 
-/**
- *  Magnitude()
- *
+    /**
+     *  Magnitude()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(unsigned long)
-Magnitude(long deltaX, long deltaY) THREEWORDINLINE(0x303C, 0x004A, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    unsigned long
+    Magnitude(long deltaX, long deltaY);
 
-/**
- *  VectorMultiplyDivide()
- *
+    /**
+     *  VectorMultiplyDivide()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long)
-VectorMultiplyDivide(long count, const long *vector1, long step1,
-                     const long *vector2, long step2, long divisor)
-    THREEWORDINLINE(0x303C, 0x004B, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    long
+    VectorMultiplyDivide(long count, const long *vector1, long step1,
+                         const long *vector2, long step2, long divisor);
 
 /** wide operations are defined within FixMath.h for PowerPC */
 #endif /** CALL_NOT_IN_CARBON */
 
 #if TARGET_OS_MAC && TARGET_CPU_68K
 #if CALL_NOT_IN_CARBON
-/**
- *  WideAdd()
- *
+    /**
+     *  WideAdd()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-WideAdd(wide *target, const wide *source)
-    THREEWORDINLINE(0x303C, 0x004C, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    WideAdd(wide *target, const wide *source);
 
-/**
- *  WideCompare()
- *
+    /**
+     *  WideCompare()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(short)
-WideCompare(const wide *target, const wide *source)
-    THREEWORDINLINE(0x303C, 0x004D, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    short
+    WideCompare(const wide *target, const wide *source);
 
-/**
- *  WideNegate()
- *
+    /**
+     *  WideNegate()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-WideNegate(wide *target) THREEWORDINLINE(0x303C, 0x004E, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    WideNegate(wide *target);
 
-/**
- *  WideShift()
- *
+    /**
+     *  WideShift()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-WideShift(wide *target, long shift) THREEWORDINLINE(0x303C, 0x004F, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    WideShift(wide *target, long shift);
 
-/**
- *  WideSquareRoot()
- *
+    /**
+     *  WideSquareRoot()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(unsigned long)
-WideSquareRoot(const wide *source) THREEWORDINLINE(0x303C, 0x0050, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    unsigned long
+    WideSquareRoot(const wide *source);
 
-/**
- *  WideSubtract()
- *
+    /**
+     *  WideSubtract()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-WideSubtract(wide *target, const wide *source)
-    THREEWORDINLINE(0x303C, 0x0051, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    WideSubtract(wide *target, const wide *source);
 
-/**
- *  WideMultiply()
- *
+    /**
+     *  WideMultiply()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-WideMultiply(long multiplicand, long multiplier, wide *target)
-    THREEWORDINLINE(0x303C, 0x0052, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    WideMultiply(long multiplicand, long multiplier, wide *target);
 
-/** returns the quotient */
-/**
- *  WideDivide()
- *
+    /** returns the quotient */
+    /**
+     *  WideDivide()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long)
-WideDivide(const wide *dividend, long divisor, long *remainder)
-    THREEWORDINLINE(0x303C, 0x0053, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    long
+    WideDivide(const wide *dividend, long divisor, long *remainder);
 
-/** quotient replaces dividend */
-/**
- *  WideWideDivide()
- *
+    /** quotient replaces dividend */
+    /**
+     *  WideWideDivide()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-WideWideDivide(wide *dividend, long divisor, long *remainder)
-    THREEWORDINLINE(0x303C, 0x0055, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    WideWideDivide(wide *dividend, long divisor, long *remainder);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #endif /** TARGET_OS_MAC && TARGET_CPU_68K */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  VectorMultiply()
- *
+    /**
+     *  VectorMultiply()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-VectorMultiply(long count, const long *vector1, long step1, const long *vector2,
-               long step2, wide *dot) THREEWORDINLINE(0x303C, 0x0054, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    VectorMultiply(long count, const long *vector1, long step1, const long *vector2,
+                   long step2, wide *dot);
 
-/**
- *  RandomBits()
- *
+    /**
+     *  RandomBits()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(unsigned long)
-RandomBits(long count, long focus) THREEWORDINLINE(0x303C, 0x0056, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    unsigned long
+    RandomBits(long count, long focus);
 
-/**
- *  SetRandomSeed()
- *
+    /**
+     *  SetRandomSeed()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-SetRandomSeed(const wide *seed) THREEWORDINLINE(0x303C, 0x0057, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    void
+    SetRandomSeed(const wide *seed);
 
-/**
- *  GetRandomSeed()
- *
+    /**
+     *  GetRandomSeed()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(wide *)
-GetRandomSeed(wide *seed) THREEWORDINLINE(0x303C, 0x0058, 0xA832);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    wide *
+    GetRandomSeed(wide *seed);
 
 #endif /** CALL_NOT_IN_CARBON */
 

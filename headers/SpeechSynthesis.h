@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,522 +52,572 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum {
-  kTextToSpeechSynthType = FOUR_CHAR_CODE('ttsc'),
-  kTextToSpeechVoiceType = FOUR_CHAR_CODE('ttvd'),
-  kTextToSpeechVoiceFileType = FOUR_CHAR_CODE('ttvf'),
-  kTextToSpeechVoiceBundleType = FOUR_CHAR_CODE('ttvb')
-};
+  enum
+  {
+    kTextToSpeechSynthType = FOUR_CHAR_CODE('ttsc'),
+    kTextToSpeechVoiceType = FOUR_CHAR_CODE('ttvd'),
+    kTextToSpeechVoiceFileType = FOUR_CHAR_CODE('ttvf'),
+    kTextToSpeechVoiceBundleType = FOUR_CHAR_CODE('ttvb')
+  };
 
-enum { kNoEndingProsody = 1, kNoSpeechInterrupt = 2, kPreflightThenPause = 4 };
+  enum
+  {
+    kNoEndingProsody = 1,
+    kNoSpeechInterrupt = 2,
+    kPreflightThenPause = 4
+  };
 
-enum { kImmediate = 0, kEndOfWord = 1, kEndOfSentence = 2 };
+  enum
+  {
+    kImmediate = 0,
+    kEndOfWord = 1,
+    kEndOfSentence = 2
+  };
 
-/*------------------------------------------*/
-/* GetSpeechInfo & SetSpeechInfo selectors  */
-/*------------------------------------------*/
-enum {
-  soStatus = FOUR_CHAR_CODE('stat'),
-  soErrors = FOUR_CHAR_CODE('erro'),
-  soInputMode = FOUR_CHAR_CODE('inpt'),
-  soCharacterMode = FOUR_CHAR_CODE('char'),
-  soNumberMode = FOUR_CHAR_CODE('nmbr'),
-  soRate = FOUR_CHAR_CODE('rate'),
-  soPitchBase = FOUR_CHAR_CODE('pbas'),
-  soPitchMod = FOUR_CHAR_CODE('pmod'),
-  soVolume = FOUR_CHAR_CODE('volm'),
-  soSynthType = FOUR_CHAR_CODE('vers'),
-  soRecentSync = FOUR_CHAR_CODE('sync'),
-  soPhonemeSymbols = FOUR_CHAR_CODE('phsy'),
-  soCurrentVoice = FOUR_CHAR_CODE('cvox'),
-  soCommandDelimiter = FOUR_CHAR_CODE('dlim'),
-  soReset = FOUR_CHAR_CODE('rset'),
-  soCurrentA5 = FOUR_CHAR_CODE('myA5'),
-  soRefCon = FOUR_CHAR_CODE('refc'),
-  soTextDoneCallBack =
-      FOUR_CHAR_CODE('tdcb'), /* use with SpeechTextDoneProcPtr*/
-  soSpeechDoneCallBack = FOUR_CHAR_CODE('sdcb'), /* use with SpeechDoneProcPtr*/
-  soSyncCallBack = FOUR_CHAR_CODE('sycb'),       /* use with SpeechSyncProcPtr*/
-  soErrorCallBack = FOUR_CHAR_CODE('ercb'),   /* use with SpeechErrorProcPtr*/
-  soPhonemeCallBack = FOUR_CHAR_CODE('phcb'), /* use with SpeechPhonemeProcPtr*/
-  soWordCallBack = FOUR_CHAR_CODE('wdcb'),
-  soSynthExtension = FOUR_CHAR_CODE('xtnd'),
-  soSoundOutput = FOUR_CHAR_CODE('sndo')
-};
+  /*------------------------------------------*/
+  /* GetSpeechInfo & SetSpeechInfo selectors  */
+  /*------------------------------------------*/
+  enum
+  {
+    soStatus = FOUR_CHAR_CODE('stat'),
+    soErrors = FOUR_CHAR_CODE('erro'),
+    soInputMode = FOUR_CHAR_CODE('inpt'),
+    soCharacterMode = FOUR_CHAR_CODE('char'),
+    soNumberMode = FOUR_CHAR_CODE('nmbr'),
+    soRate = FOUR_CHAR_CODE('rate'),
+    soPitchBase = FOUR_CHAR_CODE('pbas'),
+    soPitchMod = FOUR_CHAR_CODE('pmod'),
+    soVolume = FOUR_CHAR_CODE('volm'),
+    soSynthType = FOUR_CHAR_CODE('vers'),
+    soRecentSync = FOUR_CHAR_CODE('sync'),
+    soPhonemeSymbols = FOUR_CHAR_CODE('phsy'),
+    soCurrentVoice = FOUR_CHAR_CODE('cvox'),
+    soCommandDelimiter = FOUR_CHAR_CODE('dlim'),
+    soReset = FOUR_CHAR_CODE('rset'),
+    soCurrentA5 = FOUR_CHAR_CODE('myA5'),
+    soRefCon = FOUR_CHAR_CODE('refc'),
+    soTextDoneCallBack =
+        FOUR_CHAR_CODE('tdcb'),                    /* use with SpeechTextDoneProcPtr*/
+    soSpeechDoneCallBack = FOUR_CHAR_CODE('sdcb'), /* use with SpeechDoneProcPtr*/
+    soSyncCallBack = FOUR_CHAR_CODE('sycb'),       /* use with SpeechSyncProcPtr*/
+    soErrorCallBack = FOUR_CHAR_CODE('ercb'),      /* use with SpeechErrorProcPtr*/
+    soPhonemeCallBack = FOUR_CHAR_CODE('phcb'),    /* use with SpeechPhonemeProcPtr*/
+    soWordCallBack = FOUR_CHAR_CODE('wdcb'),
+    soSynthExtension = FOUR_CHAR_CODE('xtnd'),
+    soSoundOutput = FOUR_CHAR_CODE('sndo')
+  };
 
-/*------------------------------------------*/
-/* Speaking Mode Constants                  */
-/*------------------------------------------*/
-enum {
-  modeText = FOUR_CHAR_CODE('TEXT'), /* input mode constants             */
-  modePhonemes = FOUR_CHAR_CODE('PHON'),
-  modeNormal =
-      FOUR_CHAR_CODE('NORM'), /* character mode and number mode constants */
-  modeLiteral = FOUR_CHAR_CODE('LTRL')
-};
+  /*------------------------------------------*/
+  /* Speaking Mode Constants                  */
+  /*------------------------------------------*/
+  enum
+  {
+    modeText = FOUR_CHAR_CODE('TEXT'), /* input mode constants             */
+    modePhonemes = FOUR_CHAR_CODE('PHON'),
+    modeNormal =
+        FOUR_CHAR_CODE('NORM'), /* character mode and number mode constants */
+    modeLiteral = FOUR_CHAR_CODE('LTRL')
+  };
 
-enum {
-  soVoiceDescription = FOUR_CHAR_CODE('info'),
-  soVoiceFile = FOUR_CHAR_CODE('fref')
-};
+  enum
+  {
+    soVoiceDescription = FOUR_CHAR_CODE('info'),
+    soVoiceFile = FOUR_CHAR_CODE('fref')
+  };
 
-typedef struct OpaqueSpeechChannel *SpeechChannel;
+  typedef struct OpaqueSpeechChannel *SpeechChannel;
 
-struct VoiceSpec {
-  OSType creator;
-  OSType id;
-};
-typedef struct VoiceSpec VoiceSpec;
-typedef VoiceSpec *VoiceSpecPtr;
+  struct VoiceSpec
+  {
+    OSType creator;
+    OSType id;
+  };
+  typedef struct VoiceSpec VoiceSpec;
+  typedef VoiceSpec *VoiceSpecPtr;
 
-enum { kNeuter = 0, kMale = 1, kFemale = 2 };
+  enum
+  {
+    kNeuter = 0,
+    kMale = 1,
+    kFemale = 2
+  };
 
-struct VoiceDescription {
-  long length;
-  VoiceSpec voice;
-  long version;
-  Str63 name;
-  Str255 comment;
-  short gender;
-  short age;
-  short script;
-  short language;
-  short region;
-  long reserved[4];
-};
-typedef struct VoiceDescription VoiceDescription;
+  struct VoiceDescription
+  {
+    long length;
+    VoiceSpec voice;
+    long version;
+    Str63 name;
+    Str255 comment;
+    short gender;
+    short age;
+    short script;
+    short language;
+    short region;
+    long reserved[4];
+  };
+  typedef struct VoiceDescription VoiceDescription;
 
-struct VoiceFileInfo {
-  FSSpec fileSpec;
-  short resID;
-};
-typedef struct VoiceFileInfo VoiceFileInfo;
-struct SpeechStatusInfo {
-  Boolean outputBusy;
-  Boolean outputPaused;
-  long inputBytesLeft;
-  short phonemeCode;
-};
-typedef struct SpeechStatusInfo SpeechStatusInfo;
+  struct VoiceFileInfo
+  {
+    FSSpec fileSpec;
+    short resID;
+  };
+  typedef struct VoiceFileInfo VoiceFileInfo;
+  struct SpeechStatusInfo
+  {
+    Boolean outputBusy;
+    Boolean outputPaused;
+    long inputBytesLeft;
+    short phonemeCode;
+  };
+  typedef struct SpeechStatusInfo SpeechStatusInfo;
 
-struct SpeechErrorInfo {
-  short count;
-  OSErr oldest;
-  long oldPos;
-  OSErr newest;
-  long newPos;
-};
-typedef struct SpeechErrorInfo SpeechErrorInfo;
+  struct SpeechErrorInfo
+  {
+    short count;
+    OSErr oldest;
+    long oldPos;
+    OSErr newest;
+    long newPos;
+  };
+  typedef struct SpeechErrorInfo SpeechErrorInfo;
 
-struct SpeechVersionInfo {
-  OSType synthType;
-  OSType synthSubType;
-  OSType synthManufacturer;
-  long synthFlags;
-  NumVersion synthVersion;
-};
-typedef struct SpeechVersionInfo SpeechVersionInfo;
+  struct SpeechVersionInfo
+  {
+    OSType synthType;
+    OSType synthSubType;
+    OSType synthManufacturer;
+    long synthFlags;
+    NumVersion synthVersion;
+  };
+  typedef struct SpeechVersionInfo SpeechVersionInfo;
 
-struct PhonemeInfo {
-  short opcode;
-  Str15 phStr;
-  Str31 exampleStr;
-  short hiliteStart;
-  short hiliteEnd;
-};
-typedef struct PhonemeInfo PhonemeInfo;
+  struct PhonemeInfo
+  {
+    short opcode;
+    Str15 phStr;
+    Str31 exampleStr;
+    short hiliteStart;
+    short hiliteEnd;
+  };
+  typedef struct PhonemeInfo PhonemeInfo;
 
-struct PhonemeDescriptor {
-  short phonemeCount;
-  PhonemeInfo thePhonemes[1];
-};
-typedef struct PhonemeDescriptor PhonemeDescriptor;
-struct SpeechXtndData {
-  OSType synthCreator;
-  Byte synthData[2];
-};
-typedef struct SpeechXtndData SpeechXtndData;
+  struct PhonemeDescriptor
+  {
+    short phonemeCount;
+    PhonemeInfo thePhonemes[1];
+  };
+  typedef struct PhonemeDescriptor PhonemeDescriptor;
+  struct SpeechXtndData
+  {
+    OSType synthCreator;
+    Byte synthData[2];
+  };
+  typedef struct SpeechXtndData SpeechXtndData;
 
-struct DelimiterInfo {
-  Byte startDelimiter[2];
-  Byte endDelimiter[2];
-};
-typedef struct DelimiterInfo DelimiterInfo;
+  struct DelimiterInfo
+  {
+    Byte startDelimiter[2];
+    Byte endDelimiter[2];
+  };
+  typedef struct DelimiterInfo DelimiterInfo;
 
-typedef CALLBACK_API(void, SpeechTextDoneProcPtr)(SpeechChannel chan,
-                                                  long refCon,
-                                                  const void **nextBuf,
-                                                  unsigned long *byteLen,
-                                                  long *controlFlags);
-typedef CALLBACK_API(void, SpeechDoneProcPtr)(SpeechChannel chan, long refCon);
-typedef CALLBACK_API(void, SpeechSyncProcPtr)(SpeechChannel chan, long refCon,
-                                              OSType syncMessage);
-typedef CALLBACK_API(void, SpeechErrorProcPtr)(SpeechChannel chan, long refCon,
-                                               OSErr theError, long bytePos);
-typedef CALLBACK_API(void, SpeechPhonemeProcPtr)(SpeechChannel chan,
-                                                 long refCon,
-                                                 short phonemeOpcode);
-typedef CALLBACK_API(void, SpeechWordProcPtr)(SpeechChannel chan, long refCon,
-                                              unsigned long wordPos,
-                                              unsigned short wordLen);
-typedef STACK_UPP_TYPE(SpeechTextDoneProcPtr) SpeechTextDoneUPP;
-typedef STACK_UPP_TYPE(SpeechDoneProcPtr) SpeechDoneUPP;
-typedef STACK_UPP_TYPE(SpeechSyncProcPtr) SpeechSyncUPP;
-typedef STACK_UPP_TYPE(SpeechErrorProcPtr) SpeechErrorUPP;
-typedef STACK_UPP_TYPE(SpeechPhonemeProcPtr) SpeechPhonemeUPP;
-typedef STACK_UPP_TYPE(SpeechWordProcPtr) SpeechWordUPP;
-/**
- *  NewSpeechTextDoneUPP()
- *
+  typedef CALLBACK_API(void, SpeechTextDoneProcPtr)(SpeechChannel chan,
+                                                    long refCon,
+                                                    const void **nextBuf,
+                                                    unsigned long *byteLen,
+                                                    long *controlFlags);
+  typedef CALLBACK_API(void, SpeechDoneProcPtr)(SpeechChannel chan, long refCon);
+  typedef CALLBACK_API(void, SpeechSyncProcPtr)(SpeechChannel chan, long refCon,
+                                                OSType syncMessage);
+  typedef CALLBACK_API(void, SpeechErrorProcPtr)(SpeechChannel chan, long refCon,
+                                                 OSErr theError, long bytePos);
+  typedef CALLBACK_API(void, SpeechPhonemeProcPtr)(SpeechChannel chan,
+                                                   long refCon,
+                                                   short phonemeOpcode);
+  typedef CALLBACK_API(void, SpeechWordProcPtr)(SpeechChannel chan, long refCon,
+                                                unsigned long wordPos,
+                                                unsigned short wordLen);
+  typedef STACK_UPP_TYPE(SpeechTextDoneProcPtr) SpeechTextDoneUPP;
+  typedef STACK_UPP_TYPE(SpeechDoneProcPtr) SpeechDoneUPP;
+  typedef STACK_UPP_TYPE(SpeechSyncProcPtr) SpeechSyncUPP;
+  typedef STACK_UPP_TYPE(SpeechErrorProcPtr) SpeechErrorUPP;
+  typedef STACK_UPP_TYPE(SpeechPhonemeProcPtr) SpeechPhonemeUPP;
+  typedef STACK_UPP_TYPE(SpeechWordProcPtr) SpeechWordUPP;
+  /**
+   *  NewSpeechTextDoneUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(SpeechTextDoneUPP)
-NewSpeechTextDoneUPP(SpeechTextDoneProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SpeechTextDoneUPP
+  NewSpeechTextDoneUPP(SpeechTextDoneProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppSpeechTextDoneProcInfo = 0x0000FFC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes)
-    */
+  enum
+  {
+    uppSpeechTextDoneProcInfo = 0x0000FFC0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 4_bytes, 4_bytes)
+      */
 #ifdef __cplusplus
-inline SpeechTextDoneUPP
-NewSpeechTextDoneUPP(SpeechTextDoneProcPtr userRoutine) {
-  return (SpeechTextDoneUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                 uppSpeechTextDoneProcInfo,
-                                                 GetCurrentArchitecture());
-}
+  inline SpeechTextDoneUPP
+  NewSpeechTextDoneUPP(SpeechTextDoneProcPtr userRoutine)
+  {
+    return (SpeechTextDoneUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                   uppSpeechTextDoneProcInfo,
+                                                   GetCurrentArchitecture());
+  }
 #else
-#define NewSpeechTextDoneUPP(userRoutine)                                      \
-  (SpeechTextDoneUPP)                                                          \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechTextDoneProcInfo,  \
+#define NewSpeechTextDoneUPP(userRoutine)                                     \
+  (SpeechTextDoneUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechTextDoneProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewSpeechDoneUPP()
- *
+  /**
+   *  NewSpeechDoneUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(SpeechDoneUPP)
-NewSpeechDoneUPP(SpeechDoneProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SpeechDoneUPP
+  NewSpeechDoneUPP(SpeechDoneProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppSpeechDoneProcInfo = 0x000003C0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes) */
+  enum
+  {
+    uppSpeechDoneProcInfo = 0x000003C0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline SpeechDoneUPP NewSpeechDoneUPP(SpeechDoneProcPtr userRoutine) {
-  return (SpeechDoneUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppSpeechDoneProcInfo, GetCurrentArchitecture());
-}
+  inline SpeechDoneUPP NewSpeechDoneUPP(SpeechDoneProcPtr userRoutine)
+  {
+    return (SpeechDoneUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppSpeechDoneProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewSpeechDoneUPP(userRoutine)                                          \
-  (SpeechDoneUPP) NewRoutineDescriptor(                                        \
+#define NewSpeechDoneUPP(userRoutine)   \
+  (SpeechDoneUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppSpeechDoneProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewSpeechSyncUPP()
- *
+  /**
+   *  NewSpeechSyncUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(SpeechSyncUPP)
-NewSpeechSyncUPP(SpeechSyncProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SpeechSyncUPP
+  NewSpeechSyncUPP(SpeechSyncProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppSpeechSyncProcInfo = 0x00000FC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
+  enum
+  {
+    uppSpeechSyncProcInfo = 0x00000FC0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline SpeechSyncUPP NewSpeechSyncUPP(SpeechSyncProcPtr userRoutine) {
-  return (SpeechSyncUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppSpeechSyncProcInfo, GetCurrentArchitecture());
-}
+  inline SpeechSyncUPP NewSpeechSyncUPP(SpeechSyncProcPtr userRoutine)
+  {
+    return (SpeechSyncUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppSpeechSyncProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewSpeechSyncUPP(userRoutine)                                          \
-  (SpeechSyncUPP) NewRoutineDescriptor(                                        \
+#define NewSpeechSyncUPP(userRoutine)   \
+  (SpeechSyncUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppSpeechSyncProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewSpeechErrorUPP()
- *
+  /**
+   *  NewSpeechErrorUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(SpeechErrorUPP)
-NewSpeechErrorUPP(SpeechErrorProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SpeechErrorUPP
+  NewSpeechErrorUPP(SpeechErrorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppSpeechErrorProcInfo = 0x00003BC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 4_bytes) */
+  enum
+  {
+    uppSpeechErrorProcInfo = 0x00003BC0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes, 4_bytes) */
 #ifdef __cplusplus
-inline SpeechErrorUPP NewSpeechErrorUPP(SpeechErrorProcPtr userRoutine) {
-  return (SpeechErrorUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppSpeechErrorProcInfo, GetCurrentArchitecture());
-}
+  inline SpeechErrorUPP NewSpeechErrorUPP(SpeechErrorProcPtr userRoutine)
+  {
+    return (SpeechErrorUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppSpeechErrorProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewSpeechErrorUPP(userRoutine)                                         \
-  (SpeechErrorUPP)                                                             \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechErrorProcInfo,     \
+#define NewSpeechErrorUPP(userRoutine)                                     \
+  (SpeechErrorUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechErrorProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewSpeechPhonemeUPP()
- *
+  /**
+   *  NewSpeechPhonemeUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(SpeechPhonemeUPP)
-NewSpeechPhonemeUPP(SpeechPhonemeProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SpeechPhonemeUPP
+  NewSpeechPhonemeUPP(SpeechPhonemeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppSpeechPhonemeProcInfo = 0x00000BC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes) */
+  enum
+  {
+    uppSpeechPhonemeProcInfo = 0x00000BC0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline SpeechPhonemeUPP NewSpeechPhonemeUPP(SpeechPhonemeProcPtr userRoutine) {
-  return (SpeechPhonemeUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppSpeechPhonemeProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline SpeechPhonemeUPP NewSpeechPhonemeUPP(SpeechPhonemeProcPtr userRoutine)
+  {
+    return (SpeechPhonemeUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppSpeechPhonemeProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewSpeechPhonemeUPP(userRoutine)                                       \
-  (SpeechPhonemeUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechPhonemeProcInfo,   \
+#define NewSpeechPhonemeUPP(userRoutine)                                     \
+  (SpeechPhonemeUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppSpeechPhonemeProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewSpeechWordUPP()
- *
+  /**
+   *  NewSpeechWordUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(SpeechWordUPP)
-NewSpeechWordUPP(SpeechWordProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SpeechWordUPP
+  NewSpeechWordUPP(SpeechWordProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppSpeechWordProcInfo = 0x00002FC0
-}; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) */
+  enum
+  {
+    uppSpeechWordProcInfo = 0x00002FC0
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) */
 #ifdef __cplusplus
-inline SpeechWordUPP NewSpeechWordUPP(SpeechWordProcPtr userRoutine) {
-  return (SpeechWordUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppSpeechWordProcInfo, GetCurrentArchitecture());
-}
+  inline SpeechWordUPP NewSpeechWordUPP(SpeechWordProcPtr userRoutine)
+  {
+    return (SpeechWordUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppSpeechWordProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewSpeechWordUPP(userRoutine)                                          \
-  (SpeechWordUPP) NewRoutineDescriptor(                                        \
+#define NewSpeechWordUPP(userRoutine)   \
+  (SpeechWordUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppSpeechWordProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeSpeechTextDoneUPP()
- *
+  /**
+   *  DisposeSpeechTextDoneUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeSpeechTextDoneUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeSpeechDoneUPP()
- *
+  /**
+   *  DisposeSpeechDoneUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeSpeechDoneUPP(SpeechDoneUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeSpeechDoneUPP(SpeechDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeSpeechDoneUPP(SpeechDoneUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeSpeechDoneUPP(SpeechDoneUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeSpeechDoneUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeSpeechSyncUPP()
- *
+  /**
+   *  DisposeSpeechSyncUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeSpeechSyncUPP(SpeechSyncUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeSpeechSyncUPP(SpeechSyncUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeSpeechSyncUPP(SpeechSyncUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeSpeechSyncUPP(SpeechSyncUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeSpeechSyncUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeSpeechErrorUPP()
- *
+  /**
+   *  DisposeSpeechErrorUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeSpeechErrorUPP(SpeechErrorUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeSpeechErrorUPP(SpeechErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeSpeechErrorUPP(SpeechErrorUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeSpeechErrorUPP(SpeechErrorUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeSpeechErrorUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeSpeechPhonemeUPP()
- *
+  /**
+   *  DisposeSpeechPhonemeUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeSpeechPhonemeUPP(SpeechPhonemeUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeSpeechPhonemeUPP(SpeechPhonemeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeSpeechPhonemeUPP(SpeechPhonemeUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeSpeechPhonemeUPP(SpeechPhonemeUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeSpeechPhonemeUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeSpeechWordUPP()
- *
+  /**
+   *  DisposeSpeechWordUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeSpeechWordUPP(SpeechWordUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeSpeechWordUPP(SpeechWordUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeSpeechWordUPP(SpeechWordUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeSpeechWordUPP(SpeechWordUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeSpeechWordUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeSpeechTextDoneUPP()
- *
+  /**
+   *  InvokeSpeechTextDoneUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeSpeechTextDoneUPP(SpeechChannel chan, long refCon, const void **nextBuf,
-                        unsigned long *byteLen, long *controlFlags,
-                        SpeechTextDoneUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeSpeechTextDoneUPP(SpeechChannel chan, long refCon, const void **nextBuf,
+                          unsigned long *byteLen, long *controlFlags,
+                          SpeechTextDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeSpeechTextDoneUPP(SpeechChannel chan, long refCon,
-                                    const void **nextBuf,
-                                    unsigned long *byteLen, long *controlFlags,
-                                    SpeechTextDoneUPP userUPP) {
-  CALL_FIVE_PARAMETER_UPP(userUPP, uppSpeechTextDoneProcInfo, chan, refCon,
-                          nextBuf, byteLen, controlFlags);
-}
+  inline void InvokeSpeechTextDoneUPP(SpeechChannel chan, long refCon,
+                                      const void **nextBuf,
+                                      unsigned long *byteLen, long *controlFlags,
+                                      SpeechTextDoneUPP userUPP)
+  {
+    CALL_FIVE_PARAMETER_UPP(userUPP, uppSpeechTextDoneProcInfo, chan, refCon,
+                            nextBuf, byteLen, controlFlags);
+  }
 #else
-#define InvokeSpeechTextDoneUPP(chan, refCon, nextBuf, byteLen, controlFlags,  \
-                                userUPP)                                       \
-  CALL_FIVE_PARAMETER_UPP((userUPP), uppSpeechTextDoneProcInfo, (chan),        \
+#define InvokeSpeechTextDoneUPP(chan, refCon, nextBuf, byteLen, controlFlags, \
+                                userUPP)                                      \
+  CALL_FIVE_PARAMETER_UPP((userUPP), uppSpeechTextDoneProcInfo, (chan),       \
                           (refCon), (nextBuf), (byteLen), (controlFlags))
 #endif
 #endif
 
-/**
- *  InvokeSpeechDoneUPP()
- *
+  /**
+   *  InvokeSpeechDoneUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeSpeechDoneUPP(SpeechChannel chan, long refCon, SpeechDoneUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeSpeechDoneUPP(SpeechChannel chan, long refCon, SpeechDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeSpeechDoneUPP(SpeechChannel chan, long refCon,
-                                SpeechDoneUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppSpeechDoneProcInfo, chan, refCon);
-}
+  inline void InvokeSpeechDoneUPP(SpeechChannel chan, long refCon,
+                                  SpeechDoneUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppSpeechDoneProcInfo, chan, refCon);
+  }
 #else
-#define InvokeSpeechDoneUPP(chan, refCon, userUPP)                             \
+#define InvokeSpeechDoneUPP(chan, refCon, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppSpeechDoneProcInfo, (chan), (refCon))
 #endif
 #endif
 
-/**
- *  InvokeSpeechSyncUPP()
- *
+  /**
+   *  InvokeSpeechSyncUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeSpeechSyncUPP(SpeechChannel chan, long refCon, OSType syncMessage,
-                    SpeechSyncUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeSpeechSyncUPP(SpeechChannel chan, long refCon, OSType syncMessage,
+                      SpeechSyncUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeSpeechSyncUPP(SpeechChannel chan, long refCon,
-                                OSType syncMessage, SpeechSyncUPP userUPP) {
-  CALL_THREE_PARAMETER_UPP(userUPP, uppSpeechSyncProcInfo, chan, refCon,
-                           syncMessage);
-}
+  inline void InvokeSpeechSyncUPP(SpeechChannel chan, long refCon,
+                                  OSType syncMessage, SpeechSyncUPP userUPP)
+  {
+    CALL_THREE_PARAMETER_UPP(userUPP, uppSpeechSyncProcInfo, chan, refCon,
+                             syncMessage);
+  }
 #else
 #define InvokeSpeechSyncUPP(chan, refCon, syncMessage, userUPP)                \
   CALL_THREE_PARAMETER_UPP((userUPP), uppSpeechSyncProcInfo, (chan), (refCon), \
@@ -574,25 +625,26 @@ inline void InvokeSpeechSyncUPP(SpeechChannel chan, long refCon,
 #endif
 #endif
 
-/**
- *  InvokeSpeechErrorUPP()
- *
+  /**
+   *  InvokeSpeechErrorUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeSpeechErrorUPP(SpeechChannel chan, long refCon, OSErr theError,
-                     long bytePos, SpeechErrorUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeSpeechErrorUPP(SpeechChannel chan, long refCon, OSErr theError,
+                       long bytePos, SpeechErrorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeSpeechErrorUPP(SpeechChannel chan, long refCon,
-                                 OSErr theError, long bytePos,
-                                 SpeechErrorUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppSpeechErrorProcInfo, chan, refCon,
-                          theError, bytePos);
-}
+  inline void InvokeSpeechErrorUPP(SpeechChannel chan, long refCon,
+                                   OSErr theError, long bytePos,
+                                   SpeechErrorUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppSpeechErrorProcInfo, chan, refCon,
+                            theError, bytePos);
+  }
 #else
 #define InvokeSpeechErrorUPP(chan, refCon, theError, bytePos, userUPP)         \
   CALL_FOUR_PARAMETER_UPP((userUPP), uppSpeechErrorProcInfo, (chan), (refCon), \
@@ -600,54 +652,56 @@ inline void InvokeSpeechErrorUPP(SpeechChannel chan, long refCon,
 #endif
 #endif
 
-/**
- *  InvokeSpeechPhonemeUPP()
- *
+  /**
+   *  InvokeSpeechPhonemeUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeSpeechPhonemeUPP(SpeechChannel chan, long refCon, short phonemeOpcode,
-                       SpeechPhonemeUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeSpeechPhonemeUPP(SpeechChannel chan, long refCon, short phonemeOpcode,
+                         SpeechPhonemeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeSpeechPhonemeUPP(SpeechChannel chan, long refCon,
-                                   short phonemeOpcode,
-                                   SpeechPhonemeUPP userUPP) {
-  CALL_THREE_PARAMETER_UPP(userUPP, uppSpeechPhonemeProcInfo, chan, refCon,
-                           phonemeOpcode);
-}
+  inline void InvokeSpeechPhonemeUPP(SpeechChannel chan, long refCon,
+                                     short phonemeOpcode,
+                                     SpeechPhonemeUPP userUPP)
+  {
+    CALL_THREE_PARAMETER_UPP(userUPP, uppSpeechPhonemeProcInfo, chan, refCon,
+                             phonemeOpcode);
+  }
 #else
-#define InvokeSpeechPhonemeUPP(chan, refCon, phonemeOpcode, userUPP)           \
-  CALL_THREE_PARAMETER_UPP((userUPP), uppSpeechPhonemeProcInfo, (chan),        \
+#define InvokeSpeechPhonemeUPP(chan, refCon, phonemeOpcode, userUPP)    \
+  CALL_THREE_PARAMETER_UPP((userUPP), uppSpeechPhonemeProcInfo, (chan), \
                            (refCon), (phonemeOpcode))
 #endif
 #endif
 
-/**
- *  InvokeSpeechWordUPP()
- *
+  /**
+   *  InvokeSpeechWordUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeSpeechWordUPP(SpeechChannel chan, long refCon, unsigned long wordPos,
-                    unsigned short wordLen, SpeechWordUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeSpeechWordUPP(SpeechChannel chan, long refCon, unsigned long wordPos,
+                      unsigned short wordLen, SpeechWordUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeSpeechWordUPP(SpeechChannel chan, long refCon,
-                                unsigned long wordPos, unsigned short wordLen,
-                                SpeechWordUPP userUPP) {
-  CALL_FOUR_PARAMETER_UPP(userUPP, uppSpeechWordProcInfo, chan, refCon, wordPos,
-                          wordLen);
-}
+  inline void InvokeSpeechWordUPP(SpeechChannel chan, long refCon,
+                                  unsigned long wordPos, unsigned short wordLen,
+                                  SpeechWordUPP userUPP)
+  {
+    CALL_FOUR_PARAMETER_UPP(userUPP, uppSpeechWordProcInfo, chan, refCon, wordPos,
+                            wordLen);
+  }
 #else
-#define InvokeSpeechWordUPP(chan, refCon, wordPos, wordLen, userUPP)           \
-  CALL_FOUR_PARAMETER_UPP((userUPP), uppSpeechWordProcInfo, (chan), (refCon),  \
+#define InvokeSpeechWordUPP(chan, refCon, wordPos, wordLen, userUPP)          \
+  CALL_FOUR_PARAMETER_UPP((userUPP), uppSpeechWordProcInfo, (chan), (refCon), \
                           (wordPos), (wordLen))
 #endif
 #endif
@@ -660,319 +714,300 @@ inline void InvokeSpeechWordUPP(SpeechChannel chan, long refCon,
 #define NewSpeechErrorProc(userRoutine) NewSpeechErrorUPP(userRoutine)
 #define NewSpeechPhonemeProc(userRoutine) NewSpeechPhonemeUPP(userRoutine)
 #define NewSpeechWordProc(userRoutine) NewSpeechWordUPP(userRoutine)
-#define CallSpeechTextDoneProc(userRoutine, chan, refCon, nextBuf, byteLen,    \
-                               controlFlags)                                   \
-  InvokeSpeechTextDoneUPP(chan, refCon, nextBuf, byteLen, controlFlags,        \
+#define CallSpeechTextDoneProc(userRoutine, chan, refCon, nextBuf, byteLen, \
+                               controlFlags)                                \
+  InvokeSpeechTextDoneUPP(chan, refCon, nextBuf, byteLen, controlFlags,     \
                           userRoutine)
-#define CallSpeechDoneProc(userRoutine, chan, refCon)                          \
+#define CallSpeechDoneProc(userRoutine, chan, refCon) \
   InvokeSpeechDoneUPP(chan, refCon, userRoutine)
-#define CallSpeechSyncProc(userRoutine, chan, refCon, syncMessage)             \
+#define CallSpeechSyncProc(userRoutine, chan, refCon, syncMessage) \
   InvokeSpeechSyncUPP(chan, refCon, syncMessage, userRoutine)
-#define CallSpeechErrorProc(userRoutine, chan, refCon, theError, bytePos)      \
+#define CallSpeechErrorProc(userRoutine, chan, refCon, theError, bytePos) \
   InvokeSpeechErrorUPP(chan, refCon, theError, bytePos, userRoutine)
-#define CallSpeechPhonemeProc(userRoutine, chan, refCon, phonemeOpcode)        \
+#define CallSpeechPhonemeProc(userRoutine, chan, refCon, phonemeOpcode) \
   InvokeSpeechPhonemeUPP(chan, refCon, phonemeOpcode, userRoutine)
-#define CallSpeechWordProc(userRoutine, chan, refCon, wordPos, wordLen)        \
+#define CallSpeechWordProc(userRoutine, chan, refCon, wordPos, wordLen) \
   InvokeSpeechWordUPP(chan, refCon, wordPos, wordLen, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  SpeechManagerVersion()
- *
+  /**
+   *  SpeechManagerVersion()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(NumVersion)
-SpeechManagerVersion(void) FOURWORDINLINE(0x203C, 0x0000, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  NumVersion
+  SpeechManagerVersion(void);
 
-/**
- *  MakeVoiceSpec()
- *
+  /**
+   *  MakeVoiceSpec()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-MakeVoiceSpec(OSType creator, OSType id, VoiceSpec *voice)
-    FOURWORDINLINE(0x203C, 0x0604, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  MakeVoiceSpec(OSType creator, OSType id, VoiceSpec *voice);
 
-/**
- *  CountVoices()
- *
+  /**
+   *  CountVoices()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-CountVoices(short *numVoices) FOURWORDINLINE(0x203C, 0x0108, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  CountVoices(short *numVoices);
 
-/**
- *  GetIndVoice()
- *
+  /**
+   *  GetIndVoice()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetIndVoice(short index, VoiceSpec *voice)
-    FOURWORDINLINE(0x203C, 0x030C, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetIndVoice(short index, VoiceSpec *voice);
 
-/**
- *  GetVoiceDescription()
- *
+  /**
+   *  GetVoiceDescription()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetVoiceDescription(const VoiceSpec *voice, VoiceDescription *info,
-                    long infoLength)
-    FOURWORDINLINE(0x203C, 0x0610, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetVoiceDescription(const VoiceSpec *voice, VoiceDescription *info,
+                      long infoLength);
 
-/**
- *  GetVoiceInfo()
- *
+  /**
+   *  GetVoiceInfo()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetVoiceInfo(const VoiceSpec *voice, OSType selector, void *voiceInfo)
-    FOURWORDINLINE(0x203C, 0x0614, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetVoiceInfo(const VoiceSpec *voice, OSType selector, void *voiceInfo);
 
-/**
- *  NewSpeechChannel()
- *
+  /**
+   *  NewSpeechChannel()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-NewSpeechChannel(VoiceSpec *voice, /* can be NULL */
-                 SpeechChannel *chan)
-    FOURWORDINLINE(0x203C, 0x0418, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  NewSpeechChannel(VoiceSpec *voice, /* can be NULL */
+                   SpeechChannel *chan);
 
-/**
- *  DisposeSpeechChannel()
- *
+  /**
+   *  DisposeSpeechChannel()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-DisposeSpeechChannel(SpeechChannel chan)
-    FOURWORDINLINE(0x203C, 0x021C, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  DisposeSpeechChannel(SpeechChannel chan);
 
-/**
- *  SpeakString()
- *
+  /**
+   *  SpeakString()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SpeakString(ConstStr255Param textToBeSpoken)
-    FOURWORDINLINE(0x203C, 0x0220, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SpeakString(ConstStr255Param textToBeSpoken);
 
-/**
- *  SpeakText()
- *
+  /**
+   *  SpeakText()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SpeakText(SpeechChannel chan, const void *textBuf, unsigned long textBytes)
-    FOURWORDINLINE(0x203C, 0x0624, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SpeakText(SpeechChannel chan, const void *textBuf, unsigned long textBytes);
 
-/**
- *  SpeakBuffer()
- *
+  /**
+   *  SpeakBuffer()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SpeakBuffer(SpeechChannel chan, const void *textBuf, unsigned long textBytes,
-            long controlFlags) FOURWORDINLINE(0x203C, 0x0828, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SpeakBuffer(SpeechChannel chan, const void *textBuf, unsigned long textBytes,
+              long controlFlags);
 
-/**
- *  StopSpeech()
- *
+  /**
+   *  StopSpeech()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-StopSpeech(SpeechChannel chan) FOURWORDINLINE(0x203C, 0x022C, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  StopSpeech(SpeechChannel chan);
 
-/**
- *  StopSpeechAt()
- *
+  /**
+   *  StopSpeechAt()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-StopSpeechAt(SpeechChannel chan, long whereToStop)
-    FOURWORDINLINE(0x203C, 0x0430, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  StopSpeechAt(SpeechChannel chan, long whereToStop);
 
-/**
- *  PauseSpeechAt()
- *
+  /**
+   *  PauseSpeechAt()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-PauseSpeechAt(SpeechChannel chan, long whereToPause)
-    FOURWORDINLINE(0x203C, 0x0434, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  PauseSpeechAt(SpeechChannel chan, long whereToPause);
 
-/**
- *  ContinueSpeech()
- *
+  /**
+   *  ContinueSpeech()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ContinueSpeech(SpeechChannel chan)
-    FOURWORDINLINE(0x203C, 0x0238, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ContinueSpeech(SpeechChannel chan);
 
-/**
- *  SpeechBusy()
- *
+  /**
+   *  SpeechBusy()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-SpeechBusy(void) FOURWORDINLINE(0x203C, 0x003C, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  SpeechBusy(void);
 
-/**
- *  SpeechBusySystemWide()
- *
+  /**
+   *  SpeechBusySystemWide()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-SpeechBusySystemWide(void) FOURWORDINLINE(0x203C, 0x0040, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  SpeechBusySystemWide(void);
 
-/**
- *  SetSpeechRate()
- *
+  /**
+   *  SetSpeechRate()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetSpeechRate(SpeechChannel chan, Fixed rate)
-    FOURWORDINLINE(0x203C, 0x0444, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetSpeechRate(SpeechChannel chan, Fixed rate);
 
-/**
- *  GetSpeechRate()
- *
+  /**
+   *  GetSpeechRate()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetSpeechRate(SpeechChannel chan, Fixed *rate)
-    FOURWORDINLINE(0x203C, 0x0448, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetSpeechRate(SpeechChannel chan, Fixed *rate);
 
-/**
- *  SetSpeechPitch()
- *
+  /**
+   *  SetSpeechPitch()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetSpeechPitch(SpeechChannel chan, Fixed pitch)
-    FOURWORDINLINE(0x203C, 0x044C, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetSpeechPitch(SpeechChannel chan, Fixed pitch);
 
-/**
- *  GetSpeechPitch()
- *
+  /**
+   *  GetSpeechPitch()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetSpeechPitch(SpeechChannel chan, Fixed *pitch)
-    FOURWORDINLINE(0x203C, 0x0450, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetSpeechPitch(SpeechChannel chan, Fixed *pitch);
 
-/**
- *  SetSpeechInfo()
- *
+  /**
+   *  SetSpeechInfo()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-SetSpeechInfo(SpeechChannel chan, OSType selector, const void *speechInfo)
-    FOURWORDINLINE(0x203C, 0x0654, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  SetSpeechInfo(SpeechChannel chan, OSType selector, const void *speechInfo);
 
-/**
- *  GetSpeechInfo()
- *
+  /**
+   *  GetSpeechInfo()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-GetSpeechInfo(SpeechChannel chan, OSType selector, void *speechInfo)
-    FOURWORDINLINE(0x203C, 0x0658, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  GetSpeechInfo(SpeechChannel chan, OSType selector, void *speechInfo);
 
-/**
- *  TextToPhonemes()
- *
+  /**
+   *  TextToPhonemes()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-TextToPhonemes(SpeechChannel chan, const void *textBuf, unsigned long textBytes,
-               Handle phonemeBuf, long *phonemeBytes)
-    FOURWORDINLINE(0x203C, 0x0A5C, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  TextToPhonemes(SpeechChannel chan, const void *textBuf, unsigned long textBytes,
+                 Handle phonemeBuf, long *phonemeBytes);
 
-/**
- *  UseDictionary()
- *
+  /**
+   *  UseDictionary()
+   *
 
- *    \non_carbon_cfm   in SpeechLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-UseDictionary(SpeechChannel chan, Handle dictionary)
-    FOURWORDINLINE(0x203C, 0x0460, 0x000C, 0xA800);
+   *    \non_carbon_cfm   in SpeechLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  UseDictionary(SpeechChannel chan, Handle dictionary);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

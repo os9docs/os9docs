@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup Misc
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,675 +52,720 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef struct OpaqueICAObject *ICAObject;
-typedef struct OpaqueICAProperty *ICAProperty;
-typedef struct OpaqueICAConnectionID *ICAConnectionID;
-/**
---------------- Defines ---------------
-*/
-/** Error codes (Image Capture range = -9900...-9949)*/
-enum {
-  kICACommunicationErr = -9900,
-  kICADeviceNotFoundErr = -9901,
-  kICADeviceNotOpenErr = -9902,
-  kICAFileCorruptedErr = -9903,
-  kICAIOPendingErr = -9904,
-  kICAInvalidObjectErr = -9905,
-  kICAInvalidPropertyErr = -9906,
-  kICAIndexOutOfRangeErr = -9907,
-  kICAPropertyTypeNotFoundErr = -9908
-};
+  typedef struct OpaqueICAObject *ICAObject;
+  typedef struct OpaqueICAProperty *ICAProperty;
+  typedef struct OpaqueICAConnectionID *ICAConnectionID;
+  /**
+  --------------- Defines ---------------
+  */
+  /** Error codes (Image Capture range = -9900...-9949)*/
+  enum
+  {
+    kICACommunicationErr = -9900,
+    kICADeviceNotFoundErr = -9901,
+    kICADeviceNotOpenErr = -9902,
+    kICAFileCorruptedErr = -9903,
+    kICAIOPendingErr = -9904,
+    kICAInvalidObjectErr = -9905,
+    kICAInvalidPropertyErr = -9906,
+    kICAIndexOutOfRangeErr = -9907,
+    kICAPropertyTypeNotFoundErr = -9908
+  };
 
-/**
-NOTE: vendor specific constants are UPPERCASE  (exception: 'TEXT')
-*/
-/** ICAObject types and subtypes */
-enum {
-  kICADevice =
-      FOUR_CHAR_CODE('icdv'), /** Also creator of device library files */
-  kICADeviceCamera =
-      FOUR_CHAR_CODE('cmra'), /** Also file type of device library files */
-  kICADeviceScanner =
-      FOUR_CHAR_CODE('scan'), /** Also file type of device library files */
-  kICADeviceMFP =
-      FOUR_CHAR_CODE('mfp '), /** Also file type of device library files */
-  kICAList = FOUR_CHAR_CODE('objl'),
-  kICADirectory = FOUR_CHAR_CODE('dire'),
-  kICAFile = FOUR_CHAR_CODE('file'),
-  kICAFileImage = FOUR_CHAR_CODE('imag'),
-  kICAFileMovie = FOUR_CHAR_CODE('moov'),
-  kICAFileAudio = FOUR_CHAR_CODE('audo'),
-  kICAFileFirmware = FOUR_CHAR_CODE('firm'),
-  kICAFileOther = FOUR_CHAR_CODE('othe')
-};
+  /**
+  NOTE: vendor specific constants are UPPERCASE  (exception: 'TEXT')
+  */
+  /** ICAObject types and subtypes */
+  enum
+  {
+    kICADevice =
+        FOUR_CHAR_CODE('icdv'), /** Also creator of device library files */
+    kICADeviceCamera =
+        FOUR_CHAR_CODE('cmra'), /** Also file type of device library files */
+    kICADeviceScanner =
+        FOUR_CHAR_CODE('scan'), /** Also file type of device library files */
+    kICADeviceMFP =
+        FOUR_CHAR_CODE('mfp '), /** Also file type of device library files */
+    kICAList = FOUR_CHAR_CODE('objl'),
+    kICADirectory = FOUR_CHAR_CODE('dire'),
+    kICAFile = FOUR_CHAR_CODE('file'),
+    kICAFileImage = FOUR_CHAR_CODE('imag'),
+    kICAFileMovie = FOUR_CHAR_CODE('moov'),
+    kICAFileAudio = FOUR_CHAR_CODE('audo'),
+    kICAFileFirmware = FOUR_CHAR_CODE('firm'),
+    kICAFileOther = FOUR_CHAR_CODE('othe')
+  };
 
-/** ICAProperties */
-enum {
-  kICAProperty = FOUR_CHAR_CODE('prop'), /** */
-                                         /**    file properties */
-                                         /** */
-  /** for images, refer to 'Digital Still Camera Image File Format Standard'
-     Exif Version 2.1 section 2.6.4. and 2.6.5.*/
-  kICAPropertyImageWidth = FOUR_CHAR_CODE('0100'),    /** UInt32 */
-  kICAPropertyImageHeight = FOUR_CHAR_CODE('0101'),   /** UInt32 */
-  kICAPropertyImageBitDepth = FOUR_CHAR_CODE('0102'), /** UInt32 */
-  kICAPropertyImageDPI = FOUR_CHAR_CODE('011A'),      /** UInt32 */
-  kICAPropertyImageExposureTime = FOUR_CHAR_CODE('829A'),
-  kICAPropertyImageFNumber = FOUR_CHAR_CODE('829D'),
-  kICAPropertyImageDateOriginal =
-      FOUR_CHAR_CODE('9003'), /** null terminated string (YYYYMMDDThhmmss.s) */
-  kICAPropertyImageDateDigitized =
-      FOUR_CHAR_CODE('9004'), /** null terminated string (YYYYMMDDThhmmss.s) */
-  kICAPropertyImageShutterSpeed = FOUR_CHAR_CODE('9201'), /** */
-  kICAPropertyImageAperture = FOUR_CHAR_CODE('9202'),     /** */
-  kICAPropertyImageFlash = FOUR_CHAR_CODE('9209'),        /** UInt16*/
-  kICAPropertyColorSpace = FOUR_CHAR_CODE('A001'),        /** UInt16*/
-  kICAPropertyImageFilename =
-      FOUR_CHAR_CODE('ifil'),                     /** null terminated string */
-  kICAPropertyImageSize = FOUR_CHAR_CODE('isiz'), /** UInt32 */
-  kICAPropertyImageData = FOUR_CHAR_CODE('idat'), /** void * */
-  kICAPropertyImageThumbnail = FOUR_CHAR_CODE('thum'), /** void * */
-  kICAPropertyColorSyncProfile = FOUR_CHAR_CODE('prof')
-};
+  /** ICAProperties */
+  enum
+  {
+    kICAProperty = FOUR_CHAR_CODE('prop'), /** */
+                                           /**    file properties */
+                                           /** */
+    /** for images, refer to 'Digital Still Camera Image File Format Standard'
+       Exif Version 2.1 section 2.6.4. and 2.6.5.*/
+    kICAPropertyImageWidth = FOUR_CHAR_CODE('0100'),    /** UInt32 */
+    kICAPropertyImageHeight = FOUR_CHAR_CODE('0101'),   /** UInt32 */
+    kICAPropertyImageBitDepth = FOUR_CHAR_CODE('0102'), /** UInt32 */
+    kICAPropertyImageDPI = FOUR_CHAR_CODE('011A'),      /** UInt32 */
+    kICAPropertyImageExposureTime = FOUR_CHAR_CODE('829A'),
+    kICAPropertyImageFNumber = FOUR_CHAR_CODE('829D'),
+    kICAPropertyImageDateOriginal =
+        FOUR_CHAR_CODE('9003'), /** null terminated string (YYYYMMDDThhmmss.s) */
+    kICAPropertyImageDateDigitized =
+        FOUR_CHAR_CODE('9004'),                             /** null terminated string (YYYYMMDDThhmmss.s) */
+    kICAPropertyImageShutterSpeed = FOUR_CHAR_CODE('9201'), /** */
+    kICAPropertyImageAperture = FOUR_CHAR_CODE('9202'),     /** */
+    kICAPropertyImageFlash = FOUR_CHAR_CODE('9209'),        /** UInt16*/
+    kICAPropertyColorSpace = FOUR_CHAR_CODE('A001'),        /** UInt16*/
+    kICAPropertyImageFilename =
+        FOUR_CHAR_CODE('ifil'),                          /** null terminated string */
+    kICAPropertyImageSize = FOUR_CHAR_CODE('isiz'),      /** UInt32 */
+    kICAPropertyImageData = FOUR_CHAR_CODE('idat'),      /** void * */
+    kICAPropertyImageThumbnail = FOUR_CHAR_CODE('thum'), /** void * */
+    kICAPropertyColorSyncProfile = FOUR_CHAR_CODE('prof')
+  };
 
-/** Messages */
-enum {
-  kICAMessageConnect = FOUR_CHAR_CODE('open'),
-  kICAMessageDisconnect = FOUR_CHAR_CODE('clos'),
-  kICAMessageReset = FOUR_CHAR_CODE('rese'),
-  kICAMessageCheckDevice = FOUR_CHAR_CODE('chkd')
-};
+  /** Messages */
+  enum
+  {
+    kICAMessageConnect = FOUR_CHAR_CODE('open'),
+    kICAMessageDisconnect = FOUR_CHAR_CODE('clos'),
+    kICAMessageReset = FOUR_CHAR_CODE('rese'),
+    kICAMessageCheckDevice = FOUR_CHAR_CODE('chkd')
+  };
 
-/** Data type definitions, mapped to AppleEvent types */
-enum {
-  kICATypeUInt16 = FOUR_CHAR_CODE('ui16'),   /** UInt16 */
-  kICATypeUInt32 = FOUR_CHAR_CODE('ui32'),   /** UInt32 */
-  kICATypeUInt64 = FOUR_CHAR_CODE('ui64'),   /** UInt64 */
-  kICATypeSInt16 = FOUR_CHAR_CODE('si16'),   /** SInt16 */
-  kICATypeSInt32 = FOUR_CHAR_CODE('si32'),   /** SInt32 */
-  kICATypeSInt64 = FOUR_CHAR_CODE('si64'),   /** SInt64 */
-  kICATypeFixed = FOUR_CHAR_CODE('sing'),    /** typeIEEE32BitFloatingPoint */
-  kICATypeBoolean = FOUR_CHAR_CODE('bool'),  /** typeBoolean */
-  kICATypeString = FOUR_CHAR_CODE('TEXT'),   /** typeChar */
-  kICATypeData = FOUR_CHAR_CODE('data'),     /** void * */
-  kICATypeThumbnail = FOUR_CHAR_CODE('thum') /** ICAThumbnail*/
-};
+  /** Data type definitions, mapped to AppleEvent types */
+  enum
+  {
+    kICATypeUInt16 = FOUR_CHAR_CODE('ui16'),   /** UInt16 */
+    kICATypeUInt32 = FOUR_CHAR_CODE('ui32'),   /** UInt32 */
+    kICATypeUInt64 = FOUR_CHAR_CODE('ui64'),   /** UInt64 */
+    kICATypeSInt16 = FOUR_CHAR_CODE('si16'),   /** SInt16 */
+    kICATypeSInt32 = FOUR_CHAR_CODE('si32'),   /** SInt32 */
+    kICATypeSInt64 = FOUR_CHAR_CODE('si64'),   /** SInt64 */
+    kICATypeFixed = FOUR_CHAR_CODE('sing'),    /** typeIEEE32BitFloatingPoint */
+    kICATypeBoolean = FOUR_CHAR_CODE('bool'),  /** typeBoolean */
+    kICATypeString = FOUR_CHAR_CODE('TEXT'),   /** typeChar */
+    kICATypeData = FOUR_CHAR_CODE('data'),     /** void * */
+    kICATypeThumbnail = FOUR_CHAR_CODE('thum') /** ICAThumbnail*/
+  };
 
-/** Flags for PropertyInfo flag element */
-enum { kICAFlagReadWriteAccess = 1L << 0, kICAFlagReadAccess = 1L << 1 };
+  /** Flags for PropertyInfo flag element */
+  enum
+  {
+    kICAFlagReadWriteAccess = 1L << 0,
+    kICAFlagReadAccess = 1L << 1
+  };
 
-/** Notification types (Refer to section 12.4 of PTP spec) */
-enum {
-  kICAEventCancelTransaction = FOUR_CHAR_CODE('ecnt'),
-  kICAEventObjectAdded = FOUR_CHAR_CODE('eoba'),
-  kICAEventObjectRemoved = FOUR_CHAR_CODE('eobr'),
-  kICAEventStoreAdded = FOUR_CHAR_CODE('esta'),
-  kICAEventStoreRemoved = FOUR_CHAR_CODE('estr'),
-  kICAEventDeviceAdded = FOUR_CHAR_CODE('edea'),
-  kICAEventDeviceRemoved = FOUR_CHAR_CODE('eder'),
-  kICAEventDevicePropChanged = FOUR_CHAR_CODE('edpc'),
-  kICAEventObjectInfoChanged = FOUR_CHAR_CODE('eoic'),
-  kICAEventDeviceInfoChanged = FOUR_CHAR_CODE('edic'),
-  kICAEventRequestObjectTransfer = FOUR_CHAR_CODE('erot'),
-  kICAEventStoreFull = FOUR_CHAR_CODE('estf'),
-  kICAEventDeviceReset = FOUR_CHAR_CODE('edvr'),
-  kICAEventStorageInfoChanged = FOUR_CHAR_CODE('esic'),
-  kICAEventCaptureComplete = FOUR_CHAR_CODE('ecpc'),
-  kICAEventUnreportedStatus = FOUR_CHAR_CODE('eurs')
-};
+  /** Notification types (Refer to section 12.4 of PTP spec) */
+  enum
+  {
+    kICAEventCancelTransaction = FOUR_CHAR_CODE('ecnt'),
+    kICAEventObjectAdded = FOUR_CHAR_CODE('eoba'),
+    kICAEventObjectRemoved = FOUR_CHAR_CODE('eobr'),
+    kICAEventStoreAdded = FOUR_CHAR_CODE('esta'),
+    kICAEventStoreRemoved = FOUR_CHAR_CODE('estr'),
+    kICAEventDeviceAdded = FOUR_CHAR_CODE('edea'),
+    kICAEventDeviceRemoved = FOUR_CHAR_CODE('eder'),
+    kICAEventDevicePropChanged = FOUR_CHAR_CODE('edpc'),
+    kICAEventObjectInfoChanged = FOUR_CHAR_CODE('eoic'),
+    kICAEventDeviceInfoChanged = FOUR_CHAR_CODE('edic'),
+    kICAEventRequestObjectTransfer = FOUR_CHAR_CODE('erot'),
+    kICAEventStoreFull = FOUR_CHAR_CODE('estf'),
+    kICAEventDeviceReset = FOUR_CHAR_CODE('edvr'),
+    kICAEventStorageInfoChanged = FOUR_CHAR_CODE('esic'),
+    kICAEventCaptureComplete = FOUR_CHAR_CODE('ecpc'),
+    kICAEventUnreportedStatus = FOUR_CHAR_CODE('eurs')
+  };
 
-/** Used for partial reads via ICAGetPropertyData */
-enum { kICAStartAtBeginning = 0, kICAEntireLength = -1 };
+  /** Used for partial reads via ICAGetPropertyData */
+  enum
+  {
+    kICAStartAtBeginning = 0,
+    kICAEntireLength = -1
+  };
 
-/** ICADownloadFile flags */
-enum {
-  kDeleteAfterDownload = 0x00000001,
-  kCreateCustomIcon = 0x00000002,
-  kAddMetaDataToFinderComment = 0x00000004,
-  kAdjustCreationDate = 0x00000008,
-  kSetFileTypeAndCreator = 0x00000010,
-  kEmbedColorSyncProfile = 0x00000020,
-  kRotateImage = 0x00000040
-};
+  /** ICADownloadFile flags */
+  enum
+  {
+    kDeleteAfterDownload = 0x00000001,
+    kCreateCustomIcon = 0x00000002,
+    kAddMetaDataToFinderComment = 0x00000004,
+    kAdjustCreationDate = 0x00000008,
+    kSetFileTypeAndCreator = 0x00000010,
+    kEmbedColorSyncProfile = 0x00000020,
+    kRotateImage = 0x00000040
+  };
 
-/**
---------------- Structures ---------------
-*/
-struct ICAObjectInfo {
-  OSType objectType;    /** i.e. kICAFile*/
-  OSType objectSubtype; /** i.e. kICAFileImage  */
-};
-typedef struct ICAObjectInfo ICAObjectInfo;
-struct ICAPropertyInfo {
-  OSType propertyType;
-  OSType dataType;
-  UInt32 dataSize;
-  UInt32 dataFlags;
-};
-typedef struct ICAPropertyInfo ICAPropertyInfo;
-struct ICAMessage {
-  OSType messageType; /** <--  i.e. kICAMessageCameraCaptureNewImage */
+  /**
+  --------------- Structures ---------------
+  */
+  struct ICAObjectInfo
+  {
+    OSType objectType;    /** i.e. kICAFile*/
+    OSType objectSubtype; /** i.e. kICAFileImage  */
+  };
+  typedef struct ICAObjectInfo ICAObjectInfo;
+  struct ICAPropertyInfo
+  {
+    OSType propertyType;
+    OSType dataType;
+    UInt32 dataSize;
+    UInt32 dataFlags;
+  };
+  typedef struct ICAPropertyInfo ICAPropertyInfo;
+  struct ICAMessage
+  {
+    OSType messageType; /** <--  i.e. kICAMessageCameraCaptureNewImage */
 
-  UInt32 startByte; /** <-- */
-  void *dataPtr;    /** <-- */
-  UInt32 dataSize;  /** <-- */
-  OSType dataType;  /** <-- */
-};
-typedef struct ICAMessage ICAMessage;
-struct ICAThumbnail {
-  UInt32 width;
-  UInt32 height;
-  UInt32 dataSize;
-  UInt8 data[1]; /** 8-bit RGB data (RGBRGBRGB...)*/
-};
-typedef struct ICAThumbnail ICAThumbnail;
-enum { kICAPBVersion = 0x00010000 };
+    UInt32 startByte; /** <-- */
+    void *dataPtr;    /** <-- */
+    UInt32 dataSize;  /** <-- */
+    OSType dataType;  /** <-- */
+  };
+  typedef struct ICAMessage ICAMessage;
+  struct ICAThumbnail
+  {
+    UInt32 width;
+    UInt32 height;
+    UInt32 dataSize;
+    UInt8 data[1]; /** 8-bit RGB data (RGBRGBRGB...)*/
+  };
+  typedef struct ICAThumbnail ICAThumbnail;
+  enum
+  {
+    kICAPBVersion = 0x00010000
+  };
 
-/**
---------------- Completion Procs ---------------
-*/
-/**
+  /**
+  --------------- Completion Procs ---------------
+  */
+  /**
 
-   NOTE: the parameter for the completion proc (ICAHeader*) has to be casted to
-   the appropriate type e.g. (ICAGetChildCountPB*), ...
+     NOTE: the parameter for the completion proc (ICAHeader*) has to be casted to
+     the appropriate type e.g. (ICAGetChildCountPB*), ...
 
-*/
+  */
 
-typedef struct ICAHeader ICAHeader;
-typedef CALLBACK_API_C(void, ICACompletion)(ICAHeader *pb);
-/**
---------------- ICAHeader ---------------
-*/
-struct ICAHeader {
-  OSErr err;     /** --> */
-  UInt32 refcon; /** <-- */
-};
+  typedef struct ICAHeader ICAHeader;
+  typedef CALLBACK_API_C(void, ICACompletion)(ICAHeader *pb);
+  /**
+  --------------- ICAHeader ---------------
+  */
+  struct ICAHeader
+  {
+    OSErr err;     /** --> */
+    UInt32 refcon; /** <-- */
+  };
 
-/**
---------------- Object parameter blocks ---------------
-*/
-struct ICAGetChildCountPB {
-  ICAHeader header;
+  /**
+  --------------- Object parameter blocks ---------------
+  */
+  struct ICAGetChildCountPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
+    ICAObject object; /** <-- */
 
-  UInt32 count; /** --> */
-};
-typedef struct ICAGetChildCountPB ICAGetChildCountPB;
-struct ICAGetNthChildPB {
-  ICAHeader header;
+    UInt32 count; /** --> */
+  };
+  typedef struct ICAGetChildCountPB ICAGetChildCountPB;
+  struct ICAGetNthChildPB
+  {
+    ICAHeader header;
 
-  ICAObject parentObject; /** <-- */
-  UInt32 index;           /** <-- zero based */
+    ICAObject parentObject; /** <-- */
+    UInt32 index;           /** <-- zero based */
 
-  ICAObject childObject;   /** --> */
-  ICAObjectInfo childInfo; /** --> */
-};
-typedef struct ICAGetNthChildPB ICAGetNthChildPB;
-struct ICAGetObjectInfoPB {
-  ICAHeader header;
+    ICAObject childObject;   /** --> */
+    ICAObjectInfo childInfo; /** --> */
+  };
+  typedef struct ICAGetNthChildPB ICAGetNthChildPB;
+  struct ICAGetObjectInfoPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
+    ICAObject object; /** <-- */
 
-  ICAObjectInfo objectInfo; /** --> */
-};
-typedef struct ICAGetObjectInfoPB ICAGetObjectInfoPB;
-struct ICAGetParentOfObjectPB {
-  ICAHeader header;
+    ICAObjectInfo objectInfo; /** --> */
+  };
+  typedef struct ICAGetObjectInfoPB ICAGetObjectInfoPB;
+  struct ICAGetParentOfObjectPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
+    ICAObject object; /** <-- */
 
-  ICAObject parentObject;   /** --> */
-  ICAObjectInfo parentInfo; /** --> */
-};
-typedef struct ICAGetParentOfObjectPB ICAGetParentOfObjectPB;
-struct ICAGetRootOfObjectPB {
-  ICAHeader header;
+    ICAObject parentObject;   /** --> */
+    ICAObjectInfo parentInfo; /** --> */
+  };
+  typedef struct ICAGetParentOfObjectPB ICAGetParentOfObjectPB;
+  struct ICAGetRootOfObjectPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
+    ICAObject object; /** <-- */
 
-  ICAObject rootObject;   /** --> */
-  ICAObjectInfo rootInfo; /** --> */
-};
-typedef struct ICAGetRootOfObjectPB ICAGetRootOfObjectPB;
-struct ICAGetObjectRefConPB {
-  ICAHeader header;
+    ICAObject rootObject;   /** --> */
+    ICAObjectInfo rootInfo; /** --> */
+  };
+  typedef struct ICAGetRootOfObjectPB ICAGetRootOfObjectPB;
+  struct ICAGetObjectRefConPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
+    ICAObject object; /** <-- */
 
-  UInt32 objectRefCon; /** --> */
-};
-typedef struct ICAGetObjectRefConPB ICAGetObjectRefConPB;
-struct ICASetObjectRefConPB {
-  ICAHeader header;
+    UInt32 objectRefCon; /** --> */
+  };
+  typedef struct ICAGetObjectRefConPB ICAGetObjectRefConPB;
+  struct ICASetObjectRefConPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
+    ICAObject object; /** <-- */
 
-  UInt32 objectRefCon; /** <-- */
-};
-typedef struct ICASetObjectRefConPB ICASetObjectRefConPB;
-/**
---------------- Property parameter blocks ---------------
-*/
-struct ICAGetPropertyCountPB {
-  ICAHeader header;
+    UInt32 objectRefCon; /** <-- */
+  };
+  typedef struct ICASetObjectRefConPB ICASetObjectRefConPB;
+  /**
+  --------------- Property parameter blocks ---------------
+  */
+  struct ICAGetPropertyCountPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
+    ICAObject object; /** <-- */
 
-  UInt32 count; /** --> */
-};
-typedef struct ICAGetPropertyCountPB ICAGetPropertyCountPB;
-struct ICAGetNthPropertyPB {
-  ICAHeader header;
+    UInt32 count; /** --> */
+  };
+  typedef struct ICAGetPropertyCountPB ICAGetPropertyCountPB;
+  struct ICAGetNthPropertyPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** <-- */
-  UInt32 index;     /** <-- zero based */
+    ICAObject object; /** <-- */
+    UInt32 index;     /** <-- zero based */
 
-  ICAProperty property;         /** --> */
-  ICAPropertyInfo propertyInfo; /** --> */
-};
-typedef struct ICAGetNthPropertyPB ICAGetNthPropertyPB;
-struct ICAGetPropertyByTypePB {
-  ICAHeader header;
+    ICAProperty property;         /** --> */
+    ICAPropertyInfo propertyInfo; /** --> */
+  };
+  typedef struct ICAGetNthPropertyPB ICAGetNthPropertyPB;
+  struct ICAGetPropertyByTypePB
+  {
+    ICAHeader header;
 
-  ICAObject object;    /** <-- */
-  OSType propertyType; /** <-- */
+    ICAObject object;    /** <-- */
+    OSType propertyType; /** <-- */
 
-  ICAProperty property;         /** --> */
-  ICAPropertyInfo propertyInfo; /** --> */
-};
-typedef struct ICAGetPropertyByTypePB ICAGetPropertyByTypePB;
-struct ICAGetPropertyInfoPB {
-  ICAHeader header;
+    ICAProperty property;         /** --> */
+    ICAPropertyInfo propertyInfo; /** --> */
+  };
+  typedef struct ICAGetPropertyByTypePB ICAGetPropertyByTypePB;
+  struct ICAGetPropertyInfoPB
+  {
+    ICAHeader header;
 
-  ICAProperty property; /** <-- */
+    ICAProperty property; /** <-- */
 
-  ICAPropertyInfo propertyInfo; /** --> */
-};
-typedef struct ICAGetPropertyInfoPB ICAGetPropertyInfoPB;
-struct ICAGetPropertyDataPB {
-  ICAHeader header;
+    ICAPropertyInfo propertyInfo; /** --> */
+  };
+  typedef struct ICAGetPropertyInfoPB ICAGetPropertyInfoPB;
+  struct ICAGetPropertyDataPB
+  {
+    ICAHeader header;
 
-  ICAProperty property; /** <-- */
-  UInt32 startByte;     /** <-- */
-  UInt32 requestedSize; /** <-- */
+    ICAProperty property; /** <-- */
+    UInt32 startByte;     /** <-- */
+    UInt32 requestedSize; /** <-- */
 
-  void *dataPtr; /** <-> */
+    void *dataPtr; /** <-> */
 
-  UInt32 actualSize; /** --> */
-  OSType dataType;   /** --> */
-};
-typedef struct ICAGetPropertyDataPB ICAGetPropertyDataPB;
-struct ICASetPropertyDataPB {
-  ICAHeader header;
+    UInt32 actualSize; /** --> */
+    OSType dataType;   /** --> */
+  };
+  typedef struct ICAGetPropertyDataPB ICAGetPropertyDataPB;
+  struct ICASetPropertyDataPB
+  {
+    ICAHeader header;
 
-  ICAProperty property; /** <-- */
-  UInt32 startByte;     /** <-- */
-  void *dataPtr;        /** <-- */
-  UInt32 dataSize;      /** <-- */
-  OSType dataType;      /** <-- */
-};
-typedef struct ICASetPropertyDataPB ICASetPropertyDataPB;
-struct ICAGetParentOfPropertyPB {
-  ICAHeader header;
+    ICAProperty property; /** <-- */
+    UInt32 startByte;     /** <-- */
+    void *dataPtr;        /** <-- */
+    UInt32 dataSize;      /** <-- */
+    OSType dataType;      /** <-- */
+  };
+  typedef struct ICASetPropertyDataPB ICASetPropertyDataPB;
+  struct ICAGetParentOfPropertyPB
+  {
+    ICAHeader header;
 
-  ICAProperty property; /** <-- */
+    ICAProperty property; /** <-- */
 
-  ICAObject parentObject;   /** --> */
-  ICAObjectInfo parentInfo; /** --> */
-};
-typedef struct ICAGetParentOfPropertyPB ICAGetParentOfPropertyPB;
-struct ICAGetRootOfPropertyPB {
-  ICAHeader header;
+    ICAObject parentObject;   /** --> */
+    ICAObjectInfo parentInfo; /** --> */
+  };
+  typedef struct ICAGetParentOfPropertyPB ICAGetParentOfPropertyPB;
+  struct ICAGetRootOfPropertyPB
+  {
+    ICAHeader header;
 
-  ICAProperty property; /** <-- */
+    ICAProperty property; /** <-- */
 
-  ICAObject rootObject;   /** --> */
-  ICAObjectInfo rootInfo; /** --> */
-};
-typedef struct ICAGetRootOfPropertyPB ICAGetRootOfPropertyPB;
-struct ICAGetPropertyRefConPB {
-  ICAHeader header;
+    ICAObject rootObject;   /** --> */
+    ICAObjectInfo rootInfo; /** --> */
+  };
+  typedef struct ICAGetRootOfPropertyPB ICAGetRootOfPropertyPB;
+  struct ICAGetPropertyRefConPB
+  {
+    ICAHeader header;
 
-  ICAProperty property; /** <-- */
+    ICAProperty property; /** <-- */
 
-  UInt32 propertyRefCon; /** --> */
-};
-typedef struct ICAGetPropertyRefConPB ICAGetPropertyRefConPB;
-struct ICASetPropertyRefConPB {
-  ICAHeader header;
+    UInt32 propertyRefCon; /** --> */
+  };
+  typedef struct ICAGetPropertyRefConPB ICAGetPropertyRefConPB;
+  struct ICASetPropertyRefConPB
+  {
+    ICAHeader header;
 
-  ICAProperty property;  /** <-- */
-  UInt32 propertyRefCon; /** <-- */
-};
-typedef struct ICASetPropertyRefConPB ICASetPropertyRefConPB;
-/**
---------------- Device parameter blocks ---------------
-*/
-struct ICAGetDeviceListPB {
-  ICAHeader header;
+    ICAProperty property;  /** <-- */
+    UInt32 propertyRefCon; /** <-- */
+  };
+  typedef struct ICASetPropertyRefConPB ICASetPropertyRefConPB;
+  /**
+  --------------- Device parameter blocks ---------------
+  */
+  struct ICAGetDeviceListPB
+  {
+    ICAHeader header;
 
-  ICAObject object; /** --> */
-};
-typedef struct ICAGetDeviceListPB ICAGetDeviceListPB;
-struct ICAObjectSendMessagePB {
-  ICAHeader header;
+    ICAObject object; /** --> */
+  };
+  typedef struct ICAGetDeviceListPB ICAGetDeviceListPB;
+  struct ICAObjectSendMessagePB
+  {
+    ICAHeader header;
 
-  ICAObject object;   /** <-- */
-  ICAMessage message; /** <-- */
-  UInt32 result;      /** --> message specific result*/
-};
-typedef struct ICAObjectSendMessagePB ICAObjectSendMessagePB;
-struct ICARegisterEventNotificationPB {
-  ICAHeader header;
+    ICAObject object;   /** <-- */
+    ICAMessage message; /** <-- */
+    UInt32 result;      /** --> message specific result*/
+  };
+  typedef struct ICAObjectSendMessagePB ICAObjectSendMessagePB;
+  struct ICARegisterEventNotificationPB
+  {
+    ICAHeader header;
 
-  ICAObject object;         /** <-- */
-  OSType notifyType;        /** <-- */
-  ICACompletion notifyProc; /** <-- */
-};
-typedef struct ICARegisterEventNotificationPB ICARegisterEventNotificationPB;
-struct ICADownloadFilePB {
-  ICAHeader header;
+    ICAObject object;         /** <-- */
+    OSType notifyType;        /** <-- */
+    ICACompletion notifyProc; /** <-- */
+  };
+  typedef struct ICARegisterEventNotificationPB ICARegisterEventNotificationPB;
+  struct ICADownloadFilePB
+  {
+    ICAHeader header;
 
-  ICAObject object;    /** <-- */
-  FSRef *dirFSRef;     /** <-- */
-  UInt32 flags;        /** <-- */
-  OSType fileType;     /** <-- */
-  OSType fileCreator;  /** <-- */
-  Fixed rotationAngle; /** <-- */
-  FSRef *fileFSRef;    /** --> can be NULL*/
-};
-typedef struct ICADownloadFilePB ICADownloadFilePB;
-struct ICACopyObjectPropertyDictionaryPB {
-  ICAHeader header;
+    ICAObject object;    /** <-- */
+    FSRef *dirFSRef;     /** <-- */
+    UInt32 flags;        /** <-- */
+    OSType fileType;     /** <-- */
+    OSType fileCreator;  /** <-- */
+    Fixed rotationAngle; /** <-- */
+    FSRef *fileFSRef;    /** --> can be NULL*/
+  };
+  typedef struct ICADownloadFilePB ICADownloadFilePB;
+  struct ICACopyObjectPropertyDictionaryPB
+  {
+    ICAHeader header;
 
-  ICAObject object;         /** <-- */
-  CFDictionaryRef *theDict; /** --> */
-};
-typedef struct ICACopyObjectPropertyDictionaryPB
-    ICACopyObjectPropertyDictionaryPB;
-/**
+    ICAObject object;         /** <-- */
+    CFDictionaryRef *theDict; /** --> */
+  };
+  typedef struct ICACopyObjectPropertyDictionaryPB
+      ICACopyObjectPropertyDictionaryPB;
+  /**
 
-   NOTE: for all APIs - pass NULL as completion parameter to make a synchronous
-   call
+     NOTE: for all APIs - pass NULL as completion parameter to make a synchronous
+     call
 
-*/
-/**
---------------- Object functions ---------------
-*/
+  */
+  /**
+  --------------- Object functions ---------------
+  */
 
-/**
- *  ICAGetChildCount()
- *
+  /**
+   *  ICAGetChildCount()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetChildCount(ICAGetChildCountPB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetChildCount(ICAGetChildCountPB *pb,
+                   ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICAGetNthChild()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetNthChild(ICAGetNthChildPB *pb,
                  ICACompletion completion); /** can be NULL */
 
-/**
- *  ICAGetNthChild()
- *
+  /**
+   *  ICAGetObjectInfo()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetNthChild(ICAGetNthChildPB *pb,
-               ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetObjectInfo()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetObjectInfo(ICAGetObjectInfoPB *pb,
-                 ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetParentOfObject()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetParentOfObject(ICAGetParentOfObjectPB *pb,
-                     ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetRootOfObject()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetRootOfObject(ICAGetRootOfObjectPB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetObjectInfo(ICAGetObjectInfoPB *pb,
                    ICACompletion completion); /** can be NULL */
 
-/**
- *  ICAGetObjectRefCon()
- *
+  /**
+   *  ICAGetParentOfObject()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetObjectRefCon(ICAGetObjectRefConPB *pb,
-                   ICACompletion completion); /** can be NULL */
-
-/**
- *  ICASetObjectRefCon()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICASetObjectRefCon(ICASetObjectRefConPB *pb,
-                   ICACompletion completion); /** can be NULL */
-
-/**
---------------- Property functions ---------------
-*/
-/**
- *  ICAGetPropertyCount()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetPropertyCount(ICAGetPropertyCountPB *pb,
-                    ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetNthProperty()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetNthProperty(ICAGetNthPropertyPB *pb,
-                  ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetPropertyByType()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetPropertyByType(ICAGetPropertyByTypePB *pb,
-                     ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetPropertyInfo()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetPropertyInfo(ICAGetPropertyInfoPB *pb,
-                   ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetPropertyData()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetPropertyData(ICAGetPropertyDataPB *pb,
-                   ICACompletion completion); /** can be NULL */
-
-/**
- *  ICASetPropertyData()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICASetPropertyData(ICASetPropertyDataPB *pb,
-                   ICACompletion completion); /** can be NULL */
-
-/**
- *  ICAGetParentOfProperty()
- *
-
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetParentOfProperty(ICAGetParentOfPropertyPB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetParentOfObject(ICAGetParentOfObjectPB *pb,
                        ICACompletion completion); /** can be NULL */
 
-/**
- *  ICAGetRootOfProperty()
- *
+  /**
+   *  ICAGetRootOfObject()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetRootOfProperty(ICAGetRootOfPropertyPB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetRootOfObject(ICAGetRootOfObjectPB *pb,
                      ICACompletion completion); /** can be NULL */
 
-/**
- *  ICAGetPropertyRefCon()
- *
+  /**
+   *  ICAGetObjectRefCon()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetPropertyRefCon(ICAGetPropertyRefConPB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetObjectRefCon(ICAGetObjectRefConPB *pb,
                      ICACompletion completion); /** can be NULL */
 
-/**
- *  ICASetPropertyRefCon()
- *
+  /**
+   *  ICASetObjectRefCon()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICASetPropertyRefCon(ICASetPropertyRefConPB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICASetObjectRefCon(ICASetObjectRefConPB *pb,
                      ICACompletion completion); /** can be NULL */
 
-/**
---------------- Device functions ---------------
-*/
-/**
- *  ICAGetDeviceList()
- *
+  /**
+  --------------- Property functions ---------------
+  */
+  /**
+   *  ICAGetPropertyCount()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAGetDeviceList(ICAGetDeviceListPB *pb,
-                 ICACompletion completion); /** can be NULL */
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetPropertyCount(ICAGetPropertyCountPB *pb,
+                      ICACompletion completion); /** can be NULL */
 
-/**
- *  ICAObjectSendMessage()
- *
+  /**
+   *  ICAGetNthProperty()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICAObjectSendMessage(ICAObjectSendMessagePB *pb,
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetNthProperty(ICAGetNthPropertyPB *pb,
+                    ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICAGetPropertyByType()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetPropertyByType(ICAGetPropertyByTypePB *pb,
+                       ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICAGetPropertyInfo()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetPropertyInfo(ICAGetPropertyInfoPB *pb,
                      ICACompletion completion); /** can be NULL */
 
-/**
- *  ICARegisterEventNotification()
- *
+  /**
+   *  ICAGetPropertyData()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.1 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(OSErr)
-ICARegisterEventNotification(ICARegisterEventNotificationPB *pb,
-                             ICACompletion completion); /** can be NULL */
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetPropertyData(ICAGetPropertyDataPB *pb,
+                     ICACompletion completion); /** can be NULL */
 
-/**
-------------------------------------------------
-*/
-/**
- *  ICADownloadFile()
- *
+  /**
+   *  ICASetPropertyData()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.4 and later
- *    \mac_os_x         in version 10.1 and later
- */
-EXTERN_API(OSErr)
-ICADownloadFile(ICADownloadFilePB *pb,
-                ICACompletion completion); /** can be NULL */
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICASetPropertyData(ICASetPropertyDataPB *pb,
+                     ICACompletion completion); /** can be NULL */
 
-/**
- *  ICACopyObjectPropertyDictionary()
- *
+  /**
+   *  ICAGetParentOfProperty()
+   *
 
- *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.4 and later
- *    \mac_os_x         in version 10.1 and later
- */
-EXTERN_API(OSErr)
-ICACopyObjectPropertyDictionary(ICACopyObjectPropertyDictionaryPB *pb,
-                                ICACompletion completion); /** can be NULL */
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetParentOfProperty(ICAGetParentOfPropertyPB *pb,
+                         ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICAGetRootOfProperty()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetRootOfProperty(ICAGetRootOfPropertyPB *pb,
+                       ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICAGetPropertyRefCon()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetPropertyRefCon(ICAGetPropertyRefConPB *pb,
+                       ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICASetPropertyRefCon()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICASetPropertyRefCon(ICASetPropertyRefConPB *pb,
+                       ICACompletion completion); /** can be NULL */
+
+  /**
+  --------------- Device functions ---------------
+  */
+  /**
+   *  ICAGetDeviceList()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAGetDeviceList(ICAGetDeviceListPB *pb,
+                   ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICAObjectSendMessage()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICAObjectSendMessage(ICAObjectSendMessagePB *pb,
+                       ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICARegisterEventNotification()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.1 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  ICARegisterEventNotification(ICARegisterEventNotificationPB *pb,
+                               ICACompletion completion); /** can be NULL */
+
+  /**
+  ------------------------------------------------
+  */
+  /**
+   *  ICADownloadFile()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.4 and later
+   *    \mac_os_x         in version 10.1 and later
+   */
+  OSErr
+  ICADownloadFile(ICADownloadFilePB *pb,
+                  ICACompletion completion); /** can be NULL */
+
+  /**
+   *  ICACopyObjectPropertyDictionary()
+   *
+
+   *    \non_carbon_cfm   in ImageCaptureLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.4 and later
+   *    \mac_os_x         in version 10.1 and later
+   */
+  OSErr
+  ICACopyObjectPropertyDictionary(ICACopyObjectPropertyDictionaryPB *pb,
+                                  ICACompletion completion); /** can be NULL */
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

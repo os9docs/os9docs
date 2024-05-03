@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -47,85 +48,92 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef struct NMRec NMRec;
-typedef NMRec *NMRecPtr;
-typedef CALLBACK_API(void, NMProcPtr)(NMRecPtr nmReqPtr);
-typedef STACK_UPP_TYPE(NMProcPtr) NMUPP;
-struct NMRec {
-  QElemPtr qLink;   /** next queue entry*/
-  short qType;      /** queue type -- ORD(nmType) = 8*/
-  short nmFlags;    /** reserved*/
-  long nmPrivate;   /** reserved*/
-  short nmReserved; /** reserved*/
-  short nmMark;     /** item to mark in Apple menu*/
-  Handle nmIcon;    /** handle to small icon*/
-  Handle nmSound;   /** handle to sound record*/
-  StringPtr nmStr;  /** string to appear in alert*/
-  NMUPP nmResp;     /** pointer to response routine*/
-  long nmRefCon;    /** for application use*/
-};
+  typedef struct NMRec NMRec;
+  typedef NMRec *NMRecPtr;
+  typedef CALLBACK_API(void, NMProcPtr)(NMRecPtr nmReqPtr);
+  typedef STACK_UPP_TYPE(NMProcPtr) NMUPP;
+  struct NMRec
+  {
+    QElemPtr qLink;   /** next queue entry*/
+    short qType;      /** queue type -- ORD(nmType) = 8*/
+    short nmFlags;    /** reserved*/
+    long nmPrivate;   /** reserved*/
+    short nmReserved; /** reserved*/
+    short nmMark;     /** item to mark in Apple menu*/
+    Handle nmIcon;    /** handle to small icon*/
+    Handle nmSound;   /** handle to sound record*/
+    StringPtr nmStr;  /** string to appear in alert*/
+    NMUPP nmResp;     /** pointer to response routine*/
+    long nmRefCon;    /** for application use*/
+  };
 
-/**
- *  NewNMUPP()
- *
+  /**
+   *  NewNMUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(NMUPP)
-NewNMUPP(NMProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  NMUPP
+  NewNMUPP(NMProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppNMProcInfo = 0x000000C0 }; /** pascal no_return_value Func(4_bytes) */
+  enum
+  {
+    uppNMProcInfo = 0x000000C0
+  }; /** pascal no_return_value Func(4_bytes) */
 #ifdef __cplusplus
-inline NMUPP NewNMUPP(NMProcPtr userRoutine) {
-  return (NMUPP)NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo,
-                                     GetCurrentArchitecture());
-}
+  inline NMUPP NewNMUPP(NMProcPtr userRoutine)
+  {
+    return (NMUPP)NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo,
+                                       GetCurrentArchitecture());
+  }
 #else
-#define NewNMUPP(userRoutine)                                                  \
-  (NMUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo,          \
+#define NewNMUPP(userRoutine)                                         \
+  (NMUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppNMProcInfo, \
                                GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  DisposeNMUPP()
- *
+  /**
+   *  DisposeNMUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeNMUPP(NMUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeNMUPP(NMUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeNMUPP(NMUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeNMUPP(NMUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeNMUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  InvokeNMUPP()
- *
+  /**
+   *  InvokeNMUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP) {
-  CALL_ONE_PARAMETER_UPP(userUPP, uppNMProcInfo, nmReqPtr);
-}
+  inline void InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP)
+  {
+    CALL_ONE_PARAMETER_UPP(userUPP, uppNMProcInfo, nmReqPtr);
+  }
 #else
-#define InvokeNMUPP(nmReqPtr, userUPP)                                         \
+#define InvokeNMUPP(nmReqPtr, userUPP) \
   CALL_ONE_PARAMETER_UPP((userUPP), uppNMProcInfo, (nmReqPtr))
 #endif
 #endif
@@ -136,33 +144,88 @@ inline void InvokeNMUPP(NMRecPtr nmReqPtr, NMUPP userUPP) {
 #define CallNMProc(userRoutine, nmReqPtr) InvokeNMUPP(nmReqPtr, userRoutine)
 #endif /** CALL_NOT_IN_CARBON */
 
-/**
- *  NMInstall()
- *
+  /**
+  \brief Add a notification request to the notification queue
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+  <pre>NMInstall adds a notification request to the notification queue.
+nmReqPtr is a pointer to an NMRec data structure.
+</pre>
+* \returns <pre>an error code. It will be one of:
+noErr(0) No error
+nmTypErr (-299)Wrong qType (must be 8)
+</pre>
+* \note <pre>NMInstall neither moves nor purges memory and you can call it from
+completion routines, interrupt handlers, the main body of an application
+program and from the response procedure of a notification request
+The system automatically initializes the Notification Manager when it
+boots. You call NMInstall when you want to add a request to the queue.
+However, before calling NMInstall , you need to see if your application is
+running in the background. If it is, make this call to install the notification
+event.
+err = NMInstall (( NMRecPtr ) &myNote);
+If your application is in the foreground, Notification Manager generally
+isn't needed.
+If NMInstall returns an error, you can't install the notification event.
+Wait for the user to switch your application to the foreground before
+proceeding with anything else. If you installed the notification successfully,
+make sure you remove it with code like this when your application is
+switched back into the foreground:
+err = NMRemove (( QElemPtr ) &myNote);
+Glue for the Notification Manager is available in System 6.0 and later.
+If you do not yet have glue for NMInstall , you can use the following:
+Pascal
+FUNCTION NMInstall (nmReqPtr: QElemPtr) : OSErr;
+NLINE 0x205F, 0xA05E, 0x3E80;
+C
+pascal OSErr NMInstall (QElemPtr nmReqPtr) = {0x205F, 0xA05E,
+0x3E80};
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 NMInstall(__A0)
 #endif
-EXTERN_API(OSErr)
-NMInstall(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05E);
+  OSErr
+  NMInstall(NMRecPtr nmReqPtr);
 
-/**
- *  NMRemove()
- *
+  /**
+  \brief Remove a notification request from the notification queue
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+  <pre>NMRemove removes a notification request procedure from the notification
+queue.
+nmReqPtr is a pointer to the NMRec that you want to remove.
+</pre>
+* \returns <pre>an error code. It will be one of:
+noErr(0) No error
+qErr (-1) Not in queue
+nmTypErr (-299)Wrong qType (must be ORD(nmType))
+</pre>
+* \note <pre>NMRemove neither moves nor purges memory and you can call it from
+completion routines, interrupt handlers, the main body of an application
+program and from the response procedure of a notification request
+If you do not yet have glue for NMRemove , you can use the following:
+Pascal
+FUNCTION NMRemove (nmReqPtr: QElemPtr) : OSErr;
+INLINE 0x205F, 0xA05F, 0x3E80;
+C
+pascal OSErr NMRemove (QElemPtr nmReqPtr)
+= {0x205F, 0xA05F, 0x3E80};
+Also note that qType must be set to ORD(nmType), which is 8.
+See NMInstall for a code example using the Notification Manager .
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 NMRemove(__A0)
 #endif
-EXTERN_API(OSErr)
-NMRemove(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05F);
+  OSErr
+  NMRemove(NMRecPtr nmReqPtr);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -183,3 +246,4 @@ NMRemove(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05F);
 #endif
 
 #endif /** __NOTIFICATION__ */
+*/*/

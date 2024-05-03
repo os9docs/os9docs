@@ -314,7 +314,7 @@ typedef struct OpaqueEventLoopRef *EventLoopRef;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventLoopRef)
+EventLoopRef
 GetCurrentEventLoop(void);
 
 /**
@@ -331,7 +331,7 @@ GetCurrentEventLoop(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventLoopRef)
+EventLoopRef
 GetMainEventLoop(void);
 
 /**
@@ -355,7 +355,7 @@ GetMainEventLoop(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RunCurrentEventLoop(EventTimeout inTimeout);
 
 /**
@@ -381,7 +381,7 @@ RunCurrentEventLoop(EventTimeout inTimeout);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QuitEventLoop(EventLoopRef inEventLoop);
 
 /**
@@ -410,7 +410,7 @@ QuitEventLoop(EventLoopRef inEventLoop);
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.1 and later \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(CFTypeRef)
+CFTypeRef
 GetCFRunLoopFromEventLoop(EventLoopRef inEventLoop);
 
 /*��������������������������������������������������������������������������������������*/
@@ -457,7 +457,7 @@ GetCFRunLoopFromEventLoop(EventLoopRef inEventLoop);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ReceiveNextEvent(UInt32 inNumTypes, const EventTypeSpec *inList,
                  EventTimeout inTimeout, Boolean inPullEvent,
                  EventRef *outEvent);
@@ -479,7 +479,7 @@ enum { kEventAttributeNone = 0, kEventAttributeUserEvent = (1 << 0) };
 #if TARGET_OS_MAC
 #define MacCreateEvent CreateEvent
 #endif
-EXTERN_API(OSStatus)
+OSStatus
 MacCreateEvent(CFAllocatorRef inAllocator, /* can be NULL */
                UInt32 inClassID, UInt32 kind, EventTime when,
                EventAttributes flags, EventRef *outEvent);
@@ -492,7 +492,7 @@ MacCreateEvent(CFAllocatorRef inAllocator, /* can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventRef)
+EventRef
 CopyEvent(EventRef inOther);
 
 /**
@@ -503,7 +503,7 @@ CopyEvent(EventRef inOther);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventRef)
+EventRef
 RetainEvent(EventRef inEvent);
 
 /**
@@ -514,7 +514,7 @@ RetainEvent(EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt32)
+UInt32
 GetEventRetainCount(EventRef inEvent);
 
 /**
@@ -525,7 +525,7 @@ GetEventRetainCount(EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 ReleaseEvent(EventRef inEvent);
 
 /**
@@ -559,7 +559,7 @@ ReleaseEvent(EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetEventParameter(EventRef inEvent, EventParamName inName,
                   EventParamType inType, UInt32 inSize, const void *inDataPtr);
 
@@ -604,7 +604,7 @@ SetEventParameter(EventRef inEvent, EventParamName inName,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetEventParameter(EventRef inEvent, EventParamName inName,
                   EventParamType inDesiredType,
                   EventParamType *outActualType,              /* can be NULL */
@@ -634,7 +634,7 @@ GetEventParameter(EventRef inEvent, EventParamName inName,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt32)
+UInt32
 GetEventClass(EventRef inEvent);
 
 /**
@@ -659,7 +659,7 @@ GetEventClass(EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt32)
+UInt32
 GetEventKind(EventRef inEvent);
 
 /**
@@ -683,7 +683,7 @@ GetEventKind(EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTime)
+EventTime
 GetEventTime(EventRef inEvent);
 
 /*��������������������������������������������������������������������������������������*/
@@ -715,7 +715,7 @@ GetEventTime(EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetEventTime(EventRef inEvent, EventTime inTime);
 
 /*��������������������������������������������������������������������������������������*/
@@ -739,7 +739,7 @@ typedef struct OpaqueEventQueueRef *EventQueueRef;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventQueueRef)
+EventQueueRef
 GetCurrentEventQueue(void);
 
 /**
@@ -756,7 +756,7 @@ GetCurrentEventQueue(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventQueueRef)
+EventQueueRef
 GetMainEventQueue(void);
 
 /**
@@ -788,7 +788,7 @@ typedef STACK_UPP_TYPE(EventComparatorProcPtr) EventComparatorUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventComparatorUPP)
+EventComparatorUPP
 NewEventComparatorUPP(EventComparatorProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -817,7 +817,7 @@ NewEventComparatorUPP(EventComparatorProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEventComparatorUPP(EventComparatorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -837,7 +837,7 @@ inline void DisposeEventComparatorUPP(EventComparatorUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeEventComparatorUPP(EventRef inEvent, void *inCompareData,
                          EventComparatorUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -889,7 +889,7 @@ inline Boolean InvokeEventComparatorUPP(EventRef inEvent, void *inCompareData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 PostEventToQueue(EventQueueRef inQueue, EventRef inEvent,
                  EventPriority inPriority);
 
@@ -919,7 +919,7 @@ PostEventToQueue(EventQueueRef inQueue, EventRef inEvent,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 FlushEventsMatchingListFromQueue(EventQueueRef inQueue, UInt32 inNumTypes,
                                  const EventTypeSpec *inList);
 
@@ -948,7 +948,7 @@ FlushEventsMatchingListFromQueue(EventQueueRef inQueue, UInt32 inNumTypes,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 FlushSpecificEventsFromQueue(EventQueueRef inQueue,
                              EventComparatorUPP inComparator,
                              void *inCompareData);
@@ -972,7 +972,7 @@ FlushSpecificEventsFromQueue(EventQueueRef inQueue,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 FlushEventQueue(EventQueueRef inQueue);
 
 /**
@@ -1001,7 +1001,7 @@ FlushEventQueue(EventQueueRef inQueue);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventRef)
+EventRef
 FindSpecificEventInQueue(EventQueueRef inQueue, EventComparatorUPP inComparator,
                          void *inCompareData);
 
@@ -1024,7 +1024,7 @@ FindSpecificEventInQueue(EventQueueRef inQueue, EventComparatorUPP inComparator,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt32)
+UInt32
 GetNumEventsInQueue(EventQueueRef inQueue);
 
 /**
@@ -1052,7 +1052,7 @@ GetNumEventsInQueue(EventQueueRef inQueue);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RemoveEventFromQueue(EventQueueRef inQueue, EventRef inEvent);
 
 /**
@@ -1077,7 +1077,7 @@ RemoveEventFromQueue(EventQueueRef inQueue, EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsEventInQueue(EventQueueRef inQueue, EventRef inEvent);
 
 /*��������������������������������������������������������������������������������������*/
@@ -1098,7 +1098,7 @@ IsEventInQueue(EventQueueRef inQueue, EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTime)
+EventTime
 GetCurrentEventTime(void);
 
 /**
@@ -1118,7 +1118,7 @@ GetCurrentEventTime(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsUserCancelEventRef(EventRef event);
 
 /**
@@ -1157,7 +1157,7 @@ IsUserCancelEventRef(EventRef event);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 TrackMouseLocation(GrafPtr inPort, /* can be NULL */
                    Point *outPt, MouseTrackingResult *outResult);
 
@@ -1213,7 +1213,7 @@ TrackMouseLocation(GrafPtr inPort, /* can be NULL */
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 TrackMouseLocationWithOptions(GrafPtr inPort, /* can be NULL */
                               OptionBits inOptions, EventTimeout inTimeout,
                               Point *outPt,
@@ -1267,7 +1267,7 @@ TrackMouseLocationWithOptions(GrafPtr inPort, /* can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 TrackMouseRegion(GrafPtr inPort, /* can be NULL */
                  RgnHandle inRegion, Boolean *ioWasInRgn,
                  MouseTrackingResult *outResult);
@@ -1299,7 +1299,7 @@ TrackMouseRegion(GrafPtr inPort, /* can be NULL */
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 ConvertEventRefToEventRecord(EventRef inEvent, EventRecord *outEvent);
 
 /**
@@ -1329,7 +1329,7 @@ ConvertEventRefToEventRecord(EventRef inEvent, EventRecord *outEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Boolean)
+Boolean
 IsEventInMask(EventRef inEvent, EventMask inMask);
 
 /**
@@ -1340,7 +1340,7 @@ IsEventInMask(EventRef inEvent, EventMask inMask);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTime)
+EventTime
 GetLastUserEventTime(void);
 
 /*��������������������������������������������������������������������������������������*/
@@ -1364,7 +1364,7 @@ GetLastUserEventTime(void);
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.1 and later \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(Boolean)
+Boolean
 IsMouseCoalescingEnabled(void);
 
 /**
@@ -1395,7 +1395,7 @@ IsMouseCoalescingEnabled(void);
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.1 and later \mac_os_x         in version 10.1 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 SetMouseCoalescingEnabled(Boolean inNewState,
                           Boolean *outOldState); /* can be NULL */
 
@@ -1461,7 +1461,7 @@ typedef STACK_UPP_TYPE(EventLoopTimerProcPtr) EventLoopTimerUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventLoopTimerUPP)
+EventLoopTimerUPP
 NewEventLoopTimerUPP(EventLoopTimerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -1490,7 +1490,7 @@ NewEventLoopTimerUPP(EventLoopTimerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEventLoopTimerUPP(EventLoopTimerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1510,7 +1510,7 @@ inline void DisposeEventLoopTimerUPP(EventLoopTimerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeEventLoopTimerUPP(EventLoopTimerRef inTimer, void *inUserData,
                         EventLoopTimerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -1581,7 +1581,7 @@ inline void InvokeEventLoopTimerUPP(EventLoopTimerRef inTimer, void *inUserData,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 InstallEventLoopTimer(EventLoopRef inEventLoop, EventTimerInterval inFireDelay,
                       EventTimerInterval inInterval,
                       EventLoopTimerUPP inTimerProc, void *inTimerData,
@@ -1608,7 +1608,7 @@ InstallEventLoopTimer(EventLoopRef inEventLoop, EventTimerInterval inFireDelay,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RemoveEventLoopTimer(EventLoopTimerRef inTimer);
 
 /**
@@ -1642,7 +1642,7 @@ RemoveEventLoopTimer(EventLoopTimerRef inTimer);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetEventLoopTimerNextFireTime(EventLoopTimerRef inTimer,
                               EventTimerInterval inNextFire);
 
@@ -4484,7 +4484,7 @@ enum {
  *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
  * X version 10.1 and later \mac_os_x         in version 10.1 and later
  */
-EXTERN_API(CFStringRef)
+CFStringRef
 CreateTypeStringWithOSType(OSType inType);
 
 /*��������������������������������������������������������������������������������������*/
@@ -4819,7 +4819,7 @@ typedef STACK_UPP_TYPE(EventHandlerProcPtr) EventHandlerUPP;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventHandlerUPP)
+EventHandlerUPP
 NewEventHandlerUPP(EventHandlerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -4847,7 +4847,7 @@ inline EventHandlerUPP NewEventHandlerUPP(EventHandlerProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeEventHandlerUPP(EventHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -4867,7 +4867,7 @@ inline void DisposeEventHandlerUPP(EventHandlerUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeEventHandlerUPP(EventHandlerCallRef inHandlerCallRef, EventRef inEvent,
                       void *inUserData, EventHandlerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -4949,7 +4949,7 @@ typedef struct OpaqueEventTargetRef *EventTargetRef;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTargetRef)
+EventTargetRef
 GetWindowEventTarget(WindowRef inWindow);
 
 /**
@@ -4973,7 +4973,7 @@ GetWindowEventTarget(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTargetRef)
+EventTargetRef
 GetControlEventTarget(ControlRef inControl);
 
 /**
@@ -4997,7 +4997,7 @@ GetControlEventTarget(ControlRef inControl);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTargetRef)
+EventTargetRef
 GetMenuEventTarget(MenuRef inMenu);
 
 /**
@@ -5016,7 +5016,7 @@ GetMenuEventTarget(MenuRef inMenu);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTargetRef)
+EventTargetRef
 GetApplicationEventTarget(void);
 
 /**
@@ -5034,7 +5034,7 @@ GetApplicationEventTarget(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(EventTargetRef)
+EventTargetRef
 GetUserFocusEventTarget(void);
 
 /**
@@ -5055,7 +5055,7 @@ GetUserFocusEventTarget(void);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(EventTargetRef)
+EventTargetRef
 GetEventDispatcherTarget(void);
 
 /**
@@ -5100,7 +5100,7 @@ GetEventDispatcherTarget(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 InstallEventHandler(EventTargetRef inTarget, EventHandlerUPP inHandler,
                     UInt32 inNumTypes, const EventTypeSpec *inList,
                     void *inUserData,
@@ -5114,7 +5114,7 @@ InstallEventHandler(EventTargetRef inTarget, EventHandlerUPP inHandler,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 InstallStandardEventHandler(EventTargetRef inTarget);
 
 #define InstallApplicationEventHandler(h, n, l, u, r)                          \
@@ -5166,7 +5166,7 @@ InstallStandardEventHandler(EventTargetRef inTarget);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RemoveEventHandler(EventHandlerRef inHandlerRef);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5219,7 +5219,7 @@ RemoveEventHandler(EventHandlerRef inHandlerRef);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 AddEventTypesToHandler(EventHandlerRef inHandlerRef, UInt32 inNumTypes,
                        const EventTypeSpec *inList);
 
@@ -5249,7 +5249,7 @@ AddEventTypesToHandler(EventHandlerRef inHandlerRef, UInt32 inNumTypes,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RemoveEventTypesFromHandler(EventHandlerRef inHandlerRef, UInt32 inNumTypes,
                             const EventTypeSpec *inList);
 
@@ -5296,7 +5296,7 @@ RemoveEventTypesFromHandler(EventHandlerRef inHandlerRef, UInt32 inNumTypes,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CallNextEventHandler(EventHandlerCallRef inCallRef, EventRef inEvent);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5324,7 +5324,7 @@ CallNextEventHandler(EventHandlerCallRef inCallRef, EventRef inEvent);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SendEventToEventTarget(EventRef inEvent, EventTargetRef inTarget);
 
 #define SendEventToApplication(e)                                              \
@@ -5366,7 +5366,7 @@ typedef struct OpaqueToolboxObjectClassRef *ToolboxObjectClassRef;
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 RegisterToolboxObjectClass(CFStringRef inClassID,
                            ToolboxObjectClassRef inBaseClass, /* can be NULL */
                            UInt32 inNumEvents, const EventTypeSpec *inEventList,
@@ -5382,7 +5382,7 @@ RegisterToolboxObjectClass(CFStringRef inClassID,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 UnregisterToolboxObjectClass(ToolboxObjectClassRef inClassRef);
 
 /*======================================================================================*/
@@ -5397,7 +5397,7 @@ UnregisterToolboxObjectClass(ToolboxObjectClassRef inClassRef);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ProcessHICommand(const HICommand *inCommand);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5418,7 +5418,7 @@ ProcessHICommand(const HICommand *inCommand);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 RunApplicationEventLoop(void);
 
 /**
@@ -5439,7 +5439,7 @@ RunApplicationEventLoop(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
+void
 QuitApplicationEventLoop(void);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5472,7 +5472,7 @@ QuitApplicationEventLoop(void);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RunAppModalLoopForWindow(WindowRef inWindow);
 
 /**
@@ -5498,7 +5498,7 @@ RunAppModalLoopForWindow(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 QuitAppModalLoopForWindow(WindowRef inWindow);
 
 /**
@@ -5531,7 +5531,7 @@ QuitAppModalLoopForWindow(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 BeginAppModalStateForWindow(WindowRef inWindow);
 
 /**
@@ -5554,7 +5554,7 @@ BeginAppModalStateForWindow(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 EndAppModalStateForWindow(WindowRef inWindow);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5596,7 +5596,7 @@ enum { kUserFocusAuto = -1 };
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetUserFocusWindow(WindowRef inWindow);
 
 /**
@@ -5607,7 +5607,7 @@ SetUserFocusWindow(WindowRef inWindow);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(WindowRef)
+WindowRef
 GetUserFocusWindow(void);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5636,7 +5636,7 @@ GetUserFocusWindow(void);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetWindowDefaultButton(WindowRef inWindow,
                        ControlRef inControl); /* can be NULL */
 
@@ -5648,7 +5648,7 @@ SetWindowDefaultButton(WindowRef inWindow,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetWindowCancelButton(WindowRef inWindow,
                       ControlRef inControl); /* can be NULL */
 
@@ -5660,7 +5660,7 @@ SetWindowCancelButton(WindowRef inWindow,
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetWindowDefaultButton(WindowRef inWindow, ControlRef *outControl);
 
 /**
@@ -5671,7 +5671,7 @@ GetWindowDefaultButton(WindowRef inWindow, ControlRef *outControl);
  *    \carbon_lib        in CarbonLib 1.1 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 GetWindowCancelButton(WindowRef inWindow, ControlRef *outControl);
 
 /*��������������������������������������������������������������������������������������*/
@@ -5728,7 +5728,7 @@ typedef struct OpaqueEventHotKeyRef *EventHotKeyRef;
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 RegisterEventHotKey(UInt32 inHotKeyCode, UInt32 inHotKeyModifiers,
                     EventHotKeyID inHotKeyID, EventTargetRef inTarget,
                     OptionBits inOptions, EventHotKeyRef *outRef);
@@ -5757,7 +5757,7 @@ RegisterEventHotKey(UInt32 inHotKeyCode, UInt32 inHotKeyModifiers,
  *    \carbon_lib        in CarbonLib 1.3 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 UnregisterEventHotKey(EventHotKeyRef inHotKey);
 
 /* OBSOLETE CONSTANTS*/

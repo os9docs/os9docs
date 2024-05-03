@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -68,51 +69,51 @@ extern "C" {
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Geometry_GetType()
- *
+  /**
+   *  Q3Geometry_GetType()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3ObjectType)
-Q3Geometry_GetType(TQ3GeometryObject geometry);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3ObjectType
+  Q3Geometry_GetType(TQ3GeometryObject geometry);
 
-/**
- *  Q3Geometry_GetAttributeSet()
- *
+  /**
+   *  Q3Geometry_GetAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Geometry_GetAttributeSet(TQ3GeometryObject geometry,
-                           TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Geometry_GetAttributeSet(TQ3GeometryObject geometry,
+                             TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Geometry_SetAttributeSet()
- *
+  /**
+   *  Q3Geometry_SetAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Geometry_SetAttributeSet(TQ3GeometryObject geometry,
-                           TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Geometry_SetAttributeSet(TQ3GeometryObject geometry,
+                             TQ3AttributeSet attributeSet);
 
-/**
- *  Q3Geometry_Submit()
- *
+  /**
+   *  Q3Geometry_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Geometry_Submit(TQ3GeometryObject geometry, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Geometry_Submit(TQ3GeometryObject geometry, TQ3ViewObject view);
 
 /******************************************************************************
  **                                                                          **
@@ -121,189 +122,190 @@ Q3Geometry_Submit(TQ3GeometryObject geometry, TQ3ViewObject view);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3BoxData {
-  TQ3Point3D origin;
-  TQ3Vector3D orientation;
-  TQ3Vector3D majorAxis;
-  TQ3Vector3D minorAxis;
-  TQ3AttributeSet *faceAttributeSet; /* Ordering : Left, right,    */
-                                     /*           front, back,   */
-                                     /*           top, bottom    */
-  TQ3AttributeSet boxAttributeSet;
-};
-typedef struct TQ3BoxData TQ3BoxData;
+  struct TQ3BoxData
+  {
+    TQ3Point3D origin;
+    TQ3Vector3D orientation;
+    TQ3Vector3D majorAxis;
+    TQ3Vector3D minorAxis;
+    TQ3AttributeSet *faceAttributeSet; /* Ordering : Left, right,    */
+                                       /*           front, back,   */
+                                       /*           top, bottom    */
+    TQ3AttributeSet boxAttributeSet;
+  };
+  typedef struct TQ3BoxData TQ3BoxData;
 /******************************************************************************
  **                                                                          **
  **                             Box Routines                                 **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Box_New()
- *
+  /**
+   *  Q3Box_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Box_New(const TQ3BoxData *boxData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Box_New(const TQ3BoxData *boxData);
 
-/**
- *  Q3Box_Submit()
- *
+  /**
+   *  Q3Box_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_Submit(const TQ3BoxData *boxData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_Submit(const TQ3BoxData *boxData, TQ3ViewObject view);
 
-/**
- *  Q3Box_SetData()
- *
+  /**
+   *  Q3Box_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_SetData(TQ3GeometryObject box, const TQ3BoxData *boxData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_SetData(TQ3GeometryObject box, const TQ3BoxData *boxData);
 
-/**
- *  Q3Box_GetData()
- *
+  /**
+   *  Q3Box_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_GetData(TQ3GeometryObject box, TQ3BoxData *boxData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_GetData(TQ3GeometryObject box, TQ3BoxData *boxData);
 
-/**
- *  Q3Box_EmptyData()
- *
+  /**
+   *  Q3Box_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_EmptyData(TQ3BoxData *boxData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_EmptyData(TQ3BoxData *boxData);
 
-/**
- *  Q3Box_SetOrigin()
- *
+  /**
+   *  Q3Box_SetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_SetOrigin(TQ3GeometryObject box, const TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_SetOrigin(TQ3GeometryObject box, const TQ3Point3D *origin);
 
-/**
- *  Q3Box_SetOrientation()
- *
+  /**
+   *  Q3Box_SetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_SetOrientation(TQ3GeometryObject box, const TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_SetOrientation(TQ3GeometryObject box, const TQ3Vector3D *orientation);
 
-/**
- *  Q3Box_SetMajorAxis()
- *
+  /**
+   *  Q3Box_SetMajorAxis()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_SetMajorAxis(TQ3GeometryObject box, const TQ3Vector3D *majorAxis);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_SetMajorAxis(TQ3GeometryObject box, const TQ3Vector3D *majorAxis);
 
-/**
- *  Q3Box_SetMinorAxis()
- *
+  /**
+   *  Q3Box_SetMinorAxis()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_SetMinorAxis(TQ3GeometryObject box, const TQ3Vector3D *minorAxis);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_SetMinorAxis(TQ3GeometryObject box, const TQ3Vector3D *minorAxis);
 
-/**
- *  Q3Box_GetOrigin()
- *
+  /**
+   *  Q3Box_GetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_GetOrigin(TQ3GeometryObject box, TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_GetOrigin(TQ3GeometryObject box, TQ3Point3D *origin);
 
-/**
- *  Q3Box_GetOrientation()
- *
+  /**
+   *  Q3Box_GetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_GetOrientation(TQ3GeometryObject box, TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_GetOrientation(TQ3GeometryObject box, TQ3Vector3D *orientation);
 
-/**
- *  Q3Box_GetMajorAxis()
- *
+  /**
+   *  Q3Box_GetMajorAxis()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_GetMajorAxis(TQ3GeometryObject box, TQ3Vector3D *majorAxis);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_GetMajorAxis(TQ3GeometryObject box, TQ3Vector3D *majorAxis);
 
-/**
- *  Q3Box_GetMinorAxis()
- *
+  /**
+   *  Q3Box_GetMinorAxis()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_GetMinorAxis(TQ3GeometryObject box, TQ3Vector3D *minorAxis);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_GetMinorAxis(TQ3GeometryObject box, TQ3Vector3D *minorAxis);
 
-/**
- *  Q3Box_GetFaceAttributeSet()
- *
+  /**
+   *  Q3Box_GetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_GetFaceAttributeSet(TQ3GeometryObject box, unsigned long faceIndex,
-                          TQ3AttributeSet *faceAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_GetFaceAttributeSet(TQ3GeometryObject box, unsigned long faceIndex,
+                            TQ3AttributeSet *faceAttributeSet);
 
-/**
- *  Q3Box_SetFaceAttributeSet()
- *
+  /**
+   *  Q3Box_SetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Box_SetFaceAttributeSet(TQ3GeometryObject box, unsigned long faceIndex,
-                          TQ3AttributeSet faceAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Box_SetFaceAttributeSet(TQ3GeometryObject box, unsigned long faceIndex,
+                            TQ3AttributeSet faceAttributeSet);
 
 /******************************************************************************
  **                                                                          **
@@ -312,240 +314,241 @@ Q3Box_SetFaceAttributeSet(TQ3GeometryObject box, unsigned long faceIndex,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3ConeData {
-  TQ3Point3D origin;
-  TQ3Vector3D orientation;
-  TQ3Vector3D majorRadius;
-  TQ3Vector3D minorRadius;
-  float uMin;
-  float uMax;
-  float vMin;
-  float vMax;
-  TQ3EndCap caps;
-  TQ3AttributeSet interiorAttributeSet;
-  TQ3AttributeSet faceAttributeSet;
-  TQ3AttributeSet bottomAttributeSet;
-  TQ3AttributeSet coneAttributeSet;
-};
-typedef struct TQ3ConeData TQ3ConeData;
+  struct TQ3ConeData
+  {
+    TQ3Point3D origin;
+    TQ3Vector3D orientation;
+    TQ3Vector3D majorRadius;
+    TQ3Vector3D minorRadius;
+    float uMin;
+    float uMax;
+    float vMin;
+    float vMax;
+    TQ3EndCap caps;
+    TQ3AttributeSet interiorAttributeSet;
+    TQ3AttributeSet faceAttributeSet;
+    TQ3AttributeSet bottomAttributeSet;
+    TQ3AttributeSet coneAttributeSet;
+  };
+  typedef struct TQ3ConeData TQ3ConeData;
 /******************************************************************************
  **                                                                          **
  **                             Cone Routines                                **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Cone_New()
- *
+  /**
+   *  Q3Cone_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Cone_New(const TQ3ConeData *coneData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Cone_New(const TQ3ConeData *coneData);
 
-/**
- *  Q3Cone_Submit()
- *
+  /**
+   *  Q3Cone_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_Submit(const TQ3ConeData *coneData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_Submit(const TQ3ConeData *coneData, TQ3ViewObject view);
 
-/**
- *  Q3Cone_SetData()
- *
+  /**
+   *  Q3Cone_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetData(TQ3GeometryObject cone, const TQ3ConeData *coneData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetData(TQ3GeometryObject cone, const TQ3ConeData *coneData);
 
-/**
- *  Q3Cone_GetData()
- *
+  /**
+   *  Q3Cone_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetData(TQ3GeometryObject cone, TQ3ConeData *coneData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetData(TQ3GeometryObject cone, TQ3ConeData *coneData);
 
-/**
- *  Q3Cone_SetOrigin()
- *
+  /**
+   *  Q3Cone_SetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetOrigin(TQ3GeometryObject cone, const TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetOrigin(TQ3GeometryObject cone, const TQ3Point3D *origin);
 
-/**
- *  Q3Cone_SetOrientation()
- *
+  /**
+   *  Q3Cone_SetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetOrientation(TQ3GeometryObject cone, const TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetOrientation(TQ3GeometryObject cone, const TQ3Vector3D *orientation);
 
-/**
- *  Q3Cone_SetMajorRadius()
- *
+  /**
+   *  Q3Cone_SetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetMajorRadius(TQ3GeometryObject cone, const TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetMajorRadius(TQ3GeometryObject cone, const TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Cone_SetMinorRadius()
- *
+  /**
+   *  Q3Cone_SetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetMinorRadius(TQ3GeometryObject cone, const TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetMinorRadius(TQ3GeometryObject cone, const TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Cone_GetOrigin()
- *
+  /**
+   *  Q3Cone_GetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetOrigin(TQ3GeometryObject cone, TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetOrigin(TQ3GeometryObject cone, TQ3Point3D *origin);
 
-/**
- *  Q3Cone_GetOrientation()
- *
+  /**
+   *  Q3Cone_GetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetOrientation(TQ3GeometryObject cone, TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetOrientation(TQ3GeometryObject cone, TQ3Vector3D *orientation);
 
-/**
- *  Q3Cone_GetMajorRadius()
- *
+  /**
+   *  Q3Cone_GetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetMajorRadius(TQ3GeometryObject cone, TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetMajorRadius(TQ3GeometryObject cone, TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Cone_GetMinorRadius()
- *
+  /**
+   *  Q3Cone_GetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetMinorRadius(TQ3GeometryObject cone, TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetMinorRadius(TQ3GeometryObject cone, TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Cone_SetCaps()
- *
+  /**
+   *  Q3Cone_SetCaps()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetCaps(TQ3GeometryObject cone, TQ3EndCap caps);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetCaps(TQ3GeometryObject cone, TQ3EndCap caps);
 
-/**
- *  Q3Cone_GetCaps()
- *
+  /**
+   *  Q3Cone_GetCaps()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetCaps(TQ3GeometryObject cone, TQ3EndCap *caps);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetCaps(TQ3GeometryObject cone, TQ3EndCap *caps);
 
-/**
- *  Q3Cone_SetBottomAttributeSet()
- *
+  /**
+   *  Q3Cone_SetBottomAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetBottomAttributeSet(TQ3GeometryObject cone,
-                             TQ3AttributeSet bottomAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetBottomAttributeSet(TQ3GeometryObject cone,
+                               TQ3AttributeSet bottomAttributeSet);
 
-/**
- *  Q3Cone_GetBottomAttributeSet()
- *
+  /**
+   *  Q3Cone_GetBottomAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetBottomAttributeSet(TQ3GeometryObject cone,
-                             TQ3AttributeSet *bottomAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetBottomAttributeSet(TQ3GeometryObject cone,
+                               TQ3AttributeSet *bottomAttributeSet);
 
-/**
- *  Q3Cone_SetFaceAttributeSet()
- *
+  /**
+   *  Q3Cone_SetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_SetFaceAttributeSet(TQ3GeometryObject cone,
-                           TQ3AttributeSet faceAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_SetFaceAttributeSet(TQ3GeometryObject cone,
+                             TQ3AttributeSet faceAttributeSet);
 
-/**
- *  Q3Cone_GetFaceAttributeSet()
- *
+  /**
+   *  Q3Cone_GetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_GetFaceAttributeSet(TQ3GeometryObject cone,
-                           TQ3AttributeSet *faceAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_GetFaceAttributeSet(TQ3GeometryObject cone,
+                             TQ3AttributeSet *faceAttributeSet);
 
-/**
- *  Q3Cone_EmptyData()
- *
+  /**
+   *  Q3Cone_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cone_EmptyData(TQ3ConeData *coneData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cone_EmptyData(TQ3ConeData *coneData);
 
 /******************************************************************************
  **                                                                          **
@@ -554,269 +557,270 @@ Q3Cone_EmptyData(TQ3ConeData *coneData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3CylinderData {
-  TQ3Point3D origin;
-  TQ3Vector3D orientation;
-  TQ3Vector3D majorRadius;
-  TQ3Vector3D minorRadius;
-  float uMin;
-  float uMax;
-  float vMin;
-  float vMax;
-  TQ3EndCap caps;
-  TQ3AttributeSet interiorAttributeSet;
-  TQ3AttributeSet topAttributeSet;
-  TQ3AttributeSet faceAttributeSet;
-  TQ3AttributeSet bottomAttributeSet;
-  TQ3AttributeSet cylinderAttributeSet;
-};
-typedef struct TQ3CylinderData TQ3CylinderData;
+  struct TQ3CylinderData
+  {
+    TQ3Point3D origin;
+    TQ3Vector3D orientation;
+    TQ3Vector3D majorRadius;
+    TQ3Vector3D minorRadius;
+    float uMin;
+    float uMax;
+    float vMin;
+    float vMax;
+    TQ3EndCap caps;
+    TQ3AttributeSet interiorAttributeSet;
+    TQ3AttributeSet topAttributeSet;
+    TQ3AttributeSet faceAttributeSet;
+    TQ3AttributeSet bottomAttributeSet;
+    TQ3AttributeSet cylinderAttributeSet;
+  };
+  typedef struct TQ3CylinderData TQ3CylinderData;
 /******************************************************************************
  **                                                                          **
  **                         Cylinder Routines                                **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Cylinder_New()
- *
+  /**
+   *  Q3Cylinder_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Cylinder_New(const TQ3CylinderData *cylinderData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Cylinder_New(const TQ3CylinderData *cylinderData);
 
-/**
- *  Q3Cylinder_Submit()
- *
+  /**
+   *  Q3Cylinder_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_Submit(const TQ3CylinderData *cylinderData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_Submit(const TQ3CylinderData *cylinderData, TQ3ViewObject view);
 
-/**
- *  Q3Cylinder_SetData()
- *
+  /**
+   *  Q3Cylinder_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetData(TQ3GeometryObject cylinder,
-                   const TQ3CylinderData *cylinderData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetData(TQ3GeometryObject cylinder,
+                     const TQ3CylinderData *cylinderData);
 
-/**
- *  Q3Cylinder_GetData()
- *
+  /**
+   *  Q3Cylinder_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetData(TQ3GeometryObject cylinder, TQ3CylinderData *cylinderData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetData(TQ3GeometryObject cylinder, TQ3CylinderData *cylinderData);
 
-/**
- *  Q3Cylinder_SetOrigin()
- *
+  /**
+   *  Q3Cylinder_SetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetOrigin(TQ3GeometryObject cylinder, const TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetOrigin(TQ3GeometryObject cylinder, const TQ3Point3D *origin);
 
-/**
- *  Q3Cylinder_SetOrientation()
- *
+  /**
+   *  Q3Cylinder_SetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetOrientation(TQ3GeometryObject cylinder,
-                          const TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetOrientation(TQ3GeometryObject cylinder,
+                            const TQ3Vector3D *orientation);
 
-/**
- *  Q3Cylinder_SetMajorRadius()
- *
+  /**
+   *  Q3Cylinder_SetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetMajorRadius(TQ3GeometryObject cylinder,
-                          const TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetMajorRadius(TQ3GeometryObject cylinder,
+                            const TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Cylinder_SetMinorRadius()
- *
+  /**
+   *  Q3Cylinder_SetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetMinorRadius(TQ3GeometryObject cylinder,
-                          const TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetMinorRadius(TQ3GeometryObject cylinder,
+                            const TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Cylinder_GetOrigin()
- *
+  /**
+   *  Q3Cylinder_GetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetOrigin(TQ3GeometryObject cylinder, TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetOrigin(TQ3GeometryObject cylinder, TQ3Point3D *origin);
 
-/**
- *  Q3Cylinder_GetOrientation()
- *
+  /**
+   *  Q3Cylinder_GetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetOrientation(TQ3GeometryObject cylinder, TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetOrientation(TQ3GeometryObject cylinder, TQ3Vector3D *orientation);
 
-/**
- *  Q3Cylinder_GetMajorRadius()
- *
+  /**
+   *  Q3Cylinder_GetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetMajorRadius(TQ3GeometryObject cylinder, TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetMajorRadius(TQ3GeometryObject cylinder, TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Cylinder_GetMinorRadius()
- *
+  /**
+   *  Q3Cylinder_GetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetMinorRadius(TQ3GeometryObject cylinder, TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetMinorRadius(TQ3GeometryObject cylinder, TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Cylinder_SetCaps()
- *
+  /**
+   *  Q3Cylinder_SetCaps()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetCaps(TQ3GeometryObject cylinder, TQ3EndCap caps);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetCaps(TQ3GeometryObject cylinder, TQ3EndCap caps);
 
-/**
- *  Q3Cylinder_GetCaps()
- *
+  /**
+   *  Q3Cylinder_GetCaps()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetCaps(TQ3GeometryObject cylinder, TQ3EndCap *caps);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetCaps(TQ3GeometryObject cylinder, TQ3EndCap *caps);
 
-/**
- *  Q3Cylinder_SetTopAttributeSet()
- *
+  /**
+   *  Q3Cylinder_SetTopAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetTopAttributeSet(TQ3GeometryObject cylinder,
-                              TQ3AttributeSet topAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetTopAttributeSet(TQ3GeometryObject cylinder,
+                                TQ3AttributeSet topAttributeSet);
 
-/**
- *  Q3Cylinder_GetTopAttributeSet()
- *
+  /**
+   *  Q3Cylinder_GetTopAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetTopAttributeSet(TQ3GeometryObject cylinder,
-                              TQ3AttributeSet *topAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetTopAttributeSet(TQ3GeometryObject cylinder,
+                                TQ3AttributeSet *topAttributeSet);
 
-/**
- *  Q3Cylinder_SetBottomAttributeSet()
- *
+  /**
+   *  Q3Cylinder_SetBottomAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetBottomAttributeSet(TQ3GeometryObject cylinder,
-                                 TQ3AttributeSet bottomAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetBottomAttributeSet(TQ3GeometryObject cylinder,
+                                   TQ3AttributeSet bottomAttributeSet);
 
-/**
- *  Q3Cylinder_GetBottomAttributeSet()
- *
+  /**
+   *  Q3Cylinder_GetBottomAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetBottomAttributeSet(TQ3GeometryObject cylinder,
-                                 TQ3AttributeSet *bottomAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetBottomAttributeSet(TQ3GeometryObject cylinder,
+                                   TQ3AttributeSet *bottomAttributeSet);
 
-/**
- *  Q3Cylinder_SetFaceAttributeSet()
- *
+  /**
+   *  Q3Cylinder_SetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_SetFaceAttributeSet(TQ3GeometryObject cylinder,
-                               TQ3AttributeSet faceAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_SetFaceAttributeSet(TQ3GeometryObject cylinder,
+                                 TQ3AttributeSet faceAttributeSet);
 
-/**
- *  Q3Cylinder_GetFaceAttributeSet()
- *
+  /**
+   *  Q3Cylinder_GetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_GetFaceAttributeSet(TQ3GeometryObject cylinder,
-                               TQ3AttributeSet *faceAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_GetFaceAttributeSet(TQ3GeometryObject cylinder,
+                                 TQ3AttributeSet *faceAttributeSet);
 
-/**
- *  Q3Cylinder_EmptyData()
- *
+  /**
+   *  Q3Cylinder_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Cylinder_EmptyData(TQ3CylinderData *cylinderData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Cylinder_EmptyData(TQ3CylinderData *cylinderData);
 
 /******************************************************************************
  **                                                                          **
@@ -825,143 +829,144 @@ Q3Cylinder_EmptyData(TQ3CylinderData *cylinderData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3DiskData {
-  TQ3Point3D origin;
-  TQ3Vector3D majorRadius;
-  TQ3Vector3D minorRadius;
-  float uMin;
-  float uMax;
-  float vMin;
-  float vMax;
-  TQ3AttributeSet diskAttributeSet;
-};
-typedef struct TQ3DiskData TQ3DiskData;
+  struct TQ3DiskData
+  {
+    TQ3Point3D origin;
+    TQ3Vector3D majorRadius;
+    TQ3Vector3D minorRadius;
+    float uMin;
+    float uMax;
+    float vMin;
+    float vMax;
+    TQ3AttributeSet diskAttributeSet;
+  };
+  typedef struct TQ3DiskData TQ3DiskData;
 /******************************************************************************
  **                                                                          **
  **                             Disk Routines                                **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Disk_New()
- *
+  /**
+   *  Q3Disk_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Disk_New(const TQ3DiskData *diskData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Disk_New(const TQ3DiskData *diskData);
 
-/**
- *  Q3Disk_Submit()
- *
+  /**
+   *  Q3Disk_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_Submit(const TQ3DiskData *diskData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_Submit(const TQ3DiskData *diskData, TQ3ViewObject view);
 
-/**
- *  Q3Disk_SetData()
- *
+  /**
+   *  Q3Disk_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_SetData(TQ3GeometryObject disk, const TQ3DiskData *diskData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_SetData(TQ3GeometryObject disk, const TQ3DiskData *diskData);
 
-/**
- *  Q3Disk_GetData()
- *
+  /**
+   *  Q3Disk_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_GetData(TQ3GeometryObject disk, TQ3DiskData *diskData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_GetData(TQ3GeometryObject disk, TQ3DiskData *diskData);
 
-/**
- *  Q3Disk_SetOrigin()
- *
+  /**
+   *  Q3Disk_SetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_SetOrigin(TQ3GeometryObject disk, const TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_SetOrigin(TQ3GeometryObject disk, const TQ3Point3D *origin);
 
-/**
- *  Q3Disk_SetMajorRadius()
- *
+  /**
+   *  Q3Disk_SetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_SetMajorRadius(TQ3GeometryObject disk, const TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_SetMajorRadius(TQ3GeometryObject disk, const TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Disk_SetMinorRadius()
- *
+  /**
+   *  Q3Disk_SetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_SetMinorRadius(TQ3GeometryObject disk, const TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_SetMinorRadius(TQ3GeometryObject disk, const TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Disk_GetOrigin()
- *
+  /**
+   *  Q3Disk_GetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_GetOrigin(TQ3GeometryObject disk, TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_GetOrigin(TQ3GeometryObject disk, TQ3Point3D *origin);
 
-/**
- *  Q3Disk_GetMajorRadius()
- *
+  /**
+   *  Q3Disk_GetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_GetMajorRadius(TQ3GeometryObject disk, TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_GetMajorRadius(TQ3GeometryObject disk, TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Disk_GetMinorRadius()
- *
+  /**
+   *  Q3Disk_GetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_GetMinorRadius(TQ3GeometryObject disk, TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_GetMinorRadius(TQ3GeometryObject disk, TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Disk_EmptyData()
- *
+  /**
+   *  Q3Disk_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Disk_EmptyData(TQ3DiskData *diskData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Disk_EmptyData(TQ3DiskData *diskData);
 
 /******************************************************************************
  **                                                                          **
@@ -970,143 +975,144 @@ Q3Disk_EmptyData(TQ3DiskData *diskData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3EllipseData {
-  TQ3Point3D origin;
-  TQ3Vector3D majorRadius;
-  TQ3Vector3D minorRadius;
-  float uMin;
-  float uMax;
-  TQ3AttributeSet ellipseAttributeSet;
-};
-typedef struct TQ3EllipseData TQ3EllipseData;
+  struct TQ3EllipseData
+  {
+    TQ3Point3D origin;
+    TQ3Vector3D majorRadius;
+    TQ3Vector3D minorRadius;
+    float uMin;
+    float uMax;
+    TQ3AttributeSet ellipseAttributeSet;
+  };
+  typedef struct TQ3EllipseData TQ3EllipseData;
 /******************************************************************************
  **                                                                          **
  **                             Ellipse Routines                             **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Ellipse_New()
- *
+  /**
+   *  Q3Ellipse_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Ellipse_New(const TQ3EllipseData *ellipseData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Ellipse_New(const TQ3EllipseData *ellipseData);
 
-/**
- *  Q3Ellipse_Submit()
- *
+  /**
+   *  Q3Ellipse_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_Submit(const TQ3EllipseData *ellipseData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_Submit(const TQ3EllipseData *ellipseData, TQ3ViewObject view);
 
-/**
- *  Q3Ellipse_SetData()
- *
+  /**
+   *  Q3Ellipse_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_SetData(TQ3GeometryObject ellipse, const TQ3EllipseData *ellipseData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_SetData(TQ3GeometryObject ellipse, const TQ3EllipseData *ellipseData);
 
-/**
- *  Q3Ellipse_GetData()
- *
+  /**
+   *  Q3Ellipse_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_GetData(TQ3GeometryObject ellipse, TQ3EllipseData *ellipseData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_GetData(TQ3GeometryObject ellipse, TQ3EllipseData *ellipseData);
 
-/**
- *  Q3Ellipse_SetOrigin()
- *
+  /**
+   *  Q3Ellipse_SetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_SetOrigin(TQ3GeometryObject ellipse, const TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_SetOrigin(TQ3GeometryObject ellipse, const TQ3Point3D *origin);
 
-/**
- *  Q3Ellipse_SetMajorRadius()
- *
+  /**
+   *  Q3Ellipse_SetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_SetMajorRadius(TQ3GeometryObject ellipse,
-                         const TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_SetMajorRadius(TQ3GeometryObject ellipse,
+                           const TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Ellipse_SetMinorRadius()
- *
+  /**
+   *  Q3Ellipse_SetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_SetMinorRadius(TQ3GeometryObject ellipse,
-                         const TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_SetMinorRadius(TQ3GeometryObject ellipse,
+                           const TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Ellipse_GetOrigin()
- *
+  /**
+   *  Q3Ellipse_GetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_GetOrigin(TQ3GeometryObject ellipse, TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_GetOrigin(TQ3GeometryObject ellipse, TQ3Point3D *origin);
 
-/**
- *  Q3Ellipse_GetMajorRadius()
- *
+  /**
+   *  Q3Ellipse_GetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_GetMajorRadius(TQ3GeometryObject ellipse, TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_GetMajorRadius(TQ3GeometryObject ellipse, TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Ellipse_GetMinorRadius()
- *
+  /**
+   *  Q3Ellipse_GetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_GetMinorRadius(TQ3GeometryObject ellipse, TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_GetMinorRadius(TQ3GeometryObject ellipse, TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Ellipse_EmptyData()
- *
+  /**
+   *  Q3Ellipse_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipse_EmptyData(TQ3EllipseData *ellipseData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipse_EmptyData(TQ3EllipseData *ellipseData);
 
 /******************************************************************************
  **                                                                          **
@@ -1115,176 +1121,177 @@ Q3Ellipse_EmptyData(TQ3EllipseData *ellipseData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3EllipsoidData {
-  TQ3Point3D origin;
-  TQ3Vector3D orientation;
-  TQ3Vector3D majorRadius;
-  TQ3Vector3D minorRadius;
-  float uMin;
-  float uMax;
-  float vMin;
-  float vMax;
-  TQ3EndCap caps;
-  TQ3AttributeSet interiorAttributeSet;
-  TQ3AttributeSet ellipsoidAttributeSet;
-};
-typedef struct TQ3EllipsoidData TQ3EllipsoidData;
+  struct TQ3EllipsoidData
+  {
+    TQ3Point3D origin;
+    TQ3Vector3D orientation;
+    TQ3Vector3D majorRadius;
+    TQ3Vector3D minorRadius;
+    float uMin;
+    float uMax;
+    float vMin;
+    float vMax;
+    TQ3EndCap caps;
+    TQ3AttributeSet interiorAttributeSet;
+    TQ3AttributeSet ellipsoidAttributeSet;
+  };
+  typedef struct TQ3EllipsoidData TQ3EllipsoidData;
 /******************************************************************************
  **                                                                          **
  **                         Ellipsoid Routines                               **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Ellipsoid_New()
- *
+  /**
+   *  Q3Ellipsoid_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Ellipsoid_New(const TQ3EllipsoidData *ellipsoidData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Ellipsoid_New(const TQ3EllipsoidData *ellipsoidData);
 
-/**
- *  Q3Ellipsoid_Submit()
- *
+  /**
+   *  Q3Ellipsoid_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_Submit(const TQ3EllipsoidData *ellipsoidData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_Submit(const TQ3EllipsoidData *ellipsoidData, TQ3ViewObject view);
 
-/**
- *  Q3Ellipsoid_SetData()
- *
+  /**
+   *  Q3Ellipsoid_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_SetData(TQ3GeometryObject ellipsoid,
-                    const TQ3EllipsoidData *ellipsoidData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_SetData(TQ3GeometryObject ellipsoid,
+                      const TQ3EllipsoidData *ellipsoidData);
 
-/**
- *  Q3Ellipsoid_GetData()
- *
+  /**
+   *  Q3Ellipsoid_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_GetData(TQ3GeometryObject ellipsoid,
-                    TQ3EllipsoidData *ellipsoidData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_GetData(TQ3GeometryObject ellipsoid,
+                      TQ3EllipsoidData *ellipsoidData);
 
-/**
- *  Q3Ellipsoid_SetOrigin()
- *
+  /**
+   *  Q3Ellipsoid_SetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_SetOrigin(TQ3GeometryObject ellipsoid, const TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_SetOrigin(TQ3GeometryObject ellipsoid, const TQ3Point3D *origin);
 
-/**
- *  Q3Ellipsoid_SetOrientation()
- *
+  /**
+   *  Q3Ellipsoid_SetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_SetOrientation(TQ3GeometryObject ellipsoid,
-                           const TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_SetOrientation(TQ3GeometryObject ellipsoid,
+                             const TQ3Vector3D *orientation);
 
-/**
- *  Q3Ellipsoid_SetMajorRadius()
- *
+  /**
+   *  Q3Ellipsoid_SetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_SetMajorRadius(TQ3GeometryObject ellipsoid,
-                           const TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_SetMajorRadius(TQ3GeometryObject ellipsoid,
+                             const TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Ellipsoid_SetMinorRadius()
- *
+  /**
+   *  Q3Ellipsoid_SetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_SetMinorRadius(TQ3GeometryObject ellipsoid,
-                           const TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_SetMinorRadius(TQ3GeometryObject ellipsoid,
+                             const TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Ellipsoid_GetOrigin()
- *
+  /**
+   *  Q3Ellipsoid_GetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_GetOrigin(TQ3GeometryObject ellipsoid, TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_GetOrigin(TQ3GeometryObject ellipsoid, TQ3Point3D *origin);
 
-/**
- *  Q3Ellipsoid_GetOrientation()
- *
+  /**
+   *  Q3Ellipsoid_GetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_GetOrientation(TQ3GeometryObject ellipsoid,
-                           TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_GetOrientation(TQ3GeometryObject ellipsoid,
+                             TQ3Vector3D *orientation);
 
-/**
- *  Q3Ellipsoid_GetMajorRadius()
- *
+  /**
+   *  Q3Ellipsoid_GetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_GetMajorRadius(TQ3GeometryObject ellipsoid,
-                           TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_GetMajorRadius(TQ3GeometryObject ellipsoid,
+                             TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Ellipsoid_GetMinorRadius()
- *
+  /**
+   *  Q3Ellipsoid_GetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_GetMinorRadius(TQ3GeometryObject ellipsoid,
-                           TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_GetMinorRadius(TQ3GeometryObject ellipsoid,
+                             TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Ellipsoid_EmptyData()
- *
+  /**
+   *  Q3Ellipsoid_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Ellipsoid_EmptyData(TQ3EllipsoidData *ellipsoidData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Ellipsoid_EmptyData(TQ3EllipsoidData *ellipsoidData);
 
 /******************************************************************************
  **                                                                          **
@@ -1293,168 +1300,171 @@ Q3Ellipsoid_EmptyData(TQ3EllipsoidData *ellipsoidData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-enum TQ3GeneralPolygonShapeHint {
-  kQ3GeneralPolygonShapeHintComplex = 0,
-  kQ3GeneralPolygonShapeHintConcave = 1,
-  kQ3GeneralPolygonShapeHintConvex = 2
-};
-typedef enum TQ3GeneralPolygonShapeHint TQ3GeneralPolygonShapeHint;
+  enum TQ3GeneralPolygonShapeHint
+  {
+    kQ3GeneralPolygonShapeHintComplex = 0,
+    kQ3GeneralPolygonShapeHintConcave = 1,
+    kQ3GeneralPolygonShapeHintConvex = 2
+  };
+  typedef enum TQ3GeneralPolygonShapeHint TQ3GeneralPolygonShapeHint;
 
-struct TQ3GeneralPolygonContourData {
-  unsigned long numVertices;
-  TQ3Vertex3D *vertices;
-};
-typedef struct TQ3GeneralPolygonContourData TQ3GeneralPolygonContourData;
-struct TQ3GeneralPolygonData {
-  unsigned long numContours;
-  TQ3GeneralPolygonContourData *contours;
-  TQ3GeneralPolygonShapeHint shapeHint;
-  TQ3AttributeSet generalPolygonAttributeSet;
-};
-typedef struct TQ3GeneralPolygonData TQ3GeneralPolygonData;
+  struct TQ3GeneralPolygonContourData
+  {
+    unsigned long numVertices;
+    TQ3Vertex3D *vertices;
+  };
+  typedef struct TQ3GeneralPolygonContourData TQ3GeneralPolygonContourData;
+  struct TQ3GeneralPolygonData
+  {
+    unsigned long numContours;
+    TQ3GeneralPolygonContourData *contours;
+    TQ3GeneralPolygonShapeHint shapeHint;
+    TQ3AttributeSet generalPolygonAttributeSet;
+  };
+  typedef struct TQ3GeneralPolygonData TQ3GeneralPolygonData;
 /******************************************************************************
  **                                                                          **
  **                         General polygon Routines                         **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3GeneralPolygon_New()
- *
+  /**
+   *  Q3GeneralPolygon_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3GeneralPolygon_New(const TQ3GeneralPolygonData *generalPolygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3GeneralPolygon_New(const TQ3GeneralPolygonData *generalPolygonData);
 
-/**
- *  Q3GeneralPolygon_Submit()
- *
+  /**
+   *  Q3GeneralPolygon_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_Submit(const TQ3GeneralPolygonData *generalPolygonData,
-                        TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_Submit(const TQ3GeneralPolygonData *generalPolygonData,
+                          TQ3ViewObject view);
 
-/**
- *  Q3GeneralPolygon_SetData()
- *
+  /**
+   *  Q3GeneralPolygon_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_SetData(TQ3GeometryObject generalPolygon,
-                         const TQ3GeneralPolygonData *generalPolygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_SetData(TQ3GeometryObject generalPolygon,
+                           const TQ3GeneralPolygonData *generalPolygonData);
 
-/**
- *  Q3GeneralPolygon_GetData()
- *
+  /**
+   *  Q3GeneralPolygon_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_GetData(TQ3GeometryObject polygon,
-                         TQ3GeneralPolygonData *generalPolygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_GetData(TQ3GeometryObject polygon,
+                           TQ3GeneralPolygonData *generalPolygonData);
 
-/**
- *  Q3GeneralPolygon_EmptyData()
- *
+  /**
+   *  Q3GeneralPolygon_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_EmptyData(TQ3GeneralPolygonData *generalPolygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_EmptyData(TQ3GeneralPolygonData *generalPolygonData);
 
-/**
- *  Q3GeneralPolygon_GetVertexPosition()
- *
+  /**
+   *  Q3GeneralPolygon_GetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_GetVertexPosition(TQ3GeometryObject generalPolygon,
-                                   unsigned long contourIndex,
-                                   unsigned long pointIndex,
-                                   TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_GetVertexPosition(TQ3GeometryObject generalPolygon,
+                                     unsigned long contourIndex,
+                                     unsigned long pointIndex,
+                                     TQ3Point3D *position);
 
-/**
- *  Q3GeneralPolygon_SetVertexPosition()
- *
+  /**
+   *  Q3GeneralPolygon_SetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_SetVertexPosition(TQ3GeometryObject generalPolygon,
-                                   unsigned long contourIndex,
-                                   unsigned long pointIndex,
-                                   const TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_SetVertexPosition(TQ3GeometryObject generalPolygon,
+                                     unsigned long contourIndex,
+                                     unsigned long pointIndex,
+                                     const TQ3Point3D *position);
 
-/**
- *  Q3GeneralPolygon_GetVertexAttributeSet()
- *
+  /**
+   *  Q3GeneralPolygon_GetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_GetVertexAttributeSet(TQ3GeometryObject generalPolygon,
-                                       unsigned long contourIndex,
-                                       unsigned long pointIndex,
-                                       TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_GetVertexAttributeSet(TQ3GeometryObject generalPolygon,
+                                         unsigned long contourIndex,
+                                         unsigned long pointIndex,
+                                         TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3GeneralPolygon_SetVertexAttributeSet()
- *
+  /**
+   *  Q3GeneralPolygon_SetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_SetVertexAttributeSet(TQ3GeometryObject generalPolygon,
-                                       unsigned long contourIndex,
-                                       unsigned long pointIndex,
-                                       TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_SetVertexAttributeSet(TQ3GeometryObject generalPolygon,
+                                         unsigned long contourIndex,
+                                         unsigned long pointIndex,
+                                         TQ3AttributeSet attributeSet);
 
-/**
- *  Q3GeneralPolygon_SetShapeHint()
- *
+  /**
+   *  Q3GeneralPolygon_SetShapeHint()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_SetShapeHint(TQ3GeometryObject generalPolygon,
-                              TQ3GeneralPolygonShapeHint shapeHint);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_SetShapeHint(TQ3GeometryObject generalPolygon,
+                                TQ3GeneralPolygonShapeHint shapeHint);
 
-/**
- *  Q3GeneralPolygon_GetShapeHint()
- *
+  /**
+   *  Q3GeneralPolygon_GetShapeHint()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3GeneralPolygon_GetShapeHint(TQ3GeometryObject generalPolygon,
-                              TQ3GeneralPolygonShapeHint *shapeHint);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3GeneralPolygon_GetShapeHint(TQ3GeometryObject generalPolygon,
+                                TQ3GeneralPolygonShapeHint *shapeHint);
 
 /******************************************************************************
  **                                                                          **
@@ -1463,119 +1473,120 @@ Q3GeneralPolygon_GetShapeHint(TQ3GeometryObject generalPolygon,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3LineData {
-  TQ3Vertex3D vertices[2];
-  TQ3AttributeSet lineAttributeSet;
-};
-typedef struct TQ3LineData TQ3LineData;
+  struct TQ3LineData
+  {
+    TQ3Vertex3D vertices[2];
+    TQ3AttributeSet lineAttributeSet;
+  };
+  typedef struct TQ3LineData TQ3LineData;
 /******************************************************************************
  **                                                                          **
  **                         Line Routines                                    **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Line_New()
- *
+  /**
+   *  Q3Line_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Line_New(const TQ3LineData *lineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Line_New(const TQ3LineData *lineData);
 
-/**
- *  Q3Line_Submit()
- *
+  /**
+   *  Q3Line_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_Submit(const TQ3LineData *lineData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_Submit(const TQ3LineData *lineData, TQ3ViewObject view);
 
-/**
- *  Q3Line_GetData()
- *
+  /**
+   *  Q3Line_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_GetData(TQ3GeometryObject line, TQ3LineData *lineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_GetData(TQ3GeometryObject line, TQ3LineData *lineData);
 
-/**
- *  Q3Line_SetData()
- *
+  /**
+   *  Q3Line_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_SetData(TQ3GeometryObject line, const TQ3LineData *lineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_SetData(TQ3GeometryObject line, const TQ3LineData *lineData);
 
-/**
- *  Q3Line_GetVertexPosition()
- *
+  /**
+   *  Q3Line_GetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_GetVertexPosition(TQ3GeometryObject line, unsigned long index,
-                         TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_GetVertexPosition(TQ3GeometryObject line, unsigned long index,
+                           TQ3Point3D *position);
 
-/**
- *  Q3Line_SetVertexPosition()
- *
+  /**
+   *  Q3Line_SetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_SetVertexPosition(TQ3GeometryObject line, unsigned long index,
-                         const TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_SetVertexPosition(TQ3GeometryObject line, unsigned long index,
+                           const TQ3Point3D *position);
 
-/**
- *  Q3Line_GetVertexAttributeSet()
- *
+  /**
+   *  Q3Line_GetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_GetVertexAttributeSet(TQ3GeometryObject line, unsigned long index,
-                             TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_GetVertexAttributeSet(TQ3GeometryObject line, unsigned long index,
+                               TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Line_SetVertexAttributeSet()
- *
+  /**
+   *  Q3Line_SetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_SetVertexAttributeSet(TQ3GeometryObject line, unsigned long index,
-                             TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_SetVertexAttributeSet(TQ3GeometryObject line, unsigned long index,
+                               TQ3AttributeSet attributeSet);
 
-/**
- *  Q3Line_EmptyData()
- *
+  /**
+   *  Q3Line_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Line_EmptyData(TQ3LineData *lineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Line_EmptyData(TQ3LineData *lineData);
 
 /******************************************************************************
  **                                                                          **
@@ -1584,162 +1595,163 @@ Q3Line_EmptyData(TQ3LineData *lineData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3MarkerData {
-  TQ3Point3D location;
-  long xOffset;
-  long yOffset;
-  TQ3Bitmap bitmap;
-  TQ3AttributeSet markerAttributeSet;
-};
-typedef struct TQ3MarkerData TQ3MarkerData;
+  struct TQ3MarkerData
+  {
+    TQ3Point3D location;
+    long xOffset;
+    long yOffset;
+    TQ3Bitmap bitmap;
+    TQ3AttributeSet markerAttributeSet;
+  };
+  typedef struct TQ3MarkerData TQ3MarkerData;
 /******************************************************************************
  **                                                                          **
  **                             Marker Routines                              **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Marker_New()
- *
+  /**
+   *  Q3Marker_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Marker_New(const TQ3MarkerData *markerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Marker_New(const TQ3MarkerData *markerData);
 
-/**
- *  Q3Marker_Submit()
- *
+  /**
+   *  Q3Marker_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_Submit(const TQ3MarkerData *markerData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_Submit(const TQ3MarkerData *markerData, TQ3ViewObject view);
 
-/**
- *  Q3Marker_SetData()
- *
+  /**
+   *  Q3Marker_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_SetData(TQ3GeometryObject geometry, const TQ3MarkerData *markerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_SetData(TQ3GeometryObject geometry, const TQ3MarkerData *markerData);
 
-/**
- *  Q3Marker_GetData()
- *
+  /**
+   *  Q3Marker_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_GetData(TQ3GeometryObject geometry, TQ3MarkerData *markerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_GetData(TQ3GeometryObject geometry, TQ3MarkerData *markerData);
 
-/**
- *  Q3Marker_EmptyData()
- *
+  /**
+   *  Q3Marker_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_EmptyData(TQ3MarkerData *markerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_EmptyData(TQ3MarkerData *markerData);
 
-/**
- *  Q3Marker_GetPosition()
- *
+  /**
+   *  Q3Marker_GetPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_GetPosition(TQ3GeometryObject marker, TQ3Point3D *location);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_GetPosition(TQ3GeometryObject marker, TQ3Point3D *location);
 
-/**
- *  Q3Marker_SetPosition()
- *
+  /**
+   *  Q3Marker_SetPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_SetPosition(TQ3GeometryObject marker, const TQ3Point3D *location);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_SetPosition(TQ3GeometryObject marker, const TQ3Point3D *location);
 
-/**
- *  Q3Marker_GetXOffset()
- *
+  /**
+   *  Q3Marker_GetXOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_GetXOffset(TQ3GeometryObject marker, long *xOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_GetXOffset(TQ3GeometryObject marker, long *xOffset);
 
-/**
- *  Q3Marker_SetXOffset()
- *
+  /**
+   *  Q3Marker_SetXOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_SetXOffset(TQ3GeometryObject marker, long xOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_SetXOffset(TQ3GeometryObject marker, long xOffset);
 
-/**
- *  Q3Marker_GetYOffset()
- *
+  /**
+   *  Q3Marker_GetYOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_GetYOffset(TQ3GeometryObject marker, long *yOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_GetYOffset(TQ3GeometryObject marker, long *yOffset);
 
-/**
- *  Q3Marker_SetYOffset()
- *
+  /**
+   *  Q3Marker_SetYOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_SetYOffset(TQ3GeometryObject marker, long yOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_SetYOffset(TQ3GeometryObject marker, long yOffset);
 
-/**
- *  Q3Marker_GetBitmap()
- *
+  /**
+   *  Q3Marker_GetBitmap()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_GetBitmap(TQ3GeometryObject marker, TQ3Bitmap *bitmap);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_GetBitmap(TQ3GeometryObject marker, TQ3Bitmap *bitmap);
 
-/**
- *  Q3Marker_SetBitmap()
- *
+  /**
+   *  Q3Marker_SetBitmap()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Marker_SetBitmap(TQ3GeometryObject marker, const TQ3Bitmap *bitmap);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Marker_SetBitmap(TQ3GeometryObject marker, const TQ3Bitmap *bitmap);
 
 /******************************************************************************
  **                                                                          **
@@ -1748,11 +1760,11 @@ Q3Marker_SetBitmap(TQ3GeometryObject marker, const TQ3Bitmap *bitmap);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-typedef struct OpaqueTQ3MeshComponent *TQ3MeshComponent;
-typedef struct OpaqueTQ3MeshVertex *TQ3MeshVertex;
-typedef struct OpaqueTQ3MeshFace *TQ3MeshFace;
-typedef struct OpaqueTQ3MeshEdge *TQ3MeshEdge;
-typedef struct OpaqueTQ3MeshContour *TQ3MeshContour;
+  typedef struct OpaqueTQ3MeshComponent *TQ3MeshComponent;
+  typedef struct OpaqueTQ3MeshVertex *TQ3MeshVertex;
+  typedef struct OpaqueTQ3MeshFace *TQ3MeshFace;
+  typedef struct OpaqueTQ3MeshEdge *TQ3MeshEdge;
+  typedef struct OpaqueTQ3MeshContour *TQ3MeshContour;
 /******************************************************************************
  **                                                                          **
  **                         Mesh Routines                                    **
@@ -1762,973 +1774,975 @@ typedef struct OpaqueTQ3MeshContour *TQ3MeshContour;
  *  Constructors
  */
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Mesh_New()
- *
+  /**
+   *  Q3Mesh_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Mesh_New(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Mesh_New(void);
 
-/**
- *  Q3Mesh_VertexNew()
- *
+  /**
+   *  Q3Mesh_VertexNew()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_VertexNew(TQ3GeometryObject mesh, const TQ3Vertex3D *vertex);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_VertexNew(TQ3GeometryObject mesh, const TQ3Vertex3D *vertex);
 
-/**
- *  Q3Mesh_FaceNew()
- *
+  /**
+   *  Q3Mesh_FaceNew()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_FaceNew(TQ3GeometryObject mesh, unsigned long numVertices,
-               const TQ3MeshVertex *vertices, TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_FaceNew(TQ3GeometryObject mesh, unsigned long numVertices,
+                 const TQ3MeshVertex *vertices, TQ3AttributeSet attributeSet);
 
-/**
- *  Destructors
- */
-/**
- *  Q3Mesh_VertexDelete()
- *
+  /**
+   *  Destructors
+   */
+  /**
+   *  Q3Mesh_VertexDelete()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_VertexDelete(TQ3GeometryObject mesh, TQ3MeshVertex vertex);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_VertexDelete(TQ3GeometryObject mesh, TQ3MeshVertex vertex);
 
-/**
- *  Q3Mesh_FaceDelete()
- *
+  /**
+   *  Q3Mesh_FaceDelete()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_FaceDelete(TQ3GeometryObject mesh, TQ3MeshFace face);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_FaceDelete(TQ3GeometryObject mesh, TQ3MeshFace face);
 
-/**
- * Methods
- */
-/**
- *  Q3Mesh_DelayUpdates()
- *
+  /**
+   * Methods
+   */
+  /**
+   *  Q3Mesh_DelayUpdates()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_DelayUpdates(TQ3GeometryObject mesh);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_DelayUpdates(TQ3GeometryObject mesh);
 
-/**
- *  Q3Mesh_ResumeUpdates()
- *
+  /**
+   *  Q3Mesh_ResumeUpdates()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_ResumeUpdates(TQ3GeometryObject mesh);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_ResumeUpdates(TQ3GeometryObject mesh);
 
-/**
- *  Q3Mesh_FaceToContour()
- *
+  /**
+   *  Q3Mesh_FaceToContour()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshContour)
-Q3Mesh_FaceToContour(TQ3GeometryObject mesh, TQ3MeshFace containerFace,
-                     TQ3MeshFace face);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshContour
+  Q3Mesh_FaceToContour(TQ3GeometryObject mesh, TQ3MeshFace containerFace,
+                       TQ3MeshFace face);
 
-/**
- *  Q3Mesh_ContourToFace()
- *
+  /**
+   *  Q3Mesh_ContourToFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_ContourToFace(TQ3GeometryObject mesh, TQ3MeshContour contour);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_ContourToFace(TQ3GeometryObject mesh, TQ3MeshContour contour);
 
-/**
- * Mesh
- */
-/**
- *  Q3Mesh_GetNumComponents()
- *
+  /**
+   * Mesh
+   */
+  /**
+   *  Q3Mesh_GetNumComponents()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetNumComponents(TQ3GeometryObject mesh, unsigned long *numComponents);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetNumComponents(TQ3GeometryObject mesh, unsigned long *numComponents);
 
-/**
- *  Q3Mesh_GetNumEdges()
- *
+  /**
+   *  Q3Mesh_GetNumEdges()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetNumEdges(TQ3GeometryObject mesh, unsigned long *numEdges);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetNumEdges(TQ3GeometryObject mesh, unsigned long *numEdges);
 
-/**
- *  Q3Mesh_GetNumVertices()
- *
+  /**
+   *  Q3Mesh_GetNumVertices()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetNumVertices(TQ3GeometryObject mesh, unsigned long *numVertices);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetNumVertices(TQ3GeometryObject mesh, unsigned long *numVertices);
 
-/**
- *  Q3Mesh_GetNumFaces()
- *
+  /**
+   *  Q3Mesh_GetNumFaces()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetNumFaces(TQ3GeometryObject mesh, unsigned long *numFaces);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetNumFaces(TQ3GeometryObject mesh, unsigned long *numFaces);
 
-/**
- *  Q3Mesh_GetNumCorners()
- *
+  /**
+   *  Q3Mesh_GetNumCorners()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetNumCorners(TQ3GeometryObject mesh, unsigned long *numCorners);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetNumCorners(TQ3GeometryObject mesh, unsigned long *numCorners);
 
-/**
- *  Q3Mesh_GetOrientable()
- *
+  /**
+   *  Q3Mesh_GetOrientable()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetOrientable(TQ3GeometryObject mesh, TQ3Boolean *orientable);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetOrientable(TQ3GeometryObject mesh, TQ3Boolean *orientable);
 
-/**
- * Component
- */
-/**
- *  Q3Mesh_GetComponentNumVertices()
- *
+  /**
+   * Component
+   */
+  /**
+   *  Q3Mesh_GetComponentNumVertices()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetComponentNumVertices(TQ3GeometryObject mesh,
-                               TQ3MeshComponent component,
-                               unsigned long *numVertices);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetComponentNumVertices(TQ3GeometryObject mesh,
+                                 TQ3MeshComponent component,
+                                 unsigned long *numVertices);
 
-/**
- *  Q3Mesh_GetComponentNumEdges()
- *
+  /**
+   *  Q3Mesh_GetComponentNumEdges()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetComponentNumEdges(TQ3GeometryObject mesh, TQ3MeshComponent component,
-                            unsigned long *numEdges);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetComponentNumEdges(TQ3GeometryObject mesh, TQ3MeshComponent component,
+                              unsigned long *numEdges);
 
-/**
- *  Q3Mesh_GetComponentBoundingBox()
- *
+  /**
+   *  Q3Mesh_GetComponentBoundingBox()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetComponentBoundingBox(TQ3GeometryObject mesh,
-                               TQ3MeshComponent component,
-                               TQ3BoundingBox *boundingBox);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetComponentBoundingBox(TQ3GeometryObject mesh,
+                                 TQ3MeshComponent component,
+                                 TQ3BoundingBox *boundingBox);
 
-/**
- *  Q3Mesh_GetComponentOrientable()
- *
+  /**
+   *  Q3Mesh_GetComponentOrientable()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetComponentOrientable(TQ3GeometryObject mesh,
-                              TQ3MeshComponent component,
-                              TQ3Boolean *orientable);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetComponentOrientable(TQ3GeometryObject mesh,
+                                TQ3MeshComponent component,
+                                TQ3Boolean *orientable);
 
-/**
- * Vertex
- */
-/**
- *  Q3Mesh_GetVertexCoordinates()
- *
+  /**
+   * Vertex
+   */
+  /**
+   *  Q3Mesh_GetVertexCoordinates()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetVertexCoordinates(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
-                            TQ3Point3D *coordinates);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetVertexCoordinates(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                              TQ3Point3D *coordinates);
 
-/**
- *  Q3Mesh_GetVertexIndex()
- *
+  /**
+   *  Q3Mesh_GetVertexIndex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetVertexIndex(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetVertexIndex(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                        unsigned long *index);
+
+  /**
+   *  Q3Mesh_GetVertexOnBoundary()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetVertexOnBoundary(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                             TQ3Boolean *onBoundary);
+
+  /**
+   *  Q3Mesh_GetVertexComponent()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetVertexComponent(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                            TQ3MeshComponent *component);
+
+  /**
+   *  Q3Mesh_GetVertexAttributeSet()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetVertexAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                               TQ3AttributeSet *attributeSet);
+
+  /**
+   *  Q3Mesh_SetVertexCoordinates()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_SetVertexCoordinates(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                              const TQ3Point3D *coordinates);
+
+  /**
+   *  Q3Mesh_SetVertexAttributeSet()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_SetVertexAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                               TQ3AttributeSet attributeSet);
+
+  /**
+   * Face
+   */
+  /**
+   *  Q3Mesh_GetFaceNumVertices()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetFaceNumVertices(TQ3GeometryObject mesh, TQ3MeshFace face,
+                            unsigned long *numVertices);
+
+  /**
+   *  Q3Mesh_GetFacePlaneEquation()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetFacePlaneEquation(TQ3GeometryObject mesh, TQ3MeshFace face,
+                              TQ3PlaneEquation *planeEquation);
+
+  /**
+   *  Q3Mesh_GetFaceNumContours()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetFaceNumContours(TQ3GeometryObject mesh, TQ3MeshFace face,
+                            unsigned long *numContours);
+
+  /**
+   *  Q3Mesh_GetFaceIndex()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetFaceIndex(TQ3GeometryObject mesh, TQ3MeshFace face,
                       unsigned long *index);
 
-/**
- *  Q3Mesh_GetVertexOnBoundary()
- *
+  /**
+   *  Q3Mesh_GetFaceComponent()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetVertexOnBoundary(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
-                           TQ3Boolean *onBoundary);
-
-/**
- *  Q3Mesh_GetVertexComponent()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetVertexComponent(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetFaceComponent(TQ3GeometryObject mesh, TQ3MeshFace face,
                           TQ3MeshComponent *component);
 
-/**
- *  Q3Mesh_GetVertexAttributeSet()
- *
+  /**
+   *  Q3Mesh_GetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetVertexAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetFaceAttributeSet(TQ3GeometryObject mesh, TQ3MeshFace face,
                              TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Mesh_SetVertexCoordinates()
- *
+  /**
+   *  Q3Mesh_SetFaceAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_SetVertexCoordinates(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
-                            const TQ3Point3D *coordinates);
-
-/**
- *  Q3Mesh_SetVertexAttributeSet()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_SetVertexAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_SetFaceAttributeSet(TQ3GeometryObject mesh, TQ3MeshFace face,
                              TQ3AttributeSet attributeSet);
 
-/**
- * Face
- */
-/**
- *  Q3Mesh_GetFaceNumVertices()
- *
+  /**
+   * Edge
+   */
+  /**
+   *  Q3Mesh_GetEdgeVertices()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetFaceNumVertices(TQ3GeometryObject mesh, TQ3MeshFace face,
-                          unsigned long *numVertices);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetEdgeVertices(TQ3GeometryObject mesh, TQ3MeshEdge edge,
+                         TQ3MeshVertex *vertex1, TQ3MeshVertex *vertex2);
 
-/**
- *  Q3Mesh_GetFacePlaneEquation()
- *
+  /**
+   *  Q3Mesh_GetEdgeFaces()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetFacePlaneEquation(TQ3GeometryObject mesh, TQ3MeshFace face,
-                            TQ3PlaneEquation *planeEquation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetEdgeFaces(TQ3GeometryObject mesh, TQ3MeshEdge edge,
+                      TQ3MeshFace *face1, TQ3MeshFace *face2);
 
-/**
- *  Q3Mesh_GetFaceNumContours()
- *
+  /**
+   *  Q3Mesh_GetEdgeOnBoundary()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetFaceNumContours(TQ3GeometryObject mesh, TQ3MeshFace face,
-                          unsigned long *numContours);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetEdgeOnBoundary(TQ3GeometryObject mesh, TQ3MeshEdge edge,
+                           TQ3Boolean *onBoundary);
 
-/**
- *  Q3Mesh_GetFaceIndex()
- *
+  /**
+   *  Q3Mesh_GetEdgeComponent()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetFaceIndex(TQ3GeometryObject mesh, TQ3MeshFace face,
-                    unsigned long *index);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetEdgeComponent(TQ3GeometryObject mesh, TQ3MeshEdge edge,
+                          TQ3MeshComponent *component);
 
-/**
- *  Q3Mesh_GetFaceComponent()
- *
+  /**
+   *  Q3Mesh_GetEdgeAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetFaceComponent(TQ3GeometryObject mesh, TQ3MeshFace face,
-                        TQ3MeshComponent *component);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetEdgeAttributeSet(TQ3GeometryObject mesh, TQ3MeshEdge edge,
+                             TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Mesh_GetFaceAttributeSet()
- *
+  /**
+   *  Q3Mesh_SetEdgeAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetFaceAttributeSet(TQ3GeometryObject mesh, TQ3MeshFace face,
-                           TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_SetEdgeAttributeSet(TQ3GeometryObject mesh, TQ3MeshEdge edge,
+                             TQ3AttributeSet attributeSet);
 
-/**
- *  Q3Mesh_SetFaceAttributeSet()
- *
+  /**
+   * Contour
+   */
+  /**
+   *  Q3Mesh_GetContourFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_SetFaceAttributeSet(TQ3GeometryObject mesh, TQ3MeshFace face,
-                           TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetContourFace(TQ3GeometryObject mesh, TQ3MeshContour contour,
+                        TQ3MeshFace *face);
 
-/**
- * Edge
- */
-/**
- *  Q3Mesh_GetEdgeVertices()
- *
+  /**
+   *  Q3Mesh_GetContourNumVertices()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetEdgeVertices(TQ3GeometryObject mesh, TQ3MeshEdge edge,
-                       TQ3MeshVertex *vertex1, TQ3MeshVertex *vertex2);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetContourNumVertices(TQ3GeometryObject mesh, TQ3MeshContour contour,
+                               unsigned long *numVertices);
 
-/**
- *  Q3Mesh_GetEdgeFaces()
- *
+  /**
+   * Corner
+   */
+  /**
+   *  Q3Mesh_GetCornerAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetEdgeFaces(TQ3GeometryObject mesh, TQ3MeshEdge edge,
-                    TQ3MeshFace *face1, TQ3MeshFace *face2);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_GetCornerAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                               TQ3MeshFace face, TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Mesh_GetEdgeOnBoundary()
- *
+  /**
+   *  Q3Mesh_SetCornerAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetEdgeOnBoundary(TQ3GeometryObject mesh, TQ3MeshEdge edge,
-                         TQ3Boolean *onBoundary);
-
-/**
- *  Q3Mesh_GetEdgeComponent()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetEdgeComponent(TQ3GeometryObject mesh, TQ3MeshEdge edge,
-                        TQ3MeshComponent *component);
-
-/**
- *  Q3Mesh_GetEdgeAttributeSet()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetEdgeAttributeSet(TQ3GeometryObject mesh, TQ3MeshEdge edge,
-                           TQ3AttributeSet *attributeSet);
-
-/**
- *  Q3Mesh_SetEdgeAttributeSet()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_SetEdgeAttributeSet(TQ3GeometryObject mesh, TQ3MeshEdge edge,
-                           TQ3AttributeSet attributeSet);
-
-/**
- * Contour
- */
-/**
- *  Q3Mesh_GetContourFace()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetContourFace(TQ3GeometryObject mesh, TQ3MeshContour contour,
-                      TQ3MeshFace *face);
-
-/**
- *  Q3Mesh_GetContourNumVertices()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetContourNumVertices(TQ3GeometryObject mesh, TQ3MeshContour contour,
-                             unsigned long *numVertices);
-
-/**
- * Corner
- */
-/**
- *  Q3Mesh_GetCornerAttributeSet()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_GetCornerAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
-                             TQ3MeshFace face, TQ3AttributeSet *attributeSet);
-
-/**
- *  Q3Mesh_SetCornerAttributeSet()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Mesh_SetCornerAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
-                             TQ3MeshFace face, TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Mesh_SetCornerAttributeSet(TQ3GeometryObject mesh, TQ3MeshVertex vertex,
+                               TQ3MeshFace face, TQ3AttributeSet attributeSet);
 
 /**
  * Public Mesh Iterators
  */
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3MeshIterator {
-  void *var1;
-  void *var2;
-  void *var3;
-  struct {
-    void *field1;
-    char field2[4];
-  } var4;
-};
-typedef struct TQ3MeshIterator TQ3MeshIterator;
+  struct TQ3MeshIterator
+  {
+    void *var1;
+    void *var2;
+    void *var3;
+    struct
+    {
+      void *field1;
+      char field2[4];
+    } var4;
+  };
+  typedef struct TQ3MeshIterator TQ3MeshIterator;
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Mesh_FirstMeshComponent()
- *
+  /**
+   *  Q3Mesh_FirstMeshComponent()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshComponent)
-Q3Mesh_FirstMeshComponent(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshComponent
+  Q3Mesh_FirstMeshComponent(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextMeshComponent()
- *
+  /**
+   *  Q3Mesh_NextMeshComponent()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshComponent)
-Q3Mesh_NextMeshComponent(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshComponent
+  Q3Mesh_NextMeshComponent(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstComponentVertex()
- *
+  /**
+   *  Q3Mesh_FirstComponentVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_FirstComponentVertex(TQ3MeshComponent component,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_FirstComponentVertex(TQ3MeshComponent component,
+                              TQ3MeshIterator *iterator);
+
+  /**
+   *  Q3Mesh_NextComponentVertex()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_NextComponentVertex(TQ3MeshIterator *iterator);
+
+  /**
+   *  Q3Mesh_FirstComponentEdge()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_FirstComponentEdge(TQ3MeshComponent component,
                             TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextComponentVertex()
- *
+  /**
+   *  Q3Mesh_NextComponentEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_NextComponentVertex(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_NextComponentEdge(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstComponentEdge()
- *
+  /**
+   *  Q3Mesh_FirstMeshVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_FirstComponentEdge(TQ3MeshComponent component,
-                          TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_FirstMeshVertex(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextComponentEdge()
- *
+  /**
+   *  Q3Mesh_NextMeshVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_NextComponentEdge(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_NextMeshVertex(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstMeshVertex()
- *
+  /**
+   *  Q3Mesh_FirstMeshFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_FirstMeshVertex(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_FirstMeshFace(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextMeshVertex()
- *
+  /**
+   *  Q3Mesh_NextMeshFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_NextMeshVertex(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_NextMeshFace(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstMeshFace()
- *
+  /**
+   *  Q3Mesh_FirstMeshEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_FirstMeshFace(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_FirstMeshEdge(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextMeshFace()
- *
+  /**
+   *  Q3Mesh_NextMeshEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_NextMeshFace(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_NextMeshEdge(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstMeshEdge()
- *
+  /**
+   *  Q3Mesh_FirstVertexEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_FirstMeshEdge(TQ3GeometryObject mesh, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_FirstVertexEdge(TQ3MeshVertex vertex, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextMeshEdge()
- *
+  /**
+   *  Q3Mesh_NextVertexEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_NextMeshEdge(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_NextVertexEdge(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstVertexEdge()
- *
+  /**
+   *  Q3Mesh_FirstVertexVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_FirstVertexEdge(TQ3MeshVertex vertex, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_FirstVertexVertex(TQ3MeshVertex vertex, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextVertexEdge()
- *
+  /**
+   *  Q3Mesh_NextVertexVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_NextVertexEdge(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_NextVertexVertex(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstVertexVertex()
- *
+  /**
+   *  Q3Mesh_FirstVertexFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_FirstVertexVertex(TQ3MeshVertex vertex, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_FirstVertexFace(TQ3MeshVertex vertex, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextVertexVertex()
- *
+  /**
+   *  Q3Mesh_NextVertexFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_NextVertexVertex(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_NextVertexFace(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstVertexFace()
- *
+  /**
+   *  Q3Mesh_FirstFaceEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_FirstVertexFace(TQ3MeshVertex vertex, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_FirstFaceEdge(TQ3MeshFace face, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextVertexFace()
- *
+  /**
+   *  Q3Mesh_NextFaceEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_NextVertexFace(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_NextFaceEdge(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstFaceEdge()
- *
+  /**
+   *  Q3Mesh_FirstFaceVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_FirstFaceEdge(TQ3MeshFace face, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_FirstFaceVertex(TQ3MeshFace face, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextFaceEdge()
- *
+  /**
+   *  Q3Mesh_NextFaceVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_NextFaceEdge(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_NextFaceVertex(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstFaceVertex()
- *
+  /**
+   *  Q3Mesh_FirstFaceFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_FirstFaceVertex(TQ3MeshFace face, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_FirstFaceFace(TQ3MeshFace face, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextFaceVertex()
- *
+  /**
+   *  Q3Mesh_NextFaceFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_NextFaceVertex(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_NextFaceFace(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstFaceFace()
- *
+  /**
+   *  Q3Mesh_FirstFaceContour()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_FirstFaceFace(TQ3MeshFace face, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshContour
+  Q3Mesh_FirstFaceContour(TQ3MeshFace face, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextFaceFace()
- *
+  /**
+   *  Q3Mesh_NextFaceContour()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_NextFaceFace(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshContour
+  Q3Mesh_NextFaceContour(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstFaceContour()
- *
+  /**
+   *  Q3Mesh_FirstContourEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshContour)
-Q3Mesh_FirstFaceContour(TQ3MeshFace face, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_FirstContourEdge(TQ3MeshContour contour, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextFaceContour()
- *
+  /**
+   *  Q3Mesh_NextContourEdge()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshContour)
-Q3Mesh_NextFaceContour(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshEdge
+  Q3Mesh_NextContourEdge(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstContourEdge()
- *
+  /**
+   *  Q3Mesh_FirstContourVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_FirstContourEdge(TQ3MeshContour contour, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_FirstContourVertex(TQ3MeshContour contour, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextContourEdge()
- *
+  /**
+   *  Q3Mesh_NextContourVertex()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshEdge)
-Q3Mesh_NextContourEdge(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshVertex
+  Q3Mesh_NextContourVertex(TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_FirstContourVertex()
- *
+  /**
+   *  Q3Mesh_FirstContourFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_FirstContourVertex(TQ3MeshContour contour, TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_FirstContourFace(TQ3MeshContour contour, TQ3MeshIterator *iterator);
 
-/**
- *  Q3Mesh_NextContourVertex()
- *
+  /**
+   *  Q3Mesh_NextContourFace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshVertex)
-Q3Mesh_NextContourVertex(TQ3MeshIterator *iterator);
-
-/**
- *  Q3Mesh_FirstContourFace()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_FirstContourFace(TQ3MeshContour contour, TQ3MeshIterator *iterator);
-
-/**
- *  Q3Mesh_NextContourFace()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3MeshFace)
-Q3Mesh_NextContourFace(TQ3MeshIterator *iterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3MeshFace
+  Q3Mesh_NextContourFace(TQ3MeshIterator *iterator);
 
 #endif /* CALL_NOT_IN_CARBON */
 
-#define Q3ForEachMeshComponent(m, c, i)                                        \
-  for ((c) = Q3Mesh_FirstMeshComponent((m), (i)); (c);                         \
+#define Q3ForEachMeshComponent(m, c, i)                \
+  for ((c) = Q3Mesh_FirstMeshComponent((m), (i)); (c); \
        (c) = Q3Mesh_NextMeshComponent((i)))
 
-#define Q3ForEachComponentVertex(c, v, i)                                      \
-  for ((v) = Q3Mesh_FirstComponentVertex((c), (i)); (v);                       \
+#define Q3ForEachComponentVertex(c, v, i)                \
+  for ((v) = Q3Mesh_FirstComponentVertex((c), (i)); (v); \
        (v) = Q3Mesh_NextComponentVertex((i)))
 
-#define Q3ForEachComponentEdge(c, e, i)                                        \
-  for ((e) = Q3Mesh_FirstComponentEdge((c), (i)); (e);                         \
+#define Q3ForEachComponentEdge(c, e, i)                \
+  for ((e) = Q3Mesh_FirstComponentEdge((c), (i)); (e); \
        (e) = Q3Mesh_NextComponentEdge((i)))
 
-#define Q3ForEachMeshVertex(m, v, i)                                           \
-  for ((v) = Q3Mesh_FirstMeshVertex((m), (i)); (v);                            \
+#define Q3ForEachMeshVertex(m, v, i)                \
+  for ((v) = Q3Mesh_FirstMeshVertex((m), (i)); (v); \
        (v) = Q3Mesh_NextMeshVertex((i)))
 
-#define Q3ForEachMeshFace(m, f, i)                                             \
-  for ((f) = Q3Mesh_FirstMeshFace((m), (i)); (f);                              \
+#define Q3ForEachMeshFace(m, f, i)                \
+  for ((f) = Q3Mesh_FirstMeshFace((m), (i)); (f); \
        (f) = Q3Mesh_NextMeshFace((i)))
 
-#define Q3ForEachMeshEdge(m, e, i)                                             \
-  for ((e) = Q3Mesh_FirstMeshEdge((m), (i)); (e);                              \
+#define Q3ForEachMeshEdge(m, e, i)                \
+  for ((e) = Q3Mesh_FirstMeshEdge((m), (i)); (e); \
        (e) = Q3Mesh_NextMeshEdge((i)))
 
-#define Q3ForEachVertexEdge(v, e, i)                                           \
-  for ((e) = Q3Mesh_FirstVertexEdge((v), (i)); (e);                            \
+#define Q3ForEachVertexEdge(v, e, i)                \
+  for ((e) = Q3Mesh_FirstVertexEdge((v), (i)); (e); \
        (e) = Q3Mesh_NextVertexEdge((i)))
 
-#define Q3ForEachVertexVertex(v, n, i)                                         \
-  for ((n) = Q3Mesh_FirstVertexVertex((v), (i)); (n);                          \
+#define Q3ForEachVertexVertex(v, n, i)                \
+  for ((n) = Q3Mesh_FirstVertexVertex((v), (i)); (n); \
        (n) = Q3Mesh_NextVertexVertex((i)))
 
-#define Q3ForEachVertexFace(v, f, i)                                           \
-  for ((f) = Q3Mesh_FirstVertexFace((v), (i)); (f);                            \
+#define Q3ForEachVertexFace(v, f, i)                \
+  for ((f) = Q3Mesh_FirstVertexFace((v), (i)); (f); \
        (f) = Q3Mesh_NextVertexFace((i)))
 
-#define Q3ForEachFaceEdge(f, e, i)                                             \
-  for ((e) = Q3Mesh_FirstFaceEdge((f), (i)); (e);                              \
+#define Q3ForEachFaceEdge(f, e, i)                \
+  for ((e) = Q3Mesh_FirstFaceEdge((f), (i)); (e); \
        (e) = Q3Mesh_NextFaceEdge((i)))
 
-#define Q3ForEachFaceVertex(f, v, i)                                           \
-  for ((v) = Q3Mesh_FirstFaceVertex((f), (i)); (v);                            \
+#define Q3ForEachFaceVertex(f, v, i)                \
+  for ((v) = Q3Mesh_FirstFaceVertex((f), (i)); (v); \
        (v) = Q3Mesh_NextFaceVertex((i)))
 
-#define Q3ForEachFaceFace(f, n, i)                                             \
-  for ((n) = Q3Mesh_FirstFaceFace((f), (i)); (n);                              \
+#define Q3ForEachFaceFace(f, n, i)                \
+  for ((n) = Q3Mesh_FirstFaceFace((f), (i)); (n); \
        (n) = Q3Mesh_NextFaceFace((i)))
 
-#define Q3ForEachFaceContour(f, h, i)                                          \
-  for ((h) = Q3Mesh_FirstFaceContour((f), (i)); (h);                           \
+#define Q3ForEachFaceContour(f, h, i)                \
+  for ((h) = Q3Mesh_FirstFaceContour((f), (i)); (h); \
        (h) = Q3Mesh_NextFaceContour((i)))
 
-#define Q3ForEachContourEdge(h, e, i)                                          \
-  for ((e) = Q3Mesh_FirstContourEdge((h), (i)); (e);                           \
+#define Q3ForEachContourEdge(h, e, i)                \
+  for ((e) = Q3Mesh_FirstContourEdge((h), (i)); (e); \
        (e) = Q3Mesh_NextContourEdge((i)))
 
-#define Q3ForEachContourVertex(h, v, i)                                        \
-  for ((v) = Q3Mesh_FirstContourVertex((h), (i)); (v);                         \
+#define Q3ForEachContourVertex(h, v, i)                \
+  for ((v) = Q3Mesh_FirstContourVertex((h), (i)); (v); \
        (v) = Q3Mesh_NextContourVertex((i)))
 
-#define Q3ForEachContourFace(h, f, i)                                          \
-  for ((f) = Q3Mesh_FirstContourFace((h), (i)); (f);                           \
+#define Q3ForEachContourFace(h, f, i)                \
+  for ((f) = Q3Mesh_FirstContourFace((h), (i)); (f); \
        (f) = Q3Mesh_NextContourFace((i)))
 
 /******************************************************************************
@@ -2738,128 +2752,129 @@ Q3Mesh_NextContourFace(TQ3MeshIterator *iterator);
  *****************************************************************************/
 #define kQ3NURBCurveMaxOrder 16
 
-/******************************************************************************
- **                                                                          **
- **                     NURB Data Structure Definitions                      **
- **                                                                          **
- *****************************************************************************/
-struct TQ3NURBCurveData {
-  unsigned long order;
-  unsigned long numPoints;
-  TQ3RationalPoint4D *controlPoints;
-  float *knots;
-  TQ3AttributeSet curveAttributeSet;
-};
-typedef struct TQ3NURBCurveData TQ3NURBCurveData;
+  /******************************************************************************
+   **                                                                          **
+   **                     NURB Data Structure Definitions                      **
+   **                                                                          **
+   *****************************************************************************/
+  struct TQ3NURBCurveData
+  {
+    unsigned long order;
+    unsigned long numPoints;
+    TQ3RationalPoint4D *controlPoints;
+    float *knots;
+    TQ3AttributeSet curveAttributeSet;
+  };
+  typedef struct TQ3NURBCurveData TQ3NURBCurveData;
 /******************************************************************************
  **                                                                          **
  **                             NURB Curve Routines                          **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3NURBCurve_New()
- *
+  /**
+   *  Q3NURBCurve_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3NURBCurve_New(const TQ3NURBCurveData *curveData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3NURBCurve_New(const TQ3NURBCurveData *curveData);
 
-/**
- *  Q3NURBCurve_Submit()
- *
+  /**
+   *  Q3NURBCurve_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_Submit(const TQ3NURBCurveData *curveData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_Submit(const TQ3NURBCurveData *curveData, TQ3ViewObject view);
 
-/**
- *  Q3NURBCurve_SetData()
- *
+  /**
+   *  Q3NURBCurve_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_SetData(TQ3GeometryObject curve,
-                    const TQ3NURBCurveData *nurbCurveData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_SetData(TQ3GeometryObject curve,
+                      const TQ3NURBCurveData *nurbCurveData);
 
-/**
- *  Q3NURBCurve_GetData()
- *
+  /**
+   *  Q3NURBCurve_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_GetData(TQ3GeometryObject curve, TQ3NURBCurveData *nurbCurveData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_GetData(TQ3GeometryObject curve, TQ3NURBCurveData *nurbCurveData);
 
-/**
- *  Q3NURBCurve_EmptyData()
- *
+  /**
+   *  Q3NURBCurve_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_EmptyData(TQ3NURBCurveData *nurbCurveData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_EmptyData(TQ3NURBCurveData *nurbCurveData);
 
-/**
- *  Q3NURBCurve_SetControlPoint()
- *
+  /**
+   *  Q3NURBCurve_SetControlPoint()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_SetControlPoint(TQ3GeometryObject curve, unsigned long pointIndex,
-                            const TQ3RationalPoint4D *point4D);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_SetControlPoint(TQ3GeometryObject curve, unsigned long pointIndex,
+                              const TQ3RationalPoint4D *point4D);
 
-/**
- *  Q3NURBCurve_GetControlPoint()
- *
+  /**
+   *  Q3NURBCurve_GetControlPoint()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_GetControlPoint(TQ3GeometryObject curve, unsigned long pointIndex,
-                            TQ3RationalPoint4D *point4D);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_GetControlPoint(TQ3GeometryObject curve, unsigned long pointIndex,
+                              TQ3RationalPoint4D *point4D);
 
-/**
- *  Q3NURBCurve_SetKnot()
- *
+  /**
+   *  Q3NURBCurve_SetKnot()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_SetKnot(TQ3GeometryObject curve, unsigned long knotIndex,
-                    float knotValue);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_SetKnot(TQ3GeometryObject curve, unsigned long knotIndex,
+                      float knotValue);
 
-/**
- *  Q3NURBCurve_GetKnot()
- *
+  /**
+   *  Q3NURBCurve_GetKnot()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBCurve_GetKnot(TQ3GeometryObject curve, unsigned long knotIndex,
-                    float *knotValue);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBCurve_GetKnot(TQ3GeometryObject curve, unsigned long knotIndex,
+                      float *knotValue);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -2869,172 +2884,175 @@ Q3NURBCurve_GetKnot(TQ3GeometryObject curve, unsigned long knotIndex,
  **                                                                          **
  *****************************************************************************/
 #define kQ3NURBPatchMaxOrder 11
-/******************************************************************************
- **                                                                          **
- **                     NURB Patch Data Structure Definitions                **
- **                                                                          **
- *****************************************************************************/
-struct TQ3NURBPatchTrimCurveData {
-  unsigned long order;
-  unsigned long numPoints;
-  TQ3RationalPoint3D *controlPoints;
-  float *knots;
-};
-typedef struct TQ3NURBPatchTrimCurveData TQ3NURBPatchTrimCurveData;
-struct TQ3NURBPatchTrimLoopData {
-  unsigned long numTrimCurves;
-  TQ3NURBPatchTrimCurveData *trimCurves;
-};
-typedef struct TQ3NURBPatchTrimLoopData TQ3NURBPatchTrimLoopData;
-struct TQ3NURBPatchData {
-  unsigned long uOrder;
-  unsigned long vOrder;
-  unsigned long numRows;
-  unsigned long numColumns;
-  TQ3RationalPoint4D *controlPoints;
-  float *uKnots;
-  float *vKnots;
-  unsigned long numTrimLoops;
-  TQ3NURBPatchTrimLoopData *trimLoops;
-  TQ3AttributeSet patchAttributeSet;
-};
-typedef struct TQ3NURBPatchData TQ3NURBPatchData;
+  /******************************************************************************
+   **                                                                          **
+   **                     NURB Patch Data Structure Definitions                **
+   **                                                                          **
+   *****************************************************************************/
+  struct TQ3NURBPatchTrimCurveData
+  {
+    unsigned long order;
+    unsigned long numPoints;
+    TQ3RationalPoint3D *controlPoints;
+    float *knots;
+  };
+  typedef struct TQ3NURBPatchTrimCurveData TQ3NURBPatchTrimCurveData;
+  struct TQ3NURBPatchTrimLoopData
+  {
+    unsigned long numTrimCurves;
+    TQ3NURBPatchTrimCurveData *trimCurves;
+  };
+  typedef struct TQ3NURBPatchTrimLoopData TQ3NURBPatchTrimLoopData;
+  struct TQ3NURBPatchData
+  {
+    unsigned long uOrder;
+    unsigned long vOrder;
+    unsigned long numRows;
+    unsigned long numColumns;
+    TQ3RationalPoint4D *controlPoints;
+    float *uKnots;
+    float *vKnots;
+    unsigned long numTrimLoops;
+    TQ3NURBPatchTrimLoopData *trimLoops;
+    TQ3AttributeSet patchAttributeSet;
+  };
+  typedef struct TQ3NURBPatchData TQ3NURBPatchData;
 /******************************************************************************
  **                                                                          **
  **                             NURB Patch Routines                          **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3NURBPatch_New()
- *
+  /**
+   *  Q3NURBPatch_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3NURBPatch_New(const TQ3NURBPatchData *nurbPatchData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3NURBPatch_New(const TQ3NURBPatchData *nurbPatchData);
 
-/**
- *  Q3NURBPatch_Submit()
- *
+  /**
+   *  Q3NURBPatch_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_Submit(const TQ3NURBPatchData *nurbPatchData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_Submit(const TQ3NURBPatchData *nurbPatchData, TQ3ViewObject view);
 
-/**
- *  Q3NURBPatch_SetData()
- *
+  /**
+   *  Q3NURBPatch_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_SetData(TQ3GeometryObject nurbPatch,
-                    const TQ3NURBPatchData *nurbPatchData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_SetData(TQ3GeometryObject nurbPatch,
+                      const TQ3NURBPatchData *nurbPatchData);
 
-/**
- *  Q3NURBPatch_GetData()
- *
+  /**
+   *  Q3NURBPatch_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_GetData(TQ3GeometryObject nurbPatch,
-                    TQ3NURBPatchData *nurbPatchData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_GetData(TQ3GeometryObject nurbPatch,
+                      TQ3NURBPatchData *nurbPatchData);
 
-/**
- *  Q3NURBPatch_SetControlPoint()
- *
+  /**
+   *  Q3NURBPatch_SetControlPoint()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_SetControlPoint(TQ3GeometryObject nurbPatch, unsigned long rowIndex,
-                            unsigned long columnIndex,
-                            const TQ3RationalPoint4D *point4D);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_SetControlPoint(TQ3GeometryObject nurbPatch, unsigned long rowIndex,
+                              unsigned long columnIndex,
+                              const TQ3RationalPoint4D *point4D);
 
-/**
- *  Q3NURBPatch_GetControlPoint()
- *
+  /**
+   *  Q3NURBPatch_GetControlPoint()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_GetControlPoint(TQ3GeometryObject nurbPatch, unsigned long rowIndex,
-                            unsigned long columnIndex,
-                            TQ3RationalPoint4D *point4D);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_GetControlPoint(TQ3GeometryObject nurbPatch, unsigned long rowIndex,
+                              unsigned long columnIndex,
+                              TQ3RationalPoint4D *point4D);
 
-/**
- *  Q3NURBPatch_SetUKnot()
- *
+  /**
+   *  Q3NURBPatch_SetUKnot()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_SetUKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
-                     float knotValue);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_SetUKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
+                       float knotValue);
 
-/**
- *  Q3NURBPatch_SetVKnot()
- *
+  /**
+   *  Q3NURBPatch_SetVKnot()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_SetVKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
-                     float knotValue);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_SetVKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
+                       float knotValue);
 
-/**
- *  Q3NURBPatch_GetUKnot()
- *
+  /**
+   *  Q3NURBPatch_GetUKnot()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_GetUKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
-                     float *knotValue);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_GetUKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
+                       float *knotValue);
 
-/**
- *  Q3NURBPatch_GetVKnot()
- *
+  /**
+   *  Q3NURBPatch_GetVKnot()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_GetVKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
-                     float *knotValue);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_GetVKnot(TQ3GeometryObject nurbPatch, unsigned long knotIndex,
+                       float *knotValue);
 
-/**
- *  Q3NURBPatch_EmptyData()
- *
+  /**
+   *  Q3NURBPatch_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3NURBPatch_EmptyData(TQ3NURBPatchData *nurbPatchData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3NURBPatch_EmptyData(TQ3NURBPatchData *nurbPatchData);
 
 /******************************************************************************
  **                                                                          **
@@ -3043,169 +3061,170 @@ Q3NURBPatch_EmptyData(TQ3NURBPatchData *nurbPatchData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3PixmapMarkerData {
-  TQ3Point3D position;
-  long xOffset;
-  long yOffset;
-  TQ3StoragePixmap pixmap;
-  TQ3AttributeSet pixmapMarkerAttributeSet;
-};
-typedef struct TQ3PixmapMarkerData TQ3PixmapMarkerData;
+  struct TQ3PixmapMarkerData
+  {
+    TQ3Point3D position;
+    long xOffset;
+    long yOffset;
+    TQ3StoragePixmap pixmap;
+    TQ3AttributeSet pixmapMarkerAttributeSet;
+  };
+  typedef struct TQ3PixmapMarkerData TQ3PixmapMarkerData;
 /******************************************************************************
  **                                                                          **
  **                             Pixmap Marker Routines                       **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3PixmapMarker_New()
- *
+  /**
+   *  Q3PixmapMarker_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3PixmapMarker_New(const TQ3PixmapMarkerData *pixmapMarkerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3PixmapMarker_New(const TQ3PixmapMarkerData *pixmapMarkerData);
 
-/**
- *  Q3PixmapMarker_Submit()
- *
+  /**
+   *  Q3PixmapMarker_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_Submit(const TQ3PixmapMarkerData *pixmapMarkerData,
-                      TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_Submit(const TQ3PixmapMarkerData *pixmapMarkerData,
+                        TQ3ViewObject view);
 
-/**
- *  Q3PixmapMarker_SetData()
- *
+  /**
+   *  Q3PixmapMarker_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_SetData(TQ3GeometryObject geometry,
-                       const TQ3PixmapMarkerData *pixmapMarkerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_SetData(TQ3GeometryObject geometry,
+                         const TQ3PixmapMarkerData *pixmapMarkerData);
 
-/**
- *  Q3PixmapMarker_GetData()
- *
+  /**
+   *  Q3PixmapMarker_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_GetData(TQ3GeometryObject geometry,
-                       TQ3PixmapMarkerData *pixmapMarkerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_GetData(TQ3GeometryObject geometry,
+                         TQ3PixmapMarkerData *pixmapMarkerData);
 
-/**
- *  Q3PixmapMarker_EmptyData()
- *
+  /**
+   *  Q3PixmapMarker_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_EmptyData(TQ3PixmapMarkerData *pixmapMarkerData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_EmptyData(TQ3PixmapMarkerData *pixmapMarkerData);
 
-/**
- *  Q3PixmapMarker_GetPosition()
- *
+  /**
+   *  Q3PixmapMarker_GetPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_GetPosition(TQ3GeometryObject pixmapMarker,
-                           TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_GetPosition(TQ3GeometryObject pixmapMarker,
+                             TQ3Point3D *position);
 
-/**
- *  Q3PixmapMarker_SetPosition()
- *
+  /**
+   *  Q3PixmapMarker_SetPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_SetPosition(TQ3GeometryObject pixmapMarker,
-                           const TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_SetPosition(TQ3GeometryObject pixmapMarker,
+                             const TQ3Point3D *position);
 
-/**
- *  Q3PixmapMarker_GetXOffset()
- *
+  /**
+   *  Q3PixmapMarker_GetXOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_GetXOffset(TQ3GeometryObject pixmapMarker, long *xOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_GetXOffset(TQ3GeometryObject pixmapMarker, long *xOffset);
 
-/**
- *  Q3PixmapMarker_SetXOffset()
- *
+  /**
+   *  Q3PixmapMarker_SetXOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_SetXOffset(TQ3GeometryObject pixmapMarker, long xOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_SetXOffset(TQ3GeometryObject pixmapMarker, long xOffset);
 
-/**
- *  Q3PixmapMarker_GetYOffset()
- *
+  /**
+   *  Q3PixmapMarker_GetYOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_GetYOffset(TQ3GeometryObject pixmapMarker, long *yOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_GetYOffset(TQ3GeometryObject pixmapMarker, long *yOffset);
 
-/**
- *  Q3PixmapMarker_SetYOffset()
- *
+  /**
+   *  Q3PixmapMarker_SetYOffset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_SetYOffset(TQ3GeometryObject pixmapMarker, long yOffset);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_SetYOffset(TQ3GeometryObject pixmapMarker, long yOffset);
 
-/**
- *  Q3PixmapMarker_GetPixmap()
- *
+  /**
+   *  Q3PixmapMarker_GetPixmap()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_GetPixmap(TQ3GeometryObject pixmapMarker,
-                         TQ3StoragePixmap *pixmap);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_GetPixmap(TQ3GeometryObject pixmapMarker,
+                           TQ3StoragePixmap *pixmap);
 
-/**
- *  Q3PixmapMarker_SetPixmap()
- *
+  /**
+   *  Q3PixmapMarker_SetPixmap()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PixmapMarker_SetPixmap(TQ3GeometryObject pixmapMarker,
-                         const TQ3StoragePixmap *pixmap);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PixmapMarker_SetPixmap(TQ3GeometryObject pixmapMarker,
+                           const TQ3StoragePixmap *pixmap);
 
 /******************************************************************************
  **                                                                          **
@@ -3214,93 +3233,94 @@ Q3PixmapMarker_SetPixmap(TQ3GeometryObject pixmapMarker,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3PointData {
-  TQ3Point3D point;
-  TQ3AttributeSet pointAttributeSet;
-};
-typedef struct TQ3PointData TQ3PointData;
+  struct TQ3PointData
+  {
+    TQ3Point3D point;
+    TQ3AttributeSet pointAttributeSet;
+  };
+  typedef struct TQ3PointData TQ3PointData;
 /******************************************************************************
  **                                                                          **
  **                             Point Routines                               **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Point_New()
- *
+  /**
+   *  Q3Point_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Point_New(const TQ3PointData *pointData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Point_New(const TQ3PointData *pointData);
 
-/**
- *  Q3Point_Submit()
- *
+  /**
+   *  Q3Point_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Point_Submit(const TQ3PointData *pointData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Point_Submit(const TQ3PointData *pointData, TQ3ViewObject view);
 
-/**
- *  Q3Point_GetData()
- *
+  /**
+   *  Q3Point_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Point_GetData(TQ3GeometryObject point, TQ3PointData *pointData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Point_GetData(TQ3GeometryObject point, TQ3PointData *pointData);
 
-/**
- *  Q3Point_SetData()
- *
+  /**
+   *  Q3Point_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Point_SetData(TQ3GeometryObject point, const TQ3PointData *pointData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Point_SetData(TQ3GeometryObject point, const TQ3PointData *pointData);
 
-/**
- *  Q3Point_EmptyData()
- *
+  /**
+   *  Q3Point_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Point_EmptyData(TQ3PointData *pointData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Point_EmptyData(TQ3PointData *pointData);
 
-/**
- *  Q3Point_SetPosition()
- *
+  /**
+   *  Q3Point_SetPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Point_SetPosition(TQ3GeometryObject point, const TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Point_SetPosition(TQ3GeometryObject point, const TQ3Point3D *position);
 
-/**
- *  Q3Point_GetPosition()
- *
+  /**
+   *  Q3Point_GetPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Point_GetPosition(TQ3GeometryObject point, TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Point_GetPosition(TQ3GeometryObject point, TQ3Point3D *position);
 
 /******************************************************************************
  **                                                                          **
@@ -3309,120 +3329,121 @@ Q3Point_GetPosition(TQ3GeometryObject point, TQ3Point3D *position);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3PolygonData {
-  unsigned long numVertices;
-  TQ3Vertex3D *vertices;
-  TQ3AttributeSet polygonAttributeSet;
-};
-typedef struct TQ3PolygonData TQ3PolygonData;
+  struct TQ3PolygonData
+  {
+    unsigned long numVertices;
+    TQ3Vertex3D *vertices;
+    TQ3AttributeSet polygonAttributeSet;
+  };
+  typedef struct TQ3PolygonData TQ3PolygonData;
 /******************************************************************************
  **                                                                          **
  **                         Polygon Routines                                 **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Polygon_New()
- *
+  /**
+   *  Q3Polygon_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Polygon_New(const TQ3PolygonData *polygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Polygon_New(const TQ3PolygonData *polygonData);
 
-/**
- *  Q3Polygon_Submit()
- *
+  /**
+   *  Q3Polygon_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_Submit(const TQ3PolygonData *polygonData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_Submit(const TQ3PolygonData *polygonData, TQ3ViewObject view);
 
-/**
- *  Q3Polygon_SetData()
- *
+  /**
+   *  Q3Polygon_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_SetData(TQ3GeometryObject polygon, const TQ3PolygonData *polygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_SetData(TQ3GeometryObject polygon, const TQ3PolygonData *polygonData);
 
-/**
- *  Q3Polygon_GetData()
- *
+  /**
+   *  Q3Polygon_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_GetData(TQ3GeometryObject polygon, TQ3PolygonData *polygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_GetData(TQ3GeometryObject polygon, TQ3PolygonData *polygonData);
 
-/**
- *  Q3Polygon_EmptyData()
- *
+  /**
+   *  Q3Polygon_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_EmptyData(TQ3PolygonData *polygonData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_EmptyData(TQ3PolygonData *polygonData);
 
-/**
- *  Q3Polygon_GetVertexPosition()
- *
+  /**
+   *  Q3Polygon_GetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_GetVertexPosition(TQ3GeometryObject polygon, unsigned long index,
-                            TQ3Point3D *point);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_GetVertexPosition(TQ3GeometryObject polygon, unsigned long index,
+                              TQ3Point3D *point);
 
-/**
- *  Q3Polygon_SetVertexPosition()
- *
+  /**
+   *  Q3Polygon_SetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_SetVertexPosition(TQ3GeometryObject polygon, unsigned long index,
-                            const TQ3Point3D *point);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_SetVertexPosition(TQ3GeometryObject polygon, unsigned long index,
+                              const TQ3Point3D *point);
 
-/**
- *  Q3Polygon_GetVertexAttributeSet()
- *
+  /**
+   *  Q3Polygon_GetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_GetVertexAttributeSet(TQ3GeometryObject polygon, unsigned long index,
-                                TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_GetVertexAttributeSet(TQ3GeometryObject polygon, unsigned long index,
+                                  TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Polygon_SetVertexAttributeSet()
- *
+  /**
+   *  Q3Polygon_SetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polygon_SetVertexAttributeSet(TQ3GeometryObject polygon, unsigned long index,
-                                TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polygon_SetVertexAttributeSet(TQ3GeometryObject polygon, unsigned long index,
+                                  TQ3AttributeSet attributeSet);
 
 /******************************************************************************
  **                                                                          **
@@ -3431,202 +3452,206 @@ Q3Polygon_SetVertexAttributeSet(TQ3GeometryObject polygon, unsigned long index,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-enum TQ3PolyhedronEdgeMasks {
-  kQ3PolyhedronEdgeNone = 0,
-  kQ3PolyhedronEdge01 = 1 << 0,
-  kQ3PolyhedronEdge12 = 1 << 1,
-  kQ3PolyhedronEdge20 = 1 << 2,
-  kQ3PolyhedronEdgeAll =
-      kQ3PolyhedronEdge01 | kQ3PolyhedronEdge12 | kQ3PolyhedronEdge20
-};
-typedef enum TQ3PolyhedronEdgeMasks TQ3PolyhedronEdgeMasks;
+  enum TQ3PolyhedronEdgeMasks
+  {
+    kQ3PolyhedronEdgeNone = 0,
+    kQ3PolyhedronEdge01 = 1 << 0,
+    kQ3PolyhedronEdge12 = 1 << 1,
+    kQ3PolyhedronEdge20 = 1 << 2,
+    kQ3PolyhedronEdgeAll =
+        kQ3PolyhedronEdge01 | kQ3PolyhedronEdge12 | kQ3PolyhedronEdge20
+  };
+  typedef enum TQ3PolyhedronEdgeMasks TQ3PolyhedronEdgeMasks;
 
-typedef unsigned long TQ3PolyhedronEdge;
-struct TQ3PolyhedronEdgeData {
-  unsigned long vertexIndices[2];
-  unsigned long triangleIndices[2];
-  TQ3AttributeSet edgeAttributeSet;
-};
-typedef struct TQ3PolyhedronEdgeData TQ3PolyhedronEdgeData;
-struct TQ3PolyhedronTriangleData {
-  unsigned long vertexIndices[3];
-  TQ3PolyhedronEdge edgeFlag;
-  TQ3AttributeSet triangleAttributeSet;
-};
-typedef struct TQ3PolyhedronTriangleData TQ3PolyhedronTriangleData;
-struct TQ3PolyhedronData {
-  unsigned long numVertices;
-  TQ3Vertex3D *vertices;
-  unsigned long numEdges;
-  TQ3PolyhedronEdgeData *edges;
-  unsigned long numTriangles;
-  TQ3PolyhedronTriangleData *triangles;
-  TQ3AttributeSet polyhedronAttributeSet;
-};
-typedef struct TQ3PolyhedronData TQ3PolyhedronData;
+  typedef unsigned long TQ3PolyhedronEdge;
+  struct TQ3PolyhedronEdgeData
+  {
+    unsigned long vertexIndices[2];
+    unsigned long triangleIndices[2];
+    TQ3AttributeSet edgeAttributeSet;
+  };
+  typedef struct TQ3PolyhedronEdgeData TQ3PolyhedronEdgeData;
+  struct TQ3PolyhedronTriangleData
+  {
+    unsigned long vertexIndices[3];
+    TQ3PolyhedronEdge edgeFlag;
+    TQ3AttributeSet triangleAttributeSet;
+  };
+  typedef struct TQ3PolyhedronTriangleData TQ3PolyhedronTriangleData;
+  struct TQ3PolyhedronData
+  {
+    unsigned long numVertices;
+    TQ3Vertex3D *vertices;
+    unsigned long numEdges;
+    TQ3PolyhedronEdgeData *edges;
+    unsigned long numTriangles;
+    TQ3PolyhedronTriangleData *triangles;
+    TQ3AttributeSet polyhedronAttributeSet;
+  };
+  typedef struct TQ3PolyhedronData TQ3PolyhedronData;
 /******************************************************************************
  **                                                                          **
  **                             Polyhedron Routines                          **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Polyhedron_New()
- *
+  /**
+   *  Q3Polyhedron_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Polyhedron_New(const TQ3PolyhedronData *polyhedronData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Polyhedron_New(const TQ3PolyhedronData *polyhedronData);
 
-/**
- *  Q3Polyhedron_Submit()
- *
+  /**
+   *  Q3Polyhedron_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_Submit(const TQ3PolyhedronData *polyhedronData,
-                    TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_Submit(const TQ3PolyhedronData *polyhedronData,
+                      TQ3ViewObject view);
 
-/**
- *  Q3Polyhedron_SetData()
- *
+  /**
+   *  Q3Polyhedron_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_SetData(TQ3GeometryObject polyhedron,
-                     const TQ3PolyhedronData *polyhedronData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_SetData(TQ3GeometryObject polyhedron,
+                       const TQ3PolyhedronData *polyhedronData);
 
-/**
- *  Q3Polyhedron_GetData()
- *
+  /**
+   *  Q3Polyhedron_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_GetData(TQ3GeometryObject polyhedron,
-                     TQ3PolyhedronData *polyhedronData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_GetData(TQ3GeometryObject polyhedron,
+                       TQ3PolyhedronData *polyhedronData);
 
-/**
- *  Q3Polyhedron_EmptyData()
- *
+  /**
+   *  Q3Polyhedron_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_EmptyData(TQ3PolyhedronData *polyhedronData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_EmptyData(TQ3PolyhedronData *polyhedronData);
 
-/**
- *  Q3Polyhedron_SetVertexPosition()
- *
+  /**
+   *  Q3Polyhedron_SetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_SetVertexPosition(TQ3GeometryObject polyhedron,
-                               unsigned long index, const TQ3Point3D *point);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_SetVertexPosition(TQ3GeometryObject polyhedron,
+                                 unsigned long index, const TQ3Point3D *point);
 
-/**
- *  Q3Polyhedron_GetVertexPosition()
- *
+  /**
+   *  Q3Polyhedron_GetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_GetVertexPosition(TQ3GeometryObject polyhedron,
-                               unsigned long index, TQ3Point3D *point);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_GetVertexPosition(TQ3GeometryObject polyhedron,
+                                 unsigned long index, TQ3Point3D *point);
 
-/**
- *  Q3Polyhedron_SetVertexAttributeSet()
- *
+  /**
+   *  Q3Polyhedron_SetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_SetVertexAttributeSet(TQ3GeometryObject polyhedron,
-                                   unsigned long index,
-                                   TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_SetVertexAttributeSet(TQ3GeometryObject polyhedron,
+                                     unsigned long index,
+                                     TQ3AttributeSet attributeSet);
 
-/**
- *  Q3Polyhedron_GetVertexAttributeSet()
- *
+  /**
+   *  Q3Polyhedron_GetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_GetVertexAttributeSet(TQ3GeometryObject polyhedron,
-                                   unsigned long index,
-                                   TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_GetVertexAttributeSet(TQ3GeometryObject polyhedron,
+                                     unsigned long index,
+                                     TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Polyhedron_GetTriangleData()
- *
+  /**
+   *  Q3Polyhedron_GetTriangleData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_GetTriangleData(TQ3GeometryObject polyhedron,
-                             unsigned long triangleIndex,
-                             TQ3PolyhedronTriangleData *triangleData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_GetTriangleData(TQ3GeometryObject polyhedron,
+                               unsigned long triangleIndex,
+                               TQ3PolyhedronTriangleData *triangleData);
 
-/**
- *  Q3Polyhedron_SetTriangleData()
- *
+  /**
+   *  Q3Polyhedron_SetTriangleData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_SetTriangleData(TQ3GeometryObject polyhedron,
-                             unsigned long triangleIndex,
-                             const TQ3PolyhedronTriangleData *triangleData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_SetTriangleData(TQ3GeometryObject polyhedron,
+                               unsigned long triangleIndex,
+                               const TQ3PolyhedronTriangleData *triangleData);
 
-/**
- *  Q3Polyhedron_GetEdgeData()
- *
+  /**
+   *  Q3Polyhedron_GetEdgeData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_GetEdgeData(TQ3GeometryObject polyhedron, unsigned long edgeIndex,
-                         TQ3PolyhedronEdgeData *edgeData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_GetEdgeData(TQ3GeometryObject polyhedron, unsigned long edgeIndex,
+                           TQ3PolyhedronEdgeData *edgeData);
 
-/**
- *  Q3Polyhedron_SetEdgeData()
- *
+  /**
+   *  Q3Polyhedron_SetEdgeData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Polyhedron_SetEdgeData(TQ3GeometryObject polyhedron, unsigned long edgeIndex,
-                         const TQ3PolyhedronEdgeData *edgeData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Polyhedron_SetEdgeData(TQ3GeometryObject polyhedron, unsigned long edgeIndex,
+                           const TQ3PolyhedronEdgeData *edgeData);
 
 /******************************************************************************
  **                                                                          **
@@ -3635,150 +3660,151 @@ Q3Polyhedron_SetEdgeData(TQ3GeometryObject polyhedron, unsigned long edgeIndex,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3PolyLineData {
-  unsigned long numVertices;
-  TQ3Vertex3D *vertices;
-  TQ3AttributeSet *segmentAttributeSet;
-  TQ3AttributeSet polyLineAttributeSet;
-};
-typedef struct TQ3PolyLineData TQ3PolyLineData;
+  struct TQ3PolyLineData
+  {
+    unsigned long numVertices;
+    TQ3Vertex3D *vertices;
+    TQ3AttributeSet *segmentAttributeSet;
+    TQ3AttributeSet polyLineAttributeSet;
+  };
+  typedef struct TQ3PolyLineData TQ3PolyLineData;
 /******************************************************************************
  **                                                                          **
  **                         PolyLine Routines                                **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3PolyLine_New()
- *
+  /**
+   *  Q3PolyLine_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3PolyLine_New(const TQ3PolyLineData *polylineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3PolyLine_New(const TQ3PolyLineData *polylineData);
 
-/**
- *  Q3PolyLine_Submit()
- *
+  /**
+   *  Q3PolyLine_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_Submit(const TQ3PolyLineData *polyLineData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_Submit(const TQ3PolyLineData *polyLineData, TQ3ViewObject view);
 
-/**
- *  Q3PolyLine_SetData()
- *
+  /**
+   *  Q3PolyLine_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_SetData(TQ3GeometryObject polyLine,
-                   const TQ3PolyLineData *polyLineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_SetData(TQ3GeometryObject polyLine,
+                     const TQ3PolyLineData *polyLineData);
 
-/**
- *  Q3PolyLine_GetData()
- *
+  /**
+   *  Q3PolyLine_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_GetData(TQ3GeometryObject polyLine, TQ3PolyLineData *polyLineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_GetData(TQ3GeometryObject polyLine, TQ3PolyLineData *polyLineData);
 
-/**
- *  Q3PolyLine_EmptyData()
- *
+  /**
+   *  Q3PolyLine_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_EmptyData(TQ3PolyLineData *polyLineData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_EmptyData(TQ3PolyLineData *polyLineData);
 
-/**
- *  Q3PolyLine_GetVertexPosition()
- *
+  /**
+   *  Q3PolyLine_GetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_GetVertexPosition(TQ3GeometryObject polyLine, unsigned long index,
-                             TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_GetVertexPosition(TQ3GeometryObject polyLine, unsigned long index,
+                               TQ3Point3D *position);
 
-/**
- *  Q3PolyLine_SetVertexPosition()
- *
+  /**
+   *  Q3PolyLine_SetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_SetVertexPosition(TQ3GeometryObject polyLine, unsigned long index,
-                             const TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_SetVertexPosition(TQ3GeometryObject polyLine, unsigned long index,
+                               const TQ3Point3D *position);
 
-/**
- *  Q3PolyLine_GetVertexAttributeSet()
- *
+  /**
+   *  Q3PolyLine_GetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_GetVertexAttributeSet(TQ3GeometryObject polyLine,
-                                 unsigned long index,
-                                 TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_GetVertexAttributeSet(TQ3GeometryObject polyLine,
+                                   unsigned long index,
+                                   TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3PolyLine_SetVertexAttributeSet()
- *
+  /**
+   *  Q3PolyLine_SetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_SetVertexAttributeSet(TQ3GeometryObject polyLine,
-                                 unsigned long index,
-                                 TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_SetVertexAttributeSet(TQ3GeometryObject polyLine,
+                                   unsigned long index,
+                                   TQ3AttributeSet attributeSet);
 
-/**
- *  Q3PolyLine_GetSegmentAttributeSet()
- *
+  /**
+   *  Q3PolyLine_GetSegmentAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_GetSegmentAttributeSet(TQ3GeometryObject polyLine,
-                                  unsigned long index,
-                                  TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_GetSegmentAttributeSet(TQ3GeometryObject polyLine,
+                                    unsigned long index,
+                                    TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3PolyLine_SetSegmentAttributeSet()
- *
+  /**
+   *  Q3PolyLine_SetSegmentAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3PolyLine_SetSegmentAttributeSet(TQ3GeometryObject polyLine,
-                                  unsigned long index,
-                                  TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3PolyLine_SetSegmentAttributeSet(TQ3GeometryObject polyLine,
+                                    unsigned long index,
+                                    TQ3AttributeSet attributeSet);
 
 /******************************************************************************
  **                                                                          **
@@ -3787,191 +3813,192 @@ Q3PolyLine_SetSegmentAttributeSet(TQ3GeometryObject polyLine,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3TorusData {
-  TQ3Point3D origin;
-  TQ3Vector3D orientation;
-  TQ3Vector3D majorRadius;
-  TQ3Vector3D minorRadius;
-  float ratio;
-  float uMin;
-  float uMax;
-  float vMin;
-  float vMax;
-  TQ3EndCap caps;
-  TQ3AttributeSet interiorAttributeSet;
-  TQ3AttributeSet torusAttributeSet;
-};
-typedef struct TQ3TorusData TQ3TorusData;
+  struct TQ3TorusData
+  {
+    TQ3Point3D origin;
+    TQ3Vector3D orientation;
+    TQ3Vector3D majorRadius;
+    TQ3Vector3D minorRadius;
+    float ratio;
+    float uMin;
+    float uMax;
+    float vMin;
+    float vMax;
+    TQ3EndCap caps;
+    TQ3AttributeSet interiorAttributeSet;
+    TQ3AttributeSet torusAttributeSet;
+  };
+  typedef struct TQ3TorusData TQ3TorusData;
 /******************************************************************************
  **                                                                          **
  **                             Torus Routines                               **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Torus_New()
- *
+  /**
+   *  Q3Torus_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Torus_New(const TQ3TorusData *torusData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Torus_New(const TQ3TorusData *torusData);
 
-/**
- *  Q3Torus_Submit()
- *
+  /**
+   *  Q3Torus_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_Submit(const TQ3TorusData *torusData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_Submit(const TQ3TorusData *torusData, TQ3ViewObject view);
 
-/**
- *  Q3Torus_SetData()
- *
+  /**
+   *  Q3Torus_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_SetData(TQ3GeometryObject torus, const TQ3TorusData *torusData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_SetData(TQ3GeometryObject torus, const TQ3TorusData *torusData);
 
-/**
- *  Q3Torus_GetData()
- *
+  /**
+   *  Q3Torus_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_GetData(TQ3GeometryObject torus, TQ3TorusData *torusData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_GetData(TQ3GeometryObject torus, TQ3TorusData *torusData);
 
-/**
- *  Q3Torus_SetOrigin()
- *
+  /**
+   *  Q3Torus_SetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_SetOrigin(TQ3GeometryObject torus, const TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_SetOrigin(TQ3GeometryObject torus, const TQ3Point3D *origin);
 
-/**
- *  Q3Torus_SetOrientation()
- *
+  /**
+   *  Q3Torus_SetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_SetOrientation(TQ3GeometryObject torus, const TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_SetOrientation(TQ3GeometryObject torus, const TQ3Vector3D *orientation);
 
-/**
- *  Q3Torus_SetMajorRadius()
- *
+  /**
+   *  Q3Torus_SetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_SetMajorRadius(TQ3GeometryObject torus, const TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_SetMajorRadius(TQ3GeometryObject torus, const TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Torus_SetMinorRadius()
- *
+  /**
+   *  Q3Torus_SetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_SetMinorRadius(TQ3GeometryObject torus, const TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_SetMinorRadius(TQ3GeometryObject torus, const TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Torus_SetRatio()
- *
+  /**
+   *  Q3Torus_SetRatio()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_SetRatio(TQ3GeometryObject torus, float ratio);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_SetRatio(TQ3GeometryObject torus, float ratio);
 
-/**
- *  Q3Torus_GetOrigin()
- *
+  /**
+   *  Q3Torus_GetOrigin()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_GetOrigin(TQ3GeometryObject torus, TQ3Point3D *origin);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_GetOrigin(TQ3GeometryObject torus, TQ3Point3D *origin);
 
-/**
- *  Q3Torus_GetOrientation()
- *
+  /**
+   *  Q3Torus_GetOrientation()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_GetOrientation(TQ3GeometryObject torus, TQ3Vector3D *orientation);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_GetOrientation(TQ3GeometryObject torus, TQ3Vector3D *orientation);
 
-/**
- *  Q3Torus_GetMajorRadius()
- *
+  /**
+   *  Q3Torus_GetMajorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_GetMajorRadius(TQ3GeometryObject torus, TQ3Vector3D *majorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_GetMajorRadius(TQ3GeometryObject torus, TQ3Vector3D *majorRadius);
 
-/**
- *  Q3Torus_GetMinorRadius()
- *
+  /**
+   *  Q3Torus_GetMinorRadius()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_GetMinorRadius(TQ3GeometryObject torus, TQ3Vector3D *minorRadius);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_GetMinorRadius(TQ3GeometryObject torus, TQ3Vector3D *minorRadius);
 
-/**
- *  Q3Torus_GetRatio()
- *
+  /**
+   *  Q3Torus_GetRatio()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_GetRatio(TQ3GeometryObject torus, float *ratio);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_GetRatio(TQ3GeometryObject torus, float *ratio);
 
-/**
- *  Q3Torus_EmptyData()
- *
+  /**
+   *  Q3Torus_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Torus_EmptyData(TQ3TorusData *torusData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Torus_EmptyData(TQ3TorusData *torusData);
 
 /******************************************************************************
  **                                                                          **
@@ -3980,122 +4007,123 @@ Q3Torus_EmptyData(TQ3TorusData *torusData);
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3TriangleData {
-  TQ3Vertex3D vertices[3];
-  TQ3AttributeSet triangleAttributeSet;
-};
-typedef struct TQ3TriangleData TQ3TriangleData;
+  struct TQ3TriangleData
+  {
+    TQ3Vertex3D vertices[3];
+    TQ3AttributeSet triangleAttributeSet;
+  };
+  typedef struct TQ3TriangleData TQ3TriangleData;
 /******************************************************************************
  **                                                                          **
  **                         Triangle Routines                                **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Triangle_New()
- *
+  /**
+   *  Q3Triangle_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3Triangle_New(const TQ3TriangleData *triangleData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3Triangle_New(const TQ3TriangleData *triangleData);
 
-/**
- *  Q3Triangle_Submit()
- *
+  /**
+   *  Q3Triangle_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_Submit(const TQ3TriangleData *triangleData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_Submit(const TQ3TriangleData *triangleData, TQ3ViewObject view);
 
-/**
- *  Q3Triangle_SetData()
- *
+  /**
+   *  Q3Triangle_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_SetData(TQ3GeometryObject triangle,
-                   const TQ3TriangleData *triangleData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_SetData(TQ3GeometryObject triangle,
+                     const TQ3TriangleData *triangleData);
 
-/**
- *  Q3Triangle_GetData()
- *
+  /**
+   *  Q3Triangle_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_GetData(TQ3GeometryObject triangle, TQ3TriangleData *triangleData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_GetData(TQ3GeometryObject triangle, TQ3TriangleData *triangleData);
 
-/**
- *  Q3Triangle_EmptyData()
- *
+  /**
+   *  Q3Triangle_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_EmptyData(TQ3TriangleData *triangleData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_EmptyData(TQ3TriangleData *triangleData);
 
-/**
- *  Q3Triangle_GetVertexPosition()
- *
+  /**
+   *  Q3Triangle_GetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_GetVertexPosition(TQ3GeometryObject triangle, unsigned long index,
-                             TQ3Point3D *point);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_GetVertexPosition(TQ3GeometryObject triangle, unsigned long index,
+                               TQ3Point3D *point);
 
-/**
- *  Q3Triangle_SetVertexPosition()
- *
+  /**
+   *  Q3Triangle_SetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_SetVertexPosition(TQ3GeometryObject triangle, unsigned long index,
-                             const TQ3Point3D *point);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_SetVertexPosition(TQ3GeometryObject triangle, unsigned long index,
+                               const TQ3Point3D *point);
 
-/**
- *  Q3Triangle_GetVertexAttributeSet()
- *
+  /**
+   *  Q3Triangle_GetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_GetVertexAttributeSet(TQ3GeometryObject triangle,
-                                 unsigned long index,
-                                 TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_GetVertexAttributeSet(TQ3GeometryObject triangle,
+                                   unsigned long index,
+                                   TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3Triangle_SetVertexAttributeSet()
- *
+  /**
+   *  Q3Triangle_SetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3Triangle_SetVertexAttributeSet(TQ3GeometryObject triangle,
-                                 unsigned long index,
-                                 TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3Triangle_SetVertexAttributeSet(TQ3GeometryObject triangle,
+                                   unsigned long index,
+                                   TQ3AttributeSet attributeSet);
 
 /******************************************************************************
  **                                                                          **
@@ -4104,153 +4132,154 @@ Q3Triangle_SetVertexAttributeSet(TQ3GeometryObject triangle,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3TriGridData {
-  unsigned long numRows;
-  unsigned long numColumns;
-  TQ3Vertex3D *vertices;
-  TQ3AttributeSet *facetAttributeSet;
-  TQ3AttributeSet triGridAttributeSet;
-};
-typedef struct TQ3TriGridData TQ3TriGridData;
+  struct TQ3TriGridData
+  {
+    unsigned long numRows;
+    unsigned long numColumns;
+    TQ3Vertex3D *vertices;
+    TQ3AttributeSet *facetAttributeSet;
+    TQ3AttributeSet triGridAttributeSet;
+  };
+  typedef struct TQ3TriGridData TQ3TriGridData;
 /******************************************************************************
  **                                                                          **
  **                             TriGrid Routines                             **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3TriGrid_New()
- *
+  /**
+   *  Q3TriGrid_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3TriGrid_New(const TQ3TriGridData *triGridData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3TriGrid_New(const TQ3TriGridData *triGridData);
 
-/**
- *  Q3TriGrid_Submit()
- *
+  /**
+   *  Q3TriGrid_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_Submit(const TQ3TriGridData *triGridData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_Submit(const TQ3TriGridData *triGridData, TQ3ViewObject view);
 
-/**
- *  Q3TriGrid_SetData()
- *
+  /**
+   *  Q3TriGrid_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_SetData(TQ3GeometryObject triGrid, const TQ3TriGridData *triGridData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_SetData(TQ3GeometryObject triGrid, const TQ3TriGridData *triGridData);
 
-/**
- *  Q3TriGrid_GetData()
- *
+  /**
+   *  Q3TriGrid_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_GetData(TQ3GeometryObject triGrid, TQ3TriGridData *triGridData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_GetData(TQ3GeometryObject triGrid, TQ3TriGridData *triGridData);
 
-/**
- *  Q3TriGrid_EmptyData()
- *
+  /**
+   *  Q3TriGrid_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_EmptyData(TQ3TriGridData *triGridData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_EmptyData(TQ3TriGridData *triGridData);
 
-/**
- *  Q3TriGrid_GetVertexPosition()
- *
+  /**
+   *  Q3TriGrid_GetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_GetVertexPosition(TQ3GeometryObject triGrid, unsigned long rowIndex,
-                            unsigned long columnIndex, TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_GetVertexPosition(TQ3GeometryObject triGrid, unsigned long rowIndex,
+                              unsigned long columnIndex, TQ3Point3D *position);
 
-/**
- *  Q3TriGrid_SetVertexPosition()
- *
+  /**
+   *  Q3TriGrid_SetVertexPosition()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_SetVertexPosition(TQ3GeometryObject triGrid, unsigned long rowIndex,
-                            unsigned long columnIndex,
-                            const TQ3Point3D *position);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_SetVertexPosition(TQ3GeometryObject triGrid, unsigned long rowIndex,
+                              unsigned long columnIndex,
+                              const TQ3Point3D *position);
 
-/**
- *  Q3TriGrid_GetVertexAttributeSet()
- *
+  /**
+   *  Q3TriGrid_GetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_GetVertexAttributeSet(TQ3GeometryObject triGrid,
-                                unsigned long rowIndex,
-                                unsigned long columnIndex,
-                                TQ3AttributeSet *attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_GetVertexAttributeSet(TQ3GeometryObject triGrid,
+                                  unsigned long rowIndex,
+                                  unsigned long columnIndex,
+                                  TQ3AttributeSet *attributeSet);
 
-/**
- *  Q3TriGrid_SetVertexAttributeSet()
- *
+  /**
+   *  Q3TriGrid_SetVertexAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_SetVertexAttributeSet(TQ3GeometryObject triGrid,
-                                unsigned long rowIndex,
-                                unsigned long columnIndex,
-                                TQ3AttributeSet attributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_SetVertexAttributeSet(TQ3GeometryObject triGrid,
+                                  unsigned long rowIndex,
+                                  unsigned long columnIndex,
+                                  TQ3AttributeSet attributeSet);
 
-/**
- *  Q3TriGrid_GetFacetAttributeSet()
- *
+  /**
+   *  Q3TriGrid_GetFacetAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_GetFacetAttributeSet(TQ3GeometryObject triGrid,
-                               unsigned long faceIndex,
-                               TQ3AttributeSet *facetAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_GetFacetAttributeSet(TQ3GeometryObject triGrid,
+                                 unsigned long faceIndex,
+                                 TQ3AttributeSet *facetAttributeSet);
 
-/**
- *  Q3TriGrid_SetFacetAttributeSet()
- *
+  /**
+   *  Q3TriGrid_SetFacetAttributeSet()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriGrid_SetFacetAttributeSet(TQ3GeometryObject triGrid,
-                               unsigned long faceIndex,
-                               TQ3AttributeSet facetAttributeSet);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriGrid_SetFacetAttributeSet(TQ3GeometryObject triGrid,
+                                 unsigned long faceIndex,
+                                 TQ3AttributeSet facetAttributeSet);
 
 /******************************************************************************
  **                                                                          **
@@ -4259,107 +4288,111 @@ Q3TriGrid_SetFacetAttributeSet(TQ3GeometryObject triGrid,
  *****************************************************************************/
 #endif /* CALL_NOT_IN_CARBON */
 
-struct TQ3TriMeshTriangleData {
-  unsigned long pointIndices[3];
-};
-typedef struct TQ3TriMeshTriangleData TQ3TriMeshTriangleData;
-struct TQ3TriMeshEdgeData {
-  unsigned long pointIndices[2];
-  unsigned long triangleIndices[2];
-};
-typedef struct TQ3TriMeshEdgeData TQ3TriMeshEdgeData;
-struct TQ3TriMeshAttributeData {
-  TQ3AttributeType attributeType; /* The type of attribute       */
-  void *data;                     /* Pointer to the contiguous     */
-                                  /* attribute data.           */
-  char *attributeUseArray;        /* This is only used with custom */
-                                  /* attributes                */
-};
-typedef struct TQ3TriMeshAttributeData TQ3TriMeshAttributeData;
-struct TQ3TriMeshData {
-  TQ3AttributeSet triMeshAttributeSet;
+  struct TQ3TriMeshTriangleData
+  {
+    unsigned long pointIndices[3];
+  };
+  typedef struct TQ3TriMeshTriangleData TQ3TriMeshTriangleData;
+  struct TQ3TriMeshEdgeData
+  {
+    unsigned long pointIndices[2];
+    unsigned long triangleIndices[2];
+  };
+  typedef struct TQ3TriMeshEdgeData TQ3TriMeshEdgeData;
+  struct TQ3TriMeshAttributeData
+  {
+    TQ3AttributeType attributeType; /* The type of attribute       */
+    void *data;                     /* Pointer to the contiguous     */
+                                    /* attribute data.           */
+    char *attributeUseArray;        /* This is only used with custom */
+                                    /* attributes                */
+  };
+  typedef struct TQ3TriMeshAttributeData TQ3TriMeshAttributeData;
+  struct TQ3TriMeshData
+  {
+    TQ3AttributeSet triMeshAttributeSet;
 
-  unsigned long numTriangles;
-  TQ3TriMeshTriangleData *triangles;
+    unsigned long numTriangles;
+    TQ3TriMeshTriangleData *triangles;
 
-  unsigned long numTriangleAttributeTypes;
-  TQ3TriMeshAttributeData *triangleAttributeTypes;
+    unsigned long numTriangleAttributeTypes;
+    TQ3TriMeshAttributeData *triangleAttributeTypes;
 
-  unsigned long numEdges;
-  TQ3TriMeshEdgeData *edges;
+    unsigned long numEdges;
+    TQ3TriMeshEdgeData *edges;
 
-  unsigned long numEdgeAttributeTypes;
-  TQ3TriMeshAttributeData *edgeAttributeTypes;
+    unsigned long numEdgeAttributeTypes;
+    TQ3TriMeshAttributeData *edgeAttributeTypes;
 
-  unsigned long numPoints;
-  TQ3Point3D *points;
+    unsigned long numPoints;
+    TQ3Point3D *points;
 
-  unsigned long numVertexAttributeTypes;
-  TQ3TriMeshAttributeData *vertexAttributeTypes;
+    unsigned long numVertexAttributeTypes;
+    TQ3TriMeshAttributeData *vertexAttributeTypes;
 
-  TQ3BoundingBox bBox;
-};
-typedef struct TQ3TriMeshData TQ3TriMeshData;
+    TQ3BoundingBox bBox;
+  };
+  typedef struct TQ3TriMeshData TQ3TriMeshData;
 /******************************************************************************
  **                                                                          **
  **                         TriMesh Routines                                 **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3TriMesh_New()
- *
+  /**
+   *  Q3TriMesh_New()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3GeometryObject)
-Q3TriMesh_New(const TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3TriMesh_New(const TQ3TriMeshData *triMeshData);
 
-/**
- *  Q3TriMesh_Submit()
- *
+  /**
+   *  Q3TriMesh_Submit()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriMesh_Submit(const TQ3TriMeshData *triMeshData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_Submit(const TQ3TriMeshData *triMeshData, TQ3ViewObject view);
 
-/**
- *  Q3TriMesh_SetData()
- *
+  /**
+   *  Q3TriMesh_SetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriMesh_SetData(TQ3GeometryObject triMesh, const TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_SetData(TQ3GeometryObject triMesh, const TQ3TriMeshData *triMeshData);
 
-/**
- *  Q3TriMesh_GetData()
- *
+  /**
+   *  Q3TriMesh_GetData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriMesh_GetData(TQ3GeometryObject triMesh, TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_GetData(TQ3GeometryObject triMesh, TQ3TriMeshData *triMeshData);
 
-/**
- *  Q3TriMesh_EmptyData()
- *
+  /**
+   *  Q3TriMesh_EmptyData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(TQ3Status)
-Q3TriMesh_EmptyData(TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_EmptyData(TQ3TriMeshData *triMeshData);
 
 #endif /* CALL_NOT_IN_CARBON */
 

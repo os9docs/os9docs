@@ -10,7 +10,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup AppleTypeServices
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -49,7 +49,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -79,496 +80,511 @@ extern "C" {
 #endif
 #endif
 
-enum {
-  kATSOptionFlagsDefault = kNilOptions,
-  kATSOptionFlagsComposeFontPostScriptName =
-      1 << 0, /* ATSFontGetPostScriptName */
-  kATSOptionFlagsUseDataForkAsResourceFork =
-      1 << 8, /* ATSFontActivateFromFileSpecification */
-  kATSOptionFlagsUseResourceFork = 2 << 8,
-  kATSOptionFlagsUseDataFork = 3 << 8
-};
+  enum
+  {
+    kATSOptionFlagsDefault = kNilOptions,
+    kATSOptionFlagsComposeFontPostScriptName =
+        1 << 0, /* ATSFontGetPostScriptName */
+    kATSOptionFlagsUseDataForkAsResourceFork =
+        1 << 8, /* ATSFontActivateFromFileSpecification */
+    kATSOptionFlagsUseResourceFork = 2 << 8,
+    kATSOptionFlagsUseDataFork = 3 << 8
+  };
 
-enum {
-  kATSIterationCompleted = -980L,
-  kATSInvalidFontFamilyAccess = -981L,
-  kATSInvalidFontAccess = -982L,
-  kATSIterationScopeModified = -983L,
-  kATSInvalidFontTableAccess = -984L,
-  kATSInvalidFontContainerAccess = -985L
-};
+  enum
+  {
+    kATSIterationCompleted = -980L,
+    kATSInvalidFontFamilyAccess = -981L,
+    kATSInvalidFontAccess = -982L,
+    kATSIterationScopeModified = -983L,
+    kATSInvalidFontTableAccess = -984L,
+    kATSInvalidFontContainerAccess = -985L
+  };
 
-typedef UInt32 ATSFontContext;
-enum { kATSFontContextUnspecified = 0, kATSFontContextGlobal = 1 };
+  typedef UInt32 ATSFontContext;
+  enum
+  {
+    kATSFontContextUnspecified = 0,
+    kATSFontContextGlobal = 1
+  };
 
-typedef UInt32 ATSFontFormat;
-enum { kATSFontFormatUnspecified = 0 };
+  typedef UInt32 ATSFontFormat;
+  enum
+  {
+    kATSFontFormatUnspecified = 0
+  };
 
-typedef CALLBACK_API_C(OSStatus,
-                       ATSFontFamilyApplierFunction)(ATSFontFamilyRef iFamily,
-                                                     void *iRefCon);
-typedef CALLBACK_API_C(OSStatus, ATSFontApplierFunction)(ATSFontRef iFont,
-                                                         void *iRefCon);
-typedef struct ATSFontFamilyIterator_ *ATSFontFamilyIterator;
-typedef struct ATSFontIterator_ *ATSFontIterator;
-enum { kATSFontFilterCurrentVersion = 0 };
+  typedef CALLBACK_API_C(OSStatus,
+                         ATSFontFamilyApplierFunction)(ATSFontFamilyRef iFamily,
+                                                       void *iRefCon);
+  typedef CALLBACK_API_C(OSStatus, ATSFontApplierFunction)(ATSFontRef iFont,
+                                                           void *iRefCon);
+  typedef struct ATSFontFamilyIterator_ *ATSFontFamilyIterator;
+  typedef struct ATSFontIterator_ *ATSFontIterator;
+  enum
+  {
+    kATSFontFilterCurrentVersion = 0
+  };
 
-enum ATSFontFilterSelector {
-  kATSFontFilterSelectorUnspecified = 0,
-  kATSFontFilterSelectorGeneration = 3,
-  kATSFontFilterSelectorFontFamily = 7,
-  kATSFontFilterSelectorFontFamilyApplierFunction = 8,
-  kATSFontFilterSelectorFontApplierFunction = 9
-};
-typedef enum ATSFontFilterSelector ATSFontFilterSelector;
+  enum ATSFontFilterSelector
+  {
+    kATSFontFilterSelectorUnspecified = 0,
+    kATSFontFilterSelectorGeneration = 3,
+    kATSFontFilterSelectorFontFamily = 7,
+    kATSFontFilterSelectorFontFamilyApplierFunction = 8,
+    kATSFontFilterSelectorFontApplierFunction = 9
+  };
+  typedef enum ATSFontFilterSelector ATSFontFilterSelector;
 
-struct ATSFontFilter {
-  UInt32 version;
-  ATSFontFilterSelector filterSelector;
-  union {
-    ATSGeneration generationFilter;
-    ATSFontFamilyRef fontFamilyFilter;
-    ATSFontFamilyApplierFunction fontFamilyApplierFunctionFilter;
-    ATSFontApplierFunction fontApplierFunctionFilter;
-  } filter;
-};
-typedef struct ATSFontFilter ATSFontFilter;
-/* -----------------------------------------------------------------------------------------
- */
-/* Font container */
-/* -----------------------------------------------------------------------------------------
- */
-/**
- *  ATSGetGeneration()
- *
+  struct ATSFontFilter
+  {
+    UInt32 version;
+    ATSFontFilterSelector filterSelector;
+    union
+    {
+      ATSGeneration generationFilter;
+      ATSFontFamilyRef fontFamilyFilter;
+      ATSFontFamilyApplierFunction fontFamilyApplierFunctionFilter;
+      ATSFontApplierFunction fontApplierFunctionFilter;
+    } filter;
+  };
+  typedef struct ATSFontFilter ATSFontFilter;
+  /* -----------------------------------------------------------------------------------------
+   */
+  /* Font container */
+  /* -----------------------------------------------------------------------------------------
+   */
+  /**
+   *  ATSGetGeneration()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(ATSGeneration)
-ATSGetGeneration(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ATSGeneration
+  ATSGetGeneration(void);
 
-/**
- *  ATSFontActivateFromFileSpecification()
- *
+  /**
+   *  ATSFontActivateFromFileSpecification()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontActivateFromFileSpecification(const FSSpec *iFile,
-                                     ATSFontContext iContext,
-                                     ATSFontFormat iFormat, void *iReserved,
-                                     ATSOptionFlags iOptions,
-                                     ATSFontContainerRef *oContainer);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontActivateFromFileSpecification(const FSSpec *iFile,
+                                       ATSFontContext iContext,
+                                       ATSFontFormat iFormat, void *iReserved,
+                                       ATSOptionFlags iOptions,
+                                       ATSFontContainerRef *oContainer);
 
-/**
- *  ATSFontActivateFromMemory()
- *
+  /**
+   *  ATSFontActivateFromMemory()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontActivateFromMemory(LogicalAddress iData, ByteCount iLength,
-                          ATSFontContext iContext, ATSFontFormat iFormat,
-                          void *iReserved, ATSOptionFlags iOptions,
-                          ATSFontContainerRef *oContainer);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontActivateFromMemory(LogicalAddress iData, ByteCount iLength,
+                            ATSFontContext iContext, ATSFontFormat iFormat,
+                            void *iReserved, ATSOptionFlags iOptions,
+                            ATSFontContainerRef *oContainer);
 
-/**
- *  ATSFontDeactivate()
- *
+  /**
+   *  ATSFontDeactivate()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontDeactivate(ATSFontContainerRef iContainer, void *iRefCon,
-                  ATSOptionFlags iOptions);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontDeactivate(ATSFontContainerRef iContainer, void *iRefCon,
+                    ATSOptionFlags iOptions);
 
-/* -----------------------------------------------------------------------------------------
- */
-/* Font family */
-/* -----------------------------------------------------------------------------------------
- */
-/**
- *  ATSFontFamilyApplyFunction()
- *
+  /* -----------------------------------------------------------------------------------------
+   */
+  /* Font family */
+  /* -----------------------------------------------------------------------------------------
+   */
+  /**
+   *  ATSFontFamilyApplyFunction()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFamilyApplyFunction(ATSFontFamilyApplierFunction iFunction,
-                           void *iRefCon);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFamilyApplyFunction(ATSFontFamilyApplierFunction iFunction,
+                             void *iRefCon);
 
-/**
- *  ATSFontFamilyIteratorCreate()
- *
+  /**
+   *  ATSFontFamilyIteratorCreate()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFamilyIteratorCreate(ATSFontContext iContext,
-                            const ATSFontFilter *iFilter, /* can be NULL */
-                            void *iRefCon, ATSOptionFlags iOptions,
-                            ATSFontFamilyIterator *ioIterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFamilyIteratorCreate(ATSFontContext iContext,
+                              const ATSFontFilter *iFilter, /* can be NULL */
+                              void *iRefCon, ATSOptionFlags iOptions,
+                              ATSFontFamilyIterator *ioIterator);
 
-/**
- *  ATSFontFamilyIteratorRelease()
- *
+  /**
+   *  ATSFontFamilyIteratorRelease()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFamilyIteratorRelease(ATSFontFamilyIterator *ioIterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFamilyIteratorRelease(ATSFontFamilyIterator *ioIterator);
 
-/**
- *  ATSFontFamilyIteratorReset()
- *
+  /**
+   *  ATSFontFamilyIteratorReset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFamilyIteratorReset(ATSFontContext iContext,
-                           const ATSFontFilter *iFilter, /* can be NULL */
-                           void *iRefCon, ATSOptionFlags iOptions,
-                           ATSFontFamilyIterator *ioIterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFamilyIteratorReset(ATSFontContext iContext,
+                             const ATSFontFilter *iFilter, /* can be NULL */
+                             void *iRefCon, ATSOptionFlags iOptions,
+                             ATSFontFamilyIterator *ioIterator);
 
-/**
- *  ATSFontFamilyIteratorNext()
- *
+  /**
+   *  ATSFontFamilyIteratorNext()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFamilyIteratorNext(ATSFontFamilyIterator iIterator,
-                          ATSFontFamilyRef *oFamily);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFamilyIteratorNext(ATSFontFamilyIterator iIterator,
+                            ATSFontFamilyRef *oFamily);
 
-/**
- *  ATSFontFamilyFindFromName()
- *
+  /**
+   *  ATSFontFamilyFindFromName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(ATSFontFamilyRef)
-ATSFontFamilyFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ATSFontFamilyRef
+  ATSFontFamilyFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
 
-/**
- *  ATSFontFamilyGetGeneration()
- *
+  /**
+   *  ATSFontFamilyGetGeneration()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(ATSGeneration)
-ATSFontFamilyGetGeneration(ATSFontFamilyRef iFamily);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ATSGeneration
+  ATSFontFamilyGetGeneration(ATSFontFamilyRef iFamily);
 
-/**
- *  ATSFontFamilyGetName()
- *
+  /**
+   *  ATSFontFamilyGetName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFamilyGetName(ATSFontFamilyRef iFamily, ATSOptionFlags iOptions,
-                     CFStringRef *oName);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFamilyGetName(ATSFontFamilyRef iFamily, ATSOptionFlags iOptions,
+                       CFStringRef *oName);
 
-/**
- *  ATSFontFamilyGetEncoding()
- *
+  /**
+   *  ATSFontFamilyGetEncoding()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(TextEncoding)
-ATSFontFamilyGetEncoding(ATSFontFamilyRef iFamily);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TextEncoding
+  ATSFontFamilyGetEncoding(ATSFontFamilyRef iFamily);
 
-/* -----------------------------------------------------------------------------------------
- */
-/* Font */
-/* -----------------------------------------------------------------------------------------
- */
-/**
- *  ATSFontApplyFunction()
- *
+  /* -----------------------------------------------------------------------------------------
+   */
+  /* Font */
+  /* -----------------------------------------------------------------------------------------
+   */
+  /**
+   *  ATSFontApplyFunction()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontApplyFunction(ATSFontApplierFunction iFunction, void *iRefCon);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontApplyFunction(ATSFontApplierFunction iFunction, void *iRefCon);
 
-/**
- *  ATSFontIteratorCreate()
- *
+  /**
+   *  ATSFontIteratorCreate()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontIteratorCreate(ATSFontContext iContext,
-                      const ATSFontFilter *iFilter, /* can be NULL */
-                      void *iRefCon, ATSOptionFlags iOptions,
-                      ATSFontIterator *ioIterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontIteratorCreate(ATSFontContext iContext,
+                        const ATSFontFilter *iFilter, /* can be NULL */
+                        void *iRefCon, ATSOptionFlags iOptions,
+                        ATSFontIterator *ioIterator);
 
-/**
- *  ATSFontIteratorRelease()
- *
+  /**
+   *  ATSFontIteratorRelease()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontIteratorRelease(ATSFontIterator *ioIterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontIteratorRelease(ATSFontIterator *ioIterator);
 
-/**
- *  ATSFontIteratorReset()
- *
+  /**
+   *  ATSFontIteratorReset()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontIteratorReset(ATSFontContext iContext,
-                     const ATSFontFilter *iFilter, /* can be NULL */
-                     void *iRefCon, ATSOptionFlags iOptions,
-                     ATSFontIterator *ioIterator);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontIteratorReset(ATSFontContext iContext,
+                       const ATSFontFilter *iFilter, /* can be NULL */
+                       void *iRefCon, ATSOptionFlags iOptions,
+                       ATSFontIterator *ioIterator);
 
-/**
- *  ATSFontIteratorNext()
- *
+  /**
+   *  ATSFontIteratorNext()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontIteratorNext(ATSFontIterator iIterator, ATSFontRef *oFont);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontIteratorNext(ATSFontIterator iIterator, ATSFontRef *oFont);
 
-/**
- *  ATSFontFindFromName()
- *
+  /**
+   *  ATSFontFindFromName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(ATSFontRef)
-ATSFontFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ATSFontRef
+  ATSFontFindFromName(CFStringRef iName, ATSOptionFlags iOptions);
 
-/**
- *  ATSFontFindFromPostScriptName()
- *
+  /**
+   *  ATSFontFindFromPostScriptName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(ATSFontRef)
-ATSFontFindFromPostScriptName(CFStringRef iName, ATSOptionFlags iOptions);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ATSFontRef
+  ATSFontFindFromPostScriptName(CFStringRef iName, ATSOptionFlags iOptions);
 
-/**
- *  ATSFontFindFromContainer()
- *
+  /**
+   *  ATSFontFindFromContainer()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFindFromContainer(ATSFontContainerRef iContainer,
-                         ATSOptionFlags iOptions, ItemCount iCount,
-                         ATSFontRef ioArray[], ItemCount *oCount);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFindFromContainer(ATSFontContainerRef iContainer,
+                           ATSOptionFlags iOptions, ItemCount iCount,
+                           ATSFontRef ioArray[], ItemCount *oCount);
 
-/**
- *  ATSFontGetGeneration()
- *
+  /**
+   *  ATSFontGetGeneration()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(ATSGeneration)
-ATSFontGetGeneration(ATSFontRef iFont);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ATSGeneration
+  ATSFontGetGeneration(ATSFontRef iFont);
 
-/**
- *  ATSFontGetName()
- *
+  /**
+   *  ATSFontGetName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetName(ATSFontRef iFont, ATSOptionFlags iOptions, CFStringRef *oName);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetName(ATSFontRef iFont, ATSOptionFlags iOptions, CFStringRef *oName);
 
-/**
- *  ATSFontGetPostScriptName()
- *
+  /**
+   *  ATSFontGetPostScriptName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetPostScriptName(ATSFontRef iFont, ATSOptionFlags iOptions,
-                         CFStringRef *oName);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetPostScriptName(ATSFontRef iFont, ATSOptionFlags iOptions,
+                           CFStringRef *oName);
 
-/**
- *  ATSFontGetTableDirectory()
- *
+  /**
+   *  ATSFontGetTableDirectory()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetTableDirectory(ATSFontRef iFont, ByteCount iBufferSize,
-                         void *ioBuffer, ByteCount *oSize); /* can be NULL */
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetTableDirectory(ATSFontRef iFont, ByteCount iBufferSize,
+                           void *ioBuffer, ByteCount *oSize); /* can be NULL */
 
-/**
- *  ATSFontGetTable()
- *
+  /**
+   *  ATSFontGetTable()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetTable(ATSFontRef iFont, FourCharCode iTag, ByteOffset iOffset,
-                ByteCount iBufferSize, void *ioBuffer,
-                ByteCount *oSize); /* can be NULL */
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetTable(ATSFontRef iFont, FourCharCode iTag, ByteOffset iOffset,
+                  ByteCount iBufferSize, void *ioBuffer,
+                  ByteCount *oSize); /* can be NULL */
 
-/**
- *  ATSFontGetHorizontalMetrics()
- *
+  /**
+   *  ATSFontGetHorizontalMetrics()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetHorizontalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetHorizontalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
+                              ATSFontMetrics *oMetrics);
+
+  /**
+   *  ATSFontGetVerticalMetrics()
+   *
+
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetVerticalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
                             ATSFontMetrics *oMetrics);
 
-/**
- *  ATSFontGetVerticalMetrics()
- *
+  /* -----------------------------------------------------------------------------------------
+   */
+  /* Compatibiity */
+  /* -----------------------------------------------------------------------------------------
+   */
+  /**
+   *  ATSFontFamilyFindFromQuickDrawName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetVerticalMetrics(ATSFontRef iFont, ATSOptionFlags iOptions,
-                          ATSFontMetrics *oMetrics);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  ATSFontFamilyRef
+  ATSFontFamilyFindFromQuickDrawName(ConstStr255Param iName);
 
-/* -----------------------------------------------------------------------------------------
- */
-/* Compatibiity */
-/* -----------------------------------------------------------------------------------------
- */
-/**
- *  ATSFontFamilyFindFromQuickDrawName()
- *
+  /**
+   *  ATSFontFamilyGetQuickDrawName()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(ATSFontFamilyRef)
-ATSFontFamilyFindFromQuickDrawName(ConstStr255Param iName);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontFamilyGetQuickDrawName(ATSFontFamilyRef iFamily, Str255 oName);
 
-/**
- *  ATSFontFamilyGetQuickDrawName()
- *
+  /**
+   *  ATSFontGetFileSpecification()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontFamilyGetQuickDrawName(ATSFontFamilyRef iFamily, Str255 oName);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetFileSpecification(ATSFontRef iFont, FSSpec *oFile);
 
-/**
- *  ATSFontGetFileSpecification()
- *
+  /**
+   *  ATSFontGetFontFamilyResource()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetFileSpecification(ATSFontRef iFont, FSSpec *oFile);
-
-/**
- *  ATSFontGetFontFamilyResource()
- *
-
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
- X version 10.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ATSFontGetFontFamilyResource(ATSFontRef iFont, ByteCount iBufferSize,
-                             void *ioBuffer,
-                             ByteCount *oSize); /* can be NULL */
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available in CarbonLib 1.x, is available on Mac OS
+   X version 10.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ATSFontGetFontFamilyResource(ATSFontRef iFont, ByteCount iBufferSize,
+                               void *ioBuffer,
+                               ByteCount *oSize); /* can be NULL */
 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset

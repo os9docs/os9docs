@@ -9,7 +9,7 @@
     \copyright � 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup CoreGraphics
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -58,96 +59,100 @@ extern "C" {
 #endif
 #endif
 
-/**
- * Windows may be assigned to a particular level. When assigned to a level,
- * the window is ordered relative to all other windows in that level.
- * Windows with a higher level are sorted in front of windows with a lower
- * level.
- *
- * A common set of window levels is defined here for use within higher
- * level frameworks.  The levels are accessed via a key and function,
- * so that levels may be changed or adjusted in future releases without
- * breaking binary compatability.
- */
-typedef int32_t CGWindowLevel;
-typedef int32_t CGWindowLevelKey;
-enum _CGCommonWindowLevelKey {
-  kCGBaseWindowLevelKey = 0,
-  kCGMinimumWindowLevelKey = 1,
-  kCGDesktopWindowLevelKey = 2,
-  kCGBackstopMenuLevelKey = 3,
-  kCGNormalWindowLevelKey = 4,
-  kCGFloatingWindowLevelKey = 5,
-  kCGTornOffMenuWindowLevelKey = 6,
-  kCGDockWindowLevelKey = 7,
-  kCGMainMenuWindowLevelKey = 8,
-  kCGStatusWindowLevelKey = 9,
-  kCGModalPanelWindowLevelKey = 10,
-  kCGPopUpMenuWindowLevelKey = 11,
-  kCGDraggingWindowLevelKey = 12,
-  kCGScreenSaverWindowLevelKey = 13,
-  kCGMaximumWindowLevelKey = 14,
-  kCGOverlayWindowLevelKey = 15,
-  kCGHelpWindowLevelKey = 16,
-  kCGUtilityWindowLevelKey = 17,
-  kCGDesktopIconWindowLevelKey = 18,
-  kCGNumberOfWindowLevelKeys = 19 /* Internal bookkeeping; must be last */
-};
-typedef enum _CGCommonWindowLevelKey _CGCommonWindowLevelKey;
+  /**
+   * Windows may be assigned to a particular level. When assigned to a level,
+   * the window is ordered relative to all other windows in that level.
+   * Windows with a higher level are sorted in front of windows with a lower
+   * level.
+   *
+   * A common set of window levels is defined here for use within higher
+   * level frameworks.  The levels are accessed via a key and function,
+   * so that levels may be changed or adjusted in future releases without
+   * breaking binary compatability.
+   */
+  typedef int32_t CGWindowLevel;
+  typedef int32_t CGWindowLevelKey;
+  enum _CGCommonWindowLevelKey
+  {
+    kCGBaseWindowLevelKey = 0,
+    kCGMinimumWindowLevelKey = 1,
+    kCGDesktopWindowLevelKey = 2,
+    kCGBackstopMenuLevelKey = 3,
+    kCGNormalWindowLevelKey = 4,
+    kCGFloatingWindowLevelKey = 5,
+    kCGTornOffMenuWindowLevelKey = 6,
+    kCGDockWindowLevelKey = 7,
+    kCGMainMenuWindowLevelKey = 8,
+    kCGStatusWindowLevelKey = 9,
+    kCGModalPanelWindowLevelKey = 10,
+    kCGPopUpMenuWindowLevelKey = 11,
+    kCGDraggingWindowLevelKey = 12,
+    kCGScreenSaverWindowLevelKey = 13,
+    kCGMaximumWindowLevelKey = 14,
+    kCGOverlayWindowLevelKey = 15,
+    kCGHelpWindowLevelKey = 16,
+    kCGUtilityWindowLevelKey = 17,
+    kCGDesktopIconWindowLevelKey = 18,
+    kCGNumberOfWindowLevelKeys = 19 /* Internal bookkeeping; must be last */
+  };
+  typedef enum _CGCommonWindowLevelKey _CGCommonWindowLevelKey;
 
-/**
- *  CGWindowLevelForKey()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGWindowLevel)
-CGWindowLevelForKey(CGWindowLevelKey key);
+  /**
+   *  CGWindowLevelForKey()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGWindowLevel
+  CGWindowLevelForKey(CGWindowLevelKey key);
 
-/* number of levels above kCGMaximumWindowLevel reserved for internal use */
-enum { kCGNumReservedWindowLevels = 16 };
+  /* number of levels above kCGMaximumWindowLevel reserved for internal use */
+  enum
+  {
+    kCGNumReservedWindowLevels = 16
+  };
 
 /* Definitions of older constant values as calls */
-#define kCGBaseWindowLevel                                                     \
+#define kCGBaseWindowLevel \
   CGWindowLevelForKey(kCGBaseWindowLevelKey) /* LONG_MIN */
-#define kCGMinimumWindowLevel                                                  \
+#define kCGMinimumWindowLevel \
   CGWindowLevelForKey(kCGMinimumWindowLevelKey) /* (kCGBaseWindowLevel + 1) */
-#define kCGDesktopWindowLevel                                                  \
+#define kCGDesktopWindowLevel \
   CGWindowLevelForKey(kCGDesktopWindowLevelKey) /* kCGMinimumWindowLevel */
-#define kCGDesktopIconWindowLevel                                              \
-  CGWindowLevelForKey(                                                         \
+#define kCGDesktopIconWindowLevel \
+  CGWindowLevelForKey(            \
       kCGDesktopIconWindowLevelKey) /* kCGMinimumWindowLevel + 20 */
-#define kCGBackstopMenuLevel                                                   \
+#define kCGBackstopMenuLevel \
   CGWindowLevelForKey(kCGBackstopMenuLevelKey) /* -20 */
-#define kCGNormalWindowLevel                                                   \
+#define kCGNormalWindowLevel \
   CGWindowLevelForKey(kCGNormalWindowLevelKey) /* 0 */
-#define kCGFloatingWindowLevel                                                 \
+#define kCGFloatingWindowLevel \
   CGWindowLevelForKey(kCGFloatingWindowLevelKey) /* 3 */
-#define kCGTornOffMenuWindowLevel                                              \
+#define kCGTornOffMenuWindowLevel \
   CGWindowLevelForKey(kCGTornOffMenuWindowLevelKey)                   /* 3 */
 #define kCGDockWindowLevel CGWindowLevelForKey(kCGDockWindowLevelKey) /* 10 */
-#define kCGMainMenuWindowLevel                                                 \
+#define kCGMainMenuWindowLevel \
   CGWindowLevelForKey(kCGMainMenuWindowLevelKey) /* 20 */
-#define kCGStatusWindowLevel                                                   \
+#define kCGStatusWindowLevel \
   CGWindowLevelForKey(kCGStatusWindowLevelKey) /* 21 */
-#define kCGModalPanelWindowLevel                                               \
+#define kCGModalPanelWindowLevel \
   CGWindowLevelForKey(kCGModalPanelWindowLevelKey) /* 8 */
-#define kCGPopUpMenuWindowLevel                                                \
+#define kCGPopUpMenuWindowLevel \
   CGWindowLevelForKey(kCGPopUpMenuWindowLevelKey) /* 101 */
-#define kCGDraggingWindowLevel                                                 \
+#define kCGDraggingWindowLevel \
   CGWindowLevelForKey(kCGDraggingWindowLevelKey) /* 500 */
-#define kCGScreenSaverWindowLevel                                              \
+#define kCGScreenSaverWindowLevel \
   CGWindowLevelForKey(kCGScreenSaverWindowLevelKey) /* 1000 */
-#define kCGOverlayWindowLevel                                                  \
+#define kCGOverlayWindowLevel \
   CGWindowLevelForKey(kCGOverlayWindowLevelKey)                       /* 102 */
-#define kCGHelpWindowLevel CGWindowLevelForKey(kCGHelpWindowLevelKey) /* 102   \
+#define kCGHelpWindowLevel CGWindowLevelForKey(kCGHelpWindowLevelKey) /* 102 \
                                                                        */
-#define kCGUtilityWindowLevel                                                  \
+#define kCGUtilityWindowLevel \
   CGWindowLevelForKey(kCGUtilityWindowLevelKey) /* 19 */
-#define kCGMaximumWindowLevel                                                  \
-  CGWindowLevelForKey(                                                         \
+#define kCGMaximumWindowLevel \
+  CGWindowLevelForKey(        \
       kCGMaximumWindowLevelKey) /* LONG_MAX - kCGNumReservedWindowLevels */
 
 #if PRAGMA_ENUM_ALWAYSINT

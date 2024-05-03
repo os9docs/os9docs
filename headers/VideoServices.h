@@ -9,7 +9,7 @@
     \copyright © 1994-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup System
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,153 +52,164 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-enum { kTransparentEncoding = 0, kInvertingEncoding = 1 };
+  enum
+  {
+    kTransparentEncoding = 0,
+    kInvertingEncoding = 1
+  };
 
-enum {
-  kTransparentEncodingShift = (kTransparentEncoding << 1),
-  kTransparentEncodedPixel = (0x01 << kTransparentEncodingShift),
-  kInvertingEncodingShift = (kInvertingEncoding << 1),
-  kInvertingEncodedPixel = (0x01 << kInvertingEncodingShift)
-};
+  enum
+  {
+    kTransparentEncodingShift = (kTransparentEncoding << 1),
+    kTransparentEncodedPixel = (0x01 << kTransparentEncodingShift),
+    kInvertingEncodingShift = (kInvertingEncoding << 1),
+    kInvertingEncodedPixel = (0x01 << kInvertingEncodingShift)
+  };
 
-enum {
-  kHardwareCursorDescriptorMajorVersion = 0x0001,
-  kHardwareCursorDescriptorMinorVersion = 0x0000
-};
+  enum
+  {
+    kHardwareCursorDescriptorMajorVersion = 0x0001,
+    kHardwareCursorDescriptorMinorVersion = 0x0000
+  };
 
-typedef UInt32 *UInt32Ptr;
-struct HardwareCursorDescriptorRec {
-  UInt16 majorVersion;
-  UInt16 minorVersion;
-  UInt32 height;
-  UInt32 width;
-  UInt32 bitDepth;
-  UInt32 maskBitDepth;
-  UInt32 numColors;
-  UInt32Ptr colorEncodings;
-  UInt32 flags;
-  UInt32 supportedSpecialEncodings;
-  UInt32 specialEncodings[16];
-};
-typedef struct HardwareCursorDescriptorRec HardwareCursorDescriptorRec;
-typedef HardwareCursorDescriptorRec *HardwareCursorDescriptorPtr;
-enum {
-  kHardwareCursorInfoMajorVersion = 0x0001,
-  kHardwareCursorInfoMinorVersion = 0x0000
-};
+  typedef UInt32 *UInt32Ptr;
+  struct HardwareCursorDescriptorRec
+  {
+    UInt16 majorVersion;
+    UInt16 minorVersion;
+    UInt32 height;
+    UInt32 width;
+    UInt32 bitDepth;
+    UInt32 maskBitDepth;
+    UInt32 numColors;
+    UInt32Ptr colorEncodings;
+    UInt32 flags;
+    UInt32 supportedSpecialEncodings;
+    UInt32 specialEncodings[16];
+  };
+  typedef struct HardwareCursorDescriptorRec HardwareCursorDescriptorRec;
+  typedef HardwareCursorDescriptorRec *HardwareCursorDescriptorPtr;
+  enum
+  {
+    kHardwareCursorInfoMajorVersion = 0x0001,
+    kHardwareCursorInfoMinorVersion = 0x0000
+  };
 
-struct HardwareCursorInfoRec {
-  UInt16 majorVersion; /* Test tool should check for
-                          kHardwareCursorInfoMajorVersion1*/
-  UInt16 minorVersion; /* Test tool should check for
-                          kHardwareCursorInfoMinorVersion1*/
-  UInt32 cursorHeight;
-  UInt32 cursorWidth;
-  CTabPtr colorMap; /* nil or big enough for hardware's max colors*/
-  Ptr hardwareCursor;
-  UInt32 reserved[6]; /* Test tool should check for 0s*/
-};
-typedef struct HardwareCursorInfoRec HardwareCursorInfoRec;
-typedef HardwareCursorInfoRec *HardwareCursorInfoPtr;
+  struct HardwareCursorInfoRec
+  {
+    UInt16 majorVersion; /* Test tool should check for
+                            kHardwareCursorInfoMajorVersion1*/
+    UInt16 minorVersion; /* Test tool should check for
+                            kHardwareCursorInfoMinorVersion1*/
+    UInt32 cursorHeight;
+    UInt32 cursorWidth;
+    CTabPtr colorMap; /* nil or big enough for hardware's max colors*/
+    Ptr hardwareCursor;
+    UInt32 reserved[6]; /* Test tool should check for 0s*/
+  };
+  typedef struct HardwareCursorInfoRec HardwareCursorInfoRec;
+  typedef HardwareCursorInfoRec *HardwareCursorInfoPtr;
 
-enum {
-  kVBLInterruptServiceType = FOUR_CHAR_CODE('vbl '),
-  kHBLInterruptServiceType = FOUR_CHAR_CODE('hbl '),
-  kFrameInterruptServiceType = FOUR_CHAR_CODE('fram'),
-  kConnectInterruptServiceType =
-      FOUR_CHAR_CODE('dci '), /* Renamed -- Use kFBCheckInterruptServiceType*/
-  kFBConnectInterruptServiceType =
-      kConnectInterruptServiceType, /* Demand to check configuration (Hardware
-                                       unchanged)*/
-  kFBChangedInterruptServiceType =
-      FOUR_CHAR_CODE('chng'), /* Demand to rebuild (Hardware has reinitialized
-                                 on dependent change)*/
-  kFBOfflineInterruptServiceType = FOUR_CHAR_CODE(
-      'remv'), /* Demand to remove framebuffer (Hardware not available on
-                  dependent change -- but must not buserror)*/
-  kFBOnlineInterruptServiceType = FOUR_CHAR_CODE(
-      'add ') /* Notice that hardware is available (after being removed)*/
-};
+  enum
+  {
+    kVBLInterruptServiceType = FOUR_CHAR_CODE('vbl '),
+    kHBLInterruptServiceType = FOUR_CHAR_CODE('hbl '),
+    kFrameInterruptServiceType = FOUR_CHAR_CODE('fram'),
+    kConnectInterruptServiceType =
+        FOUR_CHAR_CODE('dci '), /* Renamed -- Use kFBCheckInterruptServiceType*/
+    kFBConnectInterruptServiceType =
+        kConnectInterruptServiceType, /* Demand to check configuration (Hardware
+                                         unchanged)*/
+    kFBChangedInterruptServiceType =
+        FOUR_CHAR_CODE('chng'), /* Demand to rebuild (Hardware has reinitialized
+                                   on dependent change)*/
+    kFBOfflineInterruptServiceType = FOUR_CHAR_CODE(
+        'remv'), /* Demand to remove framebuffer (Hardware not available on
+                    dependent change -- but must not buserror)*/
+    kFBOnlineInterruptServiceType = FOUR_CHAR_CODE(
+        'add ') /* Notice that hardware is available (after being removed)*/
+  };
 
-enum {
-  kMaxDisplayConfigDataSize =
-      64 /* Max data size for VSLSetDisplayConfiguration*/
-};
+  enum
+  {
+    kMaxDisplayConfigDataSize =
+        64 /* Max data size for VSLSetDisplayConfiguration*/
+  };
 
-typedef ResType InterruptServiceType;
-typedef UInt32 InterruptServiceIDType;
-typedef InterruptServiceIDType *InterruptServiceIDPtr;
+  typedef ResType InterruptServiceType;
+  typedef UInt32 InterruptServiceIDType;
+  typedef InterruptServiceIDType *InterruptServiceIDPtr;
 #if CALL_NOT_IN_CARBON
-/**
- *  VSLNewInterruptService()
- *
+  /**
+   *  VSLNewInterruptService()
+   *
 
- *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(OSErr)
-VSLNewInterruptService(RegEntryID *serviceDevice,
-                       InterruptServiceType serviceType,
-                       InterruptServiceIDPtr serviceID);
+   *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  VSLNewInterruptService(RegEntryID *serviceDevice,
+                         InterruptServiceType serviceType,
+                         InterruptServiceIDPtr serviceID);
 
-/**
- *  VSLWaitOnInterruptService()
- *
+  /**
+   *  VSLWaitOnInterruptService()
+   *
 
- *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(OSErr)
-VSLWaitOnInterruptService(InterruptServiceIDType serviceID, Duration timeout);
+   *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  VSLWaitOnInterruptService(InterruptServiceIDType serviceID, Duration timeout);
 
-/**
- *  VSLDisposeInterruptService()
- *
+  /**
+   *  VSLDisposeInterruptService()
+   *
 
- *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(OSErr)
-VSLDisposeInterruptService(InterruptServiceIDType serviceID);
+   *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  VSLDisposeInterruptService(InterruptServiceIDType serviceID);
 
-/**
- *  VSLDoInterruptService()
- *
+  /**
+   *  VSLDoInterruptService()
+   *
 
- *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(OSErr)
-VSLDoInterruptService(InterruptServiceIDType serviceID);
+   *    \non_carbon_cfm   in VideoServicesLib 1.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  VSLDoInterruptService(InterruptServiceIDType serviceID);
 
-/**
- *  VSLPrepareCursorForHardwareCursor()
- *
+  /**
+   *  VSLPrepareCursorForHardwareCursor()
+   *
 
- *    \non_carbon_cfm   in VideoServicesLib 1.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(Boolean)
-VSLPrepareCursorForHardwareCursor(
-    void *cursorRef, HardwareCursorDescriptorPtr hardwareDescriptor,
-    HardwareCursorInfoPtr hwCursorInfo);
+   *    \non_carbon_cfm   in VideoServicesLib 1.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  Boolean
+  VSLPrepareCursorForHardwareCursor(
+      void *cursorRef, HardwareCursorDescriptorPtr hardwareDescriptor,
+      HardwareCursorInfoPtr hwCursorInfo);
 
-/**
- *  VSLSetDisplayConfiguration()
- *
+  /**
+   *  VSLSetDisplayConfiguration()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(OSErr)
-VSLSetDisplayConfiguration(RegEntryID *device, RegPropertyName *propertyName,
-                           void *configData, long configDataSize);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  VSLSetDisplayConfiguration(RegEntryID *device, RegPropertyName *propertyName,
+                             void *configData, long configDataSize);
 
 #endif /* CALL_NOT_IN_CARBON */
 

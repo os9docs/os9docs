@@ -1473,8 +1473,8 @@ pointer.
 
 #if FUNCTION_PASCAL && !FUNCTION_DECLSPEC && !FUNCTION_WIN32CC
 /** compiler supports pascal keyword only  */
-#define EXTERN_API(_type) extern pascal _type
-#define EXTERN_API_C(_type) extern _type
+#define _type extern pascal _type
+#define _type extern _type
 #define EXTERN_API_STDCALL(_type) extern pascal _type
 #define EXTERN_API_C_STDCALL(_type) extern _type
 
@@ -1490,8 +1490,8 @@ pointer.
 
 #elif FUNCTION_PASCAL && FUNCTION_DECLSPEC && !FUNCTION_WIN32CC
 /** compiler supports pascal and __declspec() */
-#define EXTERN_API(_type) extern pascal __declspec(dllimport) _type
-#define EXTERN_API_C(_type) extern __declspec(dllimport) _type
+#define _type extern pascal __declspec(dllimport) _type
+#define _type extern __declspec(dllimport) _type
 #define EXTERN_API_STDCALL(_type) extern pascal __declspec(dllimport) _type
 #define EXTERN_API_C_STDCALL(_type) extern __declspec(dllimport) _type
 
@@ -1507,8 +1507,8 @@ pointer.
 
 #elif !FUNCTION_PASCAL && FUNCTION_DECLSPEC && !FUNCTION_WIN32CC
 /** compiler supports __declspec() */
-#define EXTERN_API(_type) extern __declspec(dllimport) _type
-#define EXTERN_API_C(_type) extern __declspec(dllimport) _type
+#define _type extern __declspec(dllimport) _type
+#define _type extern __declspec(dllimport) _type
 #define EXTERN_API_STDCALL(_type) extern __declspec(dllimport) _type
 #define EXTERN_API_C_STDCALL(_type) extern __declspec(dllimport) _type
 
@@ -1524,8 +1524,8 @@ pointer.
 
 #elif !FUNCTION_PASCAL && FUNCTION_DECLSPEC && FUNCTION_WIN32CC
 /** compiler supports __declspec() and __cdecl */
-#define EXTERN_API(_type) __declspec(dllimport) _type __cdecl
-#define EXTERN_API_C(_type) __declspec(dllimport) _type __cdecl
+#define _type __declspec(dllimport) _type __cdecl
+#define _type __declspec(dllimport) _type __cdecl
 #define EXTERN_API_STDCALL(_type) __declspec(dllimport) _type __stdcall
 #define EXTERN_API_C_STDCALL(_type) __declspec(dllimport) _type __stdcall
 
@@ -1541,8 +1541,8 @@ pointer.
 
 #elif !FUNCTION_PASCAL && !FUNCTION_DECLSPEC && FUNCTION_WIN32CC
 /** compiler supports __cdecl */
-#define EXTERN_API(_type) _type __cdecl
-#define EXTERN_API_C(_type) _type __cdecl
+#define _type _type __cdecl
+#define _type _type __cdecl
 #define EXTERN_API_STDCALL(_type) _type __stdcall
 #define EXTERN_API_C_STDCALL(_type) _type __stdcall
 
@@ -1558,8 +1558,8 @@ pointer.
 
 #else
 /** compiler supports no extensions */
-#define EXTERN_API(_type) extern _type
-#define EXTERN_API_C(_type) extern _type
+#define _type extern _type
+#define _type extern _type
 #define EXTERN_API_STDCALL(_type) extern _type
 #define EXTERN_API_C_STDCALL(_type) extern _type
 
@@ -1725,8 +1725,7 @@ code instead of a JSR.  Under Classic 68K on the Mac OS, this macro will put the
 opcodes in the right syntax.  For all other OS's and runtimes the macro suppress
 the opcodes. Example:
 
-       EXTERN_P void DrawPicture(PicHandle myPicture, const Rect *dstRect)
-            ONEWORDINLINE(0xA8F6);
+       EXTERN_P void DrawPicture(PicHandle myPicture, const Rect *dstRect);
 
 ****************************************************************************************************/
 

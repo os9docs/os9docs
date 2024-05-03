@@ -185,7 +185,7 @@ typedef STACK_UPP_TYPE(UnicodeToTextFallbackProcPtr) UnicodeToTextFallbackUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(UnicodeToTextFallbackUPP)
+UnicodeToTextFallbackUPP
 NewUnicodeToTextFallbackUPP(UnicodeToTextFallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -215,7 +215,7 @@ NewUnicodeToTextFallbackUPP(UnicodeToTextFallbackProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeUnicodeToTextFallbackUPP(UnicodeToTextFallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -236,7 +236,7 @@ inline void DisposeUnicodeToTextFallbackUPP(UnicodeToTextFallbackUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeUnicodeToTextFallbackUPP(UniChar *iSrcUniStr, ByteCount iSrcUniStrLen,
                                ByteCount *oSrcConvLen, TextPtr oDestStr,
                                ByteCount iDestStrLen, ByteCount *oDestConvLen,
@@ -293,7 +293,7 @@ inline OSStatus InvokeUnicodeToTextFallbackUPP(
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 InitializeUnicodeConverter(StringPtr TECFileName);
 
 /**
@@ -304,7 +304,7 @@ InitializeUnicodeConverter(StringPtr TECFileName);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 TerminateUnicodeConverter(void);
 
 /** Note: the old names (InitializeUnicode, TerminateUnicode) for the above are
@@ -321,7 +321,7 @@ TerminateUnicodeConverter(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateTextToUnicodeInfo(ConstUnicodeMappingPtr iUnicodeMapping,
                         TextToUnicodeInfo *oTextToUnicodeInfo);
 
@@ -333,7 +333,7 @@ CreateTextToUnicodeInfo(ConstUnicodeMappingPtr iUnicodeMapping,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateTextToUnicodeInfoByEncoding(TextEncoding iEncoding,
                                   TextToUnicodeInfo *oTextToUnicodeInfo);
 
@@ -345,7 +345,7 @@ CreateTextToUnicodeInfoByEncoding(TextEncoding iEncoding,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateUnicodeToTextInfo(ConstUnicodeMappingPtr iUnicodeMapping,
                         UnicodeToTextInfo *oUnicodeToTextInfo);
 
@@ -357,7 +357,7 @@ CreateUnicodeToTextInfo(ConstUnicodeMappingPtr iUnicodeMapping,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateUnicodeToTextInfoByEncoding(TextEncoding iEncoding,
                                   UnicodeToTextInfo *oUnicodeToTextInfo);
 
@@ -369,7 +369,7 @@ CreateUnicodeToTextInfoByEncoding(TextEncoding iEncoding,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateUnicodeToTextRunInfo(ItemCount iNumberOfMappings,
                            const UnicodeMapping iUnicodeMappings[],
                            UnicodeToTextRunInfo *oUnicodeToTextInfo);
@@ -382,7 +382,7 @@ CreateUnicodeToTextRunInfo(ItemCount iNumberOfMappings,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateUnicodeToTextRunInfoByEncoding(ItemCount iNumberOfEncodings,
                                      const TextEncoding iEncodings[],
                                      UnicodeToTextRunInfo *oUnicodeToTextInfo);
@@ -395,7 +395,7 @@ CreateUnicodeToTextRunInfoByEncoding(ItemCount iNumberOfEncodings,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CreateUnicodeToTextRunInfoByScriptCode(
     ItemCount iNumberOfScriptCodes, const ScriptCode iScripts[],
     UnicodeToTextRunInfo *oUnicodeToTextInfo);
@@ -409,7 +409,7 @@ CreateUnicodeToTextRunInfoByScriptCode(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ChangeTextToUnicodeInfo(TextToUnicodeInfo ioTextToUnicodeInfo,
                         ConstUnicodeMappingPtr iUnicodeMapping);
 
@@ -422,7 +422,7 @@ ChangeTextToUnicodeInfo(TextToUnicodeInfo ioTextToUnicodeInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ChangeUnicodeToTextInfo(UnicodeToTextInfo ioUnicodeToTextInfo,
                         ConstUnicodeMappingPtr iUnicodeMapping);
 
@@ -434,7 +434,7 @@ ChangeUnicodeToTextInfo(UnicodeToTextInfo ioUnicodeToTextInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 DisposeTextToUnicodeInfo(TextToUnicodeInfo *ioTextToUnicodeInfo);
 
 /**
@@ -445,7 +445,7 @@ DisposeTextToUnicodeInfo(TextToUnicodeInfo *ioTextToUnicodeInfo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 DisposeUnicodeToTextInfo(UnicodeToTextInfo *ioUnicodeToTextInfo);
 
 /**
@@ -456,7 +456,7 @@ DisposeUnicodeToTextInfo(UnicodeToTextInfo *ioUnicodeToTextInfo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 DisposeUnicodeToTextRunInfo(UnicodeToTextRunInfo *ioUnicodeToTextRunInfo);
 
 /**
@@ -467,7 +467,7 @@ DisposeUnicodeToTextRunInfo(UnicodeToTextRunInfo *ioUnicodeToTextRunInfo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ConvertFromTextToUnicode(TextToUnicodeInfo iTextToUnicodeInfo,
                          ByteCount iSourceLen, ConstLogicalAddress iSourceStr,
                          OptionBits iControlFlags, ItemCount iOffsetCount,
@@ -485,7 +485,7 @@ ConvertFromTextToUnicode(TextToUnicodeInfo iTextToUnicodeInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ConvertFromUnicodeToText(UnicodeToTextInfo iUnicodeToTextInfo,
                          ByteCount iUnicodeLen, const UniChar iUnicodeStr[],
                          OptionBits iControlFlags, ItemCount iOffsetCount,
@@ -503,7 +503,7 @@ ConvertFromUnicodeToText(UnicodeToTextInfo iUnicodeToTextInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ConvertFromUnicodeToTextRun(UnicodeToTextRunInfo iUnicodeToTextInfo,
                             ByteCount iUnicodeLen, const UniChar iUnicodeStr[],
                             OptionBits iControlFlags, ItemCount iOffsetCount,
@@ -524,7 +524,7 @@ ConvertFromUnicodeToTextRun(UnicodeToTextRunInfo iUnicodeToTextInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ConvertFromUnicodeToScriptCodeRun(
     UnicodeToTextRunInfo iUnicodeToTextInfo, ByteCount iUnicodeLen,
     const UniChar iUnicodeStr[], OptionBits iControlFlags,
@@ -544,7 +544,7 @@ ConvertFromUnicodeToScriptCodeRun(
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 TruncateForTextToUnicode(ConstTextToUnicodeInfo iTextToUnicodeInfo,
                          ByteCount iSourceLen, ConstLogicalAddress iSourceStr,
                          ByteCount iMaxLen, ByteCount *oTruncatedLen);
@@ -558,7 +558,7 @@ TruncateForTextToUnicode(ConstTextToUnicodeInfo iTextToUnicodeInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 TruncateForUnicodeToText(ConstUnicodeToTextInfo iUnicodeToTextInfo,
                          ByteCount iSourceLen, const UniChar iSourceStr[],
                          OptionBits iControlFlags, ByteCount iMaxLen,
@@ -573,7 +573,7 @@ TruncateForUnicodeToText(ConstUnicodeToTextInfo iUnicodeToTextInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ConvertFromPStringToUnicode(TextToUnicodeInfo iTextToUnicodeInfo,
                             ConstStr255Param iPascalStr,
                             ByteCount iOutputBufLen, ByteCount *oUnicodeLen,
@@ -588,7 +588,7 @@ ConvertFromPStringToUnicode(TextToUnicodeInfo iTextToUnicodeInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ConvertFromUnicodeToPString(UnicodeToTextInfo iUnicodeToTextInfo,
                             ByteCount iUnicodeLen, const UniChar iUnicodeStr[],
                             Str255 oPascalStr);
@@ -602,7 +602,7 @@ ConvertFromUnicodeToPString(UnicodeToTextInfo iUnicodeToTextInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 CountUnicodeMappings(OptionBits iFilter, ConstUnicodeMappingPtr iFindMapping,
                      ItemCount *oActualCount);
 
@@ -615,7 +615,7 @@ CountUnicodeMappings(OptionBits iFilter, ConstUnicodeMappingPtr iFindMapping,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 QueryUnicodeMappings(OptionBits iFilter, ConstUnicodeMappingPtr iFindMapping,
                      ItemCount iMaxCount, ItemCount *oActualCount,
                      UnicodeMapping oReturnedMappings[]);
@@ -629,7 +629,7 @@ QueryUnicodeMappings(OptionBits iFilter, ConstUnicodeMappingPtr iFindMapping,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetFallbackUnicodeToText(UnicodeToTextInfo iUnicodeToTextInfo,
                          UnicodeToTextFallbackUPP iFallback,
                          OptionBits iControlFlags, LogicalAddress iInfoPtr);
@@ -643,7 +643,7 @@ SetFallbackUnicodeToText(UnicodeToTextInfo iUnicodeToTextInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 SetFallbackUnicodeToTextRun(UnicodeToTextRunInfo iUnicodeToTextRunInfo,
                             UnicodeToTextFallbackUPP iFallback,
                             OptionBits iControlFlags, LogicalAddress iInfoPtr);
@@ -657,7 +657,7 @@ SetFallbackUnicodeToTextRun(UnicodeToTextRunInfo iUnicodeToTextRunInfo,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ResetTextToUnicodeInfo(TextToUnicodeInfo ioTextToUnicodeInfo);
 
 /** Re-initialize all state information kept by the context objects. */
@@ -669,7 +669,7 @@ ResetTextToUnicodeInfo(TextToUnicodeInfo ioTextToUnicodeInfo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ResetUnicodeToTextInfo(UnicodeToTextInfo ioUnicodeToTextInfo);
 
 /** Re-initialize all state information kept by the context objects in TextRun
@@ -682,7 +682,7 @@ ResetUnicodeToTextInfo(UnicodeToTextInfo ioUnicodeToTextInfo);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSStatus)
+OSStatus
 ResetUnicodeToTextRunInfo(UnicodeToTextRunInfo ioUnicodeToTextRunInfo);
 
 #if PRAGMA_STRUCT_ALIGN

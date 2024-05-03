@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup CoreGraphics
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -33,7 +33,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -48,132 +49,134 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef struct CGDataProvider *CGDataProviderRef;
-typedef CALLBACK_API_C(size_t, CGGetBytesProcPtr)(void *info, void *buffer,
-                                                  size_t count);
-typedef CALLBACK_API_C(void, CGSkipBytesProcPtr)(void *info, size_t count);
-typedef CALLBACK_API_C(void, CGRewindProcPtr)(void *info);
-typedef CALLBACK_API_C(void, CGReleaseProviderProcPtr)(void *info);
-/** Callbacks for sequentially accessing data.
- * `getBytes' is called to copy `count' bytes from the provider's data to
- * `buffer'.  It should return the number of bytes copied, or 0 if there's
- * no more data.
- * `skipBytes' is called to skip ahead in the provider's data by `count' bytes.
- * `rewind' is called to rewind the provider to the beginning of the data.
- * `releaseProvider', if non-NULL, is called when the provider is freed. */
-struct CGDataProviderCallbacks {
-  CGGetBytesProcPtr getBytes;
-  CGSkipBytesProcPtr skipBytes;
-  CGRewindProcPtr rewind;
-  CGReleaseProviderProcPtr releaseProvider;
-};
-typedef struct CGDataProviderCallbacks CGDataProviderCallbacks;
-typedef CALLBACK_API_C(void *, CGGetBytePointerProcPtr)(void *info);
-typedef CALLBACK_API_C(void, CGReleaseByteProcPtr)(void *info,
-                                                   const void *pointer);
-typedef CALLBACK_API_C(size_t,
-                       CGGetBytesDirectProcPtr)(void *info, void *buffer,
-                                                size_t offset, size_t count);
-/** Callbacks for directly accessing data.
- * `getBytePointer', if non-NULL, is called to return a pointer to the
- * provider's entire block of data.
- * `releaseBytePointer', if non-NULL, is called to release a pointer to
- * the provider's entire block of data.
- * `getBytes', if non-NULL, is called to copy `count' bytes at offset
- * `offset' from the provider's data to `buffer'.  It should return the
- * number of bytes copied, or 0 if there's no more data.
- * `releaseProvider', if non-NULL, is called when the provider is freed.
- * At least one of `getBytePointer' or `getBytes' must be non-NULL.  */
-struct CGDataProviderDirectAccessCallbacks {
-  CGGetBytePointerProcPtr getBytePointer;
-  CGReleaseByteProcPtr releaseBytePointer;
-  CGGetBytesDirectProcPtr getBytes;
-  CGReleaseProviderProcPtr releaseProvider;
-};
-typedef struct CGDataProviderDirectAccessCallbacks
-    CGDataProviderDirectAccessCallbacks;
-typedef CALLBACK_API_C(void, CGReleaseDataProcPtr)(void *info, const void *data,
-                                                   size_t size);
-/** Create a sequential-access data provider using `callbacks' to provide
- * the data.  `info' is passed to each of the callback functions. */
-/**
- *  CGDataProviderCreate()
- *
+  typedef struct CGDataProvider *CGDataProviderRef;
+  typedef CALLBACK_API_C(size_t, CGGetBytesProcPtr)(void *info, void *buffer,
+                                                    size_t count);
+  typedef CALLBACK_API_C(void, CGSkipBytesProcPtr)(void *info, size_t count);
+  typedef CALLBACK_API_C(void, CGRewindProcPtr)(void *info);
+  typedef CALLBACK_API_C(void, CGReleaseProviderProcPtr)(void *info);
+  /** Callbacks for sequentially accessing data.
+   * `getBytes' is called to copy `count' bytes from the provider's data to
+   * `buffer'.  It should return the number of bytes copied, or 0 if there's
+   * no more data.
+   * `skipBytes' is called to skip ahead in the provider's data by `count' bytes.
+   * `rewind' is called to rewind the provider to the beginning of the data.
+   * `releaseProvider', if non-NULL, is called when the provider is freed. */
+  struct CGDataProviderCallbacks
+  {
+    CGGetBytesProcPtr getBytes;
+    CGSkipBytesProcPtr skipBytes;
+    CGRewindProcPtr rewind;
+    CGReleaseProviderProcPtr releaseProvider;
+  };
+  typedef struct CGDataProviderCallbacks CGDataProviderCallbacks;
+  typedef CALLBACK_API_C(void *, CGGetBytePointerProcPtr)(void *info);
+  typedef CALLBACK_API_C(void, CGReleaseByteProcPtr)(void *info,
+                                                     const void *pointer);
+  typedef CALLBACK_API_C(size_t,
+                         CGGetBytesDirectProcPtr)(void *info, void *buffer,
+                                                  size_t offset, size_t count);
+  /** Callbacks for directly accessing data.
+   * `getBytePointer', if non-NULL, is called to return a pointer to the
+   * provider's entire block of data.
+   * `releaseBytePointer', if non-NULL, is called to release a pointer to
+   * the provider's entire block of data.
+   * `getBytes', if non-NULL, is called to copy `count' bytes at offset
+   * `offset' from the provider's data to `buffer'.  It should return the
+   * number of bytes copied, or 0 if there's no more data.
+   * `releaseProvider', if non-NULL, is called when the provider is freed.
+   * At least one of `getBytePointer' or `getBytes' must be non-NULL.  */
+  struct CGDataProviderDirectAccessCallbacks
+  {
+    CGGetBytePointerProcPtr getBytePointer;
+    CGReleaseByteProcPtr releaseBytePointer;
+    CGGetBytesDirectProcPtr getBytes;
+    CGReleaseProviderProcPtr releaseProvider;
+  };
+  typedef struct CGDataProviderDirectAccessCallbacks
+      CGDataProviderDirectAccessCallbacks;
+  typedef CALLBACK_API_C(void, CGReleaseDataProcPtr)(void *info, const void *data,
+                                                     size_t size);
+  /** Create a sequential-access data provider using `callbacks' to provide
+   * the data.  `info' is passed to each of the callback functions. */
+  /**
+   *  CGDataProviderCreate()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGDataProviderRef)
-CGDataProviderCreate(void *info, const CGDataProviderCallbacks *callbacks);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGDataProviderRef
+  CGDataProviderCreate(void *info, const CGDataProviderCallbacks *callbacks);
 
-/** Create a direct-access data provider using `callbacks' to supply `size'
- * bytes of data. `info' is passed to each of the callback functions. */
-/**
- *  CGDataProviderCreateDirectAccess()
- *
+  /** Create a direct-access data provider using `callbacks' to supply `size'
+   * bytes of data. `info' is passed to each of the callback functions. */
+  /**
+   *  CGDataProviderCreateDirectAccess()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGDataProviderRef)
-CGDataProviderCreateDirectAccess(
-    void *info, size_t size,
-    const CGDataProviderDirectAccessCallbacks *callbacks);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGDataProviderRef
+  CGDataProviderCreateDirectAccess(
+      void *info, size_t size,
+      const CGDataProviderDirectAccessCallbacks *callbacks);
 
-/** Create a direct-access data provider using `data', an array of `size'
- * bytes.  `releaseData' is called when the data provider is freed, and is
- * passed `info' as its first argument. */
-/**
- *  CGDataProviderCreateWithData()
- *
+  /** Create a direct-access data provider using `data', an array of `size'
+   * bytes.  `releaseData' is called when the data provider is freed, and is
+   * passed `info' as its first argument. */
+  /**
+   *  CGDataProviderCreateWithData()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGDataProviderRef)
-CGDataProviderCreateWithData(void *info, const void *data, size_t size,
-                             CGReleaseDataProcPtr releaseData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGDataProviderRef
+  CGDataProviderCreateWithData(void *info, const void *data, size_t size,
+                               CGReleaseDataProcPtr releaseData);
 
-/** Create a data provider using `url'. */
-/**
- *  CGDataProviderCreateWithURL()
- *
+  /** Create a data provider using `url'. */
+  /**
+   *  CGDataProviderCreateWithURL()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGDataProviderRef)
-CGDataProviderCreateWithURL(CFURLRef url);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGDataProviderRef
+  CGDataProviderCreateWithURL(CFURLRef url);
 
-/** Increment the retain count of `provider' and return it.  All data
- * providers are created with an initial retain count of 1. */
-/**
- *  CGDataProviderRetain()
- *
+  /** Increment the retain count of `provider' and return it.  All data
+   * providers are created with an initial retain count of 1. */
+  /**
+   *  CGDataProviderRetain()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGDataProviderRef)
-CGDataProviderRetain(CGDataProviderRef provider);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGDataProviderRef
+  CGDataProviderRetain(CGDataProviderRef provider);
 
-/** Decrement the retain count of `provider'.  If the retain count reaches
- * 0, then free `provider' and any associated resources. */
-/**
- *  CGDataProviderRelease()
- *
+  /** Decrement the retain count of `provider'.  If the retain count reaches
+   * 0, then free `provider' and any associated resources. */
+  /**
+   *  CGDataProviderRelease()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-CGDataProviderRelease(CGDataProviderRef provider);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  CGDataProviderRelease(CGDataProviderRef provider);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

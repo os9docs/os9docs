@@ -48,7 +48,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -134,516 +135,516 @@ typedef double double_t;
 #if TARGET_OS_MAC
 /* MSL already defines these */
 #if !defined(__MWERKS__) || !defined(__cmath__)
-/********************************************************************************
- *                                                                               *
- *                            Trigonometric functions *
- *                                                                               *
- *   acos        result is in [0,pi]. * asin        result is in [-pi/2,pi/2]. *
- *   atan        result is in [-pi/2,pi/2]. * atan2       Computes the arc
- *tangent of y/x in [-pi,pi] using the sign of   * both arguments to determine
- *the quadrant of the computed value. *
- *                                                                               *
- ********************************************************************************/
-/**
- *  cos()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                            Trigonometric functions *
+   *                                                                               *
+   *   acos        result is in [0,pi]. * asin        result is in [-pi/2,pi/2]. *
+   *   atan        result is in [-pi/2,pi/2]. * atan2       Computes the arc
+   *tangent of y/x in [-pi,pi] using the sign of   * both arguments to determine
+   *the quadrant of the computed value. *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  cos()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) cos(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t cos(double_t x);
 
-/**
- *  sin()
- *
+  /**
+   *  sin()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) sin(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t sin(double_t x);
 
-/**
- *  tan()
- *
+  /**
+   *  tan()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) tan(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t tan(double_t x);
 
-/**
- *  acos()
- *
+  /**
+   *  acos()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) acos(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t acos(double_t x);
 
-/**
- *  asin()
- *
+  /**
+   *  asin()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) asin(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t asin(double_t x);
 
-/**
- *  atan()
- *
+  /**
+   *  atan()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) atan(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t atan(double_t x);
 
-/**
- *  atan2()
- *
+  /**
+   *  atan2()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) atan2(double_t y, double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t atan2(double_t y, double_t x);
 
-/********************************************************************************
- *                                                                               *
- *                              Hyperbolic functions *
- *                                                                               *
- ********************************************************************************/
-/**
- *  cosh()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                              Hyperbolic functions *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  cosh()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) cosh(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t cosh(double_t x);
 
-/**
- *  sinh()
- *
+  /**
+   *  sinh()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) sinh(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t sinh(double_t x);
 
-/**
- *  tanh()
- *
+  /**
+   *  tanh()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) tanh(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t tanh(double_t x);
 
-/**
- *  acosh()
- *
+  /**
+   *  acosh()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) acosh(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t acosh(double_t x);
 
-/**
- *  asinh()
- *
+  /**
+   *  asinh()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) asinh(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t asinh(double_t x);
 
-/**
- *  atanh()
- *
+  /**
+   *  atanh()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) atanh(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t atanh(double_t x);
 
-/********************************************************************************
- *                                                                               *
- *                              Exponential functions *
- *                                                                               *
- *   expm1       expm1(x) = exp(x) - 1.  But, for small enough arguments, *
- *               expm1(x) is expected to be more accurate than exp(x) - 1. *
- *   frexp       Breaks a floating-point number into a normalized fraction * and
- *an integral power of 2.  It stores the integer in the       * object pointed
- *by *exponent.                                    * ldexp       Multiplies a
- *floating-point number by an integer power of 2.    * log1p       log1p = log(1
- *+ x). But, for small enough arguments,            * log1p is expected to be
- *more accurate than log(1 + x).          * logb        Extracts the exponent of
- *its argument, as a signed integral     * value. A subnormal argument is
- *treated as though it were first  * normalized. Thus: * 1   <=   x *
- *2^(-logb(x))   <   2            * modf        Returns fractional part of x as
- *function result and returns     * integral part of x via iptr. Note C9X uses
- *double not double_t. * scalb       Computes x * 2^n efficently.  This is not
- *normally done by      * computing 2^n explicitly. *
- *                                                                               *
- ********************************************************************************/
-/**
- *  exp()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                              Exponential functions *
+   *                                                                               *
+   *   expm1       expm1(x) = exp(x) - 1.  But, for small enough arguments, *
+   *               expm1(x) is expected to be more accurate than exp(x) - 1. *
+   *   frexp       Breaks a floating-point number into a normalized fraction * and
+   *an integral power of 2.  It stores the integer in the       * object pointed
+   *by *exponent.                                    * ldexp       Multiplies a
+   *floating-point number by an integer power of 2.    * log1p       log1p = log(1
+   *+ x). But, for small enough arguments,            * log1p is expected to be
+   *more accurate than log(1 + x).          * logb        Extracts the exponent of
+   *its argument, as a signed integral     * value. A subnormal argument is
+   *treated as though it were first  * normalized. Thus: * 1   <=   x *
+   *2^(-logb(x))   <   2            * modf        Returns fractional part of x as
+   *function result and returns     * integral part of x via iptr. Note C9X uses
+   *double not double_t. * scalb       Computes x * 2^n efficently.  This is not
+   *normally done by      * computing 2^n explicitly. *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  exp()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) exp(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t exp(double_t x);
 
-/**
- *  expm1()
- *
+  /**
+   *  expm1()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) expm1(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t expm1(double_t x);
 
-/**
- *  exp2()
- *
+  /**
+   *  exp2()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) exp2(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t exp2(double_t x);
 
-/**
- *  frexp()
- *
+  /**
+   *  frexp()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) frexp(double_t x, int *exponent);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t frexp(double_t x, int *exponent);
 
-/**
- *  ldexp()
- *
+  /**
+   *  ldexp()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) ldexp(double_t x, int n);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t ldexp(double_t x, int n);
 
-/**
- *  log()
- *
+  /**
+   *  log()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) log(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t log(double_t x);
 
-/**
- *  log2()
- *
+  /**
+   *  log2()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) log2(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t log2(double_t x);
 
-/**
- *  log1p()
- *
+  /**
+   *  log1p()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) log1p(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t log1p(double_t x);
 
-/**
- *  log10()
- *
+  /**
+   *  log10()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) log10(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t log10(double_t x);
 
-/**
- *  logb()
- *
+  /**
+   *  logb()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) logb(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t logb(double_t x);
 
 #if !TYPE_LONGDOUBLE_IS_DOUBLE
-/**
- *  modfl()
- *
+  /**
+   *  modfl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) modfl(long double x, long double *iptrl);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double modfl(long double x, long double *iptrl);
 
 #endif /* !TYPE_LONGDOUBLE_IS_DOUBLE */
 
-/**
- *  modf()
- *
+  /**
+   *  modf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) modf(double_t x, double_t *iptr);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t modf(double_t x, double_t *iptr);
 
-/**
- *  modff()
- *
+  /**
+   *  modff()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(float) modff(float x, float *iptrf);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  float modff(float x, float *iptrf);
 
-/**
-    Note: For compatiblity scalb(x,n) has n of type
-            int  on Mac OS X
-            long on Mac OS
-*/
-typedef long _scalb_n_type;
-/**
- *  scalb()
- *
+  /**
+      Note: For compatiblity scalb(x,n) has n of type
+              int  on Mac OS X
+              long on Mac OS
+  */
+  typedef long _scalb_n_type;
+  /**
+   *  scalb()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) scalb(double_t x, _scalb_n_type n);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t scalb(double_t x, _scalb_n_type n);
 
-/********************************************************************************
- *                                                                               *
- *                     Power and absolute value functions *
- *                                                                               *
- *   hypot       Computes the square root of the sum of the squares of its *
- *               arguments, without undue overflow or underflow. * pow Returns x
- *raised to the power of y.  Result is more accurate    * than using
- *exp(log(x)*y).                                       *
- *                                                                               *
- ********************************************************************************/
-/**
- *  fabs()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                     Power and absolute value functions *
+   *                                                                               *
+   *   hypot       Computes the square root of the sum of the squares of its *
+   *               arguments, without undue overflow or underflow. * pow Returns x
+   *raised to the power of y.  Result is more accurate    * than using
+   *exp(log(x)*y).                                       *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  fabs()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) fabs(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t fabs(double_t x);
 
-/**
- *  hypot()
- *
+  /**
+   *  hypot()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) hypot(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t hypot(double_t x, double_t y);
 
-/**
- *  pow()
- *
+  /**
+   *  pow()
+   *
 
- *    \non_carbon_cfm   in MathLib 2.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) pow(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 2.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t pow(double_t x, double_t y);
 
-/**
- *  sqrt()
- *
+  /**
+   *  sqrt()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) sqrt(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t sqrt(double_t x);
 
-/********************************************************************************
- *                                                                               *
- *                        Gamma and Error functions *
- *                                                                               *
- *   erf         The error function. * erfc        Complementary error function.
- ** gamma       The gamma function. * lgamma      Computes the base-e logarithm
- *of the absolute value of          * gamma of its argument x, for x > 0. *
- *                                                                               *
- ********************************************************************************/
-/**
- *  erf()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                        Gamma and Error functions *
+   *                                                                               *
+   *   erf         The error function. * erfc        Complementary error function.
+   ** gamma       The gamma function. * lgamma      Computes the base-e logarithm
+   *of the absolute value of          * gamma of its argument x, for x > 0. *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  erf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) erf(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t erf(double_t x);
 
-/**
- *  erfc()
- *
+  /**
+   *  erfc()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) erfc(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t erfc(double_t x);
 
-/**
- *  gamma()
- *
+  /**
+   *  gamma()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) gamma(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t gamma(double_t x);
 
-/**
- *  lgamma()
- *
+  /**
+   *  lgamma()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) lgamma(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t lgamma(double_t x);
 
-/********************************************************************************
- *                                                                               *
- *                        Nearest integer functions *
- *                                                                               *
- *   rint        Rounds its argument to an integral value in floating point *
- *               format, honoring the current rounding direction. *
- *                                                                               *
- *   nearbyint   Differs from rint only in that it does not raise the inexact *
- *               exception. It is the nearbyint function recommended by the *
- *               IEEE floating-point standard 854. *
- *                                                                               *
- *   rinttol     Rounds its argument to the nearest long int using the current *
- *               rounding direction.  NOTE: if the rounded value is outside *
- *               the range of long int, then the result is undefined. *
- *                                                                               *
- *   round       Rounds the argument to the nearest integral value in floating *
- *               point format similar to the Fortran "anint" function. That is:
- ** add half to the magnitude and chop.                             *
- *                                                                               *
- *   roundtol    Similar to the Fortran function nint or to the Pascal round. *
- *               NOTE: if the rounded value is outside the range of long int, *
- *               then the result is undefined. *
- *                                                                               *
- *   trunc       Computes the integral value, in floating format, nearest to *
- *               but no larger in magnitude than its argument.   NOTE: on 68K *
- *               compilers when using -elems881, trunc must return an int *
- *                                                                               *
- ********************************************************************************/
-/**
- *  ceil()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                        Nearest integer functions *
+   *                                                                               *
+   *   rint        Rounds its argument to an integral value in floating point *
+   *               format, honoring the current rounding direction. *
+   *                                                                               *
+   *   nearbyint   Differs from rint only in that it does not raise the inexact *
+   *               exception. It is the nearbyint function recommended by the *
+   *               IEEE floating-point standard 854. *
+   *                                                                               *
+   *   rinttol     Rounds its argument to the nearest long int using the current *
+   *               rounding direction.  NOTE: if the rounded value is outside *
+   *               the range of long int, then the result is undefined. *
+   *                                                                               *
+   *   round       Rounds the argument to the nearest integral value in floating *
+   *               point format similar to the Fortran "anint" function. That is:
+   ** add half to the magnitude and chop.                             *
+   *                                                                               *
+   *   roundtol    Similar to the Fortran function nint or to the Pascal round. *
+   *               NOTE: if the rounded value is outside the range of long int, *
+   *               then the result is undefined. *
+   *                                                                               *
+   *   trunc       Computes the integral value, in floating format, nearest to *
+   *               but no larger in magnitude than its argument.   NOTE: on 68K *
+   *               compilers when using -elems881, trunc must return an int *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  ceil()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) ceil(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t ceil(double_t x);
 
-/**
- *  floor()
- *
+  /**
+   *  floor()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) floor(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t floor(double_t x);
 
-/**
- *  rint()
- *
+  /**
+   *  rint()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) rint(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t rint(double_t x);
 
-/**
- *  nearbyint()
- *
+  /**
+   *  nearbyint()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) nearbyint(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t nearbyint(double_t x);
 
-/**
- *  rinttol()
- *
+  /**
+   *  rinttol()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) rinttol(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long rinttol(double_t x);
 
-/**
- *  round()
- *
+  /**
+   *  round()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) round(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t round(double_t x);
 
-/**
- *  roundtol()
- *
+  /**
+   *  roundtol()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) roundtol(double_t round);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long roundtol(double_t round);
 
 /**
     Note: For compatiblity trunc(x) has a return type of
@@ -651,540 +652,548 @@ EXTERN_API_C(long) roundtol(double_t round);
             double_t  everywhere else
 */
 #if TARGET_RT_MAC_68881
-typedef int _trunc_return_type;
+  typedef int _trunc_return_type;
 #else
-typedef double_t _trunc_return_type;
+  typedef double_t _trunc_return_type;
 #endif /* TARGET_RT_MAC_68881 */
 
-/**
- *  trunc()
- *
+  /**
+   *  trunc()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(_trunc_return_type) trunc(double_t x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  _trunc_return_type trunc(double_t x);
 
-/********************************************************************************
- *                                                                               *
- *                            Remainder functions *
- *                                                                               *
- *   remainder       IEEE 754 floating point standard for remainder. * remquo
- *SANE remainder.  It stores into 'quotient' the 7 low-order  * bits of the
- *integer quotient x/y, such that:                * -127 <= quotient <= 127. *
- *                                                                               *
- ********************************************************************************/
-/**
- *  fmod()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                            Remainder functions *
+   *                                                                               *
+   *   remainder       IEEE 754 floating point standard for remainder. * remquo
+   *SANE remainder.  It stores into 'quotient' the 7 low-order  * bits of the
+   *integer quotient x/y, such that:                * -127 <= quotient <= 127. *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  fmod()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) fmod(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t fmod(double_t x, double_t y);
 
-/**
- *  remainder()
- *
+  /**
+   *  remainder()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) remainder(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t remainder(double_t x, double_t y);
 
-/**
- *  remquo()
- *
+  /**
+   *  remquo()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) remquo(double_t x, double_t y, int *quo);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t remquo(double_t x, double_t y, int *quo);
 
-/********************************************************************************
- *                                                                               *
- *                             Auxiliary functions *
- *                                                                               *
- *   copysign        Produces a value with the magnitude of its first argument *
- *                   and sign of its second argument.  NOTE: the order of the *
- *                   arguments matches the recommendation of the IEEE 754 *
- *                   floating point standard,  which is opposite from the SANE *
- *                   copysign function. *
- *                                                                               *
- *   nan             The call 'nan("n-char-sequence")' returns a quiet NaN *
- *                   with content indicated through tagp in the selected * data
- *type format.                                           *
- *                                                                               *
- *   nextafter       Computes the next representable value after 'x' in the *
- *                   direction of 'y'.  if x == y, then y is returned. *
- *                                                                               *
- ********************************************************************************/
-/**
- *  copysign()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                             Auxiliary functions *
+   *                                                                               *
+   *   copysign        Produces a value with the magnitude of its first argument *
+   *                   and sign of its second argument.  NOTE: the order of the *
+   *                   arguments matches the recommendation of the IEEE 754 *
+   *                   floating point standard,  which is opposite from the SANE *
+   *                   copysign function. *
+   *                                                                               *
+   *   nan             The call 'nan("n-char-sequence")' returns a quiet NaN *
+   *                   with content indicated through tagp in the selected * data
+   *type format.                                           *
+   *                                                                               *
+   *   nextafter       Computes the next representable value after 'x' in the *
+   *                   direction of 'y'.  if x == y, then y is returned. *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  copysign()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) copysign(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t copysign(double_t x, double_t y);
 
-/**
- *  nan()
- *
+  /**
+   *  nan()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double) nan(const char *tagp);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double nan(const char *tagp);
 
-/**
- *  nanf()
- *
+  /**
+   *  nanf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(float) nanf(const char *tagp);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  float nanf(const char *tagp);
 
-/**
- *  nanl()
- *
+  /**
+   *  nanl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) nanl(const char *tagp);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double nanl(const char *tagp);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double nanl(const char *tagp) { return (long double)nan(tagp); }
+  inline long double nanl(const char *tagp) { return (long double)nan(tagp); }
 #else
 #define nanl(tagp) ((long double)nan(tagp))
 #endif
 #endif
 
-/**
- *  nextafterd()
- *
+  /**
+   *  nextafterd()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double) nextafterd(double x, double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double nextafterd(double x, double y);
 
-/**
- *  nextafterf()
- *
+  /**
+   *  nextafterf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(float) nextafterf(float x, float y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  float nextafterf(float x, float y);
 
-/**
- *  nextafterl()
- *
+  /**
+   *  nextafterl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) nextafterl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double nextafterl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double nextafterl(long double x, long double y) {
-  return (long double)nextafterd((double)(x), (double)(y));
-}
+  inline long double nextafterl(long double x, long double y)
+  {
+    return (long double)nextafterd((double)(x), (double)(y));
+  }
 #else
 #define nextafterl(x, y) ((long double)nextafterd((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  __fpclassifyd()
- *
+  /**
+   *  __fpclassifyd()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __fpclassifyd(double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __fpclassifyd(double x);
 
-/**
- *  __fpclassifyf()
- *
+  /**
+   *  __fpclassifyf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __fpclassifyf(float x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __fpclassifyf(float x);
 
-/**
- *  __fpclassify()
- *
+  /**
+   *  __fpclassify()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long) __fpclassify(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long __fpclassify(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long __fpclassify(long double x) { return __fpclassifyd((double)(x)); }
+  inline long __fpclassify(long double x) { return __fpclassifyd((double)(x)); }
 #else
 #define __fpclassify(x) (__fpclassifyd((double)(x)))
 #endif
 #endif
 
-/**
- *  __isnormald()
- *
+  /**
+   *  __isnormald()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __isnormald(double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __isnormald(double x);
 
-/**
- *  __isnormalf()
- *
+  /**
+   *  __isnormalf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __isnormalf(float x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __isnormalf(float x);
 
-/**
- *  __isnormal()
- *
+  /**
+   *  __isnormal()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long) __isnormal(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long __isnormal(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long __isnormal(long double x) { return __isnormald((double)(x)); }
+  inline long __isnormal(long double x) { return __isnormald((double)(x)); }
 #else
 #define __isnormal(x) (__isnormald((double)(x)))
 #endif
 #endif
 
-/**
- *  __isfinited()
- *
+  /**
+   *  __isfinited()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __isfinited(double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __isfinited(double x);
 
-/**
- *  __isfinitef()
- *
+  /**
+   *  __isfinitef()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __isfinitef(float x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __isfinitef(float x);
 
-/**
- *  __isfinite()
- *
+  /**
+   *  __isfinite()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long) __isfinite(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long __isfinite(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long __isfinite(long double x) { return __isfinited((double)(x)); }
+  inline long __isfinite(long double x) { return __isfinited((double)(x)); }
 #else
 #define __isfinite(x) (__isfinited((double)(x)))
 #endif
 #endif
 
-/**
- *  __isnand()
- *
+  /**
+   *  __isnand()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __isnand(double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __isnand(double x);
 
-/**
- *  __isnanf()
- *
+  /**
+   *  __isnanf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __isnanf(float x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __isnanf(float x);
 
-/**
- *  __isnan()
- *
+  /**
+   *  __isnan()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long) __isnan(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long __isnan(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long __isnan(long double x) { return __isnand((double)(x)); }
+  inline long __isnan(long double x) { return __isnand((double)(x)); }
 #else
 #define __isnan(x) (__isnand((double)(x)))
 #endif
 #endif
 
-/**
- *  __signbitd()
- *
+  /**
+   *  __signbitd()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __signbitd(double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __signbitd(double x);
 
-/**
- *  __signbitf()
- *
+  /**
+   *  __signbitf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) __signbitf(float x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long __signbitf(float x);
 
-/**
- *  __signbit()
- *
+  /**
+   *  __signbit()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long) __signbit(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long __signbit(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long __signbit(long double x) { return __signbitd((double)(x)); }
+  inline long __signbit(long double x) { return __signbitd((double)(x)); }
 #else
 #define __signbit(x) (__signbitd((double)(x)))
 #endif
 #endif
 
-/**
- *  __inf()
- *
+  /**
+   *  __inf()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) __inf(void);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t __inf(void);
 
-/********************************************************************************
- *                                                                               *
- *                              Inquiry macros *
- *                                                                               *
- *   fpclassify      Returns one of the FP_� values. * isnormal        Non-zero
- *if and only if the argument x is normalized.       * isfinite        Non-zero
- *if and only if the argument x is finite.           * isnan           Non-zero
- *if and only if the argument x is a NaN.            * signbit         Non-zero
- *if and only if the sign of the argument x is       * negative.  This includes,
- *NaNs, infinities and zeros.       *
- *                                                                               *
- ********************************************************************************/
-enum {
-  FP_SNAN = 0,     /*      signaling NaN                         */
-  FP_QNAN = 1,     /*      quiet NaN                             */
-  FP_INFINITE = 2, /*      + or - infinity                       */
-  FP_ZERO = 3,     /*      + or - zero                           */
-  FP_NORMAL = 4,   /*      all normal numbers                    */
-  FP_SUBNORMAL = 5 /*      denormal numbers                      */
-};
+  /********************************************************************************
+   *                                                                               *
+   *                              Inquiry macros *
+   *                                                                               *
+   *   fpclassify      Returns one of the FP_� values. * isnormal        Non-zero
+   *if and only if the argument x is normalized.       * isfinite        Non-zero
+   *if and only if the argument x is finite.           * isnan           Non-zero
+   *if and only if the argument x is a NaN.            * signbit         Non-zero
+   *if and only if the sign of the argument x is       * negative.  This includes,
+   *NaNs, infinities and zeros.       *
+   *                                                                               *
+   ********************************************************************************/
+  enum
+  {
+    FP_SNAN = 0,     /*      signaling NaN                         */
+    FP_QNAN = 1,     /*      quiet NaN                             */
+    FP_INFINITE = 2, /*      + or - infinity                       */
+    FP_ZERO = 3,     /*      + or - zero                           */
+    FP_NORMAL = 4,   /*      all normal numbers                    */
+    FP_SUBNORMAL = 5 /*      denormal numbers                      */
+  };
 
-#define fpclassify(x)                                                          \
-  ((sizeof(x) == sizeof(double))  ? __fpclassifyd(x)                           \
-   : (sizeof(x) == sizeof(float)) ? __fpclassifyf(x)                           \
+#define fpclassify(x)                                \
+  ((sizeof(x) == sizeof(double))  ? __fpclassifyd(x) \
+   : (sizeof(x) == sizeof(float)) ? __fpclassifyf(x) \
                                   : __fpclassify(x))
-#define isnormal(x)                                                            \
-  ((sizeof(x) == sizeof(double))  ? __isnormald(x)                             \
-   : (sizeof(x) == sizeof(float)) ? __isnormalf(x)                             \
+#define isnormal(x)                                \
+  ((sizeof(x) == sizeof(double))  ? __isnormald(x) \
+   : (sizeof(x) == sizeof(float)) ? __isnormalf(x) \
                                   : __isnormal(x))
-#define isfinite(x)                                                            \
-  ((sizeof(x) == sizeof(double))  ? __isfinited(x)                             \
-   : (sizeof(x) == sizeof(float)) ? __isfinitef(x)                             \
+#define isfinite(x)                                \
+  ((sizeof(x) == sizeof(double))  ? __isfinited(x) \
+   : (sizeof(x) == sizeof(float)) ? __isfinitef(x) \
                                   : __isfinite(x))
-#define isnan(x)                                                               \
-  ((sizeof(x) == sizeof(double))  ? __isnand(x)                                \
-   : (sizeof(x) == sizeof(float)) ? __isnanf(x)                                \
+#define isnan(x)                                \
+  ((sizeof(x) == sizeof(double))  ? __isnand(x) \
+   : (sizeof(x) == sizeof(float)) ? __isnanf(x) \
                                   : __isnan(x))
-#define signbit(x)                                                             \
-  ((sizeof(x) == sizeof(double))  ? __signbitd(x)                              \
-   : (sizeof(x) == sizeof(float)) ? __signbitf(x)                              \
+#define signbit(x)                                \
+  ((sizeof(x) == sizeof(double))  ? __signbitd(x) \
+   : (sizeof(x) == sizeof(float)) ? __signbitf(x) \
                                   : __signbit(x))
 
-/********************************************************************************
- *                                                                               *
- *                      Max, Min and Positive Difference *
- *                                                                               *
- *   fdim        Determines the 'positive difference' between its arguments: *
- *               { x - y, if x > y }, { +0, if x <= y }.  If one argument is *
- *               NaN, then fdim returns that NaN.  if both arguments are NaNs, *
- *               then fdim returns the first argument. *
- *                                                                               *
- *   fmax        Returns the maximum of the two arguments.  Corresponds to the *
- *               max function in FORTRAN.  NaN arguments are treated as missing
- ** data.  If one argument is NaN and the other is a number, then   * the number
- *is returned.  If both are NaNs then the first        * argument is returned. *
- *                                                                               *
- *   fmin        Returns the minimum of the two arguments.  Corresponds to the *
- *               min function in FORTRAN.  NaN arguments are treated as missing
- ** data.  If one argument is NaN and the other is a number, then   * the number
- *is returned.  If both are NaNs then the first        * argument is returned. *
- *                                                                               *
- ********************************************************************************/
-/**
- *  fdim()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                      Max, Min and Positive Difference *
+   *                                                                               *
+   *   fdim        Determines the 'positive difference' between its arguments: *
+   *               { x - y, if x > y }, { +0, if x <= y }.  If one argument is *
+   *               NaN, then fdim returns that NaN.  if both arguments are NaNs, *
+   *               then fdim returns the first argument. *
+   *                                                                               *
+   *   fmax        Returns the maximum of the two arguments.  Corresponds to the *
+   *               max function in FORTRAN.  NaN arguments are treated as missing
+   ** data.  If one argument is NaN and the other is a number, then   * the number
+   *is returned.  If both are NaNs then the first        * argument is returned. *
+   *                                                                               *
+   *   fmin        Returns the minimum of the two arguments.  Corresponds to the *
+   *               min function in FORTRAN.  NaN arguments are treated as missing
+   ** data.  If one argument is NaN and the other is a number, then   * the number
+   *is returned.  If both are NaNs then the first        * argument is returned. *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  fdim()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) fdim(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t fdim(double_t x, double_t y);
 
-/**
- *  fmax()
- *
+  /**
+   *  fmax()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) fmax(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t fmax(double_t x, double_t y);
 
-/**
- *  fmin()
- *
+  /**
+   *  fmin()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) fmin(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t fmin(double_t x, double_t y);
 
 #endif /* !defined(__MWERKS__) || !defined(__cmath__) */
 
-/*******************************************************************************
- *                                Constants *
- *******************************************************************************/
-/**
- *  pi
- *
+  /*******************************************************************************
+   *                                Constants *
+   *******************************************************************************/
+  /**
+   *  pi
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-extern const double_t pi;
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  extern const double_t pi;
 /********************************************************************************
  *                                                                               *
  *                              Non NCEG extensions *
  *                                                                               *
  ********************************************************************************/
 #ifndef __NOEXTENSIONS__
-/********************************************************************************
- *                                                                               *
- *                              Financial functions *
- *                                                                               *
- *   compound        Computes the compound interest factor "(1 + rate)^periods"
- ** more accurately than the straightforward computation with   * the Power
- *function.  This is SANE's compound function.      *
- *                                                                               *
- *   annuity         Computes the present value factor for an annuity *
- *                   "(1 - (1 + rate)^(-periods)) /rate" more accurately than *
- *                   the straightforward computation with the Power function. *
- *                   This is SANE's annuity function. *
- *                                                                               *
- ********************************************************************************/
-/**
- *  compound()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                              Financial functions *
+   *                                                                               *
+   *   compound        Computes the compound interest factor "(1 + rate)^periods"
+   ** more accurately than the straightforward computation with   * the Power
+   *function.  This is SANE's compound function.      *
+   *                                                                               *
+   *   annuity         Computes the present value factor for an annuity *
+   *                   "(1 - (1 + rate)^(-periods)) /rate" more accurately than *
+   *                   the straightforward computation with the Power function. *
+   *                   This is SANE's annuity function. *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  compound()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) compound(double_t rate, double_t periods);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t compound(double_t rate, double_t periods);
 
-/**
- *  annuity()
- *
+  /**
+   *  annuity()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) annuity(double_t rate, double_t periods);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t annuity(double_t rate, double_t periods);
 
-/********************************************************************************
- *                                                                               *
- *                              Random function *
- *                                                                               *
- *   randomx         A pseudorandom number generator.  It uses the iteration: *
- *                               (7^5*x)mod(2^31-1) *
- *                                                                               *
- ********************************************************************************/
-/**
- *  randomx()
- *
+  /********************************************************************************
+   *                                                                               *
+   *                              Random function *
+   *                                                                               *
+   *   randomx         A pseudorandom number generator.  It uses the iteration: *
+   *                               (7^5*x)mod(2^31-1) *
+   *                                                                               *
+   ********************************************************************************/
+  /**
+   *  randomx()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) randomx(double_t *x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t randomx(double_t *x);
 
-/*******************************************************************************
- *                              Relational operator *
- *******************************************************************************/
-/*      relational operator      */
-typedef short relop;
-enum { GREATERTHAN = 0, LESSTHAN = 1, EQUALTO = 2, UNORDERED = 3 };
+  /*******************************************************************************
+   *                              Relational operator *
+   *******************************************************************************/
+  /*      relational operator      */
+  typedef short relop;
+  enum
+  {
+    GREATERTHAN = 0,
+    LESSTHAN = 1,
+    EQUALTO = 2,
+    UNORDERED = 3
+  };
 
 #if !defined(__MWERKS__) || !defined(__cmath__)
-/**
- *  relation()
- *
+  /**
+   *  relation()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(relop) relation(double_t x, double_t y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  relop relation(double_t x, double_t y);
 
 #endif /* !defined(__MWERKS__) || !defined(__cmath__) */
 
@@ -1224,109 +1233,112 @@ EXTERN_API_C(relop) relation(double_t x, double_t y);
 #define DECSTROUTLEN 80 /* max length for dec2str output */
 #define FLOATDECIMAL ((char)(0))
 #define FIXEDDECIMAL ((char)(1))
-struct decimal {
-  char sgn; /* sign 0 for +, 1 for - */
-  char unused;
-  short exp; /* decimal exponent */
-  struct {
-    unsigned char length;
-    unsigned char text[SIGDIGLEN]; /* significant digits */
-    unsigned char unused;
-  } sig;
-};
-typedef struct decimal decimal;
+  struct decimal
+  {
+    char sgn; /* sign 0 for +, 1 for - */
+    char unused;
+    short exp; /* decimal exponent */
+    struct
+    {
+      unsigned char length;
+      unsigned char text[SIGDIGLEN]; /* significant digits */
+      unsigned char unused;
+    } sig;
+  };
+  typedef struct decimal decimal;
 
-struct decform {
-  char style; /*  FLOATDECIMAL or FIXEDDECIMAL */
-  char unused;
-  short digits;
-};
-typedef struct decform decform;
-/**
- *  num2dec()
- *
+  struct decform
+  {
+    char style; /*  FLOATDECIMAL or FIXEDDECIMAL */
+    char unused;
+    short digits;
+  };
+  typedef struct decform decform;
+  /**
+   *  num2dec()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void) num2dec(const decform *f, double_t x, decimal *d);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void num2dec(const decform *f, double_t x, decimal *d);
 
-/**
- *  dec2num()
- *
+  /**
+   *  dec2num()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double_t) dec2num(const decimal *d);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double_t dec2num(const decimal *d);
 
-/**
- *  dec2str()
- *
+  /**
+   *  dec2str()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void) dec2str(const decform *f, const decimal *d, char *s);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void dec2str(const decform *f, const decimal *d, char *s);
 
-/**
- *  str2dec()
- *
+  /**
+   *  str2dec()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void) str2dec(const char *s, short *ix, decimal *d, short *vp);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void str2dec(const char *s, short *ix, decimal *d, short *vp);
 
 #if TARGET_CPU_68K
 #if CALL_NOT_IN_CARBON
-/**
- *  dec2d()
- *
+  /**
+   *  dec2d()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(double) dec2d(const decimal *d);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  double dec2d(const decimal *d);
 
 #endif /* CALL_NOT_IN_CARBON */
 
 #endif /* TARGET_CPU_68K */
 
-/**
- *  dec2f()
- *
+  /**
+   *  dec2f()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(float) dec2f(const decimal *d);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  float dec2f(const decimal *d);
 
-/**
- *  dec2s()
- *
+  /**
+   *  dec2s()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(short) dec2s(const decimal *d);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short dec2s(const decimal *d);
 
-/**
- *  dec2l()
- *
+  /**
+   *  dec2l()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(long) dec2l(const decimal *d);
+   *    \non_carbon_cfm   in MathLib 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long dec2l(const decimal *d);
 
 /********************************************************************************
  *                                                                               *
@@ -1335,25 +1347,25 @@ EXTERN_API_C(long) dec2l(const decimal *d);
  ********************************************************************************/
 #if TARGET_CPU_68K
 #if CALL_NOT_IN_CARBON
-/**
- *  x96tox80()
- *
+  /**
+   *  x96tox80()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void) x96tox80(const extended96 *x, extended80 *x80);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void x96tox80(const extended96 *x, extended80 *x80);
 
-/**
- *  x80tox96()
- *
+  /**
+   *  x80tox96()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void) x80tox96(const extended80 *x80, extended96 *x);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void x80tox96(const extended80 *x80, extended96 *x);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -1361,869 +1373,907 @@ EXTERN_API_C(void) x80tox96(const extended80 *x80, extended96 *x);
 
 #endif /* !defined(__NOEXTENSIONS__) */
 
-/********************************************************************************
- *                                                                               *
- *                         PowerPC-only Function Prototypes *
- *                                                                               *
- ********************************************************************************/
+  /********************************************************************************
+   *                                                                               *
+   *                         PowerPC-only Function Prototypes *
+   *                                                                               *
+   ********************************************************************************/
 
 #if TARGET_CPU_PPC
 #ifndef __MWERKS__ /* Metrowerks does not support double double */
 
-/**
- *  cosl()
- *
+  /**
+   *  cosl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) cosl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double cosl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double cosl(long double x) { return (long double)cos((double)(x)); }
+  inline long double cosl(long double x) { return (long double)cos((double)(x)); }
 #else
 #define cosl(x) ((long double)cos((double)(x)))
 #endif
 #endif
 
-/**
- *  sinl()
- *
+  /**
+   *  sinl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) sinl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double sinl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double sinl(long double x) { return (long double)sin((double)(x)); }
+  inline long double sinl(long double x) { return (long double)sin((double)(x)); }
 #else
 #define sinl(x) ((long double)sin((double)(x)))
 #endif
 #endif
 
-/**
- *  tanl()
- *
+  /**
+   *  tanl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) tanl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double tanl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double tanl(long double x) { return (long double)tan((double)(x)); }
+  inline long double tanl(long double x) { return (long double)tan((double)(x)); }
 #else
 #define tanl(x) ((long double)tan((double)(x)))
 #endif
 #endif
 
-/**
- *  acosl()
- *
+  /**
+   *  acosl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) acosl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double acosl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double acosl(long double x) {
-  return (long double)acos((double)(x));
-}
+  inline long double acosl(long double x)
+  {
+    return (long double)acos((double)(x));
+  }
 #else
 #define acosl(x) ((long double)acos((double)(x)))
 #endif
 #endif
 
-/**
- *  asinl()
- *
+  /**
+   *  asinl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) asinl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double asinl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double asinl(long double x) {
-  return (long double)asin((double)(x));
-}
+  inline long double asinl(long double x)
+  {
+    return (long double)asin((double)(x));
+  }
 #else
 #define asinl(x) ((long double)asin((double)(x)))
 #endif
 #endif
 
-/**
- *  atanl()
- *
+  /**
+   *  atanl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) atanl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double atanl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double atanl(long double x) {
-  return (long double)atan((double)(x));
-}
+  inline long double atanl(long double x)
+  {
+    return (long double)atan((double)(x));
+  }
 #else
 #define atanl(x) ((long double)atan((double)(x)))
 #endif
 #endif
 
-/**
- *  atan2l()
- *
+  /**
+   *  atan2l()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) atan2l(long double y, long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double atan2l(long double y, long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double atan2l(long double y, long double x) {
-  return (long double)atan2((double)(y), (double)(x));
-}
+  inline long double atan2l(long double y, long double x)
+  {
+    return (long double)atan2((double)(y), (double)(x));
+  }
 #else
 #define atan2l(y, x) ((long double)atan2((double)(y), (double)(x)))
 #endif
 #endif
 
-/**
- *  coshl()
- *
+  /**
+   *  coshl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) coshl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double coshl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double coshl(long double x) {
-  return (long double)cosh((double)(x));
-}
+  inline long double coshl(long double x)
+  {
+    return (long double)cosh((double)(x));
+  }
 #else
 #define coshl(x) ((long double)cosh((double)(x)))
 #endif
 #endif
 
-/**
- *  sinhl()
- *
+  /**
+   *  sinhl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) sinhl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double sinhl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double sinhl(long double x) {
-  return (long double)sinh((double)(x));
-}
+  inline long double sinhl(long double x)
+  {
+    return (long double)sinh((double)(x));
+  }
 #else
 #define sinhl(x) ((long double)sinh((double)(x)))
 #endif
 #endif
 
-/**
- *  tanhl()
- *
+  /**
+   *  tanhl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) tanhl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double tanhl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double tanhl(long double x) {
-  return (long double)tanh((double)(x));
-}
+  inline long double tanhl(long double x)
+  {
+    return (long double)tanh((double)(x));
+  }
 #else
 #define tanhl(x) ((long double)tanh((double)(x)))
 #endif
 #endif
 
-/**
- *  acoshl()
- *
+  /**
+   *  acoshl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) acoshl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double acoshl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double acoshl(long double x) {
-  return (long double)acosh((double)(x));
-}
+  inline long double acoshl(long double x)
+  {
+    return (long double)acosh((double)(x));
+  }
 #else
 #define acoshl(x) ((long double)acosh((double)(x)))
 #endif
 #endif
 
-/**
- *  asinhl()
- *
+  /**
+   *  asinhl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) asinhl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double asinhl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double asinhl(long double x) {
-  return (long double)asinh((double)(x));
-}
+  inline long double asinhl(long double x)
+  {
+    return (long double)asinh((double)(x));
+  }
 #else
 #define asinhl(x) ((long double)asinh((double)(x)))
 #endif
 #endif
 
-/**
- *  atanhl()
- *
+  /**
+   *  atanhl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) atanhl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double atanhl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double atanhl(long double x) {
-  return (long double)atanh((double)(x));
-}
+  inline long double atanhl(long double x)
+  {
+    return (long double)atanh((double)(x));
+  }
 #else
 #define atanhl(x) ((long double)atanh((double)(x)))
 #endif
 #endif
 
-/**
- *  expl()
- *
+  /**
+   *  expl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) expl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double expl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double expl(long double x) { return (long double)exp((double)(x)); }
+  inline long double expl(long double x) { return (long double)exp((double)(x)); }
 #else
 #define expl(x) ((long double)exp((double)(x)))
 #endif
 #endif
 
-/**
- *  expm1l()
- *
+  /**
+   *  expm1l()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) expm1l(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double expm1l(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double expm1l(long double x) {
-  return (long double)expm1((double)(x));
-}
+  inline long double expm1l(long double x)
+  {
+    return (long double)expm1((double)(x));
+  }
 #else
 #define expm1l(x) ((long double)expm1((double)(x)))
 #endif
 #endif
 
-/**
- *  exp2l()
- *
+  /**
+   *  exp2l()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) exp2l(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double exp2l(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double exp2l(long double x) {
-  return (long double)exp2((double)(x));
-}
+  inline long double exp2l(long double x)
+  {
+    return (long double)exp2((double)(x));
+  }
 #else
 #define exp2l(x) ((long double)exp2((double)(x)))
 #endif
 #endif
 
-/**
- *  frexpl()
- *
+  /**
+   *  frexpl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) frexpl(long double x, int *exponent);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double frexpl(long double x, int *exponent);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double frexpl(long double x, int *exponent) {
-  return (long double)frexp((double)(x), (exponent));
-}
+  inline long double frexpl(long double x, int *exponent)
+  {
+    return (long double)frexp((double)(x), (exponent));
+  }
 #else
 #define frexpl(x, exponent) ((long double)frexp((double)(x), (exponent)))
 #endif
 #endif
 
-/**
- *  ldexpl()
- *
+  /**
+   *  ldexpl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) ldexpl(long double x, int n);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double ldexpl(long double x, int n);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double ldexpl(long double x, int n) {
-  return (long double)ldexp((double)(x), (n));
-}
+  inline long double ldexpl(long double x, int n)
+  {
+    return (long double)ldexp((double)(x), (n));
+  }
 #else
 #define ldexpl(x, n) ((long double)ldexp((double)(x), (n)))
 #endif
 #endif
 
-/**
- *  logl()
- *
+  /**
+   *  logl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) logl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double logl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double logl(long double x) { return (long double)log((double)(x)); }
+  inline long double logl(long double x) { return (long double)log((double)(x)); }
 #else
 #define logl(x) ((long double)log((double)(x)))
 #endif
 #endif
 
-/**
- *  log1pl()
- *
+  /**
+   *  log1pl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) log1pl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double log1pl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double log1pl(long double x) {
-  return (long double)log1p((double)(x));
-}
+  inline long double log1pl(long double x)
+  {
+    return (long double)log1p((double)(x));
+  }
 #else
 #define log1pl(x) ((long double)log1p((double)(x)))
 #endif
 #endif
 
-/**
- *  log10l()
- *
+  /**
+   *  log10l()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) log10l(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double log10l(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double log10l(long double x) {
-  return (long double)log10((double)(x));
-}
+  inline long double log10l(long double x)
+  {
+    return (long double)log10((double)(x));
+  }
 #else
 #define log10l(x) ((long double)log10((double)(x)))
 #endif
 #endif
 
-/**
- *  log2l()
- *
+  /**
+   *  log2l()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) log2l(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double log2l(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double log2l(long double x) {
-  return (long double)log2((double)(x));
-}
+  inline long double log2l(long double x)
+  {
+    return (long double)log2((double)(x));
+  }
 #else
 #define log2l(x) ((long double)log2((double)(x)))
 #endif
 #endif
 
-/**
- *  logbl()
- *
+  /**
+   *  logbl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) logbl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double logbl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double logbl(long double x) {
-  return (long double)logb((double)(x));
-}
+  inline long double logbl(long double x)
+  {
+    return (long double)logb((double)(x));
+  }
 #else
 #define logbl(x) ((long double)logb((double)(x)))
 #endif
 #endif
 
-/**
- *  scalbl()
- *
+  /**
+   *  scalbl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) scalbl(long double x, long n);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double scalbl(long double x, long n);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double scalbl(long double x, long n) {
-  return (long double)scalb((double)(x), (n));
-}
+  inline long double scalbl(long double x, long n)
+  {
+    return (long double)scalb((double)(x), (n));
+  }
 #else
 #define scalbl(x, n) ((long double)scalb((double)(x), (n)))
 #endif
 #endif
 
-/**
- *  fabsl()
- *
+  /**
+   *  fabsl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) fabsl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double fabsl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double fabsl(long double x) {
-  return (long double)fabs((double)(x));
-}
+  inline long double fabsl(long double x)
+  {
+    return (long double)fabs((double)(x));
+  }
 #else
 #define fabsl(x) ((long double)fabs((double)(x)))
 #endif
 #endif
 
-/**
- *  hypotl()
- *
+  /**
+   *  hypotl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) hypotl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double hypotl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double hypotl(long double x, long double y) {
-  return (long double)hypot((double)(x), (double)(y));
-}
+  inline long double hypotl(long double x, long double y)
+  {
+    return (long double)hypot((double)(x), (double)(y));
+  }
 #else
 #define hypotl(x, y) ((long double)hypot((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  powl()
- *
+  /**
+   *  powl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) powl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double powl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double powl(long double x, long double y) {
-  return (long double)pow((double)(x), (double)(y));
-}
+  inline long double powl(long double x, long double y)
+  {
+    return (long double)pow((double)(x), (double)(y));
+  }
 #else
 #define powl(x, y) ((long double)pow((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  sqrtl()
- *
+  /**
+   *  sqrtl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) sqrtl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double sqrtl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double sqrtl(long double x) {
-  return (long double)sqrt((double)(x));
-}
+  inline long double sqrtl(long double x)
+  {
+    return (long double)sqrt((double)(x));
+  }
 #else
 #define sqrtl(x) ((long double)sqrt((double)(x)))
 #endif
 #endif
 
-/**
- *  erfl()
- *
+  /**
+   *  erfl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) erfl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double erfl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double erfl(long double x) { return (long double)erf((double)(x)); }
+  inline long double erfl(long double x) { return (long double)erf((double)(x)); }
 #else
 #define erfl(x) ((long double)erf((double)(x)))
 #endif
 #endif
 
-/**
- *  erfcl()
- *
+  /**
+   *  erfcl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) erfcl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double erfcl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double erfcl(long double x) {
-  return (long double)erfc((double)(x));
-}
+  inline long double erfcl(long double x)
+  {
+    return (long double)erfc((double)(x));
+  }
 #else
 #define erfcl(x) ((long double)erfc((double)(x)))
 #endif
 #endif
 
-/**
- *  gammal()
- *
+  /**
+   *  gammal()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) gammal(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double gammal(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double gammal(long double x) {
-  return (long double)gamma((double)(x));
-}
+  inline long double gammal(long double x)
+  {
+    return (long double)gamma((double)(x));
+  }
 #else
 #define gammal(x) ((long double)gamma((double)(x)))
 #endif
 #endif
 
-/**
- *  lgammal()
- *
+  /**
+   *  lgammal()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) lgammal(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double lgammal(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double lgammal(long double x) {
-  return (long double)lgamma((double)(x));
-}
+  inline long double lgammal(long double x)
+  {
+    return (long double)lgamma((double)(x));
+  }
 #else
 #define lgammal(x) ((long double)lgamma((double)(x)))
 #endif
 #endif
 
-/**
- *  ceill()
- *
+  /**
+   *  ceill()
+   *
 
- *    \non_carbon_cfm   in MathLib 2.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) ceill(long double x);
+   *    \non_carbon_cfm   in MathLib 2.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double ceill(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double ceill(long double x) {
-  return (long double)ceil((double)(x));
-}
+  inline long double ceill(long double x)
+  {
+    return (long double)ceil((double)(x));
+  }
 #else
 #define ceill(x) ((long double)ceil((double)(x)))
 #endif
 #endif
 
-/**
- *  floorl()
- *
+  /**
+   *  floorl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) floorl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double floorl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double floorl(long double x) {
-  return (long double)floor((double)(x));
-}
+  inline long double floorl(long double x)
+  {
+    return (long double)floor((double)(x));
+  }
 #else
 #define floorl(x) ((long double)floor((double)(x)))
 #endif
 #endif
 
-/**
- *  rintl()
- *
+  /**
+   *  rintl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) rintl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double rintl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double rintl(long double x) {
-  return (long double)rint((double)(x));
-}
+  inline long double rintl(long double x)
+  {
+    return (long double)rint((double)(x));
+  }
 #else
 #define rintl(x) ((long double)rint((double)(x)))
 #endif
 #endif
 
-/**
- *  nearbyintl()
- *
+  /**
+   *  nearbyintl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) nearbyintl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double nearbyintl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double nearbyintl(long double x) {
-  return (long double)nearbyint((double)(x));
-}
+  inline long double nearbyintl(long double x)
+  {
+    return (long double)nearbyint((double)(x));
+  }
 #else
 #define nearbyintl(x) ((long double)nearbyint((double)(x)))
 #endif
 #endif
 
-/**
- *  rinttoll()
- *
+  /**
+   *  rinttoll()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long) rinttoll(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long rinttoll(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long rinttoll(long double x) { return rinttol((double)(x)); }
+  inline long rinttoll(long double x) { return rinttol((double)(x)); }
 #else
 #define rinttoll(x) (rinttol((double)(x)))
 #endif
 #endif
 
-/**
- *  roundl()
- *
+  /**
+   *  roundl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) roundl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double roundl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double roundl(long double x) {
-  return (long double)round((double)(x));
-}
+  inline long double roundl(long double x)
+  {
+    return (long double)round((double)(x));
+  }
 #else
 #define roundl(x) ((long double)round((double)(x)))
 #endif
 #endif
 
-/**
- *  roundtoll()
- *
+  /**
+   *  roundtoll()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long) roundtoll(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long roundtoll(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long roundtoll(long double x) { return roundtol((double)(x)); }
+  inline long roundtoll(long double x) { return roundtol((double)(x)); }
 #else
 #define roundtoll(x) (roundtol((double)(x)))
 #endif
 #endif
 
-/**
- *  truncl()
- *
+  /**
+   *  truncl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) truncl(long double x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double truncl(long double x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double truncl(long double x) {
-  return (long double)trunc((double)(x));
-}
+  inline long double truncl(long double x)
+  {
+    return (long double)trunc((double)(x));
+  }
 #else
 #define truncl(x) ((long double)trunc((double)(x)))
 #endif
 #endif
 
-/**
- *  remainderl()
- *
+  /**
+   *  remainderl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) remainderl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double remainderl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double remainderl(long double x, long double y) {
-  return (long double)remainder((double)(x), (double)(y));
-}
+  inline long double remainderl(long double x, long double y)
+  {
+    return (long double)remainder((double)(x), (double)(y));
+  }
 #else
 #define remainderl(x, y) ((long double)remainder((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  remquol()
- *
+  /**
+   *  remquol()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) remquol(long double x, long double y, int *quo);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double remquol(long double x, long double y, int *quo);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double remquol(long double x, long double y, int *quo) {
-  return (long double)remquo((double)(x), (double)(y), (quo));
-}
+  inline long double remquol(long double x, long double y, int *quo)
+  {
+    return (long double)remquo((double)(x), (double)(y), (quo));
+  }
 #else
-#define remquol(x, y, quo)                                                     \
+#define remquol(x, y, quo) \
   ((long double)remquo((double)(x), (double)(y), (quo)))
 #endif
 #endif
 
-/**
- *  copysignl()
- *
+  /**
+   *  copysignl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) copysignl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double copysignl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double copysignl(long double x, long double y) {
-  return (long double)copysign((double)(x), (double)(y));
-}
+  inline long double copysignl(long double x, long double y)
+  {
+    return (long double)copysign((double)(x), (double)(y));
+  }
 #else
 #define copysignl(x, y) ((long double)copysign((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  fdiml()
- *
+  /**
+   *  fdiml()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) fdiml(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double fdiml(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double fdiml(long double x, long double y) {
-  return (long double)fdim((double)(x), (double)(y));
-}
+  inline long double fdiml(long double x, long double y)
+  {
+    return (long double)fdim((double)(x), (double)(y));
+  }
 #else
 #define fdiml(x, y) ((long double)fdim((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  fmaxl()
- *
+  /**
+   *  fmaxl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) fmaxl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double fmaxl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double fmaxl(long double x, long double y) {
-  return (long double)fmax((double)(x), (double)(y));
-}
+  inline long double fmaxl(long double x, long double y)
+  {
+    return (long double)fmax((double)(x), (double)(y));
+  }
 #else
 #define fmaxl(x, y) ((long double)fmax((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  fminl()
- *
+  /**
+   *  fminl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) fminl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double fminl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double fminl(long double x, long double y) {
-  return (long double)fmin((double)(x), (double)(y));
-}
+  inline long double fminl(long double x, long double y)
+  {
+    return (long double)fmin((double)(x), (double)(y));
+  }
 #else
 #define fminl(x, y) ((long double)fmin((double)(x), (double)(y)))
 #endif
@@ -2231,58 +2281,61 @@ inline long double fminl(long double x, long double y) {
 
 #endif /* __MWERKS__ */
 #ifndef __NOEXTENSIONS__
-/**
- *  relationl()
- *
+  /**
+   *  relationl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(relop) relationl(long double x, long double y);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  relop relationl(long double x, long double y);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline relop relationl(long double x, long double y) {
-  return relation((double)(x), (double)(y));
-}
+  inline relop relationl(long double x, long double y)
+  {
+    return relation((double)(x), (double)(y));
+  }
 #else
 #define relationl(x, y) (relation((double)(x), (double)(y)))
 #endif
 #endif
 
-/**
- *  num2decl()
- *
+  /**
+   *  num2decl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void) num2decl(const decform *f, long double x, decimal *d);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  void num2decl(const decform *f, long double x, decimal *d);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline void num2decl(const decform *f, long double x, decimal *d) {
-  num2dec((f), (double)(x), (d));
-}
+  inline void num2decl(const decform *f, long double x, decimal *d)
+  {
+    num2dec((f), (double)(x), (d));
+  }
 #else
 #define num2decl(f, x, d) (num2dec((f), (double)(x), (d)))
 #endif
 #endif
 
-/**
- *  dec2numl()
- *
+  /**
+   *  dec2numl()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(long double) dec2numl(const decimal *d);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  long double dec2numl(const decimal *d);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline long double dec2numl(const decimal *d) {
-  return (long double)dec2num(d);
-}
+  inline long double dec2numl(const decimal *d)
+  {
+    return (long double)dec2num(d);
+  }
 #else
 #define dec2numl(d) ((long double)dec2num(d))
 #endif
@@ -2295,71 +2348,74 @@ inline long double dec2numl(const decimal *d) {
 #endif /* TARGET_OS_MAC */
 
 #ifndef __NOEXTENSIONS__
-/**
-        MathLib v2 has two new transfer functions: x80tod and dtox80.  They can
-        be used to directly transform 68k 80-bit extended data types to double
-        and back for PowerPC based machines without using the functions
-        x80told or ldtox80.  Double rounding may occur.
-    */
-/**
- *  x80tod()
- *
+  /**
+          MathLib v2 has two new transfer functions: x80tod and dtox80.  They can
+          be used to directly transform 68k 80-bit extended data types to double
+          and back for PowerPC based machines without using the functions
+          x80told or ldtox80.  Double rounding may occur.
+      */
+  /**
+   *  x80tod()
+   *
 
- *    \non_carbon_cfm   in MathLib 2.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(double) x80tod(const extended80 *x80);
+   *    \non_carbon_cfm   in MathLib 2.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  double x80tod(const extended80 *x80);
 
-/**
- *  dtox80()
- *
+  /**
+   *  dtox80()
+   *
 
- *    \non_carbon_cfm   in MathLib 2.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void) dtox80(const double *x, extended80 *x80);
+   *    \non_carbon_cfm   in MathLib 2.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void dtox80(const double *x, extended80 *x80);
 
-/**
- *  x80told()
- *
+  /**
+   *  x80told()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void) x80told(const extended80 *x80, long double *x);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  void x80told(const extended80 *x80, long double *x);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline void x80told(const extended80 *x80, long double *x) {
-  *(x) = (long double)x80tod(x80);
-}
+  inline void x80told(const extended80 *x80, long double *x)
+  {
+    *(x) = (long double)x80tod(x80);
+  }
 #else
 #define x80told(x80, x) (*(x) = (long double)x80tod(x80))
 #endif
 #endif
 
-/**
- *  ldtox80()
- *
+  /**
+   *  ldtox80()
+   *
 
- *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void) ldtox80(const long double *x, extended80 *x80);
+   *    \non_carbon_cfm   in MathLib 1.0 and later or as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         not available
+   */
+  void ldtox80(const long double *x, extended80 *x80);
 #if TYPE_LONGDOUBLE_IS_DOUBLE
 #ifdef __cplusplus
-inline void ldtox80(const long double *x, extended80 *x80) {
-  double d = (double)*(x);
-  dtox80(&d, (x80));
-}
+  inline void ldtox80(const long double *x, extended80 *x80)
+  {
+    double d = (double)*(x);
+    dtox80(&d, (x80));
+  }
 #else
-#define ldtox80(x, x80)                                                        \
-  do {                                                                         \
-    double d = (double)*(x);                                                   \
-    dtox80(&d, (x80));                                                         \
+#define ldtox80(x, x80)      \
+  do                         \
+  {                          \
+    double d = (double)*(x); \
+    dtox80(&d, (x80));       \
   } while (false)
 #endif
 #endif

@@ -10,7 +10,7 @@
     \copyright © 1999-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup System
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -33,7 +33,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -48,118 +49,123 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/** Options for Set & Get DateTime Routines */
-enum { kUTCDefaultOptions = 0 };
+  /** Options for Set & Get DateTime Routines */
+  enum
+  {
+    kUTCDefaultOptions = 0
+  };
 
-/** 64 Bit Clock Typedefs */
-struct UTCDateTime {
-  UInt16 highSeconds;
-  UInt32 lowSeconds;
-  UInt16 fraction;
-};
-typedef struct UTCDateTime UTCDateTime;
-typedef UTCDateTime *UTCDateTimePtr;
-typedef UTCDateTimePtr *UTCDateTimeHandle;
-struct LocalDateTime {
-  UInt16 highSeconds;
-  UInt32 lowSeconds;
-  UInt16 fraction;
-};
-typedef struct LocalDateTime LocalDateTime;
-typedef LocalDateTime *LocalDateTimePtr;
-typedef LocalDateTimePtr *LocalDateTimeHandle;
-/** Classic 32 bit clock conversion routines */
-/**
- *  ConvertLocalTimeToUTC()
- *
+  /** 64 Bit Clock Typedefs */
+  struct UTCDateTime
+  {
+    UInt16 highSeconds;
+    UInt32 lowSeconds;
+    UInt16 fraction;
+  };
+  typedef struct UTCDateTime UTCDateTime;
+  typedef UTCDateTime *UTCDateTimePtr;
+  typedef UTCDateTimePtr *UTCDateTimeHandle;
+  struct LocalDateTime
+  {
+    UInt16 highSeconds;
+    UInt32 lowSeconds;
+    UInt16 fraction;
+  };
+  typedef struct LocalDateTime LocalDateTime;
+  typedef LocalDateTime *LocalDateTimePtr;
+  typedef LocalDateTimePtr *LocalDateTimeHandle;
+  /** Classic 32 bit clock conversion routines */
+  /**
+   *  ConvertLocalTimeToUTC()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ConvertLocalTimeToUTC(UInt32 localSeconds, UInt32 *utcSeconds);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ConvertLocalTimeToUTC(UInt32 localSeconds, UInt32 *utcSeconds);
 
-/**
- *  ConvertUTCToLocalTime()
- *
+  /**
+   *  ConvertUTCToLocalTime()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ConvertUTCToLocalTime(UInt32 utcSeconds, UInt32 *localSeconds);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ConvertUTCToLocalTime(UInt32 utcSeconds, UInt32 *localSeconds);
 
-/** 64 bit clock conversion routines */
-/**
- *  ConvertUTCToLocalDateTime()
- *
+  /** 64 bit clock conversion routines */
+  /**
+   *  ConvertUTCToLocalDateTime()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ConvertUTCToLocalDateTime(const UTCDateTime *utcDateTime,
-                          LocalDateTime *localDateTime);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ConvertUTCToLocalDateTime(const UTCDateTime *utcDateTime,
+                            LocalDateTime *localDateTime);
 
-/**
- *  ConvertLocalToUTCDateTime()
- *
+  /**
+   *  ConvertLocalToUTCDateTime()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-ConvertLocalToUTCDateTime(const LocalDateTime *localDateTime,
-                          UTCDateTime *utcDateTime);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  ConvertLocalToUTCDateTime(const LocalDateTime *localDateTime,
+                            UTCDateTime *utcDateTime);
 
-/** Getter and Setter Clock routines using 64 Bit values */
-/**
- *  GetUTCDateTime()
- *
+  /** Getter and Setter Clock routines using 64 Bit values */
+  /**
+   *  GetUTCDateTime()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-GetUTCDateTime(UTCDateTime *utcDateTime, OptionBits options);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  GetUTCDateTime(UTCDateTime *utcDateTime, OptionBits options);
 
-/**
- *  SetUTCDateTime()
- *
+  /**
+   *  SetUTCDateTime()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-SetUTCDateTime(const UTCDateTime *utcDateTime, OptionBits options);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  SetUTCDateTime(const UTCDateTime *utcDateTime, OptionBits options);
 
-/**
- *  GetLocalDateTime()
- *
+  /**
+   *  GetLocalDateTime()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-GetLocalDateTime(LocalDateTime *localDateTime, OptionBits options);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  GetLocalDateTime(LocalDateTime *localDateTime, OptionBits options);
 
-/**
- *  SetLocalDateTime()
- *
+  /**
+   *  SetLocalDateTime()
+   *
 
- *    \non_carbon_cfm   in UTCUtils 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(OSStatus)
-SetLocalDateTime(const LocalDateTime *localDateTime, OptionBits options);
+   *    \non_carbon_cfm   in UTCUtils 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  SetLocalDateTime(const LocalDateTime *localDateTime, OptionBits options);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

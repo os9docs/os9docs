@@ -9,7 +9,7 @@
     \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup Font
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,1021 +52,1101 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef struct TERec TERec;
-typedef TERec *TEPtr;
-typedef TEPtr *TEHandle;
-typedef CALLBACK_API_REGISTER68K(void, HighHookProcPtr,
-                                 (const Rect *r, TEPtr pTE));
-typedef CALLBACK_API_REGISTER68K(Boolean, EOLHookProcPtr,
-                                 (char theChar, TEPtr pTE, TEHandle hTE));
-typedef CALLBACK_API_REGISTER68K(void, CaretHookProcPtr,
-                                 (const Rect *r, TEPtr pTE));
-typedef CALLBACK_API_REGISTER68K(unsigned short, WidthHookProcPtr,
-                                 (unsigned short textLen,
-                                  unsigned short textOffset,
-                                  void *textBufferPtr, TEPtr pTE,
-                                  TEHandle hTE));
-typedef CALLBACK_API_REGISTER68K(unsigned short, TextWidthHookProcPtr,
-                                 (unsigned short textLen,
-                                  unsigned short textOffset,
-                                  void *textBufferPtr, TEPtr pTE,
-                                  TEHandle hTE));
-typedef CALLBACK_API_REGISTER68K(unsigned short, NWidthHookProcPtr,
-                                 (unsigned short styleRunLen,
-                                  unsigned short styleRunOffset, short slop,
-                                  short direction, void *textBufferPtr,
-                                  short *lineStart, TEPtr pTE, TEHandle hTE));
-typedef CALLBACK_API_REGISTER68K(void, DrawHookProcPtr,
-                                 (unsigned short textOffset,
-                                  unsigned short drawLen, void *textBufferPtr,
-                                  TEPtr pTE, TEHandle hTE));
-typedef CALLBACK_API_REGISTER68K(
-    Boolean, HitTestHookProcPtr,
-    (unsigned short styleRunLen, unsigned short styleRunOffset,
-     unsigned short slop, void *textBufferPtr, TEPtr pTE, TEHandle hTE,
-     unsigned short *pixelWidth, unsigned short *charOffset,
-     Boolean *pixelInChar));
-typedef CALLBACK_API_REGISTER68K(void, TEFindWordProcPtr,
-                                 (unsigned short currentPos, short caller,
-                                  TEPtr pTE, TEHandle hTE,
-                                  unsigned short *wordStart,
-                                  unsigned short *wordEnd));
-typedef CALLBACK_API_REGISTER68K(void, TERecalcProcPtr,
-                                 (TEPtr pTE, unsigned short changeLength,
-                                  unsigned short *lineStart,
-                                  unsigned short *firstChar,
-                                  unsigned short *lastChar));
-typedef CALLBACK_API_REGISTER68K(void, TEDoTextProcPtr,
-                                 (TEPtr pTE, unsigned short firstChar,
-                                  unsigned short lastChar, short selector,
-                                  GrafPtr *currentGrafPort,
-                                  short *charPosition));
-typedef CALLBACK_API_REGISTER68K(Boolean, TEClickLoopProcPtr, (TEPtr pTE));
-typedef CALLBACK_API_REGISTER68K(Boolean, WordBreakProcPtr,
-                                 (Ptr text, short charPos));
-/**
-    Important note about TEClickLoopProcPtr and WordBreakProcPtr
+  typedef struct TERec TERec;
+  typedef TERec *TEPtr;
+  typedef TEPtr *TEHandle;
+  typedef CALLBACK_API_REGISTER68K(void, HighHookProcPtr,
+                                   (const Rect *r, TEPtr pTE));
+  typedef CALLBACK_API_REGISTER68K(Boolean, EOLHookProcPtr,
+                                   (char theChar, TEPtr pTE, TEHandle hTE));
+  typedef CALLBACK_API_REGISTER68K(void, CaretHookProcPtr,
+                                   (const Rect *r, TEPtr pTE));
+  typedef CALLBACK_API_REGISTER68K(unsigned short, WidthHookProcPtr,
+                                   (unsigned short textLen,
+                                    unsigned short textOffset,
+                                    void *textBufferPtr, TEPtr pTE,
+                                    TEHandle hTE));
+  typedef CALLBACK_API_REGISTER68K(unsigned short, TextWidthHookProcPtr,
+                                   (unsigned short textLen,
+                                    unsigned short textOffset,
+                                    void *textBufferPtr, TEPtr pTE,
+                                    TEHandle hTE));
+  typedef CALLBACK_API_REGISTER68K(unsigned short, NWidthHookProcPtr,
+                                   (unsigned short styleRunLen,
+                                    unsigned short styleRunOffset, short slop,
+                                    short direction, void *textBufferPtr,
+                                    short *lineStart, TEPtr pTE, TEHandle hTE));
+  typedef CALLBACK_API_REGISTER68K(void, DrawHookProcPtr,
+                                   (unsigned short textOffset,
+                                    unsigned short drawLen, void *textBufferPtr,
+                                    TEPtr pTE, TEHandle hTE));
+  typedef CALLBACK_API_REGISTER68K(
+      Boolean, HitTestHookProcPtr,
+      (unsigned short styleRunLen, unsigned short styleRunOffset,
+       unsigned short slop, void *textBufferPtr, TEPtr pTE, TEHandle hTE,
+       unsigned short *pixelWidth, unsigned short *charOffset,
+       Boolean *pixelInChar));
+  typedef CALLBACK_API_REGISTER68K(void, TEFindWordProcPtr,
+                                   (unsigned short currentPos, short caller,
+                                    TEPtr pTE, TEHandle hTE,
+                                    unsigned short *wordStart,
+                                    unsigned short *wordEnd));
+  typedef CALLBACK_API_REGISTER68K(void, TERecalcProcPtr,
+                                   (TEPtr pTE, unsigned short changeLength,
+                                    unsigned short *lineStart,
+                                    unsigned short *firstChar,
+                                    unsigned short *lastChar));
+  typedef CALLBACK_API_REGISTER68K(void, TEDoTextProcPtr,
+                                   (TEPtr pTE, unsigned short firstChar,
+                                    unsigned short lastChar, short selector,
+                                    GrafPtr *currentGrafPort,
+                                    short *charPosition));
+  typedef CALLBACK_API_REGISTER68K(Boolean, TEClickLoopProcPtr, (TEPtr pTE));
+  typedef CALLBACK_API_REGISTER68K(Boolean, WordBreakProcPtr,
+                                   (Ptr text, short charPos));
+  /**
+      Important note about TEClickLoopProcPtr and WordBreakProcPtr
 
-    At one point these were defined as returning the function result in the
-    condition code Z-bit.  This was correct, in that it was what the 68K
-    implementation of TextEdit actually tested.  But, MixedMode had a different
-    idea of what returning a boolean in the Z-bit meant.  MixedMode was setting
-    the Z-bit the complement of what was wanted.
+      At one point these were defined as returning the function result in the
+      condition code Z-bit.  This was correct, in that it was what the 68K
+      implementation of TextEdit actually tested.  But, MixedMode had a different
+      idea of what returning a boolean in the Z-bit meant.  MixedMode was setting
+      the Z-bit the complement of what was wanted.
 
-    Therefore, these ProcPtrs have been changed (back) to return the result in
-    register D0.  It turns out that for register based routines,
-    MixedMode sets the Z-bit of the 68K emulator based on the contents
-    of the return result register.  Thus we can get the Z-bit set correctly.
+      Therefore, these ProcPtrs have been changed (back) to return the result in
+      register D0.  It turns out that for register based routines,
+      MixedMode sets the Z-bit of the 68K emulator based on the contents
+      of the return result register.  Thus we can get the Z-bit set correctly.
 
-    But, when TextEdit is recoded in PowerPC, if it calls a 68K ClickLoop
-    or WordBreak routine, register D0 had better have the result (in addition
-    to the Z-bit). Therefore all 68K apps should make sure their ClickLoop or
-    WordBreak routines set register D0 at the end.
-*/
+      But, when TextEdit is recoded in PowerPC, if it calls a 68K ClickLoop
+      or WordBreak routine, register D0 had better have the result (in addition
+      to the Z-bit). Therefore all 68K apps should make sure their ClickLoop or
+      WordBreak routines set register D0 at the end.
+  */
 
-/**
-    There is no function to get/set the low-mem for FindWordHook at 0x07F8.
-    This is because it is not a low-mem ProcPtr. That address is the entry
-    in the OS TrapTable for trap 0xA0FE.  You can use Get/SetTrapAddress to
-    acccess it.
-*/
+  /**
+      There is no function to get/set the low-mem for FindWordHook at 0x07F8.
+      This is because it is not a low-mem ProcPtr. That address is the entry
+      in the OS TrapTable for trap 0xA0FE.  You can use Get/SetTrapAddress to
+      acccess it.
+  */
 
-/**
-    The following ProcPtrs cannot be written in or called from a high-level
-    language without the help of mixed mode or assembly glue because they
-    use the following parameter-passing conventions:
+  /**
+      The following ProcPtrs cannot be written in or called from a high-level
+      language without the help of mixed mode or assembly glue because they
+      use the following parameter-passing conventions:
 
-    typedef pascal void (*HighHookProcPtr)(const Rect *r, TEPtr pTE);
-    typedef pascal void (*CaretHookProcPtr)(const Rect *r, TEPtr pTE);
+      typedef pascal void (*HighHookProcPtr)(const Rect *r, TEPtr pTE);
+      typedef pascal void (*CaretHookProcPtr)(const Rect *r, TEPtr pTE);
 
-        In:
-            =>  r                       on stack
-            =>  pTE                     A3.L
-        Out:
-            none
+          In:
+              =>  r                       on stack
+              =>  pTE                     A3.L
+          Out:
+              none
 
-    typedef pascal Boolean (*EOLHookProcPtr)(char theChar, TEPtr pTE, TEHandle
-   hTE);
+      typedef pascal Boolean (*EOLHookProcPtr)(char theChar, TEPtr pTE, TEHandle
+     hTE);
 
-        In:
-            =>  theChar                 D0.B
-            =>  pTE                     A3.L
-            =>  hTE                     A4.L
-        Out:
-            <=  Boolean                 Z bit of the CCR
+          In:
+              =>  theChar                 D0.B
+              =>  pTE                     A3.L
+              =>  hTE                     A4.L
+          Out:
+              <=  Boolean                 Z bit of the CCR
 
-    typedef pascal unsigned short (*WidthHookProcPtr)(unsigned short textLen,
-     unsigned short textOffset, void *textBufferPtr, TEPtr pTE, TEHandle hTE);
-    typedef pascal unsigned short (*TextWidthHookProcPtr)(unsigned short
-   textLen, unsigned short textOffset, void *textBufferPtr, TEPtr pTE, TEHandle
-   hTE);
+      typedef pascal unsigned short (*WidthHookProcPtr)(unsigned short textLen,
+       unsigned short textOffset, void *textBufferPtr, TEPtr pTE, TEHandle hTE);
+      typedef pascal unsigned short (*TextWidthHookProcPtr)(unsigned short
+     textLen, unsigned short textOffset, void *textBufferPtr, TEPtr pTE, TEHandle
+     hTE);
 
-        In:
-            =>  textLen                 D0.W
-            =>  textOffset              D1.W
-            =>  textBufferPtr           A0.L
-            =>  pTE                     A3.L
-            =>  hTE                     A4.L
-        Out:
-            <=  unsigned short          D1.W
+          In:
+              =>  textLen                 D0.W
+              =>  textOffset              D1.W
+              =>  textBufferPtr           A0.L
+              =>  pTE                     A3.L
+              =>  hTE                     A4.L
+          Out:
+              <=  unsigned short          D1.W
 
-    typedef pascal unsigned short (*NWidthHookProcPtr)(unsigned short
-   styleRunLen, unsigned short styleRunOffset, short slop, short direction, void
-   *textBufferPtr, short *lineStart, TEPtr pTE, TEHandle hTE);
+      typedef pascal unsigned short (*NWidthHookProcPtr)(unsigned short
+     styleRunLen, unsigned short styleRunOffset, short slop, short direction, void
+     *textBufferPtr, short *lineStart, TEPtr pTE, TEHandle hTE);
 
-        In:
-            =>  styleRunLen             D0.W
-            =>  styleRunOffset          D1.W
-            =>  slop                    D2.W (low)
-            =>  direction               D2.W (high)
-            =>  textBufferPtr           A0.L
-            =>  lineStart               A2.L
-            =>  pTE                     A3.L
-            =>  hTE                     A4.L
-        Out:
-            <=  unsigned short          D1.W
+          In:
+              =>  styleRunLen             D0.W
+              =>  styleRunOffset          D1.W
+              =>  slop                    D2.W (low)
+              =>  direction               D2.W (high)
+              =>  textBufferPtr           A0.L
+              =>  lineStart               A2.L
+              =>  pTE                     A3.L
+              =>  hTE                     A4.L
+          Out:
+              <=  unsigned short          D1.W
 
-    typedef pascal void (*DrawHookProcPtr)(unsigned short textOffset, unsigned
-   short drawLen, void *textBufferPtr, TEPtr pTE, TEHandle hTE);
+      typedef pascal void (*DrawHookProcPtr)(unsigned short textOffset, unsigned
+     short drawLen, void *textBufferPtr, TEPtr pTE, TEHandle hTE);
 
-        In:
-            =>  textOffset              D0.W
-            =>  drawLen                 D1.W
-            =>  textBufferPtr           A0.L
-            =>  pTE                     A3.L
-            =>  hTE                     A4.L
-        Out:
-            none
+          In:
+              =>  textOffset              D0.W
+              =>  drawLen                 D1.W
+              =>  textBufferPtr           A0.L
+              =>  pTE                     A3.L
+              =>  hTE                     A4.L
+          Out:
+              none
 
-    typedef pascal Boolean (*HitTestHookProcPtr)(unsigned short styleRunLen,
-     unsigned short styleRunOffset, unsigned short slop, void *textBufferPtr,
-     TEPtr pTE, TEHandle hTE, unsigned short *pixelWidth, unsigned short
-   *charOffset, Boolean *pixelInChar);
+      typedef pascal Boolean (*HitTestHookProcPtr)(unsigned short styleRunLen,
+       unsigned short styleRunOffset, unsigned short slop, void *textBufferPtr,
+       TEPtr pTE, TEHandle hTE, unsigned short *pixelWidth, unsigned short
+     *charOffset, Boolean *pixelInChar);
 
-        In:
-            =>  styleRunLen             D0.W
-            =>  styleRunOffset          D1.W
-            =>  slop                    D2.W
-            =>  textBufferPtr           A0.L
-            =>  pTE                     A3.L
-            =>  hTE                     A4.L
-        Out:
-            <=  pixelWidth              D0.W (low)
-            <=  Boolean                 D0.W (high)
-            <=  charOffset              D1.W
-            <=  pixelInChar             D2.W
+          In:
+              =>  styleRunLen             D0.W
+              =>  styleRunOffset          D1.W
+              =>  slop                    D2.W
+              =>  textBufferPtr           A0.L
+              =>  pTE                     A3.L
+              =>  hTE                     A4.L
+          Out:
+              <=  pixelWidth              D0.W (low)
+              <=  Boolean                 D0.W (high)
+              <=  charOffset              D1.W
+              <=  pixelInChar             D2.W
 
-    typedef pascal void (*TEFindWordProcPtr)(unsigned short currentPos, short
-   caller, TEPtr pTE, TEHandle hTE, unsigned short *wordStart, unsigned short
-   *wordEnd);
+      typedef pascal void (*TEFindWordProcPtr)(unsigned short currentPos, short
+     caller, TEPtr pTE, TEHandle hTE, unsigned short *wordStart, unsigned short
+     *wordEnd);
 
-        In:
-            =>  currentPos              D0.W
-            =>  caller                  D2.W
-            =>  pTE                     A3.L
-            =>  hTE                     A4.L
-        Out:
-            <=  wordStart               D0.W
-            <=  wordEnd                 D1.W
+          In:
+              =>  currentPos              D0.W
+              =>  caller                  D2.W
+              =>  pTE                     A3.L
+              =>  hTE                     A4.L
+          Out:
+              <=  wordStart               D0.W
+              <=  wordEnd                 D1.W
 
-    typedef pascal void (*TERecalcProcPtr)(TEPtr pTE, unsigned short
-   changeLength, unsigned short *lineStart, unsigned short *firstChar, unsigned
-   short *lastChar);
+      typedef pascal void (*TERecalcProcPtr)(TEPtr pTE, unsigned short
+     changeLength, unsigned short *lineStart, unsigned short *firstChar, unsigned
+     short *lastChar);
 
-        In:
-            =>  pTE                     A3.L
-            =>  changeLength            D7.W
-        Out:
-            <=  lineStart               D2.W
-            <=  firstChar               D3.W
-            <=  lastChar                D4.W
+          In:
+              =>  pTE                     A3.L
+              =>  changeLength            D7.W
+          Out:
+              <=  lineStart               D2.W
+              <=  firstChar               D3.W
+              <=  lastChar                D4.W
 
-    typedef pascal void (*TEDoTextProcPtr)(TEPtr pTE, unsigned short firstChar,
-   unsigned short lastChar, short selector, GrafPtr *currentGrafPort, short
-   *charPosition);
+      typedef pascal void (*TEDoTextProcPtr)(TEPtr pTE, unsigned short firstChar,
+     unsigned short lastChar, short selector, GrafPtr *currentGrafPort, short
+     *charPosition);
 
-        In:
-            =>  pTE                     A3.L
-            =>  firstChar               D3.W
-            =>  lastChar                D4.W
-            =>  selector                D7.W
-        Out:
-            <=  currentGrafPort         A0.L
-            <=  charPosition            D0.W
+          In:
+              =>  pTE                     A3.L
+              =>  firstChar               D3.W
+              =>  lastChar                D4.W
+              =>  selector                D7.W
+          Out:
+              <=  currentGrafPort         A0.L
+              <=  charPosition            D0.W
 
-*/
-typedef REGISTER_UPP_TYPE(HighHookProcPtr) HighHookUPP;
-typedef REGISTER_UPP_TYPE(EOLHookProcPtr) EOLHookUPP;
-typedef REGISTER_UPP_TYPE(CaretHookProcPtr) CaretHookUPP;
-typedef REGISTER_UPP_TYPE(WidthHookProcPtr) WidthHookUPP;
-typedef REGISTER_UPP_TYPE(TextWidthHookProcPtr) TextWidthHookUPP;
-typedef REGISTER_UPP_TYPE(NWidthHookProcPtr) NWidthHookUPP;
-typedef REGISTER_UPP_TYPE(DrawHookProcPtr) DrawHookUPP;
-typedef REGISTER_UPP_TYPE(HitTestHookProcPtr) HitTestHookUPP;
-typedef REGISTER_UPP_TYPE(TEFindWordProcPtr) TEFindWordUPP;
-typedef REGISTER_UPP_TYPE(TERecalcProcPtr) TERecalcUPP;
-typedef REGISTER_UPP_TYPE(TEDoTextProcPtr) TEDoTextUPP;
-typedef REGISTER_UPP_TYPE(TEClickLoopProcPtr) TEClickLoopUPP;
-typedef REGISTER_UPP_TYPE(WordBreakProcPtr) WordBreakUPP;
-struct TERec {
-  Rect destRect;
-  Rect viewRect;
-  Rect selRect;
-  short lineHeight;
-  short fontAscent;
-  Point selPoint;
-  short selStart;
-  short selEnd;
-  short active;
-  WordBreakUPP wordBreak; /* NOTE: This field is ignored on non-Roman systems
-                             and on Carbon (see IM-Text 2-60) */
-  TEClickLoopUPP clickLoop;
-  long clickTime;
-  short clickLoc;
-  long caretTime;
-  short caretState;
-  short just;
-  short teLength;
-  Handle hText;
-  long hDispatchRec; /* added to replace recalBack & recalLines.  it's a handle
-                        anyway */
-  short clikStuff;
-  short crOnly;
-  short txFont;
-  StyleField
-      txFace; /*StyleField occupies 16-bits, but only first 8-bits are used*/
-  short txMode;
-  short txSize;
-  GrafPtr inPort;
-  HighHookUPP highHook;
-  CaretHookUPP caretHook;
-  short nLines;
-  short lineStarts[16001];
-};
+  */
+  typedef REGISTER_UPP_TYPE(HighHookProcPtr) HighHookUPP;
+  typedef REGISTER_UPP_TYPE(EOLHookProcPtr) EOLHookUPP;
+  typedef REGISTER_UPP_TYPE(CaretHookProcPtr) CaretHookUPP;
+  typedef REGISTER_UPP_TYPE(WidthHookProcPtr) WidthHookUPP;
+  typedef REGISTER_UPP_TYPE(TextWidthHookProcPtr) TextWidthHookUPP;
+  typedef REGISTER_UPP_TYPE(NWidthHookProcPtr) NWidthHookUPP;
+  typedef REGISTER_UPP_TYPE(DrawHookProcPtr) DrawHookUPP;
+  typedef REGISTER_UPP_TYPE(HitTestHookProcPtr) HitTestHookUPP;
+  typedef REGISTER_UPP_TYPE(TEFindWordProcPtr) TEFindWordUPP;
+  typedef REGISTER_UPP_TYPE(TERecalcProcPtr) TERecalcUPP;
+  typedef REGISTER_UPP_TYPE(TEDoTextProcPtr) TEDoTextUPP;
+  typedef REGISTER_UPP_TYPE(TEClickLoopProcPtr) TEClickLoopUPP;
+  typedef REGISTER_UPP_TYPE(WordBreakProcPtr) WordBreakUPP;
+  struct TERec
+  {
+    Rect destRect;
+    Rect viewRect;
+    Rect selRect;
+    short lineHeight;
+    short fontAscent;
+    Point selPoint;
+    short selStart;
+    short selEnd;
+    short active;
+    WordBreakUPP wordBreak; /* NOTE: This field is ignored on non-Roman systems
+                               and on Carbon (see IM-Text 2-60) */
+    TEClickLoopUPP clickLoop;
+    long clickTime;
+    short clickLoc;
+    long caretTime;
+    short caretState;
+    short just;
+    short teLength;
+    Handle hText;
+    long hDispatchRec; /* added to replace recalBack & recalLines.  it's a handle
+                          anyway */
+    short clikStuff;
+    short crOnly;
+    short txFont;
+    StyleField
+        txFace; /*StyleField occupies 16-bits, but only first 8-bits are used*/
+    short txMode;
+    short txSize;
+    GrafPtr inPort;
+    HighHookUPP highHook;
+    CaretHookUPP caretHook;
+    short nLines;
+    short lineStarts[16001];
+  };
 
-enum {
-  /* Justification (word alignment) styles */
-  teJustLeft = 0,
-  teJustCenter = 1,
-  teJustRight = -1,
-  teForceLeft =
-      -2, /* new names for the Justification (word alignment) styles */
-  teFlushDefault = 0, /*flush according to the line direction */
-  teCenter = 1,       /*center justify (word alignment) */
-  teFlushRight = -1,  /*flush right for all scripts */
-  teFlushLeft = -2    /*flush left for all scripts */
-};
+  enum
+  {
+    /* Justification (word alignment) styles */
+    teJustLeft = 0,
+    teJustCenter = 1,
+    teJustRight = -1,
+    teForceLeft =
+        -2,             /* new names for the Justification (word alignment) styles */
+    teFlushDefault = 0, /*flush according to the line direction */
+    teCenter = 1,       /*center justify (word alignment) */
+    teFlushRight = -1,  /*flush right for all scripts */
+    teFlushLeft = -2    /*flush left for all scripts */
+  };
 
-enum {
-  /* Set/Replace style modes */
-  fontBit = 0,    /*set font*/
-  faceBit = 1,    /*set face*/
-  sizeBit = 2,    /*set size*/
-  clrBit = 3,     /*set color*/
-  addSizeBit = 4, /*add size mode*/
-  toggleBit = 5   /*set faces in toggle mode*/
-};
+  enum
+  {
+    /* Set/Replace style modes */
+    fontBit = 0,    /*set font*/
+    faceBit = 1,    /*set face*/
+    sizeBit = 2,    /*set size*/
+    clrBit = 3,     /*set color*/
+    addSizeBit = 4, /*add size mode*/
+    toggleBit = 5   /*set faces in toggle mode*/
+  };
 
-enum {
-  /* TESetStyle/TEContinuousStyle modes */
-  doFont = 1,   /* set font (family) number*/
-  doFace = 2,   /*set character style*/
-  doSize = 4,   /*set type size*/
-  doColor = 8,  /*set color*/
-  doAll = 15,   /*set all attributes*/
-  addSize = 16, /*adjust type size*/
-  doToggle = 32 /*toggle mode for TESetStyle*/
-};
+  enum
+  {
+    /* TESetStyle/TEContinuousStyle modes */
+    doFont = 1,   /* set font (family) number*/
+    doFace = 2,   /*set character style*/
+    doSize = 4,   /*set type size*/
+    doColor = 8,  /*set color*/
+    doAll = 15,   /*set all attributes*/
+    addSize = 16, /*adjust type size*/
+    doToggle = 32 /*toggle mode for TESetStyle*/
+  };
 
-enum {
-  /* offsets into TEDispatchRec */
-  EOLHook = 0,       /*[UniversalProcPtr] TEEOLHook*/
-  DRAWHook = 4,      /*[UniversalProcPtr] TEWidthHook*/
-  WIDTHHook = 8,     /*[UniversalProcPtr] TEDrawHook*/
-  HITTESTHook = 12,  /*[UniversalProcPtr] TEHitTestHook*/
-  nWIDTHHook = 24,   /*[UniversalProcPtr] nTEWidthHook*/
-  TextWidthHook = 28 /*[UniversalProcPtr] TETextWidthHook*/
-};
+  enum
+  {
+    /* offsets into TEDispatchRec */
+    EOLHook = 0,       /*[UniversalProcPtr] TEEOLHook*/
+    DRAWHook = 4,      /*[UniversalProcPtr] TEWidthHook*/
+    WIDTHHook = 8,     /*[UniversalProcPtr] TEDrawHook*/
+    HITTESTHook = 12,  /*[UniversalProcPtr] TEHitTestHook*/
+    nWIDTHHook = 24,   /*[UniversalProcPtr] nTEWidthHook*/
+    TextWidthHook = 28 /*[UniversalProcPtr] TETextWidthHook*/
+  };
 
-enum {
-  /* selectors for TECustomHook */
-  intEOLHook = 0,       /*TEIntHook value*/
-  intDrawHook = 1,      /*TEIntHook value*/
-  intWidthHook = 2,     /*TEIntHook value*/
-  intHitTestHook = 3,   /*TEIntHook value*/
-  intNWidthHook = 6,    /*TEIntHook value for new version of WidthHook*/
-  intTextWidthHook = 7, /*TEIntHook value for new TextWidthHook*/
-  intInlineInputTSMTEPreUpdateHook =
-      8, /*TEIntHook value for TSMTEPreUpdateProcPtr callback*/
-  intInlineInputTSMTEPostUpdateHook =
-      9 /*TEIntHook value for TSMTEPostUpdateProcPtr callback*/
-};
+  enum
+  {
+    /* selectors for TECustomHook */
+    intEOLHook = 0,       /*TEIntHook value*/
+    intDrawHook = 1,      /*TEIntHook value*/
+    intWidthHook = 2,     /*TEIntHook value*/
+    intHitTestHook = 3,   /*TEIntHook value*/
+    intNWidthHook = 6,    /*TEIntHook value for new version of WidthHook*/
+    intTextWidthHook = 7, /*TEIntHook value for new TextWidthHook*/
+    intInlineInputTSMTEPreUpdateHook =
+        8, /*TEIntHook value for TSMTEPreUpdateProcPtr callback*/
+    intInlineInputTSMTEPostUpdateHook =
+        9 /*TEIntHook value for TSMTEPostUpdateProcPtr callback*/
+  };
 
-enum {
-  /* feature or bit definitions for TEFeatureFlag */
-  teFAutoScroll = 0,           /*00000001b*/
-  teFTextBuffering = 1,        /*00000010b*/
-  teFOutlineHilite = 2,        /*00000100b*/
-  teFInlineInput = 3,          /*00001000b */
-  teFUseWhiteBackground = 4,   /*00010000b */
-  teFUseInlineInput = 5,       /*00100000b */
-  teFInlineInputAutoScroll = 6 /*01000000b */
-};
+  enum
+  {
+    /* feature or bit definitions for TEFeatureFlag */
+    teFAutoScroll = 0,           /*00000001b*/
+    teFTextBuffering = 1,        /*00000010b*/
+    teFOutlineHilite = 2,        /*00000100b*/
+    teFInlineInput = 3,          /*00001000b */
+    teFUseWhiteBackground = 4,   /*00010000b */
+    teFUseInlineInput = 5,       /*00100000b */
+    teFInlineInputAutoScroll = 6 /*01000000b */
+  };
 
-enum {
-  /* feature or bit definitions for TEFeatureFlag -- Carbon only */
-  /* To avoid having to call TEIdle in Carbon apps, automatic idling can be
-     activated   */
-  /* via the following feature flag, but you must ensure that the destRect
-     and/or     */
-  /* GrafPort's origin be setup properly for drawing in a given TERec when */
-  /* the timer fires.    When this feature flag is set, TEIdle is a noop. */
-  /* Activate this feature flag before calling TEActivate.                 */
-  teFIdleWithEventLoopTimer = 7 /*10000000b */
-};
+  enum
+  {
+    /* feature or bit definitions for TEFeatureFlag -- Carbon only */
+    /* To avoid having to call TEIdle in Carbon apps, automatic idling can be
+       activated   */
+    /* via the following feature flag, but you must ensure that the destRect
+       and/or     */
+    /* GrafPort's origin be setup properly for drawing in a given TERec when */
+    /* the timer fires.    When this feature flag is set, TEIdle is a noop. */
+    /* Activate this feature flag before calling TEActivate.                 */
+    teFIdleWithEventLoopTimer = 7 /*10000000b */
+  };
 
-enum {
-  /* action for the new "bit (un)set" interface, TEFeatureFlag */
-  teBitClear = 0,
-  teBitSet = 1,  /*set the selector bit*/
-  teBitTest = -1 /*no change; just return the current setting*/
-};
+  enum
+  {
+    /* action for the new "bit (un)set" interface, TEFeatureFlag */
+    teBitClear = 0,
+    teBitSet = 1,  /*set the selector bit*/
+    teBitTest = -1 /*no change; just return the current setting*/
+  };
 
-enum {
-  /*constants for identifying the routine that called FindWord */
-  teWordSelect = 4, /*clickExpand to select word*/
-  teWordDrag = 8,   /*clickExpand to drag new word*/
-  teFromFind = 12,  /*FindLine called it ($0C)*/
-  teFromRecal = 16  /*RecalLines called it ($10)      obsolete */
-};
+  enum
+  {
+    /*constants for identifying the routine that called FindWord */
+    teWordSelect = 4, /*clickExpand to select word*/
+    teWordDrag = 8,   /*clickExpand to drag new word*/
+    teFromFind = 12,  /*FindLine called it ($0C)*/
+    teFromRecal = 16  /*RecalLines called it ($10)      obsolete */
+  };
 
-enum {
-  /*constants for identifying TEDoText selectors */
-  teFind = 0,      /*TEDoText called for searching*/
-  teHighlight = 1, /*TEDoText called for highlighting*/
-  teDraw = -1,     /*TEDoText called for drawing text*/
-  teCaret = -2     /*TEDoText called for drawing the caret*/
-};
+  enum
+  {
+    /*constants for identifying TEDoText selectors */
+    teFind = 0,      /*TEDoText called for searching*/
+    teHighlight = 1, /*TEDoText called for highlighting*/
+    teDraw = -1,     /*TEDoText called for drawing text*/
+    teCaret = -2     /*TEDoText called for drawing the caret*/
+  };
 
-typedef char Chars[32001];
-typedef char *CharsPtr;
-typedef CharsPtr *CharsHandle;
-struct StyleRun {
-  short startChar;  /*starting character position*/
-  short styleIndex; /*index in style table*/
-};
-typedef struct StyleRun StyleRun;
-struct STElement {
-  short stCount;  /*number of runs in this style*/
-  short stHeight; /*line height*/
-  short stAscent; /*font ascent*/
-  short stFont;   /*font (family) number*/
-  StyleField
-      stFace;   /*StyleField occupies 16-bits, but only first 8-bits are used */
-  short stSize; /*size in points*/
-  RGBColor stColor; /*absolute (RGB) color*/
-};
-typedef struct STElement STElement;
-typedef STElement TEStyleTable[1777];
-typedef STElement *STPtr;
-typedef STPtr *STHandle;
-struct LHElement {
-  short lhHeight; /*maximum height in line*/
-  short lhAscent; /*maximum ascent in line*/
-};
-typedef struct LHElement LHElement;
-typedef LHElement LHTable[8001];
-typedef LHElement *LHPtr;
-typedef LHPtr *LHHandle;
-struct ScrpSTElement {
-  long scrpStartChar; /*starting character position*/
-  short scrpHeight;
-  short scrpAscent;
-  short scrpFont;
-  StyleField
-      scrpFace; /*StyleField occupies 16-bits, but only first 8-bits are used*/
-  short scrpSize;
-  RGBColor scrpColor;
-};
-typedef struct ScrpSTElement ScrpSTElement;
-/* ARRAY [0..1600] OF ScrpSTElement */
-typedef ScrpSTElement ScrpSTTable[1601];
-struct StScrpRec {
-  short scrpNStyles;        /*number of styles in scrap*/
-  ScrpSTTable scrpStyleTab; /*table of styles for scrap*/
-};
-typedef struct StScrpRec StScrpRec;
-typedef StScrpRec *StScrpPtr;
-typedef StScrpPtr *StScrpHandle;
-struct NullStRec {
-  long teReserved;        /*reserved for future expansion*/
-  StScrpHandle nullScrap; /*handle to scrap style table*/
-};
-typedef struct NullStRec NullStRec;
-typedef NullStRec *NullStPtr;
-typedef NullStPtr *NullStHandle;
-struct TEStyleRec {
-  short nRuns;            /*number of style runs*/
-  short nStyles;          /*size of style table*/
-  STHandle styleTab;      /*handle to style table*/
-  LHHandle lhTab;         /*handle to line-height table*/
-  long teRefCon;          /*reserved for application use*/
-  NullStHandle nullStyle; /*Handle to style set at null selection*/
-  StyleRun runs[8001];    /*ARRAY [0..8000] OF StyleRun*/
-};
-typedef struct TEStyleRec TEStyleRec;
-typedef TEStyleRec *TEStylePtr;
-typedef TEStylePtr *TEStyleHandle;
-struct TextStyle {
-  short tsFont; /*font (family) number*/
-  StyleField
-      tsFace;   /*StyleField occupies 16-bits, but only first 8-bits are used*/
-  short tsSize; /*size in point*/
-  RGBColor tsColor; /*absolute (RGB) color*/
-};
-typedef struct TextStyle TextStyle;
-typedef TextStyle *TextStylePtr;
-typedef TextStylePtr *TextStyleHandle;
-typedef short TEIntHook;
-/**
- *  NewHighHookUPP()
- *
+  typedef char Chars[32001];
+  typedef char *CharsPtr;
+  typedef CharsPtr *CharsHandle;
+  struct StyleRun
+  {
+    short startChar;  /*starting character position*/
+    short styleIndex; /*index in style table*/
+  };
+  typedef struct StyleRun StyleRun;
+  struct STElement
+  {
+    short stCount;  /*number of runs in this style*/
+    short stHeight; /*line height*/
+    short stAscent; /*font ascent*/
+    short stFont;   /*font (family) number*/
+    StyleField
+        stFace;       /*StyleField occupies 16-bits, but only first 8-bits are used */
+    short stSize;     /*size in points*/
+    RGBColor stColor; /*absolute (RGB) color*/
+  };
+  typedef struct STElement STElement;
+  typedef STElement TEStyleTable[1777];
+  typedef STElement *STPtr;
+  typedef STPtr *STHandle;
+  struct LHElement
+  {
+    short lhHeight; /*maximum height in line*/
+    short lhAscent; /*maximum ascent in line*/
+  };
+  typedef struct LHElement LHElement;
+  typedef LHElement LHTable[8001];
+  typedef LHElement *LHPtr;
+  typedef LHPtr *LHHandle;
+  struct ScrpSTElement
+  {
+    long scrpStartChar; /*starting character position*/
+    short scrpHeight;
+    short scrpAscent;
+    short scrpFont;
+    StyleField
+        scrpFace; /*StyleField occupies 16-bits, but only first 8-bits are used*/
+    short scrpSize;
+    RGBColor scrpColor;
+  };
+  typedef struct ScrpSTElement ScrpSTElement;
+  // ARRAY [0..1600] OF ScrpSTElement
+  typedef ScrpSTElement ScrpSTTable[1601];
+  struct StScrpRec
+  {
+    short scrpNStyles;        /*number of styles in scrap*/
+    ScrpSTTable scrpStyleTab; /*table of styles for scrap*/
+  };
+  typedef struct StScrpRec StScrpRec;
+  typedef StScrpRec *StScrpPtr;
+  typedef StScrpPtr *StScrpHandle;
+  struct NullStRec
+  {
+    long teReserved;        /*reserved for future expansion*/
+    StScrpHandle nullScrap; /*handle to scrap style table*/
+  };
+  typedef struct NullStRec NullStRec;
+  typedef NullStRec *NullStPtr;
+  typedef NullStPtr *NullStHandle;
+  struct TEStyleRec
+  {
+    short nRuns;            /*number of style runs*/
+    short nStyles;          /*size of style table*/
+    STHandle styleTab;      /*handle to style table*/
+    LHHandle lhTab;         /*handle to line-height table*/
+    long teRefCon;          /*reserved for application use*/
+    NullStHandle nullStyle; /*Handle to style set at null selection*/
+    StyleRun runs[8001];    /*ARRAY [0..8000] OF StyleRun*/
+  };
+  typedef struct TEStyleRec TEStyleRec;
+  typedef TEStyleRec *TEStylePtr;
+  typedef TEStylePtr *TEStyleHandle;
+  struct TextStyle
+  {
+    short tsFont; /*font (family) number*/
+    StyleField
+        tsFace;       /*StyleField occupies 16-bits, but only first 8-bits are used*/
+    short tsSize;     /*size in point*/
+    RGBColor tsColor; /*absolute (RGB) color*/
+  };
+  typedef struct TextStyle TextStyle;
+  typedef TextStyle *TextStylePtr;
+  typedef TextStylePtr *TextStyleHandle;
+  typedef short TEIntHook;
+  /**
+   *  NewHighHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HighHookUPP)
-NewHighHookUPP(HighHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HighHookUPP
+  NewHighHookUPP(HighHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppHighHookProcInfo = 0x0000000F }; /* SPECIAL_CASE_PROCINFO(0) */
+  enum
+  {
+    uppHighHookProcInfo = 0x0000000F
+  }; /* SPECIAL_CASE_PROCINFO(0) */
 #ifdef __cplusplus
-inline HighHookUPP NewHighHookUPP(HighHookProcPtr userRoutine) {
-  return (HighHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppHighHookProcInfo, GetCurrentArchitecture());
-}
+  inline HighHookUPP NewHighHookUPP(HighHookProcPtr userRoutine)
+  {
+    return (HighHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppHighHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewHighHookUPP(userRoutine)                                            \
-  (HighHookUPP) NewRoutineDescriptor(                                          \
+#define NewHighHookUPP(userRoutine)   \
+  (HighHookUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppHighHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewEOLHookUPP()
- *
+  /**
+   *  NewEOLHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(EOLHookUPP)
-NewEOLHookUPP(EOLHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  EOLHookUPP
+  NewEOLHookUPP(EOLHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppEOLHookProcInfo = 0x0000001F }; /* SPECIAL_CASE_PROCINFO(1) */
+  enum
+  {
+    uppEOLHookProcInfo = 0x0000001F
+  }; /* SPECIAL_CASE_PROCINFO(1) */
 #ifdef __cplusplus
-inline EOLHookUPP NewEOLHookUPP(EOLHookProcPtr userRoutine) {
-  return (EOLHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppEOLHookProcInfo, GetCurrentArchitecture());
-}
+  inline EOLHookUPP NewEOLHookUPP(EOLHookProcPtr userRoutine)
+  {
+    return (EOLHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppEOLHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewEOLHookUPP(userRoutine)                                             \
-  (EOLHookUPP) NewRoutineDescriptor(                                           \
+#define NewEOLHookUPP(userRoutine)   \
+  (EOLHookUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppEOLHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewCaretHookUPP()
- *
+  /**
+   *  NewCaretHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CaretHookUPP)
-NewCaretHookUPP(CaretHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CaretHookUPP
+  NewCaretHookUPP(CaretHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppCaretHookProcInfo = 0x0000000F }; /* SPECIAL_CASE_PROCINFO(0) */
+  enum
+  {
+    uppCaretHookProcInfo = 0x0000000F
+  }; /* SPECIAL_CASE_PROCINFO(0) */
 #ifdef __cplusplus
-inline CaretHookUPP NewCaretHookUPP(CaretHookProcPtr userRoutine) {
-  return (CaretHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppCaretHookProcInfo, GetCurrentArchitecture());
-}
+  inline CaretHookUPP NewCaretHookUPP(CaretHookProcPtr userRoutine)
+  {
+    return (CaretHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppCaretHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewCaretHookUPP(userRoutine)                                           \
-  (CaretHookUPP) NewRoutineDescriptor(                                         \
+#define NewCaretHookUPP(userRoutine)   \
+  (CaretHookUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppCaretHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewWidthHookUPP()
- *
+  /**
+   *  NewWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(WidthHookUPP)
-NewWidthHookUPP(WidthHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  WidthHookUPP
+  NewWidthHookUPP(WidthHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppWidthHookProcInfo = 0x0000002F }; /* SPECIAL_CASE_PROCINFO(2) */
+  enum
+  {
+    uppWidthHookProcInfo = 0x0000002F
+  }; /* SPECIAL_CASE_PROCINFO(2) */
 #ifdef __cplusplus
-inline WidthHookUPP NewWidthHookUPP(WidthHookProcPtr userRoutine) {
-  return (WidthHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppWidthHookProcInfo, GetCurrentArchitecture());
-}
+  inline WidthHookUPP NewWidthHookUPP(WidthHookProcPtr userRoutine)
+  {
+    return (WidthHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppWidthHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewWidthHookUPP(userRoutine)                                           \
-  (WidthHookUPP) NewRoutineDescriptor(                                         \
+#define NewWidthHookUPP(userRoutine)   \
+  (WidthHookUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppWidthHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewTextWidthHookUPP()
- *
+  /**
+   *  NewTextWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(TextWidthHookUPP)
-NewTextWidthHookUPP(TextWidthHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TextWidthHookUPP
+  NewTextWidthHookUPP(TextWidthHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppTextWidthHookProcInfo = 0x0000002F }; /* SPECIAL_CASE_PROCINFO(2) */
+  enum
+  {
+    uppTextWidthHookProcInfo = 0x0000002F
+  }; /* SPECIAL_CASE_PROCINFO(2) */
 #ifdef __cplusplus
-inline TextWidthHookUPP NewTextWidthHookUPP(TextWidthHookProcPtr userRoutine) {
-  return (TextWidthHookUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                uppTextWidthHookProcInfo,
-                                                GetCurrentArchitecture());
-}
+  inline TextWidthHookUPP NewTextWidthHookUPP(TextWidthHookProcPtr userRoutine)
+  {
+    return (TextWidthHookUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                  uppTextWidthHookProcInfo,
+                                                  GetCurrentArchitecture());
+  }
 #else
-#define NewTextWidthHookUPP(userRoutine)                                       \
-  (TextWidthHookUPP)                                                           \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppTextWidthHookProcInfo,   \
+#define NewTextWidthHookUPP(userRoutine)                                     \
+  (TextWidthHookUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppTextWidthHookProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewNWidthHookUPP()
- *
+  /**
+   *  NewNWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(NWidthHookUPP)
-NewNWidthHookUPP(NWidthHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  NWidthHookUPP
+  NewNWidthHookUPP(NWidthHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppNWidthHookProcInfo = 0x0000003F }; /* SPECIAL_CASE_PROCINFO(3) */
+  enum
+  {
+    uppNWidthHookProcInfo = 0x0000003F
+  }; /* SPECIAL_CASE_PROCINFO(3) */
 #ifdef __cplusplus
-inline NWidthHookUPP NewNWidthHookUPP(NWidthHookProcPtr userRoutine) {
-  return (NWidthHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppNWidthHookProcInfo, GetCurrentArchitecture());
-}
+  inline NWidthHookUPP NewNWidthHookUPP(NWidthHookProcPtr userRoutine)
+  {
+    return (NWidthHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppNWidthHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewNWidthHookUPP(userRoutine)                                          \
-  (NWidthHookUPP) NewRoutineDescriptor(                                        \
+#define NewNWidthHookUPP(userRoutine)   \
+  (NWidthHookUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppNWidthHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewDrawHookUPP()
- *
+  /**
+   *  NewDrawHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(DrawHookUPP)
-NewDrawHookUPP(DrawHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  DrawHookUPP
+  NewDrawHookUPP(DrawHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppDrawHookProcInfo = 0x0000004F }; /* SPECIAL_CASE_PROCINFO(4) */
+  enum
+  {
+    uppDrawHookProcInfo = 0x0000004F
+  }; /* SPECIAL_CASE_PROCINFO(4) */
 #ifdef __cplusplus
-inline DrawHookUPP NewDrawHookUPP(DrawHookProcPtr userRoutine) {
-  return (DrawHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppDrawHookProcInfo, GetCurrentArchitecture());
-}
+  inline DrawHookUPP NewDrawHookUPP(DrawHookProcPtr userRoutine)
+  {
+    return (DrawHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppDrawHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewDrawHookUPP(userRoutine)                                            \
-  (DrawHookUPP) NewRoutineDescriptor(                                          \
+#define NewDrawHookUPP(userRoutine)   \
+  (DrawHookUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppDrawHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewHitTestHookUPP()
- *
+  /**
+   *  NewHitTestHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(HitTestHookUPP)
-NewHitTestHookUPP(HitTestHookProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  HitTestHookUPP
+  NewHitTestHookUPP(HitTestHookProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppHitTestHookProcInfo = 0x0000005F }; /* SPECIAL_CASE_PROCINFO(5) */
+  enum
+  {
+    uppHitTestHookProcInfo = 0x0000005F
+  }; /* SPECIAL_CASE_PROCINFO(5) */
 #ifdef __cplusplus
-inline HitTestHookUPP NewHitTestHookUPP(HitTestHookProcPtr userRoutine) {
-  return (HitTestHookUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppHitTestHookProcInfo, GetCurrentArchitecture());
-}
+  inline HitTestHookUPP NewHitTestHookUPP(HitTestHookProcPtr userRoutine)
+  {
+    return (HitTestHookUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppHitTestHookProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewHitTestHookUPP(userRoutine)                                         \
-  (HitTestHookUPP)                                                             \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppHitTestHookProcInfo,     \
+#define NewHitTestHookUPP(userRoutine)                                     \
+  (HitTestHookUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppHitTestHookProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewTEFindWordUPP()
- *
+  /**
+   *  NewTEFindWordUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(TEFindWordUPP)
-NewTEFindWordUPP(TEFindWordProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEFindWordUPP
+  NewTEFindWordUPP(TEFindWordProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppTEFindWordProcInfo = 0x0000006F }; /* SPECIAL_CASE_PROCINFO(6) */
+  enum
+  {
+    uppTEFindWordProcInfo = 0x0000006F
+  }; /* SPECIAL_CASE_PROCINFO(6) */
 #ifdef __cplusplus
-inline TEFindWordUPP NewTEFindWordUPP(TEFindWordProcPtr userRoutine) {
-  return (TEFindWordUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppTEFindWordProcInfo, GetCurrentArchitecture());
-}
+  inline TEFindWordUPP NewTEFindWordUPP(TEFindWordProcPtr userRoutine)
+  {
+    return (TEFindWordUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppTEFindWordProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewTEFindWordUPP(userRoutine)                                          \
-  (TEFindWordUPP) NewRoutineDescriptor(                                        \
+#define NewTEFindWordUPP(userRoutine)   \
+  (TEFindWordUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppTEFindWordProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewTERecalcUPP()
- *
+  /**
+   *  NewTERecalcUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(TERecalcUPP)
-NewTERecalcUPP(TERecalcProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TERecalcUPP
+  NewTERecalcUPP(TERecalcProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppTERecalcProcInfo = 0x0000009F }; /* SPECIAL_CASE_PROCINFO(9) */
+  enum
+  {
+    uppTERecalcProcInfo = 0x0000009F
+  }; /* SPECIAL_CASE_PROCINFO(9) */
 #ifdef __cplusplus
-inline TERecalcUPP NewTERecalcUPP(TERecalcProcPtr userRoutine) {
-  return (TERecalcUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppTERecalcProcInfo, GetCurrentArchitecture());
-}
+  inline TERecalcUPP NewTERecalcUPP(TERecalcProcPtr userRoutine)
+  {
+    return (TERecalcUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppTERecalcProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewTERecalcUPP(userRoutine)                                            \
-  (TERecalcUPP) NewRoutineDescriptor(                                          \
+#define NewTERecalcUPP(userRoutine)   \
+  (TERecalcUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppTERecalcProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewTEDoTextUPP()
- *
+  /**
+   *  NewTEDoTextUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(TEDoTextUPP)
-NewTEDoTextUPP(TEDoTextProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEDoTextUPP
+  NewTEDoTextUPP(TEDoTextProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum { uppTEDoTextProcInfo = 0x000000AF }; /* SPECIAL_CASE_PROCINFO(10) */
+  enum
+  {
+    uppTEDoTextProcInfo = 0x000000AF
+  }; /* SPECIAL_CASE_PROCINFO(10) */
 #ifdef __cplusplus
-inline TEDoTextUPP NewTEDoTextUPP(TEDoTextProcPtr userRoutine) {
-  return (TEDoTextUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppTEDoTextProcInfo, GetCurrentArchitecture());
-}
+  inline TEDoTextUPP NewTEDoTextUPP(TEDoTextProcPtr userRoutine)
+  {
+    return (TEDoTextUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppTEDoTextProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewTEDoTextUPP(userRoutine)                                            \
-  (TEDoTextUPP) NewRoutineDescriptor(                                          \
+#define NewTEDoTextUPP(userRoutine)   \
+  (TEDoTextUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppTEDoTextProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
-/**
- *  NewTEClickLoopUPP()
- *
+  /**
+   *  NewTEClickLoopUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(TEClickLoopUPP)
-NewTEClickLoopUPP(TEClickLoopProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEClickLoopUPP
+  NewTEClickLoopUPP(TEClickLoopProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppTEClickLoopProcInfo = 0x0000F812
-}; /* register 1_byte:D0 Func(4_bytes:A3) */
+  enum
+  {
+    uppTEClickLoopProcInfo = 0x0000F812
+  }; /* register 1_byte:D0 Func(4_bytes:A3) */
 #ifdef __cplusplus
-inline TEClickLoopUPP NewTEClickLoopUPP(TEClickLoopProcPtr userRoutine) {
-  return (TEClickLoopUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppTEClickLoopProcInfo, GetCurrentArchitecture());
-}
+  inline TEClickLoopUPP NewTEClickLoopUPP(TEClickLoopProcPtr userRoutine)
+  {
+    return (TEClickLoopUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppTEClickLoopProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewTEClickLoopUPP(userRoutine)                                         \
-  (TEClickLoopUPP)                                                             \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppTEClickLoopProcInfo,     \
+#define NewTEClickLoopUPP(userRoutine)                                     \
+  (TEClickLoopUPP)                                                         \
+      NewRoutineDescriptor((ProcPtr)(userRoutine), uppTEClickLoopProcInfo, \
                            GetCurrentArchitecture())
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON
-/**
- *  NewWordBreakUPP()
- *
+  /**
+   *  NewWordBreakUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(WordBreakUPP)
-NewWordBreakUPP(WordBreakProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  WordBreakUPP
+  NewWordBreakUPP(WordBreakProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppWordBreakProcInfo = 0x00029812
-}; /* register 1_byte:D0 Func(4_bytes:A0, 2_bytes:D0) */
+  enum
+  {
+    uppWordBreakProcInfo = 0x00029812
+  }; /* register 1_byte:D0 Func(4_bytes:A0, 2_bytes:D0) */
 #ifdef __cplusplus
-inline WordBreakUPP NewWordBreakUPP(WordBreakProcPtr userRoutine) {
-  return (WordBreakUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppWordBreakProcInfo, GetCurrentArchitecture());
-}
+  inline WordBreakUPP NewWordBreakUPP(WordBreakProcPtr userRoutine)
+  {
+    return (WordBreakUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppWordBreakProcInfo, GetCurrentArchitecture());
+  }
 #else
-#define NewWordBreakUPP(userRoutine)                                           \
-  (WordBreakUPP) NewRoutineDescriptor(                                         \
+#define NewWordBreakUPP(userRoutine)   \
+  (WordBreakUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppWordBreakProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  DisposeHighHookUPP()
- *
+  /**
+   *  DisposeHighHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHighHookUPP(HighHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHighHookUPP(HighHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeHighHookUPP(HighHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeHighHookUPP(HighHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeHighHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeEOLHookUPP()
- *
+  /**
+   *  DisposeEOLHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeEOLHookUPP(EOLHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeEOLHookUPP(EOLHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeEOLHookUPP(EOLHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeEOLHookUPP(EOLHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeEOLHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeCaretHookUPP()
- *
+  /**
+   *  DisposeCaretHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeCaretHookUPP(CaretHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeCaretHookUPP(CaretHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeCaretHookUPP(CaretHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeCaretHookUPP(CaretHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeCaretHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeWidthHookUPP()
- *
+  /**
+   *  DisposeWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeWidthHookUPP(WidthHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeWidthHookUPP(WidthHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeWidthHookUPP(WidthHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeWidthHookUPP(WidthHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeWidthHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeTextWidthHookUPP()
- *
+  /**
+   *  DisposeTextWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeTextWidthHookUPP(TextWidthHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeTextWidthHookUPP(TextWidthHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeTextWidthHookUPP(TextWidthHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeTextWidthHookUPP(TextWidthHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeTextWidthHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeNWidthHookUPP()
- *
+  /**
+   *  DisposeNWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeNWidthHookUPP(NWidthHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeNWidthHookUPP(NWidthHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeNWidthHookUPP(NWidthHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeNWidthHookUPP(NWidthHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeNWidthHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeDrawHookUPP()
- *
+  /**
+   *  DisposeDrawHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeDrawHookUPP(DrawHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeDrawHookUPP(DrawHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeDrawHookUPP(DrawHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeDrawHookUPP(DrawHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeDrawHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeHitTestHookUPP()
- *
+  /**
+   *  DisposeHitTestHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeHitTestHookUPP(HitTestHookUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeHitTestHookUPP(HitTestHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeHitTestHookUPP(HitTestHookUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeHitTestHookUPP(HitTestHookUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeHitTestHookUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeTEFindWordUPP()
- *
+  /**
+   *  DisposeTEFindWordUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeTEFindWordUPP(TEFindWordUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeTEFindWordUPP(TEFindWordUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeTEFindWordUPP(TEFindWordUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeTEFindWordUPP(TEFindWordUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeTEFindWordUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeTERecalcUPP()
- *
+  /**
+   *  DisposeTERecalcUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeTERecalcUPP(TERecalcUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeTERecalcUPP(TERecalcUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeTERecalcUPP(TERecalcUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeTERecalcUPP(TERecalcUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeTERecalcUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeTEDoTextUPP()
- *
+  /**
+   *  DisposeTEDoTextUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeTEDoTextUPP(TEDoTextUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeTEDoTextUPP(TEDoTextUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeTEDoTextUPP(TEDoTextUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeTEDoTextUPP(TEDoTextUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeTEDoTextUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-/**
- *  DisposeTEClickLoopUPP()
- *
+  /**
+   *  DisposeTEClickLoopUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-DisposeTEClickLoopUPP(TEClickLoopUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  DisposeTEClickLoopUPP(TEClickLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeTEClickLoopUPP(TEClickLoopUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeTEClickLoopUPP(TEClickLoopUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeTEClickLoopUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
 #if CALL_NOT_IN_CARBON
-/**
- *  DisposeWordBreakUPP()
- *
+  /**
+   *  DisposeWordBreakUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(void)
-DisposeWordBreakUPP(WordBreakUPP userUPP);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DisposeWordBreakUPP(WordBreakUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeWordBreakUPP(WordBreakUPP userUPP) {
-  DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-}
+  inline void DisposeWordBreakUPP(WordBreakUPP userUPP)
+  {
+    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+  }
 #else
 #define DisposeWordBreakUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
@@ -1073,46 +1154,48 @@ inline void DisposeWordBreakUPP(WordBreakUPP userUPP) {
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  InvokeHighHookUPP()
- *
+  /**
+   *  InvokeHighHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeHighHookUPP(const Rect *r, TEPtr pTE, HighHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeHighHookUPP(const Rect *r, TEPtr pTE, HighHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeHighHookUPP(const Rect *r, TEPtr pTE, HighHookUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppHighHookProcInfo, r, pTE);
-}
+  inline void InvokeHighHookUPP(const Rect *r, TEPtr pTE, HighHookUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppHighHookProcInfo, r, pTE);
+  }
 #else
-#define InvokeHighHookUPP(r, pTE, userUPP)                                     \
+#define InvokeHighHookUPP(r, pTE, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppHighHookProcInfo, (r), (pTE))
 #endif
 #endif
 
-/**
- *  InvokeEOLHookUPP()
- *
+  /**
+   *  InvokeEOLHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(Boolean)
-InvokeEOLHookUPP(char theChar, TEPtr pTE, TEHandle hTE, EOLHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeEOLHookUPP(char theChar, TEPtr pTE, TEHandle hTE, EOLHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline Boolean InvokeEOLHookUPP(char theChar, TEPtr pTE, TEHandle hTE,
-                                EOLHookUPP userUPP) {
-  return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppEOLHookProcInfo, theChar,
-                                           pTE, hTE);
-}
+  inline Boolean InvokeEOLHookUPP(char theChar, TEPtr pTE, TEHandle hTE,
+                                  EOLHookUPP userUPP)
+  {
+    return (Boolean)CALL_THREE_PARAMETER_UPP(userUPP, uppEOLHookProcInfo, theChar,
+                                             pTE, hTE);
+  }
 #else
 #define InvokeEOLHookUPP(theChar, pTE, hTE, userUPP)                           \
   (Boolean) CALL_THREE_PARAMETER_UPP((userUPP), uppEOLHookProcInfo, (theChar), \
@@ -1120,84 +1203,87 @@ inline Boolean InvokeEOLHookUPP(char theChar, TEPtr pTE, TEHandle hTE,
 #endif
 #endif
 
-/**
- *  InvokeCaretHookUPP()
- *
+  /**
+   *  InvokeCaretHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeCaretHookUPP(const Rect *r, TEPtr pTE, CaretHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeCaretHookUPP(const Rect *r, TEPtr pTE, CaretHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeCaretHookUPP(const Rect *r, TEPtr pTE, CaretHookUPP userUPP) {
-  CALL_TWO_PARAMETER_UPP(userUPP, uppCaretHookProcInfo, r, pTE);
-}
+  inline void InvokeCaretHookUPP(const Rect *r, TEPtr pTE, CaretHookUPP userUPP)
+  {
+    CALL_TWO_PARAMETER_UPP(userUPP, uppCaretHookProcInfo, r, pTE);
+  }
 #else
-#define InvokeCaretHookUPP(r, pTE, userUPP)                                    \
+#define InvokeCaretHookUPP(r, pTE, userUPP) \
   CALL_TWO_PARAMETER_UPP((userUPP), uppCaretHookProcInfo, (r), (pTE))
 #endif
 #endif
 
-/**
- *  InvokeWidthHookUPP()
- *
+  /**
+   *  InvokeWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(unsigned short)
-InvokeWidthHookUPP(unsigned short textLen, unsigned short textOffset,
-                   void *textBufferPtr, TEPtr pTE, TEHandle hTE,
-                   WidthHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  unsigned short
+  InvokeWidthHookUPP(unsigned short textLen, unsigned short textOffset,
+                     void *textBufferPtr, TEPtr pTE, TEHandle hTE,
+                     WidthHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline unsigned short InvokeWidthHookUPP(unsigned short textLen,
-                                         unsigned short textOffset,
-                                         void *textBufferPtr, TEPtr pTE,
-                                         TEHandle hTE, WidthHookUPP userUPP) {
-  return (unsigned short)CALL_FIVE_PARAMETER_UPP(userUPP, uppWidthHookProcInfo,
-                                                 textLen, textOffset,
-                                                 textBufferPtr, pTE, hTE);
-}
+  inline unsigned short InvokeWidthHookUPP(unsigned short textLen,
+                                           unsigned short textOffset,
+                                           void *textBufferPtr, TEPtr pTE,
+                                           TEHandle hTE, WidthHookUPP userUPP)
+  {
+    return (unsigned short)CALL_FIVE_PARAMETER_UPP(userUPP, uppWidthHookProcInfo,
+                                                   textLen, textOffset,
+                                                   textBufferPtr, pTE, hTE);
+  }
 #else
-#define InvokeWidthHookUPP(textLen, textOffset, textBufferPtr, pTE, hTE,       \
-                           userUPP)                                            \
-  (unsigned short)CALL_FIVE_PARAMETER_UPP((userUPP), uppWidthHookProcInfo,     \
-                                          (textLen), (textOffset),             \
+#define InvokeWidthHookUPP(textLen, textOffset, textBufferPtr, pTE, hTE,   \
+                           userUPP)                                        \
+  (unsigned short)CALL_FIVE_PARAMETER_UPP((userUPP), uppWidthHookProcInfo, \
+                                          (textLen), (textOffset),         \
                                           (textBufferPtr), (pTE), (hTE))
 #endif
 #endif
 
-/**
- *  InvokeTextWidthHookUPP()
- *
+  /**
+   *  InvokeTextWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(unsigned short)
-InvokeTextWidthHookUPP(unsigned short textLen, unsigned short textOffset,
-                       void *textBufferPtr, TEPtr pTE, TEHandle hTE,
-                       TextWidthHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  unsigned short
+  InvokeTextWidthHookUPP(unsigned short textLen, unsigned short textOffset,
+                         void *textBufferPtr, TEPtr pTE, TEHandle hTE,
+                         TextWidthHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline unsigned short InvokeTextWidthHookUPP(unsigned short textLen,
-                                             unsigned short textOffset,
-                                             void *textBufferPtr, TEPtr pTE,
-                                             TEHandle hTE,
-                                             TextWidthHookUPP userUPP) {
-  return (unsigned short)CALL_FIVE_PARAMETER_UPP(
-      userUPP, uppTextWidthHookProcInfo, textLen, textOffset, textBufferPtr,
-      pTE, hTE);
-}
+  inline unsigned short InvokeTextWidthHookUPP(unsigned short textLen,
+                                               unsigned short textOffset,
+                                               void *textBufferPtr, TEPtr pTE,
+                                               TEHandle hTE,
+                                               TextWidthHookUPP userUPP)
+  {
+    return (unsigned short)CALL_FIVE_PARAMETER_UPP(
+        userUPP, uppTextWidthHookProcInfo, textLen, textOffset, textBufferPtr,
+        pTE, hTE);
+  }
 #else
 #define InvokeTextWidthHookUPP(textLen, textOffset, textBufferPtr, pTE, hTE,   \
                                userUPP)                                        \
@@ -1207,97 +1293,100 @@ inline unsigned short InvokeTextWidthHookUPP(unsigned short textLen,
 #endif
 #endif
 
-/**
- *  InvokeNWidthHookUPP()
- *
+  /**
+   *  InvokeNWidthHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(unsigned short)
-InvokeNWidthHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
-                    short slop, short direction, void *textBufferPtr,
-                    short *lineStart, TEPtr pTE, TEHandle hTE,
-                    NWidthHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  unsigned short
+  InvokeNWidthHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
+                      short slop, short direction, void *textBufferPtr,
+                      short *lineStart, TEPtr pTE, TEHandle hTE,
+                      NWidthHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline unsigned short InvokeNWidthHookUPP(unsigned short styleRunLen,
-                                          unsigned short styleRunOffset,
-                                          short slop, short direction,
-                                          void *textBufferPtr, short *lineStart,
-                                          TEPtr pTE, TEHandle hTE,
-                                          NWidthHookUPP userUPP) {
-  return (unsigned short)CALL_EIGHT_PARAMETER_UPP(
-      userUPP, uppNWidthHookProcInfo, styleRunLen, styleRunOffset, slop,
-      direction, textBufferPtr, lineStart, pTE, hTE);
-}
+  inline unsigned short InvokeNWidthHookUPP(unsigned short styleRunLen,
+                                            unsigned short styleRunOffset,
+                                            short slop, short direction,
+                                            void *textBufferPtr, short *lineStart,
+                                            TEPtr pTE, TEHandle hTE,
+                                            NWidthHookUPP userUPP)
+  {
+    return (unsigned short)CALL_EIGHT_PARAMETER_UPP(
+        userUPP, uppNWidthHookProcInfo, styleRunLen, styleRunOffset, slop,
+        direction, textBufferPtr, lineStart, pTE, hTE);
+  }
 #else
-#define InvokeNWidthHookUPP(styleRunLen, styleRunOffset, slop, direction,      \
-                            textBufferPtr, lineStart, pTE, hTE, userUPP)       \
-  (unsigned short)CALL_EIGHT_PARAMETER_UPP(                                    \
-      (userUPP), uppNWidthHookProcInfo, (styleRunLen), (styleRunOffset),       \
+#define InvokeNWidthHookUPP(styleRunLen, styleRunOffset, slop, direction, \
+                            textBufferPtr, lineStart, pTE, hTE, userUPP)  \
+  (unsigned short)CALL_EIGHT_PARAMETER_UPP(                               \
+      (userUPP), uppNWidthHookProcInfo, (styleRunLen), (styleRunOffset),  \
       (slop), (direction), (textBufferPtr), (lineStart), (pTE), (hTE))
 #endif
 #endif
 
-/**
- *  InvokeDrawHookUPP()
- *
+  /**
+   *  InvokeDrawHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeDrawHookUPP(unsigned short textOffset, unsigned short drawLen,
-                  void *textBufferPtr, TEPtr pTE, TEHandle hTE,
-                  DrawHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeDrawHookUPP(unsigned short textOffset, unsigned short drawLen,
+                    void *textBufferPtr, TEPtr pTE, TEHandle hTE,
+                    DrawHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeDrawHookUPP(unsigned short textOffset, unsigned short drawLen,
-                              void *textBufferPtr, TEPtr pTE, TEHandle hTE,
-                              DrawHookUPP userUPP) {
-  CALL_FIVE_PARAMETER_UPP(userUPP, uppDrawHookProcInfo, textOffset, drawLen,
-                          textBufferPtr, pTE, hTE);
-}
+  inline void InvokeDrawHookUPP(unsigned short textOffset, unsigned short drawLen,
+                                void *textBufferPtr, TEPtr pTE, TEHandle hTE,
+                                DrawHookUPP userUPP)
+  {
+    CALL_FIVE_PARAMETER_UPP(userUPP, uppDrawHookProcInfo, textOffset, drawLen,
+                            textBufferPtr, pTE, hTE);
+  }
 #else
-#define InvokeDrawHookUPP(textOffset, drawLen, textBufferPtr, pTE, hTE,        \
-                          userUPP)                                             \
-  CALL_FIVE_PARAMETER_UPP((userUPP), uppDrawHookProcInfo, (textOffset),        \
+#define InvokeDrawHookUPP(textOffset, drawLen, textBufferPtr, pTE, hTE, \
+                          userUPP)                                      \
+  CALL_FIVE_PARAMETER_UPP((userUPP), uppDrawHookProcInfo, (textOffset), \
                           (drawLen), (textBufferPtr), (pTE), (hTE))
 #endif
 #endif
 
-/**
- *  InvokeHitTestHookUPP()
- *
+  /**
+   *  InvokeHitTestHookUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(Boolean)
-InvokeHitTestHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
-                     unsigned short slop, void *textBufferPtr, TEPtr pTE,
-                     TEHandle hTE, unsigned short *pixelWidth,
-                     unsigned short *charOffset, Boolean *pixelInChar,
-                     HitTestHookUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeHitTestHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
+                       unsigned short slop, void *textBufferPtr, TEPtr pTE,
+                       TEHandle hTE, unsigned short *pixelWidth,
+                       unsigned short *charOffset, Boolean *pixelInChar,
+                       HitTestHookUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline Boolean
-InvokeHitTestHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
-                     unsigned short slop, void *textBufferPtr, TEPtr pTE,
-                     TEHandle hTE, unsigned short *pixelWidth,
-                     unsigned short *charOffset, Boolean *pixelInChar,
-                     HitTestHookUPP userUPP) {
-  return (Boolean)CALL_NINE_PARAMETER_UPP(
-      userUPP, uppHitTestHookProcInfo, styleRunLen, styleRunOffset, slop,
-      textBufferPtr, pTE, hTE, pixelWidth, charOffset, pixelInChar);
-}
+  inline Boolean
+  InvokeHitTestHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
+                       unsigned short slop, void *textBufferPtr, TEPtr pTE,
+                       TEHandle hTE, unsigned short *pixelWidth,
+                       unsigned short *charOffset, Boolean *pixelInChar,
+                       HitTestHookUPP userUPP)
+  {
+    return (Boolean)CALL_NINE_PARAMETER_UPP(
+        userUPP, uppHitTestHookProcInfo, styleRunLen, styleRunOffset, slop,
+        textBufferPtr, pTE, hTE, pixelWidth, charOffset, pixelInChar);
+  }
 #else
 #define InvokeHitTestHookUPP(styleRunLen, styleRunOffset, slop, textBufferPtr, \
                              pTE, hTE, pixelWidth, charOffset, pixelInChar,    \
@@ -1309,90 +1398,93 @@ InvokeHitTestHookUPP(unsigned short styleRunLen, unsigned short styleRunOffset,
 #endif
 #endif
 
-/**
- *  InvokeTEFindWordUPP()
- *
+  /**
+   *  InvokeTEFindWordUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeTEFindWordUPP(unsigned short currentPos, short caller, TEPtr pTE,
-                    TEHandle hTE, unsigned short *wordStart,
-                    unsigned short *wordEnd, TEFindWordUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeTEFindWordUPP(unsigned short currentPos, short caller, TEPtr pTE,
+                      TEHandle hTE, unsigned short *wordStart,
+                      unsigned short *wordEnd, TEFindWordUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeTEFindWordUPP(unsigned short currentPos, short caller,
-                                TEPtr pTE, TEHandle hTE,
-                                unsigned short *wordStart,
-                                unsigned short *wordEnd,
-                                TEFindWordUPP userUPP) {
-  CALL_SIX_PARAMETER_UPP(userUPP, uppTEFindWordProcInfo, currentPos, caller,
-                         pTE, hTE, wordStart, wordEnd);
-}
+  inline void InvokeTEFindWordUPP(unsigned short currentPos, short caller,
+                                  TEPtr pTE, TEHandle hTE,
+                                  unsigned short *wordStart,
+                                  unsigned short *wordEnd,
+                                  TEFindWordUPP userUPP)
+  {
+    CALL_SIX_PARAMETER_UPP(userUPP, uppTEFindWordProcInfo, currentPos, caller,
+                           pTE, hTE, wordStart, wordEnd);
+  }
 #else
-#define InvokeTEFindWordUPP(currentPos, caller, pTE, hTE, wordStart, wordEnd,  \
-                            userUPP)                                           \
-  CALL_SIX_PARAMETER_UPP((userUPP), uppTEFindWordProcInfo, (currentPos),       \
+#define InvokeTEFindWordUPP(currentPos, caller, pTE, hTE, wordStart, wordEnd, \
+                            userUPP)                                          \
+  CALL_SIX_PARAMETER_UPP((userUPP), uppTEFindWordProcInfo, (currentPos),      \
                          (caller), (pTE), (hTE), (wordStart), (wordEnd))
 #endif
 #endif
 
-/**
- *  InvokeTERecalcUPP()
- *
+  /**
+   *  InvokeTERecalcUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeTERecalcUPP(TEPtr pTE, unsigned short changeLength,
-                  unsigned short *lineStart, unsigned short *firstChar,
-                  unsigned short *lastChar, TERecalcUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeTERecalcUPP(TEPtr pTE, unsigned short changeLength,
+                    unsigned short *lineStart, unsigned short *firstChar,
+                    unsigned short *lastChar, TERecalcUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeTERecalcUPP(TEPtr pTE, unsigned short changeLength,
-                              unsigned short *lineStart,
-                              unsigned short *firstChar,
-                              unsigned short *lastChar, TERecalcUPP userUPP) {
-  CALL_FIVE_PARAMETER_UPP(userUPP, uppTERecalcProcInfo, pTE, changeLength,
-                          lineStart, firstChar, lastChar);
-}
+  inline void InvokeTERecalcUPP(TEPtr pTE, unsigned short changeLength,
+                                unsigned short *lineStart,
+                                unsigned short *firstChar,
+                                unsigned short *lastChar, TERecalcUPP userUPP)
+  {
+    CALL_FIVE_PARAMETER_UPP(userUPP, uppTERecalcProcInfo, pTE, changeLength,
+                            lineStart, firstChar, lastChar);
+  }
 #else
-#define InvokeTERecalcUPP(pTE, changeLength, lineStart, firstChar, lastChar,   \
-                          userUPP)                                             \
-  CALL_FIVE_PARAMETER_UPP((userUPP), uppTERecalcProcInfo, (pTE),               \
-                          (changeLength), (lineStart), (firstChar),            \
+#define InvokeTERecalcUPP(pTE, changeLength, lineStart, firstChar, lastChar, \
+                          userUPP)                                           \
+  CALL_FIVE_PARAMETER_UPP((userUPP), uppTERecalcProcInfo, (pTE),             \
+                          (changeLength), (lineStart), (firstChar),          \
                           (lastChar))
 #endif
 #endif
 
-/**
- *  InvokeTEDoTextUPP()
- *
+  /**
+   *  InvokeTEDoTextUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(void)
-InvokeTEDoTextUPP(TEPtr pTE, unsigned short firstChar, unsigned short lastChar,
-                  short selector, GrafPtr *currentGrafPort, short *charPosition,
-                  TEDoTextUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  InvokeTEDoTextUPP(TEPtr pTE, unsigned short firstChar, unsigned short lastChar,
+                    short selector, GrafPtr *currentGrafPort, short *charPosition,
+                    TEDoTextUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline void InvokeTEDoTextUPP(TEPtr pTE, unsigned short firstChar,
-                              unsigned short lastChar, short selector,
-                              GrafPtr *currentGrafPort, short *charPosition,
-                              TEDoTextUPP userUPP) {
-  CALL_SIX_PARAMETER_UPP(userUPP, uppTEDoTextProcInfo, pTE, firstChar, lastChar,
-                         selector, currentGrafPort, charPosition);
-}
+  inline void InvokeTEDoTextUPP(TEPtr pTE, unsigned short firstChar,
+                                unsigned short lastChar, short selector,
+                                GrafPtr *currentGrafPort, short *charPosition,
+                                TEDoTextUPP userUPP)
+  {
+    CALL_SIX_PARAMETER_UPP(userUPP, uppTEDoTextProcInfo, pTE, firstChar, lastChar,
+                           selector, currentGrafPort, charPosition);
+  }
 #else
 #define InvokeTEDoTextUPP(pTE, firstChar, lastChar, selector, currentGrafPort, \
                           charPosition, userUPP)                               \
@@ -1402,24 +1494,25 @@ inline void InvokeTEDoTextUPP(TEPtr pTE, unsigned short firstChar,
 #endif
 #endif
 
-/**
- *  InvokeTEClickLoopUPP()
- *
+  /**
+   *  InvokeTEClickLoopUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(Boolean)
-InvokeTEClickLoopUPP(TEPtr pTE, TEClickLoopUPP userUPP);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  InvokeTEClickLoopUPP(TEPtr pTE, TEClickLoopUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline Boolean InvokeTEClickLoopUPP(TEPtr pTE, TEClickLoopUPP userUPP) {
-  return (Boolean)CALL_ONE_PARAMETER_UPP(userUPP, uppTEClickLoopProcInfo, pTE);
-}
+  inline Boolean InvokeTEClickLoopUPP(TEPtr pTE, TEClickLoopUPP userUPP)
+  {
+    return (Boolean)CALL_ONE_PARAMETER_UPP(userUPP, uppTEClickLoopProcInfo, pTE);
+  }
 #else
-#define InvokeTEClickLoopUPP(pTE, userUPP)                                     \
+#define InvokeTEClickLoopUPP(pTE, userUPP) \
   (Boolean) CALL_ONE_PARAMETER_UPP((userUPP), uppTEClickLoopProcInfo, (pTE))
 #endif
 #endif
@@ -1436,20 +1529,20 @@ inline Boolean InvokeTEClickLoopUPP(TEPtr pTE, TEClickLoopUPP userUPP) {
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InvokeWordBreakUPP(__A0, __D0, __A1)
 #endif
-EXTERN_API_C(Boolean)
-InvokeWordBreakUPP(Ptr text, short charPos, WordBreakUPP userUPP)
-    ONEWORDINLINE(0x4E91);
-#if !OPAQUE_UPP_TYPES &&                                                       \
+  Boolean
+  InvokeWordBreakUPP(Ptr text, short charPos, WordBreakUPP userUPP);
+#if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-inline Boolean InvokeWordBreakUPP(Ptr text, short charPos,
-                                  WordBreakUPP userUPP) {
-  return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppWordBreakProcInfo, text,
-                                         charPos);
-}
+  inline Boolean InvokeWordBreakUPP(Ptr text, short charPos,
+                                    WordBreakUPP userUPP)
+  {
+    return (Boolean)CALL_TWO_PARAMETER_UPP(userUPP, uppWordBreakProcInfo, text,
+                                           charPos);
+  }
 #else
-#define InvokeWordBreakUPP(text, charPos, userUPP)                             \
-  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppWordBreakProcInfo, (text),    \
+#define InvokeWordBreakUPP(text, charPos, userUPP)                          \
+  (Boolean) CALL_TWO_PARAMETER_UPP((userUPP), uppWordBreakProcInfo, (text), \
                                    (charPos))
 #endif
 #endif
@@ -1471,53 +1564,54 @@ inline Boolean InvokeWordBreakUPP(Ptr text, short charPos,
 #define NewTEDoTextProc(userRoutine) NewTEDoTextUPP(userRoutine)
 #define NewTEClickLoopProc(userRoutine) NewTEClickLoopUPP(userRoutine)
 #define NewWordBreakProc(userRoutine) NewWordBreakUPP(userRoutine)
-#define CallHighHookProc(userRoutine, r, pTE)                                  \
+#define CallHighHookProc(userRoutine, r, pTE) \
   InvokeHighHookUPP(r, pTE, userRoutine)
-#define CallEOLHookProc(userRoutine, theChar, pTE, hTE)                        \
+#define CallEOLHookProc(userRoutine, theChar, pTE, hTE) \
   InvokeEOLHookUPP(theChar, pTE, hTE, userRoutine)
-#define CallCaretHookProc(userRoutine, r, pTE)                                 \
+#define CallCaretHookProc(userRoutine, r, pTE) \
   InvokeCaretHookUPP(r, pTE, userRoutine)
-#define CallWidthHookProc(userRoutine, textLen, textOffset, textBufferPtr,     \
-                          pTE, hTE)                                            \
+#define CallWidthHookProc(userRoutine, textLen, textOffset, textBufferPtr, \
+                          pTE, hTE)                                        \
   InvokeWidthHookUPP(textLen, textOffset, textBufferPtr, pTE, hTE, userRoutine)
 #define CallTextWidthHookProc(userRoutine, textLen, textOffset, textBufferPtr, \
                               pTE, hTE)                                        \
   InvokeTextWidthHookUPP(textLen, textOffset, textBufferPtr, pTE, hTE,         \
                          userRoutine)
-#define CallNWidthHookProc(userRoutine, styleRunLen, styleRunOffset, slop,     \
-                           direction, textBufferPtr, lineStart, pTE, hTE)      \
-  InvokeNWidthHookUPP(styleRunLen, styleRunOffset, slop, direction,            \
+#define CallNWidthHookProc(userRoutine, styleRunLen, styleRunOffset, slop, \
+                           direction, textBufferPtr, lineStart, pTE, hTE)  \
+  InvokeNWidthHookUPP(styleRunLen, styleRunOffset, slop, direction,        \
                       textBufferPtr, lineStart, pTE, hTE, userRoutine)
 #define CallDrawHookProc(userRoutine, textOffset, drawLen, textBufferPtr, pTE, \
                          hTE)                                                  \
   InvokeDrawHookUPP(textOffset, drawLen, textBufferPtr, pTE, hTE, userRoutine)
-#define CallHitTestHookProc(userRoutine, styleRunLen, styleRunOffset, slop,    \
-                            textBufferPtr, pTE, hTE, pixelWidth, charOffset,   \
-                            pixelInChar)                                       \
-  InvokeHitTestHookUPP(styleRunLen, styleRunOffset, slop, textBufferPtr, pTE,  \
+#define CallHitTestHookProc(userRoutine, styleRunLen, styleRunOffset, slop,   \
+                            textBufferPtr, pTE, hTE, pixelWidth, charOffset,  \
+                            pixelInChar)                                      \
+  InvokeHitTestHookUPP(styleRunLen, styleRunOffset, slop, textBufferPtr, pTE, \
                        hTE, pixelWidth, charOffset, pixelInChar, userRoutine)
-#define CallTEFindWordProc(userRoutine, currentPos, caller, pTE, hTE,          \
-                           wordStart, wordEnd)                                 \
-  InvokeTEFindWordUPP(currentPos, caller, pTE, hTE, wordStart, wordEnd,        \
+#define CallTEFindWordProc(userRoutine, currentPos, caller, pTE, hTE,   \
+                           wordStart, wordEnd)                          \
+  InvokeTEFindWordUPP(currentPos, caller, pTE, hTE, wordStart, wordEnd, \
                       userRoutine)
 #define CallTERecalcProc(userRoutine, pTE, changeLength, lineStart, firstChar, \
                          lastChar)                                             \
   InvokeTERecalcUPP(pTE, changeLength, lineStart, firstChar, lastChar,         \
                     userRoutine)
-#define CallTEDoTextProc(userRoutine, pTE, firstChar, lastChar, selector,      \
-                         currentGrafPort, charPosition)                        \
-  InvokeTEDoTextUPP(pTE, firstChar, lastChar, selector, currentGrafPort,       \
+#define CallTEDoTextProc(userRoutine, pTE, firstChar, lastChar, selector, \
+                         currentGrafPort, charPosition)                   \
+  InvokeTEDoTextUPP(pTE, firstChar, lastChar, selector, currentGrafPort,  \
                     charPosition, userRoutine)
-#define CallTEClickLoopProc(userRoutine, pTE)                                  \
+#define CallTEClickLoopProc(userRoutine, pTE) \
   InvokeTEClickLoopUPP(pTE, userRoutine)
-#define CallWordBreakProc(userRoutine, text, charPos)                          \
+#define CallWordBreakProc(userRoutine, text, charPos) \
   InvokeWordBreakUPP(text, charPos, userRoutine)
 #endif /* CALL_NOT_IN_CARBON */
 
-enum {
-  /* feature bit 4 for TEFeatureFlag no longer in use */
-  teFUseTextServices = 4 /*00010000b */
-};
+  enum
+  {
+    /* feature bit 4 for TEFeatureFlag no longer in use */
+    teFUseTextServices = 4 /*00010000b */
+  };
 
 #if OLDROUTINENAMES
 /* action for the old C "bit (un)set" interface, TEFeatureFlag */
@@ -1528,499 +1622,629 @@ enum {
 #define toglBit toggleBit
 #endif /* OLDROUTINENAMES */
 
-/**
- *  TEScrapHandle()
- *
+  /**
+  \brief Obtain handle leading to TextEdit scrap
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Handle)
-TEScrapHandle(void) TWOWORDINLINE(0x2EB8, 0x0AB4);
+  <pre>TEScrapHandle returns a handle leading to the TextEdit internal scrap.
+On systems later than 4.1, TextEdit uses the desk scrap.
+</pre>
+* \returns <pre>a 32-bit Handle; the handle leading to the TextEdit scrap.
+</pre>
+* \note <pre>The global variable TEScrpHandle (at 0x0AB4) contains this
+same information.
+Probably better than working with the TE scrap itself, you should stick to
+calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Handle
+  TEScrapHandle(void);
 
-/**
- *  TEGetScrapLength()
- *
+  /**
+   *  TEGetScrapLength()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-TEGetScrapLength(void);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long
+  TEGetScrapLength(void);
 
 #if TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #define TEGetScrapLength() ((long)*(unsigned short *)0x0AB0)
 #endif
 #if CALL_NOT_IN_CARBON
-/**
- *  TEInit()
- *
+  /**
+   *  TEInit()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-TEInit(void) ONEWORDINLINE(0xA9CC);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  TEInit(void);
 
 #endif /* CALL_NOT_IN_CARBON */
 
-/**
- *  TENew()
- *
+  /**
+   *  TENew()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEHandle
+  TENew(const Rect *destRect, const Rect *viewRect);
+
+  /**
+   *  TEDispose()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEDispose(TEHandle hTE);
+
+  /**
+   *  TESetText()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TESetText(const void *text, long length, TEHandle hTE);
+
+  /**
+   *  TEGetText()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CharsHandle
+  TEGetText(TEHandle hTE);
+
+  /**
+   *  TEIdle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEIdle(TEHandle hTE);
+
+  /**
+   *  TESetSelect()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TESetSelect(long selStart, long selEnd, TEHandle hTE);
+
+  /**
+   *  TEActivate()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEActivate(TEHandle hTE);
+
+  /**
+   *  TEDeactivate()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEDeactivate(TEHandle hTE);
+
+  /**
+   *  TEKey()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEKey(CharParameter key, TEHandle hTE);
+
+  /**
+   *  TECut()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TECut(TEHandle hTE);
+
+  /**
+   *  TECopy()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TECopy(TEHandle hTE);
+
+  /**
+   *  TEPaste()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEPaste(TEHandle hTE);
+
+  /**
+   *  TEDelete()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEDelete(TEHandle hTE);
+
+  /**
+   *  TEInsert()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEInsert(const void *text, long length, TEHandle hTE);
+
+  /**
+   *  TESetAlignment()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TESetAlignment(short just, TEHandle hTE);
+
+  /**
+   *  TEUpdate()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEUpdate(const Rect *rUpdate, TEHandle hTE);
+
+  /**
+   *  TETextBox()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TETextBox(const void *text, long length, const Rect *box, short just);
+
+  /**
+   *  TEScroll()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEScroll(short dh, short dv, TEHandle hTE);
+
+  /**
+   *  TESelView()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TESelView(TEHandle hTE);
+
+  /**
+   *  TEPinScroll()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEPinScroll(short dh, short dv, TEHandle hTE);
+
+  /**
+   *  TEAutoView()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEAutoView(Boolean fAuto, TEHandle hTE);
+
+  /**
+   *  TECalText()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TECalText(TEHandle hTE);
+
+  /**
+   *  TEGetOffset()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  short
+  TEGetOffset(Point pt, TEHandle hTE);
+
+  /**
+   *  TEGetPoint()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Point
+  TEGetPoint(short offset, TEHandle hTE);
+
+  /**
+   *  TEClick()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEClick(Point pt, Boolean fExtend, TEHandle h);
+
+  /**
+   *  TEStyleNew()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEHandle
+  TEStyleNew(const Rect *destRect, const Rect *viewRect);
+
+  /**
+   *  TESetStyleHandle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TESetStyleHandle(TEStyleHandle theHandle, TEHandle hTE);
+
+  /**
+   *  TEGetStyleHandle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  TEStyleHandle
+  TEGetStyleHandle(TEHandle hTE);
+
+  /**
+   *  TEGetStyle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEGetStyle(short offset, TextStyle *theStyle, short *lineHeight,
+             short *fontAscent, TEHandle hTE);
+
+  /**
+   *  TEStylePaste()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEStylePaste(TEHandle hTE);
+
+  /**
+   *  TESetStyle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TESetStyle(short mode, const TextStyle *newStyle, Boolean fRedraw, TEHandle hTE);
+
+  /**
+   *  TEReplaceStyle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEReplaceStyle(short mode, const TextStyle *oldStyle, const TextStyle *newStyle,
+                 Boolean fRedraw, TEHandle hTE);
+
+  /**
+   *  TEGetStyleScrapHandle()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  StScrpHandle
+  TEGetStyleScrapHandle(TEHandle hTE);
+
+  /**
+   *  TEStyleInsert()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEStyleInsert(const void *text, long length, StScrpHandle hST, TEHandle hTE);
+
+  /**
+   *  TEGetHeight()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  long
+  TEGetHeight(long endLine, long startLine, TEHandle hTE);
+
+  /**
+  \brief TEContinuousStyle Check if a style element is continuous across selection
+
+  <pre>The TEContinuousStyle function, new with System 6.0, gives you
+information about the attributes of the current selection.
+TEContinuousStyle examines the current selection range and checks if a
+specified style attribute is continuous across the current selection range. You
+can use this as an aid in toggling styles (see TESetStyle ) or to determine
+which, if any, items in your Style... menu should have a check mark.
+modeis the address of a short. On entry, it specifies a style operation
+mode (see Style Mode ). Bits of this value specify which
+characteristics of the selected text should be examined.
+Upon return, each bit that was set on entry is been cleared if that
+style element was not continuous.
+theStyle is the address of a 12-byte TextStyle structure. On entry, it
+identifies which characteristics to examine. Upon exit, fields
+corresponding to set-bits in mode are filled-in to reflect the values
+of any attributes which are continuous.
+hTEis a handle leading to an edit record created via TEStylNew .
+The mode parameter, which takes the same values as in TESetStyle ,
+specifies which attributes should be checked. When TEContinuousStyle
+returns, the mode parameter indicates which of the checked attributes is
+continuous over the selection range, and the aStyle parameter reflects the
+continuous attributes.
+TEContinuousStyle returns TRUE if all of the attributes to be checked are
+continuous and returns FALSE if they are not. In other words, if the mode
+parameter is the same before and after the call, then TEContinuousStyle
+returns TRUE.
+Listing below illustrates how TEContinuousStyle is useful for marking
+the Style menu items so they correspond to the current selection.
+Marking the Style menu items so they correspond to the current selection
+shortmode;
+TextStyle aStyle;
+TEHandle myTE;
+MenuHandle styleMenu;
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  Boolean
+  TEContinuousStyle(short *mode, TextStyle *aStyle, TEHandle hTE);
+
+  /**
+   *  TEUseStyleScrap()
+   *
+
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  TEUseStyleScrap(long rangeStart, long rangeEnd, StScrpHandle newStyles,
+                  Boolean fRedraw, TEHandle hTE);
+
+  /**
+  \brief Install custom handlers for TextEdit bottleneck routines
+
+  <pre>The TECustomHook procedure lets your application customize the features
+of TextEdit by setting the TextEdit hooks .
+TECustomHook installs a custom routine for TextEdit EOL handling, text
+drawing, text measuring, and hit-testing.  It returns the address of the
+original handler to provide a way to chain functions.
+whichspecifies which bottleneck routine to install. It is one of:
+intEOLHook 0Calculates text width
+intDrawHook 1Draws text
+intWidthHook 2Measures text
+intHitTestHook 3See which character corresponds to a screen pixel
+intNWidthHook 6Width measurement hook nWIDTHHook
+intTextWidthHook 7Width measurement hook TextWidthHook
+addris the address of a ProcPtr. On entry, it is the address of your
+custom routine to take over the function identified by whichHook .
+Upon return, it will contain the address of the routine that normally
+handles the function.
+hTEis a handle leading to an edit record created via TEStylNew .
+You specify your customized hook in the addr parameter. When
+TECustomHook returns, the addr parameter contains the address of the
+previous hook specified by the which parameter. This address is returned so
+that hooks can be daisy-chained. The two new hooks, nWIDTHHook and
+TextWidthHook , specified by the intNWidthHook and intTextWidthHook
+constants, are described in “TextEdit Width Hooks ”.
+Two integer fields of the edit record , not used for their original purposes but
+still named recalBack and recalLines , combine to hold a handle to the
+TextEdit dispatch record , which contains a list of TextEdit hooks . (See the
+figure in the TextEdit Data Structures description for an illustration of the
+edit record , the dispatch record, and all the TextEdit data structures.) Each
+edit record has its own set of such routines to provide for maximum
+flexibility. You should always use the TECustomHook procedure to change
+these hooks instead of modifying the edit record directly.
+Warning: Do not simply copy the recalBack and recalLines fields to
+another edit record . If you do, a duplicate handle to the initial
+TextEdit dispatch record is stored in recalBack and recalLines in your copy
+of the record. When one of the edit record s is disposed, the handle stored in
+the copy becomes invalid, and TextEdit can crash if the copy is used.
+EOLHook, WIDTHHook , nWIDTHHook , TextWidthHook , DRAWHook , and
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  void
+  TECustomHook(TEIntHook which, UniversalProcPtr *addr, TEHandle hTE);
+
+  /**
+  \brief Obtains a count of style runs in a range of text
+
+  <pre>The TENumStyles function returns the number of style changes contained in
+the given range, counting one for the start of the range. Note that this number
+does not necessarily represent the number of unique styles for the range
+because some styles may be repeated. For unstyled edit record s,
+TENumStyles always returns 1.
+TENumStyles returns the count of style changes (including one for the
+initial style) existing across the specified range. Use this to calculate the
+amount of memory that will be needed in a large TECut or TECopy operation.
+rangeStart and...
+rangeEnd identify which text to examine.
+hTEis a handle leading to an edit record created via TENew or
+TEStylNew .
+The rangeStart and rangeEnd parameters indicate the range. The text
+containing the range is specified by the hTE parameter, a handle to the
+edit record .
+You can use TENumStyles to calculate the amount of memory that would be
+required if TECut or TECopy were called. Since the style scrap record is
+linear in nature, with one element for each style change, you can multiply the
+result that TENumStyles returns by SizeOf( ScrpSTElement ) and add 2 to get
+the amount of memory needed.
+</pre>
+* \returns <pre>a long integer; the number of style changes across the range.
+</pre>
+* \note <pre>The actual amount of memory used by styles in a Cut or Copy
+operation will be the return value * sizeof( ScrpSTElement ) +2.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+  long
+  TENumStyles(long rangeStart, long rangeEnd, TEHandle hTE);
+
+  /**
+  \brief Return last setting of a specified feature's bit
+  \param    feature enable/disable inline input
+\param    action like feature, using bit constants
+  <pre>The TEFeatureFlag function allows you to enable outline highlighting and
+text buffering in your application. You can also use this function to disable
+inline input in a particular edit record and to enable several new features that
+have been provided so that inline input works correctly with TextEdit .
+Note: To test for the availability of these features, you can call the Gestalt
+function with the gestaltTextEditVersion selector. A result of gestaltTE4 or
+greater returned in the response parameter indicates that outline highlighting
+and text buffering are available. A result of gestaltTE5 or greater returned in
+the response parameter indicates that the two inline input features are
+available. (For details, see the description about
+Determining the Version of TextEdit .
+The inline input features are also available on version 6.0.7 systems with
+non-Roman script systems installed. However, there is no Gestalt constant
+that indicates this availability.
+The feature parameter allows you to disable inline input in a particular
+edit record or to specify the features you want to enable-outline highlighting,
+text buffering, and features provided for inline input in TextEdit . The action
+parameter lets you enable and disable these features by using the TEBitSet and
+TEBitClear constants and lets you test the settings of these feature bits by
+using the TEBitTest constant. The hTE parameter is a handle to the edit record .
+The TEFeatureFlag function returns the previous setting of the feature's
+bit, either TEBitSet or TEBitClear .
+Note that there is also a constant named TEFeatureFlag which has the following
+values:
+The feature or bit definitions for TEFeatureFlag are:
+teFAutoScr = 0, /*00000001b*/
+teFTextBuffering = 1, /*00000010b*/
+teFOutlineHilite = 2, /*00000100b*/
+teFInlineInput = 3, /*00001000b*/
+teFUseTextServices = 4, /*00010000b*/
+The action for the new "bit (un)set" interface, TEFeatureFlag is:
+TEBitClear = 0,
+TEBitSet = 1/*set the selector bit*/
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(TEHandle)
-TENew(const Rect *destRect, const Rect *viewRect) ONEWORDINLINE(0xA9D2);
-
-/**
- *  TEDispose()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEDispose(TEHandle hTE) ONEWORDINLINE(0xA9CD);
-
-/**
- *  TESetText()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TESetText(const void *text, long length, TEHandle hTE) ONEWORDINLINE(0xA9CF);
-
-/**
- *  TEGetText()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(CharsHandle)
-TEGetText(TEHandle hTE) ONEWORDINLINE(0xA9CB);
-
-/**
- *  TEIdle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEIdle(TEHandle hTE) ONEWORDINLINE(0xA9DA);
-
-/**
- *  TESetSelect()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TESetSelect(long selStart, long selEnd, TEHandle hTE) ONEWORDINLINE(0xA9D1);
-
-/**
- *  TEActivate()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEActivate(TEHandle hTE) ONEWORDINLINE(0xA9D8);
-
-/**
- *  TEDeactivate()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEDeactivate(TEHandle hTE) ONEWORDINLINE(0xA9D9);
-
-/**
- *  TEKey()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEKey(CharParameter key, TEHandle hTE) ONEWORDINLINE(0xA9DC);
-
-/**
- *  TECut()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TECut(TEHandle hTE) ONEWORDINLINE(0xA9D6);
-
-/**
- *  TECopy()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TECopy(TEHandle hTE) ONEWORDINLINE(0xA9D5);
-
-/**
- *  TEPaste()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEPaste(TEHandle hTE) ONEWORDINLINE(0xA9DB);
-
-/**
- *  TEDelete()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEDelete(TEHandle hTE) ONEWORDINLINE(0xA9D7);
-
-/**
- *  TEInsert()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEInsert(const void *text, long length, TEHandle hTE) ONEWORDINLINE(0xA9DE);
-
-/**
- *  TESetAlignment()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TESetAlignment(short just, TEHandle hTE) ONEWORDINLINE(0xA9DF);
-
-/**
- *  TEUpdate()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEUpdate(const Rect *rUpdate, TEHandle hTE) ONEWORDINLINE(0xA9D3);
-
-/**
- *  TETextBox()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TETextBox(const void *text, long length, const Rect *box, short just)
-    ONEWORDINLINE(0xA9CE);
-
-/**
- *  TEScroll()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEScroll(short dh, short dv, TEHandle hTE) ONEWORDINLINE(0xA9DD);
-
-/**
- *  TESelView()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TESelView(TEHandle hTE) ONEWORDINLINE(0xA811);
-
-/**
- *  TEPinScroll()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEPinScroll(short dh, short dv, TEHandle hTE) ONEWORDINLINE(0xA812);
-
-/**
- *  TEAutoView()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEAutoView(Boolean fAuto, TEHandle hTE) ONEWORDINLINE(0xA813);
-
-/**
- *  TECalText()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TECalText(TEHandle hTE) ONEWORDINLINE(0xA9D0);
-
-/**
- *  TEGetOffset()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-TEGetOffset(Point pt, TEHandle hTE) ONEWORDINLINE(0xA83C);
-
-/**
- *  TEGetPoint()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Point)
-TEGetPoint(short offset, TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0008, 0xA83D);
-
-/**
- *  TEClick()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEClick(Point pt, Boolean fExtend, TEHandle h) ONEWORDINLINE(0xA9D4);
-
-/**
- *  TEStyleNew()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(TEHandle)
-TEStyleNew(const Rect *destRect, const Rect *viewRect) ONEWORDINLINE(0xA83E);
-
-/**
- *  TESetStyleHandle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TESetStyleHandle(TEStyleHandle theHandle, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x0005, 0xA83D);
-
-/**
- *  TEGetStyleHandle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(TEStyleHandle)
-TEGetStyleHandle(TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0004, 0xA83D);
-
-/**
- *  TEGetStyle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEGetStyle(short offset, TextStyle *theStyle, short *lineHeight,
-           short *fontAscent, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x0003, 0xA83D);
-
-/**
- *  TEStylePaste()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEStylePaste(TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0000, 0xA83D);
-
-/**
- *  TESetStyle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TESetStyle(short mode, const TextStyle *newStyle, Boolean fRedraw, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x0001, 0xA83D);
-
-/**
- *  TEReplaceStyle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEReplaceStyle(short mode, const TextStyle *oldStyle, const TextStyle *newStyle,
-               Boolean fRedraw, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x0002, 0xA83D);
-
-/**
- *  TEGetStyleScrapHandle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(StScrpHandle)
-TEGetStyleScrapHandle(TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0006, 0xA83D);
-
-/**
- *  TEStyleInsert()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEStyleInsert(const void *text, long length, StScrpHandle hST, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x0007, 0xA83D);
-
-/**
- *  TEGetHeight()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-TEGetHeight(long endLine, long startLine, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x0009, 0xA83D);
-
-/**
- *  TEContinuousStyle()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(Boolean)
-TEContinuousStyle(short *mode, TextStyle *aStyle, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000A, 0xA83D);
-
-/**
- *  TEUseStyleScrap()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TEUseStyleScrap(long rangeStart, long rangeEnd, StScrpHandle newStyles,
-                Boolean fRedraw, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000B, 0xA83D);
-
-/**
- *  TECustomHook()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(void)
-TECustomHook(TEIntHook which, UniversalProcPtr *addr, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000C, 0xA83D);
-
-/**
- *  TENumStyles()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(long)
-TENumStyles(long rangeStart, long rangeEnd, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000D, 0xA83D);
-
-/**
- *  TEFeatureFlag()
- *
-
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API(short)
-TEFeatureFlag(short feature, short action, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000E, 0xA83D);
+short
+TEFeatureFlag(short feature, short action, TEHandle hTE);
 
 /**
  *  TEGetHiliteRgn()
@@ -2030,9 +2254,7 @@ TEFeatureFlag(short feature, short action, TEHandle hTE)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-TEGetHiliteRgn(RgnHandle region, TEHandle hTE)
-    THREEWORDINLINE(0x3F3C, 0x000F, 0xA83D);
+OSErr TEGetHiliteRgn(RgnHandle region, TEHandle hTE);
 
 /**
  *  TESetScrapLength()
@@ -2042,8 +2264,7 @@ TEGetHiliteRgn(RgnHandle region, TEHandle hTE)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-TESetScrapLength(long length);
+void TESetScrapLength(long length);
 
 /**
  *  TEFromScrap()
@@ -2053,8 +2274,7 @@ TESetScrapLength(long length);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-TEFromScrap(void);
+OSErr TEFromScrap(void);
 
 /**
  *  TEToScrap()
@@ -2064,8 +2284,7 @@ TEFromScrap(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
-TEToScrap(void);
+OSErr TEToScrap(void);
 
 /**
  *  TESetClickLoop()
@@ -2075,8 +2294,7 @@ TEToScrap(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-TESetClickLoop(TEClickLoopUPP clikProc, TEHandle hTE);
+void TESetClickLoop(TEClickLoopUPP clikProc, TEHandle hTE);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -2087,8 +2305,7 @@ TESetClickLoop(TEClickLoopUPP clikProc, TEHandle hTE);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
-TESetWordBreak(WordBreakUPP wBrkProc, TEHandle hTE);
+void TESetWordBreak(WordBreakUPP wBrkProc, TEHandle hTE);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -2100,7 +2317,7 @@ TESetWordBreak(WordBreakUPP wBrkProc, TEHandle hTE);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(TEDoTextUPP)
+TEDoTextUPP
 TEGetDoTextHook(void);
 
 /**
@@ -2111,8 +2328,7 @@ TEGetDoTextHook(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-TESetDoTextHook(TEDoTextUPP value);
+void TESetDoTextHook(TEDoTextUPP value);
 
 /**
  *  TEGetRecalcHook()
@@ -2122,7 +2338,7 @@ TESetDoTextHook(TEDoTextUPP value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(TERecalcUPP)
+TERecalcUPP
 TEGetRecalcHook(void);
 
 /**
@@ -2133,8 +2349,7 @@ TEGetRecalcHook(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-TESetRecalcHook(TERecalcUPP value);
+void TESetRecalcHook(TERecalcUPP value);
 
 /**
  *  TEGetFindWordHook()
@@ -2144,7 +2359,7 @@ TESetRecalcHook(TERecalcUPP value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(TEFindWordUPP)
+TEFindWordUPP
 TEGetFindWordHook(void);
 
 /**
@@ -2155,8 +2370,7 @@ TEGetFindWordHook(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-TESetFindWordHook(TEFindWordUPP value);
+void TESetFindWordHook(TEFindWordUPP value);
 
 /**
  *  TEGetScrapHandle()
@@ -2166,7 +2380,7 @@ TESetFindWordHook(TEFindWordUPP value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(Handle)
+Handle
 TEGetScrapHandle(void);
 
 /**
@@ -2177,8 +2391,7 @@ TEGetScrapHandle(void);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-TESetScrapHandle(Handle value);
+void TESetScrapHandle(Handle value);
 
 /* LMGetWordRedraw and LMSetWordRedraw were previously in LowMem.h  */
 /* Deprecated for Carbon on MacOS X                                 */
@@ -2192,8 +2405,7 @@ TESetScrapHandle(Handle value);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(UInt8)
-LMGetWordRedraw(void) TWOWORDINLINE(0x1EB8, 0x0BA5);
+UInt8 LMGetWordRedraw(void);
 
 /**
  *  LMSetWordRedraw()
@@ -2203,8 +2415,7 @@ LMGetWordRedraw(void) TWOWORDINLINE(0x1EB8, 0x0BA5);
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(void)
-LMSetWordRedraw(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BA5);
+void LMSetWordRedraw(UInt8 value);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -2215,8 +2426,7 @@ LMSetWordRedraw(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BA5);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
-teclick(Point *pt, Boolean fExtend, TEHandle h);
+void teclick(Point *pt, Boolean fExtend, TEHandle h);
 
 #endif /* CALL_NOT_IN_CARBON */
 
@@ -2232,12 +2442,12 @@ teclick(Point *pt, Boolean fExtend, TEHandle h);
 #define TEStylPaste(hTE) TEStylePaste(hTE)
 #define GetStylScrap(hTE) TEGetStyleScrapHandle(hTE)
 #define GetStyleScrap(hTE) TEGetStyleScrapHandle(hTE)
-#define SetStylScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)             \
-  TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
-#define SetStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)            \
-  TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
-#define TEStylInsert(text, length, hST, hTE)                                   \
-  TEStyleInsert(text, length, hST, hTE)
+#define SetStylScrap(rangeStart, rangeEnd, newStyles, redraw, hTE) \
+TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
+#define SetStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE) \
+TEUseStyleScrap(rangeStart, rangeEnd, newStyles, redraw, hTE)
+#define TEStylInsert(text, length, hST, hTE) \
+TEStyleInsert(text, length, hST, hTE)
 #define TESetScrapLen(length) TESetScrapLength(length)
 #define TEGetScrapLen() TEGetScrapLength()
 #define SetClikLoop(clikProc, hTE) TESetClickLoop(clikProc, hTE)
@@ -2264,3 +2474,4 @@ teclick(Point *pt, Boolean fExtend, TEHandle h);
 #endif
 
 #endif /* __TEXTEDIT__ */
+* /*/*/ */*/

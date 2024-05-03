@@ -77,7 +77,7 @@ typedef STACK_UPP_TYPE(CalibrateProcPtr) CalibrateUPP;
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(CalibrateEventUPP)
+CalibrateEventUPP
 NewCalibrateEventUPP(CalibrateEventProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -106,7 +106,7 @@ NewCalibrateEventUPP(CalibrateEventProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(CanCalibrateUPP)
+CanCalibrateUPP
 NewCanCalibrateUPP(CanCalibrateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -134,7 +134,7 @@ inline CanCalibrateUPP NewCanCalibrateUPP(CanCalibrateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(CalibrateUPP)
+CalibrateUPP
 NewCalibrateUPP(CalibrateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum { uppCalibrateProcInfo = 0x000000E0 }; /* pascal 2_bytes Func(4_bytes) */
@@ -158,7 +158,7 @@ inline CalibrateUPP NewCalibrateUPP(CalibrateProcPtr userRoutine) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 DisposeCalibrateEventUPP(CalibrateEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -178,7 +178,7 @@ inline void DisposeCalibrateEventUPP(CalibrateEventUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeCanCalibrateUPP(CanCalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -198,7 +198,7 @@ inline void DisposeCanCalibrateUPP(CanCalibrateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeCalibrateUPP(CalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -218,7 +218,7 @@ inline void DisposeCalibrateUPP(CalibrateUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API_C(void)
+void
 InvokeCalibrateEventUPP(EventRecord *event, CalibrateEventUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -240,7 +240,7 @@ inline void InvokeCalibrateEventUPP(EventRecord *event,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeCanCalibrateUPP(CMDisplayIDType displayID, Str255 errMessage,
                       CanCalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -266,7 +266,7 @@ inline Boolean InvokeCanCalibrateUPP(CMDisplayIDType displayID,
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeCalibrateUPP(CalibratorInfo *theInfo, CalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -300,7 +300,7 @@ inline OSErr InvokeCalibrateUPP(CalibratorInfo *theInfo, CalibrateUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         in version 10.0 and later
  */
-EXTERN_API(OSErr)
+OSErr
 CMCalibrateDisplay(CalibratorInfo *theInfo);
 
 #if OLDROUTINENAMES
@@ -331,7 +331,7 @@ typedef STACK_UPP_TYPE(OldCalibrateProcPtr) OldCalibrateUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OldCanCalibrateUPP)
+OldCanCalibrateUPP
 NewOldCanCalibrateUPP(OldCanCalibrateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -360,7 +360,7 @@ NewOldCanCalibrateUPP(OldCanCalibrateProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OldCalibrateUPP)
+OldCalibrateUPP
 NewOldCalibrateUPP(OldCalibrateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -388,7 +388,7 @@ inline OldCalibrateUPP NewOldCalibrateUPP(OldCalibrateProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeOldCanCalibrateUPP(OldCanCalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -408,7 +408,7 @@ inline void DisposeOldCanCalibrateUPP(OldCanCalibrateUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeOldCalibrateUPP(OldCalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -428,7 +428,7 @@ inline void DisposeOldCalibrateUPP(OldCalibrateUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Boolean)
+Boolean
 InvokeOldCanCalibrateUPP(CMDisplayIDType displayID, OldCanCalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -452,7 +452,7 @@ inline Boolean InvokeOldCanCalibrateUPP(CMDisplayIDType displayID,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeOldCalibrateUPP(OldCalibratorInfo *theInfo, OldCalibrateUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus

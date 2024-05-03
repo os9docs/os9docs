@@ -99,7 +99,7 @@ typedef STACK_UPP_TYPE(SecProgressCallbackProcPtr) SecProgressCallbackUPP;
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(SecProgressCallbackUPP)
+SecProgressCallbackUPP
 NewSecProgressCallbackUPP(SecProgressCallbackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -128,7 +128,7 @@ NewSecProgressCallbackUPP(SecProgressCallbackProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeSecProgressCallbackUPP(SecProgressCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -148,7 +148,7 @@ inline void DisposeSecProgressCallbackUPP(SecProgressCallbackUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSStatus)
+OSStatus
 InvokeSecProgressCallbackUPP(SecProgressCallbackInfo *callbackInfo,
                              void *userContext, SecProgressCallbackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -186,7 +186,7 @@ InvokeSecProgressCallbackUPP(SecProgressCallbackInfo *callbackInfo,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecSetProgressCallback(SecProgressCallbackUPP callbackProc, void *userContext);
 
 /**
@@ -197,7 +197,7 @@ SecSetProgressCallback(SecProgressCallbackUPP callbackProc, void *userContext);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecRemoveProgressCallback(SecProgressCallbackUPP callbackProc);
 
 /**
@@ -208,7 +208,7 @@ SecRemoveProgressCallback(SecProgressCallbackUPP callbackProc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 DefaultSecProgressCallbackProc(SecProgressCallbackInfo *info,
                                void *userContext);
 
@@ -225,7 +225,7 @@ enum { kSecDefaultSignatureResID = 1 };
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacSignFile(FSSpec *theFile, KCItemRef signingCertificate, Handle sigH,
                SecOptions options, SecProgressCallbackUPP progressProc,
                void *userContext);
@@ -238,7 +238,7 @@ SecMacSignFile(FSSpec *theFile, KCItemRef signingCertificate, Handle sigH,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacSignFileSimple(FSSpec *theFile, KCItemRef signingCertificate,
                      SecOptions options);
 
@@ -250,7 +250,7 @@ SecMacSignFileSimple(FSSpec *theFile, KCItemRef signingCertificate,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacLoadSigPound(FSSpec *theFile, Handle *resHandle);
 
 /**
@@ -261,7 +261,7 @@ SecMacLoadSigPound(FSSpec *theFile, Handle *resHandle);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacRemoveSignature(FSSpec *theFile, SecSignatureType signatureType,
                       SInt16 signatureToRemove);
 
@@ -273,7 +273,7 @@ SecMacRemoveSignature(FSSpec *theFile, SecSignatureType signatureType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacRemoveAllSignatures(FSSpec *theFile, SecSignatureType signatureType);
 
 /**
@@ -284,7 +284,7 @@ SecMacRemoveAllSignatures(FSSpec *theFile, SecSignatureType signatureType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacVerifyFile(FSSpec *theFile, SecOptions options,
                  SecProgressCallbackUPP progressProc, void *userContext,
                  SInt16 signatureToVerify, CFArrayRef policyOIDs,
@@ -298,7 +298,7 @@ SecMacVerifyFile(FSSpec *theFile, SecOptions options,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacVerifyFileSimple(FSSpec *theFile, SecOptions options,
                        SecTrustPolicy trustPolicy, SecSignerRef *signer);
 
@@ -310,7 +310,7 @@ SecMacVerifyFileSimple(FSSpec *theFile, SecOptions options,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 SecMacHasSignature(FSSpec *theFile, SecSignatureType signatureType);
 
 /**
@@ -321,7 +321,7 @@ SecMacHasSignature(FSSpec *theFile, SecSignatureType signatureType);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacFindSignatureToVerify(FSSpec *theFile, SecSignatureType signatureType,
                             SInt16 *signatureToVerify);
 
@@ -333,7 +333,7 @@ SecMacFindSignatureToVerify(FSSpec *theFile, SecSignatureType signatureType,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(CFArrayRef)
+CFArrayRef
 SecMacGetDefaultPolicyOIDs(SecTrustPolicy trustPolicy);
 
 /**
@@ -344,7 +344,7 @@ SecMacGetDefaultPolicyOIDs(SecTrustPolicy trustPolicy);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(OSStatus)
+OSStatus
 SecMacDisplaySigner(OSStatus inputErr, SecSignerRef signer,
                     Boolean alwaysShowUI, FSSpec *theFile);
 

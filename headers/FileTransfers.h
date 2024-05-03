@@ -214,7 +214,7 @@ enum {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferDefUPP)
+FileTransferDefUPP
 NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -243,7 +243,7 @@ NewFileTransferDefUPP(FileTransferDefProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferReadUPP)
+FileTransferReadUPP
 NewFileTransferReadUPP(FileTransferReadProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -272,7 +272,7 @@ NewFileTransferReadUPP(FileTransferReadProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferWriteUPP)
+FileTransferWriteUPP
 NewFileTransferWriteUPP(FileTransferWriteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -301,7 +301,7 @@ NewFileTransferWriteUPP(FileTransferWriteProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferSendUPP)
+FileTransferSendUPP
 NewFileTransferSendUPP(FileTransferSendProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -330,7 +330,7 @@ NewFileTransferSendUPP(FileTransferSendProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferReceiveUPP)
+FileTransferReceiveUPP
 NewFileTransferReceiveUPP(FileTransferReceiveProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -359,7 +359,7 @@ NewFileTransferReceiveUPP(FileTransferReceiveProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferEnvironsUPP)
+FileTransferEnvironsUPP
 NewFileTransferEnvironsUPP(FileTransferEnvironsProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -388,7 +388,7 @@ NewFileTransferEnvironsUPP(FileTransferEnvironsProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferNotificationUPP)
+FileTransferNotificationUPP
 NewFileTransferNotificationUPP(FileTransferNotificationProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -417,7 +417,7 @@ NewFileTransferNotificationUPP(FileTransferNotificationProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(FileTransferChooseIdleUPP)
+FileTransferChooseIdleUPP
 NewFileTransferChooseIdleUPP(FileTransferChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 enum {
@@ -446,7 +446,7 @@ NewFileTransferChooseIdleUPP(FileTransferChooseIdleProcPtr userRoutine) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferDefUPP(FileTransferDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -466,7 +466,7 @@ inline void DisposeFileTransferDefUPP(FileTransferDefUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferReadUPP(FileTransferReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -486,7 +486,7 @@ inline void DisposeFileTransferReadUPP(FileTransferReadUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferWriteUPP(FileTransferWriteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -506,7 +506,7 @@ inline void DisposeFileTransferWriteUPP(FileTransferWriteUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferSendUPP(FileTransferSendUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -526,7 +526,7 @@ inline void DisposeFileTransferSendUPP(FileTransferSendUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferReceiveUPP(FileTransferReceiveUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -546,7 +546,7 @@ inline void DisposeFileTransferReceiveUPP(FileTransferReceiveUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferEnvironsUPP(FileTransferEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -567,7 +567,7 @@ inline void DisposeFileTransferEnvironsUPP(FileTransferEnvironsUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferNotificationUPP(FileTransferNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -589,7 +589,7 @@ DisposeFileTransferNotificationUPP(FileTransferNotificationUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 DisposeFileTransferChooseIdleUPP(FileTransferChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -611,7 +611,7 @@ DisposeFileTransferChooseIdleUPP(FileTransferChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(long)
+long
 InvokeFileTransferDefUPP(TermHandle hTerm, short msg, long p1, long p2, long p3,
                          FileTransferDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -637,7 +637,7 @@ inline long InvokeFileTransferDefUPP(TermHandle hTerm, short msg, long p1,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeFileTransferReadUPP(unsigned long *count, Ptr pData, long refCon,
                           short fileMsg, FileTransferReadUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -663,7 +663,7 @@ inline OSErr InvokeFileTransferReadUPP(unsigned long *count, Ptr pData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeFileTransferWriteUPP(unsigned long *count, Ptr pData, long refCon,
                            short fileMsg, FileTransferWriteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -689,7 +689,7 @@ inline OSErr InvokeFileTransferWriteUPP(unsigned long *count, Ptr pData,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Size)
+Size
 InvokeFileTransferSendUPP(Ptr thePtr, long theSize, long refCon,
                           CMChannel channel, CMFlags flag,
                           FileTransferSendUPP userUPP);
@@ -718,7 +718,7 @@ inline Size InvokeFileTransferSendUPP(Ptr thePtr, long theSize, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(Size)
+Size
 InvokeFileTransferReceiveUPP(Ptr thePtr, long theSize, long refCon,
                              CMChannel channel, CMFlags *flag,
                              FileTransferReceiveUPP userUPP);
@@ -747,7 +747,7 @@ inline Size InvokeFileTransferReceiveUPP(Ptr thePtr, long theSize, long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(OSErr)
+OSErr
 InvokeFileTransferEnvironsUPP(long refCon, ConnEnvironRec *theEnvirons,
                               FileTransferEnvironsUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -773,7 +773,7 @@ inline OSErr InvokeFileTransferEnvironsUPP(long refCon,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeFileTransferNotificationUPP(FTHandle hFT, const FSSpec *pFSSpec,
                                   FileTransferNotificationUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -799,7 +799,7 @@ InvokeFileTransferNotificationUPP(FTHandle hFT, const FSSpec *pFSSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API_C(void)
+void
 InvokeFileTransferChooseIdleUPP(FileTransferChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -859,7 +859,7 @@ inline void InvokeFileTransferChooseIdleUPP(FileTransferChooseIdleUPP userUPP) {
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 InitFT(void);
 
 /**
@@ -870,7 +870,7 @@ InitFT(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Handle)
+Handle
 FTGetVersion(FTHandle hFT);
 
 /**
@@ -881,7 +881,7 @@ FTGetVersion(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 FTGetFTVersion(void);
 
 /**
@@ -892,7 +892,7 @@ FTGetFTVersion(void);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTHandle)
+FTHandle
 FTNew(short procID, FTFlags flags, FileTransferSendUPP sendProc,
       FileTransferReceiveUPP recvProc, FileTransferReadUPP readProc,
       FileTransferWriteUPP writeProc, FileTransferEnvironsUPP environsProc,
@@ -906,7 +906,7 @@ FTNew(short procID, FTFlags flags, FileTransferSendUPP sendProc,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTDispose(FTHandle hFT);
 
 /**
@@ -917,7 +917,7 @@ FTDispose(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTStart(FTHandle hFT, FTDirection direction, const SFReply *fileInfo);
 
 /**
@@ -928,7 +928,7 @@ FTStart(FTHandle hFT, FTDirection direction, const SFReply *fileInfo);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTAbort(FTHandle hFT);
 
 /**
@@ -939,7 +939,7 @@ FTAbort(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTSend(FTHandle hFT, short numFiles, FSSpecArrayPtr pFSSpec,
        FileTransferNotificationUPP notifyProc);
 
@@ -951,7 +951,7 @@ FTSend(FTHandle hFT, short numFiles, FSSpecArrayPtr pFSSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTReceive(FTHandle hFT, FSSpecPtr pFSSpec,
           FileTransferNotificationUPP notifyProc);
 
@@ -963,7 +963,7 @@ FTReceive(FTHandle hFT, FSSpecPtr pFSSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTExec(FTHandle hFT);
 
 /**
@@ -974,7 +974,7 @@ FTExec(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTActivate(FTHandle hFT, Boolean activate);
 
 /**
@@ -985,7 +985,7 @@ FTActivate(FTHandle hFT, Boolean activate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTResume(FTHandle hFT, Boolean resume);
 
 /**
@@ -996,7 +996,7 @@ FTResume(FTHandle hFT, Boolean resume);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 FTMenu(FTHandle hFT, short menuID, short item);
 
 /**
@@ -1007,7 +1007,7 @@ FTMenu(FTHandle hFT, short menuID, short item);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 FTChoose(FTHandle *hFT, Point where, FileTransferChooseIdleUPP idleProc);
 
 /**
@@ -1018,7 +1018,7 @@ FTChoose(FTHandle *hFT, Point where, FileTransferChooseIdleUPP idleProc);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTEvent(FTHandle hFT, const EventRecord *theEvent);
 
 /**
@@ -1029,7 +1029,7 @@ FTEvent(FTHandle hFT, const EventRecord *theEvent);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 FTValidate(FTHandle hFT);
 
 /**
@@ -1040,7 +1040,7 @@ FTValidate(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTDefault(Ptr *theConfig, short procID, Boolean allocate);
 
 /**
@@ -1051,7 +1051,7 @@ FTDefault(Ptr *theConfig, short procID, Boolean allocate);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Handle)
+Handle
 FTSetupPreflight(short procID, long *magicCookie);
 
 /**
@@ -1062,7 +1062,7 @@ FTSetupPreflight(short procID, long *magicCookie);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTSetupSetup(short procID, const void *theConfig, short count,
              DialogRef theDialog, long *magicCookie);
 
@@ -1074,7 +1074,7 @@ FTSetupSetup(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Boolean)
+Boolean
 FTSetupFilter(short procID, const void *theConfig, short count,
               DialogRef theDialog, EventRecord *theEvent, short *theItem,
               long *magicCookie);
@@ -1087,7 +1087,7 @@ FTSetupFilter(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTSetupItem(short procID, const void *theConfig, short count,
             DialogRef theDialog, short *theItem, long *magicCookie);
 
@@ -1099,7 +1099,7 @@ FTSetupItem(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTSetupXCleanup(short procID, const void *theConfig, short count,
                 DialogRef theDialog, Boolean OKed, long *magicCookie);
 
@@ -1111,7 +1111,7 @@ FTSetupXCleanup(short procID, const void *theConfig, short count,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTSetupPostflight(short procID);
 
 /**
@@ -1122,7 +1122,7 @@ FTSetupPostflight(short procID);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(Ptr)
+Ptr
 FTGetConfig(FTHandle hFT);
 
 /**
@@ -1133,7 +1133,7 @@ FTGetConfig(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 FTSetConfig(FTHandle hFT, const void *thePtr);
 
 /**
@@ -1144,7 +1144,7 @@ FTSetConfig(FTHandle hFT, const void *thePtr);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTIntlToEnglish(FTHandle hFT, const void *inputPtr, Ptr *outputPtr,
                 short language);
 
@@ -1156,7 +1156,7 @@ FTIntlToEnglish(FTHandle hFT, const void *inputPtr, Ptr *outputPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTEnglishToIntl(FTHandle hFT, const void *inputPtr, Ptr *outputPtr,
                 short language);
 
@@ -1168,7 +1168,7 @@ FTEnglishToIntl(FTHandle hFT, const void *inputPtr, Ptr *outputPtr,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTGetToolName(short procID, Str255 name);
 
 /**
@@ -1179,7 +1179,7 @@ FTGetToolName(short procID, Str255 name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(short)
+short
 FTGetProcID(ConstStr255Param name);
 
 /**
@@ -1190,7 +1190,7 @@ FTGetProcID(ConstStr255Param name);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTSetRefCon(FTHandle hFT, long refCon);
 
 /**
@@ -1201,7 +1201,7 @@ FTSetRefCon(FTHandle hFT, long refCon);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 FTGetRefCon(FTHandle hFT);
 
 /**
@@ -1212,7 +1212,7 @@ FTGetRefCon(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTSetUserData(FTHandle hFT, long userData);
 
 /**
@@ -1223,7 +1223,7 @@ FTSetUserData(FTHandle hFT, long userData);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(long)
+long
 FTGetUserData(FTHandle hFT);
 
 /**
@@ -1234,7 +1234,7 @@ FTGetUserData(FTHandle hFT);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(void)
+void
 FTGetErrorString(FTHandle hFT, short id, Str255 errMsg);
 
 /**
@@ -1248,7 +1248,7 @@ FTGetErrorString(FTHandle hFT, short id, Str255 errMsg);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTSendAsync(FTHandle hFT, short numFiles, FSSpecArrayPtr pFSSpec,
             FileTransferNotificationUPP notifyProc);
 
@@ -1260,7 +1260,7 @@ FTSendAsync(FTHandle hFT, short numFiles, FSSpecArrayPtr pFSSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTReceiveAsync(FTHandle hFT, FSSpecPtr pFSSpec,
                FileTransferNotificationUPP notifyProc);
 
@@ -1272,7 +1272,7 @@ FTReceiveAsync(FTHandle hFT, FSSpecPtr pFSSpec,
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-EXTERN_API(FTErr)
+FTErr
 FTCompletionAsync(FTHandle hFT, FTCompletionKind completionCall);
 
 #endif /* CALL_NOT_IN_CARBON */

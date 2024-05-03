@@ -9,7 +9,7 @@
     \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup AppleDisk
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -43,169 +44,171 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-struct HFSDefaults {
-  char sigWord[2]; /** signature word */
-  long abSize;     /** allocation block size in bytes */
-  long clpSize;    /** clump size in bytes */
-  long nxFreeFN;   /** next free file number */
-  long btClpSize;  /** B-Tree clump size in bytes */
-  short rsrv1;     /** reserved */
-  short rsrv2;     /** reserved */
-  short rsrv3;     /** reserved */
-};
-typedef struct HFSDefaults HFSDefaults;
-enum { kHFSPlusDefaultsVersion = 1 };
+  struct HFSDefaults
+  {
+    char sigWord[2]; /** signature word */
+    long abSize;     /** allocation block size in bytes */
+    long clpSize;    /** clump size in bytes */
+    long nxFreeFN;   /** next free file number */
+    long btClpSize;  /** B-Tree clump size in bytes */
+    short rsrv1;     /** reserved */
+    short rsrv2;     /** reserved */
+    short rsrv3;     /** reserved */
+  };
+  typedef struct HFSDefaults HFSDefaults;
+  enum
+  {
+    kHFSPlusDefaultsVersion = 1
+  };
 
-struct HFSPlusDefaults {
-  UInt16 version;             /** version of this structure */
-  UInt16 flags;               /** currently undefined; pass zero */
-  UInt32 blockSize;           /** allocation block size in bytes */
-  UInt32 rsrcClumpSize;       /** clump size for resource forks */
-  UInt32 dataClumpSize;       /** clump size for data forks */
-  UInt32 nextFreeFileID;      /** next free file number */
-  UInt32 catalogClumpSize;    /** clump size for catalog B-tree */
-  UInt32 catalogNodeSize;     /** node size for catalog B-tree */
-  UInt32 extentsClumpSize;    /** clump size for extents B-tree */
-  UInt32 extentsNodeSize;     /** node size for extents B-tree */
-  UInt32 attributesClumpSize; /** clump size for attributes B-tree */
-  UInt32 attributesNodeSize;  /** node size for attributes B-tree */
-  UInt32 allocationClumpSize; /** clump size for allocation bitmap file */
-};
-typedef struct HFSPlusDefaults HFSPlusDefaults;
+  struct HFSPlusDefaults
+  {
+    UInt16 version;             /** version of this structure */
+    UInt16 flags;               /** currently undefined; pass zero */
+    UInt32 blockSize;           /** allocation block size in bytes */
+    UInt32 rsrcClumpSize;       /** clump size for resource forks */
+    UInt32 dataClumpSize;       /** clump size for data forks */
+    UInt32 nextFreeFileID;      /** next free file number */
+    UInt32 catalogClumpSize;    /** clump size for catalog B-tree */
+    UInt32 catalogNodeSize;     /** node size for catalog B-tree */
+    UInt32 extentsClumpSize;    /** clump size for extents B-tree */
+    UInt32 extentsNodeSize;     /** node size for extents B-tree */
+    UInt32 attributesClumpSize; /** clump size for attributes B-tree */
+    UInt32 attributesNodeSize;  /** node size for attributes B-tree */
+    UInt32 allocationClumpSize; /** clump size for allocation bitmap file */
+  };
+  typedef struct HFSPlusDefaults HFSPlusDefaults;
 #if CALL_NOT_IN_CARBON
-/**
- *  DILoad()
- *
+  /**
+   *  DILoad()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-DILoad(void) THREEWORDINLINE(0x7002, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DILoad(void);
 
-/**
- *  DIUnload()
- *
+  /**
+   *  DIUnload()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(void)
-DIUnload(void) THREEWORDINLINE(0x7004, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void
+  DIUnload(void);
 
-/**
- *  DIBadMount()
- *
+  /**
+   *  DIBadMount()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(short)
-DIBadMount(Point where, UInt32 evtMessage)
-    THREEWORDINLINE(0x7000, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  short
+  DIBadMount(Point where, UInt32 evtMessage);
 
-/**
- *  DIFormat()
- *
+  /**
+   *  DIFormat()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-DIFormat(short drvNum) THREEWORDINLINE(0x7006, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  DIFormat(short drvNum);
 
-/**
- *  DIVerify()
- *
+  /**
+   *  DIVerify()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-DIVerify(short drvNum) THREEWORDINLINE(0x7008, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  DIVerify(short drvNum);
 
-/**
- *  DIZero()
- *
+  /**
+   *  DIZero()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-DIZero(short drvNum, ConstStr255Param volName)
-    THREEWORDINLINE(0x700A, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  DIZero(short drvNum, ConstStr255Param volName);
 
-/**
-    DIXFormat, DIXZero, and DIReformat are only available when FSM (File System
-   Manager) is installed. FSM is part of Macintosh PC Exchange and System 7.5.
-*/
-/**
- *  DIXFormat()
- *
+  /**
+      DIXFormat, DIXZero, and DIReformat are only available when FSM (File System
+     Manager) is installed. FSM is part of Macintosh PC Exchange and System 7.5.
+  */
+  /**
+   *  DIXFormat()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-DIXFormat(short drvNum, Boolean fmtFlag, unsigned long fmtArg,
-          unsigned long *actSize) THREEWORDINLINE(0x700C, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  DIXFormat(short drvNum, Boolean fmtFlag, unsigned long fmtArg,
+            unsigned long *actSize);
 
-/**
- *  DIXZero()
- *
+  /**
+   *  DIXZero()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-DIXZero(short drvNum, ConstStr255Param volName, short fsid, short mediaStatus,
-        short volTypeSelector, unsigned long volSize, void *extendedInfoPtr)
-    THREEWORDINLINE(0x700E, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  DIXZero(short drvNum, ConstStr255Param volName, short fsid, short mediaStatus,
+          short volTypeSelector, unsigned long volSize, void *extendedInfoPtr);
 
-/**
- *  DIReformat()
- *
+  /**
+   *  DIReformat()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API(OSErr)
-DIReformat(short drvNum, short fsid, ConstStr255Param volName,
-           ConstStr255Param msgText) THREEWORDINLINE(0x7010, 0x3F00, 0xA9E9);
+   *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  DIReformat(short drvNum, short fsid, ConstStr255Param volName,
+             ConstStr255Param msgText);
 
 #endif /** CALL_NOT_IN_CARBON */
 
 #if CALL_NOT_IN_CARBON
-/**
- *  dibadmount()
- *
+  /**
+   *  dibadmount()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(OSErr)
-dibadmount(Point *where, long evtMessage);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  dibadmount(Point *where, long evtMessage);
 
-/**
- *  dizero()
- *
+  /**
+   *  dizero()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-EXTERN_API_C(OSErr)
-dizero(short drvnum, const char *volName);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSErr
+  dizero(short drvnum, const char *volName);
 
 #endif /** CALL_NOT_IN_CARBON */
 

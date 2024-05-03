@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup CoreGraphics
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -41,7 +41,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -56,43 +57,43 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/** Create a PDF context, using `consumer' for output. `mediaBox' is the
- * default page media bounding box; if NULL, then a default page size is
- * used.  `auxiliaryInfo' specifies additional information used by the PDF
- * context when generating the PDF file.  The keys and values in
- * `auxiliaryInfo' must be CFStrings.  The following keys are recognized:
- *   Key       Value
- *   --------  --------
- *   Title     The document's title.
- *   Author    The name of the person who created the document.
- *   Creator   If the document was converted to PDF from another format,
- *             the name of the application that created the original
- *             document from which it was converted.
- */
-/**
- *  CGPDFContextCreate()
- *
+    /** Create a PDF context, using `consumer' for output. `mediaBox' is the
+     * default page media bounding box; if NULL, then a default page size is
+     * used.  `auxiliaryInfo' specifies additional information used by the PDF
+     * context when generating the PDF file.  The keys and values in
+     * `auxiliaryInfo' must be CFStrings.  The following keys are recognized:
+     *   Key       Value
+     *   --------  --------
+     *   Title     The document's title.
+     *   Author    The name of the person who created the document.
+     *   Creator   If the document was converted to PDF from another format,
+     *             the name of the application that created the original
+     *             document from which it was converted.
+     */
+    /**
+     *  CGPDFContextCreate()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGContextRef)
-CGPDFContextCreate(CGDataConsumerRef consumer, const CGRect *mediaBox,
-                   CFDictionaryRef auxiliaryInfo);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         in version 10.0 and later
+     */
+    CGContextRef
+    CGPDFContextCreate(CGDataConsumerRef consumer, const CGRect *mediaBox,
+                       CFDictionaryRef auxiliaryInfo);
 
-/** Convenience function: create a PDF context, writing to `url'. */
-/**
- *  CGPDFContextCreateWithURL()
- *
+    /** Convenience function: create a PDF context, writing to `url'. */
+    /**
+     *  CGPDFContextCreateWithURL()
+     *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-EXTERN_API_C(CGContextRef)
-CGPDFContextCreateWithURL(CFURLRef url, const CGRect *mediaBox,
-                          CFDictionaryRef auxiliaryInfo);
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         in version 10.0 and later
+     */
+    CGContextRef
+    CGPDFContextCreateWithURL(CFURLRef url, const CGRect *mediaBox,
+                              CFDictionaryRef auxiliaryInfo);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
