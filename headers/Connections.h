@@ -59,18 +59,21 @@ extern "C"
 #if CALL_NOT_IN_CARBON
   enum
   {
-    curCMVersion = 2 // current Connection Manager version  };
+    curCMVersion = 2 /* current Connection Manager version*/
+  };
 
   enum
   {
     curConnEnvRecVers =
-        0 //    current Connection Manager Environment Record version  };
-//    current Connection Manager Environment Record version
+        0 /* current Connection Manager Environment Record version*/
+  };
+
   enum
   {
-    // CMErr     cmGenericError = -1,
+    /* CMErr */
+    cmGenericError = -1,
     cmNoErr = 0,
-    // CMErr 
+    cmRejected = 1,
     cmFailed = 2,
     cmTimeOut = 3,
     cmNotOpen = 4,
@@ -94,35 +97,43 @@ extern "C"
     cmAttnNoTimeout = 1L << 6,
     cmDataClean = 1L << 8,
     cmCntlClean = 1L << 9,
-    cmAttnClean = 1L << 10, /*       Only for CMRecFlags (not CMChannel) in the
-                               rest of this enum  */
+    cmAttnClean = 1L << 10, /* Only for CMRecFlags (not CMChannel) in the
+    rest of this enum */
     cmNoMenus = 1L << 16,
     cmQuiet = 1L << 17,
     cmConfigChanged = 1L << 18
   };
 
-  // CMRecFlags and CMChannel       //      Low word of CMRecFlags is same as CMChannel   typedef long CMRecFlags;
+  /* CMRecFlags and CMChannel */
+  /* Low word of CMRecFlags is same as CMChannel */
+  typedef long CMRecFlags;
   typedef short CMChannel;
 
-  // CMRecFlags and CMChannel     
-  //      Low word of CMRecFlags is same as CMChannel 
+  enum
+  {
     cmStatusOpening = 1L << 0,
     cmStatusOpen = 1L << 1,
     cmStatusClosing = 1L << 2,
     cmStatusDataAvail = 1L << 3,
     cmStatusCntlAvail = 1L << 4,
     cmStatusAttnAvail = 1L << 5,
-    cmStatusDRPend = 1L << 6,  // data read pending      cmStatusDWPend = 1L << 7,  // data write pending     cmStatusCRPend = 1L << 8,  // cntl read pending      cmStatusCWPend = 1L << 9,  // cntl write pending     cmStatusARPend = 1L << 10, // attn read pending      cmStatusAWPend = 1L << 11, // attn write pending     cmStatusBreakPend = 1L << 12,
+    cmStatusDRPend = 1L << 6,  /* data read pending */
+    cmStatusDWPend = 1L << 7,  /* data write pending */
+    cmStatusCRPend = 1L << 8,  /* cntl read pending */
+    cmStatusCWPend = 1L << 9,  /* cntl write pending */
+    cmStatusARPend = 1L << 10, /* attn read pending */
+    cmStatusAWPend = 1L << 11, /* attn write pending */
+    cmStatusBreakPend = 1L << 12,
     cmStatusListenPend = 1L << 13,
     cmStatusIncomingCallPresent = 1L << 14,
     cmStatusReserved0 = 1L << 15
   };
-// data read pending  
-  typedef unsigned long CMStatF// data write pending 
-  enum// cntl read pending  
-  {// cntl write pending 
-    cmDataIn = 0,// attn read pending  
-    cmDataOut = 1,// attn write pending 
+
+  typedef unsigned long CMStatFlags;
+  enum
+  {
+    cmDataIn = 0,
+    cmDataOut = 1,
     cmCntlIn = 2,
     cmCntlOut = 3,
     cmAttnIn = 4,
@@ -197,43 +208,42 @@ extern "C"
 
   enum
   {
-    // CMIOPB constants and structure     cmIOPBQType = 10,
+    /* CMIOPB constants and structure */
+    cmIOPBQType = 10,
     cmIOPBversion = 0
   };
 
   struct CMIOPB
   {
     QElemPtr qLink;
-    short qType; // cmIOPBQType     ConnHandle hConn;
+    short qType; /* cmIOPBQType */
+    ConnHandle hConn;
     Ptr theBuffer;
     long count;
     CMFlags flags;
-    // CMIOPB constants and structure 
+    ConnectionCompletionUPP userCompletion;
     long timeout;
     CMErr errCode;
     CMChannel channel;
     long asyncEOM;
     long reserved1;
     short reserved2;
-    short version;  // cmIOPBversion     long refCon;    // for application     long toolData1; // for tool     long toolData2; // for tool   };
-  typedef struct // cmIOPBQType 
+    short version;  /* cmIOPBversion */
+    long refCon;    /* for application */
+    long toolData1; /* for tool */
+    long toolData2; /* for tool */
+  };
+  typedef struct CMIOPB CMIOPB;
   typedef CMIOPB *CMIOPBPtr;
 #if CALL_NOT_IN_CARBON
-  /**
-   *  NewConnectionToolDefUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  ConnectionToolDefUPP
-  NewConnectionToolD// cmIOPBversion 
-#if !OPAQUE_UPP_TYPE// for application 
-  enum// for tool 
-  {// for tool 
+  EXTERN_API_C(ConnectionToolDefUPP)
+  NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine);
+#if !OPAQUE_UPP_TYPES
+  enum
+  {
     uppConnectionToolDefProcInfo = 0x0000FEF0
-  }; // pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
+  }; /* pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) */
+#ifdef __cplusplus
   inline ConnectionToolDefUPP
   NewConnectionToolDefUPP(ConnectionToolDefProcPtr userRoutine)
   {
@@ -249,21 +259,14 @@ extern "C"
 #endif
 #endif
 
-  /**
-   * // pascal 4_bytes Func(4_bytes, 2_bytes, 4_bytes, 4_bytes, 4_bytes) 
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  ConnectionSearchCallBackUPP
+  EXTERN_API_C(ConnectionSearchCallBackUPP)
   NewConnectionSearchCallBackUPP(ConnectionSearchCallBackProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
   {
     uppConnectionSearchCallBackProcInfo = 0x00000FC0
-  }; // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
+#ifdef __cplusplus
   inline ConnectionSearchCallBackUPP
   NewConnectionSearchCallBackUPP(ConnectionSearchCallBackProcPtr userRoutine)
   {
@@ -279,21 +282,14 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  NewConnectionCompletionUPP()
-   *// pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) 
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  ConnectionCompletionUPP
+  EXTERN_API_C(ConnectionCompletionUPP)
   NewConnectionCompletionUPP(ConnectionCompletionProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
   {
     uppConnectionCompletionProcInfo = 0x000000C0
-  }; // pascal no_return_value Func(4_bytes) #ifdef __cplusplus
+  }; /* pascal no_return_value Func(4_bytes) */
+#ifdef __cplusplus
   inline ConnectionCompletionUPP
   NewConnectionCompletionUPP(ConnectionCompletionProcPtr userRoutine)
   {
@@ -309,21 +305,14 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  NewConnectionChooseIdleUPP()
-   *
-// pascal no_return_value Func(4_bytes) 
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  ConnectionChooseIdleUPP
+  EXTERN_API_C(ConnectionChooseIdleUPP)
   NewConnectionChooseIdleUPP(ConnectionChooseIdleProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
   {
     uppConnectionChooseIdleProcInfo = 0x00000000
-  }; // pascal no_return_value Func() #ifdef __cplusplus
+  }; /* pascal no_return_value Func() */
+#ifdef __cplusplus
   inline ConnectionChooseIdleUPP
   NewConnectionChooseIdleUPP(ConnectionChooseIdleProcPtr userRoutine)
   {
@@ -339,15 +328,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  DisposeConnectionToolDefUPP()
-   *
-
-   * // pascal no_return_value Func() 
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API_C(void)
   DisposeConnectionToolDefUPP(ConnectionToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -360,15 +341,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  DisposeConnectionSearchCallBackUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API_C(void)
   DisposeConnectionSearchCallBackUPP(ConnectionSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -383,15 +356,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  DisposeConnectionCompletionUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API_C(void)
   DisposeConnectionCompletionUPP(ConnectionCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -405,15 +370,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  DisposeConnectionChooseIdleUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API_C(void)
   DisposeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -427,15 +384,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  InvokeConnectionToolDefUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  long
+  EXTERN_API_C(long)
   InvokeConnectionToolDefUPP(ConnHandle hConn, short msg, long p1, long p2,
                              long p3, ConnectionToolDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -454,15 +403,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  InvokeConnectionSearchCallBackUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API_C(void)
   InvokeConnectionSearchCallBackUPP(ConnHandle hConn, Ptr matchPtr, long refNum,
                                     ConnectionSearchCallBackUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -481,15 +422,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  InvokeConnectionCompletionUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API_C(void)
   InvokeConnectionCompletionUPP(ConnHandle hConn,
                                 ConnectionCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES
@@ -505,15 +438,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  InvokeConnectionChooseIdleUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API_C(void)
   InvokeConnectionChooseIdleUPP(ConnectionChooseIdleUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -527,9 +452,11 @@ extern "C"
 #endif
 #endif
 
-#endif // CALL_NOT_IN_CARBON 
+#endif /* CALL_NOT_IN_CARBON */
+
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewConnectionToolDefProc(userRoutine) \
+/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+#define NewConnectionToolDefProc(userRoutine) \
   NewConnectionToolDefUPP(userRoutine)
 #define NewConnectionSearchCallBackProc(userRoutine) \
   NewConnectionSearchCallBackUPP(userRoutine)
@@ -545,580 +472,186 @@ extern "C"
   InvokeConnectionCompletionUPP(hConn, userRoutine)
 #define CallConnectionChooseIdleProc(userRoutine) \
   InvokeConnectionChooseIdleUPP(userRoutine)
-#endif // CALL_NOT_IN_CARBON 
-#endif // CALL_NOT_IN_CARBON 
+#endif /* CALL_NOT_IN_CARBON */
+
+#endif /* CALL_NOT_IN_CARBON */
+
 #if CALL_NOT_IN_CARBON
-  /**// CALL_NOT_IN_CARBON 
-   *  InitCM()
-   *
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   InitCM(void);
 
-  /**
-   *  CMGetVersion()
-   *
+  EXTERN_API(Handle)
+  CMGetVersion(ConnHandle hConn);
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  Handle
-  CMGet// CALL_NOT_IN_CARBON 
-
-  /**// CALL_NOT_IN_CARBON 
-   *  CMGetCMVersion()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  short
+  EXTERN_API(short)
   CMGetCMVersion(void);
 
-#endif // CALL_NOT_IN_CARBON 
-#if CALL_NOT_IN_CARBON
-  /**
-   *  CMNew()
-   *
+#endif /* CALL_NOT_IN_CARBON */
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  ConnHandle
+#if CALL_NOT_IN_CARBON
+  EXTERN_API(ConnHandle)
   CMNew(short procID, CMRecFlags flags, ConstCMBufferSizesParam desiredSizes,
         long refCon, long userData);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif /* CALL_NOT_IN_CARBON */
+
 #if CALL_NOT_IN_CARBON
-  /**
-   *  CMDispose()
-   *
+  EXTERN_API(void)
+  CMDispose(ConnHandle hConn);
 
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
-  CMDis// CALL_NOT_IN_CARBON 
-
-  /**
-   *  CMListen()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMListen(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
            long timeout);
 
-  /**
-   *  C// CALL_NOT_IN_CARBON 
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMAccept(ConnHandle hConn, Boolean accept);
 
-  /**
-   *  CMOpen()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMOpen(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
          long timeout);
 
-  /**
-   *  CMClose()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMClose(ConnHandle hConn, Boolean async, ConnectionCompletionUPP completor,
           long timeout, Boolean now);
 
-  /**
-   *  CMAbort()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMAbort(ConnHandle hConn);
 
-  /**
-   *  CMStatus()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMStatus(ConnHandle hConn, CMBufferSizes sizes, CMStatFlags *flags);
 
-  /**
-   *  CMIdle()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMIdle(ConnHandle hConn);
 
-  /**
-   *  CMReset()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMReset(ConnHandle hConn);
 
-  /**
-   *  CMBreak()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMBreak(ConnHandle hConn, long duration, Boolean async,
           ConnectionCompletionUPP completor);
 
-  /**
-   *  CMRead()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMRead(ConnHandle hConn, void *theBuffer, long *toRead, CMChannel theChannel,
          Boolean async, ConnectionCompletionUPP completor, long timeout,
          CMFlags *flags);
 
-  /**
-   *  CMWrite()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMWrite(ConnHandle hConn, const void *theBuffer, long *toWrite,
           CMChannel theChannel, Boolean async, ConnectionCompletionUPP completor,
           long timeout, CMFlags flags);
 
-  /**
-   *  CMIOKill()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMIOKill(ConnHandle hConn, short which);
 
-  /**
-   *  CMActivate()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMActivate(ConnHandle hConn, Boolean activate);
 
-  /**
-   *  CMResume()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMResume(ConnHandle hConn, Boolean resume);
 
-  /**
-   *  CMMenu()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  Boolean
+  EXTERN_API(Boolean)
   CMMenu(ConnHandle hConn, short menuID, short item);
 
-  /**
-   *  CMValidate()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  Boolean
+  EXTERN_API(Boolean)
   CMValidate(ConnHandle hConn);
 
-  /**
-   *  CMDefault()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMDefault(Ptr *theConfig, short procID, Boolean allocate);
 
-  /**
-   *  CMSetupPreflight()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  Handle
+  EXTERN_API(Handle)
   CMSetupPreflight(short procID, long *magicCookie);
 
-  /**
-   *  CMSetupFilter()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  Boolean
+  EXTERN_API(Boolean)
   CMSetupFilter(short procID, const void *theConfig, short count,
                 DialogRef theDialog, EventRecord *theEvent, short *theItem,
                 long *magicCookie);
 
-  /**
-   *  CMSetupSetup()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMSetupSetup(short procID, const void *theConfig, short count,
                DialogRef theDialog, long *magicCookie);
 
-  /**
-   *  CMSetupItem()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMSetupItem(short procID, const void *theConfig, short count,
               DialogRef theDialog, short *theItem, long *magicCookie);
 
-  /**
-   *  CMSetupXCleanup()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMSetupXCleanup(short procID, const void *theConfig, short count,
                   DialogRef theDialog, Boolean OKed, long *magicCookie);
 
-  /**
-   *  CMSetupPostflight()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMSetupPostflight(short procID);
 
-  /**
-   *  CMGetConfig()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  Ptr CMGetConfig(ConnHandle hConn);
+  EXTERN_API(Ptr)
+  CMGetConfig(ConnHandle hConn);
 
-  /**
-   *  CMSetConfig()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  short
+  EXTERN_API(short)
   CMSetConfig(ConnHandle hConn, const void *thePtr);
 
-  /**
-   *  CMIntlToEnglish()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  OSErr
+  EXTERN_API(OSErr)
   CMIntlToEnglish(ConnHandle hConn, const void *inputPtr, Ptr *outputPtr,
                   short language);
 
-  /**
-   *  CMEnglishToIntl()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  OSErr
+  EXTERN_API(OSErr)
   CMEnglishToIntl(ConnHandle hConn, const void *inputPtr, Ptr *outputPtr,
                   short language);
 
-  /**
-   *  CMAddSearch()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  long
+  EXTERN_API(long)
   CMAddSearch(ConnHandle hConn, ConstStr255Param theString, CMSearchFlags flags,
               ConnectionSearchCallBackUPP callBack);
 
-  /**
-   *  CMRemoveSearch()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMRemoveSearch(ConnHandle hConn, long refnum);
 
-  /**
-   *  CMClearSearch()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMClearSearch(ConnHandle hConn);
 
-  /**
-   *  CMGetConnEnvirons()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMGetConnEnvirons(ConnHandle hConn, ConnEnvironRec *theEnvirons);
 
-  /**
-   *  CMChoose()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  short
+  EXTERN_API(short)
   CMChoose(ConnHandle *hConn, Point where, ConnectionChooseIdleUPP idle);
 
-  /**
-   *  CMEvent()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMEvent(ConnHandle hConn, const EventRecord *theEvent);
 
-  /**
-   *  CMGetToolName()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMGetToolName(short procID, Str255 name);
 
-  /**
-   *  CMGetProcID()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  short
+  EXTERN_API(short)
   CMGetProcID(ConstStr255Param name);
 
-  /**
-   *  CMSetRefCon()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMSetRefCon(ConnHandle hConn, long refCon);
 
-  /**
-   *  CMGetRefCon()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  long
+  EXTERN_API(long)
   CMGetRefCon(ConnHandle hConn);
 
-  /**
-   *  CMGetUserData()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  long
+  EXTERN_API(long)
   CMGetUserData(ConnHandle hConn);
 
-  /**
-   *  CMSetUserData()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMSetUserData(ConnHandle hConn, long userData);
 
-  /**
-   *  CMGetErrorString()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  void
+  EXTERN_API(void)
   CMGetErrorString(ConnHandle hConn, short id, Str255 errMsg);
 
-  /**
-   *  CMNewIOPB()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMNewIOPB(ConnHandle hConn, CMIOPBPtr *theIOPB);
 
-  /**
-   *  CMDisposeIOPB()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMDisposeIOPB(ConnHandle hConn, CMIOPBPtr theIOPB);
 
-  /**
-   *  CMPBRead()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMPBRead(ConnHandle hConn, CMIOPBPtr theIOPB, Boolean async);
 
-  /**
-   *  CMPBWrite()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMPBWrite(ConnHandle hConn, CMIOPBPtr theIOPB, Boolean async);
 
-  /**
-   *  CMPBIOKill()
-   *
-   *  Availability:
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
-  CMErr
+  EXTERN_API(CMErr)
   CMPBIOKill(ConnHandle hConn, CMIOPBPtr theIOPB);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif /* CALL_NOT_IN_CARBON */
+
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -1137,5 +670,4 @@ extern "C"
 }
 #endif
 
-#endif // __CONNECTIONS__ // CALL_NOT_IN_CARBON 
-// __CONNECTIONS__ 
+#endif /* __CONNECTIONS__ */

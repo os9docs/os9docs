@@ -87,7 +87,8 @@ extern "C"
 
 	enum
 	{
-		// result types for RelString Call 		sortsBefore = -1, // first string < second string
+		 /** types */
+for RelString Call 		sortsBefore  =  -1 // first string < second string
 		sortsEqual = 0, // first string = second string
 		sortsAfter = 1	// first string > second string
 	};
@@ -194,37 +195,31 @@ extern "C"
 	typedef struct QHdr QHdr;
 	typedef QHdr *QHdrPtr;
 #else
-/**
-   QuickTime 3.0
-   this version of QHdr contains the Mutex necessary for
-   non-mac non-interrupt code
-*/
-struct QHdr
-{
-	volatile short qFlags;
-	short pad;
-	long MutexID;
-	volatile QElemPtr qHead;
-	volatile QElemPtr qTail;
-};
-typedef struct QHdr QHdr;
-typedef QHdr *QHdrPtr;
+	/**
+	   QuickTime 3.0
+	   this version of QHdr contains the Mutex necessary for
+	   non-mac non-interrupt code
+	*/
+	struct QHdr
+	{
+		volatile short qFlags;
+		short pad;
+		long MutexID;
+		volatile QElemPtr qHead;
+		volatile QElemPtr qTail;
+	};
+	typedef struct QHdr QHdr;
+	typedef QHdr *QHdrPtr;
 #endif // TARGET_OS_MAC
 	typedef CALLBACK_API_REGISTER68K(void, DeferredTaskProcPtr, (long dtParam));
 	typedef REGISTER_UPP_TYPE(DeferredTaskProcPtr) DeferredTaskUPP;
 	/**
 	 *  NewDeferredTaskUPP()
-	 */ / TARGET_OS_MAC
-
-				*    \non_carbon_cfm available as macro /
-			inline
-				*    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			DeferredTaskUPP
-			NewDeferredTaskUPP(DeferredTaskProcPtr userRoutine);
+	 * \non_carbon_cfm available as macro/inline
+	 * \carbon_lib in CarbonLib 1.0 and later
+	 * \mac_os_x in version 10.0 and later */
+	DeferredTaskUPP
+	NewDeferredTaskUPP(DeferredTaskProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
 	enum
 	{
@@ -277,8 +272,7 @@ typedef QHdr *QHdrPtr;
 #pragma parameter InvokeDeferredTaskUPP(__A1, __A0)
 #endif
 	void
-	InvokeDeferredTaskUPP(long dtParam, DeferredTaskUPP userUPP)
-		ONEWORDINLINE(0x4E90);
+	InvokeDeferredTaskUPP(long dtParam, DeferredTaskUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
 	(!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -340,17 +334,18 @@ typedef QHdr *QHdrPtr;
 		};
 		typedef struct MachineLocation MachineLocation;
 #else
-/**
-	QuickTime 3.0:
-	Alignment of MachineLocation is weird. The union above used for delta
-	tends not to work on non-Mac compilers.
-*/
-struct MachineLocat // signed byte; daylight savings delta
-{					// use low 24-bits only
-	Fract latitude;
-	Fract longitude;
-	BigEndianLong
-		delta; // high byte is daylight savings delta, low 24-bits is GMT delta };
+	/**
+		QuickTime 3.0:
+		Alignment of MachineLocation is weird. The union above used for delta
+		tends not to work on non-Mac compilers.
+	*/
+	struct MachineLocat // signed byte; daylight savings delta
+	{					// use low 24-bits only
+		Fract latitude;
+		Fract longitude;
+		BigEndianLong
+			delta; // high byte is daylight savings delta, low 24-bits is GMT delta
+	};
 	typedef struct MachineLocation MachineLocation;
 #endif // TARGET_OS_MAC
 		/**
@@ -362,28 +357,21 @@ struct MachineLocat // signed byte; daylight savings delta
 		 *    \mac_os_x         in version 10.0 and later
 		 */
 		Boolean // high byte is daylight savings delta, low 24-bits is GMT delta
-		IsMetric(void) THREEWORDINLINE(0x3F3C, 0x0004, 0xA9ED);
+		IsMetric(void);
 
-		/**/ / TARGET_OS_MAC 
-	\brief Get address of start of Parameter RAM data
-
+		/**
+			\brief Get address of start of Parameter RAM data
 			<pre>
-				GetSysPPtr returns the address at which the Parameter RAM has been
-					copied;
-		i.e., a SysParmType structure such information as the default speaker volume, printer port configuration, etc.</ pre> * \returns<pre> a SysPPtr;
-		the address of a 20 - byte SysParmType structure.This
-								  always returns 0x01F8. <
-				/ pre >
-				* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-														  *    \non_carbon_cfm in InterfaceLib 7.1 and
-			later
-				*    \carbon_lib in CarbonLib 1.0 and
-			later
-				*    \mac_os_x in version 10.0 and
-			later
-					* /
-				SysPPtr
-				GetSysPPtr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x01F8);
+				GetSysPPtr returns the address at which the Parameter RAM has been copied;
+		i.e., a SysParmType structure such information as the default speaker volume, printer port configuration, etc.</pre>
+
+		\returns <pre> a SysPPtr; the address of a 20-byte SysParmType structure. This always returns 0x01F8. </pre>
+		\copyright THINK Reference © 1991 - 1992 Symantec Corporation
+		\non_carbon_cfm in InterfaceLib 7.1 and later
+		\carbon_lib in CarbonLib 1.0 and later
+		\mac_os_x in version 10.0 and later*/
+		SysPPtr
+		GetSysPPtr(void);
 
 		/**
 			NOTE: SysBeep() has been moved to Sound.h.
@@ -422,7 +410,7 @@ struct MachineLocat // signed byte; daylight savings delta
 #pragma parameter __D0 DTInstall(__A0)
 #endif
 		OSErr
-		DTInstall(DeferredTaskPtr dtTaskPtr) ONEWORDINLINE(0xA082);
+		DTInstall(DeferredTaskPtr dtTaskPtr);
 
 #if TARGET_CPU_PPC || !TARGET_OS_MAC
 #define GetMMUMode() ((SInt8)true32b)
@@ -443,28 +431,28 @@ struct MachineLocat // signed byte; daylight savings delta
 	*    \carbon_lib        not available
 	*    \mac_os_x         not available
 	*/
-	SInt8 GetMMUMode(void) TWOWORDINLINE(0x1EB8, 0x0CB2);
+	SInt8 GetMMUMode(void);
 
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 
-/**
-\brief Set the address translation mode
+	/**
+	\brief Set the address translation mode
 
-<pre>SwapMMUMode . You should use the values
-false32b or true32b for the mode parameter.
-</pre>
-* \returns <pre>none
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   not available
-*    \c// CALL_NOT_IN_CARBON
-*    \mac_os_x         not available
-*/
+	<pre>SwapMMUMode . You should use the values
+	false32b or true32b for the mode parameter.
+	</pre>
+	* \returns <pre>none
+	</pre>
+	* \copyright THINK Reference © 1991-1992 Symantec Corporation
+	 *    \non_carbon_cfm   not available
+	*    \c// CALL_NOT_IN_CARBON
+	*    \mac_os_x         not available
+	*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SwapMMUMode(__A0)
 #endif
-	void SwapMMUMode(SInt8 *mode) THREEWORDINLINE(0x1010, 0xA05D, 0x1080);
+	void SwapMMUMode(SInt8 *mode);
 
 #endif // CALL_NOT_IN_CARBON
 #endif
@@ -503,8 +491,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter Delay(__A0, __A1)
 #endif
 		void
-		Delay(unsigned long numTicks, unsigned long *finalTicks)
-			TWOWORDINLINE(0xA03B, 0x2280);
+		Delay(unsigned long numTicks, unsigned long *finalTicks);
 
 		/**
 		\brief Write Parameter RAM data to non-volatile RAM
@@ -585,7 +572,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter Enqueue(__A0, __A1)
 #endif
 		void
-		Enqueue(QElemPtr qElement, QHdrPtr qHeader) ONEWORDINLINE(0xA96F);
+		Enqueue(QElemPtr qElement, QHdrPtr qHeader);
 
 		/**
 		\brief Remove an element from a queue
@@ -620,7 +607,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter __D0 Dequeue(__A0, __A1)
 #endif
 		OSErr
-		Dequeue(QElemPtr qElement, QHdrPtr qHeader) ONEWORDINLINE(0xA96E);
+		Dequeue(QElemPtr qElement, QHdrPtr qHeader);
 
 		/**
 		\brief Get the current value of A5.
@@ -640,7 +627,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter __D0 SetCurrentA5
 #endif
 		long
-		SetCurrentA5(void) THREEWORDINLINE(0x200D, 0x2A78, 0x0904);
+		SetCurrentA5(void);
 
 		/**
 		\brief Set the current value of A5
@@ -659,7 +646,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter __D0 SetA5(__D0)
 #endif
 		long
-		SetA5(long newA5) ONEWORDINLINE(0xC18D);
+		SetA5(long newA5);
 
 		/**
 		\brief Copy Parameter RAM to low-memory variables
@@ -686,7 +673,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter __D0 InitUtil
 #endif
 		OSErr
-		InitUtil(void) ONEWORDINLINE(0xA03F);
+		InitUtil(void);
 
 #if !TARGET_CPU_68K
 		/**
@@ -799,7 +786,7 @@ false32b or true32b for the mode parameter.
 	*    \mac_os_x         not available
 	*/
 		void
-		FlushInstructionCache(void) TWOWORDINLINE(0x7001, 0xA098);
+		FlushInstructionCache(void);
 
 		/**
 		\brief Flush the data cache
@@ -837,7 +824,7 @@ false32b or true32b for the mode parameter.
 	*    \mac_os_x         not available
 	*/
 		void
-		FlushDataCache(void) TWOWORDINLINE(0x7003, 0xA098);
+		FlushDataCache(void);
 
 		/**
 		 *  FlushCodeCache()
@@ -848,7 +835,7 @@ false32b or true32b for the mode parameter.
 		 *    \mac_os_x         not available
 		 */
 		void
-		FlushCodeCache(void) ONEWORDINLINE(0xA0BD);
+		FlushCodeCache(void);
 
 #endif // CALL_NOT_IN_CARBON
 #endif // TARGET_CPU_68K
@@ -865,21 +852,24 @@ false32b or true32b for the mode parameter.
 #pragma parameter __D0 FlushCodeCacheRange(__A0, __A1)
 #endif
 		OSErr
-		FlushCodeCacheRange(void *address, unsigned long count)
-			TWOWORDINLINE(0x7009, 0xA098);
+		FlushCodeCacheRange(void *address, unsigned long count);
 // CALL_NOT_IN_CARBON
-#endif // CALL_NOT_IN_CARBON
-		/**/ / TARGET_CPU_68K 
+#endif	// CALL_NOT_IN_CARBON
+		/**  TARGET_CPU_68K
 	\brief Where is this Macintosh and what time is it ?
 
 													 <pre>
 														 ReadLocation accesses the stored geographic location of the Macintosh and
 															 the time zone information from the parameter RAM For more information see,
-			Macintosh Worldwide Development : Guide to System Software.</ pre> * \copyright THINK Reference © 1991 - 1992 Symantec Corporation *    \non_carbon_cfm in InterfaceLib 7.1 and later *    \carbon_lib in CarbonLib 1.0 and later *    \mac_os_x in version 10.0 and later * /
+			Macintosh Worldwide Development : Guide to System Software.</ pre>
+			\copyright THINK Reference © 1991 - 1992 Symantec Corporation
+			\non_carbon_cfm in InterfaceLib 7.1 and later
+			\carbon_lib in CarbonLib 1.0 and later
+			\mac_os_x in version 10.0 and later */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter ReadLocation(__A0)
 #endif
-																																																																					 void ReadLocation(MachineLocation *loc) FOURWORDINLINE(0x203C, 0x000C, 0x00E4, 0xA051);
+		void ReadLocation(MachineLocation *loc);
 		// CALL_NOT_IN_CARBON
 		/**
 		\brief Store machine's location and time zone data in RAM
@@ -897,8 +887,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter WriteLocation(__A0)
 #endif
 		void
-		WriteLocation(const MachineLocation *loc)
-			FOURWORDINLINE(0x203C, 0x000C, 0x00E4, 0xA052);
+		WriteLocation(const MachineLocation *loc);
 
 		/**
 		 *  TickCount()
@@ -909,7 +898,7 @@ false32b or true32b for the mode parameter.
 		 *    \mac_os_x         in version 10.0 and later
 		 */
 		UInt32
-		TickCount(void) ONEWORDINLINE(0xA975);
+		TickCount(void);
 
 		/**
 		 *  CSCopyUserName()
@@ -994,8 +983,8 @@ false32b or true32b for the mode parameter.
 		typedef struct SysEnvRec SysEnvRec;
 		enum
 		{
-			// Machine Types 		envMac = -1,
-			envXL = -2,
+			/** Types */
+			envMac = -1 envXL = -2,
 			envMachUnknown = 0,
 			env512KE = 1,
 			envMacPlus = 2,
@@ -1011,8 +1000,8 @@ false32b or true32b for the mode parameter.
 
 		enum
 		{
-			// CPU types 		envCPUUnknown = 0,
-			env68000 = 1,
+			/** types */
+			envCPUUnknown = 0 env68000 = 1,
 			env68010 = 2,
 			env68020 = 3,
 			env68030 = 4,
@@ -1021,8 +1010,8 @@ false32b or true32b for the mode parameter.
 
 		enum
 		{
-			// Keyboard types 		envUnknownKbd = 0,
-			envMacKbd = 1,
+			/** types */
+			envUnknownKbd = 0 envMacKbd = 1,
 			envMacAndPad = 2,
 			envMacPlusKbd = 3,
 			envAExtendKbd = 4,
@@ -1087,7 +1076,7 @@ false32b or true32b for the mode parameter.
 #pragma parameter __D0 SysEnvirons(__D0, __A0)
 #endif
 		OSErr
-		SysEnvirons(short versionRequested, SysEnvRec *theWorld) ONEWORDINLINE(0xA090);
+		SysEnvirons(short versionRequested, SysEnvRec *theWorld);
 
 #endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
@@ -1108,5 +1097,5 @@ false32b or true32b for the mode parameter.
 	}
 #endif
 
-#endif // __OSUTILS__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/// CALL_NOT_IN_CARBON
-	// __OSUTILS__
+#endif // __OSUTILS__ *      /*/*/// CALL_NOT_IN_CARBON
+	   // __OSUTILS__

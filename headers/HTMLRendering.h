@@ -105,7 +105,7 @@ inline pascal Boolean HRHTMLRenderingLibAvailable() { return true; }
 #else
 #define HRHTMLRenderingLibAvailable() (true)
 #endif
-#endif /**  */
+#endif
 
   enum
   {

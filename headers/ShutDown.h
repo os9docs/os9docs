@@ -123,7 +123,7 @@ extern "C"
 #pragma parameter InvokeShutDwnUPP(__D0, __A0)
 #endif
   void
-  InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP) ONEWORDINLINE(0x4E90);
+  InvokeShutDwnUPP(short shutDownStage, ShutDwnUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -163,7 +163,7 @@ user with an alert.
 *    \mac_os_x         not available
 */
   void
-  ShutDwnPower(void) THREEWORDINLINE(0x3F3C, 0x0001, 0xA895);
+  ShutDwnPower(void);
 
   /**
   \brief Perform housekeeping and reboot
@@ -180,7 +180,7 @@ code.
 *    \mac_os_x         not available
 */
   void
-  ShutDwnStart(void) THREEWORDINLINE(0x3F3C, 0x0002, 0xA895);
+  ShutDwnStart(void);
 
   /**
    *  ShutDwnInstall()
@@ -191,8 +191,7 @@ code.
    *    \mac_os_x         not available
    */
   void
-  ShutDwnInstall(ShutDwnUPP shutDownProc, short flags)
-      THREEWORDINLINE(0x3F3C, 0x0003, 0xA895);
+  ShutDwnInstall(ShutDwnUPP shutDownProc, short flags);
 
   /**
    *  ShutDwnRemove()
@@ -203,7 +202,7 @@ code.
    *    \mac_os_x         not available
    */
   void
-  ShutDwnRemove(ShutDwnUPP shutDownProc) THREEWORDINLINE(0x3F3C, 0x0004, 0xA895);
+  ShutDwnRemove(ShutDwnUPP shutDownProc);
 
 #endif /** CALL_NOT_IN_CARBON */
 

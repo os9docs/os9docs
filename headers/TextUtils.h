@@ -134,7 +134,7 @@ extern "C"
      */
     long
     Munger(Handle h, long offset, const void *ptr1, long len1, const void *ptr2,
-           long len2) ONEWORDINLINE(0xA9E0);
+           long len2);
 
     /**
      *  NewString()
@@ -145,7 +145,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     StringHandle
-    NewString(ConstStr255Param theString) ONEWORDINLINE(0xA906);
+    NewString(ConstStr255Param theString);
 
     /**
      *  SetString()
@@ -156,8 +156,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    SetString(StringHandle theString, ConstStr255Param strNew)
-        ONEWORDINLINE(0xA907);
+    SetString(StringHandle theString, ConstStr255Param strNew);
 
     /**
      *  GetString()
@@ -168,7 +167,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     StringHandle
-    GetString(short stringID) ONEWORDINLINE(0xA9BA);
+    GetString(short stringID);
 
     /**
      *  GetIndString()
@@ -227,8 +226,7 @@ extern "C"
      */
     void
     FindWordBreaks(Ptr textPtr, short textLength, short offset, Boolean leadingEdge,
-                   BreakTablePtr breaks, OffsetTable offsets, ScriptCode script)
-        FOURWORDINLINE(0x2F3C, 0xC012, 0x001A, 0xA8B5);
+                   BreakTablePtr breaks, OffsetTable offsets, ScriptCode script);
 
     /**
      *  LowercaseText()
@@ -239,8 +237,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    LowercaseText(Ptr textPtr, short len, ScriptCode script)
-        SIXWORDINLINE(0x3F3C, 0x0000, 0x2F3C, 0x800A, 0xFFB6, 0xA8B5);
+    LowercaseText(Ptr textPtr, short len, ScriptCode script);
 
     /**
      *  UppercaseText()
@@ -251,8 +248,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    UppercaseText(Ptr textPtr, short len, ScriptCode script)
-        SIXWORDINLINE(0x3F3C, 0x0400, 0x2F3C, 0x800A, 0xFFB6, 0xA8B5);
+    UppercaseText(Ptr textPtr, short len, ScriptCode script);
 
     /**
      *  StripDiacritics()
@@ -263,8 +259,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    StripDiacritics(Ptr textPtr, short len, ScriptCode script)
-        SIXWORDINLINE(0x3F3C, 0x0200, 0x2F3C, 0x800A, 0xFFB6, 0xA8B5);
+    StripDiacritics(Ptr textPtr, short len, ScriptCode script);
 
     /**
      *  UppercaseStripDiacritics()
@@ -275,8 +270,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    UppercaseStripDiacritics(Ptr textPtr, short len, ScriptCode script)
-        SIXWORDINLINE(0x3F3C, 0x0600, 0x2F3C, 0x800A, 0xFFB6, 0xA8B5);
+    UppercaseStripDiacritics(Ptr textPtr, short len, ScriptCode script);
 
     /**
      *  FindScriptRun()
@@ -287,8 +281,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     ScriptRunStatus
-    FindScriptRun(Ptr textPtr, long textLen, long *lenUsed)
-        FOURWORDINLINE(0x2F3C, 0x820C, 0x0026, 0xA8B5);
+    FindScriptRun(Ptr textPtr, long textLen, long *lenUsed);
 
     /**
         The following functions are old names, but are required for PowerPC builds
@@ -306,8 +299,7 @@ extern "C"
      */
     void
     FindWord(Ptr textPtr, short textLength, short offset, Boolean leadingEdge,
-             BreakTablePtr breaks, OffsetTable offsets)
-        FOURWORDINLINE(0x2F3C, 0x8012, 0x001A, 0xA8B5);
+             BreakTablePtr breaks, OffsetTable offsets);
 
     /**
      *  NFindWord()
@@ -319,8 +311,7 @@ extern "C"
      */
     void
     NFindWord(Ptr textPtr, short textLength, short offset, Boolean leadingEdge,
-              NBreakTablePtr nbreaks, OffsetTable offsets)
-        FOURWORDINLINE(0x2F3C, 0x8012, 0xFFE2, 0xA8B5);
+              NBreakTablePtr nbreaks, OffsetTable offsets);
 
 /**
    On 68K machines, LwrText, LowerText, StripText, UpperText and StripUpperText
@@ -340,7 +331,7 @@ extern "C"
 #pragma parameter LwrText(__A0, __D0)
 #endif
     void
-    LwrText(Ptr textPtr, short len) ONEWORDINLINE(0xA056);
+    LwrText(Ptr textPtr, short len);
 
 /**
  *  LowerText()
@@ -354,7 +345,7 @@ extern "C"
 #pragma parameter LowerText(__A0, __D0)
 #endif
     void
-    LowerText(Ptr textPtr, short len) ONEWORDINLINE(0xA056);
+    LowerText(Ptr textPtr, short len);
 
 /**
  *  StripText()
@@ -368,7 +359,7 @@ extern "C"
 #pragma parameter StripText(__A0, __D0)
 #endif
     void
-    StripText(Ptr textPtr, short len) ONEWORDINLINE(0xA256);
+    StripText(Ptr textPtr, short len);
 
 /**
  *  UpperText()
@@ -382,7 +373,7 @@ extern "C"
 #pragma parameter UpperText(__A0, __D0)
 #endif
     void
-    UpperText(Ptr textPtr, short len) ONEWORDINLINE(0xA456);
+    UpperText(Ptr textPtr, short len);
 
 /**
  *  StripUpperText()
@@ -396,7 +387,7 @@ extern "C"
 #pragma parameter StripUpperText(__A0, __D0)
 #endif
     void
-    StripUpperText(Ptr textPtr, short len) ONEWORDINLINE(0xA656);
+    StripUpperText(Ptr textPtr, short len);
 
     /** The following are new names which are exported by InterfaceLib*/
 
@@ -446,7 +437,7 @@ extern "C"
 #pragma parameter UprText(__A0, __D0)
 #endif
     void
-    UprText(Ptr textPtr, short len) ONEWORDINLINE(0xA054);
+    UprText(Ptr textPtr, short len);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -571,31 +562,6 @@ extern "C"
 /** conversion routines to compiler for carbon */
 #define p2cstr(aStr) (p2cstrcpy((char *)aStr, aStr), (char *)aStr)
 #define c2pstr(aStr) (c2pstrcpy((StringPtr)aStr, aStr), (StringPtr)aStr)
-
-#define C2PStr(a) (StringPtr) c2pstr((Ptr)(a))
-#define P2CStr(a) (Ptr) p2cstr(a)
-#endif
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /** __TEXTUTILS__ */
-* / ine c2pstr(aStr)(c2pstrcpy((StringPtr)aStr, aStr), (StringPtr)aStr)
 
 #define C2PStr(a) (StringPtr) c2pstr((Ptr)(a))
 #define P2CStr(a) (Ptr) p2cstr(a)

@@ -60,11 +60,11 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  // type for unique process identifier   /**
-  <pre>
-          * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-                                                        * /
-                                                    struct ProcessSerialNumber
+  // type for unique process identifier
+  /**
+   <pre>
+           * \copyright THINK Reference © 1991 - 1992 Symantec Corporation*/
+  struct ProcessSerialNumber
   {
     unsigned long highLongOfPSN; /**< */
     unsigned long lowLongOfPSN;  /**< */
@@ -74,7 +74,8 @@ extern "C"
   typedef ProcessSerialNumber *ProcessSerialNumberPtr;
   enum
   {
-    // Process identifier - Various reserved process serial numbers     kNoProcess = 0,
+    /** identifier */
+    -Various reserved process serial numbers kNoProcess = 0
     // Process identifier - Various reserved process serial numbers
     kCurrentProcess = 2
   };
@@ -279,7 +280,7 @@ enum
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 LaunchApplication(__A0)
 #endif
-OSErr LaunchApplication(LaunchPBPtr LaunchParams) ONEWORDINLINE(0xA9F2);
+OSErr LaunchApplication(LaunchPBPtr LaunchParams);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -290,8 +291,7 @@ OSErr LaunchApplication(LaunchPBPtr LaunchParams) ONEWORDINLINE(0xA9F2);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-OSErr LaunchDeskAccessory(const FSSpec *pFileSpec, ConstStr255Param pDAName)
-    THREEWORDINLINE(0x3F3C, 0x0036, 0xA88F);
+OSErr LaunchDeskAccessory(const FSSpec *pFileSpec, ConstStr255Param pDAName);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -306,8 +306,7 @@ OSErr LaunchDeskAccessory(const FSSpec *pFileSpec, ConstStr255Param pDAName)
 #if TARGET_OS_MAC
 #define MacGetCurrentProcess GetCurrentProcess
 #endif
-OSErr MacGetCurrentProcess(ProcessSerialNumber *PSN)
-    THREEWORDINLINE(0x3F3C, 0x0037, 0xA88F);
+OSErr MacGetCurrentProcess(ProcessSerialNumber *PSN);
 
 /**
 \brief Get serial number of foreground process
@@ -320,8 +319,7 @@ result code procNotFound.
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-OSErr GetFrontProcess(ProcessSerialNumber *PSN)
-    FIVEWORDINLINE(0x70FF, 0x2F00, 0x3F3C, 0x0039, 0xA88F);
+OSErr GetFrontProcess(ProcessSerialNumber *PSN);
 
 /**
 \brief Get the process serial number of the next process
@@ -347,8 +345,7 @@ high-level event.
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-OSErr GetNextProcess(ProcessSerialNumber *PSN)
-    THREEWORDINLINE(0x3F3C, 0x0038, 0xA88F);
+OSErr GetNextProcess(ProcessSerialNumber *PSN);
 
 /**
  *  GetProcessInformation()
@@ -358,8 +355,7 @@ OSErr GetNextProcess(ProcessSerialNumber *PSN)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-OSErr GetProcessInformation(const ProcessSerialNumber *PSN, ProcessInfoRec *info)
-    THREEWORDINLINE(0x3F3C, 0x003A, 0xA88F);
+OSErr GetProcessInformation(const ProcessSerialNumber *PSN, ProcessInfoRec *info);
 
 /**
 \brief Make a process the foreground process
@@ -395,8 +391,7 @@ at interrupt time.
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-OSErr SetFrontProcess(const ProcessSerialNumber *PSN)
-    THREEWORDINLINE(0x3F3C, 0x003B, 0xA88F);
+OSErr SetFrontProcess(const ProcessSerialNumber *PSN);
 
 /**
 \brief Make a process eligible to receive CPU time
@@ -430,8 +425,7 @@ high-level event.
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-OSErr WakeUpProcess(const ProcessSerialNumber *PSN)
-    THREEWORDINLINE(0x3F3C, 0x003C, 0xA88F);
+OSErr WakeUpProcess(const ProcessSerialNumber *PSN);
 
 /**
 \brief Compare two process serial numbers
@@ -464,38 +458,38 @@ in a process serial number is internal to the Process Manager .
 *    \mac_os_x         in version 10.0 and later
 */
 OSErr SameProcess(const ProcessSerialNumber *PSN1, const ProcessSerialNumber *PSN2,
-                  Boolean *result) THREEWORDINLINE(0x3F3C, 0x003D, 0xA88F);
+                  Boolean *result);
 
-//  ExitToShell was previously in SegLoad.h  /**
+//  ExitToShell was previously in SegLoad.h
+/**
 *ExitToShell() *
 
-        *    \non_carbon_cfm in InterfaceLib 7.1 and
-    later
-        *    \carbon_lib in CarbonLib 1.0 and
-    later
-        *    \mac_os_x in version 10.0 and
-    later
-            * /
-        void
+       *    \non_carbon_cfm in InterfaceLib 7.1 and
+   later
+       *    \carbon_lib in CarbonLib 1.0 and
+   later
+       *    \mac_os_x in version 10.0 and
+   later
+*/
+void
 //  ExitToShell was previously in SegLoad.h
 
 /**
-   LaunchControlPanel is similar to LaunchDeskAccessory, but for Control Panel
-   files instead. It launches a control panel in an application shell maintained
-   by the Process Manager.
+  LaunchControlPanel is similar to LaunchDeskAccessory, but for Control Panel
+  files instead. It launches a control panel in an application shell maintained
+  by the Process Manager.
 */
 #if CALL_NOT_IN_CARBON
-        /**
-         *  LaunchControlPanel()
-         *
+    /**
+     *  LaunchControlPanel()
+     *
 
-         *    \non_carbon_cfm   in InterfaceLib 9.0 and later
-         *    \carbon_lib        not available
-         *    \mac_os_x         not available
-         */
-        OSErr
-        LaunchControlPanel(const FSSpec *pFileSpec)
-            THREEWORDINLINE(0x3F3C, 0x007B, 0xA88F);
+     *    \non_carbon_cfm   in InterfaceLib 9.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSErr
+    LaunchControlPanel(const FSSpec *pFileSpec);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -622,8 +616,7 @@ CopyProcessName(const ProcessSerialNumber *psn, CFStringRef *name);
  *    \mac_os_x         in version 10.1 and later
  */
 Boolean
-IsProcessVisible(const ProcessSerialNumber *psn)
-    THREEWORDINLINE(0x3F3C, 0x005F, 0xA88F);
+IsProcessVisible(const ProcessSerialNumber *psn);
 
 /**
  *  ShowHideProcess()
@@ -650,8 +643,7 @@ IsProcessVisible(const ProcessSerialNumber *psn)
  *    \carbon_lib        in CarbonLib 1.5 and later
  *    \mac_os_x         in version 10.1 and later
  */
-OSErr ShowHideProcess(const ProcessSerialNumber *psn, Boolean visible)
-    THREEWORDINLINE(0x3F3C, 0x0060, 0xA88F);
+OSErr ShowHideProcess(const ProcessSerialNumber *psn, Boolean visible);
 
 // Values of the 'message' parameter to a Control Panel 'cdev'   enum
 {
@@ -676,101 +668,101 @@ OSErr ShowHideProcess(const ProcessSerialNumber *psn, Boolean visible)
     cdevGenErr = -1, // General error; gray cdev w/o alert
     cdevMemErr = 0,  // Memory shortfall; alert user please
     cdevResErr = 1,  // Couldn't get a needed resource; alert
-    cdevUnset = 3    // cdevValue is initialized to this  };
+    cdevUnset = 3    // cdevValue is initialized to this
+};
 
-  // Control Panel Default Proc   typedef CALLBACK_API(long, ControlPanelDefProcPtr)(
+// Control Panel Default Proc   typedef CALLBACK_API(long, ControlPanelDefProcPtr)(
       short message, short item, short numItems, short cPanelID,
       EventRecord *theEvent, long cdevValue, DialogPtr cpDialog);
-    typedef STACK_UPP_TYPE(ControlPanelDefProcPtr) ControlPanelDefUPP;
+      typedef STACK_UPP_TYPE(ControlPanelDefProcPtr) ControlPanelDefUPP;
 #if CALL_NOT_IN_CARBON
-    // Special values a Control Panel 'cdev' can return
-    *NewControlPanelDefUPP() *
+      // Special values a Control Panel 'cdev' can return
+      *NewControlPanelDefUPP() *
 
-        *    \non_carbon_cfm available as macro / inline *    \carbon_lib not available *    \mac_os_x // cdevValue is initialized to this
-        * /
-        ControlPanelDefUPP
-    // Control Panel Default Proc
+          *    \non_carbon_cfm available as macro / inline *    \carbon_lib not available *    \mac_os_x // cdevValue is initialized to this*/
+          ControlPanelDefUPP
+      // Control Panel Default Proc
 #if !OPAQUE_UPP_TYPES
-        enum {
-          uppControlPanelDefProcInfo = 0x000FEAB0
-        }; /* pascal 4_bytes Func(2_bytes, 2_bytes, 2_bytes, 2_bytes, 4_bytes, 4_bytes,
-              4_bytes) */
+          enum {
+            uppControlPanelDefProcInfo = 0x000FEAB0
+          }; /* pascal 4_bytes Func(2_bytes, 2_bytes, 2_bytes, 2_bytes, 4_bytes, 4_bytes,
+                4_bytes) */
 #ifdef __cplusplus
-    inline ControlPanelDefUPP
-    NewControlPanelDefUPP(ControlPanelDefProcPtr userRoutine)
-    {
-      return (ControlPanelDefUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-                                                      uppControlPanelDefProcInfo,
-                                                      GetCurrentArchitecture());
-    }
+      inline ControlPanelDefUPP
+      NewControlPanelDefUPP(ControlPanelDefProcPtr userRoutine)
+      {
+        return (ControlPanelDefUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
+                                                        uppControlPanelDefProcInfo,
+                                                        GetCurrentArchitecture());
+      }
 #else
-#define NewControlPanelDefUPP(userRoutine)                                       \
-    (ControlPanelDefUPP)                                                         \
-        NewRoutineDescriptor((ProcPtr)(userRoutine), uppControlPanelDefProcInfo, \
-                             GetCurrentArchitecture())
+#define NewControlPanelDefUPP(userRoutine)                                     \
+        (ControlPanelDefUPP)                                                         \
+            NewRoutineDescriptor((ProcPtr)(userRoutine), uppControlPanelDefProcInfo, \
+                                 GetCurrentArchitecture())
 #endif
 #endif
 
-    /**
-     *  DisposeControlPanelDefUPP()
-     *
+      /**
+       *  DisposeControlPanelDefUPP()
+       *
 
-     *    \non_carbon_cfm   available as macro/inline
-     *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
-    void
-    DisposeControlPanelDefUPP(ControlPanelDefUPP userUPP);
+       *    \non_carbon_cfm   available as macro/inline
+       *    \carbon_lib        not available
+       *    \mac_os_x         not available
+       */
+      void
+      DisposeControlPanelDefUPP(ControlPanelDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-    inline void DisposeControlPanelDefUPP(ControlPanelDefUPP userUPP)
-    {
-      DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-    }
+      inline void DisposeControlPanelDefUPP(ControlPanelDefUPP userUPP)
+      {
+        DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+      }
 #else
 #define DisposeControlPanelDefUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-    /**
-     *  InvokeControlPanelDefUPP()
-     *
+      /**
+       *  InvokeControlPanelDefUPP()
+       *
 
-     *    \non_carbon_cfm   available as macro/inline
-     *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
-    long
-    InvokeControlPanelDefUPP(short message, short item, short numItems,
-                             short cPanelID, EventRecord *theEvent, long cdevValue,
-                             DialogPtr cpDialog, ControlPanelDefUPP userUPP);
+       *    \non_carbon_cfm   available as macro/inline
+       *    \carbon_lib        not available
+       *    \mac_os_x         not available
+       */
+      long
+      InvokeControlPanelDefUPP(short message, short item, short numItems,
+                               short cPanelID, EventRecord *theEvent, long cdevValue,
+                               DialogPtr cpDialog, ControlPanelDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-    inline long InvokeControlPanelDefUPP(short message, short item, short numItems,
-                                         short cPanelID, EventRecord *theEvent,
-                                         long cdevValue, DialogPtr cpDialog,
-                                         ControlPanelDefUPP userUPP)
-    {
-      return (long)CALL_SEVEN_PARAMETER_UPP(userUPP, uppControlPanelDefProcInfo,
-                                            message, item, numItems, cPanelID,
-                                            theEvent, cdevValue, cpDialog);
-    }
+      inline long InvokeControlPanelDefUPP(short message, short item, short numItems,
+                                           short cPanelID, EventRecord *theEvent,
+                                           long cdevValue, DialogPtr cpDialog,
+                                           ControlPanelDefUPP userUPP)
+      {
+        return (long)CALL_SEVEN_PARAMETER_UPP(userUPP, uppControlPanelDefProcInfo,
+                                              message, item, numItems, cPanelID,
+                                              theEvent, cdevValue, cpDialog);
+      }
 #else
 #define InvokeControlPanelDefUPP(message, item, numItems, cPanelID, theEvent, \
-                                 cdevValue, cpDialog, userUPP)                \
-    (long)CALL_SEVEN_PARAMETER_UPP((userUPP), uppControlPanelDefProcInfo,     \
-                                   (message), (item), (numItems), (cPanelID), \
-                                   (theEvent), (cdevValue), (cpDialog))
+                                       cdevValue, cpDialog, userUPP)                \
+        (long)CALL_SEVEN_PARAMETER_UPP((userUPP), uppControlPanelDefProcInfo,       \
+                                       (message), (item), (numItems), (cPanelID),   \
+                                       (theEvent), (cdevValue), (cpDialog))
 #endif
 #endif
 
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewControlPanelDefProc(userRoutine) NewControlPanelDefUPP(userRoutine)
+      // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewControlPanelDefProc(userRoutine) NewControlPanelDefUPP(userRoutine)
 #define CallControlPanelDefProc(userRoutine, message, item, numItems,    \
-                                cPanelID, theEvent, cdevValue, cpDialog) \
-  InvokeControlPanelDefUPP(message, item, numItems, cPanelID, theEvent,  \
-                           cdevValue, cpDialog, userRoutine)
+                                      cPanelID, theEvent, cdevValue, cpDialog) \
+        InvokeControlPanelDefUPP(message, item, numItems, cPanelID, theEvent,  \
+                                 cdevValue, cpDialog, userRoutine)
 #endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -779,15 +771,15 @@ OSErr ShowHideProcess(const ProcessSerialNumber *psn, Boolean visible)
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
-// CALL_NOT_IN_CARBON
+      // CALL_NOT_IN_CARBON
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc
+      // support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #pragma import reset
 #endif
 
 #ifdef __cplusplus
-}
+      }
 #endif // CALL_NOT_IN_CARBON
 
-#endif // __PROCESSES__ * /*/*/ */*/// __PROCESSES__
+#endif // __PROCESSES__

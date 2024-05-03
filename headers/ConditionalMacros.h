@@ -1615,7 +1615,7 @@ pointer.
 #define TARGET_API_MAC_OS8 1
 #define TARGET_API_MAC_CARBON 0
 #define TARGET_API_MAC_OSX 0
-#endif /**  */
+#endif 
 
 #else
 #ifndef TARGET_API_MAC_OS8
@@ -1726,7 +1726,7 @@ opcodes in the right syntax.  For all other OS's and runtimes the macro suppress
 the opcodes. Example:
 
        EXTERN_P void DrawPicture(PicHandle myPicture, const Rect *dstRect)
-            ONEWORDINLINE(0xA8F6);
+ ;
 
 ****************************************************************************************************/
 

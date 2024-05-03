@@ -400,8 +400,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerInit(long storage, PickerInitData *data)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0000, 0x7000, 0xA82A);
+  PickerInit(long storage, PickerInitData *data);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -417,8 +416,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerTestGraphicsWorld(long storage, PickerInitData *data)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+  PickerTestGraphicsWorld(long storage, PickerInitData *data);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -435,8 +433,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerGetDialog(long storage)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0x0002, 0x7000, 0xA82A);
+  PickerGetDialog(long storage);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -451,8 +448,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerGetItemList(long storage)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0x0003, 0x7000, 0xA82A);
+  PickerGetItemList(long storage);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -467,8 +463,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerGetColor(long storage, PickerColorType whichColor, PMColorPtr color)
-      FIVEWORDINLINE(0x2F3C, 0x0006, 0x0004, 0x7000, 0xA82A);
+  PickerGetColor(long storage, PickerColorType whichColor, PMColorPtr color);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1382,8 +1377,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerSetColor(long storage, PickerColorType whichColor, PMColorPtr color)
-      FIVEWORDINLINE(0x2F3C, 0x0006, 0x0005, 0x7000, 0xA82A);
+  PickerSetColor(long storage, PickerColorType whichColor, PMColorPtr color);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1401,8 +1395,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerEvent(long storage, PickerEventData *data)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0006, 0x7000, 0xA82A);
+  PickerEvent(long storage, PickerEventData *data);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1418,8 +1411,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerEdit(long storage, PickerEditData *data)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+  PickerEdit(long storage, PickerEditData *data);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1435,8 +1427,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerSetVisibility(long storage, Boolean visible)
-      FIVEWORDINLINE(0x2F3C, 0x0002, 0x0008, 0x7000, 0xA82A);
+  PickerSetVisibility(long storage, Boolean visible);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1452,8 +1443,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerDisplay(long storage)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0x0009, 0x7000, 0xA82A);
+  PickerDisplay(long storage);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1468,8 +1458,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerItemHit(long storage, PickerItemHitData *data)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000A, 0x7000, 0xA82A);
+  PickerItemHit(long storage, PickerItemHitData *data);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1486,8 +1475,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerSetBaseItem(long storage, short baseItem)
-      FIVEWORDINLINE(0x2F3C, 0x0002, 0x000B, 0x7000, 0xA82A);
+  PickerSetBaseItem(long storage, short baseItem);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1503,8 +1491,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerGetProfile(long storage)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0x000C, 0x7000, 0xA82A);
+  PickerGetProfile(long storage);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1519,8 +1506,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerSetProfile(long storage, CMProfileHandle profile)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+  PickerSetProfile(long storage, CMProfileHandle profile);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1537,8 +1523,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerGetPrompt(long storage, Str255 prompt)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000E, 0x7000, 0xA82A);
+  PickerGetPrompt(long storage, Str255 prompt);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1554,8 +1539,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerSetPrompt(long storage, ConstStr255Param prompt)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000F, 0x7000, 0xA82A);
+  PickerSetPrompt(long storage, ConstStr255Param prompt);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1572,8 +1556,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerGetIconData(long storage, PickerIconData *data)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0010, 0x7000, 0xA82A);
+  PickerGetIconData(long storage, PickerIconData *data);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1590,8 +1573,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerGetEditMenuState(long storage, PickerMenuState *mState)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0011, 0x7000, 0xA82A);
+  PickerGetEditMenuState(long storage, PickerMenuState *mState);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1608,8 +1590,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  PickerSetOrigin(long storage, Point where)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+  PickerSetOrigin(long storage, Point where);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1628,8 +1609,7 @@ extern "C"
    */
   ComponentResult
   PickerSetColorChangedProc(long storage, ColorChangedUPP colorProc,
-                            long colorProcData)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0014, 0x7000, 0xA82A);
+                            long colorProcData);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1649,8 +1629,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  NPickerGetColor(long storage, PickerColorType whichColor, NPMColor *color)
-      FIVEWORDINLINE(0x2F3C, 0x0006, 0x0015, 0x7000, 0xA82A);
+  NPickerGetColor(long storage, PickerColorType whichColor, NPMColor *color);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1668,8 +1647,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  NPickerSetColor(long storage, PickerColorType whichColor, NPMColor *color)
-      FIVEWORDINLINE(0x2F3C, 0x0006, 0x0016, 0x7000, 0xA82A);
+  NPickerSetColor(long storage, PickerColorType whichColor, NPMColor *color);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1687,8 +1665,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  NPickerGetProfile(long storage, CMProfileRef *profile)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0017, 0x7000, 0xA82A);
+  NPickerGetProfile(long storage, CMProfileRef *profile);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1705,8 +1682,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  NPickerSetProfile(long storage, CMProfileRef profile)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0018, 0x7000, 0xA82A);
+  NPickerSetProfile(long storage, CMProfileRef profile);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1724,8 +1700,7 @@ extern "C"
    */
   ComponentResult
   NPickerSetColorChangedProc(long storage, NColorChangedUPP colorProc,
-                             long colorProcData)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0019, 0x7000, 0xA82A);
+                             long colorProcData);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1742,8 +1717,7 @@ extern "C"
    */
   ComponentResult
   PickerExtractHelpItem(long storage, short itemNo, short whichMsg,
-                        PickerHelpItemInfo *helpInfo)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0013, 0x7000, 0xA82A);
+                        PickerHelpItemInfo *helpInfo);
 
 #endif /** CALL_NOT_IN_CARBON */
 

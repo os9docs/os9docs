@@ -1183,7 +1183,7 @@ typedef struct OpaqueControlRef *ControlRef;
   NewControl(WindowRef owningWindow, const Rect *boundsRect,
              ConstStr255Param controlTitle, Boolean initiallyVisible,
              SInt16 initialValue, SInt16 minimumValue, SInt16 maximumValue,
-             SInt16 procID, SInt32 controlReference) ONEWORDINLINE(0xA954);
+             SInt16 procID, SInt32 controlReference);
 
   /**
    *  GetNewControl()
@@ -1194,7 +1194,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   ControlRef
-  GetNewControl(SInt16 resourceID, WindowRef owningWindow) ONEWORDINLINE(0xA9BE);
+  GetNewControl(SInt16 resourceID, WindowRef owningWindow);
 
   /**
    *  DisposeControl()
@@ -1205,7 +1205,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  DisposeControl(ControlRef theControl) ONEWORDINLINE(0xA955);
+  DisposeControl(ControlRef theControl);
 
   /**
    *  KillControls()
@@ -1216,7 +1216,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  KillControls(WindowRef theWindow) ONEWORDINLINE(0xA956);
+  KillControls(WindowRef theWindow);
 
   // ��������������������������������������������������������������������������������������
   //  � Control Definition Registration
@@ -1395,8 +1395,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  HiliteControl(ControlRef theControl, ControlPartCode hiliteState)
-      ONEWORDINLINE(0xA95D);
+  HiliteControl(ControlRef theControl, ControlPartCode hiliteState);
 
   /**
    *  ShowControl()
@@ -1407,7 +1406,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ShowControl(ControlRef theControl) ONEWORDINLINE(0xA957);
+  ShowControl(ControlRef theControl);
 
   /**
    *  HideControl()
@@ -1418,7 +1417,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  HideControl(ControlRef theControl) ONEWORDINLINE(0xA958);
+  HideControl(ControlRef theControl);
 
   // following state routines available only with Appearance 1.0 and later
   /**
@@ -1430,7 +1429,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  IsControlActive(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0005, 0xAA73);
+  IsControlActive(ControlRef inControl);
 
   /**
    *  IsControlVisible()
@@ -1441,7 +1440,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  IsControlVisible(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0006, 0xAA73);
+  IsControlVisible(ControlRef inControl);
 
   /**
    *  ActivateControl()
@@ -1452,7 +1451,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  ActivateControl(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0007, 0xAA73);
+  ActivateControl(ControlRef inControl);
 
   /**
    *  DeactivateControl()
@@ -1463,7 +1462,7 @@ typedef struct OpaqueControlRef *ControlRef;
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DeactivateControl(ControlRef inControl) THREEWORDINLINE(0x303C, 0x0008, 0xAA73);
+  DeactivateControl(ControlRef inControl);
 
   /**
    *  SetControlVisibility()
@@ -1475,7 +1474,7 @@ typedef struct OpaqueControlRef *ControlRef;
    */
   OSErr
   SetControlVisibility(ControlRef inControl, Boolean inIsVisible,
-                       Boolean inDoDraw) THREEWORDINLINE(0x303C, 0x001E, 0xAA73);
+                       Boolean inDoDraw);
 
   // following state routines available only on Mac OS X and later
   /**
@@ -1565,7 +1564,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
     later
           */
   void
-  DrawControls(WindowRef theWindow) ONEWORDINLINE(0xA969);
+  DrawControls(WindowRef theWindow);
 
   /**
    *  Draw1Control()
@@ -1575,7 +1574,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void Draw1Control(ControlRef theControl) ONEWORDINLINE(0xA96D);
+  void Draw1Control(ControlRef theControl);
 
 #define DrawOneControl(theControl) Draw1Control(theControl)
 
@@ -1604,7 +1603,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    */
   void UpdateControls(
       WindowRef inWindow,
-      RgnHandle inUpdateRegion) /* can be NULL */ ONEWORDINLINE(0xA953);
+      RgnHandle inUpdateRegion) /* can be NULL */;
 
   // following imaging routines available only with Appearance 1.0 and later
   /**
@@ -1616,8 +1615,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr GetBestControlRect(ControlRef inControl, Rect *outRect,
-                           SInt16 *outBaseLineOffset)
-      THREEWORDINLINE(0x303C, 0x001B, 0xAA73);
+                           SInt16 *outBaseLineOffset);
 
   /**
    *  SetControlFontStyle()
@@ -1627,8 +1625,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr SetControlFontStyle(ControlRef inControl, const ControlFontStyleRec *inStyle)
-      THREEWORDINLINE(0x303C, 0x001C, 0xAA73);
+  OSErr SetControlFontStyle(ControlRef inControl, const ControlFontStyleRec *inStyle);
 
   /**
    *  DrawControlInCurrentPort()
@@ -1638,8 +1635,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void DrawControlInCurrentPort(ControlRef inControl)
-      THREEWORDINLINE(0x303C, 0x0018, 0xAA73);
+  void DrawControlInCurrentPort(ControlRef inControl);
 
   /**
    *  SetUpControlBackground()
@@ -1691,8 +1687,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr SetUpControlBackground(ControlRef inControl, SInt16 inDepth,
-                               Boolean inIsColorDevice)
-      THREEWORDINLINE(0x303C, 0x001D, 0xAA73);
+                               Boolean inIsColorDevice);
 
   /**
    *  SetUpControlTextColor()
@@ -1966,7 +1961,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
   ControlPartCode
   TrackControl(
       ControlRef theControl, Point startPoint,
-      ControlActionUPP actionProc) /* can be NULL */ ONEWORDINLINE(0xA968);
+      ControlActionUPP actionProc) /* can be NULL */;
 
   /**
    *  DragControl()
@@ -1977,7 +1972,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   void DragControl(ControlRef theControl, Point startPoint, const Rect *limitRect,
-                   const Rect *slopRect, DragConstraint axis) ONEWORDINLINE(0xA967);
+                   const Rect *slopRect, DragConstraint axis);
 
   /**
    *  TestControl()
@@ -1988,7 +1983,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   ControlPartCode
-  TestControl(ControlRef theControl, Point testPoint) ONEWORDINLINE(0xA966);
+  TestControl(ControlRef theControl, Point testPoint);
 
   /**
    *  FindControl()
@@ -1999,8 +1994,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   ControlPartCode
-  FindControl(Point testPoint, WindowRef theWindow, ControlRef *theControl)
-      ONEWORDINLINE(0xA96C);
+  FindControl(Point testPoint, WindowRef theWindow, ControlRef *theControl);
 
   /* The following mousing routines available only with Appearance 1.0 and later
    */
@@ -2019,8 +2013,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    */
   ControlRef
   FindControlUnderMouse(Point inWhere, WindowRef inWindow,
-                        ControlPartCode *outPart)
-      THREEWORDINLINE(0x303C, 0x0009, 0xAA73);
+                        ControlPartCode *outPart);
 
   /**
    *  HandleControlClick()
@@ -2033,8 +2026,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
   ControlPartCode
   HandleControlClick(
       ControlRef inControl, Point inWhere, EventModifiers inModifiers,
-      ControlActionUPP inAction) /* can be NULL */ THREEWORDINLINE(0x303C, 0x000A,
-                                                                   0xAA73);
+      ControlActionUPP inAction) /* can be NULL */;
 
   /* Contextual Menu support in the Control Manager is only available on Carbon.
    */
@@ -2087,8 +2079,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    */
   ControlPartCode
   HandleControlKey(ControlRef inControl, SInt16 inKeyCode, SInt16 inCharCode,
-                   EventModifiers inModifiers)
-      THREEWORDINLINE(0x303C, 0x000B, 0xAA73);
+                   EventModifiers inModifiers);
 
   /**
    *  IdleControls()
@@ -2098,7 +2089,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void IdleControls(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x000C, 0xAA73);
+  void IdleControls(WindowRef inWindow);
 
   // ��������������������������������������������������������������������������������������
   // � Control Mouse Tracking (available with Carbon)
@@ -2134,7 +2125,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void MoveControl(ControlRef theControl, SInt16 h, SInt16 v) ONEWORDINLINE(0xA959);
+  void MoveControl(ControlRef theControl, SInt16 h, SInt16 v);
 
   /**
    *  SizeControl()
@@ -2144,7 +2135,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void SizeControl(ControlRef theControl, SInt16 w, SInt16 h) ONEWORDINLINE(0xA95C);
+  void SizeControl(ControlRef theControl, SInt16 w, SInt16 h);
 
   // ��������������������������������������������������������������������������������������
   //  � Control Title
@@ -2157,8 +2148,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void SetControlTitle(ControlRef theControl, ConstStr255Param title)
-      ONEWORDINLINE(0xA95F);
+  void SetControlTitle(ControlRef theControl, ConstStr255Param title);
 
   /**
    *  GetControlTitle()
@@ -2168,7 +2158,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void GetControlTitle(ControlRef theControl, Str255 title) ONEWORDINLINE(0xA95E);
+  void GetControlTitle(ControlRef theControl, Str255 title);
 
   /**
    *  SetControlTitleWithCFString()
@@ -2204,7 +2194,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   SInt16
-  GetControlValue(ControlRef theControl) ONEWORDINLINE(0xA960);
+  GetControlValue(ControlRef theControl);
 
   /**
    *  SetControlValue()
@@ -2214,7 +2204,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void SetControlValue(ControlRef theControl, SInt16 newValue) ONEWORDINLINE(0xA963);
+  void SetControlValue(ControlRef theControl, SInt16 newValue);
 
   /**
    *  GetControlMinimum()
@@ -2225,7 +2215,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   SInt16
-  GetControlMinimum(ControlRef theControl) ONEWORDINLINE(0xA961);
+  GetControlMinimum(ControlRef theControl);
 
   /**
    *  SetControlMinimum()
@@ -2235,8 +2225,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void SetControlMinimum(ControlRef theControl, SInt16 newMinimum)
-      ONEWORDINLINE(0xA964);
+  void SetControlMinimum(ControlRef theControl, SInt16 newMinimum);
 
   /**
    *  GetControlMaximum()
@@ -2247,7 +2236,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   SInt16
-  GetControlMaximum(ControlRef theControl) ONEWORDINLINE(0xA962);
+  GetControlMaximum(ControlRef theControl);
 
   /**
    *  SetControlMaximum()
@@ -2257,8 +2246,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void SetControlMaximum(ControlRef theControl, SInt16 newMaximum)
-      ONEWORDINLINE(0xA965);
+  void SetControlMaximum(ControlRef theControl, SInt16 newMaximum);
 
   // proportional scrolling/32-bit value support is new with Appearance 1.1
 
@@ -2597,7 +2585,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   ControlVariant
-  GetControlVariant(ControlRef theControl) ONEWORDINLINE(0xA809);
+  GetControlVariant(ControlRef theControl);
 
   // ��������������������������������������������������������������������������������������
   //  � Control Action
@@ -2610,8 +2598,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void SetControlAction(ControlRef theControl, ControlActionUPP actionProc)
-      ONEWORDINLINE(0xA96B);
+  void SetControlAction(ControlRef theControl, ControlActionUPP actionProc);
 
   /**
    *  GetControlAction()
@@ -2622,7 +2609,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   ControlActionUPP
-  GetControlAction(ControlRef theControl) ONEWORDINLINE(0xA96A);
+  GetControlAction(ControlRef theControl);
 
   // ��������������������������������������������������������������������������������������
   // � Control Accessors
@@ -2635,7 +2622,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void SetControlReference(ControlRef theControl, SInt32 data) ONEWORDINLINE(0xA95B);
+  void SetControlReference(ControlRef theControl, SInt32 data);
 
   /**
    *  GetControlReference()
@@ -2646,7 +2633,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   SInt32
-  GetControlReference(ControlRef theControl) ONEWORDINLINE(0xA95A);
+  GetControlReference(ControlRef theControl);
 
 #if !OPAQUE_TOOLBOX_STRUCTS
 #if CALL_NOT_IN_CARBON
@@ -2659,8 +2646,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         not available
    */
   Boolean
-  GetAuxiliaryControlRecord(ControlRef theControl, AuxCtlHandle *acHndl)
-      ONEWORDINLINE(0xAA44);
+  GetAuxiliaryControlRecord(ControlRef theControl, AuxCtlHandle *acHndl);
 
 #endif // CALL_NOT_IN_CARBON
 
@@ -2675,8 +2661,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void SetControlColor(ControlRef theControl, CCTabHandle newColorTable)
-      ONEWORDINLINE(0xAA43);
+  void SetControlColor(ControlRef theControl, CCTabHandle newColorTable);
 
 // ��������������������������������������������������������������������������������������
 //  � Control Hierarchy (Appearance 1.0 and later only)
@@ -2692,8 +2677,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   SInt32
-  SendControlMessage(ControlRef inControl, SInt16 inMessage, void *inParam)
-      THREEWORDINLINE(0x303C, 0xFFFE, 0xAA73);
+  SendControlMessage(ControlRef inControl, SInt16 inMessage, void *inParam);
 
   /**
    *  DumpControlHierarchy()
@@ -2703,8 +2687,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr DumpControlHierarchy(WindowRef inWindow, const FSSpec *inDumpFile)
-      THREEWORDINLINE(0x303C, 0xFFFF, 0xAA73);
+  OSErr DumpControlHierarchy(WindowRef inWindow, const FSSpec *inDumpFile);
 
   /**
    *  CreateRootControl()
@@ -2733,8 +2716,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    */
   OSErr CreateRootControl(
       WindowRef inWindow,
-      ControlRef *outControl) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0001,
-                                                                0xAA73);
+      ControlRef *outControl) /* can be NULL */;
 
   /**
    *  GetRootControl()
@@ -2744,8 +2726,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr GetRootControl(WindowRef inWindow, ControlRef *outControl)
-      THREEWORDINLINE(0x303C, 0x0002, 0xAA73);
+  OSErr GetRootControl(WindowRef inWindow, ControlRef *outControl);
 
   /**
    *  EmbedControl()
@@ -2755,8 +2736,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr EmbedControl(ControlRef inControl, ControlRef inContainer)
-      THREEWORDINLINE(0x303C, 0x0003, 0xAA73);
+  OSErr EmbedControl(ControlRef inControl, ControlRef inContainer);
 
   /**
    *  AutoEmbedControl()
@@ -2766,8 +2746,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr AutoEmbedControl(ControlRef inControl, WindowRef inWindow)
-      THREEWORDINLINE(0x303C, 0x0004, 0xAA73);
+  OSErr AutoEmbedControl(ControlRef inControl, WindowRef inWindow);
 
   /**
    *  GetSuperControl()
@@ -2777,8 +2756,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr GetSuperControl(ControlRef inControl, ControlRef *outParent)
-      THREEWORDINLINE(0x303C, 0x0015, 0xAA73);
+  OSErr GetSuperControl(ControlRef inControl, ControlRef *outParent);
 
   /**
    *  CountSubControls()
@@ -2788,8 +2766,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr CountSubControls(ControlRef inControl, UInt16 *outNumChildren)
-      THREEWORDINLINE(0x303C, 0x0016, 0xAA73);
+  OSErr CountSubControls(ControlRef inControl, UInt16 *outNumChildren);
 
   /**
    *  GetIndexedSubControl()
@@ -2800,8 +2777,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr GetIndexedSubControl(ControlRef inControl, UInt16 inIndex,
-                             ControlRef *outSubControl)
-      THREEWORDINLINE(0x303C, 0x0017, 0xAA73);
+                             ControlRef *outSubControl);
 
   /**
    *  SetControlSupervisor()
@@ -2811,8 +2787,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr SetControlSupervisor(ControlRef inControl, ControlRef inBoss)
-      THREEWORDINLINE(0x303C, 0x001A, 0xAA73);
+  OSErr SetControlSupervisor(ControlRef inControl, ControlRef inBoss);
 
   // ��������������������������������������������������������������������������������������
   //  � Keyboard Focus (available only with Appearance 1.0 and later)
@@ -2825,8 +2800,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr GetKeyboardFocus(WindowRef inWindow, ControlRef *outControl)
-      THREEWORDINLINE(0x303C, 0x000D, 0xAA73);
+  OSErr GetKeyboardFocus(WindowRef inWindow, ControlRef *outControl);
 
   /**
    *  SetKeyboardFocus()
@@ -2837,8 +2811,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr SetKeyboardFocus(WindowRef inWindow, ControlRef inControl,
-                         ControlFocusPart inPart)
-      THREEWORDINLINE(0x303C, 0x000E, 0xAA73);
+                         ControlFocusPart inPart);
 
   /**
    *  AdvanceKeyboardFocus()
@@ -2848,8 +2821,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr AdvanceKeyboardFocus(WindowRef inWindow)
-      THREEWORDINLINE(0x303C, 0x000F, 0xAA73);
+  OSErr AdvanceKeyboardFocus(WindowRef inWindow);
 
   /**
    *  ReverseKeyboardFocus()
@@ -2859,8 +2831,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr ReverseKeyboardFocus(WindowRef inWindow)
-      THREEWORDINLINE(0x303C, 0x0010, 0xAA73);
+  OSErr ReverseKeyboardFocus(WindowRef inWindow);
 
   /**
    *  ClearKeyboardFocus()
@@ -2870,7 +2841,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr ClearKeyboardFocus(WindowRef inWindow) THREEWORDINLINE(0x303C, 0x0019, 0xAA73);
+  OSErr ClearKeyboardFocus(WindowRef inWindow);
 
   // ��������������������������������������������������������������������������������������
   //  � Control Data (available only with Appearance 1.0 and later)
@@ -2884,8 +2855,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr GetControlFeatures(ControlRef inControl, UInt32 *outFeatures)
-      THREEWORDINLINE(0x303C, 0x0011, 0xAA73);
+  OSErr GetControlFeatures(ControlRef inControl, UInt32 *outFeatures);
 
   /**
    *  SetControlData()
@@ -2896,8 +2866,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr SetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
-                       Size inSize, const void *inData)
-      THREEWORDINLINE(0x303C, 0x0012, 0xAA73);
+                       Size inSize, const void *inData);
 
   /**
    *  GetControlData()
@@ -2908,8 +2877,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr GetControlData(ControlRef inControl, ControlPartCode inPart, ResType inTagName,
-                       Size inBufferSize, void *inBuffer, Size *outActualSize)
-      THREEWORDINLINE(0x303C, 0x0013, 0xAA73);
+                       Size inBufferSize, void *inBuffer, Size *outActualSize);
 
   /**
    *  GetControlDataSize()
@@ -2920,8 +2888,7 @@ The ’size icon' (if used) is also part of the content region of a window and w
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr GetControlDataSize(ControlRef inControl, ControlPartCode inPart,
-                           ResType inTagName, Size *outMaxSize)
-      THREEWORDINLINE(0x303C, 0x0014, 0xAA73);
+                           ResType inTagName, Size *outMaxSize);
 
   // ��������������������������������������������������������������������������������������
   //  � Control Drag & Drop

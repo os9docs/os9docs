@@ -125,8 +125,7 @@ extern "C"
    */
   OSErr
   NewAlias(const FSSpec *fromFile, /** can be NULL */
-           const FSSpec *target, AliasHandle *alias)
-      TWOWORDINLINE(0x7002, 0xA823);
+           const FSSpec *target, AliasHandle *alias);
 
   /**
    *  NewAliasMinimal()
@@ -141,8 +140,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  NewAliasMinimal(const FSSpec *target, AliasHandle *alias)
-      TWOWORDINLINE(0x7008, 0xA823);
+  NewAliasMinimal(const FSSpec *target, AliasHandle *alias);
 
   /**
    *  NewAliasMinimalFromFullPath()
@@ -159,8 +157,7 @@ extern "C"
   OSErr
   NewAliasMinimalFromFullPath(short fullPathLength, const void *fullPath,
                               ConstStr32Param zoneName,
-                              ConstStr31Param serverName, AliasHandle *alias)
-      TWOWORDINLINE(0x7009, 0xA823);
+                              ConstStr31Param serverName, AliasHandle *alias);
 
   /**
    *  ResolveAlias()
@@ -176,8 +173,7 @@ extern "C"
    */
   OSErr
   ResolveAlias(const FSSpec *fromFile, /** can be NULL */
-               AliasHandle alias, FSSpec *target, Boolean *wasChanged)
-      TWOWORDINLINE(0x7003, 0xA823);
+               AliasHandle alias, FSSpec *target, Boolean *wasChanged);
 
   /**
   \brief Get information from an AliasRecord
@@ -225,8 +221,7 @@ asiZoneName, or the AliasRecord is corrupt
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  GetAliasInfo(AliasHandle alias, AliasInfoType index, Str63 theString)
-      TWOWORDINLINE(0x7007, 0xA823);
+  GetAliasInfo(AliasHandle alias, AliasInfoType index, Str63 theString);
 
   /**
    *  IsAliasFile()
@@ -238,7 +233,7 @@ asiZoneName, or the AliasRecord is corrupt
    */
   OSErr
   IsAliasFile(const FSSpec *fileFSSpec, Boolean *aliasFileFlag,
-              Boolean *folderFlag) TWOWORDINLINE(0x702A, 0xA823);
+              Boolean *folderFlag);
 
   /**
    *  ResolveAliasWithMountFlags()
@@ -251,8 +246,7 @@ asiZoneName, or the AliasRecord is corrupt
   OSErr
   ResolveAliasWithMountFlags(const FSSpec *fromFile, /** can be NULL */
                              AliasHandle alias, FSSpec *target,
-                             Boolean *wasChanged, unsigned long mountFlags)
-      TWOWORDINLINE(0x702B, 0xA823);
+                             Boolean *wasChanged, unsigned long mountFlags);
 
   /**
    *  ResolveAliasFile()
@@ -270,8 +264,7 @@ asiZoneName, or the AliasRecord is corrupt
    */
   OSErr
   ResolveAliasFile(FSSpec *theSpec, Boolean resolveAliasChains,
-                   Boolean *targetIsFolder, Boolean *wasAliased)
-      TWOWORDINLINE(0x700C, 0xA823);
+                   Boolean *targetIsFolder, Boolean *wasAliased);
 
   /**
    *  ResolveAliasFileWithMountFlags()
@@ -284,8 +277,7 @@ asiZoneName, or the AliasRecord is corrupt
   OSErr
   ResolveAliasFileWithMountFlags(FSSpec *theSpec, Boolean resolveAliasChains,
                                  Boolean *targetIsFolder, Boolean *wasAliased,
-                                 unsigned long mountFlags)
-      TWOWORDINLINE(0x7029, 0xA823);
+                                 unsigned long mountFlags);
 
   /**
    *  FollowFinderAlias()
@@ -298,7 +290,7 @@ asiZoneName, or the AliasRecord is corrupt
   OSErr
   FollowFinderAlias(const FSSpec *fromFile, /** can be NULL */
                     AliasHandle alias, Boolean logon, FSSpec *target,
-                    Boolean *wasChanged) TWOWORDINLINE(0x700F, 0xA823);
+                    Boolean *wasChanged);
 
   /**
      Low Level Routines
@@ -318,8 +310,7 @@ asiZoneName, or the AliasRecord is corrupt
    */
   OSErr
   UpdateAlias(const FSSpec *fromFile, /** can be NULL */
-              const FSSpec *target, AliasHandle alias, Boolean *wasChanged)
-      TWOWORDINLINE(0x7006, 0xA823);
+              const FSSpec *target, AliasHandle alias, Boolean *wasChanged);
 
   typedef CALLBACK_API(Boolean, AliasFilterProcPtr)(CInfoPBPtr cpbPtr,
                                                     Boolean *quitFlag,
@@ -424,8 +415,7 @@ asiZoneName, or the AliasRecord is corrupt
   MatchAlias(const FSSpec *fromFile, /** can be NULL */
              unsigned long rulesMask, AliasHandle alias, short *aliasCount,
              FSSpecArrayPtr aliasList, Boolean *needsUpdate,
-             AliasFilterUPP aliasFilter, void *yourDataPtr)
-      TWOWORDINLINE(0x7005, 0xA823);
+             AliasFilterUPP aliasFilter, void *yourDataPtr);
 
   /**
    *  ResolveAliasFileWithMountFlagsNoUI()
@@ -471,8 +461,7 @@ asiZoneName, or the AliasRecord is corrupt
    */
   OSErr
   FSNewAlias(const FSRef *fromFile, /** can be NULL */
-             const FSRef *target, AliasHandle *inAlias)
-      TWOWORDINLINE(0x7036, 0xA823);
+             const FSRef *target, AliasHandle *inAlias);
 
   /**
    *  FSNewAliasMinimal()
@@ -483,8 +472,7 @@ asiZoneName, or the AliasRecord is corrupt
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  FSNewAliasMinimal(const FSRef *target, AliasHandle *inAlias)
-      TWOWORDINLINE(0x7037, 0xA823);
+  FSNewAliasMinimal(const FSRef *target, AliasHandle *inAlias);
 
   /**
    *  FSIsAliasFile()
@@ -495,8 +483,7 @@ asiZoneName, or the AliasRecord is corrupt
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  FSIsAliasFile(const FSRef *fileRef, Boolean *aliasFileFlag, Boolean *folderFlag)
-      TWOWORDINLINE(0x7038, 0xA823);
+  FSIsAliasFile(const FSRef *fileRef, Boolean *aliasFileFlag, Boolean *folderFlag);
 
   /**
    *  FSResolveAliasWithMountFlags()
@@ -509,8 +496,7 @@ asiZoneName, or the AliasRecord is corrupt
   OSErr
   FSResolveAliasWithMountFlags(const FSRef *fromFile, /** can be NULL */
                                AliasHandle inAlias, FSRef *target,
-                               Boolean *wasChanged, unsigned long mountFlags)
-      TWOWORDINLINE(0x7039, 0xA823);
+                               Boolean *wasChanged, unsigned long mountFlags);
 
   /**
    *  FSResolveAlias()
@@ -522,8 +508,7 @@ asiZoneName, or the AliasRecord is corrupt
    */
   OSErr
   FSResolveAlias(const FSRef *fromFile, /** can be NULL */
-                 AliasHandle alias, FSRef *target, Boolean *wasChanged)
-      TWOWORDINLINE(0x703A, 0xA823);
+                 AliasHandle alias, FSRef *target, Boolean *wasChanged);
 
   /**
    *  FSResolveAliasFileWithMountFlags()
@@ -536,8 +521,7 @@ asiZoneName, or the AliasRecord is corrupt
   OSErr
   FSResolveAliasFileWithMountFlags(FSRef *theRef, Boolean resolveAliasChains,
                                    Boolean *targetIsFolder, Boolean *wasAliased,
-                                   unsigned long mountFlags)
-      TWOWORDINLINE(0x703B, 0xA823);
+                                   unsigned long mountFlags);
 
   /**
    *  FSResolveAliasFile()
@@ -549,8 +533,7 @@ asiZoneName, or the AliasRecord is corrupt
    */
   OSErr
   FSResolveAliasFile(FSRef *theRef, Boolean resolveAliasChains,
-                     Boolean *targetIsFolder, Boolean *wasAliased)
-      TWOWORDINLINE(0x703C, 0xA823);
+                     Boolean *targetIsFolder, Boolean *wasAliased);
 
   /**
    *  FSFollowFinderAlias()
@@ -563,7 +546,7 @@ asiZoneName, or the AliasRecord is corrupt
   OSErr
   FSFollowFinderAlias(FSRef *fromFile, /** can be NULL */
                       AliasHandle alias, Boolean logon, FSRef *target,
-                      Boolean *wasChanged) TWOWORDINLINE(0x703D, 0xA823);
+                      Boolean *wasChanged);
 
   /**
    *  FSUpdateAlias()
@@ -575,8 +558,7 @@ asiZoneName, or the AliasRecord is corrupt
    */
   OSErr
   FSUpdateAlias(const FSRef *fromFile, /** can be NULL */
-                const FSRef *target, AliasHandle alias, Boolean *wasChanged)
-      TWOWORDINLINE(0x703E, 0xA823);
+                const FSRef *target, AliasHandle alias, Boolean *wasChanged);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -597,4 +579,3 @@ asiZoneName, or the AliasRecord is corrupt
 #endif
 
 #endif /** __ALIASES__ */
-* /

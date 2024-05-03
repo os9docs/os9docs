@@ -66,7 +66,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  InitPack(short packID) ONEWORDINLINE(0xA9E5);
+  InitPack(short packID);
 
   /**
    *  InitAllPacks()
@@ -77,7 +77,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  InitAllPacks(void) ONEWORDINLINE(0xA9E6);
+  InitAllPacks(void);
 
 #endif /** CALL_NOT_IN_CARBON */
 

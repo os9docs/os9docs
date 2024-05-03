@@ -107,7 +107,7 @@ value of trapNum  must be correct for that version of the ROM.
 #pragma parameter __A0 GetTrapAddress(__D0)
 #endif
 	UniversalProcPtr
-	GetTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA146);
+	GetTrapAddress(UInt16 trapNum);
 
 	/**
 	\brief Install custom code to replace a system routine
@@ -142,7 +142,7 @@ information, see About Compatibility .
 #pragma parameter SetTrapAddress(__A0, __D0)
 #endif
 	void
-	SetTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum) ONEWORDINLINE(0xA047);
+	SetTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -272,7 +272,7 @@ About Compatibility for more information.
 #pragma parameter __A0 GetOSTrapAddress(__D0)
 #endif
 	UniversalProcPtr
-	GetOSTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA346);
+	GetOSTrapAddress(UInt16 trapNum);
 
 	/**
 	\brief SetOSTrapAddress Install custom code to replace an operating system routine
@@ -314,8 +314,7 @@ information see About Compatibility .
 #pragma parameter SetOSTrapAddress(__A0, __D0)
 #endif
 	void
-	SetOSTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
-		ONEWORDINLINE(0xA247);
+	SetOSTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum);
 
 	/**
 	\brief GetToolTrapAddress Obtain address of toolbox function
@@ -358,7 +357,7 @@ About Compatibility for more information.
 #pragma parameter __A0 GetToolTrapAddress(__D0)
 #endif
 	UniversalProcPtr
-	GetToolTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA746);
+	GetToolTrapAddress(UInt16 trapNum);
 
 	/**
 	\brief SetToolTrapAddress Install custom code to replace an operating system routine
@@ -399,8 +398,7 @@ information see About Compatibility .
 #pragma parameter SetToolTrapAddress(__A0, __D0)
 #endif
 	void
-	SetToolTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
-		ONEWORDINLINE(0xA647);
+	SetToolTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum);
 
 /**
  *  GetToolboxTrapAddress()
@@ -414,7 +412,7 @@ information see About Compatibility .
 #pragma parameter __A0 GetToolboxTrapAddress(__D0)
 #endif
 	UniversalProcPtr
-	GetToolboxTrapAddress(UInt16 trapNum) ONEWORDINLINE(0xA746);
+	GetToolboxTrapAddress(UInt16 trapNum);
 
 /**
  *  SetToolboxTrapAddress()
@@ -428,8 +426,7 @@ information see About Compatibility .
 #pragma parameter SetToolboxTrapAddress(__A0, __D0)
 #endif
 	void
-	SetToolboxTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum)
-		ONEWORDINLINE(0xA647);
+	SetToolboxTrapAddress(UniversalProcPtr trapAddr, UInt16 trapNum);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -468,5 +465,4 @@ information see About Compatibility .
 }
 #endif
 
-#endif /** __PATCHES__ */
-* /*/*/ * /*/*/ */*/
+#endif /** __PATCHES__ */ *  /*/

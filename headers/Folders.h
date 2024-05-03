@@ -135,7 +135,7 @@ extern "C"
      */
     OSErr
     FindFolder(short vRefNum, OSType folderType, Boolean createFolder,
-               short *foundVRefNum, long *foundDirID) TWOWORDINLINE(0x7000, 0xA823);
+               short *foundVRefNum, long *foundDirID);
 
     /**
      *  FindFolderExtended()
@@ -147,8 +147,7 @@ extern "C"
      */
     OSErr
     FindFolderExtended(short vol, OSType foldType, Boolean createFolder,
-                       UInt32 flags, void *data, short *vRefNum, long *dirID)
-        THREEWORDINLINE(0x303C, 0x0B2C, 0xA823);
+                       UInt32 flags, void *data, short *vRefNum, long *dirID);
 
     /**
      *  ReleaseFolder()
@@ -159,7 +158,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    ReleaseFolder(short vRefNum, OSType folderType) TWOWORDINLINE(0x700B, 0xA823);
+    ReleaseFolder(short vRefNum, OSType folderType);
 
 #if !TARGET_OS_MAC
 /** Since non-mac targets don't know about VRef's or DirID's, the Ex version
@@ -192,7 +191,7 @@ extern "C"
      */
     OSErr
     FSFindFolder(short vRefNum, OSType folderType, Boolean createFolder,
-                 FSRef *foundRef) TWOWORDINLINE(0x7034, 0xA823);
+                 FSRef *foundRef);
 
     /**
      *  FSFindFolderExtended()
@@ -204,8 +203,7 @@ extern "C"
      */
     OSErr
     FSFindFolderExtended(short vol, OSType foldType, Boolean createFolder,
-                         UInt32 flags, void *data, FSRef *foundRef)
-        TWOWORDINLINE(0x7035, 0xA823);
+                         UInt32 flags, void *data, FSRef *foundRef);
 
     /*******************************************/
     /** Extensible Folder Manager declarations */
@@ -771,8 +769,7 @@ extern "C"
     AddFolderDescriptor(FolderType foldType, FolderDescFlags flags,
                         FolderClass foldClass, FolderLocation foldLocation,
                         OSType badgeSignature, OSType badgeType,
-                        ConstStrFileNameParam name, Boolean replaceFlag)
-        TWOWORDINLINE(0x7020, 0xA823);
+                        ConstStrFileNameParam name, Boolean replaceFlag);
 
     /**
      *  GetFolderDescriptor()
@@ -783,8 +780,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    GetFolderDescriptor(FolderType foldType, Size descSize, FolderDesc *foldDesc)
-        TWOWORDINLINE(0x7023, 0xA823);
+    GetFolderDescriptor(FolderType foldType, Size descSize, FolderDesc *foldDesc);
 
     /**
      *  GetFolderTypes()
@@ -796,7 +792,7 @@ extern "C"
      */
     OSErr
     GetFolderTypes(UInt32 requestedTypeCount, UInt32 *totalTypeCount,
-                   FolderType *theTypes) TWOWORDINLINE(0x7024, 0xA823);
+                   FolderType *theTypes);
 
     /**
      *  RemoveFolderDescriptor()
@@ -807,7 +803,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    RemoveFolderDescriptor(FolderType foldType) TWOWORDINLINE(0x7021, 0xA823);
+    RemoveFolderDescriptor(FolderType foldType);
 
     /** legacy routines */
     /**
@@ -820,7 +816,7 @@ extern "C"
      */
     OSErr
     GetFolderName(short vRefNum, OSType foldType, short *foundVRefNum,
-                  StrFileName name) TWOWORDINLINE(0x700E, 0xA823);
+                  StrFileName name);
 
     /** routing routines */
     /**
@@ -834,7 +830,7 @@ extern "C"
     OSErr
     AddFolderRouting(OSType fileType, FolderType routeFromFolder,
                      FolderType routeToFolder, RoutingFlags flags,
-                     Boolean replaceFlag) THREEWORDINLINE(0x303C, 0x0926, 0xA823);
+                     Boolean replaceFlag);
 
     /**
      *  RemoveFolderRouting()
@@ -845,8 +841,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    RemoveFolderRouting(OSType fileType, FolderType routeFromFolder)
-        THREEWORDINLINE(0x303C, 0x0427, 0xA823);
+    RemoveFolderRouting(OSType fileType, FolderType routeFromFolder);
 
     /**
      *  FindFolderRouting()
@@ -858,8 +853,7 @@ extern "C"
      */
     OSErr
     FindFolderRouting(OSType fileType, FolderType routeFromFolder,
-                      FolderType *routeToFolder, RoutingFlags *flags)
-        THREEWORDINLINE(0x303C, 0x0822, 0xA823);
+                      FolderType *routeToFolder, RoutingFlags *flags);
 
     /**
      *  GetFolderRoutings()
@@ -871,8 +865,7 @@ extern "C"
      */
     OSErr
     GetFolderRoutings(UInt32 requestedRoutingCount, UInt32 *totalRoutingCount,
-                      Size routingSize, FolderRouting *theRoutings)
-        THREEWORDINLINE(0x303C, 0x081E, 0xA823);
+                      Size routingSize, FolderRouting *theRoutings);
 
     /**
      *  InvalidateFolderDescriptorCache()
@@ -883,8 +876,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    InvalidateFolderDescriptorCache(short vRefNum, long dirID)
-        THREEWORDINLINE(0x303C, 0x0325, 0xA823);
+    InvalidateFolderDescriptorCache(short vRefNum, long dirID);
 
     /**
      *  IdentifyFolder()
@@ -895,8 +887,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    IdentifyFolder(short vRefNum, long dirID, FolderType *foldType)
-        THREEWORDINLINE(0x303C, 0x051F, 0xA823);
+    IdentifyFolder(short vRefNum, long dirID, FolderType *foldType);
 
     /**
      *  FolderManagerRegisterNotificationProc()
@@ -908,8 +899,7 @@ extern "C"
      */
     OSErr
     FolderManagerRegisterNotificationProc(
-        FolderManagerNotificationUPP notificationProc, void *refCon, UInt32 options)
-        THREEWORDINLINE(0x303C, 0x062F, 0xA823);
+        FolderManagerNotificationUPP notificationProc, void *refCon, UInt32 options);
 
     /**
      *  FolderManagerUnregisterNotificationProc()
@@ -921,8 +911,7 @@ extern "C"
      */
     OSErr
     FolderManagerUnregisterNotificationProc(
-        FolderManagerNotificationUPP notificationProc, void *refCon)
-        THREEWORDINLINE(0x303C, 0x0430, 0xA823);
+        FolderManagerNotificationUPP notificationProc, void *refCon);
 
     /**
      *  FolderManagerRegisterCallNotificationProcs()
@@ -934,8 +923,7 @@ extern "C"
      */
     OSStatus
     FolderManagerRegisterCallNotificationProcs(OSType message, void *arg,
-                                               UInt32 options)
-        THREEWORDINLINE(0x303C, 0x0631, 0xA823);
+                                               UInt32 options);
 
     /********************************/
     /** MultiUser (At Ease) globals */

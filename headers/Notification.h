@@ -246,7 +246,7 @@ pascal OSErr NMInstall (QElemPtr nmReqPtr) = {0x205F, 0xA05E,
 #pragma parameter __D0 NMInstall(__A0)
 #endif
 	OSErr
-	NMInstall(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05E);
+	NMInstall(NMRecPtr nmReqPtr);
 
 	/**
 	\brief Remove a notification request from the notification queue
@@ -282,7 +282,7 @@ See NMInstall for a code example using the Notification Manager .
 #pragma parameter __D0 NMRemove(__A0)
 #endif
 	OSErr
-	NMRemove(NMRecPtr nmReqPtr) ONEWORDINLINE(0xA05F);
+	NMRemove(NMRecPtr nmReqPtr);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

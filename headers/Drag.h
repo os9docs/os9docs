@@ -801,8 +801,7 @@ extern "C"
    */
   OSErr
   InstallTrackingHandler(DragTrackingHandlerUPP trackingHandler,
-                         WindowRef theWindow, void *handlerRefCon)
-      TWOWORDINLINE(0x7001, 0xABED);
+                         WindowRef theWindow, void *handlerRefCon);
 
   /**
    *  InstallReceiveHandler()
@@ -814,7 +813,7 @@ extern "C"
    */
   OSErr
   InstallReceiveHandler(DragReceiveHandlerUPP receiveHandler, WindowRef theWindow,
-                        void *handlerRefCon) TWOWORDINLINE(0x7002, 0xABED);
+                        void *handlerRefCon);
 
   /**
    *  RemoveTrackingHandler()
@@ -826,7 +825,7 @@ extern "C"
    */
   OSErr
   RemoveTrackingHandler(DragTrackingHandlerUPP trackingHandler,
-                        WindowRef theWindow) TWOWORDINLINE(0x7003, 0xABED);
+                        WindowRef theWindow);
 
   /**
    *  RemoveReceiveHandler()
@@ -837,8 +836,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  RemoveReceiveHandler(DragReceiveHandlerUPP receiveHandler, WindowRef theWindow)
-      TWOWORDINLINE(0x7004, 0xABED);
+  RemoveReceiveHandler(DragReceiveHandlerUPP receiveHandler, WindowRef theWindow);
 
   /**
     _________________________________________________________________________________________________________
@@ -856,7 +854,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  NewDrag(DragRef *theDrag) TWOWORDINLINE(0x7005, 0xABED);
+  NewDrag(DragRef *theDrag);
 
   /**
    *  DisposeDrag()
@@ -867,7 +865,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DisposeDrag(DragRef theDrag) TWOWORDINLINE(0x7006, 0xABED);
+  DisposeDrag(DragRef theDrag);
 
   /**
     _________________________________________________________________________________________________________
@@ -896,8 +894,7 @@ extern "C"
    */
   OSErr
   AddDragItemFlavor(DragRef theDrag, DragItemRef theItemRef, FlavorType theType,
-                    const void *dataPtr, Size dataSize, FlavorFlags theFlags)
-      TWOWORDINLINE(0x7007, 0xABED);
+                    const void *dataPtr, Size dataSize, FlavorFlags theFlags);
 
   /**
    *  SetDragItemFlavorData()
@@ -910,7 +907,7 @@ extern "C"
   OSErr
   SetDragItemFlavorData(DragRef theDrag, DragItemRef theItemRef,
                         FlavorType theType, const void *dataPtr, Size dataSize,
-                        UInt32 dataOffset) TWOWORDINLINE(0x7009, 0xABED);
+                        UInt32 dataOffset);
 
   /**
     _________________________________________________________________________________________________________
@@ -928,8 +925,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetDragSendProc(DragRef theDrag, DragSendDataUPP sendProc, void *dragSendRefCon)
-      TWOWORDINLINE(0x700A, 0xABED);
+  SetDragSendProc(DragRef theDrag, DragSendDataUPP sendProc, void *dragSendRefCon);
 
   /**
    *  SetDragInputProc()
@@ -940,8 +936,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetDragInputProc(DragRef theDrag, DragInputUPP inputProc, void *dragInputRefCon)
-      TWOWORDINLINE(0x700B, 0xABED);
+  SetDragInputProc(DragRef theDrag, DragInputUPP inputProc, void *dragInputRefCon);
 
   /**
    *  SetDragDrawingProc()
@@ -953,7 +948,7 @@ extern "C"
    */
   OSErr
   SetDragDrawingProc(DragRef theDrag, DragDrawingUPP drawingProc,
-                     void *dragDrawingRefCon) TWOWORDINLINE(0x700C, 0xABED);
+                     void *dragDrawingRefCon);
 
   /**
     _________________________________________________________________________________________________________
@@ -972,8 +967,7 @@ extern "C"
    */
   OSErr
   SetDragImage(DragRef theDrag, PixMapHandle imagePixMap, RgnHandle imageRgn,
-               Point imageOffsetPt, DragImageFlags theImageFlags)
-      TWOWORDINLINE(0x7027, 0xABED);
+               Point imageOffsetPt, DragImageFlags theImageFlags);
 
   /**
     _________________________________________________________________________________________________________
@@ -991,8 +985,7 @@ extern "C"
    */
   OSErr
   ChangeDragBehaviors(DragRef theDrag, DragBehaviors inBehaviorsToSet,
-                      DragBehaviors inBehaviorsToClear)
-      TWOWORDINLINE(0x7028, 0xABED);
+                      DragBehaviors inBehaviorsToClear);
 
   /**
     _________________________________________________________________________________________________________
@@ -1009,8 +1002,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  TrackDrag(DragRef theDrag, const EventRecord *theEvent, RgnHandle theRegion)
-      TWOWORDINLINE(0x700D, 0xABED);
+  TrackDrag(DragRef theDrag, const EventRecord *theEvent, RgnHandle theRegion);
 
   /**
     _________________________________________________________________________________________________________
@@ -1028,7 +1020,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  CountDragItems(DragRef theDrag, UInt16 *numItems) TWOWORDINLINE(0x700E, 0xABED);
+  CountDragItems(DragRef theDrag, UInt16 *numItems);
 
   /**
    *  GetDragItemReferenceNumber()
@@ -1040,8 +1032,7 @@ extern "C"
    */
   OSErr
   GetDragItemReferenceNumber(DragRef theDrag, UInt16 index,
-                             DragItemRef *theItemRef)
-      TWOWORDINLINE(0x700F, 0xABED);
+                             DragItemRef *theItemRef);
 
   /**
    *  CountDragItemFlavors()
@@ -1053,7 +1044,7 @@ extern "C"
    */
   OSErr
   CountDragItemFlavors(DragRef theDrag, DragItemRef theItemRef,
-                       UInt16 *numFlavors) TWOWORDINLINE(0x7010, 0xABED);
+                       UInt16 *numFlavors);
 
   /**
    *  GetFlavorType()
@@ -1065,7 +1056,7 @@ extern "C"
    */
   OSErr
   GetFlavorType(DragRef theDrag, DragItemRef theItemRef, UInt16 index,
-                FlavorType *theType) TWOWORDINLINE(0x7011, 0xABED);
+                FlavorType *theType);
 
   /**
    *  GetFlavorFlags()
@@ -1077,7 +1068,7 @@ extern "C"
    */
   OSErr
   GetFlavorFlags(DragRef theDrag, DragItemRef theItemRef, FlavorType theType,
-                 FlavorFlags *theFlags) TWOWORDINLINE(0x7012, 0xABED);
+                 FlavorFlags *theFlags);
 
   /**
    *  GetFlavorDataSize()
@@ -1089,7 +1080,7 @@ extern "C"
    */
   OSErr
   GetFlavorDataSize(DragRef theDrag, DragItemRef theItemRef, FlavorType theType,
-                    Size *dataSize) TWOWORDINLINE(0x7013, 0xABED);
+                    Size *dataSize);
 
   /**
    *  GetFlavorData()
@@ -1101,8 +1092,7 @@ extern "C"
    */
   OSErr
   GetFlavorData(DragRef theDrag, DragItemRef theItemRef, FlavorType theType,
-                void *dataPtr, Size *dataSize, UInt32 dataOffset)
-      TWOWORDINLINE(0x7014, 0xABED);
+                void *dataPtr, Size *dataSize, UInt32 dataOffset);
 
   /**
     _________________________________________________________________________________________________________
@@ -1120,8 +1110,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetDragItemBounds(DragRef theDrag, DragItemRef theItemRef, Rect *itemBounds)
-      TWOWORDINLINE(0x7015, 0xABED);
+  GetDragItemBounds(DragRef theDrag, DragItemRef theItemRef, Rect *itemBounds);
 
   /**
    *  SetDragItemBounds()
@@ -1133,7 +1122,7 @@ extern "C"
    */
   OSErr
   SetDragItemBounds(DragRef theDrag, DragItemRef theItemRef,
-                    const Rect *itemBounds) TWOWORDINLINE(0x7016, 0xABED);
+                    const Rect *itemBounds);
 
   /**
     _________________________________________________________________________________________________________
@@ -1151,8 +1140,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetDropLocation(DragRef theDrag, AEDesc *dropLocation)
-      TWOWORDINLINE(0x7017, 0xABED);
+  GetDropLocation(DragRef theDrag, AEDesc *dropLocation);
 
   /**
    *  SetDropLocation()
@@ -1163,8 +1151,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetDropLocation(DragRef theDrag, const AEDesc *dropLocation)
-      TWOWORDINLINE(0x7018, 0xABED);
+  SetDropLocation(DragRef theDrag, const AEDesc *dropLocation);
 
   /**
     _________________________________________________________________________________________________________
@@ -1182,8 +1169,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetDragAttributes(DragRef theDrag, DragAttributes *flags)
-      TWOWORDINLINE(0x7019, 0xABED);
+  GetDragAttributes(DragRef theDrag, DragAttributes *flags);
 
   /**
    *  GetDragMouse()
@@ -1194,8 +1180,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetDragMouse(DragRef theDrag, Point *mouse, Point *globalPinnedMouse)
-      TWOWORDINLINE(0x701A, 0xABED);
+  GetDragMouse(DragRef theDrag, Point *mouse, Point *globalPinnedMouse);
 
   /**
    *  SetDragMouse()
@@ -1206,8 +1191,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetDragMouse(DragRef theDrag, Point globalPinnedMouse)
-      TWOWORDINLINE(0x701B, 0xABED);
+  SetDragMouse(DragRef theDrag, Point globalPinnedMouse);
 
   /**
    *  GetDragOrigin()
@@ -1218,8 +1202,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetDragOrigin(DragRef theDrag, Point *globalInitialMouse)
-      TWOWORDINLINE(0x701C, 0xABED);
+  GetDragOrigin(DragRef theDrag, Point *globalInitialMouse);
 
   /**
    *  GetDragModifiers()
@@ -1231,7 +1214,7 @@ extern "C"
    */
   OSErr
   GetDragModifiers(DragRef theDrag, SInt16 *modifiers, SInt16 *mouseDownModifiers,
-                   SInt16 *mouseUpModifiers) TWOWORDINLINE(0x701D, 0xABED);
+                   SInt16 *mouseUpModifiers);
 
   /**
     _________________________________________________________________________________________________________
@@ -1378,8 +1361,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  ShowDragHilite(DragRef theDrag, RgnHandle hiliteFrame, Boolean inside)
-      TWOWORDINLINE(0x701E, 0xABED);
+  ShowDragHilite(DragRef theDrag, RgnHandle hiliteFrame, Boolean inside);
 
   /**
    *  HideDragHilite()
@@ -1390,7 +1372,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  HideDragHilite(DragRef theDrag) TWOWORDINLINE(0x701F, 0xABED);
+  HideDragHilite(DragRef theDrag);
 
   /**
    *  DragPreScroll()
@@ -1401,8 +1383,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DragPreScroll(DragRef theDrag, SInt16 dH, SInt16 dV)
-      TWOWORDINLINE(0x7020, 0xABED);
+  DragPreScroll(DragRef theDrag, SInt16 dH, SInt16 dV);
 
   /**
    *  DragPostScroll()
@@ -1413,7 +1394,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DragPostScroll(DragRef theDrag) TWOWORDINLINE(0x7021, 0xABED);
+  DragPostScroll(DragRef theDrag);
 
   /**
    *  UpdateDragHilite()
@@ -1424,8 +1405,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  UpdateDragHilite(DragRef theDrag, RgnHandle updateRgn)
-      TWOWORDINLINE(0x7022, 0xABED);
+  UpdateDragHilite(DragRef theDrag, RgnHandle updateRgn);
 
   /**
    *  GetDragHiliteColor()
@@ -1436,8 +1416,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetDragHiliteColor(WindowRef window, RGBColor *color)
-      TWOWORDINLINE(0x7026, 0xABED);
+  GetDragHiliteColor(WindowRef window, RGBColor *color);
 
   /**
     _________________________________________________________________________________________________________
@@ -1455,7 +1434,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  WaitMouseMoved(Point initialMouse) TWOWORDINLINE(0x7023, 0xABED);
+  WaitMouseMoved(Point initialMouse);
 
   /**
    *  ZoomRects()
@@ -1467,7 +1446,7 @@ extern "C"
    */
   OSErr
   ZoomRects(const Rect *fromRect, const Rect *toRect, SInt16 zoomSteps,
-            ZoomAcceleration acceleration) TWOWORDINLINE(0x7024, 0xABED);
+            ZoomAcceleration acceleration);
 
   /**
    *  ZoomRegion()
@@ -1479,7 +1458,7 @@ extern "C"
    */
   OSErr
   ZoomRegion(RgnHandle region, Point zoomDistance, SInt16 zoomSteps,
-             ZoomAcceleration acceleration) TWOWORDINLINE(0x7025, 0xABED);
+             ZoomAcceleration acceleration);
 
   /**
     _________________________________________________________________________________________________________

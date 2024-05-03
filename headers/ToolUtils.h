@@ -107,7 +107,7 @@ between long integers and not relevant for C programmers.
 *    \mac_os_x         in version 10.0 and later
 */
 	Boolean
-	BitTst(const void *bytePtr, long bitNum) ONEWORDINLINE(0xA85D);
+	BitTst(const void *bytePtr, long bitNum);
 
 	/**
 	\brief Set a specified bit in a bit string to a 1
@@ -118,7 +118,7 @@ between long integers and not relevant for C programmers.
 *    \mac_os_x         in version 10.0 and later
 */
 	void
-	BitSet(void *bytePtr, long bitNum) ONEWORDINLINE(0xA85E);
+	BitSet(void *bytePtr, long bitNum);
 
 	/**
 	\brief Clear a specified bit in a bit string to a 0
@@ -139,7 +139,7 @@ for details.
 *    \mac_os_x         in version 10.0 and later
 */
 	void
-	BitClr(void *bytePtr, long bitNum) ONEWORDINLINE(0xA85F);
+	BitClr(void *bytePtr, long bitNum);
 
 	/**
 	\brief Obtain bitwise AND of two 32-bit longs
@@ -166,10 +166,9 @@ x = BitAnd( op1, op2); // is equivalent to . . . 	x = op1 & op2; // . . . and th
 			*    \carbon_lib in CarbonLib 1.0 and
 		later
 			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			long
-			BitAnd(long value1, long value2) ONEWORDINLINE(0xA858);
+		later*/
+	long
+	BitAnd(long value1, long value2);
 
 	/**
 	\brief Obtain bitwise OR of two 32-bit longs
@@ -194,10 +193,9 @@ x = BitOr( op1, op2); // is equivalent to . . . 	x = op1 | op2; // . . . and thi
 			*    \carbon_lib in CarbonLib 1.0 and
 		later
 			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			long
-			BitOr(long value1, long value2) ONEWORDINLINE(0xA85B);
+		later*/
+	long
+	BitOr(long value1, long value2);
 
 	/**
 	\brief Obtain bitwise XOR of two 32-bit longs
@@ -223,10 +221,9 @@ x = BitXor( op1, op2); // is equivalent to . . . 	x = op1 ^ op2; // . . . and th
 			*    \carbon_lib in CarbonLib 1.0 and
 		later
 			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			long
-			BitXor(long value1, long value2) ONEWORDINLINE(0xA859);
+		later*/
+	long
+	BitXor(long value1, long value2);
 
 	/**
 	\brief Obtain bitwise NOT (complement) of two longs
@@ -248,10 +245,9 @@ x = BitNot( operand); // is equivalent to . . . 	x = ~operand; // . . . and this
 			*    \carbon_lib in CarbonLib 1.0 and
 		later
 			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			long
-			BitNot(long value) ONEWORDINLINE(0xA85A);
+		later*/
+	long
+	BitNot(long value);
 
 	/**
 	\brief Obtain result of left- or right-shifted 32-bit value
@@ -277,17 +273,18 @@ using the C >> and << (bitwise shift) operators or the assembler LSL or
 LSR opcodes.
 longx, operand;
 shortcount;
-x = BitShift ( operand, count ); // is equivalent to . . . 	x = operand << count;	 // if count is positive or . . . 	x = operand >> (-count); // if count is negative 	</ pre>
+x = BitShift ( operand, count ); // is equivalent to . . .
+x = operand << count;	 // if count is positive or . . .
+x = operand >> (-count); // if count is negative 	</ pre>
 				* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
 														  *    \non_carbon_cfm in InterfaceLib 7.1 and
 		later
 			*    \carbon_lib in CarbonLib 1.0 and
 		later
 			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			long
-			BitShift(long value, short count) ONEWORDINLINE(0xA85C);
+		later*/
+	long
+	BitShift(long value, short count);
 
 #if TARGET_CPU_68K
 	/**
@@ -328,7 +325,7 @@ Use FixMul to multiply fixed-point values.
 *    \mac_os_x         not available
 */
 	void
-	LongMul(long a, long b, Int64Bit *result) ONEWORDINLINE(0xA867);
+	LongMul(long a, long b, Int64Bit *result);
 
 #else
 #define LongMul(a, b, result) ((void)WideMultiply((a), (b), (wide *)(result)))
@@ -355,4 +352,4 @@ Use FixMul to multiply fixed-point values.
 }
 #endif
 
-#endif // __TOOLUTILS__ * /*/*/ * /*/*/ * /*/*/
+#endif // __TOOLUTILS__ *   /*/*/

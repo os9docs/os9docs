@@ -1124,7 +1124,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  GetSysDirection(void) TWOWORDINLINE(0x3EB8, 0x0BAC);
+  GetSysDirection(void);
 
   /**
    *  SetSysDirection()
@@ -1135,7 +1135,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SetSysDirection(short value) TWOWORDINLINE(0x31DF, 0x0BAC);
+  SetSysDirection(short value);
 
   /**
    *  FontScript()
@@ -1146,7 +1146,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  FontScript(void) FOURWORDINLINE(0x2F3C, 0x8200, 0x0000, 0xA8B5);
+  FontScript(void);
 
   /**
    *  IntlScript()
@@ -1157,7 +1157,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  IntlScript(void) FOURWORDINLINE(0x2F3C, 0x8200, 0x0002, 0xA8B5);
+  IntlScript(void);
 
   /**
    *  FontToScript()
@@ -1168,7 +1168,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  FontToScript(short fontNumber) FOURWORDINLINE(0x2F3C, 0x8202, 0x0006, 0xA8B5);
+  FontToScript(short fontNumber);
 
   /**
    *  GetScriptManagerVariable()
@@ -1179,8 +1179,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  GetScriptManagerVariable(short selector)
-      FOURWORDINLINE(0x2F3C, 0x8402, 0x0008, 0xA8B5);
+  GetScriptManagerVariable(short selector);
 
   /**
    *  SetScriptManagerVariable()
@@ -1191,8 +1190,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetScriptManagerVariable(short selector, long param)
-      FOURWORDINLINE(0x2F3C, 0x8206, 0x000A, 0xA8B5);
+  SetScriptManagerVariable(short selector, long param);
 
   /**
    *  GetScriptVariable()
@@ -1203,8 +1201,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  GetScriptVariable(short script, short selector)
-      FOURWORDINLINE(0x2F3C, 0x8404, 0x000C, 0xA8B5);
+  GetScriptVariable(short script, short selector);
 
   /**
    *  SetScriptVariable()
@@ -1215,8 +1212,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetScriptVariable(short script, short selector, long param)
-      FOURWORDINLINE(0x2F3C, 0x8208, 0x000E, 0xA8B5);
+  SetScriptVariable(short script, short selector, long param);
 
   /**
    *  CharacterByteType()
@@ -1227,8 +1223,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  CharacterByteType(Ptr textBuf, short textOffset, ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC206, 0x0010, 0xA8B5);
+  CharacterByteType(Ptr textBuf, short textOffset, ScriptCode script);
 
   /**
    *  CharacterType()
@@ -1239,8 +1234,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  CharacterType(Ptr textBuf, short textOffset, ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC206, 0x0012, 0xA8B5);
+  CharacterType(Ptr textBuf, short textOffset, ScriptCode script);
 
   /**
    *  TransliterateText()
@@ -1252,8 +1246,7 @@ extern "C"
    */
   OSErr
   TransliterateText(Handle srcHandle, Handle dstHandle, short target,
-                    long srcMask, ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC20E, 0x0018, 0xA8B5);
+                    long srcMask, ScriptCode script);
 
   /**
    *  FillParseTable()
@@ -1264,8 +1257,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  FillParseTable(CharByteTable table, ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC204, 0x0022, 0xA8B5);
+  FillParseTable(CharByteTable table, ScriptCode script);
 
   /**
    *  GetIntlResource()
@@ -1276,7 +1268,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Handle
-  GetIntlResource(short theID) THREEWORDINLINE(0x3F3C, 0x0006, 0xA9ED);
+  GetIntlResource(short theID);
 
   /**
    *  ClearIntlResourceCache()
@@ -1287,7 +1279,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ClearIntlResourceCache(void) THREEWORDINLINE(0x3F3C, 0x0018, 0xA9ED);
+  ClearIntlResourceCache(void);
 
   /**
    *  GetIntlResourceTable()
@@ -1299,8 +1291,7 @@ extern "C"
    */
   void
   GetIntlResourceTable(ScriptCode script, short tableCode, Handle *itlHandle,
-                       long *offset, long *length)
-      THREEWORDINLINE(0x3F3C, 0x0024, 0xA9ED);
+                       long *offset, long *length);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -1312,8 +1303,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   UniversalProcPtr
-  GetScriptUtilityAddress(short selector, Boolean Before, ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC404, 0x0038, 0xA8B5);
+  GetScriptUtilityAddress(short selector, Boolean Before, ScriptCode script);
 
   /**
    *  SetScriptUtilityAddress()
@@ -1325,8 +1315,7 @@ extern "C"
    */
   void
   SetScriptUtilityAddress(short selector, Boolean Before,
-                          UniversalProcPtr routineAddr, ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC008, 0x003A, 0xA8B5);
+                          UniversalProcPtr routineAddr, ScriptCode script);
 
   /**
    *  GetScriptQDPatchAddress()
@@ -1338,8 +1327,7 @@ extern "C"
    */
   UniversalProcPtr
   GetScriptQDPatchAddress(short trapNum, Boolean Before, Boolean forPrinting,
-                          ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC406, 0x003C, 0xA8B5);
+                          ScriptCode script);
 
   /**
    *  SetScriptQDPatchAddress()
@@ -1351,8 +1339,7 @@ extern "C"
    */
   void
   SetScriptQDPatchAddress(short trapNum, Boolean Before, Boolean forPrinting,
-                          UniversalProcPtr routineAddr, ScriptCode script)
-      FOURWORDINLINE(0x2F3C, 0xC00A, 0x003E, 0xA8B5);
+                          UniversalProcPtr routineAddr, ScriptCode script);
 
   /**
    *  SetIntlResource()
@@ -1363,8 +1350,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  SetIntlResource(short refNum, short theID, Handle intlHandle)
-      THREEWORDINLINE(0x3F3C, 0x0008, 0xA9ED);
+  SetIntlResource(short refNum, short theID, Handle intlHandle);
 
   /**
   \brief Check character type of byte at given offset
@@ -1385,8 +1371,7 @@ textOffset is the location of the specified byte.
 *    \mac_os_x         not available
 */
   short
-  CharByte(Ptr textBuf, short textOffset)
-      FOURWORDINLINE(0x2F3C, 0x8206, 0x0010, 0xA8B5);
+  CharByte(Ptr textBuf, short textOffset);
 
   /**
   \brief Check character type of byte at given offset
@@ -1430,8 +1415,7 @@ smChar2byte =0x08000
 *    \mac_os_x         not available
 */
   short
-  CharType(Ptr textBuf, short textOffset)
-      FOURWORDINLINE(0x2F3C, 0x8206, 0x0012, 0xA8B5);
+  CharType(Ptr textBuf, short textOffset);
 
   /**
    *  Transliterate()
@@ -1442,8 +1426,7 @@ smChar2byte =0x08000
    *    \mac_os_x         not available
    */
   OSErr
-  Transliterate(Handle srcHandle, Handle dstHandle, short target, long srcMask)
-      FOURWORDINLINE(0x2F3C, 0x820E, 0x0018, 0xA8B5);
+  Transliterate(Handle srcHandle, Handle dstHandle, short target, long srcMask);
 
   /**
   \brief Check for additional byte in character
@@ -1462,7 +1445,7 @@ in the character.
 *    \mac_os_x         not available
 */
   Boolean
-  ParseTable(CharByteTable table) FOURWORDINLINE(0x2F3C, 0x8204, 0x0022, 0xA8B5);
+  ParseTable(CharByteTable table);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1475,8 +1458,7 @@ in the character.
    *    \mac_os_x         in version 10.0 and later
    */
   TokenResults
-  IntlTokenize(TokenBlockPtr tokenParam)
-      FOURWORDINLINE(0x2F3C, 0x8204, 0xFFFA, 0xA8B5);
+  IntlTokenize(TokenBlockPtr tokenParam);
 
 #if OLDROUTINENAMES
 #define SetSysJust(newJust) SetSysDirection(newJust)

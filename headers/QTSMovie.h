@@ -154,8 +154,7 @@ extern "C"
    *    Windows:          in QTSClient.lib 4.0 and later
    */
   ComponentResult
-  QTSMediaSetInfo(MediaHandler mh, OSType inSelector, void *ioParams)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0100, 0x7000, 0xA82A);
+  QTSMediaSetInfo(MediaHandler mh, OSType inSelector, void *ioParams);
 
   /**
    *  QTSMediaGetInfo()
@@ -167,8 +166,7 @@ extern "C"
    *    Windows:          in QTSClient.lib 4.0 and later
    */
   ComponentResult
-  QTSMediaGetInfo(MediaHandler mh, OSType inSelector, void *ioParams)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0101, 0x7000, 0xA82A);
+  QTSMediaGetInfo(MediaHandler mh, OSType inSelector, void *ioParams);
 
   /**
    *  QTSMediaSetIndStreamInfo()
@@ -181,8 +179,7 @@ extern "C"
    */
   ComponentResult
   QTSMediaSetIndStreamInfo(MediaHandler mh, SInt32 inIndex, OSType inSelector,
-                           void *ioParams)
-      FIVEWORDINLINE(0x2F3C, 0x000C, 0x0102, 0x7000, 0xA82A);
+                           void *ioParams);
 
   /**
    *  QTSMediaGetIndStreamInfo()
@@ -195,8 +192,7 @@ extern "C"
    */
   ComponentResult
   QTSMediaGetIndStreamInfo(MediaHandler mh, SInt32 inIndex, OSType inSelector,
-                           void *ioParams)
-      FIVEWORDINLINE(0x2F3C, 0x000C, 0x0103, 0x7000, 0xA82A);
+                           void *ioParams);
 
   /**============================================================================
           Hint Media Handler

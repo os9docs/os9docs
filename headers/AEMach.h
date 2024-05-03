@@ -7,9 +7,9 @@
     \avaliable_from Universal Interfaces 3.4.1
 
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
-    
+
     \ingroup AppleEvent
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,34 +52,37 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/*-
- * AE Mach API --
- *
- * AppleEvents on OS X are implemented in terms of mach messages.
- * To facilitate writing server processes that can send and receive
- * AppleEvents, the following APIs are provided.
- *
- * AppleEvents are directed to a well known port uniquely tied to a
- * process.  The AE framework will discover this port based on the
- * keyAddressAttr of the event (as specifed in AECreateAppleEvent by
- * the target parameter.)  If a port cannot be found,
- * procNotFound (-600) will be returned on AESend.
- *
- * Of note is a new attribute for an AppleEvent, typeReplyPortAttr.
- * This specifies the mach_port_t to which an AppleEvent reply
- * should be directed.  By default, replies are sent to the
- * processes registered port where they are culled from the normal
- * event stream if there is an outstanding AESend + kAEWaitReply.
- * But it may be desirable for a client to specify their own port to
- * receive quued replies.
- * (In the case of AESendMessage with kAEWaitReply specified, an
- * anonymous port will be used to block until the reply is received.)
- *
- * Not supplied is a convenience routine to block a server and
- * process AppleEvents.  This implementation will be detailed in a
- * tech note.
- **/
-enum { typeReplyPortAttr = FOUR_CHAR_CODE('repp') };
+    /*-
+     * AE Mach API --
+     *
+     * AppleEvents on OS X are implemented in terms of mach messages.
+     * To facilitate writing server processes that can send and receive
+     * AppleEvents, the following APIs are provided.
+     *
+     * AppleEvents are directed to a well known port uniquely tied to a
+     * process.  The AE framework will discover this port based on the
+     * keyAddressAttr of the event (as specifed in AECreateAppleEvent by
+     * the target parameter.)  If a port cannot be found,
+     * procNotFound (-600) will be returned on AESend.
+     *
+     * Of note is a new attribute for an AppleEvent, typeReplyPortAttr.
+     * This specifies the mach_port_t to which an AppleEvent reply
+     * should be directed.  By default, replies are sent to the
+     * processes registered port where they are culled from the normal
+     * event stream if there is an outstanding AESend + kAEWaitReply.
+     * But it may be desirable for a client to specify their own port to
+     * receive quued replies.
+     * (In the case of AESendMessage with kAEWaitReply specified, an
+     * anonymous port will be used to block until the reply is received.)
+     *
+     * Not supplied is a convenience routine to block a server and
+     * process AppleEvents.  This implementation will be detailed in a
+     * tech note.
+     **/
+    enum
+    {
+        typeReplyPortAttr = FOUR_CHAR_CODE('repp')
+    };
 
 #if TARGET_RT_MAC_MACHO
 #ifdef _MACH_MESSAGE_H_ // only use if <mach/port.h> previously included /*-
@@ -155,13 +159,14 @@ AEProcessMessage(mach_msg_header_t *header);
  *    \mac_os_x         in version 10.0 and later
  */
 OSStatus
-AESendMessage(const AppleEvent *event, AppleEvent *reply, // can be NULL               AESendMode sendMode, long timeOutInTicks);
+AESendMessage(const AppleEvent *event, AppleEvent *reply, // can be NULL
+             AESendMode sendMode, long timeOutInTicks);
 
-#endif // _MACH_MESSAGE_H_ #endif // TARGET_RT_MAC_MACHO // can be NULL 
+#endif // _MACH_MESSAGE_H_ #endif // TARGET_RT_MAC_MACHO // can be NULL
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif P// _MACH_MESSAGE_H_ 
-#pragma// TARGET_RT_MAC_MACHO 
+#elif P // _MACH_MESSAGE_H_
+#pragma // TARGET_RT_MAC_MACHO
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
@@ -176,4 +181,4 @@ AESendMessage(const AppleEvent *event, AppleEvent *reply, // can be NULL        
 }
 #endif
 
-#endif // __AEMACH__ // __AEMACH__ 
+#endif // __AEMACH__ // __AEMACH__

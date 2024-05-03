@@ -147,8 +147,7 @@ extern "C"
     OSErr
     AEInstallEventHandler(AEEventClass theAEEventClass, AEEventID theAEEventID,
                           AEEventHandlerUPP handler, long handlerRefcon,
-                          Boolean isSysHandler)
-        THREEWORDINLINE(0x303C, 0x091F, 0xA816);
+                          Boolean isSysHandler);
 
     /**
      *  AERemoveEventHandler()
@@ -160,8 +159,7 @@ extern "C"
      */
     OSErr
     AERemoveEventHandler(AEEventClass theAEEventClass, AEEventID theAEEventID,
-                         AEEventHandlerUPP handler, Boolean isSysHandler)
-        THREEWORDINLINE(0x303C, 0x0720, 0xA816);
+                         AEEventHandlerUPP handler, Boolean isSysHandler);
 
     /**
      *  AEGetEventHandler()
@@ -174,7 +172,7 @@ extern "C"
     OSErr
     AEGetEventHandler(AEEventClass theAEEventClass, AEEventID theAEEventID,
                       AEEventHandlerUPP *handler, long *handlerRefcon,
-                      Boolean isSysHandler) THREEWORDINLINE(0x303C, 0x0921, 0xA816);
+                      Boolean isSysHandler);
 
     /***************************************************************************
       These calls are used to set up and modify special hooks into the
@@ -190,8 +188,7 @@ extern "C"
      */
     OSErr
     AEInstallSpecialHandler(AEKeyword functionClass, AEEventHandlerUPP handler,
-                            Boolean isSysHandler)
-        THREEWORDINLINE(0x303C, 0x0500, 0xA816);
+                            Boolean isSysHandler);
 
     /**
      *  AERemoveSpecialHandler()
@@ -203,8 +200,7 @@ extern "C"
      */
     OSErr
     AERemoveSpecialHandler(AEKeyword functionClass, AEEventHandlerUPP handler,
-                           Boolean isSysHandler)
-        THREEWORDINLINE(0x303C, 0x0501, 0xA816);
+                           Boolean isSysHandler);
 
     /**
      *  AEGetSpecialHandler()
@@ -216,8 +212,7 @@ extern "C"
      */
     OSErr
     AEGetSpecialHandler(AEKeyword functionClass, AEEventHandlerUPP *handler,
-                        Boolean isSysHandler)
-        THREEWORDINLINE(0x303C, 0x052D, 0xA816);
+                        Boolean isSysHandler);
 
     /***************************************************************************
       This call was added in version 1.0.1. If called with the keyword
@@ -234,8 +229,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    AEManagerInfo(AEKeyword keyWord, long *result)
-        THREEWORDINLINE(0x303C, 0x0441, 0xA816);
+    AEManagerInfo(AEKeyword keyWord, long *result);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

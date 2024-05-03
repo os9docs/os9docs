@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"*.h": "c",
+		"memory_resource": "c"
+	}
+}

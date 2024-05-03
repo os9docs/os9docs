@@ -607,7 +607,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CSAddSocketServices(AddSocketServicesPB *pb) TWOWORDINLINE(0x7050, 0xAAF0);
+  CSAddSocketServices(AddSocketServicesPB *pb);
 
   /**
    *  CSReplaceSocketServices()
@@ -618,8 +618,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CSReplaceSocketServices(ReplaceSocketServicesPB *pb)
-      TWOWORDINLINE(0x7051, 0xAAF0);
+  CSReplaceSocketServices(ReplaceSocketServicesPB *pb);
 
 /**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
     parameter blocks for each Socket Service function

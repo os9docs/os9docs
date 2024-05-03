@@ -128,8 +128,7 @@ extern "C"
    */
   CMError
   CMAccelerationLoadTables(ComponentInstance CMSession,
-                           CMAccelerationTableDataPtr tableData)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0000, 0x7000, 0xA82A);
+                           CMAccelerationTableDataPtr tableData);
 
   /**
    *  CMAccelerationCalculateData()
@@ -141,8 +140,7 @@ extern "C"
    */
   CMError
   CMAccelerationCalculateData(ComponentInstance CMSession,
-                              CMAccelerationCalcDataPtr calcData)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+                              CMAccelerationCalcDataPtr calcData);
 
 #endif /** CALL_NOT_IN_CARBON */
 

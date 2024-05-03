@@ -75,7 +75,7 @@ This is handy for calculating the spacing needed for drawing justified text
 *    \mac_os_x         in version 10.0 and later
 */
 	Fixed
-	FixRatio(short numer, short denom) ONEWORDINLINE(0xA869);
+	FixRatio(short numer, short denom);
 
 	/**
 	\brief Get fixed-point product of two integers
@@ -98,7 +98,7 @@ low word is always 0.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fixed
-	FixMul(Fixed a, Fixed b) ONEWORDINLINE(0xA868);
+	FixMul(Fixed a, Fixed b);
 
 	/**
 	\brief Get nearest short integer to a fixed-point value
@@ -128,7 +128,7 @@ rounded = FixRound ( unRounded );
 *    \mac_os_x         in version 10.0 and later
 */
 	short
-	FixRound(Fixed x) ONEWORDINLINE(0xA86C);
+	FixRound(Fixed x);
 
 	/**
 	\brief Convert a Fixed to a Fract data type
@@ -145,7 +145,7 @@ possible for the data type.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fract
-	Fix2Frac(Fixed x) ONEWORDINLINE(0xA841);
+	Fix2Frac(Fixed x);
 
 	/**
 	\brief Convert a Fixed to a long data type
@@ -162,7 +162,7 @@ for the data type.
 *    \mac_os_x         in version 10.0 and later
 */
 	long
-	Fix2Long(Fixed x) ONEWORDINLINE(0xA840);
+	Fix2Long(Fixed x);
 
 	/**
 	\brief Convert a long to a Fixed data type
@@ -180,7 +180,7 @@ possible for the data type.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fixed
-	Long2Fix(long x) ONEWORDINLINE(0xA83F);
+	Long2Fix(long x);
 
 	/**
 	\brief Convert a Fract to a Fixed data type
@@ -197,7 +197,7 @@ possible for the data type.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fixed
-	Frac2Fix(Fract x) ONEWORDINLINE(0xA842);
+	Frac2Fix(Fract x);
 
 	/**
 	\brief Multiply Fract by Fract, long,  or Fixed
@@ -223,7 +223,7 @@ Fract*Fixed=Fixed
 *    \mac_os_x         in version 10.0 and later
 */
 	Fract
-	FracMul(Fract x, Fract y) ONEWORDINLINE(0xA84A);
+	FracMul(Fract x, Fract y);
 
 	/**
 	\brief Divide  one 32-bit quantity by another
@@ -253,7 +253,7 @@ results and 0x80000000 for negative results.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fixed
-	FixDiv(Fixed x, Fixed y) ONEWORDINLINE(0xA84D);
+	FixDiv(Fixed x, Fixed y);
 
 	/**
 	\brief Divide one 32-bit quantity by another
@@ -283,7 +283,7 @@ results and 0x8000000 for negative results.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fract
-	FracDiv(Fract x, Fract y) ONEWORDINLINE(0xA84B);
+	FracDiv(Fract x, Fract y);
 
 	/**
 	\brief Extract square root of a Fract, returning a Fract
@@ -299,7 +299,7 @@ argis a 32-bit unsigned Fract data type.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fract
-	FracSqrt(Fract x) ONEWORDINLINE(0xA849);
+	FracSqrt(Fract x);
 
 	/**
 	\brief Extract sine of a Fixed, returning a Fract
@@ -315,7 +315,7 @@ argis a 32-bit Fixed data type, expressed in radians.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fract
-	FracSin(Fixed x) ONEWORDINLINE(0xA848);
+	FracSin(Fixed x);
 
 	/**
 	\brief Extract cosine of a Fixed, returning a Fract
@@ -331,7 +331,7 @@ argis a 32-bit Fixed data type, expressed in radians.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fract
-	FracCos(Fixed x) ONEWORDINLINE(0xA847);
+	FracCos(Fixed x);
 
 	/**
 	\brief Extract arctangent of the quotient of two 32-bit values
@@ -350,7 +350,7 @@ radians.
 *    \mac_os_x         in version 10.0 and later
 */
 	Fixed
-	FixATan2(long x, long y) ONEWORDINLINE(0xA818);
+	FixATan2(long x, long y);
 
 /**
 	Frac2X, Fix2X, X2Fix, and X2Frac translate to and from
@@ -452,7 +452,7 @@ possible for the data type.
 *    \mac_os_x         not available
 */
 	long double
-	Frac2X(Fract x) ONEWORDINLINE(0xA845);
+	Frac2X(Fract x);
 
 	/**
 	\brief Convert a Fixed to an Extended data type
@@ -468,7 +468,7 @@ argis a 32-bit Fixed value.
 *    \mac_os_x         not available
 */
 	long double
-	Fix2X(Fixed x) ONEWORDINLINE(0xA843);
+	Fix2X(Fixed x);
 
 	/**
 	\brief Convert an Extended to a Fixed data type
@@ -485,7 +485,7 @@ possible for the data type.
 *    \mac_os_x         not available
 */
 	Fixed
-	X2Fix(long double x) ONEWORDINLINE(0xA844);
+	X2Fix(long double x);
 
 	/**
 	\brief Convert an Extended to a Fract data type
@@ -502,7 +502,7 @@ possible for the data type.
 *    \mac_os_x         not available
 */
 	Fract
-	X2Frac(long double x) ONEWORDINLINE(0xA846);
+	X2Frac(long double x);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -562,7 +562,7 @@ Fixed X2Fix(double x);
 /**
 \brief Convert an Extended to a Fract data type
 
-<pre>X2Frac returns its Extended argument, converted into a Fract data type.
+<pre>X2Frac returns its Extended argument, converted into a Fract data type.THINK
 argis an 80-bit or 96-bit Extended value.
 </pre>
 * \returns <pre>a 32-bit Fract value, equivalent to arg to the best precision
@@ -711,5 +711,4 @@ Fract X2Frac(double x);
 }
 #endif
 
-#endif									  /** __FIXMATH__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/
+#endif /** __FIXMATH__ */

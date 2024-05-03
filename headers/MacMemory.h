@@ -31,11 +31,6 @@
 #pragma once
 #endif
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 #if PRAGMA_IMPORT
 #pragma import on
 #endif
@@ -48,191 +43,211 @@ extern "C"
 #pragma pack(2)
 #endif
 
-	enum
-	{
-		maxSize = 0x7FFFFFF0 // the largest block possible
-	};
+enum
+{
+	maxSize = 0x7FFFFFF0 // the largest block possible
+};
 
-	enum
-	{
-		defaultPhysicalEntryCount = 8
-	};
+enum
+{
+	defaultPhysicalEntryCount = 8
+};
 
-	enum
-	{
-		// values returned from the GetPageState function 		kPageInMemory = 0,
-		kPageOnDisk = 1,
-		kNotPaged = 2
-	};
+enum
+{
+	/** returned from the GetPageState function */
+	kPageInMemory = 0,
+	kPageOnDisk = 1,
+	kNotPaged = 2
+};
 
-	enum
-	{
-		// masks for Zone->heapType field 		k32BitHeap = 1,	   // valid in all Memory Managers 		kNewStyleHeap = 2, // true if new Heap Manager is present 		kNewDebugHeap =
-		// masks for Zone->heapType field
-		// valid in all Memory Managers
-		// bits for use with// true if new Heap Manager is present
-		{
-			kHa // true if new Heap Manager is running in debug mode on this heap
-				kHandlePurgeableBit = 6,
-			kHandleLockedBit = 7
-			// bits for use with HGetState/HSetState
+enum
+{
+	/* masks for Zone->heapType field */
+	k32BitHeap = 1,	   /* valid in all Memory Managers */
+	kNewStyleHeap = 2, /* true if new Heap Manager is present */
+	kNewDebugHeap =
+		4 /* true if new Heap Manager is running in debug mode on this heap */
+};
 
-			// masks for use with HGetState/HSetState	enum
-			{
-				kHandleIsResourceMask = 0x20,
-				kHandlePurgeableMask = 0x40,
-				kHandleLockedMask = 0x80};
-			// masks for use with HGetState/HSetState
-			typedef CALLBACK_API(long, GrowZoneProcPtr)(Size cbNeeded); typedef CALLBACK_API(void, PurgeProcPtr)(Handle blockToPurge); typedef CALLBACK_API_REGISTER68K(void, UserFnProcPtr, (void *parameter)); typedef STACK_UPP_TYPE(GrowZoneProcPtr) GrowZoneUPP; typedef STACK_UPP_TYPE(PurgeProcPtr) PurgeUPP; typedef REGISTER_UPP_TYPE(UserFnProcPtr) UserFnUPP;
-			/**
-			<pre>
-			 * \note <pre>Several Memory manager calls require (or return) a THz (pointer to
-			Zone), including:
-			GetZone SystemZone HandleZone
-			SetZone ApplicZone PtrZone
-			The global variable TheZone (at 0x0118) contains the address of the Zone
-			structure at the start of the current heap zone.
-			The gzProc field is set when you call InitZone or SetGrowZone . Set it to
-			NIL (0) if you don't care. This proc will be called when more space is
-			needed, as explained in SetGrowZone .
-			The zcbFree field contains the total number of free bytes in the zone. If the
-			zone is fragmented in the least, you won't be able allocate this much
-			memory in one block.
-			You can install a custom "purge warning procedure" by storing its address
-			in purgeProc. Note that purgeProc gets overwritten whenever you call
-			SetResPurge (TRUE).
-			</pre>
-			 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			*/
-			struct Zone{
-				Ptr bkLim;		   /**< Block limit;/**< addr of byte after last in zone*/
-				Ptr purgePtr;	   /**< (used internally)*/
-				Ptr hFstFree;	   /**< First free master pointer*/
-				long zcbFree;	   /**< Number of free bytes*/
-				ProcPtr gzProc;	   /**< Address of grow zone proc ( SetGrowZone )*/
-				short moreMast;	   /**< Number of master ptrs to allocate at a time*/
-				short flags;	   /**< (used internally)*/
-				short cntRel;	   /**< (not used)*/
-				short maxRel;	   /**< (not used)*/
-				short cntNRel;	   /**< (not used)*/
-				short maxNRel;	   /**< (not used)*/
-				short cntEmpty;	   /**< (not used)*/
-				short cntHandles;  /**< (not used)*/
-				long minCBFree;	   /**< (not used)*/
-				ProcPtr purgeProc; /**< Address of purge warning procedure*/
-				Ptr sparePtr;	   /**< (used internally)*/
-				Ptr allocPtr;	   /**< (used internally)*/
-				short heapData;	   /**< First byte of data in the zone*/
-			}
-	Zone; /**<  (size of this zone-prefix information)*/
+/* bits for use with HGetState/HSetState*/
+enum
+{
+	kHandleIsResourceBit = 5,
+	kHandlePurgeableBit = 6,
+	kHandleLockedBit = 7
+};
 
-	typedef struct Zone Zone;
-	typedef Zone *THz;
-	typedef THz *THzPtr;
-	/**
-	<pre>
-	 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	*/
-	struct MemoryBlock
-	{
-		void *address;		 /**<  start of block*/
-		unsigned long count; /**<  size of block*/
-	} MemoryBlock;			 /**< */
+/* masks for use with HGetState/HSetState*/
+enum
+{
+	kHandleIsResourceMask = 0x20,
+	kHandlePurgeableMask = 0x40,
+	kHandleLockedMask = 0x80
+};
+// masks for use with HGetState/HSetState
+typedef CALLBACK_API(long, GrowZoneProcPtr)(Size cbNeeded);
+typedef CALLBACK_API(void, PurgeProcPtr)(Handle blockToPurge);
+typedef CALLBACK_API_REGISTER68K(void, UserFnProcPtr, (void *parameter));
+typedef STACK_UPP_TYPE(GrowZoneProcPtr) GrowZoneUPP;
+typedef STACK_UPP_TYPE(PurgeProcPtr) PurgeUPP;
+typedef REGISTER_UPP_TYPE(UserFnProcPtr) UserFnUPP;
+/**
+<pre>
+ * \note <pre>Several Memory manager calls require (or return) a THz (pointer to
+Zone), including:
+GetZone SystemZone HandleZone
+SetZone ApplicZone PtrZone
+The global variable TheZone (at 0x0118) contains the address of the Zone
+structure at the start of the current heap zone.
+The gzProc field is set when you call InitZone or SetGrowZone . Set it to
+NIL (0) if you don't care. This proc will be called when more space is
+needed, as explained in SetGrowZone .
+The zcbFree field contains the total number of free bytes in the zone. If the
+zone is fragmented in the least, you won't be able allocate this much
+memory in one block.
+You can install a custom "purge warning procedure" by storing its address
+in purgeProc. Note that purgeProc gets overwritten whenever you call
+SetResPurge (TRUE).
+</pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct Zone
+{
+	Ptr bkLim;		   /**< Block limit;/**< addr of byte after last in zone*/
+	Ptr purgePtr;	   /**< (used internally)*/
+	Ptr hFstFree;	   /**< First free master pointer*/
+	long zcbFree;	   /**< Number of free bytes*/
+	ProcPtr gzProc;	   /**< Address of grow zone proc ( SetGrowZone )*/
+	short moreMast;	   /**< Number of master ptrs to allocate at a time*/
+	short flags;	   /**< (used internally)*/
+	short cntRel;	   /**< (not used)*/
+	short maxRel;	   /**< (not used)*/
+	short cntNRel;	   /**< (not used)*/
+	short maxNRel;	   /**< (not used)*/
+	short cntEmpty;	   /**< (not used)*/
+	short cntHandles;  /**< (not used)*/
+	long minCBFree;	   /**< (not used)*/
+	ProcPtr purgeProc; /**< Address of purge warning procedure*/
+	Ptr sparePtr;	   /**< (used internally)*/
+	Ptr allocPtr;	   /**< (used internally)*/
+	short heapData;	   /**< First byte of data in the zone*/
+} Zone;				   /**<  (size of this zone-prefix information)*/
 
-	typedef struct MemoryBlock MemoryBlock;
-	/**
-	<pre>
-	 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	*/
-	struct LogicalToPhysicalTable
-	{
-		MemoryBlock logical;							 /**< logical block*/
-		MemoryBlock physical[defaultphysicalEntryCount]; /**<equivalent*/
-	} LogicalToPhysicalTable;							 /**< */
+typedef struct Zone Zone;
+typedef Zone *THz;
+typedef THz *THzPtr;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct MemoryBlock
+{
+	void *address;		 /**<  start of block*/
+	unsigned long count; /**<  size of block*/
+} MemoryBlock;			 /**< */
 
-	typedef struct LogicalToPhysicalTable LogicalToPhysicalTable;
+typedef struct MemoryBlock MemoryBlock;
+/**
+<pre>
+ * \copyright THINK Reference © 1991-1992 Symantec Corporation
+*/
+struct LogicalToPhysicalTable
+{
+	MemoryBlock logical;							 /**< logical block*/
+	MemoryBlock physical[defaultphysicalEntryCount]; /**<equivalent*/
+} LogicalToPhysicalTable;							 /**< */
 
-	typedef short PageState;
-	typedef short StatusRegisterContents;
-	enum
-	{
-		kVolumeVirtualMemoryInfoVersion1 =
-			1 // first version of VolumeVirtualMemoryInfo	};
+typedef struct LogicalToPhysicalTable LogicalToPhysicalTable;
 
-		struct VolumeVirtualMemoryInfo{
-			PBVersion
-				version;	  // Input: Version of the VolumeVirtualMemoryInfo structure		SInt16 volumeRefNum; // Input: volume reference number		Boolean inUse;		 // output: true if volume is currently used for file mapping		UInt8 _fill;
-			UInt32 vmOptions; /* output: tells what volume can support (same as
-						// first version of VolumeVirtualMemoryInfo
-								 DriverGestalt)*/
-							  // end of kVolumeVirtualMemoryInfoVersion1 structure	};
-			typedef struct VolumeVirtualMemoryInfo VolumeVirtualMemoryInfo;
-			typedef VolumeVirtualMemoryInfo * VolumeVirtualMemoryInfoPtr;
-			/**
-			 *  NewGrowZo// Input: Version of the VolumeVirtualMemoryInfo structure
-			 */
-				/ Input : volume reference number
-				// output: true if volume is currently used for file mapping
-				*    \non_carbon_cfm available as macro / inline *    \carbon_lib in CarbonLib 1.0 and
-			later *    \mac_os_x in version 10.0 and later * / GrowZon // end of kVolumeVirtualMemoryInfoVersion1 structure
-																   NewGrowZoneUPP(GrowZoneProcPtr userRoutine);
+typedef short PageState;
+typedef short StatusRegisterContents;
+enum
+{
+	kVolumeVirtualMemoryInfoVersion1 =
+		1 // first version of VolumeVirtualMemoryInfo
+};
+
+struct VolumeVirtualMemoryInfo
+{
+	PBVersion
+		version;	  // Input: Version of the VolumeVirtualMemoryInfo structure		SInt16 volumeRefNum;
+					  // Input: volume reference number		Boolean inUse;
+					  // output: true if volume is currently used for file mapping		UInt8 _fill;
+	UInt32 vmOptions; /* output: tells what volume can support (same as
+				// first version of VolumeVirtualMemoryInfo
+						 DriverGestalt)*/
+					  // end of kVolumeVirtualMemoryInfoVersion1 structure
+};
+typedef struct VolumeVirtualMemoryInfo VolumeVirtualMemoryInfo;
+typedef VolumeVirtualMemoryInfo *VolumeVirtualMemoryInfoPtr;
+/**
+ *  NewGrowZoneUPP()
+ * \non_carbon_cfm available as macro
+ * \carbon_lib in CarbonLib 1.0 and later
+ * \mac_os_x in version 10.0 and later
+ */
+GrowZoneUPP NewGrowZoneUPP(GrowZoneProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-			enum {
-				uppGrowZoneProcInfo = 0x000000F0}; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
-			inline GrowZoneUPP NewGrowZoneUPP(GrowZoneProcPtr userRoutine){
-				return (GrowZoneUPP)NewRoutineDescriptor(
-						   (ProcPtr)(userRoutine), uppGrowZoneProcInfo, GetCurrentArchitecture());}
+enum
+{
+	uppGrowZoneProcInfo = 0x000000F0
+}; // pascal 4_bytes Func(4_bytes) #ifdef __cplusplus
+inline GrowZoneUPP NewGrowZoneUPP(GrowZoneProcPtr userRoutine)
+{
+	return (GrowZoneUPP)NewRoutineDescriptor(
+		(ProcPtr)(userRoutine), uppGrowZoneProcInfo, GetCurrentArchitecture());
+}
 #else
 #define NewGrowZoneUPP(userRoutine)     \
 	(GrowZoneUPP) NewRoutineDescriptor( \
 		(ProcPtr)(userRoutine), uppGrowZoneProcInfo, GetCurrentArchitecture())
 #endif
 #endif
-	// pascal 4_bytes Func(4_bytes)
-	/**
-	 *  NewPurgeUPP()
-	 *
+// pascal 4_bytes Func(4_bytes)
+/**
+ *  NewPurgeUPP()
+ *
 
-	 *    \non_carbon_cfm   available as macro/inline
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	PurgeUPP
-	NewPurgeUPP(PurgeProcPtr userRoutine);
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+PurgeUPP
+NewPurgeUPP(PurgeProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-	enum {
-		uppPurgeProcInfo = 0x000000C0}; // pascal no_return_value Func(4_bytes) #ifdef __cplusplus
-	inline PurgeUPP NewPurgeUPP(PurgeProcPtr userRoutine)
-	{
-		return (PurgeUPP)NewRoutineDescriptor(
-			(ProcPtr)(userRoutine), uppPurgeProcInfo, GetCurrentArchitecture());
-	}
+enum
+{
+	uppPurgeProcInfo = 0x000000C0
+}; // pascal no_return_value Func(4_bytes) #ifdef __cplusplus
+inline PurgeUPP NewPurgeUPP(PurgeProcPtr userRoutine)
+{
+	return (PurgeUPP)NewRoutineDescriptor(
+		(ProcPtr)(userRoutine), uppPurgeProcInfo, GetCurrentArchitecture());
+}
 #else
 #define NewPurgeUPP(userRoutine)                                              \
 	(PurgeUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppPurgeProcInfo, \
 									GetCurrentArchitecture())
 #endif
-#endif
 
-	/**/ / pascal no_return_value Func(4_bytes) * NewUserFnUPP() *
-
-			*    \non_carbon_cfm available as macro / inline *    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			UserFnUPP
-			NewUserFnUPP(UserFnProcPtr userRoutine);
+/**
+ * \non_carbon_cfm available as macro / inline
+ * \carbon_lib in CarbonLib 1.0 and later
+ * \mac_os_x in version 10.0 and later
+ */
+UserFnUPP
+NewUserFnUPP(UserFnProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-	enum
-	{
-		uppUserFnProcInfo = 0x00009802
-	}; // register no_return_value Func(4_bytes:A0) #ifdef __cplusplus
-	inline UserFnUPP NewUserFnUPP(UserFnProcPtr userRoutine)
-	{
-		return (UserFnUPP)NewRoutineDescriptor(
-			(ProcPtr)(userRoutine), uppUserFnProcInfo, GetCurrentArchitecture());
-	}
+enum
+{
+	uppUserFnProcInfo = 0x00009802
+}; // register no_return_value Func(4_bytes:A0) #ifdef __cplusplus
+inline UserFnUPP NewUserFnUPP(UserFnProcPtr userRoutine)
+{
+	return (UserFnUPP)NewRoutineDescriptor(
+		(ProcPtr)(userRoutine), uppUserFnProcInfo, GetCurrentArchitecture());
+}
 #else
 #define NewUserFnUPP(userRoutine)                                               \
 	(UserFnUPP) NewRoutineDescriptor((ProcPtr)(userRoutine), uppUserFnProcInfo, \
@@ -240,107 +255,99 @@ extern "C"
 #endif
 #endif
 
-	/**
-	 * // register no_return_value Func(4_bytes:A0)
-	 *
-
-	 *    \non_carbon_cfm   available as macro/inline
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void
-	DisposeGrowZoneUPP(GrowZoneUPP userUPP);
+/**
+ * \non_carbon_cfm available as macro / inline
+ * \carbon_lib in CarbonLib 1.0 and later
+ * \mac_os_x in version 10.0 and later
+ */
+void DisposeGrowZoneUPP(GrowZoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-	inline void DisposeGrowZoneUPP(GrowZoneUPP userUPP)
-	{
-		DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-	}
+inline void DisposeGrowZoneUPP(GrowZoneUPP userUPP)
+{
+	DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+}
 #else
 #define DisposeGrowZoneUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-	/**
-	 *  DisposePurgeUPP()
-	 *
+/**
+ *  DisposePurgeUPP()
+ *
 
-	 *    \non_carbon_cfm   available as macro/inline
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void
-	DisposePurgeUPP(PurgeUPP userUPP);
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void DisposePurgeUPP(PurgeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-	inline void DisposePurgeUPP(PurgeUPP userUPP)
-	{
-		DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-	}
+inline void DisposePurgeUPP(PurgeUPP userUPP)
+{
+	DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+}
 #else
 #define DisposePurgeUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-	/**
-	 *  DisposeUserFnUPP()
-	 *
+/**
+ *  DisposeUserFnUPP()
+ *
 
-	 *    \non_carbon_cfm   available as macro/inline
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void
-	DisposeUserFnUPP(UserFnUPP userUPP);
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void DisposeUserFnUPP(UserFnUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-	inline void DisposeUserFnUPP(UserFnUPP userUPP)
-	{
-		DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
-	}
+inline void DisposeUserFnUPP(UserFnUPP userUPP)
+{
+	DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+}
 #else
 #define DisposeUserFnUPP(userUPP) DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
 
-	/**
-	 *  InvokeGrowZoneUPP()
-	 *
+/**
+ *  InvokeGrowZoneUPP()
+ *
 
-	 *    \non_carbon_cfm   available as macro/inline
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	long
-	InvokeGrowZoneUPP(Size cbNeeded, GrowZoneUPP userUPP);
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+long InvokeGrowZoneUPP(Size cbNeeded, GrowZoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-	inline long InvokeGrowZoneUPP(Size cbNeeded, GrowZoneUPP userUPP)
-	{
-		return (long)CALL_ONE_PARAMETER_UPP(userUPP, uppGrowZoneProcInfo, cbNeeded);
-	}
+inline long InvokeGrowZoneUPP(Size cbNeeded, GrowZoneUPP userUPP)
+{
+	return (long)CALL_ONE_PARAMETER_UPP(userUPP, uppGrowZoneProcInfo, cbNeeded);
+}
 #else
 #define InvokeGrowZoneUPP(cbNeeded, userUPP) \
 	(long)CALL_ONE_PARAMETER_UPP((userUPP), uppGrowZoneProcInfo, (cbNeeded))
 #endif
 #endif
 
-	/**
-	 *  InvokePurgeUPP()
-	 *
+/**
+ *  InvokePurgeUPP()
+ *
 
-	 *    \non_carbon_cfm   available as macro/inline
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void
-	InvokePurgeUPP(Handle blockToPurge, PurgeUPP userUPP);
+ *    \non_carbon_cfm   available as macro/inline
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void InvokePurgeUPP(Handle blockToPurge, PurgeUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-	inline void InvokePurgeUPP(Handle blockToPurge, PurgeUPP userUPP)
-	{
-		CALL_ONE_PARAMETER_UPP(userUPP, uppPurgeProcInfo, blockToPurge);
-	}
+inline void InvokePurgeUPP(Handle blockToPurge, PurgeUPP userUPP)
+{
+	CALL_ONE_PARAMETER_UPP(userUPP, uppPurgeProcInfo, blockToPurge);
+}
 #else
 #define InvokePurgeUPP(blockToPurge, userUPP) \
 	CALL_ONE_PARAMETER_UPP((userUPP), uppPurgeProcInfo, (blockToPurge))
@@ -358,15 +365,14 @@ extern "C"
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeUserFnUPP(__A0, __A1)
 #endif
-	void
-	InvokeUserFnUPP(void *parameter, UserFnUPP userUPP) ONEWORDINLINE(0x4E91);
+void InvokeUserFnUPP(void *parameter, UserFnUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
 	(!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
-	inline void InvokeUserFnUPP(void *parameter, UserFnUPP userUPP)
-	{
-		CALL_ONE_PARAMETER_UPP(userUPP, uppUserFnProcInfo, parameter);
-	}
+inline void InvokeUserFnUPP(void *parameter, UserFnUPP userUPP)
+{
+	CALL_ONE_PARAMETER_UPP(userUPP, uppUserFnProcInfo, parameter);
+}
 #else
 #define InvokeUserFnUPP(parameter, userUPP) \
 	CALL_ONE_PARAMETER_UPP((userUPP), uppUserFnProcInfo, (parameter))
@@ -386,8 +392,8 @@ extern "C"
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 
-	/**
-	\brief Obtain current application heap limit
+/**
+\brief Obtain current application heap limit
 
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc
 </pre>
@@ -399,17 +405,16 @@ You might call GetApplLimit before reducing or expanding the
 application zone size via SetApplLimit .
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    // CALL_NOT_IN_CARBON
+ *    // CALL_NOT_IN_CARBON
 *    \carbon_lib        not available
 *    \mac_os_x         not available
 */
-	Ptr
-	GetApplLimit(void) TWOWORDINLINE(0x2EB8, 0x0130);
+Ptr GetApplLimit(void);
 
-	/**
-	\brief Get address of the start of the system heap zone
+/**
+\brief Get address of the start of the system heap zone
 
-	<pre>SystemZone returns the address of the start of the Zone structure of the
+<pre>SystemZone returns the address of the start of the Zone structure of the
 system heap. This is the same as the value stored in the global variable
 SysZone (at 0x02A6).
 </pre>
@@ -417,29 +422,27 @@ SysZone (at 0x02A6).
 heap zone.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib        not available
 *    \mac_os_x         not available
 */
-	THz
-	SystemZone(void) TWOWORDINLINE(0x2EB8, 0x02A6);
+THz SystemZone(void);
 
-	/**
-	 *  ApplicationZone()
-	 *
+/**
+ *  ApplicationZone()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	 *    \carbon_lib        not available
-	 *    \mac_os_x         not available
-	 */
-	THz
-	ApplicationZone(void) TWOWORDINLINE(0x2EB8, 0x02AA);
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+THz ApplicationZone(void);
 
 #endif // CALL_NOT_IN_CARBON
-	/**
-	\brief Get handle to data to not move during zone growth
+/**
+\brief Get handle to data to not move during zone growth
 
-	<pre>root" should NOT be moved. GZSaveHnd returns a handle leading to that data.
+<pre>root" should NOT be moved. GZSaveHnd returns a handle leading to that data.
 </pre>
 * \returns <pre>a generic Handle; it leads to data that should not be moved, unlocked,
 purged, etc.
@@ -450,17 +453,17 @@ moving, unlocking, or purging the data led to by the returned  handle.
 The global variable GZRootHnd (at 0x0328) contains this handle.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \m// CALL_NOT_IN_CARBON
 */
-	Handle
-	GZSaveHnd(void) TWOWORDINLINE(0x2EB8, 0x0328);
+Handle
+GZSaveHnd(void);
 
-	/**
-	\brief Get address of end of RAM
+/**
+\brief Get address of end of RAM
 
-	<pre>TopMem returns a pointer to the first byte beyond the end of physical RAM,
+<pre>TopMem returns a pointer to the first byte beyond the end of physical RAM,
 or to the end of memory available for applications.
 </pre>
 * \returns <pre>a Ptr; the highest RAM address accessible.
@@ -483,17 +486,16 @@ CurrentA5 0x904 Start of application globals
 CurStackBase 0x908 Address of the base of the stack
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-	Ptr
-	TopMem(void) TWOWORDINLINE(0x2EB8, 0x0108);
+Ptr TopMem(void);
 
-	/**
-	\brief Return error code of last Memory Manager  function
+/**
+\brief Return error code of last Memory Manager  function
 
-	<pre>MemError returns the OSErr code of the most recent call to a Memory
+<pre>MemError returns the OSErr code of the most recent call to a Memory
 Manager function.
 </pre>
 * \returns <pre>an OSErr (a.k.a. short). Common Error/Return Code returns:
@@ -514,19 +516,18 @@ directly. For instance:
 HPurge ( myHandle );
 if ( MemError () ) { . . . process the error . . . }
 // faster alternative . . . 	if (MemErr)
-	{
-		...process the error...
-	}
+{
+	...process the error...
+}
 ASM programs can check for return code values in the low word of the D0
 register (with some exceptions).
 </pre>
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-	OSErr
-	MemError(void) TWOWORDINLINE(0x3EB8, 0x0220);
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+		 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+OSErr MemError(void);
 
 #if CALL_NOT_IN_CARBON
 
@@ -557,7 +558,7 @@ Use SetZone to make a different zone active.</ pre>
 #pragma parameter __A0 GetZone
 #endif
 		THz
-		GetZone(void) ONEWORDINLINE(0xA11A);
+		GetZone(void);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -572,7 +573,7 @@ Use SetZone to make a different zone active.</ pre>
 #pragma parameter __A0 NewHandle(// restore old val of moreMast
 #endif
 Handle
-NewHandle(Size byteCount) ONEWORDINLINE(0xA122);
+NewHandle(Size byteCount);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -586,8 +587,8 @@ NewHandle(Size byteCount) ONEWORDINLINE(0xA122);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma // CALL_NOT_IN_CARBON
 #endif
-	Handle
-	NewHandleSys(Size byteCount) ONEWORDINLINE(0xA522);
+Handle
+NewHandleSys(Size byteCount);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -601,8 +602,8 @@ NewHandle(Size byteCount) ONEWORDINLINE(0xA122);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewHandleClear(__D0)
 #endif
-	Handle
-	NewHandleClear(Size byteCount) ONEWORDINLINE(0xA322);
+Handle
+NewHandleClear(Size byteCount);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -616,8 +617,8 @@ NewHandle(Size byteCount) ONEWORDINLINE(0xA122);
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewHandleSysClear(__D0)
 #endif // CALL_NOT_IN_CARBON
-	Handle
-	NewHandleSysClear(Size byteCount) ONEWORDINLINE(0xA722);
+Handle
+NewHandleSysClear(Size byteCount);
 
 /**
 \brief Find which heap zone owns relocatable block
@@ -645,7 +646,7 @@ then HandleZone will return a pointer to the current heap zone.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 HandleZone(__A0)
 #endif
-	THz HandleZone(Handle h) ONEWORDINLINE(0xA126);
+THz HandleZone(Handle h);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -659,8 +660,8 @@ then HandleZone will return a pointer to the current heap zone.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 RecoverHandle(__A0)
 #endif
-	Handle
-	RecoverHandle(Ptr p) ONEWORDINLINE(0xA128);
+Handle
+RecoverHandle(Ptr p);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -674,8 +675,8 @@ then HandleZone will return a pointer to the current heap zone.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 RecoverHandleSys(__A0)
 #endif
-	Handle // CALL_NOT_IN_CARBON
-	RecoverHandleSys(Ptr p) ONEWORDINLINE(0xA528);
+Handle // CALL_NOT_IN_CARBON
+RecoverHandleSys(Ptr p);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -689,7 +690,7 @@ then HandleZone will return a pointer to the current heap zone.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewPtr(__D0)
 #endif
-	Ptr NewPtr(Size byteCount) ONEWORDINLINE(0xA11E);
+Ptr NewPtr(Size byteCount);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -703,7 +704,7 @@ then HandleZone will return a pointer to the current heap zone.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewPtrSys(__D0)
 #endif
-	Ptr NewPtrSys(Size byteCount) ONEWORDINLINE(0xA51E);
+Ptr NewPtrSys(Size byteCount);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -717,7 +718,7 @@ then HandleZone will return a pointer to the current heap zone.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewPtrClear(__D0)
 #endif
-	Ptr NewPtrClear(Size byteCount) ONEWORDINLINE(0xA31E);
+Ptr NewPtrClear(Size byteCount);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -731,7 +732,7 @@ then HandleZone will return a pointer to the current heap zone.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewPtrSysClear(__D0)
 #endif
-	Ptr NewPtrSysClear(Size byteCount) ONEWORDINLINE(0xA71E);
+Ptr NewPtrSysClear(Size byteCount);
 
 /**
 \brief // CALL_NOT_IN_CARBON
@@ -756,7 +757,7 @@ memWZErr (-111) Illegal operation on a free block
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 PtrZone(__A0)
 #endif
-	THz PtrZone(Ptr p) ONEWORDINLINE(0xA148);
+THz PtrZone(Ptr p);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -789,7 +790,7 @@ the result.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 MaxBlock
 #endif // CALL_NOT_IN_CARBON
-	long MaxBlock(void) ONEWORDINLINE(0xA061);
+long MaxBlock(void);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -803,7 +804,7 @@ the result.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 MaxBlockSys
 #endif
-	long MaxBlockSys(void) ONEWORDINLINE(0xA461);
+long MaxBlockSys(void);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -837,7 +838,7 @@ may be of some help.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 StackSpace
 #endif // CALL_NOT_IN_CARBON
-	long StackSpace(void) ONEWORDINLINE(0xA065);
+long StackSpace(void);
 
 /**
  *  NewEmptyHandle()
@@ -850,8 +851,8 @@ may be of some help.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewEmptyHandle
 #endif
-	Handle
-	NewEmptyHandle(void) ONEWORDINLINE(0xA166);
+Handle
+NewEmptyHandle(void);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -865,8 +866,8 @@ may be of some help.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 NewEmptyHandleSys
 #endif
-	Handle
-	NewEmptyHandleSys(void) ONEWORDINLINE(0xA566);
+Handle
+NewEmptyHandleSys(void);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -895,7 +896,8 @@ short x;
 Rect r;
 myHandle = NewHandle ( sizeof(myStruct) );
 HLock( myHandle );
-msp = *myHandle; // msp points to the data, but...FrameRect(&r);	  // this may move unlocked data...x = msp->myField; // making msp invalid HUnlock(myHandle);
+msp = *myHandle; // msp points to the data, but...FrameRect(&r);
+ // this may move unlocked data...x = msp->myField; // making msp invalid HUnlock(myHandle);
 In the example above, the FrameRect function could cause a heap
 compaction, so the value of msp (a pointer to the myHandle data area) could
 become invalid. By surrounding the sequence with HLock and HUnlock ,
@@ -914,13 +916,11 @@ x = (*myHandle)->myX; // double indirection is valid even FrameRect(&r);
 		*    \carbon_lib in CarbonLib 1.0 and
 	later
 		*    \mac_os_x in version 10.0 and
-	later
-			* /
+	later*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HLock(__A0)
 #endif
-		void
-		HLock(Handle h) ONEWORDINLINE(0xA029);
+void HLock(Handle h);
 
 /**
 \brief Unlock a handle's data (allowing it to be moved)
@@ -952,7 +952,7 @@ HUnlock does nothing.// double indirection is valid even
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HUnlock(__A0)
 #endif
-	void HUnlock(Handle h) ONEWORDINLINE(0xA02A);
+void HUnlock(Handle h);
 
 /**
 \brief Make a relocatable block purgeable
@@ -974,9 +974,11 @@ After a purge, all handles marked as purgeable will point to NIL master
 pointers and their data area will be lost. Be very careful to check for such
 empty handles before accessing the data, e.g.:
 HandlemyHandle;
-myHandle = NewHandle ( 1000 ); // allocate space HPurge(myHandle); // allow purge .
+myHandle = NewHandle ( 1000 ); // allocate space HPurge(myHandle);
+// allow purge .
 	: if (*myHandle == 0)
-{								   // data has been purged 	ReallocHandle(myHandle, 1000); // get some storage 	.
+{								   // data has been purged
+ReallocHandle(myHandle, 1000); // get some storage 	.
 		.// regenerate lost data; load resource, etc. 		.
 }
 HNoPurge(myHandle); // don't allow purge now .
@@ -992,13 +994,12 @@ handle hasn't been purged!).
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HPurge(__A0)
 #endif
-	void
-	HPurge(Handle h) ONEWORDINLINE(0xA049);
+void HPurge(Handle h);
 
-	/**
-	\brief Disallow purging of relocatable data block
+/**
+\brief Disallow purging of relocatable data block
 
-	<pre>HNoPurge tags a handle as unpurgeable. If the handle is already unpurgeable
+<pre>HNoPurge tags a handle as unpurgeable. If the handle is already unpurgeable
 (the default for newly-allocated handles), this function has no effect.
 theHandle is a handle leading to a relocatable memory block. It is typically a
 value obtained from NewHandle .
@@ -1013,21 +1014,21 @@ care to check that theHandle  has not already been purged before calling this
 function, e.g.:// allocate space
 HPurge ( myHandle // allow purge
 :
-if ( *myHandle == 0 ) { // it got purged 	ReallocHandle(myHandle, MYH_SIZE);
+if ( *myHandle == 0 ) { // it got purged
+ReallocHandle(myHandle, MYH_SIZE);
 ... regener// data has been purged
 }// get some storage
 HNoPurge ( myHandle );
 </p// regenerate lost data; load resource, etc.
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib   // don't allow purge now
 *    \mac_os_x         in version 10.0 and later
 */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HNoPurge(__A0)
 #endif
-	void
-	HNoPurge(Handle h) ONEWORDINLINE(0xA04A);
+void HNoPurge(Handle h);
 
 /**
  *  HLockHi()
@@ -1040,13 +1041,12 @@ HNoPurge ( myHandle );
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HLockHi(__A0)
 #endif
-	void
-	HLockHi(Handle h) TWOWORDINLINE(0xA064, 0xA029);
+void HLockHi(Handle h);
 
-	/**
-	\brief Allocate a new relocatable block of temporary memory
+/**
+\brief Allocate a new relocatable block of temporary memory
 
-	<pre>You use TempNewHandle to allocate a new relocatable block of temporary
+<pre>You use TempNewHandle to allocate a new relocatable block of temporary
 memory. TempNewHandle returns a handle to a block of size Size. The first
 parameter indicates how many bytes you wish the block to contain. The second
 parameter contains the result code from the function call.
@@ -1055,66 +1055,62 @@ noErr(0)No error
 memFullErr (-108)Not enough memory
 </pre>// allow purge
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib       // it got purged
 *    \mac_os_x         in version 10.0 and later
 */
-	Handle
-	TempNewHandle(Size logicalSize, OSErr *resultCode)
-		THREEWORDINLINE(0x3F3C, 0x001D, 0xA88F);
+Handle
+TempNewHandle(Size logicalSize, OSErr *resultCode);
 
-	/**
-	\brief Find the largest contiguous block available
+/**
+\brief Find the largest contiguous block available
 
-	<pre>TempMaxMem compacts the heap zone and returns the size of the largest
+<pre>TempMaxMem compacts the heap zone and returns the size of the largest
 contiguous block available for temporary allocation.
 growalways contains 0 after the function call because the temporary
 memory does not come from the application's heap.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-	Size
-	TempMaxMem(Size *grow) THREEWORDINLINE(0x3F3C, 0x0015, 0xA88F);
+Size TempMaxMem(Size *grow);
 
-	/**
-	\brief Find out how much temporary memory is available
+/**
+\brief Find out how much temporary memory is available
 
-	<pre>The TempFreeMem function returns the state of a page of logical memory.
+<pre>The TempFreeMem function returns the state of a page of logical memory.
 Returns: the total amount of free memory available for temporary allocation
 using TempNewHandle . The returned value is a long integer that
 indicates the total number of bytes free.
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-	long
-	TempFreeMem(void) THREEWORDINLINE(0x3F3C, 0x0018, 0xA88F);
+long TempFreeMem(void);
 
 #if CALL_NOT_IN_CARBON
-	/**
-	 *  InitZone()
-	 *
+/**
+ *  InitZone()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	 *    \carbon_lib        not available
-	 *    \mac_os_x         not available
-	 */
-	void
-	InitZone(GrowZoneUPP pgrowZone, short cmoreMasters, void *limitPtr,
-			 void *startPtr);
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \carbon_lib        not available
+ *    \mac_os_x         not available
+ */
+void InitZone(GrowZoneUPP pgrowZone, short cmoreMasters, void *limitPtr,
+			  void *startPtr);
 
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 
-	/**
-	\brief Select a heap zone as the "current zone"
+/**
+\brief Select a heap zone as the "current zone"
 
-	<pre>SetZone activates (makes current) a desired heap zone. Most Memory
+<pre>SetZone activates (makes current) a desired heap zone. Most Memory
 Manager functions operate on the current heap zone.
 heapZone is the address of a 64-byte Zone structure. It is either the
 application zone (global variable ApplZone at 0x02AA), the system
@@ -1136,17 +1132,17 @@ to be there on a subsequent invocation of your application), you might use
 the following sequence:
 SetZone ( SystemZone () ); // make system heap current
 myHandle = (myType) NewHandle ( sizeof( myType) );
-SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = myValue; // store a value in system heap </pre>
+SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = myValue;
+// store a value in system heap </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib        not available
 *    \mac_os_x         not available
 */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetZone(__A0)
 #endif
-	void
-	SetZone(THz hz) ONEWORDINLINE(0xA01B);
+void SetZone(THz hz);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -1160,8 +1156,7 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 CompactMem(__D0)
 #endif
-	Size
-	CompactMem(Size cbNeeded) ONEWORDINLINE(0xA04C);
+Size CompactMem(Size cbNeeded);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1175,8 +1170,7 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 CompactMemSys(__D0)
 #endif
-	Size
-	CompactMemSys(Size cbNeeded) ONEWORDINLINE(0xA44C);
+Size CompactMemSys(Size cbNeeded);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -1190,23 +1184,19 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter PurgeMem(__D0)
 #endif
-	void
-	PurgeMem(Size cbNeeded) ONEWORDINLINE(0xA04D);
+void PurgeMem(Size cbNeeded);
 
 #if CALL_NOT_IN_CARBON
-	/**
-	 *  PurgeMemSys()
-	 */ / CALL_NOT_IN_CARBON
-
-				*    \non_carbon_cfm in InterfaceLib 7.1 and
-		later
-				*    \carbon_lib not available *    \mac_os_x not available *
-			/
+/**
+ *  PurgeMemSys()
+ * \non_carbon_cfm in InterfaceLib 7.1 and later
+ * \carbon_lib not available
+ * \mac_os_x not available
+ */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter PurgeMemSys(__D0)
 #endif
-			void
-			PurgeMemSys(Size cbNeeded) ONEWORDINLINE(0xA44D);
+void PurgeMemSys(Size cbNeeded);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -1220,8 +1210,7 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 FreeMem
 #endif
-	long
-	FreeMem(void) ONEWORDINLINE(0xA01C);
+long FreeMem(void);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1235,8 +1224,7 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 FreeMemSys
 #endif
-	long
-	FreeMemSys(void) ONEWORDINLINE(0xA41C);
+long FreeMemSys(void);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -1250,8 +1238,7 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter ReserveMem(__D0)
 #endif
-	void
-	ReserveMem(Size cbNeeded) ONEWORDINLINE(0xA040);
+void ReserveMem(Size cbNeeded);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1265,8 +1252,7 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter ReserveMemSys(__D0)
 #endif
-	void
-	ReserveMemSys(Size cbNeeded) ONEWORDINLINE(0xA440);
+void ReserveMemSys(Size cbNeeded);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -1280,8 +1266,7 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 MaxMem(__A1)
 #endif
-	Size
-	MaxMem(Size *grow) TWOWORDINLINE(0xA11D, 0x2288);
+Size MaxMem(Size *grow);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1295,15 +1280,14 @@ SetZone ( ApplicZone () ); // application heap current (*myHandle)->myField = my
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 MaxMemSys(__A1)
 #endif
-	Size
-	MaxMemSys(Size *grow) TWOWORDINLINE(0xA51D, 0x2288);
+Size MaxMemSys(Size *grow);
 
 #endif // CALL_NOT_IN_CARBON
 
-	/**
-	\brief Install custom heap zone growing procedure
+/**
+\brief Install custom heap zone growing procedure
 
-	<pre>SetGrowZone installs a custom procedure that will be called after
+<pre>SetGrowZone installs a custom procedure that will be called after
 exhausting all other avenues available for obtaining a requested block of
 memory. This affects the current heap zone.
 growProc is the address of a Pascal-style function in the format described
@@ -1325,7 +1309,8 @@ saveHandle = GZSaveHnd ( ); // always call this .
 .Attempt to free or unlock memory . . .
 .. . . but don't alter saveHandle
 .
-return( 0 ); // zero if unable to free or unlock any memory return( 1 ); // non-zero if able to make some progress }
+return( 0 ); // zero if unable to free or unlock any memory return( 1 );
+// non-zero if able to make some progress }
 // Early in the program, install this procedure as follows SetZone(whateverZone); // make desired zone current SetGrowZone(MyGrowFn);
 On entry, bytesNeeded is the required amount of memory, including the block header(i.e., the actual amount needed).The custom function should attempt to find places where the application can economize; e.g., it can call
 EmptyHandle to purge transient data or it can write important data to a
@@ -1337,26 +1322,25 @@ by your function. See GZSaveHnd .
 On exit, the grow-zone function should return 0 if it was unable to free or
 </pre>
 * \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetGrowZone(__A0)
 #endif
-	void
-	SetGrowZone(GrowZoneUPP growZone) ONEWORDINLINE(0xA04B);
+void SetGrowZone(GrowZoneUPP growZone);
 
-	/**
-	 *  GetGrowZone()
-	 *
+/**
+ *  GetGrowZone()
+ *
 
-	 *    \// CALL_NOT_IN_CARBON
-	 *    \carbon_lib        in CarbonLib 1.1 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	GrowZoneUPP
-	GetGrowZone(void);
+ *    \// CALL_NOT_IN_CARBON
+ *    \carbon_lib        in CarbonLib 1.1 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+GrowZoneUPP
+GetGrowZone(void);
 
 /**
  *  MoveHHi()
@@ -1369,7 +1353,7 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter MoveHHi(__A0)
 #endif
-	void MoveHHi(Handle h) ONEWORDINLINE(0xA064);
+void MoveHHi(Handle h);
 
 /**
  *  DisposePtr()
@@ -1382,42 +1366,41 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma param // zero if unable to free or unlock any memory
 #endif		  // non-zero if able to make some progress
-	void DisposePtr(Ptr p) ONEWORDINLINE(0xA01F);
-	// Early in the program, install this procedure as follows
-	/**/ / make desired zone current 
+void DisposePtr(Ptr p);
+// Early in the program, install this procedure as follows
+/**  make desired zone current
 \brief Obtain the size of a nonrelocatable memory block
 \param thePtr address of a nonrelocatable memory block<pre> GetPtrSize returns the size, in bytes of a specified nonrelocatable memory
-																							  block.thePtris the address of a nonrelocatable memory block;
-	i.e., the value
-				  obtained from a prior call to NewPtr.</ pre>
-					  * \returns<pre> a 32 -
-			  bit long;
-	the current size of the memory block.This will
-				always be less than 8MB(a 24 - bit value)
-					.</ pre>
-						* \copyright THINK Reference © 1991 -
-			1992 Symantec Corporation
-				*    \non_carbon_cfm in InterfaceLib 7.1 and
-		later
-			*    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			Size GetPtrSize(Ptr p);
+																						  block.thePtris the address of a nonrelocatable memory block;
+i.e., the value
+			  obtained from a prior call to NewPtr.</ pre>
+				  * \returns<pre> a 32 -
+		  bit long;
+the current size of the memory block.This will
+			always be less than 8MB(a 24 - bit value)
+				.</ pre>
+					* \copyright THINK Reference © 1991 -
+		1992 Symantec Corporation
+			*    \non_carbon_cfm in InterfaceLib 7.1 and
+	later
+		*    \carbon_lib in CarbonLib 1.0 and
+	later
+		*    \mac_os_x in version 10.0 and
+	later */
+Size GetPtrSize(Ptr p);
 
 /**
- *  SetPtrSize()
- *
+*  SetPtrSize()
+*
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
+*    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetPtrSize(__A0, __D0)
 #endif
-	void SetPtrSize(Ptr p, Size newSize) ONEWORDINLINE(0xA020);
+void SetPtrSize(Ptr p, Size newSize);
 
 /**
  *  DisposeHandle()
@@ -1430,7 +1413,7 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter DisposeHandle(__A0)
 #endif
-	void DisposeHandle(Handle h) ONEWORDINLINE(0xA023);
+void DisposeHandle(Handle h);
 
 /**
  *  SetHandleSize()
@@ -1443,42 +1426,42 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetHandleSize(__A0, __D0)
 #endif
-	void SetHandleSize(Handle h, Size newSize) ONEWORDINLINE(0xA024);
+void SetHandleSize(Handle h, Size newSize);
 
-	/**
-		NOTE
+/**
+	NOTE
 
-		GetHandleSize and GetPtrSize are documented in Inside Mac as returning 0
-		in case of an error, but the traps actually return an error code in D0.
-		The glue sets D0 to 0 if an error occurred.
-	*/
+	GetHandleSize and GetPtrSize are documented in Inside Mac as returning 0
+	in case of an error, but the traps actually return an error code in D0.
+	The glue sets D0 to 0 if an error occurred.
+*/
 
-	/**
-	\brief Get the size of a Handle's data area
+/**
+\brief Get the size of a Handle's data area
 
-	<pre>GetHandleSize returns the size, in bytes of a relocatable block of memory.
-	theHandle is a Handle, leading to a relocatable block of memory.
-	</pre>
-	* \returns <pre>the size of the data led to by a Handle (a 32-bit long), 0 may
-	indicate an error occurred. The MemError function may return an
-	Error Code of:
-	noErr(0) No error
-	nilHandleErr (-109) Illegal operation on empty handle
-	memWZErr (-111) Illegal operation on a free block
-	</pre>
-	* \note <pre>You can use GetHandleSize to determine the size of objects (such as
-	pictures) that may exceed the 64K or 32K maximum value of their
-	historically-defined size.
-	The returned value is the size of the allocated area available for data
-	storage. The actual memory used by a Handle includes a block header and up
-	to 12 bytes of filler.
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        in CarbonLib 1.0 and later
-	*    \mac_os_x         in version 10.0 and later
-	*/
-	Size GetHandleSize(Handle h);
+<pre>GetHandleSize returns the size, in bytes of a relocatable block of memory.
+theHandle is a Handle, leading to a relocatable block of memory.
+</pre>
+* \returns <pre>the size of the data led to by a Handle (a 32-bit long), 0 may
+indicate an error occurred. The MemError function may return an
+Error Code of:
+noErr(0) No error
+nilHandleErr (-109) Illegal operation on empty handle
+memWZErr (-111) Illegal operation on a free block
+</pre>
+* \note <pre>You can use GetHandleSize to determine the size of objects (such as
+pictures) that may exceed the 64K or 32K maximum value of their
+historically-defined size.
+The returned value is the size of the allocated area available for data
+storage. The actual memory used by a Handle includes a block header and up
+to 12 bytes of filler.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+Size GetHandleSize(Handle h);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1492,7 +1475,7 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InlineGetHandleSize(__A0)
 #endif
-	Size InlineGetHandleSize(Handle h) ONEWORDINLINE(0xA025);
+Size InlineGetHandleSize(Handle h);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -1506,7 +1489,7 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter ReallocateHandle(__A0, __D0)
 #endif
-	void ReallocateHandle(Handle h, Size byteCount) ONEWORDINLINE(0xA027);
+void ReallocateHandle(Handle h, Size byteCount);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1520,7 +1503,7 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter ReallocateHandleSys(__A0, __D0)
 #endif
-	void ReallocateHandleSys(Handle h, Size byteCount) ONEWORDINLINE(0xA427);
+void ReallocateHandleSys(Handle h, Size byteCount);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -1534,7 +1517,7 @@ On exit, the grow-zone function should return 0 if it was unable to free or
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter EmptyHandle(__A0)
 #endif
-	void EmptyHandle(Handle h) ONEWORDINLINE(0xA02B);
+void EmptyHandle(Handle h);
 
 /**
 \brief Tag block for treatment as a resource
@@ -1564,7 +1547,7 @@ HSetState to save and restore the original tag values.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HSetRBit(__A0)
 #endif
-	void HSetRBit(Handle h) ONEWORDINLINE(0xA067);
+void HSetRBit(Handle h);
 
 /**
 \brief Clear relocatable block's resource tag
@@ -1592,7 +1575,7 @@ HSetSta// CALL_NOT_IN_CARBON
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HClrRBit(__A0)
 #endif
-	void HClrRBit(Handle h) ONEWORDINLINE(0xA068);
+void HClrRBit(Handle h);
 
 /**
 \brief Obtain the value of a relocatable block's tag byte
@@ -1621,7 +1604,7 @@ it is wise to use Memory Manager functions such as HLock and HPurge .
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 HGetState(__A0)
 #endif
-	SInt8 HGetState(Handle h) ONEWORDINLINE(0xA069);
+SInt8 HGetState(Handle h);
 
 /**
  *  HSetState()
@@ -1634,17 +1617,17 @@ it is wise to use Memory Manager functions such as HLock and HPurge .
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter HSetState(__A0, __D0)
 #endif
-	void HSetState(Handle h, SInt8 flags) ONEWORDINLINE(0xA06A);
+void HSetState(Handle h, SInt8 flags);
 
-	/**
-	 *  PurgeSpace()
-	 *
+/**
+ *  PurgeSpace()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void PurgeSpace(long *total, long *contig);
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void PurgeSpace(long *total, long *contig);
 
 /**
 	PurgeSpaceTotal and PurgeSpaceContiguous are currently only implement
@@ -1663,7 +1646,7 @@ it is wise to use Memory Manager functions such as HLock and HPurge .
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 PurgeSpaceTotal
 #endif
-	long PurgeSpaceTotal(void) ONEWORDINLINE(0xA062);
+long PurgeSpaceTotal(void);
 
 /**
  *  PurgeSpaceContiguous()
@@ -1676,7 +1659,7 @@ it is wise to use Memory Manager functions such as HLock and HPurge .
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 PurgeSpaceContiguous
 #endif
-	long PurgeSpaceContiguous(void) ONEWORDINLINE(0xA062);
+long PurgeSpaceContiguous(void);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1690,7 +1673,7 @@ it is wise to use Memory Manager functions such as HLock and HPurge .
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __A0 PurgeSpaceSysTotal
 #endif
-	long PurgeSpaceSysTotal(void) ONEWORDINLINE(0xA562);
+long PurgeSpaceSysTotal(void);
 
 /**
  *  PurgeSpaceSysContiguous()
@@ -1703,7 +1686,7 @@ it is wise to use Memory Manager functions such as HLock and HPurge .
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 PurgeSpaceSysContiguous
 #endif
-	long PurgeSpaceSysContiguous(void) ONEWORDINLINE(0xA562);
+long PurgeSpaceSysContiguous(void);
 
 /*****************************************************************************
 
@@ -1759,8 +1742,7 @@ GetScrap copy data from the scrap to a handle
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter BlockMove(__A0, __A1, __D0)
 #endif
-	void BlockMove(const void *srcPtr, void *destPtr, Size byteCount)
-		ONEWORDINLINE(0xA02E);
+void BlockMove(const void *srcPtr, void *destPtr, Size byteCount);
 
 /**
  *  BlockMoveData()
@@ -1773,70 +1755,69 @@ GetScrap copy data from the scrap to a handle
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter BlockMoveData(__A0, __A1, __D0)
 #endif
-	void BlockMoveData(const void *srcPtr, void *destPtr, Size byteCount)
-		ONEWORDINLINE(0xA22E);
+void BlockMoveData(const void *srcPtr, void *destPtr, Size byteCount);
 
-	/**
-	 *  BlockMoveUncached()
-	 *
-	// CALL_NOT_IN_CARBON
-	 *    \non_carbon_cfm   in InterfaceLib 8.5 and later
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void BlockMoveUncached(const void *srcPtr, void *destPtr, Size byteCount);
+/**
+ *  BlockMoveUncached()
+ *
+// CALL_NOT_IN_CARBON
+ *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void BlockMoveUncached(const void *srcPtr, void *destPtr, Size byteCount);
 
-	/**
-	 *  BlockMoveDataUncached()
-	 *
+/**
+ *  BlockMoveDataUncached()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 8.5 and later
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void BlockMoveDataUncached(const void *srcPtr, void *destPtr, Size byteCount);
+ *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void BlockMoveDataUncached(const void *srcPtr, void *destPtr, Size byteCount);
 
-	/**
-	 *  BlockZero()
-	 *
+/**
+ *  BlockZero()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 8.5 and later
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void BlockZero(void *destPtr, Size byteCount);
+ *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void BlockZero(void *destPtr, Size byteCount);
 
-	/**
-	 *  BlockZeroUncached()
-	 *
+/**
+ *  BlockZeroUncached()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 8.5 and later
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void BlockZeroUncached(void *destPtr, Size byteCount);
+ *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void BlockZeroUncached(void *destPtr, Size byteCount);
 
 #if CALL_NOT_IN_CARBON
 
-	/**
-	\brief Expand application heap to largest possible value
+/**
+\brief Expand application heap to largest possible value
 
-	<pre>MaxApplZone expands the application heap zone to include all available heap
-	memory. It does not purge any current blocks in the application heap.
-	</pre>
-	* \returns <pre>none
-	</pre>
-	* \note <pre>MaxApplZone is commonly called early in the application, followed by a
-	call to MoreMasters (if necessary).
-	If you are using multiple heap zones, be sure to call InitZone to create
-	these zones before calling MaxApplZone .
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        not available
-	*    \mac_os_x         not available
-	*/
-	void MaxApplZone(void) ONEWORDINLINE(0xA063);
+<pre>MaxApplZone expands the application heap zone to include all available heap
+memory. It does not purge any current blocks in the application heap.
+</pre>
+* \returns <pre>none
+</pre>
+* \note <pre>MaxApplZone is commonly called early in the application, followed by a
+call to MoreMasters (if necessary).
+If you are using multiple heap zones, be sure to call InitZone to create
+these zones before calling MaxApplZone .
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+void MaxApplZone(void);
 
 /**
  *  SetApplBase()
@@ -1849,30 +1830,28 @@ GetScrap copy data from the scrap to a handle
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetApplBase(__A0)
 #endif
-	void SetApplBase(void *startPtr) ONEWORDINLINE(0xA057);
+void SetApplBase(void *startPtr);
 
 #endif // CALL_NOT_IN_CARBON
-	/**
-	 *  MoreMasters()
-	 *
+/**
+ *  MoreMasters()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void MoreMasters(void) ONEWORDINLINE(0xA036);
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void MoreMasters(void);
 
-	/**
-	 *  MoreMasterPointers()
-	 *
+/**
+ *  MoreMasterPointers()
+ *
 
-	 *    \non_carbon_cfm   not available
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	void MoreMasterPointers(UInt32 inCount);
-
-#if CALL_NOT_IN_CARBON
+ *    \non_carbon_cfm   not available
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+void MoreMasterPointers(UInt32 inCount);
 
 /**
 \brief Change the size of the application heap zone
@@ -1905,98 +1884,90 @@ provide the largest possible size for the application heap.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetApplLimit(__A0)
 #endif
-	void SetApplLimit(void *zoneLimit) ONEWORDINLINE(0xA02D);
+void SetApplLimit(void *zoneLimit);
 
-	/**
-	 *  InitApplZone()
-	 *
+/**
+ *  InitApplZone()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	 *    \carbon_lib        not available
-	 *    \// CALL_NOT_IN_CARBON
-	 */
-	void InitApplZone(void) ONEWORDINLINE(0xA02C);
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \carbon_lib        not available
+ *    \// CALL_NOT_IN_CARBON
+ */
+void InitApplZone(void);
 
-	//  Temporary Memory routines renamed, but obsolete, in System 7.0 and later. #endif // CALL_NOT_IN_CARBON
-	/**
-	\brief Lock a specified relocatable block of temporary memory
+//  Temporary Memory routines renamed, but obsolete, in System 7.0 and later. #endif
+// CALL_NOT_IN_CARBON
+/**
+\brief Lock a specified relocatable block of temporary memory
 
-	<pre>You can use TempHLock to lock a specified relocatable block of temporary
-	memory, thereby preventing it from being moved within the heap zone.
-	The resultCode parameter will return one of the following error codes:
-	noErr(0)No error
-	nilHandleErr (-109)Nil master pointer
-	memWZErr (-111)Attempt to operate on a free block
-	</pre>
-	* \note <pre> In system 7.0, you can use the Memory Manager routine HLock to lock
-	temporary memory blocks.
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        in CarbonLib 1.0 and later
-	*    \mac_os_x         in version 10.0 and later
-	*/
-	void TempHLock(Handle h, OSErr *resultCode) THREEWORDINLINE(0x3F3C, 0x001E, 0xA88F);
+<pre>You can use TempHLock to lock a specified relocatable block of temporary
+memory, thereby preventing it from being moved within the heap zone.
+The resultCode parameter will return one of the following error codes:
+noErr(0)No error
+nilHandleErr (-109)Nil master pointer
+memWZErr (-111)Attempt to operate on a free block
+</pre>
+* \note <pre> In system 7.0, you can use the Memory Manager routine HLock to lock
+temporary memory blocks.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void TempHLock(Handle h, OSErr *resultCode);
 
-	/**
-	\brief Unlock a block of temporary memory
+/**
+\brief Unlock a block of temporary memory
 
-	<pre>You can use TempHUnlock to unlock a block of temporary memory. Once it
-	is unlocked, that block is allowed to move memory locations as needed to
-	compact the heap.
-	The resultCode parameter will return one of the following error codes:
-	noErr(0)No error
-	nilHandleErr (-109)Nil master pointer
-	memWZErr (-111)Attempt to operate on a free block
-	</pre>
-	* \note <pre> Under system 7.0, you can use the Memory Manager routine HUnlock
-	to unlock temporary memory blocks.
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        in CarbonLib 1.0 and later
-	*    \mac_os_x         in version 10.0 and later
-	*/
-	void TempHUnlock(Handle h, OSErr *resultCode)
-		THREEWORDINLINE(0x3F3C, 0x001F, 0xA88F);
+<pre>You can use TempHUnlock to unlock a block of temporary memory. Once it
+is unlocked, that block is allowed to move memory locations as needed to
+compact the heap.
+The resultCode parameter will return one of the following error codes:
+noErr(0)No error
+nilHandleErr (-109)Nil master pointer
+memWZErr (-111)Attempt to operate on a free block
+</pre>
+* \note <pre> Under system 7.0, you can use the Memory Manager routine HUnlock
+to unlock temporary memory blocks.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void TempHUnlock(Handle h, OSErr *resultCode);
 
-	/**
-	\brief TempDisposeHandle Release the memory occupied by a temporary block
+/**
+\brief TempDisposeHandle Release the memory occupied by a temporary block
 
-	<pre>You can use TempDisposeHandle to release the memory occupied by a
-	relocatable temporary memory block.
-	The resultCode parameter will return one of the following error codes:
-	noErr(0)No error
-	memWZErr (-111)Attempt to operate on a free block
-	</pre>
-	* \note <pre> In system 7.0, you can use the Memory Manager routine
-	DisposHandle to free temporary memory blocks.
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        in CarbonLib 1.0 and later
-	*    \mac_os_x         in version 10.0 and later
-	*/
-	void TempDisposeHandle(Handle h, OSErr *resultCode)
-		THREEWORDINLINE(0x3F3C, 0x0020, 0xA88F);
+<pre>You can use TempDisposeHandle to release the memory occupied by a
+relocatable temporary memory block.
+The resultCode parameter will return one of the following error codes:
+noErr(0)No error
+memWZErr (-111)Attempt to operate on a free block
+</pre>
+* \note <pre> In system 7.0, you can use the Memory Manager routine
+DisposHandle to free temporary memory blocks.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+void TempDisposeHandle(Handle h, OSErr *resultCode);
 
-	//  Temporary Memory routines renamed, but obsolete, in System 7.0 and later.
-	\brief // CALL_NOT_IN_CARBON
-
-			<pre>
-				TempTopMem returns a pointer to the top of your application's memory partition.Don 't use this call to calculate the size of your application' s memory
-					partition.</ pre>
-						* \returns<pre> pointer to top of application memory.</ pre>
-							* \copyright THINK Reference © 1991 -
-			1992 Symantec Corporation
-				*    \non_carbon_cfm in InterfaceLib 7.1 and
-		later
-			*    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-				* /
-			Ptr TempTopMem(void) THREEWORDINLINE(0x3F3C, 0x0016, 0xA88F);
+//  Temporary Memory routines renamed, but obsolete, in System 7.0 and later.
+/**
+ * <pre>
+ * TempTopMem returns a pointer to the top of your application 's memory partition.Don ' t use this call to calculate the size of your application' s memory partition.</ pre>
+ * \returns<pre>pointer to top of application memory.</pre>
+ * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
+ * \non_carbon_cfm in InterfaceLib 7.1 and later
+ * \carbon_lib in CarbonLib 1.0 and later
+ * \mac_os_x in version 10.0 and later */
+Ptr TempTopMem(void);
 
 /**
 \brief Make part of the address space resident in memory
@@ -2026,7 +1997,7 @@ held.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 HoldMemory(__A0, __A1)
 #endif
-	OSErr HoldMemory(void *address, unsigned long count) TWOWORDINLINE(0x7000, 0xA05C);
+OSErr HoldMemory(void *address, unsigned long count);
 
 /**
 \brief Make part of the address space eligible for paging
@@ -2057,7 +2028,7 @@ memory is let go.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 UnholdMemory(__A0, __A1)
 #endif
-	OSErr UnholdMemory(void *address, unsigned long count) TWOWORDINLINE(0x7001, 0xA05C);
+OSErr UnholdMemory(void *address, unsigned long count);
 
 #if CALL_NOT_IN_CARBON
 
@@ -2088,7 +2059,7 @@ locked. Locked pages are marked noncacheable by the CPU.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 LockMemory(__A0, __A1)
 #endif
-	OSErr LockMemory(void *address, unsigned long count) TWOWORDINLINE(0x7002, 0xA05C);
+OSErr LockMemory(void *address, unsigned long count);
 
 /**
  *  LockMemoryForOutput()
@@ -2101,8 +2072,7 @@ locked. Locked pages are marked noncacheable by the CPU.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 LockMemoryForOutput(__A0, __A1)
 #endif
-	OSErr LockMemoryForOutput(void *address, unsigned long count)
-		TWOWORDINLINE(0x700A, 0xA05C);
+OSErr LockMemoryForOutput(void *address, unsigned long count);
 
 /**
 \brief LockMemoryContiguous Make a contiguous block of the address space immovable
@@ -2134,8 +2104,7 @@ by the CPU.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 LockMemoryContiguous(__A0, __A1)
 #endif
-	OSErr LockMemoryContiguous(void *address, unsigned long count)
-		TWOWORDINLINE(0x7004, 0xA05C);
+OSErr LockMemoryContiguous(void *address, unsigned long count);
 
 /**
 \brief Make a block of the address space movable
@@ -2164,7 +2133,7 @@ of memory is unlocked..
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 UnlockMemory(__A0, __A1)
 #endif
-	OSErr UnlockMemory(void *address, unsigned long count) TWOWORDINLINE(0x7003, 0xA05C);
+OSErr UnlockMemory(void *address, unsigned long count);
 
 #endif // CALL_NOT_IN_CARBON
 /**
@@ -2178,8 +2147,7 @@ of memory is unlocked..
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 MakeMemoryResident(__A0, __A1)
 #endif
-	OSErr MakeMemoryResident(void *address, unsigned long count)
-		TWOWORDINLINE(0x700B, 0xA05C);
+OSErr MakeMemoryResident(void *address, unsigned long count);
 
 /**
  *  ReleaseMemoryData()
@@ -2192,8 +2160,7 @@ of memory is unlocked..
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 ReleaseMemoryData(__A0, __A1)
 #endif
-	OSErr ReleaseMemoryData(void *address, unsigned long count)
-		TWOWORDINLINE(0x700C, 0xA05C);
+OSErr ReleaseMemoryData(void *address, unsigned long count);
 
 /**
  *  MakeMemoryNonResident()
@@ -2206,8 +2173,7 @@ of memory is unlocked..
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 MakeMemoryNonResident(__A0, __A1)
 #endif
-	OSErr MakeMemoryNonResident(void *address, unsigned long count)
-		TWOWORDINLINE(0x700D, 0xA05C);
+OSErr MakeMemoryNonResident(void *address, unsigned long count);
 
 /**
  *  FlushMemory()
@@ -2220,7 +2186,7 @@ of memory is unlocked..
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 FlushMemory(__A0, __A1)
 #endif
-	OSErr FlushMemory(void *address, unsigned long count) TWOWORDINLINE(0x700E, 0xA05C);
+OSErr FlushMemory(void *address, unsigned long count);
 
 #if CALL_NOT_IN_CARBON
 
@@ -2254,9 +2220,8 @@ translation data.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 GetPhysical(__A0, __A1)
 #endif
-	OSErr GetPhysical(LogicalToPhysicalTable *addresses,
-					  unsigned long *physicalEntryCount)
-		SIXWORDINLINE(0x2209, 0x2251, 0x7005, 0xA15C, 0x2241, 0x2288);
+OSErr GetPhysical(LogicalToPhysicalTable *addresses,
+				  unsigned long *physicalEntryCount);
 
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
@@ -2271,8 +2236,7 @@ translation data.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 GetVolumeVirtualMemoryInfo(__A0)
 #endif
-	OSErr GetVolumeVirtualMemoryInfo(VolumeVirtualMemoryInfoPtr volVMInfo)
-		TWOWORDINLINE(0x700F, 0xA05C);
+OSErr GetVolumeVirtualMemoryInfo(VolumeVirtualMemoryInfoPtr volVMInfo);
 
 /**
 \brief Can code that might cause page faults be called safely?
@@ -2304,7 +2268,7 @@ other registers used.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 DeferUserFn(__A0, __D0)
 #endif
-	OSErr DeferUserFn(UserFnUPP userFunction, void *argument) ONEWORDINLINE(0xA08F);
+OSErr DeferUserFn(UserFnUPP userFunction, void *argument);
 
 /**
 \brief Get the highest function number supported
@@ -2325,51 +2289,51 @@ these numbers.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 DebuggerGetMax
 #endif // CALL_NOT_IN_CARBON
-	long DebuggerGetMax(void) TWOWORDINLINE(0x7000, 0xA08D);
+long DebuggerGetMax(void);
 
-	/**
-	\brief Enter the debugger state
+/**
+\brief Enter the debugger state
 
-	<pre>The two procedures DebuggerEnter and DebuggerExit allow you to enter
-	and exit the debugger state. These calls allow the DebugUtil trap to make
-	preparations for subsequent debugging calls and to clean up after all debugging
-	calls are completed.
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        not available
-	*    \mac_os_x         not available
-	*/
-	void DebuggerEnter(void) TWOWORDINLINE(0x7001, 0xA08D);
+<pre>The two procedures DebuggerEnter and DebuggerExit allow you to enter
+and exit the debugger state. These calls allow the DebugUtil trap to make
+preparations for subsequent debugging calls and to clean up after all debugging
+calls are completed.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+void DebuggerEnter(void);
 
-	/**
-	\brief Exit the debugger state
+/**
+\brief Exit the debugger state
 
-	<pre>The two procedures DebuggerEnter and DebuggerExit allow you to enter
-	and exit the debugger state. These calls allow the DebugUtil trap to make
-	preparations for subsequent debugging calls and to clean up after all debugging
-	calls are completed.
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        not available
-	*    \mac_os_x         not available
-	*/
-	void DebuggerExit(void) TWOWORDINLINE(0x7002, 0xA08D);
+<pre>The two procedures DebuggerEnter and DebuggerExit allow you to enter
+and exit the debugger state. These calls allow the DebugUtil trap to make
+preparations for subsequent debugging calls and to clean up after all debugging
+calls are completed.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+void DebuggerExit(void);
 
-	/**
-	\brief Poll for keyboard input
+/**
+\brief Poll for keyboard input
 
-	<pre>A debugger can use the DebuggerPoll procedure to poll for keyboard
-	input.The DebuggerPoll procedure can be used even if interrupts are
-	disabled.
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        not available
-	*    \mac_os_x         not available
-	*/
-	void DebuggerPoll(void) TWOWORDINLINE(0x7003, 0xA08D);
+<pre>A debugger can use the DebuggerPoll procedure to poll for keyboard
+input.The DebuggerPoll procedure can be used even if interrupts are
+disabled.
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        not available
+*    \mac_os_x         not available
+*/
+void DebuggerPoll(void);
 
 /**
 \brief Get the state of a page of logical memory
@@ -2390,8 +2354,8 @@ kNotPaged //address is not paged
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 GetPageState(__A0)
 #endif
-	PageState
-	GetPageState(const void *address) TWOWORDINLINE(0x7004, 0xA08D);
+PageState
+GetPageState(const void *address);
 
 /**
 \brief Capture all bus errors?
@@ -2413,8 +2377,8 @@ virtual memory's bus error handler to detect any page faults.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 PageFaultFatal
 #endif
-	Boolean
-	PageFaultFatal(void) TWOWORDINLINE(0x7005, 0xA08D);
+Boolean
+PageFaultFatal(void);
 
 /**
 \brief DebuggerLockMemory Make part of the address space immovable
@@ -2443,8 +2407,7 @@ memory is locked.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 DebuggerLockMemory(__A0, __A1)
 #endif
-	OSErr DebuggerLockMemory(void *address, unsigned long count)
-		TWOWORDINLINE(0x7006, 0xA08D);
+OSErr DebuggerLockMemory(void *address, unsigned long count);
 
 /**
 \brief DebuggerUnlockMemory Make part of the address space movable
@@ -2472,8 +2435,7 @@ the virtual address space. Unlocked pages are marked as cacheable.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 DebuggerUnlockMemory(__A0, __A1)
 #endif
-	OSErr DebuggerUnlockMemory(void *address, unsigned long count)
-		TWOWORDINLINE(0x7007, 0xA08D);
+OSErr DebuggerUnlockMemory(void *address, unsigned long count);
 
 /**
 \brief EnterSupervisorMode Switch caller into supervisor mode
@@ -2488,8 +2450,8 @@ the virtual address space. Unlocked pages are marked as cacheable.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 EnterSupervisorMode
 #endif
-	StatusRegisterContents
-	EnterSupervisorMode(void) TWOWORDINLINE(0x7008, 0xA08D);
+StatusRegisterContents
+EnterSupervisorMode(void);
 
 /**
 \brief Strip the high order byte off an address if running in 24 bit mode
@@ -2510,13 +2472,13 @@ addressthe address to be stripped.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 StripAddress(__D0)
 #endif
-	Ptr StripAddress(void *theAddress) ONEWORDINLINE(0xA055);
+Ptr StripAddress(void *theAddress);
 #if !TARGET_OS_MAC || !TARGET_CPU_68K
 #ifdef __cplusplus
-	inline DEFINE_API(Ptr) StripAddress(void *theAddress)
-	{
-		return (Ptr)theAddress;
-	}
+inline DEFINE_API(Ptr) StripAddress(void *theAddress)
+{
+	return (Ptr)theAddress;
+}
 #else
 #define StripAddress(theAddress) ((Ptr)theAddress)
 #endif
@@ -2542,47 +2504,47 @@ addr24the address to be translated.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 Translate24To32(__D0)
 #endif
-	Ptr Translate24To32(void *addr24) ONEWORDINLINE(0xA091);
+Ptr Translate24To32(void *addr24);
 #if !TARGET_OS_MAC || !TARGET_CPU_68K
 #ifdef __cplusplus
-	inline DEFINE_API(Ptr) Translate24To32(void *addr24) { return (Ptr)addr24; }
+inline DEFINE_API(Ptr) Translate24To32(void *addr24) { return (Ptr)addr24; }
 #else
 #define Translate24To32(addr24) ((Ptr)addr24)
 #endif
 #endif
 
 #endif // CALL_NOT_IN_CARBON
-	/**
-	\brief Create new Handle and copy Handle data to it
+/**
+\brief Create new Handle and copy Handle data to it
 
-	<pre>HandToHand creates a new Handle (see NewHandle ) and copies data from an
-	existing Handle into the new one.
-	theHandle is the address of an existing Handle. On entry, it is a Handle leading
-	to data you wish to copy. On return, it is overwritten by a
-	newly-created Handle that leads to a relocatable block containing a
-	copy of the data.
-	</pre>
-	* \returns <pre>an OSErr; an integer Error Code . It will be one of:
-	noErr(0) No error
-	memFullErr (-108) Not enough room in heap for new Handle
-	nilHandleErr (-109) theHandle was invalid on entry
-	memWZErr (-111) Attempt to operate on a free block
-	</pre>
-	* \note <pre>Since HandToHand cleverly overwrites the original value of theHandle ,
-	the normal technique is to make a copy of the original before the call; e.g:
-	HandlesrcHandle, destHandle;
-	srcHandle= GetResource ( 'CURS', watchCursor );
-	destHandle = srcHandle;
-	if ( HandToHand ( &destHandle ) ) {
-	. . . an error occurred . . .
-	}. . . else, a copy of watchCursor is now in destHandle . . .
-	</pre>
-	* \copyright THINK Reference © 1991-1992 Symantec Corporation
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	*    \carbon_lib        in CarbonLib 1.0 and later
-	*    \mac_os_x         in version 10.0 and later
-	*/
-	OSErr HandToHand(Handle *theHndl);
+<pre>HandToHand creates a new Handle (see NewHandle ) and copies data from an
+existing Handle into the new one.
+theHandle is the address of an existing Handle. On entry, it is a Handle leading
+to data you wish to copy. On return, it is overwritten by a
+newly-created Handle that leads to a relocatable block containing a
+copy of the data.
+</pre>
+* \returns <pre>an OSErr; an integer Error Code . It will be one of:
+noErr(0) No error
+memFullErr (-108) Not enough room in heap for new Handle
+nilHandleErr (-109) theHandle was invalid on entry
+memWZErr (-111) Attempt to operate on a free block
+</pre>
+* \note <pre>Since HandToHand cleverly overwrites the original value of theHandle ,
+the normal technique is to make a copy of the original before the call; e.g:
+HandlesrcHandle, destHandle;
+srcHandle= GetResource ( 'CURS', watchCursor );
+destHandle = srcHandle;
+if ( HandToHand ( &destHandle ) ) {
+. . . an error occurred . . .
+}. . . else, a copy of watchCursor is now in destHandle . . .
+</pre>
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+*    \carbon_lib        in CarbonLib 1.0 and later
+*    \mac_os_x         in version 10.0 and later
+*/
+OSErr HandToHand(Handle *theHndl);
 
 /**
  *  PtrToXHand()
@@ -2595,17 +2557,17 @@ addr24the address to be translated.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 PtrToXHand(__A0, __A1, __D0)
 #endif
-	OSErr PtrToXHand(const void *srcPtr, Handle dstHndl, long size) ONEWORDINLINE(0xA9E2);
+OSErr PtrToXHand(const void *srcPtr, Handle dstHndl, long size);
 
-	/**
-	 *  PtrToHand()
-	 *
+/**
+ *  PtrToHand()
+ *
 
-	 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-	 *    \carbon_lib        in CarbonLib 1.0 and later
-	 *    \mac_os_x         in version 10.0 and later
-	 */
-	OSErr PtrToHand(const void *srcPtr, Handle *dstHndl, long size);
+ *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+ *    \carbon_lib        in CarbonLib 1.0 and later
+ *    \mac_os_x         in version 10.0 and later
+ */
+OSErr PtrToHand(const void *srcPtr, Handle *dstHndl, long size);
 
 /**
  *  HandAndHand()
@@ -2618,8 +2580,7 @@ addr24the address to be translated.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 HandAndHand(__A0, __A1)
 #endif
-	OSErr H // CALL_NOT_IN_CARBON
-
+OSErr HandAndHand(Handle hand1, Handle hand2);
 /**
  *  PtrAndHand()
  *
@@ -2631,56 +2592,56 @@ addr24the address to be translated.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 PtrAndHand(__A0, __A1, __D0)
 #endif
-		OSErr
-		PtrAndHand(const void *ptr1, Handle hand2, long size) ONEWORDINLINE(0xA9EF);
+OSErr PtrAndHand(const void *ptr1, Handle hand2, long size);
 
-	// Carbon routines to aid in debugging. // Checks all applicable heaps for validity /**
-	*CheckAllHeaps() *
+// Carbon routines to aid in debugging.
+// Checks all applicable heaps for validity
+/**
+   *CheckAllHeaps() *
 
-			*    \non_carbon_cfm not available
-			*    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-			* /
-			Boolean
-			CheckAllHeaps(void);
+		   *    \non_carbon_cfm not available
+		   *    \carbon_lib in CarbonLib 1.0 and
+	   later
+		   *    \mac_os_x in version 10.0 and
+	   later*/
+Boolean
+CheckAllHeaps(void);
 
-	// Checks the application heap for validity /**
-	*IsHeapValid() *
+// Checks the application heap for validity
+/**
+   *IsHeapValid() *
 
-			*    \non_carbon_cfm not available
-			*    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-			* /
-			Boolean
-			IsHeapValid(void);
+		   *    \non_carbon_cfm not available
+		   *    \carbon_lib in CarbonLib 1.0 and
+	   later
+		   *    \mac_os_x in version 10.0 and
+	   later*/
+Boolean
+IsHeapValid(void);
 
-	// It is invalid to pass a NULL or an empty Handle to IsHandleValid /**
-	*IsHandleValid() *
+// It is invalid to pass a NULL or an empty Handle to IsHandleValid
+/**
+   *IsHandleValid() *
 
-			*    \non_carbon_cfm not available
-			*    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-			* /
-			Boolean
-			IsHandleValid(Handle h);
+		   *    \non_carbon_cfm not available
+		   *    \carbon_lib in CarbonLib 1.0 and
+	   later
+		   *    \mac_os_x in version 10.0 and
+	   later*/
+Boolean
+IsHandleValid(Handle h);
 
-	// It is invalid to pass a NULL Pointer to IsPointerValid /**
-	*IsPointerValid() *
+// It is invalid to pass a NULL Pointer to IsPointerValid
+/**
+   *IsPointerValid() *
 
-			*    \non_carbon_cfm not available
-			*    \carbon_lib in CarbonLib 1.0 and
-		later
-			*    \mac_os_x in version 10.0 and
-		later
-			* /
-			Boolean
-			IsPointerValid(Ptr p);
+		   *    \non_carbon_cfm not available
+		   *    \carbon_lib in CarbonLib 1.0 and
+	   later
+		   *    \mac_os_x in version 10.0 and
+	   later*/
+Boolean
+IsPointerValid(Ptr p);
 
 #if OLDROUTINENAMES
 #define ApplicZone() ApplicationZone()
@@ -2710,52 +2671,3 @@ addr24the address to be translated.
 // Checks all applicable heaps for validity
 #pragma import reset
 #endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // __MACMEMORY__ * / ter
-*    \mac_os_x in version 10.0 and
-	later
-			* /
-		// Checks the application heap for validity
-		IsPointerValid(Ptr p);
-
-#if OLDROUTINENAMES
-#define ApplicZone() ApplicationZone()
-#define MFTempNewHandle(logicalSize, resultCode) \
-	TempNewHandle(logicalSize, resultCode)
-#define MFMaxMem(grow) TempMaxMem(grow)
-#define MFFreeMem() TempFreeMem()
-#define MFTempHLock(h, resultCode) TempHLock(h, resultCode)
-#define MFTempHUnlock(h, resultCode) TempHUnlock(h, resultCode)
-#define MFTempDisposHandle(h, resultCode) TempDisposeHandle(h, resultCode)
-// It is invalid to pass a NULL or an empty Handle to IsHandleValid
-#define ResrvMem(cbNeeded) ReserveMem(cbNeeded)
-#define DisposPtr(p) DisposePtr(p)
-#define DisposHandle(h) DisposeHandle(h)
-#define ReallocHandle(h, byteCount) ReallocateHandle(h, byteCount)
-#endif // OLDROUTINENAMES
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-// It is invalid to pass a NULL Pointer to IsPointerValid
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // __MACMEMORY__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /// OLDROUTINENAMES
-// __MACMEMORY__
-// OLDROUTINENAMES
-// __MACMEMORY__

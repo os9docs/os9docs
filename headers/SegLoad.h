@@ -225,8 +225,7 @@ Furthermore, you can examine the global variables CurApName (at
 *    \mac_os_x         not available
 */
    void
-   GetAppParms(Str255 apName, short *apRefNum, Handle *apParam)
-       ONEWORDINLINE(0xA9F5);
+   GetAppParms(Str255 apName, short *apRefNum, Handle *apParam);
 
 #endif // CALL_NOT_IN_CARBON
 
@@ -262,7 +261,7 @@ Furthermore, you can examine the global variables CurApName (at
     *    \mac_os_x         not available
     */
    void
-   UnloadSeg(void *routineAddr) ONEWORDINLINE(0xA9F1);
+   UnloadSeg(void *routineAddr);
 
 #endif // CALL_NOT_IN_CARBON
 
@@ -290,5 +289,4 @@ Furthermore, you can examine the global variables CurApName (at
 }
 #endif
 
-#endif // __SEGLOAD__
-* /*/*/ * /
+#endif // __SEGLOAD__/ /

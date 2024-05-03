@@ -41,7 +41,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -57,347 +58,354 @@ extern "C" {
 #endif
 
 #ifndef __CARDSERVICES__
-/**
-    NOTE: These prototypes conflict with CardServices.�
-          You cannot use both PCCardEnablerPlugin.h and CardServices.h
+  /**
+      NOTE: These prototypes conflict with CardServices.�
+            You cannot use both PCCardEnablerPlugin.h and CardServices.h
 
-*/
+  */
 
-// \copyright � 1996 SystemSoft Corporation, all rights reserved. /*------------------------------------------------------------------------------------
-    Card Services calls exported by the Family
-------------------------------------------------------------------------------------*/
-//  Card Services for Card Enablers
-//  Card Services for Card Enablers
-/**
- *  CSGetCardServicesInfo()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSGetCardServicesInfo(UInt32 *socketCount, UInt32 *complianceLevel,
-                      UInt32 *version);
+  // \copyright � 1996 SystemSoft Corporation, all rights reserved. /*------------------------------------------------------------------------------------
+  Card Services calls exported by the Family-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --* /
+      //  Card Services for Card Enablers
+      //  Card Services for Card Enablers
+      /**
+       *  CSGetCardServicesInfo()
+       *
+       *  Availability:
+       *    \non_carbon_cfm   in PCCard 3.0 and later
+       *    \carbon_lib        not available
+       *    \mac_os_x         not available
+       */
+      OSStatus
+      CSGetCardServicesInfo(UInt32 *socketCount, UInt32 *complianceLevel,
+                            UInt32 *version);
 
-// Function prototypes for tuples calls 
-/**
-// Function prototypes for tuples calls 
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSGetFirstTuple(PCCardSocket socket, UInt32 device,
-                PCCardTupleIterator tupleIterator, Byte desiredTuple,
-                void *tupleData, ByteCount *tupleBufferSize, Byte *foundTuple);
+  // Function prototypes for tuples calls
+  /**
+  // Function prototypes for tuples calls
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSGetFirstTuple(PCCardSocket socket, UInt32 device,
+                  PCCardTupleIterator tupleIterator, Byte desiredTuple,
+                  void *tupleData, ByteCount *tupleBufferSize, Byte *foundTuple);
 
-/**
- *  CSGetNextTuple()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSGetNextTuple(PCCardTupleIterator tupleIterator, Byte desiredTuple,
-               void *tupleData, ByteCount *tupleBufferSize, Byte *foundTuple);
+  /**
+   *  CSGetNextTuple()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSGetNextTuple(PCCardTupleIterator tupleIterator, Byte desiredTuple,
+                 void *tupleData, ByteCount *tupleBufferSize, Byte *foundTuple);
 
-// Function prototypes for window calls
-/**
- *  CSRequestWindow()
-// Function prototypes for window calls
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSRequestWindow(PCCardSocket vSocket, UInt32 device,
-                PCCardWindowAttributes windowAttributes,
-                PCCardAccessSpeed windowSpeed, LogicalAddress *windowBase,
-                PCCardWindowSize *windowSize, PCCardWindowOffset *windowOffset,
-                PCCardWindowID *requestedWindow);
+  // Function prototypes for window calls
+  /**
+   *  CSRequestWindow()
+  // Function prototypes for window calls
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSRequestWindow(PCCardSocket vSocket, UInt32 device,
+                  PCCardWindowAttributes windowAttributes,
+                  PCCardAccessSpeed windowSpeed, LogicalAddress *windowBase,
+                  PCCardWindowSize *windowSize, PCCardWindowOffset *windowOffset,
+                  PCCardWindowID *requestedWindow);
 
-/**
- *  CSReleaseWindow()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSReleaseWindow(PCCardWindowID windowToRelease);
+  /**
+   *  CSReleaseWindow()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSReleaseWindow(PCCardWindowID windowToRelease);
 
-/**
- *  CSModifyWindow()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSModifyWindow(PCCardWindowID windowToModify, PCCardWindowType windowAttributes,
-               PCCardAccessSpeed memorySpeed, PCCardWindowOffset *windowOffset);
+  /**
+   *  CSModifyWindow()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSModifyWindow(PCCardWindowID windowToModify, PCCardWindowType windowAttributes,
+                 PCCardAccessSpeed memorySpeed, PCCardWindowOffset *windowOffset);
 
-/**
- *  CSGetWindowBaseAddress()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSGetWindowBaseAddress(PCCardWindowID window, LogicalAddress *baseAddress);
+  /**
+   *  CSGetWindowBaseAddress()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSGetWindowBaseAddress(PCCardWindowID window, LogicalAddress *baseAddress);
 
-/**
- *  CSInquireWindow()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSInquireWindow(PCCardSocket vSocket, UInt32 device, PCCardWindowID windowID,
-                PCCardWindowAttributes *windowAttributes,
-                PCCardAccessSpeed *windowParam, UInt32 *windowBase,
-                PCCardWindowSize *windowSize, PCCardWindowOffset *windowOffset);
+  /**
+   *  CSInquireWindow()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSInquireWindow(PCCardSocket vSocket, UInt32 device, PCCardWindowID windowID,
+                  PCCardWindowAttributes *windowAttributes,
+                  PCCardAccessSpeed *windowParam, UInt32 *windowBase,
+                  PCCardWindowSize *windowSize, PCCardWindowOffset *windowOffset);
 
-// Function prototypes for CIS calls
-/**
- *  CSValidateCIS()
- *
-// Function prototypes for CIS calls
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSValidateCIS(PCCardSocket vSocket, UInt32 device, UInt32 *cisChainCount);
+  // Function prototypes for CIS calls
+  /**
+   *  CSValidateCIS()
+   *
+  // Function prototypes for CIS calls
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSValidateCIS(PCCardSocket vSocket, UInt32 device, UInt32 *cisChainCount);
 
-/**
- *  CSGetDeviceCount()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSGetDeviceCount(PCCardSocket vSocket, UInt32 *deviceCount);
+  /**
+   *  CSGetDeviceCount()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSGetDeviceCount(PCCardSocket vSocket, UInt32 *deviceCount);
 
-// Function prototypes for Status calls
-/**
- *  CSGetStatus()
- *
- *  Availability:
-// Function prototypes for Status calls
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSGetStatus(PCCardSocket vSocket, UInt32 *currentState, UInt32 *changedState,
-            PCCardVoltage *Vcc, PCCardVoltage *Vpp);
+  // Function prototypes for Status calls
+  /**
+   *  CSGetStatus()
+   *
+   *  Availability:
+  // Function prototypes for Status calls
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSGetStatus(PCCardSocket vSocket, UInt32 *currentState, UInt32 *changedState,
+              PCCardVoltage *Vcc, PCCardVoltage *Vpp);
 
-// Function prototypes for configuration calls
-/**
- *  CSRequestConfiguration()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
-// Function prototypes for configuration calls
- *    \mac_os_x         not available
- */
-OSStatus
-CSRequestConfiguration(PCCardSocket vSocket, UInt32 device,
-                       PCCardConfigOptions configOptions,
-                       PCCardInterfaceType socketInterface,
-                       PCCardCustomInterfaceID customInterface,
-                       PCCardVoltage vcc, PCCardVoltage vpp, PCCardIRQ IRQ,
-                       PCCardDMA DMA, UInt32 configRegBaseAddress,
-                       PCCardConfigPresentMask configRegPresentMask,
-                       PCCardFunctionConfigReg *configReg);
+  // Function prototypes for configuration calls
+  /**
+   *  CSRequestConfiguration()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+  // Function prototypes for configuration calls
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSRequestConfiguration(PCCardSocket vSocket, UInt32 device,
+                         PCCardConfigOptions configOptions,
+                         PCCardInterfaceType socketInterface,
+                         PCCardCustomInterfaceID customInterface,
+                         PCCardVoltage vcc, PCCardVoltage vpp, PCCardIRQ IRQ,
+                         PCCardDMA DMA, UInt32 configRegBaseAddress,
+                         PCCardConfigPresentMask configRegPresentMask,
+                         PCCardFunctionConfigReg *configReg);
 
-/**
- *  CSModifyConfiguration()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSModifyConfiguration(PCCardSocket vSocket, UInt32 device,
-                      PCCardConfigOptions modifyAttributes, PCCardIRQ IRQ,
-                      PCCardDMA DMA, PCCardVoltage Vpp);
+  /**
+   *  CSModifyConfiguration()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSModifyConfiguration(PCCardSocket vSocket, UInt32 device,
+                        PCCardConfigOptions modifyAttributes, PCCardIRQ IRQ,
+                        PCCardDMA DMA, PCCardVoltage Vpp);
 
-/**
- *  CSReleaseConfiguration()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSReleaseConfiguration(PCCardSocket vSocket, UInt32 device);
+  /**
+   *  CSReleaseConfiguration()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSReleaseConfiguration(PCCardSocket vSocket, UInt32 device);
 
-/**
- *  CSSetRingIndicate()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSSetRingIndicate(PCCardSocket vSocket, Boolean setRingIndicate);
+  /**
+   *  CSSetRingIndicate()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSSetRingIndicate(PCCardSocket vSocket, Boolean setRingIndicate);
 
-/**
- *  CSResetFunction()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSResetFunction(PCCardSocket vSocket, UInt32 device);
+  /**
+   *  CSResetFunction()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSResetFunction(PCCardSocket vSocket, UInt32 device);
 
-/**
- *  CSReadConfigurationRegister()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSReadConfigurationRegister(PCCardSocket vSocket, UInt32 device,
-                            PCCardConfigPresentMask whichRegister,
-                            UInt32 configRegBaseAddress, UInt8 *registerValue);
+  /**
+   *  CSReadConfigurationRegister()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSReadConfigurationRegister(PCCardSocket vSocket, UInt32 device,
+                              PCCardConfigPresentMask whichRegister,
+                              UInt32 configRegBaseAddress, UInt8 *registerValue);
 
-/**
- *  CSWriteConfigurationRegister()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSWriteConfigurationRegister(PCCardSocket vSocket, UInt32 device,
-                             PCCardConfigPresentMask whichRegister,
-                             UInt32 configRegBaseAddress, UInt8 registerValue);
+  /**
+   *  CSWriteConfigurationRegister()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSWriteConfigurationRegister(PCCardSocket vSocket, UInt32 device,
+                               PCCardConfigPresentMask whichRegister,
+                               UInt32 configRegBaseAddress, UInt8 registerValue);
 
-// Function prototypes for Client Support calls/**
- *  CSRegisterClient()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
-// Function prototypes for Client Support calls
-OSStatus
-CSRegisterClient(PCCardSocket vSocket, PCCardEventMask eventMask,
-                 PCCardEventHandler clientCallBack, void *clientParam,
-                 PCCardClientID *newClientID);
+  // Function prototypes for Client Support calls/**
+  *CSRegisterClient() *
+          *Availability : *    \non_carbon_cfm in PCCard 3.0 and
+      later
+              *    \carbon_lib not available
+          *    \mac_os_x not available
+          // Function prototypes for Client Support calls
+          OSStatus
+          CSRegisterClient(PCCardSocket vSocket, PCCardEventMask eventMask,
+                           PCCardEventHandler clientCallBack, void *clientParam,
+                           PCCardClientID *newClientID);
 
-/**
- *  CSDeRegisterClient()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSDeRegisterClient(PCCardClientID theClientID);
+  /**
+   *  CSDeRegisterClient()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSDeRegisterClient(PCCardClientID theClientID);
 
-/**
- *  CSSetEventMask()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSSetEventMask(PCCardClientID theClientID, PCCardEventMask newEventMask);
+  /**
+   *  CSSetEventMask()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSSetEventMask(PCCardClientID theClientID, PCCardEventMask newEventMask);
 
-/**
- *  CSGetEventMask()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSGetEventMask(PCCardClientID theClientID, PCCardEventMask *newEventMask);
+  /**
+   *  CSGetEventMask()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSGetEventMask(PCCardClientID theClientID, PCCardEventMask *newEventMask);
 
-/**
- *  CSRegisterTimer()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSRegisterTimer(PCCardClientID registeredClientID, PCCardTimerID *lpNewTimerID,
-                long delay);
+  /**
+   *  CSRegisterTimer()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSRegisterTimer(PCCardClientID registeredClientID, PCCardTimerID *lpNewTimerID,
+                  long delay);
 
-/**
- *  CSDeRegisterTimer()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSDeRegisterTimer(PCCardTimerID timerID);
+  /**
+   *  CSDeRegisterTimer()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSDeRegisterTimer(PCCardTimerID timerID);
 
-// Function prototypes for CardBus Config Space access/**
- *  CSReadCardBusConfigSpace()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-// Function prototypes for CardBus Config Space access
-CSReadCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
-                         UInt32 configOffset, Byte *data, UInt32 dataSize);
+  // Function prototypes for CardBus Config Space access/**
+  *CSReadCardBusConfigSpace() *
+          *Availability : *    \non_carbon_cfm in PCCard 3.0 and
+      later
+              *    \carbon_lib not available
+          *    \mac_os_x not available
+          * /
+          // Function prototypes for CardBus Config Space access
+          CSReadCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
+                                   UInt32 configOffset, Byte *data, UInt32 dataSize);
 
-/**
- *  CSWriteCardBusConfigSpace()
- *
- *  Availability:
- *    \non_carbon_cfm   in PCCard 3.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-CSWriteCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
-                          UInt32 configOffset, Byte *data, UInt32 dataSize);
+  /**
+   *  CSWriteCardBusConfigSpace()
+   *
+   *  Availability:
+   *    \non_carbon_cfm   in PCCard 3.0 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus
+  CSWriteCardBusConfigSpace(PCCardSocket vSocket, UInt32 device,
+                            UInt32 configOffset, Byte *data, UInt32 dataSize);
 
 /*------------------------------------------------------------------------------------
     Card Enabler Types
 ------------------------------------------------------------------------------------*/
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 enum {
   kUnknownDeviceType = FOUR_CHAR_CODE('unkn'), // class-code = 0x00   kSCSIDeviceType =
       FOUR_CHAR_CODE('scsi'), // class-code = 0x01, sub-class = 0x00   kBlockDeviceType =
-      FOUR_CHAR_CODE('blok'), // class-code = 0x01, sub-class = 0xXX   kNetworkDeviceType = FOUR_CHAR_CODE('netw'),    // class-code = 0x02   kDisplayDeviceType = FOUR_CHAR_CODE('dspl'),    // class-code = 0x03   kMultimediaDeviceType = FOUR_CHAR_CODE('mmdv'), // class-code = 0x04   kMemoryDeviceType = FOUR_CHAR_CODE('mem '),     // class-code = 0x05   kBridgeDeviceType = FOUR_CHAR_CODE('brdg'),     // class-code = 0x06   kCommDeviceType = FOUR_CHAR_CODE('comm'),       // class-code = 0x07   kPeripheralDeviceType = FOUR_CHAR_CODE('sysp'), // class-code = 0x08   kInputDeviceType = FOUR_CHAR_CODE('inpt'),      // class-code = 0x09   kDockingDeviceType = FOUR_CHAR_CODE('dock'),    // class-code = 0x0A   kProcessorDeviceType = FOUR_CHAR_CODE('proc'),  // class-code = 0x0B   kFirewireBusDeviceType =
+      FOUR_CHAR_CODE('blok'),  /** = */
+0x01, sub-class  =  0xXX   kNetworkDeviceType = FOUR_CHAR_CODE('netw')     /** = */
+0x02   kDisplayDeviceType  =  FOUR_CHAR_CODE('dspl')     /** = */
+0x03   kMultimediaDeviceType  =  FOUR_CHAR_CODE('mmdv')  /** = */
+0x04   kMemoryDeviceType  =  FOUR_CHAR_CODE('mem ')      /** = */
+0x05   kBridgeDeviceType  =  FOUR_CHAR_CODE('brdg')      /** = */
+0x06   kCommDeviceType  =  FOUR_CHAR_CODE('comm')        /** = */
+0x07   kPeripheralDeviceType  =  FOUR_CHAR_CODE('sysp')  /** = */
+0x08   kInputDeviceType  =  FOUR_CHAR_CODE('inpt')       /** = */
+0x09   kDockingDeviceType  =  FOUR_CHAR_CODE('dock')     /** = */
+0x0A   kProcessorDeviceType  =  FOUR_CHAR_CODE('proc')  // class-code = 0x0B   kFirewireBusDeviceType =
       FOUR_CHAR_CODE('firw'), // class-code = 0x0C, sub-class = 0x00   kACCESSBusDeviceType =
       FOUR_CHAR_CODE('accs'), // class-code = 0x0C, sub-class = 0x01   kSSABusDeviceType =
       FOUR_CHAR_CODE('ssa '), // class-code = 0x0C, sub-class = 0x02   kUSBBusDeviceType =
@@ -414,18 +422,18 @@ enum {
   kCardBus = FOUR_CHAR_CODE('cdbs')// class-code = 0x03 
 };// class-code = 0x04 
 // class-code = 0x05 
-typedef OSType PCCardArchitectureType;// class-code = 0x06 
-#define kNodeNameName "name"// class-code = 0x07 
-#define k16BitPCCardName "16bitcard"// class-code = 0x08 
-#define kCardbusPropertyName "cardbus"// class-code = 0x09 
-#define kNodeCompatiblePropertyName "compatible"// class-code = 0x0A 
-#define kDevice_TypeName "device_type"// class-code = 0x0B 
+typedef OSType PCCardArchitectureType;// class-code = 0x06
+#define kNodeNameName "name"          // class-code = 0x07
+#define k16BitPCCardName "16bitcard"  // class-code = 0x08
+#define kCardbusPropertyName "cardbus"           // class-code = 0x09
+#define kNodeCompatiblePropertyName "compatible" // class-code = 0x0A
+#define kDevice_TypeName "device_type"           // class-code = 0x0B
 #define kDriverISTPropertyName "driver-ist"
-#define kFCRAccessPropertyName// class-code = 0x0C, sub-class = 0x00 
+#define kFCRAccessPropertyName // class-code = 0x0C, sub-class = 0x00
 #define kConfigRegPropertyName "ConfigRegValues"
-#define kNodeTypePropertyName // class-code = 0x0C, sub-class = 0x01 
+#define kNodeTypePropertyName // class-code = 0x0C, sub-class = 0x01
 #define kDeviceNumberPropertName "DeviceNumber"
-#define kSocketNumberPropertNa// class-code = 0x0C, sub-class = 0x02 
+#define kSocketNumberPropertNa // class-code = 0x0C, sub-class = 0x02 
 
 /*----------------------------// class-code = 0x0C, sub-class = 0x03 
   Plugin Dispatch Table
@@ -802,8 +810,8 @@ struct PCCardCustomResource {
   long customActionParam1;
   long customActionParam2;
 };
-typedef struct PCCardCustomResource PCCardCustomResource;
-#endif // !defined(__CARDSERVICES__) 
+  typedef struct PCCardCustomResource PCCardCustomResource;
+#endif // !defined(__CARDSERVICES__)
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -822,8 +830,8 @@ typedef struct PCCardCustomResource PCCardCustomResource;
 }
 #endif
 
-#endif // __PCCARDENABLERPLUGIN__ // CALL_NOT_IN_CARBON 
+#endif // __PCCARDENABLERPLUGIN__ // CALL_NOT_IN_CARBON
 //    ICN#, etc. resource ID
 //    STR# resource ID
-// !defined(__CARDSERVICES__) 
-// __PCCARDENABLERPLUGIN__ 
+// !defined(__CARDSERVICES__)
+// __PCCARDENABLERPLUGIN__

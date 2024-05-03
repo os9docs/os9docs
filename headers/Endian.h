@@ -657,7 +657,7 @@ typedef OSType BigEndianOSType;
 #pragma parameter __D0 Endian16_Swap(__D0)
 #endif
   UInt16
-  Endian16_Swap(UInt16 value) ONEWORDINLINE(0xE158);
+  Endian16_Swap(UInt16 value);
 
 /**
  *  Endian32_Swap()
@@ -671,7 +671,7 @@ typedef OSType BigEndianOSType;
 #pragma parameter __D0 Endian32_Swap(__D0)
 #endif
   UInt32
-  Endian32_Swap(UInt32 value) THREEWORDINLINE(0xE158, 0x4840, 0xE158);
+  Endian32_Swap(UInt32 value);
 
 #endif /** CALL_NOT_IN_CARBON */
 

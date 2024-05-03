@@ -835,7 +835,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrPurge(void) FOURWORDINLINE(0x2F3C, 0xA800, 0x0000, 0xA8FD);
+	PrPurge(void);
 
 	/**
 	 *  PrNoPurge()
@@ -846,7 +846,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrNoPurge(void) FOURWORDINLINE(0x2F3C, 0xB000, 0x0000, 0xA8FD);
+	PrNoPurge(void);
 
 	/**
 	 *  PrOpen()
@@ -857,7 +857,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrOpen(void) FOURWORDINLINE(0x2F3C, 0xC800, 0x0000, 0xA8FD);
+	PrOpen(void);
 
 	/**
 	 *  PrClose()
@@ -868,7 +868,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrClose(void) FOURWORDINLINE(0x2F3C, 0xD000, 0x0000, 0xA8FD);
+	PrClose(void);
 
 	/**
 	 *  PrintDefault()
@@ -879,7 +879,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrintDefault(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x2004, 0x0480, 0xA8FD);
+	PrintDefault(THPrint hPrint);
 
 	/**
 	 *  PrValidate()
@@ -890,7 +890,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	Boolean
-	PrValidate(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x5204, 0x0498, 0xA8FD);
+	PrValidate(THPrint hPrint);
 
 	/**
 	 *  PrStlDialog()
@@ -901,7 +901,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	Boolean
-	PrStlDialog(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x2A04, 0x0484, 0xA8FD);
+	PrStlDialog(THPrint hPrint);
 
 	/**
 	 *  PrJobDialog()
@@ -912,7 +912,7 @@ typedef struct OpaqueTPPrDlg *TPPrDlg;
 	 *    \mac_os_x         not available
 	 */
 	Boolean
-	PrJobDialog(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x3204, 0x0488, 0xA8FD);
+	PrJobDialog(THPrint hPrint);
 
 	/**
 	\brief Obtain address of an initialized TPrDlg structure
@@ -939,7 +939,7 @@ See PrDlgMain and TPrDlg for related information.
 *    \mac_os_x         not available
 */
 	TPPrDlgRef
-	PrStlInit(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x3C04, 0x040C, 0xA8FD);
+	PrStlInit(THPrint hPrint);
 
 	/**
 	\brief Obtain address of an initialized TPrDlg structure
@@ -966,7 +966,7 @@ See PrDlgMain and TPrDlg for related information.
 *    \mac_os_x         not available
 */
 	TPPrDlgRef
-	PrJobInit(THPrint hPrint) FOURWORDINLINE(0x2F3C, 0x4404, 0x0410, 0xA8FD);
+	PrJobInit(THPrint hPrint);
 
 	/**
 	 *  PrJobMerge()
@@ -977,8 +977,7 @@ See PrDlgMain and TPrDlg for related information.
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrJobMerge(THPrint hPrintSrc, THPrint hPrintDst)
-		FOURWORDINLINE(0x2F3C, 0x5804, 0x089C, 0xA8FD);
+	PrJobMerge(THPrint hPrintSrc, THPrint hPrintDst);
 
 	/**
 	\brief Initialize for and execute a print dialog
@@ -1009,8 +1008,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 *    \mac_os_x         not available
 */
 	Boolean
-	PrDlgMain(THPrint hPrint, PDlgInitUPP pDlgInit)
-		FOURWORDINLINE(0x2F3C, 0x4A04, 0x0894, 0xA8FD);
+	PrDlgMain(THPrint hPrint, PDlgInitUPP pDlgInit);
 
 	/**
 	 *  PrOpenDoc()
@@ -1022,7 +1020,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 */
 	TPPrPort
 	PrOpenDoc(THPrint hPrint, TPPrPort pPrPort, /** can be NULL */
-			  Ptr pIOBuf) FOURWORDINLINE(0x2F3C, 0x0400, 0x0C00, 0xA8FD);
+			  Ptr pIOBuf);
 
 	/**
 	 *  PrCloseDoc()
@@ -1033,7 +1031,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrCloseDoc(TPPrPort pPrPort) FOURWORDINLINE(0x2F3C, 0x0800, 0x0484, 0xA8FD);
+	PrCloseDoc(TPPrPort pPrPort);
 
 	/**
 	 *  PrOpenPage()
@@ -1044,8 +1042,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrOpenPage(TPPrPort pPrPort, TPRect pPageFrame)
-		FOURWORDINLINE(0x2F3C, 0x1000, 0x0808, 0xA8FD);
+	PrOpenPage(TPPrPort pPrPort, TPRect pPageFrame);
 
 	/**
 	 *  PrClosePage()
@@ -1056,7 +1053,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrClosePage(TPPrPort pPrPort) FOURWORDINLINE(0x2F3C, 0x1800, 0x040C, 0xA8FD);
+	PrClosePage(TPPrPort pPrPort);
 
 	/**
 	 *  PrPicFile()
@@ -1068,7 +1065,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 */
 	void
 	PrPicFile(THPrint hPrint, TPPrPort pPrPort, Ptr pIOBuf, Ptr pDevBuf,
-			  TPPrStatus prStatus) FOURWORDINLINE(0x2F3C, 0x6005, 0x1480, 0xA8FD);
+			  TPPrStatus prStatus);
 
 	/**
 	 *  PrError()
@@ -1079,7 +1076,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	short
-	PrError(void) FOURWORDINLINE(0x2F3C, 0xBA00, 0x0000, 0xA8FD);
+	PrError(void);
 
 	/**
 	 *  PrSetError()
@@ -1090,7 +1087,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrSetError(short iErr) FOURWORDINLINE(0x2F3C, 0xC000, 0x0200, 0xA8FD);
+	PrSetError(short iErr);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1104,7 +1101,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrGeneral(Ptr pData) FOURWORDINLINE(0x2F3C, 0x7007, 0x0480, 0xA8FD);
+	PrGeneral(Ptr pData);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1118,7 +1115,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrDrvrOpen(void) FOURWORDINLINE(0x2F3C, 0x8000, 0x0000, 0xA8FD);
+	PrDrvrOpen(void);
 
 	/**
 	 *  PrDrvrClose()
@@ -1129,7 +1126,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrDrvrClose(void) FOURWORDINLINE(0x2F3C, 0x8800, 0x0000, 0xA8FD);
+	PrDrvrClose(void);
 
 	/**
 	 *  PrCtlCall()
@@ -1140,8 +1137,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	void
-	PrCtlCall(short iWhichCtl, long lParam1, long lParam2, long lParam3)
-		FOURWORDINLINE(0x2F3C, 0xA000, 0x0E00, 0xA8FD);
+	PrCtlCall(short iWhichCtl, long lParam1, long lParam2, long lParam3);
 
 	/**
 	 *  PrDrvrDCE()
@@ -1152,7 +1148,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	Handle
-	PrDrvrDCE(void) FOURWORDINLINE(0x2F3C, 0x9400, 0x0000, 0xA8FD);
+	PrDrvrDCE(void);
 
 	/**
 	 *  PrDrvrVers()
@@ -1163,7 +1159,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	short
-	PrDrvrVers(void) FOURWORDINLINE(0x2F3C, 0x9A00, 0x0000, 0xA8FD);
+	PrDrvrVers(void);
 
 	/**
 	 *  PrLoadDriver()
@@ -1174,7 +1170,7 @@ See PrJobInit , PrStlInit , and TPrDlg for related information
 	 *    \mac_os_x         not available
 	 */
 	short
-	PrLoadDriver(void) FOURWORDINLINE(0x2F3C, 0xD800, 0x0000, 0xA8FD);
+	PrLoadDriver(void);
 
 #endif /** CALL_NOT_IN_CARBON */
 

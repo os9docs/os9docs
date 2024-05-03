@@ -163,8 +163,7 @@ extern "C"
 #pragma parameter InvokeENETCompletionUPP(__A0, __A1)
 #endif
   void
-  InvokeENETCompletionUPP(EParamBlkPtr thePBPtr, ENETCompletionUPP userUPP)
-      ONEWORDINLINE(0x4E91);
+  InvokeENETCompletionUPP(EParamBlkPtr thePBPtr, ENETCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -187,7 +186,7 @@ extern "C"
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
 
-  /**// CALL_NOT_IN_CARBON 
+  /**
   \brief Send a data packet over Ethernet
 
   <pre>EWrite uses The .ENET Driver to send a data packet over Ethernet.
@@ -605,4 +604,4 @@ ENetDelMulti for this function.
 }
 #endif
 
-#endif // __ENET__ * /*/*/ * /*/*/ * /*/*/// __ENET__
+#endif // __ENET__ *   /*/*/// __ENET__

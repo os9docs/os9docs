@@ -372,7 +372,7 @@ inline pascal Boolean KeychainManagerAvailable() { return true; }
 #else
 #define KeychainManagerAvailable() (true)
 #endif
-#endif /**  */
+#endif
 
   /** Managing the Human Interface */
   /**

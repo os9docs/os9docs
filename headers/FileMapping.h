@@ -355,8 +355,7 @@ extern "C"
   OSErr
   OpenMappedFile(const FSRef *ref, UniCharCount forkNameLength,
                  const UniChar *forkName, /** can be NULL */
-                 MappingPrivileges privileges, BackingFileID *backingFile)
-      TWOWORDINLINE(0x7000, 0xAA81);
+                 MappingPrivileges privileges, BackingFileID *backingFile);
 
   /**
    *  FSpOpenMappedFile()
@@ -405,8 +404,7 @@ extern "C"
    */
   OSErr
   FSpOpenMappedFile(const FSSpec *spec, Boolean mapResFork,
-                    MappingPrivileges privileges, BackingFileID *backingFile)
-      TWOWORDINLINE(0x7001, 0xAA81);
+                    MappingPrivileges privileges, BackingFileID *backingFile);
 
   /**
    *  OpenMappedScratchFile()
@@ -463,8 +461,7 @@ extern "C"
    */
   OSErr
   OpenMappedScratchFile(FSVolumeRefNum volume, ByteCount fileSize,
-                        MappingPrivileges privileges, BackingFileID *backingFile)
-      TWOWORDINLINE(0x7002, 0xAA81);
+                        MappingPrivileges privileges, BackingFileID *backingFile);
 
   /**
    *  CloseMappedFile()
@@ -496,7 +493,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CloseMappedFile(BackingFileID backingFile) TWOWORDINLINE(0x7003, 0xAA81);
+  CloseMappedFile(BackingFileID backingFile);
 
   /**
    *  GetMappedFileInformation()
@@ -534,8 +531,7 @@ extern "C"
    */
   OSErr
   GetMappedFileInformation(BackingFileID backingFile, PBVersion version,
-                           MappedFileInformation *mappedFileInfo)
-      TWOWORDINLINE(0x7004, 0xAA81);
+                           MappedFileInformation *mappedFileInfo);
 
   /**
    *  GetNextMappedFile()
@@ -568,7 +564,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  GetNextMappedFile(BackingFileID *backingFile) TWOWORDINLINE(0x7005, 0xAA81);
+  GetNextMappedFile(BackingFileID *backingFile);
 
   /**
    *  SetMappedFileSize()
@@ -606,7 +602,7 @@ extern "C"
    */
   OSErr
   SetMappedFileSize(BackingFileID backingFile, UInt16 positionMode,
-                    const SInt64 *positionOffset) TWOWORDINLINE(0x7006, 0xAA81);
+                    const SInt64 *positionOffset);
 
   /**
    *  GetFileViewAccessOptions()
@@ -636,8 +632,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  GetFileViewAccessOptions(FileViewAccess *access, FileViewOptions *options)
-      TWOWORDINLINE(0x7007, 0xAA81);
+  GetFileViewAccessOptions(FileViewAccess *access, FileViewOptions *options);
 
   /**
    *  MapFileView()
@@ -719,7 +714,7 @@ extern "C"
               ByteCount backingLength, FileViewAccess access,
               ByteCount guardLength, FileViewOptions options,
               LogicalAddress *viewBase, ByteCount *viewLength,
-              FileViewID *theView) TWOWORDINLINE(0x7008, 0xAA81);
+              FileViewID *theView);
 
   /**
    *  UnmapFileView()
@@ -749,7 +744,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  UnmapFileView(FileViewID theView) TWOWORDINLINE(0x7009, 0xAA81);
+  UnmapFileView(FileViewID theView);
 
   /**
    *  GetFileViewInformation()
@@ -787,8 +782,7 @@ extern "C"
    */
   OSErr
   GetFileViewInformation(FileViewID theView, PBVersion version,
-                         FileViewInformation *fileViewInfo)
-      TWOWORDINLINE(0x700A, 0xAA81);
+                         FileViewInformation *fileViewInfo);
 
   /**
    *  GetFileViewFromAddress()
@@ -818,8 +812,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  GetFileViewFromAddress(LogicalAddress address, FileViewID *theView)
-      TWOWORDINLINE(0x700B, 0xAA81);
+  GetFileViewFromAddress(LogicalAddress address, FileViewID *theView);
 
   /**
    *  GetNextFileView()
@@ -852,7 +845,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  GetNextFileView(FileViewID *theView) TWOWORDINLINE(0x700C, 0xAA81);
+  GetNextFileView(FileViewID *theView);
 
   /**
    *  SetFileViewAccess()
@@ -883,8 +876,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  SetFileViewAccess(FileViewID theView, FileViewAccess access)
-      TWOWORDINLINE(0x700D, 0xAA81);
+  SetFileViewAccess(FileViewID theView, FileViewAccess access);
 
   /**
    *  SetFileViewBackingBase()
@@ -918,8 +910,7 @@ extern "C"
   OSErr
   SetFileViewBackingBase(
       FileViewID theView,
-      const UInt64 *newBackingBase) /** can be NULL */ TWOWORDINLINE(0x700E,
-                                                                     0xAA81);
+      const UInt64 *newBackingBase) /** can be NULL */;
 
 #endif /** CALL_NOT_IN_CARBON */
 

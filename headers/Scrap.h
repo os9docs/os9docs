@@ -107,7 +107,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSStatus
-    LoadScrap(void) ONEWORDINLINE(0xA9FB);
+    LoadScrap(void);
 
     /**
      *  UnloadScrap()
@@ -118,7 +118,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSStatus
-    UnloadScrap(void) ONEWORDINLINE(0xA9FA);
+    UnloadScrap(void);
 
 #if CALL_NOT_IN_CARBON
     /**
@@ -187,7 +187,7 @@ call ZeroScrap before calling PutScrap ).
 *    \mac_os_x         not available
 */
     ScrapStuffPtr
-    InfoScrap(void) ONEWORDINLINE(0xA9F9);
+    InfoScrap(void);
 
     /**
      *  GetScrap()
@@ -198,8 +198,7 @@ call ZeroScrap before calling PutScrap ).
      *    \mac_os_x         not available
      */
     long
-    GetScrap(Handle destination, ScrapFlavorType flavorType, SInt32 *offset)
-        ONEWORDINLINE(0xA9FD);
+    GetScrap(Handle destination, ScrapFlavorType flavorType, SInt32 *offset);
 
     /**
      *  ZeroScrap()
@@ -210,7 +209,7 @@ call ZeroScrap before calling PutScrap ).
      *    \mac_os_x         not available
      */
     OSStatus
-    ZeroScrap(void) ONEWORDINLINE(0xA9FC);
+    ZeroScrap(void);
 
     /**
      *  PutScrap()
@@ -222,7 +221,7 @@ call ZeroScrap before calling PutScrap ).
      */
     OSStatus
     PutScrap(SInt32 sourceBufferByteCount, ScrapFlavorType flavorType,
-             const void *sourceBuffer) ONEWORDINLINE(0xA9FE);
+             const void *sourceBuffer);
 
     /**
         ________________________________________________________________
@@ -722,4 +721,3 @@ call ZeroScrap before calling PutScrap ).
 #endif
 
 #endif /** __SCRAP__ */
-* /

@@ -105,8 +105,7 @@ extern "C"
      */
     OSAError
     OSASetProperty(ComponentInstance scriptingComponent, long modeFlags,
-                   OSAID contextID, const AEDesc *variableName, OSAID scriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x1106, 0x7000, 0xA82A);
+                   OSAID contextID, const AEDesc *variableName, OSAID scriptValueID);
 
     /**
      *  OSAGetProperty()
@@ -119,8 +118,7 @@ extern "C"
     OSAError
     OSAGetProperty(ComponentInstance scriptingComponent, long modeFlags,
                    OSAID contextID, const AEDesc *variableName,
-                   OSAID *resultingScriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x1107, 0x7000, 0xA82A);
+                   OSAID *resultingScriptValueID);
 
     /**
      *  OSAGetPropertyNames()
@@ -132,8 +130,7 @@ extern "C"
      */
     OSAError
     OSAGetPropertyNames(ComponentInstance scriptingComponent, long modeFlags,
-                        OSAID contextID, AEDescList *resultingPropertyNames)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x110C, 0x7000, 0xA82A);
+                        OSAID contextID, AEDescList *resultingPropertyNames);
 
     /**
      *  OSASetHandler()
@@ -146,8 +143,7 @@ extern "C"
     OSAError
     OSASetHandler(ComponentInstance scriptingComponent, long modeFlags,
                   OSAID contextID, const AEDesc *handlerName,
-                  OSAID compiledScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x1108, 0x7000, 0xA82A);
+                  OSAID compiledScriptID);
 
     /**
      *  OSAGetHandler()
@@ -160,8 +156,7 @@ extern "C"
     OSAError
     OSAGetHandler(ComponentInstance scriptingComponent, long modeFlags,
                   OSAID contextID, const AEDesc *handlerName,
-                  OSAID *resultingCompiledScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x1109, 0x7000, 0xA82A);
+                  OSAID *resultingCompiledScriptID);
 
     /**
      *  OSAGetHandlerNames()
@@ -173,8 +168,7 @@ extern "C"
      */
     OSAError
     OSAGetHandlerNames(ComponentInstance scriptingComponent, long modeFlags,
-                       OSAID contextID, AEDescList *resultingHandlerNames)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x110D, 0x7000, 0xA82A);
+                       OSAID contextID, AEDescList *resultingHandlerNames);
 
     /**
      *  OSAGetAppTerminology()
@@ -187,8 +181,7 @@ extern "C"
     OSAError
     OSAGetAppTerminology(ComponentInstance scriptingComponent, long modeFlags,
                          FSSpec *fileSpec, short terminologyID, Boolean *didLaunch,
-                         AEDesc *terminologyList)
-        FIVEWORDINLINE(0x2F3C, 0x0012, 0x110A, 0x7000, 0xA82A);
+                         AEDesc *terminologyList);
 
     /* Errors:
            errOSASystemError        operation failed
@@ -203,8 +196,7 @@ extern "C"
      */
     OSAError
     OSAGetSysTerminology(ComponentInstance scriptingComponent, long modeFlags,
-                         short terminologyID, AEDesc *terminologyList)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x110B, 0x7000, 0xA82A);
+                         short terminologyID, AEDesc *terminologyList);
 
     /* Errors:
            errOSASystemError        operation failed
@@ -229,8 +221,7 @@ extern "C"
      */
     OSAError
     ASSetProperty(ComponentInstance scriptingComponent, OSAID contextID,
-                  const AEDesc *variableName, OSAID scriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x1101, 0x7000, 0xA82A);
+                  const AEDesc *variableName, OSAID scriptValueID);
 
     /**
      *  ASGetProperty()
@@ -242,8 +233,7 @@ extern "C"
      */
     OSAError
     ASGetProperty(ComponentInstance scriptingComponent, OSAID contextID,
-                  const AEDesc *variableName, OSAID *resultingScriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x1102, 0x7000, 0xA82A);
+                  const AEDesc *variableName, OSAID *resultingScriptValueID);
 
     /**
      *  ASSetHandler()
@@ -255,8 +245,7 @@ extern "C"
      */
     OSAError
     ASSetHandler(ComponentInstance scriptingComponent, OSAID contextID,
-                 const AEDesc *handlerName, OSAID compiledScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x1103, 0x7000, 0xA82A);
+                 const AEDesc *handlerName, OSAID compiledScriptID);
 
     /**
      *  ASGetHandler()
@@ -268,8 +257,7 @@ extern "C"
      */
     OSAError
     ASGetHandler(ComponentInstance scriptingComponent, OSAID contextID,
-                 const AEDesc *handlerName, OSAID *resultingCompiledScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x1104, 0x7000, 0xA82A);
+                 const AEDesc *handlerName, OSAID *resultingCompiledScriptID);
 
     /**
      *  ASGetAppTerminology()
@@ -282,8 +270,7 @@ extern "C"
     OSAError
     ASGetAppTerminology(ComponentInstance scriptingComponent, FSSpec *fileSpec,
                         short terminologID, Boolean *didLaunch,
-                        AEDesc *terminologyList)
-        FIVEWORDINLINE(0x2F3C, 0x000E, 0x1105, 0x7000, 0xA82A);
+                        AEDesc *terminologyList);
 
     /* Errors:
             errOSASystemError       operation failed

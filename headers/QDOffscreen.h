@@ -103,20 +103,21 @@ extern "C"
    */
   QDErr
   NewGWorld(GWorldPtr *offscreenGWorld, short PixelDepth, const Rect *boundsRect,
-            CTabHandle cTable, // can be NULL             GDHandle aGDevice, // can be NULL             GWorldFlags flags) FOURWORDINLINE(0x203C, 0x0016, 0x0000, 0xAB1D);
-// can be NULL 
-  // GDevice attribute bits for// can be NULL 
+            CTabHandle cTable, // can be NULL
+            GDHandle aGDevice, // can be NULL
+            GWorldFlags flags);
+  // can be NULL
+  // GDevice attribute bits for// can be NULL
   {
-    deviceIsIndirect = (1L << 0),
-  // GDevice attribute bits for Carbon and QuickTime 3.0
-    deviceIsStatic = (1L << 2),
-    deviceIsExternalBuffer = (1L << 3),
-    deviceIsDDSurface = (1L << 4),
-    deviceIsDCISurface = (1L << 5),
-    deviceIsGDISurface = (1L << 6),
-    deviceIsAScreen = (1L << 7),
-    deviceIsOverlaySurface = (1L << 8)
-  };
+      deviceIsIndirect = (1L << 0),
+      // GDevice attribute bits for Carbon and QuickTime 3.0
+      deviceIsStatic = (1L << 2),
+      deviceIsExternalBuffer = (1L << 3),
+      deviceIsDDSurface = (1L << 4),
+      deviceIsDCISurface = (1L << 5),
+      deviceIsGDISurface = (1L << 6),
+      deviceIsAScreen = (1L << 7),
+      deviceIsOverlaySurface = (1L << 8)};
 
 #if TARGET_OS_WIN32
 #if CALL_NOT_IN_CARBON
@@ -142,29 +143,28 @@ extern "C"
   unsigned long
   GetGDeviceAttributes(GDHandle gdh);
 
-  // to allocate non-mac-rgb GWorlds use QTNewGWorld (ImageCompression.h)   /**
-   *  NewGWorldFromHBITMAP()
-   *
+  // to allocate non-mac-rgb GWorlds use QTNewGWorld (ImageCompression.h)
+  /**
+   *NewGWorldFromHBITMAP() *
 
-  // to allocate non-mac-rgb GWorlds use QTNewGWorld (ImageCompression.h) 
-   *    \carbon_lib        not available
-   *    \mac_os_x         not available
-   */
+       // to allocate non-mac-rgb GWorlds use QTNewGWorld (ImageCompression.h)
+       *    \carbon_lib not available
+       *    \mac_os_x not available*/
   QDErr
   NewGWorldFromHBITMAP(GWorldPtr *offscreenGWorld, CTabHandle cTable,
                        GDHandle aGDevice, GWorldFlags flags, void *newHBITMAP,
                        void *newHDC);
 
-#endif // CALL_NOT_IN_CARBON 
-#endif // TARGET_OS_WIN32 
-  /**
-   *  NewGWorldFromPtr()
-   *
-// CALL_NOT_IN_CARBON 
-   *    \non_carbon_cfm   not available
-   *   // TARGET_OS_WIN32 
-   *    \mac_os_x         in version 10.0 and later
-   */
+#endif // CALL_NOT_IN_CARBON
+#endif // TARGET_OS_WIN32
+       /**
+        *  NewGWorldFromPtr()
+        *
+     // CALL_NOT_IN_CARBON
+        *    \non_carbon_cfm   not available
+        *   // TARGET_OS_WIN32
+        *    \mac_os_x         in version 10.0 and later
+        */
   QDErr
   NewGWorldFromPtr(GWorldPtr *offscreenGWorld, unsigned long PixelFormat,
                    const Rect *boundsRect, CTabHandle cTable, GDHandle aGDevice,
@@ -195,7 +195,7 @@ FALSEbuffer has been purged
 *    \mac_os_x         in version 10.0 and later
 */
   Boolean
-  LockPixels(PixMapHandle pm) FOURWORDINLINE(0x203C, 0x0004, 0x0001, 0xAB1D);
+  LockPixels(PixMapHandle pm);
 
   /**
   \brief Unlock the buffer used by an offscreen graphics world
@@ -216,7 +216,7 @@ paramErr (-50) Illegal parameter
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  UnlockPixels(PixMapHandle pm) FOURWORDINLINE(0x203C, 0x0004, 0x0002, 0xAB1D);
+  UnlockPixels(PixMapHandle pm);
 
   /**
    *  UpdateGWorld()
@@ -229,14 +229,15 @@ paramErr (-50) Illegal parameter
   GWorldFlags
   UpdateGWorld(GWorldPtr *offscreenGWorld, short pixelDepth,
                const Rect *boundsRect, CTabHandle cTable,
-               GDHandle aGDevice, // can be NULL                GWorldFlags flags) FOURWORDINLINE(0x203C, 0x0016, 0x0003, 0xAB1D);
+               GDHandle aGDevice, // can be NULL
+               GWorldFlags flags);
 
   /**
   \brief Dispose of a GDevice structure and substructures
 
   <pre>If an offscreen graphics device was created, DisposeGWorld disposes of its
 GDevice structure and substructures.
-Call DisposeGWorld only when the a// can be NULL 
+Call DisposeGWorld only when the a// can be NULL
 buffer. If the current device was the offscreen device attached to
 offscreenGWorld, the current device is reset to the device stored in the global
 variable MainDevice .
@@ -247,8 +248,7 @@ variable MainDevice .
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  DisposeGWorld(GWorldPtr offscreenGWorld)
-      FOURWORDINLINE(0x203C, 0x0004, 0x0004, 0xAB1D);
+  DisposeGWorld(GWorldPtr offscreenGWorld);
 
   /**
   \brief Get the current graphics world
@@ -264,8 +264,7 @@ device.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  GetGWorld(CGrafPtr *port, GDHandle *gdh)
-      FOURWORDINLINE(0x203C, 0x0008, 0x0005, 0xAB1D);
+  GetGWorld(CGrafPtr *port, GDHandle *gdh);
 
   /**
   \brief Set the current graphics world
@@ -286,8 +285,7 @@ attatched to the given graphics world. The gdh parameter will be ignored.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  SetGWorld(CGrafPtr port, GDHandle gdh)
-      FOURWORDINLINE(0x203C, 0x0008, 0x0006, 0xAB1D);
+  SetGWorld(CGrafPtr port, GDHandle gdh);
 
   /**
   \brief Get a new seed (a unique identifier) for the color table
@@ -305,7 +303,7 @@ ctabthe color table handle
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  CTabChanged(CTabHandle ctab) FOURWORDINLINE(0x203C, 0x0004, 0x0007, 0xAB1D);
+  CTabChanged(CTabHandle ctab);
 
   /**
   \brief Set the patXValid flag to -1
@@ -329,7 +327,7 @@ field, it should call CTabChanged as well.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  PixPatChanged(PixPatHandle ppat) FOURWORDINLINE(0x203C, 0x0004, 0x0008, 0xAB1D);
+  PixPatChanged(PixPatHandle ppat);
 
   /**
   \brief Notify QuickDraw  of a change
@@ -355,7 +353,7 @@ well.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  PortChanged(GrafPtr port) FOURWORDINLINE(0x203C, 0x0004, 0x0009, 0xAB1D);
+  PortChanged(GrafPtr port);
 
   /**
   \brief Notify QuickDraw  of a graphics device record change
@@ -378,7 +376,7 @@ CTabChanged as well.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  GDeviceChanged(GDHandle gdh) FOURWORDINLINE(0x203C, 0x0004, 0x000A, 0xAB1D);
+  GDeviceChanged(GDHandle gdh);
 
   /**
   \brief AllowPurgePixels Mark the pixel map's offscreen buffer as purgeable
@@ -391,8 +389,7 @@ CTabChanged as well.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  AllowPurgePixels(PixMapHandle pm)
-      FOURWORDINLINE(0x203C, 0x0004, 0x000B, 0xAB1D);
+  AllowPurgePixels(PixMapHandle pm);
 
   /**
   \brief Mark the pixel map's offscreen buffer as unpurgeable
@@ -405,7 +402,7 @@ CTabChanged as well.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  NoPurgePixels(PixMapHandle pm) FOURWORDINLINE(0x203C, 0x0004, 0x000C, 0xAB1D);
+  NoPurgePixels(PixMapHandle pm);
 
   /**
   \brief Get state of the pixel map's offscreen buffer
@@ -424,7 +421,7 @@ procedure.
 *    \mac_os_x         in version 10.0 and later
 */
   GWorldFlags
-  GetPixelsState(PixMapHandle pm) FOURWORDINLINE(0x203C, 0x0004, 0x000D, 0xAB1D);
+  GetPixelsState(PixMapHandle pm);
 
   /**
   \brief Set state of the pixel map's offscreen buffer
@@ -447,8 +444,7 @@ local surrenders the benefits of graphics accelerators.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  SetPixelsState(PixMapHandle pm, GWorldFlags state)
-      FOURWORDINLINE(0x203C, 0x0008, 0x000E, 0xAB1D);
+  SetPixelsState(PixMapHandle pm, GWorldFlags state);
 
   /**
   \brief Get a pointer to the beginning of the pixel map's pixels
@@ -468,7 +464,7 @@ buffer are not guaranteed to be accurate.
 *    \carbon_lib        in CarbonLib 1.0 and later
 *    \mac_os_x         in version 10.0 and later
 */
-  Ptr GetPixBaseAddr(PixMapHandle pm) FOURWORDINLINE(0x203C, 0x0004, 0x000F, 0xAB1D);
+  Ptr GetPixBaseAddr(PixMapHandle pm);
 
   /**
    *  GetPixRowBytes()
@@ -479,7 +475,7 @@ buffer are not guaranteed to be accurate.
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  GetPixRowBytes(PixMapHandle pm) FOURWORDINLINE(0x203C, 0x0004, 0x0018, 0xAB1D);
+  GetPixRowBytes(PixMapHandle pm);
 
   /**
    *  NewScreenBuffer()
@@ -491,8 +487,7 @@ buffer are not guaranteed to be accurate.
    */
   QDErr
   NewScreenBuffer(const Rect *globalRect, Boolean purgeable, GDHandle *gdh,
-                  PixMapHandle *offscreenPixMap)
-      FOURWORDINLINE(0x203C, 0x000E, 0x0010, 0xAB1D);
+                  PixMapHandle *offscreenPixMap);
 
   /**
   \brief DisposeScreenBuffer Dispose of memory for offscreen buffer and color table
@@ -507,8 +502,7 @@ color table.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  DisposeScreenBuffer(PixMapHandle offscreenPixMap)
-      FOURWORDINLINE(0x203C, 0x0004, 0x0011, 0xAB1D);
+  DisposeScreenBuffer(PixMapHandle offscreenPixMap);
 
   /**
   \brief Get a handle to the device attached to the offscreen world
@@ -527,8 +521,7 @@ GetGWorldDevice returns the current device.
 *    \mac_os_x         in version 10.0 and later
 */
   GDHandle
-  GetGWorldDevice(GWorldPtr offscreenGWorld)
-      FOURWORDINLINE(0x203C, 0x0004, 0x0012, 0xAB1D);
+  GetGWorldDevice(GWorldPtr offscreenGWorld);
 
   /**
   \brief Ensure that all drawing is done
@@ -552,7 +545,7 @@ process, QDDone may never return TRUE.)
 *    \mac_os_x         in version 10.0 and later
 */
   Boolean
-  QDDone(GrafPtr port) FOURWORDINLINE(0x203C, 0x0004, 0x0013, 0xAB1D);
+  QDDone(GrafPtr port);
 
   /**
    *  OffscreenVersion()
@@ -563,7 +556,7 @@ process, QDDone may never return TRUE.)
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  OffscreenVersion(void) TWOWORDINLINE(0x7014, 0xAB1D);
+  OffscreenVersion(void);
 
   /**
    *  NewTempScreenBuffer()
@@ -575,8 +568,7 @@ process, QDDone may never return TRUE.)
    */
   QDErr
   NewTempScreenBuffer(const Rect *globalRect, Boolean purgeable, GDHandle *gdh,
-                      PixMapHandle *offscreenPixMap)
-      FOURWORDINLINE(0x203C, 0x000E, 0x0015, 0xAB1D);
+                      PixMapHandle *offscreenPixMap);
 
   /**
   \brief Determine if PixMap requires 32-bit addr mode to access its pixels
@@ -590,8 +582,7 @@ addressing mode for access to its pixels.
 *    \mac_os_x         in version 10.0 and later
 */
   Boolean
-  PixMap32Bit(PixMapHandle pmHandle)
-      FOURWORDINLINE(0x203C, 0x0004, 0x0016, 0xAB1D);
+  PixMap32Bit(PixMapHandle pmHandle);
 
   /**
   \brief Get a handle to the pixel map for an offscreen graphics world
@@ -616,8 +607,7 @@ that use a handle to a pixel map.
 *    \mac_os_x         in version 10.0 and later
 */
   PixMapHandle
-  GetGWorldPixMap(GWorldPtr offscreenGWorld)
-      FOURWORDINLINE(0x203C, 0x0004, 0x0017, 0xAB1D);
+  GetGWorldPixMap(GWorldPtr offscreenGWorld);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -637,4 +627,4 @@ that use a handle to a pixel map.
 }
 #endif
 
-#endif // __QDOFFSCREEN__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /// __QDOFFSCREEN__ 
+#endif // __QDOFFSCREEN__ *       /// __QDOFFSCREEN__

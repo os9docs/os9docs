@@ -111,8 +111,7 @@ extern "C"
     OSAError
     ASInit(ComponentInstance scriptingComponent, long modeFlags, long minStackSize,
            long preferredStackSize, long maxStackSize, long minHeapSize,
-           long preferredHeapSize, long maxHeapSize)
-        FIVEWORDINLINE(0x2F3C, 0x001C, 0x1001, 0x7000, 0xA82A);
+           long preferredHeapSize, long maxHeapSize);
 
     /**
             ComponentCallNow(kASSelectInit, 28);
@@ -151,8 +150,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSAError
-    ASSetSourceStyles(ComponentInstance scriptingComponent, STHandle sourceStyles)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x1002, 0x7000, 0xA82A);
+    ASSetSourceStyles(ComponentInstance scriptingComponent, STHandle sourceStyles);
 
     /**
             ComponentCallNow(kASSelectSetSourceStyles, 4);
@@ -169,8 +167,7 @@ extern "C"
      */
     OSAError
     ASGetSourceStyles(ComponentInstance scriptingComponent,
-                      STHandle *resultingSourceStyles)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x1003, 0x7000, 0xA82A);
+                      STHandle *resultingSourceStyles);
 
     /**
             ComponentCallNow(kASSelectGetSourceStyles, 4);
@@ -187,8 +184,7 @@ extern "C"
      */
     OSAError
     ASGetSourceStyleNames(ComponentInstance scriptingComponent, long modeFlags,
-                          AEDescList *resultingSourceStyleNamesList)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x1004, 0x7000, 0xA82A);
+                          AEDescList *resultingSourceStyleNamesList);
 
     /**
             ComponentCallNow(kASSelectGetSourceStyleNames, 8);

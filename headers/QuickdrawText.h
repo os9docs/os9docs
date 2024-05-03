@@ -249,7 +249,7 @@ extern "C"
    */
   short
   Pixel2Char(Ptr textBuf, short textLen, short slop, short pixelWidth,
-             Boolean *leadingEdge) FOURWORDINLINE(0x2F3C, 0x820E, 0x0014, 0xA8B5);
+             Boolean *leadingEdge);
 
   /**
    *  Char2Pixel()
@@ -261,7 +261,7 @@ extern "C"
    */
   short
   Char2Pixel(Ptr textBuf, short textLen, short slop, short offset,
-             short direction) FOURWORDINLINE(0x2F3C, 0x820C, 0x0016, 0xA8B5);
+             short direction);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -276,8 +276,7 @@ extern "C"
   short
   PixelToChar(Ptr textBuf, long textLength, Fixed slop, Fixed pixelWidth,
               Boolean *leadingEdge, Fixed *widthRemaining,
-              JustStyleCode styleRunPosition, Point numer, Point denom)
-      FOURWORDINLINE(0x2F3C, 0x8222, 0x002E, 0xA8B5);
+              JustStyleCode styleRunPosition, Point numer, Point denom);
 
   /**
    *  CharToPixel()
@@ -290,7 +289,7 @@ extern "C"
   short
   CharToPixel(Ptr textBuf, long textLength, Fixed slop, long offset,
               short direction, JustStyleCode styleRunPosition, Point numer,
-              Point denom) FOURWORDINLINE(0x2F3C, 0x821C, 0x0030, 0xA8B5);
+              Point denom);
 
   /**
    *  DrawJustified()
@@ -302,8 +301,7 @@ extern "C"
    */
   void
   DrawJustified(Ptr textPtr, long textLength, Fixed slop,
-                JustStyleCode styleRunPosition, Point numer, Point denom)
-      FOURWORDINLINE(0x2F3C, 0x8016, 0x0032, 0xA8B5);
+                JustStyleCode styleRunPosition, Point numer, Point denom);
 
   /**
    *  MeasureJustified()
@@ -315,8 +313,7 @@ extern "C"
    */
   void
   MeasureJustified(Ptr textPtr, long textLength, Fixed slop, Ptr charLocs,
-                   JustStyleCode styleRunPosition, Point numer, Point denom)
-      FOURWORDINLINE(0x2F3C, 0x801A, 0x0034, 0xA8B5);
+                   JustStyleCode styleRunPosition, Point numer, Point denom);
 
   /**
    *  PortionLine()
@@ -328,8 +325,7 @@ extern "C"
    */
   Fixed
   PortionLine(Ptr textPtr, long textLen, JustStyleCode styleRunPosition,
-              Point numer, Point denom)
-      FOURWORDINLINE(0x2F3C, 0x8412, 0x0036, 0xA8B5);
+              Point numer, Point denom);
 
   /**
    *  HiliteText()
@@ -341,7 +337,7 @@ extern "C"
    */
   void
   HiliteText(Ptr textPtr, short textLength, short firstOffset, short secondOffset,
-             OffsetTable offsets) FOURWORDINLINE(0x2F3C, 0x800E, 0x001C, 0xA8B5);
+             OffsetTable offsets);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -353,8 +349,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  DrawJust(Ptr textPtr, short textLength, short slop)
-      FOURWORDINLINE(0x2F3C, 0x8008, 0x001E, 0xA8B5);
+  DrawJust(Ptr textPtr, short textLength, short slop);
 
   /**
    *  MeasureJust()
@@ -365,8 +360,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MeasureJust(Ptr textPtr, short textLength, short slop, Ptr charLocs)
-      FOURWORDINLINE(0x2F3C, 0x800C, 0x0020, 0xA8B5);
+  MeasureJust(Ptr textPtr, short textLength, short slop, Ptr charLocs);
 
   /**
   \brief Determine how to distribute the slop value for a line
@@ -381,8 +375,7 @@ how to distribute the slop of a line among the style runs on the line
 *    \mac_os_x         not available
 */
   Fixed
-  PortionText(Ptr textPtr, long textLength)
-      FOURWORDINLINE(0x2F3C, 0x8408, 0x0024, 0xA8B5);
+  PortionText(Ptr textPtr, long textLength);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -395,8 +388,7 @@ how to distribute the slop of a line among the style runs on the line
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  VisibleLength(Ptr textPtr, long textLength)
-      FOURWORDINLINE(0x2F3C, 0x8408, 0x0028, 0xA8B5);
+  VisibleLength(Ptr textPtr, long textLength);
 
   /**
    *  GetFormatOrder()
@@ -408,8 +400,7 @@ how to distribute the slop of a line among the style runs on the line
    */
   void
   GetFormatOrder(FormatOrderPtr ordering, short firstFormat, short lastFormat,
-                 Boolean lineRight, StyleRunDirectionUPP rlDirProc, Ptr dirParam)
-      FOURWORDINLINE(0x2F3C, 0x8012, 0xFFFC, 0xA8B5);
+                 Boolean lineRight, StyleRunDirectionUPP rlDirProc, Ptr dirParam);
 
   /**
   \brief Select font for subsequent text drawing
@@ -456,7 +447,7 @@ TextSize .
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  TextFont(short font) ONEWORDINLINE(0xA887);
+  TextFont(short font);
 
   /**
   \brief Select a style for subsequent text drawing
@@ -484,11 +475,11 @@ You can read the current style setting by accessing the txFace field of the
 current GrafPort :
 curStyle = thePort -> txFace;
 Here are some examples of usage:
-TextFace ( bold ); // set to bold 
-  TextFace(bold | italic);           // set to bold and italic 
-  TextFace(thePort->txFace | bold);  // add bolding 
-  TextFace(thePort->txFace & ~bold); // remove bolding 
-  TextFace(0);                       // set to plain text 
+TextFace ( bold ); // set to bold
+  TextFace(bold | italic);           // set to bold and italic
+  TextFace(thePort->txFace | bold);  // add bolding
+  TextFace(thePort->txFace & ~bold); // remove bolding
+  TextFace(0);                       // set to plain text
 The "condense" and "extend" variations change the spacing between
 characters to an arbitrary value set by the Font Manager. Another way to
 compress expand text is to call SetFScaleDisable and use a smaller or
@@ -505,119 +496,119 @@ e.g., as an aid in
               *    \mac_os_x in version 10.0 and
           later
                 */
-              void
-              TextFace(StyleParameter face) ONEWORDINLINE(0xA888);
+  void
+  TextFace(StyleParameter face);
 
-/**
-\brief Set text-drawing transfer mode
+  /**
+  \brief Set text-drawing transfer mode
 
-<pre>TextMode selects the bit-transfer mode to be used in subsequent
-text-drawing. Used for writing white characters on a black background, etc.
-newMode selects the transfer mode. It must be one of the " srcXxx" modes.
-Use one of the following constants, as defined in Quickdraw.h :
-srcCopy 0overwrite background entirely
-srcOr1overwrite where character is black
-srcXor 2invert where character is black
-srcBic3force white where character is black
-notSrcCopy 4invert character, then srcCopy
-notSrcOr 5invert character, then srcOr
-notSrcXor 6invert character, then srcXor
-notSrcBic 7invert character, then srcBic
-</pre>
-* \returns <pre>none
-</pre>
-* \note <pre>TextMode changes the txMode field of the current GrafPort structure.
-See Transfer Modes  for a graphical representation of the effects of the
-various modes.
-The default mode is srcOr, which causes characters to be drawn over the
-background, while allowing the background pattern to show through in the
-empty parts of each letter.
-The original Mac toolbox supported only srcOr, srcXor, and srcBic.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-void TextMode(short mode) ONEWORDINLINE(0xA889);
+  <pre>TextMode selects the bit-transfer mode to be used in subsequent
+  text-drawing. Used for writing white characters on a black background, etc.
+  newMode selects the transfer mode. It must be one of the " srcXxx" modes.
+  Use one of the following constants, as defined in Quickdraw.h :
+  srcCopy 0overwrite background entirely
+  srcOr1overwrite where character is black
+  srcXor 2invert where character is black
+  srcBic3force white where character is black
+  notSrcCopy 4invert character, then srcCopy
+  notSrcOr 5invert character, then srcOr
+  notSrcXor 6invert character, then srcXor
+  notSrcBic 7invert character, then srcBic
+  </pre>
+  * \returns <pre>none
+  </pre>
+  * \note <pre>TextMode changes the txMode field of the current GrafPort structure.
+  See Transfer Modes  for a graphical representation of the effects of the
+  various modes.
+  The default mode is srcOr, which causes characters to be drawn over the
+  background, while allowing the background pattern to show through in the
+  empty parts of each letter.
+  The original Mac toolbox supported only srcOr, srcXor, and srcBic.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  void TextMode(short mode);
 
-/**
-\brief Set the point size for subsequent text drawing
+  /**
+  \brief Set the point size for subsequent text drawing
 
-<pre>TextSize selects the size, in points, for subsequently-drawn text.
-newSize is the desired size, in typographical points. Values from 1 to 127
-are allowed. A value of 0 specifies the system font size (12 points).
-</pre>
-* \returns <pre>none
-</pre>
-* \note <pre>TextSize sets the txSize field of the current GrafPort structure. The
-initial value is 0, specifying the system font size (12-point).
-If the font used in subsequent text drawing is not available in size points,
-the Font Manager will use a font it does have, scaling it to the desired size.
-Such "scaled" fonts have a jagged look to them. See SetFScaleDisable for
-more information font scaling.
-You may use SetFScaleDisable to space text as if it were a different
-point size, while continuing to use a “real” (unscaled) font.
-To see if an unscaled version of a font exists as a system resource, use
-GetFNum to learn its font reference number, then call RealFont .
-A typographical point is approximately 1/72 of an inch; very nearly the
-size of a pixel on the Mac screen.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-void TextSize(short size) ONEWORDINLINE(0xA88A);
+  <pre>TextSize selects the size, in points, for subsequently-drawn text.
+  newSize is the desired size, in typographical points. Values from 1 to 127
+  are allowed. A value of 0 specifies the system font size (12 points).
+  </pre>
+  * \returns <pre>none
+  </pre>
+  * \note <pre>TextSize sets the txSize field of the current GrafPort structure. The
+  initial value is 0, specifying the system font size (12-point).
+  If the font used in subsequent text drawing is not available in size points,
+  the Font Manager will use a font it does have, scaling it to the desired size.
+  Such "scaled" fonts have a jagged look to them. See SetFScaleDisable for
+  more information font scaling.
+  You may use SetFScaleDisable to space text as if it were a different
+  point size, while continuing to use a “real” (unscaled) font.
+  To see if an unscaled version of a font exists as a system resource, use
+  GetFNum to learn its font reference number, then call RealFont .
+  A typographical point is approximately 1/72 of an inch; very nearly the
+  size of a pixel on the Mac screen.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  void TextSize(short size);
 
-/**
-\brief Space out text for left/right justification
+  /**
+  \brief Space out text for left/right justification
 
-<pre>SpaceExtra tells the Font Manager how much additional space to add when
-displaying the space character (ASCII 0x20). It can be useful in
-fully-justifying text.
-extraSpace is a 4-byte Fixed value, specifying the average number of pixels and
-fractional pixels to be added to each space character (ASCII 0x32).
-</pre>
-* \returns <pre>none
-</pre>
-* \note <pre>SpaceExtra modifies the spExtra field of the current GrafPort structure.
-The initial value of this field is 0.
-To justify a given text string to a specific line width:
-1Use StringWidth to get the unadjusted size of the string.
-2Subtract the returned value from the width between the margins; the
-difference is the amount of adjustment needed.
-3Count the number of spaces in the line.
-4Use FixRatio to find the ratio between the results of steps 2 and 3.
-5Call SpaceExtra , specifying the ratio returned from step 4.
-6Position the pen ( MoveTo ) and draw the text ( DrawString ).
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-void SpaceExtra(Fixed extra) ONEWORDINLINE(0xA88E);
+  <pre>SpaceExtra tells the Font Manager how much additional space to add when
+  displaying the space character (ASCII 0x20). It can be useful in
+  fully-justifying text.
+  extraSpace is a 4-byte Fixed value, specifying the average number of pixels and
+  fractional pixels to be added to each space character (ASCII 0x32).
+  </pre>
+  * \returns <pre>none
+  </pre>
+  * \note <pre>SpaceExtra modifies the spExtra field of the current GrafPort structure.
+  The initial value of this field is 0.
+  To justify a given text string to a specific line width:
+  1Use StringWidth to get the unadjusted size of the string.
+  2Subtract the returned value from the width between the margins; the
+  difference is the amount of adjustment needed.
+  3Count the number of spaces in the line.
+  4Use FixRatio to find the ratio between the results of steps 2 and 3.
+  5Call SpaceExtra , specifying the ratio returned from step 4.
+  6Position the pen ( MoveTo ) and draw the text ( DrawString ).
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  void SpaceExtra(Fixed extra);
 
-/**
- *  DrawChar()
- *
+  /**
+   *  DrawChar()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void DrawChar(CharParameter ch) ONEWORDINLINE(0xA883);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void DrawChar(CharParameter ch);
 
-/**
- *  DrawString()
- *
+  /**
+   *  DrawString()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void DrawString(ConstStr255Param s) ONEWORDINLINE(0xA884);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void DrawString(ConstStr255Param s);
 
 /**
  *  [Mac]DrawText()
@@ -631,8 +622,7 @@ void DrawString(ConstStr255Param s) ONEWORDINLINE(0xA884);
 #define MacDrawText DrawText
 #endif
   void
-  MacDrawText(const void *textBuf, short firstByte, short byteCount)
-      ONEWORDINLINE(0xA885);
+  MacDrawText(const void *textBuf, short firstByte, short byteCount);
 
   /**
    *  CharWidth()
@@ -643,7 +633,7 @@ void DrawString(ConstStr255Param s) ONEWORDINLINE(0xA884);
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  CharWidth(CharParameter ch) ONEWORDINLINE(0xA88D);
+  CharWidth(CharParameter ch);
 
   /**
    *  StringWidth()
@@ -654,7 +644,7 @@ void DrawString(ConstStr255Param s) ONEWORDINLINE(0xA884);
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  StringWidth(ConstStr255Param s) ONEWORDINLINE(0xA88C);
+  StringWidth(ConstStr255Param s);
 
   /**
    *  TextWidth()
@@ -665,8 +655,7 @@ void DrawString(ConstStr255Param s) ONEWORDINLINE(0xA884);
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  TextWidth(const void *textBuf, short firstByte, short byteCount)
-      ONEWORDINLINE(0xA886);
+  TextWidth(const void *textBuf, short firstByte, short byteCount);
 
   /**
    *  MeasureText()
@@ -677,8 +666,7 @@ void DrawString(ConstStr255Param s) ONEWORDINLINE(0xA884);
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  MeasureText(short count, const void *textAddr, void *charLocs)
-      ONEWORDINLINE(0xA837);
+  MeasureText(short count, const void *textAddr, void *charLocs);
 
   /**
    *  GetFontInfo()
@@ -689,7 +677,7 @@ void DrawString(ConstStr255Param s) ONEWORDINLINE(0xA884);
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  GetFontInfo(FontInfo *info) ONEWORDINLINE(0xA88B);
+  GetFontInfo(FontInfo *info);
 
   /**
   \brief Space to widen all text characters, excluding space band
@@ -711,7 +699,7 @@ conjunction with an old-style grafPort.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  CharExtra(Fixed extra) ONEWORDINLINE(0xAA23);
+  CharExtra(Fixed extra);
 
   /**
    *  StdText()
@@ -722,8 +710,7 @@ conjunction with an old-style grafPort.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  StdText(short count, const void *textAddr, Point numer, Point denom)
-      ONEWORDINLINE(0xA882);
+  StdText(short count, const void *textAddr, Point numer, Point denom);
 
   /**
    *  StdTxMeas()
@@ -735,7 +722,7 @@ conjunction with an old-style grafPort.
    */
   short
   StdTxMeas(short byteCount, const void *textAddr, Point *numer, Point *denom,
-            FontInfo *info) ONEWORDINLINE(0xA8ED);
+            FontInfo *info);
 
   /**
    *  StyledLineBreak()
@@ -747,8 +734,7 @@ conjunction with an old-style grafPort.
    */
   StyledLineBreakCode
   StyledLineBreak(Ptr textPtr, long textLen, long textStart, long textEnd,
-                  long flags, Fixed *textWidth, long *textOffset)
-      FOURWORDINLINE(0x2F3C, 0x821C, 0xFFFE, 0xA8B5);
+                  long flags, Fixed *textWidth, long *textOffset);
 
   /**
    *  TruncString()
@@ -759,8 +745,7 @@ conjunction with an old-style grafPort.
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  TruncString(short width, Str255 theString, TruncCode truncWhere)
-      FOURWORDINLINE(0x2F3C, 0x8208, 0xFFE0, 0xA8B5);
+  TruncString(short width, Str255 theString, TruncCode truncWhere);
 
   /**
    *  TruncText()
@@ -771,8 +756,7 @@ conjunction with an old-style grafPort.
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  TruncText(short width, Ptr textPtr, short *length, TruncCode truncWhere)
-      FOURWORDINLINE(0x2F3C, 0x820C, 0xFFDE, 0xA8B5);
+  TruncText(short width, Ptr textPtr, short *length, TruncCode truncWhere);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -848,6 +832,4 @@ conjunction with an old-style grafPort.
 }
 #endif
 
-#endif            /** __QUICKDRAWTEXT__ */
-* / endif         /** __QUICKDRAWTEXT__ */
-      */*/*/ * /*/*/
+#endif /** __QUICKDRAWTEXT__ */

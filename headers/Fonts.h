@@ -206,7 +206,7 @@ enum
 	 *    \mac_os_x         not available
 	 */
 	void
-	InitFonts(void) ONEWORDINLINE(0xA8FE);
+	InitFonts(void);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -219,7 +219,7 @@ enum
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	void
-	GetFontName(short familyID, Str255 name) ONEWORDINLINE(0xA8FF);
+	GetFontName(short familyID, Str255 name);
 
 	/**
 	 *  GetFNum()
@@ -230,7 +230,7 @@ enum
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	void
-	GetFNum(ConstStr255Param name, short *familyID) ONEWORDINLINE(0xA900);
+	GetFNum(ConstStr255Param name, short *familyID);
 
 	/**
 	 *  RealFont()
@@ -241,7 +241,7 @@ enum
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	Boolean
-	RealFont(short fontNum, short size) ONEWORDINLINE(0xA902);
+	RealFont(short fontNum, short size);
 
 #if CALL_NOT_IN_CARBON
 	/**
@@ -253,7 +253,7 @@ enum
 	 *    \mac_os_x         not available
 	 */
 	void
-	SetFontLock(Boolean lockFlag) ONEWORDINLINE(0xA903);
+	SetFontLock(Boolean lockFlag);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -266,7 +266,7 @@ enum
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	FMOutPtr
-	FMSwapFont(const FMInput *inRec) ONEWORDINLINE(0xA901);
+	FMSwapFont(const FMInput *inRec);
 
 	/**
 	 *  SetFScaleDisable()
@@ -277,7 +277,7 @@ enum
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	void
-	SetFScaleDisable(Boolean fscaleDisable) ONEWORDINLINE(0xA834);
+	SetFScaleDisable(Boolean fscaleDisable);
 
 	/**
 	 *  FontMetrics()
@@ -288,7 +288,7 @@ enum
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	void
-	FontMetrics(FMetricRecPtr theMetrics) ONEWORDINLINE(0xA835);
+	FontMetrics(FMetricRecPtr theMetrics);
 
 	/**
 	\brief Enable/disable use of fractional character widths
@@ -323,7 +323,7 @@ on the 128K ROMs or later (see Gestalt).
 *    \mac_os_x         in version 10.0 and later
 */
 	void
-	SetFractEnable(Boolean fractEnable) ONEWORDINLINE(0xA814);
+	SetFractEnable(Boolean fractEnable);
 
 	/**
 	\brief Retrieve the size of the current default font
@@ -339,7 +339,7 @@ on the 128K ROMs or later (see Gestalt).
 *    \mac_os_x         in version 10.0 and later
 */
 	short
-	GetDefFontSize(void) FIVEWORDINLINE(0x3EB8, 0x0BA8, 0x6604, 0x3EBC, 0x000C);
+	GetDefFontSize(void);
 
 	/**
 	 *  IsOutline()
@@ -350,7 +350,7 @@ on the 128K ROMs or later (see Gestalt).
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	Boolean
-	IsOutline(Point numer, Point denom) TWOWORDINLINE(0x7000, 0xA854);
+	IsOutline(Point numer, Point denom);
 
 	/**
 	\brief SetOutlinePreferred Make TrueType fonts preferred over bitmapped fonts
@@ -377,7 +377,7 @@ is set to TRUE, the bitmapped font is still chosen.
 *    \mac_os_x         in version 10.0 and later
 */
 	void
-	SetOutlinePreferred(Boolean outlinePreferred) TWOWORDINLINE(0x7001, 0xA854);
+	SetOutlinePreferred(Boolean outlinePreferred);
 
 	/**
 	\brief GetOutlinePreferred Determine if TrueType fonts are preferred
@@ -400,7 +400,7 @@ FALSE = bitmapped fonts preferred
 *    \mac_os_x         in version 10.0 and later
 */
 	Boolean
-	GetOutlinePreferred(void) TWOWORDINLINE(0x7009, 0xA854);
+	GetOutlinePreferred(void);
 
 	/**
 	 *  OutlineMetrics()
@@ -413,7 +413,7 @@ FALSE = bitmapped fonts preferred
 	OSErr
 	OutlineMetrics(short byteCount, const void *textPtr, Point numer, Point denom,
 				   short *yMax, short *yMin, FixedPtr awArray, FixedPtr lsbArray,
-				   RectPtr boundsArray) TWOWORDINLINE(0x7008, 0xA854);
+				   RectPtr boundsArray);
 
 	/**
 	\brief SetPreserveGlyph Set whether to preserve outline glyph shape
@@ -440,7 +440,7 @@ opens the application.
 *    \mac_os_x         in version 10.0 and later
 */
 	void
-	SetPreserveGlyph(Boolean preserveGlyph) TWOWORDINLINE(0x700A, 0xA854);
+	SetPreserveGlyph(Boolean preserveGlyph);
 
 	/**
 	\brief GetPreserveGlyph Find whether TrueType glyph shape is preserved or
@@ -459,7 +459,7 @@ FALSE = does not preserve TrueType glyph shape
 *    \mac_os_x         in version 10.0 and later
 */
 	Boolean
-	GetPreserveGlyph(void) TWOWORDINLINE(0x700B, 0xA854);
+	GetPreserveGlyph(void);
 
 #if CALL_NOT_IN_CARBON
 	/**
@@ -471,7 +471,7 @@ FALSE = does not preserve TrueType glyph shape
 	 *    \mac_os_x         not available
 	 */
 	OSErr
-	FlushFonts(void) TWOWORDINLINE(0x700C, 0xA854);
+	FlushFonts(void);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -514,7 +514,7 @@ FALSE = does not preserve TrueType glyph shape
 *    \mac_os_x         in version 10.0 and later
 */
 	short
-	GetSysFont(void) TWOWORDINLINE(0x3EB8, 0x0BA6);
+	GetSysFont(void);
 
 	/**
 	\brief Fetch the ID of the current application font
@@ -530,7 +530,7 @@ FALSE = does not preserve TrueType glyph shape
 *    \mac_os_x         in version 10.0 and later
 */
 	short
-	GetAppFont(void) TWOWORDINLINE(0x3EB8, 0x0984);
+	GetAppFont(void);
 
 	/**--------------------------------------------------------------------------------------*/
 	/**  Extended font data functions (available only with Mac OS 8.5 or later) */
@@ -544,8 +544,7 @@ FALSE = does not preserve TrueType glyph shape
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	OSStatus
-	SetAntiAliasedTextEnabled(Boolean iEnable, SInt16 iMinFontSize)
-		TWOWORDINLINE(0x7011, 0xA854);
+	SetAntiAliasedTextEnabled(Boolean iEnable, SInt16 iMinFontSize);
 
 	/**
 	 *  IsAntiAliasedTextEnabled()
@@ -556,7 +555,7 @@ FALSE = does not preserve TrueType glyph shape
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	Boolean
-	IsAntiAliasedTextEnabled(SInt16 *oMinFontSize) TWOWORDINLINE(0x7012, 0xA854);
+	IsAntiAliasedTextEnabled(SInt16 *oMinFontSize);
 
 	/**
 	 *  QDTextBounds()
@@ -567,8 +566,7 @@ FALSE = does not preserve TrueType glyph shape
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	void
-	QDTextBounds(short byteCount, const void *textAddr, Rect *bounds)
-		TWOWORDINLINE(0x7013, 0xA854);
+	QDTextBounds(short byteCount, const void *textAddr, Rect *bounds);
 
 	/**
 	 *  FetchFontInfo()
@@ -579,8 +577,7 @@ FALSE = does not preserve TrueType glyph shape
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	OSErr
-	FetchFontInfo(SInt16 fontID, SInt16 fontSize, SInt16 fontStyle, FontInfo *info)
-		TWOWORDINLINE(0x7014, 0xA854);
+	FetchFontInfo(SInt16 fontID, SInt16 fontSize, SInt16 fontStyle, FontInfo *info);
 
 	/**--------------------------------------------------------------------------------------*/
 	/**  Font access and data management functions (available only with Mac OS 9.0
@@ -1266,42 +1263,3 @@ FALSE = does not preserve TrueType glyph shape
 #endif
 
 #endif /** __FONTS__ */
-* / don,
-	athens = kFontIDAthens,
-	sanFran = kFontIDSanFrancisco,
-	toronto = kFontIDToronto,
-	cairo = kFontIDCairo,
-	losAngeles = kFontIDLosAngeles,
-	times = kFontIDTimes,
-	helvetica = kFontIDHelvetica,
-	courier = kFontIDCourier,
-	symbol = kFontIDSymbol,
-	mobile = kFontIDMobile
-}
-;
-
-#endif /** OLDROUTINENAMES */
-
-/**--------------------------------------------------------------------------------------*/
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /** __FONTS__ */
-* /*/*/ * /*/*/ * / __ * /
-	* /*/*/ * /*/*/ * /

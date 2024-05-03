@@ -70,13 +70,11 @@ extern "C"
    */
   ComponentResult
   DeviceControlDoAVCTransaction(ComponentInstance instance,
-                                DVCTransactionParams *params)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+                                DVCTransactionParams *params);
 
   // selectors for component calls   enum
   {
-    kDeviceControlDoAVCTransactionSelect = 0x0001
-  };
+      kDeviceControlDoAVCTransactionSelect = 0x0001};
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -96,4 +94,4 @@ extern "C"
 }
 #endif
 
-#endif // __DEVICECONTROL__ // __DEVICECONTROL__ 
+#endif // __DEVICECONTROL__ // __DEVICECONTROL__

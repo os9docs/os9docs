@@ -698,8 +698,7 @@ extern "C"
      */
     OSAError
     OSALoad(ComponentInstance scriptingComponent, const AEDesc *scriptData,
-            long modeFlags, OSAID *resultingScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0001, 0x7000, 0xA82A);
+            long modeFlags, OSAID *resultingScriptID);
 
     /**
             OSAComponentFunctionInline(kOSASelectLoad, 12);
@@ -726,8 +725,7 @@ extern "C"
      */
     OSAError
     OSAStore(ComponentInstance scriptingComponent, OSAID scriptID,
-             DescType desiredType, long modeFlags, AEDesc *resultingScriptData)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0002, 0x7000, 0xA82A);
+             DescType desiredType, long modeFlags, AEDesc *resultingScriptData);
 
     /**
             OSAComponentFunctionInline(kOSASelectStore, 16);
@@ -753,8 +751,7 @@ extern "C"
      */
     OSAError
     OSAExecute(ComponentInstance scriptingComponent, OSAID compiledScriptID,
-               OSAID contextID, long modeFlags, OSAID *resultingScriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0003, 0x7000, 0xA82A);
+               OSAID contextID, long modeFlags, OSAID *resultingScriptValueID);
 
     /**
             OSAComponentFunctionInline(kOSASelectExecute, 16);
@@ -792,8 +789,7 @@ extern "C"
      */
     OSAError
     OSADisplay(ComponentInstance scriptingComponent, OSAID scriptValueID,
-               DescType desiredType, long modeFlags, AEDesc *resultingText)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0004, 0x7000, 0xA82A);
+               DescType desiredType, long modeFlags, AEDesc *resultingText);
 
     /**
             OSAComponentFunctionInline(kOSASelectDisplay, 16);
@@ -827,8 +823,7 @@ extern "C"
      */
     OSAError
     OSAScriptError(ComponentInstance scriptingComponent, OSType selector,
-                   DescType desiredType, AEDesc *resultingErrorDescription)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0005, 0x7000, 0xA82A);
+                   DescType desiredType, AEDesc *resultingErrorDescription);
 
     /**
             OSAComponentFunctionInline(kOSASelectScriptError, 12);
@@ -983,8 +978,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSAError
-    OSADispose(ComponentInstance scriptingComponent, OSAID scriptID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0006, 0x7000, 0xA82A);
+    OSADispose(ComponentInstance scriptingComponent, OSAID scriptID);
 
     /**
             OSAComponentFunctionInline(kOSASelectDispose, 4);
@@ -1006,8 +1000,7 @@ extern "C"
      */
     OSAError
     OSASetScriptInfo(ComponentInstance scriptingComponent, OSAID scriptID,
-                     OSType selector, long value)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0007, 0x7000, 0xA82A);
+                     OSType selector, long value);
 
     /**
             OSAComponentFunctionInline(kOSASelectSetScriptInfo, 12);
@@ -1029,8 +1022,7 @@ extern "C"
      */
     OSAError
     OSAGetScriptInfo(ComponentInstance scriptingComponent, OSAID scriptID,
-                     OSType selector, long *result)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0008, 0x7000, 0xA82A);
+                     OSType selector, long *result);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetScriptInfo, 12);
@@ -1137,8 +1129,7 @@ extern "C"
      */
     OSAError
     OSASetActiveProc(ComponentInstance scriptingComponent, OSAActiveUPP activeProc,
-                     long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0009, 0x7000, 0xA82A);
+                     long refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectSetActiveProc, 8);
@@ -1158,8 +1149,7 @@ extern "C"
      */
     OSAError
     OSAGetActiveProc(ComponentInstance scriptingComponent, OSAActiveUPP *activeProc,
-                     long *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x000A, 0x7000, 0xA82A);
+                     long *refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetActiveProc, 8);
@@ -1184,8 +1174,7 @@ extern "C"
      */
     OSAError
     OSAScriptingComponentName(ComponentInstance scriptingComponent,
-                              AEDesc *resultingScriptingComponentName)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
+                              AEDesc *resultingScriptingComponentName);
 
     /**
             OSAComponentFunctionInline(kOSASelectScriptingComponentName, 4);
@@ -1209,8 +1198,7 @@ extern "C"
      */
     OSAError
     OSACompile(ComponentInstance scriptingComponent, const AEDesc *sourceData,
-               long modeFlags, OSAID *previousAndResultingScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0103, 0x7000, 0xA82A);
+               long modeFlags, OSAID *previousAndResultingScriptID);
 
     /**
             OSAComponentFunctionInline(kOSASelectCompile, 12);
@@ -1249,8 +1237,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSAError
-    OSACopyID(ComponentInstance scriptingComponent, OSAID fromID, OSAID *toID)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0104, 0x7000, 0xA82A);
+    OSACopyID(ComponentInstance scriptingComponent, OSAID fromID, OSAID *toID);
 
 /**
         OSAComponentFunctionInline(kOSASelectCopyID, 8);
@@ -1273,8 +1260,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSAError
-    OSACopyScript(ComponentInstance scriptingComponent, OSAID fromID, OSAID *toID)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0105, 0x7000, 0xA82A);
+    OSACopyScript(ComponentInstance scriptingComponent, OSAID fromID, OSAID *toID);
 
 /**
         OSAComponentFunctionInline(kOSASelectCopyScript, 8);
@@ -1304,8 +1290,7 @@ extern "C"
      */
     OSAError
     OSAGetSource(ComponentInstance scriptingComponent, OSAID scriptID,
-                 DescType desiredType, AEDesc *resultingSourceData)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0201, 0x7000, 0xA82A);
+                 DescType desiredType, AEDesc *resultingSourceData);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetSource, 12);
@@ -1335,8 +1320,7 @@ extern "C"
     OSAError
     OSACoerceFromDesc(ComponentInstance scriptingComponent,
                       const AEDesc *scriptData, long modeFlags,
-                      OSAID *resultingScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0301, 0x7000, 0xA82A);
+                      OSAID *resultingScriptID);
 
     /**
             OSAComponentFunctionInline(kOSASelectCoerceFromDesc, 12);
@@ -1369,8 +1353,7 @@ extern "C"
      */
     OSAError
     OSACoerceToDesc(ComponentInstance scriptingComponent, OSAID scriptID,
-                    DescType desiredType, long modeFlags, AEDesc *result)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0302, 0x7000, 0xA82A);
+                    DescType desiredType, long modeFlags, AEDesc *result);
 
     /**
             OSAComponentFunctionInline(kOSASelectCoerceToDesc, 16);
@@ -1403,8 +1386,7 @@ extern "C"
      */
     OSAError
     OSASetSendProc(ComponentInstance scriptingComponent, OSASendUPP sendProc,
-                   long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0401, 0x7000, 0xA82A);
+                   long refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectSetSendProc, 8);
@@ -1424,8 +1406,7 @@ extern "C"
      */
     OSAError
     OSAGetSendProc(ComponentInstance scriptingComponent, OSASendUPP *sendProc,
-                   long *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0402, 0x7000, 0xA82A);
+                   long *refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetSendProc, 8);
@@ -1444,8 +1425,7 @@ extern "C"
      */
     OSAError
     OSASetCreateProc(ComponentInstance scriptingComponent,
-                     OSACreateAppleEventUPP createProc, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0403, 0x7000, 0xA82A);
+                     OSACreateAppleEventUPP createProc, long refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectSetCreateProc, 8);
@@ -1465,8 +1445,7 @@ extern "C"
      */
     OSAError
     OSAGetCreateProc(ComponentInstance scriptingComponent,
-                     OSACreateAppleEventUPP *createProc, long *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0404, 0x7000, 0xA82A);
+                     OSACreateAppleEventUPP *createProc, long *refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetCreateProc, 8);
@@ -1485,8 +1464,7 @@ extern "C"
      */
     OSAError
     OSASetDefaultTarget(ComponentInstance scriptingComponent,
-                        const AEAddressDesc *target)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0405, 0x7000, 0xA82A);
+                        const AEAddressDesc *target);
 
     /**
             OSAComponentFunctionInline(kOSASelectSetDefaultTarget, 4);
@@ -1516,8 +1494,7 @@ extern "C"
      */
     OSAError
     OSAStartRecording(ComponentInstance scriptingComponent,
-                      OSAID *compiledScriptToModifyID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0501, 0x7000, 0xA82A);
+                      OSAID *compiledScriptToModifyID);
 
     /**
             OSAComponentFunctionInline(kOSASelectStartRecording, 4);
@@ -1542,8 +1519,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSAError
-    OSAStopRecording(ComponentInstance scriptingComponent, OSAID compiledScriptID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0502, 0x7000, 0xA82A);
+    OSAStopRecording(ComponentInstance scriptingComponent, OSAID compiledScriptID);
 
     /**
             OSAComponentFunctionInline(kOSASelectStopRecording, 4);
@@ -1571,8 +1547,7 @@ extern "C"
      */
     OSAError
     OSALoadExecute(ComponentInstance scriptingComponent, const AEDesc *scriptData,
-                   OSAID contextID, long modeFlags, OSAID *resultingScriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0601, 0x7000, 0xA82A);
+                   OSAID contextID, long modeFlags, OSAID *resultingScriptValueID);
 
     /**
             OSAComponentFunctionInline(kOSASelectLoadExecute, 16);
@@ -1609,8 +1584,7 @@ extern "C"
     OSAError
     OSACompileExecute(ComponentInstance scriptingComponent,
                       const AEDesc *sourceData, OSAID contextID, long modeFlags,
-                      OSAID *resultingScriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0602, 0x7000, 0xA82A);
+                      OSAID *resultingScriptValueID);
 
     /**
             OSAComponentFunctionInline(kOSASelectCompileExecute, 16);
@@ -1646,8 +1620,7 @@ extern "C"
     OSAError
     OSADoScript(ComponentInstance scriptingComponent, const AEDesc *sourceData,
                 OSAID contextID, DescType desiredType, long modeFlags,
-                AEDesc *resultingText)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0603, 0x7000, 0xA82A);
+                AEDesc *resultingText);
 
     /**
             OSAComponentFunctionInline(kOSASelectDoScript, 20);
@@ -1698,8 +1671,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSAError
-    OSASetCurrentDialect(ComponentInstance scriptingComponent, short dialectCode)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0701, 0x7000, 0xA82A);
+    OSASetCurrentDialect(ComponentInstance scriptingComponent, short dialectCode);
 
     /**
             OSAComponentFunctionInline(kOSASelectSetCurrentDialect, 2);
@@ -1719,8 +1691,7 @@ extern "C"
      */
     OSAError
     OSAGetCurrentDialect(ComponentInstance scriptingComponent,
-                         short *resultingDialectCode)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0702, 0x7000, 0xA82A);
+                         short *resultingDialectCode);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetCurrentDialect, 4);
@@ -1739,8 +1710,7 @@ extern "C"
      */
     OSAError
     OSAAvailableDialects(ComponentInstance scriptingComponent,
-                         AEDesc *resultingDialectInfoList)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0703, 0x7000, 0xA82A);
+                         AEDesc *resultingDialectInfoList);
 
     /**
             OSAComponentFunctionInline(kOSASelectAvailableDialects, 4);
@@ -1764,8 +1734,7 @@ extern "C"
      */
     OSAError
     OSAGetDialectInfo(ComponentInstance scriptingComponent, short dialectCode,
-                      OSType selector, AEDesc *resultingDialectInfo)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0704, 0x7000, 0xA82A);
+                      OSType selector, AEDesc *resultingDialectInfo);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetDialectInfo, 10);
@@ -1791,8 +1760,7 @@ extern "C"
      */
     OSAError
     OSAAvailableDialectCodeList(ComponentInstance scriptingComponent,
-                                AEDesc *resultingDialectCodeList)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0705, 0x7000, 0xA82A);
+                                AEDesc *resultingDialectCodeList);
 
     /**
             OSAComponentFunctionInline(kOSASelectAvailableDialectCodeList, 4);
@@ -1833,8 +1801,7 @@ extern "C"
      */
     OSAError
     OSASetResumeDispatchProc(ComponentInstance scriptingComponent,
-                             AEEventHandlerUPP resumeDispatchProc, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0801, 0x7000, 0xA82A);
+                             AEEventHandlerUPP resumeDispatchProc, long refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectSetResumeDispatchProc, 8);
@@ -1903,8 +1870,7 @@ extern "C"
      */
     OSAError
     OSAGetResumeDispatchProc(ComponentInstance scriptingComponent,
-                             AEEventHandlerUPP *resumeDispatchProc, long *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0802, 0x7000, 0xA82A);
+                             AEEventHandlerUPP *resumeDispatchProc, long *refCon);
 
     /**
             OSAComponentFunctionInline(kOSASelectGetResumeDispatchProc, 8);
@@ -1926,8 +1892,7 @@ extern "C"
     OSAError
     OSAExecuteEvent(ComponentInstance scriptingComponent,
                     const AppleEvent *theAppleEvent, OSAID contextID,
-                    long modeFlags, OSAID *resultingScriptValueID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0803, 0x7000, 0xA82A);
+                    long modeFlags, OSAID *resultingScriptValueID);
 
     /**
             OSAComponentFunctionInline(kOSASelectExecuteEvent, 16);
@@ -1966,8 +1931,7 @@ extern "C"
     OSAError
     OSADoEvent(ComponentInstance scriptingComponent,
                const AppleEvent *theAppleEvent, OSAID contextID, long modeFlags,
-               AppleEvent *reply)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0804, 0x7000, 0xA82A);
+               AppleEvent *reply);
 
     /**
             OSAComponentFunctionInline(kOSASelectDoEvent, 16);
@@ -2009,8 +1973,7 @@ extern "C"
      */
     OSAError
     OSAMakeContext(ComponentInstance scriptingComponent, const AEDesc *contextName,
-                   OSAID parentContext, OSAID *resultingContextID)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0805, 0x7000, 0xA82A);
+                   OSAID parentContext, OSAID *resultingContextID);
 
     /**
             OSAComponentFunctionInline(kOSASelectMakeContext, 12);
@@ -2107,8 +2070,7 @@ extern "C"
      */
     OSAError
     OSADebuggerCreateSession(ComponentInstance scriptingComponent, OSAID inScript,
-                             OSAID inContext, OSADebugSessionRef *outSession)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0901, 0x7000, 0xA82A);
+                             OSAID inContext, OSADebugSessionRef *outSession);
 
     /**
      *  OSADebuggerGetSessionState()
@@ -2120,8 +2082,7 @@ extern "C"
      */
     OSAError
     OSADebuggerGetSessionState(ComponentInstance scriptingComponent,
-                               OSADebugSessionRef inSession, AERecord *outState)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0902, 0x7000, 0xA82A);
+                               OSADebugSessionRef inSession, AERecord *outState);
 
     /**
      *  OSADebuggerSessionStep()
@@ -2133,8 +2094,7 @@ extern "C"
      */
     OSAError
     OSADebuggerSessionStep(ComponentInstance scriptingComponent,
-                           OSADebugSessionRef inSession, OSADebugStepKind inKind)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0903, 0x7000, 0xA82A);
+                           OSADebugSessionRef inSession, OSADebugStepKind inKind);
 
     /**
      *  OSADebuggerDisposeSession()
@@ -2146,8 +2106,7 @@ extern "C"
      */
     OSAError
     OSADebuggerDisposeSession(ComponentInstance scriptingComponent,
-                              OSADebugSessionRef inSession)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0904, 0x7000, 0xA82A);
+                              OSADebugSessionRef inSession);
 
     /**
      *  OSADebuggerGetStatementRanges()
@@ -2160,8 +2119,7 @@ extern "C"
     OSAError
     OSADebuggerGetStatementRanges(ComponentInstance scriptingComponent,
                                   OSADebugSessionRef inSession,
-                                  AEDescList *outStatementRangeArray)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0905, 0x7000, 0xA82A);
+                                  AEDescList *outStatementRangeArray);
 
     /** Returns an array of StatementRange objects.*/
     /**
@@ -2175,8 +2133,7 @@ extern "C"
     OSAError
     OSADebuggerGetBreakpoint(ComponentInstance scriptingComponent,
                              OSADebugSessionRef inSession, UInt32 inSrcOffset,
-                             OSAID *outBreakpoint)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0910, 0x7000, 0xA82A);
+                             OSAID *outBreakpoint);
 
     /**
      *  OSADebuggerSetBreakpoint()
@@ -2189,8 +2146,7 @@ extern "C"
     OSAError
     OSADebuggerSetBreakpoint(ComponentInstance scriptingComponent,
                              OSADebugSessionRef inSession, UInt32 inSrcOffset,
-                             OSAID inBreakpoint)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0911, 0x7000, 0xA82A);
+                             OSAID inBreakpoint);
 
     /**
      *  OSADebuggerGetDefaultBreakpoint()
@@ -2203,8 +2159,7 @@ extern "C"
     OSAError
     OSADebuggerGetDefaultBreakpoint(ComponentInstance scriptingComponent,
                                     OSADebugSessionRef inSession,
-                                    OSAID *outBreakpoint)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0912, 0x7000, 0xA82A);
+                                    OSAID *outBreakpoint);
 
     /**
      * Call Frames
@@ -2220,8 +2175,7 @@ extern "C"
     OSAError
     OSADebuggerGetCurrentCallFrame(ComponentInstance scriptingComponent,
                                    OSADebugSessionRef inSession,
-                                   OSADebugCallFrameRef *outCallFrame)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0906, 0x7000, 0xA82A);
+                                   OSADebugCallFrameRef *outCallFrame);
 
     /**
      *  OSADebuggerGetCallFrameState()
@@ -2234,8 +2188,7 @@ extern "C"
     OSAError
     OSADebuggerGetCallFrameState(ComponentInstance scriptingComponent,
                                  OSADebugCallFrameRef inCallFrame,
-                                 AERecord *outState)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0907, 0x7000, 0xA82A);
+                                 AERecord *outState);
 
     /**
      *  OSADebuggerGetVariable()
@@ -2248,8 +2201,7 @@ extern "C"
     OSAError
     OSADebuggerGetVariable(ComponentInstance scriptingComponent,
                            OSADebugCallFrameRef inCallFrame,
-                           const AEDesc *inVariableName, OSAID *outVariable)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0908, 0x7000, 0xA82A);
+                           const AEDesc *inVariableName, OSAID *outVariable);
 
     /**
      *  OSADebuggerSetVariable()
@@ -2262,8 +2214,7 @@ extern "C"
     OSAError
     OSADebuggerSetVariable(ComponentInstance scriptingComponent,
                            OSADebugCallFrameRef inCallFrame,
-                           const AEDesc *inVariableName, OSAID inVariable)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0909, 0x7000, 0xA82A);
+                           const AEDesc *inVariableName, OSAID inVariable);
 
     /**
      *  OSADebuggerGetPreviousCallFrame()
@@ -2276,8 +2227,7 @@ extern "C"
     OSAError
     OSADebuggerGetPreviousCallFrame(ComponentInstance scriptingComponent,
                                     OSADebugCallFrameRef inCurrentFrame,
-                                    OSADebugCallFrameRef *outPrevFrame)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x090A, 0x7000, 0xA82A);
+                                    OSADebugCallFrameRef *outPrevFrame);
 
     /**
      *  OSADebuggerDisposeCallFrame()
@@ -2289,8 +2239,7 @@ extern "C"
      */
     OSAError
     OSADebuggerDisposeCallFrame(ComponentInstance scriptingComponent,
-                                OSADebugCallFrameRef inCallFrame)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x090B, 0x7000, 0xA82A);
+                                OSADebugCallFrameRef inCallFrame);
 
     /**
      *  OSADebuggerCountVariables()
@@ -2304,8 +2253,7 @@ extern "C"
     OSADebuggerCountVariables(ComponentInstance scriptingComponent,
                               OSADebugSessionRef inSession,
                               OSADebugCallFrameRef inCallFrame,
-                              OSALocalOrGlobal inWhichSet, long *outVariableCount)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x090C, 0x7000, 0xA82A);
+                              OSALocalOrGlobal inWhichSet, long *outVariableCount);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

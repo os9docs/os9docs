@@ -108,7 +108,7 @@ gestaltMMUType
 #pragma parameter __D0 Gestalt(__D0, __A1)
 #endif
   OSErr
-  Gestalt(OSType selector, long *response) TWOWORDINLINE(0xA1AD, 0x2288);
+  Gestalt(OSType selector, long *response);
 
 /**
  *  ReplaceGestalt()
@@ -123,8 +123,7 @@ gestaltMMUType
 #endif
   OSErr
   ReplaceGestalt(OSType selector, SelectorFunctionUPP gestaltFunction,
-                 SelectorFunctionUPP *oldGestaltFunction)
-      FOURWORDINLINE(0x2F09, 0xA5AD, 0x225F, 0x2288);
+                 SelectorFunctionUPP *oldGestaltFunction);
 
 /**
  *  NewGestalt()
@@ -138,8 +137,7 @@ gestaltMMUType
 #pragma parameter __D0 NewGestalt(__D0, __A0)
 #endif
   OSErr
-  NewGestalt(OSType selector, SelectorFunctionUPP gestaltFunction)
-      ONEWORDINLINE(0xA3AD);
+  NewGestalt(OSType selector, SelectorFunctionUPP gestaltFunction);
 
   /**  The GestaltValue functions are available in System 7.5 and later*/
 
@@ -152,8 +150,7 @@ gestaltMMUType
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  NewGestaltValue(OSType selector, long newValue)
-      THREEWORDINLINE(0x303C, 0x0401, 0xABF1);
+  NewGestaltValue(OSType selector, long newValue);
 
   /**
    *  ReplaceGestaltValue()
@@ -164,8 +161,7 @@ gestaltMMUType
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  ReplaceGestaltValue(OSType selector, long replacementValue)
-      THREEWORDINLINE(0x303C, 0x0402, 0xABF1);
+  ReplaceGestaltValue(OSType selector, long replacementValue);
 
   /**
    *  SetGestaltValue()
@@ -176,8 +172,7 @@ gestaltMMUType
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetGestaltValue(OSType selector, long newValue)
-      THREEWORDINLINE(0x303C, 0x0404, 0xABF1);
+  SetGestaltValue(OSType selector, long newValue);
 
   /**
    *  DeleteGestaltValue()
@@ -188,7 +183,7 @@ gestaltMMUType
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DeleteGestaltValue(OSType selector) THREEWORDINLINE(0x303C, 0x0203, 0xABF1);
+  DeleteGestaltValue(OSType selector);
 
   /**
    *  NewSelectorFunctionUPP()
@@ -2576,21 +2571,6 @@ gestaltMMUType
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /** __GESTALT__ */
-* / MA_STRUCT_PACK
 #pragma pack()
 #endif
 

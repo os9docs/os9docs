@@ -96,18 +96,24 @@ extern "C"
     soCurrentA5 = FOUR_CHAR_CODE('myA5'),
     soRefCon = FOUR_CHAR_CODE('refc'),
     soTextDoneCallBack =
-        FOUR_CHAR_CODE('tdcb'),                  // use with SpeechTextDoneProcPtr    soSpeechDoneCallBack = FOUR_CHAR_CODE('sdcb'), // use with SpeechDoneProcPtr    soSyncCallBack = FOUR_CHAR_CODE('sycb'),       // use with SpeechSyncProcPtr    soErrorCallBack = FOUR_CHAR_CODE('ercb'),      // use with SpeechErrorProcPtr    soPhonemeCallBack = FOUR_CHAR_CODE('phcb'),    // use with SpeechPhonemeProcPtr    soWordCallBack = FOUR_CHAR_CODE('wdcb'),
-    soSynthExtension = FOUR_CHAR_CODE('xtnd'),   // use with SpeechTextDoneProcPtr
-    soSoundOutput = FOUR_CHAR_CODE('sndo')       // use with SpeechDoneProcPtr
-  };                                             // use with SpeechSyncProcPtr
-                                                 // use with SpeechErrorProcPtr
-  /*------------------------------------------*/ // use with SpeechPhonemeProcPtr
+        FOUR_CHAR_CODE('tdcb'),                                         /** with */
+    SpeechTextDoneProcPtr soSpeechDoneCallBack = FOUR_CHAR_CODE('sdcb') /** with */
+    SpeechDoneProcPtr soSyncCallBack = FOUR_CHAR_CODE('sycb')           /** with */
+    SpeechSyncProcPtr soErrorCallBack = FOUR_CHAR_CODE('ercb')          /** with */
+    SpeechErrorProcPtr soPhonemeCallBack = FOUR_CHAR_CODE('phcb')       /** with */
+    SpeechPhonemeProcPtr soWordCallBack = FOUR_CHAR_CODE('wdcb')
+        soSynthExtension = FOUR_CHAR_CODE('xtnd'), // use with SpeechTextDoneProcPtr
+    soSoundOutput = FOUR_CHAR_CODE('sndo')         // use with SpeechDoneProcPtr
+  };                                               // use with SpeechSyncProcPtr
+                                                   // use with SpeechErrorProcPtr
+  /*------------------------------------------*/   // use with SpeechPhonemeProcPtr
   // Speaking Mode Constants                    // ------------------------------------------
   enum
   {
-    modeText = FOUR_CHAR_CODE('TEXT'), // input mode constants                 modePhonemes = FOUR_CHAR_CODE('PHON'),
-    modeNormal =
-        FOUR_CHAR_CODE('NORM'), // character mode and number mode constants     modeLiteral = FOUR_CHAR_CODE('LTRL')
+    modeText = FOUR_CHAR_CODE('TEXT'), /** mode */
+    constants modePhonemes = FOUR_CHAR_CODE('PHON')
+        modeNormal =
+            FOUR_CHAR_CODE('NORM'), // character mode and number mode constants     modeLiteral = FOUR_CHAR_CODE('LTRL')
     // Speaking Mode Constants
 
     enum {
@@ -402,14 +408,12 @@ extern "C"
 #endif
 #endif
 
-  /**/ / pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes, 2_bytes) * DisposeSpeechTextDoneUPP() *
-
-          *    \non_carbon_cfm available as macro / inline *    \carbon_lib in CarbonLib 1.0.2 and
-      later
-          *    \mac_os_x in version 10.0 and
-      later
-              * /
-          void DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP);
+  /**
+   * DisposeSpeechTextDoneUPP()
+   * \non_carbon_cfm available as macro / inline
+   * \carbon_lib in CarbonLib 1.0.2 and later
+   * \mac_os_x in version 10.0 and later */
+  void DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline void DisposeSpeechTextDoneUPP(SpeechTextDoneUPP userUPP)
@@ -717,7 +721,7 @@ extern "C"
        *    \mac_os_x         in version 10.0 and later
        */
       NumVersion
-      SpeechManagerVersion(void) FOURWORDINLINE(0x203C, 0x0000, 0x000C, 0xA800);
+      SpeechManagerVersion(void);
 
   /**
    *  MakeVoiceSpec()
@@ -728,8 +732,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  MakeVoiceSpec(OSType creator, OSType id, VoiceSpec *voice)
-      FOURWORDINLINE(0x203C, 0x0604, 0x000C, 0xA800);
+  MakeVoiceSpec(OSType creator, OSType id, VoiceSpec *voice);
 
   /**
    *  CountVoices()
@@ -740,7 +743,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  CountVoices(short *numVoices) FOURWORDINLINE(0x203C, 0x0108, 0x000C, 0xA800);
+  CountVoices(short *numVoices);
 
   /**
    *  GetIndVoice()
@@ -751,8 +754,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetIndVoice(short index, VoiceSpec *voice)
-      FOURWORDINLINE(0x203C, 0x030C, 0x000C, 0xA800);
+  GetIndVoice(short index, VoiceSpec *voice);
 
   /**
    *  GetVoiceDescription()
@@ -764,8 +766,7 @@ extern "C"
    */
   OSErr
   GetVoiceDescription(const VoiceSpec *voice, VoiceDescription *info,
-                      long infoLength)
-      FOURWORDINLINE(0x203C, 0x0610, 0x000C, 0xA800);
+                      long infoLength);
 
   /**
    *  GetVoiceInfo()
@@ -776,8 +777,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetVoiceInfo(const VoiceSpec *voice, OSType selector, void *voiceInfo)
-      FOURWORDINLINE(0x203C, 0x0614, 0x000C, 0xA800);
+  GetVoiceInfo(const VoiceSpec *voice, OSType selector, void *voiceInfo);
 
   /**
    *  NewSpeechChannel()
@@ -789,7 +789,7 @@ extern "C"
    */
   OSErr
   NewSpeechChannel(VoiceSpec *voice, // can be NULL                    SpeechChannel *chan)
-      FOURWORDINLINE(0x203C, 0x0418, 0x000C, 0xA800);
+ ;
 
   /**
    *  DisposeSpeechChannel()
@@ -801,7 +801,7 @@ extern "C"
    */
   OSErr
   DisposeSpeechChannel(SpeechChannel chan)
-      FOURWORDINLINE(0x203C, 0x021C, 0x000C, 0xA800);
+ ;
 
   /**
    *  SpeakString()// can be NULL 
@@ -813,7 +813,7 @@ extern "C"
    */
   OSErr
   SpeakString(ConstStr255Param textToBeSpoken)
-      FOURWORDINLINE(0x203C, 0x0220, 0x000C, 0xA800);
+ ;
 
   /**
    *  SpeakText()
@@ -825,7 +825,7 @@ extern "C"
    */
   OSErr
   SpeakText(SpeechChannel chan, const void *textBuf, unsigned long textBytes)
-      FOURWORDINLINE(0x203C, 0x0624, 0x000C, 0xA800);
+ ;
 
   /**
    *  SpeakBuffer()
@@ -837,7 +837,7 @@ extern "C"
    */
   OSErr
   SpeakBuffer(SpeechChannel chan, const void *textBuf, unsigned long textBytes,
-              long controlFlags) FOURWORDINLINE(0x203C, 0x0828, 0x000C, 0xA800);
+              long controlFlags);
 
   /**
    *  StopSpeech()
@@ -848,7 +848,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  StopSpeech(SpeechChannel chan) FOURWORDINLINE(0x203C, 0x022C, 0x000C, 0xA800);
+  StopSpeech(SpeechChannel chan);
 
   /**
    *  StopSpeechAt()
@@ -860,7 +860,7 @@ extern "C"
    */
   OSErr
   StopSpeechAt(SpeechChannel chan, long whereToStop)
-      FOURWORDINLINE(0x203C, 0x0430, 0x000C, 0xA800);
+ ;
 
   /**
    *  PauseSpeechAt()
@@ -872,7 +872,7 @@ extern "C"
    */
   OSErr
   PauseSpeechAt(SpeechChannel chan, long whereToPause)
-      FOURWORDINLINE(0x203C, 0x0434, 0x000C, 0xA800);
+ ;
 
   /**
    *  ContinueSpeech()
@@ -884,7 +884,7 @@ extern "C"
    */
   OSErr
   ContinueSpeech(SpeechChannel chan)
-      FOURWORDINLINE(0x203C, 0x0238, 0x000C, 0xA800);
+ ;
 
   /**
    *  SpeechBusy()
@@ -895,7 +895,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  SpeechBusy(void) FOURWORDINLINE(0x203C, 0x003C, 0x000C, 0xA800);
+  SpeechBusy(void);
 
   /**
    *  SpeechBusySystemWide()
@@ -906,7 +906,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  SpeechBusySystemWide(void) FOURWORDINLINE(0x203C, 0x0040, 0x000C, 0xA800);
+  SpeechBusySystemWide(void);
 
   /**
    *  SetSpeechRate()
@@ -918,7 +918,7 @@ extern "C"
    */
   OSErr
   SetSpeechRate(SpeechChannel chan, Fixed rate)
-      FOURWORDINLINE(0x203C, 0x0444, 0x000C, 0xA800);
+ ;
 
   /**
    *  GetSpeechRate()
@@ -930,7 +930,7 @@ extern "C"
    */
   OSErr
   GetSpeechRate(SpeechChannel chan, Fixed *rate)
-      FOURWORDINLINE(0x203C, 0x0448, 0x000C, 0xA800);
+ ;
 
   /**
    *  SetSpeechPitch()
@@ -942,7 +942,7 @@ extern "C"
    */
   OSErr
   SetSpeechPitch(SpeechChannel chan, Fixed pitch)
-      FOURWORDINLINE(0x203C, 0x044C, 0x000C, 0xA800);
+ ;
 
   /**
    *  GetSpeechPitch()
@@ -954,7 +954,7 @@ extern "C"
    */
   OSErr
   GetSpeechPitch(SpeechChannel chan, Fixed *pitch)
-      FOURWORDINLINE(0x203C, 0x0450, 0x000C, 0xA800);
+ ;
 
   /**
    *  SetSpeechInfo()
@@ -966,7 +966,7 @@ extern "C"
    */
   OSErr
   SetSpeechInfo(SpeechChannel chan, OSType selector, const void *speechInfo)
-      FOURWORDINLINE(0x203C, 0x0654, 0x000C, 0xA800);
+ ;
 
   /**
    *  GetSpeechInfo()
@@ -978,7 +978,7 @@ extern "C"
    */
   OSErr
   GetSpeechInfo(SpeechChannel chan, OSType selector, void *speechInfo)
-      FOURWORDINLINE(0x203C, 0x0658, 0x000C, 0xA800);
+ ;
 
   /**
    *  TextToPhonemes()
@@ -991,7 +991,7 @@ extern "C"
   OSErr
   TextToPhonemes(SpeechChannel chan, const void *textBuf, unsigned long textBytes,
                  Handle phonemeBuf, long *phonemeBytes)
-      FOURWORDINLINE(0x203C, 0x0A5C, 0x000C, 0xA800);
+ ;
 
   /**
    *  UseDictionary()
@@ -1003,7 +1003,7 @@ extern "C"
    */
   OSErr
   UseDictionary(SpeechChannel chan, Handle dictionary)
-      FOURWORDINLINE(0x203C, 0x0460, 0x000C, 0xA800);
+ ;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

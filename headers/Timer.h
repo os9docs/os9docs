@@ -138,7 +138,7 @@ The latter requirement is important. At interrupt time, you cannot depend
 #pragma parameter InsTime(__A0)
 #endif
 	void
-	InsTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA058);
+	InsTime(QElemPtr tmTaskPtr);
 
 	/**
 	\brief Install extended Time Manager  task
@@ -169,7 +169,7 @@ parameter has elapsed.
 #pragma parameter InsXTime(__A0)
 #endif
 	void
-	InsXTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA458);
+	InsXTime(QElemPtr tmTaskPtr);
 
 	/**
 	\brief Set interval for timer and start it ticking
@@ -221,7 +221,7 @@ See InsTime for an example of usage.
 #pragma parameter PrimeTime(__A0, __D0)
 #endif
 	void
-	PrimeTime(QElemPtr tmTaskPtr, long count) ONEWORDINLINE(0xA05A);
+	PrimeTime(QElemPtr tmTaskPtr, long count);
 
 	/**
 	\brief Remove task from Time Manager queue
@@ -257,38 +257,38 @@ call to InsTime .
 #pragma parameter RmvTime(__A0)
 #endif
 	void
-	RmvTime(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
+	RmvTime(QElemPtr tmTaskPtr);
 
-// InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work // just like InsTime, InsXTime, PrimeTime, and RmvTime except that they // return an OSErr result. /**
-// InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work 
-// just like InsTime, InsXTime, PrimeTime, and RmvTime except that they 
-// return an OSErr result. 
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
+	/**
+	 * \non_carbon_cfm in InterfaceLib 9.1 and later
+	 * \carbon_lib in CarbonLib 1.0.2 and later
+	 * \mac_os_x in version 10.0 and later
+	 * \note InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work just like InsTime, InsXTime, PrimeTime, and RmvTime except that they return an OSErr result.
+	 */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InstallTimeTask(__A0)
 #endif
-	OSErr
-	InstallTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA058);
+	OSErr InstallTimeTask(QElemPtr tmTaskPtr);
 
-/**
- *  InstallXTimeTask()
- *
+	/**
+	 *  InstallXTimeTask()
+	 *
+	 * \note InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work just like InsTime, InsXTime, PrimeTime, and RmvTime except that they return an OSErr result.
 
- *    \non_carbon_cfm   in InterfaceLib 9.1 and later
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
+	 *    \non_carbon_cfm   in InterfaceLib 9.1 and later
+	 *    \carbon_lib        in CarbonLib 1.0.2 and later
+	 *    \mac_os_x         in version 10.0 and later
+	 */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 InstallXTimeTask(__A0)
 #endif
 	OSErr
-	InstallXTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA458);
+	InstallXTimeTask(QElemPtr tmTaskPtr);
 
 /**
  *  PrimeTimeTask()
+ * \note InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work just like InsTime, InsXTime, PrimeTime, and RmvTime except that they return an OSErr result.
+
  *
 
  *    \non_carbon_cfm   in InterfaceLib 9.1 and later
@@ -299,10 +299,11 @@ call to InsTime .
 #pragma parameter __D0 PrimeTimeTask(__A0, __D0)
 #endif
 	OSErr
-	PrimeTimeTask(QElemPtr tmTaskPtr, long count) ONEWORDINLINE(0xA05A);
+	PrimeTimeTask(QElemPtr tmTaskPtr, long count);
 
 /**
  *  RemoveTimeTask()
+ * \note InstallTimeTask, InstallXTimeTask, PrimeTimeTask and RemoveTimeTask work just like InsTime, InsXTime, PrimeTime, and RmvTime except that they return an OSErr result.
  *
 
  *    \non_carbon_cfm   in InterfaceLib 9.1 and later
@@ -313,7 +314,7 @@ call to InsTime .
 #pragma parameter __D0 RemoveTimeTask(__A0)
 #endif
 	OSErr
-	RemoveTimeTask(QElemPtr tmTaskPtr) ONEWORDINLINE(0xA059);
+	RemoveTimeTask(QElemPtr tmTaskPtr);
 
 	/**
 	 *  Microseconds()
@@ -324,8 +325,7 @@ call to InsTime .
 	 *    \mac_os_x         in version 10.0 and later
 	 */
 	void
-	Microseconds(UnsignedWide *microTickCount)
-		FOURWORDINLINE(0xA193, 0x225F, 0x22C8, 0x2280);
+	Microseconds(UnsignedWide *microTickCount);
 
 	/**
 	 *  NewTimerUPP()
@@ -345,7 +345,7 @@ call to InsTime .
 	inline TimerUPP NewTimerUPP(TimerProcPtr userRoutine)
 	{
 		return (TimerUPP)NewRoutineDescriptor(
-			(// register no_return_value Func(4_bytes:A1) 
+			(// register no_return_value Func(4_bytes:A1)
 	}
 #else
 #define NewTimerUPP(userRoutine)                                              \
@@ -387,7 +387,7 @@ call to InsTime .
 #pragma parameter InvokeTimerUPP(__A1, __A0)
 #endif
 	void
-	InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP) ONEWORDINLINE(0x4E90);
+	InvokeTimerUPP(TMTaskPtr tmTaskPtr, TimerUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
 	(!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -405,13 +405,13 @@ call to InsTime .
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewTimerProc(userRoutine) NewTimerUPP(userRoutine)
 #define CallTimerProc(userRoutine, tmTaskPtr) \
 	InvokeTimerUPP(tmTaskPtr, userRoutine)
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
-#pragma// CALL_NOT_IN_CARBON 
+#pragma // CALL_NOT_IN_CARBON
 #endif
 
 #ifdef PRAGMA_IMPORT_OFF
@@ -424,4 +424,4 @@ call to InsTime .
 }
 #endif
 
-#endif // __TIMER__ * /*/*/ * /// __TIMER__ 
+#endif // __TIMER__ *  /// __TIMER__

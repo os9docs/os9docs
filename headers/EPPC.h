@@ -66,8 +66,8 @@ extern "C"
 
   enum
   {
-    // postOptions currently supported     receiverIDMask = 0x0000F000,
-    receiverIDisPSN = 0x00008000,
+    /** currently */
+    supported receiverIDMask = 0x0000F000 receiverIDisPSN = 0x00008000,
     receiverIDisSignature = 0x00007000,
     receiverIDisSessionID = 0x00006000,
     receiverIDisTargetID = 0x00005000,
@@ -79,8 +79,9 @@ extern "C"
 
   enum
   {
-    // constant for return receipts     HighLevelEventMsgClass = FOUR_CHAR_CODE('jaym'),
-    rtrnReceiptMsgID = FOUR_CHAR_CODE('rtrn')
+    /** for */
+    return receipts HighLevelEventMsgClass = FOUR_CHAR_CODE('jaym')
+               rtrnReceiptMsgID = FOUR_CHAR_CODE('rtrn')
   };
 
   enum
@@ -235,8 +236,7 @@ extern "C"
   OSErr
   PostHighLevelEvent(const EventRecord *theEvent, void *receiverID,
                      unsigned long msgRefcon, void *msgBuff, unsigned long msgLen,
-                     unsigned long postingOptions)
-      THREEWORDINLINE(0x3F3C, 0x0034, 0xA88F);
+                     unsigned long postingOptions);
 
 #endif // CALL_NOT_IN_CARBON
 #endif // CALL_NOT_IN_CARBON
@@ -252,8 +252,7 @@ extern "C"
    */
   OSErr
   AcceptHighLevelEvent(TargetID *sender, unsigned long *msgRefcon, void *msgBuff,
-                       unsigned long *msgLen)
-      THREEWORDINLINE(0x3F3C, 0x0033, 0xA88F);
+                       unsigned long *msgLen);
 
 #endif // CALL_NOT_IN_CARBON
 #endif // CALL_NOT_IN_CARBON
@@ -270,8 +269,7 @@ extern "C"
 */
   OSErr
   GetProcessSerialNumberFromPortName(const PPCPortRec *portName,
-                                     ProcessSerialNumber *pPSN)
-      THREEWORDINLINE(0x3F3C, 0x0035, 0xA88F);
+                                     ProcessSerialNumber *pPSN);
 
 #endif // CALL_NOT_IN_CARBON
 #endif // CALL_NOT_IN_CARBON
@@ -288,8 +286,7 @@ extern "C"
 */
   OSErr
   GetPortNameFromProcessSerialNumber(PPCPortRec *portName,
-                                     const ProcessSerialNumber *pPSN)
-      THREEWORDINLINE(0x3F3C, 0x0046, 0xA88F);
+                                     const ProcessSerialNumber *pPSN);
 
 #endif // CALL_NOT_IN_CARBON
 #endif // CALL_NOT_IN_CARBON
@@ -305,7 +302,7 @@ extern "C"
    */
   Boolean
   GetSpecificHighLevelEvent(GetSpecificFilterUPP aFilter, void *contextPtr,
-                            OSErr *err) THREEWORDINLINE(0x3F3C, 0x0045, 0xA88F);
+                            OSErr *err);
 
 #endif // CALL_NOT_IN_CARBON
 #endif // CALL_NOT_IN_CARBON
@@ -326,22 +323,3 @@ extern "C"
 #ifdef __cplusplus
 }
 #endif
-
-#endif // __EPPC__ * / align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // __EPPC__ * /

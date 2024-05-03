@@ -1188,10 +1188,13 @@ extern "C"
 #endif // !defined(MPIncludeDefunctServices)
 #if MPIncludeDefunctServices
 #if CALL_NOT_IN_CARBON
-   /**/ / !defined(MPIncludeDefunctServices) * _MPDebugStr() *
-           *Availability : *    \non_carbon_cfm in MPLibraryObsolete 1.0 and
-       later *    \carbon_lib not available *    \mac_os_x not available * /
-           void _MPDebugStr(ConstStr255Param msg);
+   /**
+    * _MPDebugStr()
+    * Availability:
+    * \non_carbon_cfm in MPLibraryObsolete 1.0 and later
+    * \carbon_lib not available
+    * \mac_os_x not available */
+   void _MPDebugStr(ConstStr255Param msg);
 
    /**
     *  _MPStatusPString()

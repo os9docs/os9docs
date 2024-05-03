@@ -502,7 +502,7 @@ extern "C"
   OSErr
   AVLInit(UInt32 flags, AVLCompareItemsUPP compareItemsProc,
           AVLItemSizeUPP sizeItemProc, AVLDisposeItemUPP disposeItemProc,
-          void *refCon, AVLTreePtr *tree) THREEWORDINLINE(0x303C, 0x0C01, 0xAA80);
+          void *refCon, AVLTreePtr *tree);
 
   /**
       Dispose of an AVL tree.  This will dispose of each item in the tree in the
@@ -518,8 +518,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLDispose(AVLTreePtr *tree, AVLOrder order)
-      THREEWORDINLINE(0x303C, 0x0302, 0xAA80);
+  AVLDispose(AVLTreePtr *tree, AVLOrder order);
 
   /**
       Iterate across all of the items in the tree, in the order specified.
@@ -555,8 +554,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLWalk(AVLTreePtr tree, AVLWalkUPP walkProc, AVLOrder order, void *walkRefCon)
-      THREEWORDINLINE(0x303C, 0x0703, 0xAA80);
+  AVLWalk(AVLTreePtr tree, AVLWalkUPP walkProc, AVLOrder order, void *walkRefCon);
 
   /**  Return  the number of items in the given tree.*/
   /**
@@ -568,8 +566,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLCount(AVLTreePtr tree, UInt32 *count)
-      THREEWORDINLINE(0x303C, 0x0804, 0xAA80);
+  AVLCount(AVLTreePtr tree, UInt32 *count);
 
   /**
       Return the one-based index-th item from the tree by putting it's data at
@@ -587,8 +584,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLGetIndItem(AVLTreePtr tree, UInt32 index, void *dataPtr, UInt32 *itemSize)
-      THREEWORDINLINE(0x303C, 0x0805, 0xAA80);
+  AVLGetIndItem(AVLTreePtr tree, UInt32 index, void *dataPtr, UInt32 *itemSize);
 
   /**
       Insert the given item into the tree.  This will call the tree's sizeItemProc
@@ -607,8 +603,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLInsert(AVLTreePtr tree, const void *data)
-      THREEWORDINLINE(0x303C, 0x0406, 0xAA80);
+  AVLInsert(AVLTreePtr tree, const void *data);
 
   /**
       Remove any item from the tree with the given key.  If dataPtr != nil, then
@@ -628,8 +623,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLRemove(AVLTreePtr tree, const void *key, void *dataPtr, UInt32 *itemSize)
-      THREEWORDINLINE(0x303C, 0x0807, 0xAA80);
+  AVLRemove(AVLTreePtr tree, const void *key, void *dataPtr, UInt32 *itemSize);
 
   /**
       Find the item in the tree with the given key, and return it's data in
@@ -648,8 +642,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLFind(AVLTreePtr tree, const void *key, void *dataPtr, UInt32 *itemSize)
-      THREEWORDINLINE(0x303C, 0x0808, 0xAA80);
+  AVLFind(AVLTreePtr tree, const void *key, void *dataPtr, UInt32 *itemSize);
 
   /**
       Get the refCon for the given tree ( set in AVLInit ) and return it.
@@ -664,8 +657,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AVLGetRefcon(AVLTreePtr tree, void **refCon)
-      THREEWORDINLINE(0x303C, 0x0409, 0xAA80);
+  AVLGetRefcon(AVLTreePtr tree, void **refCon);
 
 /**
     Get the refCon for the given tree ( set in AVLInit ) and return it.
@@ -681,7 +673,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  AVLLockTree(AVLTreePtr tree) THREEWORDINLINE(0x303C, 0x020A, 0xAA80);
+  AVLLockTree(AVLTreePtr tree);
 
   /**
       Get the refCon for the given tree ( set in AVLInit ) and return it.
@@ -696,7 +688,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  AVLUnlockTree(AVLTreePtr tree) THREEWORDINLINE(0x303C, 0x020B, 0xAA80);
+  AVLUnlockTree(AVLTreePtr tree);
 
   /**
       Get the refCon for the given tree ( set in AVLInit ) and return it.
@@ -711,7 +703,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  AVLCheckTree(AVLTreePtr tree) THREEWORDINLINE(0x303C, 0x020C, 0xAA80);
+  AVLCheckTree(AVLTreePtr tree);
 
 #endif /** CALL_NOT_IN_CARBON */
 

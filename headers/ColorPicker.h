@@ -130,7 +130,7 @@ extern "C"
   // Unsigned fraction between 0 and 1
   models, HLS is reordered into HSL.Thus both models start with
               hue and saturation values;
-  value / lightness / brightness is last.* /
+  value / lightness / brightness is last.*/
 
       /**
       <pre>
@@ -253,7 +253,8 @@ extern "C"
   };
   typedef struct NColorPickerInfo NColorPickerInfo;
 
-  //  Below are the color conversion routines.  /**
+  //  Below are the color conversion routines.  
+ /**
    *  Fix2SmallFract()
    *
 
@@ -262,7 +263,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   SmallFract
-  Fix2SmallFract(Fixed f) THREEWORDINLINE(0x3F3C, 0x0001, 0xA82E);
+  Fix2SmallFract(Fixed f);
 
   /**
    *  SmallFract2Fix()
@@ -273,7 +274,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   Fixed
-  SmallFract2Fix(SmallFract s) THREEWORDINLINE(0x3F3C, 0x0002, 0xA82E);
+  SmallFract2Fix(SmallFract s);
 
   /**
    *  CMY2RGB()
@@ -285,7 +286,7 @@ extern "C"
    */
   void
   CMY2RGB(const CMYColor *cColor, RGBColor *rColor)
-      THREEWORDINLINE(0x3F3C, 0x0003, 0xA82E);
+ ;
 
   /**
    *  RGB2CMY()
@@ -297,7 +298,7 @@ extern "C"
    */
   void
   RGB2CMY(const RGBColor *rColor, CMYColor *cColor)
-      THREEWORDINLINE(0x3F3C, 0x0004, 0xA82E);
+ ;
 
   /**
    *  HSL2RGB()
@@ -309,7 +310,7 @@ extern "C"
    */
   void
   HSL2RGB(const HSLColor *hColor, RGBColor *rColor)
-      THREEWORDINLINE(0x3F3C, 0x0005, 0xA82E);
+ ;
 
   /**
    *  RGB2HSL()
@@ -321,7 +322,7 @@ extern "C"
    */
   void
   RGB2HSL(const RGBColor *rColor, HSLColor *hColor)
-      THREEWORDINLINE(0x3F3C, 0x0006, 0xA82E);
+ ;
 
   /**
    *  HSV2RGB()
@@ -333,7 +334,7 @@ extern "C"
    */
   void
   HSV2RGB(const HSVColor *hColor, RGBColor *rColor)
-      THREEWORDINLINE(0x3F3C, 0x0007, 0xA82E);
+ ;
 
   /**
    *  RGB2HSV()
@@ -345,9 +346,10 @@ extern "C"
    */
   void
   RGB2HSV(const RGBColor *rColor, HSVColor *hColor)
-      THREEWORDINLINE(0x3F3C, 0x0008, 0xA82E);
+ ;
 
-  //  GetColor() works with or without the Color Picker extension.  /**
+  //  GetColor() works with or without the Color Picker extension.  
+ /**
    *  GetColor()
    *
 
@@ -357,9 +359,10 @@ extern "C"
    */
   Boolean
   GetColor(Point where, ConstStr255Param prompt, const RGBColor *inColor,
-           RGBColor *outColor) THREEWORDINLINE(0x3F3C, 0x0009, 0xA82E);
+           RGBColor *outColor);
 
-  //  PickColor() requires the Color Picker extension (version 2.0 or greater).  /**
+  //  PickColor() requires the Color Picker extension (version 2.0 or greater).  
+ /**
    *  PickColor()
    *
 
@@ -369,9 +372,10 @@ extern "C"
   //  PickColor() requires the Color Picker extension (version 2.0 or greater).
   OSErr
   PickColor(ColorPickerInfo *theColorInfo)
-      THREEWORDINLINE(0x3F3C, 0x0213, 0xA82E);
+ ;
 
-  //  NPickColor() requires the Color Picker extension (version 2.1 or greater).  /**
+  //  NPickColor() requires the Color Picker extension (version 2.1 or greater).  
+ /**
    *  NPickColor()
    *
 
@@ -381,9 +385,10 @@ extern "C"
    */
   //  NPickColor() requires the Color Picker extension (version 2.1 or greater).
   NPickColor(NColorPickerInfo *theColorInfo)
-      THREEWORDINLINE(0x3F3C, 0x0227, 0xA82E);
+ ;
 
-  // A suite of mid-level API calls have been deprecated.  Likely you never...    // used them anyway.  They were removed from this file and should not be...   // used in the future as they are not gauranteed to be supported.   /**
+  // A suite of mid-level API calls have been deprecated.  Likely you never...    // used them anyway.  They were removed from this file and should not be...   // used in the future as they are not gauranteed to be supported.   
+ /**
    *  NewColorChangedUPP()
    *
 
@@ -468,8 +473,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   * // pascal 1_byte Func(4_bytes) 
+  /**/ pascal 1_byte Func(4_bytes) 
    *
 
    *    \non_carbon_cfm   available as macro/inline

@@ -55,58 +55,75 @@ extern "C"
   enum
   {
     /**** LOGICAL OPERATOR CONSTANTS  ****/
-    kAEAND = FOUR_CHAR_CODE('AND '),               //  0x414e4420      kAEOR = FOUR_CHAR_CODE('OR  '),                //  0x4f522020      kAENOT = FOUR_CHAR_CODE('NOT '),               //  0x4e4f5420                                                     /**** ABSOLUTE ORDINAL CONSTANTS  ****/
-    kAEFirst = FOUR_CHAR_CODE('firs'),             //  0x66697273      kAELast = FOUR_CHAR_CODE('last'),              //  0x6c617374      kAEMiddle = FOUR_CHAR_CODE('midd'),            //  0x6d696464      kAEAny = FOUR_CHAR_CODE('any '),               //  0x616e7920      kAEAll = FOUR_CHAR_CODE('all '),               //  0x616c6c20                                                     /**** RELATIVE ORDINAL CONSTANTS  ****/
-    kAENext = FOUR_CHAR_CODE('next'),              //  0x6e657874      kAEPrevious = FOUR_CHAR_CODE('prev'),          //  0x70726576                                                     /**** KEYWORD CONSTANT    ****/
-    keyAECompOperator = FOUR_CHAR_CODE('relo'),    //  0x72656c6f      keyAELogicalTerms = FOUR_CHAR_CODE('term'),    //  0x7465726d      keyAELogicalOperator = FOUR_CHAR_CODE('logc'), //  0x6c6f6763      keyAEObject1 = FOUR_CHAR_CODE('obj1'),         //  0x6f626a31      keyAEObject2 = FOUR_CHAR_CODE('obj2'),         //  0x6f626a32      //    ... for Keywords for getting fields out of object specifier records.     keyAEDesiredClass = FOUR_CHAR_CODE('want'), //  0x77616e74      keyAEContainer = FOUR_CHAR_CODE('from'),    //  0x66726f6d      keyAEKeyForm = FOUR_CHAR_CODE('form'),      //  0x666f726d      keyAEKeyData = FOUR_CHAR_CODE('seld')       //  0x73656c64    };
-//  0x66697273  
-  enum//  0x6c617374  
-  {//  0x6d696464  
-    //    ... for Keywords for getting fields out o//  0x616e7920  
-//  0x616c6c20  
-  /****   VALUE and TYPE CONSTANTS    ****/
-  enum//  0x6e657874  
-  {//  0x70726576  
-    /*    ... possible values for the keyAEKeyForm field of an object specifier.
-     *///  0x72656c6f  
-    formAbsolutePosition = FOUR_CHAR_CODE('indx'), //  0x7465726d  
-//  0x6c6f6763  
-  // Possible values for flags parameter to AEResol//  0x6f626a31  
-  {//  0x6f626a32  
-    //    ... for Keywords for getting fields out of object specifier records. 
-    kAEIDoWhose = 0x0001,//  0x77616e74  
-    kAEIDoMarking = 0x0004,//  0x66726f6d  
-    kAEPassSubDescs = 0x0008,//  0x666f726d  
-    kAEResolveNestedLists = 0x0010,//  0x73656c64  
-    kAEHandleSimpleRanges = 0x0020,
-    kAEUseRelativeIterators = 0x0040
+    kAEAND = FOUR_CHAR_CODE('AND '),              /** 0x414e4420 */
+    kAEOR = FOUR_CHAR_CODE('OR  ')                /** 0x4f522020 */
+    kAENOT = FOUR_CHAR_CODE('NOT ')               //  0x4e4f5420
+                                                  /**** ABSOLUTE ORDINAL CONSTANTS  ****/
+    kAEFirst = FOUR_CHAR_CODE('firs'),            /** 0x66697273 */
+    kAELast = FOUR_CHAR_CODE('last')              /** 0x6c617374 */
+    kAEMiddle = FOUR_CHAR_CODE('midd')            /** 0x6d696464 */
+    kAEAny = FOUR_CHAR_CODE('any ')               /** 0x616e7920 */
+    kAEAll = FOUR_CHAR_CODE('all ')               //  0x616c6c20
+                                                  /**** RELATIVE ORDINAL CONSTANTS  ****/
+    kAENext = FOUR_CHAR_CODE('next'),             /** 0x6e657874 */
+    kAEPrevious = FOUR_CHAR_CODE('prev')          //  0x70726576
+                                                  /**** KEYWORD CONSTANT    ****/
+    keyAECompOperator = FOUR_CHAR_CODE('relo'),   /** 0x72656c6f */
+    keyAELogicalTerms = FOUR_CHAR_CODE('term')    /** 0x7465726d */
+    keyAELogicalOperator = FOUR_CHAR_CODE('logc') /** 0x6c6f6763 */
+    keyAEObject1 = FOUR_CHAR_CODE('obj1')         /** 0x6f626a31 */
+    keyAEObject2 = FOUR_CHAR_CODE('obj2')         /** 0x6f626a32 */
+    //    ... for Keywords for getting fields out of object specifier records.     keyAEDesiredClass  =  FOUR_CHAR_CODE('want')  /** 0x77616e74 */
+    keyAEContainer = FOUR_CHAR_CODE('from') /** 0x66726f6d */
+    keyAEKeyForm = FOUR_CHAR_CODE('form')   //  0x666f726d      keyAEKeyData = FOUR_CHAR_CODE('seld')       //  0x73656c64
   };
+  //  0x66697273
+  enum //  0x6c617374
+  {    //  0x6d696464
+    //    ... for Keywords for getting fields out o//  0x616e7920
+    //  0x616c6c20
+    /****   VALUE and TYPE CONSTANTS    ****/
+    enum //  0x6e657874
+    {    //  0x70726576
+     /*    ... possible values for the keyAEKeyForm field of an object specifier.
+      */
+     //  0x72656c6f
+     formAbsolutePosition = FOUR_CHAR_CODE('indx'), //  0x7465726d
+                                                    //  0x6c6f6763
+     // Possible values for flags parameter to AEResol//  0x6f626a31
+     {//  0x6f626a32
+      //    ... for Keywords for getting fields out of object specifier records.
+      kAEIDoWhose = 0x0001,           //  0x77616e74
+      kAEIDoMarking = 0x0004,         //  0x66726f6d
+      kAEPassSubDescs = 0x0008,       //  0x666f726d
+      kAEResolveNestedLists = 0x0010, //  0x73656c64
+      kAEHandleSimpleRanges = 0x0020,
+      kAEUseRelativeIterators = 0x0040};
 
-  /*//    ... for Keywords for getting fields out of Range specifier records. 
-  enum//  0x73746172  
-  {//  0x73746f70  
-    //    ... special handler selectors for OSL Callbacks. 
-//  0x78746f6b  
-  /**//  0x636d7072  
-      used for rewriting tokens in place of 'ccnt' //  0x636f6e74  
-      This record is only of interest to those who,//  0x6d6b6964  
-      ...get ranges as key data in their accessor p//  0x6d61726b  
-      ...to resolve them manually rather than call //  0x61646a6d  
-  *///  0x696e6463  
-  struct ccntTokenRecord
-  {
-    DescType tokenClass;
-    AEDesc token;
-  };
+     /*//    ... for Keywords for getting fields out of Range specifier records.
+     enum//  0x73746172
+     {//  0x73746f70
+       //    ... special handler selectors for OSL Callbacks.
+   //  0x78746f6b
+     /**   0x636d7072
+         used for rewriting tokens in place of 'ccnt' //  0x636f6e74
+         This record is only of interest to those who,//  0x6d6b6964
+         ...get ranges as key data in their accessor p//  0x6d61726b
+         ...to resolve them manually rather than call //  0x61646a6d
+     */
+     //  0x696e6463
+     struct ccntTokenRecord{
+         DescType tokenClass;
+         AEDesc token;};
   typedef struct ccntTokenRecord ccntTokenRecord;
   typedef ccntTokenRecord *ccntTokenRecPtr;
-  typedef ccntTokenRecPtr *ccntTokenRecHandle;//  0x696e6478  
-#if OLDROUTINENAMES//  0x72656c65  
-  typedef AEDesc *DescPtr;//  0x74657374  
-  typedef DescPtr *DescHandle;//  0x72616e67  
-#endif // OLDROUTINENAMES //  0x70726f70  
-  // typedefs providing type checking for procedure//  0x6e616d65  
-    //    ... relevant types (some of these are often pared with forms above). 
+  typedef ccntTokenRecPtr *ccntTokenRecHandle;        //  0x696e6478
+#if OLDROUTINENAMES                                   //  0x72656c65
+  typedef AEDesc *DescPtr;                            //  0x74657374
+  typedef DescPtr *DescHandle;                        //  0x72616e67
+#endif                                                // OLDROUTINENAMES //  0x70726f70
+                                                      // typedefs providing type checking for procedure//  0x6e616d65
+                                                      //    ... relevant types (some of these are often pared with forms above).
                                            const AEDes//  0x6f626a20  
                                            DescType co//  0x65786d6e  
                                            const AEDes//  0x63636e74  
@@ -137,7 +154,7 @@ extern "C"
   typedef STACK_UPP_TYPE(OSLGetErrDescProcPtr) OSLGetErrDescUPP;
   typedef STACK_UPP_TYPE(OSLMarkProcPtr) OSLMarkUPP//  0x77686f73  
   typedef STACK_UPP_TYPE(OSLAdjustMarksProcPtr) OSL//  0x77686f73  
-  /**//  0x77726e67  
+  /**   0x77726e67  
    *  NewOSLAccessorUPP()//  0x77737472  
    *//  0x77737470  
 //  0x6b696478  
@@ -160,10 +177,10 @@ extern "C"
         (ProcPtr)(userRoutine), uppOSLAccessorProcInfo, GetCurrentArchitecture());
   }
 #else
-#define NewOSLAccessorUPP(userRoutine)                                     \
+#define NewOSLAccessorUPP(userRoutine) \
   (OSLA// OLDROUTINENAMES 
       NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLAccessorProcInfo, \
-  // typedefs providing type checking for procedure pointers 
+  // typedefs providing type checking for procedure pointers
 #endif
 #endif
 
@@ -188,9 +205,9 @@ extern "C"
         (ProcPtr)(userRoutine), uppOSLCompareProcInfo, GetCurrentArchitecture());
   }
 #else
-#define NewOSLCompareUPP(userRoutine)   \
-  (OSLCompareUPP) NewRoutineDescriptor( \
-      (ProcPtr)(userRoutine), uppOSLCompareProcInfo, GetCurrentArchitecture())
+#define NewOSLCompareUPP(userRoutine)                                            \
+                                           (OSLCompareUPP) NewRoutineDescriptor( \
+                                               (ProcPtr)(userRoutine), uppOSLCompareProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
@@ -215,9 +232,9 @@ extern "C"
         (ProcPtr)(userRoutine), uppOSLCountProcInfo, GetCurrentArchitecture());
   }
 #else
-#define NewOSLCountUPP(userRoutine)   \
-  (OSLCountUPP) NewRoutineDescriptor( \
-      (ProcPtr)(userRoutine), uppOSLCountProcInfo, GetCurrentArchitecture())
+#define NewOSLCountUPP(userRoutine)                                            \
+                                           (OSLCountUPP) NewRoutineDescriptor( \
+                                               (ProcPtr)(userRoutine), uppOSLCountProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
@@ -240,14 +257,14 @@ extern "C"
   NewOSLDisposeTokenUPP(OSLDisposeTokenProcPtr userRoutine)
   {
     return (OSLDisposeTokenUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
-     // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
+                                                    // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes)
                                                     GetCurrentArchitecture());
   }
 #else
-#define NewOSLDisposeTokenUPP(userRoutine)                                     \
-  (OSLDisposeTokenUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLDisposeTokenProcInfo, \
-                           GetCurrentArchitecture())
+#define NewOSLDisposeTokenUPP(userRoutine)                                                                              \
+                                           (OSLDisposeTokenUPP)                                                         \
+                                               NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLDisposeTokenProcInfo, \
+                                                                    GetCurrentArchitecture())
 #endif
 #endif
 
@@ -268,16 +285,16 @@ extern "C"
   }; // pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
   inline OSLGetMarkTokenUPP
   NewOSLGetMarkTokenUPP(OSLGetMarkTokenProcPtr userRoutine)
-  {// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes) 
+  {// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes, 4_bytes)
     return (OSLGetMarkTokenUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                     uppOSLGetMarkTokenProcInfo,
                                                     GetCurrentArchitecture());
   }
 #else
-#define NewOSLGetMarkTokenUPP(userRoutine)                                     \
-  (OSLGetMarkTokenUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLGetMarkTokenProcInfo, \
-                           GetCurrentArchitecture())
+#define NewOSLGetMarkTokenUPP(userRoutine)                                                                              \
+                                           (OSLGetMarkTokenUPP)                                                         \
+                                               NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLGetMarkTokenProcInfo, \
+                                                                    GetCurrentArchitecture())
 #endif
 #endif
 
@@ -303,10 +320,10 @@ extern "C"
                                                   GetCurrentArchitecture());
   }
 #else
-#define NewOSLGetErrDescUPP(userRoutine)                                     \
-  (OSLGetErrDescUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLGetErrDescProcInfo, \
-                           GetCurrentArchitecture())
+#define NewOSLGetErrDescUPP(userRoutine)                                                                              \
+                                           (OSLGetErrDescUPP)                                                         \
+                                               NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLGetErrDescProcInfo, \
+                                                                    GetCurrentArchitecture())
 #endif
 #endif
 
@@ -331,9 +348,9 @@ extern "C"
         (ProcPtr)(userRoutine), uppOSLMarkProcInfo, GetCurrentArchitecture());
   }
 #else
-#define NewOSLMarkUPP(userRoutine)   \
-  (OSLMarkUPP) NewRoutineDescriptor( \
-      (ProcPtr)(userRoutine), uppOSLMarkProcInfo, GetCurrentArchitecture())
+#define NewOSLMarkUPP(userRoutine)                                            \
+                                           (OSLMarkUPP) NewRoutineDescriptor( \
+                                               (ProcPtr)(userRoutine), uppOSLMarkProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
@@ -358,12 +375,12 @@ extern "C"
     return (OSLAdjustMarksUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                    uppOSLAdjustMarksProcInfo,
                                                    GetCurrentArchitecture());
-  }// pascal 2_bytes Func(4_bytes) 
+  }// pascal 2_bytes Func(4_bytes)
 #else
-#define NewOSLAdjustMarksUPP(userRoutine)                                     \
-  (OSLAdjustMarksUPP)                                                         \
-      NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLAdjustMarksProcInfo, \
-                           GetCurrentArchitecture())
+#define NewOSLAdjustMarksUPP(userRoutine)                                                                              \
+                                           (OSLAdjustMarksUPP)                                                         \
+                                               NewRoutineDescriptor((ProcPtr)(userRoutine), uppOSLAdjustMarksProcInfo, \
+                                                                    GetCurrentArchitecture())
 #endif
 #endif
 
@@ -388,7 +405,7 @@ extern "C"
 #endif
 #endif
 
-  /**// pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) 
+  /**  pascal 2_bytes Func(4_bytes, 4_bytes, 4_bytes) 
    *  DisposeOSLCompareUPP()
    *
 
@@ -561,11 +578,11 @@ extern "C"
         form, selectionData, value, accessorRefcon);
   }
 #else
-#define InvokeOSLAccessorUPP(desiredClass, container, containerClass, form, \
-                             selectionData, value, accessorRefcon, userUPP) \
-  (OSErr) CALL_SEVEN_PARAMETER_UPP(                                         \
-      (userUPP), uppOSLAccessorProcInfo, (desiredClass), (container),       \
-      (containerClass), (form), (selectionData), (value), (accessorRefcon))
+#define InvokeOSLAccessorUPP(desiredClass, container, containerClass, form,                                    \
+                             selectionData, value, accessorRefcon, userUPP)                                    \
+                                           (OSErr) CALL_SEVEN_PARAMETER_UPP(                                   \
+                                               (userUPP), uppOSLAccessorProcInfo, (desiredClass), (container), \
+                                               (containerClass), (form), (selectionData), (value), (accessorRefcon))
 #endif
 #endif
 
@@ -590,9 +607,9 @@ extern "C"
                                           obj1, obj2, result);
   }
 #else
-#define InvokeOSLCompareUPP(oper, obj1, obj2, result, userUPP)              \
-  (OSErr) CALL_FOUR_PARAMETER_UPP((userUPP), uppOSLCompareProcInfo, (oper), \
-                                  (obj1), (obj2), (result))
+#define InvokeOSLCompareUPP(oper, obj1, obj2, result, userUPP)                                                       \
+                                           (OSErr) CALL_FOUR_PARAMETER_UPP((userUPP), uppOSLCompareProcInfo, (oper), \
+                                                                           (obj1), (obj2), (result))
 #endif
 #endif
 
@@ -618,11 +635,11 @@ extern "C"
                                           result);
   }
 #else
-#define InvokeOSLCountUPP(desiredType, containerClass, container, result,    \
-                          userUPP)                                           \
-  (OSErr)                                                                    \
-      CALL_FOUR_PARAMETER_UPP((userUPP), uppOSLCountProcInfo, (desiredType), \
-                              (containerClass), (container), (result))
+#define InvokeOSLCountUPP(desiredType, containerClass, container, result,                                             \
+                          userUPP)                                                                                    \
+                                           (OSErr)                                                                    \
+                                               CALL_FOUR_PARAMETER_UPP((userUPP), uppOSLCountProcInfo, (desiredType), \
+                                                                       (containerClass), (container), (result))
 #endif
 #endif
 
@@ -645,9 +662,9 @@ extern "C"
                                          unneededToken);
   }
 #else
-#define InvokeOSLDisposeTokenUPP(unneededToken, userUPP)                \
-  (OSErr) CALL_ONE_PARAMETER_UPP((userUPP), uppOSLDisposeTokenProcInfo, \
-                                 (unneededToken))
+#define InvokeOSLDisposeTokenUPP(unneededToken, userUPP)                                                         \
+                                           (OSErr) CALL_ONE_PARAMETER_UPP((userUPP), uppOSLDisposeTokenProcInfo, \
+                                                                          (unneededToken))
 #endif
 #endif
 
@@ -673,11 +690,11 @@ extern "C"
                                            result);
   }
 #else
-#define InvokeOSLGetMarkTokenUPP(dContainerToken, containerClass, result, \
-                                 userUPP)                                 \
-  (OSErr)                                                                 \
-      CALL_THREE_PARAMETER_UPP((userUPP), uppOSLGetMarkTokenProcInfo,     \
-                               (dContainerToken), (containerClass), (result))
+#define InvokeOSLGetMarkTokenUPP(dContainerToken, containerClass, result,                                      \
+                                 userUPP)                                                                      \
+                                           (OSErr)                                                             \
+                                               CALL_THREE_PARAMETER_UPP((userUPP), uppOSLGetMarkTokenProcInfo, \
+                                                                        (dContainerToken), (containerClass), (result))
 #endif
 #endif
 
@@ -700,9 +717,9 @@ extern "C"
                                          appDescPtr);
   }
 #else
-#define InvokeOSLGetErrDescUPP(appDescPtr, userUPP)                   \
-  (OSErr) CALL_ONE_PARAMETER_UPP((userUPP), uppOSLGetErrDescProcInfo, \
-                                 (appDescPtr))
+#define InvokeOSLGetErrDescUPP(appDescPtr, userUPP)                                                            \
+                                           (OSErr) CALL_ONE_PARAMETER_UPP((userUPP), uppOSLGetErrDescProcInfo, \
+                                                                          (appDescPtr))
 #endif
 #endif
 
@@ -726,9 +743,9 @@ extern "C"
                                            markToken, index);
   }
 #else
-#define InvokeOSLMarkUPP(dToken, markToken, index, userUPP)                 \
-  (OSErr) CALL_THREE_PARAMETER_UPP((userUPP), uppOSLMarkProcInfo, (dToken), \
-                                   (markToken), (index))
+#define InvokeOSLMarkUPP(dToken, markToken, index, userUPP)                                                          \
+                                           (OSErr) CALL_THREE_PARAMETER_UPP((userUPP), uppOSLMarkProcInfo, (dToken), \
+                                                                            (markToken), (index))
 #endif
 #endif
 
@@ -753,9 +770,9 @@ extern "C"
                                            newStart, newStop, markToken);
   }
 #else
-#define InvokeOSLAdjustMarksUPP(newStart, newStop, markToken, userUPP)   \
-  (OSErr) CALL_THREE_PARAMETER_UPP((userUPP), uppOSLAdjustMarksProcInfo, \
-                                   (newStart), (newStop), (markToken))
+#define InvokeOSLAdjustMarksUPP(newStart, newStop, markToken, userUPP)                                            \
+                                           (OSErr) CALL_THREE_PARAMETER_UPP((userUPP), uppOSLAdjustMarksProcInfo, \
+                                                                            (newStart), (newStop), (markToken))
 #endif
 #endif
 
@@ -817,7 +834,7 @@ extern "C"
                        OSLGetMarkTokenUPP myGetMarkTokenProc,
                        OSLMarkUPP myMarkProc, OSLAdjustMarksUPP myAdjustMarksProc,
                        OSLGetErrDescUPP myGetErrDescProcPtr)
-      THREEWORDINLINE(0x303C, 0x0E35, 0xA816);
+ ;
 
   /**
    *  AEResolve()
@@ -829,7 +846,7 @@ extern "C"
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc 
   OSErr
   AEResolve(const AEDesc *objectSpecifier, short callbackFlags, AEDesc *theToken)
-      THREEWORDINLINE(0x303C, 0x0536, 0xA816);
+ ;
 
   /**
    *  AEInstallObjectAccessor()
@@ -843,7 +860,7 @@ extern "C"
   AEInstallObjectAccessor(DescType desiredClass, DescType containerType,
                           OSLAccessorUPP theAccessor, long accessorRefcon,
                           Boolean isSysHandler)
-      THREEWORDINLINE(0x303C, 0x0937, 0xA816);
+ ;
 
   /**
    *  AERemoveObjectAccessor()
@@ -870,7 +887,7 @@ extern "C"
   AEGetObjectAccessor(DescType desiredClass, DescType containerType,
                       OSLAccessorUPP *accessor, long *accessorRefcon,
                       Boolean isSysHandler)
-      THREEWORDINLINE(0x303C, 0x0939, 0xA816);
+ ;
 
   /**
    *  AEDisposeToken()
@@ -881,7 +898,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AEDisposeToken(AEDesc *theToken) THREEWORDINLINE(0x303C, 0x023A, 0xA816);
+  AEDisposeToken(AEDesc *theToken);
 
   /**
    *  AECallObjectAccessor()
@@ -895,7 +912,7 @@ extern "C"
   AECallObjectAccessor(DescType desiredClass, const AEDesc *containerToken,
                        DescType containerClass, DescType keyForm,
                        const AEDesc *keyData, AEDesc *token)
-      THREEWORDINLINE(0x303C, 0x0C3B, 0xA816);
+ ;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -915,4 +932,4 @@ extern "C"
 }
 #endif
 
-#endif // __AEOBJECTS__ // __AEOBJECTS__ 
+#endif // __AEOBJECTS__ // __AEOBJECTS__

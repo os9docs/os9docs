@@ -310,11 +310,13 @@ extern "C"
 
   enum
   {
-    // Justification (word alignment) styles     teJustLeft = 0,
+     /** (word */
+alignment) styles     teJustLeft  =  0
     teJustCenter = 1,
     teJustRight = -1,
     teForceLeft =
-        -2,            // new names for the Justification (word alignment) styles     teFlushDefault = 0, // flush according to the line direction
+        -2,             /** names */
+for the Justification (word alignment) styles     teFlushDefault  =  0 // flush according to the line direction
     teCenter = 1,      // center justify (word alignment)
     teFlushRight = -1, // flush right for all scripts
     teFlushLeft = -2   // flush left for all scripts
@@ -322,42 +324,47 @@ extern "C"
 
   enum
   {
-    // Set/Replace style modes     fontBit = 0,    // set font
-    faceBit = 1,    // set face
-    sizeBit = 2,    // set size
-    clrBit = 3,     // set color
-    addSizeBit = 4, // add size mode
-    toggleBit = 5   // set faces in toggle mode
+    /** style */
+    modes fontBit = 0 // set font
+    faceBit = 1,      // set face
+    sizeBit = 2,      // set size
+    clrBit = 3,       // set color
+    addSizeBit = 4,   // add size mode
+    toggleBit = 5     // set faces in toggle mode
   };
 
   enum
   {
-    // TESetStyle/TEContinuousStyle modes     doFont = 1,   // set font (family) number    doFace = 2,   // set character style
-    doSize = 4,   // set type size
-    doColor = 8,  // set color
-    doAll = 15,   // set all attributes
-    addSize = 16, // adjust type size
-    doToggle = 32 // toggle mode for TESetStyle
+    /** modes */
+    doFont = 1                /** font */
+    (family)number doFace = 2 // set character style
+    doSize = 4,               // set type size
+    doColor = 8,              // set color
+    doAll = 15,               // set all attributes
+    addSize = 16,             // adjust type size
+    doToggle = 32             // toggle mode for TESetStyle
   };
 
   enum
   {
-    // offsets into TEDispatchRec     EOLHook = 0,       // [UniversalProcPtr] TEEOLHook
-    DRAWHook = 4,      // [UniversalProcPtr] TEWidthHook
-    WIDTHHook = 8,     // [UniversalProcPtr] TEDrawHook
-    HITTESTHook = 12,  // [UniversalProcPtr] TEHitTestHook
-    nWIDTHHook = 24,   // [UniversalProcPtr] nTEWidthHook
-    TextWidthHook = 28 // [UniversalProcPtr] TETextWidthHook
+    /** into */
+    TEDispatchRec EOLHook = 0 // [UniversalProcPtr] TEEOLHook
+    DRAWHook = 4,             // [UniversalProcPtr] TEWidthHook
+    WIDTHHook = 8,            // [UniversalProcPtr] TEDrawHook
+    HITTESTHook = 12,         // [UniversalProcPtr] TEHitTestHook
+    nWIDTHHook = 24,          // [UniversalProcPtr] nTEWidthHook
+    TextWidthHook = 28        // [UniversalProcPtr] TETextWidthHook
   };
 
   enum
   {
-    // selectors for TECustomHook     intEOLHook = 0,       // TEIntHook value
-    intDrawHook = 1,      // TEIntHook value
-    intWidthHook = 2,     // TEIntHook value
-    intHitTestHook = 3,   // TEIntHook value
-    intNWidthHook = 6,    // TEIntHook value for new version of WidthHook
-    intTextWidthHook = 7, // TEIntHook value for new TextWidthHook
+    /** for */
+    TECustomHook intEOLHook = 0 // TEIntHook value
+    intDrawHook = 1,            // TEIntHook value
+    intWidthHook = 2,           // TEIntHook value
+    intHitTestHook = 3,         // TEIntHook value
+    intNWidthHook = 6,          // TEIntHook value for new version of WidthHook
+    intTextWidthHook = 7,       // TEIntHook value for new TextWidthHook
     intInlineInputTSMTEPreUpdateHook =
         8, // TEIntHook value for TSMTEPreUpdateProcPtr callback
     intInlineInputTSMTEPostUpdateHook =
@@ -366,7 +373,8 @@ extern "C"
 
   enum
   {
-    // feature or bit definitions for TEFeatureFlag     teFAutoScroll = 0,           // 00000001b
+     /** or */
+bit definitions for TEFeatureFlag     teFAutoScroll  =  0           // 00000001b
     teFTextBuffering = 1,        // 00000010b
     teFOutlineHilite = 2,        // 00000100b
     teFInlineInput = 3,          // 00001000b
@@ -377,8 +385,9 @@ extern "C"
 
   enum
   {
-    // feature or bit definitions for TEFeatureFlag -- Carbon only     /* To avoid having to call TEIdle in Carbon apps, automatic idling can be
-    activated * /
+    // feature or bit definitions for TEFeatureFlag -- Carbon only
+    /* To avoid having to call TEIdle in Carbon apps, automatic idling can be
+    activated */
     /* via the following feature flag, but you must ensure that the destRect
        and/or     */
     // GrafPort's origin be setup properly for drawing in a given TERec when     // the timer fires.    When this feature flag is set, TEIdle is a noop.     // Activate this feature flag before calling TEActivate.                     teFIdleWithEventLoopTimer = 7 // 10000000b
@@ -386,9 +395,10 @@ extern "C"
 
   enum
   {
-    // action for the new "bit (un)set" interface, TEFeatureFlag     teBitClear = 0,
-    teBitSet = 1,  // set the selector bit
-    teBitTest = -1 // no change; just return the current setting
+    /** for */
+    the new "bit (un)set" interface,
+    TEFeatureFlag teBitClear = 0 teBitSet = 1, // set the selector bit
+    teBitTest = -1                             // no change; just return the current setting
   };
 
   enum
@@ -1658,8 +1668,7 @@ extern "C"
 #pragma parameter __D0 InvokeWordBreakUPP(__A0, __D0, __A1)
 #endif
   Boolean
-  InvokeWordBreakUPP(Ptr text, short charPos, WordBreakUPP userUPP)
-      ONEWORDINLINE(0x4E91);
+  InvokeWordBreakUPP(Ptr text, short charPos, WordBreakUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -1764,7 +1773,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
 *    \mac_os_x         in version 10.0 and later
 */
   Handle
-  TEScrapHandle(void) TWOWORDINLINE(0x2EB8, 0x0AB4);
+  TEScrapHandle(void);
 
   /**
    *  TEGetScrapLength()
@@ -1790,7 +1799,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         not available
    */
   void
-  TEInit(void) ONEWORDINLINE(0xA9CC);
+  TEInit(void);
 
 #endif // CALL_NOT_IN_CARBON
   /**
@@ -1802,7 +1811,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   TEHandle
-  TENew(const Rect *destRect, const Rect *viewRect) ONEWORDINLINE(0xA9D2);
+  TENew(const Rect *destRect, const Rect *viewRect);
 
   /**
    *  TEDispose()
@@ -1813,7 +1822,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEDispose(TEHandle hTE) ONEWORDINLINE(0xA9CD);
+  TEDispose(TEHandle hTE);
 
   /**
    *  TESetText()
@@ -1824,7 +1833,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TESetText(const void *text, long length, TEHandle hTE) ONEWORDINLINE(0xA9CF);
+  TESetText(const void *text, long length, TEHandle hTE);
 
   /**
    *  TEGetText()
@@ -1835,7 +1844,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   CharsHandle
-  TEGetText(TEHandle hTE) ONEWORDINLINE(0xA9CB);
+  TEGetText(TEHandle hTE);
 
   /**
    *  TEIdle()
@@ -1846,7 +1855,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEIdle(TEHandle hTE) ONEWORDINLINE(0xA9DA);
+  TEIdle(TEHandle hTE);
 
   /**
    *  TESetSelect()
@@ -1857,7 +1866,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TESetSelect(long selStart, long selEnd, TEHandle hTE) ONEWORDINLINE(0xA9D1);
+  TESetSelect(long selStart, long selEnd, TEHandle hTE);
 
   /**
    *  TEActivate()
@@ -1868,7 +1877,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEActivate(TEHandle hTE) ONEWORDINLINE(0xA9D8);
+  TEActivate(TEHandle hTE);
 
   /**
    *  TEDeactivate()
@@ -1879,7 +1888,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEDeactivate(TEHandle hTE) ONEWORDINLINE(0xA9D9);
+  TEDeactivate(TEHandle hTE);
 
   /**
    *  TEKey()
@@ -1890,7 +1899,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEKey(CharParameter key, TEHandle hTE) ONEWORDINLINE(0xA9DC);
+  TEKey(CharParameter key, TEHandle hTE);
 
   /**
    *  TECut()
@@ -1901,7 +1910,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TECut(TEHandle hTE) ONEWORDINLINE(0xA9D6);
+  TECut(TEHandle hTE);
 
   /**
    *  TECopy()
@@ -1912,7 +1921,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TECopy(TEHandle hTE) ONEWORDINLINE(0xA9D5);
+  TECopy(TEHandle hTE);
 
   /**
    *  TEPaste()
@@ -1923,7 +1932,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEPaste(TEHandle hTE) ONEWORDINLINE(0xA9DB);
+  TEPaste(TEHandle hTE);
 
   /**
    *  TEDelete()
@@ -1934,7 +1943,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEDelete(TEHandle hTE) ONEWORDINLINE(0xA9D7);
+  TEDelete(TEHandle hTE);
 
   /**
    *  TEInsert()
@@ -1945,7 +1954,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEInsert(const void *text, long length, TEHandle hTE) ONEWORDINLINE(0xA9DE);
+  TEInsert(const void *text, long length, TEHandle hTE);
 
   /**
    *  TESetAlignment()
@@ -1956,7 +1965,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TESetAlignment(short just, TEHandle hTE) ONEWORDINLINE(0xA9DF);
+  TESetAlignment(short just, TEHandle hTE);
 
   /**
    *  TEUpdate()
@@ -1967,7 +1976,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEUpdate(const Rect *rUpdate, TEHandle hTE) ONEWORDINLINE(0xA9D3);
+  TEUpdate(const Rect *rUpdate, TEHandle hTE);
 
   /**
    *  TETextBox()
@@ -1978,8 +1987,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TETextBox(const void *text, long length, const Rect *box, short just)
-      ONEWORDINLINE(0xA9CE);
+  TETextBox(const void *text, long length, const Rect *box, short just);
 
   /**
    *  TEScroll()
@@ -1990,7 +1998,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEScroll(short dh, short dv, TEHandle hTE) ONEWORDINLINE(0xA9DD);
+  TEScroll(short dh, short dv, TEHandle hTE);
 
   /**
    *  TESelView()
@@ -2001,7 +2009,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TESelView(TEHandle hTE) ONEWORDINLINE(0xA811);
+  TESelView(TEHandle hTE);
 
   /**
    *  TEPinScroll()
@@ -2012,7 +2020,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEPinScroll(short dh, short dv, TEHandle hTE) ONEWORDINLINE(0xA812);
+  TEPinScroll(short dh, short dv, TEHandle hTE);
 
   /**
    *  TEAutoView()
@@ -2023,7 +2031,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEAutoView(Boolean fAuto, TEHandle hTE) ONEWORDINLINE(0xA813);
+  TEAutoView(Boolean fAuto, TEHandle hTE);
 
   /**
    *  TECalText()
@@ -2034,7 +2042,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TECalText(TEHandle hTE) ONEWORDINLINE(0xA9D0);
+  TECalText(TEHandle hTE);
 
   /**
    *  TEGetOffset()
@@ -2045,7 +2053,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  TEGetOffset(Point pt, TEHandle hTE) ONEWORDINLINE(0xA83C);
+  TEGetOffset(Point pt, TEHandle hTE);
 
   /**
    *  TEGetPoint()
@@ -2056,7 +2064,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   Point
-  TEGetPoint(short offset, TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0008, 0xA83D);
+  TEGetPoint(short offset, TEHandle hTE);
 
   /**
    *  TEClick()
@@ -2067,7 +2075,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEClick(Point pt, Boolean fExtend, TEHandle h) ONEWORDINLINE(0xA9D4);
+  TEClick(Point pt, Boolean fExtend, TEHandle h);
 
   /**
    *  TEStyleNew()
@@ -2078,7 +2086,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   TEHandle
-  TEStyleNew(const Rect *destRect, const Rect *viewRect) ONEWORDINLINE(0xA83E);
+  TEStyleNew(const Rect *destRect, const Rect *viewRect);
 
   /**
    *  TESetStyleHandle()
@@ -2089,8 +2097,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TESetStyleHandle(TEStyleHandle theHandle, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x0005, 0xA83D);
+  TESetStyleHandle(TEStyleHandle theHandle, TEHandle hTE);
 
   /**
    *  TEGetStyleHandle()
@@ -2101,7 +2108,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   TEStyleHandle
-  TEGetStyleHandle(TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0004, 0xA83D);
+  TEGetStyleHandle(TEHandle hTE);
 
   /**
    *  TEGetStyle()
@@ -2113,8 +2120,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    */
   void
   TEGetStyle(short offset, TextStyle *theStyle, short *lineHeight,
-             short *fontAscent, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x0003, 0xA83D);
+             short *fontAscent, TEHandle hTE);
 
   /**
    *  TEStylePaste()
@@ -2125,7 +2131,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEStylePaste(TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0000, 0xA83D);
+  TEStylePaste(TEHandle hTE);
 
   /**
    *  TESetStyle()
@@ -2136,8 +2142,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TESetStyle(short mode, const TextStyle *newStyle, Boolean fRedraw, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x0001, 0xA83D);
+  TESetStyle(short mode, const TextStyle *newStyle, Boolean fRedraw, TEHandle hTE);
 
   /**
    *  TEReplaceStyle()
@@ -2149,8 +2154,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    */
   void
   TEReplaceStyle(short mode, const TextStyle *oldStyle, const TextStyle *newStyle,
-                 Boolean fRedraw, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x0002, 0xA83D);
+                 Boolean fRedraw, TEHandle hTE);
 
   /**
    *  TEGetStyleScrapHandle()
@@ -2161,7 +2165,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   StScrpHandle
-  TEGetStyleScrapHandle(TEHandle hTE) THREEWORDINLINE(0x3F3C, 0x0006, 0xA83D);
+  TEGetStyleScrapHandle(TEHandle hTE);
 
   /**
    *  TEStyleInsert()
@@ -2172,8 +2176,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TEStyleInsert(const void *text, long length, StScrpHandle hST, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x0007, 0xA83D);
+  TEStyleInsert(const void *text, long length, StScrpHandle hST, TEHandle hTE);
 
   /**
    *  TEGetHeight()
@@ -2184,8 +2187,7 @@ calling TEFromScrap , TEToScrap , TECopy, TEPaste , etc.
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  TEGetHeight(long endLine, long startLine, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x0009, 0xA83D);
+  TEGetHeight(long endLine, long startLine, TEHandle hTE);
 
   /**
   \brief TEContinuousStyle Check if a style element is continuous across selection
@@ -2229,8 +2231,7 @@ MenuHandle styleMenu;
 *    \mac_os_x         in version 10.0 and later
 */
   Boolean
-  TEContinuousStyle(short *mode, TextStyle *aStyle, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x000A, 0xA83D);
+  TEContinuousStyle(short *mode, TextStyle *aStyle, TEHandle hTE);
 
   /**
    *  TEUseStyleScrap()
@@ -2242,8 +2243,7 @@ MenuHandle styleMenu;
    */
   void
   TEUseStyleScrap(long rangeStart, long rangeEnd, StScrpHandle newStyles,
-                  Boolean fRedraw, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x000B, 0xA83D);
+                  Boolean fRedraw, TEHandle hTE);
 
   /**
   \brief Install custom handlers for TextEdit bottleneck routines
@@ -2292,8 +2292,7 @@ EOLHook, WIDTHHook , nWIDTHHook , TextWidthHook , DRAWHook , and
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  TECustomHook(TEIntHook which, UniversalProcPtr *addr, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x000C, 0xA83D);
+  TECustomHook(TEIntHook which, UniversalProcPtr *addr, TEHandle hTE);
 
   /**
   \brief Obtains a count of style runs in a range of text
@@ -2330,8 +2329,7 @@ operation will be the return value * sizeof( ScrpSTElement ) +2.
 *    \mac_os_x         in version 10.0 and later
 */
   long
-  TENumStyles(long rangeStart, long rangeEnd, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x000D, 0xA83D);
+  TENumStyles(long rangeStart, long rangeEnd, TEHandle hTE);
 
   /**
   \brief Return last setting of a specified feature's bit
@@ -2377,8 +2375,7 @@ TEBitSet = 1// set the selector bit
  *    \mac_os_x         in version 10.0 and later
  */
   short
-  TEFeatureFlag(short feature, short action, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x000E, 0xA83D);
+  TEFeatureFlag(short feature, short action, TEHandle hTE);
 
   /**
    *  TEGetHiliteRgn()
@@ -2388,8 +2385,7 @@ TEBitSet = 1// set the selector bit
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  OSErr TEGetHiliteRgn(RgnHandle region, TEHandle hTE)
-      THREEWORDINLINE(0x3F3C, 0x000F, 0xA83D);
+  OSErr TEGetHiliteRgn(RgnHandle region, TEHandle hTE);
 
   /**
    *  TESetScrapLength()
@@ -2527,17 +2523,17 @@ TEBitSet = 1// set the selector bit
    */
   void TESetScrapHandle(Handle value);
 
-  // LMGetWordRedraw and LMSetWordRedraw were previously in LowMem.h  // Deprecated for Carbon on MacOS X                                 // This lomem is no longer used by the implementation of TextEdit   // on MacOS X, so setting it will have no effect.                   /**
-  *LMGetWordRedraw() *
+  // LMGetWordRedraw and LMSetWordRedraw were previously in LowMem.h  // Deprecated for Carbon on MacOS X                                 // This lomem is no longer used by the implementation of TextEdit   // on MacOS X, so setting it will have no effect.
+  /**
+   *LMGetWordRedraw() *
 
-          *    \non_carbon_cfm in InterfaceLib 7.1 and
-      later
-          *    \carbon_lib in CarbonLib 1.0 and
-      later
-          *    \mac_os_x in version 10.0 and
-      later
-              * /
-          UInt8 LMGetWordRedraw(void) TWOWORDINLINE(0x1EB8, 0x0BA5);
+           *    \non_carbon_cfm in InterfaceLib 7.1 and
+       later
+           *    \carbon_lib in CarbonLib 1.0 and
+       later
+           *    \mac_os_x in version 10.0 and
+       later*/
+  UInt8 LMGetWordRedraw(void);
 
   /**
    *  LMSetWordRedraw()
@@ -2547,7 +2543,7 @@ TEBitSet = 1// set the selector bit
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void LMSetWordRedraw(UInt8 value) TWOWORDINLINE(0x11DF, 0x0BA5);
+  void LMSetWordRedraw(UInt8 value);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -2602,4 +2598,4 @@ TEBitSet = 1// set the selector bit
 }
 #endif
 
-#endif // __TEXTEDIT__ * /*/*/ */*/
+#endif // __TEXTEDIT__

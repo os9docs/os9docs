@@ -446,4 +446,3 @@ and with the count returned as a long in csParam.
 #endif
 
 #endif /** __SERIAL__ */
-* /

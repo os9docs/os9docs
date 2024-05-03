@@ -9,7 +9,7 @@
     \copyright © 2000-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup CoreGraphics
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -62,223 +63,228 @@ extern "C" {
 #endif
 #endif
 
-typedef struct CGColorSpace *CGColorSpaceRef;
-enum CGColorRenderingIntent {
-  kCGRenderingIntentDefault = 0,
-  kCGRenderingIntentAbsoluteColorimetric = 1,
-  kCGRenderingIntentRelativeColorimetric = 2,
-  kCGRenderingIntentPerceptual = 3,
-  kCGRenderingIntentSaturation = 4
-};
-typedef enum CGColorRenderingIntent CGColorRenderingIntent;
+  typedef struct CGColorSpace *CGColorSpaceRef;
+  enum CGColorRenderingIntent
+  {
+    kCGRenderingIntentDefault = 0,
+    kCGRenderingIntentAbsoluteColorimetric = 1,
+    kCGRenderingIntentRelativeColorimetric = 2,
+    kCGRenderingIntentPerceptual = 3,
+    kCGRenderingIntentSaturation = 4
+  };
+  typedef enum CGColorRenderingIntent CGColorRenderingIntent;
 
-/** Device-dependent color spaces.  **/
-// Create a DeviceGray colorspace. /**
- *  CGColorSpaceCreateDeviceGray()
- *
+  /** Device-dependent color spaces.  **/
+  // Create a DeviceGray colorspace.
+  /**
+  *  CGColorSpaceCreateDeviceGray()
+  *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateDeviceGray(void);
+  *    \non_carbon_cfm   not available
+  *    \carbon_lib        not available
+  *    \mac_os_x         in version 10.0 and later
+  */
+  CGColorSpaceRef
+  CGColorSpaceCreateDeviceGray(void);
 
-// Create a DeviceRGB colorspace. /**
-// Create a DeviceRGB colorspace. 
- *
+  // Create a DeviceRGB colorspace.
+  /**
+ // Create a DeviceRGB colorspace.
+  *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateDeviceRGB(void);
+  *    \non_carbon_cfm   not available
+  *    \carbon_lib        not available
+  *    \mac_os_x         in version 10.0 and later
+  */
+  CGColorSpaceRef
+  CGColorSpaceCreateDeviceRGB(void);
 
-// Create a DeviceCMYK colorspace. /**
- *  CGColorSpaceCreateDeviceCMYK()
-// Create a DeviceCMYK colorspace. 
+  // Create a DeviceCMYK colorspace.
+  /**
+  *  CGColorSpaceCreateDeviceCMYK()
+ // Create a DeviceCMYK colorspace.
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateDeviceCMYK(void);
+  *    \non_carbon_cfm   not available
+  *    \carbon_lib        not available
+  *    \mac_os_x         in version 10.0 and later
+  */
+  CGColorSpaceRef
+  CGColorSpaceCreateDeviceCMYK(void);
 
-/** Device-independent color spaces. **/
-/* Create a calibrated gray colorspace.  `whitePoint' is an array of 3
- * numbers specifying the tristimulus value, in the CIE 1931 XYZ-space, of
- * the diffuse white point.  `blackPoint' is an array of 3 numbers
- * specifying the tristimulus value, in CIE 1931 XYZ-space, of the diffuse
- * black point. `gamma' defines the gamma for the gray component. */
-/**
- *  CGColorSpaceCreateCalibratedGray()
- *
+  /** Device-independent color spaces. **/
+  /* Create a calibrated gray colorspace.  `whitePoint' is an array of 3
+   * numbers specifying the tristimulus value, in the CIE 1931 XYZ-space, of
+   * the diffuse white point.  `blackPoint' is an array of 3 numbers
+   * specifying the tristimulus value, in CIE 1931 XYZ-space, of the diffuse
+   * black point. `gamma' defines the gamma for the gray component. */
+  /**
+   *  CGColorSpaceCreateCalibratedGray()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateCalibratedGray(const float whitePoint[3],
-                                 const float blackPoint[3], float gamma);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceCreateCalibratedGray(const float whitePoint[3],
+                                   const float blackPoint[3], float gamma);
 
-/* Create a calibrated RGB colorspace.  `whitePoint' is an array of 3
- * numbers specifying the tristimulus value, in the CIE 1931 XYZ-space, of
- * the diffuse white point.  `blackPoint' is an array of 3 numbers
- * specifying the tristimulus value, in CIE 1931 XYZ-space, of the diffuse
- * black point. `gamma' is an array of 3 numbers specifying the gamma for
- * the red, green, and blue components of the color space. `matrix' is an
- * array of 9 numbers specifying the linear interpretation of the
- * gamma-modified RGB values of the colorspace with respect to the final
- * XYZ representation. */
-/**
- *  CGColorSpaceCreateCalibratedRGB()
- *
+  /* Create a calibrated RGB colorspace.  `whitePoint' is an array of 3
+   * numbers specifying the tristimulus value, in the CIE 1931 XYZ-space, of
+   * the diffuse white point.  `blackPoint' is an array of 3 numbers
+   * specifying the tristimulus value, in CIE 1931 XYZ-space, of the diffuse
+   * black point. `gamma' is an array of 3 numbers specifying the gamma for
+   * the red, green, and blue components of the color space. `matrix' is an
+   * array of 9 numbers specifying the linear interpretation of the
+   * gamma-modified RGB values of the colorspace with respect to the final
+   * XYZ representation. */
+  /**
+   *  CGColorSpaceCreateCalibratedRGB()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateCalibratedRGB(const float whitePoint[3],
-                                const float blackPoint[3], const float gamma[3],
-                                const float matrix[9]);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceCreateCalibratedRGB(const float whitePoint[3],
+                                  const float blackPoint[3], const float gamma[3],
+                                  const float matrix[9]);
 
-/* Create an L*a*b* colorspace.  `whitePoint' is an array of 3 numbers
- * specifying the tristimulus value, in the CIE 1931 XYZ-space, of the
- * diffuse white point.  `blackPoint' is an array of 3 numbers specifying
- * the tristimulus value, in CIE 1931 XYZ-space, of the diffuse black
- * point. `range' is an array of four numbers specifying the range of valid
- * values for the a* and b* components of the color space. */
-/**
- *  CGColorSpaceCreateLab()
- *
+  /* Create an L*a*b* colorspace.  `whitePoint' is an array of 3 numbers
+   * specifying the tristimulus value, in the CIE 1931 XYZ-space, of the
+   * diffuse white point.  `blackPoint' is an array of 3 numbers specifying
+   * the tristimulus value, in CIE 1931 XYZ-space, of the diffuse black
+   * point. `range' is an array of four numbers specifying the range of valid
+   * values for the a* and b* components of the color space. */
+  /**
+   *  CGColorSpaceCreateLab()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateLab(const float whitePoint[3], const float blackPoint[3],
-                      const float range[4]);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceCreateLab(const float whitePoint[3], const float blackPoint[3],
+                        const float range[4]);
 
-/* Create an ICC-based colorspace.  `nComponents' specifies the number of
- * color components in the color space defined by the ICC profile data.
- * This must match the number of components actually in the ICC profile,
- * and must be 1, 3, or 4.  `range' is an array of 2*nComponents numbers
- * specifying the minimum and maximum valid values of the corresponding
- * color components, so that for color component k, range[2*k] <= c[k] <=
- * range[2*k+1], where c[k] is the k'th color component.  `profile' is a
- * data provider specifying the ICC profile.  `alternate' specifies an
- * alternate colorspace to be used in case the ICC profile is not
- * supported.  It must have `nComponents' color components. If `alternate'
- * is NULL, then the color space used will be DeviceGray, DeviceRGB, or
- * DeviceCMYK, depending on whether `nComponents' is 1, 3, or 4,
- * respectively. */
-/**
- *  CGColorSpaceCreateICCBased()
- *
+  /* Create an ICC-based colorspace.  `nComponents' specifies the number of
+   * color components in the color space defined by the ICC profile data.
+   * This must match the number of components actually in the ICC profile,
+   * and must be 1, 3, or 4.  `range' is an array of 2*nComponents numbers
+   * specifying the minimum and maximum valid values of the corresponding
+   * color components, so that for color component k, range[2*k] <= c[k] <=
+   * range[2*k+1], where c[k] is the k'th color component.  `profile' is a
+   * data provider specifying the ICC profile.  `alternate' specifies an
+   * alternate colorspace to be used in case the ICC profile is not
+   * supported.  It must have `nComponents' color components. If `alternate'
+   * is NULL, then the color space used will be DeviceGray, DeviceRGB, or
+   * DeviceCMYK, depending on whether `nComponents' is 1, 3, or 4,
+   * respectively. */
+  /**
+   *  CGColorSpaceCreateICCBased()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateICCBased(size_t nComponents, const float *range,
-                           CGDataProviderRef profile,
-                           CGColorSpaceRef alternateSpace);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceCreateICCBased(size_t nComponents, const float *range,
+                             CGDataProviderRef profile,
+                             CGColorSpaceRef alternateSpace);
 
-/** Special colorspaces. **/
-/* Create an indexed colorspace.  A sample value in an indexed color space
- * is treated as an index into the color table of the color space.  `base'
- * specifies the base color space in which the values in the color table
- * are to be interpreted. `lastIndex' is an integer which specifies the
- * maximum valid index value; it must be less than or equal to 255.
- * `colorTable' is an array of m * (lastIndex + 1) bytes, where m is
- * the number of color components in the base color space.  Each byte
- * is an unsigned integer in the range 0 to 255 that is scaled to the
- * range of the corresponding color component in the base color space. */
-/**
- *  CGColorSpaceCreateIndexed()
- *
+  /** Special colorspaces. **/
+  /* Create an indexed colorspace.  A sample value in an indexed color space
+   * is treated as an index into the color table of the color space.  `base'
+   * specifies the base color space in which the values in the color table
+   * are to be interpreted. `lastIndex' is an integer which specifies the
+   * maximum valid index value; it must be less than or equal to 255.
+   * `colorTable' is an array of m * (lastIndex + 1) bytes, where m is
+   * the number of color components in the base color space.  Each byte
+   * is an unsigned integer in the range 0 to 255 that is scaled to the
+   * range of the corresponding color component in the base color space. */
+  /**
+   *  CGColorSpaceCreateIndexed()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateIndexed(CGColorSpaceRef baseSpace, size_t lastIndex,
-                          const unsigned char *colorTable);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceCreateIndexed(CGColorSpaceRef baseSpace, size_t lastIndex,
+                            const unsigned char *colorTable);
 
-/* Create a pattern colorspace. `baseSpace' is the underlying colorspace of
- * the pattern colorspace.  For colored patterns, `baseSpace' should be
- * NULL; for uncolored patterns, `baseSpace' specifies the colorspace of
- * colors which will be painted through the pattern. */
-/**
- *  CGColorSpaceCreatePattern()
- *
+  /* Create a pattern colorspace. `baseSpace' is the underlying colorspace of
+   * the pattern colorspace.  For colored patterns, `baseSpace' should be
+   * NULL; for uncolored patterns, `baseSpace' specifies the colorspace of
+   * colors which will be painted through the pattern. */
+  /**
+   *  CGColorSpaceCreatePattern()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.1 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreatePattern(CGColorSpaceRef baseSpace);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.1 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceCreatePattern(CGColorSpaceRef baseSpace);
 
-/* Create a CGColorSpace using `platformColorSpaceReference', a pointer to
- * a platform-specific color space reference. For MacOS X,
- * `platformColorSpaceReference' should be a pointer to a CMProfileRef. */
-/**
- *  CGColorSpaceCreateWithPlatformColorSpace()
- *
+  /* Create a CGColorSpace using `platformColorSpaceReference', a pointer to
+   * a platform-specific color space reference. For MacOS X,
+   * `platformColorSpaceReference' should be a pointer to a CMProfileRef. */
+  /**
+   *  CGColorSpaceCreateWithPlatformColorSpace()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.1 and later
- */
-CGColorSpaceRef
-CGColorSpaceCreateWithPlatformColorSpace(void *platformColorSpaceReference);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.1 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceCreateWithPlatformColorSpace(void *platformColorSpaceReference);
 
-/** Colorspace information. **/
-// Return the number of color components supported by the colorspace `cs'. /**
- *  CGColorSpaceGetNumberOfComponents()
- *
-// Return the number of color components supported by the colorspace `cs'. 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-size_t
-CGColorSpaceGetNumberOfComponents(CGColorSpaceRef cs);
+  /** Colorspace information. **/
+  // Return the number of color components supported by the colorspace `cs'.
+  /**
+  *  CGColorSpaceGetNumberOfComponents()
+  *
+ // Return the number of color components supported by the colorspace `cs'.
+  *    \non_carbon_cfm   not available
+  *    \carbon_lib        not available
+  *    \mac_os_x         in version 10.0 and later
+  */
+  size_t
+  CGColorSpaceGetNumberOfComponents(CGColorSpaceRef cs);
 
-/** Retaining & releasing colorspaces. **/
-/* Increment the retain count of `cs' and return it.  All colorspaces are
- * created with an initial retain count of 1. */
-/**
- *  CGColorSpaceRetain()
- *
+  /** Retaining & releasing colorspaces. **/
+  /* Increment the retain count of `cs' and return it.  All colorspaces are
+   * created with an initial retain count of 1. */
+  /**
+   *  CGColorSpaceRetain()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-CGColorSpaceRef
-CGColorSpaceRetain(CGColorSpaceRef cs);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  CGColorSpaceRef
+  CGColorSpaceRetain(CGColorSpaceRef cs);
 
-/* Decrement the retain count of `cs'.  If the retain count reaches 0, then
- * release it and any associated resources. */
-/**
- *  CGColorSpaceRelease()
- *
+  /* Decrement the retain count of `cs'.  If the retain count reaches 0, then
+   * release it and any associated resources. */
+  /**
+   *  CGColorSpaceRelease()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         in version 10.0 and later
- */
-void
-CGColorSpaceRelease(CGColorSpaceRef cs);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void
+  CGColorSpaceRelease(CGColorSpaceRef cs);
 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
@@ -309,4 +315,4 @@ CGColorSpaceRelease(CGColorSpaceRef cs);
 }
 #endif
 
-#endif // __CGCOLORSPACE__ // __CGCOLORSPACE__ 
+#endif // __CGCOLORSPACE__ // __CGCOLORSPACE__

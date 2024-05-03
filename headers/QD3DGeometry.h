@@ -4276,93 +4276,94 @@ extern "C"
   typedef struct TQ3TriMeshEdgeData TQ3TriMeshEdgeData;
   struct TQ3TriMeshAttributeData
   {
-    TQ3AttributeType attributeType; // The type of attribute         void *data;                     // Pointer to the contiguous                                       // attribute data.             char *attributeUseArray;        // This is only used with custom                                   // attributes                };
-    typedef struct TQ3TriMeshAttributeData TQ3TriMeshAttributeData;
-    struct TQ3TriMeshData
-    {
-      TQ3AttributeSet triMeshAttributeSet;
+    TQ3AttributeType attributeType; // The type of attribute         void *data;                     // Pointer to the contiguous                                       // attribute data.             char *attributeUseArray;        // This is only used with custom                                   // attributes
+  };
+  typedef struct TQ3TriMeshAttributeData TQ3TriMeshAttributeData;
+  struct TQ3TriMeshData
+  {
+    TQ3AttributeSet triMeshAttributeSet;
 
-      unsigned long numTriangles;
-      TQ3TriMeshTriangleData *triangles;
+    unsigned long numTriangles;
+    TQ3TriMeshTriangleData *triangles;
 
-      unsigned long numTriangleAttributeTypes;
-      TQ3TriMeshAttributeData *triangleAttributeTypes;
+    unsigned long numTriangleAttributeTypes;
+    TQ3TriMeshAttributeData *triangleAttributeTypes;
 
-      unsigned long numEdges;
-      TQ3TriMeshEdgeData *edges;
+    unsigned long numEdges;
+    TQ3TriMeshEdgeData *edges;
 
-      unsigned long numEdgeAttributeTypes;
-      TQ3TriMeshAttributeData *edgeAttributeTypes;
+    unsigned long numEdgeAttributeTypes;
+    TQ3TriMeshAttributeData *edgeAttributeTypes;
 
-      unsigned long numPoints;
-      TQ3Point3D *points;
+    unsigned long numPoints;
+    TQ3Point3D *points;
 
-      unsigned long numVertexAttributeTypes;
-      TQ3TriMeshAttributeData *vertexAttributeTypes;
+    unsigned long numVertexAttributeTypes;
+    TQ3TriMeshAttributeData *vertexAttributeTypes;
 
-      TQ3BoundingBox bBox;
-    };
-    typedef struct TQ3TriMeshData TQ3TriMeshData;
+    TQ3BoundingBox bBox;
+  };
+  typedef struct TQ3TriMeshData TQ3TriMeshData;
 /******************************************************************************
  **                                                                          **
  **                         TriMesh Routines                                 **
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-    /**
-     *  Q3TriMesh_New()
-     *
+  /**
+   *  Q3TriMesh_New()
+   *
 
-     *    \non_carbon_cfm   not available
-     *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
-    TQ3GeometryObject
-    Q3TriMesh_New(const TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3GeometryObject
+  Q3TriMesh_New(const TQ3TriMeshData *triMeshData);
 
-    /**
-     *  Q3TriMesh_Submit()
-     *
+  /**
+   *  Q3TriMesh_Submit()
+   *
 
-     *    \non_carbon_cfm   not available
-     *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
-    TQ3Status
-    Q3TriMesh_Submit(const TQ3TriMeshData *triMeshData, TQ3ViewObject view);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_Submit(const TQ3TriMeshData *triMeshData, TQ3ViewObject view);
 
-    /**
-     *  Q3TriMesh_SetData()
-     *
+  /**
+   *  Q3TriMesh_SetData()
+   *
 
-     *    \non_carbon_cfm   not available
-     *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
-    TQ3Status
-    Q3TriMesh_SetData(TQ3GeometryObject triMesh, const TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_SetData(TQ3GeometryObject triMesh, const TQ3TriMeshData *triMeshData);
 
-    /**
-     *  Q3TriMesh_GetData()
-     *
+  /**
+   *  Q3TriMesh_GetData()
+   *
 
-     *    \non_carbon_cfm   not available
-     *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
-    TQ3Status
-    Q3TriMesh_GetData(TQ3GeometryObject triMesh, TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_GetData(TQ3GeometryObject triMesh, TQ3TriMeshData *triMeshData);
 
-    /**
-     *  Q3TriMesh_EmptyData()
-     *
+  /**
+   *  Q3TriMesh_EmptyData()
+   *
 
-     *    \non_carbon_cfm   not available
-     *    \carbon_lib        not available
-     *    \mac_os_x         not available
-     */
-    TQ3Status
-    Q3TriMesh_EmptyData(TQ3TriMeshData *triMeshData);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3TriMesh_EmptyData(TQ3TriMeshData *triMeshData);
 
 #endif // CALL_NOT_IN_CARBON
 #if PRAGMA_ENUM_ALWAYSINT
@@ -4391,7 +4392,7 @@ extern "C"
 #endif
 
 #ifdef __cplusplus
-  }
+}
 #endif
 
 #endif // __QD3DGEOMETRY__

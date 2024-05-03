@@ -355,7 +355,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  HMGetHelpMenuHandle(MenuRef *mh) THREEWORDINLINE(0x303C, 0x0200, 0xA830);
+  HMGetHelpMenuHandle(MenuRef *mh);
 
 #define HMGetHelpMenuRef HMGetHelpMenuHandle
   /**
@@ -370,8 +370,7 @@ extern "C"
   HMShowBalloon(const HMMessageRecord *inHelpMessage, Point inTip,
                 Rect *inHotRect, // can be NULL
                 TipFunctionUPP inTipProc, SInt16 inWindowProcID,
-                BalloonVariant inBalloonVariant, SInt16 inMethod)
-      THREEWORDINLINE(0x303C, 0x0B01, 0xA830);
+                BalloonVariant inBalloonVariant, SInt16 inMethod);
 
   /**
    *  HMShowMenuBalloon()
@@ -386,8 +385,7 @@ extern "C"
                     SInt32 itemReserved, Point tip,
                     Rect *alternateRect, // can be NULL
                     TipFunctionUPP tipProc, SInt16 theProc,
-                    BalloonVariant balloonVariant)
-      THREEWORDINLINE(0x303C, 0x0E05, 0xA830);
+                    BalloonVariant balloonVariant);
 
   /**
    *  HMRemoveBalloon()
@@ -398,7 +396,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  HMRemoveBalloon(void) THREEWORDINLINE(0x303C, 0x0002, 0xA830);
+  HMRemoveBalloon(void);
 
   /**
    *  HMGetIndHelpMsg()
@@ -413,8 +411,7 @@ extern "C"
                   SInt16 inMessageIndex, SInt16 inMessageState,
                   UInt32 *outOptions, Point *outTip, Rect *outHotRect,
                   SInt16 *outWindowProcID, BalloonVariant *outBalloonVariant,
-                  HMMessageRecord *outHelpMessage, SInt16 *outMessageCount)
-      THREEWORDINLINE(0x303C, 0x1306, 0xA830);
+                  HMMessageRecord *outHelpMessage, SInt16 *outMessageCount);
 
   /**
    *  HMIsBalloon()
@@ -425,7 +422,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   Boolean
-  HMIsBalloon(void) THREEWORDINLINE(0x303C, 0x0007, 0xA830);
+  HMIsBalloon(void);
 
   /**
   \brief Is Balloon Help on or off?
@@ -455,7 +452,7 @@ balloons.
 *    \mac_os_x         not available
 */
   Boolean
-  HMGetBalloons(void) THREEWORDINLINE(0x303C, 0x0003, 0xA830);
+  HMGetBalloons(void);
 
   /**
    *  HMSetBalloons()
@@ -466,7 +463,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMSetBalloons(Boolean flag) THREEWORDINLINE(0x303C, 0x0104, 0xA830);
+  HMSetBalloons(Boolean flag);
 
   /**
    *  HMSetFont()
@@ -477,7 +474,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMSetFont(SInt16 font) THREEWORDINLINE(0x303C, 0x0108, 0xA830);
+  HMSetFont(SInt16 font);
 
   /**
    *  HMSetFontSize()
@@ -488,7 +485,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMSetFontSize(UInt16 fontSize) THREEWORDINLINE(0x303C, 0x0109, 0xA830);
+  HMSetFontSize(UInt16 fontSize);
 
   /**
    *  HMGetFont()
@@ -499,7 +496,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMGetFont(SInt16 *font) THREEWORDINLINE(0x303C, 0x020A, 0xA830);
+  HMGetFont(SInt16 *font);
 
   /**
    *  HMGetFontSize()
@@ -510,7 +507,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMGetFontSize(UInt16 *fontSize) THREEWORDINLINE(0x303C, 0x020B, 0xA830);
+  HMGetFontSize(UInt16 *fontSize);
 
   /**
    *  HMSetDialogResID()
@@ -521,7 +518,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMSetDialogResID(SInt16 resID) THREEWORDINLINE(0x303C, 0x010C, 0xA830);
+  HMSetDialogResID(SInt16 resID);
 
   /**
    *  HMSetMenuResID()
@@ -532,8 +529,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMSetMenuResID(SInt16 menuID, SInt16 resID)
-      THREEWORDINLINE(0x303C, 0x020D, 0xA830);
+  HMSetMenuResID(SInt16 menuID, SInt16 resID);
 
   /**
    *  HMBalloonRect()
@@ -544,8 +540,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMBalloonRect(const HMMessageRecord *inMessage, Rect *outRect)
-      THREEWORDINLINE(0x303C, 0x040E, 0xA830);
+  HMBalloonRect(const HMMessageRecord *inMessage, Rect *outRect);
 
   /**
    *  HMBalloonPict()
@@ -556,8 +551,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMBalloonPict(const HMMessageRecord *inMessage, PicHandle *outPict)
-      THREEWORDINLINE(0x303C, 0x040F, 0xA830);
+  HMBalloonPict(const HMMessageRecord *inMessage, PicHandle *outPict);
 
   /**
    *  HMScanTemplateItems()
@@ -568,8 +562,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMScanTemplateItems(SInt16 whichID, SInt16 whichResFile, ResType whichType)
-      THREEWORDINLINE(0x303C, 0x0410, 0xA830);
+  HMScanTemplateItems(SInt16 whichID, SInt16 whichResFile, ResType whichType);
 
   /**
    *  HMExtractHelpMsg()
@@ -581,8 +574,7 @@ balloons.
    */
   OSErr
   HMExtractHelpMsg(ResType inType, SInt16 inResID, SInt16 inMessageIndex,
-                   SInt16 inMessageState, HMMessageRecord *outMessage)
-      THREEWORDINLINE(0x303C, 0x0711, 0xA830);
+                   SInt16 inMessageState, HMMessageRecord *outMessage);
 
   /**
    *  HMGetDialogResID()
@@ -593,7 +585,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMGetDialogResID(SInt16 *resID) THREEWORDINLINE(0x303C, 0x0213, 0xA830);
+  HMGetDialogResID(SInt16 *resID);
 
   /**
    *  HMGetMenuResID()
@@ -604,8 +596,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMGetMenuResID(SInt16 menuID, SInt16 *resID)
-      THREEWORDINLINE(0x303C, 0x0314, 0xA830);
+  HMGetMenuResID(SInt16 menuID, SInt16 *resID);
 
   /**
    *  HMGetBalloonWindow()
@@ -616,7 +607,7 @@ balloons.
    *    \mac_os_x         not available
    */
   OSErr
-  HMGetBalloonWindow(WindowRef *window) THREEWORDINLINE(0x303C, 0x0215, 0xA830);
+  HMGetBalloonWindow(WindowRef *window);
 
 #endif // CALL_NOT_IN_CARBON
 
@@ -638,5 +629,4 @@ balloons.
 }
 #endif
 
-#endif // __BALLOONS__
-* /
+#endif // __BALLOONS__*/

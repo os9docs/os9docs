@@ -488,7 +488,7 @@ extern "C"
    */
   UniversalProcPtr
   NewRoutineDescriptorTrap(ProcPtr theProc, ProcInfoType theProcInfo,
-                           ISAType theISA) TWOWORDINLINE(0x7000, 0xAA59);
+                           ISAType theISA);
 
   /**
    *  DisposeRoutineDescriptorTrap()
@@ -499,8 +499,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  DisposeRoutineDescriptorTrap(UniversalProcPtr theProcPtr)
-      TWOWORDINLINE(0x7001, 0xAA59);
+  DisposeRoutineDescriptorTrap(UniversalProcPtr theProcPtr);
 
   /**
    *  NewFatRoutineDescriptorTrap()
@@ -512,8 +511,7 @@ extern "C"
    */
   UniversalProcPtr
   NewFatRoutineDescriptorTrap(ProcPtr theM68kProc, ProcPtr thePowerPCProc,
-                              ProcInfoType theProcInfo)
-      TWOWORDINLINE(0x7002, 0xAA59);
+                              ProcInfoType theProcInfo);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -564,8 +562,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  SaveMixedModeState(MixedModeStateRecord *stateStorage, UInt32 stateVersion)
-      TWOWORDINLINE(0x7003, 0xAA59);
+  SaveMixedModeState(MixedModeStateRecord *stateStorage, UInt32 stateVersion);
 
   /**
    *  RestoreMixedModeState()
@@ -576,8 +573,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  RestoreMixedModeState(MixedModeStateRecord *stateStorage, UInt32 stateVersion)
-      TWOWORDINLINE(0x7004, 0xAA59);
+  RestoreMixedModeState(MixedModeStateRecord *stateStorage, UInt32 stateVersion);
 
 #endif /** CALL_NOT_IN_CARBON */
 

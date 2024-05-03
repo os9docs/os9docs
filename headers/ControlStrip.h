@@ -145,7 +145,7 @@ common functions
      *    \mac_os_x         not available
      */
     Boolean
-    SBIsControlStripVisible(void) TWOWORDINLINE(0x7000, 0xAAF2);
+    SBIsControlStripVisible(void);
 
     /**
      *  SBShowHideControlStrip()
@@ -156,7 +156,7 @@ common functions
      *    \mac_os_x         not available
      */
     void
-    SBShowHideControlStrip(Boolean showIt) THREEWORDINLINE(0x303C, 0x0101, 0xAAF2);
+    SBShowHideControlStrip(Boolean showIt);
 
     /**
      *  SBSafeToAccessStartupDisk()
@@ -167,7 +167,7 @@ common functions
      *    \mac_os_x         not available
      */
     Boolean
-    SBSafeToAccessStartupDisk(void) TWOWORDINLINE(0x7002, 0xAAF2);
+    SBSafeToAccessStartupDisk(void);
 
     /**
      *  SBOpenModuleResourceFile()
@@ -178,8 +178,7 @@ common functions
      *    \mac_os_x         not available
      */
     short
-    SBOpenModuleResourceFile(OSType fileCreator)
-        THREEWORDINLINE(0x303C, 0x0203, 0xAAF2);
+    SBOpenModuleResourceFile(OSType fileCreator);
 
     /**
      *  SBLoadPreferences()
@@ -190,8 +189,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBLoadPreferences(ConstStr255Param prefsResourceName, Handle *preferences)
-        THREEWORDINLINE(0x303C, 0x0404, 0xAAF2);
+    SBLoadPreferences(ConstStr255Param prefsResourceName, Handle *preferences);
 
     /**
      *  SBSavePreferences()
@@ -202,8 +200,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBSavePreferences(ConstStr255Param prefsResourceName, Handle preferences)
-        THREEWORDINLINE(0x303C, 0x0405, 0xAAF2);
+    SBSavePreferences(ConstStr255Param prefsResourceName, Handle preferences);
 
     /**
      *  SBGetDetachedIndString()
@@ -215,8 +212,7 @@ common functions
      */
     void
     SBGetDetachedIndString(StringPtr theString, Handle stringList,
-                           short whichString)
-        THREEWORDINLINE(0x303C, 0x0506, 0xAAF2);
+                           short whichString);
 
     /**
      *  SBGetDetachIconSuite()
@@ -228,8 +224,7 @@ common functions
      */
     OSErr
     SBGetDetachIconSuite(Handle *theIconSuite, short theResID,
-                         unsigned long selector)
-        THREEWORDINLINE(0x303C, 0x0507, 0xAAF2);
+                         unsigned long selector);
 
     /**
      *  SBTrackPopupMenu()
@@ -240,8 +235,7 @@ common functions
      *    \mac_os_x         not available
      */
     short
-    SBTrackPopupMenu(const Rect *moduleRect, MenuRef theMenu)
-        THREEWORDINLINE(0x303C, 0x0408, 0xAAF2);
+    SBTrackPopupMenu(const Rect *moduleRect, MenuRef theMenu);
 
     /**
      *  SBTrackSlider()
@@ -252,8 +246,7 @@ common functions
      *    \mac_os_x         not available
      */
     short
-    SBTrackSlider(const Rect *moduleRect, short ticksOnSlider, short initialValue)
-        THREEWORDINLINE(0x303C, 0x0409, 0xAAF2);
+    SBTrackSlider(const Rect *moduleRect, short ticksOnSlider, short initialValue);
 
     /**
      *  SBShowHelpString()
@@ -264,8 +257,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBShowHelpString(const Rect *moduleRect, StringPtr helpString)
-        THREEWORDINLINE(0x303C, 0x040A, 0xAAF2);
+    SBShowHelpString(const Rect *moduleRect, StringPtr helpString);
 
     /**
      *  SBGetBarGraphWidth()
@@ -276,7 +268,7 @@ common functions
      *    \mac_os_x         not available
      */
     short
-    SBGetBarGraphWidth(short barCount) THREEWORDINLINE(0x303C, 0x010B, 0xAAF2);
+    SBGetBarGraphWidth(short barCount);
 
     /**
      *  SBDrawBarGraph()
@@ -288,7 +280,7 @@ common functions
      */
     void
     SBDrawBarGraph(short level, short barCount, short direction,
-                   Point barGraphTopLeft) THREEWORDINLINE(0x303C, 0x050C, 0xAAF2);
+                   Point barGraphTopLeft);
 
     /**
      *  SBModalDialogInContext()
@@ -299,8 +291,7 @@ common functions
      *    \mac_os_x         not available
      */
     void
-    SBModalDialogInContext(ModalFilterUPP filterProc, short *itemHit)
-        THREEWORDINLINE(0x303C, 0x040D, 0xAAF2);
+    SBModalDialogInContext(ModalFilterUPP filterProc, short *itemHit);
 
     /** The following routines are available in Control Strip 1.2 and later. */
     /**
@@ -312,7 +303,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBGetControlStripFontID(short *fontID) THREEWORDINLINE(0x303C, 0x020E, 0xAAF2);
+    SBGetControlStripFontID(short *fontID);
 
     /**
      *  SBSetControlStripFontID()
@@ -323,7 +314,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBSetControlStripFontID(short fontID) THREEWORDINLINE(0x303C, 0x010F, 0xAAF2);
+    SBSetControlStripFontID(short fontID);
 
     /**
      *  SBGetControlStripFontSize()
@@ -334,8 +325,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBGetControlStripFontSize(short *fontSize)
-        THREEWORDINLINE(0x303C, 0x0210, 0xAAF2);
+    SBGetControlStripFontSize(short *fontSize);
 
     /**
      *  SBSetControlStripFontSize()
@@ -346,8 +336,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBSetControlStripFontSize(short fontSize)
-        THREEWORDINLINE(0x303C, 0x0111, 0xAAF2);
+    SBSetControlStripFontSize(short fontSize);
 
     /**
      *  SBGetShowHideHotKey()
@@ -358,8 +347,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBGetShowHideHotKey(short *modifiers, unsigned char *keyCode)
-        THREEWORDINLINE(0x303C, 0x0412, 0xAAF2);
+    SBGetShowHideHotKey(short *modifiers, unsigned char *keyCode);
 
     /**
      *  SBSetShowHideHotKey()
@@ -370,8 +358,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBSetShowHideHotKey(short modifiers, unsigned char keyCode)
-        THREEWORDINLINE(0x303C, 0x0213, 0xAAF2);
+    SBSetShowHideHotKey(short modifiers, unsigned char keyCode);
 
     /**
      *  SBIsShowHideHotKeyEnabled()
@@ -382,8 +369,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBIsShowHideHotKeyEnabled(Boolean *enabled)
-        THREEWORDINLINE(0x303C, 0x0214, 0xAAF2);
+    SBIsShowHideHotKeyEnabled(Boolean *enabled);
 
     /**
      *  SBEnableShowHideHotKey()
@@ -394,7 +380,7 @@ common functions
      *    \mac_os_x         not available
      */
     OSErr
-    SBEnableShowHideHotKey(Boolean enabled) THREEWORDINLINE(0x303C, 0x0115, 0xAAF2);
+    SBEnableShowHideHotKey(Boolean enabled);
 
     /** The following routines are available in Control Strip 1.4 and later. */
     /**
@@ -407,8 +393,7 @@ common functions
      */
     short
     SBHitTrackSlider(const Rect *moduleRect, short ticksOnSlider,
-                     short initialValue, Boolean *hit)
-        THREEWORDINLINE(0x303C, 0x0616, 0xAAF2);
+                     short initialValue, Boolean *hit);
 
 #endif /** CALL_NOT_IN_CARBON */
 

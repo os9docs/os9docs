@@ -60,8 +60,8 @@ extern "C"
 
 	// Disk Driver Status csCodes 	enum
 	{
-		kReturnFormatList = 6, // .Sony 		kDriveStatus = 8,
-		kMFMStatus = 10		   // .Sony
+		kReturnFormatList = 6,
+		kDriveStatus = 8 kMFMStatus = 10 // .Sony
 	};
 
 	// Disk Driver Control csCodes 	enum
@@ -69,8 +69,8 @@ extern "C"
 		// Disk Driver Control csCodes
 		kFormat = 6,
 		kEject = 7,
-		kSetTagBuffer = 8, // .Sony 		kTrackCache = 9,   // .Sony 		kDriveIcon = 21,
-			kMediaIcon = 22,
+		kSetTagBuffer = 8,
+		kTrackCache = 9 kDriveIcon = 21 kMediaIcon = 22,
 		kDriveInfo = 23,
 		kRawTrack = 18244 /// .Sony
 						  // .Sony
@@ -147,15 +147,15 @@ extern "C"
 		} DrvSts;					/**< */
 
 		typedef struct DrvSts2 DrvSts2;
-		// Macros to get a DrvSts pointer or a DrvSts2 pointer from a DrvQEl pointer. /* Note: If you use these macros, your source file must include stddef.h to get
-		*offsetof * /
+		// Macros to get a DrvSts pointer or a DrvSts2 pointer from a DrvQEl pointer.
+		/* Note: If you use these macros, your source file must include stddef.h to get offsetof */
 #define GetDrvStsPtrFromDrvQElPtr(driveQElement) \
 	((DrvSts *)((BytePtr)driveQElement - offsetof(DrvSts, qLink)))
 #define GetDrvSts2PtrFromDrvQElPtr(driveQElement) \
 	((DrvSts2 *)((BytePtr)driveQElement - offsetof(DrvSts2, qLink)))
-			// Macros to get a DrvSts pointer or a DrvSts2 pointer from a DrvQEl pointer.
-			{
-				kdqManualEjectBit = 5};
+		// Macros to get a DrvSts pointer or a DrvSts2 pointer from a DrvQEl pointer.
+		{
+			kdqManualEjectBit = 5};
 
 #if CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
@@ -253,7 +253,9 @@ extern "C"
 	QHdrPtr qhp; // address of a QHdr structure 	DrvQEl *qep;
 		Byte *bp; // helps to decode prefix bytes 	long totBlks;
 		Boolean locked, oneSide, empty;
-		qhp = GetDrvQHdr();			// address of queue header 	qep = (DrvQEl *)qhp->qHead; // address of a queue element 	printf("Drv# FileSys Blocks locked 1-sided empty\n");
+		qhp = GetDrvQHdr();			// address of queue header
+qep = (DrvQEl *)qhp->qHead; // address of a queue element
+printf("Drv# FileSys Blocks locked 1-sided empty\n");
 		do
 		{
 			bp = (Byte *)qep;
@@ -264,7 +266,7 @@ extern "C"
 						*    \carbon_lib not available *    \mac_os_x not available *
 					/// helps to decode prefix bytes
 					QHdrPtr
-					GetDrvQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x0308);
+					GetDrvQHdr(void);
 	// address of queue header
 	#endif // CALL_NOT_IN_CARBON // address of a queue element
 	#endif // CALL_NOT_IN_CARBON
@@ -275,41 +277,44 @@ extern "C"
 			 */
 		enum
 		{
-			drvStsCode = kDriveStatus // status call code for drive status 		};
+			drvStsCode = kDriveStatus // status call code for drive status
+		};
 
-			/* Control csCodes previously defined in Devices.h/p/a.
-			 * These are obsolete and the new names should be used instead.
-			 */
-			enum {					  // CALL_NOT_IN_CARBON
-				  ejectCode = kEject, // control call eject code 			tgBuffCode = kSetTagBuffer // set tag buffer code 		};
-									  // CALL_NOT_IN_CARBON
-									  /* Control csCodes previously defined in DriverGestalt.h/p/a.
-									   * These are obsolete and the new names should be used instead.
-									  // Obsolete definitions
-									  enum
-									  {
-										  VerifyCmd = kVerify,
-										  FormatCmd = kFormat,
-										  EjectCmd = kEject
-									  };
-							  // status call code for drive status
-							  #if PRAGMA_STRUCT_ALIGN
-							  #pragma options align = reset
-							  #elif PRAGMA_STRUCT_PACKPUSH
-							  #pragma pack(pop)
-							  #elif PRAGMA_STRUCT_PACK
-							  #pragma pack()
-							  #endif
-							  // control call eject code
-							  #ifdef PRAGMA_IMPORT_OFF// set tag buffer code
-							  #pragma import off
-							  #elif PRAGMA_IMPORT
-							  #pragma import reset
-							  #endif
-				
-							  #ifdef __cplusplus
-								  }
-							  #endif
-				
-							  #endif // __DISKS__ 	*/
-						  *			  /// __DISKS__
+		/* Control csCodes previously defined in Devices.h/p/a.
+		 * These are obsolete and the new names should be used instead.
+		 */
+		enum
+		{						// CALL_NOT_IN_CARBON
+			ejectCode = kEject, // control call eject code 			tgBuffCode = kSetTagBuffer // set tag buffer code
+		};
+		// CALL_NOT_IN_CARBON
+		/* Control csCodes previously defined in DriverGestalt.h/p/a.
+		 * These are obsolete and the new names should be used instead.
+		 */
+		// Obsolete definitions
+		enum
+		{
+			VerifyCmd = kVerify,
+			FormatCmd = kFormat,
+			EjectCmd = kEject
+		};
+// status call code for drive status
+#if PRAGMA_STRUCT_ALIGN
+#pragma options align = reset
+#elif PRAGMA_STRUCT_PACKPUSH
+#pragma pack(pop)
+#elif PRAGMA_STRUCT_PACK
+#pragma pack()
+#endif
+// control call eject code
+#ifdef PRAGMA_IMPORT_OFF // set tag buffer code
+#pragma import off
+#elif PRAGMA_IMPORT
+#pragma import reset
+#endif
+
+#ifdef __cplusplus
+	}
+#endif
+
+#endif // __DISKS__ 	*/

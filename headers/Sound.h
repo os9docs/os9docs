@@ -2222,7 +2222,7 @@ enum
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    SysBeep(short duration) ONEWORDINLINE(0xA9C8);
+    SysBeep(short duration);
 
     /**
      *  SndDoCommand()
@@ -2233,8 +2233,7 @@ enum
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SndDoCommand(SndChannelPtr chan, const SndCommand *cmd, Boolean noWait)
-        ONEWORDINLINE(0xA803);
+    SndDoCommand(SndChannelPtr chan, const SndCommand *cmd, Boolean noWait);
 
     /**
      *  SndDoImmediate()
@@ -2245,7 +2244,7 @@ enum
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SndDoImmediate(SndChannelPtr chan, const SndCommand *cmd) ONEWORDINLINE(0xA804);
+    SndDoImmediate(SndChannelPtr chan, const SndCommand *cmd);
 
     /**
      *  SndNewChannel()
@@ -2257,7 +2256,7 @@ enum
      */
     OSErr
     SndNewChannel(SndChannelPtr *chan, short synth, long init,
-                  SndCallBackUPP userRoutine) ONEWORDINLINE(0xA807);
+                  SndCallBackUPP userRoutine);
 
     /**
      *  SndDisposeChannel()
@@ -2268,7 +2267,7 @@ enum
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SndDisposeChannel(SndChannelPtr chan, Boolean quietNow) ONEWORDINLINE(0xA801);
+    SndDisposeChannel(SndChannelPtr chan, Boolean quietNow);
 
     /**
      *  SndPlay()
@@ -2279,8 +2278,7 @@ enum
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SndPlay(SndChannelPtr chan, SndListHandle sndHandle, Boolean async)
-        ONEWORDINLINE(0xA805);
+    SndPlay(SndChannelPtr chan, SndListHandle sndHandle, Boolean async);
 
 #if OLDROUTINENAMES
 #if CALL_NOT_IN_CARBON
@@ -2293,8 +2291,7 @@ enum
      *    \mac_os_x         not available
      */
     OSErr
-    SndAddModifier(SndChannelPtr chan, Ptr modifier, short id, long init)
-        ONEWORDINLINE(0xA802);
+    SndAddModifier(SndChannelPtr chan, Ptr modifier, short id, long init);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -2310,7 +2307,7 @@ enum
      *    \mac_os_x         not available
      */
     OSErr
-    SndControl(short id, SndCommand *cmd) ONEWORDINLINE(0xA806);
+    SndControl(short id, SndCommand *cmd);
 
 /** Sound Manager 2.0 and later, uses _SoundDispatch */
 #endif /** CALL_NOT_IN_CARBON */
@@ -2337,7 +2334,7 @@ SPBVersion functions, respectively.
 *    \mac_os_x         in version 10.0 and later
 */
     NumVersion
-    SndSoundManagerVersion(void) FOURWORDINLINE(0x203C, 0x000C, 0x0008, 0xA800);
+    SndSoundManagerVersion(void);
 
 #if CALL_NOT_IN_CARBON
     /**
@@ -2352,8 +2349,7 @@ SPBVersion functions, respectively.
     SndStartFilePlay(SndChannelPtr chan, short fRefNum, short resNum,
                      long bufferSize, void *theBuffer,
                      AudioSelectionPtr theSelection,
-                     FilePlayCompletionUPP theCompletion, Boolean async)
-        FOURWORDINLINE(0x203C, 0x0D00, 0x0008, 0xA800);
+                     FilePlayCompletionUPP theCompletion, Boolean async);
 
     /**
     \brief SndPauseFilePlay Suspend asynchronous play from disk
@@ -2383,8 +2379,7 @@ channelNotBusy (-211)Channel not currently used
 *    \mac_os_x         not available
 */
     OSErr
-    SndPauseFilePlay(SndChannelPtr chan)
-        FOURWORDINLINE(0x203C, 0x0204, 0x0008, 0xA800);
+    SndPauseFilePlay(SndChannelPtr chan);
 
     /**
      *  SndStopFilePlay()
@@ -2395,8 +2390,7 @@ channelNotBusy (-211)Channel not currently used
      *    \mac_os_x         not available
      */
     OSErr
-    SndStopFilePlay(SndChannelPtr chan, Boolean quietNow)
-        FOURWORDINLINE(0x203C, 0x0308, 0x0008, 0xA800);
+    SndStopFilePlay(SndChannelPtr chan, Boolean quietNow);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -2409,8 +2403,7 @@ channelNotBusy (-211)Channel not currently used
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SndChannelStatus(SndChannelPtr chan, short theLength, SCStatusPtr theStatus)
-        FOURWORDINLINE(0x203C, 0x0510, 0x0008, 0xA800);
+    SndChannelStatus(SndChannelPtr chan, short theLength, SCStatusPtr theStatus);
 
     /**
     \brief SndManagerStatus Determine information about the Sound Manager
@@ -2438,8 +2431,7 @@ SPBVersion functions, respectively.
 *    \mac_os_x         in version 10.0 and later
 */
     OSErr
-    SndManagerStatus(short theLength, SMStatusPtr theStatus)
-        FOURWORDINLINE(0x203C, 0x0314, 0x0008, 0xA800);
+    SndManagerStatus(short theLength, SMStatusPtr theStatus);
 
     /**
     \brief SndGetSysBeepState Determine whether SysBeep is enabled
@@ -2456,8 +2448,7 @@ Returns: none
 *    \mac_os_x         in version 10.0 and later
 */
     void
-    SndGetSysBeepState(short *sysBeepState)
-        FOURWORDINLINE(0x203C, 0x0218, 0x0008, 0xA800);
+    SndGetSysBeepState(short *sysBeepState);
 
     /**
     \brief SndSetSysBeepState Set the state of the system alert sound..
@@ -2475,8 +2466,7 @@ paramErr (-50)A parameter is incorrect
 *    \mac_os_x         in version 10.0 and later
 */
     OSErr
-    SndSetSysBeepState(short sysBeepState)
-        FOURWORDINLINE(0x203C, 0x011C, 0x0008, 0xA800);
+    SndSetSysBeepState(short sysBeepState);
 
 #if CALL_NOT_IN_CARBON
     /**
@@ -2488,8 +2478,7 @@ paramErr (-50)A parameter is incorrect
      *    \mac_os_x         not available
      */
     OSErr
-    SndPlayDoubleBuffer(SndChannelPtr chan, SndDoubleBufferHeaderPtr theParams)
-        FOURWORDINLINE(0x203C, 0x0420, 0x0008, 0xA800);
+    SndPlayDoubleBuffer(SndChannelPtr chan, SndDoubleBufferHeaderPtr theParams);
 
     /** MACE compression routines, uses _SoundDispatch */
 
@@ -2515,7 +2504,7 @@ SPBVersion functions, respectively.
 *    \mac_os_x         not available
 */
     NumVersion
-    MACEVersion(void) FOURWORDINLINE(0x203C, 0x0000, 0x0010, 0xA800);
+    MACEVersion(void);
 
     /**
      *  Comp3to1()
@@ -2528,8 +2517,7 @@ SPBVersion functions, respectively.
     void
     Comp3to1(const void *inBuffer, void *outBuffer, unsigned long cnt,
              StateBlockPtr inState, StateBlockPtr outState,
-             unsigned long numChannels, unsigned long whichChannel)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0010, 0xA800);
+             unsigned long numChannels, unsigned long whichChannel);
 
     /**
      *  Exp1to3()
@@ -2542,8 +2530,7 @@ SPBVersion functions, respectively.
     void
     Exp1to3(const void *inBuffer, void *outBuffer, unsigned long cnt,
             StateBlockPtr inState, StateBlockPtr outState,
-            unsigned long numChannels, unsigned long whichChannel)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0010, 0xA800);
+            unsigned long numChannels, unsigned long whichChannel);
 
     /**
      *  Comp6to1()
@@ -2556,8 +2543,7 @@ SPBVersion functions, respectively.
     void
     Comp6to1(const void *inBuffer, void *outBuffer, unsigned long cnt,
              StateBlockPtr inState, StateBlockPtr outState,
-             unsigned long numChannels, unsigned long whichChannel)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0010, 0xA800);
+             unsigned long numChannels, unsigned long whichChannel);
 
     /**
      *  Exp1to6()
@@ -2570,8 +2556,7 @@ SPBVersion functions, respectively.
     void
     Exp1to6(const void *inBuffer, void *outBuffer, unsigned long cnt,
             StateBlockPtr inState, StateBlockPtr outState,
-            unsigned long numChannels, unsigned long whichChannel)
-        FOURWORDINLINE(0x203C, 0x0010, 0x0010, 0xA800);
+            unsigned long numChannels, unsigned long whichChannel);
 
 /** Sound Manager 3.0 and later calls, uses _SoundDispatch */
 #endif /** CALL_NOT_IN_CARBON */
@@ -2585,7 +2570,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    GetSysBeepVolume(long *level) FOURWORDINLINE(0x203C, 0x0224, 0x0018, 0xA800);
+    GetSysBeepVolume(long *level);
 
     /**
      *  SetSysBeepVolume()
@@ -2596,7 +2581,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SetSysBeepVolume(long level) FOURWORDINLINE(0x203C, 0x0228, 0x0018, 0xA800);
+    SetSysBeepVolume(long level);
 
     /**
      *  GetDefaultOutputVolume()
@@ -2607,8 +2592,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    GetDefaultOutputVolume(long *level)
-        FOURWORDINLINE(0x203C, 0x022C, 0x0018, 0xA800);
+    GetDefaultOutputVolume(long *level);
 
     /**
      *  SetDefaultOutputVolume()
@@ -2619,8 +2603,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SetDefaultOutputVolume(long level)
-        FOURWORDINLINE(0x203C, 0x0230, 0x0018, 0xA800);
+    SetDefaultOutputVolume(long level);
 
     /**
      *  GetSoundHeaderOffset()
@@ -2631,8 +2614,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    GetSoundHeaderOffset(SndListHandle sndHandle, long *offset)
-        FOURWORDINLINE(0x203C, 0x0404, 0x0018, 0xA800);
+    GetSoundHeaderOffset(SndListHandle sndHandle, long *offset);
 
     /**
      *  UnsignedFixedMulDiv()
@@ -2644,8 +2626,7 @@ SPBVersion functions, respectively.
      */
     UnsignedFixed
     UnsignedFixedMulDiv(UnsignedFixed value, UnsignedFixed multiplier,
-                        UnsignedFixed divisor)
-        FOURWORDINLINE(0x203C, 0x060C, 0x0018, 0xA800);
+                        UnsignedFixed divisor);
 
     /**
      *  GetCompressionInfo()
@@ -2657,8 +2638,7 @@ SPBVersion functions, respectively.
      */
     OSErr
     GetCompressionInfo(short compressionID, OSType format, short numChannels,
-                       short sampleSize, CompressionInfoPtr cp)
-        FOURWORDINLINE(0x203C, 0x0710, 0x0018, 0xA800);
+                       short sampleSize, CompressionInfoPtr cp);
 
     /**
      *  SetSoundPreference()
@@ -2669,8 +2649,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SetSoundPreference(OSType theType, Str255 name, Handle settings)
-        FOURWORDINLINE(0x203C, 0x0634, 0x0018, 0xA800);
+    SetSoundPreference(OSType theType, Str255 name, Handle settings);
 
     /**
      *  GetSoundPreference()
@@ -2681,8 +2660,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    GetSoundPreference(OSType theType, Str255 name, Handle settings)
-        FOURWORDINLINE(0x203C, 0x0638, 0x0018, 0xA800);
+    GetSoundPreference(OSType theType, Str255 name, Handle settings);
 
     /**
      *  OpenMixerSoundComponent()
@@ -2694,8 +2672,7 @@ SPBVersion functions, respectively.
      */
     OSErr
     OpenMixerSoundComponent(SoundComponentDataPtr outputDescription,
-                            long outputFlags, ComponentInstance *mixerComponent)
-        FOURWORDINLINE(0x203C, 0x0614, 0x0018, 0xA800);
+                            long outputFlags, ComponentInstance *mixerComponent);
 
     /**
      *  CloseMixerSoundComponent()
@@ -2706,8 +2683,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    CloseMixerSoundComponent(ComponentInstance ci)
-        FOURWORDINLINE(0x203C, 0x0218, 0x0018, 0xA800);
+    CloseMixerSoundComponent(ComponentInstance ci);
 
     /** Sound Manager 3.1 and later calls, uses _SoundDispatch */
     /**
@@ -2719,8 +2695,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SndGetInfo(SndChannelPtr chan, OSType selector, void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x063C, 0x0018, 0xA800);
+    SndGetInfo(SndChannelPtr chan, OSType selector, void *infoPtr);
 
     /**
      *  SndSetInfo()
@@ -2731,8 +2706,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SndSetInfo(SndChannelPtr chan, OSType selector, const void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x0640, 0x0018, 0xA800);
+    SndSetInfo(SndChannelPtr chan, OSType selector, const void *infoPtr);
 
     /**
      *  GetSoundOutputInfo()
@@ -2743,8 +2717,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    GetSoundOutputInfo(Component outputDevice, OSType selector, void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x0644, 0x0018, 0xA800);
+    GetSoundOutputInfo(Component outputDevice, OSType selector, void *infoPtr);
 
     /**
      *  SetSoundOutputInfo()
@@ -2755,8 +2728,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SetSoundOutputInfo(Component outputDevice, OSType selector, const void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x0648, 0x0018, 0xA800);
+    SetSoundOutputInfo(Component outputDevice, OSType selector, const void *infoPtr);
 
     /** Sound Manager 3.2 and later calls, uses _SoundDispatch */
     /**
@@ -2768,8 +2740,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    GetCompressionName(OSType compressionType, Str255 compressionName)
-        FOURWORDINLINE(0x203C, 0x044C, 0x0018, 0xA800);
+    GetCompressionName(OSType compressionType, Str255 compressionName);
 
     /**
      *  SoundConverterOpen()
@@ -2781,8 +2752,7 @@ SPBVersion functions, respectively.
      */
     OSErr
     SoundConverterOpen(const SoundComponentData *inputFormat,
-                       const SoundComponentData *outputFormat, SoundConverter *sc)
-        FOURWORDINLINE(0x203C, 0x0650, 0x0018, 0xA800);
+                       const SoundComponentData *outputFormat, SoundConverter *sc);
 
     /**
      *  SoundConverterClose()
@@ -2793,8 +2763,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SoundConverterClose(SoundConverter sc)
-        FOURWORDINLINE(0x203C, 0x0254, 0x0018, 0xA800);
+    SoundConverterClose(SoundConverter sc);
 
     /**
      *  SoundConverterGetBufferSizes()
@@ -2808,8 +2777,7 @@ SPBVersion functions, respectively.
     SoundConverterGetBufferSizes(SoundConverter sc, unsigned long inputBytesTarget,
                                  unsigned long *inputFrames,
                                  unsigned long *inputBytes,
-                                 unsigned long *outputBytes)
-        FOURWORDINLINE(0x203C, 0x0A58, 0x0018, 0xA800);
+                                 unsigned long *outputBytes);
 
     /**
      *  SoundConverterBeginConversion()
@@ -2820,8 +2788,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SoundConverterBeginConversion(SoundConverter sc)
-        FOURWORDINLINE(0x203C, 0x025C, 0x0018, 0xA800);
+    SoundConverterBeginConversion(SoundConverter sc);
 
     /**
      *  SoundConverterConvertBuffer()
@@ -2835,8 +2802,7 @@ SPBVersion functions, respectively.
     SoundConverterConvertBuffer(SoundConverter sc, const void *inputPtr,
                                 unsigned long inputFrames, void *outputPtr,
                                 unsigned long *outputFrames,
-                                unsigned long *outputBytes)
-        FOURWORDINLINE(0x203C, 0x0C60, 0x0018, 0xA800);
+                                unsigned long *outputBytes);
 
     /**
      *  SoundConverterEndConversion()
@@ -2849,8 +2815,7 @@ SPBVersion functions, respectively.
     OSErr
     SoundConverterEndConversion(SoundConverter sc, void *outputPtr,
                                 unsigned long *outputFrames,
-                                unsigned long *outputBytes)
-        FOURWORDINLINE(0x203C, 0x0864, 0x0018, 0xA800);
+                                unsigned long *outputBytes);
 
     /** Sound Manager 3.3 and later calls, uses _SoundDispatch */
     /**
@@ -2862,8 +2827,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SoundConverterGetInfo(SoundConverter sc, OSType selector, void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x0668, 0x0018, 0xA800);
+    SoundConverterGetInfo(SoundConverter sc, OSType selector, void *infoPtr);
 
     /**
      *  SoundConverterSetInfo()
@@ -2874,8 +2838,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SoundConverterSetInfo(SoundConverter sc, OSType selector, void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x066C, 0x0018, 0xA800);
+    SoundConverterSetInfo(SoundConverter sc, OSType selector, void *infoPtr);
 
     /** Sound Manager 3.6 and later calls, uses _SoundDispatch */
     /**
@@ -2893,8 +2856,7 @@ SPBVersion functions, respectively.
                              unsigned long outputBufferByteSize,
                              unsigned long *bytesWritten,
                              unsigned long *framesWritten,
-                             unsigned long *outputFlags)
-        FOURWORDINLINE(0x203C, 0x1078, 0x0018, 0xA800);
+                             unsigned long *outputFlags);
 
     /**
      *  SoundManagerGetInfo()
@@ -2905,8 +2867,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SoundManagerGetInfo(OSType selector, void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x047C, 0x0018, 0xA800);
+    SoundManagerGetInfo(OSType selector, void *infoPtr);
 
     /**
      *  SoundManagerSetInfo()
@@ -2917,8 +2878,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SoundManagerSetInfo(OSType selector, const void *infoPtr)
-        FOURWORDINLINE(0x203C, 0x0480, 0x0018, 0xA800);
+    SoundManagerSetInfo(OSType selector, const void *infoPtr);
 
     /**
       Sound Component Functions
@@ -2934,8 +2894,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SoundComponentInitOutputDevice(ComponentInstance ti, long actions)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+    SoundComponentInitOutputDevice(ComponentInstance ti, long actions);
 
     /**
      *  SoundComponentSetSource()
@@ -2947,8 +2906,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentSetSource(ComponentInstance ti, SoundSource sourceID,
-                            ComponentInstance source)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0002, 0x7000, 0xA82A);
+                            ComponentInstance source);
 
     /**
      *  SoundComponentGetSource()
@@ -2960,8 +2918,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentGetSource(ComponentInstance ti, SoundSource sourceID,
-                            ComponentInstance *source)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0003, 0x7000, 0xA82A);
+                            ComponentInstance *source);
 
     /**
      *  SoundComponentGetSourceData()
@@ -2973,8 +2930,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentGetSourceData(ComponentInstance ti,
-                                SoundComponentDataPtr *sourceData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+                                SoundComponentDataPtr *sourceData);
 
     /**
      *  SoundComponentSetOutput()
@@ -2986,8 +2942,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentSetOutput(ComponentInstance ti, SoundComponentDataPtr requested,
-                            SoundComponentDataPtr *actual)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0005, 0x7000, 0xA82A);
+                            SoundComponentDataPtr *actual);
 
     /** junction methods for the mixer, must be called at non-interrupt level*/
     /**
@@ -2999,8 +2954,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SoundComponentAddSource(ComponentInstance ti, SoundSource *sourceID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+    SoundComponentAddSource(ComponentInstance ti, SoundSource *sourceID);
 
     /**
      *  SoundComponentRemoveSource()
@@ -3011,8 +2965,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SoundComponentRemoveSource(ComponentInstance ti, SoundSource sourceID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
+    SoundComponentRemoveSource(ComponentInstance ti, SoundSource sourceID);
 
     /** info methods*/
     /**
@@ -3025,8 +2978,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentGetInfo(ComponentInstance ti, SoundSource sourceID,
-                          OSType selector, void *infoPtr)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0103, 0x7000, 0xA82A);
+                          OSType selector, void *infoPtr);
 
     /**
      *  SoundComponentSetInfo()
@@ -3038,8 +2990,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentSetInfo(ComponentInstance ti, SoundSource sourceID,
-                          OSType selector, void *infoPtr)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0104, 0x7000, 0xA82A);
+                          OSType selector, void *infoPtr);
 
     /** control methods*/
     /**
@@ -3052,8 +3003,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentStartSource(ComponentInstance ti, short count,
-                              SoundSource *sources)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0105, 0x7000, 0xA82A);
+                              SoundSource *sources);
 
     /**
      *  SoundComponentStopSource()
@@ -3065,8 +3015,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentStopSource(ComponentInstance ti, short count,
-                             SoundSource *sources)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0106, 0x7000, 0xA82A);
+                             SoundSource *sources);
 
     /**
      *  SoundComponentPauseSource()
@@ -3078,8 +3027,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentPauseSource(ComponentInstance ti, short count,
-                              SoundSource *sources)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0107, 0x7000, 0xA82A);
+                              SoundSource *sources);
 
     /**
      *  SoundComponentPlaySourceBuffer()
@@ -3091,8 +3039,7 @@ SPBVersion functions, respectively.
      */
     ComponentResult
     SoundComponentPlaySourceBuffer(ComponentInstance ti, SoundSource sourceID,
-                                   SoundParamBlockPtr pb, long actions)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0108, 0x7000, 0xA82A);
+                                   SoundParamBlockPtr pb, long actions);
 
     /** selectors for component calls */
     enum
@@ -3127,8 +3074,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioGetVolume(ComponentInstance ac, short whichChannel, ShortFixed *volume)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0000, 0x7000, 0xA82A);
+    AudioGetVolume(ComponentInstance ac, short whichChannel, ShortFixed *volume);
 
     /**
      *  AudioSetVolume()
@@ -3139,8 +3085,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioSetVolume(ComponentInstance ac, short whichChannel, ShortFixed volume)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+    AudioSetVolume(ComponentInstance ac, short whichChannel, ShortFixed volume);
 
     /**If the device doesn't support software control of mute, then a value of
     unimpErr is returned, indicating that these functions are not supported by the
@@ -3154,8 +3099,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioGetMute(ComponentInstance ac, short whichChannel, short *mute)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0002, 0x7000, 0xA82A);
+    AudioGetMute(ComponentInstance ac, short whichChannel, short *mute);
 
     /**
      *  AudioSetMute()
@@ -3166,8 +3110,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioSetMute(ComponentInstance ac, short whichChannel, short mute)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    AudioSetMute(ComponentInstance ac, short whichChannel, short mute);
 
     /**AudioSetToDefaults causes the associated device to reset its volume and mute
     values (and perhaps other characteristics, e.g. attenuation) to "factory
@@ -3181,8 +3124,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioSetToDefaults(ComponentInstance ac)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0004, 0x7000, 0xA82A);
+    AudioSetToDefaults(ComponentInstance ac);
 
     /**This routine is required; it must be implemented by all audio components*/
 
@@ -3195,8 +3137,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioGetInfo(ComponentInstance ac, AudioInfoPtr info)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0005, 0x7000, 0xA82A);
+    AudioGetInfo(ComponentInstance ac, AudioInfoPtr info);
 
     /**
      *  AudioGetBass()
@@ -3207,8 +3148,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioGetBass(ComponentInstance ac, short whichChannel, short *bass)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0006, 0x7000, 0xA82A);
+    AudioGetBass(ComponentInstance ac, short whichChannel, short *bass);
 
     /**
      *  AudioSetBass()
@@ -3219,8 +3159,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioSetBass(ComponentInstance ac, short whichChannel, short bass)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+    AudioSetBass(ComponentInstance ac, short whichChannel, short bass);
 
     /**
      *  AudioGetTreble()
@@ -3231,8 +3170,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioGetTreble(ComponentInstance ac, short whichChannel, short *Treble)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0008, 0x7000, 0xA82A);
+    AudioGetTreble(ComponentInstance ac, short whichChannel, short *Treble);
 
     /**
      *  AudioSetTreble()
@@ -3243,8 +3181,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioSetTreble(ComponentInstance ac, short whichChannel, short Treble)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0009, 0x7000, 0xA82A);
+    AudioSetTreble(ComponentInstance ac, short whichChannel, short Treble);
 
     /**
      *  AudioGetOutputDevice()
@@ -3255,8 +3192,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioGetOutputDevice(ComponentInstance ac, Component *outputDevice)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000A, 0x7000, 0xA82A);
+    AudioGetOutputDevice(ComponentInstance ac, Component *outputDevice);
 
     /**This is routine is private to the AudioVision component.  It enables the
      * watching of the mute key.*/
@@ -3269,8 +3205,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     ComponentResult
-    AudioMuteOnEvent(ComponentInstance ac, short muteOnEvent)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0081, 0x7000, 0xA82A);
+    AudioMuteOnEvent(ComponentInstance ac, short muteOnEvent);
 
     /** selectors for component calls */
     enum
@@ -3319,7 +3254,7 @@ SPBVersion functions, respectively.
 *    \mac_os_x         in version 10.0 and later
 */
     NumVersion
-    SPBVersion(void) FOURWORDINLINE(0x203C, 0x0000, 0x0014, 0xA800);
+    SPBVersion(void);
 
     /**
      *  SndRecord()
@@ -3331,8 +3266,7 @@ SPBVersion functions, respectively.
      */
     OSErr
     SndRecord(ModalFilterUPP filterProc, Point corner, OSType quality,
-              SndListHandle *sndHandle)
-        FOURWORDINLINE(0x203C, 0x0804, 0x0014, 0xA800);
+              SndListHandle *sndHandle);
 
 #if CALL_NOT_IN_CARBON
     /**
@@ -3345,7 +3279,7 @@ SPBVersion functions, respectively.
      */
     OSErr
     SndRecordToFile(ModalFilterUPP filterProc, Point corner, OSType quality,
-                    short fRefNum) FOURWORDINLINE(0x203C, 0x0708, 0x0014, 0xA800);
+                    short fRefNum);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -3358,8 +3292,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBSignInDevice(short deviceRefNum, ConstStr255Param deviceName)
-        FOURWORDINLINE(0x203C, 0x030C, 0x0014, 0xA800);
+    SPBSignInDevice(short deviceRefNum, ConstStr255Param deviceName);
 
     /**
      *  SPBSignOutDevice()
@@ -3370,8 +3303,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBSignOutDevice(short deviceRefNum)
-        FOURWORDINLINE(0x203C, 0x0110, 0x0014, 0xA800);
+    SPBSignOutDevice(short deviceRefNum);
 
     /**
      *  SPBGetIndexedDevice()
@@ -3382,8 +3314,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBGetIndexedDevice(short count, Str255 deviceName, Handle *deviceIconHandle)
-        FOURWORDINLINE(0x203C, 0x0514, 0x0014, 0xA800);
+    SPBGetIndexedDevice(short count, Str255 deviceName, Handle *deviceIconHandle);
 
     /**
      *  SPBOpenDevice()
@@ -3394,8 +3325,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBOpenDevice(ConstStr255Param deviceName, short permission, long *inRefNum)
-        FOURWORDINLINE(0x203C, 0x0518, 0x0014, 0xA800);
+    SPBOpenDevice(ConstStr255Param deviceName, short permission, long *inRefNum);
 
     /**
      *  SPBCloseDevice()
@@ -3406,7 +3336,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBCloseDevice(long inRefNum) FOURWORDINLINE(0x203C, 0x021C, 0x0014, 0xA800);
+    SPBCloseDevice(long inRefNum);
 
     /**
      *  SPBRecord()
@@ -3417,8 +3347,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBRecord(SPBPtr inParamPtr, Boolean asynchFlag)
-        FOURWORDINLINE(0x203C, 0x0320, 0x0014, 0xA800);
+    SPBRecord(SPBPtr inParamPtr, Boolean asynchFlag);
 
 #if CALL_NOT_IN_CARBON
     /**
@@ -3430,8 +3359,7 @@ SPBVersion functions, respectively.
      *    \mac_os_x         not available
      */
     OSErr
-    SPBRecordToFile(short fRefNum, SPBPtr inParamPtr, Boolean asynchFlag)
-        FOURWORDINLINE(0x203C, 0x0424, 0x0014, 0xA800);
+    SPBRecordToFile(short fRefNum, SPBPtr inParamPtr, Boolean asynchFlag);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -3452,7 +3380,7 @@ siBadSoundInDevice (-221)Invalid sound input device
 *    \mac_os_x         in version 10.0 and later
 */
     OSErr
-    SPBPauseRecording(long inRefNum) FOURWORDINLINE(0x203C, 0x0228, 0x0014, 0xA800);
+    SPBPauseRecording(long inRefNum);
 
     /**
     \brief SPBResumeRecording Resume recording from the specified device
@@ -3471,8 +3399,7 @@ siBadSoundInDevice (-221)Invalid sound input device
 *    \mac_os_x         in version 10.0 and later
 */
     OSErr
-    SPBResumeRecording(long inRefNum)
-        FOURWORDINLINE(0x203C, 0x022C, 0x0014, 0xA800);
+    SPBResumeRecording(long inRefNum);
 
     /**
     \brief SPBStopRecording Resume recording from the specified device
@@ -3493,7 +3420,7 @@ siBadSoundInDevice (-221)Invalid sound input device
 *    \mac_os_x         in version 10.0 and later
 */
     OSErr
-    SPBStopRecording(long inRefNum) FOURWORDINLINE(0x203C, 0x0230, 0x0014, 0xA800);
+    SPBStopRecording(long inRefNum);
 
     /**
     \brief SPBGetRecordingStatus Obtain recording status information
@@ -3530,8 +3457,7 @@ siBadSoundInDevice (-221)Invalid sound input device
                           unsigned long *totalSamplesToRecord,
                           unsigned long *numberOfSamplesRecorded,
                           unsigned long *totalMsecsToRecord,
-                          unsigned long *numberOfMsecsRecorded)
-        FOURWORDINLINE(0x203C, 0x0E34, 0x0014, 0xA800);
+                          unsigned long *numberOfMsecsRecorded);
 
     /**
      *  SPBGetDeviceInfo()
@@ -3542,8 +3468,7 @@ siBadSoundInDevice (-221)Invalid sound input device
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBGetDeviceInfo(long inRefNum, OSType infoType, void *infoData)
-        FOURWORDINLINE(0x203C, 0x0638, 0x0014, 0xA800);
+    SPBGetDeviceInfo(long inRefNum, OSType infoType, void *infoData);
 
     /**
      *  SPBSetDeviceInfo()
@@ -3554,8 +3479,7 @@ siBadSoundInDevice (-221)Invalid sound input device
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBSetDeviceInfo(long inRefNum, OSType infoType, void *infoData)
-        FOURWORDINLINE(0x203C, 0x063C, 0x0014, 0xA800);
+    SPBSetDeviceInfo(long inRefNum, OSType infoType, void *infoData);
 
     /**
      *  SPBMillisecondsToBytes()
@@ -3566,8 +3490,7 @@ siBadSoundInDevice (-221)Invalid sound input device
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBMillisecondsToBytes(long inRefNum, long *milliseconds)
-        FOURWORDINLINE(0x203C, 0x0440, 0x0014, 0xA800);
+    SPBMillisecondsToBytes(long inRefNum, long *milliseconds);
 
     /**
      *  SPBBytesToMilliseconds()
@@ -3578,8 +3501,7 @@ siBadSoundInDevice (-221)Invalid sound input device
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SPBBytesToMilliseconds(long inRefNum, long *byteCount)
-        FOURWORDINLINE(0x203C, 0x0444, 0x0014, 0xA800);
+    SPBBytesToMilliseconds(long inRefNum, long *byteCount);
 
     /**
     \brief Set up headers for 'snd ' resources
@@ -3622,7 +3544,7 @@ the handle. The value returned depends on the type of sound header
     SetupSndHeader(SndListHandle sndHandle, short numChannels,
                    UnsignedFixed sampleRate, short sampleSize,
                    OSType compressionType, short baseNote, unsigned long numBytes,
-                   short *headerLen) FOURWORDINLINE(0x203C, 0x0D48, 0x0014, 0xA800);
+                   short *headerLen);
 
     /**
     \brief Set up a file that can be played by SndStartFilePlay
@@ -3663,8 +3585,7 @@ sample frames and store it in the header..
     OSErr
     SetupAIFFHeader(short fRefNum, short numChannels, UnsignedFixed sampleRate,
                     short sampleSize, OSType compressionType,
-                    unsigned long numBytes, unsigned long numFrames)
-        FOURWORDINLINE(0x203C, 0x0B4C, 0x0014, 0xA800);
+                    unsigned long numBytes, unsigned long numFrames);
 
     /** Sound Input Manager 1.1 and later calls, uses _SoundDispatch */
     /**
@@ -3677,8 +3598,7 @@ sample frames and store it in the header..
      */
     OSErr
     ParseAIFFHeader(short fRefNum, SoundComponentData *sndInfo,
-                    unsigned long *numFrames, unsigned long *dataOffset)
-        FOURWORDINLINE(0x203C, 0x0758, 0x0014, 0xA800);
+                    unsigned long *numFrames, unsigned long *dataOffset);
 
     /**
      *  ParseSndHeader()
@@ -3690,8 +3610,7 @@ sample frames and store it in the header..
      */
     OSErr
     ParseSndHeader(SndListHandle sndHandle, SoundComponentData *sndInfo,
-                   unsigned long *numFrames, unsigned long *dataOffset)
-        FOURWORDINLINE(0x203C, 0x085C, 0x0014, 0xA800);
+                   unsigned long *numFrames, unsigned long *dataOffset);
 
 #if !TARGET_OS_MAC || TARGET_API_MAC_CARBON
     /**  Only to be used if you are writing a sound input component; this */
@@ -3724,8 +3643,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputReadAsync(ComponentInstance self, SndInputCmpParamPtr SICParmPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+    SndInputReadAsync(ComponentInstance self, SndInputCmpParamPtr SICParmPtr);
 
     /**
      *  SndInputReadSync()
@@ -3736,8 +3654,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputReadSync(ComponentInstance self, SndInputCmpParamPtr SICParmPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0002, 0x7000, 0xA82A);
+    SndInputReadSync(ComponentInstance self, SndInputCmpParamPtr SICParmPtr);
 
     /**
      *  SndInputPauseRecording()
@@ -3748,8 +3665,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputPauseRecording(ComponentInstance self)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0003, 0x7000, 0xA82A);
+    SndInputPauseRecording(ComponentInstance self);
 
     /**
      *  SndInputResumeRecording()
@@ -3760,8 +3676,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputResumeRecording(ComponentInstance self)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0004, 0x7000, 0xA82A);
+    SndInputResumeRecording(ComponentInstance self);
 
     /**
      *  SndInputStopRecording()
@@ -3772,8 +3687,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputStopRecording(ComponentInstance self)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0005, 0x7000, 0xA82A);
+    SndInputStopRecording(ComponentInstance self);
 
     /**
      *  SndInputGetStatus()
@@ -3786,8 +3700,7 @@ sample frames and store it in the header..
     ComponentResult
     SndInputGetStatus(ComponentInstance self, short *recordingStatus,
                       unsigned long *totalSamplesToRecord,
-                      unsigned long *numberOfSamplesRecorded)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0006, 0x7000, 0xA82A);
+                      unsigned long *numberOfSamplesRecorded);
 
     /**
      *  SndInputGetDeviceInfo()
@@ -3798,8 +3711,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputGetDeviceInfo(ComponentInstance self, OSType infoType, void *infoData)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0007, 0x7000, 0xA82A);
+    SndInputGetDeviceInfo(ComponentInstance self, OSType infoType, void *infoData);
 
     /**
      *  SndInputSetDeviceInfo()
@@ -3810,8 +3722,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputSetDeviceInfo(ComponentInstance self, OSType infoType, void *infoData)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0008, 0x7000, 0xA82A);
+    SndInputSetDeviceInfo(ComponentInstance self, OSType infoType, void *infoData);
 
     /**
      *  SndInputInitHardware()
@@ -3822,8 +3733,7 @@ sample frames and store it in the header..
      *    \mac_os_x         in version 10.0 and later
      */
     ComponentResult
-    SndInputInitHardware(ComponentInstance self)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0009, 0x7000, 0xA82A);
+    SndInputInitHardware(ComponentInstance self);
 
     /** selectors for component calls */
     enum
@@ -3859,59 +3769,3 @@ sample frames and store it in the header..
 #endif
 
 #endif /** __SOUND__ */
-              * /
-          t available
-              *    \mac_os_x in version 10.0 and
-      later
-              * /
-          ComponentResult
-          SndInputSetDeviceInfo(ComponentInstance self, OSType infoType, void *infoData)
-              FIVEWORDINLINE(0x2F3C, 0x0008, 0x0008, 0x7000, 0xA82A);
-
-  /**
-   *  SndInputInitHardware()
-   *
-
-   *    \non_carbon_cfm   not available
-   *    \carbon_lib        not available
-   *    \mac_os_x         in version 10.0 and later
-   */
-  ComponentResult
-  SndInputInitHardware(ComponentInstance self)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0x0009, 0x7000, 0xA82A);
-
-  /** selectors for component calls */
-  enum
-  {
-    kSndInputReadAsyncSelect = 0x0001,
-    kSndInputReadSyncSelect = 0x0002,
-    kSndInputPauseRecordingSelect = 0x0003,
-    kSndInputResumeRecordingSelect = 0x0004,
-    kSndInputStopRecordingSelect = 0x0005,
-    kSndInputGetStatusSelect = 0x0006,
-    kSndInputGetDeviceInfoSelect = 0x0007,
-    kSndInputSetDeviceInfoSelect = 0x0008,
-    kSndInputInitHardwareSelect = 0x0009
-  };
-#endif /** !TARGET_OS_MAC || TARGET_API_MAC_CARBON */
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif                    /** __SOUND__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/

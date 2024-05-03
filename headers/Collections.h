@@ -344,7 +344,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Collection
-  NewCollection(void) TWOWORDINLINE(0x7000, 0xABF6);
+  NewCollection(void);
 
   /**
    *  DisposeCollection()
@@ -355,7 +355,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  DisposeCollection(Collection c) TWOWORDINLINE(0x7001, 0xABF6);
+  DisposeCollection(Collection c);
 
   /**
    *  CloneCollection()
@@ -366,7 +366,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Collection
-  CloneCollection(Collection c) TWOWORDINLINE(0x7002, 0xABF6);
+  CloneCollection(Collection c);
 
   /**
    *  CountCollectionOwners()
@@ -377,7 +377,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   SInt32
-  CountCollectionOwners(Collection c) TWOWORDINLINE(0x7003, 0xABF6);
+  CountCollectionOwners(Collection c);
 
   /**
    *  RetainCollection()
@@ -421,8 +421,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Collection
-  CopyCollection(Collection srcCollection, Collection dstCollection)
-      TWOWORDINLINE(0x7004, 0xABF6);
+  CopyCollection(Collection srcCollection, Collection dstCollection);
 
   /**
    *  GetCollectionDefaultAttributes()
@@ -433,7 +432,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   SInt32
-  GetCollectionDefaultAttributes(Collection c) TWOWORDINLINE(0x7005, 0xABF6);
+  GetCollectionDefaultAttributes(Collection c);
 
   /**
    *  SetCollectionDefaultAttributes()
@@ -445,8 +444,7 @@ extern "C"
    */
   void
   SetCollectionDefaultAttributes(Collection c, SInt32 whichAttributes,
-                                 SInt32 newAttributes)
-      TWOWORDINLINE(0x7006, 0xABF6);
+                                 SInt32 newAttributes);
 
   /**
    *  CountCollectionItems()
@@ -457,7 +455,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   SInt32
-  CountCollectionItems(Collection c) TWOWORDINLINE(0x7007, 0xABF6);
+  CountCollectionItems(Collection c);
 
   /**
    *  AddCollectionItem()
@@ -469,7 +467,7 @@ extern "C"
    */
   OSErr
   AddCollectionItem(Collection c, CollectionTag tag, SInt32 id, SInt32 itemSize,
-                    const void *itemData) TWOWORDINLINE(0x7008, 0xABF6);
+                    const void *itemData);
 
   /**
    *  GetCollectionItem()
@@ -481,7 +479,7 @@ extern "C"
    */
   OSErr
   GetCollectionItem(Collection c, CollectionTag tag, SInt32 id, SInt32 *itemSize,
-                    void *itemData) TWOWORDINLINE(0x7009, 0xABF6);
+                    void *itemData);
 
   /**
    *  RemoveCollectionItem()
@@ -492,8 +490,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  RemoveCollectionItem(Collection c, CollectionTag tag, SInt32 id)
-      TWOWORDINLINE(0x700A, 0xABF6);
+  RemoveCollectionItem(Collection c, CollectionTag tag, SInt32 id);
 
   /**
    *  SetCollectionItemInfo()
@@ -505,8 +502,7 @@ extern "C"
    */
   OSErr
   SetCollectionItemInfo(Collection c, CollectionTag tag, SInt32 id,
-                        SInt32 whichAttributes, SInt32 newAttributes)
-      TWOWORDINLINE(0x700B, 0xABF6);
+                        SInt32 whichAttributes, SInt32 newAttributes);
 
   /**
    *  GetCollectionItemInfo()
@@ -518,8 +514,7 @@ extern "C"
    */
   OSErr
   GetCollectionItemInfo(Collection c, CollectionTag tag, SInt32 id, SInt32 *index,
-                        SInt32 *itemSize, SInt32 *attributes)
-      TWOWORDINLINE(0x700C, 0xABF6);
+                        SInt32 *itemSize, SInt32 *attributes);
 
   /**
    *  ReplaceIndexedCollectionItem()
@@ -531,8 +526,7 @@ extern "C"
    */
   OSErr
   ReplaceIndexedCollectionItem(Collection c, SInt32 index, SInt32 itemSize,
-                               const void *itemData)
-      TWOWORDINLINE(0x700D, 0xABF6);
+                               const void *itemData);
 
   /**
    *  GetIndexedCollectionItem()
@@ -544,7 +538,7 @@ extern "C"
    */
   OSErr
   GetIndexedCollectionItem(Collection c, SInt32 index, SInt32 *itemSize,
-                           void *itemData) TWOWORDINLINE(0x700E, 0xABF6);
+                           void *itemData);
 
   /**
    *  RemoveIndexedCollectionItem()
@@ -555,8 +549,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  RemoveIndexedCollectionItem(Collection c, SInt32 index)
-      TWOWORDINLINE(0x700F, 0xABF6);
+  RemoveIndexedCollectionItem(Collection c, SInt32 index);
 
   /**
    *  SetIndexedCollectionItemInfo()
@@ -568,8 +561,7 @@ extern "C"
    */
   OSErr
   SetIndexedCollectionItemInfo(Collection c, SInt32 index, SInt32 whichAttributes,
-                               SInt32 newAttributes)
-      TWOWORDINLINE(0x7010, 0xABF6);
+                               SInt32 newAttributes);
 
   /**
    *  GetIndexedCollectionItemInfo()
@@ -581,8 +573,7 @@ extern "C"
    */
   OSErr
   GetIndexedCollectionItemInfo(Collection c, SInt32 index, CollectionTag *tag,
-                               SInt32 *id, SInt32 *itemSize, SInt32 *attributes)
-      TWOWORDINLINE(0x7011, 0xABF6);
+                               SInt32 *id, SInt32 *itemSize, SInt32 *attributes);
 
   /**
    *  CollectionTagExists()
@@ -593,8 +584,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  CollectionTagExists(Collection c, CollectionTag tag)
-      TWOWORDINLINE(0x7012, 0xABF6);
+  CollectionTagExists(Collection c, CollectionTag tag);
 
   /**
    *  CountCollectionTags()
@@ -605,7 +595,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   SInt32
-  CountCollectionTags(Collection c) TWOWORDINLINE(0x7013, 0xABF6);
+  CountCollectionTags(Collection c);
 
   /**
    *  GetIndexedCollectionTag()
@@ -616,8 +606,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  GetIndexedCollectionTag(Collection c, SInt32 tagIndex, CollectionTag *tag)
-      TWOWORDINLINE(0x7014, 0xABF6);
+  GetIndexedCollectionTag(Collection c, SInt32 tagIndex, CollectionTag *tag);
 
   /**
    *  CountTaggedCollectionItems()
@@ -628,8 +617,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   SInt32
-  CountTaggedCollectionItems(Collection c, CollectionTag tag)
-      TWOWORDINLINE(0x7015, 0xABF6);
+  CountTaggedCollectionItems(Collection c, CollectionTag tag);
 
   /**
    *  GetTaggedCollectionItem()
@@ -641,8 +629,7 @@ extern "C"
    */
   OSErr
   GetTaggedCollectionItem(Collection c, CollectionTag tag, SInt32 whichItem,
-                          SInt32 *itemSize, void *itemData)
-      TWOWORDINLINE(0x7016, 0xABF6);
+                          SInt32 *itemSize, void *itemData);
 
   /**
    *  GetTaggedCollectionItemInfo()
@@ -655,7 +642,7 @@ extern "C"
   OSErr
   GetTaggedCollectionItemInfo(Collection c, CollectionTag tag, SInt32 whichItem,
                               SInt32 *id, SInt32 *index, SInt32 *itemSize,
-                              SInt32 *attributes) TWOWORDINLINE(0x7017, 0xABF6);
+                              SInt32 *attributes);
 
   /**
    *  PurgeCollection()
@@ -666,8 +653,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  PurgeCollection(Collection c, SInt32 whichAttributes, SInt32 matchingAttributes)
-      TWOWORDINLINE(0x7018, 0xABF6);
+  PurgeCollection(Collection c, SInt32 whichAttributes, SInt32 matchingAttributes);
 
   /**
    *  PurgeCollectionTag()
@@ -678,8 +664,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  PurgeCollectionTag(Collection c, CollectionTag tag)
-      TWOWORDINLINE(0x7019, 0xABF6);
+  PurgeCollectionTag(Collection c, CollectionTag tag);
 
   /**
    *  EmptyCollection()
@@ -690,7 +675,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  EmptyCollection(Collection c) TWOWORDINLINE(0x701A, 0xABF6);
+  EmptyCollection(Collection c);
 
   /**
    *  FlattenCollection()
@@ -701,8 +686,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  FlattenCollection(Collection c, CollectionFlattenUPP flattenProc, void *refCon)
-      TWOWORDINLINE(0x701B, 0xABF6);
+  FlattenCollection(Collection c, CollectionFlattenUPP flattenProc, void *refCon);
 
   /**
    *  FlattenPartialCollection()
@@ -715,8 +699,7 @@ extern "C"
   OSErr
   FlattenPartialCollection(Collection c, CollectionFlattenUPP flattenProc,
                            void *refCon, SInt32 whichAttributes,
-                           SInt32 matchingAttributes)
-      TWOWORDINLINE(0x701C, 0xABF6);
+                           SInt32 matchingAttributes);
 
   /**
    *  UnflattenCollection()
@@ -728,7 +711,7 @@ extern "C"
    */
   OSErr
   UnflattenCollection(Collection c, CollectionFlattenUPP flattenProc,
-                      void *refCon) TWOWORDINLINE(0x701D, 0xABF6);
+                      void *refCon);
 
   /**
    *  GetCollectionExceptionProc()
@@ -739,7 +722,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   CollectionExceptionUPP
-  GetCollectionExceptionProc(Collection c) TWOWORDINLINE(0x701E, 0xABF6);
+  GetCollectionExceptionProc(Collection c);
 
   /**
    *  SetCollectionExceptionProc()
@@ -750,8 +733,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SetCollectionExceptionProc(Collection c, CollectionExceptionUPP exceptionProc)
-      TWOWORDINLINE(0x701F, 0xABF6);
+  SetCollectionExceptionProc(Collection c, CollectionExceptionUPP exceptionProc);
 
   /**
    *  GetNewCollection()
@@ -762,7 +744,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Collection
-  GetNewCollection(SInt16 collectionID) TWOWORDINLINE(0x7020, 0xABF6);
+  GetNewCollection(SInt16 collectionID);
 
   /***********************************************************************/
   /*************** Utility routines for handle-based access **************/
@@ -777,7 +759,7 @@ extern "C"
    */
   OSErr
   AddCollectionItemHdl(Collection aCollection, CollectionTag tag, SInt32 id,
-                       Handle itemData) TWOWORDINLINE(0x7021, 0xABF6);
+                       Handle itemData);
 
   /**
    *  GetCollectionItemHdl()
@@ -789,7 +771,7 @@ extern "C"
    */
   OSErr
   GetCollectionItemHdl(Collection aCollection, CollectionTag tag, SInt32 id,
-                       Handle itemData) TWOWORDINLINE(0x7022, 0xABF6);
+                       Handle itemData);
 
   /**
    *  ReplaceIndexedCollectionItemHdl()
@@ -801,7 +783,7 @@ extern "C"
    */
   OSErr
   ReplaceIndexedCollectionItemHdl(Collection aCollection, SInt32 index,
-                                  Handle itemData) TWOWORDINLINE(0x7023, 0xABF6);
+                                  Handle itemData);
 
   /**
    *  GetIndexedCollectionItemHdl()
@@ -813,7 +795,7 @@ extern "C"
    */
   OSErr
   GetIndexedCollectionItemHdl(Collection aCollection, SInt32 index,
-                              Handle itemData) TWOWORDINLINE(0x7024, 0xABF6);
+                              Handle itemData);
 
   /**
    *  FlattenCollectionToHdl()
@@ -824,8 +806,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  FlattenCollectionToHdl(Collection aCollection, Handle flattened)
-      TWOWORDINLINE(0x7025, 0xABF6);
+  FlattenCollectionToHdl(Collection aCollection, Handle flattened);
 
   /**
    *  UnflattenCollectionFromHdl()
@@ -836,8 +817,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  UnflattenCollectionFromHdl(Collection aCollection, Handle flattened)
-      TWOWORDINLINE(0x7026, 0xABF6);
+  UnflattenCollectionFromHdl(Collection aCollection, Handle flattened);
 
 #if OLDROUTINENAMES
   enum

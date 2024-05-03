@@ -367,7 +367,7 @@ extern "C"
 #pragma parameter __D0 InvokeListClickLoopUPP(__A0)
 #endif
   Boolean
-  InvokeListClickLoopUPP(ListClickLoopUPP userUPP) ONEWORDINLINE(0x4E90);
+  InvokeListClickLoopUPP(ListClickLoopUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -503,8 +503,7 @@ extern "C"
   ListHandle
   LNew(const Rect *rView, const ListBounds *dataBounds, Point cSize,
        short theProc, WindowRef theWindow, Boolean drawIt, Boolean hasGrow,
-       Boolean scrollHoriz, Boolean scrollVert)
-      THREEWORDINLINE(0x3F3C, 0x0044, 0xA9E7);
+       Boolean scrollHoriz, Boolean scrollVert);
 
   /**
   \brief Discard a list and release all its memory
@@ -530,7 +529,7 @@ of this memory before calling LDispose .
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LDispose(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0028, 0xA9E7);
+  LDispose(ListHandle lHandle);
 
   /**
   \brief Insert column(s) of empty cells into a list
@@ -572,8 +571,7 @@ LAddColumn( 1,1, theList ); // insert 1 column at column 1
       later
             */
   short
-  LAddColumn(short count, short colNum, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0004, 0xA9E7);
+  LAddColumn(short count, short colNum, ListHandle lHandle);
 
   /**
   \brief Insert row(s) of empty cells into a list
@@ -613,8 +611,7 @@ LAddRow( 3,2, theList ); // insert 3 rows at row 2
       later
             */
   short
-  LAddRow(short count, short rowNum, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0008, 0xA9E7);
+  LAddRow(short count, short rowNum, ListHandle lHandle);
 
   /**
   \brief Delete column(s) of cells from a list
@@ -650,8 +647,7 @@ LDelColumn ( 1,1, theList ); // delete column 1
           *    \mac_os_x in version 10.0 and
       later
             */
-  void LDelColumn(short count, short colNum, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0020, 0xA9E7);
+  void LDelColumn(short count, short colNum, ListHandle lHandle);
 
   /**
   \brief Delete rows(s) of cells from a list
@@ -685,8 +681,7 @@ LDelRow ( 4,3, theList ); // delete 4 rows, starting at row 3
           *    \mac_os_x in version 10.0 and
       later
             */
-  void LDelRow(short count, short rowNum, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0024, 0xA9E7);
+  void LDelRow(short count, short rowNum, ListHandle lHandle);
 
   /**
   \brief Query if a cell is selected; get next selected cell
@@ -733,8 +728,7 @@ CelltheCell;
 *    \mac_os_x         in version 10.0 and later
 */
   Boolean
-  LGetSelect(Boolean next, Cell *theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x003C, 0xA9E7);
+  LGetSelect(Boolean next, Cell *theCell, ListHandle lHandle);
 
   /**
   \brief Query which cell was clicked last
@@ -761,7 +755,7 @@ that returns TRUE, it does return the cell that was double clicked.
 *    \mac_os_x         in version 10.0 and later
 */
   Cell
-  LLastClick(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0040, 0xA9E7);
+  LLastClick(ListHandle lHandle);
 
   /**
   \brief Query which cell is next in a list
@@ -813,8 +807,7 @@ found = FALSE; theCell. h=theCell. v=0; // start at top left
       later
             */
   Boolean
-  LNextCell(Boolean hNext, Boolean vNext, Cell *theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0048, 0xA9E7);
+  LNextCell(Boolean hNext, Boolean vNext, Cell *theCell, ListHandle lHandle);
 
   /**
   \brief Search cells for a match with specific data
@@ -860,8 +853,7 @@ By default, LSearch uses IUMagIDString as the comparison function (a
  */
   Boolean
   LSearch(const void *dataPtr, short dataLen, ListSearchUPP searchProc,
-          Cell *theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0054, 0xA9E7);
+          Cell *theCell, ListHandle lHandle);
 
   /**
   \brief Change the size of a list's viewing area
@@ -899,8 +891,7 @@ DrawGrowIcon ( listWindow );
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LSize(short listWidth, short listHeight, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0060, 0xA9E7);
+  LSize(short listWidth, short listHeight, ListHandle lHandle);
 
   /**
    *  LSetDrawingMode()
@@ -911,8 +902,7 @@ DrawGrowIcon ( listWindow );
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  LSetDrawingMode(Boolean drawIt, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x002C, 0xA9E7);
+  LSetDrawingMode(Boolean drawIt, ListHandle lHandle);
 
   /**
   \brief Scroll list by specific number of rows and columns
@@ -960,8 +950,7 @@ the top of the list by scrolling up and left by 1000. The scroll will actually
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LScroll(short dCols, short dRows, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0050, 0xA9E7);
+  LScroll(short dCols, short dRows, ListHandle lHandle);
 
   /**
   \brief Scroll list to display the first selected cell
@@ -990,7 +979,7 @@ See LSetSelect for an example of usage.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LAutoScroll(ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0010, 0xA9E7);
+  LAutoScroll(ListHandle lHandle);
 
   /**
   \brief Redraw list; handle update events
@@ -1040,8 +1029,7 @@ its window's WindowRecord .refCon field; that way, you can use
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LUpdate(RgnHandle theRgn, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0064, 0xA9E7);
+  LUpdate(RgnHandle theRgn, ListHandle lHandle);
 
   /**
   \brief Activate or deactivate a list (after activate event)
@@ -1086,7 +1074,7 @@ entirely.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LActivate(Boolean act, ListHandle lHandle) TWOWORDINLINE(0x4267, 0xA9E7);
+  LActivate(Boolean act, ListHandle lHandle);
 
   /**
   \brief Set size for cell display rectangles
@@ -1124,8 +1112,7 @@ LUpdate ( listWindow->visRgn, theList ); // force update (in evt loop)
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LCellSize(Point cSize, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0014, 0xA9E7);
+  LCellSize(Point cSize, ListHandle lHandle);
 
   /**
   \brief Process mouse-down for list dragging and selection
@@ -1172,8 +1159,7 @@ Here's a skeletal example:
 *    \mac_os_x         in version 10.0 and later
 */
   Boolean
-  LClick(Point pt, EventModifiers modifiers, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0018, 0xA9E7);
+  LClick(Point pt, EventModifiers modifiers, ListHandle lHandle);
 
   /**
   \brief Append data to a cell
@@ -1200,8 +1186,7 @@ rectangle or drawing is off (see LDoDraw ).
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LAddToCell(const void *dataPtr, short dataLen, Cell theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x000C, 0xA9E7);
+  LAddToCell(const void *dataPtr, short dataLen, Cell theCell, ListHandle lHandle);
 
   /**
   \brief Delete the contents of a cell
@@ -1225,8 +1210,7 @@ collection).
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LClrCell(Cell theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x001C, 0xA9E7);
+  LClrCell(Cell theCell, ListHandle lHandle);
 
   /**
   \brief Obtain a copy of a cell's data
@@ -1259,8 +1243,7 @@ See LNew for an example usage of LGetCell .
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LGetCell(void *dataPtr, short *dataLen, Cell theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0038, 0xA9E7);
+  LGetCell(void *dataPtr, short *dataLen, Cell theCell, ListHandle lHandle);
 
   /**
   \brief Obtain location of a cell's display rectangle
@@ -1295,8 +1278,7 @@ ListRec.dataBounds), cellRect gets set to the empty rectangle (0,0)(0,0).
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LRect(Rect *cellRect, Cell theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x004C, 0xA9E7);
+  LRect(Rect *cellRect, Cell theCell, ListHandle lHandle);
 
   /**
   \brief Store data into a cell
@@ -1327,8 +1309,7 @@ See LNew for an example usage of LSetCell .
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LSetCell(const void *dataPtr, short dataLen, Cell theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0058, 0xA9E7);
+  LSetCell(const void *dataPtr, short dataLen, Cell theCell, ListHandle lHandle);
 
   /**
   \brief Select or deselect a cell
@@ -1373,8 +1354,7 @@ Another use for LSetSelect might be to make a double-clicked selection
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LSetSelect(Boolean setIt, Cell theCell, ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x005C, 0xA9E7);
+  LSetSelect(Boolean setIt, Cell theCell, ListHandle lHandle);
 
   /**
   \brief Draw the contents of a single cell
@@ -1420,7 +1400,7 @@ LDraw( theCell, theList ); // force cell to be redrawn
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  LDraw(Cell theCell, ListHandle lHandle) THREEWORDINLINE(0x3F3C, 0x0030, 0xA9E7);
+  LDraw(Cell theCell, ListHandle lHandle);
 
   /**
    *  LGetCellDataLocation()
@@ -1432,8 +1412,7 @@ LDraw( theCell, theList ); // force cell to be redrawn
    */
   void
   LGetCellDataLocation(short *offset, short *len, Cell theCell,
-                       ListHandle lHandle)
-      THREEWORDINLINE(0x3F3C, 0x0034, 0xA9E7);
+                       ListHandle lHandle);
 
   /** Routines available in Carbon only*/
 
@@ -1987,17 +1966,3 @@ LDraw( theCell, theList ); // force cell to be redrawn
 #ifdef __cplusplus
 }
 #endif
-
-#endif                                                    /** __LISTS__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/A_IMPORT_OFF
-               #pragma import off
-               #elif PRAGMA_IMPORT
-               #pragma import reset
-               #endif
-
-               #ifdef __cplusplus
-               }
-               #endif
-
-               #endif /** __LISTS__ */
-    * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ */*/

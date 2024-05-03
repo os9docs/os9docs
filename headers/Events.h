@@ -320,7 +320,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  GetMouse(Point *mouseLoc) ONEWORDINLINE(0xA972);
+  GetMouse(Point *mouseLoc);
 
   /**
    *  Button()
@@ -331,7 +331,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  Button(void) ONEWORDINLINE(0xA974);
+  Button(void);
 
   /**
    *  StillDown()
@@ -342,7 +342,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  StillDown(void) ONEWORDINLINE(0xA973);
+  StillDown(void);
 
   /**
    *  WaitMouseUp()
@@ -353,7 +353,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  WaitMouseUp(void) ONEWORDINLINE(0xA977);
+  WaitMouseUp(void);
 
   /**
    *  KeyTranslate()
@@ -364,8 +364,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   UInt32
-  KeyTranslate(const void *transData, UInt16 keycode, UInt32 *state)
-      ONEWORDINLINE(0xA9C3);
+  KeyTranslate(const void *transData, UInt16 keycode, UInt32 *state);
 
   /**
   \brief Obtain insertion-point cursor blink interval
@@ -390,7 +389,7 @@ CaretTime -tick interval elapses.
 *    \mac_os_x         in version 10.0 and later
 */
   UInt32
-  GetCaretTime(void) TWOWORDINLINE(0x2EB8, 0x02F4);
+  GetCaretTime(void);
 
 /**
     QuickTime 3.0 supports GetKeys() on unix and win32
@@ -415,7 +414,7 @@ typedef BigEndianLong KeyMap[4];
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  GetKeys(KeyMap theKeys) ONEWORDINLINE(0xA976);
+  GetKeys(KeyMap theKeys);
 
   /** Obsolete event types & masks */
   enum
@@ -587,7 +586,7 @@ DoDoubleClick( &theEvent ); // process the double click
 }
 lastWhen = theEvent.when;
 lastWhere = theEvent.where;
-// ... handle other mouseDown events ... 
+// ... handle other mouseDown events ...
 }
 if (theEvent.what == keyDown)
 {
@@ -600,8 +599,8 @@ if (theEvent.what == keyDown)
           *    \mac_os_x in version 10.0 and
       later
             */
-          UInt32
-          GetDblTime(void) TWOWORDINLINE(0x2EB8, 0x02F0);
+  UInt32
+  GetDblTime(void);
 
   /**
   \brief Set the system event mask
@@ -637,7 +636,7 @@ About MultiFinder .
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  SetEventMask(EventMask value) TWOWORDINLINE(0x31DF, 0x0144);
+  SetEventMask(EventMask value);
 
 #if CALL_NOT_IN_CARBON
 
@@ -662,7 +661,7 @@ queue.
 *    \mac_os_x         not available
 */
   QHdrPtr
-  GetEvQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x014A);
+  GetEvQHdr(void);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -710,8 +709,7 @@ to insert it into the event queue. See GetEvQHdr .
 #pragma parameter __D0 PPostEvent(__A0, __D0, __A1)
 #endif
   OSErr
-  PPostEvent(EventKind eventCode, UInt32 eventMsg, EvQElPtr * qEl)
-      TWOWORDINLINE(0xA12F, 0x2288);
+  PPostEvent(EventKind eventCode, UInt32 eventMsg, EvQElPtr *qEl);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -724,7 +722,7 @@ to insert it into the event queue. See GetEvQHdr .
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  GetNextEvent(EventMask eventMask, EventRecord * theEvent) ONEWORDINLINE(0xA970);
+  GetNextEvent(EventMask eventMask, EventRecord *theEvent);
 
   /**
    *  WaitNextEvent()
@@ -735,8 +733,8 @@ to insert it into the event queue. See GetEvQHdr .
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  WaitNextEvent(EventMask eventMask, EventRecord * theEvent, UInt32 sleep,
-                RgnHandle mouseRgn) /** can be NULL */ ONEWORDINLINE(0xA860);
+  WaitNextEvent(EventMask eventMask, EventRecord *theEvent, UInt32 sleep,
+                RgnHandle mouseRgn) /** can be NULL */;
 
   /**
    *  EventAvail()
@@ -747,7 +745,7 @@ to insert it into the event queue. See GetEvQHdr .
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  EventAvail(EventMask eventMask, EventRecord * theEvent) ONEWORDINLINE(0xA971);
+  EventAvail(EventMask eventMask, EventRecord *theEvent);
 
   /**
   \brief Place an EventRecord in the event queue
@@ -793,7 +791,7 @@ necessarily a better way to do it, just an alternative.
 #pragma parameter __D0 PostEvent(__A0, __D0)
 #endif
   OSErr
-  PostEvent(EventKind eventNum, UInt32 eventMsg) ONEWORDINLINE(0xA02F);
+  PostEvent(EventKind eventNum, UInt32 eventMsg);
 
   /**
       For Carbon, use EventAvail, TickCount, GetGlobalMouse,
@@ -837,8 +835,7 @@ ones.
 #pragma parameter __D0 OSEventAvail(__D0, __A0)
 #endif
   Boolean
-  OSEventAvail(EventMask mask, EventRecord * theEvent)
-      TWOWORDINLINE(0xA030, 0x5240);
+  OSEventAvail(EventMask mask, EventRecord *theEvent);
 
   /**
   \brief Low-level read event and remove event from event queue
@@ -874,7 +871,7 @@ unread events to make room for new ones.
 #pragma parameter __D0 GetOSEvent(__D0, __A0)
 #endif
   Boolean
-  GetOSEvent(EventMask mask, EventRecord * theEvent) TWOWORDINLINE(0xA031, 0x5240);
+  GetOSEvent(EventMask mask, EventRecord *theEvent);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -905,8 +902,7 @@ Note: FlushEvents will not remove pending highLevelEvents.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  FlushEvents(EventMask whichMask, EventMask stopMask)
-      TWOWORDINLINE(0x201F, 0xA032);
+  FlushEvents(EventMask whichMask, EventMask stopMask);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -918,8 +914,7 @@ Note: FlushEvents will not remove pending highLevelEvents.
    *    \mac_os_x         not available
    */
   void
-  SystemClick(const EventRecord *theEvent, WindowRef theWindow)
-      ONEWORDINLINE(0xA9B3);
+  SystemClick(const EventRecord *theEvent, WindowRef theWindow);
 
   /**
   \brief Give DAs a chance to perform periodic actions
@@ -939,8 +934,8 @@ InitGraf ();
 .
 .... initialize other stuff ...
 .
-while (TRUE) // Loop forever; terminate via 
-  EventLoop(); // ExitToShell elsewhere 
+while (TRUE) // Loop forever; terminate via
+  EventLoop(); // ExitToShell elsewhere
 }
 EventLoop()
 {
@@ -969,55 +964,55 @@ DAs wanting a timeslice every so often should set bit 5 of the drvrFlags
                        *    \carbon_lib not available
                    *    \mac_os_x not available
                  */
-                   void SystemTask(void) ONEWORDINLINE(0xA9B4);
+  void SystemTask(void);
 
-/**
-\brief Used internally by Event Manager
+  /**
+  \brief Used internally by Event Manager
 
-<pre>SystemEvent is called by the Event Manager as a way to watch for certain
-events and pass some of them directly to DAs, without bothering your
-application. This function should not be called by applications.
-theEvent is the address of a 16-byte EventRecord . It contains information
-received from a previous call to GetNextEvent .
-</pre>
-* \returns <pre>A Boolean; it identifies whether the event should be handled by an
-application or a DA. It is one of:
-FALSE (0)This event should be passed to the application. It may be a
-system event the application should handle by calling
-SystemClick .
-TRUE (1)This event should be handled by the system (i.e., a DA). It will
-not be forwarded to the application.
-</pre>
-* \note <pre>SystemEvent is called internally by the GetNextEvent function. The
-idea is to avoid clogging up your event loop; let the system handle such
-events as keystrokes, mouse-ups, updates, and activate events occuring in a
-DA window.
-If you want to get a look at all events, you can store a 0 in the 1-byte
-global variable SEvtEnb (at 0x015c). This will cause GetNextEvent to
-forward all unmasked events to you.
-When a DA creates a window (including a modeless dialog) it must set the
-windowKind to its refnum, which is a negative number. When the
-application calls GetNextEvent , as explained above, the Event Manager
-calls SystemEvent . If it returns TRUE then your DA gets the event. Since
-your window is a modeless dialog you would call IsDialogEvent , which
-returns FALSE What is going on is that IsDialogEvent (like
-SystemEvent) checks the windowKind looking for a value of 2 (for
-dialogs). Since your dialog's windowKind is a negative number, the DA's
-refnum, IsDialogEvent does nothing. The solution is to change the
-windowKind of your window to 2 before calling IsDialogEvent . This
-allows the Dialog Manager to recognize and handle the event properly. Be
-sure to restore the windowKind to its former value before returning to
-SystemEvent . That way, when the application calls the Dialog Manager
-with the same event (it should pass all events to the Dialog Manager if it has
-any modeless dialogs), the Dialog Manager will ignore it.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        not available
-*    \mac_os_x         not available
-*/
-Boolean
-SystemEvent(const EventRecord *theEvent) ONEWORDINLINE(0xA9B2);
+  <pre>SystemEvent is called by the Event Manager as a way to watch for certain
+  events and pass some of them directly to DAs, without bothering your
+  application. This function should not be called by applications.
+  theEvent is the address of a 16-byte EventRecord . It contains information
+  received from a previous call to GetNextEvent .
+  </pre>
+  * \returns <pre>A Boolean; it identifies whether the event should be handled by an
+  application or a DA. It is one of:
+  FALSE (0)This event should be passed to the application. It may be a
+  system event the application should handle by calling
+  SystemClick .
+  TRUE (1)This event should be handled by the system (i.e., a DA). It will
+  not be forwarded to the application.
+  </pre>
+  * \note <pre>SystemEvent is called internally by the GetNextEvent function. The
+  idea is to avoid clogging up your event loop; let the system handle such
+  events as keystrokes, mouse-ups, updates, and activate events occuring in a
+  DA window.
+  If you want to get a look at all events, you can store a 0 in the 1-byte
+  global variable SEvtEnb (at 0x015c). This will cause GetNextEvent to
+  forward all unmasked events to you.
+  When a DA creates a window (including a modeless dialog) it must set the
+  windowKind to its refnum, which is a negative number. When the
+  application calls GetNextEvent , as explained above, the Event Manager
+  calls SystemEvent . If it returns TRUE then your DA gets the event. Since
+  your window is a modeless dialog you would call IsDialogEvent , which
+  returns FALSE What is going on is that IsDialogEvent (like
+  SystemEvent) checks the windowKind looking for a value of 2 (for
+  dialogs). Since your dialog's windowKind is a negative number, the DA's
+  refnum, IsDialogEvent does nothing. The solution is to change the
+  windowKind of your window to 2 before calling IsDialogEvent . This
+  allows the Dialog Manager to recognize and handle the event properly. Be
+  sure to restore the windowKind to its former value before returning to
+  SystemEvent . That way, when the application calls the Dialog Manager
+  with the same event (it should pass all events to the Dialog Manager if it has
+  any modeless dialogs), the Dialog Manager will ignore it.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+  *    \carbon_lib        not available
+  *    \mac_os_x         not available
+  */
+  Boolean
+  SystemEvent(const EventRecord *theEvent);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1026,177 +1021,176 @@ SystemEvent(const EventRecord *theEvent) ONEWORDINLINE(0xA9B2);
   KeyTranslate(transData, keycode, state)
 #endif /** OLDROUTINENAMES */
 
-/**
-    GetGlobalMouse, GetCurrentKeyModifiers, and CheckEventQueueForUserCancel
-    are only available as part of the Carbon API.
-*/
+  /**
+      GetGlobalMouse, GetCurrentKeyModifiers, and CheckEventQueueForUserCancel
+      are only available as part of the Carbon API.
+  */
 
-/**
- *  GetGlobalMouse()
- *
- *  Summary:
- *    Returns the position of the mouse in global coordinates.
- *
- *  Parameters:
- *
- *    globalMouse:
- *      On exit, contains the mouse position in global coordinates.
- *
+  /**
+   *  GetGlobalMouse()
+   *
+   *  Summary:
+   *    Returns the position of the mouse in global coordinates.
+   *
+   *  Parameters:
+   *
+   *    globalMouse:
+   *      On exit, contains the mouse position in global coordinates.
+   *
 
- *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void GetGlobalMouse(Point *globalMouse);
+   *    \non_carbon_cfm   in CarbonAccessors.o 1.0 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void GetGlobalMouse(Point *globalMouse);
 
-/**
- *  GetCurrentKeyModifiers()
- *
- *  Summary:
- *    Returns the current state of the keyboard modifier keys.
- *
- *  Discussion:
- *    The format of the return value is the same as the modifiers field
- *    of the EventRecord.
- *
+  /**
+   *  GetCurrentKeyModifiers()
+   *
+   *  Summary:
+   *    Returns the current state of the keyboard modifier keys.
+   *
+   *  Discussion:
+   *    The format of the return value is the same as the modifiers field
+   *    of the EventRecord.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt32
-GetCurrentKeyModifiers(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt32
+  GetCurrentKeyModifiers(void);
 
-/**
- *  CheckEventQueueForUserCancel()
- *
- *  Summary:
- *    Determines if there is a cancel event in the event queue.
- *
- *  Discussion:
- *    This API supports two cancel events: Escape and Cmd-Period. Mouse
- *    or keyboard events in front of the cancel event in the event
- *    queue will be removed.
- *
+  /**
+   *  CheckEventQueueForUserCancel()
+   *
+   *  Summary:
+   *    Determines if there is a cancel event in the event queue.
+   *
+   *  Discussion:
+   *    This API supports two cancel events: Escape and Cmd-Period. Mouse
+   *    or keyboard events in front of the cancel event in the event
+   *    queue will be removed.
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.0.2 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-CheckEventQueueForUserCancel(void);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.0.2 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  CheckEventQueueForUserCancel(void);
 
-/**
-    The core data structure for the Carbon event system. It is declared here
-   instead of in CarbonEvents.h to avoid recursive include problems.
-*/
-typedef struct OpaqueEventRef *EventRef;
-/**
- *  KeyScript()
- *
+  /**
+      The core data structure for the Carbon event system. It is declared here
+     instead of in CarbonEvents.h to avoid recursive include problems.
+  */
+  typedef struct OpaqueEventRef *EventRef;
+  /**
+   *  KeyScript()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void KeyScript(short code) FOURWORDINLINE(0x2F3C, 0x8002, 0x0004, 0xA8B5);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void KeyScript(short code);
 
-/**
- *  IsCmdChar()
- *
+  /**
+   *  IsCmdChar()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-IsCmdChar(const EventRecord *event, short test)
-    FOURWORDINLINE(0x2F3C, 0x8206, 0xFFD0, 0xA8B5);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  IsCmdChar(const EventRecord *event, short test);
 
-/**
-    LowMem accessor functions previously in LowMem.h
-*/
-/**
- *  LMGetKeyThresh()
- *
+  /**
+      LowMem accessor functions previously in LowMem.h
+  */
+  /**
+   *  LMGetKeyThresh()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt16
-LMGetKeyThresh(void) TWOWORDINLINE(0x3EB8, 0x018E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16
+  LMGetKeyThresh(void);
 
-/**
- *  LMSetKeyThresh()
- *
+  /**
+   *  LMSetKeyThresh()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void LMSetKeyThresh(SInt16 value) TWOWORDINLINE(0x31DF, 0x018E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetKeyThresh(SInt16 value);
 
-/**
- *  LMGetKeyRepThresh()
- *
+  /**
+   *  LMGetKeyRepThresh()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt16
-LMGetKeyRepThresh(void) TWOWORDINLINE(0x3EB8, 0x0190);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  SInt16
+  LMGetKeyRepThresh(void);
 
-/**
- *  LMSetKeyRepThresh()
- *
+  /**
+   *  LMSetKeyRepThresh()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void LMSetKeyRepThresh(SInt16 value) TWOWORDINLINE(0x31DF, 0x0190);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetKeyRepThresh(SInt16 value);
 
-/**
- *  LMGetKbdLast()
- *
+  /**
+   *  LMGetKbdLast()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt8 LMGetKbdLast(void) TWOWORDINLINE(0x1EB8, 0x0218);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetKbdLast(void);
 
-/**
- *  LMSetKbdLast()
- *
+  /**
+   *  LMSetKbdLast()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void LMSetKbdLast(UInt8 value) TWOWORDINLINE(0x11DF, 0x0218);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetKbdLast(UInt8 value);
 
-/**
- *  LMGetKbdType()
- *
+  /**
+   *  LMGetKbdType()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt8 LMGetKbdType(void) TWOWORDINLINE(0x1EB8, 0x021E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  UInt8 LMGetKbdType(void);
 
-/**
- *  LMSetKbdType()
- *
+  /**
+   *  LMSetKbdType()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void LMSetKbdType(UInt8 value) TWOWORDINLINE(0x11DF, 0x021E);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  void LMSetKbdType(UInt8 value);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -1216,5 +1210,4 @@ void LMSetKbdType(UInt8 value) TWOWORDINLINE(0x11DF, 0x021E);
 }
 #endif
 
-#endif /** __EVENTS__ */
-* /*/*/ * /*/*/ * /*/*/ */*/
+#endif /** __EVENTS__ */ *   /*/

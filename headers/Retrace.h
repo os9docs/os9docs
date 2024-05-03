@@ -147,7 +147,7 @@ extern "C"
 #pragma parameter InvokeVBLUPP(__A0, __A1)
 #endif
 	void
-	InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP) ONEWORDINLINE(0x4E91);
+	InvokeVBLUPP(VBLTaskPtr vblTaskPtr, VBLUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
 	(!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -201,7 +201,7 @@ qep = (VBLTask *)VBLQueue .qHead; // get global variable
 				*    \carbon_lib not available *    \mac_os_x not available *
 			/
 			QHdrPtr
-			GetVBLQHdr(void) THREEWORDINLINE(0x2EBC, 0x0000, 0x0160);
+			GetVBLQHdr(void);
 
 	/**
 	\brief Install vertical retrace interrupt task for a slot
@@ -240,7 +240,7 @@ Task.
 #pragma parameter __D0 SlotVInstall(__A0, __D0)
 #endif
 	OSErr
-	SlotVInstall(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA06F);
+	SlotVInstall(QElemPtr vblBlockPtr, short theSlot);
 
 	/**
 	\brief Remove vertical retrace interrupt task for a slot
@@ -277,7 +277,7 @@ It is probably NOT wise to remove tasks you did not install.
 #pragma parameter __D0 SlotVRemove(__A0, __D0)
 #endif
 	OSErr
-	SlotVRemove(QElemPtr vblBlockPtr, short theSlot) ONEWORDINLINE(0xA070);
+	SlotVRemove(QElemPtr vblBlockPtr, short theSlot);
 
 	/**
 	\brief Make specified slot the primary video slot
@@ -302,7 +302,7 @@ slotNumErr (-360) Invalid slot number
 #pragma parameter __D0 AttachVBL(__D0)
 #endif
 	OSErr
-	AttachVBL(short theSlot) ONEWORDINLINE(0xA071);
+	AttachVBL(short theSlot);
 
 	/**
 	\brief Execute VBL tasks in the queue for a specified slot
@@ -335,7 +335,7 @@ that slot.
 #pragma parameter __D0 DoVBLTask(__D0)
 #endif
 	OSErr
-	DoVBLTask(short theSlot) ONEWORDINLINE(0xA072);
+	DoVBLTask(short theSlot);
 
 	/**
 	\brief Install vertical retrace interrupt task
@@ -390,7 +390,7 @@ The code of the task is executed at interrupt time , and so must be
 #pragma parameter __D0 VInstall(__A0)
 #endif
 	OSErr
-	VInstall(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA033);
+	VInstall(QElemPtr vblTaskPtr);
 
 	/**
 	\brief Remove vertical retrace interrupt task
@@ -417,7 +417,7 @@ vTypErr (-2) VBLTask.qType must be vType
 #pragma parameter __D0 VRemove(__A0)
 #endif
 	OSErr
-	VRemove(QElemPtr vblTaskPtr) ONEWORDINLINE(0xA034);
+	VRemove(QElemPtr vblTaskPtr);
 
 #endif // CALL_NOT_IN_CARBON
 
@@ -439,5 +439,4 @@ vTypErr (-2) VBLTask.qType must be vType
 }
 #endif
 
-#endif // __RETRACE__
-* /*/*/ * /*/*/ * /
+#endif // __RETRACE__/  /

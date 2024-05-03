@@ -54,14 +54,15 @@ extern "C"
 
   enum
   {
-    // resource IDs of pre-7.0 get and put dialogs     putDlgID = -3999,
-    getDlgID = -4000
+    /** IDs */
+    of pre - 7.0 get and put dialogs putDlgID = -3999 getDlgID = -4000
   };
 
   enum
   {
-    // item offsets of pre-7.0 get and put dialogs     putSave = 1,
-    // item offsets of pre-7.0 get and put dialogs 
+    /** offsets */
+    of pre - 7.0 get and put dialogs putSave = 1
+    // item offsets of pre-7.0 get and put dialogs
     putEject = 5,
     putDrive = 6,
     putName = 7,
@@ -75,16 +76,16 @@ extern "C"
 
   enum
   {
-    // resource IDs of 7.0 get and put dialogs     sfPutDialogID = -6043,
-    sfGetDialogID = -6042
-  };// resource IDs of 7.0 get and put dialogs 
+    /** IDs */
+    of 7.0 get and put dialogs sfPutDialogID = -6043 sfGetDialogID = -6042
+  }; // resource IDs of 7.0 get and put dialogs
 
   enum
   {
-    // item offsets of 7.0 get and put dialogs     sfItemOpenButton = 1,
-    sfItemCancelButton = 2,
+    /** offsets */
+    of 7.0 get and put dialogs sfItemOpenButton = 1 sfItemCancelButton = 2,
     sfItemBalloonHelp = 3,
-    // item offsets of 7.0 get and put dialogs 
+    // item offsets of 7.0 get and put dialogs
     sfItemEjectButton = 5,
     sfItemDesktopButton = 6,
     sfItemFileListUser = 7,
@@ -97,17 +98,19 @@ extern "C"
 
   enum
   {
-    // pseudo-item hits for use in DlgHook     sfHookFirstCall = -1,
+     /** hits */
+for use in DlgHook     sfHookFirstCall  =  -1
     sfHookCharOffset = 0x1000,
     sfHookNullEvent = 100,
     sfHookRebuildList = 101,
-    // pseudo-item hits for use in DlgHook 
-    sfHookOpenFolder = 103, // the following are only in system 7.0+     sfHookLastCall = -2,
+    // pseudo-item hits for use in DlgHook
+    sfHookOpenFolder = 103,  /** following */
+are only in system 7.0+     sfHookLastCall  =  -2
     sfHookOpenAlias = 104,
     sfHookGoToDesktop = 105,
     sfHookGoToAliasTarget = 106,
     sfHookGoToParent = 107,
-    sfHookGoToNextDrive = 10// the following are only in system 7.0+ 
+    sfHookGoToNextDrive = 10 // the following are only in system 7.0+
     sfHookGoToPrevDrive = 109,
     sfHookChangeSelection = 110,
     sfHookSetActiveOffset = 200
@@ -173,7 +176,7 @@ extern "C"
   typedef CALLBACK_API(Boolean, FileFilterProcPtr)(CInfoPBPtr pb);
   // the following also include an extra parameter of "your data pointer"   typedef CALLBACK_API(short, DlgHookYDProcPtr)(short item, DialogRef theDialog,
                                                 void *yourDataPtr);
-  // ModalFilterYDProcPtr moved to Dialogs.h   typedef CALLBACK_API(Boolean, FileFilterYDProcPtr)(CInfoPBPtr pb,
+                                                // ModalFilterYDProcPtr moved to Dialogs.h   typedef CALLBACK_API(Boolean, FileFilterYDProcPtr)(CInfoPBPtr pb,
                                                      void *yourDataPtr);
   typedef CALLBACK_API(void, ActivateYDProcPtr)(DialogRef theDialog, short itemNo,
                                                 Boolean activating,
@@ -205,9 +208,9 @@ extern "C"
         (ProcPtr)(userRoutine), uppDlgHookProcInfo, GetCurrentArchitecture());
   }
 #else
-#define NewDlgHookUPP(userRoutine)   \
-  (Dl// pascal 2_bytes Func(2_bytes, 4_bytes) 
-      (ProcPtr)(userRoutine), uppDlgHookProcInfo, GetCurrentArchitecture())
+#define NewDlgHookUPP(userRoutine) \
+  (Dl// pascal 2_bytes Func(2_bytes, 4_bytes)
+                                                         (ProcPtr)(userRoutine), uppDlgHookProcInfo, GetCurrentArchitecture())
 #endif
 #endif
 
@@ -234,7 +237,7 @@ extern "C"
 #else
 #define NewFileFilterUPP(userRoutine)   \
   (FileFilterUPP) NewRoutineDescriptor( \
-     // pascal 1_byte Func(4_bytes) 
+     // pascal 1_byte Func(4_bytes)
 #endif
 #endif
 
@@ -262,7 +265,7 @@ extern "C"
 #define NewDlgHookYDUPP(userRoutine)   \
   (DlgHookYDUPP) NewRoutineDescriptor( \
       (ProcPtr)(userRoutine), uppDlgHookYDProcInfo, GetCurrentArchitecture())
-#endi// pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes) 
+#endi // pascal 2_bytes Func(2_bytes, 4_bytes, 4_bytes)
 #endif
 
   /**
@@ -290,7 +293,7 @@ extern "C"
 #define NewFileFilterYDUPP(userRoutine)                                     \
   (FileFilterYDUPP)                                                         \
       NewRoutineDescriptor((ProcPtr)(userRoutine), uppFileFilterYDProcInfo, \
-     // pascal 1_byte Func(4_bytes, 4_bytes) 
+     // pascal 1_byte Func(4_bytes, 4_bytes)
 #endif
 #endif
 
@@ -553,7 +556,7 @@ extern "C"
 #endif
 #endif
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewDlgHookProc(userRoutine) NewDlgHookUPP(userRoutine)
 #define NewFileFilterProc(userRoutine) NewFileFilterUPP(userRoutine)
@@ -566,10 +569,10 @@ extern "C"
 #define CallDlgHookYDProc(userRoutine, item, theDialog, yourDataPtr) \
   InvokeDlgHookYDUPP(item, theDialog, yourDataPtr, userRoutine)
 #define CallFileFilterYDProc(userRoutine, pb, yourDataPtr) \
-  Invok// CALL_NOT_IN_CARBON 
+  Invok // CALL_NOT_IN_CARBON
 #define CallActivateYDProc(userRoutine, theDialog, itemNo, activating, \
                            yourDataPtr)                                \
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #endif // CALL_NOT_IN_CARBON 
   typedef OSType SFTypeList[4];
   /**
@@ -591,7 +594,9 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  SFPutFile(Point where, ConstStr255Param prompt,          // can be NULL             ConstStr255Param origName, DlgHookUPP dlgHook, // can be NULL             SFReply *reply) THREEWORDINLINE(0x3F3C, 0x0001, 0xA9EA);
+  SFPutFile(Point where, ConstStr255Param prompt,          // can be NULL
+           ConstStr255Param origName, DlgHookUPP dlgHook, // can be NULL
+           SFReply *reply);
 
   /**
    *  SFGetFile()
@@ -603,7 +608,10 @@ extern "C"
    */
   void
   SFGetFile(Point where, ConstStr255Param prompt,
-            FileFilterUPP fileFilter,                    // can be NULL             short numTypes, ConstSFTypeListPtr typeList, // can be NULL             DlgHookUPP dlgHook,                          // can be NULL             SFReply *reply) THREEWORDINLINE(0x3F3C, 0x0002, 0xA9EA);
+            FileFilterUPP fileFilter,                    // can be NULL
+           short numTypes, ConstSFTypeListPtr typeList, // can be NULL
+           DlgHookUPP dlgHook,                          // can be NULL
+           SFReply *reply);
 
   /**
    *  SFPPutFile()
@@ -616,9 +624,7 @@ extern "C"
   void
   SFPPutFile(Point where, ConstStr255Param prompt, // can be NULL              ConstStr255Param origName, DlgHookUPP dlgHook, SFReply *reply,
              short dlgID,
-             ModalFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x3F3C,
-                                                                          0x0003,
-                                                                          0xA9EA);
+             ModalFilterUPP filterProc) /* can be NULL */;
 
   /**
    *  SFPGetFile()// can be NULL 
@@ -631,11 +637,9 @@ extern "C"
   void
   SFPGetFile(Point where, ConstStr255Param prompt,
              FileFilterUPP fileFilter,                    // can be NULL              short numTypes, ConstSFTypeListPtr typeList, // can be NULL              DlgHookUPP dlgHook,                          // can be NULL              SFReply *reply, short dlgID,
-             ModalFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x3F3C,
-                                                                          0x0004,
-                                                                          0xA9EA);
+             ModalFilterUPP filterProc) /* can be NULL */;
 
-  /**// can be NULL 
+  /**  can be NULL 
    *  StandardPutFile()
    *
    *  Availability:
@@ -645,7 +649,7 @@ extern "C"
    */
   void
   StandardPutFile(ConstStr255Param prompt, // can be NULL                   ConstStr255Param defaultName, StandardFileReply *reply)
-      THREEWORDINLINE(0x3F3C, 0x0005, 0xA9EA);
+ ;
 
   /**
    *  StandardGetFile()
@@ -657,7 +661,7 @@ extern "C"
    */// can be NULL 
   void
   StandardGetFile(FileFilterUPP fileFilter,                    // can be NULL                   short numTypes, ConstSFTypeListPtr typeList, // can be NULL                   StandardFileReply *reply)
-      THREEWORDINLINE(0x3F3C, 0x0006, 0xA9EA);
+ ;
 
   /**
    *  CustomPutFile()
@@ -681,9 +685,13 @@ extern "C"
    */
   void
   CustomGetFile(FileFilterYDUPP fileFilter,                  // can be NULL                 short numTypes, ConstSFTypeListPtr typeList, // can be NULL                 StandardFileReply *reply, short dlgID, Point where,
-                DlgHookYDUPP dlgHook,              // can be NULL                 ModalFilterYDUPP filterProc,       // can be NULL                 ActivationOrderListPtr activeList, // can be NULL                 ActivateYDUPP activate,            // can be NULL                 void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x0008, 0xA9EA);
+                DlgHookYDUPP dlgHook,              // can be NULL
+               ModalFilterYDUPP filterProc,       // can be NULL
+               ActivationOrderListPtr activeList, // can be NULL
+               ActivateYDUPP activate,            // can be NULL
+               void *yourDataPtr);
 // can be NULL 
-  /**// can be NULL 
+  /**  can be NULL 
    *  StandardOpenDialog()
    *
    *  Availability:
@@ -694,9 +702,9 @@ extern "C"
   OSErr
   StandardOpenDialog(StandardFileReply *reply);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
-  /**// can be NULL 
+  /**  can be NULL 
    *  sfpputfile()
    *// can be NULL 
    *  Availability:// can be NULL 
@@ -742,13 +750,14 @@ extern "C"
    */
   void
   sfputfile(Point *where, const char *prompt, const char *origName,
-            DlgHookUPP dlgHook, // can be NULL             SFReply *reply);
+            DlgHookUPP dlgHook, // can be NULL
+           SFReply *reply);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset// can be NULL 
+#pragma options align = reset // can be NULL
 #elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)// can be NULL 
+#pragma pack(pop) // can be NULL
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
 #endif
@@ -760,12 +769,14 @@ extern "C"
 #endif
 
 #ifdef __cplusplus
-}// can be NULL 
-#endif// can be NULL 
-// can be NULL 
-#endif               // __STANDARDFILE__  DlgHookUPP dlgHook, // can be NULL           SFReply *reply);
+} // can be NULL
+#endif // can be NULL
+// can be NULL
+#endif              // __STANDARDFILE__
+DlgHookUPP dlgHook, // can be NULL
+         SFReply *reply);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -775,18 +786,18 @@ extern "C"
 #endif
 
 #ifdef PRAGMA_IMPORT_OFF
-#pragma import off// can be NULL 
-#elif PRAGMA_IMPORT// can be NULL 
-#pragma import reset// can be NULL 
+#pragma import off   // can be NULL
+#elif PRAGMA_IMPORT  // can be NULL
+#pragma import reset // can be NULL
 #endif
-// can be NULL 
+// can be NULL
 #ifdef __cplusplus
- }
+}
 #endif
 
-#endif // __STANDARDFILE__ // can be NULL 
-// CALL_NOT_IN_CARBON 
-// __STANDARDFILE__ 
-// can be NULL 
-// CALL_NOT_IN_CARBON 
-// __STANDARDFILE__ 
+#endif // __STANDARDFILE__ // can be NULL
+// CALL_NOT_IN_CARBON
+// __STANDARDFILE__
+// can be NULL
+// CALL_NOT_IN_CARBON
+// __STANDARDFILE__

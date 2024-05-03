@@ -152,7 +152,7 @@ extern "C"
 #pragma parameter __D0 EndianSwap16Bit(__D0)
 #endif
   UInt16
-  EndianSwap16Bit(UInt16 data16) ONEWORDINLINE(0xE158);
+  EndianSwap16Bit(UInt16 data16);
 
 /**
  *  EndianSwap32Bit()
@@ -166,7 +166,7 @@ extern "C"
 #pragma parameter __D0 EndianSwap32Bit(__D0)
 #endif
   UInt32
-  EndianSwap32Bit(UInt32 data32) THREEWORDINLINE(0xE158, 0x4840, 0xE158);
+  EndianSwap32Bit(UInt32 data32);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -181,7 +181,7 @@ extern "C"
    */
   OSErr
   ExpMgrConfigReadByte(RegEntryIDPtr node, LogicalAddress configAddr,
-                       UInt8 *valuePtr) THREEWORDINLINE(0x303C, 0x0620, 0xAAF3);
+                       UInt8 *valuePtr);
 
   /**
    *  ExpMgrConfigReadWord()
@@ -193,7 +193,7 @@ extern "C"
    */
   OSErr
   ExpMgrConfigReadWord(RegEntryIDPtr node, LogicalAddress configAddr,
-                       UInt16 *valuePtr) THREEWORDINLINE(0x303C, 0x0621, 0xAAF3);
+                       UInt16 *valuePtr);
 
   /**
    *  ExpMgrConfigReadLong()
@@ -205,7 +205,7 @@ extern "C"
    */
   OSErr
   ExpMgrConfigReadLong(RegEntryIDPtr node, LogicalAddress configAddr,
-                       UInt32 *valuePtr) THREEWORDINLINE(0x303C, 0x0622, 0xAAF3);
+                       UInt32 *valuePtr);
 
   /**
    *  ExpMgrConfigWriteByte()
@@ -217,7 +217,7 @@ extern "C"
    */
   OSErr
   ExpMgrConfigWriteByte(RegEntryIDPtr node, LogicalAddress configAddr,
-                        UInt8 value) THREEWORDINLINE(0x303C, 0x0523, 0xAAF3);
+                        UInt8 value);
 
   /**
    *  ExpMgrConfigWriteWord()
@@ -229,7 +229,7 @@ extern "C"
    */
   OSErr
   ExpMgrConfigWriteWord(RegEntryIDPtr node, LogicalAddress configAddr,
-                        UInt16 value) THREEWORDINLINE(0x303C, 0x0524, 0xAAF3);
+                        UInt16 value);
 
   /**
    *  ExpMgrConfigWriteLong()
@@ -241,7 +241,7 @@ extern "C"
    */
   OSErr
   ExpMgrConfigWriteLong(RegEntryIDPtr node, LogicalAddress configAddr,
-                        UInt32 value) THREEWORDINLINE(0x303C, 0x0625, 0xAAF3);
+                        UInt32 value);
 
   /**
    *  ExpMgrIOReadByte()
@@ -252,8 +252,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrIOReadByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 *valuePtr)
-      THREEWORDINLINE(0x303C, 0x0626, 0xAAF3);
+  ExpMgrIOReadByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 *valuePtr);
 
   /**
    *  ExpMgrIOReadWord()
@@ -264,8 +263,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrIOReadWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 *valuePtr)
-      THREEWORDINLINE(0x303C, 0x0627, 0xAAF3);
+  ExpMgrIOReadWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 *valuePtr);
 
   /**
    *  ExpMgrIOReadLong()
@@ -276,8 +274,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrIOReadLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 *valuePtr)
-      THREEWORDINLINE(0x303C, 0x0628, 0xAAF3);
+  ExpMgrIOReadLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 *valuePtr);
 
   /**
    *  ExpMgrIOWriteByte()
@@ -288,8 +285,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrIOWriteByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 value)
-      THREEWORDINLINE(0x303C, 0x0529, 0xAAF3);
+  ExpMgrIOWriteByte(RegEntryIDPtr node, LogicalAddress ioAddr, UInt8 value);
 
   /**
    *  ExpMgrIOWriteWord()
@@ -300,8 +296,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrIOWriteWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 value)
-      THREEWORDINLINE(0x303C, 0x052A, 0xAAF3);
+  ExpMgrIOWriteWord(RegEntryIDPtr node, LogicalAddress ioAddr, UInt16 value);
 
   /**
    *  ExpMgrIOWriteLong()
@@ -312,8 +307,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrIOWriteLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 value)
-      THREEWORDINLINE(0x303C, 0x062B, 0xAAF3);
+  ExpMgrIOWriteLong(RegEntryIDPtr node, LogicalAddress ioAddr, UInt32 value);
 
   /**
    *  ExpMgrInterruptAcknowledgeReadByte()
@@ -324,8 +318,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrInterruptAcknowledgeReadByte(RegEntryIDPtr entry, UInt8 *valuePtr)
-      THREEWORDINLINE(0x303C, 0x0411, 0xAAF3);
+  ExpMgrInterruptAcknowledgeReadByte(RegEntryIDPtr entry, UInt8 *valuePtr);
 
   /**
    *  ExpMgrInterruptAcknowledgeReadWord()
@@ -336,8 +329,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrInterruptAcknowledgeReadWord(RegEntryIDPtr entry, UInt16 *valuePtr)
-      THREEWORDINLINE(0x303C, 0x0412, 0xAAF3);
+  ExpMgrInterruptAcknowledgeReadWord(RegEntryIDPtr entry, UInt16 *valuePtr);
 
   /**
    *  ExpMgrInterruptAcknowledgeReadLong()
@@ -348,8 +340,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrInterruptAcknowledgeReadLong(RegEntryIDPtr entry, UInt32 *valuePtr)
-      THREEWORDINLINE(0x303C, 0x0413, 0xAAF3);
+  ExpMgrInterruptAcknowledgeReadLong(RegEntryIDPtr entry, UInt32 *valuePtr);
 
   /**
    *  ExpMgrSpecialCycleWriteLong()
@@ -360,8 +351,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrSpecialCycleWriteLong(RegEntryIDPtr entry, UInt32 value)
-      THREEWORDINLINE(0x303C, 0x0419, 0xAAF3);
+  ExpMgrSpecialCycleWriteLong(RegEntryIDPtr entry, UInt32 value);
 
   /**
    *  ExpMgrSpecialCycleBroadcastLong()
@@ -372,8 +362,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  ExpMgrSpecialCycleBroadcastLong(UInt32 value)
-      THREEWORDINLINE(0x303C, 0x021A, 0xAAF3);
+  ExpMgrSpecialCycleBroadcastLong(UInt32 value);
 
 #endif /** CALL_NOT_IN_CARBON */
 

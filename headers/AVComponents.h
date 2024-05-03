@@ -337,8 +337,7 @@ extern "C"
     ComponentResult
     AVEngineComponentGetFidelity(ComponentInstance engineComponent,
                                  DisplayIDType displayID,
-                                 DMFidelityType *engineFidelity)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0100, 0x7000, 0xA82A);
+                                 DMFidelityType *engineFidelity);
 
     /**
      *  AVEngineComponentTargetDevice()
@@ -350,8 +349,7 @@ extern "C"
      */
     ComponentResult
     AVEngineComponentTargetDevice(ComponentInstance engineComponent,
-                                  DisplayIDType displayID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+                                  DisplayIDType displayID);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -368,8 +366,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPanelFakeRegister(ComponentInstance ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0xFFFB, 0x7000, 0xA82A);
+    AVPanelFakeRegister(ComponentInstance ci);
 
     /**
      *  AVPanelSetCustomData()
@@ -380,8 +377,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPanelSetCustomData(ComponentInstance ci, long theCustomData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0000, 0x7000, 0xA82A);
+    AVPanelSetCustomData(ComponentInstance ci, long theCustomData);
 
     /**
      *  AVPanelGetDitl()
@@ -392,8 +388,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPanelGetDitl(ComponentInstance ci, Handle *ditl)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+    AVPanelGetDitl(ComponentInstance ci, Handle *ditl);
 
     /**
      *  AVPanelGetTitle()
@@ -404,8 +399,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPanelGetTitle(ComponentInstance ci, StringPtr title)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0002, 0x7000, 0xA82A);
+    AVPanelGetTitle(ComponentInstance ci, StringPtr title);
 
     /**
      *  AVPanelInstall()
@@ -416,8 +410,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPanelInstall(ComponentInstance ci, DialogRef dialog, long itemOffset)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0003, 0x7000, 0xA82A);
+    AVPanelInstall(ComponentInstance ci, DialogRef dialog, long itemOffset);
 
     /**
      *  AVPanelEvent()
@@ -429,8 +422,7 @@ extern "C"
      */
     ComponentResult
     AVPanelEvent(ComponentInstance ci, DialogRef dialog, long itemOffset,
-                 EventRecord *event, short *itemHit, Boolean *handled)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0004, 0x7000, 0xA82A);
+                 EventRecord *event, short *itemHit, Boolean *handled);
 
     /**
      *  AVPanelItem()
@@ -442,8 +434,7 @@ extern "C"
      */
     ComponentResult
     AVPanelItem(ComponentInstance ci, DialogRef dialog, long itemOffset,
-                short itemNum)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0005, 0x7000, 0xA82A);
+                short itemNum);
 
     /**
      *  AVPanelRemove()
@@ -454,8 +445,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPanelRemove(ComponentInstance ci, DialogRef dialog, long itemOffset)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0006, 0x7000, 0xA82A);
+    AVPanelRemove(ComponentInstance ci, DialogRef dialog, long itemOffset);
 
     /**
      *  AVPanelValidateInput()
@@ -466,8 +456,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPanelValidateInput(ComponentInstance ci, Boolean *ok)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+    AVPanelValidateInput(ComponentInstance ci, Boolean *ok);
 
     /**
      *  AVPanelGetSettingsIdentifiers()
@@ -479,8 +468,7 @@ extern "C"
      */
     ComponentResult
     AVPanelGetSettingsIdentifiers(ComponentInstance ci, short *theID,
-                                  OSType *theType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0008, 0x7000, 0xA82A);
+                                  OSType *theType);
 
     /**
      *  AVPanelGetSettings()
@@ -492,8 +480,7 @@ extern "C"
      */
     ComponentResult
     AVPanelGetSettings(ComponentInstance ci, Handle *userDataHand, long flags,
-                       DialogRef theDialog, long itemsOffset)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0009, 0x7000, 0xA82A);
+                       DialogRef theDialog, long itemsOffset);
 
     /**
      *  AVPanelSetSettings()
@@ -505,8 +492,7 @@ extern "C"
      */
     ComponentResult
     AVPanelSetSettings(ComponentInstance ci, Handle userDataHand, long flags,
-                       DialogRef theDialog, long itemsOffset)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x000A, 0x7000, 0xA82A);
+                       DialogRef theDialog, long itemsOffset);
 
     /**
      *  AVPanelGetFidelity()
@@ -518,8 +504,7 @@ extern "C"
      */
     ComponentResult
     AVPanelGetFidelity(ComponentInstance panelComponent, DisplayIDType displayID,
-                       DMFidelityType *panelFidelity)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0100, 0x7000, 0xA82A);
+                       DMFidelityType *panelFidelity);
 
     /**
      *  AVPanelComponentTargetDevice()
@@ -532,8 +517,7 @@ extern "C"
     ComponentResult
     AVPanelComponentTargetDevice(ComponentInstance panelComponent,
                                  DisplayIDType displayID, DialogRef theDialog,
-                                 long itemsOffset)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0101, 0x7000, 0xA82A);
+                                 long itemsOffset);
 
     /**
      *  AVPanelComponentGetPanelClass()
@@ -546,8 +530,7 @@ extern "C"
     ComponentResult
     AVPanelComponentGetPanelClass(ComponentInstance panelComponent,
                                   ResType *panelClass, ResType *subClass,
-                                  Ptr reserved1, Ptr reserved2)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0102, 0x7000, 0xA82A);
+                                  Ptr reserved1, Ptr reserved2);
 
     /**
      *  AVPanelComponentGetPanelAdornment()
@@ -559,8 +542,7 @@ extern "C"
      */
     ComponentResult
     AVPanelComponentGetPanelAdornment(ComponentInstance panelComponent,
-                                      long *panelBorderType, long *panelNameType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0103, 0x7000, 0xA82A);
+                                      long *panelBorderType, long *panelNameType);
 
     /**
      *  AVPanelComponentGetBalloonHelpString()
@@ -572,8 +554,7 @@ extern "C"
      */
     ComponentResult
     AVPanelComponentGetBalloonHelpString(ComponentInstance panelComponent,
-                                         short item, StringPtr balloonString)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0104, 0x7000, 0xA82A);
+                                         short item, StringPtr balloonString);
 
     /**
      *  AVPanelComponentAppleGuideRequest()
@@ -585,8 +566,7 @@ extern "C"
      */
     ComponentResult
     AVPanelComponentAppleGuideRequest(ComponentInstance panelComponent,
-                                      OSType agSelector, void *agDataReply)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0105, 0x7000, 0xA82A);
+                                      OSType agSelector, void *agDataReply);
 
     /**
      *  AVPanelComponentGetFocusStatus()
@@ -598,8 +578,7 @@ extern "C"
      */
     ComponentResult
     AVPanelComponentGetFocusStatus(ComponentInstance panelComponent,
-                                   Boolean *hasFocus)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0106, 0x7000, 0xA82A);
+                                   Boolean *hasFocus);
 
     /**
      *  AVPanelComponentSetFocusStatus()
@@ -612,8 +591,7 @@ extern "C"
     ComponentResult
     AVPanelComponentSetFocusStatus(ComponentInstance panelComponent,
                                    DialogPtr theDialog, long itemOffset,
-                                   Boolean gettingFocus, Boolean *tookFocus)
-        FIVEWORDINLINE(0x2F3C, 0x000E, 0x0107, 0x7000, 0xA82A);
+                                   Boolean gettingFocus, Boolean *tookFocus);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -631,8 +609,7 @@ extern "C"
      */
     ComponentResult
     AVPortGetAVDeviceFidelity(ComponentInstance portComponent, AVIDType deviceAVID,
-                              DMFidelityType *portFidelity)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0100, 0x7000, 0xA82A);
+                              DMFidelityType *portFidelity);
 
     /**
      *  AVPortGetWiggle()
@@ -643,8 +620,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortGetWiggle(ComponentInstance portComponent, Boolean *wiggleDevice)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+    AVPortGetWiggle(ComponentInstance portComponent, Boolean *wiggleDevice);
 
     /**
      *  AVPortSetWiggle()
@@ -655,8 +631,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortSetWiggle(ComponentInstance portComponent, Boolean wiggleDevice)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0102, 0x7000, 0xA82A);
+    AVPortSetWiggle(ComponentInstance portComponent, Boolean wiggleDevice);
 
     /**
      *  AVPortGetName()
@@ -667,8 +642,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortGetName(ComponentInstance portComponent, Str255 portName)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
+    AVPortGetName(ComponentInstance portComponent, Str255 portName);
 
     /**
      *  AVPortGetGraphicInfo()
@@ -680,8 +654,7 @@ extern "C"
      */
     ComponentResult
     AVPortGetGraphicInfo(ComponentInstance portComponent, PicHandle *thePict,
-                         Handle *theIconSuite, AVLocationPtr theLocation)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0104, 0x7000, 0xA82A);
+                         Handle *theIconSuite, AVLocationPtr theLocation);
 
     /**
      *  AVPortSetActive()
@@ -692,8 +665,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortSetActive(ComponentInstance portComponent, Boolean setActive)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0105, 0x7000, 0xA82A);
+    AVPortSetActive(ComponentInstance portComponent, Boolean setActive);
 
     /**
      *  AVPortGetActive()
@@ -705,8 +677,7 @@ extern "C"
      */
     ComponentResult
     AVPortGetActive(ComponentInstance portComponent, Boolean *isPortActive,
-                    Boolean *portCanBeActivated, void *reserved)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0106, 0x7000, 0xA82A);
+                    Boolean *portCanBeActivated, void *reserved);
 
     /**
      *  AVPortGetAVID()
@@ -717,8 +688,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortGetAVID(ComponentInstance portComponent, AVIDType *avPortID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0108, 0x7000, 0xA82A);
+    AVPortGetAVID(ComponentInstance portComponent, AVIDType *avPortID);
 
     /**
      *  AVPortSetAVID()
@@ -729,8 +699,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortSetAVID(ComponentInstance portComponent, AVIDType avPortID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0109, 0x7000, 0xA82A);
+    AVPortSetAVID(ComponentInstance portComponent, AVIDType avPortID);
 
     /**
      *  AVPortSetDeviceAVID()
@@ -741,8 +710,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortSetDeviceAVID(ComponentInstance portComponent, AVIDType avDeviceID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010A, 0x7000, 0xA82A);
+    AVPortSetDeviceAVID(ComponentInstance portComponent, AVIDType avDeviceID);
 
     /**
      *  AVPortGetDeviceAVID()
@@ -753,8 +721,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVPortGetDeviceAVID(ComponentInstance portComponent, AVIDType *avDeviceID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010B, 0x7000, 0xA82A);
+    AVPortGetDeviceAVID(ComponentInstance portComponent, AVIDType *avDeviceID);
 
     /**
      *  AVPortGetPowerState()
@@ -766,8 +733,7 @@ extern "C"
      */
     ComponentResult
     AVPortGetPowerState(ComponentInstance portComponent,
-                        AVPowerStatePtr getPowerState)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010C, 0x7000, 0xA82A);
+                        AVPowerStatePtr getPowerState);
 
     /**
      *  AVPortSetPowerState()
@@ -779,8 +745,7 @@ extern "C"
      */
     ComponentResult
     AVPortSetPowerState(ComponentInstance portComponent,
-                        AVPowerStatePtr setPowerState)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010D, 0x7000, 0xA82A);
+                        AVPowerStatePtr setPowerState);
 
     /**
      *  AVPortGetMakeAndModel()
@@ -793,8 +758,7 @@ extern "C"
     ComponentResult
     AVPortGetMakeAndModel(ComponentInstance portComponent,
                           DisplayIDType theDisplayID, ResType *manufacturer,
-                          UInt32 *model, UInt32 *serialNumber)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x010E, 0x7000, 0xA82A);
+                          UInt32 *model, UInt32 *serialNumber);
 
     /**
      *  AVPortGetInterfaceSignature()
@@ -806,8 +770,7 @@ extern "C"
      */
     ComponentResult
     AVPortGetInterfaceSignature(ComponentInstance portComponent,
-                                OSType *interfaceSignature)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010F, 0x7000, 0xA82A);
+                                OSType *interfaceSignature);
 
     /**
      *  AVPortGetManufactureInfo()
@@ -820,8 +783,7 @@ extern "C"
     ComponentResult
     AVPortGetManufactureInfo(ComponentInstance portComponent,
                              DisplayIDType theDisplayID,
-                             DMMakeAndModelPtr theMakeAndModel)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0111, 0x7000, 0xA82A);
+                             DMMakeAndModelPtr theMakeAndModel);
 
     /** =============================                */
     /** Video Out Port Component Selectors           */
@@ -839,8 +801,7 @@ extern "C"
                           DisplayIDType theDisplayID,
                           VDDisplayConnectInfoPtr connectInfo,
                           VDTimingInfoPtr modeTiming,
-                          VDDetailedTimingPtr theDetailedTiming)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0000, 0x7000, 0xA82A);
+                          VDDetailedTimingPtr theDetailedTiming);
 
     /**
      *  AVPortGetDisplayTimingInfo()
@@ -854,8 +815,7 @@ extern "C"
     AVPortGetDisplayTimingInfo(ComponentInstance displayComponent,
                                VDTimingInfoPtr modeTiming, UInt32 requestedVersion,
                                DMDisplayTimingInfoPtr modeInfo,
-                               VDDetailedTimingPtr theDetailedTiming)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0200, 0x7000, 0xA82A);
+                               VDDetailedTimingPtr theDetailedTiming);
 
     /**
      *  AVPortGetDisplayProfileCount()
@@ -868,8 +828,7 @@ extern "C"
     ComponentResult
     AVPortGetDisplayProfileCount(ComponentInstance displayComponent,
                                  UInt32 reserved, UInt32 *profileCount,
-                                 UInt32 *profileSeed)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0201, 0x7000, 0xA82A);
+                                 UInt32 *profileSeed);
 
     /**
      *  AVPortGetIndexedDisplayProfile()
@@ -882,8 +841,7 @@ extern "C"
     ComponentResult
     AVPortGetIndexedDisplayProfile(ComponentInstance displayComponent,
                                    UInt32 reserved, UInt32 profileIndex,
-                                   UInt32 profileSeed, CMProfileRef *indexedProfile)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0202, 0x7000, 0xA82A);
+                                   UInt32 profileSeed, CMProfileRef *indexedProfile);
 
     /**
      *  AVPortGetDisplayGestalt()
@@ -896,8 +854,7 @@ extern "C"
     ComponentResult
     AVPortGetDisplayGestalt(ComponentInstance displayComponent,
                             ResType displayGestaltSelector,
-                            UInt32 *displayGestaltResponse)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0203, 0x7000, 0xA82A);
+                            UInt32 *displayGestaltResponse);
 
     /**
      *  AVPortGetDisplayTimingCount()
@@ -909,8 +866,7 @@ extern "C"
      */
     ComponentResult
     AVPortGetDisplayTimingCount(ComponentInstance displayComponent, void *reserved,
-                                UInt32 *timingCount, UInt32 *timingsSeed)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0204, 0x7000, 0xA82A);
+                                UInt32 *timingCount, UInt32 *timingsSeed);
 
     /**
      *  AVPortGetIndexedDisplayTiming()
@@ -924,8 +880,7 @@ extern "C"
     AVPortGetIndexedDisplayTiming(ComponentInstance displayComponent,
                                   void *reserved, UInt32 timingIndex,
                                   UInt32 timingsSeed,
-                                  VDDetailedTimingPtr indexedTiming)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0205, 0x7000, 0xA82A);
+                                  VDDetailedTimingPtr indexedTiming);
 
     /**
      *  AVPortGetDisplayTimingRangeCount()
@@ -938,8 +893,7 @@ extern "C"
     ComponentResult
     AVPortGetDisplayTimingRangeCount(ComponentInstance displayComponent,
                                      void *reserved, UInt32 *rangeCount,
-                                     UInt32 *rangeSeed)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0206, 0x7000, 0xA82A);
+                                     UInt32 *rangeSeed);
 
     /**
      *  AVPortGetIndexedDisplayTimingRange()
@@ -953,8 +907,7 @@ extern "C"
     AVPortGetIndexedDisplayTimingRange(ComponentInstance displayComponent,
                                        void *reserved, UInt32 rangeIndex,
                                        UInt32 rangeSeed,
-                                       VDDisplayTimingRangePtr indexedRange)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0207, 0x7000, 0xA82A);
+                                       VDDisplayTimingRangePtr indexedRange);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -971,8 +924,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVDeviceGetName(ComponentInstance deviceComponent, Str255 portName)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0100, 0x7000, 0xA82A);
+    AVDeviceGetName(ComponentInstance deviceComponent, Str255 portName);
 
     /**
      *  AVDeviceGetGraphicInfo()
@@ -984,8 +936,7 @@ extern "C"
      */
     ComponentResult
     AVDeviceGetGraphicInfo(ComponentInstance deviceComponent, PicHandle *thePict,
-                           Handle *theIconSuite, AVLocationPtr theLocation)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0101, 0x7000, 0xA82A);
+                           Handle *theIconSuite, AVLocationPtr theLocation);
 
     /**
      *  AVDeviceGetPowerState()
@@ -997,8 +948,7 @@ extern "C"
      */
     ComponentResult
     AVDeviceGetPowerState(ComponentInstance deviceComponent,
-                          AVPowerStatePtr getPowerState)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
+                          AVPowerStatePtr getPowerState);
 
     /**
      *  AVDeviceSetPowerState()
@@ -1010,8 +960,7 @@ extern "C"
      */
     ComponentResult
     AVDeviceSetPowerState(ComponentInstance deviceComponent,
-                          AVPowerStatePtr setPowerState)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
+                          AVPowerStatePtr setPowerState);
 
     /**
      *  AVDeviceGetAVID()
@@ -1022,8 +971,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVDeviceGetAVID(ComponentInstance deviceComponent, AVIDType *avDeviceID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0104, 0x7000, 0xA82A);
+    AVDeviceGetAVID(ComponentInstance deviceComponent, AVIDType *avDeviceID);
 
     /**
      *  AVDeviceSetAVID()
@@ -1034,8 +982,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVDeviceSetAVID(ComponentInstance deviceComponent, AVIDType avDeviceID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0105, 0x7000, 0xA82A);
+    AVDeviceSetAVID(ComponentInstance deviceComponent, AVIDType avDeviceID);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1052,8 +999,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVBackChannelPreModalFilter(ComponentInstance compInstance)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0002, 0x7000, 0xA82A);
+    AVBackChannelPreModalFilter(ComponentInstance compInstance);
 
     /**
      *  AVBackChannelModalFilter()
@@ -1064,8 +1010,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     ComponentResult
-    AVBackChannelModalFilter(ComponentInstance compInstance, EventRecord *theEvent)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    AVBackChannelModalFilter(ComponentInstance compInstance, EventRecord *theEvent);
 
     /**
      *  AVBackChannelAppleGuideLaunch()
@@ -1077,8 +1022,7 @@ extern "C"
      */
     ComponentResult
     AVBackChannelAppleGuideLaunch(ComponentInstance compInstance,
-                                  StringPtr theSubject)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+                                  StringPtr theSubject);
 
 #endif /** CALL_NOT_IN_CARBON */
 

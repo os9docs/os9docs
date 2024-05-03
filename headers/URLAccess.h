@@ -228,7 +228,7 @@ inline pascal Boolean URLAccessAvailable() { return true; }
 #else
 #define URLAccessAvailable() (true)
 #endif
-#endif /**  */
+#endif
 
   typedef CALLBACK_API(OSStatus, URLNotifyProcPtr)(void *userContext,
                                                    URLEvent event,

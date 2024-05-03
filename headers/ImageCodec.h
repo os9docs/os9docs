@@ -64,7 +64,8 @@ extern "C"
 #pragma pack(2)
 #endif
 
-  //  codec capabilities flags      enum
+  /* codec capabilities flags */
+  enum
   {
     codecCanScale = 1L << 0,
     codecCanMask = 1L << 1,
@@ -86,48 +87,59 @@ extern "C"
     codecCanShieldCursor = 1L << 17,
     codecCanManagePrevBuffer = 1L << 18,
     codecHasVolatileBuffer =
-        1L << 19, // codec requires redraw after window movement     codecWantsRegionMask = 1L << 20,
-    codecImageBuff// codec requires redraw after window movement 
+        1L << 19, /* codec requires redraw after window movement */
+    codecWantsRegionMask = 1L << 20,
+    codecImageBufferIsOnScreen =
         1L << 21, /* old def of codec using overlay surface, = (
-                     codecIsDirectToScreenOnly | codecUsesOverlaySurface |
-                     codecImageBufferIsOverlaySurface | codecSrcMustBeImageBuffer
-                     ) */
+        codecIsDirectToScreenOnly | codecUsesOverlaySurface |
+        codecImageBufferIsOverlaySurface | codecSrcMustBeImageBuffer
+        ) */
     codecWantsDestinationPixels = 1L << 22,
     codecWantsSpecialScaling = 1L << 23,
     codecHandlesInputs = 1L << 24,
     codecCanDoIndirectSurface =
-        1L << 25, // codec can handle indirect surface (GDI)     codecIsSequenceSensitive = 1L << 26,
+        1L << 25, /* codec can handle indirect surface (GDI) */
+    codecIsSequenceSensitive = 1L << 26,
     codecRequiresOffscreen = 1L << 27,
-    codecRequiresM// codec can handle indirect surface (GDI) 
+    codecRequiresMaskBits = 1L << 28,
     codecCanRemapResolution = 1L << 29,
     codecIsDirectToScreenOnly =
-        1L << 30, // codec can only decompress data to the screen     codecCanLockSurface =
+        1L << 30, /* codec can only decompress data to the screen */
+    codecCanLockSurface =
         1L
-        << 31 // codec can lock destination surface, icm doesn't lock for you   };
-// codec can only decompress data to the screen 
-  //  codec capabilities flags2     enum
+        << 31 /* codec can lock destination surface, icm doesn't lock for you */
+  };
+
+  /* codec capabilities flags2 */
+  enum
   {
-    codecUsesO// codec can lock destination surface, icm doesn't lock for you 
+    codecUsesOverlaySurface = 1L << 0, /* codec uses overlay surface */
+    codecImageBufferIsOverlaySurface =
         1L << 1, /* codec image buffer is overlay surface, the bits in the buffer
-                    are on the screen */
-  //  codec capabilities flags2   
-        1L << 2, // codec can only source data from an image buffer     codecImageBufferIsInAGPMemory =
-        1L << 4, // codec image buffer is in AGP space, byte writes are OK     codecImageBufferIsInPCIMemory =
-        1L << 5 // codec image buffer i// codec uses overlay surface 
+        are on the screen */
+    codecSrcMustBeImageBuffer =
+        1L << 2, /* codec can only source data from an image buffer */
+    codecImageBufferIsInAGPMemory =
+        1L << 4, /* codec image buffer is in AGP space, byte writes are OK */
+    codecImageBufferIsInPCIMemory =
+        1L << 5 /* codec image buffer is across a PCI bus; byte writes are bad */
+  };
 
   struct CodecCapabilities
   {
     long flags;
-    short wantedP// codec can only source data from an image buffer 
+    short wantedPixelSize;
     short extendWidth;
-    short extendH// codec image buffer is in AGP space, byte writes are OK 
+    short extendHeight;
     short bandMin;
-    short bandIn// codec image buffer is across a PCI bus; byte writes are bad 
+    short bandInc;
     short pad;
     unsigned long time;
-    long flags2; // field new in QuickTime 4.0   };
+    long flags2; /* field new in QuickTime 4.0 */
+  };
   typedef struct CodecCapabilities CodecCapabilities;
-  //  codec condition flags     enum
+  /* codec condition flags */
+  enum
   {
     codecConditionFirstBand = 1L << 0,
     codecConditionLastBand = 1L << 1,
@@ -135,10 +147,10 @@ extern "C"
     codecConditionNewDepth = 1L << 3,
     codecConditionNewTransform = 1L << 4,
     codecConditionNewSrcRect = 1L << 5,
-    codecConditio// field new in QuickTime 4.0 
+    codecConditionNewMask = 1L << 6,
     codecConditionNewMatte = 1L << 7,
     codecConditionNewTransferMode = 1L << 8,
-  //  codec condition flags   
+    codecConditionNewClut = 1L << 9,
     codecConditionNewAccuracy = 1L << 10,
     codecConditionNewDestination = 1L << 11,
     codecConditionFirstScreen = 1L << 12,
@@ -151,7 +163,9 @@ extern "C"
 
   enum
   {
-    codecInfoResourceType = FOUR_CHAR_CODE('cdci'), // codec info resource type     codecInterfaceVersion = 2                       // high word returned in component GetVersion   };
+    codecInfoResourceType = FOUR_CHAR_CODE('cdci'), /* codec info resource type */
+    codecInterfaceVersion = 2                       /* high word returned in component GetVersion */
+  };
 
   struct CDSequenceDataSourceQueueEntry
   {
@@ -163,8 +177,8 @@ extern "C"
     long dataSize;
 
     long useCount;
-// codec info resource type 
-    TimeValue frameTime;// high word returned in component GetVersion 
+
+    TimeValue frameTime;
     TimeValue frameDuration;
     TimeValue timeScale;
   };
@@ -187,8 +201,10 @@ extern "C"
     void *transferRefcon;
     long dataSize;
 
-    // fields available in QT 3 and later 
-    QHdrPtr dataQueue; // queue of CDSequenceDataSourceQueueEntry structures
+    /* fields available in QT 3 and later */
+
+    QHdrPtr dataQueue; /* queue of CDSequenceDataSourceQueueEntry structures*/
+
     void *originalDataPtr;
     long originalDataSize;
     Handle originalDataDescription;
@@ -201,148 +217,175 @@ extern "C"
     wide startTime;
     long scale;
     long duration;
-  };// fields available in QT 3 and later 
+  };
   typedef struct ICMFrameTimeInfo ICMFrameTimeInfo;
-  typedef ICMFrameTimeI// queue of CDSequenceDataSourceQueueEntry structures
+  typedef ICMFrameTimeInfo *ICMFrameTimeInfoPtr;
   struct CodecCompressParams
   {
-    ImageSequence sequenceID;                // precompress,bandcompress     ImageDescriptionHandle imageDescription; // precompress,bandcompress     Ptr data;
+    ImageSequence sequenceID;                /* precompress,bandcompress */
+    ImageDescriptionHandle imageDescription; /* precompress,bandcompress */
+    Ptr data;
     long bufferSize;
     long frameNumber;
     long startLine;
     long stopLine;
     long conditionFlags;
     CodecFlags callerFlags;
-    CodecCapabilities *capabilities; // precompress,bandcompress     ICMProgressProcRecord progressProcRecord;
+    CodecCapabilities *capabilities; /* precompress,bandcompress */
+    ICMProgressProcRecord progressProcRecord;
     ICMCompletionProcRecord completionProcRecord;
     ICMFlushProcRecord flushProcRecord;
 
-    PixMap srcPixMap; // precompress,bandcompress     PixMap prevPixMap;
+    PixMap srcPixMap; /* precompress,bandcompress */
+    PixMap prevPixMap;
     CodecQ spatialQuality;
     CodecQ temporalQuality;
     Fixed similarity;
     DataRateParamsPtr dataRateParams;
-    long reserved;// precompress,bandcompress 
-// precompress,bandcompress 
-    // The following fields only exist for QuickTime 2.1 and greater     UInt16 majorSourceChangeSeed;
+    long reserved;
+
+    /* The following fields only exist for QuickTime 2.1 and greater */
+    UInt16 majorSourceChangeSeed;
     UInt16 minorSourceChangeSeed;
     CDSequenceDataSourcePtr sourceData;
 
-    // The following fields only exist for QuickTime 2.5 and greater     long preferredPacketSizeInBytes;
+    /* The following fields only exist for QuickTime 2.5 and greater */
+    long preferredPacketSizeInBytes;
 
-    // The following fields only exist for QuickTime 3.0 and greater     long requestedBufferWidth;  /* must set codecWantsSpecialScaling to indicate
-                                   th// precompress,bandcompress 
+    /* The following fields only exist for QuickTime 3.0 and greater */
+    long requestedBufferWidth;  /* must set codecWantsSpecialScaling to indicate
+     this field is valid*/
     long requestedBufferHeight; /* must set codecWantsSpecialScaling to indicate
-                                   this field is valid*/
+    this field is valid*/
 
-    // The following fields only exist for QuickTime 4.0 and greater     OSType wantedSourcePixelType;
-// precompress,bandcompress 
-    // The following fields only exist for QuickTime 5.0 and greater     long compressedDataSize; /* if nonzero, this overrides
-                                (*imageDescription)->dataSize*/
+    /* The following fields only exist for QuickTime 4.0 and greater */
+    OSType wantedSourcePixelType;
+
+    /* The following fields only exist for QuickTime 5.0 and greater */
+    long compressedDataSize; /* if nonzero, this overrides
+    (*imageDescription)->dataSize*/
     UInt32
-        taskWeight;  // preferred weight for MP tasks implementing this operation    OSType taskName; /* preferred name (type) for MP tasks implementing this
-                        operation*/
+        taskWeight;  /* preferred weight for MP tasks implementing this operation*/
+    OSType taskName; /* preferred name (type) for MP tasks implementing this
+    operation*/
   };
   typedef struct CodecCompressParams CodecCompressParams;
-  st// The following fields only exist for QuickTime 2.1 and greater 
+  struct CodecDecompressParams
   {
-    ImageSequence sequenceID;                // predecompress,banddecompress     ImageDescriptionHandle imageDescription; // predecompress,banddecompress     Ptr data;
+    ImageSequence sequenceID;                /* predecompress,banddecompress */
+    ImageDescriptionHandle imageDescription; /* predecompress,banddecompress */
+    Ptr data;
     long bufferSize;
     long frameNumber;
-    // The following fields only exist for QuickTime 2.5 and greater 
+    long startLine;
     long stopLine;
     long conditionFlags;
-    // The following fields only exist for QuickTime 3.0 and greater 
-    CodecCapabilities *capabilities; // predecompress,banddecompress     ICMProgressProcRecord progressProcRecord;
+    CodecFlags callerFlags;
+    CodecCapabilities *capabilities; /* predecompress,banddecompress */
+    ICMProgressProcRecord progressProcRecord;
     ICMCompletionProcRecord completionProcRecord;
     ICMDataProcRecord dataProcRecord;
 
-    CGrafPtr port;    // predecompress,banddecompress     PixMap dstPixMap; // predecompress,banddecompress     BitMapPtr maskBits;
-    // The following fields only exist for QuickTime 4.0 and greater 
-    Rect srcRect;              // predecompress,banddecompress     MatrixRecord *matrix;      // predecompress,banddecompress     CodecQ accuracy;           // predecompress,banddecompress     short transferMode;        // predecompress,banddecompress     ICMFrameTimePtr frameTime; // banddecompress     long reserved[1];
+    CGrafPtr port;    /* predecompress,banddecompress */
+    PixMap dstPixMap; /* predecompress,banddecompress */
+    BitMapPtr maskBits;
+    PixMapPtr mattePixMap;
+    Rect srcRect;              /* predecompress,banddecompress */
+    MatrixRecord *matrix;      /* predecompress,banddecompress */
+    CodecQ accuracy;           /* predecompress,banddecompress */
+    short transferMode;        /* predecompress,banddecompress */
+    ICMFrameTimePtr frameTime; /* banddecompress */
+    long reserved[1];
 
-    // The following fields only exist for QuickTime 5.0 and greater 
-    Rect dstRect; // only valid for simple transforms 
-    // The following fields only exist for QuickTime 2.1 and greater     UInt16 majorSourceChangeSeed;
+    /* The following fields only exist for QuickTime 2.0 and greater */
+    SInt8 matrixFlags; /* high bit set if 2x resize */
+    SInt8 matrixType;
+    Rect dstRect; /* only valid for simple transforms */
+
+    /* The following fields only exist for QuickTime 2.1 and greater */
+    UInt16 majorSourceChangeSeed;
     UInt16 minorSourceChangeSeed;
-    CDSequenceDataSou// preferred weight for MP tasks implementing this operation
+    CDSequenceDataSourcePtr sourceData;
 
     RgnHandle maskRegion;
 
-    // The following fields only exist for QuickTime 2.5 and greater     OSType *
-        *wantedDestinationPixelTypes; // Handle to 0-terminated list of OSTypes 
-    long screenFloodMethod;
-    long screenFloodValue;// predecompress,banddecompress 
-    short preferredOffscreenPixelSize;// predecompress,banddecompress 
+    /* The following fields only exist for QuickTime 2.5 and greater */
+    OSType *
+        *wantedDestinationPixelTypes; /* Handle to 0-terminated list of OSTypes */
 
-    // The following fields only exist for QuickTime 3.0 and greater     ICMFrameTimeInfoPtr syncFrameTime; // banddecompress     Boolean needUpdateOnTimeChange;    // banddecompress     Boolean enableBlackLining;
-    Boolean needUpdateOnSourceChange; // band decompress     Boolean pad;
+    long screenFloodMethod;
+    long screenFloodValue;
+    short preferredOffscreenPixelSize;
+
+    /* The following fields only exist for QuickTime 3.0 and greater */
+    ICMFrameTimeInfoPtr syncFrameTime; /* banddecompress */
+    Boolean needUpdateOnTimeChange;    /* banddecompress */
+    Boolean enableBlackLining;
+    Boolean needUpdateOnSourceChange; /* band decompress */
+    Boolean pad;
 
     long unused;
 
     CGrafPtr finalDestinationPort;
-// predecompress,banddecompress 
+
     long requestedBufferWidth;  /* must set codecWantsSpecialScaling to indicate
-                                   this field is valid*/
+     this field is valid*/
     long requestedBufferHeight; /* must set codecWantsSpecialScaling to indicate
-                                   this field is valid*/
-// predecompress,banddecompress 
-    // The following f// predecompress,banddecompress 
+    this field is valid*/
+
+    /* The following fields only exist for QuickTime 4.0 and greater */
+    Rect displayableAreaOfRequestedBuffer; /* set in predecompress*/
+    Boolean requestedSingleField;
     Boolean needUpdateOnNextIdle;
     Boolean pad2[2];
-    Fixed bufferGammaLevel;// predecompress,banddecompress 
-// predecompress,banddecompress 
-    // The following fields onl// predecompress,banddecompress 
-        taskWeight;  // preferr// predecompress,banddecompress 
-                        operati// banddecompress 
+    Fixed bufferGammaLevel;
+
+    /* The following fields only exist for QuickTime 5.0 and greater */
+    UInt32
+        taskWeight;  /* preferred weight for MP tasks implementing this operation*/
+    OSType taskName; /* preferred name (type) for MP tasks implementing this
+    operation*/
   };
   typedef struct CodecDecompressParams CodecDecompressParams;
-  en// The following fields only exist for QuickTime 2.0 and greater 
-  {// high bit set if 2x resize 
+  enum
+  {
     matrixFlagScale2x = 1L << 7,
-    matrixFlagScal// only valid for simple transforms 
+    matrixFlagScale1x = 1L << 6,
     matrixFlagScaleHalf = 1L << 5
-  };// The following fields only exist for QuickTime 2.1 and greater 
+  };
 
   enum
   {
     kScreenFloodMethodNone = 0,
     kScreenFloodMethodKeyColor = 1,
     kScreenFloodMethodAlpha = 2
-  };// The following fields only exist for QuickTime 2.5 and greater 
+  };
 
-  enum// Handle to 0-terminated list of OSTypes 
+  enum
   {
     kFlushLastQueuedFrame = 0,
     kFlushFirstQueuedFrame = 1
   };
 
-  en// The following fields only exist for QuickTime 3.0 and greater 
-  {// banddecompress 
-    kNewImageGWorldErase = 1L << 0// banddecompress 
+  enum
+  {
+    kNewImageGWorldErase = 1L << 0
   };
-// band decompress 
+
   typedef CALLBACK_API(void, ImageCodecTimeTriggerProcPtr)(void *refcon);
   typedef CALLBACK_API(void, ImageCodecDrawBandCompleteProcPtr)(
       void *refcon, ComponentResult drawBandResult, UInt32 drawBandCompleteFlags);
   typedef STACK_UPP_TYPE(ImageCodecTimeTriggerProcPtr) ImageCodecTimeTriggerUPP;
   typedef STACK_UPP_TYPE(ImageCodecDrawBandCompleteProcPtr)
       ImageCodecDrawBandCompleteUPP;
-  /**
-   *  NewImageCodecTimeTriggerUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *// The following fields only exist for QuickTime 4.0 and greater 
-   *    \mac_os_x         in version 10.0 a// set in predecompress
-   */
-  ImageCodecTimeTriggerUPP
+  EXTERN_API_C(ImageCodecTimeTriggerUPP)
   NewImageCodecTimeTriggerUPP(ImageCodecTimeTriggerProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
-  {// The following fields only exist for QuickTime 5.0 and greater 
+  {
     uppImageCodecTimeTriggerProcInfo = 0x000000C0
-  }; // pascal no_ret// preferred weight for MP tasks implementing this operation
+  }; /* pascal no_return_value Func(4_bytes) */
+#ifdef __cplusplus
   inline ImageCodecTimeTriggerUPP
   NewImageCodecTimeTriggerUPP(ImageCodecTimeTriggerProcPtr userRoutine)
   {
@@ -358,21 +401,14 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  NewImageCodecDrawBandCompleteUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        in CarbonLib 1.3 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  ImageCodecDrawBandCompleteUPP
+  EXTERN_API_C(ImageCodecDrawBandCompleteUPP)
   NewImageCodecDrawBandCompleteUPP(ImageCodecDrawBandCompleteProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
   {
     uppImageCodecDrawBandCompleteProcInfo = 0x00000FC0
-  }; // pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) #ifdef __cplusplus
+  }; /* pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) */
+#ifdef __cplusplus
   inline ImageCodecDrawBandCompleteUPP NewImageCodecDrawBandCompleteUPP(
       ImageCodecDrawBandCompleteProcPtr userRoutine)
   {
@@ -388,15 +424,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  DisposeImageCodecTimeTriggerUPP()
-   *
-
-   * // pascal no_return_value Func(4_bytes) 
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
+  EXTERN_API_C(void)
   DisposeImageCodecTimeTriggerUPP(ImageCodecTimeTriggerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -410,20 +438,12 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  DisposeImageCodecDrawBandCompleteUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        in CarbonLib 1.3 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
+  EXTERN_API_C(void)
   DisposeImageCodecDrawBandCompleteUPP(ImageCodecDrawBandCompleteUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline void
-  Dis// pascal no_return_value Func(4_bytes, 4_bytes, 4_bytes) 
+  DisposeImageCodecDrawBandCompleteUPP(ImageCodecDrawBandCompleteUPP userUPP)
   {
     DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
   }
@@ -433,15 +453,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  InvokeImageCodecTimeTriggerUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
+  EXTERN_API_C(void)
   InvokeImageCodecTimeTriggerUPP(void *refcon, ImageCodecTimeTriggerUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -456,15 +468,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   *  InvokeImageCodecDrawBandCompleteUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        in CarbonLib 1.3 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
+  EXTERN_API_C(void)
   InvokeImageCodecDrawBandCompleteUPP(void *refcon,
                                       ComponentResult drawBandResult,
                                       UInt32 drawBandCompleteFlags,
@@ -488,7 +492,8 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewImageCodecTimeTriggerProc(userRoutine) \
+/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+#define NewImageCodecTimeTriggerProc(userRoutine) \
   NewImageCodecTimeTriggerUPP(userRoutine)
 #define NewImageCodecDrawBandCompleteProc(userRoutine) \
   NewImageCodecDrawBandCompleteUPP(userRoutine)
@@ -498,17 +503,27 @@ extern "C"
     userRoutine, refcon, drawBandResult, drawBandCompleteFlags) \
   InvokeImageCodecDrawBandCompleteUPP(refcon, drawBandResult,   \
                                       drawBandCompleteFlags, userRoutine)
-#endif // CALL_NOT_IN_CARBON 
+#endif /* CALL_NOT_IN_CARBON */
+
   struct ImageSubCodecDecompressCapabilities
   {
-    long recordSize;           // sizeof(ImageSubCodecDecompressCapabilities)    long decompressRecordSize; // size of your codec's decompress record    Boolean canAsync;          // default true    UInt8 pad0;
-    // The following field only exists for QuickTime 4.1 and greater     UInt16 suggestedQueueSize;
-    // The following field only exists for QuickTime 4.0 and greater     Boolean canProvideTrigger;
+    long recordSize;           /* sizeof(ImageSubCodecDecompressCapabilities)*/
+    long decompressRecordSize; /* size of your codec's decompress record*/
+    Boolean canAsync;          /* default true*/
+    UInt8 pad0;
+    /* The following field only exists for QuickTime 4.1 and greater */
+    UInt16 suggestedQueueSize;
+    /* The following field only exists for QuickTime 4.0 and greater */
+    Boolean canProvideTrigger;
 
-    // The following fields only exist for QuickTime 5.0 and greater     Boolean subCodecFlushesScreen; // only used on Mac OS X    Boolean subCodecCallsDrawBandComplete;
+    /* The following fields only exist for QuickTime 5.0 and greater */
+    Boolean subCodecFlushesScreen; /* only used on Mac OS X*/
+    Boolean subCodecCallsDrawBandComplete;
     UInt8 pad2[1];
 
-    // The following fields only exist for QuickTime 5.0.1 and greater     Boolean isChildCodec; // set by base codec before calling Initialize    UInt8 pad3[3];
+    /* The following fields only exist for QuickTime 5.0.1 and greater */
+    Boolean isChildCodec; /* set by base codec before calling Initialize*/
+    UInt8 pad3[3];
   };
   typedef struct ImageSubCodecDecompressCapabilities
       ImageSubCodecDecompressCapabilities;
@@ -527,50 +542,42 @@ extern "C"
     Ptr codecData;
     ICMProgressProcRecord progressProcRecord;
     ICMDataProcRecord dataProcRecord;
-    void *userDecompressRecord; // pointer to codec-specific per-band data    UInt8 frameType;
+    void *userDecompressRecord; /* pointer to codec-specific per-band data*/
+    UInt8 frameType;
     Boolean
         inhibitMP; /* set this in BeginBand to tell the base decompressor not to
-                      call DrawBand from an MP task for this frame.  (Only has any
-                      effect for MP-capable subcodecs.  New in QuickTime 5.0.)*/
+        call DrawBand from an MP task for this frame. (Only has any
+        effect for MP-capable subcodecs. New in QuickTime 5.0.)*/
     UInt8 pad[2];
     long priv[2];
 
-    // The following fields only exist for QuickTime 5.0 and greater     ImageCodecDrawBandCompleteUPP
+    /* The following fields only exist for QuickTime 5.0 and greater */
+    ImageCodecDrawBandCompleteUPP
         drawBandCompleteUPP;      /* only used if subcodec set
-                                     subCodecCallsDrawBandComplete; if
-                                     drawBandCompleteUPP is non-nil, codec must call it
-                                     when a frame is finished, but may return from
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+             subCodecCallsDrawBandComplete; if
+             drawBandCompleteUPP is non-nil, codec must call it
+             when a frame is finished, but may return from
+             DrawBand before the frame is finished. */
     void *drawBandCompleteRefCon; /* Note: do not call drawBandCompleteUPP
-                                     directly from a hardware interrupt; instead,
-                                     use DTInstall to run a function at deferred
-                                     task time, and call drawBandCompleteUPP from
-                                     that. */
+    directly from a hardware interrupt; instead,
+    use DTInstall to run a function at deferred
+    task time, and call drawBandCompleteUPP from
+    that. */
   };
   typedef struct ImageSubCodecDecompressRecord ImageSubCodecDecompressRecord;
-  /**
-    These data structures are used by code that wants to pass planar pixmap
-     information around.
-    The// CALL_NOT_IN_CARBON 
-    Normal instances of code will use a fixed number of planes (eg YUV420 uses
-     three planes, Y, U and V). Each such code instance will define its own
-     version of the PlanarPixMapInfo struct counting the number of planes it
-     needs along with defining // sizeof(ImageSubCodecDecompressCapabilities)
-     plane.// size of your codec's decompress record
-  */// default true
   struct PlanarComponentInfo
-  {// The following field only exists for QuickTime 4.1 and greater 
+  {
     SInt32 offset;
-    // The following field only exists for QuickTime 4.0 and greater 
+    UInt32 rowBytes;
   };
   typedef struct PlanarComponentInfo PlanarComponentInfo;
-  st// The following fields only exist for QuickTime 5.0 and greater 
-  {// only used on Mac OS X
+  struct PlanarPixMapInfo
+  {
     PlanarComponentInfo componentInfo[1];
   };
   typedef struct PlanarPixMapInfo PlanarPixMapInfo;
-  st// The following fields only exist for QuickTime 5.0.1 and greater 
-  {// set by base codec before calling Initialize
+  struct PlanarPixmapInfoSorensonYUV9
+  {
     PlanarComponentInfo componentInfoY;
     PlanarComponentInfo componentInfoU;
     PlanarComponentInfo componentInfoV;
@@ -583,27 +590,30 @@ extern "C"
     PlanarComponentInfo componentInfoCr;
   };
   typedef struct PlanarPixmapInfoYUV420 PlanarPixmapInfoYUV420;
-  // name of parameters or effect -- placed in root container, required   enum
+  /* name of parameters or effect -- placed in root container, required */
+  enum
   {
     kParameterTitleName = FOUR_CHAR_CODE('name'),
     kParameterTitleID = 1
   };
 
   /* codec sub-type of parameters or effect -- placed in root container, required
-   */// pointer to codec-specific per-band data
+   */
   enum
   {
     kParameterWhatName = FOUR_CHAR_CODE('what'),
     kParameterWhatID = 1
   };
 
-  // effect version -- placed in root container, optional, but recommended   enum
+  /* effect version -- placed in root container, optional, but recommended */
+  enum
   {
-    // The following fields only exist for QuickTime 5.0 and greater 
+    kParameterVersionName = FOUR_CHAR_CODE('vers'),
     kParameterVersionID = 1
   };
 
-  // is effect repeatable -- placed in root container, optional, default is TRUE  enum
+  /* is effect repeatable -- placed in root container, optional, default is TRUE*/
+  enum
   {
     kParameterRepeatableName = FOUR_CHAR_CODE('pete'),
     kParameterRepeatableID = 1
@@ -623,7 +633,8 @@ extern "C"
     kParameterAlternateCodecID = 1
   };
 
-  // maximum number of sources -- placed in root container, required   enum
+  /* maximum number of sources -- placed in root container, required */
+  enum
   {
     kParameterSourceCountName = FOUR_CHAR_CODE('srcs'),
     kParameterSourceCountID = 1
@@ -647,10 +658,6 @@ extern "C"
     OSType depends[1];
   };
   typedef struct ParameterDependancyRecord ParameterDependancyRecord;
-  /**
-  // name of parameters or effect -- placed in root container, required 
-     used by a parameter in the list
-  */
   enum
   {
     kParameterEnumList = FOUR_CHAR_CODE('enum')
@@ -663,59 +670,78 @@ extern "C"
   };
   typedef struct EnumValuePair EnumValuePair;
   struct EnumListRecord
-  // effect version -- placed in root container, optional, but recommended 
-    long enumCount;          // number of enumeration items to follow    EnumValuePair values[1]; // values and names for them, packed   };
+  {
+    long enumCount;          /* number of enumeration items to follow*/
+    EnumValuePair values[1]; /* values and names for them, packed */
+  };
   typedef struct EnumListRecord EnumListRecord;
-  // atom type of parameter  enum
+  /* atom type of parameter*/
+  enum
   {
     kParameterAtomTypeAndID = FOUR_CHAR_CODE('type')
   };
-// is effect repeatable -- placed in root container, optional, default is TRUE
+
   enum
   {
-    kNoAtom = FOUR_CHAR_CODE('none'), // atom type for no data got/set    kAtomNoFlags = 0x00000000,
-    kAtomNotInterpolated = 0x00000001,       // atom can never be interpolated    kAtomInterpolateIsOptional = 0x00000002, /* atom can be interpolated, but it
-                                                is an advanced user operation*/
+    kNoAtom = FOUR_CHAR_CODE('none'), /* atom type for no data got/set*/
+    kAtomNoFlags = 0x00000000,
+    kAtomNotInterpolated = 0x00000001,       /* atom can never be interpolated*/
+    kAtomInterpolateIsOptional = 0x00000002, /* atom can be interpolated, but it
+    is an advanced user operation*/
     kAtomMayBeIndexed = 0x00000004           /* more than one value of atom can exist with
-                                                accending IDs (ie, lists of colors)*/
+              accending IDs (ie, lists of colors)*/
   };
 
   struct ParameterAtomTypeAndID
   {
-    QTAtomType atomType; // type of atom this data comes from/goes into    QTAtomID atomID;     // ID of atom this data comes from/goes into    long atomFlags;      // options for this atom    Str255 atomName;     // name of this value type  };
+    QTAtomType atomType; /* type of atom this data comes from/goes into*/
+    QTAtomID atomID;     /* ID of atom this data comes from/goes into*/
+    long atomFlags;      /* options for this atom*/
+    Str255 atomName;     /* name of this value type*/
+  };
   typedef struct ParameterAtomTypeAndID ParameterAtomTypeAndID;
-  // data type of a parameter  enum
+  /* data type of a parameter*/
+  enum
   {
     kParameterDataType = FOUR_CHAR_CODE('data')
   };
 
   enum
   {
-  // maximum number of sources -- placed in root container, required 
-        kTweenTypeQTFloatDouble,                     // IEEE 64 bit floating point value    kParameterTypeDataText = FOUR_CHAR_CODE('text'), // editable text item    kParameterTypeDataEnum = FOUR_CHAR_CODE('enum'), // enumerated lookup value    kParameterTypeDataBitField = FOUR_CHAR_CODE(
-        'bool'), // bit field value (something that holds boolean(s))    kParameterTypeDataImage =
-        FOUR_CHAR_CODE('imag') // reference to an image via Picture data  };
+    kParameterTypeDataLong = kTweenTypeLong,         /* integer value*/
+    kParameterTypeDataFixed = kTweenTypeFixed,       /* fixed point value*/
+    kParameterTypeDataRGBValue = kTweenTypeRGBColor, /* RGBColor data*/
+    kParameterTypeDataDouble =
+        kTweenTypeQTFloatDouble,                     /* IEEE 64 bit floating point value*/
+    kParameterTypeDataText = FOUR_CHAR_CODE('text'), /* editable text item*/
+    kParameterTypeDataEnum = FOUR_CHAR_CODE('enum'), /* enumerated lookup value*/
+    kParameterTypeDataBitField = FOUR_CHAR_CODE(
+        'bool'), /* bit field value (something that holds boolean(s))*/
+    kParameterTypeDataImage =
+        FOUR_CHAR_CODE('imag') /* reference to an image via Picture data*/
+  };
 
   struct ParameterDataType
   {
-    OSType dataType; // type of data this item is stored as  };
+    OSType dataType; /* type of data this item is stored as*/
+  };
   typedef struct ParameterDataType ParameterDataType;
-  /**
-     alternate (optional) data type -- main data type always required.
-     Must be modified or deleted when modifying main data type.
-     Main data type must be modified when alternate is modified.
-  */
   enum
   {
     kParameterAlternateDataType = FOUR_CHAR_CODE('alt1'),
     kParameterTypeDataColorValue = FOUR_CHAR_CODE(
-        'cmlr'), // CMColor data (supported on machines with ColorSync)    kParameterTypeDataCubic =
-        FOUR_CHAR_CODE('cubi'), // cubic bezier(s) (no built-in support)    kParameterTypeDataNURB =
-        FOUR_CHAR_CODE('nurb') // nurb(s) (no built-in support)  };
+        'cmlr'), /* CMColor data (supported on machines with ColorSync)*/
+    kParameterTypeDataCubic =
+        FOUR_CHAR_CODE('cubi'), /* cubic bezier(s) (no built-in support)*/
+    kParameterTypeDataNURB =
+        FOUR_CHAR_CODE('nurb') /* nurb(s) (no built-in support)*/
+  };
 
   struct ParameterAlternateDataEntry
   {
-    OSType dataType;          // type of data this item is stored as    QTAtomType alternateAtom; // where to store  };
+    OSType dataType;          /* type of data this item is stored as*/
+    QTAtomType alternateAtom; /* where to store*/
+  };
   typedef struct ParameterAlternateDataEntry ParameterAlternateDataEntry;
   struct ParameterAlternateDataType
   {
@@ -723,69 +749,101 @@ extern "C"
     ParameterAlternateDataEntry entries[1];
   };
   typedef struct ParameterAlternateDataType ParameterAlternateDataType;
-  // legal values for the parameter  enum
+  /* legal values for the parameter*/
+  enum
   {
     kParameterDataRange = FOUR_CHAR_CODE('rang')
   };
 
   enum
   {
-    kNoMinimumLongFixed = 0x7FFFFFFF, // ignore minimum/maxiumum values    kNoMaximumLongFixed = (long)0x80000000,
-    kNoScaleLongFixed = 0, // don't perform any scaling of value    kNoPrecision = (-1)    // allow as many digits as format  };
+    kNoMinimumLongFixed = 0x7FFFFFFF, /* ignore minimum/maxiumum values*/
+    kNoMaximumLongFixed = (long)0x80000000,
+    kNoScaleLongFixed = 0, /* don't perform any scaling of value*/
+    kNoPrecision = (-1)    /* allow as many digits as format*/
+  };
 
-  // 'text'  struct StringRan// number of enumeration items to follow
-  {// values and names for them, packed 
-    long maxChars; // maximum length of string    long maxLines; // number of editing lines to use (1 typical, 0 to default)  };
+  /* 'text'*/
+  struct StringRangeRecord
+  {
+    long maxChars; /* maximum length of string*/
+    long maxLines; /* number of editing lines to use (1 typical, 0 to default)*/
+  };
   typedef struct StringRangeRecord StringRangeRecord;
-  // atom type of parameter
+  /* 'long'*/
+  struct LongRangeRecord
   {
-    long minValue;        // no less than this    long maxValue;        // no more than this    long scaleValue;      // muliply content by this going in, divide going out    long precisionDigits; // # digits of precision when editing via typing  };
+    long minValue;        /* no less than this*/
+    long maxValue;        /* no more than this*/
+    long scaleValue;      /* muliply content by this going in, divide going out*/
+    long precisionDigits; /* # digits of precision when editing via typing*/
+  };
   typedef struct LongRangeRecord LongRangeRecord;
-  // 'enum'  struct EnumRangeRecord
+  /* 'enum'*/
+  struct EnumRangeRecord
   {
-    long enumID; // 'enum' list in root container to search within  };
+    long enumID; /* 'enum' list in root container to search within*/
+  };
   typedef struct EnumRangeRecord EnumRangeRecord;
-  // 'fixd'  struct FixedRangeRecord// atom type for no data got/set
+  /* 'fixd'*/
+  struct FixedRangeRecord
   {
-    Fixed minValue;       // no less than thi// atom can never be interpolated
+    Fixed minValue;       /* no less than this*/
+    Fixed maxValue;       /* no more than this*/
+    Fixed scaleValue;     /* muliply content by this going in, divide going out*/
+    long precisionDigits; /* # digits of precision when editing via typing*/
+  };
   typedef struct FixedRangeRecord FixedRangeRecord;
-  // 'doub'
-#define kNoMinimumDouble (NAN) // ignore minimum/maxiumum values #define kNoMaximumDouble (NAN)
-#define kNoScaleDouble (0) // don't perform any scaling of value   struct DoubleRangeRecord
+  /* 'doub'*/
+
+#define kNoMinimumDouble (NAN) /* ignore minimum/maxiumum values */
+#define kNoMaximumDouble (NAN)
+#define kNoScaleDouble (0) /* don't perform any scaling of value */
+  struct DoubleRangeRecord
   {
-    QTFloatDouble minValue; // no less than this     QTFloatDouble maxValue; // no more than this     QTFloatDouble
-        scaleValue;       // muliply content by this going in, divide going out     long precisionDigits; // # digits of precision when editing via typing   };
+    QTFloatDouble minValue; /* no less than this */
+    QTFloatDouble maxValue; /* no more than this */
+    QTFloatDouble
+        scaleValue;       /* muliply content by this going in, divide going out */
+    long precisionDigits; /* # digits of precision when editing via typing */
+  };
   typedef struct DoubleRangeRecord DoubleRangeRecord;
-// type of atom this data comes from/goes into
-  // 'bool'     struct Bo// ID of atom this data comes from/goes into
-  {// options for this atom
-    long maskValue; // va// name of this value type
+
+  /* 'bool' */
+  struct BooleanRangeRecord
+  {
+    long maskValue; /* value to mask on/off to set/clear the boolean*/
+  };
   typedef struct BooleanRangeRecord BooleanRangeRecord;
-  // 'rgb '  struct RGBRangeRecord
-  // data type of a parameter
+  /* 'rgb '*/
+  struct RGBRangeRecord
+  {
     RGBColor minColor;
     RGBColor maxColor;
   };
   typedef struct RGBRangeRecord RGBRangeRecord;
-  // 'imag'  enum
+  /* 'imag'*/
+  enum
   {
     kParameterImageNoFlags = 0,
-    kParameterImageIsPreset = 1// integer value
-  };// fixed point value
-// RGBColor data
-  enum
-  {// IEEE 64 bit floating point value
-    kStandardPresetGroup = FOUR_CHAR_CODE('pset')// editable text item
-  };// enumerated lookup value
+    kParameterImageIsPreset = 1
+  };
 
-  struct ImageRan// bit field value (something that holds boolean(s))
+  enum
   {
-    long imageFlags;// reference to an image via Picture data
+    kStandardPresetGroup = FOUR_CHAR_CODE('pset')
+  };
+
+  struct ImageRangeRecord
+  {
+    long imageFlags;
     OSType fileType;    /* file type to contain the preset group (normally
-                           kStandardPresetGroup)*/
-    long replacedAtoms; // # atoms at this level replaced by this preset group  };
+       kStandardPresetGroup)*/
+    long replacedAtoms; /* # atoms at this level replaced by this preset group*/
+  };
   typedef struct ImageRangeRecord ImageRangeRecord;
-  // union of all of // type of data this item is stored as
+  /* union of all of the above*/
+
   struct ParameterRangeRecord
   {
     union
@@ -797,194 +855,256 @@ extern "C"
       StringRangeRecord stringRange;
       BooleanRangeRecord booleanRange;
       RGBRangeRecord rgbRange;
-      ImageRangeR// CMColor data (supported on machines with ColorSync)
+      ImageRangeRecord imageRange;
     } u;
-  };// cubic bezier(s) (no built-in support)
+  };
   typedef struct ParameterRangeRecord ParameterRangeRecord;
-// nurb(s) (no built-in support)
-  // UI behavior of a parameter  enum
+
+  /* UI behavior of a parameter*/
+  enum
   {
     kParameterDataBehavior = FOUR_CHAR_CODE('ditl')
   };
-// type of data this item is stored as
-  enum// where to store
+
+  enum
   {
-    // items edited via typing    kParameterItemEditText = FOUR_CHAR_CODE('edit'), // edit text box    kParameterItemEditLong = FOUR_CHAR_CODE('long'), // long number editing box    kParameterItemEditFixed =
-        FOUR_CHAR_CODE('fixd'), // fixed point number editing box    kParameterItemEditDouble =
-        FOUR_CHAR_CODE('doub'),                   // double number editing box                                                  // items edited via control(s)    kParameterItemPopUp = FOUR_CHAR_CODE('popu'), // pop up value for enum types    kParameterItemRadioCluster =
-        FOUR_CHAR_CODE('radi'),                      // radio cluster for enum types    kParameterItemCheckBox = FOUR_CHAR_CODE('chex'), // check box for booleans    kParameterItemControl = FOUR_CHAR_CODE(
-        'cntl'),                                        // item controlled via a standard control of some type                                                        // special user items    kParameterItemLine = FOUR_CHAR_CODE('line'),        // line    kParameterItemColorPicker = FOUR_CHAR_CODE('pick'), // color swatch & picker    kParameterItemGroupDivider =
-        FOUR_CHAR_CODE('divi'), // start of a new group of items    kParameterItemStaticText =
-        FOUR_CHAR_CODE('stat'), // display "parameter name" as static text    kParameterItemDragImage =
-  // legal values for the parameter
-                                        graphics options             */
-    kGroupAlignText = 0x00010000,    // edit text items in group have the same size    kGroupSurroundBox = 0x00020000,  // group should be surrounded with a box    kGroupMatrix = 0x00040000,       // side-by-side arrangement of group is okay    kGroupNoName =
-        0x00080000, // name of group should not be displayed above box                    // flags valid for popup/radiocluster/checkbox/control    kDisableControl = 0x00000001,
+    /* items edited via typing*/
+    kParameterItemEditText = FOUR_CHAR_CODE('edit'), /* edit text box*/
+    kParameterItemEditLong = FOUR_CHAR_CODE('long'), /* long number editing box*/
+    kParameterItemEditFixed =
+        FOUR_CHAR_CODE('fixd'), /* fixed point number editing box*/
+    kParameterItemEditDouble =
+        FOUR_CHAR_CODE('doub'), /* double number editing box*/
+    /* items edited via control(s)*/
+    kParameterItemPopUp = FOUR_CHAR_CODE('popu'), /* pop up value for enum types*/
+    kParameterItemRadioCluster =
+        FOUR_CHAR_CODE('radi'),                      /* radio cluster for enum types*/
+    kParameterItemCheckBox = FOUR_CHAR_CODE('chex'), /* check box for booleans*/
+    kParameterItemControl = FOUR_CHAR_CODE(
+        'cntl'), /* item controlled via a standard control of some type*/
+    /* special user items*/
+    kParameterItemLine = FOUR_CHAR_CODE('line'),        /* line*/
+    kParameterItemColorPicker = FOUR_CHAR_CODE('pick'), /* color swatch & picker*/
+    kParameterItemGroupDivider =
+        FOUR_CHAR_CODE('divi'), /* start of a new group of items*/
+    kParameterItemStaticText =
+        FOUR_CHAR_CODE('stat'), /* display "parameter name" as static text*/
+    kParameterItemDragImage =
+        FOUR_CHAR_CODE('imag'), /* allow image display, along with drag and drop*/
+    /* flags valid for lines and groups*/
+    kGraphicsNoFlags = 0x00000000,   /* no options for graphics*/
+    kGraphicsFlagsGray = 0x00000001, /* draw lines with gray*/
+    /* flags valid for groups*/
+    kGroupNoFlags = 0x00000000,     /* no options for group -- may be combined with
+        graphics options */
+    kGroupAlignText = 0x00010000,   /* edit text items in group have the same size*/
+    kGroupSurroundBox = 0x00020000, /* group should be surrounded with a box*/
+    kGroupMatrix = 0x00040000,      /* side-by-side arrangement of group is okay*/
+    kGroupNoName =
+        0x00080000, /* name of group should not be displayed above box*/
+    /* flags valid for popup/radiocluster/checkbox/control*/
+    kDisableControl = 0x00000001,
     kDisableWhenNotEqual = (0x00000000 + kDisableControl),
     kDisableWhenEqual = (0x00000010 + kDisableControl),
     kDisableWhenLessThan = (0x00000020 + kDisableControl),
     kDisableWhenGreaterThan =
-        (0x00000030 + kDisableControl)// ignore minimum/maxiumum values
+        (0x00000030 + kDisableControl), /* flags valid for popups*/
+    kPopupStoreAsString = 0x00010000
   };
-// don't perform any scaling of value
-  struct ControlBehaviors// allow as many digits as format
+
+  struct ControlBehaviors
   {
-    QTAtomID groupID;  // group under control of this item    long controlValue; // control value for comparison purposes  };
-  // 'text'
+    QTAtomID groupID;  /* group under control of this item*/
+    long controlValue; /* control value for comparison purposes*/
+  };
+  typedef struct ControlBehaviors ControlBehaviors;
   struct ParameterDataBehavior
   {
-    OSType behavior// maximum length of string
-    long behaviorFl// number of editing lines to use (1 typical, 0 to default)
+    OSType behaviorType;
+    long behaviorFlags;
     union
     {
-  // 'long'
+      ControlBehaviors controls;
     } u;
   };
-  typedef struct Parameter// no less than this
-  // higher level purpose // no more than this
-  {// muliply content by this going in, divide going out
-    kParameterDataUsage = // # digits of precision when editing via typing
+  typedef struct ParameterDataBehavior ParameterDataBehavior;
+  /* higher level purpose of a parameter or set of parameters*/
+  enum
+  {
+    kParameterDataUsage = FOUR_CHAR_CODE('use ')
   };
 
-  // 'enum'
+  enum
   {
     kParameterUsagePixels = FOUR_CHAR_CODE('pixl'),
-    kParameterUsa// 'enum' list in root container to search within
-    kParameterUsagePoint = FOUR_CHAR_CODE('xy  '),
+    kParameterUsageRectangle = FOUR_CHAR_CODE('rect'),
+    kParameterUsagePoint = FOUR_CHAR_CODE('xy '),
     kParameterUsage3DPoint = FOUR_CHAR_CODE('xyz '),
-  // 'fixd'
+    kParameterUsageDegrees = FOUR_CHAR_CODE('degr'),
     kParameterUsageRadians = FOUR_CHAR_CODE('rads'),
     kParameterUsagePercent = FOUR_CHAR_CODE('pcnt'),
-    kParameterUsageSeconds// no less than this
-    kParameterUsageMillise// no more than this
-    kParameterUsageMicrose// muliply content by this going in, divide going out
-    kParameterUsage3by3Mat// # digits of precision when editing via typing
+    kParameterUsageSeconds = FOUR_CHAR_CODE('secs'),
+    kParameterUsageMilliseconds = FOUR_CHAR_CODE('msec'),
+    kParameterUsageMicroseconds = FOUR_CHAR_CODE('�sec'),
+    kParameterUsage3by3Matrix = FOUR_CHAR_CODE('3by3'),
     kParameterUsageCircularDegrees = FOUR_CHAR_CODE('degc'),
     kParameterUsageCircularRadians = FOUR_CHAR_CODE('radc')
-  // 'doub'
-
-  struct ParameterDataUsage// ignore minimum/maxiumum values 
-  {
-    OSType usageType; // hi// don't perform any scaling of value 
-  typedef struct ParameterDataUsage ParameterDataUsage;
-  // default value(s) for a parameter  enum
-  {// no less than this 
-    kParameterDataDefaultIte// no more than this 
   };
-// muliply content by this going in, divide going out 
-  // atoms that help to fi// # digits of precision when editing via typing 
+
+  struct ParameterDataUsage
+  {
+    OSType usageType; /* higher level purpose of the data or group*/
+  };
+  typedef struct ParameterDataUsage ParameterDataUsage;
+  /* default value(s) for a parameter*/
+  enum
+  {
+    kParameterDataDefaultItem = FOUR_CHAR_CODE('dflt')
+  };
+
+  /* atoms that help to fill in data within the info window */
+  enum
   {
     kParameterInfoLongName = FOUR_CHAR_CODE('�nam'),
     kParameterInfoCopyright = FOUR_CHAR_CODE('�cpy'),
-  // 'bool'   
+    kParameterInfoDescription = FOUR_CHAR_CODE('�inf'),
     kParameterInfoWindowTitle = FOUR_CHAR_CODE('�wnt'),
     kParameterInfoPicture = FOUR_CHAR_CODE('�pix'),
-    kParameterInfoMa// value to mask on/off to set/clear the boolean
+    kParameterInfoManufacturer = FOUR_CHAR_CODE('�man'),
     kParameterInfoIDs = 1
   };
-// 'rgb '
-  // flags for ImageCodecValidateParameters   enum
+
+  /* flags for ImageCodecValidateParameters */
+  enum
   {
     kParameterValidationNoFlags = 0x00000000,
     kParameterValidationFinalValidation = 0x00000001
   };
 
-  // 'imag'
-  // QTAtomTypes for atoms in image compressor settings containers  enum
+  typedef long QTParameterValidationOptions;
+  /* QTAtomTypes for atoms in image compressor settings containers*/
+  enum
   {
     kImageCodecSettingsFieldCount =
-        FOUR_CHAR_CODE('fiel'), // Number of fields (UInt8)     kImageCodecSettingsFieldOrdering =
-        FOUR_CHAR_CODE('fdom'), // Ordering of fields (UInt8)    kImageCodecSettingsFieldOrderingF1F2 = 1,
+        FOUR_CHAR_CODE('fiel'), /* Number of fields (UInt8) */
+    kImageCodecSettingsFieldOrdering =
+        FOUR_CHAR_CODE('fdom'), /* Ordering of fields (UInt8)*/
+    kImageCodecSettingsFieldOrderingF1F2 = 1,
     kImageCodecSettingsFieldOrderingF2F1 = 2
   };
 
-  // Additional Image Description Extensions  enum
+  /* Additional Image Description Extensions*/
+  enum
   {
     kColorInfoImageDescriptionExtension = FOUR_CHAR_CODE(
-        'colr'), // image description extension describing the color properties     kPixelAspectRatioImageDescriptionExtension =
+        'colr'), /* image description extension describing the color properties */
+    kPixelAspectRatioImageDescriptionExtension =
         FOUR_CHAR_CODE('pasp'), /* image description extension describing the
-                                   pixel aspect ratio*/
+        pixel aspect ratio*/
     kCleanApertureImageDescriptionExtension = FOUR_CHAR_CODE(
-        'clap') // image description extension describing the pixel aspect ratio  };
-// # atoms at this level replaced by this preset group
-  // Color Info Image Description Extension types  enum
-  {
-  // union of all of the above
-        FOUR_CHAR_CODE('nclc'), // For video color descriptions (defined below)     kICCProfileColorInfoImageDescriptionExtensionType = FOUR_CHAR_CODE(
-        'prof') // For ICC Profile color descriptions (not defined here)  };
+        'clap') /* image description extension describing the pixel aspect ratio*/
+  };
 
-  // Video Color Info Image Description Extensions  struct NCLCColorInfoImageDescriptionExtension
+  /* Color Info Image Description Extension types*/
+  enum
   {
-    OSType colorParamType;   // Type of color parameter 'nclc'                   UInt16 primaries;        // CIE 1931 xy chromaticity coordinates              UInt16 transferFunction; // Nonlinear transfer function from RGB to ErEgEb     UInt16 matrix;           // Matrix from ErEgEb to EyEcbEcr             };
+    kVideoColorInfoImageDescriptionExtensionType =
+        FOUR_CHAR_CODE('nclc'), /* For video color descriptions (defined below) */
+    kICCProfileColorInfoImageDescriptionExtensionType = FOUR_CHAR_CODE(
+        'prof') /* For ICC Profile color descriptions (not defined here)*/
+  };
+
+  /* Video Color Info Image Description Extensions*/
+  struct NCLCColorInfoImageDescriptionExtension
+  {
+    OSType colorParamType;   /* Type of color parameter 'nclc' */
+    UInt16 primaries;        /* CIE 1931 xy chromaticity coordinates */
+    UInt16 transferFunction; /* Nonlinear transfer function from RGB to ErEgEb */
+    UInt16 matrix;           /* Matrix from ErEgEb to EyEcbEcr */
+  };
   typedef struct NCLCColorInfoImageDescriptionExtension
       NCLCColorInfoImageDescriptionExtension;
-  // Primaries  enum
+  /* Primaries*/
+  enum
   {
     kQTPrimaries_ITU_R709_2 =
-        1,                     // ITU-R BT.709-2, SMPTE 274M-1995, and SMPTE 296M-1997     kQTPrimaries_Unknown = 2,  // Unknown     kQTPrimaries_EBU_3213 = 5, // EBU Tech. 3213 (1981)     kQTPrimaries_SMPTE_C = 6   // SMPTE C Primaries from SMPTE RP 145-1993   };
+        1,                     /* ITU-R BT.709-2, SMPTE 274M-1995, and SMPTE 296M-1997 */
+    kQTPrimaries_Unknown = 2,  /* Unknown */
+    kQTPrimaries_EBU_3213 = 5, /* EBU Tech. 3213 (1981) */
+    kQTPrimaries_SMPTE_C = 6   /* SMPTE C Primaries from SMPTE RP 145-1993 */
+  };
 
-  // Transfer Function  enum
+  /* Transfer Function*/
+  enum
   {
     kQTTransferFunction_ITU_R709_2 =
         1,                           /* Recommendation ITU-R BT.709-2, SMPTE 274M-1995, SMPTE 296M-1997,
-  // UI behavior of a parameter
-    kQTTransferFunction_Unknown = 2, // Unknown     kQTTransferFunction_SMPTE_240M_1995 =
+                                  SMPTE 293M-1996 and SMPTE 170M-1994 */
+    kQTTransferFunction_Unknown = 2, /* Unknown */
+    kQTTransferFunction_SMPTE_240M_1995 =
         7 /* SMPTE 240M-1995 and interim color implementation of SMPTE 274M-1995
            */
   };
 
-  // Matrix  enum
+  /* Matrix*/
+  enum
   {
-    // items edited via typing
-                                  only), SMPTE 274M-1// edit text box
-    kQTMatrix_Unknown = 2,     // Unknown     kQTMatr// long number editing box
+    kQTMatrix_ITU_R_709_2 = 1, /* Recommendation ITU-R BT.709-2 (1125/60/2:1
+    only), SMPTE 274M-1995 and SMPTE 296M-1997 */
+    kQTMatrix_Unknown = 2,     /* Unknown */
+    kQTMatrix_ITU_R_601_4 =
         6,                        /* Recommendation ITU-R BT.601-4, Recommendation ITU-R BT.470-4 System
-                                // fixed point number editing box
+                               B and G, SMPTE 170M-1994 and SMPTE 293M-1996 */
     kQTMatrix_SMPTE_240M_1995 = 7 /* SMPTE 240M-1995 and interim color
-                                     implementatio// double number editing box
-  };// items edited via control(s)
-// pop up value for enum types
+    implementation of SMPTE 274M-1995 */
+  };
+
   /* Field/Frame Info Image Description (this remaps to
-   * FieldInfoImageDescriptionExtension)*/// radio cluster for enum types
-  struct FieldInfoImageDescriptionExtension2// check box for booleans
+   * FieldInfoImageDescriptionExtension)*/
+  struct FieldInfoImageDescriptionExtension2
   {
-    UInt8 fields;// item controlled via a standard control of some type
-    UInt8 detail;// special user items
-  };// line
-  typedef struct FieldInfoImageDescriptionExtension2// color swatch & picker
+    UInt8 fields;
+    UInt8 detail;
+  };
+  typedef struct FieldInfoImageDescriptionExtension2
       FieldInfoImageDescriptionExtension2;
-  enum// start of a new group of items
+  enum
   {
-    kQTFieldsProgressiveScan = 1// display "parameter name" as static text
+    kQTFieldsProgressiveScan = 1,
     kQTFieldsInterlaced = 2
-  };// allow image display, along with drag and drop
-// flags valid for lines and groups
-  enum// no options for graphics
-  {// draw lines with gray
-    kQTFieldDetailUnknown = 0,// flags valid for groups
+  };
+
+  enum
+  {
+    kQTFieldDetailUnknown = 0,
     kQTFieldDetailTemporalTopFirst = 1,
     kQTFieldDetailTemporalBottomFirst = 6,
-    kQTFieldDetailSpatialFirstLineEar// edit text items in group have the same size
-    kQTFieldDetailSpatialFirstLineLat// group should be surrounded with a box
-  };// side-by-side arrangement of group is okay
+    kQTFieldDetailSpatialFirstLineEarly = 9,
+    kQTFieldDetailSpatialFirstLineLate = 14
+  };
 
-  // Pixel Aspect Ra// name of group should not be displayed above box
-  {// flags valid for popup/radiocluster/checkbox/control
-    UInt32 hSpacing; // Horizontal Spacing     UInt32 vSpacing; // Vertical Spacing   };
+  /* Pixel Aspect Ratio Image Description Extensions*/
+  struct PixelAspectRatioImageDescriptionExtension
+  {
+    UInt32 hSpacing; /* Horizontal Spacing */
+    UInt32 vSpacing; /* Vertical Spacing */
+  };
   typedef struct PixelAspectRatioImageDescriptionExtension
       PixelAspectRatioImageDescriptionExtension;
-  // Clean Aperture Image Description Extensions  struct CleanApertureImageDescriptionExtension
+  /* Clean Aperture Image Description Extensions*/
+  struct CleanApertureImageDescriptionExtension
   {
-    UInt32// flags valid for popups
-        cleanApertureWidthN; // width of clean aperture, numerator, denominator     UInt32 cleanApertureWidthD;
+    UInt32
+        cleanApertureWidthN; /* width of clean aperture, numerator, denominator */
+    UInt32 cleanApertureWidthD;
     UInt32 cleanApertureHeightN; /* height of clean aperture, numerator,
-                                    denominator*/
+    denominator*/
     UInt32 cleanApertureHeightD;
     UInt32 horizOffN; /* horizontal offset of clean aperture center minus
-                       // group under control of this item
-    UInt32 horizOffD;// control value for comparison purposes
+    (width-1)/2, numerator, denominator */
+    UInt32 horizOffD;
     UInt32 vertOffN; /* vertical offset of clean aperture center minus
-                        (height-1)/2, numerator, denominator */
+    (height-1)/2, numerator, denominator */
     UInt32 vertOffD;
   };
   typedef struct CleanApertureImageDescriptionExtension
@@ -992,21 +1112,14 @@ extern "C"
   typedef CALLBACK_API(ComponentResult, ImageCodecMPDrawBandProcPtr)(
       void *refcon, ImageSubCodecDecompressRecord *drp);
   typedef STACK_UPP_TYPE(ImageCodecMPDrawBandProcPtr) ImageCodecMPDrawBandUPP;
-  /**
-   *  NewImageCodecMPDrawBandUPP()
-   *
-// higher level purpose of a parameter or set of parameters
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  ImageCodecMPDrawBandUPP
+  EXTERN_API_C(ImageCodecMPDrawBandUPP)
   NewImageCodecMPDrawBandUPP(ImageCodecMPDrawBandProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
   enum
   {
     uppImageCodecMPDrawBandProcInfo = 0x000003F0
-  }; // pascal 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
+  }; /* pascal 4_bytes Func(4_bytes, 4_bytes) */
+#ifdef __cplusplus
   inline ImageCodecMPDrawBandUPP
   NewImageCodecMPDrawBandUPP(ImageCodecMPDrawBandProcPtr userRoutine)
   {
@@ -1020,17 +1133,9 @@ extern "C"
       (ProcPtr)(userRoutine), uppImageCodecMPDrawBandProcInfo, \
       GetCurrentArchitecture())
 #endif
-#endif// higher level purpose of the data or group
+#endif
 
-  /**
-  // default value(s) for a parameter
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-  // atoms that help to fill in data within the info window 
-  void
+  EXTERN_API_C(void)
   DisposeImageCodecMPDrawBandUPP(ImageCodecMPDrawBandUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
@@ -1041,192 +1146,92 @@ extern "C"
 #else
 #define DisposeImageCodecMPDrawBandUPP(userUPP) \
   DisposeRoutineDescriptor(userUPP)
-#e// flags for ImageCodecValidateParameters 
+#endif
 #endif
 
-  /**
-   *  InvokeImageCodecMPDrawBandUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-  // QTAtomTypes for atoms in image compressor settings containers
-   *    \mac_os_x         in version 10.0 and later
-   */
-  ComponentResult
-  InvokeImageCodecMPDrawBandUPP(// Number of fields (UInt8) 
+  EXTERN_API_C(ComponentResult)
+  InvokeImageCodecMPDrawBandUPP(void *refcon, ImageSubCodecDecompressRecord *drp,
                                 ImageCodecMPDrawBandUPP userUPP);
-#if !OPAQUE_UPP_TYPES// Ordering of fields (UInt8)
+#if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline ComponentResult
   InvokeImageCodecMPDrawBandUPP(void *refcon, ImageSubCodecDecompressRecord *drp,
                                 ImageCodecMPDrawBandUPP userUPP)
-  // Additional Image Description Extensions
+  {
     return (ComponentResult)CALL_TWO_PARAMETER_UPP(
         userUPP, uppImageCodecMPDrawBandProcInfo, refcon, drp);
   }
-#else// image description extension describing the color properties 
+#else
 #define InvokeImageCodecMPDrawBandUPP(refcon, drp, userUPP) \
   (ComponentResult) CALL_TWO_PARAMETER_UPP(                 \
       (userUPP), uppImageCodecMPDrawBandProcInfo, (refcon), (drp))
 #endif
-#endif// image description extension describing the pixel aspect ratio
+#endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-//// Color Info Image Description Extension types
+/* support for pre-Carbon UPP routines: New...Proc and Call...Proc */
+#define NewImageCodecMPDrawBandProc(userRoutine) \
   NewImageCodecMPDrawBandUPP(userRoutine)
 #define CallImageCodecMPDrawBandProc(userRoutine, refcon, drp) \
   InvokeImageCodecMPDrawBandUPP(refcon, drp, userRoutine)
-#endif // CALL_NOT_IN_CARBON // For video color descriptions (defined below) 
-  //  codec selectors 0-127 are reserved by Apple   //  codec selectors 128-191 are subtype specific   //  codec selectors 192-255 are vendor specific   //  codec selectors 256-32767 are available for general use   //  negative selectors are reserved by the Component Manager   /**
-   *  ImageCodec// For ICC Profile color descriptions (not defined here)
-   *
+#endif /* CALL_NOT_IN_CARBON */
 
-  // Video Color Info Image Description Extensions
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in // Type of color parameter 'nclc'               
-   */// CIE 1931 xy chromaticity coordinates          
-  ComponentResult// Nonlinear transfer function from RGB to ErEgEb 
-  ImageCodecGetCodecInfo(Comp// Matrix from ErEgEb to EyEcbEcr           
+  /* codec selectors 0-127 are reserved by Apple */
+  /* codec selectors 128-191 are subtype specific */
+  /* codec selectors 192-255 are vendor specific */
+  /* codec selectors 256-32767 are available for general use */
+  /* negative selectors are reserved by the Component Manager */
+  EXTERN_API(ComponentResult)
+  ImageCodecGetCodecInfo(ComponentInstance ci, CodecInfo *info)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0000, 0x7000, 0xA82A);
 
-  /**
-  // Primaries
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in C// ITU-R BT.709-2, SMPTE 274M-1995, and SMPTE 296M-1997 
-   *    \mac_os_x         in ve// Unknown 
-   *    Windows:          in qt// EBU Tech. 3213 (1981) 
-   */// SMPTE C Primaries from SMPTE RP 145-1993 
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetCompressionTime(ComponentInstance ci, PixMapHandle src,
-  // Transfer Function
+                               const Rect *srcRect, short depth,
                                CodecQ *spatialQuality, CodecQ *temporalQuality,
                                unsigned long *time)
       FIVEWORDINLINE(0x2F3C, 0x0016, 0x0001, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetMaxCompressionSize// Unknown 
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-  // Matrix
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetMaxCompressionSize(ComponentInstance ci, PixMapHandle src,
                                   const Rect *srcRect, short depth,
-                               // Unknown 
+                                  CodecQ quality, long *size)
       FIVEWORDINLINE(0x2F3C, 0x0012, 0x0002, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecPreCompress()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecPreCompress(ComponentInstance ci, CodecCompressParams *params)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecBandCompress()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecBandCompress(ComponentInstance ci, CodecCompressParams *params)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecPreDecompress()
-   *
-// Pixel Aspect Ratio Image Description Extensions
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x    // Horizontal Spacing 
-   *    Windows:     // Vertical Spacing 
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecPreDecompress(ComponentInstance ci, CodecDecompressParams *params)
-  // Clean Aperture Image Description Extensions
+      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0005, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecBandDecompress()
-   *// width of clean aperture, numerator, denominator 
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecBandDecompress(ComponentInstance ci, CodecDecompressParams *params)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0006, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecBusy()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecBusy(ComponentInstance ci, ImageSequence seq)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetCompressedImageSize()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   * // pascal 4_bytes Func(4_bytes, 4_bytes) 
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetCompressedImageSize(ComponentInstance ci,
                                    ImageDescriptionHandle desc, Ptr data,
                                    long bufferSize, ICMDataProcRecordPtr dataProc,
                                    long *dataSize)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0008, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetSimilarity()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetSimilarity(ComponentInstance ci, PixMapHandle src,
                           const Rect *srcRect, ImageDescriptionHandle desc,
                           Ptr data, Fixed *similarity)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0009, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecTrimImage()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecTrimImage(ComponentInstance ci, ImageDescriptionHandle Desc,
                       Ptr inData, long inBufferSize,
                       ICMDataProcRecordPtr dataProc, Ptr outData,
@@ -1234,156 +1239,57 @@ extern "C"
                       Rect *trimRect, ICMProgressProcRecordPtr progressProc)
       FIVEWORDINLINE(0x2F3C, 0x0024, 0x000A, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecRequestSettings()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecRequestSettings(ComponentInstance ci, Handle settings, Rect *rp,
                             ModalFilterUPP filterProc)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x000B, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetSettings()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetSettings(ComponentInstance ci, Handle settings)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
-  /**
-   *  ImageCodecSetSettings()
-   *
 
-   *   // CALL_NOT_IN_CARBON 
-   *    \carbon_lib        in CarbonLib 1.0 and later
-  //  codec selectors 0-127 are reserved by Apple 
-  //  codec selectors 128-191 are subtype specific 
-  //  codec selectors 192-255 are vendor specific 
-  //  codec selectors 256-32767 are available for general use 
-  //  negative selectors are reserved by the Component Manager 
+  EXTERN_API(ComponentResult)
+  ImageCodecSetSettings(ComponentInstance ci, Handle settings)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecFlush()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecFlush(ComponentInstance ci)
       FIVEWORDINLINE(0x2F3C, 0x0000, 0x000E, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecSetTimeCode()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecSetTimeCode(ComponentInstance ci, void *timeCodeFormat,
                         void *timeCodeTime)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x000F, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecIsImageDescriptionEquivalent()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecIsImageDescriptionEquivalent(ComponentInstance ci,
                                          ImageDescriptionHandle newDesc,
                                          Boolean *equivalent)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x0010, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecNewMemory()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecNewMemory(ComponentInstance ci, Ptr *data, Size dataSize,
                       long dataUse, ICMMemoryDisposedUPP memoryGoneProc,
                       void *refCon)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0011, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecDisposeMemory()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecDisposeMemory(ComponentInstance ci, Ptr data)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecHitTestData()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecHitTestData(ComponentInstance ci, ImageDescriptionHandle desc,
                         void *data, Size dataSize, Point where, Boolean *hit)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0013, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecNewImageBufferMemory()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecNewImageBufferMemory(ComponentInstance ci,
                                  CodecDecompressParams *params, long flags,
                                  ICMMemoryDisposedUPP memoryGoneProc,
                                  void *refCon)
       FIVEWORDINLINE(0x2F3C, 0x0010, 0x0014, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecExtractAndCombineFields()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecExtractAndCombineFields(ComponentInstance ci, long fieldFlags,
                                     void *data1, long dataSize1,
                                     ImageDescriptionHandle desc1, void *data2,
@@ -1392,113 +1298,41 @@ extern "C"
                                     ImageDescriptionHandle descOut)
       FIVEWORDINLINE(0x2F3C, 0x0028, 0x0015, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetMaxCompressionSizeWithSources()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetMaxCompressionSizeWithSources(
       ComponentInstance ci, PixMapHandle src, const Rect *srcRect, short depth,
       CodecQ quality, CDSequenceDataSourcePtr sourceData, long *size)
       FIVEWORDINLINE(0x2F3C, 0x0016, 0x0016, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecSetTimeBase()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecSetTimeBase(ComponentInstance ci, void *base)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0017, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecSourceChanged()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecSourceChanged(ComponentInstance ci, UInt32 majorSourceChangeSeed,
                           UInt32 minorSourceChangeSeed,
                           CDSequenceDataSourcePtr sourceData, long *flagsOut)
       FIVEWORDINLINE(0x2F3C, 0x0010, 0x0018, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecFlushFrame()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecFlushFrame(ComponentInstance ci, UInt32 flags)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0019, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetSettingsAsText()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.1 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetSettingsAsText(ComponentInstance ci, Handle *text)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x001A, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetParameterListHandle()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetParameterListHandle(ComponentInstance ci,
                                    Handle *parameterDescriptionHandle)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x001B, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetParameterList()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetParameterList(ComponentInstance ci,
                              QTAtomContainer *parameterDescription)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x001C, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecCreateStandardParameterDialog()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecCreateStandardParameterDialog(ComponentInstance ci,
                                           QTAtomContainer parameterDescription,
                                           QTAtomContainer parameters,
@@ -1508,303 +1342,115 @@ extern "C"
                                           QTParameterDialog *createdDialog)
       FIVEWORDINLINE(0x2F3C, 0x0016, 0x001D, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecIsStandardParameterDialogEvent()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecIsStandardParameterDialogEvent(ComponentInstance ci,
                                            EventRecord *pEvent,
                                            QTParameterDialog createdDialog)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x001E, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecDismissStandardParameterDialog()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecDismissStandardParameterDialog(ComponentInstance ci,
                                            QTParameterDialog createdDialog)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x001F, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecStandardParameterDialogDoAction()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecStandardParameterDialogDoAction(ComponentInstance ci,
                                             QTParameterDialog createdDialog,
                                             long action, void *params)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0020, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecNewImageGWorld()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecNewImageGWorld(ComponentInstance ci, CodecDecompressParams *params,
                            GWorldPtr *newGW, long flags)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0021, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecDisposeImageGWorld()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecDisposeImageGWorld(ComponentInstance ci, GWorldPtr theGW)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0022, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecHitTestDataWithFlags()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.1 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecHitTestDataWithFlags(ComponentInstance ci,
                                  ImageDescriptionHandle desc, void *data,
                                  Size dataSize, Point where, long *hit,
                                  long hitFlags)
       FIVEWORDINLINE(0x2F3C, 0x0018, 0x0023, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecValidateParameters()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecValidateParameters(ComponentInstance ci, QTAtomContainer parameters,
                                QTParameterValidationOptions validationFlags,
                                StringPtr errorString)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0024, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetBaseMPWorkFunction()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetBaseMPWorkFunction(ComponentInstance ci,
                                   ComponentMPWorkFunctionUPP *workFunction,
                                   void **refCon, ImageCodecMPDrawBandUPP drawProc,
                                   void *drawProcRefCon)
       FIVEWORDINLINE(0x2F3C, 0x0010, 0x0025, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecRequestGammaLevel()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 5.0 and later
-   *    \carbon_lib        in CarbonLib 1.3 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 5.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecRequestGammaLevel(ComponentInstance ci, Fixed srcGammaLevel,
                               Fixed dstGammaLevel, long *codecCanMatch)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0028, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetSourceDataGammaLevel()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 5.0 and later
-   *    \carbon_lib        in CarbonLib 1.3 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 5.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetSourceDataGammaLevel(ComponentInstance ci,
                                     Fixed *sourceDataGammaLevel)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0029, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecGetDecompressLatency()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 5.0 and later
-   *    \carbon_lib        in CarbonLib 1.3 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 5.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecGetDecompressLatency(ComponentInstance ci, TimeRecord *latency)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x002B, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecPreflight()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecPreflight(ComponentInstance ci, CodecDecompressParams *params)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0200, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecInitialize()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecInitialize(ComponentInstance ci,
                        ImageSubCodecDecompressCapabilities *cap)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0201, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecBeginBand()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecBeginBand(ComponentInstance ci, CodecDecompressParams *params,
                       ImageSubCodecDecompressRecord *drp, long flags)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0202, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecDrawBand()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecDrawBand(ComponentInstance ci, ImageSubCodecDecompressRecord *drp)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0203, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEndBand()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEndBand(ComponentInstance ci, ImageSubCodecDecompressRecord *drp,
                     OSErr result, long flags)
       FIVEWORDINLINE(0x2F3C, 0x000A, 0x0204, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecQueueStarting()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecQueueStarting(ComponentInstance ci)
       FIVEWORDINLINE(0x2F3C, 0x0000, 0x0205, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecQueueStopping()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecQueueStopping(ComponentInstance ci)
       FIVEWORDINLINE(0x2F3C, 0x0000, 0x0206, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecDroppingFrame()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecDroppingFrame(ComponentInstance ci,
                           const ImageSubCodecDecompressRecord *drp)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0207, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecScheduleFrame()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 4.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecScheduleFrame(ComponentInstance ci,
                           const ImageSubCodecDecompressRecord *drp,
                           ImageCodecTimeTriggerUPP triggerProc,
                           void *triggerProcRefCon)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0208, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecCancelTrigger()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 4.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecCancelTrigger(ComponentInstance ci)
       FIVEWORDINLINE(0x2F3C, 0x0000, 0x0209, 0x7000, 0xA82A);
 
-  // selectors for component calls   enum
+  /* selectors for component calls */
+  enum
   {
     kImageCodecGetCodecInfoSelect = 0x0000,
     kImageCodecGetCompressionTimeSelect = 0x0001,
@@ -1866,7 +1512,7 @@ extern "C"
     kJPEGHuffmanTablesImageDescriptionExtension = FOUR_CHAR_CODE('mjht'),
     kFieldInfoImageDescriptionExtension =
         FOUR_CHAR_CODE('fiel') /* image description extension describing the field
-                                  count and field orderings*/
+        count and field orderings*/
   };
 
   enum
@@ -1900,64 +1546,29 @@ extern "C"
   typedef struct FieldInfoImageDescriptionExtension
       FieldInfoImageDescriptionExtension;
 
-  /**
-   *  QTPhotoSetSampling()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   QTPhotoSetSampling(ComponentInstance codec, short yH, short yV, short cbH,
                      short cbV, short crH, short crV)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0100, 0x7000, 0xA82A);
 
-  /**
-   *  QTPhotoSetRestartInterval()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   QTPhotoSetRestartInterval(ComponentInstance codec,
                             unsigned short restartInterval)
       FIVEWORDINLINE(0x2F3C, 0x0002, 0x0101, 0x7000, 0xA82A);
 
-  /**
-   *  QTPhotoDefineHuffmanTable()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   QTPhotoDefineHuffmanTable(ComponentInstance codec, short componentNumber,
                             Boolean isDC, unsigned char *lengthCounts,
                             unsigned char *values)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0102, 0x7000, 0xA82A);
 
-  /**
-   *  QTPhotoDefineQuantizationTable()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 2.5 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   QTPhotoDefineQuantizationTable(ComponentInstance codec, short componentNumber,
                                  unsigned char *table)
       FIVEWORDINLINE(0x2F3C, 0x0006, 0x0103, 0x7000, 0xA82A);
 
-  // selectors for component calls   enum
+  /* selectors for component calls */
+  enum
   {
     kQTPhotoSetSamplingSelect = 0x0100,
     kQTPhotoSetRestartIntervalSelect = 0x0101,
@@ -1972,15 +1583,19 @@ extern "C"
     kEffectSourceName = FOUR_CHAR_CODE('src ')
   };
 
-  // source type -- placed in the input map to identify the source kind   enum
+  /* source type -- placed in the input map to identify the source kind */
+  enum
   {
     kEffectDataSourceType = FOUR_CHAR_CODE('dtst')
   };
 
-  //  default effect types   enum
+  /* default effect types */
+  enum
   {
-    kEffectRawSource = 0, // the source is raw image data    kEffectGenericType =
-        FOUR_CHAR_CODE('geff') // generic effect for combining others  };
+    kEffectRawSource = 0, /* the source is raw image data*/
+    kEffectGenericType =
+        FOUR_CHAR_CODE('geff') /* generic effect for combining others*/
+  };
 
   typedef struct EffectSource EffectSource;
 
@@ -1994,99 +1609,56 @@ extern "C"
 
   struct EffectSource
   {
-    long effectType;      // type of effect or kEffectRawSource if raw ICM data    Ptr data;             // track data for this effect    SourceData source;    // source/effect pointers    EffectSourcePtr next; // the next source for the parent effect
-    // fields added for QuickTime 4.0    TimeValue lastTranslatedFrameTime; /* start frame time of last converted
-                                          frame, may be -1*/
+    long effectType;      /* type of effect or kEffectRawSource if raw ICM data*/
+    Ptr data;             /* track data for this effect*/
+    SourceData source;    /* source/effect pointers*/
+    EffectSourcePtr next; /* the next source for the parent effect*/
+
+    /* fields added for QuickTime 4.0*/
+    TimeValue lastTranslatedFrameTime; /* start frame time of last converted
+    frame, may be -1*/
     TimeValue
-        lastFrameDuration;        // duration of the last converted frame, may be zero    TimeValue lastFrameTimeScale; /* time scale of this source frame, only has
-  // selectors for component calls 
+        lastFrameDuration;        /* duration of the last converted frame, may be zero*/
+    TimeValue lastFrameTimeScale; /* time scale of this source frame, only has
+    meaning if above fields are valid*/
   };
 
   struct EffectsFrameParams
   {
-    ICMFrameTimeRecord frameTime; // timing data    long effectDuration;          // the duration of a single effect frame    Boolean doAsync;              // set to true if the effect can go async    unsigned char pad[3];
-    EffectSourcePtr source; // ptr to the source input tree    void *refCon;           // storage for the effect  };
+    ICMFrameTimeRecord frameTime; /* timing data*/
+    long effectDuration;          /* the duration of a single effect frame*/
+    Boolean doAsync;              /* set to true if the effect can go async*/
+    unsigned char pad[3];
+    EffectSourcePtr source; /* ptr to the source input tree*/
+    void *refCon;           /* storage for the effect*/
+  };
   typedef struct EffectsFrameParams EffectsFrameParams;
   typedef EffectsFrameParams *EffectsFrameParamsPtr;
 
-  /**
-   *  ImageCodecEffectSetup()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectSetup(ComponentInstance effect, CodecDecompressParams *p)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0300, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEffectBegin()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectBegin(ComponentInstance effect, CodecDecompressParams *p,
                         EffectsFrameParamsPtr ePtr)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x0301, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEffectRenderFrame()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectRenderFrame(ComponentInstance effect, EffectsFrameParamsPtr p)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0302, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEffectConvertEffectSourceToFormat()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectConvertEffectSourceToFormat(
       ComponentInstance effect, EffectSourcePtr sourceToConvert,
       ImageDescriptionHandle requestedDesc)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x0303, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEffectCancel()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectCancel(ComponentInstance effect, EffectsFrameParamsPtr p)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0304, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEffectGetSpeed()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectGetSpeed(ComponentInstance effect, QTAtomContainer parameters,
                            Fixed *pFPS)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x0305, 0x7000, 0xA82A);
@@ -2094,7 +1666,9 @@ extern "C"
   enum
   {
     kSMPTENoFlag = 0,
-    kSMPTESmoothEdgeFlag = 0x01, // smooth edges of the stroke    kSMPTEStrokeEdgeFlag = 0x02  // stroke edge with color  };
+    kSMPTESmoothEdgeFlag = 0x01, /* smooth edges of the stroke*/
+    kSMPTEStrokeEdgeFlag = 0x02  /* stroke edge with color*/
+  };
 
   typedef long SMPTEFlags;
   typedef long SMPTEFrameReference;
@@ -2153,7 +1727,7 @@ extern "C"
     kHexagonWipe = 113,
     kHexagonSideWipe = 114,
     kCircleWipe = 119,
-  // selectors for component calls 
+    kOvalWipe = 120,
     kOvalSideWipe = 121,
     kCatEyeWipe = 122,
     kCatEyeSideWipe = 123,
@@ -2169,18 +1743,18 @@ extern "C"
   enum
   {
     kRotatingTopWipe = 201,
-  // source type -- placed in the input map to identify the source kind 
+    kRotatingRightWipe = 202,
     kRotatingBottomWipe = 203,
     kRotatingLeftWipe = 204,
     kRotatingTopBottomWipe = 205,
     kRotatingLeftRightWipe = 206,
     kRotatingQuadrantWipe = 207,
-  //  default effect types 
+    kTopToBottom180Wipe = 211,
     kRightToLeft180Wipe = 212,
     kTopToBottom90Wipe = 213,
-    kRightToLeft90Wipe = 2// the source is raw image data
+    kRightToLeft90Wipe = 214,
     kTop180Wipe = 221,
-    kRight180Wipe = 222,// generic effect for combining others
+    kRight180Wipe = 222,
     kBottom180Wipe = 223,
     kLeft180Wipe = 224,
     kCounterRotatingTopBottomWipe = 225,
@@ -2195,28 +1769,28 @@ extern "C"
     kVOpenLeftRightWipe = 236,
     kRotatingTopLeftWipe = 241,
     kRotatingBottomLeftWipe = 242,
-    kRotatingBottomRightWi// type of effect or kEffectRawSource if raw ICM data
-    kRotatingTopRightWipe // track data for this effect
-    kRotatingTopLeftBottom// source/effect pointers
-    kRotatingBottomLeftTop// the next source for the parent effect
+    kRotatingBottomRightWipe = 243,
+    kRotatingTopRightWipe = 244,
+    kRotatingTopLeftBottomRightWipe = 245,
+    kRotatingBottomLeftTopRightWipe = 246,
     kRotatingTopLeftRightWipe = 251,
-    // fields added for QuickTime 4.0
+    kRotatingLeftTopBottomWipe = 252,
     kRotatingBottomLeftRightWipe = 253,
     kRotatingRightTopBottomWipe = 254,
     kRotatingDoubleCenterRightWipe = 261,
-    kRotatingDoubleCenterTopWipe =// duration of the last converted frame, may be zero
+    kRotatingDoubleCenterTopWipe = 262,
     kRotatingDoubleCenterTopBottomWipe = 263,
     kRotatingDoubleCenterLeftRightWipe = 264
   };
 
   enum
   {
-    kHorizontalMatrixWipe = 301,// timing data
-    kVerticalMatrixWipe = 302,// the duration of a single effect frame
-    kTopLeftDiagonalMatrixWipe = 3// set to true if the effect can go async
+    kHorizontalMatrixWipe = 301,
+    kVerticalMatrixWipe = 302,
+    kTopLeftDiagonalMatrixWipe = 303,
     kTopRightDiagonalMatrixWipe = 304,
-    kBottomRightDiagonalMatr// ptr to the source input tree
-    kBottomLeftDiagonalMatri// storage for the effect
+    kBottomRightDiagonalMatrixWipe = 305,
+    kBottomLeftDiagonalMatrixWipe = 306,
     kClockwiseTopLeftMatrixWipe = 310,
     kClockwiseTopRightMatrixWipe = 311,
     kClockwiseBottomRightMatrixWipe = 312,
@@ -2245,52 +1819,26 @@ extern "C"
     kVerticalWaterfallRightMatrixWipe = 351,
     kHorizontalWaterfallLeftMatrixWipe = 352,
     kHorizontalWaterfallRightMatrixWipe = 353,
-    kRandomWipe = 409, // non-SMPTE standard numbers    kRandomWipeGroupWipe = 501,
+    kRandomWipe = 409, /* non-SMPTE standard numbers*/
+    kRandomWipeGroupWipe = 501,
     kRandomIrisGroupWipe = 502,
     kRandomRadialGroupWipe = 503,
     kRandomMatrixGroupWipe = 504
   };
 
   typedef unsigned long SMPTEWipeType;
-  /**
-   *  ImageCodecEffectPrepareSMPTEFrame()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 4.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectPrepareSMPTEFrame(ComponentInstance effect,
                                     PixMapPtr destPixMap,
                                     SMPTEFrameReference *returnValue)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x0100, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEffectDisposeSMPTEFrame()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 4.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectDisposeSMPTEFrame(ComponentInstance effect,
                                     SMPTEFrameReference frameRef)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
 
-  /**
-   *  ImageCodecEffectRenderSMPTEFrame()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 4.0 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 4.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   ImageCodecEffectRenderSMPTEFrame(ComponentInstance effect, PixMapPtr destPixMap,
                                    SMPTEFrameReference frameRef,
                                    Fixed effectPercentageEven,
@@ -2301,20 +1849,22 @@ extern "C"
                                    long strokeValue)
       FIVEWORDINLINE(0x2F3C, 0x0030, 0x0102, 0x7000, 0xA82A);
 
-  // selectors for component calls   enum
+  /* selectors for component calls */
+  enum
   {
     kImageCodecEffectSetupSelect = 0x0300,
     kImageCodecEffectBeginSelect = 0x0301,
     kImageCodecEffectRenderFrameSelect = 0x0302,
-    kImageCodecEffectConvertEffec// smooth edges of the stroke
-    kImageCodecEffectCancelSelect// stroke edge with color
+    kImageCodecEffectConvertEffectSourceToFormatSelect = 0x0303,
+    kImageCodecEffectCancelSelect = 0x0304,
     kImageCodecEffectGetSpeedSelect = 0x0305,
     kImageCodecEffectPrepareSMPTEFrameSelect = 0x0100,
     kImageCodecEffectDisposeSMPTEFrameSelect = 0x0101,
     kImageCodecEffectRenderSMPTEFrameSelect = 0x0102
   };
 
-  // curve atom types and data structures   enum
+  /* curve atom types and data structures */
+  enum
   {
     kCurvePathAtom = FOUR_CHAR_CODE('path'),
     kCurveEndAtom = FOUR_CHAR_CODE('zero'),
@@ -2363,211 +1913,87 @@ extern "C"
     kCurveGradientTypeAtom = FOUR_CHAR_CODE('grdt')
   };
 
-  // currently supported gradient types   enum
+  /* currently supported gradient types */
+  enum
   {
     kLinearGradient = 0,
     kCircularGradient = 1
   };
 
   typedef long GradientType;
-  /**
-   *  CurveGetLength()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveGetLength(ComponentInstance effect, gxPaths *target, long index,
                  wide *wideLength)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0100, 0x7000, 0xA82A);
 
-  /**
-   *  CurveLengthToPoint()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveLengthToPoint(ComponentInstance effect, gxPaths *target, long index,
                      Fixed length, FixedPoint *location, FixedPoint *tangent)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0101, 0x7000, 0xA82A);
 
-  /**
-   *  CurveNewPath()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveNewPath(ComponentInstance effect, Handle *pPath)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
 
-  /**
-   *  CurveCountPointsInPath()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveCountPointsInPath(ComponentInstance effect, gxPaths *aPath,
                          unsigned long contourIndex, unsigned long *pCount)
       FIVEWORDINLINE(0x2F3C, 0x000C, 0x0103, 0x7000, 0xA82A);
 
-  /**
-   *  CurveGetPathPoint()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveGetPathPoint(ComponentInstance effect, gxPaths *aPath,
                     unsigned long contourIndex, unsigned long pointIndex,
                     gxPoint *thePoint, Boolean *ptIsOnPath)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0104, 0x7000, 0xA82A);
 
-  /**
-   *  CurveInsertPointIntoPath()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveInsertPointIntoPath(ComponentInstance effect, gxPoint *aPoint,
                            Handle thePath, unsigned long contourIndex,
                            unsigned long pointIndex, Boolean ptIsOnPath)
       FIVEWORDINLINE(0x2F3C, 0x0012, 0x0105, 0x7000, 0xA82A);
 
-  /**
-   *  CurveSetPathPoint()
-   *
-
-   *    \non_carbon_cfm// non-SMPTE standard numbers
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveSetPathPoint(ComponentInstance effect, gxPaths *aPath,
                     unsigned long contourIndex, unsigned long pointIndex,
                     gxPoint *thePoint, Boolean ptIsOnPath)
       FIVEWORDINLINE(0x2F3C, 0x0012, 0x0106, 0x7000, 0xA82A);
 
-  /**
-   *  CurveGetNearestPathPoint()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveGetNearestPathPoint(ComponentInstance effect, gxPaths *aPath,
                            FixedPoint *thePoint, unsigned long *contourIndex,
                            unsigned long *pointIndex, Fixed *theDelta)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0107, 0x7000, 0xA82A);
 
-  /**
-   *  CurvePathPointToLength()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurvePathPointToLength(ComponentInstance ci, gxPaths *aPath, Fixed startDist,
                          Fixed endDist, FixedPoint *thePoint, Fixed *pLength)
       FIVEWORDINLINE(0x2F3C, 0x0014, 0x0108, 0x7000, 0xA82A);
 
-  /**
-   *  CurveCreateVectorStream()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveCreateVectorStream(ComponentInstance effect, Handle *pStream)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x0109, 0x7000, 0xA82A);
 
-  /**
-   *  CurveAddAtomToVectorStream()
-   *
-
-  // selectors for component calls 
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveAddAtomToVectorStream(ComponentInstance effect, OSType atomType,
                              Size atomSize, void *pAtomData, Handle vectorStream)
       FIVEWORDINLINE(0x2F3C, 0x0010, 0x010A, 0x7000, 0xA82A);
 
-  /**
-   *  CurveAddPathAtomToVectorStream()
-   *
-
-  // curve atom types and data structures 
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveAddPathAtomToVectorStream(ComponentInstance effect, Handle pathData,
                                  Handle vectorStream)
       FIVEWORDINLINE(0x2F3C, 0x0008, 0x010B, 0x7000, 0xA82A);
 
-  /**
-   *  CurveAddZeroAtomToVectorStream()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveAddZeroAtomToVectorStream(ComponentInstance effect, Handle vectorStream)
       FIVEWORDINLINE(0x2F3C, 0x0004, 0x010C, 0x7000, 0xA82A);
 
-  /**
-   *  CurveGetAtomDataFromVectorStream()
-   *
-
-   *    \non_carbon_cfm   in QuickTimeLib 3.0 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  ComponentResult
+  EXTERN_API(ComponentResult)
   CurveGetAtomDataFromVectorStream(ComponentInstance effect, Handle vectorStream,
                                    long atomType, long *dataSize, Ptr *dataPtr)
       FIVEWORDINLINE(0x2F3C, 0x0010, 0x010D, 0x7000, 0xA82A);
 
-  // selectors for component calls   enum
+  /* selectors for component calls */
+  enum
   {
     kCurveGetLengthSelect = 0x0100,
     kCurveLengthToPointSelect = 0x0101,
@@ -2580,11 +2006,12 @@ extern "C"
     kCurvePathPointToLengthSelect = 0x0108,
     kCurveCreateVectorStreamSelect = 0x0109,
     kCurveAddAtomToVectorStreamSelect = 0x010A,
-  // currently supported gradient types 
+    kCurveAddPathAtomToVectorStreamSelect = 0x010B,
     kCurveAddZeroAtomToVectorStreamSelect = 0x010C,
     kCurveGetAtomDataFromVectorStreamSelect = 0x010D
   };
-  // UPP call backs 
+  /* UPP call backs */
+
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -2603,6 +2030,4 @@ extern "C"
 }
 #endif
 
-#endif // __IMAGECODEC__ // selectors for component calls 
-// UPP call backs 
-// __IMAGECODEC__ 
+#endif /* __IMAGECODEC__ */

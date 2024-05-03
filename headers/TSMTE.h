@@ -58,9 +58,8 @@ extern "C"
 
   // signature, interface types  enum
   {
-    kTSMTESignature = FOUR_CHAR_CODE('tmTE'),
-    kTSMTEInterfaceType = FOUR_CHAR_CODE('tmTE')
-  };
+      kTSMTESignature = FOUR_CHAR_CODE('tmTE'),
+      kTSMTEInterfaceType = FOUR_CHAR_CODE('tmTE')};
 
 /**
     In Carbon, since DialogRef is opaque, the TSMDialogRecord is removed.
@@ -74,16 +73,16 @@ extern "C"
     kTSMTEDialog = FOUR_CHAR_CODE('tmDI')
   };
 
-#endif // CALL_NOT_IN_CARBON 
-  // up// CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
+  // up// CALL_NOT_IN_CARBON
   {
-  // update flag for TSMTERec
+      // update flag for TSMTERec
   };
 
   // callback procedure definitions
   typedef CALLBACK_API(void, TSMTEPreUpdateProcPtr)(TEHandle textH, long refCon);
   typedef CALLBACK_API(void, TSMTEPostUpdateProcPtr)(TEHandle textH, long fixLen,
-  // callback procedure definitions
+                                                     // callback procedure definitions
                                                      long inputAreaEnd,
                                                      long pinStart, long pinEnd,
                                                      long refCon);
@@ -94,7 +93,7 @@ extern "C"
   {
     TEHandle textH;
     TSMTEPreUpdateUPP preUpdateProc;
-  // data types
+    // data types
     long updateFlag;
     long refCon;
   };
@@ -107,19 +106,16 @@ extern "C"
     DialogRecord fDialog;
     TSMDocumentID fDocID;
     TSMTERecHandle fTSMTERecH;
-    long fTSMTERsvd[3]; // reserved  };
+    long fTSMTERsvd[3]; // reserved
+  };
   typedef struct TSMDialogRecord TSMDialogRecord;
   typedef TSMDialogRecord *TSMDialogPtr;
   typedef TSMDialogPtr TSMDialogPeek;
-#endif // !OPAQUE_TOOLBOX_STRUCTS 
-  /**// reserved
-   *  NewTSMTEPreUpdateUPP()
-   *
-
-   *    \non_carbon_cfm   available as macro/inline
-   *   // !OPAQUE_TOOLBOX_STRUCTS 
-   *    \mac_os_x         in version 10.0 and later
-   */
+#endif // !OPAQUE_TOOLBOX_STRUCTS
+       /**  reserved
+        * NewTSMTEPreUpdateUPP()
+        * \non_carbon_cfm available as macro / inline
+        * \mac_os_x in version 10.0 and later */
   TSMTEPreUpdateUPP
   NewTSMTEPreUpdateUPP(TSMTEPreUpdateProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
@@ -133,7 +129,7 @@ extern "C"
     return (TSMTEPreUpdateUPP)NewRoutineDescriptor((ProcPtr)(userRoutine),
                                                    uppTSMTEPreUpdateProcInfo,
                                                    GetCurrentArchitecture());
-  }// pascal no_return_value Func(4_bytes, 4_bytes) 
+  } // pascal no_return_value Func(4_bytes, 4_bytes)
 #else
 #define NewTSMTEPreUpdateUPP(userRoutine)                                     \
   (TSMTEPreUpdateUPP)                                                         \
@@ -281,7 +277,7 @@ extern "C"
                                 inputAreaEnd, pinStart, pinEnd, refCon)     \
   InvokeTSMTEPostUpdateUPP(textH, fixLen, inputAreaStart, inputAreaEnd,     \
                            pinStart, pinEnd, refCon, userRoutine)
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
 #if ACCESSOR_CALLS_ARE_FUNCTIONS
   /**
    *  IsTSMTEDialog()
@@ -290,21 +286,24 @@ extern "C"
    *    \non_carbon_cfm   in CarbonAccessors.o 1.0.2 and later
    *    \carbon_lib        in CarbonLib 1.0.2 and later
    *    \mac_os_x         in version 10.0 and later
-   */// CALL_NOT_IN_CARBON 
+   */
+  // CALL_NOT_IN_CARBON
   Boolean
   IsTSMTEDialog(DialogRef dialog);
 
-  // Getters   /**
-   *  GetTSMTEDialogDocumentID()
-   *
+  // Getters
+  /**
+   *GetTSMTEDialogDocumentID() *
 
-   *    \non_carbon_cfm   in CarbonAccessors.o 1.0.2 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
+           *    \non_carbon_cfm in CarbonAccessors.o 1.0.2 and
+       later
+           *    \carbon_lib in CarbonLib 1.0.2 and
+       later
+           *    \mac_os_x in version 10.0 and
+       later*/
   TSMDocumentID
   GetTSMTEDialogDocumentID(DialogRef dialog);
-// Getters 
+  // Getters
   /**
    *  GetTSMTEDialogTSMTERecHandle()
    *
@@ -316,29 +315,30 @@ extern "C"
   TSMTERecHandle
   GetTSMTEDialogTSMTERecHandle(DialogRef dialog);
 
-  // Setters   /**
-   *  SetTSMTEDialogDocumentID()
-   *
+  // Setters
+  /**
+  *SetTSMTEDialogDocumentID() *
 
-   *    \non_carbon_cfm   in CarbonAccessors.o 1.0.2 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
-  SetTSMTEDialogDocumentID(DialogRef dialog, TSMDocumentID documentID);
+          *    \non_carbon_cfm in CarbonAccessors.o 1.0.2 and
+      later
+          *    \carbon_lib in CarbonLib 1.0.2 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later*/
+  void SetTSMTEDialogDocumentID(DialogRef dialog, TSMDocumentID documentID);
 
-  // Setters 
-   *  SetTSMTEDialogTSMTERecHandle()
-   *
+  // Setters
+  /**SetTSMTEDialogTSMTERecHandle() *
 
-   *    \non_carbon_cfm   in CarbonAccessors.o 1.0.2 and later
-   *    \carbon_lib        in CarbonLib 1.0.2 and later
-   *    \mac_os_x         in version 10.0 and later
-   */
-  void
-  SetTSMTEDialogTSMTERecHandle(DialogRef dialog, TSMTERecHandle tsmteRecHandle);
+          *    \non_carbon_cfm in CarbonAccessors.o 1.0.2 and
+      later
+          *    \carbon_lib in CarbonLib 1.0.2 and
+      later
+          *    \mac_os_x in version 10.0 and
+      later */
+  void SetTSMTEDialogTSMTERecHandle(DialogRef dialog, TSMTERecHandle tsmteRecHandle);
 
-#endif // ACCESSOR_CALLS_ARE_FUNCTIONS 
+#endif // ACCESSOR_CALLS_ARE_FUNCTIONS
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -350,11 +350,11 @@ extern "C"
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
 #elif PRAGMA_IMPORT
-#pragma// ACCESSOR_CALLS_ARE_FUNCTIONS 
+#pragma // ACCESSOR_CALLS_ARE_FUNCTIONS
 #endif
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __TSMTE__ // __TSMTE__ 
+#endif // __TSMTE__ // __TSMTE__

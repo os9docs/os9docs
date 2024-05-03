@@ -178,8 +178,7 @@ extern "C"
    */
   FormatStatus
   ExtendedToString(const extended80 *x, const NumFormatString *myCanonical,
-                   const NumberParts *partsTable, Str255 outString)
-      FOURWORDINLINE(0x2F3C, 0x8210, 0xFFE8, 0xA8B5);
+                   const NumberParts *partsTable, Str255 outString);
 
   /**
    *  StringToExtended()
@@ -191,8 +190,7 @@ extern "C"
    */
   FormatStatus
   StringToExtended(ConstStr255Param source, const NumFormatString *myCanonical,
-                   const NumberParts *partsTable, extended80 *x)
-      FOURWORDINLINE(0x2F3C, 0x8210, 0xFFE6, 0xA8B5);
+                   const NumberParts *partsTable, extended80 *x);
 
   /**
    *  StringToFormatRec()
@@ -204,8 +202,7 @@ extern "C"
    */
   FormatStatus
   StringToFormatRec(ConstStr255Param inString, const NumberParts *partsTable,
-                    NumFormatString *outString)
-      FOURWORDINLINE(0x2F3C, 0x820C, 0xFFEC, 0xA8B5);
+                    NumFormatString *outString);
 
   /**
    *  FormatRecToString()
@@ -218,8 +215,7 @@ extern "C"
   FormatStatus
   FormatRecToString(const NumFormatString *myCanonical,
                     const NumberParts *partsTable, Str255 outString,
-                    TripleInt positions)
-      FOURWORDINLINE(0x2F3C, 0x8210, 0xFFEA, 0xA8B5);
+                    TripleInt positions);
 
 #if OLDROUTINENAMES
 #define FormatX2Str(x, myCanonical, partsTable, outString) \

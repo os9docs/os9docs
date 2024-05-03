@@ -112,7 +112,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    InitPalettes(void) ONEWORDINLINE(0xAA90);
+    InitPalettes(void);
 
     /**
      *  NewPalette()
@@ -124,7 +124,7 @@ extern "C"
      */
     PaletteHandle
     NewPalette(short entries, CTabHandle srcColors, short srcUsage,
-               short srcTolerance) ONEWORDINLINE(0xAA91);
+               short srcTolerance);
 
     /**
      *  GetNewPalette()
@@ -135,7 +135,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     PaletteHandle
-    GetNewPalette(short PaletteID) ONEWORDINLINE(0xAA92);
+    GetNewPalette(short PaletteID);
 
     /**
      *  DisposePalette()
@@ -146,7 +146,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    DisposePalette(PaletteHandle srcPalette) ONEWORDINLINE(0xAA93);
+    DisposePalette(PaletteHandle srcPalette);
 
     /**
      *  ActivatePalette()
@@ -157,7 +157,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    ActivatePalette(WindowRef srcWindow) ONEWORDINLINE(0xAA94);
+    ActivatePalette(WindowRef srcWindow);
 
     /**
      *  SetPalette()
@@ -168,8 +168,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    SetPalette(WindowRef dstWindow, PaletteHandle srcPalette, Boolean cUpdates)
-        ONEWORDINLINE(0xAA95);
+    SetPalette(WindowRef dstWindow, PaletteHandle srcPalette, Boolean cUpdates);
 
     /**
      *  NSetPalette()
@@ -180,8 +179,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    NSetPalette(WindowRef dstWindow, PaletteHandle srcPalette, short nCUpdates)
-        ONEWORDINLINE(0xAA95);
+    NSetPalette(WindowRef dstWindow, PaletteHandle srcPalette, short nCUpdates);
 
     /**
      *  GetPalette()
@@ -192,7 +190,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     PaletteHandle
-    GetPalette(WindowRef srcWindow) ONEWORDINLINE(0xAA96);
+    GetPalette(WindowRef srcWindow);
 
     /**
      *  CopyPalette()
@@ -204,7 +202,7 @@ extern "C"
      */
     void
     CopyPalette(PaletteHandle srcPalette, PaletteHandle dstPalette, short srcEntry,
-                short dstEntry, short dstLength) ONEWORDINLINE(0xAAA1);
+                short dstEntry, short dstLength);
 
     /**
      *  PmForeColor()
@@ -215,7 +213,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    PmForeColor(short dstEntry) ONEWORDINLINE(0xAA97);
+    PmForeColor(short dstEntry);
 
     /**
      *  PmBackColor()
@@ -226,7 +224,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    PmBackColor(short dstEntry) ONEWORDINLINE(0xAA98);
+    PmBackColor(short dstEntry);
 
     /**
      *  AnimateEntry()
@@ -237,8 +235,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    AnimateEntry(WindowRef dstWindow, short dstEntry, const RGBColor *srcRGB)
-        ONEWORDINLINE(0xAA99);
+    AnimateEntry(WindowRef dstWindow, short dstEntry, const RGBColor *srcRGB);
 
 /**
  *  [Mac]AnimatePalette()
@@ -253,7 +250,7 @@ extern "C"
 #endif
     void
     MacAnimatePalette(WindowRef dstWindow, CTabHandle srcCTab, short srcIndex,
-                      short dstEntry, short dstLength) ONEWORDINLINE(0xAA9A);
+                      short dstEntry, short dstLength);
 
     /**
     \brief Access a palette entry from an application
@@ -276,8 +273,7 @@ Later, SetEntryColor can come along and make the change.
 *    \mac_os_x         in version 10.0 and later
 */
     void
-    GetEntryColor(PaletteHandle srcPalette, short srcEntry, RGBColor *dstRGB)
-        ONEWORDINLINE(0xAA9B);
+    GetEntryColor(PaletteHandle srcPalette, short srcEntry, RGBColor *dstRGB);
 
     /**
     \brief Change the color of a palette entry from an application
@@ -303,8 +299,7 @@ have taken place.
 *    \mac_os_x         in version 10.0 and later
 */
     void
-    SetEntryColor(PaletteHandle dstPalette, short dstEntry, const RGBColor *srcRGB)
-        ONEWORDINLINE(0xAA9C);
+    SetEntryColor(PaletteHandle dstPalette, short dstEntry, const RGBColor *srcRGB);
 
     /**
     \brief Access the usage and tolerance fields of one palette color
@@ -327,7 +322,7 @@ available. Later, SetEntryUsage can come along and make the change.
 */
     void
     GetEntryUsage(PaletteHandle srcPalette, short srcEntry, short *dstUsage,
-                  short *dstTolerance) ONEWORDINLINE(0xAA9D);
+                  short *dstTolerance);
 
     /**
     \brief Change the usage and tolerance of a palette entry
@@ -357,7 +352,7 @@ customize your palette.
 */
     void
     SetEntryUsage(PaletteHandle dstPalette, short dstEntry, short srcUsage,
-                  short srcTolerance) ONEWORDINLINE(0xAA9E);
+                  short srcTolerance);
 
     /**
      *  CTab2Palette()
@@ -369,7 +364,7 @@ customize your palette.
      */
     void
     CTab2Palette(CTabHandle srcCTab, PaletteHandle dstPalette, short srcUsage,
-                 short srcTolerance) ONEWORDINLINE(0xAA9F);
+                 short srcTolerance);
 
     /**
      *  Palette2CTab()
@@ -380,8 +375,7 @@ customize your palette.
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    Palette2CTab(PaletteHandle srcPalette, CTabHandle dstCTab)
-        ONEWORDINLINE(0xAAA0);
+    Palette2CTab(PaletteHandle srcPalette, CTabHandle dstCTab);
 
     /**
     \brief Return the index for an entry in current palette
@@ -395,7 +389,7 @@ the current grafPort 's palette on the current device.
 *    \mac_os_x         in version 10.0 and later
 */
     long
-    Entry2Index(short entry) TWOWORDINLINE(0x7000, 0xAAA2);
+    Entry2Index(short entry);
 
     /**
      *  RestoreDeviceClut()
@@ -406,7 +400,7 @@ the current grafPort 's palette on the current device.
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    RestoreDeviceClut(GDHandle gd) TWOWORDINLINE(0x7002, 0xAAA2);
+    RestoreDeviceClut(GDHandle gd);
 
 /**
  *  [Mac]ResizePalette()
@@ -420,7 +414,7 @@ the current grafPort 's palette on the current device.
 #define MacResizePalette ResizePalette
 #endif
     void
-    MacResizePalette(PaletteHandle p, short size) TWOWORDINLINE(0x7003, 0xAAA2);
+    MacResizePalette(PaletteHandle p, short size);
 
     /**
      *  SaveFore()
@@ -431,7 +425,7 @@ the current grafPort 's palette on the current device.
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    SaveFore(ColorSpec *c) THREEWORDINLINE(0x303C, 0x040D, 0xAAA2);
+    SaveFore(ColorSpec *c);
 
     /**
      *  SaveBack()
@@ -442,7 +436,7 @@ the current grafPort 's palette on the current device.
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    SaveBack(ColorSpec *c) THREEWORDINLINE(0x303C, 0x040E, 0xAAA2);
+    SaveBack(ColorSpec *c);
 
     /**
      *  RestoreFore()
@@ -453,7 +447,7 @@ the current grafPort 's palette on the current device.
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    RestoreFore(const ColorSpec *c) THREEWORDINLINE(0x303C, 0x040F, 0xAAA2);
+    RestoreFore(const ColorSpec *c);
 
     /**
      *  RestoreBack()
@@ -464,7 +458,7 @@ the current grafPort 's palette on the current device.
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    RestoreBack(const ColorSpec *c) THREEWORDINLINE(0x303C, 0x0410, 0xAAA2);
+    RestoreBack(const ColorSpec *c);
 
     /**
      *  SetDepth()
@@ -475,8 +469,7 @@ the current grafPort 's palette on the current device.
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SetDepth(GDHandle gd, short depth, short whichFlags, short flags)
-        THREEWORDINLINE(0x303C, 0x0A13, 0xAAA2);
+    SetDepth(GDHandle gd, short depth, short whichFlags, short flags);
 
     /**
      *  HasDepth()
@@ -487,8 +480,7 @@ the current grafPort 's palette on the current device.
      *    \mac_os_x         in version 10.0 and later
      */
     short
-    HasDepth(GDHandle gd, short depth, short whichFlags, short flags)
-        THREEWORDINLINE(0x303C, 0x0A14, 0xAAA2);
+    HasDepth(GDHandle gd, short depth, short whichFlags, short flags);
 
     /**
     \brief Get version of the Palette Manager
@@ -507,7 +499,7 @@ Value Description
 *    \mac_os_x         in version 10.0 and later
 */
     short
-    PMgrVersion(void) TWOWORDINLINE(0x7015, 0xAAA2);
+    PMgrVersion(void);
 
     /**
     \brief SetPaletteUpdates Set the update attribute of a palette
@@ -524,8 +516,7 @@ Returns: none
 *    \mac_os_x         in version 10.0 and later
 */
     void
-    SetPaletteUpdates(PaletteHandle p, short updates)
-        THREEWORDINLINE(0x303C, 0x0616, 0xAAA2);
+    SetPaletteUpdates(PaletteHandle p, short updates);
 
     /**
     \brief GetPaletteUpdates Return the update attribute of a palette
@@ -541,7 +532,7 @@ procedure
 *    \mac_os_x         in version 10.0 and later
 */
     short
-    GetPaletteUpdates(PaletteHandle p) THREEWORDINLINE(0x303C, 0x0417, 0xAAA2);
+    GetPaletteUpdates(PaletteHandle p);
 
     /**
      *  GetGray()
@@ -552,8 +543,7 @@ procedure
      *    \mac_os_x         in version 10.0 and later
      */
     Boolean
-    GetGray(GDHandle device, const RGBColor *backGround, RGBColor *foreGround)
-        THREEWORDINLINE(0x303C, 0x0C19, 0xAAA2);
+    GetGray(GDHandle device, const RGBColor *backGround, RGBColor *foreGround);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -573,5 +563,4 @@ procedure
 }
 #endif
 
-#endif /** __PALETTES__ */
-* /*/*/ * /*/*/ */*/
+#endif /** __PALETTES__ */ *  /*/

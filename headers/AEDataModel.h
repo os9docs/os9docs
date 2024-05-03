@@ -503,7 +503,7 @@ typedef Ptr AEDataStorageType;
      AECoerceDescUPP from your AECoercePtrUPP type.  A future release of the
      interfaces will fix this by introducing seperate Desc and Ptr coercion
      handler installation/remove/query routines. */
-  typede\carbon_libDescUPP AECoercionHandlerUPP;
+  typedef AECoercionHandlerUPP AECoercionHandlerUPP;
   /**
    *  AEInstallCoercionHandler()
    *
@@ -515,55 +515,48 @@ typedef Ptr AEDataStorageType;
   OSErr
   AEInstallCoercionHandler(DescType fromType, DescType toType,
                            AECoercionHandlerUPP handler, long handlerRefcon,
-                           Boolean fromTypeIsDesc, Boolean isSysHandler)
-      THREEWORDINLINE(0x303C, 0x0A22, 0xA816);
-  \carbon_lib
+                           Boolean fromTypeIsDesc, Boolean isSysHandler);
 
-      /**
-       *  AERemoveCoercionHandler()
-       *
+  /**
+   *  AERemoveCoercionHandler()
+   *
 
-       *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-       *    \carbon_lib        in CarbonLib 1.0 and later
-       *    \mac_os_x         in version 10.0 and later
-       */
-      OSErr
-      AERemoveCoercionHandler(DescType fromType, DescType toType,
-                              AECoercionHandlerUPP handler,
-                              Boolean isSysHandler)
-          THREEWORDINLINE(0x303C, 0x0723, 0xA816);
-  \carbon_lib
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AERemoveCoercionHandler(DescType fromType, DescType toType,
+                          AECoercionHandlerUPP handler,
+                          Boolean isSysHandler);
 
-      /**
-       *  AEGetCoercionHandler()
-       *
+  /**
+   *  AEGetCoercionHandler()
+   *
 
-       *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-       *    \carbon_lib        in CarbonLib 1.0 and later
-       *    \mac_os_x         in version 10.0 and later
-       */
-      OSErr
-      AEGetCoercionHandler(DescType fromType, DescType toType,
-                           AECoercionHandlerUPP *handler, long *handlerRefcon,
-                           Boolean *fromTypeIsDesc, Boolean isSysHandler)
-          THREEWORDINLINE(0x303C, 0x0B24, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AEGetCoercionHandler(DescType fromType, DescType toType,
+                       AECoercionHandlerUPP *handler, long *handlerRefcon,
+                       Boolean *fromTypeIsDesc, Boolean isSysHandler);
 
-  \carbon_lib
-      /***************************************************************************
-        The following calls provide for a coercion interface.
-      **************************************************************************/
-      /**
-       *  AECoercePtr()
-       *
+  /***************************************************************************
+    The following calls provide for a coercion interface.
+  **************************************************************************/
+  /**
+   *  AECoercePtr()
+   *
 
-       *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-       *    \carbon_lib        in CarbonLib 1.0 and later
-       *    \mac_os_x         in version 10.0 and later
-       */
-      OSErr
-      AECoercePtr(DescType typeCode, const void *dataPtr,
-                  Size\carbon_libdataSize, DescType toType, AEDesc *result)
-          THREEWORDINLINE(0x303C, 0x0A02, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AECoercePtr(DescType typeCode, const void *dataPtr,
+              Size dataSize, DescType toType, AEDesc *result);
 
   /**
    *  AECoerceDesc()
@@ -574,8 +567,7 @@ typedef Ptr AEDataStorageType;
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AECoerceDesc(const AEDesc *theAEDesc, DescType toType, AEDesc *result)
-      THREEWORDINLINE(0x303C, 0x0603, 0xA816);
+  AECoerceDesc(const AEDesc *theAEDesc, DescType toType, AEDesc *result);
 
   /***************************************************************************
    The f\carbon_liballs apply to any AEDesc. Every 'result' descriptor is
@@ -595,7 +587,7 @@ typedef Ptr AEDataStorageType;
   void
   AEInitializeDesc(AEDesc *desc);
 
-#ifdef \carbon_libus
+#ifdef __cplusplus
   inline void AEInitializeDescInline(AEDesc *d)
   {
     d->descriptorType = typeNull;
@@ -619,189 +611,180 @@ typedef Ptr AEDataStorageType;
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-EXTERN\carbon_libr )
-AECreateDesc(
-  DescType      typeCode,
-  const void *  dataPtr,
-  Size          dataSize,
-  AEDesc *      result)                                       THREEWORDINLINE(0x303C, 0x0825, 0xA816);
+  OSErr
+  AECreateDesc(
+      DescType typeCode,
+      const void *dataPtr,
+      Size dataSize,
+      AEDesc *result);
 
-/**
- *  AEDisposeDesc()
- *
+  /**
+   *  AEDisposeDesc()
+   *
 
- *    \carbon_lib\non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEDisposeDesc(AEDesc *theAEDesc) THREEWORDINLINE(0x303C, 0x0204, 0xA816);
+   *    \carbon_lib\non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEDisposeDesc(AEDesc *theAEDesc);
 
-/**
- *  AEDuplicateDesc()
- *
+  /**
+   *  AEDuplicateDesc()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEDuplicateDesc(const AEDesc *theAEDesc, AEDesc *result)
-    THREEWORDINLINE(0x303C, 0x0405, 0xA816);
-\carbon_lib
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEDuplicateDesc(const AEDesc *theAEDesc, AEDesc *result);
 
-    /***************************************************************************
-      The following calls apply to AEDescList. Since AEDescList is a subtype of
-      AEDesc, the calls in the previous section can also be used for AEDescList.
-      All list and array indices are 1-based. If the data was greater than
-      maximumSize in the routines below, then actualSize will be greater than
-      maximumSize, but only maximumSize bytes will actually be retrieved.
-    **************************************************************************/
-    /**
-     *  AECreateList()
-     *
+  /***************************************************************************
+    The following calls apply to AEDescList. Since AEDescList is a subtype of
+    AEDesc, the calls in the previous section can also be used for AEDescList.
+    All list and array indices are 1-based. If the data was greater than
+    maximumSize in the routines below, then actualSize will be greater than
+    maximumSize, but only maximumSize bytes will actually be retrieved.
+  **************************************************************************/
+  /**
+   *  AECreateList()
+   *
 
-     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \mac_os_x         in version 10.0 and later
-     */
-    OSErr
-    AECreateList(const void *factoringPtr, Size factoredSize,
-                 Boolean isRecord, AEDescList *resultList)
-        THREEWORDINLINE(0x303C, 0x0706, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr
+  AECreateList(const void *factoringPtr, Size factoredSize,
+               Boolean isRecord, AEDescList *resultList);
 
-/**
-\brief Count number of descriptor records in a descriptor list
+  /**
+  \brief Count number of descriptor records in a descriptor list
 
-<pre>You can use the AECountItems function to count the number of descriptor
-records in any descriptor list.
-The AECountItems function counts the number of descriptor records in a
-descriptor list .
-The parameter theAEDescList is the descriptor list to be counted.
-The AECountItems function returns the number of descriptor records in the
-list in the parameter theCount .
-For an example program showing use of AECountItems , see the description
-of Open Documents Event .
-Result codes
-noErr(0)No error
-errAENotAEDesc (-1704) Not a valid descriptor record
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
-*/
-/**
-*  AEPutPtr()
-*
+  <pre>You can use the AECountItems function to count the number of descriptor
+  records in any descriptor list.
+  The AECountItems function counts the number of descriptor records in a
+  descriptor list .
+  The parameter theAEDescList is the descriptor list to be counted.
+  The AECountItems function returns the number of descriptor records in the
+  list in the parameter theCount .
+  For an example program showing use of AECountItems , see the description
+  of Open Documents Event .
+  Result codes
+  noErr(0)No error
+  errAENotAEDesc (-1704) Not a valid descriptor record
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
+  */
+  /**
+  *  AEPutPtr()
+  *
 
-*
-on_car\carbon_libin InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-OSErr AEPutPtr(AEDescList *theAEDescList, long index, DescType typeCode,
-               const void *dataPtr, Size dataSize)
-    THREEWORDINLINE(0x303C, 0x0A08, 0xA816);
+  *
+  on_car\carbon_libin InterfaceLib 7.1 and later
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  OSErr AEPutPtr(AEDescList *theAEDescList, long index, DescType typeCode,
+                 const void *dataPtr, Size dataSize);
 
-/**
- *  AEPutDesc()
- *  \carbon_lib
+  /**
+   *  AEPutDesc()
+   *  \carbon_lib
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEPutDesc(AEDescList *theAEDescList, long index, const AEDesc *theAEDesc)
-    THREEWORDINLINE(0x303C, 0x0609, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEPutDesc(AEDescList *theAEDescList, long index, const AEDesc *theAEDesc);
 
-/**
- *  AEGetNthPtr()
- *
+  /**
+   *  AEGetNthPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEGetNthPtr(const AEDescList *theAEDescList, long index, DescType desiredType,
-                  AEKeyword *theAEKeyword, DescType *typeCode, void *dataPtr,
-                  Size maximumSize, Size *actualSize)
-    THREEWORDINLINE(0x303C, 0x100A, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEGetNthPtr(const AEDescList *theAEDescList, long index, DescType desiredType,
+                    AEKeyword *theAEKeyword, DescType *typeCode, void *dataPtr,
+                    Size maximumSize, Size *actualSize);
 
-/**
- *  AEGetNthDesc()
- *  \carbon_lib
+  /**
+   *  AEGetNthDesc()
+   *  \carbon_lib
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEGetNthDesc(const AEDescList *theAEDescList, long index, DescType desiredType,
-                   AEKeyword *theAEKeyword, AEDesc *result)
-    THREEWORDINLINE(0x303C, 0x0A0B, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEGetNthDesc(const AEDescList *theAEDescList, long index, DescType desiredType,
+                     AEKeyword *theAEKeyword, AEDesc *result);
 
-/**\carbon_lib
- *  AESizeOfNthItem()
- *
+  /**\carbon_lib
+   *  AESizeOfNthItem()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AESizeOfNthItem(const AEDescList *theAEDescList, long index, DescType *typeCode,
-                      Size *dataSize) THREEWORDINLINE(0x303C, 0x082A, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AESizeOfNthItem(const AEDescList *theAEDescList, long index, DescType *typeCode,
+                        Size *dataSize);
 
-/**
- *  AEGetArray()
- *  \carbon_lib
+  /**
+   *  AEGetArray()
+   *  \carbon_lib
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEGetArray(const AEDescList *theAEDescList, AEArrayType arrayType,
-                 AEArrayDataPointer arrayPtr, Size maximumSize, DescType *itemType,
-                 Size *itemSize, long *itemCount)
-    THREEWORDINLINE(0x303C, 0x0D0C, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEGetArray(const AEDescList *theAEDescList, AEArrayType arrayType,
+                   AEArrayDataPointer arrayPtr, Size maximumSize, DescType *itemType,
+                   Size *itemSize, long *itemCount);
 
-/**\carbon_lib
- *  AEPutArray()
- *
+  /**\carbon_lib
+   *  AEPutArray()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEPutArray(AEDescList *theAEDescList, AEArrayType arrayType,
-                 const AEArrayData *arrayPtr, DescType itemType, Size itemSize,
-                 long itemCount) THREEWORDINLINE(0x303C, 0x0B0D, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEPutArray(AEDescList *theAEDescList, AEArrayType arrayType,
+                   const AEArrayData *arrayPtr, DescType itemType, Size itemSize,
+                   long itemCount);
 
-/**
- *  AEDeleteItem()
- *
+  /**
+   *  AEDeleteItem()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEDeleteItem(AEDescList *theAEDescList, long index)
-    THREEWORDINLINE(0x303C, 0x040E, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEDeleteItem(AEDescList *theAEDescList, long index);
 
-/***************************************************************************
- The following calls apply to AERecord. Since AERecord is a subtype of
- AEDescList, the calls in the previous sections can also be used for
- AERecord an AERecord can be created by using AECreateList with isRecord
- set to true.
-**************************************************************************/
-/**************************************************************************
- AERecords can have an abitrary descriptorType.  This allows you to
- check if desc is truly an AERecord
-************************************************************************/
-/**
- *  AECheckIsRecord()
- *
+  /***************************************************************************
+   The following calls apply to AERecord. Since AERecord is a subtype of
+   AEDescList, the calls in the previous sections can also be used for
+   AERecord an AERecord can be created by using AECreateList with isRecord
+   set to true.
+  **************************************************************************/
+  /**************************************************************************
+   AERecords can have an abitrary descriptorType.  This allows you to
+   check if desc is truly an AERecord
+  ************************************************************************/
+  /**
+   *  AECheckIsRecord()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.4 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-AECheckIsRecord(const AEDesc *theDesc);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.4 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Boolean
+  AECheckIsRecord(const AEDesc *theDesc);
 
 /**
   Note: The following #defines map ©key© calls on AERecords into ©param© calls
@@ -844,8 +827,7 @@ AECheckIsRecord(const AEDesc *theDesc);
   OSErr
   AECreateAppleEvent(AEEventClass theAEEventClass, AEEventID theAEEventID,
                      const AEAddressDesc *target, AEReturnID returnID,
-                     AETransactionID transactionID, AppleEvent *result)
-      THREEWORDINLINE(0x303C, 0x0B14, 0xA816);
+                     AETransactionID transactionID, AppleEvent *result);
 
   /***************************************************************************
     The following calls are used to pack and unpack parameters from records
@@ -862,214 +844,203 @@ AECheckIsRecord(const AEDesc *theDesc);
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-OSErr
-AEPutP\carbon_lib
-  AppleEvent *  theAppleEvent,
-  AEKeyword     theAEKeyword,
-  DescType      typeCode,
-  const void *  dataPtr,
-  Size          dataSize)                                     THREEWORDINLINE(0x303C, 0x0A0F, 0xA816);
+  OSErr
+  AEPutParamPtr(
+      AppleEvent *theAppleEvent,
+      AEKeyword theAEKeyword,
+      DescType typeCode,
+      const void *dataPtr,
+      Size dataSize);
 
-/**
- *  AEPutParamDesc()
- *
+  /**
+   *  AEPutParamDesc()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEPutParamDesc(Appl\carbon_lib theAppleEvent, AEKeyword theAEKeyword,
-                     const AEDesc *theAEDesc) THREEWORDINLINE(0x303C, 0x0610, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEPutParamDesc(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                       const AEDesc *theAEDesc);
 
-/**
- *  AEGetParamPtr()
- *
+  /**
+   *  AEGetParamPtr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEGetParamPtr(cons\carbon_libnt *theAppleEvent, AEKeyword theAEKeyword,
-                    DescType desiredType, DescType *typeCode, void *dataPtr,
-                    Size maximumSize, Size *actualSize)
-    THREEWORDINLINE(0x303C, 0x0E11, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEGetParamPtr(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                      DescType desiredType, DescType *typeCode, void *dataPtr,
+                      Size maximumSize, Size *actualSize);
 
-/**
- *  AEGetParamDesc()
- *
+  /**
+   *  AEGetParamDesc()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \carbon_lib        in version 10.0 and later
- */
-OSErr AEGetParamDesc(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
-                     DescType desiredType, AEDesc *result)
-    THREEWORDINLINE(0x303C, 0x0812, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \carbon_lib        in version 10.0 and later
+   */
+  OSErr AEGetParamDesc(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                       DescType desiredType, AEDesc *result);
 
-/**
- *  AESizeOfParam()
- *
+  /**
+   *  AESizeOfParam()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AESizeOfParam(const AppleEvent *theAppleEvent, AEKe\carbon_lib theAEKeyword,
-                    DescType *typeCode, Size *dataSize)
-    THREEWORDINLINE(0x303C, 0x0829, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AESizeOfParam(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                      DescType *typeCode, Size *dataSize);
 
-/**
- *  AEDeleteParam()
- *
+  /**
+   *  AEDeleteParam()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEDeleteParam(AppleEvent *theAppleEvent, AEKeyword theAEKeyword)
-    THREEWORDINLINE(0x303C, 0x0413, 0xA816);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEDeleteParam(AppleEvent *theAppleEvent, AEKeyword theAEKeyword);
 
-\carbon_lib
+  /***************************************************************************
+   The following calls also apply to type AppleEvent. Message attributes are
+   far more restricted, and can only be accessed through the following 5
+   calls. The various list and record routines cannot be used to access the
+   attributes of an event.
+  **************************************************************************/
+  /**
+   *  AEGetAttributePtr()
+   *
 
-    /***************************************************************************
-     The following calls also apply to type AppleEvent. Message attributes are
-     far more restricted, and can only be accessed through the following 5
-     calls. The various list and record routines cannot be used to access the
-     attributes of an event.
-    **************************************************************************/
-    /**
-     *  AEGetAttributePtr()
-     *
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \carbon_lib        in version 10.0 and later
+   */
+  OSErr
+  AEGetAttributePtr(const AppleEvent *theAppleEvent,
+                    AEKeyword theAEKeyword, DescType desiredType,
+                    DescType *typeCode, void *dataPtr, Size maximumSize,
+                    Size *actualSize);
 
-     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-     *    \carbon_lib        in CarbonLib 1.0 and later
-     *    \carbon_lib        in version 10.0 and later
-     */
-    OSErr
-    AEGetAttributePtr(const AppleEvent *theAppleEvent,
-                      AEKeyword theAEKeyword, DescType desiredType,
-                      DescType *typeCode, void *dataPtr, Size maximumSize,
-                      Size *actualSize)
-        THREEWORDINLINE(0x303C, 0x0E15, 0xA816);
+  /**
+   *  AEGetAttributeDesc()
+   *
+  \carbon_lib
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEGetAttributeDesc(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                           DescType desiredType, AEDesc *result);
 
-/**
- *  AEGetAttributeDesc()
- *
-\carbon_lib
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEGetAttributeDesc(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
-                         DescType desiredType, AEDesc *result)
-    THREEWORDINLINE(0x303C, 0x0826, 0xA816);
+  /**
+   *  AESizeOfAttribute()
+   *
+  \carbon_lib
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AESizeOfAttribute(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                          DescType *typeCode, Size *dataSize);
 
-/**
- *  AESizeOfAttribute()
- *
-\carbon_lib
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AESizeOfAttribute(const AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
-                        DescType *typeCode, Size *dataSize)
-    THREEWORDINLINE(0x303C, 0x0828, 0xA816);
+  /**
+   *  AEPutAttributePtr()
+   *
 
-/**
- *  AEPutAttributePtr()
- *
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEPutAttributePtr(AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                          DescType typeCode, const void *dataPtr, Size dataSize);
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEPutAttributePtr(AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
-                        DescType typeCode, const void *dataPtr, Size dataSize)
-    THREEWORDINLINE(0x303C, 0x0A16, 0xA816);
+  /**
+   *  AEPutAttributeDesc()
+   *  \carbon_lib
 
-/**
- *  AEPutAttributeDesc()
- *  \carbon_lib
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSErr AEPutAttributeDesc(AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
+                           const AEDesc *theAEDesc);
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSErr AEPutAttributeDesc(AppleEvent *theAppleEvent, AEKeyword theAEKeyword,
-                         const AEDesc *theAEDesc)
-    THREEWORDINLINE(0x303C, 0x0627, 0xA816);
+  /***************************************************************************
+   AppleEvent Serialization Support
 
-/***************************************************************************
- AppleEvent Serialization Support
+      AESizeOfFlattenedDesc, AEFlattenDesc, AEUnflattenDesc
 
-    AESizeOfFlattenedDesc, AEFlattenDesc, AEUnflattenDesc
+      These calls will work for all AppleEvent data types and between different
+      versions of the OS (including between Mac OS 9 and X)
 
-    These calls will work for all AppleEvent data types and between different
-    versions of the OS (including between Mac OS 9 and X)
+      Basic types, AEDesc, AEList and AERecord are OK, but AppleEvent records
+      th\carbon_libay not be reliably flattened for storage.
+  **************************************************************************/
+  /**
+     AEFlattenDesc
+     Returns the amount of buffer space needed to flatten the
+     AEDesc. Call this before AEFlattenDesc to make sure your
+     buffer has enough room for the operation.
+  */
 
-    Basic types, AEDesc, AEList and AERecord are OK, but AppleEvent records
-    th\carbon_libay not be reliably flattened for storage.
-**************************************************************************/
-/**
-   AEFlattenDesc
-   Returns the amount of buffer space needed to flatten the
-   AEDesc. Call this before AEFlattenDesc to make sure your
-   buffer has enough room for the operation.
-*/
+  /**
+   *  AESizeOfFlattenedDesc()
+   *
 
-/**
- *  AESizeOfFlattenedDesc()
- *
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.4 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  Size AESizeOfFlattenedDesc(const AEDesc *theAEDesc);
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.4 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Size AESizeOfFlattenedDesc(const AEDesc *theAEDesc);
+  /**
+     AEFlattenDesc
+     Fil\carbon_libr with a flattened representation of the
+     AEDesc and returns the amount of buffer used in actualSize.
+     If bufferSize was too small it returns errAEBufferTooSmall
+     (-1741) and does not fill in any of the buffer. The resulting
+     buffer is only useful with an AEUnflattenDesc call.
 
-/**
-   AEFlattenDesc
-   Fil\carbon_libr with a flattened representation of the
-   AEDesc and returns the amount of buffer used in actualSize.
-   If bufferSize was too small it returns errAEBufferTooSmall
-   (-1741) and does not fill in any of the buffer. The resulting
-   buffer is only useful with an AEUnflattenDesc call.
+     Note: if you pass a NULL buffer pointer it returns noErr but
+     fills in the actualSize field anyway.
+  */
 
-   Note: if you pass a NULL buffer pointer it returns noErr but
-   fills in the actualSize field anyway.
-*/
+  /**
+   *  AEFlattenDesc()
+   *
 
-/**
- *  AEFlattenDesc()
- *
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.4 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  AEFlattenDesc(const AEDesc *theAEDesc, Ptr buffer, Size bufferSize,
+                Size *actualSize);
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.4 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSStatus
-AEFlattenDesc(const AEDesc *theAEDesc, Ptr buffer, Size bufferSize,
-              Size\carbon_lib actualSize);
+  /**
+     AEUnflattenDesc
+     Allocates an AEDesc (given a Null Desc) given a flattened
+     data buffer. It assumes it was given a good buffer filled
+     in by AEFlattenDesc. It returns paramErr if it discovers
+     something fishy about the buffer.
+  */
 
-/**
-   AEUnflattenDesc
-   Allocates an AEDesc (given a Null Desc) given a flattened
-   data buffer. It assumes it was given a good buffer filled
-   in by AEFlattenDesc. It returns paramErr if it discovers
-   something fishy about the buffer.
-*/
+  /**
+   *  AEUnflattenDesc()
+   *
 
-/**
- *  AEUnflattenDesc()
- *
-
- *    \carbon_lib\non_carbon_cfm   not available
- *    \carbon_lib        in CarbonLib 1.4 and later
- *    \mac_os_x         in version 10.0 and later
- */
-OSStatus
-AEUnflattenDesc(Ptr buffer, AEDesc *result);
+   *    \carbon_lib\non_carbon_cfm   not available
+   *    \carbon_lib        in CarbonLib 1.4 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  OSStatus
+  AEUnflattenDesc(Ptr buffer, AEDesc *result);
 
 /***************************************************************************
  The f\carbon_liballs are necessary to deal with opaque data in AEDescs, because
@@ -1122,10 +1093,10 @@ dataHandle directly.  This is not supported under Carbon.
   /***************************************************************************
     A AEEventHandler is installed to process an AppleEvent
   **************************************************************************/
-  typede\carbon_lib_API(OSErr,
-                        AEEventHandlerProcPtr)(const AppleEvent *theAppleEvent,
-                                               AppleEvent *reply,
-                                               long handlerRefcon);
+  typedef CALLBACK_API(OSErr,
+                       AEEventHandlerProcPtr)(const AppleEvent *theAppleEvent,
+                                              AppleEvent *reply,
+                                              long handlerRefcon);
   typedef STACK_UPP_TYPE(AEEventHandlerProcPtr) AEEventHandlerUPP;
   /**
    *  NewAEEventHandlerUPP()
@@ -1232,8 +1203,7 @@ dataHandle directly.  This is not supported under Carbon.
 }
 #endif
 
-#endif /** __AEDATAMODEL__ */
-* / LL_NOT_IN_CARBON || OLDROUTINENAMES
+#ifdef CALL_NOT_IN_CARBON || OLDROUTINENAMES
 /** support for pre-Carbon UPP routines: New...Proc and Call...Proc */
 #define NewAEEventHandlerProc(userRoutine) NewAEEventHandlerUPP(userRoutine)
 #define CallAEEventHandlerProc(userRoutine, theAppleEvent, reply, \

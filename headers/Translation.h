@@ -107,8 +107,7 @@ extern "C"
      */
     OSErr
     GetFileTypesThatAppCanNativelyOpen(short appVRefNumHint, OSType appSignature,
-                                       FileType *nativeTypes)
-        TWOWORDINLINE(0x701C, 0xABFC);
+                                       FileType *nativeTypes);
 
     /*****************************************************************************************
      *
@@ -137,8 +136,7 @@ extern "C"
      */
     OSErr
     ExtendFileTypeList(const FileType *originalTypeList, short numberOriginalTypes,
-                       FileType *extendedTypeList, short *numberExtendedTypes)
-        TWOWORDINLINE(0x7009, 0xABFC);
+                       FileType *extendedTypeList, short *numberExtendedTypes);
 
     /*****************************************************************************************
      *
@@ -174,8 +172,7 @@ extern "C"
     CanDocBeOpened(const FSSpec *targetDocument, short appVRefNumHint,
                    OSType appSignature, const FileType *nativeTypes,
                    Boolean onlyNative, DocOpenMethod *howToOpen,
-                   FileTranslationSpec *howToTranslate)
-        TWOWORDINLINE(0x701E, 0xABFC);
+                   FileTranslationSpec *howToTranslate);
 
     /*****************************************************************************************
      *
@@ -202,8 +199,7 @@ extern "C"
     short
     GetFileTranslationPaths(const FSSpec *srcDocument, FileType dstDocType,
                             unsigned short maxResultCount,
-                            FileTranslationSpecArrayPtr resultBuffer)
-        TWOWORDINLINE(0x7038, 0xABFC);
+                            FileTranslationSpecArrayPtr resultBuffer);
 
     /*****************************************************************************************
      *
@@ -237,8 +233,7 @@ extern "C"
     GetPathFromTranslationDialog(const FSSpec *theDocument,
                                  const FSSpec *theApplication,
                                  TypesBlockPtr typeList, DocOpenMethod *howToOpen,
-                                 FileTranslationSpec *howToTranslate)
-        TWOWORDINLINE(0x7037, 0xABFC);
+                                 FileTranslationSpec *howToTranslate);
 
     /*****************************************************************************************
      *
@@ -265,8 +260,7 @@ extern "C"
      */
     OSErr
     TranslateFile(const FSSpec *sourceDocument, const FSSpec *destinationDocument,
-                  const FileTranslationSpec *howToTranslate)
-        TWOWORDINLINE(0x700C, 0xABFC);
+                  const FileTranslationSpec *howToTranslate);
 
     /*****************************************************************************************
      *
@@ -294,7 +288,7 @@ extern "C"
      */
     OSErr
     GetDocumentKindString(short docVRefNum, OSType docType, OSType docCreator,
-                          Str63 kindString) TWOWORDINLINE(0x7016, 0xABFC);
+                          Str63 kindString);
 
     /*****************************************************************************************
      *
@@ -319,7 +313,7 @@ extern "C"
      */
     OSErr
     GetTranslationExtensionName(const FileTranslationSpec *translationMethod,
-                                Str31 extensionName) TWOWORDINLINE(0x7036, 0xABFC);
+                                Str31 extensionName);
 
     /*****************************************************************************************
      *
@@ -464,7 +458,7 @@ extern "C"
     OSErr
     TranslateScrap(GetScrapDataUPP sourceDataGetter, void *sourceDataGetterRefCon,
                    ScrapType destinationFormat, Handle destinationData,
-                   short progressDialogID) TWOWORDINLINE(0x700E, 0xABFC);
+                   short progressDialogID);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

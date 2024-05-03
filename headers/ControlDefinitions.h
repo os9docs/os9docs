@@ -155,7 +155,15 @@ extern "C"
     kControlLabelPart = 1,
     kControlMenuPart = 2,
     kControlTrianglePart = 4,
-    kControlEditTextPart = 5,            // Appearance 1.0 and later    kControlPicturePart = 6,             // Appearance 1.0 and later    kControlIconPart = 7,                // Appearance 1.0 and later    kControlClockPart = 8,               // Appearance 1.0 and later    kControlListBoxPart = 24,            // Appearance 1.0 and later    kControlListBoxDoubleClickPart = 25, // Appearance 1.0 and later    kControlImageWellPart = 26,          // Appearance 1.0 and later    kControlRadioGroupPart = 27,         // Appearance 1.0.2 and later    kControlButtonPart = 10,
+    kControlEditTextPart = 5,             /** 1.0 */
+and later    kControlPicturePart  =  6              /** 1.0 */
+and later    kControlIconPart  =  7                 /** 1.0 */
+and later    kControlClockPart  =  8                /** 1.0 */
+and later    kControlListBoxPart  =  24             /** 1.0 */
+and later    kControlListBoxDoubleClickPart  =  25  /** 1.0 */
+and later    kControlImageWellPart  =  26           /** 1.0 */
+and later    kControlRadioGroupPart  =  27          /** 1.0.2 */
+and later    kControlButtonPart  =  10
     kControlCheckBoxPart = 11,
     kControlRadioButtonPart = 11,
     kControlUpButtonPart = 20,
@@ -178,7 +186,9 @@ extern "C"
    * for the */// Appearance 1.0 and later
   /*  control, as well as adjusting the v// Appearance 1.0.2 and later
    * where: */
-  //                                                                                        //  Parameter                   What Goes Here   //  ©©©©©©©©©©©©©©©©©©© ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©   //  Min                         Hi Byte = Behavior, Lo Byte = content type.   //  Max                         ResID for resource-based content types.   //  Value                       MenuID to attach, 0 = no menu, please.   //                                                                                        /*  The variant is broken down into two halfs. The low 2 bits control the bevel
+   
+                                                                                     //  Parameter                   What Goes Here   //  ©©©©©©©©©©©©©©©©©©© ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©   //  Min                         Hi Byte  =  Behavior Lo Byte = content type.    /** Max */
+                        ResID for resource-based content types.   //  Value                       MenuID to attach, 0  =  no menu please.   //                                                                                        /*  The variant is broken down into two halfs. The low 2 bits control the bevel
    * type.   */
   /*  Bit 2 controls the popup arrow direction (if a menu is present) and bit 3
    * controls  */
@@ -190,9 +200,13 @@ extern "C"
    * kControlContentIconSuiteRes + */// Appearance 1.1 and later
   /*                          kBehaviorT// CarbonLib 1.0 and later
    * bevelButtonSmallBevelProc, */// CarbonLib 1.0 and later
-  //                          0L );   //                                                                                        //  Attaching a menu:   //                                                                                        //  control = NewControl( window, &bounds, "\p", true, kMyMenuID,   /*          kControlContentIconSuiteRes, myIconSuiteID,
+  // 
+                       0L );    
+                                                                                      /** Attaching */
+a menu:   //                                                                                        //  control   =   NewControl( window &bounds "\p", true, kMyMenuID,   /*          kControlContentIconSuiteRes, myIconSuiteID,
    * bevelButtonSmallBevelProc +     */
-  //          kBevelButtonMenuOnRight, 0L );   //                                                                                        /*  This will attach menu ID kMyMenuID to the button, with the popup arrow
+  // 
+       kBevelButtonMenuOnRight, 0L );   //                                                                                        /*  This will attach menu ID kMyMenuID to the button, with the popup arrow
   //  © Control Types and ID©s available only with Appearance 1.0 and later 
   /*  This also puts the menu up to the right of the button. You can also specify
    * that a  */
@@ -213,9 +227,11 @@ extern "C"
   //                                                                                      
   //  Parameter                   What Goes Here 
   //  ©©©©©©©©©©©©©©©©©©© ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©© 
-  //  Min                         Hi Byte = Behavior, Lo Byte = content type. 
+   /** Min */
+                        Hi Byte  =  Behavior Lo Byte = content type. 
   //  Max                         ResID for resource-based content types. 
-  //  Value                       MenuID to attach, 0 = no menu, please. 
+   /** Value */
+                      MenuID to attach, 0  =  no menu please. 
   //                                                                                      
    * handle,      */
   //  else a memory leak will ensue.   //                                                                                        // Bevel Button Proc IDs   enum
@@ -235,14 +251,17 @@ extern "C"
     kControlBevelButtonMenuOnRightVariant = (1 << 2)
   };
 
-  //                          0L ); 
+  // 
+                       0L ); 
   //                                                                                      
   //  Attaching a menu: 
   //                                                                                      
-  //  control = NewControl( window, &bounds, "\p", true, kMyMenuID, 
+   /** control */
+ =  NewControl( window &bounds, "\p", true, kMyMenuID, 
     kControlBevelButtonLargeBevel = 2
   };
-//          kBevelButtonMenuOnRight, 0L ); 
+// 
+       kBevelButtonMenuOnRight, 0L ); 
   //                                                                                      
   {
     kControlBehaviorPushbutton = 0,
@@ -256,7 +275,8 @@ extern "C"
   // Behaviors for 1.0.1 or later   enum
   //  was checked. 
   //                                                                                      
-        0x2000 // menu holds commands, not choices. Overrides multi-value bit.  };
+        0x2000 // menu holds commands, not choices. Overrides multi-value bit.  
+};
 
   typedef UInt16 ControlBevelButtonBehavior;
   typedef UInt16 ControlBevelButtonMenuBehavior;
@@ -272,7 +292,8 @@ extern "C"
     kControlKindBevelButton = FOUR_CHAR_CODE('bevl')
   };
 
-  // Creation API: Carbon Only   /**
+  // Creation API: Carbon Only   
+ /**
    *  CreateBevelButtonControl()
    *
 
@@ -292,7 +313,8 @@ extern "C"
   // Graphic Alignments   typedef SInt16 ControlButtonGraphicAlignment;
   enum
   {
-    kControlBevelButtonAlignSysDirection = -1, // only left or right    kControlBevelButtonAlignCenter = 0,
+    kControlBevelButtonAlignSysDirection = -1,  /** left */
+or right    kControlBevelButtonAlignCenter  =  0
     kControlBevelButtonAlignLeft = 1,
     kControlBevelButtonAlignRight = 2,
     kControlBevelButtonAlignTop = 3,
@@ -316,7 +338,8 @@ extern "C"
   enum
   {// only makes sense when a menu is attached.
     kControlBevelButtonPlaceSysDirection =
-        -1, // if graphic on right, then on left    kControlBevelButtonPlaceNormally = 0,
+        -1,  /** graphic */
+on right, then on left    kControlBevelButtonPlaceNormally  =  0
     kControlBevelButtonPlaceToRightOfGraphic = 1,
   // Behaviors for 1.0.1 or later 
     kControlBevelButtonPlaceBelowGraphic = 3,
@@ -328,19 +351,28 @@ extern "C"
     kControlBevelButtonContentTag = FOUR_CHAR_CODE('cont'), // ButtonContentInfo    kControlBevelButtonTransformTag =
         FOUR_CHAR_CODE('tran'), // IconTransformType    kControlBevelButtonTextAlignTag =
   // Bevel Button Menu Placements 
-        FOUR_CHAR_CODE('gali'),                                   // ButtonGraphicAlignment    kControlBevelButtonGraphicOffsetTag = FOUR_CHAR_CODE('goff'), // Point    kControlBevelButtonTextPlaceTag =
-        FOUR_CHAR_CODE('tplc'),                                // ButtonTextPlacement    kControlBevelButtonMenuValueTag = FOUR_CHAR_CODE('mval'),  // SInt16    kControlBevelButtonMenuHandleTag = FOUR_CHAR_CODE('mhnd'), // MenuRef    kControlBevelButtonMenuRefTag = FOUR_CHAR_CODE('mhnd'),    // MenuRef    kControlBevelButtonCenterPopupGlyphTag =
-        FOUR_CHAR_CODE('pglc') // Boolean: true = center, false = bottom right  };
+        FOUR_CHAR_CODE('gali'),                                    
+  kControlBevelButtonGraphicOffsetTag  =  FOUR_CHAR_CODE('goff') // Point    kControlBevelButtonTextPlaceTag =
+        FOUR_CHAR_CODE('tplc'),                                 
+  kControlBevelButtonMenuValueTag  =  FOUR_CHAR_CODE('mval')   
+  kControlBevelButtonMenuHandleTag  =  FOUR_CHAR_CODE('mhnd')  
+  kControlBevelButtonMenuRefTag  =  FOUR_CHAR_CODE('mhnd')    // MenuRef    kControlBevelButtonCenterPopupGlyphTag =
+        FOUR_CHAR_CODE('pglc')  /** true */
+ =  center false = bottom right  
+};
 
   // These are tags in 1.0.1 or later   enum
   {
     kControlBevelButtonLastMenuTag = FOUR_CHAR_CODE(
   // Control Kind Tag 
-        FOUR_CHAR_CODE('mdly') // SInt32: ticks to delay before menu appears  };
+        FOUR_CHAR_CODE('mdly') // SInt32: ticks to delay before menu appears  
+};
 
   // tags available with Appearance 1.1 or later   enum
   {
-    // Boolean: True = if an icon of the ideal size for    // the button isn't available, scale a larger or    // smaller icon to the ideal size. False = don't    // scale; draw a smaller icon or clip a larger icon.    // Default is false. Only applies to IconSuites and    kControlBevelButtonScaleIconTag = FOUR_CHAR_CODE('scal') // IconRefs.  };
+     /** True */
+ =  if an icon of the ideal size for    // the button isn't available scale a larger or    // smaller icon to the ideal size. False = don't    // scale; draw a smaller icon or clip a larger icon.    // Default is false. Only applies to IconSuites and    kControlBevelButtonScaleIconTag = FOUR_CHAR_CODE('scal') // IconRefs.  
+};
 // Creation API: Carbon Only 
   // tags available in Mac OS X and later   enum
   {
@@ -350,7 +382,8 @@ extern "C"
                    )*/
   };
 
-  // Helper routines are available only thru the shared library/glue.   /**
+  // Helper routines are available only thru the shared library/glue.   
+ /**
    *  GetBevelButtonMenuValue()
    *
 
@@ -408,7 +441,7 @@ extern "C"
   SetBevelButtonContentInfo(ControlRef inButton,// ButtonTextAlignment
                             ControlButtonContentInfoPtr inConte// SInt16
 
-  /**// ButtonGraphicAlignment
+  /**  ButtonGraphicAlignment
    *  SetBevelButtonTransform()// Point
    *
 // ButtonTextPlacement
@@ -416,7 +449,8 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later// MenuRef
    *    \mac_os_x         in version 10.0 and later// MenuRef
    */
-  OSErr// Boolean: true = center, false = bottom right
+  OSErr /** true */
+ =  center false = bottom right
   SetBevelButtonTransform(ControlRef inButton, IconTransformType transform);
 
   // These are tags in 1.0.1 or later 
@@ -513,7 +547,8 @@ extern "C"
     kControlKindSlider = FOUR_CHAR_CODE('sldr')
   };
 
-  // Creation API: Carbon Only   /**
+  // Creation API: Carbon Only   
+ /**
    *  CreateSliderControl()
    *
 
@@ -638,9 +673,11 @@ extern "C"
 
   // Tagged data supported by disclosure triangles   enum
   {
-    kControlTriangleLastValueTag = FOUR_CHAR_CODE('last') // SInt16  };
+    kControlTriangleLastValueTag = FOUR_CHAR_CODE('last') // SInt16  
+};
 
-  // Helper routines are available only thru the shared library/glue.   /**
+  // Helper routines are available only thru the shared library/glue.   
+ /**
    *  SetDisclosureTriangleLastValue()
    *
 
@@ -673,7 +710,8 @@ extern "C"
     kControlKindRelevanceBar = FOUR_CHAR_CODE('relb')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateProgressBarControl()
   // Control Kind Tag 
 
@@ -702,7 +740,8 @@ extern "C"
 
   // Tagged data supported by progress bars   enum
   {
-    kControlProgressBarIndeterminateTag = FOUR_CHAR_CODE('inde'), // Boolean    kControlProgressBarAnimatingTag = FOUR_CHAR_CODE('anim')      // Boolean  };
+    kControlProgressBarIndeterminateTag = FOUR_CHAR_CODE('inde'), // Boolean    kControlProgressBarAnimatingTag = FOUR_CHAR_CODE('anim')      // Boolean  
+};
 
   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © LITTLE ARROWS (CDEF 6)   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
@@ -718,7 +757,8 @@ extern "C"
     kControlKindLittleArrows = FOUR_CHAR_CODE('larr')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateLittleArrowsControl()
    *
 
@@ -743,7 +783,8 @@ extern "C"
     kControlKindChasingArrows = FOUR_CHAR_CODE('carr')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateChasingArrowsControl()
    *
 
@@ -777,7 +818,17 @@ extern "C"
    * This sets */
   //  the name and optionally an icon for a tab.   // Tabs proc IDs   enum
   {
-    kControlTabLargeProc = 128,      // Large tab size, north facing       kControlTabSmallProc = 129,      // Small tab size, north facing       kControlTabLargeNorthProc = 128, // Large tab size, north facing       kControlTabSmallNorthProc = 129, // Small tab size, north facing       kControlTabLargeSouthProc = 130, // Large tab size, south facing       kControlTabSmallSouthProc = 131, // Small tab size, south facing       kControlTabLargeEastProc = 132,  // Large tab size, east facing        kControlTabSmallEastProc = 133,  // Small tab size, east facing        kControlTabLargeWestProc = 134,  // Large tab size, west facing        kControlTabSmallWestProc = 135   // Small tab size, west facing      };
+    kControlTabLargeProc = 128,       /** tab */
+size, north facing       kControlTabSmallProc  =  129       /** tab */
+size, north facing       kControlTabLargeNorthProc  =  128  /** tab */
+size, north facing       kControlTabSmallNorthProc  =  129  /** tab */
+size, north facing       kControlTabLargeSouthProc  =  130  /** tab */
+size, south facing       kControlTabSmallSouthProc  =  131  /** tab */
+size, south facing       kControlTabLargeEastProc  =  132   /** tab */
+size, east facing        kControlTabSmallEastProc  =  133   /** tab */
+size, east facing        kControlTabLargeWestProc  =  134   /** tab */
+size, west facing        kControlTabSmallWestProc  =  135   // Small tab size west facing      
+};
 
   // Tab Directions   typedef UInt16 ControlTabDirection;
   enum
@@ -807,7 +858,8 @@ extern "C"
     kControlKindTabs = FOUR_CHAR_CODE('tabs')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateTabsControl()
    *
 
@@ -822,31 +874,39 @@ extern "C"
 
   // Tagged data supported by tabs   enum
   {
-    kControlTabContentRectTag = FOUR_CHAR_CODE('rect'), // Rect    kControlTabEnabledFlagTag = FOUR_CHAR_CODE('enab'), // Boolean    kControlTabFontStyleTag = kControlFontStyleTag      // ControlFontStyleRec  };
+    kControlTabContentRectTag = FOUR_CHAR_CODE('rect'),  
+  kControlTabEnabledFlagTag  =  FOUR_CHAR_CODE('enab') // Boolean    kControlTabFontStyleTag = kControlFontStyleTag      // ControlFontStyleRec  
+};
 
   // New tags in 1.0.1 or later   enum
   {
-    kControlTabInfoTag = FOUR_CHAR_CODE('tabi') // ControlTabInfoRec  };
+    kControlTabInfoTag = FOUR_CHAR_CODE('tabi') // ControlTabInfoRec  
+};
 
   // Tagged data supported by progress bars 
   {
     kControlTabImageContentTag =
-        FOUR_CHAR_CODE('cont') // ControlButtonContentInfo  };// Boolean
+        FOUR_CHAR_CODE('cont') // ControlButtonContentInfo  
+};// Boolean
 // Boolean
   enum
   {
-    kControlTabInfoVersionZero = 0, // ControlTabInfoRec    kControlTabInfoVersionOne = 1   // ControlTabInfoRecV1  };
+    kControlTabInfoVersionZero = 0, // ControlTabInfoRec    kControlTabInfoVersionOne = 1   // ControlTabInfoRecV1  
+};
 //  © LITTLE ARROWS (CDEF 6) 
   struct ControlTabInfoRec
   {
-    SInt16 version;     // version of this structure.    SInt16 iconSuiteID; // icon suite to use. Zero indicates no icon    Str255 name;        // name to be displayed on the tab  };
+    SInt16 version;     // version of this structure.    SInt16 iconSuiteID; // icon suite to use. Zero indicates no icon    Str255 name;        // name to be displayed on the tab  
+};
   //  control panel for adjusting the cache size. 
   // Little Arrows proc IDs 
   {
     SInt16 version;     // version of this structure. == kControlTabInfoVersionOne    SInt16 iconSuiteID; // icon suite to use. Zero indicates no icon    CFStringRef
-        name; // name to be displayed on the tab. Will be retained so caller              // should always release it.  };
+        name; // name to be displayed on the tab. Will be retained so caller              // should always release it.  
+};
   typedef struct ControlTabInfoRecV1 ControlTabInfoRecV1;
-  // Helper routines are available only thru the shared library/glue.   /**
+  // Helper routines are available only thru the shared library/glue.   
+ /**
   // Control Kind Tag 
    *
 
@@ -882,7 +942,8 @@ extern "C"
     kControlKindSeparator = FOUR_CHAR_CODE('sepa')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateSeparatorControl()
   // Creation API: Carbon only 
 
@@ -930,7 +991,7 @@ extern "C"
                         CFStringRef title, Boolean primary,
                         ControlRef *o// Large tab size, north facing   
 // Small tab size, north facing   
-  /**// Large tab size, north facing   
+  /**  Large tab size, north facing   
    *  CreateCheckGroupBoxControl()// Small tab size, north facing   
    *// Large tab size, south facing   
 // Small tab size, south facing   
@@ -963,7 +1024,8 @@ extern "C"
   // the ControlButtonContentInfo and string storage for this             
   // structure.                                                           
         FOUR_CHAR_CODE('mhan'), // MenuRef (popup title only)    kControlGroupBoxMenuRefTag =
-        FOUR_CHAR_CODE('mhan'),                         // MenuRef (popup title only)    kControlGroupBoxFontStyleTag = kControlFontStyleTag // ControlFontStyleRec  };
+        FOUR_CHAR_CODE('mhan'),                         // MenuRef (popup title only)    kControlGroupBoxFontStyleTag = kControlFontStyleTag // ControlFontStyleRec  
+};
 
   // tags available with Appearance 1.1 or later   enum
   {
@@ -1004,7 +1066,8 @@ extern "C"
     kControlKindImageWell = FOUR_CHAR_CODE('well')
   };
 // New tags in X 10.1 or later 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateImageWellControl()
    *
 // ControlButtonContentInfo
@@ -1021,7 +1084,8 @@ extern "C"
   {// version of this structure.
     kControlImageWellCon// icon suite to use. Zero indicates no icon
 // name to be displayed on the tab
-  // Helper routines are available only thru the shared library/glue.   /**
+  // Helper routines are available only thru the shared library/glue.   
+ /**
    *  GetImageWellContentInfo()
    *
 
@@ -1097,7 +1161,8 @@ extern "C"
   // Group Box proc IDs 
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreatePopupArrowControl()
    *
 
@@ -1122,7 +1187,8 @@ extern "C"
     kControlKindPlacard = FOUR_CHAR_CODE('plac')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreatePlacardControl()
    *
 
@@ -1172,8 +1238,10 @@ extern "C"
   // Clock Flags   //  These flags can be passed into 'value' field on creation of the control.   //  Value is set to 0 after control is created.   typedef UInt32 ControlClockFlags;
   enum
   {
-    kControlClockFlagStandard = 0, // editable, non-live    kControlClockNoFlags = 0,
-    kControlClockFlagDisplayOnly = 1, // add this to become non-editable    kControlClockIsDisplayOnly = 1,
+    kControlClockFlagStandard = 0,  /** non-live */
+   kControlClockNoFlags  =  0
+    kControlClockFlagDisplayOnly = 1,  /** this */
+to become non-editable    kControlClockIsDisplayOnly  =  1
     kControlClockFlagLive = 2, /* automatically shows current time on idle. only
   //  © IMAGE WELL (CDEF 11) 
     kControlClockIsLive = 2
@@ -1199,7 +1267,9 @@ extern "C"
 
   // Tagged data supported by clocks   enum
   {
-    kControlClockLongDateTag = FOUR_CHAR_CODE('date'), // LongDateRec    kControlClockFontStyleTag = kControlFontStyleTag,  // ControlFontStyleRec    kControlClockAnimatingTag = FOUR_CHAR_CODE('anim') // Boolean  };
+    kControlClockLongDateTag = FOUR_CHAR_CODE('date'),  
+  kControlClockFontStyleTag  =  kControlFontStyleTag  // ControlFontStyleRec    kControlClockAnimatingTag = FOUR_CHAR_CODE('anim') // Boolean  
+};
 
   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © USER PANE (CDEF 16)   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
@@ -1258,7 +1328,8 @@ extern "C"
         FOUR_CHAR_CODE('keyd'), // ControlUserPaneKeyDownUPP    kControlUserPaneActivateProcTag =
         FOUR_CHAR_CODE('acti'), // ControlUserPaneActivateUPP    kControlUserPaneFocusProcTag =
         FOUR_CHAR_CODE('foci'), // ControlUserPaneFocusUPP    kControlUserPaneBackgroundProcTag =
-        FOUR_CHAR_CODE('back') // ControlUserPaneBackgroundUPP  };
+        FOUR_CHAR_CODE('back') // ControlUserPaneBackgroundUPP  
+};
 
   typedef CALLBACK_API(void, ControlUserPaneDrawProcPtr)(ControlRef control,
                                                          SInt16 part);
@@ -1528,7 +1599,7 @@ extern "C"
 #endif
 #endif// ControlUserPaneIdleUPP
 
-  /**// ControlUserPaneKeyDownUPP
+  /**  ControlUserPaneKeyDownUPP
    *  DisposeControlUserPaneDrawUPP()
    *// ControlUserPaneActivateUPP
 
@@ -1733,8 +1804,7 @@ extern "C"
 #endif
 #endif
 
-  /**
-   * // pascal no_return_value Func(4_bytes, 1_byte) 
+  /**/ pascal no_return_value Func(4_bytes, 1_byte) 
    *
 
    *    \non_carbon_cfm   available as macro/inline
@@ -1764,8 +1834,7 @@ extern "C"
    *  InvokeControlUserPaneTrackingUPP()
    *
 
-   *    \non_carbon_cfm   available as macro/inline
-   * // pascal 2_bytes Func(4_bytes, 2_bytes) 
+   *    \non_carbon_cfm   available as macro/inline*// pascal 2_bytes Func(4_bytes, 2_bytes) 
    *    \mac_os_x         in version 10.0 and later
    */
   ControlPartCode
@@ -1794,9 +1863,7 @@ extern "C"
 
   /**
    *  InvokeControlUserPaneIdleUPP()
-   *
-
-   * // pascal no_return_value Func(4_bytes, 4_bytes) 
+   **// pascal no_return_value Func(4_bytes, 4_bytes) 
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
@@ -1982,14 +2049,16 @@ extern "C"
   // proc IDs available with Appearance 1.1 or later   enum
   {
     kControlEditTextInlineInputProc =
-        276 // Can't combine with the other variants  };
+        276 // Can't combine with the other variants  
+};
 
   // Control Kind Tag   enum
   {
     kControlKindEditText = FOUR_CHAR_CODE('etxt')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateEditTextControl()
    *
 
@@ -2001,16 +2070,19 @@ extern "C"
   CreateEditTextControl(WindowRef window, const Rect *boundsRect,
                         CFStringRef text, Boolean isPassword,
                         Boolean useInlineInput,
-                        const ControlFontStyleRec *style, // can be NULL                         ControlRef *outControl);
+                        const ControlFontStyleRec *style, // can be NULL
+                       ControlRef *outControl);
 
   // Tagged data supported by edit text   enum
   {
     kControlEditTextStyleTag = kControlFontStyleTag, // ControlFontStyleRec    kControlEditTextTextTag =
         FOUR_CHAR_CODE('text'), // Buffer of chars - you supply the buffer    kControlEditTextTEHandleTag =
-        FOUR_CHAR_CODE('than'), // The TEHandle of the text edit record    kControlEditTextKeyFilterTag = kControlKeyFilterTag,
+        FOUR_CHAR_CODE('than'),  /** TEHandle */
+of the text edit record    kControlEditTextKeyFilterTag  =  kControlKeyFilterTag
     kControlEditTextSelectionTag =
         FOUR_CHAR_CODE('sele'), // EditTextSelectionRec    kControlEditTextPasswordTag =
-        FOUR_CHAR_CODE('pass') // The clear text password text  };
+        FOUR_CHAR_CODE('pass') // The clear text password text  
+};
 
   // tags available with Appearance 1.1 or later   enum
   {
@@ -2026,13 +2098,15 @@ extern "C"
         FOUR_CHAR_CODE('prup'), /* TSMTEPreUpdateUPP and TSMTEPostUpdateUpp. For
                                    use with inline input variant...*/
     kControlEditTextInlinePostUpdateProcTag = FOUR_CHAR_CODE(
-        'poup') // ...The refCon parameter will contain the ControlRef.  };
+        'poup') // ...The refCon parameter will contain the ControlRef.  
+};
 
   // Tags available with Mac OS X and later   enum
   {
     kControlEditTextCFStringTag =
         FOUR_CHAR_CODE('cfst'), // CFStringRef (Also available on CarbonLib 1.5)    kControlEditTextPasswordCFStringTag =
-        FOUR_CHAR_CODE('pwcf') // CFStringRef -- UnicodeEditText Only  };
+        FOUR_CHAR_CODE('pwcf') // CFStringRef -- UnicodeEditText Only  
+};
 
   // Structure for getting the edit text selection   struct ControlEditTextSelectionRec
   {
@@ -2143,7 +2217,8 @@ extern "C"
     kControlKindStaticText = FOUR_CHAR_CODE('stxt')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreateStaticTextControl()
    *
 
@@ -2158,17 +2233,21 @@ extern "C"
 
   // Tagged data supported by static text   enum
   {
-    kControlStaticTextStyleTag = kControlFontStyleTag,       // ControlFontStyleRec    kControlStaticTextTextTag = FOUR_CHAR_CODE('text'),      // Copy of text    kControlStaticTextTextHeightTag = FOUR_CHAR_CODE('thei') // SInt16  };
+    kControlStaticTextStyleTag = kControlFontStyleTag,        
+  kControlStaticTextTextTag  =  FOUR_CHAR_CODE('text')      // Copy of text    kControlStaticTextTextHeightTag = FOUR_CHAR_CODE('thei') // SInt16  
+};
 
   // Tags available with appearance 1.1 or later   enum
   {
     kControlStaticTextTruncTag =
-        FOUR_CHAR_CODE('trun') // TruncCode (-1 means no truncation)  };
+        FOUR_CHAR_CODE('trun') // TruncCode (-1 means no truncation)  
+};
 
   // Tags available with Mac OS X or later   enum
   {
     kControlStaticTextCFStringTag =
-        FOUR_CHAR_CODE('cfst') // CFStringRef (Also available on CarbonLib 1.5)  };
+        FOUR_CHAR_CODE('cfst') // CFStringRef (Also available on CarbonLib 1.5)  
+};
 
   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © PICTURE CONTROL (CDEF 19)   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
@@ -2179,14 +2258,16 @@ extern "C"
   //  the 'no track' variant.   // Picture control proc IDs   enum
   {
     kControlPictureProc = 304,
-    kControlPictureNoTrackProc = 305 // immediately returns kControlPicturePart  };
+    kControlPictureNoTrackProc = 305 // immediately returns kControlPicturePart  
+};
 
   // Control Kind Tag   enum
   {
     kControlKindPicture = FOUR_CHAR_CODE('pict')
   };
 
-  // Creation API: Carbon only   /**
+  // Creation API: Carbon only   
+ /**
    *  CreatePictureControl()
    *
 
@@ -2201,7 +2282,8 @@ extern "C"
 
   // Tagged data supported by picture controls   enum
   {
-    kControlPictureHandleTag = FOUR_CHAR_CODE('pich') // PicHandle  };
+    kControlPictureHandleTag = FOUR_CHAR_CODE('pich') // PicHandle  
+};
 
   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © ICON CONTROL (CDEF 20)   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
@@ -2212,15 +2294,19 @@ extern "C"
   //  the 'no track' variant.   // Icon control proc IDs   enum
   {
     kControlIconProc = 320,
-    kControlIconNoTrackProc = 321, // immediately returns kControlIconPart    kControlIconSuiteProc = 322,
-    kControlIconSuiteNoTrackProc = 323 // immediately returns kControlIconPart  };
+    kControlIconNoTrackProc = 321,  /** returns */
+kControlIconPart    kControlIconSuiteProc  =  322
+    kControlIconSuiteNoTrackProc = 323 // immediately returns kControlIconPart  
+};
 
   enum
   {
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc 
        ref.*/
-    // for data other than icon, you must set the data by passing a    // ControlButtonContentInfo to SetControlData    kControlIconRefProc = 324,
-    kControlIconRefNoTrackProc = 325 // immediately returns kControlIconPart  };
+     /** data */
+other than icon, you must set the data by passing a    // ControlButtonContentInfo to SetControlData    kControlIconRefProc  =  324
+    kControlIconRefNoTrackProc = 325 // immediately returns kControlIconPart  
+};
 
   // Control Kind Tag   enum
   {
@@ -2279,27 +2365,31 @@ extern "C"
 
   // Tagged data supported by icon controls   enum
   {
-    kControlIconTransformTag = FOUR_CHAR_CODE('trfm'), // IconTransformType    kControlIconAlignmentTag = FOUR_CHAR_CODE('algn')  // IconAlignmentType  };
+    kControlIconTransformTag = FOUR_CHAR_CODE('trfm'), // IconTransformType    kControlIconAlignmentTag = FOUR_CHAR_CODE('algn')  // IconAlignmentType  
+};
 // Creation API: Carbon only 
   // Tags available with appearance 1.1 or later   enum
   {
     kControlIconResourceIDTag =
         FOUR_CHAR_CODE('ires'), // SInt16 resource ID of icon to use    kControlIconContentTag =
-        FOUR_CHAR_CODE('cont') // accepts a ControlButtonContentInfo  };
+        FOUR_CHAR_CODE('cont') // accepts a ControlButtonContentInfo  
+};
 
   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © WINDOW HEADER (CDEF 21)   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   // Window Header proc IDs   enum
   {
     kControlWindowHeaderProc = 336, // normal header    kControlWindowListViewHeaderProc =
-        337 // variant for list views - no bottom line  };
+        337 // variant for list views - no bottom line  
+};
 // can be NULL 
   // Control Kind Tag   enum
   {
   // Tagged data supported by edit text 
   };
 
-  // Creation API: Carbon Only   /**// ControlFontStyleRec
+  // Creation API: Carbon Only   
+ /**  ControlFontStyleRec
    *  CreateWindowHeaderControl()
    *// Buffer of chars - you supply the buffer
 
@@ -2353,13 +2443,16 @@ extern "C"
 
   // Tagged data supported by list box   enum
   {
-    kControlListBoxListHandleTag = FOUR_CHAR_CODE('lhan'), // ListHandle    kControlListBoxKeyFilterTag = kControlKeyFilterTag,    // ControlKeyFilterUPP    kControlListBoxFontStyleTag = kControlFontStyleTag     // ControlFontStyleRec  };
+    kControlListBoxListHandleTag = FOUR_CHAR_CODE('lhan'),  
+  kControlListBoxKeyFilterTag  =  kControlKeyFilterTag    // ControlKeyFilterUPP    kControlListBoxFontStyleTag = kControlFontStyleTag     // ControlFontStyleRec  
+};
 
   // New tags in 1.0.1 or later   enum
   {
     kControlListBoxDoubleClickTag =
         FOUR_CHAR_CODE('dblc'), // Boolean. Was last click a double-click?    kControlListBoxLDEFTag =
-        FOUR_CHAR_CODE('ldef') // SInt16. ID of LDEF to use.  };
+        FOUR_CHAR_CODE('ldef') // SInt16. ID of LDEF to use.  
+};
 
   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
   //  © PUSH BUTTON (CDEF 23)   // ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
@@ -2390,7 +2483,8 @@ extern "C"
     kControlRadioButtonProc = 370,
     kControlPushButLeftIconProc =
         374, // Standard pushbutton with left-side icon    kControlPushButRightIconProc =
-        375 // Standard pushbutton with right-side icon  };
+        375 // Standard pushbutton with right-side icon  
+};
 
   // Variants with Appearance 1.1 or later   enum
   {
@@ -2413,7 +2507,8 @@ extern "C"
     kControlKindCheckBox = FOUR_CHAR_CODE('cbox')
   };
 
-  // Creation APIs: Carbon Only   /**
+  // Creation APIs: Carbon Only   
+ /**
    *  CreatePushButtonControl()
    *
 
@@ -2440,7 +2535,7 @@ extern "C"
                                   ControlPushButtonIconAlignment iconAlignment,
                                   ControlRef *outControl);
 
-  /**// CALL_NOT_IN_CARBON 
+  /** 
    *  CreateRadioButtonControl()
    *
 //  © STATIC TEXT (CDEF 18) 
@@ -2469,7 +2564,8 @@ extern "C"
   // Tagged data supported by standard buttons   enum
   {
     kControlPushButtonDefaultTag = FOUR_CHAR_CODE('dflt'), // default ring flag    kControlPushButtonCancelTag =
-        FOUR_CHAR_CODE('cncl') // cancel button flag (1.1 and later)  };
+        FOUR_CHAR_CODE('cncl') // cancel button flag (1.1 and later)  
+};
 
   // Tagged data supported by static text 
   //  � SCROLL BAR (CDEF 24)   // ��������������������������������������������������������������������������������������
@@ -2482,7 +2578,8 @@ extern "C"
   // Tags available with appearance 1.1 or later 
   };
 
-  // Creation API: Carbon Only   /**
+  // Creation API: Carbon Only   
+ /**
    *  CreateScrollBarControl()// TruncCode (-1 means no truncation)
    *
 
@@ -2499,7 +2596,8 @@ extern "C"
   // These tags are available in Mac OS X or later   enum
   {
     kControlScrollBarShowsArrowsTag = FOUR_CHAR_CODE(
-        'arro') // Boolean whether or not to draw the scroll arrows  };
+        'arro') // Boolean whether or not to draw the scroll arrows  
+};
 //  the 'no track' variant. 
   // Picture control proc IDs 
   //  � POPUP BUTTON (CDEF 25)   // ��������������������������������������������������������������������������������������
@@ -2529,7 +2627,8 @@ extern "C"
     kControlKindPopupButton = FOUR_CHAR_CODE('popb')
   };
 // Tagged data supported by picture controls 
-  // Creation API: Carbon Only   /**
+  // Creation API: Carbon Only   
+ /**
    *  CreatePopupButtonControl()
    *// PicHandle
 
@@ -2551,7 +2650,8 @@ extern "C"
   // These tags are available in 1.1 or// immediately returns kControlIconPart
   {
     kControlPopupButtonExtraHeightTag = FOUR_CHAR_CODE(
-        'exht'),                                                // SInt16 - extra vertical whitespace within the button    kControlPopupButtonOwnedMenuRefTag = FOUR_CHAR_CODE('omrf') // MenuRef  };
+        'exht'),                                                // SInt16 - extra vertical whitespace within the button    kControlPopupButtonOwnedMenuRefTag = FOUR_CHAR_CODE('omrf') // MenuRef  
+};
 
   // These tags are available in Mac OS X   enum
   {
@@ -2586,7 +2686,8 @@ extern "C"
     kControlKindRadioGroup = FOUR_CHAR_CODE('rgrp')
   };
 
-  // Creation API: Carbon Only   /**
+  // Creation API: Carbon Only   
+ /**
    *  CreateRadioGroupControl()
    *
 
@@ -2621,7 +2722,8 @@ extern "C"
     kControlKindScrollingTextBox = FOUR_CHAR_CODE('stbx')
   };
 // IconTransformType
-  // Creation API: Carbon Only   /**// IconAlignmentType
+  // Creation API: Carbon Only   
+ /**  IconAlignmentType
    *  CreateScrollingTextBoxControl()
    *
 // Tags available with appearance 1.1 or later 
@@ -2643,7 +2745,8 @@ extern "C"
         FOUR_CHAR_CODE('scdl'), // UInt32 (ticks between scrolls)    kControlScrollTextBoxAutoScrollAmountTag =
         FOUR// variant for list views - no bottom line
         'tres'), // SInt16 (resource ID of 'TEXT'/'styl') -- write only!    kControlScrollTextBoxAnimatingTag = FOUR_CHAR_CODE(
-        'anim') // Boolean (whether the text box should auto-scroll)  };
+        'anim') // Boolean (whether the text box should auto-scroll)  
+};
 // Control Kind Tag 
   // ��������������������������������������������������������������������������������������
   //  � DISCLOSURE BUTTON   // ��������������������������������������������������������������������������������������
@@ -2744,7 +2847,8 @@ extern "C"
   {
   //  tion is right to left, these are reversed). 
   //                                                                                      
-        FOUR_CHAR_CODE('size') // ControlRoundButtonSize  };
+        FOUR_CHAR_CODE('size') // ControlRoundButtonSize  
+};
 
   // Control Kind Tag   enum
   {
@@ -2842,12 +2946,14 @@ extern "C"
     errDataBrowserInvalidPropertyPart = -4973,
     errDataBrowserInvalidPropertyData = -4974,
     errDataBrowserPropertyNotSupported =
-        -4979 // Return from DataBrowserGetSetItemDataProc   };
+        -4979 // Return from DataBrowserGetSetItemDataProc   
+};
 
   enum
   {
     // Generic Control Tags     kControlDataBrowserIncludesFrameAndFocusTag =
-        FOUR_CHAR_CODE('brdr'), // Boolean     kControlDataBrowserKeyFilterTag = kControlEditTextKeyFilterTag,
+        FOUR_CHAR_CODE('brdr'),  
+   kControlDataBrowserKeyFilterTag  =  kControlEditTextKeyFilterTag
     kControlDataBrowserEditTextKeyFilterTag = kControlDataBrowserKeyFilterTag,
   // Tagged data supported by standard buttons 
         kControlEditTextValidationProcTag
@@ -2856,19 +2962,27 @@ extern "C"
   // Data Browser View Styles   typedef OSType DataBrowserViewStyle;
   enum// cancel button flag (1.1 and later)
   {
-    kDataBrowserNoView = 0x3F3F3F3F, // Error State     kDataBrowserListView = FOUR_CHAR_CODE('lstv'),
+    kDataBrowserNoView = 0x3F3F3F3F,  /** State */
+    kDataBrowserListView  =  FOUR_CHAR_CODE('lstv')
     kDataBrowserColumnView = FOUR_CHAR_CODE('clmv')
   //  � SCROLL BAR (CDEF 24) 
 
   //  This is the new Appearance scroll bar. 
   //                                                                                      
   // Theme Scroll Bar proc IDs 
-    kDataBrowserDragSelect = 1 << 0,            // � ListMgr lNoRect     kDataBrowserSelectOnlyOne = 1 << 1,         // � ListMgr lOnlyOne     kDataBrowserResetSelection = 1 << 2,        // � ListMgr lNoExtend     kDataBrowserCmdTogglesSelection = 1 << 3,   // � ListMgr lUseSense     kDataBrowserNoDisjointSelection = 1 << 4,   // � ListMgr lNoDisjoint     kDataBrowserAlwaysExtendSelection = 1 << 5, // � ListMgr lExtendDrag     kDataBrowserNeverEmptySelectionSet = 1 << 6 // � ListMgr lNoNilHilite   };
+    kDataBrowserDragSelect = 1 << 0,             /** ListMgr */
+lNoRect     kDataBrowserSelectOnlyOne  =  1 << 1          /** ListMgr */
+lOnlyOne     kDataBrowserResetSelection  =  1 << 2         /** ListMgr */
+lNoExtend     kDataBrowserCmdTogglesSelection  =  1 << 3    /** ListMgr */
+lUseSense     kDataBrowserNoDisjointSelection  =  1 << 4    /** ListMgr */
+lNoDisjoint     kDataBrowserAlwaysExtendSelection  =  1 << 5 // � ListMgr lExtendDrag     kDataBrowserNeverEmptySelectionSet = 1 << 6 // � ListMgr lNoNilHilite   
+};
 
   // Data Browser Sorting   typedef // normal scroll bar
   enum// live scrolling variant
   {
-    kDataBrowserOrderUndefined = 0, // Not currently supported     kDataBrowserOrderIncreasing = 1,
+    kDataBrowserOrderUndefined = 0,  /** currently */
+supported     kDataBrowserOrderIncreasing  =  1
   // Control Kind Tag 
   };
 
@@ -2884,7 +2998,8 @@ extern "C"
     kDataBrowserItemAnyState = (unsigned long)(-1),
     kDataBrowserItemIsSelected = 1 << 0,
     kDataBrowserContainerIsOpen = 1 << 1,
-    kDataBrowserItemIsDragTarget = 1 << 2 // During a drag operation   };
+    kDataBrowserItemIsDragTarget = 1 << 2 // During a drag operation   
+};
 
   // Options for use with RevealDataBrowserItem   typedef UInt8 DataBrowserRevealOptions;
   enum
@@ -2897,7 +3012,10 @@ extern "C"
   // Set operati// Boolean whether or not to draw the scroll arrows
   enum
   {
-    kDataBrowserItemsAdd = 0,    // add specified items to existing set     kDataBrowserItemsAssign = 1, // assign destination set to specified items     kDataBrowserItemsToggle = 2, // toggle membership state of specified items     kDataBrowserItemsRemove = 3  // remove specified items from existing set   };
+    kDataBrowserItemsAdd = 0,     /** specified */
+items to existing set     kDataBrowserItemsAssign  =  1  /** destination */
+set to specified items     kDataBrowserItemsToggle  =  2 // toggle membership state of specified items     kDataBrowserItemsRemove = 3  // remove specified items from existing set   
+};
 //  � POPUP BUTTON (CDEF 25) 
   // Commands for use with MoveDataBrowserSelectionAnchor   typedef UInt32 DataBrowserSelectionAnchorDirection;
   enum
@@ -2929,7 +3047,8 @@ extern "C"
         3, // Starting an EditText session for specified item     kDataBrowserEditStopped =
   // Control Kind Tag 
         5, // Item has just been added to the selection set     kDataBrowserItemDeselected =
-        6, // Item has just been removed from the selection set     kDataBrowserItemDoubleClicked = 7,
+        6,  /** has */
+just been removed from the selection set     kDataBrowserItemDoubleClicked  =  7
     kDataBrowserContainerOpened = 8, // Container is open     kDataBrowserContainerClosing =
         9, // Container is about to close (and will real soon now, y'all)     kDataBrowserContainerClosed =
         10, // Container is closed (y'all come back now!)     kDataBrowserContainerSorting =
@@ -2938,7 +3057,8 @@ extern "C"
         16, // _User_ requested container open/close state to be toggled     kDataBrowserTargetChanged =
         15, // The target has changed to the specified item     kDataBrowserUserStateChanged =
         13, // The user has reformatted the view for the target     kDataBrowserSelectionSetChanged =
-        14 // The selection set has been modified (net result may be the same)   };
+        14 // The selection set has been modified (net result may be the same)   
+};
 
   // DataBrowser Property Management   // 0-1023 reserved; >= 1024 for client use   typedef UInt32 DataBrowserPropertyID;
   enum
@@ -2967,9 +3087,16 @@ extern "C"
   {
   // These tags are available in Mac OS X 
         0x3F3F3F3F, // No associated data, custom callbacks used     kDataBrowserIconType =
-        FOUR_CHAR_CODE('icnr'),                    // IconRef, IconTransformType, RGBColor     kDataBrowserTextType = FOUR_CHAR_CODE('text'), // CFStringRef     kDataBrowserDateTimeType =
-        FOUR_CHAR_CODE('date'),                             // DateTime or LongDateTime     kDataBrowserSliderType = FOUR_CHAR_CODE('sldr'),        // Min, Max, Value     kDataBrowserCheckboxType = FOUR_CHAR_CODE('chbx'),      // ThemeButtonValue     kDataBrowserProgressBarType = FOUR_CHAR_CODE('prog'),   // Min, Max, Value     kDataBrowserRelevanceRankType = FOUR_CHAR_CODE('rank'), // Min, Max, Value     kDataBrowserPopupMenuType = FOUR_CHAR_CODE('menu'),     // MenuRef, Value     kDataBrowserIconAndTextType =
-        FOUR_CHAR_CODE('ticn') // IconRef, CFStringRef, etc   };
+        FOUR_CHAR_CODE('icnr'),                     /** IconTransformType, */
+RGBColor     kDataBrowserTextType  =  FOUR_CHAR_CODE('text') // CFStringRef     kDataBrowserDateTimeType =
+        FOUR_CHAR_CODE('date'),                              /** or */
+LongDateTime     kDataBrowserSliderType  =  FOUR_CHAR_CODE('sldr')         /** Max, */
+Value     kDataBrowserCheckboxType  =  FOUR_CHAR_CODE('chbx')       
+   kDataBrowserProgressBarType  =  FOUR_CHAR_CODE('prog')    /** Max, */
+Value     kDataBrowserRelevanceRankType  =  FOUR_CHAR_CODE('rank')  /** Max, */
+Value     kDataBrowserPopupMenuType  =  FOUR_CHAR_CODE('menu')     // MenuRef, Value     kDataBrowserIconAndTextType =
+        FOUR_CHAR_CODE('ticn') // IconRef, CFStringRef, etc   
+};
 
   // DataBrowser Property Parts   //      Visual components of a property type.        //      For use with GetDataBrowserItemPartBounds.   typedef OSType DataBrowserPropertyPart;
   enum
@@ -2993,7 +3120,8 @@ extern "C"
   //                                                                                      
   //  NOTE: This control is only available with Appearance 1.0.1. 
   // Radio Group Proc ID 
-        kDataBrowserPropertyIsMutable // support for an old name  };
+        kDataBrowserPropertyIsMutable // support for an old name  
+};
 
   // Next 8 bits contain property-specific modifiers   enum
   {
@@ -3024,7 +3152,8 @@ extern "C"
                                                  kDataBrowserIconAndTextType */
   //  credits in about boxes, etc. 
         kDataBrowserPropertyFlagsMask, // support for an old name    kDataBrowserRelativeDateTime =
-        kDataBrowserDateTimeRelative // support for an old name  };
+        kDataBrowserDateTimeRelative // support for an old name  
+};
 
   /**
      Next 8 bits contain viewStyle-specific modifiers
@@ -3078,7 +3207,7 @@ extern "C"
   void
   DisposeDataBrowserItemUPP(Data// UInt16 (pixels per scroll) -- defaults to 1
 
-  /**// SInt16 (resource ID of 'TEXT'/'styl') -- write only!
+  /**  SInt16 (resource ID of 'TEXT'/'styl') -- write only!
    *  InvokeDataBrowserItemUPP()
    *// Boolean (whether the text box should auto-scroll)
 
@@ -3090,7 +3219,8 @@ extern "C"
   InvokeDataBrowserItemUPP(DataBrowserItemID item, DataBrowserItemState state,
                            void *clientData, DataBrowserItemUPP userUPP);
 
-  // Creation/Configuration   /**
+  // Creation/Configuration   
+ /**
    *  CreateDataBrowserControl()
    *
 
@@ -3124,7 +3254,8 @@ extern "C"
   OSStatus
   SetDataBrowserViewStyle(ControlRef browser, DataBrowserViewStyle style);
 
-  // Item Manipulation   // Passing NULL for "items" argument to RemoveDataBrowserItems and   // UpdateDataBrowserItems refers to all items in the specified container.   // Passing NULL for "items" argument to AddDataBrowserItems means   // "generate IDs starting from 1."   /**
+  // Item Manipulation   // Passing NULL for "items" argument to RemoveDataBrowserItems and   // UpdateDataBrowserItems refers to all items in the specified container.   // Passing NULL for "items" argument to AddDataBrowserItems means   // "generate IDs starting from 1."   
+ /**
    *  AddDataBrowserItems()
    *
 
@@ -3135,7 +3266,8 @@ extern "C"
   // Control Kind Tag 
   AddDataBrowserItems(ControlRef browser, DataBrowserItemID container,
                       UInt32 numItems,
-                      const DataBrowserItemID *items, // can be NULL                       DataBrowserPropertyID preSortProperty);
+                      const DataBrowserItemID *items, // can be NULL
+                     DataBrowserPropertyID preSortProperty);
 
   /**
    *  RemoveDataBrowserItems()
@@ -3148,7 +3280,8 @@ extern "C"
   OSStatus
   RemoveDataBrowserItems(ControlRef browser, DataBrowserItemID container,
                          UInt32 numItems,
-                         const DataBrowserItemID *items, // can be NULL                          DataBrowserPropertyID preSortProperty);
+                         const DataBrowserItemID *items, // can be NULL
+                        DataBrowserPropertyID preSortProperty);
 
   /**
    *  UpdateDataBrowserItems()
@@ -3164,7 +3297,8 @@ extern "C"
                          const DataBrowserItemID *items, // can be NULL                          DataBrowserPropertyID preSortProperty,
                          DataBrowserPropertyID propertyID);
 
-  // Edit Menu Enabling and Handling   /**
+  // Edit Menu Enabling and Handling   
+ /**
    *  EnableDataBrowserEditCommand()
    *
 
@@ -3213,7 +3347,8 @@ extern "C"
                                  DataBrowserSelectionAnchorDirection direction,
                                  Boolean extendSelection);
 
-  // Container Manipulation   /**
+  // Container Manipulation   
+ /**
    *  OpenDataBrowserContainer()
    *
 
@@ -3247,7 +3382,8 @@ extern "C"
   SortDataBrowserContainer(ControlRef browser, DataBrowserItemID container,
                            Boolean sortChildren);
 
-  // Aggregate Item Access and Iteration   /**
+  // Aggregate Item Access and Iteration   
+ /**
    *  GetDataBrowserItems()
   //  including, but not limited to: 
 //                                                                                      
@@ -3285,7 +3421,8 @@ extern "C"
                          Boolean recurse, DataBrowserItemState state,
                          DataBrowserItemUPP callback, void *clientData);
 
-  // Individual Item Access and Display   /**
+  // Individual Item Access and Display   
+ /**
    *  IsDataBrowserItemSelected()
    *
 //                                                                                      
@@ -3334,7 +3471,8 @@ extern "C"
                               const DataBrowserItemID *items,
                               DataBro// Error State 
 
-  // DataBrowser Attribute Manipulation   // The user customizable portion of the current view style settings   /**
+  // DataBrowser Attribute Manipulation   // The user customizable portion of the current view style settings   
+ /**
    *  SetDataBrowserUserState()
    *
 // Selection Flags 
@@ -3345,7 +3483,7 @@ extern "C"
   OSStatus// � ListMgr lOnlyOne 
   SetDataBrowserUserState(ControlRef browser, CF// � ListMgr lNoExtend 
 // � ListMgr lUseSense 
-  /**// � ListMgr lNoDisjoint 
+  /**  � ListMgr lNoDisjoint 
    *  GetDataBrowserUserState()// � ListMgr lExtendDrag 
    *// � ListMgr lNoNilHilite 
 
@@ -3356,7 +3494,8 @@ extern "C"
   OSStatus
   GetDataBrowserUserState(ControlRef// Not currently supported 
 
-  // All items are active/enabled or not   /**
+  // All items are active/enabled or not   
+ /**
    *  SetDataBrowserActiveItems()
    *
 // Data Browser Item Management 
@@ -3378,7 +3517,8 @@ extern "C"
   OSStatus
   // Options for use with RevealDataBrowserItem 
 
-  // Inset the scrollbars within the DataBrowser bounds   /**
+  // Inset the scrollbars within the DataBrowser bounds   
+ /**
    *  SetDataBrowserScrollBarInset()
    *
 
@@ -3389,7 +3529,7 @@ extern "C"
   OSStatus
   SetDataBrowserScrollBarInset(ControlRef browser, Rect *insetRect);
 
-  /**// add specified items to existing set 
+  /**  add specified items to existing set 
    *  GetDataBrowserScrollBarInse// assign destination set to specified items 
    *// toggle membership state of specified items 
 // remove specified items from existing set 
@@ -3400,7 +3540,8 @@ extern "C"
   OSStatus
   GetDataBrowserScrollBarInset(ControlRef browser, Rect *insetRect);
 
-  // The "user focused" item   // For the ListView, this means the root container   // For the ColumnView, this means the rightmost container column   /**
+  // The "user focused" item   // For the ListView, this means the root container   // For the ColumnView, this means the rightmost container column   
+ /**
    *  SetDataBrowserTarget()
    *
 
@@ -3422,7 +3563,8 @@ extern "C"
   OSStatus
   GetDataBrowserTarget(ControlRef browser, DataBrowserItemID *target);
 
-  // Current sort ordering   // ListView tracks this per-column   /**
+  // Current sort ordering   // ListView tracks this per-column   
+ /**
    *  SetDa// The specified item has been added to the browser 
    *
 // The specified item has been removed from the browser 
@@ -3433,7 +3575,7 @@ extern "C"
   OSStatus
   SetDataBr// Item has just been added to the selection set 
 
-  /**// Item has just been removed from the selection set 
+  /**  Item has just been removed from the selection set 
    *  GetDataBrowserSortOrder()
    *// Container is open 
 
@@ -3444,7 +3586,8 @@ extern "C"
   OSStatus// Container is about to be sorted (lock any volatile properties) 
   GetDataBrowserSortOrder(ControlRef browser, DataBrowserSortOrder *order);
 // Container has been sorted (you may release any property locks) 
-  // Scrollbar values   /**
+  // Scrollbar values   
+ /**
    *  SetDat// _User_ requested container open/close state to be toggled 
    *
 // The target has changed to the specified item 
@@ -3466,7 +3609,8 @@ extern "C"
   OSStatus// Boolean typed data (defaults to true) 
   GetDataBrowserScrollPosition(ControlRef browser, UInt32 *top, UInt32 *left);
 // Boolean typed data (defaults to true) 
-  // Show/Hide each scrollbar   /**
+  // Show/Hide each scrollbar   
+ /**
    *  SetDataBrowserHasScrollBars()
    *
 
@@ -3499,7 +3643,7 @@ extern "C"
   OSStatus// No associated data, custom callbacks used 
   SetDataBrowserSortProperty(ControlRef browser, DataBrowserPropertyID property);
 // IconRef, IconTransformType, RGBColor 
-  /**// CFStringRef 
+  /**  CFStringRef 
    *  GetDataBrowserSortProperty()
    *// DateTime or LongDateTime 
 // Min, Max, Value 
@@ -3510,7 +3654,8 @@ extern "C"
   OSStatus
   GetDataBrowserSortProperty(Co// IconRef, CFStringRef, etc 
 
-  // Modify selection behavior   /**
+  // Modify selection behavior   
+ /**
   // DataBrowser Property Parts 
   //      Visual components of a property type.      
 //      For use with GetDataBrowserItemPartBounds. 
@@ -3534,7 +3679,8 @@ extern "C"
   GetDataBrowserSelectionFlags(ControlRef browser,
                                DataBrowserSelectionFlags *selectionFlags);
 
-  // Dynamically modify property appearance/behavior   /**
+  // Dynamically modify property appearance/behavior   
+ /**
    *  SetDataBrowserPropertyFlags()
    *
 // support for an old name
@@ -3558,7 +3704,8 @@ extern "C"
   GetDataBrowserPropertyFlags(ControlRef browser, DataBrowserPropertyID property,
                               DataBrowserPropertyFla// kDataBrowserDateTimeType 
 
-  // Text of current in-place edit session   /**
+  // Text of current in-place edit session   
+ /**
    *  SetDataBrowserEditText()// kDataBrowserSliderType 
    *
 
@@ -3591,7 +3738,8 @@ extern "C"
   OSStatus
   GetDataBrowserEditText(ControlRef browser, CFMutableStringRef text);
 
-  // Item/property currently being edited   /**
+  // Item/property currently being edited   
+ /**
    *  SetDataBrowserEditItem()
    *
 // support for an old name
@@ -3615,7 +3763,8 @@ extern "C"
   GetDataBrowserEditItem(ControlRef browser, DataBrowserItemID *item,
   // Callback definition for use with ForEachDataBrowserItem 
 
-  // Get the current bounds of a visual part of an item's property   /**
+  // Get the current bounds of a visual part of an item's property   
+ /**
    *  GetDataBrowserItemPartBounds()
    *
 
@@ -3731,7 +3880,7 @@ extern "C"
   OSStatus
   SetDataBrowserItemDataMaximum(DataBrowserItemDataRef itemData, SInt32 theData);
 
-  /**// can be NULL 
+  /**  can be NULL 
    *  GetDataBrowserItemDataMaximum()
    *
 
@@ -5058,7 +5207,7 @@ extern "C"
                                   Boolean variableWidthColumns,
                                   Boolean variableHeightRows);
 
-  /**// Use kDataBrowserLatestCallbacks 
+  /**  Use kDataBrowserLatestCallbacks 
    *  GetDataBrowserTableViewGeometry()
    *
 
@@ -5310,7 +5459,8 @@ extern "C"
                                          DataBrowserTableViewColumnID *column,
                                          Boolean *expandableRows);
 
-  // kDataBrowserColumnView API   /**
+  // kDataBrowserColumnView API   
+ /**
    *  GetDataBrowserColumnViewPath()
    *
 
@@ -5443,7 +5593,8 @@ extern "C"
     kControlKindEditUnicodeText = FOUR_CHAR_CODE('eutx')
   };
 
-  // Creation API for X   /**
+  // Creation API for X   
+ /**
    *  CreateEditUnicodeTextControl()
    *
 
@@ -5455,7 +5606,8 @@ extern "C"
   OSStatus
   CreateEditUnicodeTextControl(WindowRef window, const Rect *boundsRect,
                                CFStringRef text, Boolean isPassword,
-                               const ControlFontStyleRec *style, // can be NULL                                ControlRef *outControl);
+                               const ControlFontStyleRec *style, // can be NULL
+                              ControlRef *outControl);
 
 #if OLDROUTINENAMES
   // ��������������������������������������������������������������������������������������

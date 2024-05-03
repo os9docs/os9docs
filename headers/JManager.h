@@ -92,107 +92,108 @@ extern "C"
 #endif
 #endif
 
-    enum
-    {
-        kJMVersion = 0x11800007, // using Sun's 1.1.8 APIs, our rev 7 APIs.   kDefaultJMTime = 0x00000400 /* how much time to give the JM library on "empty"
-        events,
-        in milliseconds.*/
-    };
+        enum
+        {
+                kJMVersion = 0x11800007, // using Sun's 1.1.8 APIs, our rev 7 APIs.   kDefaultJMTime = 0x00000400 /* how much time to give the JM library on "empty"
+                events,
+                in milliseconds.*/
+        };
 
-    enum
-    {
-        kJMVersionError = -60000L,
-        kJMExceptionOccurred = -60001L,
-        kJMBadClassPathError = -60002L
-    };
+        enum
+        {
+                kJMVersionError = -60000L,
+                kJMExceptionOccurred = -60001L,
+                kJMBadClassPathError = -60002L
+        };
 
-    /**
-     * Special codes for JMFrameKey, JMFrameKeyRelease:
-     *
-     * When your app notices that a modifiers is pressed (must be done by polling,
-     * unless Mac OS changes to support sending modifiers as events)
-     * you should notify the runtime using JMFrameKey, JMFrameKeyRelease, using
-     * these constants for asciiChar and keyCode.  This will allow the AWT to
-     * synthesize the appropriate events
-     */
-    enum
-    {
-        kModifierAsciiChar = 0,
-        kModifierKeyCode = 0
-    };
+        /**
+         * Special codes for JMFrameKey, JMFrameKeyRelease:
+         *
+         * When your app notices that a modifiers is pressed (must be done by polling,
+         * unless Mac OS changes to support sending modifiers as events)
+         * you should notify the runtime using JMFrameKey, JMFrameKeyRelease, using
+         * these constants for asciiChar and keyCode.  This will allow the AWT to
+         * synthesize the appropriate events
+         */
+        enum
+        {
+                kModifierAsciiChar = 0,
+                kModifierKeyCode = 0
+        };
 
-    /**
-     *  Private data structures
-     *
-     *  JMClientData        - enough bits to reliably store a pointer to arbitrary,
-     * client-specific data. JMSessionRef        - references the entire java
-     * runtime JMTextRef           - a Text string, length, and encoding
-     *  JMTextEncoding      - which encoding to use when converting in and out of
-     * Java strings. JMFrameRef          - a java frame JMAWTContextRef     - a
-     * context for the AWT to request frames, process events JMAppletLocatorRef  - a
-     * device for locating, fetching, and parsing URLs that may contain applets
-     *  JMAppletViewerRef   - an object that displays applets in a Frame
-     *  JMAppletPageRef     - a way to group JMAWTContextRef's so they share the
-     * same class loader
-     */
-    typedef void *JMClientData;
-    typedef struct OpaqueJMSessionRef *JMSessionRef;
-    typedef struct OpaqueJMFrameRef *JMFrameRef;
-    typedef struct OpaqueJMTextRef *JMTextRef;
-    typedef struct OpaqueJMAWTContextRef *JMAWTContextRef;
-    typedef struct OpaqueJMAppletLocatorRef *JMAppletLocatorRef;
-    typedef struct OpaqueJMAppletViewerRef *JMAppletViewerRef;
-    typedef struct OpaqueJMAppletPageRef *JMAppletPageRef;
-    typedef TextEncoding JMTextEncoding;
+        /**
+         *  Private data structures
+         *
+         *  JMClientData        - enough bits to reliably store a pointer to arbitrary,
+         * client-specific data. JMSessionRef        - references the entire java
+         * runtime JMTextRef           - a Text string, length, and encoding
+         *  JMTextEncoding      - which encoding to use when converting in and out of
+         * Java strings. JMFrameRef          - a java frame JMAWTContextRef     - a
+         * context for the AWT to request frames, process events JMAppletLocatorRef  - a
+         * device for locating, fetching, and parsing URLs that may contain applets
+         *  JMAppletViewerRef   - an object that displays applets in a Frame
+         *  JMAppletPageRef     - a way to group JMAWTContextRef's so they share the
+         * same class loader
+         */
+        typedef void *JMClientData;
+        typedef struct OpaqueJMSessionRef *JMSessionRef;
+        typedef struct OpaqueJMFrameRef *JMFrameRef;
+        typedef struct OpaqueJMTextRef *JMTextRef;
+        typedef struct OpaqueJMAWTContextRef *JMAWTContextRef;
+        typedef struct OpaqueJMAppletLocatorRef *JMAppletLocatorRef;
+        typedef struct OpaqueJMAppletViewerRef *JMAppletViewerRef;
+        typedef struct OpaqueJMAppletPageRef *JMAppletPageRef;
+        typedef TextEncoding JMTextEncoding;
 
-    /**
-     * The runtime requires certain callbacks be used to communicate between
-     * session events and the embedding application.
-     *
-     * In general, you can pass nil as a callback and a "good" default will be used.
-     *
-     *  JMConsoleProcPtr        - redirect stderr or stdout - the message is
-     * delivered in the encoding specified when you created the session, or possibly
-     * binary data. JMConsoleReadProcPtr    - take input from the user from a
-     * console or file.  The input is expected to be in the encoding specified when
-     * you opened the session. JMExitProcPtr           - called via
-     * System.exit(int), return "true" to kill the current thread, false, to cause a
-     * 'QUIT' AppleEvent to be sent to the current process, or just tear down the
-     * runtime and exit to shell immediately JMLowMemoryProcPtr       - This
-     * callback is available to notify the embedding application that a low memory
-     * situation has occurred so it can attempt to recover appropriately.
-     * JMAuthenicateURLProcPtr  - prompt the user for autentication based on the
-     * URL.  If you pass nil, JManager will prompt the user.  Return false if the
-     * user pressed cancel.
-     */
-    typedef CALLBACK_API_C(void, JMConsoleProcPtr)(JMSessionRef session,
-                                                   const void *message,
-                                                   SInt32 messageLengthInBytes);
-    typedef CALLBACK_API_C(SInt32, JMConsoleReadProcPtr)(JMSessionRef session,
-                                                         void *buffer,
-                                                         SInt32 maxBufferLength);
-    typedef CALLBACK_API_C(Boolean, JMExitProcPtr)(JMSessionRef session,
-                                                   SInt32 status);
-    typedef CALLBACK_API_C(Boolean, JMAuthenticateURLProcPtr)(JMSessionRef session,
-                                                              const char *url,
-                                                              const char *realm,
-                                                              char userName[255],
-                                                              char password[255]);
-    typedef CALLBACK_API_C(void, JMLowMemoryProcPtr)(JMSessionRef session);
-    struct JMSessionCallbacks
-    {
-        UInt32 fVersion; // should be set to kJMVersion   JMConsoleProcPtr
-        fStandardOutput; // JM will route "stdout" to this function.   JMConsoleProcPtr
-        fStandardError;  // JM will route "stderr" to this function.   JMConsoleReadProcPtr fStandardIn; /* read from console - can be nil for
-        default behavior(no console IO) * /
-            JMExitProcPtr fExitProc; // handle System.exit(int) requests   JMAuthenticateURLProcPtr
-        fAuthenticateProc;           // present basic authentication dialog   JMLowMemoryProcPtr fLowMemProc; // Low Memory notification Proc };
+        /**
+         * The runtime requires certain callbacks be used to communicate between
+         * session events and the embedding application.
+         *
+         * In general, you can pass nil as a callback and a "good" default will be used.
+         *
+         *  JMConsoleProcPtr        - redirect stderr or stdout - the message is
+         * delivered in the encoding specified when you created the session, or possibly
+         * binary data. JMConsoleReadProcPtr    - take input from the user from a
+         * console or file.  The input is expected to be in the encoding specified when
+         * you opened the session. JMExitProcPtr           - called via
+         * System.exit(int), return "true" to kill the current thread, false, to cause a
+         * 'QUIT' AppleEvent to be sent to the current process, or just tear down the
+         * runtime and exit to shell immediately JMLowMemoryProcPtr       - This
+         * callback is available to notify the embedding application that a low memory
+         * situation has occurred so it can attempt to recover appropriately.
+         * JMAuthenicateURLProcPtr  - prompt the user for autentication based on the
+         * URL.  If you pass nil, JManager will prompt the user.  Return false if the
+         * user pressed cancel.
+         */
+        typedef CALLBACK_API_C(void, JMConsoleProcPtr)(JMSessionRef session,
+                                                       const void *message,
+                                                       SInt32 messageLengthInBytes);
+        typedef CALLBACK_API_C(SInt32, JMConsoleReadProcPtr)(JMSessionRef session,
+                                                             void *buffer,
+                                                             SInt32 maxBufferLength);
+        typedef CALLBACK_API_C(Boolean, JMExitProcPtr)(JMSessionRef session,
+                                                       SInt32 status);
+        typedef CALLBACK_API_C(Boolean, JMAuthenticateURLProcPtr)(JMSessionRef session,
+                                                                  const char *url,
+                                                                  const char *realm,
+                                                                  char userName[255],
+                                                                  char password[255]);
+        typedef CALLBACK_API_C(void, JMLowMemoryProcPtr)(JMSessionRef session);
+        struct JMSessionCallbacks
+        {
+                UInt32 fVersion;                  // should be set to kJMVersion
+                JMConsoleProcPtr fStandardOutput; // JM will route "stdout" to this function.
+                JMConsoleProcPtr fStandardError;  // JM will route "stderr" to this function.
+                JMConsoleReadProcPtr fStandardIn; /* read from console - can be nil for default behavior(no console IO) */
+                JMExitProcPtr fExitProc;          // handle System.exit(int) requests   JMAuthenticateURLProcPtr
+                fAuthenticateProc;                // present basic authentication dialog   JMLowMemoryProcPtr fLowMemProc; // Low Memory notification Proc
+        };
         typedef struct JMSessionCallbacks JMSessionCallbacks;
         enum JMVerifierOptions
         {
-            eDontCheckCode = 0,
-            eCheckRemoteCode = 1,
-            eCheckAllCode = 2
+                eDontCheckCode = 0,
+                eCheckRemoteCode = 1,
+                eCheckAllCode = 2
         };
         typedef enum JMVerifierOptions JMVerifierOptions;
 
@@ -203,14 +204,14 @@ extern "C"
          */
         enum JMRuntimeOptions
         {
-            eJManager2Defaults = 0,
-            eUseAppHeapOnly = (1 << 0),
-            eDisableJITC = (1 << 1),
-            eEnableDebugger = (1 << 2),
-            eDisableInternetConfig = (1 << 3),
-            eInhibitClassUnloading = (1 << 4),
-            eEnableProfiling = (1 << 5),
-            eJManager1Compatible = (eDisableInternetConfig | eInhibitClassUnloading)
+                eJManager2Defaults = 0,
+                eUseAppHeapOnly = (1 << 0),
+                eDisableJITC = (1 << 1),
+                eEnableDebugger = (1 << 2),
+                eDisableInternetConfig = (1 << 3),
+                eInhibitClassUnloading = (1 << 4),
+                eEnableProfiling = (1 << 5),
+                eJManager1Compatible = (eDisableInternetConfig | eInhibitClassUnloading)
         };
         typedef enum JMRuntimeOptions JMRuntimeOptions;
 
@@ -686,16 +687,16 @@ extern "C"
 #endif // CALL_NOT_IN_CARBON
         struct JMProxyInfo
         {
-            Boolean useProxy;
-            char proxyHost[255];
-            UInt16 proxyPort;
+                Boolean useProxy;
+                char proxyHost[255];
+                UInt16 proxyPort;
         };
         typedef struct JMProxyInfo JMProxyInfo;
         enum JMProxyType
         {
-            eHTTPProxy = 0,
-            eFirewallProxy = 1,
-            eFTPProxy = 2
+                eHTTPProxy = 0,
+                eFirewallProxy = 1,
+                eFTPProxy = 2
         };
         typedef enum JMProxyType JMProxyType;
 
@@ -776,39 +777,42 @@ extern "C"
 #endif // CALL_NOT_IN_CARBON
         enum ReorderRequest
         {
-            eBringToFront = 0, // bring the window to front   eSendToBack = 1,     // send the window to back   eSendBehindFront = 2 // send the window behind the front window };
-            typedef enum ReorderRequest ReorderRequest;
+                eBringToFront = 0,              /** the */
+                window to front eSendToBack = 1 // send the window to back   eSendBehindFront = 2 // send the window behind the front window
+        };
+        typedef enum ReorderRequest ReorderRequest;
 
-            typedef CALLBACK_API_C(void, JMSetFrameSizeProcPtr)(JMFrameRef frame,
-                                                                const Rect *newBounds);
-            typedef CALLBACK_API_C(void, JMFrameInvalRectProcPtr)(JMFrameRef frame,
-                                                                  const Rect *r);
-            typedef CALLBACK_API_C(void,
-                                   JMFrameShowHideProcPtr)(JMFrameRef frame,
-                                                           Boolean showFrameRequested);
-            typedef CALLBACK_API_C(void, JMSetTitleProcPtr)(JMFrameRef frame,
-                                                            JMTextRef title);
-            typedef CALLBACK_API_C(void, JMCheckUpdateProcPtr)(JMFrameRef frame);
-            typedef CALLBACK_API_C(void, JMReorderFrame)(JMFrameRef frame,
-                                                         ReorderRequest theRequest);
-            typedef CALLBACK_API_C(void, JMSetResizeable)(JMFrameRef frame,
-                                                          Boolean resizeable);
-            typedef CALLBACK_API_C(void, JMGetFrameInsets)(JMFrameRef frame, Rect *insets);
-            /**
-             * New in JManager 2.1:
-             *  If the AWT needs to set focus to a frame (in the case of multiple JMFrames
-             * within a single Mac OS Frame) it will call back to the embedding application
-             * using JMRRequestFocus.  The application should then defocus what it thought
-             * did have the focus, and set the focus to the new frame. If the user is
-             * tabbing within a JMFrame, and the focus reaches the last focusable component
-             * (or the first, if focus is traversing backwards) JMNexetFocus will be called.
-             *  The application should defocus the component that requests this, and focus
-             * the next application visible focusable element.  (If none, send focus back to
-             * the frame.)
-             */
-            typedef CALLBACK_API_C(void, JMNextFocus)(JMFrameRef frame, Boolean forward);
-            typedef CALLBACK_API_C(void, JMRequestFocus)(JMFrameRef frame);
-            struct JMFrameCallbacks{
+        typedef CALLBACK_API_C(void, JMSetFrameSizeProcPtr)(JMFrameRef frame,
+                                                            const Rect *newBounds);
+        typedef CALLBACK_API_C(void, JMFrameInvalRectProcPtr)(JMFrameRef frame,
+                                                              const Rect *r);
+        typedef CALLBACK_API_C(void,
+                               JMFrameShowHideProcPtr)(JMFrameRef frame,
+                                                       Boolean showFrameRequested);
+        typedef CALLBACK_API_C(void, JMSetTitleProcPtr)(JMFrameRef frame,
+                                                        JMTextRef title);
+        typedef CALLBACK_API_C(void, JMCheckUpdateProcPtr)(JMFrameRef frame);
+        typedef CALLBACK_API_C(void, JMReorderFrame)(JMFrameRef frame,
+                                                     ReorderRequest theRequest);
+        typedef CALLBACK_API_C(void, JMSetResizeable)(JMFrameRef frame,
+                                                      Boolean resizeable);
+        typedef CALLBACK_API_C(void, JMGetFrameInsets)(JMFrameRef frame, Rect *insets);
+        /**
+         * New in JManager 2.1:
+         *  If the AWT needs to set focus to a frame (in the case of multiple JMFrames
+         * within a single Mac OS Frame) it will call back to the embedding application
+         * using JMRRequestFocus.  The application should then defocus what it thought
+         * did have the focus, and set the focus to the new frame. If the user is
+         * tabbing within a JMFrame, and the focus reaches the last focusable component
+         * (or the first, if focus is traversing backwards) JMNexetFocus will be called.
+         *  The application should defocus the component that requests this, and focus
+         * the next application visible focusable element.  (If none, send focus back to
+         * the frame.)
+         */
+        typedef CALLBACK_API_C(void, JMNextFocus)(JMFrameRef frame, Boolean forward);
+        typedef CALLBACK_API_C(void, JMRequestFocus)(JMFrameRef frame);
+        struct JMFrameCallbacks
+        {
                 UInt32 fVersion; // should be set to kJMVersion   JMSetFrameSizeProcPtr fSetFrameSize;
                 JMFrameInvalRectProcPtr fInvalRect;
                 JMFrameShowHideProcPtr fShowHide;
@@ -818,7 +822,8 @@ extern "C"
                 JMSetResizeable fSetResizeable;
                 JMGetFrameInsets fGetInsets;
                 JMNextFocus fNextFocus;
-                JMRequestFocus fRequestFocus;};
+                JMRequestFocus fRequestFocus;
+        };
         typedef struct JMFrameCallbacks JMFrameCallbacks;
 #if CALL_NOT_IN_CARBON
         /**
@@ -866,16 +871,16 @@ extern "C"
         OSStatus
         JMGetFrameSize(JMFrameRef frame, Rect *result);
 
-        // note that the top left indicates the "global" position of this frame // use this to update the frame position when it gets moved /**
-        *JMSetFrameSize() *
+        // note that the top left indicates the "global" position of this frame // use this to update the frame position when it gets moved
+        /**
+               *JMSetFrameSize() *
 
-                *    \non_carbon_cfm in JManager 2.0 and
-            later
-                    *    \carbon_lib not available
-                *    \mac_os_x not available
-                * /
-                OSStatus
-                JMSetFrameSize(JMFrameRef frame, const Rect *newSize);
+                       *    \non_carbon_cfm in JManager 2.0 and
+                   later
+                           *    \carbon_lib not available
+                       *    \mac_os_x not available*/
+        OSStatus
+        JMSetFrameSize(JMFrameRef frame, const Rect *newSize);
 
         /**
          * Dispatch a particular event to an embedded frame
@@ -1139,10 +1144,10 @@ extern "C"
          */
         enum JMFrameKind
         {
-            eBorderlessModelessWindowFrame = 0,
-            eModelessWindowFrame = 1,
-            eModalWindowFrame = 2,
-            eModelessDialogFrame = 3
+                eBorderlessModelessWindowFrame = 0,
+                eModelessWindowFrame = 1,
+                eModalWindowFrame = 2,
+                eModelessDialogFrame = 3
         };
         typedef enum JMFrameKind JMFrameKind;
 
@@ -1196,12 +1201,12 @@ extern "C"
                                                            JMTextRef stackTrace);
         struct JMAWTContextCallbacks
         {
-            UInt32 fVersion;    // should be set to kJMVersion   JMRequestFrameProcPtr fRequestFrame; // a new frame is being created.   JMReleaseFrameProcPtr
-            fReleaseFrame;      // an existing frame is being destroyed.   JMUniqueMenuIDProcPtr
-            fUniqueMenuID;      // a new menu will be created with this id.   JMExceptionOccurredProcPtr
-            fExceptionOccurred; /* just some notification that some recent operation
-                                   caused an exception.  You can't do anything really
-                                   from here. */
+                UInt32 fVersion;    // should be set to kJMVersion   JMRequestFrameProcPtr fRequestFrame; // a new frame is being created.   JMReleaseFrameProcPtr
+                fReleaseFrame;      // an existing frame is being destroyed.   JMUniqueMenuIDProcPtr
+                fUniqueMenuID;      // a new menu will be created with this id.   JMExceptionOccurredProcPtr
+                fExceptionOccurred; /* just some notification that some recent operation
+                                       caused an exception.  You can't do anything really
+                                       from here. */
         };
         typedef struct JMAWTContextCallbacks JMAWTContextCallbacks;
 #if CALL_NOT_IN_CARBON
@@ -1450,138 +1455,148 @@ extern "C"
          */
         enum JMLocatorErrors
         {
-            eLocatorNoErr = 0, // the html was retrieved successfully  eHostNotFound = 1,   // the host specified by the url could not be found  eFileNotFound = 2,   // the file could not be found on the host  eLocatorTimeout = 3, // a timeout occurred retrieving the html text  eLocatorKilled =
-            4                  // in response to a JMDisposeAppletLocator before it has completed};
-            typedef enum JMLocatorErrors JMLocatorErrors;
+                eLocatorNoErr = 0,                                        /** html */
+                was retrieved successfully eHostNotFound = 1              /** host */
+                specified by the url could not be found eFileNotFound = 2 /** file */
+                could not be found on the host eLocatorTimeout = 3        // a timeout occurred retrieving the html text  eLocatorKilled =
+                4                                                         // in response to a JMDisposeAppletLocator before it has completed
+        };
+        typedef enum JMLocatorErrors JMLocatorErrors;
 
-            typedef CALLBACK_API_C(void, JMFetchCompleted)(JMAppletLocatorRef ref,
-                                                           JMLocatorErrors status);
-            struct JMAppletLocatorCallbacks{
+        typedef CALLBACK_API_C(void, JMFetchCompleted)(JMAppletLocatorRef ref,
+                                                       JMLocatorErrors status);
+        struct JMAppletLocatorCallbacks
+        {
                 UInt32 fVersion; // should be set to kJMVersion   JMFetchCompleted
-                fCompleted;      // called when the html has been completely fetched };
-                typedef struct JMAppletLocatorCallbacks JMAppletLocatorCallbacks;
-                /**
-                 * These structures are used to pass pre-parsed parameter
-                 * tags to the AppletLocator.  Implies synchronous semantics.
-                 */
+                fCompleted;      // called when the html has been completely fetched
+        };
+        typedef struct JMAppletLocatorCallbacks JMAppletLocatorCallbacks;
+        /**
+         * These structures are used to pass pre-parsed parameter
+         * tags to the AppletLocator.  Implies synchronous semantics.
+         */
 
-                struct JMLIBOptionalParams{
-                    JMTextRef fParamName;  /* could be from a <parameter name=foo value=bar> or
-                                              "zipbase", etc */
-                    JMTextRef fParamValue; // the value of this optional tag };
-                    typedef struct JMLIBOptionalParams JMLIBOptionalParams;
-                    struct JMLocatorInfoBlock{
-                        UInt32 fVersion; // should be set to kJMVersion
-                        // These are required to be present and not nil
-                        JMTextRef fBaseURL; // the URL of this applet's host page   JMTextRef fAppletCode; // code= parameter   short fWidth;          // width= parameter   short fHeight;         // height= parameter
-                                            // These are optional parameters   SInt32 fOptionalParameterCount; // how many in this array   JMLIBOptionalParams
-                        *fParams;           // pointer to an array of these (points to first element) };
-                        typedef struct JMLocatorInfoBlock JMLocatorInfoBlock;
+        struct JMLIBOptionalParams
+        {
+                JMTextRef fParamName;  /* could be from a <parameter name=foo value=bar> or
+                                          "zipbase", etc */
+                JMTextRef fParamValue; // the value of this optional tag
+        };
+        typedef struct JMLIBOptionalParams JMLIBOptionalParams;
+        struct JMLocatorInfoBlock
+        {
+                UInt32 fVersion; // should be set to kJMVersion
+                // These are required to be present and not nil
+                JMTextRef fBaseURL; // the URL of this applet's host page   JMTextRef fAppletCode; // code= parameter   short fWidth;          // width= parameter   short fHeight;         // height= parameter
+                                    // These are optional parameters   SInt32 fOptionalParameterCount; // how many in this array   JMLIBOptionalParams
+                *fParams;           // pointer to an array of these (points to first element)
+        };
+        typedef struct JMLocatorInfoBlock JMLocatorInfoBlock;
 #if CALL_NOT_IN_CARBON
-                        /**
-                         *  JMNewAppletLocator()
-                         *
+        /**
+         *  JMNewAppletLocator()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.1 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMNewAppletLocator(JMAppletLocatorRef * locatorRef, JMSessionRef session,
-                                               const JMAppletLocatorCallbacks *callbacks, JMTextRef url,
-                                               JMTextRef htmlText, JMClientData data);
+         *    \non_carbon_cfm   in JManager 2.1 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMNewAppletLocator(JMAppletLocatorRef *locatorRef, JMSessionRef session,
+                           const JMAppletLocatorCallbacks *callbacks, JMTextRef url,
+                           JMTextRef htmlText, JMClientData data);
 
-                        /**
-                         *  JMNewAppletLocatorFromInfo()
-                         *
+        /**
+         *  JMNewAppletLocatorFromInfo()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.0 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMNewAppletLocatorFromInfo(JMAppletLocatorRef * locatorRef, JMSessionRef session,
-                                                       const JMLocatorInfoBlock *info, JMClientData data);
+         *    \non_carbon_cfm   in JManager 2.0 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMNewAppletLocatorFromInfo(JMAppletLocatorRef *locatorRef, JMSessionRef session,
+                                   const JMLocatorInfoBlock *info, JMClientData data);
 
-                        /**
-                         *  JMDisposeAppletLocator()
-                         *
+        /**
+         *  JMDisposeAppletLocator()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.0 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMDisposeAppletLocator(JMAppletLocatorRef locatorRef);
+         *    \non_carbon_cfm   in JManager 2.0 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMDisposeAppletLocator(JMAppletLocatorRef locatorRef);
 
-                        /**
-                         *  JMGetAppletLocatorData()
-                         *
+        /**
+         *  JMGetAppletLocatorData()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.0 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMGetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData *data);
+         *    \non_carbon_cfm   in JManager 2.0 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMGetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData *data);
 
-                        /**
-                         *  JMSetAppletLocatorData()
-                         *
+        /**
+         *  JMSetAppletLocatorData()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.0 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMSetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData data);
+         *    \non_carbon_cfm   in JManager 2.0 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMSetAppletLocatorData(JMAppletLocatorRef locatorRef, JMClientData data);
 
-                        /**
-                         *  JMCountApplets()
-                         *
+        /**
+         *  JMCountApplets()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.1 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMCountApplets(JMAppletLocatorRef locatorRef, UInt32 *appletCount);
+         *    \non_carbon_cfm   in JManager 2.1 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMCountApplets(JMAppletLocatorRef locatorRef, UInt32 *appletCount);
 
-                        /**
-                         *  JMGetAppletDimensions()
-                         *
+        /**
+         *  JMGetAppletDimensions()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.0 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMGetAppletDimensions(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
-                                                  UInt32 *width, UInt32 *height);
+         *    \non_carbon_cfm   in JManager 2.0 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMGetAppletDimensions(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
+                              UInt32 *width, UInt32 *height);
 
-                        /**
-                         *  JMGetAppletTag()
-                         *
+        /**
+         *  JMGetAppletTag()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.0 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMGetAppletTag(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
-                                           JMTextRef *tagRef);
+         *    \non_carbon_cfm   in JManager 2.0 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMGetAppletTag(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
+                       JMTextRef *tagRef);
 
-                        /**
-                         *  JMGetAppletName()
-                         *
+        /**
+         *  JMGetAppletName()
+         *
 
-                         *    \non_carbon_cfm   in JManager 2.0 and later
-                         *    \carbon_lib        not available
-                         *    \mac_os_x         not available
-                         */
-                        OSStatus
-                            JMGetAppletName(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
-                                            JMTextRef *nameRef);
+         *    \non_carbon_cfm   in JManager 2.0 and later
+         *    \carbon_lib        not available
+         *    \mac_os_x         not available
+         */
+        OSStatus
+        JMGetAppletName(JMAppletLocatorRef locatorRef, UInt32 appletIndex,
+                        JMTextRef *nameRef);
 
 /**
  * JMAppletViewer - Applets are instantiated, one by one, by specifying a
@@ -1600,58 +1615,65 @@ extern "C"
  *   <other>    show in new top-level window named <other>
  */
 #endif // CALL_NOT_IN_CARBON
-                        typedef CALLBACK_API_C(void, JMShowDocumentProcPtr)(JMAppletViewerRef viewer,
-                                                                            JMTextRef urlString,
-                                                                            JMTextRef windowName);
-                        typedef CALLBACK_API_C(void, JMSetStatusMsgProcPtr)(JMAppletViewerRef viewer,
-                                                                            JMTextRef statusMsg);
-                        struct JMAppletViewerCallbacks{
-                            UInt32 fVersion; // should be set to kJMVersion   JMShowDocumentProcPtr
-                            fShowDocument;   // go to a url, optionally in a new window   JMSetStatusMsgProcPtr fSetStatusMsg; // applet changed status message };
-                            typedef struct JMAppletViewerCallbacks JMAppletViewerCallbacks;
-                            /**
-                             * NEW: per-applet security settings
-                             * Previously, these settings were attached to the session.
-                             * JManager 2.0 allows them to be attached to each viewer.
-                             */
-                            enum JMNetworkSecurityOptions{
-                                eNoNetworkAccess = 0,
-                                eAppletHostAccess = 1,
-                                eUnrestrictedAccess = 2};
-                            typedef enum JMNetworkSecurityOptions JMNetworkSecurityOptions;
+        typedef CALLBACK_API_C(void, JMShowDocumentProcPtr)(JMAppletViewerRef viewer,
+                                                            JMTextRef urlString,
+                                                            JMTextRef windowName);
+        typedef CALLBACK_API_C(void, JMSetStatusMsgProcPtr)(JMAppletViewerRef viewer,
+                                                            JMTextRef statusMsg);
+        struct JMAppletViewerCallbacks
+        {
+                UInt32 fVersion; // should be set to kJMVersion   JMShowDocumentProcPtr
+                fShowDocument;   // go to a url, optionally in a new window   JMSetStatusMsgProcPtr fSetStatusMsg; // applet changed status message
+        };
+        typedef struct JMAppletViewerCallbacks JMAppletViewerCallbacks;
+        /**
+         * NEW: per-applet security settings
+         * Previously, these settings were attached to the session.
+         * JManager 2.0 allows them to be attached to each viewer.
+         */
+        enum JMNetworkSecurityOptions
+        {
+                eNoNetworkAccess = 0,
+                eAppletHostAccess = 1,
+                eUnrestrictedAccess = 2
+        };
+        typedef enum JMNetworkSecurityOptions JMNetworkSecurityOptions;
 
-                            enum JMFileSystemOptions{
-                                eNoFSAccess = 0,
-                                eLocalAppletAccess = 1,
-                                eAllFSAccess = 2};
-                            typedef enum JMFileSystemOptions JMFileSystemOptions;
+        enum JMFileSystemOptions
+        {
+                eNoFSAccess = 0,
+                eLocalAppletAccess = 1,
+                eAllFSAccess = 2
+        };
+        typedef enum JMFileSystemOptions JMFileSystemOptions;
 
-                            /**
-                             * Lists of packages are comma separated,
-                             * the default for mrj.security.system.access is
-                             * "sun,netscape,com.apple".
-                             */
+        /**
+         * Lists of packages are comma separated,
+         * the default for mrj.security.system.access is
+         * "sun,netscape,com.apple".
+         */
 
-                            struct JMAppletSecurity{
-                                UInt32 fVersion;     // should be set to kJMVersion   JMNetworkSecurityOptions
-                                fNetworkSecurity;    // can this applet access network resources   JMFileSystemOptions
-                                fFileSystemSecurity; // can this applet access network resources
-                                Boolean
-                                    fRestrictSystemAccess; /* restrict access to system packages (com.apple.*,
-                                                              sun.*, netscape.*) also found in the property
-                                                              "mrj.security.system.access" */
-                                Boolean
-                                    fRestrictSystemDefine; /* restrict classes from loading system packages
-                                                              (com.apple.*, sun.*, netscape.*) also found in
-                                                              the property "mrj.security.system.define" */
+        struct JMAppletSecurity
+        {
+                UInt32 fVersion;     // should be set to kJMVersion   JMNetworkSecurityOptions
+                fNetworkSecurity;    // can this applet access network resources   JMFileSystemOptions
+                fFileSystemSecurity; // can this applet access network resources
+                Boolean
+                    fRestrictSystemAccess; /* restrict access to system packages (com.apple.*,
+                                              sun.*, netscape.*) also found in the property
+                                              "mrj.security.system.access" */
+                Boolean
+                    fRestrictSystemDefine; /* restrict classes from loading system packages
+                                              (com.apple.*, sun.*, netscape.*) also found in
+                                              the property "mrj.security.system.define" */
 
-                                Boolean fRestrictApplicationAccess; /* restrict access to application packages
-                                                                       found in the property
-                                                                       "mrj.security.application.access" */
-                                Boolean fRestrictApplicationDefine; /* restrict access to application packages
-                                                                       found in the property
-                                                                       "mrj.security.application.access" */
-                            };
+                Boolean fRestrictApplicationAccess; /* restrict access to application packages
+                                                       found in the property
+                                                       "mrj.security.application.access" */
+                Boolean fRestrictApplicationDefine; /* restrict access to application packages
+                                                       found in the property
+                                                       "mrj.security.application.access" */
+        };
         typedef struct JMAppletSecurity JMAppletSecurity;
 /**
  * AppletViewer methods
@@ -1933,7 +1955,7 @@ extern "C"
 #endif
 
 #ifdef __cplusplus
-    }
+}
 #endif
 
 #endif // __JMANAGER__

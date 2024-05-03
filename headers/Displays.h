@@ -1064,8 +1064,7 @@ extern "C"
    */
   OSErr
   DMDisplayGestalt(DisplayIDType theDisplayID, ResType displayGestaltSelector,
-                   UInt32 *displayGestaltResponse)
-      THREEWORDINLINE(0x303C, 0x06D3, 0xABEB);
+                   UInt32 *displayGestaltResponse);
 
   /**
    *  DMUseScreenPrefs()
@@ -1076,8 +1075,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  DMUseScreenPrefs(Boolean usePrefs, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x03EC, 0xABEB);
+  DMUseScreenPrefs(Boolean usePrefs, Handle displayState);
 
   /**
    *  DMSuspendConfigure()
@@ -1088,8 +1086,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  DMSuspendConfigure(Handle displayState, unsigned long reserved1)
-      THREEWORDINLINE(0x303C, 0x04E9, 0xABEB);
+  DMSuspendConfigure(Handle displayState, unsigned long reserved1);
 
   /**
    *  DMResumeConfigure()
@@ -1100,8 +1097,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  DMResumeConfigure(Handle displayState, unsigned long reserved1)
-      THREEWORDINLINE(0x303C, 0x04E8, 0xABEB);
+  DMResumeConfigure(Handle displayState, unsigned long reserved1);
 
   /**
    *  DMSetGammaByAVID()
@@ -1113,8 +1109,7 @@ extern "C"
    */
   OSErr
   DMSetGammaByAVID(AVIDType gammaAVID, UInt32 setGammaFlags,
-                   GammaTblHandle theGamma)
-      THREEWORDINLINE(0x303C, 0x06D1, 0xABEB);
+                   GammaTblHandle theGamma);
 
   /**
    *  DMGetGammaByAVID()
@@ -1126,8 +1121,7 @@ extern "C"
    */
   OSErr
   DMGetGammaByAVID(AVIDType gammaAVID, UInt32 getGammaFlags,
-                   GammaTblHandle *theGamma)
-      THREEWORDINLINE(0x303C, 0x06D0, 0xABEB);
+                   GammaTblHandle *theGamma);
 
   /**
    *  DMGetMakeAndModelByAVID()
@@ -1138,8 +1132,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  DMGetMakeAndModelByAVID(AVIDType theAVID, DMMakeAndModelPtr theMakeAndModel)
-      THREEWORDINLINE(0x303C, 0x04D7, 0xABEB);
+  DMGetMakeAndModelByAVID(AVIDType theAVID, DMMakeAndModelPtr theMakeAndModel);
 
   /**
    *  DMNewDisplayList()
@@ -1152,8 +1145,7 @@ extern "C"
   OSErr
   DMNewDisplayList(UInt32 displayListIncludeFlags, UInt32 reserved1,
                    UInt32 reserved2, DMListIndexType *theCount,
-                   DMListType *theDisplayList)
-      THREEWORDINLINE(0x303C, 0x0AD6, 0xABEB);
+                   DMListType *theDisplayList);
 
   /**
    *  DMGetIndexedDisplayFromList()
@@ -1167,8 +1159,7 @@ extern "C"
   DMGetIndexedDisplayFromList(DMListType theDisplayList,
                               DMListIndexType itemIndex, UInt32 reserved,
                               DMDisplayListIteratorUPP listIterator,
-                              void *userData)
-      THREEWORDINLINE(0x303C, 0x0AD5, 0xABEB);
+                              void *userData);
 
   /**
    *  DMNewProfileListByAVID()
@@ -1180,8 +1171,7 @@ extern "C"
    */
   OSErr
   DMNewProfileListByAVID(AVIDType theAVID, UInt32 reserved,
-                         DMListIndexType *profileCount, DMListType *profileList)
-      THREEWORDINLINE(0x303C, 0x08DC, 0xABEB);
+                         DMListIndexType *profileCount, DMListType *profileList);
 
   /**
    *  DMGetIndexedProfileFromList()
@@ -1195,8 +1185,7 @@ extern "C"
   DMGetIndexedProfileFromList(DMListType profileList, DMListIndexType itemIndex,
                               UInt32 reserved,
                               DMProfileListIteratorUPP listIterator,
-                              void *userData)
-      THREEWORDINLINE(0x303C, 0x0ADB, 0xABEB);
+                              void *userData);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1209,7 +1198,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   GDHandle
-  DMGetFirstScreenDevice(Boolean activeOnly) TWOWORDINLINE(0x7000, 0xABEB);
+  DMGetFirstScreenDevice(Boolean activeOnly);
 
   /**
    *  DMGetNextScreenDevice()
@@ -1220,8 +1209,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   GDHandle
-  DMGetNextScreenDevice(GDHandle theDevice, Boolean activeOnly)
-      TWOWORDINLINE(0x7001, 0xABEB);
+  DMGetNextScreenDevice(GDHandle theDevice, Boolean activeOnly);
 
   /**
    *  DMDrawDesktopRect()
@@ -1232,7 +1220,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  DMDrawDesktopRect(Rect *globalRect) TWOWORDINLINE(0x7002, 0xABEB);
+  DMDrawDesktopRect(Rect *globalRect);
 
   /**
    *  DMDrawDesktopRegion()
@@ -1243,7 +1231,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  DMDrawDesktopRegion(RgnHandle globalRgn) TWOWORDINLINE(0x7003, 0xABEB);
+  DMDrawDesktopRegion(RgnHandle globalRgn);
 
   /**
    *  DMBeginConfigureDisplays()
@@ -1254,8 +1242,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMBeginConfigureDisplays(Handle *displayState)
-      THREEWORDINLINE(0x303C, 0x0206, 0xABEB);
+  DMBeginConfigureDisplays(Handle *displayState);
 
   /**
    *  DMEndConfigureDisplays()
@@ -1266,8 +1253,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMEndConfigureDisplays(Handle displayState)
-      THREEWORDINLINE(0x303C, 0x0207, 0xABEB);
+  DMEndConfigureDisplays(Handle displayState);
 
   /**
    *  DMAddDisplay()
@@ -1280,8 +1266,7 @@ extern "C"
   OSErr
   DMAddDisplay(GDHandle newDevice, short driver, unsigned long mode,
                unsigned long reserved, unsigned long displayID,
-               Component displayComponent, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x0D08, 0xABEB);
+               Component displayComponent, Handle displayState);
 
   /**
    *  DMMoveDisplay()
@@ -1292,8 +1277,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMMoveDisplay(GDHandle moveDevice, short x, short y, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x0609, 0xABEB);
+  DMMoveDisplay(GDHandle moveDevice, short x, short y, Handle displayState);
 
   /**
    *  DMDisableDisplay()
@@ -1304,8 +1288,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMDisableDisplay(GDHandle disableDevice, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x040A, 0xABEB);
+  DMDisableDisplay(GDHandle disableDevice, Handle displayState);
 
   /**
    *  DMEnableDisplay()
@@ -1316,8 +1299,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMEnableDisplay(GDHandle enableDevice, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x040B, 0xABEB);
+  DMEnableDisplay(GDHandle enableDevice, Handle displayState);
 
   /**
    *  DMRemoveDisplay()
@@ -1328,8 +1310,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMRemoveDisplay(GDHandle removeDevice, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x040C, 0xABEB);
+  DMRemoveDisplay(GDHandle removeDevice, Handle displayState);
 
   /**
    *  DMSetMainDisplay()
@@ -1340,8 +1321,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMSetMainDisplay(GDHandle newMainDevice, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x0410, 0xABEB);
+  DMSetMainDisplay(GDHandle newMainDevice, Handle displayState);
 
   /**
    *  DMSetDisplayMode()
@@ -1354,7 +1334,7 @@ extern "C"
   OSErr
   DMSetDisplayMode(GDHandle theDevice, unsigned long mode,
                    unsigned long *depthMode, unsigned long reserved,
-                   Handle displayState) THREEWORDINLINE(0x303C, 0x0A11, 0xABEB);
+                   Handle displayState);
 
   /**
    *  DMCheckDisplayMode()
@@ -1367,8 +1347,7 @@ extern "C"
   OSErr
   DMCheckDisplayMode(GDHandle theDevice, unsigned long mode,
                      unsigned long depthMode, unsigned long *switchFlags,
-                     unsigned long reserved, Boolean *modeOk)
-      THREEWORDINLINE(0x303C, 0x0C12, 0xABEB);
+                     unsigned long reserved, Boolean *modeOk);
 
   /**
    *  DMGetDeskRegion()
@@ -1379,8 +1358,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMGetDeskRegion(RgnHandle *desktopRegion)
-      THREEWORDINLINE(0x303C, 0x0213, 0xABEB);
+  DMGetDeskRegion(RgnHandle *desktopRegion);
 
   /**
    *  DMRegisterNotifyProc()
@@ -1392,8 +1370,7 @@ extern "C"
    */
   OSErr
   DMRegisterNotifyProc(DMNotificationUPP notificationProc,
-                       DMProcessInfoPtr whichPSN)
-      THREEWORDINLINE(0x303C, 0x0414, 0xABEB);
+                       DMProcessInfoPtr whichPSN);
 
   /**
    *  DMRemoveNotifyProc()
@@ -1405,8 +1382,7 @@ extern "C"
    */
   OSErr
   DMRemoveNotifyProc(DMNotificationUPP notificationProc,
-                     DMProcessInfoPtr whichPSN)
-      THREEWORDINLINE(0x303C, 0x0415, 0xABEB);
+                     DMProcessInfoPtr whichPSN);
 
   /**
    *  DMQDIsMirroringCapable()
@@ -1417,8 +1393,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMQDIsMirroringCapable(Boolean *qdIsMirroringCapable)
-      THREEWORDINLINE(0x303C, 0x0216, 0xABEB);
+  DMQDIsMirroringCapable(Boolean *qdIsMirroringCapable);
 
   /**
    *  DMCanMirrorNow()
@@ -1429,7 +1404,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMCanMirrorNow(Boolean *canMirrorNow) THREEWORDINLINE(0x303C, 0x0217, 0xABEB);
+  DMCanMirrorNow(Boolean *canMirrorNow);
 
   /**
    *  DMIsMirroringOn()
@@ -1440,7 +1415,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMIsMirroringOn(Boolean *isMirroringOn) THREEWORDINLINE(0x303C, 0x0218, 0xABEB);
+  DMIsMirroringOn(Boolean *isMirroringOn);
 
   /**
    *  DMMirrorDevices()
@@ -1451,8 +1426,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMMirrorDevices(GDHandle gD1, GDHandle gD2, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x0619, 0xABEB);
+  DMMirrorDevices(GDHandle gD1, GDHandle gD2, Handle displayState);
 
   /**
    *  DMUnmirrorDevice()
@@ -1463,8 +1437,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMUnmirrorDevice(GDHandle gDevice, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x041A, 0xABEB);
+  DMUnmirrorDevice(GDHandle gDevice, Handle displayState);
 
   /**
    *  DMGetNextMirroredDevice()
@@ -1475,8 +1448,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMGetNextMirroredDevice(GDHandle gDevice, GDHandle *mirroredDevice)
-      THREEWORDINLINE(0x303C, 0x041B, 0xABEB);
+  DMGetNextMirroredDevice(GDHandle gDevice, GDHandle *mirroredDevice);
 
   /**
    *  DMBlockMirroring()
@@ -1487,7 +1459,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMBlockMirroring(void) TWOWORDINLINE(0x701C, 0xABEB);
+  DMBlockMirroring(void);
 
   /**
    *  DMUnblockMirroring()
@@ -1498,7 +1470,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMUnblockMirroring(void) TWOWORDINLINE(0x701D, 0xABEB);
+  DMUnblockMirroring(void);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -1510,7 +1482,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  DMGetDisplayMgrA5World(Ptr *dmA5) THREEWORDINLINE(0x303C, 0x021E, 0xABEB);
+  DMGetDisplayMgrA5World(Ptr *dmA5);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1524,8 +1496,7 @@ extern "C"
    */
   OSErr
   DMGetDisplayIDByGDevice(GDHandle displayDevice, DisplayIDType *displayID,
-                          Boolean failToMain)
-      THREEWORDINLINE(0x303C, 0x051F, 0xABEB);
+                          Boolean failToMain);
 
   /**
    *  DMGetGDeviceByDisplayID()
@@ -1537,8 +1508,7 @@ extern "C"
    */
   OSErr
   DMGetGDeviceByDisplayID(DisplayIDType displayID, GDHandle *displayDevice,
-                          Boolean failToMain)
-      THREEWORDINLINE(0x303C, 0x0520, 0xABEB);
+                          Boolean failToMain);
 
   /**
    *  DMSetDisplayComponent()
@@ -1549,8 +1519,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMSetDisplayComponent(GDHandle theDevice, Component displayComponent)
-      THREEWORDINLINE(0x303C, 0x0421, 0xABEB);
+  DMSetDisplayComponent(GDHandle theDevice, Component displayComponent);
 
   /**
    *  DMGetDisplayComponent()
@@ -1561,8 +1530,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMGetDisplayComponent(GDHandle theDevice, Component *displayComponent)
-      THREEWORDINLINE(0x303C, 0x0422, 0xABEB);
+  DMGetDisplayComponent(GDHandle theDevice, Component *displayComponent);
 
   /**
    *  DMNewDisplay()
@@ -1575,8 +1543,7 @@ extern "C"
   OSErr
   DMNewDisplay(GDHandle *newDevice, short driverRefNum, unsigned long mode,
                unsigned long reserved, DisplayIDType displayID,
-               Component displayComponent, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x0D23, 0xABEB);
+               Component displayComponent, Handle displayState);
 
   /**
    *  DMDisposeDisplay()
@@ -1587,8 +1554,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMDisposeDisplay(GDHandle disposeDevice, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x0424, 0xABEB);
+  DMDisposeDisplay(GDHandle disposeDevice, Handle displayState);
 
   /**
    *  DMResolveDisplayComponents()
@@ -1599,7 +1565,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMResolveDisplayComponents(void) TWOWORDINLINE(0x7025, 0xABEB);
+  DMResolveDisplayComponents(void);
 
   /**
    *  DMRegisterExtendedNotifyProc()
@@ -1612,8 +1578,7 @@ extern "C"
   OSErr
   DMRegisterExtendedNotifyProc(DMExtendedNotificationUPP notifyProc,
                                void *notifyUserData, unsigned short nofifyOnFlags,
-                               DMProcessInfoPtr whichPSN)
-      THREEWORDINLINE(0x303C, 0x07EF, 0xABEB);
+                               DMProcessInfoPtr whichPSN);
 
   /**
    *  DMRemoveExtendedNotifyProc()
@@ -1626,8 +1591,7 @@ extern "C"
   OSErr
   DMRemoveExtendedNotifyProc(DMExtendedNotificationUPP notifyProc,
                              void *notifyUserData, DMProcessInfoPtr whichPSN,
-                             unsigned short removeFlags)
-      THREEWORDINLINE(0x303C, 0x0726, 0xABEB);
+                             unsigned short removeFlags);
 
   /**
    *  DMNewAVPanelList()
@@ -1641,8 +1605,7 @@ extern "C"
   DMNewAVPanelList(DisplayIDType displayID, ResType panelType,
                    DMFidelityType minimumFidelity, unsigned long panelListFlags,
                    unsigned long reserved, DMListIndexType *thePanelCount,
-                   DMListType *thePanelList)
-      THREEWORDINLINE(0x303C, 0x0C27, 0xABEB);
+                   DMListType *thePanelList);
 
   /**
    *  DMNewAVEngineList()
@@ -1656,8 +1619,7 @@ extern "C"
   DMNewAVEngineList(DisplayIDType displayID, ResType engineType,
                     DMFidelityType minimumFidelity, unsigned long engineListFlags,
                     unsigned long reserved, DMListIndexType *engineCount,
-                    DMListType *engineList)
-      THREEWORDINLINE(0x303C, 0x0C28, 0xABEB);
+                    DMListType *engineList);
 
   /**
    *  DMNewAVDeviceList()
@@ -1670,8 +1632,7 @@ extern "C"
   OSErr
   DMNewAVDeviceList(ResType deviceType, unsigned long deviceListFlags,
                     unsigned long reserved, DMListIndexType *deviceCount,
-                    DMListType *deviceList)
-      THREEWORDINLINE(0x303C, 0x0A29, 0xABEB);
+                    DMListType *deviceList);
 
   /**
    *  DMNewAVPortListByPortType()
@@ -1685,8 +1646,7 @@ extern "C"
   DMNewAVPortListByPortType(ResType subType, unsigned long portListFlags,
                             unsigned long reserved,
                             DMListIndexType *devicePortCount,
-                            DMListType *theDevicePortList)
-      THREEWORDINLINE(0x303C, 0x0A2A, 0xABEB);
+                            DMListType *theDevicePortList);
 
   /**
    *  DMGetIndexedComponentFromList()
@@ -1700,8 +1660,7 @@ extern "C"
   DMGetIndexedComponentFromList(DMListType panelList, DMListIndexType itemIndex,
                                 unsigned long reserved,
                                 DMComponentListIteratorUPP listIterator,
-                                void *userData)
-      THREEWORDINLINE(0x303C, 0x0A2B, 0xABEB);
+                                void *userData);
 
   /**
    *  DMDisposeList()
@@ -1712,7 +1671,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMDisposeList(DMListType panelList) THREEWORDINLINE(0x303C, 0x022C, 0xABEB);
+  DMDisposeList(DMListType panelList);
 
   /**
    *  DMGetNameByAVID()
@@ -1723,8 +1682,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMGetNameByAVID(AVIDType theID, unsigned long nameFlags, Str255 name)
-      THREEWORDINLINE(0x303C, 0x062D, 0xABEB);
+  DMGetNameByAVID(AVIDType theID, unsigned long nameFlags, Str255 name);
 
   /**
    *  DMNewAVIDByPortComponent()
@@ -1736,8 +1694,7 @@ extern "C"
    */
   OSErr
   DMNewAVIDByPortComponent(Component thePortComponent, ResType portKind,
-                           unsigned long reserved, AVIDType *newID)
-      THREEWORDINLINE(0x303C, 0x082E, 0xABEB);
+                           unsigned long reserved, AVIDType *newID);
 
   /**
    *  DMGetPortComponentByAVID()
@@ -1750,8 +1707,7 @@ extern "C"
   OSErr
   DMGetPortComponentByAVID(DisplayIDType thePortID, Component *thePortComponent,
                            ComponentDescription *theDesciption,
-                           ResType *thePortKind)
-      THREEWORDINLINE(0x303C, 0x082F, 0xABEB);
+                           ResType *thePortKind);
 
   /**
    *  DMSendDependentNotification()
@@ -1764,8 +1720,7 @@ extern "C"
   OSErr
   DMSendDependentNotification(ResType notifyType, ResType notifyClass,
                               AVIDType displayID,
-                              ComponentInstance notifyComponent)
-      THREEWORDINLINE(0x303C, 0x0830, 0xABEB);
+                              ComponentInstance notifyComponent);
 
   /**
    *  DMDisposeAVComponent()
@@ -1776,8 +1731,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMDisposeAVComponent(Component theAVComponent)
-      THREEWORDINLINE(0x303C, 0x0231, 0xABEB);
+  DMDisposeAVComponent(Component theAVComponent);
 
   /**
    *  DMSaveScreenPrefs()
@@ -1789,8 +1743,7 @@ extern "C"
    */
   OSErr
   DMSaveScreenPrefs(unsigned long reserved1, unsigned long saveFlags,
-                    unsigned long reserved2)
-      THREEWORDINLINE(0x303C, 0x0632, 0xABEB);
+                    unsigned long reserved2);
 
   /**
    *  DMNewAVIDByDeviceComponent()
@@ -1802,8 +1755,7 @@ extern "C"
    */
   OSErr
   DMNewAVIDByDeviceComponent(Component theDeviceComponent, ResType portKind,
-                             unsigned long reserved, DisplayIDType *newID)
-      THREEWORDINLINE(0x303C, 0x0833, 0xABEB);
+                             unsigned long reserved, DisplayIDType *newID);
 
   /**
    *  DMNewAVPortListByDeviceAVID()
@@ -1817,8 +1769,7 @@ extern "C"
   DMNewAVPortListByDeviceAVID(AVIDType theID, DMFidelityType minimumFidelity,
                               unsigned long portListFlags, unsigned long reserved,
                               DMListIndexType *devicePortCount,
-                              DMListType *theDevicePortList)
-      THREEWORDINLINE(0x303C, 0x0C34, 0xABEB);
+                              DMListType *theDevicePortList);
 
   /**
    *  DMGetDeviceComponentByAVID()
@@ -1831,8 +1782,7 @@ extern "C"
   OSErr
   DMGetDeviceComponentByAVID(AVIDType theDeviceID, Component *theDeviceComponent,
                              ComponentDescription *theDesciption,
-                             ResType *theDeviceKind)
-      THREEWORDINLINE(0x303C, 0x0835, 0xABEB);
+                             ResType *theDeviceKind);
 
   /**
    *  DMNewDisplayModeList()
@@ -1845,8 +1795,7 @@ extern "C"
   OSErr
   DMNewDisplayModeList(DisplayIDType displayID, unsigned long modeListFlags,
                        unsigned long reserved, DMListIndexType *thePanelCount,
-                       DMListType *thePanelList)
-      THREEWORDINLINE(0x303C, 0x0A36, 0xABEB);
+                       DMListType *thePanelList);
 
   /**
    *  DMGetIndexedDisplayModeFromList()
@@ -1860,8 +1809,7 @@ extern "C"
   DMGetIndexedDisplayModeFromList(DMListType panelList, DMListIndexType itemIndex,
                                   unsigned long reserved,
                                   DMDisplayModeListIteratorUPP listIterator,
-                                  void *userData)
-      THREEWORDINLINE(0x303C, 0x0A37, 0xABEB);
+                                  void *userData);
 
   /**
    *  DMGetGraphicInfoByAVID()
@@ -1873,8 +1821,7 @@ extern "C"
    */
   OSErr
   DMGetGraphicInfoByAVID(AVIDType theID, PicHandle *theAVPcit,
-                         Handle *theAVIconSuite, AVLocationRec *theAVLocation)
-      THREEWORDINLINE(0x303C, 0x0838, 0xABEB);
+                         Handle *theAVIconSuite, AVLocationRec *theAVLocation);
 
   /**
    *  DMGetAVPowerState()
@@ -1886,8 +1833,7 @@ extern "C"
    */
   OSErr
   DMGetAVPowerState(AVIDType theID, AVPowerStatePtr getPowerState,
-                    unsigned long reserved1)
-      THREEWORDINLINE(0x303C, 0x0839, 0xABEB);
+                    unsigned long reserved1);
 
   /**
    *  DMSetAVPowerState()
@@ -1899,8 +1845,7 @@ extern "C"
    */
   OSErr
   DMSetAVPowerState(AVIDType theID, AVPowerStatePtr setPowerState,
-                    unsigned long powerFlags, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x083A, 0xABEB);
+                    unsigned long powerFlags, Handle displayState);
 
   /**
    *  DMGetDeviceAVIDByPortAVID()
@@ -1911,8 +1856,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMGetDeviceAVIDByPortAVID(AVIDType portAVID, AVIDType *deviceAVID)
-      THREEWORDINLINE(0x303C, 0x043B, 0xABEB);
+  DMGetDeviceAVIDByPortAVID(AVIDType portAVID, AVIDType *deviceAVID);
 
   /**
    *  DMGetEnableByAVID()
@@ -1924,8 +1868,7 @@ extern "C"
    */
   OSErr
   DMGetEnableByAVID(AVIDType theAVID, Boolean *isAVIDEnabledNow,
-                    Boolean *canChangeEnableNow)
-      THREEWORDINLINE(0x303C, 0x063C, 0xABEB);
+                    Boolean *canChangeEnableNow);
 
   /**
    *  DMSetEnableByAVID()
@@ -1936,8 +1879,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMSetEnableByAVID(AVIDType theAVID, Boolean doEnable, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x053D, 0xABEB);
+  DMSetEnableByAVID(AVIDType theAVID, Boolean doEnable, Handle displayState);
 
   /**
    *  DMGetDisplayMode()
@@ -1948,8 +1890,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DMGetDisplayMode(GDHandle theDevice, VDSwitchInfoPtr switchInfo)
-      THREEWORDINLINE(0x303C, 0x043E, 0xABEB);
+  DMGetDisplayMode(GDHandle theDevice, VDSwitchInfoPtr switchInfo);
 
   /**
    *  DMConfirmConfiguration()
@@ -1961,8 +1902,7 @@ extern "C"
    */
   OSErr
   DMConfirmConfiguration(DMModalFilterUPP filterProc, UInt32 confirmFlags,
-                         UInt32 reserved, Handle displayState)
-      THREEWORDINLINE(0x303C, 0x083F, 0xABEB);
+                         UInt32 reserved, Handle displayState);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

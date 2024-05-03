@@ -194,7 +194,7 @@ extern "C"
   DebugAssert(OSType componentSignature, UInt32 options,
               const char *assertionString, const char *exceptionString,
               const char *errorString, const char *fileName, long lineNumber,
-              void *value) TWOWORDINLINE(0x7000, 0xAA7E);
+              void *value);
 
 #ifndef DEBUGASSERTMSG
 #if DEBUGLEVEL == DEBUG_LEVEL_BREAK_ONLY
@@ -310,7 +310,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   UInt32
-  TaskLevel(void) TWOWORDINLINE(0x7001, 0xAA7E);
+  TaskLevel(void);
 
 #define ATTASKLEVEL0() (TaskLevel() == 0)
 
@@ -336,8 +336,7 @@ extern "C"
    */
   OSStatus
   NewDebugComponent(OSType componentSignature, ConstStr255Param componentName,
-                    DebugComponentCallbackUPP componentCallback)
-      TWOWORDINLINE(0x7002, 0xAA7E);
+                    DebugComponentCallbackUPP componentCallback);
 
   /**
       NewDebugOption
@@ -365,7 +364,7 @@ extern "C"
    */
   OSStatus
   NewDebugOption(OSType componentSignature, SInt32 optionSelectorNum,
-                 ConstStr255Param optionName) TWOWORDINLINE(0x7003, 0xAA7E);
+                 ConstStr255Param optionName);
 
   /**
       DisposeDebugComponent
@@ -384,7 +383,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSStatus
-  DisposeDebugComponent(OSType componentSignature) TWOWORDINLINE(0x7004, 0xAA7E);
+  DisposeDebugComponent(OSType componentSignature);
 
   /**
       GetDebugComponentInfo
@@ -408,7 +407,7 @@ extern "C"
    */
   OSStatus
   GetDebugComponentInfo(UInt32 index, OSType *componentSignature,
-                        Str255 componentName) TWOWORDINLINE(0x7005, 0xAA7E);
+                        Str255 componentName);
 
   /**
       GetDebugOptionInfo
@@ -434,7 +433,7 @@ extern "C"
   OSStatus
   GetDebugOptionInfo(UInt32 index, OSType componentSignature,
                      SInt32 *optionSelectorNum, Str255 optionName,
-                     Boolean *optionSetting) TWOWORDINLINE(0x7006, 0xAA7E);
+                     Boolean *optionSetting);
 
   /**
       SetDebugOptionValue
@@ -458,7 +457,7 @@ extern "C"
    */
   OSStatus
   SetDebugOptionValue(OSType componentSignature, SInt32 optionSelectorNum,
-                      Boolean newOptionSetting) TWOWORDINLINE(0x7007, 0xAA7E);
+                      Boolean newOptionSetting);
 
   /**
       DebugAssertOutputHandler
@@ -490,8 +489,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  InstallDebugAssertOutputHandler(DebugAssertOutputHandlerUPP handler)
-      TWOWORDINLINE(0x7008, 0xAA7E);
+  InstallDebugAssertOutputHandler(DebugAssertOutputHandlerUPP handler);
 
 /**
     dprintf() takes a variable argument list and 'prints' that to the debugging
@@ -507,8 +505,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  dprintf(const char *format, ...)
-      SIXWORDINLINE(0x2057, 0x43EF, 0x0004, 0x303C, 0x000A, 0xAA7E);
+  dprintf(const char *format, ...);
 
   /**  vdprintf() takes a va_args list and 'prints' that to the debugging output
    * handler.*/
@@ -521,7 +518,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  vdprintf(const char *format, char *va_args_list) TWOWORDINLINE(0x7009, 0xAA7E);
+  vdprintf(const char *format, char *va_args_list);
 
 #endif /** CALL_NOT_IN_CARBON */
 

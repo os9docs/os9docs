@@ -62,8 +62,10 @@ extern "C"
 
   enum
   {
-    // resource types      rSectionType = FOUR_CHAR_CODE('sect'), // ResType of saved SectionRecords                                            // Finder types for edition files     kPICTEditionFileType = FOUR_CHAR_CODE('edtp'),
-    kTEXTEditionFileType = FOUR_CHAR_CODE('edtt'),
+    /** types */
+    rSectionType = FOUR_CHAR_CODE('sect') /** of */
+    saved SectionRecords                  // Finder types for edition files     kPICTEditionFileType  =  FOUR_CHAR_CODE('edtp')
+        kTEXTEditionFileType = FOUR_CHAR_CODE('edtt'),
     ksndEditionFileType = FOUR_CHAR_CODE('edts'),
     kUnknownEditionFileType = FOUR_CHAR_CODE('edtu'),
     kPublisherDocAliasFormat = FOUR_CHAR_CODE('alis'),
@@ -73,123 +75,140 @@ extern "C"
 
   enum
   {
-    // section types     stSubscriber = 0x01,
-    stPublisher = 0x0A
+    /** types */
+    stSubscriber = 0x01 stPublisher = 0x0A
   };
 
   enum
   {
-    sumAutomatic = 0, // subscriber update mode - Automatically         sumManual = 1,    // subscriber update mode - Manually     pumOnSave = 0,    // publisher update mode - OnSave                pumManual = 1     // publisher update mode - Manually   };
+    sumAutomatic = 0,                  /** update */
+    mode - Automatically sumManual = 1 /** update */
+                                     mode -
+                                     Manually pumOnSave = 0 // publisher update mode - OnSave                pumManual = 1     // publisher update mode - Manually
+  };
 
-    enum {
-        kPartsNotUsed = 0,
-        kPartNumberUnknown = -1};
+  enum
+  {
+    kPartsNotUsed = 0,
+    kPartNumberUnknown = -1
+  };
 
-    enum {
-        kPreviewWidth = 120,
-        kPreviewHeight = 120};
+  enum
+  {
+    kPreviewWidth = 120,
+    kPreviewHeight = 120
+  };
 
-    enum {
-        // bits for formatsMask     kPICTformatMask = 1,
-        kTEXTformatMask = 2,
-        ksndFormatMask = 4};
+  enum
+  {
+    /** for */
+    formatsMask kPICTformatMask = 1 kTEXTformatMask = 2,
+    ksndFormatMask = 4
+  };
 
-    enum {
-        /* pseudo-item hits for dialogHooks the first is for NewPublisher or
-           NewSubscriber Dialogs */
-        emHookRedrawPreview = 150, // the following are for SectionOptions Dialog     emHookCancelSection = 160,
-        emHookGoToPublisher = 161,
-        emHookGetEditionNow = 162,
-        emHookSendEditionNow = 162,
-        emHookManualUpdateMode = 163,
-        emHookAutoUpdateMode = 164};
+  enum
+  {
+    /* pseudo-item hits for dialogHooks the first is for NewPublisher or
+       NewSubscriber Dialogs */
+    emHookRedrawPreview = 150,  /** following */
+are for SectionOptions Dialog     emHookCancelSection  =  160
+    emHookGoToPublisher = 161,
+    emHookGetEditionNow = 162,
+    emHookSendEditionNow = 162,
+    emHookManualUpdateMode = 163,
+    emHookAutoUpdateMode = 164
+  };
 
-    enum {
-        /* the refcon field of the dialog record during a modalfilter or dialoghook
-           contains one the following */
-        emOptionsDialogRefCon = FOUR_CHAR_CODE('optn'),
-        emCancelSectionDialogRefCon = FOUR_CHAR_CODE('cncl'),
-        emGoToPubErrDialogRefCon = FOUR_CHAR_CODE('gerr')};
+  enum
+  {
+    /* the refcon field of the dialog record during a modalfilter or dialoghook
+       contains one the following */
+    emOptionsDialogRefCon = FOUR_CHAR_CODE('optn'),
+    emCancelSectionDialogRefCon = FOUR_CHAR_CODE('cncl'),
+    emGoToPubErrDialogRefCon = FOUR_CHAR_CODE('gerr')
+  };
 
-    enum {
-        kFormatLengthUnknown = -1};
+  enum
+  {
+    kFormatLengthUnknown = -1
+  };
 
-    // one byte, stSubscriber or stPublisher   typedef SignedByte SectionType;
-    // seconds since 1904   typedef unsigned long TimeStamp;
-    // similar to ResType   typedef FourCharCode FormatType;
-    // used in Edition I/O   typedef Handle EditionRefNum;
-    // update modes   // sumAutomatic, pumSuspend, etc   typedef short UpdateMode;
-    typedef struct SectionRecord SectionRecord;
-    typedef SectionRecord * SectionPtr;
-    typedef SectionPtr * SectionHandle;
-    /**
-    <pre><table><tbody>
-    <tr>
-      <td>version</td>
-      <td><pre>Indicates the version of the section record, currently
-    0x01.
-      </pre></td>
-    </tr>
+  // one byte, stSubscriber or stPublisher   typedef SignedByte SectionType;
+  // seconds since 1904   typedef unsigned long TimeStamp;
+  // similar to ResType   typedef FourCharCode FormatType;
+  // used in Edition I/O   typedef Handle EditionRefNum;
+  // update modes   // sumAutomatic, pumSuspend, etc   typedef short UpdateMode;
+  typedef struct SectionRecord SectionRecord;
+  typedef SectionRecord *SectionPtr;
+  typedef SectionPtr *SectionHandle;
+  /**
+  <pre><table><tbody>
+  <tr>
+    <td>version</td>
+    <td><pre>Indicates the version of the section record, currently
+  0x01.
+    </pre></td>
+  </tr>
 
-    <tr>
-      <td>kind</td>
-      <td><pre>Defines the section type as either publisher or
-    with the stPublisher or stSubscriber
-    constant.
-      </pre></td>
-    </tr>
+  <tr>
+    <td>kind</td>
+    <td><pre>Defines the section type as either publisher or
+  with the stPublisher or stSubscriber
+  constant.
+    </pre></td>
+  </tr>
 
-    <tr>
-      <td>mode</td>
-      <td><pre>Indicates if editions are updated automatically or
-    manually.
-      </pre></td>
-    </tr>
+  <tr>
+    <td>mode</td>
+    <td><pre>Indicates if editions are updated automatically or
+  manually.
+    </pre></td>
+  </tr>
 
-    <tr>
-      <td>mdDate</td>
-      <td><pre>Indicates which version (modification date) of the
-    contents is contained within the publisher or
-    The mdDate is set to 0 when you create a
-    subscriber section, and is set to the current time
-    you create a new publisher. Be sure to update this
-    each time publisher data is modified. The section's
-    date is compared to the edition's
-    date to determine whether the section and
-    edition contain the same data. The section
-    date is displayed in the publisher and
-    options dialog boxes. See the section,
-    an Edition for detailed information.
-      </pre></td>
-    </tr>
+  <tr>
+    <td>mdDate</td>
+    <td><pre>Indicates which version (modification date) of the
+  contents is contained within the publisher or
+  The mdDate is set to 0 when you create a
+  subscriber section, and is set to the current time
+  you create a new publisher. Be sure to update this
+  each time publisher data is modified. The section's
+  date is compared to the edition's
+  date to determine whether the section and
+  edition contain the same data. The section
+  date is displayed in the publisher and
+  options dialog boxes. See the section,
+  an Edition for detailed information.
+    </pre></td>
+  </tr>
 
-    <tr>
-      <td>sectionID</td>
-      <td><pre>Provides a unique number for each section within a
-    A simple way to implement this is to create a
-    for each document that is saved to disk with the
-    The counter should start at 1. The section ID
-    currently used as a tie breaker in the GoToPublisher
-    when there are multiple publishers to the
-    edition in a single document. The section ID should
-    Reference © 1991-1992 Symantec Corporation
-      </pre></td>
-    </tr>
-    </tbody></table>*/
-    struct SectionRecord{
-        char version;                        /**< always x in system .*/
-        SectionType kind;                    /**< stSubscriber or stPublisher*/
-        UpdateMode mode;                     /**< auto or manual*/
-        TimeStamp mdDate;                    /**< last change in document*/
-        long sectionID;                      /**< app. specific, unique per*/
-        long refCon;                         /**< application specific*/
-        AliasHandle alias;                   /**< handle to Alias Record*/
-        long subPart;                        /**< which part of container file*/
-        struct SectionRecord * *nextSection; /**< for linked list of app's*/
-        Handle controlBlock;                 /**< used internally*/
-        EditionRefNum refNum;                /**< used internally*/
-    }
-  SectionRecord; /**< */
+  <tr>
+    <td>sectionID</td>
+    <td><pre>Provides a unique number for each section within a
+  A simple way to implement this is to create a
+  for each document that is saved to disk with the
+  The counter should start at 1. The section ID
+  currently used as a tie breaker in the GoToPublisher
+  when there are multiple publishers to the
+  edition in a single document. The section ID should
+  Reference © 1991-1992 Symantec Corporation
+    </pre></td>
+  </tr>
+  </tbody></table>*/
+  struct SectionRecord
+  {
+    char version;                       /**< always x in system .*/
+    SectionType kind;                   /**< stSubscriber or stPublisher*/
+    UpdateMode mode;                    /**< auto or manual*/
+    TimeStamp mdDate;                   /**< last change in document*/
+    long sectionID;                     /**< app. specific, unique per*/
+    long refCon;                        /**< application specific*/
+    AliasHandle alias;                  /**< handle to Alias Record*/
+    long subPart;                       /**< which part of container file*/
+    struct SectionRecord **nextSection; /**< for linked list of app's*/
+    Handle controlBlock;                /**< used internally*/
+    EditionRefNum refNum;               /**< used internally*/
+  } SectionRecord;                      /**< */
 
   /**
   <pre>
@@ -608,7 +627,7 @@ extern "C"
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82D);
+OSErr InitEditionPack(void);
 
 #endif // CALL_NOT_IN_CARBON
 #endif // TARGET_RT_MAC_CFM
@@ -622,8 +641,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  InitEditionPackVersion(short curEditionMgrVers)
-      THREEWORDINLINE(0x303C, 0x0100, 0xA82D);
+  InitEditionPackVersion(short curEditionMgrVers);
 
   /**
    *  NewSection()
@@ -636,7 +654,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
   OSErr
   NewSection(const EditionContainerSpec *container,
              const FSSpec *sectionDocument, // can be NULL              SectionType kind, long sectionID, UpdateMode initalMode,
-             SectionHandle *sectionH) THREEWORDINLINE(0x303C, 0x0A02, 0xA82D);
+             SectionHandle *sectionH);
 
   /**
    *  RegisterSection()
@@ -648,8 +666,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   RegisterSection(const FSSpec *sectionDocument, SectionHandle sectionH,
-                  Boolean *aliasWasUpdated)
-      THREEWORDINLINE(0x303C, 0x0604, 0xA82D);
+                  Boolean *aliasWasUpdated);
 
   /**
    *  UnRegisterSection()
@@ -660,8 +677,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  UnRegisterSection(SectionHandle sectionH)
-      THREEWORDINLINE(0x303C, 0x0206, 0xA82D);
+  UnRegisterSection(SectionHandle sectionH);
 
   /**
    *  IsRegisteredSection()
@@ -672,8 +688,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  IsRegisteredSection(SectionHandle sectionH)
-      THREEWORDINLINE(0x303C, 0x0208, 0xA82D);
+  IsRegisteredSection(SectionHandle sectionH);
 
   /**
    *  AssociateSection()
@@ -684,8 +699,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  AssociateSection(SectionHandle sectionH, const FSSpec *newSectionDocument)
-      THREEWORDINLINE(0x303C, 0x040C, 0xA82D);
+  AssociateSection(SectionHandle sectionH, const FSSpec *newSectionDocument);
 
   /**
    *  CreateEditionContainerFile()
@@ -697,8 +711,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   CreateEditionContainerFile(const FSSpec *editionFile, OSType fdCreator,
-                             ScriptCode editionFileNameScript)
-      THREEWORDINLINE(0x303C, 0x050E, 0xA82D);
+                             ScriptCode editionFileNameScript);
 
   /**
    *  DeleteEditionContainerFile()
@@ -709,8 +722,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  DeleteEditionContainerFile(const FSSpec *editionFile)
-      THREEWORDINLINE(0x303C, 0x0210, 0xA82D);
+  DeleteEditionContainerFile(const FSSpec *editionFile);
 
   /**
    *  OpenEdition()
@@ -721,8 +733,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  OpenEdition(SectionHandle subscriberSectionH, EditionRefNum *refNum)
-      THREEWORDINLINE(0x303C, 0x0412, 0xA82D);
+  OpenEdition(SectionHandle subscriberSectionH, EditionRefNum *refNum);
 
   /**
    *  OpenNewEdition()
@@ -734,7 +745,8 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   OpenNewEdition(SectionHandle publisherSectionH, OSType fdCreator,
-                 const FSSpec *publisherSectionDocument, // can be NULL                  EditionRefNum *refNum) THREEWORDINLINE(0x303C, 0x0814, 0xA82D);
+                 const FSSpec *publisherSectionDocument, // can be NULL
+                 EditionRefNum *refNum);
 
   /**
    *  CloseEdition()
@@ -745,8 +757,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  CloseEdition(EditionRefNum whichEdition, Boolean successful)
-      THREEWORDINLINE(0x303C, 0x0316, 0xA82D);
+  CloseEdition(EditionRefNum whichEdition, Boolean successful);
 
   /**
    *  EditionHasFormat()
@@ -758,7 +769,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   EditionHasFormat(EditionRefNum whichEdition, FormatType whichFormat,
-                   Size *formatSize) THREEWORDINLINE(0x303C, 0x0618, 0xA82D);
+                   Size *formatSize);
 
   /**
    *  ReadEdition()
@@ -770,7 +781,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   ReadEdition(EditionRefNum whichEdition, FormatType whichFormat, void *buffPtr,
-              Size *buffLen) THREEWORDINLINE(0x303C, 0x081A, 0xA82D);
+              Size *buffLen);
 
   /**
    *  WriteEdition()
@@ -782,8 +793,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   WriteEdition(EditionRefNum whichEdition, FormatType whichFormat,
-               const void *buffPtr, Size buffLen)
-      THREEWORDINLINE(0x303C, 0x081C, 0xA82D);
+               const void *buffPtr, Size buffLen);
 
   /**
    *  GetEditionFormatMark()
@@ -795,8 +805,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   GetEditionFormatMark(EditionRefNum whichEdition, FormatType whichFormat,
-                       unsigned long *currentMark)
-      THREEWORDINLINE(0x303C, 0x061E, 0xA82D);
+                       unsigned long *currentMark);
 
   /**
    *  SetEditionFormatMark()
@@ -808,8 +817,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   SetEditionFormatMark(EditionRefNum whichEdition, FormatType whichFormat,
-                       unsigned long setMarkTo)
-      THREEWORDINLINE(0x303C, 0x0620, 0xA82D);
+                       unsigned long setMarkTo);
 
   /**
    *  GetEditionInfo()
@@ -820,8 +828,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  GetEditionInfo(SectionHandle sectionH, EditionInfoRecord *editionInfo)
-      THREEWORDINLINE(0x303C, 0x0422, 0xA82D);
+  GetEditionInfo(SectionHandle sectionH, EditionInfoRecord *editionInfo);
 
   /**
    *  GoToPublisherSection()
@@ -832,8 +839,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  GoToPublisherSection(const EditionContainerSpec *container)
-      THREEWORDINLINE(0x303C, 0x0224, 0xA82D);
+  GoToPublisherSection(const EditionContainerSpec *container);
 
   /**
    *  GetLastEditionContainerUsed()
@@ -844,8 +850,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  GetLastEditionContainerUsed(EditionContainerSpec *container)
-      THREEWORDINLINE(0x303C, 0x0226, 0xA82D);
+  GetLastEditionContainerUsed(EditionContainerSpec *container);
 
   /**
    *  GetStandardFormats()
@@ -858,8 +863,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
   OSErr
   GetStandardFormats(const EditionContainerSpec *container,
                      FormatType *previewFormat, Handle preview,
-                     Handle publisherAlias, Handle formats)
-      THREEWORDINLINE(0x303C, 0x0A28, 0xA82D);
+                     Handle publisherAlias, Handle formats);
 
   /**
    *  GetEditionOpenerProc()
@@ -870,8 +874,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  GetEditionOpenerProc(EditionOpenerUPP *opener)
-      THREEWORDINLINE(0x303C, 0x022A, 0xA82D);
+  GetEditionOpenerProc(EditionOpenerUPP *opener);
 
   /**
    *  SetEditionOpenerProc()
@@ -882,8 +885,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  SetEditionOpenerProc(EditionOpenerUPP opener)
-      THREEWORDINLINE(0x303C, 0x022C, 0xA82D);
+  SetEditionOpenerProc(EditionOpenerUPP opener);
 
   /**
    *  CallEditionOpenerProc()
@@ -895,8 +897,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   CallEditionOpenerProc(EditionOpenerVerb selector, EditionOpenerParamBlock *PB,
-                        EditionOpenerUPP routine)
-      THREEWORDINLINE(0x303C, 0x052E, 0xA82D);
+                        EditionOpenerUPP routine);
 
   /**
    *  CallFormatIOProc()
@@ -908,7 +909,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    */
   OSErr
   CallFormatIOProc(FormatIOVerb selector, FormatIOParamBlock *PB,
-                   FormatIOUPP routine) THREEWORDINLINE(0x303C, 0x0530, 0xA82D);
+                   FormatIOUPP routine);
 
   /**
    *  NewSubscriberDialog()
@@ -919,8 +920,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  NewSubscriberDialog(NewSubscriberReply *reply)
-      THREEWORDINLINE(0x303C, 0x0232, 0xA82D);
+  NewSubscriberDialog(NewSubscriberReply *reply);
 
   /**
    *  NewSubscriberExpDialog()
@@ -933,8 +933,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
   OSErr
   NewSubscriberExpDialog(NewSubscriberReply *reply, Point where,
                          short expansionDITLresID, ExpDlgHookUPP dlgHook,
-                         ExpModalFilterUPP filter, void *yourDataPtr)
-      THREEWORDINLINE(0x303C, 0x0B34, 0xA82D);
+                         ExpModalFilterUPP filter, void *yourDataPtr);
 
   /**
    *  NewPublisherDialog()
@@ -945,8 +944,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  NewPublisherDialog(NewPublisherReply *reply)
-      THREEWORDINLINE(0x303C, 0x0236, 0xA82D);
+  NewPublisherDialog(NewPublisherReply *reply);
 
   /**
    *  NewPublisherExpDialog()
@@ -959,8 +957,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
   OSErr
   NewPublisherExpDialog(NewPublisherReply *reply, Point where,
                         short expansionDITLresID, ExpDlgHookUPP dlgHook,
-                        ExpModalFilterUPP filter, void *yourDataPtr)
-      THREEWORDINLINE(0x303C, 0x0B38, 0xA82D);
+                        ExpModalFilterUPP filter, void *yourDataPtr);
 
   /**
    *  SectionOptionsDialog()
@@ -971,8 +968,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
    *    \mac_os_x         not available
    */
   OSErr
-  SectionOptionsDialog(SectionOptionsReply *reply)
-      THREEWORDINLINE(0x303C, 0x023A, 0xA82D);
+  SectionOptionsDialog(SectionOptionsReply *reply);
 
   /**
    *  SectionOptionsExpDialog()
@@ -985,8 +981,7 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
   OSErr
   SectionOptionsExpDialog(SectionOptionsReply *reply, Point where,
                           short expansionDITLresID, ExpDlgHookUPP dlgHook,
-                          ExpModalFilterUPP filter, void *yourDataPtr)
-      THREEWORDINLINE(0x303C, 0x0B3C, 0xA82D);
+                          ExpModalFilterUPP filter, void *yourDataPtr);
 
 #endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
@@ -1006,30 +1001,3 @@ OSErr InitEditionPack(void) FIVEWORDINLINE(0x3F3C, 0x0011, 0x303C, 0x0100, 0xA82
 #ifdef __cplusplus
 }
 #endif
-
-#endif // __EDITIONS__ s_x not available * /
-OSErr SectionOptionsExpDialog(SectionOptionsReply *reply, Point where,
-                              short expansionDITLresID, ExpDlgHookUPP dlgHook,
-                              ExpModalFilterUPP filter, void *yourDataPtr)
-    THREEWORDINLINE(0x303C, 0x0B3C, 0xA82D);
-
-#endif // CALL_NOT_IN_CARBON
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // __EDITIONS__

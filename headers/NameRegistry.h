@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -43,170 +44,181 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/********************************************************************************
- *
- * Foundation Types
- *
- */
-/** Value of a property */
-typedef void *RegPropertyValue;
-/** Length of property value */
-typedef UInt32 RegPropertyValueSize;
-/********************************************************************************
- *
- * RegEntryID   :   The Global x-Namespace Entry Identifier
- *
- */
-struct RegEntryID {
-  UInt32 contents[4];
-};
-typedef struct RegEntryID RegEntryID;
-typedef RegEntryID *RegEntryIDPtr;
-/********************************************************************************
- *
- * Root Entry Name Definitions  (Applies to all Names in the RootNameSpace)
- *
- *  © Names are a colon-separated list of name components.  Name components
- *    may not themselves contain colons.
- *  © Names are presented as null-terminated ASCII character strings.
- *  © Names follow similar parsing rules to Apple file system absolute
- *    and relative paths.  However the '::' parent directory syntax is
- *    not currently supported.
- */
-/** Max length of Entry Name */
-enum { kRegCStrMaxEntryNameLength = 47 };
+    /********************************************************************************
+     *
+     * Foundation Types
+     *
+     */
+    /** Value of a property */
+    typedef void *RegPropertyValue;
+    /** Length of property value */
+    typedef UInt32 RegPropertyValueSize;
+    /********************************************************************************
+     *
+     * RegEntryID   :   The Global x-Namespace Entry Identifier
+     *
+     */
+    struct RegEntryID
+    {
+        UInt32 contents[4];
+    };
+    typedef struct RegEntryID RegEntryID;
+    typedef RegEntryID *RegEntryIDPtr;
+    /********************************************************************************
+     *
+     * Root Entry Name Definitions  (Applies to all Names in the RootNameSpace)
+     *
+     *  © Names are a colon-separated list of name components.  Name components
+     *    may not themselves contain colons.
+     *  © Names are presented as null-terminated ASCII character strings.
+     *  © Names follow similar parsing rules to Apple file system absolute
+     *    and relative paths.  However the '::' parent directory syntax is
+     *    not currently supported.
+     */
+    /** Max length of Entry Name */
+    enum
+    {
+        kRegCStrMaxEntryNameLength = 47
+    };
 
-/** Entry Names are single byte ASCII */
-typedef char RegCStrEntryName;
-typedef char *RegCStrEntryNamePtr;
-/** length of RegCStrEntryNameBuf =  kRegCStrMaxEntryNameLength+1*/
-typedef char RegCStrEntryNameBuf[48];
-typedef char RegCStrPathName;
-typedef UInt32 RegPathNameSize;
-enum {
-  kRegPathNameSeparator = ':',    /** 0x3A */
-  kRegEntryNameTerminator = 0x00, /** '\0' */
-  kRegPathNameTerminator = 0x00   /** '\0' */
-};
+    /** Entry Names are single byte ASCII */
+    typedef char RegCStrEntryName;
+    typedef char *RegCStrEntryNamePtr;
+    /** length of RegCStrEntryNameBuf =  kRegCStrMaxEntryNameLength+1*/
+    typedef char RegCStrEntryNameBuf[48];
+    typedef char RegCStrPathName;
+    typedef UInt32 RegPathNameSize;
+    enum
+    {
+        kRegPathNameSeparator = ':',    /** 0x3A */
+        kRegEntryNameTerminator = 0x00, /** '\0' */
+        kRegPathNameTerminator = 0x00   /** '\0' */
+    };
 
-/********************************************************************************
- *
- * Property Name and ID Definitions
- *  (Applies to all Properties Regardless of NameSpace)
- */
-enum {
-  kRegMaximumPropertyNameLength = 31, /** Max length of Property Name */
-  kRegPropertyNameTerminator = 0x00   /** '\0' */
-};
+    /********************************************************************************
+     *
+     * Property Name and ID Definitions
+     *  (Applies to all Properties Regardless of NameSpace)
+     */
+    enum
+    {
+        kRegMaximumPropertyNameLength = 31, /** Max length of Property Name */
+        kRegPropertyNameTerminator = 0x00   /** '\0' */
+    };
 
-typedef char RegPropertyNameBuf[32];
-typedef char RegPropertyName;
-typedef char *RegPropertyNamePtr;
-/********************************************************************************
- *
- * Iteration Operations
- *
- *  These specify direction when traversing the name relationships
- */
-typedef UInt32 RegIterationOp;
-typedef RegIterationOp RegEntryIterationOp;
-enum {
-  /** Absolute locations*/
-  kRegIterRoot = 0x00000002,        /** "Upward" Relationships */
-  kRegIterParents = 0x00000003,     /** include all  parent(s) of entry */
-                                    /** "Downward" Relationships*/
-  kRegIterChildren = 0x00000004,    /** include all children */
-  kRegIterSubTrees = 0x00000005,    /** include all sub trees of entry */
-  kRegIterDescendants = 0x00000005, /** include all descendants of entry */
-                                    /** "Horizontal" Relationships */
-  kRegIterSibling = 0x00000006,     /** include all siblings */
-                                    /** Keep doing the same thing*/
-  kRegIterContinue = 0x00000001
-};
+    typedef char RegPropertyNameBuf[32];
+    typedef char RegPropertyName;
+    typedef char *RegPropertyNamePtr;
+    /********************************************************************************
+     *
+     * Iteration Operations
+     *
+     *  These specify direction when traversing the name relationships
+     */
+    typedef UInt32 RegIterationOp;
+    typedef RegIterationOp RegEntryIterationOp;
+    enum
+    {
+        /** Absolute locations*/
+        kRegIterRoot = 0x00000002,        /** "Upward" Relationships */
+        kRegIterParents = 0x00000003,     /** include all  parent(s) of entry */
+                                          /** "Downward" Relationships*/
+        kRegIterChildren = 0x00000004,    /** include all children */
+        kRegIterSubTrees = 0x00000005,    /** include all sub trees of entry */
+        kRegIterDescendants = 0x00000005, /** include all descendants of entry */
+                                          /** "Horizontal" Relationships */
+        kRegIterSibling = 0x00000006,     /** include all siblings */
+                                          /** Keep doing the same thing*/
+        kRegIterContinue = 0x00000001
+    };
 
-/********************************************************************************
- *
- * Name Entry and Property Modifiers
- *
- *
- *
- * Modifiers describe special characteristics of names
- * and properties.  Modifiers might be supported for
- * some names and not others.
- *
- * Device Drivers should not rely on functionality
- * specified as a modifier.
- */
-typedef UInt32 RegModifiers;
-typedef RegModifiers RegEntryModifiers;
-typedef RegModifiers RegPropertyModifiers;
-enum {
-  kRegNoModifiers = 0x00000000,           /** no entry modifiers in place */
-  kRegUniversalModifierMask = 0x0000FFFF, /** mods to all entries */
-  kRegNameSpaceModifierMask =
-      0x00FF0000, /** mods to all entries within namespace */
-  kRegModifierMask = (long)0xFF000000 /** mods to just this entry */
-};
+    /********************************************************************************
+     *
+     * Name Entry and Property Modifiers
+     *
+     *
+     *
+     * Modifiers describe special characteristics of names
+     * and properties.  Modifiers might be supported for
+     * some names and not others.
+     *
+     * Device Drivers should not rely on functionality
+     * specified as a modifier.
+     */
+    typedef UInt32 RegModifiers;
+    typedef RegModifiers RegEntryModifiers;
+    typedef RegModifiers RegPropertyModifiers;
+    enum
+    {
+        kRegNoModifiers = 0x00000000,           /** no entry modifiers in place */
+        kRegUniversalModifierMask = 0x0000FFFF, /** mods to all entries */
+        kRegNameSpaceModifierMask =
+            0x00FF0000,                     /** mods to all entries within namespace */
+        kRegModifierMask = (long)0xFF000000 /** mods to just this entry */
+    };
 
-/** Universal Property Modifiers */
-enum {
-  kRegPropertyValueIsSavedToNVRAM =
-      0x00000020, /** property is non-volatile (saved in NVRAM) */
-  kRegPropertyValueIsSavedToDisk =
-      0x00000040 /** property is non-volatile (saved on disk) */
-};
+    /** Universal Property Modifiers */
+    enum
+    {
+        kRegPropertyValueIsSavedToNVRAM =
+            0x00000020, /** property is non-volatile (saved in NVRAM) */
+        kRegPropertyValueIsSavedToDisk =
+            0x00000040 /** property is non-volatile (saved on disk) */
+    };
 
-/** NameRegistry version, Gestalt/PEF-style -- MUST BE KEPT IN SYNC WITH
- * MAKEFILE !! */
-enum {
-  LatestNR_PEFVersion =
-      0x01030000 /** latest NameRegistryLib version (Gestalt/PEF-style) */
-};
+    /** NameRegistry version, Gestalt/PEF-style -- MUST BE KEPT IN SYNC WITH
+     * MAKEFILE !! */
+    enum
+    {
+        LatestNR_PEFVersion =
+            0x01030000 /** latest NameRegistryLib version (Gestalt/PEF-style) */
+    };
 
-/** ///////////////////////
-//
-// The Registry API
-//
-/////////////////////// */
-/** NameRegistry dispatch indexes */
-enum {
-  kSelectRegistryEntryIDInit = 0,
-  kSelectRegistryEntryIDCompare = 1,
-  kSelectRegistryEntryIDCopy = 2,
-  kSelectRegistryEntryIDDispose = 3,
-  kSelectRegistryCStrEntryCreate = 4,
-  kSelectRegistryEntryDelete = 5,
-  kSelectRegistryEntryCopy = 6,
-  kSelectRegistryEntryIterateCreate = 7,
-  kSelectRegistryEntryIterateDispose = 8,
-  kSelectRegistryEntryIterateSet = 9,
-  kSelectRegistryEntryIterate = 10,
-  kSelectRegistryEntrySearch = 11,
-  kSelectRegistryCStrEntryLookup = 12,
-  kSelectRegistryEntryToPathSize = 13,
-  kSelectRegistryCStrEntryToPath = 14,
-  kSelectRegistryCStrEntryToName = 15,
-  kSelectRegistryPropertyCreate = 16,
-  kSelectRegistryPropertyDelete = 17,
-  kSelectRegistryPropertyRename = 18,
-  kSelectRegistryPropertyIterateCreate = 19,
-  kSelectRegistryPropertyIterateDispose = 20,
-  kSelectRegistryPropertyIterate = 21,
-  kSelectRegistryPropertyGetSize = 22,
-  kSelectRegistryPropertyGet = 23,
-  kSelectRegistryPropertySet = 24,
-  kSelectRegistryEntryGetMod = 25,
-  kSelectRegistryEntrySetMod = 26,
-  kSelectRegistryPropertyGetMod = 27,
-  kSelectRegistryPropertySetMod = 28,
-  kSelectRegistryEntryMod = 29,
-  kSelectRegistryEntryPropertyMod =
-      30, /** if you add more selectors here, remember to change
-             'kSelectRegistryHighestSelector' below*/
-  kSelectRegistryHighestSelector = kSelectRegistryEntryPropertyMod
-};
+    /**/ //////////////////////
+    //
+    // The Registry API
+    //
+    /////////////////////// */
+    /** NameRegistry dispatch indexes */
+    enum
+    {
+        kSelectRegistryEntryIDInit = 0,
+        kSelectRegistryEntryIDCompare = 1,
+        kSelectRegistryEntryIDCopy = 2,
+        kSelectRegistryEntryIDDispose = 3,
+        kSelectRegistryCStrEntryCreate = 4,
+        kSelectRegistryEntryDelete = 5,
+        kSelectRegistryEntryCopy = 6,
+        kSelectRegistryEntryIterateCreate = 7,
+        kSelectRegistryEntryIterateDispose = 8,
+        kSelectRegistryEntryIterateSet = 9,
+        kSelectRegistryEntryIterate = 10,
+        kSelectRegistryEntrySearch = 11,
+        kSelectRegistryCStrEntryLookup = 12,
+        kSelectRegistryEntryToPathSize = 13,
+        kSelectRegistryCStrEntryToPath = 14,
+        kSelectRegistryCStrEntryToName = 15,
+        kSelectRegistryPropertyCreate = 16,
+        kSelectRegistryPropertyDelete = 17,
+        kSelectRegistryPropertyRename = 18,
+        kSelectRegistryPropertyIterateCreate = 19,
+        kSelectRegistryPropertyIterateDispose = 20,
+        kSelectRegistryPropertyIterate = 21,
+        kSelectRegistryPropertyGetSize = 22,
+        kSelectRegistryPropertyGet = 23,
+        kSelectRegistryPropertySet = 24,
+        kSelectRegistryEntryGetMod = 25,
+        kSelectRegistryEntrySetMod = 26,
+        kSelectRegistryPropertyGetMod = 27,
+        kSelectRegistryPropertySetMod = 28,
+        kSelectRegistryEntryMod = 29,
+        kSelectRegistryEntryPropertyMod =
+            30, /** if you add more selectors here, remember to change
+                   'kSelectRegistryHighestSelector' below*/
+        kSelectRegistryHighestSelector = kSelectRegistryEntryPropertyMod
+    };
 
-/** ///////////////////////
+/**/ //////////////////////
 //
 // Entry Management
 //
@@ -220,106 +232,103 @@ enum {
  *   note: invalid != uninitialized
  */
 #if CALL_NOT_IN_CARBON
-/**
- *  RegistryEntryIDInit()
- *
+    /**
+     *  RegistryEntryIDInit()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryIDInit(RegEntryID *id) TWOWORDINLINE(0x7000, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryIDInit(RegEntryID *id);
 
-/**
- * Compare EntryID's for equality or if invalid
- *
- * If a NULL value is given for either id1 or id2, the other id
- * is compared with an invalid ID.  If both are NULL, the id's
- * are consided equal (result = true).
- */
-/**
- *  RegistryEntryIDCompare()
- *
+    /**
+     * Compare EntryID's for equality or if invalid
+     *
+     * If a NULL value is given for either id1 or id2, the other id
+     * is compared with an invalid ID.  If both are NULL, the id's
+     * are consided equal (result = true).
+     */
+    /**
+     *  RegistryEntryIDCompare()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-Boolean
-RegistryEntryIDCompare(const RegEntryID *id1, const RegEntryID *id2)
-    TWOWORDINLINE(0x7001, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    Boolean
+    RegistryEntryIDCompare(const RegEntryID *id1, const RegEntryID *id2);
 
-/**
- * Copy an EntryID
- */
-/**
- *  RegistryEntryIDCopy()
- *
+    /**
+     * Copy an EntryID
+     */
+    /**
+     *  RegistryEntryIDCopy()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryIDCopy(const RegEntryID *src, RegEntryID *dst)
-    TWOWORDINLINE(0x7002, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryIDCopy(const RegEntryID *src, RegEntryID *dst);
 
-/**
- * Free an ID so it can be reused.
- */
-/**
- *  RegistryEntryIDDispose()
- *
+    /**
+     * Free an ID so it can be reused.
+     */
+    /**
+     *  RegistryEntryIDDispose()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryIDDispose(RegEntryID *id) TWOWORDINLINE(0x7003, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryIDDispose(RegEntryID *id);
 
-/**-------------------------------
- * Adding and removing entries
- *
- * If (parentEntry) is NULL, the name is assumed
- * to be a rooted path. It is rooted to an anonymous, unnamed root.
- */
-/**
- *  RegistryCStrEntryCreate()
- *
+    /**-------------------------------
+     * Adding and removing entries
+     *
+     * If (parentEntry) is NULL, the name is assumed
+     * to be a rooted path. It is rooted to an anonymous, unnamed root.
+     */
+    /**
+     *  RegistryCStrEntryCreate()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryCStrEntryCreate(const RegEntryID *parentEntry,
-                        const RegCStrPathName *name, RegEntryID *newEntry)
-    TWOWORDINLINE(0x7004, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryCStrEntryCreate(const RegEntryID *parentEntry,
+                            const RegCStrPathName *name, RegEntryID *newEntry);
 
-/**
- *  RegistryEntryDelete()
- *
+    /**
+     *  RegistryEntryDelete()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryDelete(const RegEntryID *id) TWOWORDINLINE(0x7005, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryDelete(const RegEntryID *id);
 
-/**
- *  RegistryEntryCopy()
- *
+    /**
+     *  RegistryEntryCopy()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryCopy(RegEntryID *parentEntryID, RegEntryID *sourceDevice,
-                  RegEntryID *destDevice) TWOWORDINLINE(0x7006, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryCopy(RegEntryID *parentEntryID, RegEntryID *sourceDevice,
+                      RegEntryID *destDevice);
 
 /**---------------------------
  * Traversing the namespace
@@ -353,210 +362,201 @@ RegistryEntryCopy(RegEntryID *parentEntryID, RegEntryID *sourceDevice,
  */
 #endif /** CALL_NOT_IN_CARBON */
 
-typedef struct OpaqueRegEntryIter *RegEntryIter;
+    typedef struct OpaqueRegEntryIter *RegEntryIter;
 /**
  * create/dispose the iterator structure
  *   defaults to root with relationship = kRegIterDescendants
  */
 #if CALL_NOT_IN_CARBON
-/**
- *  RegistryEntryIterateCreate()
- *
+    /**
+     *  RegistryEntryIterateCreate()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryIterateCreate(RegEntryIter *cookie) TWOWORDINLINE(0x7007, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryIterateCreate(RegEntryIter *cookie);
 
-/**
- *  RegistryEntryIterateDispose()
- *
+    /**
+     *  RegistryEntryIterateDispose()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryIterateDispose(RegEntryIter *cookie) TWOWORDINLINE(0x7008, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryIterateDispose(RegEntryIter *cookie);
 
-/**
- * set Entry Iterator to specified entry
- */
-/**
- *  RegistryEntryIterateSet()
- *
+    /**
+     * set Entry Iterator to specified entry
+     */
+    /**
+     *  RegistryEntryIterateSet()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryIterateSet(RegEntryIter *cookie, const RegEntryID *startEntryID)
-    TWOWORDINLINE(0x7009, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryIterateSet(RegEntryIter *cookie, const RegEntryID *startEntryID);
 
-/**
- * Return each value of the iteration
- *
- * return entries related to the current entry
- * with the specified relationship
- */
-/**
- *  RegistryEntryIterate()
- *
+    /**
+     * Return each value of the iteration
+     *
+     * return entries related to the current entry
+     * with the specified relationship
+     */
+    /**
+     *  RegistryEntryIterate()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryIterate(RegEntryIter *cookie, RegEntryIterationOp relationship,
-                     RegEntryID *foundEntry, Boolean *done)
-    TWOWORDINLINE(0x700A, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryIterate(RegEntryIter *cookie, RegEntryIterationOp relationship,
+                         RegEntryID *foundEntry, Boolean *done);
 
-/**
- * return entries with the specified property
- *
- * A NULL RegPropertyValue pointer will return an
- * entry with the property containing any value.
- */
-/**
- *  RegistryEntrySearch()
- *
+    /**
+     * return entries with the specified property
+     *
+     * A NULL RegPropertyValue pointer will return an
+     * entry with the property containing any value.
+     */
+    /**
+     *  RegistryEntrySearch()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntrySearch(RegEntryIter *cookie, RegEntryIterationOp relationship,
-                    RegEntryID *foundEntry, Boolean *done,
-                    const RegPropertyName *propertyName,
-                    const void *propertyValue,
-                    RegPropertyValueSize propertySize)
-    TWOWORDINLINE(0x700B, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntrySearch(RegEntryIter *cookie, RegEntryIterationOp relationship,
+                        RegEntryID *foundEntry, Boolean *done,
+                        const RegPropertyName *propertyName,
+                        const void *propertyValue,
+                        RegPropertyValueSize propertySize);
 
-/**--------------------------------
- * Find a name in the namespace
- *
- * This is the fast lookup mechanism.
- * NOTE:  A reverse lookup mechanism
- *    has not been provided because
- *        some name services may not
- *        provide a fast, general reverse
- *        lookup.
- */
-/**
- *  RegistryCStrEntryLookup()
- *
+    /**--------------------------------
+     * Find a name in the namespace
+     *
+     * This is the fast lookup mechanism.
+     * NOTE:  A reverse lookup mechanism
+     *    has not been provided because
+     *        some name services may not
+     *        provide a fast, general reverse
+     *        lookup.
+     */
+    /**
+     *  RegistryCStrEntryLookup()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryCStrEntryLookup(const RegEntryID *searchPointID,
-                        const RegCStrPathName *pathName, RegEntryID *foundEntry)
-    TWOWORDINLINE(0x700C, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryCStrEntryLookup(const RegEntryID *searchPointID,
+                            const RegCStrPathName *pathName, RegEntryID *foundEntry);
 
-/**---------------------------------------------
- * Convert an entry to a rooted name string
- *
- * A utility routine to turn an Entry ID
- * back into a name string.
- */
-/**
- *  RegistryEntryToPathSize()
- *
+    /**---------------------------------------------
+     * Convert an entry to a rooted name string
+     *
+     * A utility routine to turn an Entry ID
+     * back into a name string.
+     */
+    /**
+     *  RegistryEntryToPathSize()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryToPathSize(const RegEntryID *entryID, RegPathNameSize *pathSize)
-    TWOWORDINLINE(0x700D, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryToPathSize(const RegEntryID *entryID, RegPathNameSize *pathSize);
 
-/**
- *  RegistryCStrEntryToPath()
- *
+    /**
+     *  RegistryCStrEntryToPath()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryCStrEntryToPath(const RegEntryID *entryID, RegCStrPathName *pathName,
-                        RegPathNameSize pathSize) TWOWORDINLINE(0x700E, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryCStrEntryToPath(const RegEntryID *entryID, RegCStrPathName *pathName,
+                            RegPathNameSize pathSize);
 
-/**
- * Parse a path name.
- *
- * Retrieve the last component of the path, and
- * return a spec for the parent.
- */
-/**
- *  RegistryCStrEntryToName()
- *
+    /**
+     * Parse a path name.
+     *
+     * Retrieve the last component of the path, and
+     * return a spec for the parent.
+     */
+    /**
+     *  RegistryCStrEntryToName()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryCStrEntryToName(const RegEntryID *entryID, RegEntryID *parentEntry,
-                        RegCStrEntryName *nameComponent, Boolean *done)
-    TWOWORDINLINE(0x700F, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryCStrEntryToName(const RegEntryID *entryID, RegEntryID *parentEntry,
+                            RegCStrEntryName *nameComponent, Boolean *done);
 
-/** //////////////////////////////////////////////////////
-//
-// Property Management
-//
-////////////////////////////////////////////////////// */
-/**-------------------------------
- * Adding and removing properties
- */
-/**
- *  RegistryPropertyCreate()
- *
+    /**/ /////////////////////////////////////////////////////
+    //
+    // Property Management
+    //
+    ////////////////////////////////////////////////////// */
+    /**-------------------------------
+     * Adding and removing properties
+     */
+    /**
+     *  RegistryPropertyCreate()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyCreate(const RegEntryID *entryID,
-                       const RegPropertyName *propertyName,
-                       const void *propertyValue,
-                       RegPropertyValueSize propertySize)
-    TWOWORDINLINE(0x7010, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyCreate(const RegEntryID *entryID,
+                           const RegPropertyName *propertyName,
+                           const void *propertyValue,
+                           RegPropertyValueSize propertySize);
 
-/**
- *  RegistryPropertyDelete()
- *
+    /**
+     *  RegistryPropertyDelete()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyDelete(const RegEntryID *entryID,
-                       const RegPropertyName *propertyName)
-    TWOWORDINLINE(0x7011, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyDelete(const RegEntryID *entryID,
+                           const RegPropertyName *propertyName);
 
-/**
- *  RegistryPropertyRename()
- *
+    /**
+     *  RegistryPropertyRename()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyRename(const RegEntryID *entry, const RegPropertyName *oldName,
-                       const RegPropertyName *newName)
-    TWOWORDINLINE(0x7012, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyRename(const RegEntryID *entry, const RegPropertyName *oldName,
+                           const RegPropertyName *newName);
 
 /**---------------------------
  * Traversing the Properties of a name
@@ -564,200 +564,189 @@ RegistryPropertyRename(const RegEntryID *entry, const RegPropertyName *oldName,
  */
 #endif /** CALL_NOT_IN_CARBON */
 
-typedef struct OpaqueRegPropertyIter *RegPropertyIter;
+    typedef struct OpaqueRegPropertyIter *RegPropertyIter;
 #if CALL_NOT_IN_CARBON
-/**
- *  RegistryPropertyIterateCreate()
- *
+    /**
+     *  RegistryPropertyIterateCreate()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyIterateCreate(const RegEntryID *entry, RegPropertyIter *cookie)
-    TWOWORDINLINE(0x7013, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyIterateCreate(const RegEntryID *entry, RegPropertyIter *cookie);
 
-/**
- *  RegistryPropertyIterateDispose()
- *
+    /**
+     *  RegistryPropertyIterateDispose()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyIterateDispose(RegPropertyIter *cookie)
-    TWOWORDINLINE(0x7014, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyIterateDispose(RegPropertyIter *cookie);
 
-/**
- *  RegistryPropertyIterate()
- *
+    /**
+     *  RegistryPropertyIterate()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyIterate(RegPropertyIter *cookie, RegPropertyName *foundProperty,
-                        Boolean *done) TWOWORDINLINE(0x7015, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyIterate(RegPropertyIter *cookie, RegPropertyName *foundProperty,
+                            Boolean *done);
 
-/**
- * Get the value of the specified property for the specified entry.
- *
- */
-/**
- *  RegistryPropertyGetSize()
- *
+    /**
+     * Get the value of the specified property for the specified entry.
+     *
+     */
+    /**
+     *  RegistryPropertyGetSize()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyGetSize(const RegEntryID *entryID,
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyGetSize(const RegEntryID *entryID,
+                            const RegPropertyName *propertyName,
+                            RegPropertyValueSize *propertySize);
+
+    /**
+     * (*propertySize) is the maximum size of the value returned in the buffer
+     * pointed to by (propertyValue).  Upon return, (*propertySize) is the size of
+     * the value returned.
+     */
+    /**
+     *  RegistryPropertyGet()
+     *
+
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyGet(const RegEntryID *entryID,
+                        const RegPropertyName *propertyName, void *propertyValue,
+                        RegPropertyValueSize *propertySize);
+
+    /**
+     *  RegistryPropertySet()
+     *
+
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertySet(const RegEntryID *entryID,
                         const RegPropertyName *propertyName,
-                        RegPropertyValueSize *propertySize)
-    TWOWORDINLINE(0x7016, 0xABE9);
+                        const void *propertyValue,
+                        RegPropertyValueSize propertySize);
 
-/**
- * (*propertySize) is the maximum size of the value returned in the buffer
- * pointed to by (propertyValue).  Upon return, (*propertySize) is the size of
- * the value returned.
- */
-/**
- *  RegistryPropertyGet()
- *
+    /**/ /////////////////////////////////////////////////////
+    //
+    // Modifier Management
+    //
+    ////////////////////////////////////////////////////// */
+    /**
+     * Modifiers describe special characteristics of names
+     * and properties.  Modifiers might be supported for
+     * some names and not others.
+     *
+     * Device Drivers should not rely on functionality
+     * specified as a modifier.  These interfaces
+     * are for use in writing Experts.
+     */
+    /**
+     * Get and Set operators for entry modifiers
+     */
+    /**
+     *  RegistryEntryGetMod()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyGet(const RegEntryID *entryID,
-                    const RegPropertyName *propertyName, void *propertyValue,
-                    RegPropertyValueSize *propertySize)
-    TWOWORDINLINE(0x7017, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryGetMod(const RegEntryID *entry, RegEntryModifiers *modifiers);
 
-/**
- *  RegistryPropertySet()
- *
+    /**
+     *  RegistryEntrySetMod()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertySet(const RegEntryID *entryID,
-                    const RegPropertyName *propertyName,
-                    const void *propertyValue,
-                    RegPropertyValueSize propertySize)
-    TWOWORDINLINE(0x7018, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntrySetMod(const RegEntryID *entry, RegEntryModifiers modifiers);
 
-/** //////////////////////////////////////////////////////
-//
-// Modifier Management
-//
-////////////////////////////////////////////////////// */
-/**
- * Modifiers describe special characteristics of names
- * and properties.  Modifiers might be supported for
- * some names and not others.
- *
- * Device Drivers should not rely on functionality
- * specified as a modifier.  These interfaces
- * are for use in writing Experts.
- */
-/**
- * Get and Set operators for entry modifiers
- */
-/**
- *  RegistryEntryGetMod()
- *
+    /**
+     * Get and Set operators for property modifiers
+     */
+    /**
+     *  RegistryPropertyGetMod()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryGetMod(const RegEntryID *entry, RegEntryModifiers *modifiers)
-    TWOWORDINLINE(0x7019, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertyGetMod(const RegEntryID *entry, const RegPropertyName *name,
+                           RegPropertyModifiers *modifiers);
 
-/**
- *  RegistryEntrySetMod()
- *
+    /**
+     *  RegistryPropertySetMod()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntrySetMod(const RegEntryID *entry, RegEntryModifiers modifiers)
-    TWOWORDINLINE(0x701A, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryPropertySetMod(const RegEntryID *entry, const RegPropertyName *name,
+                           RegPropertyModifiers modifiers);
 
-/**
- * Get and Set operators for property modifiers
- */
-/**
- *  RegistryPropertyGetMod()
- *
+    /**
+     * Iterator operator for entry modifier search
+     */
+    /**
+     *  RegistryEntryMod()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertyGetMod(const RegEntryID *entry, const RegPropertyName *name,
-                       RegPropertyModifiers *modifiers)
-    TWOWORDINLINE(0x701B, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryMod(RegEntryIter *cookie, RegEntryIterationOp relationship,
+                     RegEntryID *foundEntry, Boolean *done,
+                     RegEntryModifiers matchingModifiers);
 
-/**
- *  RegistryPropertySetMod()
- *
+    /**
+     * Iterator operator for entries with matching
+     * property modifiers
+     */
+    /**
+     *  RegistryEntryPropertyMod()
+     *
 
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryPropertySetMod(const RegEntryID *entry, const RegPropertyName *name,
-                       RegPropertyModifiers modifiers)
-    TWOWORDINLINE(0x701C, 0xABE9);
-
-/**
- * Iterator operator for entry modifier search
- */
-/**
- *  RegistryEntryMod()
- *
-
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryMod(RegEntryIter *cookie, RegEntryIterationOp relationship,
-                 RegEntryID *foundEntry, Boolean *done,
-                 RegEntryModifiers matchingModifiers)
-    TWOWORDINLINE(0x701D, 0xABE9);
-
-/**
- * Iterator operator for entries with matching
- * property modifiers
- */
-/**
- *  RegistryEntryPropertyMod()
- *
-
- *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-OSStatus
-RegistryEntryPropertyMod(RegEntryIter *cookie, RegEntryIterationOp relationship,
-                         RegEntryID *foundEntry, Boolean *done,
-                         RegPropertyModifiers matchingModifiers)
-    TWOWORDINLINE(0x701E, 0xABE9);
+     *    \non_carbon_cfm   in NameRegistryLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    OSStatus
+    RegistryEntryPropertyMod(RegEntryIter *cookie, RegEntryIterationOp relationship,
+                             RegEntryID *foundEntry, Boolean *done,
+                             RegPropertyModifiers matchingModifiers);
 
 #endif /** CALL_NOT_IN_CARBON */
 

@@ -752,7 +752,7 @@ debugger.
 </pre>
 * \note <pre>Be sure to remove this function before shipping your application!  A
 typical setup for C programmers is to use the preprocessor:
-#define DEBUGGING TRUE // in header file 
+#define DEBUGGING TRUE // in header file
   ...
 #ifdef DEBUGGING
       Debugger();
@@ -769,7 +769,7 @@ typical setup for C programmers is to use the preprocessor:
                                                          *    \mac_os_x in version 10.0 and
                                                      later
                                                        */
-                                                         void Debugger(void) ONEWORDINLINE(0xA9FF);
+  void Debugger(void);
 
   /**
   \brief Invoke the debugging program; pass string to display
@@ -781,7 +781,7 @@ debugger, passing the address of a string to be displayed.
 </pre>
 * \note <pre>Be sure to remove this function before shipping your application!  A
 typical setup for C programmers is to use the preprocessor:
-#define DEBUGGING TRUE // in header file 
+#define DEBUGGING TRUE // in header file
   ...
 #ifdef DEBUGGING
       DebugStr("\pGot an invalid Menu command.");
@@ -792,24 +792,24 @@ such as logging files, toggling heap scrambling and doing heap displays
 during execution of your program for later review.
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+       *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-void
-DebugStr(ConstStr255Param debuggerMsg) ONEWORDINLINE(0xABFF);
+  void
+  DebugStr(ConstStr255Param debuggerMsg);
 
 #if TARGET_OS_MAC
 #if CALL_NOT_IN_CARBON
-/**
- *  debugstr()
- *
+  /**
+   *  debugstr()
+   *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void debugstr(const char *debuggerMsg);
+   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void debugstr(const char *debuggerMsg);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -852,7 +852,7 @@ void debugstr(const char *debuggerMsg);
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SysBreak(void) THREEWORDINLINE(0x303C, 0xFE16, 0xA9C9);
+  SysBreak(void);
 
   /**
    *  SysBreakStr()
@@ -863,8 +863,7 @@ void debugstr(const char *debuggerMsg);
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SysBreakStr(ConstStr255Param debuggerMsg)
-      THREEWORDINLINE(0x303C, 0xFE15, 0xA9C9);
+  SysBreakStr(ConstStr255Param debuggerMsg);
 
   /**
    *  SysBreakFunc()
@@ -875,8 +874,7 @@ void debugstr(const char *debuggerMsg);
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SysBreakFunc(ConstStr255Param debuggerMsg)
-      THREEWORDINLINE(0x303C, 0xFE14, 0xA9C9);
+  SysBreakFunc(ConstStr255Param debuggerMsg);
 
 /** old names for Debugger and DebugStr */
 #if OLDROUTINENAMES && TARGET_CPU_68K

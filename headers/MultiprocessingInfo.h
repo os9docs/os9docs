@@ -115,19 +115,18 @@ extern "C"
   ByteCount MPGetPageSize(MPPageSizeClass pageClass);
 
 #endif // CALL_NOT_IN_CARBON
-  /**/ / CALL_NOT_IN_CARBON 
-     \section ID Iterator Services == == == == * /
+  /** \section ID Iterator Services */
 
 #if CALL_NOT_IN_CARBON
-                                                    /**
-                                                     *  MPGetNextCoherenceID()
-                                                     *
+  /**
+   *  MPGetNextCoherenceID()
+   *
 
-                                                     *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
-                                                     *    \carbon_lib        not available
-                                                     *    \mac_os_x         not available
-                                                     */
-                                                    OSStatus MPGetNextCoherenceID(MPCoherenceID *coherenceID);
+   *    \non_carbon_cfm   in MPDiagnostics 2.3 and later
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  OSStatus MPGetNextCoherenceID(MPCoherenceID *coherenceID);
 
   /**
    *  MPGetNextCpuID()
@@ -233,15 +232,14 @@ extern "C"
 
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
-  /**/ / CALL_NOT_IN_CARBON *MPGetNextAreaID() *
-
-          *    \non_carbon_cfm in MPDiagnostics 2.3 and
-      later
-              *    \carbon_lib not available
-          *    \mac_os_x not available
-          * /
-          OSStatus
-          MPGetNextAreaID(MPAddressSpaceID owningSpaceID, MPAreaID *areaID);
+  /**
+   * MPGetNextAreaID()
+   * \non_carbon_cfm in MPDiagnostics 2.3 and later
+   * \carbon_lib not available
+   * \mac_os_x not available
+   */
+  OSStatus
+  MPGetNextAreaID(MPAddressSpaceID owningSpaceID, MPAreaID *areaID);
 
 #endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
@@ -273,9 +271,10 @@ extern "C"
 #endif // CALL_NOT_IN_CARBON
   enum
   {
-    // The version of the MPAreaInfo structure requested.    kMPQueueInfoVersion = 1L | (kOpaqueQueueID << 16),
-    kMP // CALL_NOT_IN_CARBON
-        kMPEventInfoVersion = 1L | (kOpaqueEventID << 16),
+    /** version */
+    of the MPAreaInfo structure requested.kMPQueueInfoVersion = 1L | (kOpaqueQueueID << 16)
+                                                                         kMP // CALL_NOT_IN_CARBON
+                                                                             kMPEventInfoVersion = 1L | (kOpaqueEventID << 16),
     kMPCriticalRegionInfoVersion = 1L | (kOpaqueCriticalRegionID << 16),
     kMPNotificationInfoVersion = 1L | (kOpaqueNotificationID << 16),
     // The version of the MPAreaInfo structure requested.

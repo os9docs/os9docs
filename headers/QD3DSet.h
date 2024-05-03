@@ -28,7 +28,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -64,99 +65,99 @@ extern "C" {
  **                                                                          **
  *****************************************************************************/
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3Set_New()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3SetObject
-Q3Set_New(void);
+    /**
+     *  Q3Set_New()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3SetObject
+    Q3Set_New(void);
 
-/**
- *  Q3Set_GetType()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3ObjectType
-Q3Set_GetType(TQ3SetObject theSet);
+    /**
+     *  Q3Set_GetType()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3ObjectType
+    Q3Set_GetType(TQ3SetObject theSet);
 
-/**
- *  Q3Set_Add()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3Set_Add(TQ3SetObject theSet, TQ3ElementType theType, const void *data);
+    /**
+     *  Q3Set_Add()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3Set_Add(TQ3SetObject theSet, TQ3ElementType theType, const void *data);
 
-/**
- *  Q3Set_Get()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3Set_Get(TQ3SetObject theSet, TQ3ElementType theType, void *data);
+    /**
+     *  Q3Set_Get()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3Set_Get(TQ3SetObject theSet, TQ3ElementType theType, void *data);
 
-/**
- *  Q3Set_Contains()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Boolean
-Q3Set_Contains(TQ3SetObject theSet, TQ3ElementType theType);
+    /**
+     *  Q3Set_Contains()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Boolean
+    Q3Set_Contains(TQ3SetObject theSet, TQ3ElementType theType);
 
-/**
- *  Q3Set_Clear()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3Set_Clear(TQ3SetObject theSet, TQ3ElementType theType);
+    /**
+     *  Q3Set_Clear()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3Set_Clear(TQ3SetObject theSet, TQ3ElementType theType);
 
-/**
- *  Q3Set_Empty()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3Set_Empty(TQ3SetObject target);
+    /**
+     *  Q3Set_Empty()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3Set_Empty(TQ3SetObject target);
 
-/**
- *  Iterating through all elements in a set
- *
- *  Pass in kQ3ElementTypeNone to get first type
- *  kQ3ElementTypeNone is returned when end of list is reached
- */
-/**
- *  Q3Set_GetNextElementType()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3Set_GetNextElementType(TQ3SetObject theSet, TQ3ElementType *theType);
+    /**
+     *  Iterating through all elements in a set
+     *
+     *  Pass in kQ3ElementTypeNone to get first type
+     *  kQ3ElementTypeNone is returned when end of list is reached
+     */
+    /**
+     *  Q3Set_GetNextElementType()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3Set_GetNextElementType(TQ3SetObject theSet, TQ3ElementType *theType);
 
 /******************************************************************************
  **                                                                          **
@@ -170,150 +171,150 @@ Q3Set_GetNextElementType(TQ3SetObject theSet, TQ3ElementType *theType);
  *  For surface shader attributes, reference counts are incremented on
  *  the _Add and _Get
  */
-#endif // CALL_NOT_IN_CARBON 
-enum TQ3AttributeTypes {
-  // Data Type            kQ3AttributeTypeNone = 0,               // ---------            kQ3AttributeTypeSurfaceUV = 1,          // TQ3Param2D            kQ3AttributeTypeShadingUV = 2,          // TQ3Param2D             kQ3AttributeTypeNormal = 3,             // TQ3Vector3D             kQ3AttributeTypeAmbientCoefficient = 4, // float              kQ3AttributeTypeDiffuseColor = 5,       // TQ3ColorRGB            kQ3AttributeTypeSpecularColor = 6,      // TQ3ColorRGB            kQ3AttributeTypeSpecularControl = 7,    // float              kQ3AttributeTypeTransparencyColor = 8,  // TQ3ColorRGB            kQ3AttributeTypeSurfaceTangent = 9,     // TQ3Tangent2D            kQ3AttributeTypeHighlightState = 10,    // TQ3Switch             kQ3AttributeTypeSurfaceShader = 11,     // TQ3SurfaceShaderObject   kQ3AttributeTypeNumTypes = 12
-};// Data Type          
-typedef enum TQ3AttributeTypes TQ3Attribut// ---------          
-// TQ3Param2D          
-typedef TQ3ElementType TQ3AttributeType;// TQ3Param2D           
-/*****************************************// TQ3Vector3D           
- **                                       // float            
- **                             Attribute // TQ3ColorRGB          
- **                                       // TQ3ColorRGB          
- *****************************************// float            
-#if CALL_NOT_IN_CARBON// TQ3ColorRGB          
-/**// TQ3Tangent2D          
- *  Q3Attribute_Submit()// TQ3Switch           
- *// TQ3SurfaceShaderObject 
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3Attribute_Submit(TQ3AttributeType attributeType, const void *data,
-                   TQ3ViewObject view);
+#endif // CALL_NOT_IN_CARBON
+    enum TQ3AttributeTypes
+    {
+        /** Type */
+        kQ3AttributeTypeNone = 0 kQ3AttributeTypeSurfaceUV = 1 kQ3AttributeTypeShadingUV = 2 kQ3AttributeTypeNormal = 3 kQ3AttributeTypeAmbientCoefficient = 4 kQ3AttributeTypeDiffuseColor = 5 kQ3AttributeTypeSpecularColor = 6 kQ3AttributeTypeSpecularControl = 7 kQ3AttributeTypeTransparencyColor = 8 kQ3AttributeTypeSurfaceTangent = 9 kQ3AttributeTypeHighlightState = 10 kQ3AttributeTypeSurfaceShader = 11 // TQ3SurfaceShaderObject   kQ3AttributeTypeNumTypes = 12
+    };                                                                                                                                                                                                                                                                                                                                                                                                                // Data Type
+    typedef enum TQ3AttributeTypes TQ3Attribut                                                                                                                                                                                                                                                                                                                                                                        // ---------
+                                               // TQ3Param2D
+        typedef TQ3ElementType TQ3AttributeType;                                                        // TQ3Param2D
+    /*****************************************/ / TQ3Vector3D **                                        // float
+                                                      **Attribute                                       // TQ3ColorRGB
+                                                          **                                            // TQ3ColorRGB
+                                                              ***************************************** // float
+#if CALL_NOT_IN_CARBON                                                                                  // TQ3ColorRGB
+                                                                                                        /**/
+        / TQ3Tangent2D *Q3Attribute_Submit()                                                            // TQ3Switch
+        *                                                                                               // TQ3SurfaceShaderObject
+        *Availability : *    \non_carbon_cfm not available
+        *    \carbon_lib not available
+        *    \mac_os_x not available
+        * /
+        TQ3Status
+        Q3Attribute_Submit(TQ3AttributeType attributeType, const void *data,
+                           TQ3ViewObject view);
 
-/******************************************************************************
- **                                                                          **
- **                         AttributeSet Routines                            **
- **                                                                          **
- *****************************************************************************/
-/**
- *  Q3AttributeSet_New()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3AttributeSet
-Q3AttributeSet_New(void);
+    /******************************************************************************
+     **                                                                          **
+     **                         AttributeSet Routines                            **
+     **                                                                          **
+     *****************************************************************************/
+    /**
+     *  Q3AttributeSet_New()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3AttributeSet
+    Q3AttributeSet_New(void);
 
-/**
- *  Q3AttributeSet_Add()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3AttributeSet_Add(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
-                   const void *data);
+    /**
+     *  Q3AttributeSet_Add()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3AttributeSet_Add(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
+                       const void *data);
 
-/**
- *  Q3AttributeSet_Contains()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Boolean
-Q3AttributeSet_Contains(TQ3AttributeSet attributeSet,
-                        TQ3AttributeType attributeType);
+    /**
+     *  Q3AttributeSet_Contains()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Boolean
+    Q3AttributeSet_Contains(TQ3AttributeSet attributeSet,
+                            TQ3AttributeType attributeType);
 
-/**
- *  Q3AttributeSet_Get()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3AttributeSet_Get(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
-                   void *data);
+    /**
+     *  Q3AttributeSet_Get()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3AttributeSet_Get(TQ3AttributeSet attributeSet, TQ3AttributeType theType,
+                       void *data);
 
-/**
- *  Q3AttributeSet_Clear()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3AttributeSet_Clear(TQ3AttributeSet attributeSet, TQ3AttributeType theType);
+    /**
+     *  Q3AttributeSet_Clear()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3AttributeSet_Clear(TQ3AttributeSet attributeSet, TQ3AttributeType theType);
 
-/**
- *  Q3AttributeSet_Empty()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3AttributeSet_Empty(TQ3AttributeSet target);
+    /**
+     *  Q3AttributeSet_Empty()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3AttributeSet_Empty(TQ3AttributeSet target);
 
-/**
- * Q3AttributeSet_GetNextAttributeType
- *
- * Pass in kQ3AttributeTypeNone to get first type
- * kQ3AttributeTypeNone is returned when end of list is reached
- */
-/**
- *  Q3AttributeSet_GetNextAttributeType()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3AttributeSet_GetNextAttributeType(TQ3AttributeSet source,
-                                    TQ3AttributeType *theType);
+    /**
+     * Q3AttributeSet_GetNextAttributeType
+     *
+     * Pass in kQ3AttributeTypeNone to get first type
+     * kQ3AttributeTypeNone is returned when end of list is reached
+     */
+    /**
+     *  Q3AttributeSet_GetNextAttributeType()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3AttributeSet_GetNextAttributeType(TQ3AttributeSet source,
+                                        TQ3AttributeType *theType);
 
-/**
- *  Q3AttributeSet_Submit()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3AttributeSet_Submit(TQ3AttributeSet attributeSet, TQ3ViewObject view);
+    /**
+     *  Q3AttributeSet_Submit()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3AttributeSet_Submit(TQ3AttributeSet attributeSet, TQ3ViewObject view);
 
-/**
- * Inherit from parent->child into result
- *  Result attributes are:
- *      all child attributes + all parent attributes NOT in the child
- */
-/**
- *  Q3AttributeSet_Inherit()
- *
- *  Availability:
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3AttributeSet_Inherit(TQ3AttributeSet parent, TQ3AttributeSet child,
-                       TQ3AttributeSet result);
+    /**
+     * Inherit from parent->child into result
+     *  Result attributes are:
+     *      all child attributes + all parent attributes NOT in the child
+     */
+    /**
+     *  Q3AttributeSet_Inherit()
+     *
+     *  Availability:
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3Status
+    Q3AttributeSet_Inherit(TQ3AttributeSet parent, TQ3AttributeSet child,
+                           TQ3AttributeSet result);
 
 /******************************************************************************
  **                                                                          **
@@ -362,20 +363,20 @@ Q3AttributeSet_Inherit(TQ3AttributeSet parent, TQ3AttributeSet child,
  *      If CopyGet allocates any memory in it's destination, it is up to the
  *      application to delete it on its side.
  */
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #define kQ3XMethodTypeElementCopyAdd Q3_METHOD_TYPE('e', 'c', 'p', 'a')
 #define kQ3XMethodTypeElementCopyReplace Q3_METHOD_TYPE('e', 'c', 'p', 'r')
 #define kQ3XMethodTypeElementCopyGet Q3_METHOD_TYPE('e', 'c', 'p', 'g')
 #define kQ3XMethodTypeElementCopyDuplicate Q3_METHOD_TYPE('e', 'c', 'p', 'd')
 #define kQ3XMethodTypeElementDelete Q3_METHOD_TYPE('e', 'd', 'e', 'l')
-typedef CALLBACK_API_C(TQ3Status,
-                       TQ3XElementCopyAddMethod)(const void *fromAPIElement,
-                                                 void *toInternalElement);
-typedef CALLBACK_API_C(TQ3Status,
-                       TQ3XElementCopyReplaceMethod)(const void *fromAPIElement,
-                                                     void *ontoInternalElement);
-typedef CALLBACK_API_C(TQ3Status, TQ3XElementCopyGetMethod)(
-    const void *fromInternalElement, void *toAPIElement);
+    typedef CALLBACK_API_C(TQ3Status,
+                           TQ3XElementCopyAddMethod)(const void *fromAPIElement,
+                                                     void *toInternalElement);
+    typedef CALLBACK_API_C(TQ3Status,
+                           TQ3XElementCopyReplaceMethod)(const void *fromAPIElement,
+                                                         void *ontoInternalElement);
+    typedef CALLBACK_API_C(TQ3Status, TQ3XElementCopyGetMethod)(
+        const void *fromInternalElement, void *toAPIElement);
 typedef// CALL_NOT_IN_CARBON 
     const void *fromInternalElement, void *toInternalElement);
 typedef CALLBACK_API_C(TQ3Status,
@@ -406,41 +407,41 @@ TQ3Status
 Q3XElementType_GetElementSize(TQ3ElementType elementType,
                               unsigned long *sizeOfElement);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 /******************************************************************************
  **                                                                          **
  **                     Custom Attribute Registration                        **
  **                                                                          **
  *****************************************************************************/
 #define kQ3XMethodTypeAttributeInherit Q3_METHOD_TYPE('i', 'n', 'h', 't')
-typedef TQ3Boolean TQ3XAttributeInheritMethod;
-// return kQ3True or kQ3False in your metahandler #define kQ3XMethodTypeAttributeCopyInherit Q3_METHOD_TYPE('a', 'c', 'p', 'i')
-typedef CALLBACK_API_C(TQ3Status, TQ3XAttributeCopyInheritMethod)(
-    const void *fromInternalAttribute, void *toInternalAttribute);
+    typedef TQ3Boolean TQ3XAttributeInheritMethod;
+    // return kQ3True or kQ3False in your metahandler #define kQ3XMethodTypeAttributeCopyInherit Q3_METHOD_TYPE('a', 'c', 'p', 'i')
+    typedef CALLBACK_API_C(TQ3Status, TQ3XAttributeCopyInheritMethod)(
+        const void *fromInternalAttribute, void *toInternalAttribute);
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3XAttributeClass_Register()
- *
- *  Ava// CALL_NOT_IN_CARBON 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3XObjectClass
-Q3XAttributeClass_Register(TQ3AttributeType *attributeType,
-                           const char *creatorName, unsigned long sizeOfElement,
-                           TQ3XMetaHandler metaHandler);
-// return kQ3True or kQ3False in your metahandler 
-#endif // CALL_NOT_IN_CARBON 
+    /**
+     *  Q3XAttributeClass_Register()
+     *
+     *  Ava// CALL_NOT_IN_CARBON
+     *    \non_carbon_cfm   not available
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    TQ3XObjectClass
+    Q3XAttributeClass_Register(TQ3AttributeType *attributeType,
+                               const char *creatorName, unsigned long sizeOfElement,
+                               TQ3XMetaHandler metaHandler);
+// return kQ3True or kQ3False in your metahandler
+#endif // CALL_NOT_IN_CARBON
 /**
  *  Version 1.5
  */
 #define kQ3XMethodTypeAttributeDefault Q3_METHOD_TYPE('a', 's', 'd', 'f')
-typedef CALLBACK_API_C(TQ3Status,
-                       TQ3XAttributeDefaultMethod)(void *internalElement);
+    typedef CALLBACK_API_C(TQ3Status,
+                           TQ3XAttributeDefaultMethod)(void *internalElement);
 #define kQ3XMethodTypeAttributeIsDefault Q3_METHOD_TYPE('a', 'i', 'd', 'f')
-typedef CALLBACK_API_C(TQ3Boolean,
-                       TQ3XAttributeIsDefaultMethod)(void *internalElement);
+    typedef CALLBACK_API_C(TQ3Boolean,
+                           TQ3XAttributeIsDefaultMethod)(void *internalElement);
 
 #if PRAGMA_ENUM_ALWAYSINT
 #pragma enumsalwaysint reset
@@ -448,7 +449,7 @@ typedef CALLBACK_API_C(TQ3Boolean,
 #pragma fourbyteints off
 #endif
 #elif PRAGMA_ENUM_OPTIONS
-#pragma// CALL_NOT_IN_CARBON 
+#pragma // CALL_NOT_IN_CARBON
 #elif defined(__QD3DSET__RESTORE_PACKED_ENUMS)
 #pragma options(pack_enums)
 #endif
@@ -471,4 +472,4 @@ typedef CALLBACK_API_C(TQ3Boolean,
 }
 #endif
 
-#endif // __QD3DSET__ // __QD3DSET__ 
+#endif // __QD3DSET__ // __QD3DSET__

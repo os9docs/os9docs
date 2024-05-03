@@ -46,10 +46,11 @@ extern "C"
 
 	enum
 	{
-		// Bits in the itlcFlags byte   itlcShowIcon = 7,     // Show icon even if only one script
-		itlcDualCaret = 6, // Use dual caret for mixed direction text
-						   // Bits in the itlcSysFlags word   itlcSysDirection = 15 // System direction - left to right/right to left
-	};					   // Bits in the itlcSysFlags word
+		/** in */
+		the itlcFlags byte itlcShowIcon = 7 // Show icon even if only one script
+		itlcDualCaret = 6,					// Use dual caret for mixed direction text
+											// Bits in the itlcSysFlags word   itlcSysDirection = 15 // System direction - left to right/right to left
+	};										// Bits in the itlcSysFlags word
 
 	enum
 	{
@@ -66,22 +67,23 @@ extern "C"
 
 	enum
 	{
-		tokLeftQuote = 1, // NumberParts.data[] enumerators    tokRightQuote = 2, /*  In general, these are NOT to be considered indices into
-		the data[] array * /
-			tokLeadPlacer = 3,
+		tokLeftQuote = 1,  /**< enumerators */
+		tokRightQuote = 2, /**<  In general, these are NOT to be considered indices into the data[] array */
+		tokLeadPlacer = 3,
 		tokLeader = 4,
-		tokNonLeader = 5, // NumberParts.data[] enumerators
+		tokNonLeader = 5, /**< NumberParts.data[] enumerators*/
 		tokZeroLead = 6,
 		tokPercent = 7,
 		tokPlusSign = 8,
 		tokMinusSign = 9,
 		tokThousands = 10,
-		tokReserved = 11, // 11 is reserved field   tokSeparator = 12,
+		tokReserved = 11, /** is reserved field */
+		tokSeparator = 12,
 		tokEscape = 13,
 		tokDecPoint = 14,
 		tokEPlus = 15,
 		tokEMinus = 16,
-		tokMaxSymbols = 31		  // 11 is reserved field
+		tokMaxSymbols = 31,		  // 11 is reserved field
 		curNumberPartsVersion = 1 // current version of NumberParts record
 	};
 
@@ -133,12 +135,11 @@ extern "C"
 typedef struct OffPair OffPair;
 typedef OffPair OffsetTable[3];
 // moved OffsetTable back here from QuickdrawText
-<pre>
+/**<pre>
 	* \note<pre> Use Intl0Rec in calls to IUGetIntl(0), IUSetIntl(..., 0, ...),
 	</ pre>
-			* \copyright THINK Reference © 1991 - 1992 Symantec Corporation
-														  * /
-													  struct Intl0Rec
+	* \copyright THINK Reference © 1991 - 1992 Symantec Corporation */
+struct Intl0Rec
 {
 	char decimalPt;			   /**< Decimal point character;/**< eg, '.'*/
 	char thousSep;			   /**< Thousands separator;/**< eg, ',' (ASCII*/
@@ -285,20 +286,20 @@ struct Itl4Rec
 typedef struct Itl4Rec Itl4Rec;
 typedef Itl4Rec *Itl4Ptr;
 typedef Itl4Ptr *Itl4Handle;
-// New NItl4Rec for System 7.0: /**
+// New NItl4Rec for System 7.0:
+/**
 <pre> A new section of the 'itl4' resource contains a table of white space characters
-	in the script.A formerly reserved field in the header specifies the offset to this whiteSpaceList table,
-	and a new field specifies its length.The format of
-			the table defined by whiteSpaceList is similar to the format of the untoken
-				table : dc.w(length of whiteSpaceList in bytes)
-						// New NItl4Rec for System 7.0:
-						dc.w(offset from beginning of whiteSpaceList to first entry)
-							dc.w(offset from beginning of whiteSpaceList to second entry)
-								.</ pre>
-									* \copyright THINK Reference © 1991 -
-		1992 Symantec Corporation
-				* /
-			struct NItl4Rec
+   in the script.A formerly reserved field in the header specifies the offset to this whiteSpaceList table,
+   and a new field specifies its length.The format of
+		   the table defined by whiteSpaceList is similar to the format of the untoken
+			   table : dc.w(length of whiteSpaceList in bytes)
+					   // New NItl4Rec for System 7.0:
+					   dc.w(offset from beginning of whiteSpaceList to first entry)
+						   dc.w(offset from beginning of whiteSpaceList to second entry)
+							   .</ pre>
+								   * \copyright THINK Reference © 1991 -
+	   1992 Symantec Corporation*/
+struct NItl4Rec
 {
 	shortflags;			  /**<  reserved*/
 	longresourceType;	  /**<  contains 'itl'*/
@@ -399,7 +400,8 @@ struct ItlbRecord
 } ItlbRecord;		   /**< */
 
 typedef struct ItlbRecord ItlbRecord;
-// New ItlbExtRecord structure for System 7.0 /**
+// New ItlbExtRecord structure for System 7.0
+/**
 <pre>The new bit flag, defined for the script flags word, is located in the itlbFlags
 field in the 'itlb' record data structure. Set the smsfAutoInit bit in a script's
 'itlb' to instruct the Script Manager to initialize the script system
@@ -407,8 +409,8 @@ automatically. (See Creating Simple Script Systems for details.)
 If you do not have access to the Rez file SysTypes.r, which contains the Rez
 type for the 'itlb' resource, consult Macintosh Developer Technical Support
 for details.
-// New ItlbExtRecord structure for System 7.0 
- * \copyright THINK Reference © 1991-1992 Symantec Corporation
+// New ItlbExtRecord structure for System 7.0
+* \copyright THINK Reference © 1991-1992 Symantec Corporation
 */
 struct ItlbExtRecord
 {

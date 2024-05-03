@@ -82,8 +82,7 @@ extern "C"
   AESend(const AppleEvent *theAppleEvent, AppleEvent *reply, AESendMode sendMode,
          AESendPriority sendPriority, long timeOutInTicks,
          AEIdleUPP idleProc, //  can be NULL
-         AEFilterUPP filterProc) /* can be NULL */ THREEWORDINLINE(0x303C, 0x0D17,
-                                                                   0xA816);
+         AEFilterUPP filterProc) /* can be NULL */;
 
   /**
    *  AEProcessAppleEvent()
@@ -94,8 +93,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AEProcessAppleEvent(const EventRecord *theEventRecord)
-      THREEWORDINLINE(0x303C, 0x021B, 0xA816);
+  AEProcessAppleEvent(const EventRecord *theEventRecord);
 
   /**
    Note: during event processing, an event handler may realize that it is likely
@@ -112,7 +110,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AEResetTimer(const AppleEvent *reply) THREEWORDINLINE(0x303C, 0x0219, 0xA816);
+  AEResetTimer(const AppleEvent *reply);
 
   /**************************************************************************
     The following three calls are used to allow applications to behave
@@ -161,8 +159,7 @@ noErr (0)No error
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  AEGetInteractionAllowed(AEInteractAllowed *level)
-      THREEWORDINLINE(0x303C, 0x021D, 0xA816);
+  AEGetInteractionAllowed(AEInteractAllowed *level);
 
   /**
    *  AESetInteractionAllowed()
@@ -173,8 +170,7 @@ noErr (0)No error
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AESetInteractionAllowed(AEInteractAllowed level)
-      THREEWORDINLINE(0x303C, 0x011E, 0xA816);
+  AESetInteractionAllowed(AEInteractAllowed level);
 
   /**
    *  AEInteractWithUser()
@@ -185,8 +181,7 @@ noErr (0)No error
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AEInteractWithUser(long timeOutInTicks, NMRecPtr nmReqPtr, AEIdleUPP idleProc)
-      THREEWORDINLINE(0x303C, 0x061C, 0xA816);
+  AEInteractWithUser(long timeOutInTicks, NMRecPtr nmReqPtr, AEIdleUPP idleProc);
 
   /**************************************************************************
    The following four calls are available for applications which need more
@@ -233,8 +228,7 @@ noErr(0)No error
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  AESuspendTheCurrentEvent(const AppleEvent *theAppleEvent)
-      THREEWORDINLINE(0x303C, 0x022B, 0xA816);
+  AESuspendTheCurrentEvent(const AppleEvent *theAppleEvent);
 
   /**
    Note: The following routine tells the AppleEvent manager that processing
@@ -289,8 +283,7 @@ noErr(0)No error
   AEResumeTheCurrentEvent(const AppleEvent *theAppleEvent,
                           const AppleEvent *reply,
                           AEEventHandlerUPP dispatcher, //  can be NULL
-                          long handlerRefcon)
-      THREEWORDINLINE(0x303C, 0x0818, 0xA816);
+                          long handlerRefcon);
 
   /**
   \brief AEGetTheCurrentEvent Return the Apple Event currently being handled
@@ -322,8 +315,7 @@ noErr(0)No error
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  AEGetTheCurrentEvent(AppleEvent *theAppleEvent)
-      THREEWORDINLINE(0x303C, 0x021A, 0xA816);
+  AEGetTheCurrentEvent(AppleEvent *theAppleEvent);
 
   /**
   \brief AESetTheCurrentEvent Specify Apple Event to be handled
@@ -358,8 +350,7 @@ noErr(0)No error
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  AESetTheCurrentEvent(const AppleEvent *theAppleEvent)
-      THREEWORDINLINE(0x303C, 0x022C, 0xA816);
+  AESetTheCurrentEvent(const AppleEvent *theAppleEvent);
 
   /**************************************************************************
     AppleEvent callbacks.
@@ -547,4 +538,3 @@ noErr(0)No error
 #endif
 
 #endif //  __AEINTERACTION__
-* /*/*/ * /

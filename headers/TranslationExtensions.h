@@ -156,8 +156,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SetTranslationAdvertisement(TranslationRefNum refNum, PicHandle advertisement)
-        TWOWORDINLINE(0x7002, 0xABFC);
+    SetTranslationAdvertisement(TranslationRefNum refNum, PicHandle advertisement);
 
     /********************************************************************************************
 
@@ -185,7 +184,7 @@ extern "C"
      */
     OSErr
     UpdateTranslationProgress(TranslationRefNum refNum, short percentDone,
-                              Boolean *canceled) TWOWORDINLINE(0x7001, 0xABFC);
+                              Boolean *canceled);
 
     /********************************************************************************************
 

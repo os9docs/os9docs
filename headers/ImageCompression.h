@@ -1400,7 +1400,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CodecManagerVersion(long *version) TWOWORDINLINE(0x7000, 0xAAA3);
+    CodecManagerVersion(long *version);
 
     /**
      *  GetCodecNameList()
@@ -1412,8 +1412,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetCodecNameList(CodecNameSpecListPtr *list, short showAll)
-        TWOWORDINLINE(0x7001, 0xAAA3);
+    GetCodecNameList(CodecNameSpecListPtr *list, short showAll);
 
     /**
      *  DisposeCodecNameList()
@@ -1425,7 +1424,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    DisposeCodecNameList(CodecNameSpecListPtr list) TWOWORDINLINE(0x700F, 0xAAA3);
+    DisposeCodecNameList(CodecNameSpecListPtr list);
 
     /**
      *  GetCodecInfo()
@@ -1437,8 +1436,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetCodecInfo(CodecInfo *info, CodecType cType, CodecComponent codec)
-        TWOWORDINLINE(0x7003, 0xAAA3);
+    GetCodecInfo(CodecInfo *info, CodecType cType, CodecComponent codec);
 
     /**
      *  GetMaxCompressionSize()
@@ -1452,8 +1450,7 @@ extern "C"
     OSErr
     GetMaxCompressionSize(PixMapHandle src, const Rect *srcRect, short colorDepth,
                           CodecQ quality, CodecType cType,
-                          CompressorComponent codec, long *size)
-        TWOWORDINLINE(0x7004, 0xAAA3);
+                          CompressorComponent codec, long *size);
 
     /**
      *  GetCSequenceMaxCompressionSize()
@@ -1466,8 +1463,7 @@ extern "C"
      */
     OSErr
     GetCSequenceMaxCompressionSize(ImageSequence seqID, PixMapHandle src,
-                                   long *size)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0074, 0xAAA3);
+                                   long *size);
 
     /**
      *  GetCompressionTime()
@@ -1482,7 +1478,7 @@ extern "C"
     GetCompressionTime(PixMapHandle src, const Rect *srcRect, short colorDepth,
                        CodecType cType, CompressorComponent codec,
                        CodecQ *spatialQuality, CodecQ *temporalQuality,
-                       unsigned long *compressTime) TWOWORDINLINE(0x7005, 0xAAA3);
+                       unsigned long *compressTime);
 
     /**
      *  CompressImage()
@@ -1495,8 +1491,7 @@ extern "C"
      */
     OSErr
     CompressImage(PixMapHandle src, const Rect *srcRect, CodecQ quality,
-                  CodecType cType, ImageDescriptionHandle desc, Ptr data)
-        TWOWORDINLINE(0x7006, 0xAAA3);
+                  CodecType cType, ImageDescriptionHandle desc, Ptr data);
 
     /**
      *  FCompressImage()
@@ -1513,8 +1508,7 @@ extern "C"
                    CTabHandle ctable, CodecFlags flags, long bufferSize,
                    ICMFlushProcRecordPtr flushProc,
                    ICMProgressProcRecordPtr progressProc,
-                   ImageDescriptionHandle desc, Ptr data)
-        TWOWORDINLINE(0x7007, 0xAAA3);
+                   ImageDescriptionHandle desc, Ptr data);
 
     /**
      *  DecompressImage()
@@ -1528,7 +1522,7 @@ extern "C"
     OSErr
     DecompressImage(Ptr data, ImageDescriptionHandle desc, PixMapHandle dst,
                     const Rect *srcRect, const Rect *dstRect, short mode,
-                    RgnHandle mask) TWOWORDINLINE(0x7008, 0xAAA3);
+                    RgnHandle mask);
 
     /**
      *  FDecompressImage()
@@ -1545,8 +1539,7 @@ extern "C"
                      RgnHandle mask, PixMapHandle matte, const Rect *matteRect,
                      CodecQ accuracy, DecompressorComponent codec, long bufferSize,
                      ICMDataProcRecordPtr dataProc,
-                     ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x7009, 0xAAA3);
+                     ICMProgressProcRecordPtr progressProc);
 
     /**
      *  CompressSequenceBegin()
@@ -1564,8 +1557,7 @@ extern "C"
                           CompressorComponent codec, CodecQ spatialQuality,
                           CodecQ temporalQuality, long keyFrameRate,
                           CTabHandle ctable, CodecFlags flags,
-                          ImageDescriptionHandle desc)
-        TWOWORDINLINE(0x700A, 0xAAA3);
+                          ImageDescriptionHandle desc);
 
     /**
      *  CompressSequenceFrame()
@@ -1580,8 +1572,7 @@ extern "C"
     CompressSequenceFrame(ImageSequence seqID, PixMapHandle src,
                           const Rect *srcRect, CodecFlags flags, Ptr data,
                           long *dataSize, UInt8 *similarity,
-                          ICMCompletionProcRecordPtr asyncCompletionProc)
-        TWOWORDINLINE(0x700B, 0xAAA3);
+                          ICMCompletionProcRecordPtr asyncCompletionProc);
 
     /**
      *  DecompressSequenceBegin()
@@ -1597,8 +1588,7 @@ extern "C"
                             CGrafPtr port, GDHandle gdh, const Rect *srcRect,
                             MatrixRecordPtr matrix, short mode, RgnHandle mask,
                             CodecFlags flags, CodecQ accuracy,
-                            DecompressorComponent codec)
-        TWOWORDINLINE(0x700D, 0xAAA3);
+                            DecompressorComponent codec);
 
     /**
      *  DecompressSequenceBeginS()
@@ -1614,8 +1604,7 @@ extern "C"
                              Ptr data, long dataSize, CGrafPtr port, GDHandle gdh,
                              const Rect *srcRect, MatrixRecordPtr matrix,
                              short mode, RgnHandle mask, CodecFlags flags,
-                             CodecQ accuracy, DecompressorComponent codec)
-        FOURWORDINLINE(0x203C, 0x0030, 0x005D, 0xAAA3);
+                             CodecQ accuracy, DecompressorComponent codec);
 
     /**
      *  DecompressSequenceFrame()
@@ -1629,8 +1618,7 @@ extern "C"
     OSErr
     DecompressSequenceFrame(ImageSequence seqID, Ptr data, CodecFlags inFlags,
                             CodecFlags *outFlags,
-                            ICMCompletionProcRecordPtr asyncCompletionProc)
-        TWOWORDINLINE(0x700E, 0xAAA3);
+                            ICMCompletionProcRecordPtr asyncCompletionProc);
 
     /**
      *  DecompressSequenceFrameS()
@@ -1644,8 +1632,7 @@ extern "C"
     OSErr
     DecompressSequenceFrameS(ImageSequence seqID, Ptr data, long dataSize,
                              CodecFlags inFlags, CodecFlags *outFlags,
-                             ICMCompletionProcRecordPtr asyncCompletionProc)
-        FOURWORDINLINE(0x203C, 0x0016, 0x0047, 0xAAA3);
+                             ICMCompletionProcRecordPtr asyncCompletionProc);
 
     /**
      *  DecompressSequenceFrameWhen()
@@ -1660,8 +1647,7 @@ extern "C"
     DecompressSequenceFrameWhen(ImageSequence seqID, Ptr data, long dataSize,
                                 CodecFlags inFlags, CodecFlags *outFlags,
                                 ICMCompletionProcRecordPtr asyncCompletionProc,
-                                const ICMFrameTimeRecord *frameTime)
-        FOURWORDINLINE(0x203C, 0x001A, 0x005E, 0xAAA3);
+                                const ICMFrameTimeRecord *frameTime);
 
     /**
      *  CDSequenceFlush()
@@ -1673,8 +1659,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceFlush(ImageSequence seqID)
-        FOURWORDINLINE(0x203C, 0x0004, 0x005F, 0xAAA3);
+    CDSequenceFlush(ImageSequence seqID);
 
     /**
      *  SetDSequenceMatrix()
@@ -1686,8 +1671,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetDSequenceMatrix(ImageSequence seqID, MatrixRecordPtr matrix)
-        TWOWORDINLINE(0x7010, 0xAAA3);
+    SetDSequenceMatrix(ImageSequence seqID, MatrixRecordPtr matrix);
 
     /**
      *  GetDSequenceMatrix()
@@ -1699,8 +1683,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     OSErr
-    GetDSequenceMatrix(ImageSequence seqID, MatrixRecordPtr matrix)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0091, 0xAAA3);
+    GetDSequenceMatrix(ImageSequence seqID, MatrixRecordPtr matrix);
 
     /**
      *  SetDSequenceMatte()
@@ -1713,7 +1696,7 @@ extern "C"
      */
     OSErr
     SetDSequenceMatte(ImageSequence seqID, PixMapHandle matte,
-                      const Rect *matteRect) TWOWORDINLINE(0x7011, 0xAAA3);
+                      const Rect *matteRect);
 
     /**
      *  SetDSequenceMask()
@@ -1725,8 +1708,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetDSequenceMask(ImageSequence seqID, RgnHandle mask)
-        TWOWORDINLINE(0x7012, 0xAAA3);
+    SetDSequenceMask(ImageSequence seqID, RgnHandle mask);
 
     /**
      *  SetDSequenceTransferMode()
@@ -1739,7 +1721,7 @@ extern "C"
      */
     OSErr
     SetDSequenceTransferMode(ImageSequence seqID, short mode,
-                             const RGBColor *opColor) TWOWORDINLINE(0x7013, 0xAAA3);
+                             const RGBColor *opColor);
 
     /**
      *  SetDSequenceDataProc()
@@ -1752,7 +1734,7 @@ extern "C"
      */
     OSErr
     SetDSequenceDataProc(ImageSequence seqID, ICMDataProcRecordPtr dataProc,
-                         long bufferSize) TWOWORDINLINE(0x7014, 0xAAA3);
+                         long bufferSize);
 
     /**
      *  SetDSequenceAccuracy()
@@ -1764,8 +1746,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetDSequenceAccuracy(ImageSequence seqID, CodecQ accuracy)
-        TWOWORDINLINE(0x7034, 0xAAA3);
+    SetDSequenceAccuracy(ImageSequence seqID, CodecQ accuracy);
 
     /**
      *  SetDSequenceSrcRect()
@@ -1777,8 +1758,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetDSequenceSrcRect(ImageSequence seqID, const Rect *srcRect)
-        TWOWORDINLINE(0x7035, 0xAAA3);
+    SetDSequenceSrcRect(ImageSequence seqID, const Rect *srcRect);
 
     /**
      *  SetDSequenceFlags()
@@ -1790,8 +1770,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     OSErr
-    SetDSequenceFlags(ImageSequence seqID, long flags, long flagsMask)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0057, 0xAAA3);
+    SetDSequenceFlags(ImageSequence seqID, long flags, long flagsMask);
 
     enum
     {
@@ -1819,8 +1798,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     OSErr
-    ICMSequenceGetInfo(ImageSequence seqID, OSType which, void *data)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0089, 0xAAA3);
+    ICMSequenceGetInfo(ImageSequence seqID, OSType which, void *data);
 
     /**
      *  ICMSequenceSetInfo()
@@ -1832,8 +1810,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     OSErr
-    ICMSequenceSetInfo(ImageSequence seqID, OSType which, void *data, Size dataSize)
-        FOURWORDINLINE(0x203C, 0x0010, 0x009D, 0xAAA3);
+    ICMSequenceSetInfo(ImageSequence seqID, OSType which, void *data, Size dataSize);
 
     /**
      *  GetDSequenceImageBuffer()
@@ -1845,8 +1822,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetDSequenceImageBuffer(ImageSequence seqID, GWorldPtr *gworld)
-        TWOWORDINLINE(0x7015, 0xAAA3);
+    GetDSequenceImageBuffer(ImageSequence seqID, GWorldPtr *gworld);
 
     /**
      *  GetDSequenceScreenBuffer()
@@ -1858,8 +1834,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetDSequenceScreenBuffer(ImageSequence seqID, GWorldPtr *gworld)
-        TWOWORDINLINE(0x7016, 0xAAA3);
+    GetDSequenceScreenBuffer(ImageSequence seqID, GWorldPtr *gworld);
 
     /**
      *  SetCSequenceQuality()
@@ -1872,7 +1847,7 @@ extern "C"
      */
     OSErr
     SetCSequenceQuality(ImageSequence seqID, CodecQ spatialQuality,
-                        CodecQ temporalQuality) TWOWORDINLINE(0x7017, 0xAAA3);
+                        CodecQ temporalQuality);
 
     /**
      *  SetCSequencePrev()
@@ -1884,8 +1859,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetCSequencePrev(ImageSequence seqID, PixMapHandle prev, const Rect *prevRect)
-        TWOWORDINLINE(0x7018, 0xAAA3);
+    SetCSequencePrev(ImageSequence seqID, PixMapHandle prev, const Rect *prevRect);
 
     /**
      *  SetCSequenceFlushProc()
@@ -1898,7 +1872,7 @@ extern "C"
      */
     OSErr
     SetCSequenceFlushProc(ImageSequence seqID, ICMFlushProcRecordPtr flushProc,
-                          long bufferSize) TWOWORDINLINE(0x7033, 0xAAA3);
+                          long bufferSize);
 
     /**
      *  SetCSequenceKeyFrameRate()
@@ -1910,8 +1884,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetCSequenceKeyFrameRate(ImageSequence seqID, long keyFrameRate)
-        TWOWORDINLINE(0x7036, 0xAAA3);
+    SetCSequenceKeyFrameRate(ImageSequence seqID, long keyFrameRate);
 
     /**
      *  GetCSequenceKeyFrameRate()
@@ -1923,8 +1896,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetCSequenceKeyFrameRate(ImageSequence seqID, long *keyFrameRate)
-        FOURWORDINLINE(0x203C, 0x0008, 0x004B, 0xAAA3);
+    GetCSequenceKeyFrameRate(ImageSequence seqID, long *keyFrameRate);
 
     /**
      *  GetCSequencePrevBuffer()
@@ -1936,8 +1908,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetCSequencePrevBuffer(ImageSequence seqID, GWorldPtr *gworld)
-        TWOWORDINLINE(0x7019, 0xAAA3);
+    GetCSequencePrevBuffer(ImageSequence seqID, GWorldPtr *gworld);
 
     /**
      *  CDSequenceBusy()
@@ -1949,7 +1920,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceBusy(ImageSequence seqID) TWOWORDINLINE(0x701A, 0xAAA3);
+    CDSequenceBusy(ImageSequence seqID);
 
     /**
      *  CDSequenceEnd()
@@ -1961,7 +1932,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceEnd(ImageSequence seqID) TWOWORDINLINE(0x701B, 0xAAA3);
+    CDSequenceEnd(ImageSequence seqID);
 
     /**
      *  CDSequenceEquivalentImageDescription()
@@ -1975,8 +1946,7 @@ extern "C"
     OSErr
     CDSequenceEquivalentImageDescription(ImageSequence seqID,
                                          ImageDescriptionHandle newDesc,
-                                         Boolean *equivalent)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0065, 0xAAA3);
+                                         Boolean *equivalent);
 
     /**
      *  CDSequenceEquivalentImageDescriptionS()
@@ -1990,8 +1960,7 @@ extern "C"
     OSErr
     CDSequenceEquivalentImageDescriptionS(ImageSequence seqID,
                                           ImageDescriptionHandle newDesc,
-                                          Boolean *equivalent, Boolean *canSwitch)
-        FOURWORDINLINE(0x203C, 0x0010, 0x009F, 0xAAA3);
+                                          Boolean *equivalent, Boolean *canSwitch);
 
     /**
      *  ReplaceDSequenceImageDescription()
@@ -2004,8 +1973,7 @@ extern "C"
      */
     OSErr
     ReplaceDSequenceImageDescription(ImageSequence seqID,
-                                     ImageDescriptionHandle newDesc)
-        FOURWORDINLINE(0x203C, 0x0008, 0x00A0, 0xAAA3);
+                                     ImageDescriptionHandle newDesc);
 
     /**
      *  GetCompressedImageSize()
@@ -2018,8 +1986,7 @@ extern "C"
      */
     OSErr
     GetCompressedImageSize(ImageDescriptionHandle desc, Ptr data, long bufferSize,
-                           ICMDataProcRecordPtr dataProc, long *dataSize)
-        TWOWORDINLINE(0x701C, 0xAAA3);
+                           ICMDataProcRecordPtr dataProc, long *dataSize);
 
     /**
      *  GetSimilarity()
@@ -2032,8 +1999,7 @@ extern "C"
      */
     OSErr
     GetSimilarity(PixMapHandle src, const Rect *srcRect,
-                  ImageDescriptionHandle desc, Ptr data, Fixed *similarity)
-        TWOWORDINLINE(0x701D, 0xAAA3);
+                  ImageDescriptionHandle desc, Ptr data, Fixed *similarity);
 
     enum
     {
@@ -2067,8 +2033,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetImageDescriptionCTable(ImageDescriptionHandle desc, CTabHandle *ctable)
-        TWOWORDINLINE(0x701E, 0xAAA3);
+    GetImageDescriptionCTable(ImageDescriptionHandle desc, CTabHandle *ctable);
 
     /**
      *  SetImageDescriptionCTable()
@@ -2080,8 +2045,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetImageDescriptionCTable(ImageDescriptionHandle desc, CTabHandle ctable)
-        TWOWORDINLINE(0x701F, 0xAAA3);
+    SetImageDescriptionCTable(ImageDescriptionHandle desc, CTabHandle ctable);
 
     /**
      *  GetImageDescriptionExtension()
@@ -2094,8 +2058,7 @@ extern "C"
      */
     OSErr
     GetImageDescriptionExtension(ImageDescriptionHandle desc, Handle *extension,
-                                 long idType, long index)
-        TWOWORDINLINE(0x7020, 0xAAA3);
+                                 long idType, long index);
 
     /**
      *  AddImageDescriptionExtension()
@@ -2108,7 +2071,7 @@ extern "C"
      */
     OSErr
     AddImageDescriptionExtension(ImageDescriptionHandle desc, Handle extension,
-                                 long idType) TWOWORDINLINE(0x7021, 0xAAA3);
+                                 long idType);
 
     /**
      *  RemoveImageDescriptionExtension()
@@ -2121,8 +2084,7 @@ extern "C"
      */
     OSErr
     RemoveImageDescriptionExtension(ImageDescriptionHandle desc, long idType,
-                                    long index)
-        FOURWORDINLINE(0x203C, 0x000C, 0x003A, 0xAAA3);
+                                    long index);
 
     /**
      *  CountImageDescriptionExtensionType()
@@ -2135,8 +2097,7 @@ extern "C"
      */
     OSErr
     CountImageDescriptionExtensionType(ImageDescriptionHandle desc, long idType,
-                                       long *count)
-        FOURWORDINLINE(0x203C, 0x000C, 0x003B, 0xAAA3);
+                                       long *count);
 
     /**
      *  GetNextImageDescriptionExtensionType()
@@ -2148,8 +2109,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetNextImageDescriptionExtensionType(ImageDescriptionHandle desc, long *idType)
-        FOURWORDINLINE(0x203C, 0x0008, 0x003C, 0xAAA3);
+    GetNextImageDescriptionExtensionType(ImageDescriptionHandle desc, long *idType);
 
     /**
      *  FindCodec()
@@ -2162,8 +2122,7 @@ extern "C"
      */
     OSErr
     FindCodec(CodecType cType, CodecComponent specCodec,
-              CompressorComponent *compressor, DecompressorComponent *decompressor)
-        TWOWORDINLINE(0x7023, 0xAAA3);
+              CompressorComponent *compressor, DecompressorComponent *decompressor);
 
     /**
      *  CompressPicture()
@@ -2176,7 +2135,7 @@ extern "C"
      */
     OSErr
     CompressPicture(PicHandle srcPicture, PicHandle dstPicture, CodecQ quality,
-                    CodecType cType) TWOWORDINLINE(0x7024, 0xAAA3);
+                    CodecType cType);
 
     /**
      *  FCompressPicture()
@@ -2191,8 +2150,7 @@ extern "C"
     FCompressPicture(PicHandle srcPicture, PicHandle dstPicture, short colorDepth,
                      CTabHandle ctable, CodecQ quality, short doDither,
                      short compressAgain, ICMProgressProcRecordPtr progressProc,
-                     CodecType cType, CompressorComponent codec)
-        TWOWORDINLINE(0x7025, 0xAAA3);
+                     CodecType cType, CompressorComponent codec);
 
     /**
      *  CompressPictureFile()
@@ -2205,7 +2163,7 @@ extern "C"
      */
     OSErr
     CompressPictureFile(short srcRefNum, short dstRefNum, CodecQ quality,
-                        CodecType cType) TWOWORDINLINE(0x7026, 0xAAA3);
+                        CodecType cType);
 
     /**
      *  FCompressPictureFile()
@@ -2220,8 +2178,7 @@ extern "C"
     FCompressPictureFile(short srcRefNum, short dstRefNum, short colorDepth,
                          CTabHandle ctable, CodecQ quality, short doDither,
                          short compressAgain, ICMProgressProcRecordPtr progressProc,
-                         CodecType cType, CompressorComponent codec)
-        TWOWORDINLINE(0x7027, 0xAAA3);
+                         CodecType cType, CompressorComponent codec);
 
     /**
      *  GetPictureFileHeader()
@@ -2233,8 +2190,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetPictureFileHeader(short refNum, Rect *frame, OpenCPicParams *header)
-        TWOWORDINLINE(0x7028, 0xAAA3);
+    GetPictureFileHeader(short refNum, Rect *frame, OpenCPicParams *header);
 
     /**
      *  DrawPictureFile()
@@ -2247,8 +2203,7 @@ extern "C"
      */
     OSErr
     DrawPictureFile(short refNum, const Rect *frame,
-                    ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x7029, 0xAAA3);
+                    ICMProgressProcRecordPtr progressProc);
 
     /**
      *  DrawTrimmedPicture()
@@ -2261,8 +2216,7 @@ extern "C"
      */
     OSErr
     DrawTrimmedPicture(PicHandle srcPicture, const Rect *frame, RgnHandle trimMask,
-                       short doDither, ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x702E, 0xAAA3);
+                       short doDither, ICMProgressProcRecordPtr progressProc);
 
     /**
      *  DrawTrimmedPictureFile()
@@ -2275,8 +2229,7 @@ extern "C"
      */
     OSErr
     DrawTrimmedPictureFile(short srcRefnum, const Rect *frame, RgnHandle trimMask,
-                           short doDither, ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x702F, 0xAAA3);
+                           short doDither, ICMProgressProcRecordPtr progressProc);
 
     /**
      *  MakeThumbnailFromPicture()
@@ -2290,8 +2243,7 @@ extern "C"
     OSErr
     MakeThumbnailFromPicture(PicHandle picture, short colorDepth,
                              PicHandle thumbnail,
-                             ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x702A, 0xAAA3);
+                             ICMProgressProcRecordPtr progressProc);
 
     /**
      *  MakeThumbnailFromPictureFile()
@@ -2305,8 +2257,7 @@ extern "C"
     OSErr
     MakeThumbnailFromPictureFile(short refNum, short colorDepth,
                                  PicHandle thumbnail,
-                                 ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x702B, 0xAAA3);
+                                 ICMProgressProcRecordPtr progressProc);
 
     /**
      *  MakeThumbnailFromPixMap()
@@ -2320,8 +2271,7 @@ extern "C"
     OSErr
     MakeThumbnailFromPixMap(PixMapHandle src, const Rect *srcRect, short colorDepth,
                             PicHandle thumbnail,
-                            ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x702C, 0xAAA3);
+                            ICMProgressProcRecordPtr progressProc);
 
     /**
      *  TrimImage()
@@ -2336,7 +2286,7 @@ extern "C"
     TrimImage(ImageDescriptionHandle desc, Ptr inData, long inBufferSize,
               ICMDataProcRecordPtr dataProc, Ptr outData, long outBufferSize,
               ICMFlushProcRecordPtr flushProc, Rect *trimRect,
-              ICMProgressProcRecordPtr progressProc) TWOWORDINLINE(0x702D, 0xAAA3);
+              ICMProgressProcRecordPtr progressProc);
 
     /**
      *  ConvertImage()
@@ -2351,8 +2301,7 @@ extern "C"
     ConvertImage(ImageDescriptionHandle srcDD, Ptr srcData, short colorDepth,
                  CTabHandle ctable, CodecQ accuracy, CodecQ quality,
                  CodecType cType, CodecComponent codec,
-                 ImageDescriptionHandle dstDD, Ptr dstData)
-        TWOWORDINLINE(0x7030, 0xAAA3);
+                 ImageDescriptionHandle dstDD, Ptr dstData);
 
     /**
      *  GetCompressedPixMapInfo()
@@ -2366,8 +2315,7 @@ extern "C"
     OSErr
     GetCompressedPixMapInfo(PixMapPtr pix, ImageDescriptionHandle *desc, Ptr *data,
                             long *bufferSize, ICMDataProcRecord *dataProc,
-                            ICMProgressProcRecord *progressProc)
-        TWOWORDINLINE(0x7037, 0xAAA3);
+                            ICMProgressProcRecord *progressProc);
 
     /**
      *  SetCompressedPixMapInfo()
@@ -2381,8 +2329,7 @@ extern "C"
     OSErr
     SetCompressedPixMapInfo(PixMapPtr pix, ImageDescriptionHandle desc, Ptr data,
                             long bufferSize, ICMDataProcRecordPtr dataProc,
-                            ICMProgressProcRecordPtr progressProc)
-        TWOWORDINLINE(0x7038, 0xAAA3);
+                            ICMProgressProcRecordPtr progressProc);
 
     /**
      *  StdPix()
@@ -2395,8 +2342,7 @@ extern "C"
      */
     void
     StdPix(PixMapPtr src, const Rect *srcRect, MatrixRecordPtr matrix, short mode,
-           RgnHandle mask, PixMapPtr matte, const Rect *matteRect, short flags)
-        TWOWORDINLINE(0x700C, 0xAAA3);
+           RgnHandle mask, PixMapPtr matte, const Rect *matteRect, short flags);
 
     /**
      *  TransformRgn()
@@ -2408,8 +2354,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    TransformRgn(MatrixRecordPtr matrix, RgnHandle rgn)
-        TWOWORDINLINE(0x7039, 0xAAA3);
+    TransformRgn(MatrixRecordPtr matrix, RgnHandle rgn);
 
 /************
     preview stuff
@@ -2427,8 +2372,7 @@ extern "C"
     void
     SFGetFilePreview(Point where, ConstStr255Param prompt, FileFilterUPP fileFilter,
                      short numTypes, ConstSFTypeListPtr typeList,
-                     DlgHookUPP dlgHook, SFReply *reply)
-        TWOWORDINLINE(0x7041, 0xAAA3);
+                     DlgHookUPP dlgHook, SFReply *reply);
 
     /**
      *  SFPGetFilePreview()
@@ -2443,8 +2387,7 @@ extern "C"
     SFPGetFilePreview(Point where, ConstStr255Param prompt,
                       FileFilterUPP fileFilter, short numTypes,
                       ConstSFTypeListPtr typeList, DlgHookUPP dlgHook,
-                      SFReply *reply, short dlgID, ModalFilterUPP filterProc)
-        TWOWORDINLINE(0x7042, 0xAAA3);
+                      SFReply *reply, short dlgID, ModalFilterUPP filterProc);
 
     /**
      *  StandardGetFilePreview()
@@ -2457,8 +2400,7 @@ extern "C"
      */
     void
     StandardGetFilePreview(FileFilterUPP fileFilter, short numTypes,
-                           ConstSFTypeListPtr typeList, StandardFileReply *reply)
-        TWOWORDINLINE(0x7043, 0xAAA3);
+                           ConstSFTypeListPtr typeList, StandardFileReply *reply);
 
     /**
      *  CustomGetFilePreview()
@@ -2475,8 +2417,7 @@ extern "C"
                          short dlgID, Point where, DlgHookYDUPP dlgHook,
                          ModalFilterYDUPP filterProc,
                          ActivationOrderListPtr activeList,
-                         ActivateYDUPP activateProc, void *yourDataPtr)
-        TWOWORDINLINE(0x7044, 0xAAA3);
+                         ActivateYDUPP activateProc, void *yourDataPtr);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -2490,8 +2431,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    MakeFilePreview(short resRefNum, ICMProgressProcRecordPtr progress)
-        TWOWORDINLINE(0x7045, 0xAAA3);
+    MakeFilePreview(short resRefNum, ICMProgressProcRecordPtr progress);
 
     /**
      *  AddFilePreview()
@@ -2503,8 +2443,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    AddFilePreview(short resRefNum, OSType previewType, Handle previewData)
-        TWOWORDINLINE(0x7046, 0xAAA3);
+    AddFilePreview(short resRefNum, OSType previewType, Handle previewData);
 
     enum
     {
@@ -2535,8 +2474,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    AlignScreenRect(Rect *rp, ICMAlignmentProcRecordPtr alignmentProc)
-        FOURWORDINLINE(0x203C, 0x0008, 0x004C, 0xAAA3);
+    AlignScreenRect(Rect *rp, ICMAlignmentProcRecordPtr alignmentProc);
 
     /**
      *  AlignWindow()
@@ -2549,8 +2487,7 @@ extern "C"
      */
     void
     AlignWindow(WindowRef wp, Boolean front, const Rect *alignmentRect,
-                ICMAlignmentProcRecordPtr alignmentProc)
-        FOURWORDINLINE(0x203C, 0x000E, 0x004D, 0xAAA3);
+                ICMAlignmentProcRecordPtr alignmentProc);
 
     /**
      *  DragAlignedWindow()
@@ -2563,8 +2500,7 @@ extern "C"
      */
     void
     DragAlignedWindow(WindowRef wp, Point startPt, Rect *boundsRect,
-                      Rect *alignmentRect, ICMAlignmentProcRecordPtr alignmentProc)
-        FOURWORDINLINE(0x203C, 0x0014, 0x004E, 0xAAA3);
+                      Rect *alignmentRect, ICMAlignmentProcRecordPtr alignmentProc);
 
     /**
      *  DragAlignedGrayRgn()
@@ -2578,8 +2514,7 @@ extern "C"
     long
     DragAlignedGrayRgn(RgnHandle theRgn, Point startPt, Rect *boundsRect,
                        Rect *slopRect, short axis, UniversalProcPtr actionProc,
-                       Rect *alignmentRect, ICMAlignmentProcRecordPtr alignmentProc)
-        FOURWORDINLINE(0x203C, 0x001E, 0x004F, 0xAAA3);
+                       Rect *alignmentRect, ICMAlignmentProcRecordPtr alignmentProc);
 
     /**
      *  SetCSequenceDataRateParams()
@@ -2591,8 +2526,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetCSequenceDataRateParams(ImageSequence seqID, DataRateParamsPtr params)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0050, 0xAAA3);
+    SetCSequenceDataRateParams(ImageSequence seqID, DataRateParamsPtr params);
 
     /**
      *  SetCSequenceFrameNumber()
@@ -2604,8 +2538,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    SetCSequenceFrameNumber(ImageSequence seqID, long frameNumber)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0051, 0xAAA3);
+    SetCSequenceFrameNumber(ImageSequence seqID, long frameNumber);
 
     /**
      *  SetCSequencePreferredPacketSize()
@@ -2618,8 +2551,7 @@ extern "C"
      */
     OSErr
     SetCSequencePreferredPacketSize(ImageSequence seqID,
-                                    long preferredPacketSizeInBytes)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0078, 0xAAA3);
+                                    long preferredPacketSizeInBytes);
 
     /**
      *  NewImageGWorld()
@@ -2631,8 +2563,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    NewImageGWorld(GWorldPtr *gworld, ImageDescriptionHandle idh, GWorldFlags flags)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0052, 0xAAA3);
+    NewImageGWorld(GWorldPtr *gworld, ImageDescriptionHandle idh, GWorldFlags flags);
 
     /**
      *  GetCSequenceDataRateParams()
@@ -2644,8 +2575,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetCSequenceDataRateParams(ImageSequence seqID, DataRateParamsPtr params)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0053, 0xAAA3);
+    GetCSequenceDataRateParams(ImageSequence seqID, DataRateParamsPtr params);
 
     /**
      *  GetCSequenceFrameNumber()
@@ -2657,8 +2587,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetCSequenceFrameNumber(ImageSequence seqID, long *frameNumber)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0054, 0xAAA3);
+    GetCSequenceFrameNumber(ImageSequence seqID, long *frameNumber);
 
     /**
      *  GetBestDeviceRect()
@@ -2670,8 +2599,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetBestDeviceRect(GDHandle *gdh, Rect *rp)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0055, 0xAAA3);
+    GetBestDeviceRect(GDHandle *gdh, Rect *rp);
 
     /**
      *  SetSequenceProgressProc()
@@ -2684,8 +2612,7 @@ extern "C"
      */
     OSErr
     SetSequenceProgressProc(ImageSequence seqID,
-                            ICMProgressProcRecord *progressProc)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0056, 0xAAA3);
+                            ICMProgressProcRecord *progressProc);
 
     /**
      *  GDHasScale()
@@ -2697,8 +2624,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GDHasScale(GDHandle gdh, short depth, Fixed *scale)
-        FOURWORDINLINE(0x203C, 0x000A, 0x005A, 0xAAA3);
+    GDHasScale(GDHandle gdh, short depth, Fixed *scale);
 
     /**
      *  GDGetScale()
@@ -2710,8 +2636,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GDGetScale(GDHandle gdh, Fixed *scale, short *flags)
-        FOURWORDINLINE(0x203C, 0x000C, 0x005B, 0xAAA3);
+    GDGetScale(GDHandle gdh, Fixed *scale, short *flags);
 
     /**
      *  GDSetScale()
@@ -2723,8 +2648,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GDSetScale(GDHandle gdh, Fixed scale, short flags)
-        FOURWORDINLINE(0x203C, 0x000A, 0x005C, 0xAAA3);
+    GDSetScale(GDHandle gdh, Fixed scale, short flags);
 
     /**
      *  ICMShieldSequenceCursor()
@@ -2736,8 +2660,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ICMShieldSequenceCursor(ImageSequence seqID)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0062, 0xAAA3);
+    ICMShieldSequenceCursor(ImageSequence seqID);
 
     /**
      *  ICMDecompressComplete()
@@ -2750,8 +2673,7 @@ extern "C"
      */
     void
     ICMDecompressComplete(ImageSequence seqID, OSErr err, short flag,
-                          ICMCompletionProcRecordPtr completionRtn)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0063, 0xAAA3);
+                          ICMCompletionProcRecordPtr completionRtn);
 
     /**
      *  ICMDecompressCompleteS()
@@ -2764,8 +2686,7 @@ extern "C"
      */
     OSErr
     ICMDecompressCompleteS(ImageSequence seqID, OSErr err, short flag,
-                           ICMCompletionProcRecordPtr completionRtn)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0082, 0xAAA3);
+                           ICMCompletionProcRecordPtr completionRtn);
 
     /**
      *  ICMSequenceLockBits()
@@ -2777,8 +2698,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ICMSequenceLockBits(ImageSequence seqID, PixMapPtr dst, long flags)
-        FOURWORDINLINE(0x203C, 0x000C, 0x007C, 0xAAA3);
+    ICMSequenceLockBits(ImageSequence seqID, PixMapPtr dst, long flags);
 
     /**
      *  ICMSequenceUnlockBits()
@@ -2790,8 +2710,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ICMSequenceUnlockBits(ImageSequence seqID, long flags)
-        FOURWORDINLINE(0x203C, 0x0008, 0x007D, 0xAAA3);
+    ICMSequenceUnlockBits(ImageSequence seqID, long flags);
 
     enum
     {
@@ -2820,8 +2739,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ICMGetPixelFormatInfo(OSType PixelFormat, ICMPixelFormatInfoPtr theInfo)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0083, 0xAAA3);
+    ICMGetPixelFormatInfo(OSType PixelFormat, ICMPixelFormatInfoPtr theInfo);
 
     /**
      *  ICMSetPixelFormatInfo()
@@ -2833,8 +2751,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ICMSetPixelFormatInfo(OSType PixelFormat, ICMPixelFormatInfoPtr theInfo)
-        FOURWORDINLINE(0x203C, 0x0008, 0x008A, 0xAAA3);
+    ICMSetPixelFormatInfo(OSType PixelFormat, ICMPixelFormatInfoPtr theInfo);
 
     enum
     {
@@ -2855,8 +2772,7 @@ extern "C"
      */
     OSErr
     ICMSequenceGetChainMember(ImageSequence seqID, ImageSequence *retSeqID,
-                              long flags)
-        FOURWORDINLINE(0x203C, 0x000C, 0x007E, 0xAAA3);
+                              long flags);
 
     /**
      *  SetDSequenceTimeCode()
@@ -2869,8 +2785,7 @@ extern "C"
      */
     OSErr
     SetDSequenceTimeCode(ImageSequence seqID, void *timeCodeFormat,
-                         void *timeCodeTime)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0064, 0xAAA3);
+                         void *timeCodeTime);
 
     /**
      *  CDSequenceNewMemory()
@@ -2883,8 +2798,7 @@ extern "C"
      */
     OSErr
     CDSequenceNewMemory(ImageSequence seqID, Ptr *data, Size dataSize, long dataUse,
-                        ICMMemoryDisposedUPP memoryGoneProc, void *refCon)
-        FOURWORDINLINE(0x203C, 0x0018, 0x0066, 0xAAA3);
+                        ICMMemoryDisposedUPP memoryGoneProc, void *refCon);
 
     /**
      *  CDSequenceDisposeMemory()
@@ -2896,8 +2810,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceDisposeMemory(ImageSequence seqID, Ptr data)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0067, 0xAAA3);
+    CDSequenceDisposeMemory(ImageSequence seqID, Ptr data);
 
     /**
      *  CDSequenceNewDataSource()
@@ -2912,8 +2825,7 @@ extern "C"
     CDSequenceNewDataSource(ImageSequence seqID, ImageSequenceDataSource *sourceID,
                             OSType sourceType, long sourceInputNumber,
                             Handle dataDescription,
-                            ICMConvertDataFormatUPP transferProc, void *refCon)
-        FOURWORDINLINE(0x203C, 0x001C, 0x0068, 0xAAA3);
+                            ICMConvertDataFormatUPP transferProc, void *refCon);
 
     /**
      *  CDSequenceDisposeDataSource()
@@ -2925,8 +2837,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceDisposeDataSource(ImageSequenceDataSource sourceID)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0069, 0xAAA3);
+    CDSequenceDisposeDataSource(ImageSequenceDataSource sourceID);
 
     /**
      *  CDSequenceSetSourceData()
@@ -2939,8 +2850,7 @@ extern "C"
      */
     OSErr
     CDSequenceSetSourceData(ImageSequenceDataSource sourceID, void *data,
-                            long dataSize)
-        FOURWORDINLINE(0x203C, 0x000C, 0x006A, 0xAAA3);
+                            long dataSize);
 
     /**
      *  CDSequenceChangedSourceData()
@@ -2952,8 +2862,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceChangedSourceData(ImageSequenceDataSource sourceID)
-        FOURWORDINLINE(0x203C, 0x0004, 0x006B, 0xAAA3);
+    CDSequenceChangedSourceData(ImageSequenceDataSource sourceID);
 
     /**
      *  CDSequenceSetSourceDataQueue()
@@ -2966,8 +2875,7 @@ extern "C"
      */
     OSErr
     CDSequenceSetSourceDataQueue(ImageSequenceDataSource sourceID,
-                                 QHdrPtr dataQueue)
-        FOURWORDINLINE(0x203C, 0x0008, 0x007B, 0xAAA3);
+                                 QHdrPtr dataQueue);
 
     /**
      *  CDSequenceGetDataSource()
@@ -2980,8 +2888,7 @@ extern "C"
      */
     OSErr
     CDSequenceGetDataSource(ImageSequence seqID, ImageSequenceDataSource *sourceID,
-                            OSType sourceType, long sourceInputNumber)
-        FOURWORDINLINE(0x203C, 0x0010, 0x007F, 0xAAA3);
+                            OSType sourceType, long sourceInputNumber);
 
     /**
      *  PtInDSequenceData()
@@ -2994,7 +2901,7 @@ extern "C"
      */
     OSErr
     PtInDSequenceData(ImageSequence seqID, void *data, Size dataSize, Point where,
-                      Boolean *hit) FOURWORDINLINE(0x203C, 0x0014, 0x006C, 0xAAA3);
+                      Boolean *hit);
 
     /**
      *  HitTestDSequenceData()
@@ -3007,8 +2914,7 @@ extern "C"
      */
     OSErr
     HitTestDSequenceData(ImageSequence seqID, void *data, Size dataSize,
-                         Point where, long *hit, long hitFlags)
-        FOURWORDINLINE(0x203C, 0x0018, 0x0087, 0xAAA3);
+                         Point where, long *hit, long hitFlags);
 
     /**
      *  GetGraphicsImporterForFile()
@@ -3020,8 +2926,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    GetGraphicsImporterForFile(const FSSpec *theFile, ComponentInstance *gi)
-        FOURWORDINLINE(0x203C, 0x0008, 0x006E, 0xAAA3);
+    GetGraphicsImporterForFile(const FSSpec *theFile, ComponentInstance *gi);
 
     /**
      *  GetGraphicsImporterForDataRef()
@@ -3034,8 +2939,7 @@ extern "C"
      */
     OSErr
     GetGraphicsImporterForDataRef(Handle dataRef, OSType dataRefType,
-                                  ComponentInstance *gi)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0077, 0xAAA3);
+                                  ComponentInstance *gi);
 
     enum
     {
@@ -3053,8 +2957,7 @@ extern "C"
      */
     OSErr
     GetGraphicsImporterForFileWithFlags(const FSSpec *theFile,
-                                        ComponentInstance *gi, long flags)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0084, 0xAAA3);
+                                        ComponentInstance *gi, long flags);
 
     /**
      *  GetGraphicsImporterForDataRefWithFlags()
@@ -3067,8 +2970,7 @@ extern "C"
      */
     OSErr
     GetGraphicsImporterForDataRefWithFlags(Handle dataRef, OSType dataRefType,
-                                           ComponentInstance *gi, long flags)
-        FOURWORDINLINE(0x203C, 0x0010, 0x0085, 0xAAA3);
+                                           ComponentInstance *gi, long flags);
 
     /**
      *  QTGetFileNameExtension()
@@ -3081,8 +2983,7 @@ extern "C"
      */
     OSErr
     QTGetFileNameExtension(ConstStrFileNameParam fileName, OSType fileType,
-                           OSType *extension)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0061, 0xAAA3);
+                           OSType *extension);
 
     /**
      *  ImageTranscodeSequenceBegin()
@@ -3097,8 +2998,7 @@ extern "C"
     ImageTranscodeSequenceBegin(ImageTranscodeSequence *its,
                                 ImageDescriptionHandle srcDesc, OSType destType,
                                 ImageDescriptionHandle *dstDesc, void *data,
-                                long dataSize)
-        FOURWORDINLINE(0x203C, 0x0018, 0x006F, 0xAAA3);
+                                long dataSize);
 
     /**
      *  ImageTranscodeSequenceEnd()
@@ -3110,8 +3010,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ImageTranscodeSequenceEnd(ImageTranscodeSequence its)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0070, 0xAAA3);
+    ImageTranscodeSequenceEnd(ImageTranscodeSequence its);
 
     /**
      *  ImageTranscodeFrame()
@@ -3124,8 +3023,7 @@ extern "C"
      */
     OSErr
     ImageTranscodeFrame(ImageTranscodeSequence its, void *srcData, long srcDataSize,
-                        void **dstData, long *dstDataSize)
-        FOURWORDINLINE(0x203C, 0x0014, 0x0071, 0xAAA3);
+                        void **dstData, long *dstDataSize);
 
     /**
      *  ImageTranscodeDisposeFrameData()
@@ -3137,8 +3035,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ImageTranscodeDisposeFrameData(ImageTranscodeSequence its, void *dstData)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0072, 0xAAA3);
+    ImageTranscodeDisposeFrameData(ImageTranscodeSequence its, void *dstData);
 
     /**
      *  CDSequenceInvalidate()
@@ -3150,8 +3047,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceInvalidate(ImageSequence seqID, RgnHandle invalRgn)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0073, 0xAAA3);
+    CDSequenceInvalidate(ImageSequence seqID, RgnHandle invalRgn);
 
     /**
      *  CDSequenceSetTimeBase()
@@ -3163,8 +3059,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    CDSequenceSetTimeBase(ImageSequence seqID, void *base)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0079, 0xAAA3);
+    CDSequenceSetTimeBase(ImageSequence seqID, void *base);
 
     /**
      *  ImageFieldSequenceBegin()
@@ -3178,8 +3073,7 @@ extern "C"
     OSErr
     ImageFieldSequenceBegin(ImageFieldSequence *ifs, ImageDescriptionHandle desc1,
                             ImageDescriptionHandle desc2,
-                            ImageDescriptionHandle descOut)
-        FOURWORDINLINE(0x203C, 0x0010, 0x006D, 0xAAA3);
+                            ImageDescriptionHandle descOut);
 
     /**
      *  ImageFieldSequenceExtractCombine()
@@ -3194,8 +3088,7 @@ extern "C"
     ImageFieldSequenceExtractCombine(ImageFieldSequence ifs, long fieldFlags,
                                      void *data1, long dataSize1, void *data2,
                                      long dataSize2, void *outputData,
-                                     long *outDataSize)
-        FOURWORDINLINE(0x203C, 0x0020, 0x0075, 0xAAA3);
+                                     long *outDataSize);
 
     /**
      *  ImageFieldSequenceEnd()
@@ -3207,8 +3100,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    ImageFieldSequenceEnd(ImageFieldSequence ifs)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0076, 0xAAA3);
+    ImageFieldSequenceEnd(ImageFieldSequence ifs);
 
     enum
     {
@@ -3228,7 +3120,7 @@ extern "C"
     OSErr
     QTNewGWorld(GWorldPtr *offscreenGWorld, OSType PixelFormat,
                 const Rect *boundsRect, CTabHandle cTable, GDHandle aGDevice,
-                GWorldFlags flags) FOURWORDINLINE(0x203C, 0x0018, 0x0080, 0xAAA3);
+                GWorldFlags flags);
 
     /**
      *  QTNewGWorldFromPtr()
@@ -3242,8 +3134,7 @@ extern "C"
     OSErr
     QTNewGWorldFromPtr(GWorldPtr *gw, OSType pixelFormat, const Rect *boundsRect,
                        CTabHandle cTable, GDHandle aGDevice, GWorldFlags flags,
-                       void *baseAddr, long rowBytes)
-        FOURWORDINLINE(0x203C, 0x0020, 0x008B, 0xAAA3);
+                       void *baseAddr, long rowBytes);
 
     /**
      *  QTUpdateGWorld()
@@ -3257,8 +3148,7 @@ extern "C"
     GWorldFlags
     QTUpdateGWorld(GWorldPtr *offscreenGWorld, OSType PixelFormat,
                    const Rect *boundsRect, CTabHandle cTable, GDHandle aGDevice,
-                   GWorldFlags flags)
-        FOURWORDINLINE(0x203C, 0x0018, 0x0081, 0xAAA3);
+                   GWorldFlags flags);
 
     /**
      *  MakeImageDescriptionForPixMap()
@@ -3270,8 +3160,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    MakeImageDescriptionForPixMap(PixMapHandle pixmap, ImageDescriptionHandle *idh)
-        FOURWORDINLINE(0x203C, 0x0008, 0x007A, 0xAAA3);
+    MakeImageDescriptionForPixMap(PixMapHandle pixmap, ImageDescriptionHandle *idh);
 
     /**
      *  MakeImageDescriptionForEffect()
@@ -3283,8 +3172,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     OSErr
-    MakeImageDescriptionForEffect(OSType effectType, ImageDescriptionHandle *idh)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0092, 0xAAA3);
+    MakeImageDescriptionForEffect(OSType effectType, ImageDescriptionHandle *idh);
 
     /**
      *  QTGetPixelSize()
@@ -3296,8 +3184,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     short
-    QTGetPixelSize(OSType PixelFormat)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0086, 0xAAA3);
+    QTGetPixelSize(OSType PixelFormat);
 
     /**
      *  QTGetPixMapPtrRowBytes()
@@ -3309,8 +3196,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     long
-    QTGetPixMapPtrRowBytes(PixMapPtr pm)
-        FOURWORDINLINE(0x203C, 0x0004, 0x008D, 0xAAA3);
+    QTGetPixMapPtrRowBytes(PixMapPtr pm);
 
     /**
      *  QTGetPixMapHandleRowBytes()
@@ -3322,8 +3208,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     long
-    QTGetPixMapHandleRowBytes(PixMapHandle pm)
-        FOURWORDINLINE(0x203C, 0x0004, 0x008E, 0xAAA3);
+    QTGetPixMapHandleRowBytes(PixMapHandle pm);
 
     /**
      *  QTSetPixMapPtrRowBytes()
@@ -3335,8 +3220,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     OSErr
-    QTSetPixMapPtrRowBytes(PixMapPtr pm, long rowBytes)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0090, 0xAAA3);
+    QTSetPixMapPtrRowBytes(PixMapPtr pm, long rowBytes);
 
     /**
      *  QTSetPixMapHandleRowBytes()
@@ -3348,8 +3232,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     OSErr
-    QTSetPixMapHandleRowBytes(PixMapHandle pm, long rowBytes)
-        FOURWORDINLINE(0x203C, 0x0008, 0x008F, 0xAAA3);
+    QTSetPixMapHandleRowBytes(PixMapHandle pm, long rowBytes);
 
     enum
     {
@@ -3372,8 +3255,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     Fixed
-    QTGetPixMapPtrGammaLevel(PixMapPtr pm)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0093, 0xAAA3);
+    QTGetPixMapPtrGammaLevel(PixMapPtr pm);
 
     /**
      *  QTSetPixMapPtrGammaLevel()
@@ -3385,8 +3267,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     OSErr
-    QTSetPixMapPtrGammaLevel(PixMapPtr pm, Fixed gammaLevel)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0094, 0xAAA3);
+    QTSetPixMapPtrGammaLevel(PixMapPtr pm, Fixed gammaLevel);
 
     /**
      *  QTGetPixMapHandleGammaLevel()
@@ -3398,8 +3279,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     Fixed
-    QTGetPixMapHandleGammaLevel(PixMapHandle pm)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0096, 0xAAA3);
+    QTGetPixMapHandleGammaLevel(PixMapHandle pm);
 
     /**
      *  QTSetPixMapHandleGammaLevel()
@@ -3411,8 +3291,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     OSErr
-    QTSetPixMapHandleGammaLevel(PixMapHandle pm, Fixed gammaLevel)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0097, 0xAAA3);
+    QTSetPixMapHandleGammaLevel(PixMapHandle pm, Fixed gammaLevel);
 
     /**
      *  QTGetPixMapPtrRequestedGammaLevel()
@@ -3424,8 +3303,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     Fixed
-    QTGetPixMapPtrRequestedGammaLevel(PixMapPtr pm)
-        FOURWORDINLINE(0x203C, 0x0004, 0x0098, 0xAAA3);
+    QTGetPixMapPtrRequestedGammaLevel(PixMapPtr pm);
 
     /**
      *  QTSetPixMapPtrRequestedGammaLevel()
@@ -3437,8 +3315,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     OSErr
-    QTSetPixMapPtrRequestedGammaLevel(PixMapPtr pm, Fixed requestedGammaLevel)
-        FOURWORDINLINE(0x203C, 0x0008, 0x0099, 0xAAA3);
+    QTSetPixMapPtrRequestedGammaLevel(PixMapPtr pm, Fixed requestedGammaLevel);
 
     /**
      *  QTGetPixMapHandleRequestedGammaLevel()
@@ -3450,8 +3327,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     Fixed
-    QTGetPixMapHandleRequestedGammaLevel(PixMapHandle pm)
-        FOURWORDINLINE(0x203C, 0x0004, 0x009A, 0xAAA3);
+    QTGetPixMapHandleRequestedGammaLevel(PixMapHandle pm);
 
     /**
      *  QTSetPixMapHandleRequestedGammaLevel()
@@ -3463,8 +3339,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     OSErr
-    QTSetPixMapHandleRequestedGammaLevel(PixMapHandle pm, Fixed requestedGammaLevel)
-        FOURWORDINLINE(0x203C, 0x0008, 0x009B, 0xAAA3);
+    QTSetPixMapHandleRequestedGammaLevel(PixMapHandle pm, Fixed requestedGammaLevel);
 
     /**
      *  QuadToQuadMatrix()
@@ -3476,8 +3351,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     OSErr
-    QuadToQuadMatrix(const Fixed *source, const Fixed *dest, MatrixRecord *map)
-        FOURWORDINLINE(0x203C, 0x000C, 0x0095, 0xAAA3);
+    QuadToQuadMatrix(const Fixed *source, const Fixed *dest, MatrixRecord *map);
 
     enum
     {
@@ -3502,7 +3376,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     short
-    GetMatrixType(const MatrixRecord *m) TWOWORDINLINE(0x7014, 0xABC2);
+    GetMatrixType(const MatrixRecord *m);
 
     /**
      *  CopyMatrix()
@@ -3514,8 +3388,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CopyMatrix(const MatrixRecord *m1, MatrixRecord *m2)
-        TWOWORDINLINE(0x7020, 0xABC2);
+    CopyMatrix(const MatrixRecord *m1, MatrixRecord *m2);
 
     /**
      *  EqualMatrix()
@@ -3527,8 +3400,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Boolean
-    EqualMatrix(const MatrixRecord *m1, const MatrixRecord *m2)
-        TWOWORDINLINE(0x7021, 0xABC2);
+    EqualMatrix(const MatrixRecord *m1, const MatrixRecord *m2);
 
     /**
      *  SetIdentityMatrix()
@@ -3540,7 +3412,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    SetIdentityMatrix(MatrixRecord *matrix) TWOWORDINLINE(0x7015, 0xABC2);
+    SetIdentityMatrix(MatrixRecord *matrix);
 
     /**
      *  TranslateMatrix()
@@ -3552,8 +3424,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    TranslateMatrix(MatrixRecord *m, Fixed deltaH, Fixed deltaV)
-        TWOWORDINLINE(0x7019, 0xABC2);
+    TranslateMatrix(MatrixRecord *m, Fixed deltaH, Fixed deltaV);
 
     /**
      *  RotateMatrix()
@@ -3565,8 +3436,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    RotateMatrix(MatrixRecord *m, Fixed degrees, Fixed aboutX, Fixed aboutY)
-        TWOWORDINLINE(0x7016, 0xABC2);
+    RotateMatrix(MatrixRecord *m, Fixed degrees, Fixed aboutX, Fixed aboutY);
 
     /**
      *  ScaleMatrix()
@@ -3579,7 +3449,7 @@ extern "C"
      */
     void
     ScaleMatrix(MatrixRecord *m, Fixed scaleX, Fixed scaleY, Fixed aboutX,
-                Fixed aboutY) TWOWORDINLINE(0x7017, 0xABC2);
+                Fixed aboutY);
 
     /**
      *  SkewMatrix()
@@ -3592,7 +3462,7 @@ extern "C"
      */
     void
     SkewMatrix(MatrixRecord *m, Fixed skewX, Fixed skewY, Fixed aboutX,
-               Fixed aboutY) TWOWORDINLINE(0x7018, 0xABC2);
+               Fixed aboutY);
 
     /**
      *  TransformFixedPoints()
@@ -3604,8 +3474,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    TransformFixedPoints(const MatrixRecord *m, FixedPoint *fpt, long count)
-        TWOWORDINLINE(0x7022, 0xABC2);
+    TransformFixedPoints(const MatrixRecord *m, FixedPoint *fpt, long count);
 
     /**
      *  TransformPoints()
@@ -3617,8 +3486,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     OSErr
-    TransformPoints(const MatrixRecord *mp, Point *pt1, long count)
-        TWOWORDINLINE(0x7023, 0xABC2);
+    TransformPoints(const MatrixRecord *mp, Point *pt1, long count);
 
     /**
      *  TransformFixedRect()
@@ -3630,8 +3498,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Boolean
-    TransformFixedRect(const MatrixRecord *m, FixedRect *fr, FixedPoint *fpp)
-        TWOWORDINLINE(0x7024, 0xABC2);
+    TransformFixedRect(const MatrixRecord *m, FixedRect *fr, FixedPoint *fpp);
 
     /**
      *  TransformRect()
@@ -3643,8 +3510,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Boolean
-    TransformRect(const MatrixRecord *m, Rect *r, FixedPoint *fpp)
-        TWOWORDINLINE(0x7025, 0xABC2);
+    TransformRect(const MatrixRecord *m, Rect *r, FixedPoint *fpp);
 
     /**
      *  InverseMatrix()
@@ -3656,8 +3522,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Boolean
-    InverseMatrix(const MatrixRecord *m, MatrixRecord *im)
-        TWOWORDINLINE(0x701C, 0xABC2);
+    InverseMatrix(const MatrixRecord *m, MatrixRecord *im);
 
     /**
      *  ConcatMatrix()
@@ -3669,8 +3534,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    ConcatMatrix(const MatrixRecord *a, MatrixRecord *b)
-        TWOWORDINLINE(0x701B, 0xABC2);
+    ConcatMatrix(const MatrixRecord *a, MatrixRecord *b);
 
     /**
      *  RectMatrix()
@@ -3682,8 +3546,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    RectMatrix(MatrixRecord *matrix, const Rect *srcRect, const Rect *dstRect)
-        TWOWORDINLINE(0x701E, 0xABC2);
+    RectMatrix(MatrixRecord *matrix, const Rect *srcRect, const Rect *dstRect);
 
     /**
      *  MapMatrix()
@@ -3695,8 +3558,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    MapMatrix(MatrixRecord *matrix, const Rect *fromRect, const Rect *toRect)
-        TWOWORDINLINE(0x701D, 0xABC2);
+    MapMatrix(MatrixRecord *matrix, const Rect *fromRect, const Rect *toRect);
 
     /**
      *  CompAdd()
@@ -3708,7 +3570,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompAdd(wide *src, wide *dst) TWOWORDINLINE(0x7001, 0xABC2);
+    CompAdd(wide *src, wide *dst);
 
     /**
      *  CompSub()
@@ -3720,7 +3582,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompSub(wide *src, wide *dst) TWOWORDINLINE(0x7002, 0xABC2);
+    CompSub(wide *src, wide *dst);
 
     /**
      *  CompNeg()
@@ -3732,7 +3594,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompNeg(wide *dst) TWOWORDINLINE(0x7003, 0xABC2);
+    CompNeg(wide *dst);
 
     /**
      *  CompShift()
@@ -3744,7 +3606,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompShift(wide *src, short shift) TWOWORDINLINE(0x7004, 0xABC2);
+    CompShift(wide *src, short shift);
 
     /**
      *  CompMul()
@@ -3756,7 +3618,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompMul(long src1, long src2, wide *dst) TWOWORDINLINE(0x7005, 0xABC2);
+    CompMul(long src1, long src2, wide *dst);
 
     /**
      *  CompDiv()
@@ -3768,8 +3630,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     long
-    CompDiv(wide *numerator, long denominator, long *remainder)
-        TWOWORDINLINE(0x7006, 0xABC2);
+    CompDiv(wide *numerator, long denominator, long *remainder);
 
     /**
      *  CompFixMul()
@@ -3781,8 +3642,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompFixMul(wide *compSrc, Fixed fixSrc, wide *compDst)
-        TWOWORDINLINE(0x7007, 0xABC2);
+    CompFixMul(wide *compSrc, Fixed fixSrc, wide *compDst);
 
     /**
      *  CompMulDiv()
@@ -3794,7 +3654,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompMulDiv(wide *co, long mul, long divisor) TWOWORDINLINE(0x7008, 0xABC2);
+    CompMulDiv(wide *co, long mul, long divisor);
 
     /**
      *  CompMulDivTrunc()
@@ -3806,8 +3666,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     void
-    CompMulDivTrunc(wide *co, long mul, long divisor, long *remainder)
-        TWOWORDINLINE(0x700C, 0xABC2);
+    CompMulDivTrunc(wide *co, long mul, long divisor, long *remainder);
 
     /**
      *  CompCompare()
@@ -3819,7 +3678,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     long
-    CompCompare(const wide *a, const wide *minusb) TWOWORDINLINE(0x7009, 0xABC2);
+    CompCompare(const wide *a, const wide *minusb);
 
     /**
      *  CompSquareRoot()
@@ -3831,7 +3690,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     unsigned long
-    CompSquareRoot(const wide *src) TWOWORDINLINE(0x7011, 0xABC2);
+    CompSquareRoot(const wide *src);
 
     /**
      *  FixMulDiv()
@@ -3843,7 +3702,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Fixed
-    FixMulDiv(Fixed src, Fixed mul, Fixed divisor) TWOWORDINLINE(0x700A, 0xABC2);
+    FixMulDiv(Fixed src, Fixed mul, Fixed divisor);
 
     /**
      *  UnsignedFixMulDiv()
@@ -3855,8 +3714,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Fixed
-    UnsignedFixMulDiv(Fixed src, Fixed mul, Fixed divisor)
-        TWOWORDINLINE(0x700D, 0xABC2);
+    UnsignedFixMulDiv(Fixed src, Fixed mul, Fixed divisor);
 
     /**
      *  FracSinCos()
@@ -3868,7 +3726,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Fract
-    FracSinCos(Fixed degree, Fract *cosOut) TWOWORDINLINE(0x700B, 0xABC2);
+    FracSinCos(Fixed degree, Fract *cosOut);
 
     /**
      *  FixExp2()
@@ -3880,7 +3738,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Fixed
-    FixExp2(Fixed src) TWOWORDINLINE(0x700E, 0xABC2);
+    FixExp2(Fixed src);
 
     /**
      *  FixLog2()
@@ -3892,7 +3750,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Fixed
-    FixLog2(Fixed src) TWOWORDINLINE(0x700F, 0xABC2);
+    FixLog2(Fixed src);
 
     /**
      *  FixPow()
@@ -3904,7 +3762,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Fixed
-    FixPow(Fixed base, Fixed exp) TWOWORDINLINE(0x7010, 0xABC2);
+    FixPow(Fixed base, Fixed exp);
 
     typedef ComponentInstance GraphicsImportComponent;
     enum
@@ -4017,8 +3875,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportSetDataReference(GraphicsImportComponent ci, Handle dataRef,
-                                   OSType dataReType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0001, 0x7000, 0xA82A);
+                                   OSType dataReType);
 
     /**
      *  GraphicsImportGetDataReference()
@@ -4031,8 +3888,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetDataReference(GraphicsImportComponent ci, Handle *dataRef,
-                                   OSType *dataReType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0002, 0x7000, 0xA82A);
+                                   OSType *dataReType);
 
     /**
      *  GraphicsImportSetDataFile()
@@ -4044,8 +3900,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetDataFile(GraphicsImportComponent ci, const FSSpec *theFile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    GraphicsImportSetDataFile(GraphicsImportComponent ci, const FSSpec *theFile);
 
     /**
      *  GraphicsImportGetDataFile()
@@ -4057,8 +3912,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetDataFile(GraphicsImportComponent ci, FSSpec *theFile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+    GraphicsImportGetDataFile(GraphicsImportComponent ci, FSSpec *theFile);
 
     /**
      *  GraphicsImportSetDataHandle()
@@ -4070,8 +3924,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetDataHandle(GraphicsImportComponent ci, Handle h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0005, 0x7000, 0xA82A);
+    GraphicsImportSetDataHandle(GraphicsImportComponent ci, Handle h);
 
     /**
      *  GraphicsImportGetDataHandle()
@@ -4083,8 +3936,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetDataHandle(GraphicsImportComponent ci, Handle *h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0006, 0x7000, 0xA82A);
+    GraphicsImportGetDataHandle(GraphicsImportComponent ci, Handle *h);
 
     /**
      *  GraphicsImportGetImageDescription()
@@ -4097,8 +3949,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetImageDescription(GraphicsImportComponent ci,
-                                      ImageDescriptionHandle *desc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+                                      ImageDescriptionHandle *desc);
 
     /**
      *  GraphicsImportGetDataOffsetAndSize()
@@ -4111,8 +3962,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetDataOffsetAndSize(GraphicsImportComponent ci,
-                                       unsigned long *offset, unsigned long *size)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0008, 0x7000, 0xA82A);
+                                       unsigned long *offset, unsigned long *size);
 
     /**
      *  GraphicsImportReadData()
@@ -4125,8 +3975,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportReadData(GraphicsImportComponent ci, void *dataPtr,
-                           unsigned long dataOffset, unsigned long dataSize)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0009, 0x7000, 0xA82A);
+                           unsigned long dataOffset, unsigned long dataSize);
 
     /**
      *  GraphicsImportSetClip()
@@ -4138,8 +3987,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetClip(GraphicsImportComponent ci, RgnHandle clipRgn)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000A, 0x7000, 0xA82A);
+    GraphicsImportSetClip(GraphicsImportComponent ci, RgnHandle clipRgn);
 
     /**
      *  GraphicsImportGetClip()
@@ -4151,8 +3999,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetClip(GraphicsImportComponent ci, RgnHandle *clipRgn)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000B, 0x7000, 0xA82A);
+    GraphicsImportGetClip(GraphicsImportComponent ci, RgnHandle *clipRgn);
 
     /**
      *  GraphicsImportSetSourceRect()
@@ -4164,8 +4011,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetSourceRect(GraphicsImportComponent ci, const Rect *sourceRect)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
+    GraphicsImportSetSourceRect(GraphicsImportComponent ci, const Rect *sourceRect);
 
     /**
      *  GraphicsImportGetSourceRect()
@@ -4177,8 +4023,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetSourceRect(GraphicsImportComponent ci, Rect *sourceRect)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+    GraphicsImportGetSourceRect(GraphicsImportComponent ci, Rect *sourceRect);
 
     /**
      *  GraphicsImportGetNaturalBounds()
@@ -4190,8 +4035,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetNaturalBounds(GraphicsImportComponent ci, Rect *naturalBounds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000E, 0x7000, 0xA82A);
+    GraphicsImportGetNaturalBounds(GraphicsImportComponent ci, Rect *naturalBounds);
 
     /**
      *  GraphicsImportDraw()
@@ -4203,8 +4047,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportDraw(GraphicsImportComponent ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x000F, 0x7000, 0xA82A);
+    GraphicsImportDraw(GraphicsImportComponent ci);
 
     /**
      *  GraphicsImportSetGWorld()
@@ -4216,8 +4059,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetGWorld(GraphicsImportComponent ci, CGrafPtr port, GDHandle gd)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0010, 0x7000, 0xA82A);
+    GraphicsImportSetGWorld(GraphicsImportComponent ci, CGrafPtr port, GDHandle gd);
 
     /**
      *  GraphicsImportGetGWorld()
@@ -4230,8 +4072,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetGWorld(GraphicsImportComponent ci, CGrafPtr *port,
-                            GDHandle *gd)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0011, 0x7000, 0xA82A);
+                            GDHandle *gd);
 
     /**
      *  GraphicsImportSetMatrix()
@@ -4243,8 +4084,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetMatrix(GraphicsImportComponent ci, const MatrixRecord *matrix)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+    GraphicsImportSetMatrix(GraphicsImportComponent ci, const MatrixRecord *matrix);
 
     /**
      *  GraphicsImportGetMatrix()
@@ -4256,8 +4096,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetMatrix(GraphicsImportComponent ci, MatrixRecord *matrix)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0013, 0x7000, 0xA82A);
+    GraphicsImportGetMatrix(GraphicsImportComponent ci, MatrixRecord *matrix);
 
     /**
      *  GraphicsImportSetBoundsRect()
@@ -4269,8 +4108,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetBoundsRect(GraphicsImportComponent ci, const Rect *bounds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0014, 0x7000, 0xA82A);
+    GraphicsImportSetBoundsRect(GraphicsImportComponent ci, const Rect *bounds);
 
     /**
      *  GraphicsImportGetBoundsRect()
@@ -4282,8 +4120,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetBoundsRect(GraphicsImportComponent ci, Rect *bounds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0015, 0x7000, 0xA82A);
+    GraphicsImportGetBoundsRect(GraphicsImportComponent ci, Rect *bounds);
 
     /**
      *  GraphicsImportSaveAsPicture()
@@ -4296,8 +4133,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportSaveAsPicture(GraphicsImportComponent ci, const FSSpec *fss,
-                                ScriptCode scriptTag)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0016, 0x7000, 0xA82A);
+                                ScriptCode scriptTag);
 
     /**
      *  GraphicsImportSetGraphicsMode()
@@ -4310,8 +4146,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportSetGraphicsMode(GraphicsImportComponent ci, long graphicsMode,
-                                  const RGBColor *opColor)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0017, 0x7000, 0xA82A);
+                                  const RGBColor *opColor);
 
     /**
      *  GraphicsImportGetGraphicsMode()
@@ -4324,8 +4159,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetGraphicsMode(GraphicsImportComponent ci, long *graphicsMode,
-                                  RGBColor *opColor)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0018, 0x7000, 0xA82A);
+                                  RGBColor *opColor);
 
     /**
      *  GraphicsImportSetQuality()
@@ -4337,8 +4171,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportSetQuality(GraphicsImportComponent ci, CodecQ quality)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0019, 0x7000, 0xA82A);
+    GraphicsImportSetQuality(GraphicsImportComponent ci, CodecQ quality);
 
     /**
      *  GraphicsImportGetQuality()
@@ -4350,8 +4183,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetQuality(GraphicsImportComponent ci, CodecQ *quality)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001A, 0x7000, 0xA82A);
+    GraphicsImportGetQuality(GraphicsImportComponent ci, CodecQ *quality);
 
     /**
      *  GraphicsImportSaveAsQuickTimeImageFile()
@@ -4364,8 +4196,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportSaveAsQuickTimeImageFile(GraphicsImportComponent ci,
-                                           const FSSpec *fss, ScriptCode scriptTag)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x001B, 0x7000, 0xA82A);
+                                           const FSSpec *fss, ScriptCode scriptTag);
 
     /**
      *  GraphicsImportSetDataReferenceOffsetAndLimit()
@@ -4379,8 +4210,7 @@ extern "C"
     ComponentResult
     GraphicsImportSetDataReferenceOffsetAndLimit(GraphicsImportComponent ci,
                                                  unsigned long offset,
-                                                 unsigned long limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001C, 0x7000, 0xA82A);
+                                                 unsigned long limit);
 
     /**
      *  GraphicsImportGetDataReferenceOffsetAndLimit()
@@ -4394,8 +4224,7 @@ extern "C"
     ComponentResult
     GraphicsImportGetDataReferenceOffsetAndLimit(GraphicsImportComponent ci,
                                                  unsigned long *offset,
-                                                 unsigned long *limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001D, 0x7000, 0xA82A);
+                                                 unsigned long *limit);
 
     /**
      *  GraphicsImportGetAliasedDataReference()
@@ -4408,8 +4237,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetAliasedDataReference(GraphicsImportComponent ci,
-                                          Handle *dataRef, OSType *dataRefType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001E, 0x7000, 0xA82A);
+                                          Handle *dataRef, OSType *dataRefType);
 
     /**
      *  GraphicsImportValidate()
@@ -4421,8 +4249,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportValidate(GraphicsImportComponent ci, Boolean *valid)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001F, 0x7000, 0xA82A);
+    GraphicsImportValidate(GraphicsImportComponent ci, Boolean *valid);
 
     /**
      *  GraphicsImportGetMetaData()
@@ -4434,8 +4261,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetMetaData(GraphicsImportComponent ci, void *userData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0020, 0x7000, 0xA82A);
+    GraphicsImportGetMetaData(GraphicsImportComponent ci, void *userData);
 
     /**
      *  GraphicsImportGetMIMETypeList()
@@ -4448,8 +4274,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetMIMETypeList(GraphicsImportComponent ci,
-                                  void *qtAtomContainerPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0021, 0x7000, 0xA82A);
+                                  void *qtAtomContainerPtr);
 
     /**
      *  GraphicsImportDoesDrawAllPixels()
@@ -4462,8 +4287,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportDoesDrawAllPixels(GraphicsImportComponent ci,
-                                    short *drawsAllPixels)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0022, 0x7000, 0xA82A);
+                                    short *drawsAllPixels);
 
     /**
      *  GraphicsImportGetAsPicture()
@@ -4475,8 +4299,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    GraphicsImportGetAsPicture(GraphicsImportComponent ci, PicHandle *picture)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0023, 0x7000, 0xA82A);
+    GraphicsImportGetAsPicture(GraphicsImportComponent ci, PicHandle *picture);
 
     /**
      *  GraphicsImportExportImageFile()
@@ -4490,8 +4313,7 @@ extern "C"
     ComponentResult
     GraphicsImportExportImageFile(GraphicsImportComponent ci, OSType fileType,
                                   OSType fileCreator, const FSSpec *fss,
-                                  ScriptCode scriptTag)
-        FIVEWORDINLINE(0x2F3C, 0x000E, 0x0024, 0x7000, 0xA82A);
+                                  ScriptCode scriptTag);
 
     /**
      *  GraphicsImportGetExportImageTypeList()
@@ -4504,8 +4326,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetExportImageTypeList(GraphicsImportComponent ci,
-                                         void *qtAtomContainerPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0025, 0x7000, 0xA82A);
+                                         void *qtAtomContainerPtr);
 
     /**
      *  GraphicsImportDoExportImageFileDialog()
@@ -4520,8 +4341,7 @@ extern "C"
     GraphicsImportDoExportImageFileDialog(
         GraphicsImportComponent ci, const FSSpec *inDefaultSpec, StringPtr prompt,
         ModalFilterYDUPP filterProc, OSType *outExportedType,
-        FSSpec *outExportedSpec, ScriptCode *outScriptTag)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x0026, 0x7000, 0xA82A);
+        FSSpec *outExportedSpec, ScriptCode *outScriptTag);
 
     /**
      *  GraphicsImportGetExportSettingsAsAtomContainer()
@@ -4534,8 +4354,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetExportSettingsAsAtomContainer(GraphicsImportComponent ci,
-                                                   void *qtAtomContainerPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0027, 0x7000, 0xA82A);
+                                                   void *qtAtomContainerPtr);
 
     /**
      *  GraphicsImportSetExportSettingsFromAtomContainer()
@@ -4548,8 +4367,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportSetExportSettingsFromAtomContainer(GraphicsImportComponent ci,
-                                                     void *qtAtomContainer)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0028, 0x7000, 0xA82A);
+                                                     void *qtAtomContainer);
 
     /**
      *  GraphicsImportSetProgressProc()
@@ -4562,8 +4380,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportSetProgressProc(GraphicsImportComponent ci,
-                                  ICMProgressProcRecordPtr progressProc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0029, 0x7000, 0xA82A);
+                                  ICMProgressProcRecordPtr progressProc);
 
     /**
      *  GraphicsImportGetProgressProc()
@@ -4576,8 +4393,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetProgressProc(GraphicsImportComponent ci,
-                                  ICMProgressProcRecordPtr progressProc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002A, 0x7000, 0xA82A);
+                                  ICMProgressProcRecordPtr progressProc);
 
     /**
      *  GraphicsImportGetImageCount()
@@ -4590,8 +4406,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetImageCount(GraphicsImportComponent ci,
-                                unsigned long *imageCount)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002B, 0x7000, 0xA82A);
+                                unsigned long *imageCount);
 
     /**
      *  GraphicsImportSetImageIndex()
@@ -4604,8 +4419,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportSetImageIndex(GraphicsImportComponent ci,
-                                unsigned long imageIndex)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002C, 0x7000, 0xA82A);
+                                unsigned long imageIndex);
 
     /**
      *  GraphicsImportGetImageIndex()
@@ -4618,8 +4432,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetImageIndex(GraphicsImportComponent ci,
-                                unsigned long *imageIndex)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002D, 0x7000, 0xA82A);
+                                unsigned long *imageIndex);
 
     /**
      *  GraphicsImportGetDataOffsetAndSize64()
@@ -4632,8 +4445,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetDataOffsetAndSize64(GraphicsImportComponent ci, wide *offset,
-                                         wide *size)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x002E, 0x7000, 0xA82A);
+                                         wide *size);
 
     /**
      *  GraphicsImportReadData64()
@@ -4646,8 +4458,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportReadData64(GraphicsImportComponent ci, void *dataPtr,
-                             const wide *dataOffset, unsigned long dataSize)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x002F, 0x7000, 0xA82A);
+                             const wide *dataOffset, unsigned long dataSize);
 
     /**
      *  GraphicsImportSetDataReferenceOffsetAndLimit64()
@@ -4661,8 +4472,7 @@ extern "C"
     ComponentResult
     GraphicsImportSetDataReferenceOffsetAndLimit64(GraphicsImportComponent ci,
                                                    const wide *offset,
-                                                   const wide *limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0030, 0x7000, 0xA82A);
+                                                   const wide *limit);
 
     /**
      *  GraphicsImportGetDataReferenceOffsetAndLimit64()
@@ -4675,8 +4485,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetDataReferenceOffsetAndLimit64(GraphicsImportComponent ci,
-                                                   wide *offset, wide *limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0031, 0x7000, 0xA82A);
+                                                   wide *offset, wide *limit);
 
     /**
      *  GraphicsImportGetDefaultMatrix()
@@ -4689,8 +4498,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetDefaultMatrix(GraphicsImportComponent ci,
-                                   MatrixRecord *defaultMatrix)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0032, 0x7000, 0xA82A);
+                                   MatrixRecord *defaultMatrix);
 
     /**
      *  GraphicsImportGetDefaultClip()
@@ -4702,8 +4510,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsImportGetDefaultClip(GraphicsImportComponent ci, RgnHandle *defaultRgn)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0033, 0x7000, 0xA82A);
+    GraphicsImportGetDefaultClip(GraphicsImportComponent ci, RgnHandle *defaultRgn);
 
     /**
      *  GraphicsImportGetDefaultGraphicsMode()
@@ -4717,8 +4524,7 @@ extern "C"
     ComponentResult
     GraphicsImportGetDefaultGraphicsMode(GraphicsImportComponent ci,
                                          long *defaultGraphicsMode,
-                                         RGBColor *defaultOpColor)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0034, 0x7000, 0xA82A);
+                                         RGBColor *defaultOpColor);
 
     /**
      *  GraphicsImportGetDefaultSourceRect()
@@ -4731,8 +4537,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetDefaultSourceRect(GraphicsImportComponent ci,
-                                       Rect *defaultSourceRect)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0035, 0x7000, 0xA82A);
+                                       Rect *defaultSourceRect);
 
     /**
      *  GraphicsImportGetColorSyncProfile()
@@ -4744,8 +4549,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsImportGetColorSyncProfile(GraphicsImportComponent ci, Handle *profile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0036, 0x7000, 0xA82A);
+    GraphicsImportGetColorSyncProfile(GraphicsImportComponent ci, Handle *profile);
 
     /**
      *  GraphicsImportSetDestRect()
@@ -4757,8 +4561,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsImportSetDestRect(GraphicsImportComponent ci, const Rect *destRect)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0037, 0x7000, 0xA82A);
+    GraphicsImportSetDestRect(GraphicsImportComponent ci, const Rect *destRect);
 
     /**
      *  GraphicsImportGetDestRect()
@@ -4770,8 +4573,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsImportGetDestRect(GraphicsImportComponent ci, Rect *destRect)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0038, 0x7000, 0xA82A);
+    GraphicsImportGetDestRect(GraphicsImportComponent ci, Rect *destRect);
 
     /**
      *  GraphicsImportSetFlags()
@@ -4783,8 +4585,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsImportSetFlags(GraphicsImportComponent ci, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0039, 0x7000, 0xA82A);
+    GraphicsImportSetFlags(GraphicsImportComponent ci, long flags);
 
     /**
      *  GraphicsImportGetFlags()
@@ -4796,8 +4597,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsImportGetFlags(GraphicsImportComponent ci, long *flags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003A, 0x7000, 0xA82A);
+    GraphicsImportGetFlags(GraphicsImportComponent ci, long *flags);
 
     /** 2 private selectors */
     /**
@@ -4811,8 +4611,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImportGetBaseDataOffsetAndSize64(GraphicsImportComponent ci,
-                                             wide *offset, wide *size)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x003D, 0x7000, 0xA82A);
+                                             wide *offset, wide *size);
 
     typedef ComponentInstance GraphicsExportComponent;
     enum
@@ -4895,8 +4694,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportDoExport(GraphicsExportComponent ci,
-                           unsigned long *actualSizeWritten)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+                           unsigned long *actualSizeWritten);
 
     /** Used for internal communication between the base and format-specific
      * graphics exporter: */
@@ -4910,8 +4708,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportCanTranscode(GraphicsExportComponent ci, Boolean *canTranscode)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0002, 0x7000, 0xA82A);
+    GraphicsExportCanTranscode(GraphicsExportComponent ci, Boolean *canTranscode);
 
     /**
      *  GraphicsExportDoTranscode()
@@ -4923,8 +4720,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportDoTranscode(GraphicsExportComponent ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0003, 0x7000, 0xA82A);
+    GraphicsExportDoTranscode(GraphicsExportComponent ci);
 
     /**
      *  GraphicsExportCanUseCompressor()
@@ -4938,8 +4734,7 @@ extern "C"
     ComponentResult
     GraphicsExportCanUseCompressor(GraphicsExportComponent ci,
                                    Boolean *canUseCompressor,
-                                   void *codecSettingsAtomContainerPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0004, 0x7000, 0xA82A);
+                                   void *codecSettingsAtomContainerPtr);
 
     /**
      *  GraphicsExportDoUseCompressor()
@@ -4953,8 +4748,7 @@ extern "C"
     ComponentResult
     GraphicsExportDoUseCompressor(GraphicsExportComponent ci,
                                   void *codecSettingsAtomContainer,
-                                  ImageDescriptionHandle *outDesc)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0005, 0x7000, 0xA82A);
+                                  ImageDescriptionHandle *outDesc);
 
     /**
      *  GraphicsExportDoStandaloneExport()
@@ -4966,8 +4760,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportDoStandaloneExport(GraphicsExportComponent ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0006, 0x7000, 0xA82A);
+    GraphicsExportDoStandaloneExport(GraphicsExportComponent ci);
 
     /** Queries applications can make of a format-specific graphics exporter: */
     /**
@@ -4982,8 +4775,7 @@ extern "C"
     ComponentResult
     GraphicsExportGetDefaultFileTypeAndCreator(GraphicsExportComponent ci,
                                                OSType *fileType,
-                                               OSType *fileCreator)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0007, 0x7000, 0xA82A);
+                                               OSType *fileCreator);
 
     /**
      *  GraphicsExportGetDefaultFileNameExtension()
@@ -4996,8 +4788,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetDefaultFileNameExtension(GraphicsExportComponent ci,
-                                              OSType *fileNameExtension)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0008, 0x7000, 0xA82A);
+                                              OSType *fileNameExtension);
 
     /**
      *  GraphicsExportGetMIMETypeList()
@@ -5010,8 +4801,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetMIMETypeList(GraphicsExportComponent ci,
-                                  void *qtAtomContainerPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0009, 0x7000, 0xA82A);
+                                  void *qtAtomContainerPtr);
 
     /** GraphicsExportIsTranscodePossibleFromCurrentInput is removed; call
      * GraphicsExportCanTranscode instead */
@@ -5027,8 +4817,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportRequestSettings(GraphicsExportComponent ci,
-                                  ModalFilterYDUPP filterProc, void *yourDataProc)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x000B, 0x7000, 0xA82A);
+                                  ModalFilterYDUPP filterProc, void *yourDataProc);
 
     /**
      *  GraphicsExportSetSettingsFromAtomContainer()
@@ -5041,8 +4830,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetSettingsFromAtomContainer(GraphicsExportComponent ci,
-                                               void *qtAtomContainer)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
+                                               void *qtAtomContainer);
 
     /**
      *  GraphicsExportGetSettingsAsAtomContainer()
@@ -5055,8 +4843,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetSettingsAsAtomContainer(GraphicsExportComponent ci,
-                                             void *qtAtomContainerPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+                                             void *qtAtomContainerPtr);
 
     /**
      *  GraphicsExportGetSettingsAsText()
@@ -5068,8 +4855,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetSettingsAsText(GraphicsExportComponent ci, Handle *theText)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000E, 0x7000, 0xA82A);
+    GraphicsExportGetSettingsAsText(GraphicsExportComponent ci, Handle *theText);
 
     /** Graphics exporters may implement some or none of the following: */
     /**
@@ -5083,8 +4869,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetDontRecompress(GraphicsExportComponent ci,
-                                    Boolean dontRecompress)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x000F, 0x7000, 0xA82A);
+                                    Boolean dontRecompress);
 
     /**
      *  GraphicsExportGetDontRecompress()
@@ -5097,8 +4882,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetDontRecompress(GraphicsExportComponent ci,
-                                    Boolean *dontRecompress)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0010, 0x7000, 0xA82A);
+                                    Boolean *dontRecompress);
 
     /**
      *  GraphicsExportSetInterlaceStyle()
@@ -5111,8 +4895,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetInterlaceStyle(GraphicsExportComponent ci,
-                                    unsigned long interlaceStyle)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0011, 0x7000, 0xA82A);
+                                    unsigned long interlaceStyle);
 
     /**
      *  GraphicsExportGetInterlaceStyle()
@@ -5125,8 +4908,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetInterlaceStyle(GraphicsExportComponent ci,
-                                    unsigned long *interlaceStyle)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+                                    unsigned long *interlaceStyle);
 
     /**
      *  GraphicsExportSetMetaData()
@@ -5138,8 +4920,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetMetaData(GraphicsExportComponent ci, void *userData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0013, 0x7000, 0xA82A);
+    GraphicsExportSetMetaData(GraphicsExportComponent ci, void *userData);
 
     /**
      *  GraphicsExportGetMetaData()
@@ -5151,8 +4932,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetMetaData(GraphicsExportComponent ci, void *userData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0014, 0x7000, 0xA82A);
+    GraphicsExportGetMetaData(GraphicsExportComponent ci, void *userData);
 
     /**
      *  GraphicsExportSetTargetDataSize()
@@ -5165,8 +4945,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetTargetDataSize(GraphicsExportComponent ci,
-                                    unsigned long targetDataSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0015, 0x7000, 0xA82A);
+                                    unsigned long targetDataSize);
 
     /**
      *  GraphicsExportGetTargetDataSize()
@@ -5179,8 +4958,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetTargetDataSize(GraphicsExportComponent ci,
-                                    unsigned long *targetDataSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0016, 0x7000, 0xA82A);
+                                    unsigned long *targetDataSize);
 
     /**
      *  GraphicsExportSetCompressionMethod()
@@ -5193,8 +4971,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetCompressionMethod(GraphicsExportComponent ci,
-                                       long compressionMethod)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0017, 0x7000, 0xA82A);
+                                       long compressionMethod);
 
     /**
      *  GraphicsExportGetCompressionMethod()
@@ -5207,8 +4984,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetCompressionMethod(GraphicsExportComponent ci,
-                                       long *compressionMethod)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0018, 0x7000, 0xA82A);
+                                       long *compressionMethod);
 
     /**
      *  GraphicsExportSetCompressionQuality()
@@ -5221,8 +4997,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetCompressionQuality(GraphicsExportComponent ci,
-                                        CodecQ spatialQuality)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0019, 0x7000, 0xA82A);
+                                        CodecQ spatialQuality);
 
     /**
      *  GraphicsExportGetCompressionQuality()
@@ -5235,8 +5010,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetCompressionQuality(GraphicsExportComponent ci,
-                                        CodecQ *spatialQuality)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001A, 0x7000, 0xA82A);
+                                        CodecQ *spatialQuality);
 
     /**
      *  GraphicsExportSetResolution()
@@ -5250,8 +5024,7 @@ extern "C"
     ComponentResult
     GraphicsExportSetResolution(GraphicsExportComponent ci,
                                 Fixed horizontalResolution,
-                                Fixed verticalResolution)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001B, 0x7000, 0xA82A);
+                                Fixed verticalResolution);
 
     /**
      *  GraphicsExportGetResolution()
@@ -5265,8 +5038,7 @@ extern "C"
     ComponentResult
     GraphicsExportGetResolution(GraphicsExportComponent ci,
                                 Fixed *horizontalResolution,
-                                Fixed *verticalResolution)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001C, 0x7000, 0xA82A);
+                                Fixed *verticalResolution);
 
     /**
      *  GraphicsExportSetDepth()
@@ -5278,8 +5050,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetDepth(GraphicsExportComponent ci, long depth)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001D, 0x7000, 0xA82A);
+    GraphicsExportSetDepth(GraphicsExportComponent ci, long depth);
 
     /**
      *  GraphicsExportGetDepth()
@@ -5291,8 +5062,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetDepth(GraphicsExportComponent ci, long *depth)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001E, 0x7000, 0xA82A);
+    GraphicsExportGetDepth(GraphicsExportComponent ci, long *depth);
 
     /**
      *  GraphicsExportSetColorSyncProfile()
@@ -5305,8 +5075,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetColorSyncProfile(GraphicsExportComponent ci,
-                                      Handle colorSyncProfile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0021, 0x7000, 0xA82A);
+                                      Handle colorSyncProfile);
 
     /**
      *  GraphicsExportGetColorSyncProfile()
@@ -5319,8 +5088,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetColorSyncProfile(GraphicsExportComponent ci,
-                                      Handle *colorSyncProfile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0022, 0x7000, 0xA82A);
+                                      Handle *colorSyncProfile);
 
     /** Always implemented by the base graphics exporter: */
     /**
@@ -5334,8 +5102,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetProgressProc(GraphicsExportComponent ci,
-                                  ICMProgressProcRecordPtr progressProc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0023, 0x7000, 0xA82A);
+                                  ICMProgressProcRecordPtr progressProc);
 
     /**
      *  GraphicsExportGetProgressProc()
@@ -5348,8 +5115,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetProgressProc(GraphicsExportComponent ci,
-                                  ICMProgressProcRecordPtr progressProc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0024, 0x7000, 0xA82A);
+                                  ICMProgressProcRecordPtr progressProc);
 
     /** Sources for the input image: */
     /**
@@ -5364,8 +5130,7 @@ extern "C"
     ComponentResult
     GraphicsExportSetInputDataReference(GraphicsExportComponent ci, Handle dataRef,
                                         OSType dataRefType,
-                                        ImageDescriptionHandle desc)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0025, 0x7000, 0xA82A);
+                                        ImageDescriptionHandle desc);
 
     /**
      *  GraphicsExportGetInputDataReference()
@@ -5378,8 +5143,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetInputDataReference(GraphicsExportComponent ci, Handle *dataRef,
-                                        OSType *dataRefType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0026, 0x7000, 0xA82A);
+                                        OSType *dataRefType);
 
     /**
      *  GraphicsExportSetInputFile()
@@ -5392,8 +5156,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetInputFile(GraphicsExportComponent ci, const FSSpec *theFile,
-                               ImageDescriptionHandle desc)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0027, 0x7000, 0xA82A);
+                               ImageDescriptionHandle desc);
 
     /**
      *  GraphicsExportGetInputFile()
@@ -5405,8 +5168,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetInputFile(GraphicsExportComponent ci, FSSpec *theFile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0028, 0x7000, 0xA82A);
+    GraphicsExportGetInputFile(GraphicsExportComponent ci, FSSpec *theFile);
 
     /**
      *  GraphicsExportSetInputHandle()
@@ -5419,8 +5181,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetInputHandle(GraphicsExportComponent ci, Handle h,
-                                 ImageDescriptionHandle desc)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0029, 0x7000, 0xA82A);
+                                 ImageDescriptionHandle desc);
 
     /**
      *  GraphicsExportGetInputHandle()
@@ -5432,8 +5193,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetInputHandle(GraphicsExportComponent ci, Handle *h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002A, 0x7000, 0xA82A);
+    GraphicsExportGetInputHandle(GraphicsExportComponent ci, Handle *h);
 
     /**
      *  GraphicsExportSetInputPtr()
@@ -5446,8 +5206,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetInputPtr(GraphicsExportComponent ci, Ptr p, unsigned long size,
-                              ImageDescriptionHandle desc)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x002B, 0x7000, 0xA82A);
+                              ImageDescriptionHandle desc);
 
     /**
      *  GraphicsExportGetInputPtr()
@@ -5460,8 +5219,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetInputPtr(GraphicsExportComponent ci, Ptr *p,
-                              unsigned long *size)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x002C, 0x7000, 0xA82A);
+                              unsigned long *size);
 
     /**
      *  GraphicsExportSetInputGraphicsImporter()
@@ -5474,8 +5232,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetInputGraphicsImporter(GraphicsExportComponent ci,
-                                           GraphicsImportComponent grip)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002D, 0x7000, 0xA82A);
+                                           GraphicsImportComponent grip);
 
     /**
      *  GraphicsExportGetInputGraphicsImporter()
@@ -5488,8 +5245,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetInputGraphicsImporter(GraphicsExportComponent ci,
-                                           GraphicsImportComponent *grip)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002E, 0x7000, 0xA82A);
+                                           GraphicsImportComponent *grip);
 
     /**
      *  GraphicsExportSetInputPicture()
@@ -5501,8 +5257,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetInputPicture(GraphicsExportComponent ci, PicHandle picture)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002F, 0x7000, 0xA82A);
+    GraphicsExportSetInputPicture(GraphicsExportComponent ci, PicHandle picture);
 
     /**
      *  GraphicsExportGetInputPicture()
@@ -5514,8 +5269,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetInputPicture(GraphicsExportComponent ci, PicHandle *picture)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0030, 0x7000, 0xA82A);
+    GraphicsExportGetInputPicture(GraphicsExportComponent ci, PicHandle *picture);
 
     /**
      *  GraphicsExportSetInputGWorld()
@@ -5527,8 +5281,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetInputGWorld(GraphicsExportComponent ci, GWorldPtr gworld)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0031, 0x7000, 0xA82A);
+    GraphicsExportSetInputGWorld(GraphicsExportComponent ci, GWorldPtr gworld);
 
     /**
      *  GraphicsExportGetInputGWorld()
@@ -5540,8 +5293,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetInputGWorld(GraphicsExportComponent ci, GWorldPtr *gworld)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0032, 0x7000, 0xA82A);
+    GraphicsExportGetInputGWorld(GraphicsExportComponent ci, GWorldPtr *gworld);
 
     /**
      *  GraphicsExportSetInputPixmap()
@@ -5553,8 +5305,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetInputPixmap(GraphicsExportComponent ci, PixMapHandle pixmap)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0033, 0x7000, 0xA82A);
+    GraphicsExportSetInputPixmap(GraphicsExportComponent ci, PixMapHandle pixmap);
 
     /**
      *  GraphicsExportGetInputPixmap()
@@ -5566,8 +5317,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetInputPixmap(GraphicsExportComponent ci, PixMapHandle *pixmap)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0034, 0x7000, 0xA82A);
+    GraphicsExportGetInputPixmap(GraphicsExportComponent ci, PixMapHandle *pixmap);
 
     /** Only applicable when the input is a data reference, file, handle or ptr: */
     /**
@@ -5581,8 +5331,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetInputOffsetAndLimit(GraphicsExportComponent ci,
-                                         unsigned long offset, unsigned long limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0035, 0x7000, 0xA82A);
+                                         unsigned long offset, unsigned long limit);
 
     /**
      *  GraphicsExportGetInputOffsetAndLimit()
@@ -5596,8 +5345,7 @@ extern "C"
     ComponentResult
     GraphicsExportGetInputOffsetAndLimit(GraphicsExportComponent ci,
                                          unsigned long *offset,
-                                         unsigned long *limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0036, 0x7000, 0xA82A);
+                                         unsigned long *limit);
 
     /** Used by format-specific graphics exporters when transcoding: */
     /**
@@ -5611,8 +5359,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportMayExporterReadInputData(GraphicsExportComponent ci,
-                                           Boolean *mayReadInputData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0037, 0x7000, 0xA82A);
+                                           Boolean *mayReadInputData);
 
     /**
      *  GraphicsExportGetInputDataSize()
@@ -5624,8 +5371,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetInputDataSize(GraphicsExportComponent ci, unsigned long *size)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0038, 0x7000, 0xA82A);
+    GraphicsExportGetInputDataSize(GraphicsExportComponent ci, unsigned long *size);
 
     /**
      *  GraphicsExportReadInputData()
@@ -5638,8 +5384,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportReadInputData(GraphicsExportComponent ci, void *dataPtr,
-                                unsigned long dataOffset, unsigned long dataSize)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0039, 0x7000, 0xA82A);
+                                unsigned long dataOffset, unsigned long dataSize);
 
     /** Used by format-specific graphics exporters, especially when doing standalone
      * export: */
@@ -5654,8 +5399,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetInputImageDescription(GraphicsExportComponent ci,
-                                           ImageDescriptionHandle *desc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003A, 0x7000, 0xA82A);
+                                           ImageDescriptionHandle *desc);
 
     /**
      *  GraphicsExportGetInputImageDimensions()
@@ -5668,8 +5412,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetInputImageDimensions(GraphicsExportComponent ci,
-                                          Rect *dimensions)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003B, 0x7000, 0xA82A);
+                                          Rect *dimensions);
 
     /**
      *  GraphicsExportGetInputImageDepth()
@@ -5681,8 +5424,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetInputImageDepth(GraphicsExportComponent ci, long *inputDepth)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003C, 0x7000, 0xA82A);
+    GraphicsExportGetInputImageDepth(GraphicsExportComponent ci, long *inputDepth);
 
     /**
      *  GraphicsExportDrawInputImage()
@@ -5696,8 +5438,7 @@ extern "C"
     ComponentResult
     GraphicsExportDrawInputImage(GraphicsExportComponent ci, CGrafPtr gw,
                                  GDHandle gd, const Rect *srcRect,
-                                 const Rect *dstRect)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x003D, 0x7000, 0xA82A);
+                                 const Rect *dstRect);
 
     /** Destinations for the output image: */
     /**
@@ -5711,8 +5452,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetOutputDataReference(GraphicsExportComponent ci, Handle dataRef,
-                                         OSType dataRefType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x003E, 0x7000, 0xA82A);
+                                         OSType dataRefType);
 
     /**
      *  GraphicsExportGetOutputDataReference()
@@ -5725,8 +5465,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetOutputDataReference(GraphicsExportComponent ci,
-                                         Handle *dataRef, OSType *dataRefType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x003F, 0x7000, 0xA82A);
+                                         Handle *dataRef, OSType *dataRefType);
 
     /**
      *  GraphicsExportSetOutputFile()
@@ -5738,8 +5477,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetOutputFile(GraphicsExportComponent ci, const FSSpec *theFile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0040, 0x7000, 0xA82A);
+    GraphicsExportSetOutputFile(GraphicsExportComponent ci, const FSSpec *theFile);
 
     /**
      *  GraphicsExportGetOutputFile()
@@ -5751,8 +5489,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetOutputFile(GraphicsExportComponent ci, FSSpec *theFile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0041, 0x7000, 0xA82A);
+    GraphicsExportGetOutputFile(GraphicsExportComponent ci, FSSpec *theFile);
 
     /**
      *  GraphicsExportSetOutputHandle()
@@ -5764,8 +5501,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetOutputHandle(GraphicsExportComponent ci, Handle h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0042, 0x7000, 0xA82A);
+    GraphicsExportSetOutputHandle(GraphicsExportComponent ci, Handle h);
 
     /**
      *  GraphicsExportGetOutputHandle()
@@ -5777,8 +5513,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetOutputHandle(GraphicsExportComponent ci, Handle *h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0043, 0x7000, 0xA82A);
+    GraphicsExportGetOutputHandle(GraphicsExportComponent ci, Handle *h);
 
     /**
      *  GraphicsExportSetOutputOffsetAndMaxSize()
@@ -5793,8 +5528,7 @@ extern "C"
     GraphicsExportSetOutputOffsetAndMaxSize(GraphicsExportComponent ci,
                                             unsigned long offset,
                                             unsigned long maxSize,
-                                            Boolean truncateFile)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0044, 0x7000, 0xA82A);
+                                            Boolean truncateFile);
 
     /**
      *  GraphicsExportGetOutputOffsetAndMaxSize()
@@ -5809,8 +5543,7 @@ extern "C"
     GraphicsExportGetOutputOffsetAndMaxSize(GraphicsExportComponent ci,
                                             unsigned long *offset,
                                             unsigned long *maxSize,
-                                            Boolean *truncateFile)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0045, 0x7000, 0xA82A);
+                                            Boolean *truncateFile);
 
     /**
      *  GraphicsExportSetOutputFileTypeAndCreator()
@@ -5823,8 +5556,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportSetOutputFileTypeAndCreator(GraphicsExportComponent ci,
-                                              OSType fileType, OSType fileCreator)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0046, 0x7000, 0xA82A);
+                                              OSType fileType, OSType fileCreator);
 
     /**
      *  GraphicsExportGetOutputFileTypeAndCreator()
@@ -5837,8 +5569,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportGetOutputFileTypeAndCreator(GraphicsExportComponent ci,
-                                              OSType *fileType, OSType *fileCreator)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0047, 0x7000, 0xA82A);
+                                              OSType *fileType, OSType *fileCreator);
 
     /** Used by format-specific graphics exporters: */
     /**
@@ -5852,8 +5583,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportWriteOutputData(GraphicsExportComponent ci, const void *dataPtr,
-                                  unsigned long dataSize)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0048, 0x7000, 0xA82A);
+                                  unsigned long dataSize);
 
     /**
      *  GraphicsExportSetOutputMark()
@@ -5865,8 +5595,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportSetOutputMark(GraphicsExportComponent ci, unsigned long mark)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0049, 0x7000, 0xA82A);
+    GraphicsExportSetOutputMark(GraphicsExportComponent ci, unsigned long mark);
 
     /**
      *  GraphicsExportGetOutputMark()
@@ -5878,8 +5607,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    GraphicsExportGetOutputMark(GraphicsExportComponent ci, unsigned long *mark)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x004A, 0x7000, 0xA82A);
+    GraphicsExportGetOutputMark(GraphicsExportComponent ci, unsigned long *mark);
 
     /**
      *  GraphicsExportReadOutputData()
@@ -5892,8 +5620,7 @@ extern "C"
      */
     ComponentResult
     GraphicsExportReadOutputData(GraphicsExportComponent ci, void *dataPtr,
-                                 unsigned long dataOffset, unsigned long dataSize)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x004B, 0x7000, 0xA82A);
+                                 unsigned long dataOffset, unsigned long dataSize);
 
     /** Allows embedded thumbnail creation, if supported. */
     /**
@@ -5909,8 +5636,7 @@ extern "C"
     GraphicsExportSetThumbnailEnabled(GraphicsExportComponent ci,
                                       Boolean enableThumbnail,
                                       long maxThumbnailWidth,
-                                      long maxThumbnailHeight)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x004C, 0x7000, 0xA82A);
+                                      long maxThumbnailHeight);
 
     /**
      *  GraphicsExportGetThumbnailEnabled()
@@ -5925,8 +5651,7 @@ extern "C"
     GraphicsExportGetThumbnailEnabled(GraphicsExportComponent ci,
                                       Boolean *thumbnailEnabled,
                                       long *maxThumbnailWidth,
-                                      long *maxThumbnailHeight)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x004D, 0x7000, 0xA82A);
+                                      long *maxThumbnailHeight);
 
     /** Allows export of Exif files, if supported.  This disables Exif-incompatible
      * settings such as grayscale JPEG and compressed TIFF, and enables export of
@@ -5941,8 +5666,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0.2 and later
      */
     ComponentResult
-    GraphicsExportSetExifEnabled(GraphicsExportComponent ci, Boolean enableExif)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x004E, 0x7000, 0xA82A);
+    GraphicsExportSetExifEnabled(GraphicsExportComponent ci, Boolean enableExif);
 
     /**
      *  GraphicsExportGetExifEnabled()
@@ -5954,8 +5678,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0.2 and later
      */
     ComponentResult
-    GraphicsExportGetExifEnabled(GraphicsExportComponent ci, Boolean *exifEnabled)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x004F, 0x7000, 0xA82A);
+    GraphicsExportGetExifEnabled(GraphicsExportComponent ci, Boolean *exifEnabled);
 
     typedef ComponentInstance ImageTranscoderComponent;
     enum
@@ -5977,8 +5700,7 @@ extern "C"
     ImageTranscoderBeginSequence(ImageTranscoderComponent itc,
                                  ImageDescriptionHandle srcDesc,
                                  ImageDescriptionHandle *dstDesc, void *data,
-                                 long dataSize)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0001, 0x7000, 0xA82A);
+                                 long dataSize);
 
     /**
      *  ImageTranscoderConvert()
@@ -5991,8 +5713,7 @@ extern "C"
      */
     ComponentResult
     ImageTranscoderConvert(ImageTranscoderComponent itc, void *srcData,
-                           long srcDataSize, void **dstData, long *dstDataSize)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0002, 0x7000, 0xA82A);
+                           long srcDataSize, void **dstData, long *dstDataSize);
 
     /**
      *  ImageTranscoderDisposeData()
@@ -6004,8 +5725,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ImageTranscoderDisposeData(ImageTranscoderComponent itc, void *dstData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    ImageTranscoderDisposeData(ImageTranscoderComponent itc, void *dstData);
 
     /**
      *  ImageTranscoderEndSequence()
@@ -6017,8 +5737,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ImageTranscoderEndSequence(ImageTranscoderComponent itc)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0004, 0x7000, 0xA82A);
+    ImageTranscoderEndSequence(ImageTranscoderComponent itc);
 
     /** UPP call backs */
 

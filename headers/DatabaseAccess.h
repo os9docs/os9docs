@@ -556,8 +556,7 @@ extern "C"
 #pragma parameter InvokeDBCompletionUPP(__A1, __A0)
 #endif
     void
-    InvokeDBCompletionUPP(DBAsyncParmBlkPtr pb, DBCompletionUPP userUPP)
-        ONEWORDINLINE(0x4E90);
+    InvokeDBCompletionUPP(DBAsyncParmBlkPtr pb, DBCompletionUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -693,7 +692,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    InitDBPack(void) FIVEWORDINLINE(0x3F3C, 0x0004, 0x303C, 0x0100, 0xA82F);
+    InitDBPack(void);
 
     /**
      *  DBInit()
@@ -706,7 +705,7 @@ extern "C"
     OSErr
     DBInit(long *sessID, ConstStr63Param ddevName, ConstStr255Param host,
            ConstStr255Param user, ConstStr255Param passwd, ConstStr255Param connStr,
-           DBAsyncParmBlkPtr asyncPB) THREEWORDINLINE(0x303C, 0x0E02, 0xA82F);
+           DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBEnd()
@@ -717,8 +716,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBEnd(long sessID, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0403, 0xA82F);
+    DBEnd(long sessID, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBGetConnInfo()
@@ -732,8 +730,7 @@ extern "C"
     DBGetConnInfo(long sessID, short sessNum, long *returnedID, long *version,
                   Str63 ddevName, Str255 host, Str255 user, Str255 network,
                   Str255 connStr, long *start, OSErr *state,
-                  DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x1704, 0xA82F);
+                  DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBGetSessionNum()
@@ -744,8 +741,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBGetSessionNum(long sessID, short *sessNum, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0605, 0xA82F);
+    DBGetSessionNum(long sessID, short *sessNum, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBSend()
@@ -756,8 +752,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBSend(long sessID, Ptr text, short len, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0706, 0xA82F);
+    DBSend(long sessID, Ptr text, short len, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBSendItem()
@@ -769,8 +764,7 @@ extern "C"
      */
     OSErr
     DBSendItem(long sessID, DBType dataType, short len, short places, short flags,
-               void *buffer, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0B07, 0xA82F);
+               void *buffer, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBExec()
@@ -781,8 +775,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBExec(long sessID, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0408, 0xA82F);
+    DBExec(long sessID, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBState()
@@ -793,8 +786,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBState(long sessID, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0409, 0xA82F);
+    DBState(long sessID, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBGetErr()
@@ -806,8 +798,7 @@ extern "C"
      */
     OSErr
     DBGetErr(long sessID, long *err1, long *err2, Str255 item1, Str255 item2,
-             Str255 errorMsg, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0E0A, 0xA82F);
+             Str255 errorMsg, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBBreak()
@@ -818,8 +809,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBBreak(long sessID, Boolean abort, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x050B, 0xA82F);
+    DBBreak(long sessID, Boolean abort, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBGetItem()
@@ -831,8 +821,7 @@ extern "C"
      */
     OSErr
     DBGetItem(long sessID, long timeout, DBType *dataType, short *len,
-              short *places, short *flags, void *buffer, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x100C, 0xA82F);
+              short *places, short *flags, void *buffer, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBUnGetItem()
@@ -843,8 +832,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBUnGetItem(long sessID, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x040D, 0xA82F);
+    DBUnGetItem(long sessID, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBKill()
@@ -855,7 +843,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBKill(DBAsyncParmBlkPtr asyncPB) THREEWORDINLINE(0x303C, 0x020E, 0xA82F);
+    DBKill(DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBGetNewQuery()
@@ -866,8 +854,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBGetNewQuery(short queryID, QueryHandle *query)
-        THREEWORDINLINE(0x303C, 0x030F, 0xA82F);
+    DBGetNewQuery(short queryID, QueryHandle *query);
 
     /**
      *  DBDisposeQuery()
@@ -878,7 +865,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBDisposeQuery(QueryHandle query) THREEWORDINLINE(0x303C, 0x0210, 0xA82F);
+    DBDisposeQuery(QueryHandle query);
 
     /**
      *  DBStartQuery()
@@ -890,7 +877,7 @@ extern "C"
      */
     OSErr
     DBStartQuery(long *sessID, QueryHandle query, DBStatusUPP statusProc,
-                 DBAsyncParmBlkPtr asyncPB) THREEWORDINLINE(0x303C, 0x0811, 0xA82F);
+                 DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBGetQueryResults()
@@ -902,8 +889,7 @@ extern "C"
      */
     OSErr
     DBGetQueryResults(long sessID, ResultsRecord *results, long timeout,
-                      DBStatusUPP statusProc, DBAsyncParmBlkPtr asyncPB)
-        THREEWORDINLINE(0x303C, 0x0A12, 0xA82F);
+                      DBStatusUPP statusProc, DBAsyncParmBlkPtr asyncPB);
 
     /**
      *  DBResultsToText()
@@ -914,8 +900,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBResultsToText(ResultsRecord *results, Handle *theText)
-        THREEWORDINLINE(0x303C, 0x0413, 0xA82F);
+    DBResultsToText(ResultsRecord *results, Handle *theText);
 
     /**
      *  DBInstallResultHandler()
@@ -927,8 +912,7 @@ extern "C"
      */
     OSErr
     DBInstallResultHandler(DBType dataType, DBResultHandlerUPP theHandler,
-                           Boolean isSysHandler)
-        THREEWORDINLINE(0x303C, 0x0514, 0xA82F);
+                           Boolean isSysHandler);
 
     /**
      *  DBRemoveResultHandler()
@@ -939,7 +923,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBRemoveResultHandler(DBType dataType) THREEWORDINLINE(0x303C, 0x0215, 0xA82F);
+    DBRemoveResultHandler(DBType dataType);
 
     /**
      *  DBGetResultHandler()
@@ -951,8 +935,7 @@ extern "C"
      */
     OSErr
     DBGetResultHandler(DBType dataType, DBResultHandlerUPP *theHandler,
-                       Boolean getSysHandler)
-        THREEWORDINLINE(0x303C, 0x0516, 0xA82F);
+                       Boolean getSysHandler);
 
     /**
      *  DBIdle()
@@ -963,7 +946,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     OSErr
-    DBIdle(void) THREEWORDINLINE(0x303C, 0x00FF, 0xA82F);
+    DBIdle(void);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -986,4 +969,3 @@ extern "C"
 #endif
 
 #endif /** __DATABASEACCESS__ */
-      __ * /

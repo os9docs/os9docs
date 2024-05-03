@@ -1543,7 +1543,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   SInt16
-  ataManager(ataPB *pb) ONEWORDINLINE(0xAAF1);
+  ataManager(ataPB *pb);
 
 /** Typedefs for the AIM entry point pointers*/
 #endif /** CALL_NOT_IN_CARBON */

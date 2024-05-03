@@ -9,7 +9,7 @@
     \copyright � 1994-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup AppleTypeServices
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,107 +52,119 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-/* ---------------------------------------------------------------------------
- */
-// CONSTANTS and related scalar types /* ---------------------------------------------------------------------------
- */
-// Miscellaneous constants enum {
-// Miscellaneous constants 
-      0x7FFFFFFF, // assignment to use natural line ascent/descent values   kATSNoTracking = (long)0x80000000 // negativeInfinity };
+    /* ---------------------------------------------------------------------------
+     */
+    // CONSTANTS and related scalar types /* ---------------------------------------------------------------------------*/
+    // Miscellaneous constants
+    enum
+    {
+        // Miscellaneous constants
+        0x7FFFFFFF, // assignment to use natural line ascent/descent values   kATSNoTracking = (long)0x80000000 // negativeInfinity
+    };
 
-typedef UInt32 ATS// assignment to use natural line ascent/descent values 
-enum {// negativeInfinity 
-  kATSLineNoLayoutOptions = 0x00000000, // no options   kATSLineIsDisplayOnly =
-      0x00000001, // specifies to optimize for displaying text only   kATSLineHasNoHangers =
-      0x00000002, // specifies that no hangers to be formed on the line   kATSLineHasNoOpticalAlignment =
-      0x00000004, /* specifies that no optical alignment to be performed on the
-                     line */// no options 
-  kATSLineKeepSpacesOutOfMargin =
-      0x00000008, // specifies to optimize for displaying text only 
-                     hangers */
-  kATSLineNoSpecia// specifies that no hangers to be formed on the line 
-      0x00000010, /* specifies no post-compensation justification is to be
-                     performed */
-  kATSLineLastNoJustification =
-      0x00000020, /* specifies that if the line is the last of a paragraph, it
-                     will not get justified */
-  kATSLineFractDisable = 0x00000040, /* specifies that the displayed line glyphs
-                                        will adjust for device metrics */
-  kATSLineImposeNoAngleForEnds =
-      0x00000080, /* specifies that the carets at the ends of the line will be
-                     guarenteed to be perpendicular to the baseline */
-  kATSLineFillOutToWidth =
-      0x00000100, /* highlights for the line end characters will be extended to
-                     0 and the specified line width */
-  kATSLineTabAdjustEnabled =
-      0x00000200, /* specifies that the tab character width will be
-                     automatically adjusted to fit the specified line width */
-  kATSLineIgnoreFontLeading =
-      0x00000400, /* specifies that any leading value specified by a font will
-                     be ignored */
-  kATSLineAppleReserved =
-      (long)0xFFFFF800 /* these bits are reserved by Apple and will result in a
-                          invalid value error if attemped to set */
-};
+    typedef UInt32 ATS                            // assignment to use natural line ascent/descent values
+        enum {                                    // negativeInfinity
+            kATSLineNoLayoutOptions = 0x00000000, // no options
+            kATSLineIsDisplayOnly =
+                0x00000001, // specifies to optimize for displaying text only
+            kATSLineHasNoHangers =
+                0x00000002, // specifies that no hangers to be formed on the line
+            kATSLineHasNoOpticalAlignment =
+                0x00000004,
+            /* specifies that no optical alignment to be performed on the
+               line */
+            // no options
+            kATSLineKeepSpacesOutOfMargin =
+                0x00000008,                              // specifies to optimize for displaying text only hangers
+            kATSLineNoSpecialJustification = 0x00000010, // specifies that no hangers to be formed on the line
+                                                         /* specifies no post-compensation justification is to be
+                                                                       performed */
+            kATSLineLastNoJustification =
+                0x00000020,                    /* specifies that if the line is the last of a paragraph, it
+                                                  will not get justified */
+            kATSLineFractDisable = 0x00000040, /* specifies that the displayed line glyphs
+                                                  will adjust for device metrics */
+            kATSLineImposeNoAngleForEnds =
+                0x00000080, /* specifies that the carets at the ends of the line will be
+                               guarenteed to be perpendicular to the baseline */
+            kATSLineFillOutToWidth =
+                0x00000100, /* highlights for the line end characters will be extended to
+                               0 and the specified line width */
+            kATSLineTabAdjustEnabled =
+                0x00000200, /* specifies that the tab character width will be
+                               automatically adjusted to fit the specified line width */
+            kATSLineIgnoreFontLeading =
+                0x00000400, /* specifies that any leading value specified by a font will
+                               be ignored */
+            kATSLineAppleReserved =
+                (long)0xFFFFF800 /* these bits are reserved by Apple and will result in a
+                                    invalid value error if attemped to set */
+        };
 
-typedef UInt32 ATSStyleRenderingOptions;
-enum {
-  kATSStyleNoOptions = 0x00000000,  // no options   kATSStyleApplyHints = 0x00000001, /* specifies that ATS produce "hinted" glyph
-                                       outlines (default is on) */
-  /*    kATSStyleApplyAntiAliasing           = 0x00000002L,  |* specifies that
-     ATS produce antialiased glyph images (default is on) future feature *|*/
-  kATSStyleAppleReserved =
-      (long)0xFFFFFFFE /* these bits are reserved by Apple and will result in a
-                          invalid value error if attemped to set */
-};// no options 
+    typedef UInt32 ATSStyleRenderingOptions;
+    enum
+    {
+        kATSStyleNoOptions = 0x00000000,          /** options */
+        kATSStyleApplyHints = 0x00000001          /* specifies that ATS produce "hinted" glyph outlines(default is on) */
+        kATSStyleApplyAntiAliasing = 0x00000002L, /* specifies that
+    ATS produce antialiased glyph images (default is on) future feature *|*/
+        kATSStyleAppleReserved =
+            (long)0xFFFFFFFE /* these bits are reserved by Apple and will result in a
+                                invalid value error if attemped to set */
+    };                       // no options
 
-// For accessing glyph bounds enum {
-  kATSUseCaretOrigins = 0,
-  kATSUseDeviceOrigins = 1,
-  kATSUseFractionalOrigins = 2,
-  kATSUseOriginFlags = 3
-};
+    // For accessing glyph bounds
+    enum
+    {
+        kATSUseCaretOrigins = 0,
+        kATSUseDeviceOrigins = 1,
+        kATSUseFractionalOrigins = 2,
+        kATSUseOriginFlags = 3
+    };
 
-/* ---------------------------------------------------------------------------
-// For accessing glyph bounds 
-// STRUCTURED TYPES and related constants /* ---------------------------------------------------------------------------
- */
+    /* ---------------------------------------------------------------------------
+    // For accessing glyph bounds
+    // STRUCTURED TYPES and related constants /* ---------------------------------------------------------------------------
+     */
 
-/**
-    The ATSTrapezoid structure supplies a convenient container
-    for glyph bounds in trapezoidal form.
-*/
-struct ATSTrapezoid {
-  FixedPoint upperLeft;
-// STRUCTURED TYPES and related constants 
-  FixedPoint lowerRight;
-  FixedPoint lowerLeft;
-};
-typedef struct ATSTrapezoid ATSTrapezoid;
-/**
-    The JustWidthDeltaEntryOverride structure specifies values for the grow and
-   shrink case during justification, both on the left and on the right. It also
-   contains flags.  This particular structure is used for passing justification
-   overrides to LLC.  For further sfnt resource 'just' table constants and
-   structures, see SFNTLayoutTypes.h.
-*/
-struct ATSJustWidthDeltaEntryOverride {
-  Fixed beforeGrowLimit;          // ems AW can grow by at most on LT   Fixed beforeShrinkLimit;        // ems AW can shrink by at most on LT   Fixed afterGrowLimit;           // ems AW can grow by at most on RB   Fixed afterShrinkLimit;         // ems AW can shrink by at most on RB   JustificationFlags growFlags;   // flags controlling grow case   JustificationFlags shrinkFlags; // flags controlling shrink case };
-typedef struct ATSJustWidthDeltaEntryOverride ATSJustWidthDeltaEntryOverride;
-/* The JustPriorityOverrides type is an array of 4 width delta records, one per
- * priority level override. */
-typedef ATSJustWidthDeltaEntryOverride ATSJustPriorityWidthDeltaOverrides[4];
-/* ---------------------------------------------------------------------------
- */
+    /**
+        The ATSTrapezoid structure supplies a convenient container
+        for glyph bounds in trapezoidal form.
+    */
+    struct ATSTrapezoid
+    {
+        FixedPoint upperLeft;
+        // STRUCTURED TYPES and related constants
+        FixedPoint lowerRight;
+        FixedPoint lowerLeft;
+    };
+    typedef struct ATSTrapezoid ATSTrapezoid;
+    /**
+        The JustWidthDeltaEntryOverride structure specifies values for the grow and
+       shrink case during justification, both on the left and on the right. It also
+       contains flags.  This particular structure is used for passing justification
+       overrides to LLC.  For further sfnt resource 'just' table constants and
+       structures, see SFNTLayoutTypes.h.
+    */
+    struct ATSJustWidthDeltaEntryOverride
+    {
+        Fixed beforeGrowLimit; // ems AW can grow by at most on LT   Fixed beforeShrinkLimit;        // ems AW can shrink by at most on LT   Fixed afterGrowLimit;           // ems AW can grow by at most on RB   Fixed afterShrinkLimit;         // ems AW can shrink by at most on RB   JustificationFlags growFlags;   // flags controlling grow case   JustificationFlags shrinkFlags; // flags controlling shrink case
+    };
+    typedef struct ATSJustWidthDeltaEntryOverride ATSJustWidthDeltaEntryOverride;
+    /* The JustPriorityOverrides type is an array of 4 width delta records, one per
+     * priority level override. */
+    typedef ATSJustWidthDeltaEntryOverride ATSJustPriorityWidthDeltaOverrides[4];
+    /* ---------------------------------------------------------------------------
+     */
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH// ems AW can grow by at most on LT 
-#pragma pack(pop)// ems AW can shrink by at most on LT 
-#elif PRAGMA_STRUCT_PACK// ems AW can grow by at most on RB 
-#pragma pack()// ems AW can shrink by at most on RB 
-#endif// flags controlling grow case 
-// flags controlling shrink case 
+#elif PRAGMA_STRUCT_PACKPUSH // ems AW can grow by at most on LT
+#pragma pack(pop)            // ems AW can shrink by at most on LT
+#elif PRAGMA_STRUCT_PACK     // ems AW can grow by at most on RB
+#pragma pack()               // ems AW can shrink by at most on RB
+#endif                       // flags controlling grow case
+// flags controlling shrink case
 #ifdef PRAGMA_IMPORT_OFF
 #pragma import off
 #elif PRAGMA_IMPORT
@@ -162,4 +175,4 @@ typedef ATSJustWidthDeltaEntryOverride ATSJustPriorityWidthDeltaOverrides[4];
 }
 #endif
 
-#endif // __ATSLAYOUTTYPES__ // __ATSLAYOUTTYPES__ 
+#endif // __ATSLAYOUTTYPES__ // __ATSLAYOUTTYPES__

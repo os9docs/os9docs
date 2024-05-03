@@ -829,7 +829,7 @@ related information.
 *    \mac_os_x         not available
 */
   void
-  InitDialogs(void *ignored) ONEWORDINLINE(0xA97B);
+  InitDialogs(void *ignored);
 
   /**
   \brief Set up to use non-standard sounds for alerts
@@ -879,7 +879,7 @@ pascal void MySoundProc( short sndNum );
               *    \carbon_lib not available *    \mac_os_x not available *
           /
           void
-          ErrorSound(SoundUPP soundProc) ONEWORDINLINE(0xA98C);
+          ErrorSound(SoundUPP soundProc);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -894,7 +894,7 @@ pascal void MySoundProc( short sndNum );
   DialogRef
   NewDialog(void *dStorage, const Rect *boundsRect, ConstStr255Param title,
             Boolean visible, SInt16 procID, WindowRef behind, Boolean goAwayFlag,
-            SInt32 refCon, Handle items) ONEWORDINLINE(0xA97D);
+            SInt32 refCon, Handle items);
 
   /**
    *  GetNewDialog()
@@ -905,8 +905,7 @@ pascal void MySoundProc( short sndNum );
    *    \mac_os_x         in version 10.0 and later
    */
   DialogRef
-  GetNewDialog(SInt16 dialogID, void *dStorage, WindowRef behind)
-      ONEWORDINLINE(0xA97C);
+  GetNewDialog(SInt16 dialogID, void *dStorage, WindowRef behind);
 
   /**
    *  NewColorDialog()
@@ -919,8 +918,7 @@ pascal void MySoundProc( short sndNum );
   DialogRef
   NewColorDialog(void *dStorage, const Rect *boundsRect, ConstStr255Param title,
                  Boolean visible, SInt16 procID, WindowRef behind,
-                 Boolean goAwayFlag, SInt32 refCon, Handle items)
-      ONEWORDINLINE(0xAA4B);
+                 Boolean goAwayFlag, SInt32 refCon, Handle items);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -932,7 +930,7 @@ pascal void MySoundProc( short sndNum );
    *    \mac_os_x         not available
    */
   void
-  CloseDialog(DialogRef theDialog) ONEWORDINLINE(0xA982);
+  CloseDialog(DialogRef theDialog);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -945,7 +943,7 @@ pascal void MySoundProc( short sndNum );
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  DisposeDialog(DialogRef theDialog) ONEWORDINLINE(0xA983);
+  DisposeDialog(DialogRef theDialog);
 
   /**
    *  ModalDialog()
@@ -956,8 +954,7 @@ pascal void MySoundProc( short sndNum );
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ModalDialog(ModalFilterUPP modalFilter, DialogItemIndex *itemHit)
-      ONEWORDINLINE(0xA991);
+  ModalDialog(ModalFilterUPP modalFilter, DialogItemIndex *itemHit);
 
   /**
   \brief Check if an event belongs to a dialog window
@@ -1004,7 +1001,7 @@ See DialogSelect for an example of usage.
 *    \mac_os_x         in version 10.0 and later
 */
   Boolean
-  IsDialogEvent(const EventRecord *theEvent) ONEWORDINLINE(0xA97F);
+  IsDialogEvent(const EventRecord *theEvent);
 
   /**
    *  DialogSelect()
@@ -1016,7 +1013,7 @@ See DialogSelect for an example of usage.
    */
   Boolean
   DialogSelect(const EventRecord *theEvent, DialogRef *theDialog,
-               DialogItemIndex *itemHit) ONEWORDINLINE(0xA980);
+               DialogItemIndex *itemHit);
 
   /**
    *  DrawDialog()
@@ -1027,7 +1024,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  DrawDialog(DialogRef theDialog) ONEWORDINLINE(0xA981);
+  DrawDialog(DialogRef theDialog);
 
   /**
    *  UpdateDialog()
@@ -1038,7 +1035,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  UpdateDialog(DialogRef theDialog, RgnHandle updateRgn) ONEWORDINLINE(0xA978);
+  UpdateDialog(DialogRef theDialog, RgnHandle updateRgn);
 
   /**
    *  HideDialogItem()
@@ -1049,8 +1046,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  HideDialogItem(DialogRef theDialog, DialogItemIndex itemNo)
-      ONEWORDINLINE(0xA827);
+  HideDialogItem(DialogRef theDialog, DialogItemIndex itemNo);
 
   /**
    *  ShowDialogItem()
@@ -1061,8 +1057,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ShowDialogItem(DialogRef theDialog, DialogItemIndex itemNo)
-      ONEWORDINLINE(0xA828);
+  ShowDialogItem(DialogRef theDialog, DialogItemIndex itemNo);
 
   /**
    *  FindDialogItem()
@@ -1073,7 +1068,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   DialogItemIndexZeroBased
-  FindDialogItem(DialogRef theDialog, Point thePt) ONEWORDINLINE(0xA984);
+  FindDialogItem(DialogRef theDialog, Point thePt);
 
   /**
    *  DialogCut()
@@ -1128,7 +1123,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   DialogItemIndex
-  Alert(SInt16 alertID, ModalFilterUPP modalFilter) ONEWORDINLINE(0xA985);
+  Alert(SInt16 alertID, ModalFilterUPP modalFilter);
 
   /**
    *  StopAlert()
@@ -1139,7 +1134,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   DialogItemIndex
-  StopAlert(SInt16 alertID, ModalFilterUPP modalFilter) ONEWORDINLINE(0xA986);
+  StopAlert(SInt16 alertID, ModalFilterUPP modalFilter);
 
   /**
    *  NoteAlert()
@@ -1150,7 +1145,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   DialogItemIndex
-  NoteAlert(SInt16 alertID, ModalFilterUPP modalFilter) ONEWORDINLINE(0xA987);
+  NoteAlert(SInt16 alertID, ModalFilterUPP modalFilter);
 
   /**
    *  CautionAlert()
@@ -1161,7 +1156,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   DialogItemIndex
-  CautionAlert(SInt16 alertID, ModalFilterUPP modalFilter) ONEWORDINLINE(0xA988);
+  CautionAlert(SInt16 alertID, ModalFilterUPP modalFilter);
 
   /**
    *  GetDialogItem()
@@ -1173,8 +1168,7 @@ See DialogSelect for an example of usage.
    */
   void
   GetDialogItem(DialogRef theDialog, DialogItemIndex itemNo,
-                DialogItemType *itemType, Handle *item, Rect *box)
-      ONEWORDINLINE(0xA98D);
+                DialogItemType *itemType, Handle *item, Rect *box);
 
   /**
    *  SetDialogItem()
@@ -1186,8 +1180,7 @@ See DialogSelect for an example of usage.
    */
   void
   SetDialogItem(DialogRef theDialog, DialogItemIndex itemNo,
-                DialogItemType itemType, Handle item, const Rect *box)
-      ONEWORDINLINE(0xA98E);
+                DialogItemType itemType, Handle item, const Rect *box);
 
   /**
    *  ParamText()
@@ -1199,8 +1192,7 @@ See DialogSelect for an example of usage.
    */
   void
   ParamText(ConstStr255Param param0, ConstStr255Param param1,
-            ConstStr255Param param2, ConstStr255Param param3)
-      ONEWORDINLINE(0xA98B);
+            ConstStr255Param param2, ConstStr255Param param3);
 
   /**
    *  SelectDialogItemText()
@@ -1212,7 +1204,7 @@ See DialogSelect for an example of usage.
    */
   void
   SelectDialogItemText(DialogRef theDialog, DialogItemIndex itemNo,
-                       SInt16 strtSel, SInt16 endSel) ONEWORDINLINE(0xA97E);
+                       SInt16 strtSel, SInt16 endSel);
 
   /**
    *  GetDialogItemText()
@@ -1223,7 +1215,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  GetDialogItemText(Handle item, Str255 text) ONEWORDINLINE(0xA990);
+  GetDialogItemText(Handle item, Str255 text);
 
   /**
    *  SetDialogItemText()
@@ -1234,7 +1226,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SetDialogItemText(Handle item, ConstStr255Param text) ONEWORDINLINE(0xA98F);
+  SetDialogItemText(Handle item, ConstStr255Param text);
 
   /**
    *  GetAlertStage()
@@ -1245,7 +1237,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   SInt16
-  GetAlertStage(void) TWOWORDINLINE(0x3EB8, 0x0A9A);
+  GetAlertStage(void);
 
   /**
    *  SetDialogFont()
@@ -1256,7 +1248,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SetDialogFont(SInt16 fontNum) TWOWORDINLINE(0x31DF, 0x0AFA);
+  SetDialogFont(SInt16 fontNum);
 
   /**
    *  ResetAlertStage()
@@ -1267,7 +1259,7 @@ See DialogSelect for an example of usage.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ResetAlertStage(void) TWOWORDINLINE(0x4278, 0x0A9A);
+  ResetAlertStage(void);
 
   /** APIs in Carbon*/
   /**
@@ -1447,8 +1439,7 @@ pascal OSErr GetStdFilterProc (ProcPtr *theProc)
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  GetStdFilterProc(ModalFilterUPP *theProc)
-      THREEWORDINLINE(0x303C, 0x0203, 0xAA68);
+  GetStdFilterProc(ModalFilterUPP *theProc);
 
   /**
   \brief SetDialogDefaultItem Tell Dialog Mgr which item in dialog should be default item
@@ -1474,8 +1465,7 @@ short newItem) = {0x303C,0x0304,0xAA68};
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  SetDialogDefaultItem(DialogRef theDialog, DialogItemIndex newItem)
-      THREEWORDINLINE(0x303C, 0x0304, 0xAA68);
+  SetDialogDefaultItem(DialogRef theDialog, DialogItemIndex newItem);
 
   /**
   \brief SetDialogCancelItem Tell Dialog Mgr which item should be default cancel item
@@ -1500,8 +1490,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
 *    \mac_os_x         in version 10.0 and later
 */
   OSErr
-  SetDialogCancelItem(DialogRef theDialog, DialogItemIndex newItem)
-      THREEWORDINLINE(0x303C, 0x0305, 0xAA68);
+  SetDialogCancelItem(DialogRef theDialog, DialogItemIndex newItem);
 
   /**
    *  SetDialogTracksCursor()
@@ -1512,8 +1501,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  SetDialogTracksCursor(DialogRef theDialog, Boolean tracks)
-      THREEWORDINLINE(0x303C, 0x0306, 0xAA68);
+  SetDialogTracksCursor(DialogRef theDialog, Boolean tracks);
 
   /**
     ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
@@ -1533,8 +1521,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
   NewFeaturesDialog(void *inStorage, const Rect *inBoundsRect,
                     ConstStr255Param inTitle, Boolean inIsVisible,
                     SInt16 inProcID, WindowRef inBehind, Boolean inGoAwayFlag,
-                    SInt32 inRefCon, Handle inItemListHandle, UInt32 inFlags)
-      THREEWORDINLINE(0x303C, 0x110C, 0xAA68);
+                    SInt32 inRefCon, Handle inItemListHandle, UInt32 inFlags);
 
   /**
    *  AutoSizeDialog()
@@ -1545,7 +1532,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AutoSizeDialog(DialogRef inDialog) THREEWORDINLINE(0x303C, 0x020D, 0xAA68);
+  AutoSizeDialog(DialogRef inDialog);
 
   /**
       Regarding StandardAlert and constness:
@@ -1564,7 +1551,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
   StandardAlert(AlertType inAlertType, ConstStr255Param inError,
                 ConstStr255Param inExplanation,
                 const AlertStdAlertParamRec *inAlertParam, /** can be NULL */
-                SInt16 *outItemHit) THREEWORDINLINE(0x303C, 0x090E, 0xAA68);
+                SInt16 *outItemHit);
 
   /** CFString-based StandardAlert and StandardSheet APIs are only available on
    * Mac OS X and later*/
@@ -1776,8 +1763,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    */
   OSErr
   GetDialogItemAsControl(DialogRef inDialog, SInt16 inItemNo,
-                         ControlRef *outControl)
-      THREEWORDINLINE(0x303C, 0x050F, 0xAA68);
+                         ControlRef *outControl);
 
   /**
    *  MoveDialogItem()
@@ -1789,7 +1775,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    */
   OSErr
   MoveDialogItem(DialogRef inDialog, SInt16 inItemNo, SInt16 inHoriz,
-                 SInt16 inVert) THREEWORDINLINE(0x303C, 0x0510, 0xAA68);
+                 SInt16 inVert);
 
   /**
    *  SizeDialogItem()
@@ -1801,7 +1787,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    */
   OSErr
   SizeDialogItem(DialogRef inDialog, SInt16 inItemNo, SInt16 inWidth,
-                 SInt16 inHeight) THREEWORDINLINE(0x303C, 0x0511, 0xAA68);
+                 SInt16 inHeight);
 
   /**
    *  AppendDialogItemList()
@@ -1812,8 +1798,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  AppendDialogItemList(DialogRef dialog, SInt16 ditlID, DITLMethod method)
-      THREEWORDINLINE(0x303C, 0x0412, 0xAA68);
+  AppendDialogItemList(DialogRef dialog, SInt16 ditlID, DITLMethod method);
 
   /**
     ©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©
@@ -2056,7 +2041,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    *    \mac_os_x         not available
    */
   void
-  CouldDialog(SInt16 dialogID) ONEWORDINLINE(0xA979);
+  CouldDialog(SInt16 dialogID);
 
   /**
    *  FreeDialog()
@@ -2067,7 +2052,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    *    \mac_os_x         not available
    */
   void
-  FreeDialog(SInt16 dialogID) ONEWORDINLINE(0xA97A);
+  FreeDialog(SInt16 dialogID);
 
   /**
    *  CouldAlert()
@@ -2078,7 +2063,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    *    \mac_os_x         not available
    */
   void
-  CouldAlert(SInt16 alertID) ONEWORDINLINE(0xA989);
+  CouldAlert(SInt16 alertID);
 
   /**
    *  FreeAlert()
@@ -2089,7 +2074,7 @@ short newItem) = {0x303C,0x0305,0xAA68};
    *    \mac_os_x         not available
    */
   void
-  FreeAlert(SInt16 alertID) ONEWORDINLINE(0xA98A);
+  FreeAlert(SInt16 alertID);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -2150,28 +2135,3 @@ short newItem) = {0x303C,0x0305,0xAA68};
 #ifdef __cplusplus
 }
 #endif
-
-#endif /** __DIALOGS__ */
-* / _OS_MAC
-#endif /** !TARGET_OS_MAC */
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /** __DIALOGS__ */
-* /*/*/ */*/

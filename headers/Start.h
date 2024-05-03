@@ -379,7 +379,7 @@ pertinent data. sdPartition is a reserved field.
 #pragma parameter GetDefaultStartup(__A0)
 #endif
   void
-  GetDefaultStartup(DefStartPtr paramBlock) ONEWORDINLINE(0xA07D);
+  GetDefaultStartup(DefStartPtr paramBlock);
 
   /**
   \brief SetDefaultStartup Specify default startup device
@@ -417,7 +417,7 @@ Reserved fields sdReserved1 and sdReserved2 should both be 0.
 #pragma parameter SetDefaultStartup(__A0)
 #endif
   void
-  SetDefaultStartup(DefStartPtr paramBlock) ONEWORDINLINE(0xA07E);
+  SetDefaultStartup(DefStartPtr paramBlock);
 
   /**
   \brief Get default video device location and resource number
@@ -444,7 +444,7 @@ available monitor.
 #pragma parameter GetVideoDefault(__A0)
 #endif
   void
-  GetVideoDefault(DefVideoPtr paramBlock) ONEWORDINLINE(0xA080);
+  GetVideoDefault(DefVideoPtr paramBlock);
 
   /**
   \brief Set default video device location and resource number
@@ -468,7 +468,7 @@ Out-In Name Type SizeOffsetDescription
 #pragma parameter SetVideoDefault(__A0)
 #endif
   void
-  SetVideoDefault(DefVideoPtr paramBlock) ONEWORDINLINE(0xA081);
+  SetVideoDefault(DefVideoPtr paramBlock);
 
   /**
   \brief Get default video device location and resource number
@@ -495,7 +495,7 @@ with more than one operating system.
 #pragma parameter GetOSDefault(__A0)
 #endif
   void
-  GetOSDefault(DefOSPtr paramBlock) ONEWORDINLINE(0xA084);
+  GetOSDefault(DefOSPtr paramBlock);
 
   /**
   \brief Set default operating system
@@ -521,7 +521,7 @@ with more than one operating system.
 #pragma parameter SetOSDefault(__A0)
 #endif
   void
-  SetOSDefault(DefOSPtr paramBlock) ONEWORDINLINE(0xA083);
+  SetOSDefault(DefOSPtr paramBlock);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -590,8 +590,7 @@ zero in count specifies the default limit of 15 seconds.
    *    \mac_os_x         not available
    */
   OSErr
-  InstallExtensionNotificationProc(ExtensionNotificationUPP extNotificationProc)
-      TWOWORDINLINE(0x7000, 0xAA7D);
+  InstallExtensionNotificationProc(ExtensionNotificationUPP extNotificationProc);
 
   /**
       RemoveExtensionNotificationProc
@@ -620,8 +619,7 @@ zero in count specifies the default limit of 15 seconds.
    *    \mac_os_x         not available
    */
   OSErr
-  RemoveExtensionNotificationProc(ExtensionNotificationUPP extNotificationProc)
-      TWOWORDINLINE(0x7001, 0xAA7D);
+  RemoveExtensionNotificationProc(ExtensionNotificationUPP extNotificationProc);
 
   /**
       InstallExtensionTableHandlerProc
@@ -673,8 +671,7 @@ zero in count specifies the default limit of 15 seconds.
    */
   OSErr
   InstallExtensionTableHandlerProc(ExtensionTableHandlerUPP extMgrProc,
-                                   ExtensionTableHandle *extTable)
-      TWOWORDINLINE(0x7002, 0xAA7D);
+                                   ExtensionTableHandle *extTable);
 
   /**
       RemoveExtensionTableHandlerProc
@@ -699,8 +696,7 @@ zero in count specifies the default limit of 15 seconds.
    *    \mac_os_x         not available
    */
   OSErr
-  RemoveExtensionTableHandlerProc(ExtensionTableHandlerUPP extMgrProc)
-      TWOWORDINLINE(0x7003, 0xAA7D);
+  RemoveExtensionTableHandlerProc(ExtensionTableHandlerUPP extMgrProc);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -932,23 +928,3 @@ zero in count specifies the default limit of 15 seconds.
 #ifdef __cplusplus
 }
 #endif
-
-#endif /** __START__ */
-* / AGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /** __START__ */
-* /*/*/ * /*/*/ * /

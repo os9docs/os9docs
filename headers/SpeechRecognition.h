@@ -476,8 +476,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SROpenRecognitionSystem(SRRecognitionSystem *system, OSType systemID)
-        THREEWORDINLINE(0x303C, 0x0400, 0xAA56);
+    SROpenRecognitionSystem(SRRecognitionSystem *system, OSType systemID);
 
     /**
      *  SRCloseRecognitionSystem()
@@ -488,8 +487,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRCloseRecognitionSystem(SRRecognitionSystem system)
-        THREEWORDINLINE(0x303C, 0x0201, 0xAA56);
+    SRCloseRecognitionSystem(SRRecognitionSystem system);
 
     /** Accessing Properties of any Speech Object */
     /**
@@ -502,7 +500,7 @@ extern "C"
      */
     OSErr
     SRSetProperty(SRSpeechObject srObject, OSType selector, const void *property,
-                  Size propertyLen) THREEWORDINLINE(0x303C, 0x0802, 0xAA56);
+                  Size propertyLen);
 
     /**
      *  SRGetProperty()
@@ -514,7 +512,7 @@ extern "C"
      */
     OSErr
     SRGetProperty(SRSpeechObject srObject, OSType selector, void *property,
-                  Size *propertyLen) THREEWORDINLINE(0x303C, 0x0803, 0xAA56);
+                  Size *propertyLen);
 
     /** Any object obtained via New or Get type calls must be released */
     /**
@@ -526,8 +524,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRReleaseObject(SRSpeechObject srObject)
-        THREEWORDINLINE(0x303C, 0x0204, 0xAA56);
+    SRReleaseObject(SRSpeechObject srObject);
 
     /**
      *  SRGetReference()
@@ -538,8 +535,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRGetReference(SRSpeechObject srObject, SRSpeechObject *newObjectRef)
-        THREEWORDINLINE(0x303C, 0x0425, 0xAA56);
+    SRGetReference(SRSpeechObject srObject, SRSpeechObject *newObjectRef);
 
     /** SRRecognizer Instance Functions */
     /**
@@ -552,7 +548,7 @@ extern "C"
      */
     OSErr
     SRNewRecognizer(SRRecognitionSystem system, SRRecognizer *recognizer,
-                    OSType sourceID) THREEWORDINLINE(0x303C, 0x060A, 0xAA56);
+                    OSType sourceID);
 
     /**
      *  SRStartListening()
@@ -563,8 +559,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRStartListening(SRRecognizer recognizer)
-        THREEWORDINLINE(0x303C, 0x020C, 0xAA56);
+    SRStartListening(SRRecognizer recognizer);
 
     /**
      *  SRStopListening()
@@ -575,8 +570,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRStopListening(SRRecognizer recognizer)
-        THREEWORDINLINE(0x303C, 0x020D, 0xAA56);
+    SRStopListening(SRRecognizer recognizer);
 
     /**
      *  SRSetLanguageModel()
@@ -587,8 +581,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRSetLanguageModel(SRRecognizer recognizer, SRLanguageModel languageModel)
-        THREEWORDINLINE(0x303C, 0x040E, 0xAA56);
+    SRSetLanguageModel(SRRecognizer recognizer, SRLanguageModel languageModel);
 
     /**
      *  SRGetLanguageModel()
@@ -599,8 +592,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRGetLanguageModel(SRRecognizer recognizer, SRLanguageModel *languageModel)
-        THREEWORDINLINE(0x303C, 0x040F, 0xAA56);
+    SRGetLanguageModel(SRRecognizer recognizer, SRLanguageModel *languageModel);
 
     /**
      *  SRContinueRecognition()
@@ -611,8 +603,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRContinueRecognition(SRRecognizer recognizer)
-        THREEWORDINLINE(0x303C, 0x0210, 0xAA56);
+    SRContinueRecognition(SRRecognizer recognizer);
 
     /**
      *  SRCancelRecognition()
@@ -623,8 +614,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRCancelRecognition(SRRecognizer recognizer)
-        THREEWORDINLINE(0x303C, 0x0211, 0xAA56);
+    SRCancelRecognition(SRRecognizer recognizer);
 
     /**
      *  SRIdle()
@@ -635,7 +625,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRIdle(void) THREEWORDINLINE(0x303C, 0x0028, 0xAA56);
+    SRIdle(void);
 
     /** Language Model Building and Manipulation Functions */
     /**
@@ -648,8 +638,7 @@ extern "C"
      */
     OSErr
     SRNewLanguageModel(SRRecognitionSystem system, SRLanguageModel *model,
-                       const void *name, Size nameLength)
-        THREEWORDINLINE(0x303C, 0x0812, 0xAA56);
+                       const void *name, Size nameLength);
 
     /**
      *  SRNewPath()
@@ -660,8 +649,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRNewPath(SRRecognitionSystem system, SRPath *path)
-        THREEWORDINLINE(0x303C, 0x0413, 0xAA56);
+    SRNewPath(SRRecognitionSystem system, SRPath *path);
 
     /**
      *  SRNewPhrase()
@@ -673,7 +661,7 @@ extern "C"
      */
     OSErr
     SRNewPhrase(SRRecognitionSystem system, SRPhrase *phrase, const void *text,
-                Size textLength) THREEWORDINLINE(0x303C, 0x0814, 0xAA56);
+                Size textLength);
 
     /**
      *  SRNewWord()
@@ -685,7 +673,7 @@ extern "C"
      */
     OSErr
     SRNewWord(SRRecognitionSystem system, SRWord *word, const void *text,
-              Size textLength) THREEWORDINLINE(0x303C, 0x0815, 0xAA56);
+              Size textLength);
 
     /** Operations on any object of the SRLanguageObject family */
     /**
@@ -698,8 +686,7 @@ extern "C"
      */
     OSErr
     SRPutLanguageObjectIntoHandle(SRLanguageObject languageObject,
-                                  Handle lobjHandle)
-        THREEWORDINLINE(0x303C, 0x0416, 0xAA56);
+                                  Handle lobjHandle);
 
     /**
      *  SRPutLanguageObjectIntoDataFile()
@@ -710,8 +697,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRPutLanguageObjectIntoDataFile(SRLanguageObject languageObject, short fRefNum)
-        THREEWORDINLINE(0x303C, 0x0328, 0xAA56);
+    SRPutLanguageObjectIntoDataFile(SRLanguageObject languageObject, short fRefNum);
 
     /**
      *  SRNewLanguageObjectFromHandle()
@@ -724,8 +710,7 @@ extern "C"
     OSErr
     SRNewLanguageObjectFromHandle(SRRecognitionSystem system,
                                   SRLanguageObject *languageObject,
-                                  Handle lObjHandle)
-        THREEWORDINLINE(0x303C, 0x0417, 0xAA56);
+                                  Handle lObjHandle);
 
     /**
      *  SRNewLanguageObjectFromDataFile()
@@ -737,8 +722,7 @@ extern "C"
      */
     OSErr
     SRNewLanguageObjectFromDataFile(SRRecognitionSystem system,
-                                    SRLanguageObject *languageObject, short fRefNum)
-        THREEWORDINLINE(0x303C, 0x0427, 0xAA56);
+                                    SRLanguageObject *languageObject, short fRefNum);
 
     /**
      *  SREmptyLanguageObject()
@@ -749,8 +733,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SREmptyLanguageObject(SRLanguageObject languageObject)
-        THREEWORDINLINE(0x303C, 0x0218, 0xAA56);
+    SREmptyLanguageObject(SRLanguageObject languageObject);
 
     /**
      *  SRChangeLanguageObject()
@@ -762,7 +745,7 @@ extern "C"
      */
     OSErr
     SRChangeLanguageObject(SRLanguageObject languageObject, const void *text,
-                           Size textLength) THREEWORDINLINE(0x303C, 0x0619, 0xAA56);
+                           Size textLength);
 
     /**
      *  SRAddLanguageObject()
@@ -773,8 +756,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRAddLanguageObject(SRLanguageObject base, SRLanguageObject addon)
-        THREEWORDINLINE(0x303C, 0x041A, 0xAA56);
+    SRAddLanguageObject(SRLanguageObject base, SRLanguageObject addon);
 
     /**
      *  SRAddText()
@@ -785,8 +767,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRAddText(SRLanguageObject base, const void *text, Size textLength, long refCon)
-        THREEWORDINLINE(0x303C, 0x081B, 0xAA56);
+    SRAddText(SRLanguageObject base, const void *text, Size textLength, long refCon);
 
     /**
      *  SRRemoveLanguageObject()
@@ -797,8 +778,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRRemoveLanguageObject(SRLanguageObject base, SRLanguageObject toRemove)
-        THREEWORDINLINE(0x303C, 0x041C, 0xAA56);
+    SRRemoveLanguageObject(SRLanguageObject base, SRLanguageObject toRemove);
 
     /** Traversing SRRecognitionResults or SRLanguageObjects */
     /**
@@ -810,8 +790,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRCountItems(SRSpeechObject container, long *count)
-        THREEWORDINLINE(0x303C, 0x0405, 0xAA56);
+    SRCountItems(SRSpeechObject container, long *count);
 
     /**
      *  SRGetIndexedItem()
@@ -822,8 +801,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRGetIndexedItem(SRSpeechObject container, SRSpeechObject *item, long index)
-        THREEWORDINLINE(0x303C, 0x0606, 0xAA56);
+    SRGetIndexedItem(SRSpeechObject container, SRSpeechObject *item, long index);
 
     /**
      *  SRSetIndexedItem()
@@ -834,8 +812,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRSetIndexedItem(SRSpeechObject container, SRSpeechObject item, long index)
-        THREEWORDINLINE(0x303C, 0x0607, 0xAA56);
+    SRSetIndexedItem(SRSpeechObject container, SRSpeechObject item, long index);
 
     /**
      *  SRRemoveIndexedItem()
@@ -846,8 +823,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRRemoveIndexedItem(SRSpeechObject container, long index)
-        THREEWORDINLINE(0x303C, 0x0408, 0xAA56);
+    SRRemoveIndexedItem(SRSpeechObject container, long index);
 
     /** Utilizing the System Feedback Window */
     /**
@@ -859,8 +835,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRDrawText(SRRecognizer recognizer, const void *dispText, Size dispLength)
-        THREEWORDINLINE(0x303C, 0x0621, 0xAA56);
+    SRDrawText(SRRecognizer recognizer, const void *dispText, Size dispLength);
 
     /**
      *  SRDrawRecognizedText()
@@ -872,7 +847,7 @@ extern "C"
      */
     OSErr
     SRDrawRecognizedText(SRRecognizer recognizer, const void *dispText,
-                         Size dispLength) THREEWORDINLINE(0x303C, 0x0622, 0xAA56);
+                         Size dispLength);
 
     /**
      *  SRSpeakText()
@@ -883,8 +858,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRSpeakText(SRRecognizer recognizer, const void *speakText, Size speakLength)
-        THREEWORDINLINE(0x303C, 0x0620, 0xAA56);
+    SRSpeakText(SRRecognizer recognizer, const void *speakText, Size speakLength);
 
     /**
      *  SRSpeakAndDrawText()
@@ -895,8 +869,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRSpeakAndDrawText(SRRecognizer recognizer, const void *text, Size textLength)
-        THREEWORDINLINE(0x303C, 0x061F, 0xAA56);
+    SRSpeakAndDrawText(SRRecognizer recognizer, const void *text, Size textLength);
 
     /**
      *  SRStopSpeech()
@@ -907,7 +880,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRStopSpeech(SRRecognizer recognizer) THREEWORDINLINE(0x303C, 0x0223, 0xAA56);
+    SRStopSpeech(SRRecognizer recognizer);
 
     /**
      *  SRSpeechBusy()
@@ -918,7 +891,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     Boolean
-    SRSpeechBusy(SRRecognizer recognizer) THREEWORDINLINE(0x303C, 0x0224, 0xAA56);
+    SRSpeechBusy(SRRecognizer recognizer);
 
     /**
      *  SRProcessBegin()
@@ -929,8 +902,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRProcessBegin(SRRecognizer recognizer, Boolean failed)
-        THREEWORDINLINE(0x303C, 0x031D, 0xAA56);
+    SRProcessBegin(SRRecognizer recognizer, Boolean failed);
 
     /**
      *  SRProcessEnd()
@@ -941,8 +913,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    SRProcessEnd(SRRecognizer recognizer, Boolean failed)
-        THREEWORDINLINE(0x303C, 0x031E, 0xAA56);
+    SRProcessEnd(SRRecognizer recognizer, Boolean failed);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

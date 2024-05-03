@@ -108,8 +108,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ClockGetTime(ComponentInstance aClock, TimeRecord *out)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+    ClockGetTime(ComponentInstance aClock, TimeRecord *out);
 
     /**
      *  ClockNewCallBack()
@@ -121,8 +120,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     QTCallBack
-    ClockNewCallBack(ComponentInstance aClock, TimeBase tb, short callBackType)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0002, 0x7000, 0xA82A);
+    ClockNewCallBack(ComponentInstance aClock, TimeBase tb, short callBackType);
 
     /**
      *  ClockDisposeCallBack()
@@ -134,8 +132,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ClockDisposeCallBack(ComponentInstance aClock, QTCallBack cb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    ClockDisposeCallBack(ComponentInstance aClock, QTCallBack cb);
 
     /**
      *  ClockCallMeWhen()
@@ -148,8 +145,7 @@ extern "C"
      */
     ComponentResult
     ClockCallMeWhen(ComponentInstance aClock, QTCallBack cb, long param1,
-                    long param2, long param3)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0004, 0x7000, 0xA82A);
+                    long param2, long param3);
 
     /**
      *  ClockCancelCallBack()
@@ -161,8 +157,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ClockCancelCallBack(ComponentInstance aClock, QTCallBack cb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0005, 0x7000, 0xA82A);
+    ClockCancelCallBack(ComponentInstance aClock, QTCallBack cb);
 
     /**
      *  ClockRateChanged()
@@ -174,8 +169,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ClockRateChanged(ComponentInstance aClock, QTCallBack cb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0006, 0x7000, 0xA82A);
+    ClockRateChanged(ComponentInstance aClock, QTCallBack cb);
 
     /**
      *  ClockTimeChanged()
@@ -187,8 +181,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ClockTimeChanged(ComponentInstance aClock, QTCallBack cb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+    ClockTimeChanged(ComponentInstance aClock, QTCallBack cb);
 
     /**
      *  ClockSetTimeBase()
@@ -200,8 +193,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ClockSetTimeBase(ComponentInstance aClock, TimeBase tb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0008, 0x7000, 0xA82A);
+    ClockSetTimeBase(ComponentInstance aClock, TimeBase tb);
 
     /**
      *  ClockStartStopChanged()
@@ -214,8 +206,7 @@ extern "C"
      */
     ComponentResult
     ClockStartStopChanged(ComponentInstance aClock, QTCallBack cb,
-                          Boolean startChanged, Boolean stopChanged)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0009, 0x7000, 0xA82A);
+                          Boolean startChanged, Boolean stopChanged);
 
     /**
      *  ClockGetRate()
@@ -227,8 +218,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    ClockGetRate(ComponentInstance aClock, Fixed *rate)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000A, 0x7000, 0xA82A);
+    ClockGetRate(ComponentInstance aClock, Fixed *rate);
 
     enum
     {
@@ -441,8 +431,7 @@ extern "C"
     ComponentResult
     SCGetCompressionExtended(ComponentInstance ci, SCParams *params, Point where,
                              SCModalFilterUPP filterProc, SCModalHookUPP hookProc,
-                             long refcon, StringPtr customName)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x0001, 0x7000, 0xA82A);
+                             long refcon, StringPtr customName);
 
     /**
      *  SCPositionRect()
@@ -454,8 +443,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCPositionRect(ComponentInstance ci, Rect *rp, Point *where)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0002, 0x7000, 0xA82A);
+    SCPositionRect(ComponentInstance ci, Rect *rp, Point *where);
 
     /**
      *  SCPositionDialog()
@@ -467,8 +455,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCPositionDialog(ComponentInstance ci, short id, Point *where)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0003, 0x7000, 0xA82A);
+    SCPositionDialog(ComponentInstance ci, short id, Point *where);
 
     /**
      *  SCSetTestImagePictHandle()
@@ -481,8 +468,7 @@ extern "C"
      */
     ComponentResult
     SCSetTestImagePictHandle(ComponentInstance ci, PicHandle testPict,
-                             Rect *testRect, short testFlags)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0004, 0x7000, 0xA82A);
+                             Rect *testRect, short testFlags);
 
     /**
      *  SCSetTestImagePictFile()
@@ -495,8 +481,7 @@ extern "C"
      */
     ComponentResult
     SCSetTestImagePictFile(ComponentInstance ci, short testFileRef, Rect *testRect,
-                           short testFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0005, 0x7000, 0xA82A);
+                           short testFlags);
 
     /**
      *  SCSetTestImagePixMap()
@@ -509,8 +494,7 @@ extern "C"
      */
     ComponentResult
     SCSetTestImagePixMap(ComponentInstance ci, PixMapHandle testPixMap,
-                         Rect *testRect, short testFlags)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0006, 0x7000, 0xA82A);
+                         Rect *testRect, short testFlags);
 
     /**
      *  SCGetBestDeviceRect()
@@ -522,8 +506,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCGetBestDeviceRect(ComponentInstance ci, Rect *r)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+    SCGetBestDeviceRect(ComponentInstance ci, Rect *r);
 
     /**
      *  SCRequestImageSettings()
@@ -535,8 +518,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCRequestImageSettings(ComponentInstance ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x000A, 0x7000, 0xA82A);
+    SCRequestImageSettings(ComponentInstance ci);
 
     /**
      *  SCCompressImage()
@@ -549,8 +531,7 @@ extern "C"
      */
     ComponentResult
     SCCompressImage(ComponentInstance ci, PixMapHandle src, const Rect *srcRect,
-                    ImageDescriptionHandle *desc, Handle *data)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x000B, 0x7000, 0xA82A);
+                    ImageDescriptionHandle *desc, Handle *data);
 
     /**
      *  SCCompressPicture()
@@ -563,8 +544,7 @@ extern "C"
      */
     ComponentResult
     SCCompressPicture(ComponentInstance ci, PicHandle srcPicture,
-                      PicHandle dstPicture)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x000C, 0x7000, 0xA82A);
+                      PicHandle dstPicture);
 
     /**
      *  SCCompressPictureFile()
@@ -576,8 +556,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCCompressPictureFile(ComponentInstance ci, short srcRefNum, short dstRefNum)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+    SCCompressPictureFile(ComponentInstance ci, short srcRefNum, short dstRefNum);
 
     /**
      *  SCRequestSequenceSettings()
@@ -589,8 +568,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCRequestSequenceSettings(ComponentInstance ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x000E, 0x7000, 0xA82A);
+    SCRequestSequenceSettings(ComponentInstance ci);
 
     /**
      *  SCCompressSequenceBegin()
@@ -603,8 +581,7 @@ extern "C"
      */
     ComponentResult
     SCCompressSequenceBegin(ComponentInstance ci, PixMapHandle src,
-                            const Rect *srcRect, ImageDescriptionHandle *desc)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000F, 0x7000, 0xA82A);
+                            const Rect *srcRect, ImageDescriptionHandle *desc);
 
     /**
      *  SCCompressSequenceFrame()
@@ -618,8 +595,7 @@ extern "C"
     ComponentResult
     SCCompressSequenceFrame(ComponentInstance ci, PixMapHandle src,
                             const Rect *srcRect, Handle *data, long *dataSize,
-                            short *notSyncFlag)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0010, 0x7000, 0xA82A);
+                            short *notSyncFlag);
 
     /**
      *  SCCompressSequenceEnd()
@@ -631,8 +607,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCCompressSequenceEnd(ComponentInstance ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0011, 0x7000, 0xA82A);
+    SCCompressSequenceEnd(ComponentInstance ci);
 
     /**
      *  SCDefaultPictHandleSettings()
@@ -645,8 +620,7 @@ extern "C"
      */
     ComponentResult
     SCDefaultPictHandleSettings(ComponentInstance ci, PicHandle srcPicture,
-                                short motion)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0012, 0x7000, 0xA82A);
+                                short motion);
 
     /**
      *  SCDefaultPictFileSettings()
@@ -658,8 +632,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCDefaultPictFileSettings(ComponentInstance ci, short srcRef, short motion)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0013, 0x7000, 0xA82A);
+    SCDefaultPictFileSettings(ComponentInstance ci, short srcRef, short motion);
 
     /**
      *  SCDefaultPixMapSettings()
@@ -671,8 +644,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCDefaultPixMapSettings(ComponentInstance ci, PixMapHandle src, short motion)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0014, 0x7000, 0xA82A);
+    SCDefaultPixMapSettings(ComponentInstance ci, PixMapHandle src, short motion);
 
     /**
      *  SCGetInfo()
@@ -684,8 +656,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCGetInfo(ComponentInstance ci, OSType infoType, void *info)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0015, 0x7000, 0xA82A);
+    SCGetInfo(ComponentInstance ci, OSType infoType, void *info);
 
     /**
      *  SCSetInfo()
@@ -697,8 +668,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCSetInfo(ComponentInstance ci, OSType infoType, void *info)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0016, 0x7000, 0xA82A);
+    SCSetInfo(ComponentInstance ci, OSType infoType, void *info);
 
     /**
      *  SCNewGWorld()
@@ -710,8 +680,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCNewGWorld(ComponentInstance ci, GWorldPtr *gwp, Rect *rp, GWorldFlags flags)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0017, 0x7000, 0xA82A);
+    SCNewGWorld(ComponentInstance ci, GWorldPtr *gwp, Rect *rp, GWorldFlags flags);
 
     /**
      *  SCSetCompressFlags()
@@ -723,8 +692,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCSetCompressFlags(ComponentInstance ci, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0018, 0x7000, 0xA82A);
+    SCSetCompressFlags(ComponentInstance ci, long flags);
 
     /**
      *  SCGetCompressFlags()
@@ -736,8 +704,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCGetCompressFlags(ComponentInstance ci, long *flags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0019, 0x7000, 0xA82A);
+    SCGetCompressFlags(ComponentInstance ci, long *flags);
 
     /**
      *  SCGetSettingsAsText()
@@ -749,8 +716,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCGetSettingsAsText(ComponentInstance ci, Handle *text)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001A, 0x7000, 0xA82A);
+    SCGetSettingsAsText(ComponentInstance ci, Handle *text);
 
     /**
      *  SCGetSettingsAsAtomContainer()
@@ -762,8 +728,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCGetSettingsAsAtomContainer(ComponentInstance ci, QTAtomContainer *settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001B, 0x7000, 0xA82A);
+    SCGetSettingsAsAtomContainer(ComponentInstance ci, QTAtomContainer *settings);
 
     /**
      *  SCSetSettingsFromAtomContainer()
@@ -775,8 +740,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SCSetSettingsFromAtomContainer(ComponentInstance ci, QTAtomContainer settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001C, 0x7000, 0xA82A);
+    SCSetSettingsFromAtomContainer(ComponentInstance ci, QTAtomContainer settings);
 
     /** Note: if you're using SCCompressSequenceFrameAsync with a scForceKeyValue
      * setting, you must call SCAsyncIdle occasionally at main task time. */
@@ -793,8 +757,7 @@ extern "C"
     SCCompressSequenceFrameAsync(ComponentInstance ci, PixMapHandle src,
                                  const Rect *srcRect, Handle *data, long *dataSize,
                                  short *notSyncFlag,
-                                 ICMCompletionProcRecordPtr asyncCompletionProc)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x001D, 0x7000, 0xA82A);
+                                 ICMCompletionProcRecordPtr asyncCompletionProc);
 
     /**
      *  SCAsyncIdle()
@@ -806,8 +769,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    SCAsyncIdle(ComponentInstance ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x001E, 0x7000, 0xA82A);
+    SCAsyncIdle(ComponentInstance ci);
 
     enum
     {
@@ -826,8 +788,7 @@ extern "C"
      */
     ComponentResult
     TweenerInitialize(TweenerComponent tc, QTAtomContainer container,
-                      QTAtom tweenAtom, QTAtom dataAtom)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0001, 0x7000, 0xA82A);
+                      QTAtom tweenAtom, QTAtom dataAtom);
 
     /**
      *  TweenerDoTween()
@@ -839,8 +800,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    TweenerDoTween(TweenerComponent tc, TweenRecord *tr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0002, 0x7000, 0xA82A);
+    TweenerDoTween(TweenerComponent tc, TweenRecord *tr);
 
     /**
      *  TweenerReset()
@@ -852,8 +812,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    TweenerReset(TweenerComponent tc)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0003, 0x7000, 0xA82A);
+    TweenerReset(TweenerComponent tc);
 
     enum
     {
@@ -943,8 +902,7 @@ extern "C"
      */
     HandlerError
     TCGetCurrentTimeCode(MediaHandler mh, long *frameNum, TimeCodeDef *tcdef,
-                         TimeCodeRecord *tcrec, UserData *srcRefH)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0101, 0x7000, 0xA82A);
+                         TimeCodeRecord *tcrec, UserData *srcRefH);
 
     /**
      *  TCGetTimeCodeAtTime()
@@ -958,8 +916,7 @@ extern "C"
     HandlerError
     TCGetTimeCodeAtTime(MediaHandler mh, TimeValue mediaTime, long *frameNum,
                         TimeCodeDef *tcdef, TimeCodeRecord *tcdata,
-                        UserData *srcRefH)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0102, 0x7000, 0xA82A);
+                        UserData *srcRefH);
 
     /**
      *  TCTimeCodeToString()
@@ -972,8 +929,7 @@ extern "C"
      */
     HandlerError
     TCTimeCodeToString(MediaHandler mh, TimeCodeDef *tcdef, TimeCodeRecord *tcrec,
-                       StringPtr tcStr)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0103, 0x7000, 0xA82A);
+                       StringPtr tcStr);
 
     /**
      *  TCTimeCodeToFrameNumber()
@@ -986,8 +942,7 @@ extern "C"
      */
     HandlerError
     TCTimeCodeToFrameNumber(MediaHandler mh, TimeCodeDef *tcdef,
-                            TimeCodeRecord *tcrec, long *frameNumber)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0104, 0x7000, 0xA82A);
+                            TimeCodeRecord *tcrec, long *frameNumber);
 
     /**
      *  TCFrameNumberToTimeCode()
@@ -1000,8 +955,7 @@ extern "C"
      */
     HandlerError
     TCFrameNumberToTimeCode(MediaHandler mh, long frameNumber, TimeCodeDef *tcdef,
-                            TimeCodeRecord *tcrec)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0105, 0x7000, 0xA82A);
+                            TimeCodeRecord *tcrec);
 
     /**
      *  TCGetSourceRef()
@@ -1013,8 +967,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     HandlerError
-    TCGetSourceRef(MediaHandler mh, TimeCodeDescriptionHandle tcdH, UserData *srefH)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0106, 0x7000, 0xA82A);
+    TCGetSourceRef(MediaHandler mh, TimeCodeDescriptionHandle tcdH, UserData *srefH);
 
     /**
      *  TCSetSourceRef()
@@ -1026,8 +979,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     HandlerError
-    TCSetSourceRef(MediaHandler mh, TimeCodeDescriptionHandle tcdH, UserData srefH)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0107, 0x7000, 0xA82A);
+    TCSetSourceRef(MediaHandler mh, TimeCodeDescriptionHandle tcdH, UserData srefH);
 
     /**
      *  TCSetTimeCodeFlags()
@@ -1039,8 +991,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     HandlerError
-    TCSetTimeCodeFlags(MediaHandler mh, long flags, long flagsMask)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0108, 0x7000, 0xA82A);
+    TCSetTimeCodeFlags(MediaHandler mh, long flags, long flagsMask);
 
     /**
      *  TCGetTimeCodeFlags()
@@ -1052,8 +1003,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     HandlerError
-    TCGetTimeCodeFlags(MediaHandler mh, long *flags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0109, 0x7000, 0xA82A);
+    TCGetTimeCodeFlags(MediaHandler mh, long *flags);
 
     /**
      *  TCSetDisplayOptions()
@@ -1065,8 +1015,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     HandlerError
-    TCSetDisplayOptions(MediaHandler mh, TCTextOptionsPtr textOptions)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010A, 0x7000, 0xA82A);
+    TCSetDisplayOptions(MediaHandler mh, TCTextOptionsPtr textOptions);
 
     /**
      *  TCGetDisplayOptions()
@@ -1078,8 +1027,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     HandlerError
-    TCGetDisplayOptions(MediaHandler mh, TCTextOptionsPtr textOptions)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010B, 0x7000, 0xA82A);
+    TCGetDisplayOptions(MediaHandler mh, TCTextOptionsPtr textOptions);
 
     typedef ComponentInstance MovieImportComponent;
     typedef ComponentInstance MovieExportComponent;
@@ -1740,8 +1688,7 @@ extern "C"
     ComponentResult
     MovieImportHandle(MovieImportComponent ci, Handle dataH, Movie theMovie,
                       Track targetTrack, Track *usedTrack, TimeValue atTime,
-                      TimeValue *addedDuration, long inFlags, long *outFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0020, 0x0001, 0x7000, 0xA82A);
+                      TimeValue *addedDuration, long inFlags, long *outFlags);
 
     /**
      *  MovieImportFile()
@@ -1755,8 +1702,7 @@ extern "C"
     ComponentResult
     MovieImportFile(MovieImportComponent ci, const FSSpec *theFile, Movie theMovie,
                     Track targetTrack, Track *usedTrack, TimeValue atTime,
-                    TimeValue *addedDuration, long inFlags, long *outFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0020, 0x0002, 0x7000, 0xA82A);
+                    TimeValue *addedDuration, long inFlags, long *outFlags);
 
     /**
      *  MovieImportSetSampleDuration()
@@ -1769,8 +1715,7 @@ extern "C"
      */
     ComponentResult
     MovieImportSetSampleDuration(MovieImportComponent ci, TimeValue duration,
-                                 TimeScale scale)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0003, 0x7000, 0xA82A);
+                                 TimeScale scale);
 
     /**
      *  MovieImportSetSampleDescription()
@@ -1783,8 +1728,7 @@ extern "C"
      */
     ComponentResult
     MovieImportSetSampleDescription(MovieImportComponent ci,
-                                    SampleDescriptionHandle desc, OSType mediaType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0004, 0x7000, 0xA82A);
+                                    SampleDescriptionHandle desc, OSType mediaType);
 
     /**
      *  MovieImportSetMediaFile()
@@ -1796,8 +1740,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportSetMediaFile(MovieImportComponent ci, AliasHandle alias)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0005, 0x7000, 0xA82A);
+    MovieImportSetMediaFile(MovieImportComponent ci, AliasHandle alias);
 
     /**
      *  MovieImportSetDimensions()
@@ -1809,8 +1752,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportSetDimensions(MovieImportComponent ci, Fixed width, Fixed height)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0006, 0x7000, 0xA82A);
+    MovieImportSetDimensions(MovieImportComponent ci, Fixed width, Fixed height);
 
     /**
      *  MovieImportSetChunkSize()
@@ -1822,8 +1764,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportSetChunkSize(MovieImportComponent ci, long chunkSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+    MovieImportSetChunkSize(MovieImportComponent ci, long chunkSize);
 
     /**
      *  MovieImportSetProgressProc()
@@ -1836,8 +1777,7 @@ extern "C"
      */
     ComponentResult
     MovieImportSetProgressProc(MovieImportComponent ci, MovieProgressUPP proc,
-                               long refcon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0008, 0x7000, 0xA82A);
+                               long refcon);
 
     /**
      *  MovieImportSetAuxiliaryData()
@@ -1850,8 +1790,7 @@ extern "C"
      */
     ComponentResult
     MovieImportSetAuxiliaryData(MovieImportComponent ci, Handle data,
-                                OSType handleType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0009, 0x7000, 0xA82A);
+                                OSType handleType);
 
     /**
      *  MovieImportSetFromScrap()
@@ -1863,8 +1802,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportSetFromScrap(MovieImportComponent ci, Boolean fromScrap)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x000A, 0x7000, 0xA82A);
+    MovieImportSetFromScrap(MovieImportComponent ci, Boolean fromScrap);
 
     /**
      *  MovieImportDoUserDialog()
@@ -1877,8 +1815,7 @@ extern "C"
      */
     ComponentResult
     MovieImportDoUserDialog(MovieImportComponent ci, const FSSpec *theFile,
-                            Handle theData, Boolean *canceled)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000B, 0x7000, 0xA82A);
+                            Handle theData, Boolean *canceled);
 
     /**
      *  MovieImportSetDuration()
@@ -1890,8 +1827,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportSetDuration(MovieImportComponent ci, TimeValue duration)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
+    MovieImportSetDuration(MovieImportComponent ci, TimeValue duration);
 
     /**
      *  MovieImportGetAuxiliaryDataType()
@@ -1903,8 +1839,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportGetAuxiliaryDataType(MovieImportComponent ci, OSType *auxType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+    MovieImportGetAuxiliaryDataType(MovieImportComponent ci, OSType *auxType);
 
     /**
      *  MovieImportValidate()
@@ -1917,8 +1852,7 @@ extern "C"
      */
     ComponentResult
     MovieImportValidate(MovieImportComponent ci, const FSSpec *theFile,
-                        Handle theData, Boolean *valid)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000E, 0x7000, 0xA82A);
+                        Handle theData, Boolean *valid);
 
     /**
      *  MovieImportGetFileType()
@@ -1930,8 +1864,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportGetFileType(MovieImportComponent ci, OSType *fileType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000F, 0x7000, 0xA82A);
+    MovieImportGetFileType(MovieImportComponent ci, OSType *fileType);
 
     /**
      *  MovieImportDataRef()
@@ -1946,8 +1879,7 @@ extern "C"
     MovieImportDataRef(MovieImportComponent ci, Handle dataRef, OSType dataRefType,
                        Movie theMovie, Track targetTrack, Track *usedTrack,
                        TimeValue atTime, TimeValue *addedDuration, long inFlags,
-                       long *outFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0024, 0x0010, 0x7000, 0xA82A);
+                       long *outFlags);
 
     /**
      *  MovieImportGetSampleDescription()
@@ -1961,8 +1893,7 @@ extern "C"
     ComponentResult
     MovieImportGetSampleDescription(MovieImportComponent ci,
                                     SampleDescriptionHandle *desc,
-                                    OSType *mediaType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0011, 0x7000, 0xA82A);
+                                    OSType *mediaType);
 
     /**
      *  MovieImportGetMIMETypeList()
@@ -1974,8 +1905,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieImportGetMIMETypeList(MovieImportComponent ci, QTAtomContainer *mimeInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+    MovieImportGetMIMETypeList(MovieImportComponent ci, QTAtomContainer *mimeInfo);
 
     /**
      *  MovieImportSetOffsetAndLimit()
@@ -1988,8 +1918,7 @@ extern "C"
      */
     ComponentResult
     MovieImportSetOffsetAndLimit(MovieImportComponent ci, unsigned long offset,
-                                 unsigned long limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0013, 0x7000, 0xA82A);
+                                 unsigned long limit);
 
     /**
      *  MovieImportGetSettingsAsAtomContainer()
@@ -2002,8 +1931,7 @@ extern "C"
      */
     ComponentResult
     MovieImportGetSettingsAsAtomContainer(MovieImportComponent ci,
-                                          QTAtomContainer *settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0014, 0x7000, 0xA82A);
+                                          QTAtomContainer *settings);
 
     /**
      *  MovieImportSetSettingsFromAtomContainer()
@@ -2016,8 +1944,7 @@ extern "C"
      */
     ComponentResult
     MovieImportSetSettingsFromAtomContainer(MovieImportComponent ci,
-                                            QTAtomContainer settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0015, 0x7000, 0xA82A);
+                                            QTAtomContainer settings);
 
     /**
      *  MovieImportSetOffsetAndLimit64()
@@ -2030,8 +1957,7 @@ extern "C"
      */
     ComponentResult
     MovieImportSetOffsetAndLimit64(MovieImportComponent ci, const wide *offset,
-                                   const wide *limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0016, 0x7000, 0xA82A);
+                                   const wide *limit);
 
     /**
      *  MovieImportIdle()
@@ -2043,8 +1969,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MovieImportIdle(MovieImportComponent ci, long inFlags, long *outFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0017, 0x7000, 0xA82A);
+    MovieImportIdle(MovieImportComponent ci, long inFlags, long *outFlags);
 
     /**
      *  MovieImportValidateDataRef()
@@ -2057,8 +1982,7 @@ extern "C"
      */
     ComponentResult
     MovieImportValidateDataRef(MovieImportComponent ci, Handle dataRef,
-                               OSType dataRefType, UInt8 *valid)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0018, 0x7000, 0xA82A);
+                               OSType dataRefType, UInt8 *valid);
 
     /**
      *  MovieImportGetLoadState()
@@ -2070,8 +1994,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    MovieImportGetLoadState(MovieImportComponent ci, long *importerLoadState)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0019, 0x7000, 0xA82A);
+    MovieImportGetLoadState(MovieImportComponent ci, long *importerLoadState);
 
     /**
      *  MovieImportGetMaxLoadedTime()
@@ -2083,8 +2006,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    MovieImportGetMaxLoadedTime(MovieImportComponent ci, TimeValue *time)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001A, 0x7000, 0xA82A);
+    MovieImportGetMaxLoadedTime(MovieImportComponent ci, TimeValue *time);
 
     /**
      *  MovieImportEstimateCompletionTime()
@@ -2096,8 +2018,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    MovieImportEstimateCompletionTime(MovieImportComponent ci, TimeRecord *time)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001B, 0x7000, 0xA82A);
+    MovieImportEstimateCompletionTime(MovieImportComponent ci, TimeRecord *time);
 
     /**
      *  MovieImportSetDontBlock()
@@ -2109,8 +2030,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    MovieImportSetDontBlock(MovieImportComponent ci, Boolean dontBlock)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x001C, 0x7000, 0xA82A);
+    MovieImportSetDontBlock(MovieImportComponent ci, Boolean dontBlock);
 
     /**
      *  MovieImportGetDontBlock()
@@ -2122,8 +2042,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    MovieImportGetDontBlock(MovieImportComponent ci, Boolean *willBlock)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001D, 0x7000, 0xA82A);
+    MovieImportGetDontBlock(MovieImportComponent ci, Boolean *willBlock);
 
     /**
      *  MovieExportToHandle()
@@ -2137,8 +2056,7 @@ extern "C"
     ComponentResult
     MovieExportToHandle(MovieExportComponent ci, Handle dataH, Movie theMovie,
                         Track onlyThisTrack, TimeValue startTime,
-                        TimeValue duration)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0080, 0x7000, 0xA82A);
+                        TimeValue duration);
 
     /**
      *  MovieExportToFile()
@@ -2152,8 +2070,7 @@ extern "C"
     ComponentResult
     MovieExportToFile(MovieExportComponent ci, const FSSpec *theFile,
                       Movie theMovie, Track onlyThisTrack, TimeValue startTime,
-                      TimeValue duration)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0081, 0x7000, 0xA82A);
+                      TimeValue duration);
 
     /**
      *  MovieExportGetAuxiliaryData()
@@ -2166,8 +2083,7 @@ extern "C"
      */
     ComponentResult
     MovieExportGetAuxiliaryData(MovieExportComponent ci, Handle dataH,
-                                OSType *handleType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0083, 0x7000, 0xA82A);
+                                OSType *handleType);
 
     /**
      *  MovieExportSetProgressProc()
@@ -2180,8 +2096,7 @@ extern "C"
      */
     ComponentResult
     MovieExportSetProgressProc(MovieExportComponent ci, MovieProgressUPP proc,
-                               long refcon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0084, 0x7000, 0xA82A);
+                               long refcon);
 
     /**
      *  MovieExportSetSampleDescription()
@@ -2194,8 +2109,7 @@ extern "C"
      */
     ComponentResult
     MovieExportSetSampleDescription(MovieExportComponent ci,
-                                    SampleDescriptionHandle desc, OSType mediaType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0085, 0x7000, 0xA82A);
+                                    SampleDescriptionHandle desc, OSType mediaType);
 
     /**
      *  MovieExportDoUserDialog()
@@ -2209,8 +2123,7 @@ extern "C"
     ComponentResult
     MovieExportDoUserDialog(MovieExportComponent ci, Movie theMovie,
                             Track onlyThisTrack, TimeValue startTime,
-                            TimeValue duration, Boolean *canceled)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0086, 0x7000, 0xA82A);
+                            TimeValue duration, Boolean *canceled);
 
     /**
      *  MovieExportGetCreatorType()
@@ -2222,8 +2135,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieExportGetCreatorType(MovieExportComponent ci, OSType *creator)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0087, 0x7000, 0xA82A);
+    MovieExportGetCreatorType(MovieExportComponent ci, OSType *creator);
 
     /**
      *  MovieExportToDataRef()
@@ -2237,8 +2149,7 @@ extern "C"
     ComponentResult
     MovieExportToDataRef(MovieExportComponent ci, Handle dataRef,
                          OSType dataRefType, Movie theMovie, Track onlyThisTrack,
-                         TimeValue startTime, TimeValue duration)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x0088, 0x7000, 0xA82A);
+                         TimeValue startTime, TimeValue duration);
 
     /**
      *  MovieExportFromProceduresToDataRef()
@@ -2251,8 +2162,7 @@ extern "C"
      */
     ComponentResult
     MovieExportFromProceduresToDataRef(MovieExportComponent ci, Handle dataRef,
-                                       OSType dataRefType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0089, 0x7000, 0xA82A);
+                                       OSType dataRefType);
 
     /**
      *  MovieExportAddDataSource()
@@ -2267,8 +2177,7 @@ extern "C"
     MovieExportAddDataSource(MovieExportComponent ci, OSType trackType,
                              TimeScale scale, long *trackID,
                              MovieExportGetPropertyUPP getPropertyProc,
-                             MovieExportGetDataUPP getDataProc, void *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x008A, 0x7000, 0xA82A);
+                             MovieExportGetDataUPP getDataProc, void *refCon);
 
     /**
      *  MovieExportValidate()
@@ -2281,8 +2190,7 @@ extern "C"
      */
     ComponentResult
     MovieExportValidate(MovieExportComponent ci, Movie theMovie,
-                        Track onlyThisTrack, Boolean *valid)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x008B, 0x7000, 0xA82A);
+                        Track onlyThisTrack, Boolean *valid);
 
     /**
      *  MovieExportGetSettingsAsAtomContainer()
@@ -2295,8 +2203,7 @@ extern "C"
      */
     ComponentResult
     MovieExportGetSettingsAsAtomContainer(MovieExportComponent ci,
-                                          QTAtomContainer *settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008C, 0x7000, 0xA82A);
+                                          QTAtomContainer *settings);
 
     /**
      *  MovieExportSetSettingsFromAtomContainer()
@@ -2309,8 +2216,7 @@ extern "C"
      */
     ComponentResult
     MovieExportSetSettingsFromAtomContainer(MovieExportComponent ci,
-                                            QTAtomContainer settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008D, 0x7000, 0xA82A);
+                                            QTAtomContainer settings);
 
     /**
      *  MovieExportGetFileNameExtension()
@@ -2322,8 +2228,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieExportGetFileNameExtension(MovieExportComponent ci, OSType *extension)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008E, 0x7000, 0xA82A);
+    MovieExportGetFileNameExtension(MovieExportComponent ci, OSType *extension);
 
     /**
      *  MovieExportGetShortFileTypeString()
@@ -2335,8 +2240,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieExportGetShortFileTypeString(MovieExportComponent ci, Str255 typeString)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008F, 0x7000, 0xA82A);
+    MovieExportGetShortFileTypeString(MovieExportComponent ci, Str255 typeString);
 
     /**
      *  MovieExportGetSourceMediaType()
@@ -2348,8 +2252,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MovieExportGetSourceMediaType(MovieExportComponent ci, OSType *mediaType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0090, 0x7000, 0xA82A);
+    MovieExportGetSourceMediaType(MovieExportComponent ci, OSType *mediaType);
 
     /**
      *  MovieExportSetGetMoviePropertyProc()
@@ -2363,8 +2266,7 @@ extern "C"
     ComponentResult
     MovieExportSetGetMoviePropertyProc(MovieExportComponent ci,
                                        MovieExportGetPropertyUPP getPropertyProc,
-                                       void *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0091, 0x7000, 0xA82A);
+                                       void *refCon);
 
     /** Text Export Display Info data structure*/
     struct TextDisplayData
@@ -2397,8 +2299,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    TextExportGetDisplayData(TextExportComponent ci, TextDisplayData *textDisplay)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0100, 0x7000, 0xA82A);
+    TextExportGetDisplayData(TextExportComponent ci, TextDisplayData *textDisplay);
 
     /**
      *  TextExportGetTimeFraction()
@@ -2410,8 +2311,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    TextExportGetTimeFraction(TextExportComponent ci, long *movieTimeFraction)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+    TextExportGetTimeFraction(TextExportComponent ci, long *movieTimeFraction);
 
     /**
      *  TextExportSetTimeFraction()
@@ -2423,8 +2323,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    TextExportSetTimeFraction(TextExportComponent ci, long movieTimeFraction)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
+    TextExportSetTimeFraction(TextExportComponent ci, long movieTimeFraction);
 
     /**
      *  TextExportGetSettings()
@@ -2436,8 +2335,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    TextExportGetSettings(TextExportComponent ci, long *setting)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
+    TextExportGetSettings(TextExportComponent ci, long *setting);
 
     /**
      *  TextExportSetSettings()
@@ -2449,8 +2347,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    TextExportSetSettings(TextExportComponent ci, long setting)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0104, 0x7000, 0xA82A);
+    TextExportSetSettings(TextExportComponent ci, long setting);
 
     /**
      *  MIDIImportGetSettings()
@@ -2462,8 +2359,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MIDIImportGetSettings(TextExportComponent ci, long *setting)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0100, 0x7000, 0xA82A);
+    MIDIImportGetSettings(TextExportComponent ci, long *setting);
 
     /**
      *  MIDIImportSetSettings()
@@ -2475,8 +2371,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MIDIImportSetSettings(TextExportComponent ci, long setting)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+    MIDIImportSetSettings(TextExportComponent ci, long setting);
 
     /**
      *  MovieExportNewGetDataAndPropertiesProcs()
@@ -2492,8 +2387,7 @@ extern "C"
         MovieExportComponent ci, OSType trackType, TimeScale *scale, Movie theMovie,
         Track theTrack, TimeValue startTime, TimeValue duration,
         MovieExportGetPropertyUPP *getPropertyProc,
-        MovieExportGetDataUPP *getDataProc, void **refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0024, 0x0100, 0x7000, 0xA82A);
+        MovieExportGetDataUPP *getDataProc, void **refCon);
 
     /**
      *  MovieExportDisposeGetDataAndPropertiesProcs()
@@ -2507,8 +2401,7 @@ extern "C"
     ComponentResult
     MovieExportDisposeGetDataAndPropertiesProcs(
         MovieExportComponent ci, MovieExportGetPropertyUPP getPropertyProc,
-        MovieExportGetDataUPP getDataProc, void *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0101, 0x7000, 0xA82A);
+        MovieExportGetDataUPP getDataProc, void *refCon);
 
     enum
     {
@@ -2533,8 +2426,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImageImportSetSequenceEnabled(GraphicImageMovieImportComponent ci,
-                                          Boolean enable)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0100, 0x7000, 0xA82A);
+                                          Boolean enable);
 
     /**
      *  GraphicsImageImportGetSequenceEnabled()
@@ -2547,8 +2439,7 @@ extern "C"
      */
     ComponentResult
     GraphicsImageImportGetSequenceEnabled(GraphicImageMovieImportComponent ci,
-                                          Boolean *enable)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+                                          Boolean *enable);
 
     /****************
 
@@ -2579,8 +2470,7 @@ extern "C"
      */
     ComponentResult
     PreviewShowData(pnotComponent p, OSType dataType, Handle data,
-                    const Rect *inHere)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0001, 0x7000, 0xA82A);
+                    const Rect *inHere);
 
     /**
      *  PreviewMakePreview()
@@ -2593,8 +2483,7 @@ extern "C"
      */
     ComponentResult
     PreviewMakePreview(pnotComponent p, OSType *previewType, Handle *previewResult,
-                       const FSSpec *sourceFile, ICMProgressProcRecordPtr progress)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0002, 0x7000, 0xA82A);
+                       const FSSpec *sourceFile, ICMProgressProcRecordPtr progress);
 
     /**
      *  PreviewMakePreviewReference()
@@ -2607,8 +2496,7 @@ extern "C"
      */
     ComponentResult
     PreviewMakePreviewReference(pnotComponent p, OSType *previewType, short *resID,
-                                const FSSpec *sourceFile)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0003, 0x7000, 0xA82A);
+                                const FSSpec *sourceFile);
 
     /**
      *  PreviewEvent()
@@ -2620,8 +2508,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    PreviewEvent(pnotComponent p, EventRecord *e, Boolean *handledEvent)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0004, 0x7000, 0xA82A);
+    PreviewEvent(pnotComponent p, EventRecord *e, Boolean *handledEvent);
 
     typedef ComponentInstance DataCompressorComponent;
     typedef ComponentInstance DataDecompressorComponent;
@@ -2646,8 +2533,7 @@ extern "C"
      */
     ComponentResult
     DataCodecDecompress(DataCodecComponent dc, void *srcData, UInt32 srcSize,
-                        void *dstData, UInt32 dstBufferSize)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0001, 0x7000, 0xA82A);
+                        void *dstData, UInt32 dstBufferSize);
 
     /**
      *  DataCodecGetCompressBufferSize()
@@ -2660,8 +2546,7 @@ extern "C"
      */
     ComponentResult
     DataCodecGetCompressBufferSize(DataCodecComponent dc, UInt32 srcSize,
-                                   UInt32 *dstSize)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0002, 0x7000, 0xA82A);
+                                   UInt32 *dstSize);
 
     /**
      *  DataCodecCompress()
@@ -2675,8 +2560,7 @@ extern "C"
     ComponentResult
     DataCodecCompress(DataCodecComponent dc, void *srcData, UInt32 srcSize,
                       void *dstData, UInt32 dstBufferSize, UInt32 *actualDstSize,
-                      UInt32 *decompressSlop)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x0003, 0x7000, 0xA82A);
+                      UInt32 *decompressSlop);
 
     /**
      *  DataCodecBeginInterruptSafe()
@@ -2688,8 +2572,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataCodecBeginInterruptSafe(DataCodecComponent dc, unsigned long maxSrcSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+    DataCodecBeginInterruptSafe(DataCodecComponent dc, unsigned long maxSrcSize);
 
     /**
      *  DataCodecEndInterruptSafe()
@@ -2701,8 +2584,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataCodecEndInterruptSafe(DataCodecComponent dc)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0005, 0x7000, 0xA82A);
+    DataCodecEndInterruptSafe(DataCodecComponent dc);
 
     /**
      *  DataCodecDecompressPartial()
@@ -2717,8 +2599,7 @@ extern "C"
     DataCodecDecompressPartial(DataCodecComponent dc, void **next_in,
                                unsigned long *avail_in, unsigned long *total_in,
                                void **next_out, unsigned long *avail_out,
-                               unsigned long *total_out, Boolean *didFinish)
-        FIVEWORDINLINE(0x2F3C, 0x001C, 0x0006, 0x7000, 0xA82A);
+                               unsigned long *total_out, Boolean *didFinish);
 
     /**
      *  DataCodecCompressPartial()
@@ -2734,8 +2615,7 @@ extern "C"
                              unsigned long *avail_in, unsigned long *total_in,
                              void **next_out, unsigned long *avail_out,
                              unsigned long *total_out, Boolean tryToFinish,
-                             Boolean *didFinish)
-        FIVEWORDINLINE(0x2F3C, 0x001E, 0x0007, 0x7000, 0xA82A);
+                             Boolean *didFinish);
 
     typedef CALLBACK_API(void, DataHCompletionProcPtr)(Ptr request, long refcon,
                                                        OSErr err);
@@ -2846,8 +2726,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetData(DataHandler dh, Handle h, long hOffset, long offset, long size)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0002, 0x7000, 0xA82A);
+    DataHGetData(DataHandler dh, Handle h, long hOffset, long offset, long size);
 
     /**
      *  DataHPutData()
@@ -2859,8 +2738,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHPutData(DataHandler dh, Handle h, long hOffset, long *offset, long size)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0003, 0x7000, 0xA82A);
+    DataHPutData(DataHandler dh, Handle h, long hOffset, long *offset, long size);
 
     /**
      *  DataHFlushData()
@@ -2872,8 +2750,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHFlushData(DataHandler dh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0004, 0x7000, 0xA82A);
+    DataHFlushData(DataHandler dh);
 
     /**
      *  DataHOpenForWrite()
@@ -2885,8 +2762,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHOpenForWrite(DataHandler dh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0005, 0x7000, 0xA82A);
+    DataHOpenForWrite(DataHandler dh);
 
     /**
      *  DataHCloseForWrite()
@@ -2898,8 +2774,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHCloseForWrite(DataHandler dh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0006, 0x7000, 0xA82A);
+    DataHCloseForWrite(DataHandler dh);
 
     /**
      *  DataHOpenForRead()
@@ -2911,8 +2786,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHOpenForRead(DataHandler dh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0008, 0x7000, 0xA82A);
+    DataHOpenForRead(DataHandler dh);
 
     /**
      *  DataHCloseForRead()
@@ -2924,8 +2798,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHCloseForRead(DataHandler dh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0009, 0x7000, 0xA82A);
+    DataHCloseForRead(DataHandler dh);
 
     /**
      *  DataHSetDataRef()
@@ -2937,8 +2810,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHSetDataRef(DataHandler dh, Handle dataRef)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000A, 0x7000, 0xA82A);
+    DataHSetDataRef(DataHandler dh, Handle dataRef);
 
     /**
      *  DataHGetDataRef()
@@ -2950,8 +2822,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetDataRef(DataHandler dh, Handle *dataRef)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000B, 0x7000, 0xA82A);
+    DataHGetDataRef(DataHandler dh, Handle *dataRef);
 
     /**
      *  DataHCompareDataRef()
@@ -2963,8 +2834,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHCompareDataRef(DataHandler dh, Handle dataRef, Boolean *equal)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x000C, 0x7000, 0xA82A);
+    DataHCompareDataRef(DataHandler dh, Handle dataRef, Boolean *equal);
 
     /**
      *  DataHTask()
@@ -2976,8 +2846,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHTask(DataHandler dh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x000D, 0x7000, 0xA82A);
+    DataHTask(DataHandler dh);
 
     /**
      *  DataHScheduleData()
@@ -2991,8 +2860,7 @@ extern "C"
     ComponentResult
     DataHScheduleData(DataHandler dh, Ptr PlaceToPutDataPtr, long FileOffset,
                       long DataSize, long RefCon, DataHSchedulePtr scheduleRec,
-                      DataHCompletionUPP CompletionRtn)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x000E, 0x7000, 0xA82A);
+                      DataHCompletionUPP CompletionRtn);
 
     /**
      *  DataHFinishData()
@@ -3004,8 +2872,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHFinishData(DataHandler dh, Ptr PlaceToPutDataPtr, Boolean Cancel)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x000F, 0x7000, 0xA82A);
+    DataHFinishData(DataHandler dh, Ptr PlaceToPutDataPtr, Boolean Cancel);
 
     /**
      *  DataHFlushCache()
@@ -3017,8 +2884,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHFlushCache(DataHandler dh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0010, 0x7000, 0xA82A);
+    DataHFlushCache(DataHandler dh);
 
     /**
      *  DataHResolveDataRef()
@@ -3031,8 +2897,7 @@ extern "C"
      */
     ComponentResult
     DataHResolveDataRef(DataHandler dh, Handle theDataRef, Boolean *wasChanged,
-                        Boolean userInterfaceAllowed)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0011, 0x7000, 0xA82A);
+                        Boolean userInterfaceAllowed);
 
     /**
      *  DataHGetFileSize()
@@ -3044,8 +2909,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetFileSize(DataHandler dh, long *fileSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+    DataHGetFileSize(DataHandler dh, long *fileSize);
 
     /**
      *  DataHCanUseDataRef()
@@ -3057,8 +2921,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHCanUseDataRef(DataHandler dh, Handle dataRef, long *useFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0013, 0x7000, 0xA82A);
+    DataHCanUseDataRef(DataHandler dh, Handle dataRef, long *useFlags);
 
     /**
      *  DataHGetVolumeList()
@@ -3070,8 +2933,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetVolumeList(DataHandler dh, DataHVolumeList *volumeList)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0014, 0x7000, 0xA82A);
+    DataHGetVolumeList(DataHandler dh, DataHVolumeList *volumeList);
 
     /**
      *  DataHWrite()
@@ -3084,8 +2946,7 @@ extern "C"
      */
     ComponentResult
     DataHWrite(DataHandler dh, Ptr data, long offset, long size,
-               DataHCompletionUPP completion, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0015, 0x7000, 0xA82A);
+               DataHCompletionUPP completion, long refCon);
 
     /**
      *  DataHPreextend()
@@ -3098,8 +2959,7 @@ extern "C"
      */
     ComponentResult
     DataHPreextend(DataHandler dh, unsigned long maxToAdd,
-                   unsigned long *spaceAdded)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0016, 0x7000, 0xA82A);
+                   unsigned long *spaceAdded);
 
     /**
      *  DataHSetFileSize()
@@ -3111,8 +2971,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHSetFileSize(DataHandler dh, long fileSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0017, 0x7000, 0xA82A);
+    DataHSetFileSize(DataHandler dh, long fileSize);
 
     /**
      *  DataHGetFreeSpace()
@@ -3124,8 +2983,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetFreeSpace(DataHandler dh, unsigned long *freeSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0018, 0x7000, 0xA82A);
+    DataHGetFreeSpace(DataHandler dh, unsigned long *freeSize);
 
     /**
      *  DataHCreateFile()
@@ -3137,8 +2995,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHCreateFile(DataHandler dh, OSType creator, Boolean deleteExisting)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0019, 0x7000, 0xA82A);
+    DataHCreateFile(DataHandler dh, OSType creator, Boolean deleteExisting);
 
     /**
      *  DataHGetPreferredBlockSize()
@@ -3150,8 +3007,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetPreferredBlockSize(DataHandler dh, long *blockSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001A, 0x7000, 0xA82A);
+    DataHGetPreferredBlockSize(DataHandler dh, long *blockSize);
 
     /**
      *  DataHGetDeviceIndex()
@@ -3163,8 +3019,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetDeviceIndex(DataHandler dh, long *deviceIndex)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001B, 0x7000, 0xA82A);
+    DataHGetDeviceIndex(DataHandler dh, long *deviceIndex);
 
     /**
      *  DataHIsStreamingDataHandler()
@@ -3176,8 +3031,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHIsStreamingDataHandler(DataHandler dh, Boolean *yes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001C, 0x7000, 0xA82A);
+    DataHIsStreamingDataHandler(DataHandler dh, Boolean *yes);
 
     /**
      *  DataHGetDataInBuffer()
@@ -3189,8 +3043,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetDataInBuffer(DataHandler dh, long startOffset, long *size)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001D, 0x7000, 0xA82A);
+    DataHGetDataInBuffer(DataHandler dh, long startOffset, long *size);
 
     /**
      *  DataHGetScheduleAheadTime()
@@ -3202,8 +3055,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetScheduleAheadTime(DataHandler dh, long *millisecs)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001E, 0x7000, 0xA82A);
+    DataHGetScheduleAheadTime(DataHandler dh, long *millisecs);
 
     /**
      *  DataHSetCacheSizeLimit()
@@ -3215,8 +3067,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHSetCacheSizeLimit(DataHandler dh, Size cacheSizeLimit)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001F, 0x7000, 0xA82A);
+    DataHSetCacheSizeLimit(DataHandler dh, Size cacheSizeLimit);
 
     /**
      *  DataHGetCacheSizeLimit()
@@ -3228,8 +3079,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetCacheSizeLimit(DataHandler dh, Size *cacheSizeLimit)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0020, 0x7000, 0xA82A);
+    DataHGetCacheSizeLimit(DataHandler dh, Size *cacheSizeLimit);
 
     /**
      *  DataHGetMovie()
@@ -3241,8 +3091,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetMovie(DataHandler dh, Movie *theMovie, short *id)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0021, 0x7000, 0xA82A);
+    DataHGetMovie(DataHandler dh, Movie *theMovie, short *id);
 
     /**
      *  DataHAddMovie()
@@ -3254,8 +3103,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHAddMovie(DataHandler dh, Movie theMovie, short *id)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0022, 0x7000, 0xA82A);
+    DataHAddMovie(DataHandler dh, Movie theMovie, short *id);
 
     /**
      *  DataHUpdateMovie()
@@ -3267,8 +3115,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHUpdateMovie(DataHandler dh, Movie theMovie, short id)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0023, 0x7000, 0xA82A);
+    DataHUpdateMovie(DataHandler dh, Movie theMovie, short id);
 
     /**
      *  DataHDoesBuffer()
@@ -3280,8 +3127,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHDoesBuffer(DataHandler dh, Boolean *buffersReads, Boolean *buffersWrites)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0024, 0x7000, 0xA82A);
+    DataHDoesBuffer(DataHandler dh, Boolean *buffersReads, Boolean *buffersWrites);
 
     /**
      *  DataHGetFileName()
@@ -3293,8 +3139,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetFileName(DataHandler dh, Str255 str)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0025, 0x7000, 0xA82A);
+    DataHGetFileName(DataHandler dh, Str255 str);
 
     /**
      *  DataHGetAvailableFileSize()
@@ -3306,8 +3151,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetAvailableFileSize(DataHandler dh, long *fileSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0026, 0x7000, 0xA82A);
+    DataHGetAvailableFileSize(DataHandler dh, long *fileSize);
 
     /**
      *  DataHGetMacOSFileType()
@@ -3319,8 +3163,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetMacOSFileType(DataHandler dh, OSType *fileType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0027, 0x7000, 0xA82A);
+    DataHGetMacOSFileType(DataHandler dh, OSType *fileType);
 
     /**
      *  DataHGetMIMEType()
@@ -3332,8 +3175,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHGetMIMEType(DataHandler dh, Str255 mimeType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0028, 0x7000, 0xA82A);
+    DataHGetMIMEType(DataHandler dh, Str255 mimeType);
 
     /**
      *  DataHSetDataRefWithAnchor()
@@ -3346,8 +3188,7 @@ extern "C"
      */
     ComponentResult
     DataHSetDataRefWithAnchor(DataHandler dh, Handle anchorDataRef,
-                              OSType dataRefType, Handle dataRef)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0029, 0x7000, 0xA82A);
+                              OSType dataRefType, Handle dataRef);
 
     /**
      *  DataHGetDataRefWithAnchor()
@@ -3360,8 +3201,7 @@ extern "C"
      */
     ComponentResult
     DataHGetDataRefWithAnchor(DataHandler dh, Handle anchorDataRef,
-                              OSType dataRefType, Handle *dataRef)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x002A, 0x7000, 0xA82A);
+                              OSType dataRefType, Handle *dataRef);
 
     /**
      *  DataHSetMacOSFileType()
@@ -3373,8 +3213,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHSetMacOSFileType(DataHandler dh, OSType fileType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002B, 0x7000, 0xA82A);
+    DataHSetMacOSFileType(DataHandler dh, OSType fileType);
 
     /**
      *  DataHSetTimeBase()
@@ -3386,8 +3225,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    DataHSetTimeBase(DataHandler dh, TimeBase tb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002C, 0x7000, 0xA82A);
+    DataHSetTimeBase(DataHandler dh, TimeBase tb);
 
     /**
      *  DataHGetInfoFlags()
@@ -3399,8 +3237,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    DataHGetInfoFlags(DataHandler dh, UInt32 *flags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002D, 0x7000, 0xA82A);
+    DataHGetInfoFlags(DataHandler dh, UInt32 *flags);
 
     /**
      *  DataHScheduleData64()
@@ -3415,8 +3252,7 @@ extern "C"
     DataHScheduleData64(DataHandler dh, Ptr PlaceToPutDataPtr,
                         const wide *FileOffset, long DataSize, long RefCon,
                         DataHSchedulePtr scheduleRec,
-                        DataHCompletionUPP CompletionRtn)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x002E, 0x7000, 0xA82A);
+                        DataHCompletionUPP CompletionRtn);
 
     /**
      *  DataHWrite64()
@@ -3429,8 +3265,7 @@ extern "C"
      */
     ComponentResult
     DataHWrite64(DataHandler dh, Ptr data, const wide *offset, long size,
-                 DataHCompletionUPP completion, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x002F, 0x7000, 0xA82A);
+                 DataHCompletionUPP completion, long refCon);
 
     /**
      *  DataHGetFileSize64()
@@ -3442,8 +3277,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    DataHGetFileSize64(DataHandler dh, wide *fileSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0030, 0x7000, 0xA82A);
+    DataHGetFileSize64(DataHandler dh, wide *fileSize);
 
     /**
      *  DataHPreextend64()
@@ -3455,8 +3289,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    DataHPreextend64(DataHandler dh, const wide *maxToAdd, wide *spaceAdded)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0031, 0x7000, 0xA82A);
+    DataHPreextend64(DataHandler dh, const wide *maxToAdd, wide *spaceAdded);
 
     /**
      *  DataHSetFileSize64()
@@ -3468,8 +3301,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    DataHSetFileSize64(DataHandler dh, const wide *fileSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0032, 0x7000, 0xA82A);
+    DataHSetFileSize64(DataHandler dh, const wide *fileSize);
 
     /**
      *  DataHGetFreeSpace64()
@@ -3481,8 +3313,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    DataHGetFreeSpace64(DataHandler dh, wide *freeSize)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0033, 0x7000, 0xA82A);
+    DataHGetFreeSpace64(DataHandler dh, wide *freeSize);
 
     /**
      *  DataHAppend64()
@@ -3494,8 +3325,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    DataHAppend64(DataHandler dh, void *data, wide *fileOffset, unsigned long size)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0034, 0x7000, 0xA82A);
+    DataHAppend64(DataHandler dh, void *data, wide *fileOffset, unsigned long size);
 
     /**
      *  DataHReadAsync()
@@ -3509,8 +3339,7 @@ extern "C"
     ComponentResult
     DataHReadAsync(DataHandler dh, void *dataPtr, UInt32 dataSize,
                    const wide *dataOffset, DataHCompletionUPP completion,
-                   long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0035, 0x7000, 0xA82A);
+                   long refCon);
 
     /**
      *  DataHPollRead()
@@ -3522,8 +3351,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    DataHPollRead(DataHandler dh, void *dataPtr, UInt32 *dataSizeSoFar)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0036, 0x7000, 0xA82A);
+    DataHPollRead(DataHandler dh, void *dataPtr, UInt32 *dataSizeSoFar);
 
     /**
      *  DataHGetDataAvailability()
@@ -3536,8 +3364,7 @@ extern "C"
      */
     ComponentResult
     DataHGetDataAvailability(DataHandler dh, long offset, long len,
-                             long *missing_offset, long *missing_len)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0037, 0x7000, 0xA82A);
+                             long *missing_offset, long *missing_len);
 
     /**
      *  DataHGetFileSizeAsync()
@@ -3550,8 +3377,7 @@ extern "C"
      */
     ComponentResult
     DataHGetFileSizeAsync(DataHandler dh, wide *fileSize,
-                          DataHCompletionUPP completionRtn, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x003A, 0x7000, 0xA82A);
+                          DataHCompletionUPP completionRtn, long refCon);
 
     /**
      *  DataHGetDataRefAsType()
@@ -3563,8 +3389,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    DataHGetDataRefAsType(DataHandler dh, OSType requestedType, Handle *dataRef)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x003B, 0x7000, 0xA82A);
+    DataHGetDataRefAsType(DataHandler dh, OSType requestedType, Handle *dataRef);
 
     /**
      *  DataHSetDataRefExtension()
@@ -3576,8 +3401,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    DataHSetDataRefExtension(DataHandler dh, Handle extension, OSType idType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x003C, 0x7000, 0xA82A);
+    DataHSetDataRefExtension(DataHandler dh, Handle extension, OSType idType);
 
     /**
      *  DataHGetDataRefExtension()
@@ -3589,8 +3413,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    DataHGetDataRefExtension(DataHandler dh, Handle *extension, OSType idType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x003D, 0x7000, 0xA82A);
+    DataHGetDataRefExtension(DataHandler dh, Handle *extension, OSType idType);
 
     /**
      *  DataHGetMovieWithFlags()
@@ -3602,8 +3425,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    DataHGetMovieWithFlags(DataHandler dh, Movie *theMovie, short *id, short flags)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x003E, 0x7000, 0xA82A);
+    DataHGetMovieWithFlags(DataHandler dh, Movie *theMovie, short *id, short flags);
 
     /**
      *  DataHGetFileTypeOrdering()
@@ -3616,8 +3438,7 @@ extern "C"
      */
     ComponentResult
     DataHGetFileTypeOrdering(DataHandler dh,
-                             DataHFileTypeOrderingHandle *orderingListHandle)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0040, 0x7000, 0xA82A);
+                             DataHFileTypeOrderingHandle *orderingListHandle);
 
     /** flags for DataHCreateFileWithFlags*/
     enum
@@ -3636,8 +3457,7 @@ extern "C"
      */
     ComponentResult
     DataHCreateFileWithFlags(DataHandler dh, OSType creator, Boolean deleteExisting,
-                             UInt32 flags)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0041, 0x7000, 0xA82A);
+                             UInt32 flags);
 
     /**
      *  DataHGetMIMETypeAsync()
@@ -3650,8 +3470,7 @@ extern "C"
      */
     ComponentResult
     DataHGetMIMETypeAsync(DataHandler dh, Str255 mimeType,
-                          DataHCompletionUPP completionRtn, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0042, 0x7000, 0xA82A);
+                          DataHCompletionUPP completionRtn, long refCon);
 
     /**
      *  DataHGetInfo()
@@ -3664,8 +3483,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0.1 and later
      */
     ComponentResult
-    DataHGetInfo(DataHandler dh, OSType what, void *info)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0043, 0x7000, 0xA82A);
+    DataHGetInfo(DataHandler dh, OSType what, void *info);
 
     /**
      *  DataHPlaybackHints()
@@ -3678,8 +3496,7 @@ extern "C"
      */
     ComponentResult
     DataHPlaybackHints(DataHandler dh, long flags, unsigned long minFileOffset,
-                       unsigned long maxFileOffset, long bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0103, 0x7000, 0xA82A);
+                       unsigned long maxFileOffset, long bytesPerSecond);
 
     /**
      *  DataHPlaybackHints64()
@@ -3692,8 +3509,7 @@ extern "C"
      */
     ComponentResult
     DataHPlaybackHints64(DataHandler dh, long flags, const wide *minFileOffset,
-                         const wide *maxFileOffset, long bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x010E, 0x7000, 0xA82A);
+                         const wide *maxFileOffset, long bytesPerSecond);
 
     /** Symbolic constants for DataHGetDataRate*/
     enum
@@ -3712,8 +3528,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    DataHGetDataRate(DataHandler dh, long flags, long *bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0110, 0x7000, 0xA82A);
+    DataHGetDataRate(DataHandler dh, long flags, long *bytesPerSecond);
 
     /** Flags for DataHSetTimeHints*/
     enum
@@ -3734,8 +3549,7 @@ extern "C"
      */
     ComponentResult
     DataHSetTimeHints(DataHandler dh, long flags, long bandwidthPriority,
-                      TimeScale scale, TimeValue minTime, TimeValue maxTime)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0111, 0x7000, 0xA82A);
+                      TimeScale scale, TimeValue minTime, TimeValue maxTime);
 
     /** Standard type for video digitizers */
     enum
@@ -3968,8 +3782,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetMaxSrcRect(VideoDigitizerComponent ci, short inputStd, Rect *maxSrcRect)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0001, 0x7000, 0xA82A);
+    VDGetMaxSrcRect(VideoDigitizerComponent ci, short inputStd, Rect *maxSrcRect);
 
     /**
      *  VDGetActiveSrcRect()
@@ -3982,8 +3795,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetActiveSrcRect(VideoDigitizerComponent ci, short inputStd,
-                       Rect *activeSrcRect)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0002, 0x7000, 0xA82A);
+                       Rect *activeSrcRect);
 
     /**
      *  VDSetDigitizerRect()
@@ -3995,8 +3807,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetDigitizerRect(VideoDigitizerComponent ci, Rect *digitizerRect)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    VDSetDigitizerRect(VideoDigitizerComponent ci, Rect *digitizerRect);
 
     /**
      *  VDGetDigitizerRect()
@@ -4008,8 +3819,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetDigitizerRect(VideoDigitizerComponent ci, Rect *digitizerRect)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+    VDGetDigitizerRect(VideoDigitizerComponent ci, Rect *digitizerRect);
 
     /**
      *  VDGetVBlankRect()
@@ -4021,8 +3831,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetVBlankRect(VideoDigitizerComponent ci, short inputStd, Rect *vBlankRect)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0005, 0x7000, 0xA82A);
+    VDGetVBlankRect(VideoDigitizerComponent ci, short inputStd, Rect *vBlankRect);
 
     /**
      *  VDGetMaskPixMap()
@@ -4034,8 +3843,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetMaskPixMap(VideoDigitizerComponent ci, PixMapHandle maskPixMap)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0006, 0x7000, 0xA82A);
+    VDGetMaskPixMap(VideoDigitizerComponent ci, PixMapHandle maskPixMap);
 
     /**
      *  VDGetPlayThruDestination()
@@ -4048,8 +3856,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetPlayThruDestination(VideoDigitizerComponent ci, PixMapHandle *dest,
-                             Rect *destRect, MatrixRecord *m, RgnHandle *mask)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0008, 0x7000, 0xA82A);
+                             Rect *destRect, MatrixRecord *m, RgnHandle *mask);
 
     /**
      *  VDUseThisCLUT()
@@ -4061,8 +3868,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDUseThisCLUT(VideoDigitizerComponent ci, CTabHandle colorTableHandle)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0009, 0x7000, 0xA82A);
+    VDUseThisCLUT(VideoDigitizerComponent ci, CTabHandle colorTableHandle);
 
     /**
      *  VDSetInputGammaValue()
@@ -4075,8 +3881,7 @@ extern "C"
      */
     VideoDigitizerError
     VDSetInputGammaValue(VideoDigitizerComponent ci, Fixed channel1, Fixed channel2,
-                         Fixed channel3)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000A, 0x7000, 0xA82A);
+                         Fixed channel3);
 
     /**
      *  VDGetInputGammaValue()
@@ -4089,8 +3894,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetInputGammaValue(VideoDigitizerComponent ci, Fixed *channel1,
-                         Fixed *channel2, Fixed *channel3)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000B, 0x7000, 0xA82A);
+                         Fixed *channel2, Fixed *channel3);
 
     /**
      *  VDSetBrightness()
@@ -4102,8 +3906,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetBrightness(VideoDigitizerComponent ci, unsigned short *brightness)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
+    VDSetBrightness(VideoDigitizerComponent ci, unsigned short *brightness);
 
     /**
      *  VDGetBrightness()
@@ -4115,8 +3918,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetBrightness(VideoDigitizerComponent ci, unsigned short *brightness)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+    VDGetBrightness(VideoDigitizerComponent ci, unsigned short *brightness);
 
     /**
      *  VDSetContrast()
@@ -4128,8 +3930,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetContrast(VideoDigitizerComponent ci, unsigned short *contrast)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000E, 0x7000, 0xA82A);
+    VDSetContrast(VideoDigitizerComponent ci, unsigned short *contrast);
 
     /**
      *  VDSetHue()
@@ -4141,8 +3942,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetHue(VideoDigitizerComponent ci, unsigned short *hue)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000F, 0x7000, 0xA82A);
+    VDSetHue(VideoDigitizerComponent ci, unsigned short *hue);
 
     /**
      *  VDSetSharpness()
@@ -4154,8 +3954,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetSharpness(VideoDigitizerComponent ci, unsigned short *sharpness)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0010, 0x7000, 0xA82A);
+    VDSetSharpness(VideoDigitizerComponent ci, unsigned short *sharpness);
 
     /**
      *  VDSetSaturation()
@@ -4167,8 +3966,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetSaturation(VideoDigitizerComponent ci, unsigned short *saturation)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0011, 0x7000, 0xA82A);
+    VDSetSaturation(VideoDigitizerComponent ci, unsigned short *saturation);
 
     /**
      *  VDGetContrast()
@@ -4180,8 +3978,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetContrast(VideoDigitizerComponent ci, unsigned short *contrast)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+    VDGetContrast(VideoDigitizerComponent ci, unsigned short *contrast);
 
     /**
      *  VDGetHue()
@@ -4193,8 +3990,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetHue(VideoDigitizerComponent ci, unsigned short *hue)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0013, 0x7000, 0xA82A);
+    VDGetHue(VideoDigitizerComponent ci, unsigned short *hue);
 
     /**
      *  VDGetSharpness()
@@ -4206,8 +4002,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetSharpness(VideoDigitizerComponent ci, unsigned short *sharpness)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0014, 0x7000, 0xA82A);
+    VDGetSharpness(VideoDigitizerComponent ci, unsigned short *sharpness);
 
     /**
      *  VDGetSaturation()
@@ -4219,8 +4014,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetSaturation(VideoDigitizerComponent ci, unsigned short *saturation)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0015, 0x7000, 0xA82A);
+    VDGetSaturation(VideoDigitizerComponent ci, unsigned short *saturation);
 
     /**
      *  VDGrabOneFrame()
@@ -4232,8 +4026,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGrabOneFrame(VideoDigitizerComponent ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0016, 0x7000, 0xA82A);
+    VDGrabOneFrame(VideoDigitizerComponent ci);
 
     /**
      *  VDGetMaxAuxBuffer()
@@ -4245,8 +4038,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetMaxAuxBuffer(VideoDigitizerComponent ci, PixMapHandle *pm, Rect *r)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0017, 0x7000, 0xA82A);
+    VDGetMaxAuxBuffer(VideoDigitizerComponent ci, PixMapHandle *pm, Rect *r);
 
     /**
      *  VDGetDigitizerInfo()
@@ -4258,8 +4050,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetDigitizerInfo(VideoDigitizerComponent ci, DigitizerInfo *info)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0019, 0x7000, 0xA82A);
+    VDGetDigitizerInfo(VideoDigitizerComponent ci, DigitizerInfo *info);
 
     /**
      *  VDGetCurrentFlags()
@@ -4272,8 +4063,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetCurrentFlags(VideoDigitizerComponent ci, long *inputCurrentFlag,
-                      long *outputCurrentFlag)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001A, 0x7000, 0xA82A);
+                      long *outputCurrentFlag);
 
     /**
      *  VDSetKeyColor()
@@ -4285,8 +4075,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetKeyColor(VideoDigitizerComponent ci, long index)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001B, 0x7000, 0xA82A);
+    VDSetKeyColor(VideoDigitizerComponent ci, long index);
 
     /**
      *  VDGetKeyColor()
@@ -4298,8 +4087,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetKeyColor(VideoDigitizerComponent ci, long *index)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001C, 0x7000, 0xA82A);
+    VDGetKeyColor(VideoDigitizerComponent ci, long *index);
 
     /**
      *  VDAddKeyColor()
@@ -4311,8 +4099,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDAddKeyColor(VideoDigitizerComponent ci, long *index)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001D, 0x7000, 0xA82A);
+    VDAddKeyColor(VideoDigitizerComponent ci, long *index);
 
     /**
      *  VDGetNextKeyColor()
@@ -4324,8 +4111,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetNextKeyColor(VideoDigitizerComponent ci, long index)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001E, 0x7000, 0xA82A);
+    VDGetNextKeyColor(VideoDigitizerComponent ci, long index);
 
     /**
      *  VDSetKeyColorRange()
@@ -4338,8 +4124,7 @@ extern "C"
      */
     VideoDigitizerError
     VDSetKeyColorRange(VideoDigitizerComponent ci, RGBColor *minRGB,
-                       RGBColor *maxRGB)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x001F, 0x7000, 0xA82A);
+                       RGBColor *maxRGB);
 
     /**
      *  VDGetKeyColorRange()
@@ -4352,8 +4137,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetKeyColorRange(VideoDigitizerComponent ci, RGBColor *minRGB,
-                       RGBColor *maxRGB)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0020, 0x7000, 0xA82A);
+                       RGBColor *maxRGB);
 
     /**
      *  VDSetDigitizerUserInterrupt()
@@ -4366,8 +4150,7 @@ extern "C"
      */
     VideoDigitizerError
     VDSetDigitizerUserInterrupt(VideoDigitizerComponent ci, long flags,
-                                VdigIntUPP userInterruptProc, long refcon)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0021, 0x7000, 0xA82A);
+                                VdigIntUPP userInterruptProc, long refcon);
 
     /**
      *  VDSetInputColorSpaceMode()
@@ -4379,8 +4162,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetInputColorSpaceMode(VideoDigitizerComponent ci, short colorSpaceMode)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0022, 0x7000, 0xA82A);
+    VDSetInputColorSpaceMode(VideoDigitizerComponent ci, short colorSpaceMode);
 
     /**
      *  VDGetInputColorSpaceMode()
@@ -4392,8 +4174,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetInputColorSpaceMode(VideoDigitizerComponent ci, short *colorSpaceMode)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0023, 0x7000, 0xA82A);
+    VDGetInputColorSpaceMode(VideoDigitizerComponent ci, short *colorSpaceMode);
 
     /**
      *  VDSetClipState()
@@ -4405,8 +4186,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetClipState(VideoDigitizerComponent ci, short clipEnable)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0024, 0x7000, 0xA82A);
+    VDSetClipState(VideoDigitizerComponent ci, short clipEnable);
 
     /**
      *  VDGetClipState()
@@ -4418,8 +4198,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetClipState(VideoDigitizerComponent ci, short *clipEnable)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0025, 0x7000, 0xA82A);
+    VDGetClipState(VideoDigitizerComponent ci, short *clipEnable);
 
     /**
      *  VDSetClipRgn()
@@ -4431,8 +4210,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetClipRgn(VideoDigitizerComponent ci, RgnHandle clipRegion)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0026, 0x7000, 0xA82A);
+    VDSetClipRgn(VideoDigitizerComponent ci, RgnHandle clipRegion);
 
     /**
      *  VDClearClipRgn()
@@ -4444,8 +4222,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDClearClipRgn(VideoDigitizerComponent ci, RgnHandle clipRegion)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0027, 0x7000, 0xA82A);
+    VDClearClipRgn(VideoDigitizerComponent ci, RgnHandle clipRegion);
 
     /**
      *  VDGetCLUTInUse()
@@ -4457,8 +4234,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetCLUTInUse(VideoDigitizerComponent ci, CTabHandle *colorTableHandle)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0028, 0x7000, 0xA82A);
+    VDGetCLUTInUse(VideoDigitizerComponent ci, CTabHandle *colorTableHandle);
 
     /**
      *  VDSetPLLFilterType()
@@ -4470,8 +4246,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetPLLFilterType(VideoDigitizerComponent ci, short pllType)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0029, 0x7000, 0xA82A);
+    VDSetPLLFilterType(VideoDigitizerComponent ci, short pllType);
 
     /**
      *  VDGetPLLFilterType()
@@ -4483,8 +4258,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetPLLFilterType(VideoDigitizerComponent ci, short *pllType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002A, 0x7000, 0xA82A);
+    VDGetPLLFilterType(VideoDigitizerComponent ci, short *pllType);
 
     /**
      *  VDGetMaskandValue()
@@ -4497,8 +4271,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetMaskandValue(VideoDigitizerComponent ci, unsigned short blendLevel,
-                      long *mask, long *value)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x002B, 0x7000, 0xA82A);
+                      long *mask, long *value);
 
     /**
      *  VDSetMasterBlendLevel()
@@ -4510,8 +4283,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetMasterBlendLevel(VideoDigitizerComponent ci, unsigned short *blendLevel)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002C, 0x7000, 0xA82A);
+    VDSetMasterBlendLevel(VideoDigitizerComponent ci, unsigned short *blendLevel);
 
     /**
      *  VDSetPlayThruDestination()
@@ -4524,8 +4296,7 @@ extern "C"
      */
     VideoDigitizerError
     VDSetPlayThruDestination(VideoDigitizerComponent ci, PixMapHandle dest,
-                             RectPtr destRect, MatrixRecordPtr m, RgnHandle mask)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x002D, 0x7000, 0xA82A);
+                             RectPtr destRect, MatrixRecordPtr m, RgnHandle mask);
 
     /**
      *  VDSetPlayThruOnOff()
@@ -4537,8 +4308,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetPlayThruOnOff(VideoDigitizerComponent ci, short state)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x002E, 0x7000, 0xA82A);
+    VDSetPlayThruOnOff(VideoDigitizerComponent ci, short state);
 
     /**
      *  VDSetFieldPreference()
@@ -4550,8 +4320,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetFieldPreference(VideoDigitizerComponent ci, short fieldFlag)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x002F, 0x7000, 0xA82A);
+    VDSetFieldPreference(VideoDigitizerComponent ci, short fieldFlag);
 
     /**
      *  VDGetFieldPreference()
@@ -4563,8 +4332,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetFieldPreference(VideoDigitizerComponent ci, short *fieldFlag)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0030, 0x7000, 0xA82A);
+    VDGetFieldPreference(VideoDigitizerComponent ci, short *fieldFlag);
 
     /**
      *  VDPreflightDestination()
@@ -4577,8 +4345,7 @@ extern "C"
      */
     VideoDigitizerError
     VDPreflightDestination(VideoDigitizerComponent ci, Rect *digitizerRect,
-                           PixMap **dest, RectPtr destRect, MatrixRecordPtr m)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0032, 0x7000, 0xA82A);
+                           PixMap **dest, RectPtr destRect, MatrixRecordPtr m);
 
     /**
      *  VDPreflightGlobalRect()
@@ -4591,8 +4358,7 @@ extern "C"
      */
     VideoDigitizerError
     VDPreflightGlobalRect(VideoDigitizerComponent ci, GrafPtr theWindow,
-                          Rect *globalRect)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0033, 0x7000, 0xA82A);
+                          Rect *globalRect);
 
     /**
      *  VDSetPlayThruGlobalRect()
@@ -4605,8 +4371,7 @@ extern "C"
      */
     VideoDigitizerError
     VDSetPlayThruGlobalRect(VideoDigitizerComponent ci, GrafPtr theWindow,
-                            Rect *globalRect)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0034, 0x7000, 0xA82A);
+                            Rect *globalRect);
 
     /**
      *  VDSetInputGammaRecord()
@@ -4618,8 +4383,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetInputGammaRecord(VideoDigitizerComponent ci, VDGamRecPtr inputGammaPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0035, 0x7000, 0xA82A);
+    VDSetInputGammaRecord(VideoDigitizerComponent ci, VDGamRecPtr inputGammaPtr);
 
     /**
      *  VDGetInputGammaRecord()
@@ -4631,8 +4395,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetInputGammaRecord(VideoDigitizerComponent ci, VDGamRecPtr *inputGammaPtr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0036, 0x7000, 0xA82A);
+    VDGetInputGammaRecord(VideoDigitizerComponent ci, VDGamRecPtr *inputGammaPtr);
 
     /**
      *  VDSetBlackLevelValue()
@@ -4644,8 +4407,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetBlackLevelValue(VideoDigitizerComponent ci, unsigned short *blackLevel)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0037, 0x7000, 0xA82A);
+    VDSetBlackLevelValue(VideoDigitizerComponent ci, unsigned short *blackLevel);
 
     /**
      *  VDGetBlackLevelValue()
@@ -4657,8 +4419,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetBlackLevelValue(VideoDigitizerComponent ci, unsigned short *blackLevel)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0038, 0x7000, 0xA82A);
+    VDGetBlackLevelValue(VideoDigitizerComponent ci, unsigned short *blackLevel);
 
     /**
      *  VDSetWhiteLevelValue()
@@ -4670,8 +4431,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetWhiteLevelValue(VideoDigitizerComponent ci, unsigned short *whiteLevel)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0039, 0x7000, 0xA82A);
+    VDSetWhiteLevelValue(VideoDigitizerComponent ci, unsigned short *whiteLevel);
 
     /**
      *  VDGetWhiteLevelValue()
@@ -4683,8 +4443,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetWhiteLevelValue(VideoDigitizerComponent ci, unsigned short *whiteLevel)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003A, 0x7000, 0xA82A);
+    VDGetWhiteLevelValue(VideoDigitizerComponent ci, unsigned short *whiteLevel);
 
     /**
      *  VDGetVideoDefaults()
@@ -4699,8 +4458,7 @@ extern "C"
     VDGetVideoDefaults(VideoDigitizerComponent ci, unsigned short *blackLevel,
                        unsigned short *whiteLevel, unsigned short *brightness,
                        unsigned short *hue, unsigned short *saturation,
-                       unsigned short *contrast, unsigned short *sharpness)
-        FIVEWORDINLINE(0x2F3C, 0x001C, 0x003B, 0x7000, 0xA82A);
+                       unsigned short *contrast, unsigned short *sharpness);
 
     /**
      *  VDGetNumberOfInputs()
@@ -4712,8 +4470,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetNumberOfInputs(VideoDigitizerComponent ci, short *inputs)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003C, 0x7000, 0xA82A);
+    VDGetNumberOfInputs(VideoDigitizerComponent ci, short *inputs);
 
     /**
      *  VDGetInputFormat()
@@ -4725,8 +4482,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetInputFormat(VideoDigitizerComponent ci, short input, short *format)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x003D, 0x7000, 0xA82A);
+    VDGetInputFormat(VideoDigitizerComponent ci, short input, short *format);
 
     /**
      *  VDSetInput()
@@ -4738,8 +4494,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetInput(VideoDigitizerComponent ci, short input)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x003E, 0x7000, 0xA82A);
+    VDSetInput(VideoDigitizerComponent ci, short input);
 
     /**
      *  VDGetInput()
@@ -4751,8 +4506,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetInput(VideoDigitizerComponent ci, short *input)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003F, 0x7000, 0xA82A);
+    VDGetInput(VideoDigitizerComponent ci, short *input);
 
     /**
      *  VDSetInputStandard()
@@ -4764,8 +4518,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetInputStandard(VideoDigitizerComponent ci, short inputStandard)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0040, 0x7000, 0xA82A);
+    VDSetInputStandard(VideoDigitizerComponent ci, short inputStandard);
 
     /**
      *  VDSetupBuffers()
@@ -4777,8 +4530,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetupBuffers(VideoDigitizerComponent ci, VdigBufferRecListHandle bufferList)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0041, 0x7000, 0xA82A);
+    VDSetupBuffers(VideoDigitizerComponent ci, VdigBufferRecListHandle bufferList);
 
     /**
      *  VDGrabOneFrameAsync()
@@ -4790,8 +4542,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGrabOneFrameAsync(VideoDigitizerComponent ci, short buffer)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0042, 0x7000, 0xA82A);
+    VDGrabOneFrameAsync(VideoDigitizerComponent ci, short buffer);
 
     /**
      *  VDDone()
@@ -4803,8 +4554,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDDone(VideoDigitizerComponent ci, short buffer)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0043, 0x7000, 0xA82A);
+    VDDone(VideoDigitizerComponent ci, short buffer);
 
     /**
      *  VDSetCompression()
@@ -4818,8 +4568,7 @@ extern "C"
     VideoDigitizerError
     VDSetCompression(VideoDigitizerComponent ci, OSType compressType, short depth,
                      Rect *bounds, CodecQ spatialQuality, CodecQ temporalQuality,
-                     long keyFrameRate)
-        FIVEWORDINLINE(0x2F3C, 0x0016, 0x0044, 0x7000, 0xA82A);
+                     long keyFrameRate);
 
     /**
      *  VDCompressOneFrameAsync()
@@ -4831,8 +4580,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDCompressOneFrameAsync(VideoDigitizerComponent ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0045, 0x7000, 0xA82A);
+    VDCompressOneFrameAsync(VideoDigitizerComponent ci);
 
     /**
      *  VDCompressDone()
@@ -4845,8 +4593,7 @@ extern "C"
      */
     VideoDigitizerError
     VDCompressDone(VideoDigitizerComponent ci, Boolean *done, Ptr *theData,
-                   long *dataSize, UInt8 *similarity, TimeRecord *t)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0046, 0x7000, 0xA82A);
+                   long *dataSize, UInt8 *similarity, TimeRecord *t);
 
     /**
      *  VDReleaseCompressBuffer()
@@ -4858,8 +4605,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDReleaseCompressBuffer(VideoDigitizerComponent ci, Ptr bufferAddr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0047, 0x7000, 0xA82A);
+    VDReleaseCompressBuffer(VideoDigitizerComponent ci, Ptr bufferAddr);
 
     /**
      *  VDGetImageDescription()
@@ -4871,8 +4617,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetImageDescription(VideoDigitizerComponent ci, ImageDescriptionHandle desc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0048, 0x7000, 0xA82A);
+    VDGetImageDescription(VideoDigitizerComponent ci, ImageDescriptionHandle desc);
 
     /**
      *  VDResetCompressSequence()
@@ -4884,8 +4629,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDResetCompressSequence(VideoDigitizerComponent ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0049, 0x7000, 0xA82A);
+    VDResetCompressSequence(VideoDigitizerComponent ci);
 
     /**
      *  VDSetCompressionOnOff()
@@ -4897,8 +4641,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetCompressionOnOff(VideoDigitizerComponent ci, Boolean state)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x004A, 0x7000, 0xA82A);
+    VDSetCompressionOnOff(VideoDigitizerComponent ci, Boolean state);
 
     /**
      *  VDGetCompressionTypes()
@@ -4910,8 +4653,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetCompressionTypes(VideoDigitizerComponent ci, VDCompressionListHandle h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x004B, 0x7000, 0xA82A);
+    VDGetCompressionTypes(VideoDigitizerComponent ci, VDCompressionListHandle h);
 
     /**
      *  VDSetTimeBase()
@@ -4923,8 +4665,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetTimeBase(VideoDigitizerComponent ci, TimeBase t)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x004C, 0x7000, 0xA82A);
+    VDSetTimeBase(VideoDigitizerComponent ci, TimeBase t);
 
     /**
      *  VDSetFrameRate()
@@ -4936,8 +4677,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetFrameRate(VideoDigitizerComponent ci, Fixed framesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x004D, 0x7000, 0xA82A);
+    VDSetFrameRate(VideoDigitizerComponent ci, Fixed framesPerSecond);
 
     /**
      *  VDGetDataRate()
@@ -4950,8 +4690,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetDataRate(VideoDigitizerComponent ci, long *milliSecPerFrame,
-                  Fixed *framesPerSecond, long *bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x004E, 0x7000, 0xA82A);
+                  Fixed *framesPerSecond, long *bytesPerSecond);
 
     /**
      *  VDGetSoundInputDriver()
@@ -4963,8 +4702,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetSoundInputDriver(VideoDigitizerComponent ci, Str255 soundDriverName)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x004F, 0x7000, 0xA82A);
+    VDGetSoundInputDriver(VideoDigitizerComponent ci, Str255 soundDriverName);
 
     /**
      *  VDGetDMADepths()
@@ -4977,8 +4715,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetDMADepths(VideoDigitizerComponent ci, long *depthArray,
-                   long *preferredDepth)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0050, 0x7000, 0xA82A);
+                   long *preferredDepth);
 
     /**
      *  VDGetPreferredTimeScale()
@@ -4990,8 +4727,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetPreferredTimeScale(VideoDigitizerComponent ci, TimeScale *preferred)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0051, 0x7000, 0xA82A);
+    VDGetPreferredTimeScale(VideoDigitizerComponent ci, TimeScale *preferred);
 
     /**
      *  VDReleaseAsyncBuffers()
@@ -5003,8 +4739,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDReleaseAsyncBuffers(VideoDigitizerComponent ci)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0052, 0x7000, 0xA82A);
+    VDReleaseAsyncBuffers(VideoDigitizerComponent ci);
 
     /** 83 is reserved for compatibility reasons */
     /**
@@ -5017,8 +4752,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetDataRate(VideoDigitizerComponent ci, long bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0054, 0x7000, 0xA82A);
+    VDSetDataRate(VideoDigitizerComponent ci, long bytesPerSecond);
 
     /**
      *  VDGetTimeCode()
@@ -5031,8 +4765,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetTimeCode(VideoDigitizerComponent ci, TimeRecord *atTime,
-                  void *timeCodeFormat, void *timeCodeTime)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0055, 0x7000, 0xA82A);
+                  void *timeCodeFormat, void *timeCodeTime);
 
     /**
      *  VDUseSafeBuffers()
@@ -5044,8 +4777,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDUseSafeBuffers(VideoDigitizerComponent ci, Boolean useSafeBuffers)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0056, 0x7000, 0xA82A);
+    VDUseSafeBuffers(VideoDigitizerComponent ci, Boolean useSafeBuffers);
 
     /**
      *  VDGetSoundInputSource()
@@ -5058,8 +4790,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetSoundInputSource(VideoDigitizerComponent ci, long videoInput,
-                          long *soundInput)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0057, 0x7000, 0xA82A);
+                          long *soundInput);
 
     /**
      *  VDGetCompressionTime()
@@ -5073,8 +4804,7 @@ extern "C"
     VideoDigitizerError
     VDGetCompressionTime(VideoDigitizerComponent ci, OSType compressionType,
                          short depth, Rect *srcRect, CodecQ *spatialQuality,
-                         CodecQ *temporalQuality, unsigned long *compressTime)
-        FIVEWORDINLINE(0x2F3C, 0x0016, 0x0058, 0x7000, 0xA82A);
+                         CodecQ *temporalQuality, unsigned long *compressTime);
 
     /**
      *  VDSetPreferredPacketSize()
@@ -5087,8 +4817,7 @@ extern "C"
      */
     VideoDigitizerError
     VDSetPreferredPacketSize(VideoDigitizerComponent ci,
-                             long preferredPacketSizeInBytes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0059, 0x7000, 0xA82A);
+                             long preferredPacketSizeInBytes);
 
     /**
      *  VDSetPreferredImageDimensions()
@@ -5101,8 +4830,7 @@ extern "C"
      */
     VideoDigitizerError
     VDSetPreferredImageDimensions(VideoDigitizerComponent ci, long width,
-                                  long height)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x005A, 0x7000, 0xA82A);
+                                  long height);
 
     /**
      *  VDGetPreferredImageDimensions()
@@ -5115,8 +4843,7 @@ extern "C"
      */
     VideoDigitizerError
     VDGetPreferredImageDimensions(VideoDigitizerComponent ci, long *width,
-                                  long *height)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x005B, 0x7000, 0xA82A);
+                                  long *height);
 
     /**
      *  VDGetInputName()
@@ -5128,8 +4855,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDGetInputName(VideoDigitizerComponent ci, long videoInput, Str255 name)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x005C, 0x7000, 0xA82A);
+    VDGetInputName(VideoDigitizerComponent ci, long videoInput, Str255 name);
 
     /**
      *  VDSetDestinationPort()
@@ -5141,8 +4867,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     VideoDigitizerError
-    VDSetDestinationPort(VideoDigitizerComponent ci, CGrafPtr destPort)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x005D, 0x7000, 0xA82A);
+    VDSetDestinationPort(VideoDigitizerComponent ci, CGrafPtr destPort);
 
     enum
     {
@@ -5309,8 +5034,7 @@ extern "C"
      */
     ComponentResult
     XMLParseDataRef(ComponentInstance aParser, Handle dataRef, OSType dataRefType,
-                    long parseFlags, XMLDoc *document)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0001, 0x7000, 0xA82A);
+                    long parseFlags, XMLDoc *document);
 
     /**  Parses the XML file pointed to by dataRef, returning a XMLDoc parse tree*/
     /**
@@ -5324,8 +5048,7 @@ extern "C"
      */
     ComponentResult
     XMLParseFile(ComponentInstance aParser, ConstFSSpecPtr fileSpec,
-                 long parseFlags, XMLDoc *document)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0002, 0x7000, 0xA82A);
+                 long parseFlags, XMLDoc *document);
 
     /**  Parses the XML file pointed to by fileSpec, returning a XMLDoc parse tree*/
     /**
@@ -5338,8 +5061,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    XMLParseDisposeXMLDoc(ComponentInstance aParser, XMLDoc document)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    XMLParseDisposeXMLDoc(ComponentInstance aParser, XMLDoc document);
 
     /**  Disposes of a XMLDoc parse tree*/
     /**
@@ -5353,8 +5075,7 @@ extern "C"
      */
     ComponentResult
     XMLParseGetDetailedParseError(ComponentInstance aParser, long *errorLine,
-                                  StringPtr errDesc)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0004, 0x7000, 0xA82A);
+                                  StringPtr errDesc);
 
     /**
         Returns a more detailed description of the error and the line in which it
@@ -5371,8 +5092,7 @@ extern "C"
      */
     ComponentResult
     XMLParseAddElement(ComponentInstance aParser, char *elementName,
-                       UInt32 nameSpaceID, UInt32 *elementID, long elementFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0005, 0x7000, 0xA82A);
+                       UInt32 nameSpaceID, UInt32 *elementID, long elementFlags);
 
     /**
         Tell the parser of an element to be recognized. The tokenized element unique
@@ -5392,8 +5112,7 @@ extern "C"
     ComponentResult
     XMLParseAddAttribute(ComponentInstance aParser, UInt32 elementID,
                          UInt32 nameSpaceID, char *attributeName,
-                         UInt32 *attributeID)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0006, 0x7000, 0xA82A);
+                         UInt32 *attributeID);
 
     /**
         Tells the parser of an attribute for the specified element. The tokenized
@@ -5413,8 +5132,7 @@ extern "C"
     ComponentResult
     XMLParseAddMultipleAttributes(ComponentInstance aParser, UInt32 elementID,
                                   UInt32 *nameSpaceIDs, char *attributeNames,
-                                  UInt32 *attributeIDs)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0007, 0x7000, 0xA82A);
+                                  UInt32 *attributeIDs);
 
     /**
         Tells the parser of several attributes for the specified element. The
@@ -5436,8 +5154,7 @@ extern "C"
     XMLParseAddAttributeAndValue(ComponentInstance aParser, UInt32 elementID,
                                  UInt32 nameSpaceID, char *attributeName,
                                  UInt32 *attributeID, UInt32 attributeValueKind,
-                                 void *attributeValueKindInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x0008, 0x7000, 0xA82A);
+                                 void *attributeValueKindInfo);
 
     /**
         Tells the parser of an attribute, which may have a particular type of value,
@@ -5461,8 +5178,7 @@ extern "C"
                                            char *attributeNames,
                                            UInt32 *attributeIDs,
                                            UInt32 *attributeValueKinds,
-                                           void **attributeValueKindInfos)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x0009, 0x7000, 0xA82A);
+                                           void **attributeValueKindInfos);
 
     /**
         Tells the parser of several attributes, which may have a particular type of
@@ -5484,8 +5200,7 @@ extern "C"
     ComponentResult
     XMLParseAddAttributeValueKind(ComponentInstance aParser, UInt32 elementID,
                                   UInt32 attributeID, UInt32 attributeValueKind,
-                                  void *attributeValueKindInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x000A, 0x7000, 0xA82A);
+                                  void *attributeValueKindInfo);
 
     /**
         Tells the parser that the particular attribute may have an additional kind
@@ -5502,8 +5217,7 @@ extern "C"
      */
     ComponentResult
     XMLParseAddNameSpace(ComponentInstance aParser, char *nameSpaceURL,
-                         UInt32 *nameSpaceID)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x000B, 0x7000, 0xA82A);
+                         UInt32 *nameSpaceID);
 
     /**
         Tell the parser of a namespace to be recognized. The tokenized namespace
@@ -5522,8 +5236,7 @@ extern "C"
      */
     ComponentResult
     XMLParseSetOffsetAndLimit(ComponentInstance aParser, UInt32 offset,
-                              UInt32 limit)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x000C, 0x7000, 0xA82A);
+                              UInt32 limit);
 
     /**  Specifies the offset and limit for reading from the dataref to be used when
      * parsing*/
@@ -5537,8 +5250,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    XMLParseSetEventParseRefCon(ComponentInstance aParser, long refcon)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+    XMLParseSetEventParseRefCon(ComponentInstance aParser, long refcon);
 
     /**  Set the event parse refcon*/
     /**
@@ -5552,8 +5264,7 @@ extern "C"
      */
     ComponentResult
     XMLParseSetStartDocumentHandler(ComponentInstance aParser,
-                                    StartDocumentHandlerUPP startDocument)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000E, 0x7000, 0xA82A);
+                                    StartDocumentHandlerUPP startDocument);
 
     /**  Set the start document handler UPP for event parsing*/
     /**
@@ -5567,8 +5278,7 @@ extern "C"
      */
     ComponentResult
     XMLParseSetEndDocumentHandler(ComponentInstance aParser,
-                                  EndDocumentHandlerUPP endDocument)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000F, 0x7000, 0xA82A);
+                                  EndDocumentHandlerUPP endDocument);
 
     /**  Set the end document handler UPP for event parsing*/
     /**
@@ -5582,8 +5292,7 @@ extern "C"
      */
     ComponentResult
     XMLParseSetStartElementHandler(ComponentInstance aParser,
-                                   StartElementHandlerUPP startElement)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0010, 0x7000, 0xA82A);
+                                   StartElementHandlerUPP startElement);
 
     /**  Set the start element handler UPP for event parsing*/
     /**
@@ -5597,8 +5306,7 @@ extern "C"
      */
     ComponentResult
     XMLParseSetEndElementHandler(ComponentInstance aParser,
-                                 EndElementHandlerUPP endElement)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0011, 0x7000, 0xA82A);
+                                 EndElementHandlerUPP endElement);
 
     /**  Set the end element handler UPP for event parsing*/
     /**
@@ -5612,8 +5320,7 @@ extern "C"
      */
     ComponentResult
     XMLParseSetCharDataHandler(ComponentInstance aParser,
-                               CharDataHandlerUPP charData)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+                               CharDataHandlerUPP charData);
 
     /**  Set the character data handler UPP for event parsing*/
     /**
@@ -5628,8 +5335,7 @@ extern "C"
     ComponentResult
     XMLParseSetPreprocessInstructionHandler(
         ComponentInstance aParser,
-        PreprocessInstructionHandlerUPP preprocessInstruction)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0013, 0x7000, 0xA82A);
+        PreprocessInstructionHandlerUPP preprocessInstruction);
 
     /**  Set the preprocess instruction handler UPP for event parsing*/
     /**
@@ -5642,8 +5348,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    XMLParseSetCommentHandler(ComponentInstance aParser, CommentHandlerUPP comment)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0014, 0x7000, 0xA82A);
+    XMLParseSetCommentHandler(ComponentInstance aParser, CommentHandlerUPP comment);
 
     /**  Set the comment handler UPP for event parsing*/
     /**
@@ -5938,8 +5643,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGInitialize(SeqGrabComponent s)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0001, 0x7000, 0xA82A);
+    SGInitialize(SeqGrabComponent s);
 
     /**
      *  SGSetDataOutput()
@@ -5951,8 +5655,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetDataOutput(SeqGrabComponent s, const FSSpec *movieFile, long whereFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0002, 0x7000, 0xA82A);
+    SGSetDataOutput(SeqGrabComponent s, const FSSpec *movieFile, long whereFlags);
 
     /**
      *  SGGetDataOutput()
@@ -5964,8 +5667,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetDataOutput(SeqGrabComponent s, FSSpec *movieFile, long *whereFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0003, 0x7000, 0xA82A);
+    SGGetDataOutput(SeqGrabComponent s, FSSpec *movieFile, long *whereFlags);
 
     /**
      *  SGSetGWorld()
@@ -5977,8 +5679,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetGWorld(SeqGrabComponent s, CGrafPtr gp, GDHandle gd)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0004, 0x7000, 0xA82A);
+    SGSetGWorld(SeqGrabComponent s, CGrafPtr gp, GDHandle gd);
 
     /**
      *  SGGetGWorld()
@@ -5990,8 +5691,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetGWorld(SeqGrabComponent s, CGrafPtr *gp, GDHandle *gd)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0005, 0x7000, 0xA82A);
+    SGGetGWorld(SeqGrabComponent s, CGrafPtr *gp, GDHandle *gd);
 
     /**
      *  SGNewChannel()
@@ -6003,8 +5703,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGNewChannel(SeqGrabComponent s, OSType channelType, SGChannel *ref)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0006, 0x7000, 0xA82A);
+    SGNewChannel(SeqGrabComponent s, OSType channelType, SGChannel *ref);
 
     /**
      *  SGDisposeChannel()
@@ -6016,8 +5715,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGDisposeChannel(SeqGrabComponent s, SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+    SGDisposeChannel(SeqGrabComponent s, SGChannel c);
 
     /**
      *  SGStartPreview()
@@ -6029,8 +5727,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGStartPreview(SeqGrabComponent s)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0010, 0x7000, 0xA82A);
+    SGStartPreview(SeqGrabComponent s);
 
     /**
      *  SGStartRecord()
@@ -6042,8 +5739,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGStartRecord(SeqGrabComponent s)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0011, 0x7000, 0xA82A);
+    SGStartRecord(SeqGrabComponent s);
 
     /**
      *  SGIdle()
@@ -6055,8 +5751,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGIdle(SeqGrabComponent s)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0012, 0x7000, 0xA82A);
+    SGIdle(SeqGrabComponent s);
 
     /**
      *  SGStop()
@@ -6068,8 +5763,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGStop(SeqGrabComponent s)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0013, 0x7000, 0xA82A);
+    SGStop(SeqGrabComponent s);
 
     /**
      *  SGPause()
@@ -6081,8 +5775,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPause(SeqGrabComponent s, Byte pause)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0014, 0x7000, 0xA82A);
+    SGPause(SeqGrabComponent s, Byte pause);
 
     /**
      *  SGPrepare()
@@ -6095,8 +5788,7 @@ extern "C"
      */
     ComponentResult
     SGPrepare(SeqGrabComponent s, Boolean prepareForPreview,
-              Boolean prepareForRecord)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0015, 0x7000, 0xA82A);
+              Boolean prepareForRecord);
 
     /**
      *  SGRelease()
@@ -6108,8 +5800,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGRelease(SeqGrabComponent s)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0016, 0x7000, 0xA82A);
+    SGRelease(SeqGrabComponent s);
 
     /**
      *  SGGetMovie()
@@ -6121,8 +5812,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Movie
-    SGGetMovie(SeqGrabComponent s)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0017, 0x7000, 0xA82A);
+    SGGetMovie(SeqGrabComponent s);
 
     /**
      *  SGSetMaximumRecordTime()
@@ -6134,8 +5824,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetMaximumRecordTime(SeqGrabComponent s, unsigned long ticks)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0018, 0x7000, 0xA82A);
+    SGSetMaximumRecordTime(SeqGrabComponent s, unsigned long ticks);
 
     /**
      *  SGGetMaximumRecordTime()
@@ -6147,8 +5836,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetMaximumRecordTime(SeqGrabComponent s, unsigned long *ticks)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0019, 0x7000, 0xA82A);
+    SGGetMaximumRecordTime(SeqGrabComponent s, unsigned long *ticks);
 
     /**
      *  SGGetStorageSpaceRemaining()
@@ -6160,8 +5848,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetStorageSpaceRemaining(SeqGrabComponent s, unsigned long *bytes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001A, 0x7000, 0xA82A);
+    SGGetStorageSpaceRemaining(SeqGrabComponent s, unsigned long *bytes);
 
     /**
      *  SGGetTimeRemaining()
@@ -6173,8 +5860,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetTimeRemaining(SeqGrabComponent s, long *ticksLeft)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001B, 0x7000, 0xA82A);
+    SGGetTimeRemaining(SeqGrabComponent s, long *ticksLeft);
 
     /**
      *  SGGrabPict()
@@ -6187,8 +5873,7 @@ extern "C"
      */
     ComponentResult
     SGGrabPict(SeqGrabComponent s, PicHandle *p, const Rect *bounds,
-               short offscreenDepth, long grabPictFlags)
-        FIVEWORDINLINE(0x2F3C, 0x000E, 0x001C, 0x7000, 0xA82A);
+               short offscreenDepth, long grabPictFlags);
 
     /**
      *  SGGetLastMovieResID()
@@ -6200,8 +5885,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetLastMovieResID(SeqGrabComponent s, short *resID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001D, 0x7000, 0xA82A);
+    SGGetLastMovieResID(SeqGrabComponent s, short *resID);
 
     /**
      *  SGSetFlags()
@@ -6213,8 +5897,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetFlags(SeqGrabComponent s, long sgFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001E, 0x7000, 0xA82A);
+    SGSetFlags(SeqGrabComponent s, long sgFlags);
 
     /**
      *  SGGetFlags()
@@ -6226,8 +5909,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetFlags(SeqGrabComponent s, long *sgFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x001F, 0x7000, 0xA82A);
+    SGGetFlags(SeqGrabComponent s, long *sgFlags);
 
     /**
      *  SGSetDataProc()
@@ -6239,8 +5921,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetDataProc(SeqGrabComponent s, SGDataUPP proc, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0020, 0x7000, 0xA82A);
+    SGSetDataProc(SeqGrabComponent s, SGDataUPP proc, long refCon);
 
     /**
      *  SGNewChannelFromComponent()
@@ -6253,8 +5934,7 @@ extern "C"
      */
     ComponentResult
     SGNewChannelFromComponent(SeqGrabComponent s, SGChannel *newChannel,
-                              Component sgChannelComponent)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0021, 0x7000, 0xA82A);
+                              Component sgChannelComponent);
 
     /**
      *  SGDisposeDeviceList()
@@ -6266,8 +5946,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGDisposeDeviceList(SeqGrabComponent s, SGDeviceList list)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0022, 0x7000, 0xA82A);
+    SGDisposeDeviceList(SeqGrabComponent s, SGDeviceList list);
 
     /**
      *  SGAppendDeviceListToMenu()
@@ -6279,8 +5958,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGAppendDeviceListToMenu(SeqGrabComponent s, SGDeviceList list, MenuRef mh)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0023, 0x7000, 0xA82A);
+    SGAppendDeviceListToMenu(SeqGrabComponent s, SGDeviceList list, MenuRef mh);
 
     /**
      *  SGSetSettings()
@@ -6292,8 +5970,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetSettings(SeqGrabComponent s, UserData ud, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0024, 0x7000, 0xA82A);
+    SGSetSettings(SeqGrabComponent s, UserData ud, long flags);
 
     /**
      *  SGGetSettings()
@@ -6305,8 +5982,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetSettings(SeqGrabComponent s, UserData *ud, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0025, 0x7000, 0xA82A);
+    SGGetSettings(SeqGrabComponent s, UserData *ud, long flags);
 
     /**
      *  SGGetIndChannel()
@@ -6319,8 +5995,7 @@ extern "C"
      */
     ComponentResult
     SGGetIndChannel(SeqGrabComponent s, short index, SGChannel *ref,
-                    OSType *chanType)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0026, 0x7000, 0xA82A);
+                    OSType *chanType);
 
     /**
      *  SGUpdate()
@@ -6332,8 +6007,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGUpdate(SeqGrabComponent s, RgnHandle updateRgn)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0027, 0x7000, 0xA82A);
+    SGUpdate(SeqGrabComponent s, RgnHandle updateRgn);
 
     /**
      *  SGGetPause()
@@ -6345,8 +6019,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetPause(SeqGrabComponent s, Byte *paused)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0028, 0x7000, 0xA82A);
+    SGGetPause(SeqGrabComponent s, Byte *paused);
 
     typedef const Component *ConstComponentListPtr;
     /**
@@ -6361,8 +6034,7 @@ extern "C"
     ComponentResult
     SGSettingsDialog(SeqGrabComponent s, SGChannel c, short numPanels,
                      ConstComponentListPtr panelList, long flags,
-                     SGModalFilterUPP proc, long procRefNum)
-        FIVEWORDINLINE(0x2F3C, 0x0016, 0x0029, 0x7000, 0xA82A);
+                     SGModalFilterUPP proc, long procRefNum);
 
     /**
      *  SGGetAlignmentProc()
@@ -6374,8 +6046,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetAlignmentProc(SeqGrabComponent s, ICMAlignmentProcRecordPtr alignmentProc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x002A, 0x7000, 0xA82A);
+    SGGetAlignmentProc(SeqGrabComponent s, ICMAlignmentProcRecordPtr alignmentProc);
 
     /**
      *  SGSetChannelSettings()
@@ -6387,8 +6058,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelSettings(SeqGrabComponent s, SGChannel c, UserData ud, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x002B, 0x7000, 0xA82A);
+    SGSetChannelSettings(SeqGrabComponent s, SGChannel c, UserData ud, long flags);
 
     /**
      *  SGGetChannelSettings()
@@ -6400,8 +6070,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelSettings(SeqGrabComponent s, SGChannel c, UserData *ud, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x002C, 0x7000, 0xA82A);
+    SGGetChannelSettings(SeqGrabComponent s, SGChannel c, UserData *ud, long flags);
 
     /**
      *  SGGetMode()
@@ -6413,8 +6082,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetMode(SeqGrabComponent s, Boolean *previewMode, Boolean *recordMode)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x002D, 0x7000, 0xA82A);
+    SGGetMode(SeqGrabComponent s, Boolean *previewMode, Boolean *recordMode);
 
     /**
      *  SGSetDataRef()
@@ -6427,8 +6095,7 @@ extern "C"
      */
     ComponentResult
     SGSetDataRef(SeqGrabComponent s, Handle dataRef, OSType dataRefType,
-                 long whereFlags)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x002E, 0x7000, 0xA82A);
+                 long whereFlags);
 
     /**
      *  SGGetDataRef()
@@ -6441,8 +6108,7 @@ extern "C"
      */
     ComponentResult
     SGGetDataRef(SeqGrabComponent s, Handle *dataRef, OSType *dataRefType,
-                 long *whereFlags)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x002F, 0x7000, 0xA82A);
+                 long *whereFlags);
 
     /**
      *  SGNewOutput()
@@ -6455,8 +6121,7 @@ extern "C"
      */
     ComponentResult
     SGNewOutput(SeqGrabComponent s, Handle dataRef, OSType dataRefType,
-                long whereFlags, SGOutput *sgOut)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0030, 0x7000, 0xA82A);
+                long whereFlags, SGOutput *sgOut);
 
     /**
      *  SGDisposeOutput()
@@ -6468,8 +6133,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGDisposeOutput(SeqGrabComponent s, SGOutput sgOut)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0031, 0x7000, 0xA82A);
+    SGDisposeOutput(SeqGrabComponent s, SGOutput sgOut);
 
     /**
      *  SGSetOutputFlags()
@@ -6481,8 +6145,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetOutputFlags(SeqGrabComponent s, SGOutput sgOut, long whereFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0032, 0x7000, 0xA82A);
+    SGSetOutputFlags(SeqGrabComponent s, SGOutput sgOut, long whereFlags);
 
     /**
      *  SGSetChannelOutput()
@@ -6494,8 +6157,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelOutput(SeqGrabComponent s, SGChannel c, SGOutput sgOut)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0033, 0x7000, 0xA82A);
+    SGSetChannelOutput(SeqGrabComponent s, SGChannel c, SGOutput sgOut);
 
     /**
      *  SGGetDataOutputStorageSpaceRemaining()
@@ -6508,8 +6170,7 @@ extern "C"
      */
     ComponentResult
     SGGetDataOutputStorageSpaceRemaining(SeqGrabComponent s, SGOutput sgOut,
-                                         unsigned long *space)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0034, 0x7000, 0xA82A);
+                                         unsigned long *space);
 
     /**
      *  SGHandleUpdateEvent()
@@ -6522,8 +6183,7 @@ extern "C"
      */
     ComponentResult
     SGHandleUpdateEvent(SeqGrabComponent s, const EventRecord *event,
-                        Boolean *handled)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0035, 0x7000, 0xA82A);
+                        Boolean *handled);
 
     /**
      *  SGSetOutputNextOutput()
@@ -6535,8 +6195,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetOutputNextOutput(SeqGrabComponent s, SGOutput sgOut, SGOutput nextOut)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0036, 0x7000, 0xA82A);
+    SGSetOutputNextOutput(SeqGrabComponent s, SGOutput sgOut, SGOutput nextOut);
 
     /**
      *  SGGetOutputNextOutput()
@@ -6548,8 +6207,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetOutputNextOutput(SeqGrabComponent s, SGOutput sgOut, SGOutput *nextOut)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0037, 0x7000, 0xA82A);
+    SGGetOutputNextOutput(SeqGrabComponent s, SGOutput sgOut, SGOutput *nextOut);
 
     /**
      *  SGSetOutputMaximumOffset()
@@ -6562,8 +6220,7 @@ extern "C"
      */
     ComponentResult
     SGSetOutputMaximumOffset(SeqGrabComponent s, SGOutput sgOut,
-                             const wide *maxOffset)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0038, 0x7000, 0xA82A);
+                             const wide *maxOffset);
 
     /**
      *  SGGetOutputMaximumOffset()
@@ -6575,8 +6232,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetOutputMaximumOffset(SeqGrabComponent s, SGOutput sgOut, wide *maxOffset)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0039, 0x7000, 0xA82A);
+    SGGetOutputMaximumOffset(SeqGrabComponent s, SGOutput sgOut, wide *maxOffset);
 
     /**
      *  SGGetOutputDataReference()
@@ -6589,8 +6245,7 @@ extern "C"
      */
     ComponentResult
     SGGetOutputDataReference(SeqGrabComponent s, SGOutput sgOut, Handle *dataRef,
-                             OSType *dataRefType)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x003A, 0x7000, 0xA82A);
+                             OSType *dataRefType);
 
     /**
      *  SGWriteExtendedMovieData()
@@ -6603,8 +6258,7 @@ extern "C"
      */
     ComponentResult
     SGWriteExtendedMovieData(SeqGrabComponent s, SGChannel c, Ptr p, long len,
-                             wide *offset, SGOutput *sgOut)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x003B, 0x7000, 0xA82A);
+                             wide *offset, SGOutput *sgOut);
 
     /**
      *  SGGetStorageSpaceRemaining64()
@@ -6616,8 +6270,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    SGGetStorageSpaceRemaining64(SeqGrabComponent s, wide *bytes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x003C, 0x7000, 0xA82A);
+    SGGetStorageSpaceRemaining64(SeqGrabComponent s, wide *bytes);
 
     /**
      *  SGGetDataOutputStorageSpaceRemaining64()
@@ -6630,8 +6283,7 @@ extern "C"
      */
     ComponentResult
     SGGetDataOutputStorageSpaceRemaining64(SeqGrabComponent s, SGOutput sgOut,
-                                           wide *space)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x003D, 0x7000, 0xA82A);
+                                           wide *space);
 
     /**
         calls from Channel to seqGrab
@@ -6646,8 +6298,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGWriteMovieData(SeqGrabComponent s, SGChannel c, Ptr p, long len, long *offset)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0100, 0x7000, 0xA82A);
+    SGWriteMovieData(SeqGrabComponent s, SGChannel c, Ptr p, long len, long *offset);
 
     /**
      *  SGAddFrameReference()
@@ -6659,8 +6310,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGAddFrameReference(SeqGrabComponent s, SeqGrabFrameInfoPtr frameInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+    SGAddFrameReference(SeqGrabComponent s, SeqGrabFrameInfoPtr frameInfo);
 
     /**
      *  SGGetNextFrameReference()
@@ -6673,8 +6323,7 @@ extern "C"
      */
     ComponentResult
     SGGetNextFrameReference(SeqGrabComponent s, SeqGrabFrameInfoPtr frameInfo,
-                            TimeValue *frameDuration, long *frameNumber)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0102, 0x7000, 0xA82A);
+                            TimeValue *frameDuration, long *frameNumber);
 
     /**
      *  SGGetTimeBase()
@@ -6686,8 +6335,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetTimeBase(SeqGrabComponent s, TimeBase *tb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
+    SGGetTimeBase(SeqGrabComponent s, TimeBase *tb);
 
     /**
      *  SGSortDeviceList()
@@ -6699,8 +6347,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSortDeviceList(SeqGrabComponent s, SGDeviceList list)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0104, 0x7000, 0xA82A);
+    SGSortDeviceList(SeqGrabComponent s, SGDeviceList list);
 
     /**
      *  SGAddMovieData()
@@ -6713,8 +6360,7 @@ extern "C"
      */
     ComponentResult
     SGAddMovieData(SeqGrabComponent s, SGChannel c, Ptr p, long len, long *offset,
-                   long chRefCon, TimeValue time, short writeType)
-        FIVEWORDINLINE(0x2F3C, 0x001A, 0x0105, 0x7000, 0xA82A);
+                   long chRefCon, TimeValue time, short writeType);
 
     /**
      *  SGChangedSource()
@@ -6726,8 +6372,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGChangedSource(SeqGrabComponent s, SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0106, 0x7000, 0xA82A);
+    SGChangedSource(SeqGrabComponent s, SGChannel c);
 
     /**
      *  SGAddExtendedFrameReference()
@@ -6740,8 +6385,7 @@ extern "C"
      */
     ComponentResult
     SGAddExtendedFrameReference(SeqGrabComponent s,
-                                SeqGrabExtendedFrameInfoPtr frameInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0107, 0x7000, 0xA82A);
+                                SeqGrabExtendedFrameInfoPtr frameInfo);
 
     /**
      *  SGGetNextExtendedFrameReference()
@@ -6755,8 +6399,7 @@ extern "C"
     ComponentResult
     SGGetNextExtendedFrameReference(SeqGrabComponent s,
                                     SeqGrabExtendedFrameInfoPtr frameInfo,
-                                    TimeValue *frameDuration, long *frameNumber)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0108, 0x7000, 0xA82A);
+                                    TimeValue *frameDuration, long *frameNumber);
 
     /**
      *  SGAddExtendedMovieData()
@@ -6770,8 +6413,7 @@ extern "C"
     ComponentResult
     SGAddExtendedMovieData(SeqGrabComponent s, SGChannel c, Ptr p, long len,
                            wide *offset, long chRefCon, TimeValue time,
-                           short writeType, SGOutput *whichOutput)
-        FIVEWORDINLINE(0x2F3C, 0x001E, 0x0109, 0x7000, 0xA82A);
+                           short writeType, SGOutput *whichOutput);
 
     /**
      *  SGAddOutputDataRefToMedia()
@@ -6784,8 +6426,7 @@ extern "C"
      */
     ComponentResult
     SGAddOutputDataRefToMedia(SeqGrabComponent s, SGOutput sgOut, Media theMedia,
-                              SampleDescriptionHandle desc)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x010A, 0x7000, 0xA82A);
+                              SampleDescriptionHandle desc);
 
     /**** Sequence Grab CHANNEL Component Stuff ***/
 
@@ -6799,8 +6440,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelUsage(SGChannel c, long usage)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0080, 0x7000, 0xA82A);
+    SGSetChannelUsage(SGChannel c, long usage);
 
     /**
      *  SGGetChannelUsage()
@@ -6812,8 +6452,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelUsage(SGChannel c, long *usage)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0081, 0x7000, 0xA82A);
+    SGGetChannelUsage(SGChannel c, long *usage);
 
     /**
      *  SGSetChannelBounds()
@@ -6825,8 +6464,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelBounds(SGChannel c, const Rect *bounds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0082, 0x7000, 0xA82A);
+    SGSetChannelBounds(SGChannel c, const Rect *bounds);
 
     /**
      *  SGGetChannelBounds()
@@ -6838,8 +6476,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelBounds(SGChannel c, Rect *bounds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0083, 0x7000, 0xA82A);
+    SGGetChannelBounds(SGChannel c, Rect *bounds);
 
     /**
      *  SGSetChannelVolume()
@@ -6851,8 +6488,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelVolume(SGChannel c, short volume)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0084, 0x7000, 0xA82A);
+    SGSetChannelVolume(SGChannel c, short volume);
 
     /**
      *  SGGetChannelVolume()
@@ -6864,8 +6500,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelVolume(SGChannel c, short *volume)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0085, 0x7000, 0xA82A);
+    SGGetChannelVolume(SGChannel c, short *volume);
 
     /**
      *  SGGetChannelInfo()
@@ -6877,8 +6512,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelInfo(SGChannel c, long *channelInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0086, 0x7000, 0xA82A);
+    SGGetChannelInfo(SGChannel c, long *channelInfo);
 
     /**
      *  SGSetChannelPlayFlags()
@@ -6890,8 +6524,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelPlayFlags(SGChannel c, long playFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0087, 0x7000, 0xA82A);
+    SGSetChannelPlayFlags(SGChannel c, long playFlags);
 
     /**
      *  SGGetChannelPlayFlags()
@@ -6903,8 +6536,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelPlayFlags(SGChannel c, long *playFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0088, 0x7000, 0xA82A);
+    SGGetChannelPlayFlags(SGChannel c, long *playFlags);
 
     /**
      *  SGSetChannelMaxFrames()
@@ -6916,8 +6548,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelMaxFrames(SGChannel c, long frameCount)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0089, 0x7000, 0xA82A);
+    SGSetChannelMaxFrames(SGChannel c, long frameCount);
 
     /**
      *  SGGetChannelMaxFrames()
@@ -6929,8 +6560,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelMaxFrames(SGChannel c, long *frameCount)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008A, 0x7000, 0xA82A);
+    SGGetChannelMaxFrames(SGChannel c, long *frameCount);
 
     /**
      *  SGSetChannelRefCon()
@@ -6942,8 +6572,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelRefCon(SGChannel c, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008B, 0x7000, 0xA82A);
+    SGSetChannelRefCon(SGChannel c, long refCon);
 
     /**
      *  SGSetChannelClip()
@@ -6955,8 +6584,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelClip(SGChannel c, RgnHandle theClip)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008C, 0x7000, 0xA82A);
+    SGSetChannelClip(SGChannel c, RgnHandle theClip);
 
     /**
      *  SGGetChannelClip()
@@ -6968,8 +6596,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelClip(SGChannel c, RgnHandle *theClip)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008D, 0x7000, 0xA82A);
+    SGGetChannelClip(SGChannel c, RgnHandle *theClip);
 
     /**
      *  SGGetChannelSampleDescription()
@@ -6981,8 +6608,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelSampleDescription(SGChannel c, Handle sampleDesc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x008E, 0x7000, 0xA82A);
+    SGGetChannelSampleDescription(SGChannel c, Handle sampleDesc);
 
     /**
      *  SGGetChannelDeviceList()
@@ -6994,8 +6620,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelDeviceList(SGChannel c, long selectionFlags, SGDeviceList *list)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x008F, 0x7000, 0xA82A);
+    SGGetChannelDeviceList(SGChannel c, long selectionFlags, SGDeviceList *list);
 
     /**
      *  SGSetChannelDevice()
@@ -7007,8 +6632,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelDevice(SGChannel c, StringPtr name)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0090, 0x7000, 0xA82A);
+    SGSetChannelDevice(SGChannel c, StringPtr name);
 
     /**
      *  SGSetChannelMatrix()
@@ -7020,8 +6644,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetChannelMatrix(SGChannel c, const MatrixRecord *m)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0091, 0x7000, 0xA82A);
+    SGSetChannelMatrix(SGChannel c, const MatrixRecord *m);
 
     /**
      *  SGGetChannelMatrix()
@@ -7033,8 +6656,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelMatrix(SGChannel c, MatrixRecord *m)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0092, 0x7000, 0xA82A);
+    SGGetChannelMatrix(SGChannel c, MatrixRecord *m);
 
     /**
      *  SGGetChannelTimeScale()
@@ -7046,8 +6668,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetChannelTimeScale(SGChannel c, TimeScale *scale)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0093, 0x7000, 0xA82A);
+    SGGetChannelTimeScale(SGChannel c, TimeScale *scale);
 
     /**
      *  SGChannelPutPicture()
@@ -7059,8 +6680,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGChannelPutPicture(SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0094, 0x7000, 0xA82A);
+    SGChannelPutPicture(SGChannel c);
 
     /**
      *  SGChannelSetRequestedDataRate()
@@ -7072,8 +6692,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGChannelSetRequestedDataRate(SGChannel c, long bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0095, 0x7000, 0xA82A);
+    SGChannelSetRequestedDataRate(SGChannel c, long bytesPerSecond);
 
     /**
      *  SGChannelGetRequestedDataRate()
@@ -7085,8 +6704,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGChannelGetRequestedDataRate(SGChannel c, long *bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0096, 0x7000, 0xA82A);
+    SGChannelGetRequestedDataRate(SGChannel c, long *bytesPerSecond);
 
     /**
      *  SGChannelSetDataSourceName()
@@ -7099,8 +6717,7 @@ extern "C"
      */
     ComponentResult
     SGChannelSetDataSourceName(SGChannel c, ConstStr255Param name,
-                               ScriptCode scriptTag)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0097, 0x7000, 0xA82A);
+                               ScriptCode scriptTag);
 
     /**
      *  SGChannelGetDataSourceName()
@@ -7112,8 +6729,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGChannelGetDataSourceName(SGChannel c, Str255 name, ScriptCode *scriptTag)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0098, 0x7000, 0xA82A);
+    SGChannelGetDataSourceName(SGChannel c, Str255 name, ScriptCode *scriptTag);
 
     /**
      *  SGChannelSetCodecSettings()
@@ -7125,8 +6741,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    SGChannelSetCodecSettings(SGChannel c, Handle settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0099, 0x7000, 0xA82A);
+    SGChannelSetCodecSettings(SGChannel c, Handle settings);
 
     /**
      *  SGChannelGetCodecSettings()
@@ -7138,8 +6753,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    SGChannelGetCodecSettings(SGChannel c, Handle *settings)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x009A, 0x7000, 0xA82A);
+    SGChannelGetCodecSettings(SGChannel c, Handle *settings);
 
     /**
      *  SGGetChannelTimeBase()
@@ -7151,8 +6765,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    SGGetChannelTimeBase(SGChannel c, TimeBase *tb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x009B, 0x7000, 0xA82A);
+    SGGetChannelTimeBase(SGChannel c, TimeBase *tb);
 
     /**
         calls from seqGrab to Channel
@@ -7167,8 +6780,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGInitChannel(SGChannel c, SeqGrabComponent owner)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0180, 0x7000, 0xA82A);
+    SGInitChannel(SGChannel c, SeqGrabComponent owner);
 
     /**
      *  SGWriteSamples()
@@ -7180,8 +6792,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGWriteSamples(SGChannel c, Movie m, AliasHandle theFile)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0181, 0x7000, 0xA82A);
+    SGWriteSamples(SGChannel c, Movie m, AliasHandle theFile);
 
     /**
      *  SGGetDataRate()
@@ -7193,8 +6804,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetDataRate(SGChannel c, long *bytesPerSecond)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0182, 0x7000, 0xA82A);
+    SGGetDataRate(SGChannel c, long *bytesPerSecond);
 
     /**
      *  SGAlignChannelRect()
@@ -7206,8 +6816,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGAlignChannelRect(SGChannel c, Rect *r)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0183, 0x7000, 0xA82A);
+    SGAlignChannelRect(SGChannel c, Rect *r);
 
     /**
         Dorky dialog panel calls
@@ -7222,8 +6831,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelGetDitl(SeqGrabComponent s, Handle *ditl)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0200, 0x7000, 0xA82A);
+    SGPanelGetDitl(SeqGrabComponent s, Handle *ditl);
 
     /**
      *  SGPanelGetTitle()
@@ -7235,8 +6843,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelGetTitle(SeqGrabComponent s, Str255 title)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0201, 0x7000, 0xA82A);
+    SGPanelGetTitle(SeqGrabComponent s, Str255 title);
 
     /**
      *  SGPanelCanRun()
@@ -7248,8 +6855,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelCanRun(SeqGrabComponent s, SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0202, 0x7000, 0xA82A);
+    SGPanelCanRun(SeqGrabComponent s, SGChannel c);
 
     /**
      *  SGPanelInstall()
@@ -7261,8 +6867,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelInstall(SeqGrabComponent s, SGChannel c, DialogRef d, short itemOffset)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0203, 0x7000, 0xA82A);
+    SGPanelInstall(SeqGrabComponent s, SGChannel c, DialogRef d, short itemOffset);
 
     /**
      *  SGPanelEvent()
@@ -7275,8 +6880,7 @@ extern "C"
      */
     ComponentResult
     SGPanelEvent(SeqGrabComponent s, SGChannel c, DialogRef d, short itemOffset,
-                 const EventRecord *theEvent, short *itemHit, Boolean *handled)
-        FIVEWORDINLINE(0x2F3C, 0x0016, 0x0204, 0x7000, 0xA82A);
+                 const EventRecord *theEvent, short *itemHit, Boolean *handled);
 
     /**
      *  SGPanelItem()
@@ -7289,8 +6893,7 @@ extern "C"
      */
     ComponentResult
     SGPanelItem(SeqGrabComponent s, SGChannel c, DialogRef d, short itemOffset,
-                short itemNum)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0205, 0x7000, 0xA82A);
+                short itemNum);
 
     /**
      *  SGPanelRemove()
@@ -7302,8 +6905,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelRemove(SeqGrabComponent s, SGChannel c, DialogRef d, short itemOffset)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0206, 0x7000, 0xA82A);
+    SGPanelRemove(SeqGrabComponent s, SGChannel c, DialogRef d, short itemOffset);
 
     /**
      *  SGPanelSetGrabber()
@@ -7315,8 +6917,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelSetGrabber(SeqGrabComponent s, SeqGrabComponent sg)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0207, 0x7000, 0xA82A);
+    SGPanelSetGrabber(SeqGrabComponent s, SeqGrabComponent sg);
 
     /**
      *  SGPanelSetResFile()
@@ -7328,8 +6929,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelSetResFile(SeqGrabComponent s, short resRef)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0208, 0x7000, 0xA82A);
+    SGPanelSetResFile(SeqGrabComponent s, short resRef);
 
     /**
      *  SGPanelGetSettings()
@@ -7341,8 +6941,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelGetSettings(SeqGrabComponent s, SGChannel c, UserData *ud, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0209, 0x7000, 0xA82A);
+    SGPanelGetSettings(SeqGrabComponent s, SGChannel c, UserData *ud, long flags);
 
     /**
      *  SGPanelSetSettings()
@@ -7354,8 +6953,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelSetSettings(SeqGrabComponent s, SGChannel c, UserData ud, long flags)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x020A, 0x7000, 0xA82A);
+    SGPanelSetSettings(SeqGrabComponent s, SGChannel c, UserData ud, long flags);
 
     /**
      *  SGPanelValidateInput()
@@ -7367,8 +6965,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelValidateInput(SeqGrabComponent s, Boolean *ok)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x020B, 0x7000, 0xA82A);
+    SGPanelValidateInput(SeqGrabComponent s, Boolean *ok);
 
     /**
      *  SGPanelSetEventFilter()
@@ -7380,8 +6977,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGPanelSetEventFilter(SeqGrabComponent s, SGModalFilterUPP proc, long refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x020C, 0x7000, 0xA82A);
+    SGPanelSetEventFilter(SeqGrabComponent s, SGModalFilterUPP proc, long refCon);
 
     /**** Sequence Grab VIDEO CHANNEL Component Stuff ***/
     /**
@@ -7462,8 +7058,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetSrcVideoBounds(SGChannel c, Rect *r)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0100, 0x7000, 0xA82A);
+    SGGetSrcVideoBounds(SGChannel c, Rect *r);
 
     /**
      *  SGSetVideoRect()
@@ -7475,8 +7070,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetVideoRect(SGChannel c, const Rect *r)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+    SGSetVideoRect(SGChannel c, const Rect *r);
 
     /**
      *  SGGetVideoRect()
@@ -7488,8 +7082,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetVideoRect(SGChannel c, Rect *r)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
+    SGGetVideoRect(SGChannel c, Rect *r);
 
     /**
      *  SGGetVideoCompressorType()
@@ -7501,8 +7094,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetVideoCompressorType(SGChannel c, OSType *compressorType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
+    SGGetVideoCompressorType(SGChannel c, OSType *compressorType);
 
     /**
      *  SGSetVideoCompressorType()
@@ -7514,8 +7106,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetVideoCompressorType(SGChannel c, OSType compressorType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0104, 0x7000, 0xA82A);
+    SGSetVideoCompressorType(SGChannel c, OSType compressorType);
 
     /**
      *  SGSetVideoCompressor()
@@ -7529,8 +7120,7 @@ extern "C"
     ComponentResult
     SGSetVideoCompressor(SGChannel c, short depth, CompressorComponent compressor,
                          CodecQ spatialQuality, CodecQ temporalQuality,
-                         long keyFrameRate)
-        FIVEWORDINLINE(0x2F3C, 0x0012, 0x0105, 0x7000, 0xA82A);
+                         long keyFrameRate);
 
     /**
      *  SGGetVideoCompressor()
@@ -7544,8 +7134,7 @@ extern "C"
     ComponentResult
     SGGetVideoCompressor(SGChannel c, short *depth, CompressorComponent *compressor,
                          CodecQ *spatialQuality, CodecQ *temporalQuality,
-                         long *keyFrameRate)
-        FIVEWORDINLINE(0x2F3C, 0x0014, 0x0106, 0x7000, 0xA82A);
+                         long *keyFrameRate);
 
     /**
      *  SGGetVideoDigitizerComponent()
@@ -7557,8 +7146,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentInstance
-    SGGetVideoDigitizerComponent(SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0107, 0x7000, 0xA82A);
+    SGGetVideoDigitizerComponent(SGChannel c);
 
     /**
      *  SGSetVideoDigitizerComponent()
@@ -7570,8 +7158,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetVideoDigitizerComponent(SGChannel c, ComponentInstance vdig)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0108, 0x7000, 0xA82A);
+    SGSetVideoDigitizerComponent(SGChannel c, ComponentInstance vdig);
 
     /**
      *  SGVideoDigitizerChanged()
@@ -7583,8 +7170,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGVideoDigitizerChanged(SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0109, 0x7000, 0xA82A);
+    SGVideoDigitizerChanged(SGChannel c);
 
     /**
      *  SGSetVideoBottlenecks()
@@ -7596,8 +7182,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetVideoBottlenecks(SGChannel c, VideoBottles *vb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010A, 0x7000, 0xA82A);
+    SGSetVideoBottlenecks(SGChannel c, VideoBottles *vb);
 
     /**
      *  SGGetVideoBottlenecks()
@@ -7609,8 +7194,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetVideoBottlenecks(SGChannel c, VideoBottles *vb)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010B, 0x7000, 0xA82A);
+    SGGetVideoBottlenecks(SGChannel c, VideoBottles *vb);
 
     /**
      *  SGGrabFrame()
@@ -7622,8 +7206,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGrabFrame(SGChannel c, short bufferNum)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x010C, 0x7000, 0xA82A);
+    SGGrabFrame(SGChannel c, short bufferNum);
 
     /**
      *  SGGrabFrameComplete()
@@ -7635,8 +7218,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGrabFrameComplete(SGChannel c, short bufferNum, Boolean *done)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x010D, 0x7000, 0xA82A);
+    SGGrabFrameComplete(SGChannel c, short bufferNum, Boolean *done);
 
     /**
      *  SGDisplayFrame()
@@ -7649,8 +7231,7 @@ extern "C"
      */
     ComponentResult
     SGDisplayFrame(SGChannel c, short bufferNum, const MatrixRecord *mp,
-                   RgnHandle clipRgn)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x010E, 0x7000, 0xA82A);
+                   RgnHandle clipRgn);
 
     /**
      *  SGCompressFrame()
@@ -7662,8 +7243,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGCompressFrame(SGChannel c, short bufferNum)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x010F, 0x7000, 0xA82A);
+    SGCompressFrame(SGChannel c, short bufferNum);
 
     /**
      *  SGCompressFrameComplete()
@@ -7676,8 +7256,7 @@ extern "C"
      */
     ComponentResult
     SGCompressFrameComplete(SGChannel c, short bufferNum, Boolean *done,
-                            SGCompressInfo *ci)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0110, 0x7000, 0xA82A);
+                            SGCompressInfo *ci);
 
     /**
      *  SGAddFrame()
@@ -7690,8 +7269,7 @@ extern "C"
      */
     ComponentResult
     SGAddFrame(SGChannel c, short bufferNum, TimeValue atTime, TimeScale scale,
-               const SGCompressInfo *ci)
-        FIVEWORDINLINE(0x2F3C, 0x000E, 0x0111, 0x7000, 0xA82A);
+               const SGCompressInfo *ci);
 
     /**
      *  SGTransferFrameForCompress()
@@ -7704,8 +7282,7 @@ extern "C"
      */
     ComponentResult
     SGTransferFrameForCompress(SGChannel c, short bufferNum, const MatrixRecord *mp,
-                               RgnHandle clipRgn)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x0112, 0x7000, 0xA82A);
+                               RgnHandle clipRgn);
 
     /**
      *  SGSetCompressBuffer()
@@ -7717,8 +7294,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetCompressBuffer(SGChannel c, short depth, const Rect *compressSize)
-        FIVEWORDINLINE(0x2F3C, 0x0006, 0x0113, 0x7000, 0xA82A);
+    SGSetCompressBuffer(SGChannel c, short depth, const Rect *compressSize);
 
     /**
      *  SGGetCompressBuffer()
@@ -7730,8 +7306,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetCompressBuffer(SGChannel c, short *depth, Rect *compressSize)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0114, 0x7000, 0xA82A);
+    SGGetCompressBuffer(SGChannel c, short *depth, Rect *compressSize);
 
     /**
      *  SGGetBufferInfo()
@@ -7745,8 +7320,7 @@ extern "C"
     ComponentResult
     SGGetBufferInfo(SGChannel c, short bufferNum, PixMapHandle *bufferPM,
                     Rect *bufferRect, GWorldPtr *compressBuffer,
-                    Rect *compressBufferRect)
-        FIVEWORDINLINE(0x2F3C, 0x0012, 0x0115, 0x7000, 0xA82A);
+                    Rect *compressBufferRect);
 
     /**
      *  SGSetUseScreenBuffer()
@@ -7758,8 +7332,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetUseScreenBuffer(SGChannel c, Boolean useScreenBuffer)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0116, 0x7000, 0xA82A);
+    SGSetUseScreenBuffer(SGChannel c, Boolean useScreenBuffer);
 
     /**
      *  SGGetUseScreenBuffer()
@@ -7771,8 +7344,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetUseScreenBuffer(SGChannel c, Boolean *useScreenBuffer)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0117, 0x7000, 0xA82A);
+    SGGetUseScreenBuffer(SGChannel c, Boolean *useScreenBuffer);
 
     /**
      *  SGGrabCompressComplete()
@@ -7785,8 +7357,7 @@ extern "C"
      */
     ComponentResult
     SGGrabCompressComplete(SGChannel c, Boolean *done, SGCompressInfo *ci,
-                           TimeRecord *tr)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0118, 0x7000, 0xA82A);
+                           TimeRecord *tr);
 
     /**
      *  SGDisplayCompress()
@@ -7799,8 +7370,7 @@ extern "C"
      */
     ComponentResult
     SGDisplayCompress(SGChannel c, Ptr dataPtr, ImageDescriptionHandle desc,
-                      MatrixRecord *mp, RgnHandle clipRgn)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0119, 0x7000, 0xA82A);
+                      MatrixRecord *mp, RgnHandle clipRgn);
 
     /**
      *  SGSetFrameRate()
@@ -7812,8 +7382,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetFrameRate(SGChannel c, Fixed frameRate)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x011A, 0x7000, 0xA82A);
+    SGSetFrameRate(SGChannel c, Fixed frameRate);
 
     /**
      *  SGGetFrameRate()
@@ -7825,8 +7394,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetFrameRate(SGChannel c, Fixed *frameRate)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x011B, 0x7000, 0xA82A);
+    SGGetFrameRate(SGChannel c, Fixed *frameRate);
 
     /**
      *  SGSetPreferredPacketSize()
@@ -7838,8 +7406,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetPreferredPacketSize(SGChannel c, long preferredPacketSizeInBytes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0121, 0x7000, 0xA82A);
+    SGSetPreferredPacketSize(SGChannel c, long preferredPacketSizeInBytes);
 
     /**
      *  SGGetPreferredPacketSize()
@@ -7851,8 +7418,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetPreferredPacketSize(SGChannel c, long *preferredPacketSizeInBytes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0122, 0x7000, 0xA82A);
+    SGGetPreferredPacketSize(SGChannel c, long *preferredPacketSizeInBytes);
 
     /**
      *  SGSetUserVideoCompressorList()
@@ -7864,8 +7430,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetUserVideoCompressorList(SGChannel c, Handle compressorTypes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0123, 0x7000, 0xA82A);
+    SGSetUserVideoCompressorList(SGChannel c, Handle compressorTypes);
 
     /**
      *  SGGetUserVideoCompressorList()
@@ -7877,8 +7442,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetUserVideoCompressorList(SGChannel c, Handle *compressorTypes)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0124, 0x7000, 0xA82A);
+    SGGetUserVideoCompressorList(SGChannel c, Handle *compressorTypes);
 
     /**** Sequence Grab SOUND CHANNEL Component Stuff ***/
 
@@ -7895,8 +7459,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetSoundInputDriver(SGChannel c, ConstStr255Param driverName)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0100, 0x7000, 0xA82A);
+    SGSetSoundInputDriver(SGChannel c, ConstStr255Param driverName);
 
     /**
      *  SGGetSoundInputDriver()
@@ -7908,8 +7471,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     long
-    SGGetSoundInputDriver(SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0101, 0x7000, 0xA82A);
+    SGGetSoundInputDriver(SGChannel c);
 
     /**
      *  SGSoundInputDriverChanged()
@@ -7921,8 +7483,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSoundInputDriverChanged(SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0102, 0x7000, 0xA82A);
+    SGSoundInputDriverChanged(SGChannel c);
 
     /**
      *  SGSetSoundRecordChunkSize()
@@ -7934,8 +7495,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetSoundRecordChunkSize(SGChannel c, long seconds)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
+    SGSetSoundRecordChunkSize(SGChannel c, long seconds);
 
     /**
      *  SGGetSoundRecordChunkSize()
@@ -7947,8 +7507,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     long
-    SGGetSoundRecordChunkSize(SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0104, 0x7000, 0xA82A);
+    SGGetSoundRecordChunkSize(SGChannel c);
 
     /**
      *  SGSetSoundInputRate()
@@ -7960,8 +7519,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetSoundInputRate(SGChannel c, Fixed rate)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0105, 0x7000, 0xA82A);
+    SGSetSoundInputRate(SGChannel c, Fixed rate);
 
     /**
      *  SGGetSoundInputRate()
@@ -7973,8 +7531,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     Fixed
-    SGGetSoundInputRate(SGChannel c)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0106, 0x7000, 0xA82A);
+    SGGetSoundInputRate(SGChannel c);
 
     /**
      *  SGSetSoundInputParameters()
@@ -7987,8 +7544,7 @@ extern "C"
      */
     ComponentResult
     SGSetSoundInputParameters(SGChannel c, short sampleSize, short numChannels,
-                              OSType compressionType)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0107, 0x7000, 0xA82A);
+                              OSType compressionType);
 
     /**
      *  SGGetSoundInputParameters()
@@ -8001,8 +7557,7 @@ extern "C"
      */
     ComponentResult
     SGGetSoundInputParameters(SGChannel c, short *sampleSize, short *numChannels,
-                              OSType *compressionType)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0108, 0x7000, 0xA82A);
+                              OSType *compressionType);
 
     /**
      *  SGSetAdditionalSoundRates()
@@ -8014,8 +7569,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetAdditionalSoundRates(SGChannel c, Handle rates)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0109, 0x7000, 0xA82A);
+    SGSetAdditionalSoundRates(SGChannel c, Handle rates);
 
     /**
      *  SGGetAdditionalSoundRates()
@@ -8027,8 +7581,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetAdditionalSoundRates(SGChannel c, Handle *rates)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x010A, 0x7000, 0xA82A);
+    SGGetAdditionalSoundRates(SGChannel c, Handle *rates);
 
     /**
         Text stuff
@@ -8043,8 +7596,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetFontName(SGChannel c, StringPtr pstr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0100, 0x7000, 0xA82A);
+    SGSetFontName(SGChannel c, StringPtr pstr);
 
     /**
      *  SGSetFontSize()
@@ -8056,8 +7608,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetFontSize(SGChannel c, short fontSize)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0101, 0x7000, 0xA82A);
+    SGSetFontSize(SGChannel c, short fontSize);
 
     /**
      *  SGSetTextForeColor()
@@ -8069,8 +7620,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetTextForeColor(SGChannel c, RGBColor *theColor)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0102, 0x7000, 0xA82A);
+    SGSetTextForeColor(SGChannel c, RGBColor *theColor);
 
     /**
      *  SGSetTextBackColor()
@@ -8082,8 +7632,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetTextBackColor(SGChannel c, RGBColor *theColor)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0103, 0x7000, 0xA82A);
+    SGSetTextBackColor(SGChannel c, RGBColor *theColor);
 
     /**
      *  SGSetJustification()
@@ -8095,8 +7644,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetJustification(SGChannel c, short just)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0104, 0x7000, 0xA82A);
+    SGSetJustification(SGChannel c, short just);
 
     /**
      *  SGGetTextReturnToSpaceValue()
@@ -8108,8 +7656,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetTextReturnToSpaceValue(SGChannel c, short *rettospace)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0105, 0x7000, 0xA82A);
+    SGGetTextReturnToSpaceValue(SGChannel c, short *rettospace);
 
     /**
      *  SGSetTextReturnToSpaceValue()
@@ -8121,8 +7668,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetTextReturnToSpaceValue(SGChannel c, short rettospace)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0106, 0x7000, 0xA82A);
+    SGSetTextReturnToSpaceValue(SGChannel c, short rettospace);
 
     /**
         Music stuff
@@ -8137,8 +7683,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGGetInstrument(SGChannel c, ToneDescription *td)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0100, 0x7000, 0xA82A);
+    SGGetInstrument(SGChannel c, ToneDescription *td);
 
     /**
      *  SGSetInstrument()
@@ -8150,8 +7695,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    SGSetInstrument(SGChannel c, ToneDescription *td)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0101, 0x7000, 0xA82A);
+    SGSetInstrument(SGChannel c, ToneDescription *td);
 
     enum
     {
@@ -8259,8 +7803,7 @@ extern "C"
      */
     ComponentResult
     QTVideoOutputGetDisplayModeList(QTVideoOutputComponent vo,
-                                    QTAtomContainer *outputs)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+                                    QTAtomContainer *outputs);
 
     /**
      *  QTVideoOutputGetCurrentClientName()
@@ -8272,8 +7815,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputGetCurrentClientName(QTVideoOutputComponent vo, Str255 str)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0002, 0x7000, 0xA82A);
+    QTVideoOutputGetCurrentClientName(QTVideoOutputComponent vo, Str255 str);
 
     /**
      *  QTVideoOutputSetClientName()
@@ -8285,8 +7827,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputSetClientName(QTVideoOutputComponent vo, ConstStr255Param str)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+    QTVideoOutputSetClientName(QTVideoOutputComponent vo, ConstStr255Param str);
 
     /**
      *  QTVideoOutputGetClientName()
@@ -8298,8 +7839,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputGetClientName(QTVideoOutputComponent vo, Str255 str)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+    QTVideoOutputGetClientName(QTVideoOutputComponent vo, Str255 str);
 
     /**
      *  QTVideoOutputBegin()
@@ -8311,8 +7851,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputBegin(QTVideoOutputComponent vo)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0005, 0x7000, 0xA82A);
+    QTVideoOutputBegin(QTVideoOutputComponent vo);
 
     /**
      *  QTVideoOutputEnd()
@@ -8324,8 +7863,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputEnd(QTVideoOutputComponent vo)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0006, 0x7000, 0xA82A);
+    QTVideoOutputEnd(QTVideoOutputComponent vo);
 
     /**
      *  QTVideoOutputSetDisplayMode()
@@ -8337,8 +7875,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputSetDisplayMode(QTVideoOutputComponent vo, long displayModeID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0007, 0x7000, 0xA82A);
+    QTVideoOutputSetDisplayMode(QTVideoOutputComponent vo, long displayModeID);
 
     /**
      *  QTVideoOutputGetDisplayMode()
@@ -8350,8 +7887,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputGetDisplayMode(QTVideoOutputComponent vo, long *displayModeID)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0008, 0x7000, 0xA82A);
+    QTVideoOutputGetDisplayMode(QTVideoOutputComponent vo, long *displayModeID);
 
     /**
      *  QTVideoOutputCustomConfigureDisplay()
@@ -8364,8 +7900,7 @@ extern "C"
      */
     ComponentResult
     QTVideoOutputCustomConfigureDisplay(QTVideoOutputComponent vo,
-                                        ModalFilterUPP filter)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0009, 0x7000, 0xA82A);
+                                        ModalFilterUPP filter);
 
     /**
      *  QTVideoOutputSaveState()
@@ -8377,8 +7912,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputSaveState(QTVideoOutputComponent vo, QTAtomContainer *state)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000A, 0x7000, 0xA82A);
+    QTVideoOutputSaveState(QTVideoOutputComponent vo, QTAtomContainer *state);
 
     /**
      *  QTVideoOutputRestoreState()
@@ -8390,8 +7924,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputRestoreState(QTVideoOutputComponent vo, QTAtomContainer state)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000B, 0x7000, 0xA82A);
+    QTVideoOutputRestoreState(QTVideoOutputComponent vo, QTAtomContainer state);
 
     /**
      *  QTVideoOutputGetGWorld()
@@ -8403,8 +7936,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputGetGWorld(QTVideoOutputComponent vo, GWorldPtr *gw)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
+    QTVideoOutputGetGWorld(QTVideoOutputComponent vo, GWorldPtr *gw);
 
     /**
      *  QTVideoOutputGetGWorldParameters()
@@ -8417,8 +7949,7 @@ extern "C"
      */
     ComponentResult
     QTVideoOutputGetGWorldParameters(QTVideoOutputComponent vo, Ptr *baseAddr,
-                                     long *rowBytes, CTabHandle *colorTable)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000D, 0x7000, 0xA82A);
+                                     long *rowBytes, CTabHandle *colorTable);
 
     /**
      *  QTVideoOutputGetIndSoundOutput()
@@ -8431,8 +7962,7 @@ extern "C"
      */
     ComponentResult
     QTVideoOutputGetIndSoundOutput(QTVideoOutputComponent vo, long index,
-                                   Component *outputComponent)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x000E, 0x7000, 0xA82A);
+                                   Component *outputComponent);
 
     /**
      *  QTVideoOutputGetClock()
@@ -8444,8 +7974,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputGetClock(QTVideoOutputComponent vo, ComponentInstance *clock)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x000F, 0x7000, 0xA82A);
+    QTVideoOutputGetClock(QTVideoOutputComponent vo, ComponentInstance *clock);
 
     /**
      *  QTVideoOutputSetEchoPort()
@@ -8457,8 +7986,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    QTVideoOutputSetEchoPort(QTVideoOutputComponent vo, CGrafPtr echoPort)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0010, 0x7000, 0xA82A);
+    QTVideoOutputSetEchoPort(QTVideoOutputComponent vo, CGrafPtr echoPort);
 
     /**
      *  QTVideoOutputGetIndImageDecompressor()
@@ -8471,8 +7999,7 @@ extern "C"
      */
     ComponentResult
     QTVideoOutputGetIndImageDecompressor(QTVideoOutputComponent vo, long index,
-                                         Component *codec)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0011, 0x7000, 0xA82A);
+                                         Component *codec);
 
     /** UPP call backs */
     /**

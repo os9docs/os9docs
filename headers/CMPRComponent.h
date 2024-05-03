@@ -67,8 +67,7 @@ extern "C"
         kCMPRSetProfile = 1,
         kCMPRSetProfileDescription = 2,
         kCMPRGetIndexedProfile = 3,
-        kCMPRDeleteDeviceProfile = 4
-    };
+        kCMPRDeleteDeviceProfile = 4};
 
 #if CALL_NOT_IN_CARBON
     /**
@@ -81,8 +80,7 @@ extern "C"
      */
     CMError
     CMGetProfile(ComponentInstance pr, CMProfileHandle aProfile,
-                 CMProfileHandle *returnedProfile)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0000, 0x7000, 0xA82A);
+                 CMProfileHandle *returnedProfile);
 
     /**
      *  CMSetProfile()
@@ -93,8 +91,7 @@ extern "C"
      *    \mac_os_x         not available
      */
     CMError
-    CMSetProfile(ComponentInstance pr, CMProfileHandle newProfile)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+    CMSetProfile(ComponentInstance pr, CMProfileHandle newProfile);
 
     /**
      *  CMSetProfileDescription()
@@ -106,8 +103,7 @@ extern "C"
      */
     CMError
     CMSetProfileDescription(ComponentInstance pr, long DeviceData,
-                            CMProfileHandle hProfile)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0002, 0x7000, 0xA82A);
+                            CMProfileHandle hProfile);
 
     /**
      *  CMGetIndexedProfile()
@@ -119,8 +115,7 @@ extern "C"
      */
     CMError
     CMGetIndexedProfile(ComponentInstance pr, CMProfileSearchRecordHandle search,
-                        CMProfileHandle *returnProfile, long *index)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0003, 0x7000, 0xA82A);
+                        CMProfileHandle *returnProfile, long *index);
 
     /**
      *  CMDeleteDeviceProfile()
@@ -131,11 +126,10 @@ extern "C"
      *    \mac_os_x         not available
      */
     CMError
-    CMDeleteDeviceProfile(ComponentInstance pr, CMProfileHandle deleteMe)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0004, 0x7000, 0xA82A);
+    CMDeleteDeviceProfile(ComponentInstance pr, CMProfileHandle deleteMe);
 
-#endif // CALL_NOT_IN_CARBON 
-#if PRA// CALL_NOT_IN_CARBON 
+#endif  // CALL_NOT_IN_CARBON
+#if PRA // CALL_NOT_IN_CARBON
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
@@ -153,4 +147,4 @@ extern "C"
 }
 #endif
 
-#endif // __CMPRCOMPONENT__ // __CMPRCOMPONENT__ 
+#endif // __CMPRCOMPONENT__ // __CMPRCOMPONENT__

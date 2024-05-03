@@ -148,7 +148,7 @@ extern "C"
 #pragma parameter InvokeResErrUPP(__D0, __A0)
 #endif
   void
-  InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP) ONEWORDINLINE(0x4E90);
+  InvokeResErrUPP(OSErr thErr, ResErrUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -179,7 +179,7 @@ extern "C"
                         *    \mac_os_x         not available
                         */
                        short
-                       InitResources(void) ONEWORDINLINE(0xA995);
+                       InitResources(void);
 
                        /**
                         *  RsrcZoneInit()
@@ -190,7 +190,7 @@ extern "C"
                         *    \mac_os_x         not available
                         */
                        void
-                       RsrcZoneInit(void) ONEWORDINLINE(0xA996);
+                       RsrcZoneInit(void);
 
 #endif // CALL_NOT_IN_CARBON
                        /**
@@ -202,7 +202,7 @@ extern "C"
                         *    \mac_os_x         in version 10.0 and later
                         */
                        void
-                       CloseResFile(short refNum) ONEWORDINLINE(0xA99A);
+                       CloseResFile(short refNum);
 
                        /**
                        \brief Find if an error occurred in a resource operation
@@ -239,7 +239,7 @@ extern "C"
                      *    \mac_os_x         in version 10.0 and later
                      */
                        OSErr
-                       ResError(void) ONEWORDINLINE(0xA9AF);
+                       ResError(void);
 
                        /**
                        \brief Get reference number of current resource file
@@ -263,7 +263,7 @@ extern "C"
                      *    \mac_os_x         in version 10.0 and later
                      */
                        short
-                       CurResFile(void) ONEWORDINLINE(0xA994);
+                       CurResFile(void);
 
                        /**
                        \brief Given a resource handle, return a file reference number
@@ -279,7 +279,7 @@ extern "C"
                      *    \mac_os_x         in version 10.0 and later
                      */
                        short
-                       HomeResFile(Handle theResource) ONEWORDINLINE(0xA9A4);
+                       HomeResFile(Handle theResource);
 
 #if CALL_NOT_IN_CARBON
                        /**
@@ -291,7 +291,7 @@ extern "C"
                         *    \mac_os_x         not available
                         */
                        void
-                       CreateResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA9B1);
+                       CreateResFile(ConstStr255Param fileName);
 
                        /**
                         *  OpenResFile()
@@ -302,7 +302,7 @@ extern "C"
                         *    \mac_os_x         not available
                         */
                        short
-                       OpenResFile(ConstStr255Param fileName) ONEWORDINLINE(0xA997);
+                       OpenResFile(ConstStr255Param fileName);
 
 #endif // CALL_NOT_IN_CARBON
                        /**
@@ -347,7 +347,7 @@ extern "C"
                      *    \mac_os_x         in version 10.0 and later
                      */
                        void
-                       UseResFile(short refNum) ONEWORDINLINE(0xA998);
+                       UseResFile(short refNum);
 
                        /**
                        \brief Get total number of resource types in open files
@@ -392,7 +392,7 @@ extern "C"
                            later
                                  */
                        short
-                       CountTypes(void) ONEWORDINLINE(0xA99E);
+                       CountTypes(void);
 
                        /**
                        \brief Get total number of resource types in current file
@@ -414,7 +414,7 @@ extern "C"
                      *    \mac_os_x         in version 10.0 and later
                      */
                        short
-                       Count1Types(void) ONEWORDINLINE(0xA81C);
+                       Count1Types(void);
 
                        /**
                        \brief Get the ResType of a resource, given its index
@@ -447,7 +447,7 @@ extern "C"
                      *    \mac_os_x         in version 10.0 and later
                      */
                        void
-                       GetIndType(ResType *theType, short index) ONEWORDINLINE(0xA99F);
+                       GetIndType(ResType *theType, short index);
 
                        /**
                         *  Get1IndType()
@@ -458,7 +458,7 @@ extern "C"
                         *    \mac_os_x         in version 10.0 and later
                         */
                        void
-                       Get1IndType(ResType *theType, short index) ONEWORDINLINE(0xA80F);
+                       Get1IndType(ResType *theType, short index);
 
                        /**
                        \brief Set state of automatic resource loading
@@ -481,7 +481,7 @@ extern "C"
                      *    \mac_os_x         in version 10.0 and later
                      */
                        void
-                       SetResLoad(Boolean load) ONEWORDINLINE(0xA99B);
+                       SetResLoad(Boolean load);
 
                        /**
                        \brief Find how many of a selected resource type exist
@@ -509,7 +509,9 @@ extern "C"
                      Handle rHandle;
                      ResType rType;
                      Str255 rName;
-                     printf("\n"); // ensure printf can get fonts   // before calling SetResLoad   rCount = CountResources('DRVR');
+                     printf("\n"); // ensure printf can get fonts
+ // before calling SetResLoad
+ rCount = CountResources('DRVR');
                        SetResLoad(FALSE); // do not need resource, just info   for (j = 1; j <= rCount; j++)
                        {
                          rHandle = GetIndResource('DRVR', j);
@@ -526,7 +528,7 @@ extern "C"
                            later
                                  */
                        short
-                       CountResources(ResType theType) ONEWORDINLINE(0xA99C);
+                       CountResources(ResType theType);
 
                        /**
                        \brief Get "1-deep" count of resources of selected type
@@ -551,7 +553,7 @@ Refer to CountTypes and GetIndResource for related details.
 *    \mac_os_x         in version 10.0 and later
 */
   short
-  Count1Resources(ResType theType) ONEWORDINLINE(0xA80D);
+  Count1Resources(ResType theType);
 
                        /**
                         *  GetIndResource()
@@ -562,7 +564,7 @@ Refer to CountTypes and GetIndResource for related details.
                         *    \mac_os_x         in version 10.0 and later
                         */
                        Handle
-                       GetIndResource(ResType theType, short index) ONEWORDINLINE(0xA99D);
+                       GetIndResource(ResType theType, short index);
 
                        /**
                         *  Get1IndResource()
@@ -573,7 +575,7 @@ Refer to CountTypes and GetIndResource for related details.
                         *    \mac_os_x         in version 10.0 and later
                         */
                        Handle
-                       Get1IndResource(ResType theType, short index) ONEWORDINLINE(0xA80E);
+                       Get1IndResource(ResType theType, short index);
 
                        /**
                         *  GetResource()
@@ -584,7 +586,7 @@ Refer to CountTypes and GetIndResource for related details.
                         *    \mac_os_x         in version 10.0 and later
                         */
                        Handle
-                       GetResource(ResType theType, short theID) ONEWORDINLINE(0xA9A0);
+                       GetResource(ResType theType, short theID);
 
                        /**
                         *  Get1Resource()
@@ -595,7 +597,7 @@ Refer to CountTypes and GetIndResource for related details.
                         *    \mac_os_x         in version 10.0 and later
                         */
                        Handle
-                       Get1Resource(ResType theType, short theID) ONEWORDINLINE(0xA81F);
+                       Get1Resource(ResType theType, short theID);
 
                        /**
                         *  GetNamedResource()
@@ -606,7 +608,7 @@ Refer to CountTypes and GetIndResource for related details.
                         *    \mac_os_x         in version 10.0 and later
                         */
                        Handle
-                       GetNamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA9A1);
+                       GetNamedResource(ResType theType, ConstStr255Param name);
 
                        /**
                         *  Get1NamedResource()
@@ -617,7 +619,7 @@ Refer to CountTypes and GetIndResource for related details.
                         *    \mac_os_x         in version 10.0 and later
                         */
                        Handle
-                       Get1NamedResource(ResType theType, ConstStr255Param name) ONEWORDINLINE(0xA820);
+                       Get1NamedResource(ResType theType, ConstStr255Param name);
 
 /**
  *  [Mac]LoadResource()
@@ -631,7 +633,7 @@ Refer to CountTypes and GetIndResource for related details.
 #define MacLoadResource LoadResource
 #endif
   void
-  MacLoadResource(Handle theResource) ONEWORDINLINE(0xA9A2);
+  MacLoadResource(Handle theResource);
 
   /**
    *  ReleaseResource()
@@ -642,7 +644,7 @@ Refer to CountTypes and GetIndResource for related details.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ReleaseResource(Handle theResource) ONEWORDINLINE(0xA9A3);
+  ReleaseResource(Handle theResource);
 
   /**
   \brief Prevent resource from being discarded when file is closed
@@ -676,7 +678,7 @@ attribute ( ResError returns resAttrErr ).
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  DetachResource(Handle theResource) ONEWORDINLINE(0xA992);
+  DetachResource(Handle theResource);
 
   /**
   \brief Get unique resource ID (before adding a resource)
@@ -710,7 +712,7 @@ for system resources. Just call it again until you get an ID greater than
 *    \mac_os_x         in version 10.0 and later
 */
   short
-  UniqueID(ResType theType) ONEWORDINLINE(0xA9C1);
+  UniqueID(ResType theType);
 
   /**
   \brief 1-deep, get unique resource ID
@@ -733,7 +735,7 @@ file (see UseResFile ).  Refer to UniqueID for related details.
 *    \mac_os_x         in version 10.0 and later
 */
   short
-  Unique1ID(ResType theType) ONEWORDINLINE(0xA810);
+  Unique1ID(ResType theType);
 
   /**
    *  GetResAttrs()
@@ -744,7 +746,7 @@ file (see UseResFile ).  Refer to UniqueID for related details.
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  GetResAttrs(Handle theResource) ONEWORDINLINE(0xA9A6);
+  GetResAttrs(Handle theResource);
 
   /**
   \brief Given a handle, obtain resource ID, type, and name
@@ -755,8 +757,7 @@ file (see UseResFile ).  Refer to UniqueID for related details.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  GetResInfo(Handle theResource, short *theID, ResType *theType, Str255 name)
-      ONEWORDINLINE(0xA9A8);
+  GetResInfo(Handle theResource, short *theID, ResType *theType, Str255 name);
 
   /**
    *  SetResInfo()
@@ -767,8 +768,7 @@ file (see UseResFile ).  Refer to UniqueID for related details.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SetResInfo(Handle theResource, short theID, ConstStr255Param name)
-      ONEWORDINLINE(0xA9A9);
+  SetResInfo(Handle theResource, short theID, ConstStr255Param name);
 
   /**
   \brief Make arbitrary data in memory into a resource
@@ -794,8 +794,7 @@ Example
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  AddResource(Handle theData, ResType theType, short theID, ConstStr255Param name)
-      ONEWORDINLINE(0xA9AB);
+  AddResource(Handle theData, ResType theType, short theID, ConstStr255Param name);
 
   /**
    *  GetResourceSizeOnDisk()
@@ -806,7 +805,7 @@ Example
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  GetResourceSizeOnDisk(Handle theResource) ONEWORDINLINE(0xA9A5);
+  GetResourceSizeOnDisk(Handle theResource);
 
   /**
    *  GetMaxResourceSize()
@@ -817,7 +816,7 @@ Example
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  GetMaxResourceSize(Handle theResource) ONEWORDINLINE(0xA821);
+  GetMaxResourceSize(Handle theResource);
 
 #if CALL_NOT_IN_CARBON
 
@@ -843,7 +842,7 @@ leading to the start of the resource map of the current resource file.
 *    \mac_os_x         not available
 */
   long
-  RsrcMapEntry(Handle theResource) ONEWORDINLINE(0xA9C5);
+  RsrcMapEntry(Handle theResource);
 
 #endif // CALL_NOT_IN_CARBON
   /**
@@ -901,7 +900,7 @@ Example
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  SetResAttrs(Handle theResource, short attrs) ONEWORDINLINE(0xA9A7);
+  SetResAttrs(Handle theResource, short attrs);
 
   /**
    *  ChangedResource()
@@ -912,7 +911,7 @@ Example
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ChangedResource(Handle theResource) ONEWORDINLINE(0xA9AA);
+  ChangedResource(Handle theResource);
 
   /**
    *  RemoveResource()
@@ -923,7 +922,7 @@ Example
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  RemoveResource(Handle theResource) ONEWORDINLINE(0xA9AD);
+  RemoveResource(Handle theResource);
 
   /**
   \brief Write changed resource map and data to disk
@@ -958,7 +957,7 @@ CloseResFile .
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  UpdateResFile(short refNum) ONEWORDINLINE(0xA999);
+  UpdateResFile(short refNum);
 
   /**
   \brief Write data of one resource to disk
@@ -972,7 +971,8 @@ in a sequence that locks a resource, changes it, writes the changes, and
 unlocks the resource:
 HNoPurge ( rHandle ); // inhibit purging   // ... modify the handle data...
   ChangedResource(rHandle); // tag as changed   if (ResError() == noErr)
-  {                         // always check this!     WriteResource(rHandle); // record changes to disk   }
+  {                         // always check this!
+   WriteResource(rHandle); // record changes to disk   }
   HPurge(rHandle); // allow purge   Make sure you check ResError after calling ChangedResource(or
                                                              AddResource) and
       before calling WriteResource.</ pre>
@@ -985,7 +985,7 @@ HNoPurge ( rHandle ); // inhibit purging   // ... modify the handle data...
           *    \mac_os_x in version 10.0 and
       later
             */
-  void WriteResource(Handle theResource) ONEWORDINLINE(0xA9B0);
+  void WriteResource(Handle theResource);
 
   /**
   \brief Force resource changes to be written before purge
@@ -1014,7 +1014,7 @@ memory.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  SetResPurge(Boolean install) ONEWORDINLINE(0xA993);
+  SetResPurge(Boolean install);
 
   /**
   \brief Obtain resource file attributes
@@ -1069,7 +1069,7 @@ data to be written to the file.
 *    \mac_os_x         in version 10.0 and later
 */
   short
-  GetResFileAttrs(short refNum) ONEWORDINLINE(0xA9F6);
+  GetResFileAttrs(short refNum);
 
   /**
   \brief Set resource file attributes
@@ -1118,7 +1118,7 @@ resource file attributes.
 *    \mac_os_x         in version 10.0 and later
 */
   void
-  SetResFileAttrs(short refNum, short attrs) ONEWORDINLINE(0xA9F7);
+  SetResFileAttrs(short refNum, short attrs);
 
   /**
    *  OpenRFPerm()
@@ -1129,8 +1129,7 @@ resource file attributes.
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  OpenRFPerm(ConstStr255Param fileName, short vRefNum, SInt8 permission)
-      ONEWORDINLINE(0xA9C4);
+  OpenRFPerm(ConstStr255Param fileName, short vRefNum, SInt8 permission);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -1142,7 +1141,7 @@ resource file attributes.
    *    \mac_os_x         not available
    */
   Handle
-  RGetResource(ResType theType, short theID) ONEWORDINLINE(0xA80C);
+  RGetResource(ResType theType, short theID);
 
 #endif // CALL_NOT_IN_CARBON
   /**
@@ -1155,7 +1154,7 @@ resource file attributes.
    */
   short
   HOpenResFile(short vRefNum, long dirID, ConstStr255Param fileName,
-               SInt8 permission) ONEWORDINLINE(0xA81A);
+               SInt8 permission);
 
   /**
    *  HCreateResFile()
@@ -1166,8 +1165,7 @@ resource file attributes.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  HCreateResFile(short vRefNum, long dirID, ConstStr255Param fileName)
-      ONEWORDINLINE(0xA81B);
+  HCreateResFile(short vRefNum, long dirID, ConstStr255Param fileName);
 
   /**
   \brief Open resource file specified by an FSSpec
@@ -1192,8 +1190,7 @@ number returned is -1. Call the ResError function to check for errors.
 *    \mac_os_x         in version 10.0 and later
 */
   short
-  FSpOpenResFile(const FSSpec *spec, SignedByte permission)
-      TWOWORDINLINE(0x700D, 0xAA52);
+  FSpOpenResFile(const FSSpec *spec, SignedByte permission);
 
   /**
    *  FSpCreateResFile()
@@ -1205,7 +1202,7 @@ number returned is -1. Call the ResError function to check for errors.
    */
   void
   FSpCreateResFile(const FSSpec *spec, OSType creator, OSType fileType,
-                   ScriptCode scriptTag) TWOWORDINLINE(0x700E, 0xAA52);
+                   ScriptCode scriptTag);
 
   /**
    *  ReadPartialResource()
@@ -1216,8 +1213,7 @@ number returned is -1. Call the ResError function to check for errors.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  ReadPartialResource(Handle theResource, long offset, void *buffer, long count)
-      TWOWORDINLINE(0x7001, 0xA822);
+  ReadPartialResource(Handle theResource, long offset, void *buffer, long count);
 
   /**
    *  WritePartialResource()
@@ -1229,7 +1225,7 @@ number returned is -1. Call the ResError function to check for errors.
    */
   void
   WritePartialResource(Handle theResource, long offset, const void *buffer,
-                       long count) TWOWORDINLINE(0x7002, 0xA822);
+                       long count);
 
   /**
    *  SetResourceSize()
@@ -1240,7 +1236,7 @@ number returned is -1. Call the ResError function to check for errors.
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  SetResourceSize(Handle theResource, long newSize) TWOWORDINLINE(0x7003, 0xA822);
+  SetResourceSize(Handle theResource, long newSize);
 
   /**
    *  GetNextFOND()
@@ -1251,7 +1247,7 @@ number returned is -1. Call the ResError function to check for errors.
    *    \mac_os_x         in version 10.0 and later
    */
   Handle
-  GetNextFOND(Handle fondHandle) TWOWORDINLINE(0x700A, 0xA822);
+  GetNextFOND(Handle fondHandle);
 
   // QuickTime 3.0#if CALL_NOT_IN_CARBON
   /**
@@ -1281,8 +1277,7 @@ number returned is -1. Call the ResError function to check for errors.
    *    \mac_os_x         not available
    */
   void
-  TempInsertROMMap(Boolean tempResLoad)
-      FIVEWORDINLINE(0x70FF, 0x4A1F, 0x56C0, 0x31C0, 0x0B9E);
+  TempInsertROMMap(Boolean tempResLoad);
 
   /**
     _________________________________________________________________________________________________________
@@ -1296,7 +1291,9 @@ number returned is -1. Call the ResError function to check for errors.
   typedef SInt16 RsrcChainLocation;
   enum
   {
-    kRsrcChainBelowSystemMap = 0,      // Below the system's resource map    kRsrcChainBelowApplicationMap = 1, // Below the application's resource map    kRsrcChainAboveApplicationMap = 2, // Above the application's resource map    kRsrcChainAboveAllMaps = 4         // Above all resource maps  };
+    kRsrcChainBelowSystemMap = 0,                                                                                                            /** the */
+    system 's resource map    kRsrcChainBelowApplicationMap  =  1  /** the */ application ' s resource map kRsrcChainAboveApplicationMap = 2 // Above the application' s resource map kRsrcChainAboveAllMaps = 4 // Above all resource maps
+  };
 
   /**
      If the file is already in the resource chain, it is removed and re-inserted
@@ -1348,7 +1345,7 @@ number returned is -1. Call the ResError function to check for errors.
    */
   Boolean
   FSpResourceFileAlreadyOpen(const FSSpec *resourceFile, Boolean *inChain,
-                             SInt16 *refNum) TWOWORDINLINE(0x7010, 0xA822);
+                             SInt16 *refNum);
 
   /**
      FSpOpenOrphanResFile should be used to open a resource file that is
@@ -1500,7 +1497,7 @@ number returned is -1. Call the ResError function to check for errors.
 #define SizeResource(theResource) GetResourceSizeOnDisk(theResource)
 #define MaxSizeRsrc(theResource) GetMaxResourceSize(theResource)
 #define RmveResource(theResource) RemoveResource(theResource)
-#endif // OLDROUTINENAMES 
+#endif // OLDROUTINENAMES
   /**
    *  FSOpenResFile()
    *
@@ -1510,7 +1507,7 @@ number returned is -1. Call the ResError function to check for errors.
    *    \mac_os_x         in version 10.0 and later
    */
   short
-  FSOpenResFile(const FSRef *ref, SInt8 permission) TWOWORDINLINE(0x7013, 0xA822);
+  FSOpenResFile(const FSRef *ref, SInt8 permission);
 
   /**
    *  FSCreateResFile()
@@ -1524,7 +1521,7 @@ number returned is -1. Call the ResError function to check for errors.
   FSCreateResFile(const FSRef *parentRef, UniCharCount nameLength,
                   const UniChar *name, FSCatalogInfoBitmap whichInfo,
                   const FSCatalogInfo *catalogInfo, FSRef *newRef,
-                  FSSpec *newSpec) TWOWORDINLINE(0x7014, 0xA822);
+                  FSSpec *newSpec);
 
   /**
    *  FSResourceFileAlreadyOpen()
@@ -1536,7 +1533,7 @@ number returned is -1. Call the ResError function to check for errors.
    */
   Boolean
   FSResourceFileAlreadyOpen(const FSRef *resourceFileRef, Boolean *inChain,
-                            SInt16 *refNum) TWOWORDINLINE(0x7015, 0xA822);
+                            SInt16 *refNum);
 
   /**
    *  FSCreateResourceFile()
@@ -1589,7 +1586,9 @@ number returned is -1. Call the ResError function to check for errors.
   FSCreateResourceFile(const FSRef *parentRef, UniCharCount nameLength,
                        const UniChar *name, FSCatalogInfoBitmap whichInfo,
                        const FSCatalogInfo *catalogInfo, // can be NULL                        UniCharCount forkNameLength,
-                       const UniChar *forkName, // can be NULL                        FSRef *newRef,           // can be NULL                        FSSpec *newSpec);        // can be NULL 
+                       const UniChar *forkName,          // can be NULL
+                       FSRef *newRef,                    // can be NULL
+                       FSSpec *newSpec);                 // can be NULL
   /**
    *  FSOpenResourceFile()
    *
@@ -1625,7 +1624,8 @@ number returned is -1. Call the ResError function to check for errors.
    */
   OSErr
   FSOpenResourceFile(const FSRef *ref, UniCharCount forkNameLength,
-                     const UniChar *forkName, // can be NULL                      SInt8 permissions, SInt16 *refNum);
+                     const UniChar *forkName, // can be NULL
+                     SInt8 permissions, SInt16 *refNum);
 
   /**
       These typedefs were originally created for the Copland Resource Mangager
@@ -1652,25 +1652,3 @@ number returned is -1. Call the ResError function to check for errors.
 #ifdef __cplusplus
 }
 #endif
-
-#endif // __RESOURCES__ * / FileAttributes;
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // __RESOURCES__ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /

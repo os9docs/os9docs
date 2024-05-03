@@ -71,7 +71,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   void
-  TypeSelectClear(TypeSelectRecord *tsr) THREEWORDINLINE(0x3F3C, 0x0028, 0xA9ED);
+  TypeSelectClear(TypeSelectRecord *tsr);
 
   /**
           Long ago the implementation of TypeSelectNewKey had a bug that
@@ -88,8 +88,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  TypeSelectNewKey(const EventRecord *theEvent, TypeSelectRecord *tsr)
-      FOURWORDINLINE(0x7000, 0x3F3C, 0x002A, 0xA9ED);
+  TypeSelectNewKey(const EventRecord *theEvent, TypeSelectRecord *tsr);
 
   /**
    *  TypeSelectFindItem()
@@ -102,7 +101,7 @@ extern "C"
   short
   TypeSelectFindItem(const TypeSelectRecord *tsr, short listSize,
                      TSCode selectMode, IndexToStringUPP getStringProc,
-                     void *yourDataPtr) THREEWORDINLINE(0x3F3C, 0x002C, 0xA9ED);
+                     void *yourDataPtr);
 
   /**
    *  TypeSelectCompare()
@@ -114,8 +113,7 @@ extern "C"
    */
   short
   TypeSelectCompare(const TypeSelectRecord *tsr, ScriptCode testStringScript,
-                    StringPtr testStringPtr)
-      THREEWORDINLINE(0x3F3C, 0x002E, 0xA9ED);
+                    StringPtr testStringPtr);
 
   /**
    *  NewIndexToStringUPP()
@@ -200,14 +198,14 @@ extern "C"
 #endif
 
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewIndexToStringProc(userRoutine) NewIndexToStringUPP(userRoutine)
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
+  // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewIndexToStringProc(userRoutine) NewIndexToStringUPP(userRoutine)
+  // support for pre-Carbon UPP routines: New...Proc and Call...Proc
                               yourDataPtr)                                    \
   InvokeIndexToStringUPP(item, itemsScript, itemsStringPtr, yourDataPtr,      \
                          userRoutine)
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if PRAGMA_STRUCT_ALIGN
-#pragma// CALL_NOT_IN_CARBON 
+#pragma // CALL_NOT_IN_CARBON
 #elif PRAGMA_STRUCT_PACKPUSH
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
@@ -224,4 +222,4 @@ extern "C"
 }
 #endif
 
-#endif // __TYPESELECT__ // __TYPESELECT__ 
+#endif // __TYPESELECT__ // __TYPESELECT__

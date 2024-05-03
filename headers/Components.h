@@ -368,31 +368,7 @@ extern "C"
   extern UniversalProcPtr CallComponentUPP;
 #endif
 
-#define ComponentCallNow(callNumber, paramSize) \
-  FIVEWORDINLINE(0x2F3C, paramSize, callNumber, 0x7000, 0xA82A)
-
-  /*********************************************************
-   *                                                       *
-   *               APPLICATION LEVEL CALLS                 *
-   *                                                       *
-   ********************************************************/
-  /*********************************************************
-   * Component Database Add, Delete, and Query Routines
-   ********************************************************/
-  /**
-   *  RegisterComponent()
-   *
-
-   *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-   *    \carbon_lib        in CarbonLib 1.0 and later
-   *    \mac_os_x         in version 10.0 and later
-   *    Windows:          in qtmlClient.lib 3.0 and later
-   */
-  Component
-  RegisterComponent(ComponentDescription *cd,
-                    ComponentRoutineUPP componentEntryPoint, short global,
-                    Handle componentName, Handle componentInfo,
-                    Handle componentIcon) TWOWORDINLINE(0x7001, 0xA82A);
+#define ComponentCallNow(callNumber, paramSize) \;
 
   /**
    *  RegisterComponentResource()
@@ -404,8 +380,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   Component
-  RegisterComponentResource(ComponentResourceHandle cr, short global)
-      TWOWORDINLINE(0x7012, 0xA82A);
+  RegisterComponentResource(ComponentResourceHandle cr, short global);
 
   /**
    *  UnregisterComponent()
@@ -417,7 +392,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  UnregisterComponent(Component aComponent) TWOWORDINLINE(0x7002, 0xA82A);
+  UnregisterComponent(Component aComponent);
 
   /**
    *  FindNextComponent()
@@ -429,8 +404,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   Component
-  FindNextComponent(Component aComponent, ComponentDescription *looking)
-      TWOWORDINLINE(0x7004, 0xA82A);
+  FindNextComponent(Component aComponent, ComponentDescription *looking);
 
   /**
    *  CountComponents()
@@ -442,7 +416,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  CountComponents(ComponentDescription *looking) TWOWORDINLINE(0x7003, 0xA82A);
+  CountComponents(ComponentDescription *looking);
 
   /**
    *  GetComponentInfo()
@@ -456,7 +430,7 @@ extern "C"
   OSErr
   GetComponentInfo(Component aComponent, ComponentDescription *cd,
                    Handle componentName, Handle componentInfo,
-                   Handle componentIcon) TWOWORDINLINE(0x7005, 0xA82A);
+                   Handle componentIcon);
 
   /**
    *  GetComponentListModSeed()
@@ -468,7 +442,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  GetComponentListModSeed(void) TWOWORDINLINE(0x7006, 0xA82A);
+  GetComponentListModSeed(void);
 
   /**
    *  GetComponentTypeModSeed()
@@ -480,7 +454,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  GetComponentTypeModSeed(OSType componentType) TWOWORDINLINE(0x702C, 0xA82A);
+  GetComponentTypeModSeed(OSType componentType);
 
   /*********************************************************
    * Component Instance Allocation and dispatch routines
@@ -495,8 +469,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  OpenAComponent(Component aComponent, ComponentInstance *ci)
-      TWOWORDINLINE(0x702D, 0xA82A);
+  OpenAComponent(Component aComponent, ComponentInstance *ci);
 
   /**
    *  OpenComponent()
@@ -508,7 +481,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentInstance
-  OpenComponent(Component aComponent) TWOWORDINLINE(0x7007, 0xA82A);
+  OpenComponent(Component aComponent);
 
   /**
    *  CloseComponent()
@@ -520,8 +493,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  CloseComponent(ComponentInstance aComponentInstance)
-      TWOWORDINLINE(0x7008, 0xA82A);
+  CloseComponent(ComponentInstance aComponentInstance);
 
   /**
    *  GetComponentInstanceError()
@@ -533,8 +505,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  GetComponentInstanceError(ComponentInstance aComponentInstance)
-      TWOWORDINLINE(0x700A, 0xA82A);
+  GetComponentInstanceError(ComponentInstance aComponentInstance);
 
   /*********************************************************
    * Component aliases
@@ -549,7 +520,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   Component
-  ResolveComponentAlias(Component aComponent) TWOWORDINLINE(0x7020, 0xA82A);
+  ResolveComponentAlias(Component aComponent);
 
   /*********************************************************
    * Component public resources and public string lists
@@ -566,8 +537,7 @@ extern "C"
    */
   OSErr
   GetComponentPublicResource(Component aComponent, OSType resourceType,
-                             short resourceID, Handle *theResource)
-      TWOWORDINLINE(0x7038, 0xA82A);
+                             short resourceID, Handle *theResource);
 
   /**
    *  GetComponentPublicResourceList()
@@ -581,8 +551,7 @@ extern "C"
   GetComponentPublicResourceList(OSType resourceType, short resourceID,
                                  long flags, ComponentDescription *cd,
                                  GetMissingComponentResourceUPP missingProc,
-                                 void *refCon, void *atomContainerPtr)
-      TWOWORDINLINE(0x7039, 0xA82A);
+                                 void *refCon, void *atomContainerPtr);
 
   /**
    *  GetComponentPublicIndString()
@@ -594,8 +563,7 @@ extern "C"
    */
   OSErr
   GetComponentPublicIndString(Component aComponent, Str255 theString,
-                              short strListID, short index)
-      TWOWORDINLINE(0x703A, 0xA82A);
+                              short strListID, short index);
 
   /*********************************************************
    *                                                       *
@@ -615,8 +583,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   void
-  SetComponentInstanceError(ComponentInstance aComponentInstance, OSErr theError)
-      TWOWORDINLINE(0x700B, 0xA82A);
+  SetComponentInstanceError(ComponentInstance aComponentInstance, OSErr theError);
 
   /**
    *  GetComponentRefcon()
@@ -628,7 +595,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  GetComponentRefcon(Component aComponent) TWOWORDINLINE(0x7010, 0xA82A);
+  GetComponentRefcon(Component aComponent);
 
   /**
    *  SetComponentRefcon()
@@ -640,8 +607,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   void
-  SetComponentRefcon(Component aComponent, long theRefcon)
-      TWOWORDINLINE(0x7011, 0xA82A);
+  SetComponentRefcon(Component aComponent, long theRefcon);
 
   /**
    *  OpenComponentResFile()
@@ -653,7 +619,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   short
-  OpenComponentResFile(Component aComponent) TWOWORDINLINE(0x7015, 0xA82A);
+  OpenComponentResFile(Component aComponent);
 
   /**
    *  OpenAComponentResFile()
@@ -665,8 +631,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  OpenAComponentResFile(Component aComponent, short *resRef)
-      TWOWORDINLINE(0x702F, 0xA82A);
+  OpenAComponentResFile(Component aComponent, short *resRef);
 
   /**
    *  CloseComponentResFile()
@@ -678,7 +643,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  CloseComponentResFile(short refnum) TWOWORDINLINE(0x7018, 0xA82A);
+  CloseComponentResFile(short refnum);
 
   /** Note: GetComponentResource returns a Handle, not a resource.  The caller
    * must dispose it with DisposeHandle. */
@@ -693,7 +658,7 @@ extern "C"
    */
   OSErr
   GetComponentResource(Component aComponent, OSType resType, short resID,
-                       Handle *theResource) TWOWORDINLINE(0x7035, 0xA82A);
+                       Handle *theResource);
 
   /**
    *  GetComponentIndString()
@@ -706,7 +671,7 @@ extern "C"
    */
   OSErr
   GetComponentIndString(Component aComponent, Str255 theString, short strListID,
-                        short index) TWOWORDINLINE(0x7036, 0xA82A);
+                        short index);
 
   /*********************************************************
    * Component Instance Management routines
@@ -721,8 +686,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   Handle
-  GetComponentInstanceStorage(ComponentInstance aComponentInstance)
-      TWOWORDINLINE(0x700C, 0xA82A);
+  GetComponentInstanceStorage(ComponentInstance aComponentInstance);
 
   /**
    *  SetComponentInstanceStorage()
@@ -735,7 +699,7 @@ extern "C"
    */
   void
   SetComponentInstanceStorage(ComponentInstance aComponentInstance,
-                              Handle theStorage) TWOWORDINLINE(0x700D, 0xA82A);
+                              Handle theStorage);
 
 #if CALL_NOT_IN_CARBON
   /**
@@ -748,8 +712,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  GetComponentInstanceA5(ComponentInstance aComponentInstance)
-      TWOWORDINLINE(0x700E, 0xA82A);
+  GetComponentInstanceA5(ComponentInstance aComponentInstance);
 
   /**
    *  SetComponentInstanceA5()
@@ -761,8 +724,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   void
-  SetComponentInstanceA5(ComponentInstance aComponentInstance, long theA5)
-      TWOWORDINLINE(0x700F, 0xA82A);
+  SetComponentInstanceA5(ComponentInstance aComponentInstance, long theA5);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -776,7 +738,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  CountComponentInstances(Component aComponent) TWOWORDINLINE(0x7013, 0xA82A);
+  CountComponentInstances(Component aComponent);
 
   /** useful helper routines for convenient method dispatching */
   /**
@@ -788,8 +750,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   long
-  CallComponentFunction(ComponentParameters *params, ComponentFunctionUPP func)
-      TWOWORDINLINE(0x70FF, 0xA82A);
+  CallComponentFunction(ComponentParameters *params, ComponentFunctionUPP func);
 
   /**
    *  CallComponentFunctionWithStorage()
@@ -802,8 +763,7 @@ extern "C"
    */
   long
   CallComponentFunctionWithStorage(Handle storage, ComponentParameters *params,
-                                   ComponentFunctionUPP func)
-      TWOWORDINLINE(0x70FF, 0xA82A);
+                                   ComponentFunctionUPP func);
 
 #if TARGET_CPU_PPC && TARGET_OS_MAC
   /**
@@ -837,8 +797,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  DelegateComponentCall(ComponentParameters *originalParams, ComponentInstance ci)
-      TWOWORDINLINE(0x7024, 0xA82A);
+  DelegateComponentCall(ComponentParameters *originalParams, ComponentInstance ci);
 
   /**
    *  SetDefaultComponent()
@@ -850,8 +809,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  SetDefaultComponent(Component aComponent, short flags)
-      TWOWORDINLINE(0x701E, 0xA82A);
+  SetDefaultComponent(Component aComponent, short flags);
 
   /**
    *  OpenDefaultComponent()
@@ -863,8 +821,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentInstance
-  OpenDefaultComponent(OSType componentType, OSType componentSubType)
-      TWOWORDINLINE(0x7021, 0xA82A);
+  OpenDefaultComponent(OSType componentType, OSType componentSubType);
 
   /**
    *  OpenADefaultComponent()
@@ -877,7 +834,7 @@ extern "C"
    */
   OSErr
   OpenADefaultComponent(OSType componentType, OSType componentSubType,
-                        ComponentInstance *ci) TWOWORDINLINE(0x702E, 0xA82A);
+                        ComponentInstance *ci);
 
   /**
    *  CaptureComponent()
@@ -889,8 +846,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   Component
-  CaptureComponent(Component capturedComponent, Component capturingComponent)
-      TWOWORDINLINE(0x701C, 0xA82A);
+  CaptureComponent(Component capturedComponent, Component capturingComponent);
 
   /**
    *  UncaptureComponent()
@@ -902,7 +858,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  UncaptureComponent(Component aComponent) TWOWORDINLINE(0x701D, 0xA82A);
+  UncaptureComponent(Component aComponent);
 
   /**
    *  RegisterComponentResourceFile()
@@ -914,8 +870,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  RegisterComponentResourceFile(short resRefNum, short global)
-      TWOWORDINLINE(0x7014, 0xA82A);
+  RegisterComponentResourceFile(short resRefNum, short global);
 
   /**
    *  GetComponentIconSuite()
@@ -927,8 +882,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   OSErr
-  GetComponentIconSuite(Component aComponent, Handle *iconSuite)
-      TWOWORDINLINE(0x7029, 0xA82A);
+  GetComponentIconSuite(Component aComponent, Handle *iconSuite);
 
   /*********************************************************
    *                                                       *
@@ -947,8 +901,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  ComponentFunctionImplemented(ComponentInstance ci, short ftnNumber)
-      FIVEWORDINLINE(0x2F3C, 0x0002, 0xFFFD, 0x7000, 0xA82A);
+  ComponentFunctionImplemented(ComponentInstance ci, short ftnNumber);
 
   /**
    *  GetComponentVersion()
@@ -960,8 +913,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  GetComponentVersion(ComponentInstance ci)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0xFFFC, 0x7000, 0xA82A);
+  GetComponentVersion(ComponentInstance ci);
 
   /**
    *  ComponentSetTarget()
@@ -973,8 +925,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   long
-  ComponentSetTarget(ComponentInstance ci, ComponentInstance target)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0xFFFA, 0x7000, 0xA82A);
+  ComponentSetTarget(ComponentInstance ci, ComponentInstance target);
 
   /** New style names*/
 
@@ -988,8 +939,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentResult
-  CallComponentOpen(ComponentInstance ci, ComponentInstance self)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0xFFFF, 0x7000, 0xA82A);
+  CallComponentOpen(ComponentInstance ci, ComponentInstance self);
 
   /**
    *  CallComponentClose()
@@ -1001,8 +951,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentResult
-  CallComponentClose(ComponentInstance ci, ComponentInstance self)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0xFFFE, 0x7000, 0xA82A);
+  CallComponentClose(ComponentInstance ci, ComponentInstance self);
 
   /**
    *  CallComponentCanDo()
@@ -1014,8 +963,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentResult
-  CallComponentCanDo(ComponentInstance ci, short ftnNumber)
-      FIVEWORDINLINE(0x2F3C, 0x0002, 0xFFFD, 0x7000, 0xA82A);
+  CallComponentCanDo(ComponentInstance ci, short ftnNumber);
 
   /**
    *  CallComponentVersion()
@@ -1027,8 +975,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentResult
-  CallComponentVersion(ComponentInstance ci)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0xFFFC, 0x7000, 0xA82A);
+  CallComponentVersion(ComponentInstance ci);
 
   /**
    *  CallComponentRegister()
@@ -1040,8 +987,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentResult
-  CallComponentRegister(ComponentInstance ci)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0xFFFB, 0x7000, 0xA82A);
+  CallComponentRegister(ComponentInstance ci);
 
   /**
    *  CallComponentTarget()
@@ -1053,8 +999,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentResult
-  CallComponentTarget(ComponentInstance ci, ComponentInstance target)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0xFFFA, 0x7000, 0xA82A);
+  CallComponentTarget(ComponentInstance ci, ComponentInstance target);
 
   /**
    *  CallComponentUnregister()
@@ -1066,8 +1011,7 @@ extern "C"
    *    Windows:          in qtmlClient.lib 3.0 and later
    */
   ComponentResult
-  CallComponentUnregister(ComponentInstance ci)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0xFFF9, 0x7000, 0xA82A);
+  CallComponentUnregister(ComponentInstance ci);
 
   /**
    *  CallComponentGetMPWorkFunction()
@@ -1081,8 +1025,7 @@ extern "C"
   ComponentResult
   CallComponentGetMPWorkFunction(ComponentInstance ci,
                                  ComponentMPWorkFunctionUPP *workFunction,
-                                 void **refCon)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0xFFF8, 0x7000, 0xA82A);
+                                 void **refCon);
 
   /**
    *  CallComponentGetPublicResource()
@@ -1094,8 +1037,7 @@ extern "C"
    */
   ComponentResult
   CallComponentGetPublicResource(ComponentInstance ci, OSType resourceType,
-                                 short resourceID, Handle *resource)
-      FIVEWORDINLINE(0x2F3C, 0x000A, 0xFFF6, 0x7000, 0xA82A);
+                                 short resourceID, Handle *resource);
 
 #if !TARGET_OS_MAC
 /**

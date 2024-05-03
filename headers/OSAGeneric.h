@@ -78,20 +78,19 @@ extern "C"
 
     typedef OSType ScriptingComponentSelector;
     typedef OSAID GenericID;
-    // get and set the default scripting component   /**
-    *OSAGetDefaultScriptingComponent() *
+    // get and set the default scripting component
+    /**
+       *OSAGetDefaultScriptingComponent() *
 
-            *    \non_carbon_cfm in AppleScriptLib 1.1 and
-        later
-            *    \carbon_lib in CarbonLib 1.0 and
-        later
-            *    \mac_os_x in version 10.0 and
-        later
-                * /
-            OSAError
-            OSAGetDefaultScriptingComponent(ComponentInstance genericScriptingComponent,
-                                            ScriptingComponentSelector *scriptingSubType)
-                FIVEWORDINLINE(0x2F3C, 0x0004, 0x1001, 0x7000, 0xA82A);
+               *    \non_carbon_cfm in AppleScriptLib 1.1 and
+           later
+               *    \carbon_lib in CarbonLib 1.0 and
+           later
+               *    \mac_os_x in version 10.0 and
+           later*/
+    OSAError
+    OSAGetDefaultScriptingComponent(ComponentInstance genericScriptingComponent,
+                                    ScriptingComponentSelector *scriptingSubType);
 
     /**
      *  OSASetDefaultScriptingComponent()
@@ -103,10 +102,10 @@ extern "C"
      */
     OSAError
     OSASetDefaultScriptingComponent(ComponentInstance genericScriptingComponent,
-                                    ScriptingComponentSelector scriptingSubType)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x1002, 0x7000, 0xA82A);
+                                    ScriptingComponentSelector scriptingSubType);
 
-    // get a scripting component instance from its subtype code   /**
+    // get a scripting component instance from its subtype code
+    /**
     *OSAGetScriptingComponent() *
 
             *    \non_carbon_cfm in AppleScriptLib 1.1 and
@@ -114,59 +113,54 @@ extern "C"
             *    \carbon_lib in CarbonLib 1.0 and
         later
             *    \mac_os_x in version 10.0 and
-        later
-                * /
-            OSAError
-            OSAGetScriptingComponent(ComponentInstance genericScriptingComponent,
-                                     ScriptingComponentSelector scriptingSubType,
-                                     ComponentInstance *scriptingInstance)
-                FIVEWORDINLINE(0x2F3C, 0x0008, 0x1003, 0x7000, 0xA82A);
+        later*/
+    OSAError
+    OSAGetScriptingComponent(ComponentInstance genericScriptingComponent,
+                             ScriptingComponentSelector scriptingSubType,
+                             ComponentInstance *scriptingInstance);
 
-    // get a scripting component selector (subType) from a stored script   /**
-    *OSAGetScriptingComponentFromStored() *
+    // get a scripting component selector (subType) from a stored script
+    /**
+       *OSAGetScriptingComponentFromStored() *
 
-            *    \non_carbon_cfm in AppleScriptLib 1.1 and
-        later
-            *    \carbon_lib in CarbonLib 1.0 and
-        later
-            *    \mac_os_x in version 10.0 and
-        later
-                * /
-            OSAError
-            OSAGetScriptingComponentFromStored(ComponentInstance genericScriptingComponent,
-                                               const AEDesc *scriptData,
-                                               ScriptingComponentSelector *scriptingSubType)
-                FIVEWORDINLINE(0x2F3C, 0x0008, 0x1004, 0x7000, 0xA82A);
+               *    \non_carbon_cfm in AppleScriptLib 1.1 and
+           later
+               *    \carbon_lib in CarbonLib 1.0 and
+           later
+               *    \mac_os_x in version 10.0 and
+           later*/
+    OSAError
+    OSAGetScriptingComponentFromStored(ComponentInstance genericScriptingComponent,
+                                       const AEDesc *scriptData,
+                                       ScriptingComponentSelector *scriptingSubType);
 
-    // get a real component instance and script id from a generic id   /**
-    *OSAGenericToRealID() *
+    // get a real component instance and script id from a generic id
+    /**
+       *OSAGenericToRealID() *
 
-            *    \non_carbon_cfm in AppleScriptLib 1.1 and
-        later
-            *    \carbon_lib in CarbonLib 1.0 and
-        later
-            *    \mac_os_x in version 10.0 and
-        later
-                * /
-            OSAError
-            OSAGenericToRealID(ComponentInstance genericScriptingComponent,
-                               OSAID *theScriptID, ComponentInstance *theExactComponent)
-                FIVEWORDINLINE(0x2F3C, 0x0008, 0x1005, 0x7000, 0xA82A);
+               *    \non_carbon_cfm in AppleScriptLib 1.1 and
+           later
+               *    \carbon_lib in CarbonLib 1.0 and
+           later
+               *    \mac_os_x in version 10.0 and
+           later*/
+    OSAError
+    OSAGenericToRealID(ComponentInstance genericScriptingComponent,
+                       OSAID *theScriptID, ComponentInstance *theExactComponent);
 
-    // get a generic id from a real component instance and script id   /**
-    *OSARealToGenericID() *
+    // get a generic id from a real component instance and script id
+    /**
+       *OSARealToGenericID() *
 
-            *    \non_carbon_cfm in AppleScriptLib 1.1 and
-        later
-            *    \carbon_lib in CarbonLib 1.0 and
-        later
-            *    \mac_os_x in version 10.0 and
-        later
-                * /
-            OSAError
-            OSARealToGenericID(ComponentInstance genericScriptingComponent,
-                               OSAID *theScriptID, ComponentInstance theExactComponent)
-                FIVEWORDINLINE(0x2F3C, 0x0008, 0x1006, 0x7000, 0xA82A);
+               *    \non_carbon_cfm in AppleScriptLib 1.1 and
+           later
+               *    \carbon_lib in CarbonLib 1.0 and
+           later
+               *    \mac_os_x in version 10.0 and
+           later*/
+    OSAError
+    OSARealToGenericID(ComponentInstance genericScriptingComponent,
+                       OSAID *theScriptID, ComponentInstance theExactComponent);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset

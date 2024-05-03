@@ -220,8 +220,7 @@ extern "C"
                                     QTAtomContainer actionContainer,
                                     QTAtom actionAtom,
                                     QTCustomActionTargetPtr target,
-                                    QTEventRecordPtr event)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0xFFF7, 0x7000, 0xA82A);
+                                    QTEventRecordPtr event);
 
     // MediaCallRange2
     // These are unique to each type of media handler
@@ -238,8 +237,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaInitialize(MediaHandler mh, GetMovieCompleteParams *gmc)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0501, 0x7000, 0xA82A);
+    MediaInitialize(MediaHandler mh, GetMovieCompleteParams *gmc);
 
     /**
      *  MediaSetHandlerCapabilities()
@@ -251,8 +249,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetHandlerCapabilities(MediaHandler mh, long flags, long flagsMask)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0502, 0x7000, 0xA82A);
+    MediaSetHandlerCapabilities(MediaHandler mh, long flags, long flagsMask);
 
     /**
      *  MediaIdle()
@@ -265,8 +262,7 @@ extern "C"
      */
     ComponentResult
     MediaIdle(MediaHandler mh, TimeValue atMediaTime, long flagsIn, long *flagsOut,
-              const TimeRecord *movieTime)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0503, 0x7000, 0xA82A);
+              const TimeRecord *movieTime);
 
     /**
      *  MediaGetMediaInfo()
@@ -278,8 +274,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetMediaInfo(MediaHandler mh, Handle h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0504, 0x7000, 0xA82A);
+    MediaGetMediaInfo(MediaHandler mh, Handle h);
 
     /**
      *  MediaPutMediaInfo()
@@ -291,8 +286,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaPutMediaInfo(MediaHandler mh, Handle h)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0505, 0x7000, 0xA82A);
+    MediaPutMediaInfo(MediaHandler mh, Handle h);
 
     /**
      *  MediaSetActive()
@@ -304,8 +298,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetActive(MediaHandler mh, Boolean enableMedia)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0506, 0x7000, 0xA82A);
+    MediaSetActive(MediaHandler mh, Boolean enableMedia);
 
     /**
      *  MediaSetRate()
@@ -317,8 +310,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetRate(MediaHandler mh, Fixed rate)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0507, 0x7000, 0xA82A);
+    MediaSetRate(MediaHandler mh, Fixed rate);
 
     /**
      *  MediaGGetStatus()
@@ -330,8 +322,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGGetStatus(MediaHandler mh, ComponentResult *statusErr)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0508, 0x7000, 0xA82A);
+    MediaGGetStatus(MediaHandler mh, ComponentResult *statusErr);
 
     /**
      *  MediaTrackEdited()
@@ -343,8 +334,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaTrackEdited(MediaHandler mh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0509, 0x7000, 0xA82A);
+    MediaTrackEdited(MediaHandler mh);
 
     /**
      *  MediaSetMediaTimeScale()
@@ -356,8 +346,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetMediaTimeScale(MediaHandler mh, TimeScale newTimeScale)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x050A, 0x7000, 0xA82A);
+    MediaSetMediaTimeScale(MediaHandler mh, TimeScale newTimeScale);
 
     /**
      *  MediaSetMovieTimeScale()
@@ -369,8 +358,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetMovieTimeScale(MediaHandler mh, TimeScale newTimeScale)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x050B, 0x7000, 0xA82A);
+    MediaSetMovieTimeScale(MediaHandler mh, TimeScale newTimeScale);
 
     /**
      *  MediaSetGWorld()
@@ -382,8 +370,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetGWorld(MediaHandler mh, CGrafPtr aPort, GDHandle aGD)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x050C, 0x7000, 0xA82A);
+    MediaSetGWorld(MediaHandler mh, CGrafPtr aPort, GDHandle aGD);
 
     /**
      *  MediaSetDimensions()
@@ -395,8 +382,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetDimensions(MediaHandler mh, Fixed width, Fixed height)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x050D, 0x7000, 0xA82A);
+    MediaSetDimensions(MediaHandler mh, Fixed width, Fixed height);
 
     /**
      *  MediaSetClip()
@@ -408,8 +394,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetClip(MediaHandler mh, RgnHandle theClip)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x050E, 0x7000, 0xA82A);
+    MediaSetClip(MediaHandler mh, RgnHandle theClip);
 
     /**
      *  MediaSetMatrix()
@@ -421,8 +406,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetMatrix(MediaHandler mh, MatrixRecord *trackMovieMatrix)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x050F, 0x7000, 0xA82A);
+    MediaSetMatrix(MediaHandler mh, MatrixRecord *trackMovieMatrix);
 
     /**
      *  MediaGetTrackOpaque()
@@ -434,8 +418,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetTrackOpaque(MediaHandler mh, Boolean *trackIsOpaque)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0510, 0x7000, 0xA82A);
+    MediaGetTrackOpaque(MediaHandler mh, Boolean *trackIsOpaque);
 
     /**
      *  MediaSetGraphicsMode()
@@ -447,8 +430,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetGraphicsMode(MediaHandler mh, long mode, const RGBColor *opColor)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0511, 0x7000, 0xA82A);
+    MediaSetGraphicsMode(MediaHandler mh, long mode, const RGBColor *opColor);
 
     /**
      *  MediaGetGraphicsMode()
@@ -460,8 +442,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetGraphicsMode(MediaHandler mh, long *mode, RGBColor *opColor)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0512, 0x7000, 0xA82A);
+    MediaGetGraphicsMode(MediaHandler mh, long *mode, RGBColor *opColor);
 
     /**
      *  MediaGSetVolume()
@@ -473,8 +454,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGSetVolume(MediaHandler mh, short volume)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0513, 0x7000, 0xA82A);
+    MediaGSetVolume(MediaHandler mh, short volume);
 
     /**
      *  MediaSetSoundBalance()
@@ -486,8 +466,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetSoundBalance(MediaHandler mh, short balance)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0514, 0x7000, 0xA82A);
+    MediaSetSoundBalance(MediaHandler mh, short balance);
 
     /**
      *  MediaGetSoundBalance()
@@ -499,8 +478,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetSoundBalance(MediaHandler mh, short *balance)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0515, 0x7000, 0xA82A);
+    MediaGetSoundBalance(MediaHandler mh, short *balance);
 
     /**
      *  MediaGetNextBoundsChange()
@@ -512,8 +490,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetNextBoundsChange(MediaHandler mh, TimeValue *when)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0516, 0x7000, 0xA82A);
+    MediaGetNextBoundsChange(MediaHandler mh, TimeValue *when);
 
     /**
      *  MediaGetSrcRgn()
@@ -525,8 +502,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetSrcRgn(MediaHandler mh, RgnHandle rgn, TimeValue atMediaTime)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0517, 0x7000, 0xA82A);
+    MediaGetSrcRgn(MediaHandler mh, RgnHandle rgn, TimeValue atMediaTime);
 
     /**
      *  MediaPreroll()
@@ -538,8 +514,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaPreroll(MediaHandler mh, TimeValue time, Fixed rate)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0518, 0x7000, 0xA82A);
+    MediaPreroll(MediaHandler mh, TimeValue time, Fixed rate);
 
     /**
      *  MediaSampleDescriptionChanged()
@@ -551,8 +526,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSampleDescriptionChanged(MediaHandler mh, long index)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0519, 0x7000, 0xA82A);
+    MediaSampleDescriptionChanged(MediaHandler mh, long index);
 
     /**
      *  MediaHasCharacteristic()
@@ -564,8 +538,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaHasCharacteristic(MediaHandler mh, OSType characteristic, Boolean *hasIt)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x051A, 0x7000, 0xA82A);
+    MediaHasCharacteristic(MediaHandler mh, OSType characteristic, Boolean *hasIt);
 
     /**
      *  MediaGetOffscreenBufferSize()
@@ -578,8 +551,7 @@ extern "C"
      */
     ComponentResult
     MediaGetOffscreenBufferSize(MediaHandler mh, Rect *bounds, short depth,
-                                CTabHandle ctab)
-        FIVEWORDINLINE(0x2F3C, 0x000A, 0x051B, 0x7000, 0xA82A);
+                                CTabHandle ctab);
 
     /**
      *  MediaSetHints()
@@ -591,8 +563,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetHints(MediaHandler mh, long hints)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x051C, 0x7000, 0xA82A);
+    MediaSetHints(MediaHandler mh, long hints);
 
     /**
      *  MediaGetName()
@@ -605,8 +576,7 @@ extern "C"
      */
     ComponentResult
     MediaGetName(MediaHandler mh, Str255 name, long requestedLanguage,
-                 long *actualLanguage)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x051D, 0x7000, 0xA82A);
+                 long *actualLanguage);
 
     /**
      *  MediaForceUpdate()
@@ -618,8 +588,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaForceUpdate(MediaHandler mh, long forceUpdateFlags)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x051E, 0x7000, 0xA82A);
+    MediaForceUpdate(MediaHandler mh, long forceUpdateFlags);
 
     /**
      *  MediaGetDrawingRgn()
@@ -631,8 +600,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetDrawingRgn(MediaHandler mh, RgnHandle *partialRgn)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x051F, 0x7000, 0xA82A);
+    MediaGetDrawingRgn(MediaHandler mh, RgnHandle *partialRgn);
 
     /**
      *  MediaGSetActiveSegment()
@@ -645,8 +613,7 @@ extern "C"
      */
     ComponentResult
     MediaGSetActiveSegment(MediaHandler mh, TimeValue activeStart,
-                           TimeValue activeDuration)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0520, 0x7000, 0xA82A);
+                           TimeValue activeDuration);
 
     /**
      *  MediaInvalidateRegion()
@@ -658,8 +625,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaInvalidateRegion(MediaHandler mh, RgnHandle invalRgn)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0521, 0x7000, 0xA82A);
+    MediaInvalidateRegion(MediaHandler mh, RgnHandle invalRgn);
 
     /**
      *  MediaGetNextStepTime()
@@ -672,8 +638,7 @@ extern "C"
      */
     ComponentResult
     MediaGetNextStepTime(MediaHandler mh, short flags, TimeValue mediaTimeIn,
-                         TimeValue *mediaTimeOut, Fixed rate)
-        FIVEWORDINLINE(0x2F3C, 0x000E, 0x0522, 0x7000, 0xA82A);
+                         TimeValue *mediaTimeOut, Fixed rate);
 
     /**
      *  MediaSetNonPrimarySourceData()
@@ -689,8 +654,7 @@ extern "C"
                                  long dataDescriptionSeed, Handle dataDescription,
                                  void *data, long dataSize,
                                  ICMCompletionProcRecordPtr asyncCompletionProc,
-                                 ICMConvertDataFormatUPP transferProc, void *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0020, 0x0523, 0x7000, 0xA82A);
+                                 ICMConvertDataFormatUPP transferProc, void *refCon);
 
     /**
      *  MediaChangedNonPrimarySource()
@@ -702,8 +666,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaChangedNonPrimarySource(MediaHandler mh, long inputIndex)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0524, 0x7000, 0xA82A);
+    MediaChangedNonPrimarySource(MediaHandler mh, long inputIndex);
 
     /**
      *  MediaTrackReferencesChanged()
@@ -715,8 +678,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaTrackReferencesChanged(MediaHandler mh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0525, 0x7000, 0xA82A);
+    MediaTrackReferencesChanged(MediaHandler mh);
 
     /**
      *  MediaGetSampleDataPointer()
@@ -729,8 +691,7 @@ extern "C"
      */
     ComponentResult
     MediaGetSampleDataPointer(MediaHandler mh, long sampleNum, Ptr *dataPtr,
-                              long *dataSize, long *sampleDescIndex)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0526, 0x7000, 0xA82A);
+                              long *dataSize, long *sampleDescIndex);
 
     /**
      *  MediaReleaseSampleDataPointer()
@@ -742,8 +703,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaReleaseSampleDataPointer(MediaHandler mh, long sampleNum)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0527, 0x7000, 0xA82A);
+    MediaReleaseSampleDataPointer(MediaHandler mh, long sampleNum);
 
     /**
      *  MediaTrackPropertyAtomChanged()
@@ -755,8 +715,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaTrackPropertyAtomChanged(MediaHandler mh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0528, 0x7000, 0xA82A);
+    MediaTrackPropertyAtomChanged(MediaHandler mh);
 
     /**
      *  MediaSetTrackInputMapReference()
@@ -768,8 +727,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetTrackInputMapReference(MediaHandler mh, QTAtomContainer inputMap)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0529, 0x7000, 0xA82A);
+    MediaSetTrackInputMapReference(MediaHandler mh, QTAtomContainer inputMap);
 
     /**
      *  MediaSetVideoParam()
@@ -781,8 +739,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetVideoParam(MediaHandler mh, long whichParam, unsigned short *value)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x052B, 0x7000, 0xA82A);
+    MediaSetVideoParam(MediaHandler mh, long whichParam, unsigned short *value);
 
     /**
      *  MediaGetVideoParam()
@@ -794,8 +751,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetVideoParam(MediaHandler mh, long whichParam, unsigned short *value)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x052C, 0x7000, 0xA82A);
+    MediaGetVideoParam(MediaHandler mh, long whichParam, unsigned short *value);
 
     /**
      *  MediaCompare()
@@ -808,8 +764,7 @@ extern "C"
      */
     ComponentResult
     MediaCompare(MediaHandler mh, Boolean *isOK, Media srcMedia,
-                 ComponentInstance srcMediaComponent)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x052D, 0x7000, 0xA82A);
+                 ComponentInstance srcMediaComponent);
 
     /**
      *  MediaGetClock()
@@ -821,8 +776,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetClock(MediaHandler mh, ComponentInstance *clock)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x052E, 0x7000, 0xA82A);
+    MediaGetClock(MediaHandler mh, ComponentInstance *clock);
 
     /**
      *  MediaSetSoundOutputComponent()
@@ -834,8 +788,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetSoundOutputComponent(MediaHandler mh, Component outputComponent)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x052F, 0x7000, 0xA82A);
+    MediaSetSoundOutputComponent(MediaHandler mh, Component outputComponent);
 
     /**
      *  MediaGetSoundOutputComponent()
@@ -847,8 +800,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetSoundOutputComponent(MediaHandler mh, Component *outputComponent)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0530, 0x7000, 0xA82A);
+    MediaGetSoundOutputComponent(MediaHandler mh, Component *outputComponent);
 
     /**
      *  MediaSetSoundLocalizationData()
@@ -860,8 +812,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaSetSoundLocalizationData(MediaHandler mh, Handle data)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0531, 0x7000, 0xA82A);
+    MediaSetSoundLocalizationData(MediaHandler mh, Handle data);
 
     /**
      *  MediaGetInvalidRegion()
@@ -873,8 +824,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetInvalidRegion(MediaHandler mh, RgnHandle rgn)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x053C, 0x7000, 0xA82A);
+    MediaGetInvalidRegion(MediaHandler mh, RgnHandle rgn);
 
     /**
      *  MediaSampleDescriptionB2N()
@@ -887,8 +837,7 @@ extern "C"
      */
     ComponentResult
     MediaSampleDescriptionB2N(MediaHandler mh,
-                              SampleDescriptionHandle sampleDescriptionH)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x053E, 0x7000, 0xA82A);
+                              SampleDescriptionHandle sampleDescriptionH);
 
     /**
      *  MediaSampleDescriptionN2B()
@@ -901,8 +850,7 @@ extern "C"
      */
     ComponentResult
     MediaSampleDescriptionN2B(MediaHandler mh,
-                              SampleDescriptionHandle sampleDescriptionH)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x053F, 0x7000, 0xA82A);
+                              SampleDescriptionHandle sampleDescriptionH);
 
     /**
      *  MediaQueueNonPrimarySourceData()
@@ -920,8 +868,7 @@ extern "C"
                                    ICMCompletionProcRecordPtr asyncCompletionProc,
                                    const ICMFrameTimeRecord *frameTime,
                                    ICMConvertDataFormatUPP transferProc,
-                                   void *refCon)
-        FIVEWORDINLINE(0x2F3C, 0x0024, 0x0540, 0x7000, 0xA82A);
+                                   void *refCon);
 
     /**
      *  MediaFlushNonPrimarySourceData()
@@ -933,8 +880,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaFlushNonPrimarySourceData(MediaHandler mh, long inputIndex)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0541, 0x7000, 0xA82A);
+    MediaFlushNonPrimarySourceData(MediaHandler mh, long inputIndex);
 
     /**
      *  MediaGetURLLink()
@@ -946,8 +892,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaGetURLLink(MediaHandler mh, Point displayWhere, Handle *urlLink)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0543, 0x7000, 0xA82A);
+    MediaGetURLLink(MediaHandler mh, Point displayWhere, Handle *urlLink);
 
     /**
      *  MediaMakeMediaTimeTable()
@@ -962,8 +907,7 @@ extern "C"
     MediaMakeMediaTimeTable(MediaHandler mh, long **offsets, TimeValue startTime,
                             TimeValue endTime, TimeValue timeIncrement,
                             short firstDataRefIndex, short lastDataRefIndex,
-                            long *retDataRefSkew)
-        FIVEWORDINLINE(0x2F3C, 0x0018, 0x0545, 0x7000, 0xA82A);
+                            long *retDataRefSkew);
 
     /**
      *  MediaHitTestForTargetRefCon()
@@ -976,8 +920,7 @@ extern "C"
      */
     ComponentResult
     MediaHitTestForTargetRefCon(MediaHandler mh, long flags, Point loc,
-                                long *targetRefCon)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0546, 0x7000, 0xA82A);
+                                long *targetRefCon);
 
     /**
      *  MediaHitTestTargetRefCon()
@@ -990,8 +933,7 @@ extern "C"
      */
     ComponentResult
     MediaHitTestTargetRefCon(MediaHandler mh, long targetRefCon, long flags,
-                             Point loc, Boolean *wasHit)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0547, 0x7000, 0xA82A);
+                             Point loc, Boolean *wasHit);
 
     /**
      *  MediaGetActionsForQTEvent()
@@ -1005,8 +947,7 @@ extern "C"
     ComponentResult
     MediaGetActionsForQTEvent(MediaHandler mh, QTEventRecordPtr event,
                               long targetRefCon, QTAtomContainer *container,
-                              QTAtom *atom)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0548, 0x7000, 0xA82A);
+                              QTAtom *atom);
 
     /**
      *  MediaDisposeTargetRefCon()
@@ -1018,8 +959,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaDisposeTargetRefCon(MediaHandler mh, long targetRefCon)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0549, 0x7000, 0xA82A);
+    MediaDisposeTargetRefCon(MediaHandler mh, long targetRefCon);
 
     /**
      *  MediaTargetRefConsEqual()
@@ -1032,8 +972,7 @@ extern "C"
      */
     ComponentResult
     MediaTargetRefConsEqual(MediaHandler mh, long firstRefCon, long secondRefCon,
-                            Boolean *equal)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x054A, 0x7000, 0xA82A);
+                            Boolean *equal);
 
     /**
      *  MediaSetActionsCallback()
@@ -1046,8 +985,7 @@ extern "C"
      */
     ComponentResult
     MediaSetActionsCallback(MediaHandler mh, ActionsUPP actionsCallbackProc,
-                            void *refcon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x054B, 0x7000, 0xA82A);
+                            void *refcon);
 
     /**
      *  MediaPrePrerollBegin()
@@ -1060,8 +998,7 @@ extern "C"
      */
     ComponentResult
     MediaPrePrerollBegin(MediaHandler mh, TimeValue time, Fixed rate,
-                         PrePrerollCompleteUPP completeProc, void *refcon)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x054C, 0x7000, 0xA82A);
+                         PrePrerollCompleteUPP completeProc, void *refcon);
 
     /**
      *  MediaPrePrerollCancel()
@@ -1073,8 +1010,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaPrePrerollCancel(MediaHandler mh, void *refcon)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x054D, 0x7000, 0xA82A);
+    MediaPrePrerollCancel(MediaHandler mh, void *refcon);
 
     /**
      *  MediaEnterEmptyEdit()
@@ -1086,8 +1022,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaEnterEmptyEdit(MediaHandler mh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x054F, 0x7000, 0xA82A);
+    MediaEnterEmptyEdit(MediaHandler mh);
 
     /**
      *  MediaCurrentMediaQueuedData()
@@ -1099,8 +1034,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 3.0 and later
      */
     ComponentResult
-    MediaCurrentMediaQueuedData(MediaHandler mh, long *milliSecs)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0550, 0x7000, 0xA82A);
+    MediaCurrentMediaQueuedData(MediaHandler mh, long *milliSecs);
 
     /**
      *  MediaGetEffectiveVolume()
@@ -1112,8 +1046,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaGetEffectiveVolume(MediaHandler mh, short *volume)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0551, 0x7000, 0xA82A);
+    MediaGetEffectiveVolume(MediaHandler mh, short *volume);
 
     /**
      *  MediaResolveTargetRefCon()
@@ -1126,8 +1059,7 @@ extern "C"
      */
     ComponentResult
     MediaResolveTargetRefCon(MediaHandler mh, QTAtomContainer container,
-                             QTAtom atom, long *targetRefCon)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0552, 0x7000, 0xA82A);
+                             QTAtom atom, long *targetRefCon);
 
     /**
      *  MediaGetSoundLevelMeteringEnabled()
@@ -1139,8 +1071,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaGetSoundLevelMeteringEnabled(MediaHandler mh, Boolean *enabled)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0553, 0x7000, 0xA82A);
+    MediaGetSoundLevelMeteringEnabled(MediaHandler mh, Boolean *enabled);
 
     /**
      *  MediaSetSoundLevelMeteringEnabled()
@@ -1152,8 +1083,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaSetSoundLevelMeteringEnabled(MediaHandler mh, Boolean enable)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0554, 0x7000, 0xA82A);
+    MediaSetSoundLevelMeteringEnabled(MediaHandler mh, Boolean enable);
 
     /**
      *  MediaGetSoundLevelMeterInfo()
@@ -1165,8 +1095,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaGetSoundLevelMeterInfo(MediaHandler mh, LevelMeterInfoPtr levelInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0555, 0x7000, 0xA82A);
+    MediaGetSoundLevelMeterInfo(MediaHandler mh, LevelMeterInfoPtr levelInfo);
 
     /**
      *  MediaGetEffectiveSoundBalance()
@@ -1178,8 +1107,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaGetEffectiveSoundBalance(MediaHandler mh, short *balance)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0556, 0x7000, 0xA82A);
+    MediaGetEffectiveSoundBalance(MediaHandler mh, short *balance);
 
     /**
      *  MediaSetScreenLock()
@@ -1191,8 +1119,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaSetScreenLock(MediaHandler mh, Boolean lockIt)
-        FIVEWORDINLINE(0x2F3C, 0x0002, 0x0557, 0x7000, 0xA82A);
+    MediaSetScreenLock(MediaHandler mh, Boolean lockIt);
 
     /**
      *  MediaSetDoMCActionCallback()
@@ -1205,8 +1132,7 @@ extern "C"
      */
     ComponentResult
     MediaSetDoMCActionCallback(MediaHandler mh,
-                               DoMCActionUPP doMCActionCallbackProc, void *refcon)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0558, 0x7000, 0xA82A);
+                               DoMCActionUPP doMCActionCallbackProc, void *refcon);
 
     /**
      *  MediaGetErrorString()
@@ -1219,8 +1145,7 @@ extern "C"
      */
     ComponentResult
     MediaGetErrorString(MediaHandler mh, ComponentResult theError,
-                        Str255 errorString)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0559, 0x7000, 0xA82A);
+                        Str255 errorString);
 
     /**
      *  MediaGetSoundEqualizerBands()
@@ -1233,8 +1158,7 @@ extern "C"
      */
     ComponentResult
     MediaGetSoundEqualizerBands(MediaHandler mh,
-                                MediaEQSpectrumBandsRecordPtr spectrumInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x055A, 0x7000, 0xA82A);
+                                MediaEQSpectrumBandsRecordPtr spectrumInfo);
 
     /**
      *  MediaSetSoundEqualizerBands()
@@ -1247,8 +1171,7 @@ extern "C"
      */
     ComponentResult
     MediaSetSoundEqualizerBands(MediaHandler mh,
-                                MediaEQSpectrumBandsRecordPtr spectrumInfo)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x055B, 0x7000, 0xA82A);
+                                MediaEQSpectrumBandsRecordPtr spectrumInfo);
 
     /**
      *  MediaGetSoundEqualizerBandLevels()
@@ -1260,8 +1183,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaGetSoundEqualizerBandLevels(MediaHandler mh, UInt8 *bandLevels)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x055C, 0x7000, 0xA82A);
+    MediaGetSoundEqualizerBandLevels(MediaHandler mh, UInt8 *bandLevels);
 
     /**
      *  MediaDoIdleActions()
@@ -1273,8 +1195,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaDoIdleActions(MediaHandler mh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x055D, 0x7000, 0xA82A);
+    MediaDoIdleActions(MediaHandler mh);
 
     /**
      *  MediaSetSoundBassAndTreble()
@@ -1286,8 +1207,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaSetSoundBassAndTreble(MediaHandler mh, short bass, short treble)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x055E, 0x7000, 0xA82A);
+    MediaSetSoundBassAndTreble(MediaHandler mh, short bass, short treble);
 
     /**
      *  MediaGetSoundBassAndTreble()
@@ -1299,8 +1219,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaGetSoundBassAndTreble(MediaHandler mh, short *bass, short *treble)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x055F, 0x7000, 0xA82A);
+    MediaGetSoundBassAndTreble(MediaHandler mh, short *bass, short *treble);
 
     /**
      *  MediaTimeBaseChanged()
@@ -1312,8 +1231,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.0 and later
      */
     ComponentResult
-    MediaTimeBaseChanged(MediaHandler mh)
-        FIVEWORDINLINE(0x2F3C, 0x0000, 0x0560, 0x7000, 0xA82A);
+    MediaTimeBaseChanged(MediaHandler mh);
 
     /**
      *  MediaMCIsPlayerEvent()
@@ -1325,8 +1243,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    MediaMCIsPlayerEvent(MediaHandler mh, const EventRecord *e, Boolean *handledIt)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0561, 0x7000, 0xA82A);
+    MediaMCIsPlayerEvent(MediaHandler mh, const EventRecord *e, Boolean *handledIt);
 
     /**
      *  MediaGetMediaLoadState()
@@ -1338,8 +1255,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 4.1 and later
      */
     ComponentResult
-    MediaGetMediaLoadState(MediaHandler mh, long *mediaLoadState)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0562, 0x7000, 0xA82A);
+    MediaGetMediaLoadState(MediaHandler mh, long *mediaLoadState);
 
     /**
      *  MediaVideoOutputChanged()
@@ -1351,8 +1267,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    MediaVideoOutputChanged(MediaHandler mh, ComponentInstance vout)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0563, 0x7000, 0xA82A);
+    MediaVideoOutputChanged(MediaHandler mh, ComponentInstance vout);
 
     /**
      *  MediaEmptySampleCache()
@@ -1364,8 +1279,7 @@ extern "C"
      *    Windows:          in qtmlClient.lib 5.0 and later
      */
     ComponentResult
-    MediaEmptySampleCache(MediaHandler mh, long sampleNum, long sampleCount)
-        FIVEWORDINLINE(0x2F3C, 0x0008, 0x0564, 0x7000, 0xA82A);
+    MediaEmptySampleCache(MediaHandler mh, long sampleNum, long sampleCount);
 
     /**
      *  MediaGetPublicInfo()
@@ -1378,8 +1292,7 @@ extern "C"
      */
     ComponentResult
     MediaGetPublicInfo(MediaHandler mh, OSType infoSelector, void *infoDataPtr,
-                       Size *ioDataSize)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0565, 0x7000, 0xA82A);
+                       Size *ioDataSize);
 
     /**
      *  MediaSetPublicInfo()
@@ -1392,8 +1305,7 @@ extern "C"
      */
     ComponentResult
     MediaSetPublicInfo(MediaHandler mh, OSType infoSelector, void *infoDataPtr,
-                       Size dataSize)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0566, 0x7000, 0xA82A);
+                       Size dataSize);
 
     /**
      *  MediaGetUserPreferredCodecs()
@@ -1406,8 +1318,7 @@ extern "C"
      */
     ComponentResult
     MediaGetUserPreferredCodecs(MediaHandler mh,
-                                CodecComponentHandle *userPreferredCodecs)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0567, 0x7000, 0xA82A);
+                                CodecComponentHandle *userPreferredCodecs);
 
     /**
      *  MediaSetUserPreferredCodecs()
@@ -1420,8 +1331,7 @@ extern "C"
      */
     ComponentResult
     MediaSetUserPreferredCodecs(MediaHandler mh,
-                                CodecComponentHandle userPreferredCodecs)
-        FIVEWORDINLINE(0x2F3C, 0x0004, 0x0568, 0x7000, 0xA82A);
+                                CodecComponentHandle userPreferredCodecs);
 
     // selectors for component calls
     enum

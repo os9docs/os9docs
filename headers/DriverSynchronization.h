@@ -9,7 +9,7 @@
     \copyright © 1985-2001 by Apple Computer, Inc., all rights reserved
 
     \ingroup System
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -48,248 +49,248 @@ extern "C" {
 #endif
 
 #if CALL_NOT_IN_CARBON
-/**
- *  SynchronizeIO()
- *
+    /**
+     *  SynchronizeIO()
+     *
 
- *    \non_carbon_cfm   in DriverServicesLib 1.0 and later
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void
-SynchronizeIO(void) ONEWORDINLINE(0x4E71);
+     *    \non_carbon_cfm   in DriverServicesLib 1.0 and later
+     *    \carbon_lib        not available
+     *    \mac_os_x         not available
+     */
+    void
+    SynchronizeIO(void);
 
-#endif // CALL_NOT_IN_CARBON 
-/**
- *  CompareAndSwap()
- *
+#endif // CALL_NOT_IN_CARBON
+    /**
+     *  CompareAndSwap()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-CompareAndSwap(UInt32 oldVvalue, UInt32 newValue, UInt32 *OldValueAdr);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    Boolean
+    CompareAndSwap(UInt32 oldVvalue, UInt32 newValue, UInt32 *OldValueAdr);
 
-/**
- *  TestAndClear()
- *
+    /**
+     *  TestAndClear()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-TestAndClear(UInt32 bit, UInt8 *startAddress);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    Boolean
+    TestAndClear(UInt32 bit, UInt8 *startAddress);
 
-/**
- *  TestAndSet()
- *
+    /**
+     *  TestAndSet()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-Boolean
-TestAndSet(UInt32 bit, UInt8 *startAddress);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    Boolean
+    TestAndSet(UInt32 bit, UInt8 *startAddress);
 
-/**
- *  IncrementAtomic8()
- *
+    /**
+     *  IncrementAtomic8()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt8
-IncrementAtomic8(SInt8 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt8
+    IncrementAtomic8(SInt8 *value);
 
-/**
- *  DecrementAtomic8()
- *
+    /**
+     *  DecrementAtomic8()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt8
-DecrementAtomic8(SInt8 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt8
+    DecrementAtomic8(SInt8 *value);
 
-/**
- *  AddAtomic8()
- *
+    /**
+     *  AddAtomic8()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt8
-AddAtomic8(SInt32 amount, SInt8 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt8
+    AddAtomic8(SInt32 amount, SInt8 *value);
 
-/**
- *  BitAndAtomic8()
- *
+    /**
+     *  BitAndAtomic8()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt8
-BitAndAtomic8(UInt32 mask, UInt8 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt8
+    BitAndAtomic8(UInt32 mask, UInt8 *value);
 
-/**
- *  BitOrAtomic8()
- *
+    /**
+     *  BitOrAtomic8()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt8
-BitOrAtomic8(UInt32 mask, UInt8 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt8
+    BitOrAtomic8(UInt32 mask, UInt8 *value);
 
-/**
- *  BitXorAtomic8()
- *
+    /**
+     *  BitXorAtomic8()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt8
-BitXorAtomic8(UInt32 mask, UInt8 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt8
+    BitXorAtomic8(UInt32 mask, UInt8 *value);
 
-/**
- *  IncrementAtomic16()
- *
+    /**
+     *  IncrementAtomic16()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt16
-IncrementAtomic16(SInt16 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt16
+    IncrementAtomic16(SInt16 *value);
 
-/**
- *  DecrementAtomic16()
- *
+    /**
+     *  DecrementAtomic16()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt16
-DecrementAtomic16(SInt16 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt16
+    DecrementAtomic16(SInt16 *value);
 
-/**
- *  AddAtomic16()
- *
+    /**
+     *  AddAtomic16()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt16
-AddAtomic16(SInt32 amount, SInt16 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt16
+    AddAtomic16(SInt32 amount, SInt16 *value);
 
-/**
- *  BitAndAtomic16()
- *
+    /**
+     *  BitAndAtomic16()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt16
-BitAndAtomic16(UInt32 mask, UInt16 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt16
+    BitAndAtomic16(UInt32 mask, UInt16 *value);
 
-/**
- *  BitOrAtomic16()
- *
+    /**
+     *  BitOrAtomic16()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt16
-BitOrAtomic16(UInt32 mask, UInt16 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt16
+    BitOrAtomic16(UInt32 mask, UInt16 *value);
 
-/**
- *  BitXorAtomic16()
- *
+    /**
+     *  BitXorAtomic16()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt16
-BitXorAtomic16(UInt32 mask, UInt16 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt16
+    BitXorAtomic16(UInt32 mask, UInt16 *value);
 
-/**
- *  IncrementAtomic()
- *
+    /**
+     *  IncrementAtomic()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt32
-IncrementAtomic(SInt32 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt32
+    IncrementAtomic(SInt32 *value);
 
-/**
- *  DecrementAtomic()
- *
+    /**
+     *  DecrementAtomic()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt32
-DecrementAtomic(SInt32 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt32
+    DecrementAtomic(SInt32 *value);
 
-/**
- *  AddAtomic()
- *
+    /**
+     *  AddAtomic()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-SInt32
-AddAtomic(SInt32 amount, SInt32 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    SInt32
+    AddAtomic(SInt32 amount, SInt32 *value);
 
-/**
- *  BitAndAtomic()
- *
+    /**
+     *  BitAndAtomic()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt32
-BitAndAtomic(UInt32 mask, UInt32 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt32
+    BitAndAtomic(UInt32 mask, UInt32 *value);
 
-/**
- *  BitOrAtomic()
- *
+    /**
+     *  BitOrAtomic()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt32
-BitOrAtomic(UInt32 mask, UInt32 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt32
+    BitOrAtomic(UInt32 mask, UInt32 *value);
 
-/**
- *  BitXorAtomic()
- *
+    /**
+     *  BitXorAtomic()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 8.5 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-UInt32
-BitXorAtomic(UInt32 mask, UInt32 *value);
+     *    \non_carbon_cfm   in InterfaceLib 8.5 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    UInt32
+    BitXorAtomic(UInt32 mask, UInt32 *value);
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
@@ -309,4 +310,4 @@ BitXorAtomic(UInt32 mask, UInt32 *value);
 }
 #endif
 
-#endif // __DRIVERSYNCHRONIZATION__ // __DRIVERSYNCHRONIZATION__ 
+#endif // __DRIVERSYNCHRONIZATION__ // __DRIVERSYNCHRONIZATION__

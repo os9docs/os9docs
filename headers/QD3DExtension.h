@@ -32,7 +32,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -68,75 +69,97 @@ extern "C" {
  **                                                                          **
  *****************************************************************************/
 #if TARGET_OS_MAC
-enum {
-  kQ3XExtensionMacCreatorType = FOUR_CHAR_CODE('Q3XT'),
-  kQ3XExtensionMacFileType = FOUR_CHAR_CODE('shlb')
-};
+  enum
+  {
+    kQ3XExtensionMacCreatorType = FOUR_CHAR_CODE('Q3XT'),
+    kQ3XExtensionMacFileType = FOUR_CHAR_CODE('shlb')
+  };
 
-#endif // TARGET_OS_MAC 
-/******************************************************************************
- ** **
- **                                 Macros                                   **
- **                                                                          **
- *****************************************************************************/
+#endif // TARGET_OS_MAC
+  /******************************************************************************
+   ** **
+   **                                 Macros                                   **
+   **                                                                          **
+   *****************************************************************************/
 
-/**
- * Use this Macro to pack the version number for your class.  This would most
- * likely get used in the  kQ3XMethodTypeObjectClassVersion to return the
- * version for your class.  This method is set up in your meta handler.
- */
+  /**
+   * Use this Macro to pack the version number for your class.  This would most
+   * likely get used in the  kQ3XMethodTypeObjectClassVersion to return the
+   * version for your class.  This method is set up in your meta handler.
+   */
 
-#define Q3_OBJECT_CLASS_VERSION(major, minor)                                  \
+#define Q3_OBJECT_CLASS_VERSION(major, minor) \
   (unsigned long)(((major) << 16) | (minor))
 
 /**
  * Convenience macros to unpack a version number, accessing the major and the
  * minor version numbers
  */
-#define Q3_OBJECT_CLASS_GET_MAJOR_VERSION(version)                             \
+#define Q3_OBJECT_CLASS_GET_MAJOR_VERSION(version) \
   (unsigned long)((version) >> 16)
 
-#define Q3_OBJECT_CLASS_GET_MINOR_VERSION(version)                             \
+#define Q3_OBJECT_CLASS_GET_MINOR_VERSION(version) \
   (unsigned long)((version) & 0x0000ffff)
 
-/******************************************************************************
- **                                                                          **
- **                             Object Method types                          **
- **                                                                          **
- *****************************************************************************/
-enum { kQ3XMethodTypeObjectClassVersion = FOUR_CHAR_CODE('vrsn') };
+  /******************************************************************************
+   **                                                                          **
+   **                             Object Method types                          **
+   **                                                                          **
+   *****************************************************************************/
+  enum
+  {
+    kQ3XMethodTypeObjectClassVersion = FOUR_CHAR_CODE('vrsn')
+  };
 
-typedef unsigned long TQ3XObjectClassVersion;
-enum { kQ3XMethodTypeObjectClassRegister = FOUR_CHAR_CODE('rgst') };
+  typedef unsigned long TQ3XObjectClassVersion;
+  enum
+  {
+    kQ3XMethodTypeObjectClassRegister = FOUR_CHAR_CODE('rgst')
+  };
 
-typedef CALLBACK_API_C(TQ3Status, TQ3XObjectClassRegisterMethod)(
-    TQ3XObjectClass objectClass, void *classPrivate);
-enum { kQ3XMethodTypeObjectClassReplace = FOUR_CHAR_CODE('rgrp') };
+  typedef CALLBACK_API_C(TQ3Status, TQ3XObjectClassRegisterMethod)(
+      TQ3XObjectClass objectClass, void *classPrivate);
+  enum
+  {
+    kQ3XMethodTypeObjectClassReplace = FOUR_CHAR_CODE('rgrp')
+  };
 
-typedef CALLBACK_API_C(void, TQ3XObjectClassReplaceMethod)(
-    TQ3XObjectClass oldObjectClass, void *oldClassPrivate,
-    TQ3XObjectClass newObjectClass, void *newClassPrivate);
-enum { kQ3XMethodTypeObjectClassUnregister = FOUR_CHAR_CODE('unrg') };
+  typedef CALLBACK_API_C(void, TQ3XObjectClassReplaceMethod)(
+      TQ3XObjectClass oldObjectClass, void *oldClassPrivate,
+      TQ3XObjectClass newObjectClass, void *newClassPrivate);
+  enum
+  {
+    kQ3XMethodTypeObjectClassUnregister = FOUR_CHAR_CODE('unrg')
+  };
 
-typedef CALLBACK_API_C(void, TQ3XObjectClassUnregisterMethod)(
-    TQ3XObjectClass objectClass, void *classPrivate);
-enum { kQ3XMethodTypeObjectNew = FOUR_CHAR_CODE('newo') };
+  typedef CALLBACK_API_C(void, TQ3XObjectClassUnregisterMethod)(
+      TQ3XObjectClass objectClass, void *classPrivate);
+  enum
+  {
+    kQ3XMethodTypeObjectNew = FOUR_CHAR_CODE('newo')
+  };
 
-typedef CALLBACK_API_C(TQ3Status, TQ3XObjectNewMethod)(TQ3Object object,
-                                                       void *privateData,
-                                                       void *parameters);
-enum { kQ3XMethodTypeObjectDelete = FOUR_CHAR_CODE('dlte') };
+  typedef CALLBACK_API_C(TQ3Status, TQ3XObjectNewMethod)(TQ3Object object,
+                                                         void *privateData,
+                                                         void *parameters);
+  enum
+  {
+    kQ3XMethodTypeObjectDelete = FOUR_CHAR_CODE('dlte')
+  };
 
-typedef CALLBACK_API_C(void, TQ3XObjectDeleteMethod)(TQ3Object object,
-                                                     void *privateData);
-enum { kQ3XMethodTypeObjectDuplicate = FOUR_CHAR_CODE('dupl') };
+  typedef CALLBACK_API_C(void, TQ3XObjectDeleteMethod)(TQ3Object object,
+                                                       void *privateData);
+  enum
+  {
+    kQ3XMethodTypeObjectDuplicate = FOUR_CHAR_CODE('dupl')
+  };
 
-typedef CALLBACK_API_C(TQ3Status,
-                       TQ3XObjectDuplicateMethod)(TQ3Object fromObject,
-                                                  const void *fromPrivateData,
-                                                  TQ3Object toObject,
-                                                  const void *toPrivateData);
-typedef CALLBACK_API_C(TQ3Status, TQ3XSharedLibraryRegister)(void);
+  typedef CALLBACK_API_C(TQ3Status,
+                         TQ3XObjectDuplicateMethod)(TQ3Object fromObject,
+                                                    const void *fromPrivateData,
+                                                    TQ3Object toObject,
+                                                    const void *toPrivateData);
+  typedef CALLBACK_API_C(TQ3Status, TQ3XSharedLibraryRegister)(void);
 /******************************************************************************
  **                                                                          **
  **                         Object Hierarchy Registration                    **
@@ -163,181 +186,181 @@ typedef CALLBACK_API_C(TQ3Status, TQ3XSharedLibraryRegister)(void);
  *                          GetPrivate calls below)
  */
 #if CALL_NOT_IN_CARBON
-/**
- *  Q3XObjectHierarchy_RegisterClass()
- *
+  /**
+   *  Q3XObjectHierarchy_RegisterClass()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3XObjectClass
-Q3XObjectHierarchy_RegisterClass(TQ3ObjectType parentType,
-                                 TQ3ObjectType *objectType, char *objectName,
-                                 TQ3XMetaHandler metaHandler,
-                                 TQ3XMetaHandler virtualMetaHandler,
-                                 unsigned long methodsSize,
-                                 unsigned long instanceSize);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3XObjectClass
+  Q3XObjectHierarchy_RegisterClass(TQ3ObjectType parentType,
+                                   TQ3ObjectType *objectType, char *objectName,
+                                   TQ3XMetaHandler metaHandler,
+                                   TQ3XMetaHandler virtualMetaHandler,
+                                   unsigned long methodsSize,
+                                   unsigned long instanceSize);
 
-/**
- *  Q3XObjectHierarchy_UnregisterClass
- *
- *  Returns kQ3Failure if the objectClass still has objects
- * around; the class remains registered.
- */
-/**
- *  Q3XObjectHierarchy_UnregisterClass()
- *
+  /**
+   *  Q3XObjectHierarchy_UnregisterClass
+   *
+   *  Returns kQ3Failure if the objectClass still has objects
+   * around; the class remains registered.
+   */
+  /**
+   *  Q3XObjectHierarchy_UnregisterClass()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3XObjectHierarchy_UnregisterClass(TQ3XObjectClass objectClass);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3XObjectHierarchy_UnregisterClass(TQ3XObjectClass objectClass);
 
-/**
- *  Q3XObjectHierarchy_GetMethod
- *
- *  For use in TQ3XObjectClassRegisterMethod call
- */
-/**
- *  Q3XObjectClass_GetMethod()
- *
+  /**
+   *  Q3XObjectHierarchy_GetMethod
+   *
+   *  For use in TQ3XObjectClassRegisterMethod call
+   */
+  /**
+   *  Q3XObjectClass_GetMethod()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3XFunctionPointer
-Q3XObjectClass_GetMethod(TQ3XObjectClass objectClass,
-                         TQ3XMethodType methodType);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3XFunctionPointer
+  Q3XObjectClass_GetMethod(TQ3XObjectClass objectClass,
+                           TQ3XMethodType methodType);
 
-/**
- *  Q3XObjectHierarchy_NewObject
- *
- *  To create a new object. Parameters is passed into the
- *  TQ3XObjectNewMethod as the "parameters" parameter.
- */
-/**
- *  Q3XObjectHierarchy_NewObject()
- *
+  /**
+   *  Q3XObjectHierarchy_NewObject
+   *
+   *  To create a new object. Parameters is passed into the
+   *  TQ3XObjectNewMethod as the "parameters" parameter.
+   */
+  /**
+   *  Q3XObjectHierarchy_NewObject()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Object
-Q3XObjectHierarchy_NewObject(TQ3XObjectClass objectClass, void *parameters);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Object
+  Q3XObjectHierarchy_NewObject(TQ3XObjectClass objectClass, void *parameters);
 
-/**
- *  Q3XObjectClass_GetLeafType
- *
- *  Return the leaf type of a class.
- */
-/**
- *  Q3XObjectClass_GetLeafType()
- *
+  /**
+   *  Q3XObjectClass_GetLeafType
+   *
+   *  Return the leaf type of a class.
+   */
+  /**
+   *  Q3XObjectClass_GetLeafType()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3ObjectType
-Q3XObjectClass_GetLeafType(TQ3XObjectClass objectClass);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3ObjectType
+  Q3XObjectClass_GetLeafType(TQ3XObjectClass objectClass);
 
-/**
- *  Q3XObjectClass_GetVersion
- *  This routine obtains the the version of a class, referenced by an
- *  object class type.  Functions for getting the type are in QD3D.h,
- *  if you have the class name.
- */
-/**
- *  Q3XObjectHierarchy_GetClassVersion()
- *
+  /**
+   *  Q3XObjectClass_GetVersion
+   *  This routine obtains the the version of a class, referenced by an
+   *  object class type.  Functions for getting the type are in QD3D.h,
+   *  if you have the class name.
+   */
+  /**
+   *  Q3XObjectHierarchy_GetClassVersion()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3XObjectHierarchy_GetClassVersion(TQ3ObjectType objectClassType,
-                                   TQ3XObjectClassVersion *version);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3XObjectHierarchy_GetClassVersion(TQ3ObjectType objectClassType,
+                                     TQ3XObjectClassVersion *version);
 
-/**
- *  Q3XObjectClass_GetType
- *
- *  This can be used to get the type, given a reference
- *  to a class.  This is most useful in the instance where you register a
- *  an element/attribute and need to get the type.  When you register an
- *  element, QD3D will take the type you pass in and modify it (to avoid
- *  namespace clashes).  Many object system calls require an object type
- *  so this API call allows you to get the type from the class referernce
- *  that you will ordinarily store when you register the class.
- */
-/**
- *  Q3XObjectClass_GetType()
- *
+  /**
+   *  Q3XObjectClass_GetType
+   *
+   *  This can be used to get the type, given a reference
+   *  to a class.  This is most useful in the instance where you register a
+   *  an element/attribute and need to get the type.  When you register an
+   *  element, QD3D will take the type you pass in and modify it (to avoid
+   *  namespace clashes).  Many object system calls require an object type
+   *  so this API call allows you to get the type from the class referernce
+   *  that you will ordinarily store when you register the class.
+   */
+  /**
+   *  Q3XObjectClass_GetType()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3Status
-Q3XObjectClass_GetType(TQ3XObjectClass objectClass, TQ3ObjectType *theType);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3Status
+  Q3XObjectClass_GetType(TQ3XObjectClass objectClass, TQ3ObjectType *theType);
 
-/**
- *  Q3XObjectHierarchy_FindClassByType()
- *
+  /**
+   *  Q3XObjectHierarchy_FindClassByType()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3XObjectClass
-Q3XObjectHierarchy_FindClassByType(TQ3ObjectType theType);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3XObjectClass
+  Q3XObjectHierarchy_FindClassByType(TQ3ObjectType theType);
 
-/**
- *  Q3XObjectClass_GetPrivate
- *
- *  Return a pointer to private instance data, a block of instanceSize bytes,
- *  from the Q3XObjectHierarchy_RegisterClass call.
- *
- *  If instanceSize was zero, NULL is always returned.
- */
-/**
- *  Q3XObjectClass_GetPrivate()
- *
+  /**
+   *  Q3XObjectClass_GetPrivate
+   *
+   *  Return a pointer to private instance data, a block of instanceSize bytes,
+   *  from the Q3XObjectHierarchy_RegisterClass call.
+   *
+   *  If instanceSize was zero, NULL is always returned.
+   */
+  /**
+   *  Q3XObjectClass_GetPrivate()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void *
-Q3XObjectClass_GetPrivate(TQ3XObjectClass objectClass, TQ3Object targetObject);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  void *
+  Q3XObjectClass_GetPrivate(TQ3XObjectClass objectClass, TQ3Object targetObject);
 
-/**
- * Return the "TQ3XObjectClass" of an object
- */
-/**
- *  Q3XObject_GetClass()
- *
+  /**
+   * Return the "TQ3XObjectClass" of an object
+   */
+  /**
+   *  Q3XObject_GetClass()
+   *
 
- *    \non_carbon_cfm   not available
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-TQ3XObjectClass
-Q3XObject_GetClass(TQ3Object object);
+   *    \non_carbon_cfm   not available
+   *    \carbon_lib        not available
+   *    \mac_os_x         not available
+   */
+  TQ3XObjectClass
+  Q3XObject_GetClass(TQ3Object object);
 
 /******************************************************************************
  **                                                                          **
  **                 Shared Library Registration Entry Point                  **
  **                                                                          **
  *****************************************************************************/
-#endif // CALL_NOT_IN_CARBON 
-struct // CALL_NOT_IN_CARBON 
-  TQ3XSharedLibraryRegister registerFunction;
+#endif   // CALL_NOT_IN_CARBON
+  struct // CALL_NOT_IN_CARBON
+      TQ3XSharedLibraryRegister registerFunction;
   unsigned long sharedLibrary;
 };
 typedef struct TQ3XSharedLibraryInfo TQ3XSharedLibraryInfo;
@@ -384,8 +407,7 @@ Q3XSharedLibrary_Unregister(unsigned long sharedLibrary);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-Q3XError_Post(TQ3Error error);
+void Q3XError_Post(TQ3Error error);
 
 /**
  *  Q3XWarning_Post
@@ -401,8 +423,7 @@ Q3XError_Post(TQ3Error error);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-Q3XWarning_Post(TQ3Warning warning);
+void Q3XWarning_Post(TQ3Warning warning);
 
 /**
  *  Q3XNotice_Post
@@ -418,12 +439,11 @@ Q3XWarning_Post(TQ3Warning warning);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-Q3XNotice_Post(TQ3Notice notice);
+void Q3XNotice_Post(TQ3Notice notice);
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if TARGET_OS_MAC
-/**// CALL_NOT_IN_CARBON 
+/**
  *  Q3XMacintoshError_Post
  *
  *  Post the QuickDraw 3D Error, kQ3ErrorMacintoshError, and the Macintosh
@@ -438,15 +458,14 @@ Q3XNotice_Post(TQ3Notice notice);
  *    \carbon_lib        not available
  *    \mac_os_x         not available
  */
-void
-Q3XMacintoshError_Post(OSErr macOSErr);
+void Q3XMacintoshError_Post(OSErr macOSErr);
 
-#endif // CALL_NOT_IN_CARBON 
-#endif // TARGET_OS_MAC 
+#endif // CALL_NOT_IN_CARBON
+#endif // TARGET_OS_MAC
 #if PRAGMA_ENUM_ALWAYSINT
-#pragma// CALL_NOT_IN_CARBON 
+#pragma // CALL_NOT_IN_CARBON
 #ifdef __QD3DEXTENSION__RESTORE_TWOBYTEINTS
-#pragma// TARGET_OS_MAC 
+#pragma // TARGET_OS_MAC
 #endif
 #elif PRAGMA_ENUM_OPTIONS
 #pragma option enum =reset
@@ -472,4 +491,4 @@ Q3XMacintoshError_Post(OSErr macOSErr);
 }
 #endif
 
-#endif // __QD3DEXTENSION__ // __QD3DEXTENSION__ 
+#endif // __QD3DEXTENSION__ // __QD3DEXTENSION__

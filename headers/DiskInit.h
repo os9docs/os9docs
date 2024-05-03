@@ -106,7 +106,7 @@ extern "C"
          *    \mac_os_x         not available
          */
         void
-        DILoad(void) THREEWORDINLINE(0x7002, 0x3F00, 0xA9E9);
+        DILoad(void);
 
         /**
          *  DIUnload()
@@ -117,7 +117,7 @@ extern "C"
          *    \mac_os_x         not available
          */
         void
-        DIUnload(void) THREEWORDINLINE(0x7004, 0x3F00, 0xA9E9);
+        DIUnload(void);
 
         /**
          *  DIBadMount()
@@ -128,8 +128,7 @@ extern "C"
          *    \mac_os_x         not available
          */
         short
-        DIBadMount(Point where, UInt32 evtMessage)
-            THREEWORDINLINE(0x7000, 0x3F00, 0xA9E9);
+        DIBadMount(Point where, UInt32 evtMessage);
 
         /**
          *  DIFormat()
@@ -140,7 +139,7 @@ extern "C"
          *    \mac_os_x         not available
          */
         OSErr
-        DIFormat(short drvNum) THREEWORDINLINE(0x7006, 0x3F00, 0xA9E9);
+        DIFormat(short drvNum);
 
         /**
          *  DIVerify()
@@ -151,7 +150,7 @@ extern "C"
          *    \mac_os_x         not available
          */
         OSErr
-        DIVerify(short drvNum) THREEWORDINLINE(0x7008, 0x3F00, 0xA9E9);
+        DIVerify(short drvNum);
 
         /**
          *  DIZero()
@@ -162,8 +161,7 @@ extern "C"
          *    \mac_os_x         not available
          */
         OSErr
-        DIZero(short drvNum, ConstStr255Param volName)
-            THREEWORDINLINE(0x700A, 0x3F00, 0xA9E9);
+        DIZero(short drvNum, ConstStr255Param volName);
 
         /**
             DIXFormat, DIXZero, and DIReformat are only available when FSM (File System
@@ -179,7 +177,7 @@ extern "C"
          */
         OSErr
         DIXFormat(short drvNum, Boolean fmtFlag, unsigned long fmtArg,
-                  unsigned long *actSize) THREEWORDINLINE(0x700C, 0x3F00, 0xA9E9);
+                  unsigned long *actSize);
 
         /**
          *  DIXZero()
@@ -191,8 +189,7 @@ extern "C"
          */
         OSErr
         DIXZero(short drvNum, ConstStr255Param volName, short fsid, short mediaStatus,
-                short volTypeSelector, unsigned long volSize, void *extendedInfoPtr)
-            THREEWORDINLINE(0x700E, 0x3F00, 0xA9E9);
+                short volTypeSelector, unsigned long volSize, void *extendedInfoPtr);
 
         /**
          *  DIReformat()
@@ -204,7 +201,7 @@ extern "C"
          */
         OSErr
         DIReformat(short drvNum, short fsid, ConstStr255Param volName,
-                   ConstStr255Param msgText) THREEWORDINLINE(0x7010, 0x3F00, 0xA9E9);
+                   ConstStr255Param msgText);
 
 #endif /** CALL_NOT_IN_CARBON */
 

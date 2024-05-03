@@ -293,8 +293,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHGetDeviceList(ComponentInstance idh, QTAtomContainer *deviceList)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0001, 0x7000, 0xA82A);
+  IDHGetDeviceList(ComponentInstance idh, QTAtomContainer *deviceList);
 
   /**
    *  IDHGetDeviceConfiguration()
@@ -305,8 +304,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHGetDeviceConfiguration(ComponentInstance idh, QTAtomSpec *configurationID)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0002, 0x7000, 0xA82A);
+  IDHGetDeviceConfiguration(ComponentInstance idh, QTAtomSpec *configurationID);
 
   /**
    *  IDHSetDeviceConfiguration()
@@ -318,8 +316,7 @@ extern "C"
    */
   ComponentResult
   IDHSetDeviceConfiguration(ComponentInstance idh,
-                            const QTAtomSpec *configurationID)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0003, 0x7000, 0xA82A);
+                            const QTAtomSpec *configurationID);
 
   /**
    *  IDHGetDeviceStatus()
@@ -331,8 +328,7 @@ extern "C"
    */
   ComponentResult
   IDHGetDeviceStatus(ComponentInstance idh, const QTAtomSpec *configurationID,
-                     IDHDeviceStatus *status)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x0004, 0x7000, 0xA82A);
+                     IDHDeviceStatus *status);
 
   /**
    *  IDHGetDeviceClock()
@@ -343,8 +339,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHGetDeviceClock(ComponentInstance idh, Component *clock)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0005, 0x7000, 0xA82A);
+  IDHGetDeviceClock(ComponentInstance idh, Component *clock);
 
   /**
    *  IDHOpenDevice()
@@ -355,8 +350,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHOpenDevice(ComponentInstance idh, UInt32 permissions)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0006, 0x7000, 0xA82A);
+  IDHOpenDevice(ComponentInstance idh, UInt32 permissions);
 
   /**
    *  IDHCloseDevice()
@@ -367,8 +361,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHCloseDevice(ComponentInstance idh)
-      FIVEWORDINLINE(0x2F3C, 0x0000, 0x0007, 0x7000, 0xA82A);
+  IDHCloseDevice(ComponentInstance idh);
 
   /**
    *  IDHRead()
@@ -379,8 +372,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHRead(ComponentInstance idh, IDHParameterBlock *pb)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0008, 0x7000, 0xA82A);
+  IDHRead(ComponentInstance idh, IDHParameterBlock *pb);
 
   /**
    *  IDHWrite()
@@ -391,8 +383,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHWrite(ComponentInstance idh, IDHParameterBlock *pb)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0009, 0x7000, 0xA82A);
+  IDHWrite(ComponentInstance idh, IDHParameterBlock *pb);
 
   /**
    *  IDHNewNotification()
@@ -405,8 +396,7 @@ extern "C"
   ComponentResult
   IDHNewNotification(ComponentInstance idh, IDHDeviceID deviceID,
                      IDHNotificationUPP notificationProc, void *userData,
-                     IDHNotificationID *notificationID)
-      FIVEWORDINLINE(0x2F3C, 0x0010, 0x000A, 0x7000, 0xA82A);
+                     IDHNotificationID *notificationID);
 
   /**
    *  IDHNotifyMeWhen()
@@ -418,8 +408,7 @@ extern "C"
    */
   ComponentResult
   IDHNotifyMeWhen(ComponentInstance idh, IDHNotificationID notificationID,
-                  IDHEvent events)
-      FIVEWORDINLINE(0x2F3C, 0x0008, 0x000B, 0x7000, 0xA82A);
+                  IDHEvent events);
 
   /**
    *  IDHCancelNotification()
@@ -430,8 +419,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHCancelNotification(ComponentInstance idh, IDHNotificationID notificationID)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000C, 0x7000, 0xA82A);
+  IDHCancelNotification(ComponentInstance idh, IDHNotificationID notificationID);
 
   /**
    *  IDHDisposeNotification()
@@ -442,8 +430,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHDisposeNotification(ComponentInstance idh, IDHNotificationID notificationID)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000D, 0x7000, 0xA82A);
+  IDHDisposeNotification(ComponentInstance idh, IDHNotificationID notificationID);
 
   /**
    *  IDHReleaseBuffer()
@@ -454,8 +441,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHReleaseBuffer(ComponentInstance idh, IDHParameterBlock *pb)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000E, 0x7000, 0xA82A);
+  IDHReleaseBuffer(ComponentInstance idh, IDHParameterBlock *pb);
 
   /**
    *  IDHCancelPendingIO()
@@ -466,8 +452,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHCancelPendingIO(ComponentInstance idh, IDHParameterBlock *pb)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x000F, 0x7000, 0xA82A);
+  IDHCancelPendingIO(ComponentInstance idh, IDHParameterBlock *pb);
 
   /**
    *  IDHGetDeviceControl()
@@ -478,8 +463,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHGetDeviceControl(ComponentInstance idh, ComponentInstance *deviceControl)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0010, 0x7000, 0xA82A);
+  IDHGetDeviceControl(ComponentInstance idh, ComponentInstance *deviceControl);
 
   /**
    *  IDHUpdateDeviceList()
@@ -490,8 +474,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHUpdateDeviceList(ComponentInstance idh, QTAtomContainer *deviceList)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0011, 0x7000, 0xA82A);
+  IDHUpdateDeviceList(ComponentInstance idh, QTAtomContainer *deviceList);
 
   /**
    *  IDHGetDeviceTime()
@@ -502,8 +485,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ComponentResult
-  IDHGetDeviceTime(ComponentInstance idh, TimeRecord *deviceTime)
-      FIVEWORDINLINE(0x2F3C, 0x0004, 0x0012, 0x7000, 0xA82A);
+  IDHGetDeviceTime(ComponentInstance idh, TimeRecord *deviceTime);
 
   /**
    *  NewIDHNotificationUPP()

@@ -9,7 +9,7 @@
     \copyright © 1997-2001 by Apple Computer, Inc., all rights reserved.
 
     \ingroup AppleTypeServices
-    
+
     For bug reports, consult the following page on
                  the World Wide Web:
 
@@ -36,7 +36,8 @@
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #if PRAGMA_IMPORT
@@ -51,94 +52,110 @@ extern "C" {
 #pragma pack(2)
 #endif
 
-typedef UInt32 FMGeneration;
-/* The FMFontFamily reference represents a collection of fonts with the same
-   design characteristics. It replaces the standard QuickDraw font identifer and
-   may be used with all QuickDraw functions including GetFontName and TextFont.
-   It cannot be used with the Resource Manager to access information from a FOND
-   resource handle. A font reference does not imply a particular script system,
-   nor is the character encoding of a font family determined by an arithmetic
-   mapping of its value.
-*/
-typedef SInt16 FMFontFamily;
-typedef SInt16 FMFontStyle;
-typedef SInt16 FMFontSize;
-/**
-   The font family is a collection of fonts, each of which is identified
-   by an FMFont reference that maps to a single object registered with
-   the font database. The font references associated with the font
-   family consist of individual outline and bitmapped fonts that may be
-   used with the font access routines of the Font Manager and ATS.
-*/
-typedef UInt32 FMFont;
-struct FMFontFamilyInstance {
-  FMFontFamily fontFamily;
-  FMFontStyle fontStyle;
-};
-typedef struct FMFontFamilyInstance FMFontFamilyInstance;
-struct FMFontFamilyIterator {
-  UInt32 reserved[16];
-};
-typedef struct FMFontFamilyIterator FMFontFamilyIterator;
-struct FMFontIterator {
-  UInt32 reserved[16];
-};
-typedef struct FMFontIterator FMFontIterator;
-struct FMFontFamilyInstanceIterator {
-  UInt32 reserved[16];
-};
-typedef struct FMFontFamilyInstanceIterator FMFontFamilyInstanceIterator;
-enum { kInvalidGeneration = 0L, kInvalidFontFamily = -1, kInvalidFont = 0L };
+  typedef UInt32 FMGeneration;
+  /* The FMFontFamily reference represents a collection of fonts with the same
+     design characteristics. It replaces the standard QuickDraw font identifer and
+     may be used with all QuickDraw functions including GetFontName and TextFont.
+     It cannot be used with the Resource Manager to access information from a FOND
+     resource handle. A font reference does not imply a particular script system,
+     nor is the character encoding of a font family determined by an arithmetic
+     mapping of its value.
+  */
+  typedef SInt16 FMFontFamily;
+  typedef SInt16 FMFontStyle;
+  typedef SInt16 FMFontSize;
+  /**
+     The font family is a collection of fonts, each of which is identified
+     by an FMFont reference that maps to a single object registered with
+     the font database. The font references associated with the font
+     family consist of individual outline and bitmapped fonts that may be
+     used with the font access routines of the Font Manager and ATS.
+  */
+  typedef UInt32 FMFont;
+  struct FMFontFamilyInstance
+  {
+    FMFontFamily fontFamily;
+    FMFontStyle fontStyle;
+  };
+  typedef struct FMFontFamilyInstance FMFontFamilyInstance;
+  struct FMFontFamilyIterator
+  {
+    UInt32 reserved[16];
+  };
+  typedef struct FMFontFamilyIterator FMFontFamilyIterator;
+  struct FMFontIterator
+  {
+    UInt32 reserved[16];
+  };
+  typedef struct FMFontIterator FMFontIterator;
+  struct FMFontFamilyInstanceIterator
+  {
+    UInt32 reserved[16];
+  };
+  typedef struct FMFontFamilyInstanceIterator FMFontFamilyInstanceIterator;
+  enum
+  {
+    kInvalidGeneration = 0L,
+    kInvalidFontFamily = -1,
+    kInvalidFont = 0L
+  };
 
-enum { kFMCurrentFilterFormat = 0L };
+  enum
+  {
+    kFMCurrentFilterFormat = 0L
+  };
 
-// kFMDefaultOptions & kFMUseGlobalScopeOption moved to Fonts.h typedef UInt32 FMFilterSelector;
-enum {
-  kFMFontTechnologyFilterSelector = 1L,
-  kFMFontContainerFilterSelector = 2L,
-  kFMGenerationFilterSelector = 3L,
-  kFMFontFamilyCallbackFilterSelector = 4L,
-  kFMFontCallbackFilterSelector = 5L,
-  kFMFontDirectoryFilterSelector = 6L
-};
+  // kFMDefaultOptions & kFMUseGlobalScopeOption moved to Fonts.h typedef UInt32 FMFilterSelector;
+  enum
+  {
+    kFMFontTechnologyFilterSelector = 1L,
+    kFMFontContainerFilterSelector = 2L,
+    kFMGenerationFilterSelector = 3L,
+    kFMFontFamilyCallbackFilterSelector = 4L,
+    kFMFontCallbackFilterSelector = 5L,
+    kFMFontDirectoryFilterSelector = 6L
+  };
 
-enum {
-  kFMTrueTypeFontTechnology = FOUR_CHAR_CODE('true'),
-  kFMPostScriptFontTechnology = FOUR_CHAR_CODE('typ1')
-};
+  enum
+  {
+    kFMTrueTypeFontTechnology = FOUR_CHAR_CODE('true'),
+    kFMPostScriptFontTechnology = FOUR_CHAR_CODE('typ1')
+  };
 
-typedef CALLBACK_API(OSStatus, FMFontFamilyCallbackFilterProcPtr)(
-    FMFontFamily iFontFamily, void *iRefCon);
-typedef CALLBACK_API(OSStatus, FMFontCallbackFilterProcPtr)(FMFont iFont,
-                                                            void *iRefCon);
-typedef STACK_UPP_TYPE(FMFontFamilyCallbackFilterProcPtr)
-    FMFontFamilyCallbackFilterUPP;
-typedef STACK_UPP_TYPE(FMFontCallbackFilterProcPtr) FMFontCallbackFilterUPP;
-/**
- *  NewFMFontFamilyCallbackFilterUPP()
- *
+  typedef CALLBACK_API(OSStatus, FMFontFamilyCallbackFilterProcPtr)(
+      FMFontFamily iFontFamily, void *iRefCon);
+  typedef CALLBACK_API(OSStatus, FMFontCallbackFilterProcPtr)(FMFont iFont,
+                                                              void *iRefCon);
+  typedef STACK_UPP_TYPE(FMFontFamilyCallbackFilterProcPtr)
+      FMFontFamilyCallbackFilterUPP;
+  typedef STACK_UPP_TYPE(FMFontCallbackFilterProcPtr) FMFontCallbackFilterUPP;
+  /**
+   *  NewFMFontFamilyCallbackFilterUPP()
+   *
 
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-FMFontFamilyCallbackFilterUPP
-NewFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterProcPtr userRoutine);
+   *    \non_carbon_cfm   available as macro/inline
+   *    \carbon_lib        in CarbonLib 1.0 and later
+   *    \mac_os_x         in version 10.0 and later
+   */
+  FMFontFamilyCallbackFilterUPP
+  NewFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
-  uppFMFontFamilyCallbackFilterProcInfo = 0x000003B0
-}; // pascal 4_bytes Func(2_bytes, 4_bytes) #ifdef __cplusplus
+  enum
+  {
+    uppFMFontFamilyCallbackFilterProcInfo = 0x000003B0
+  }; // pascal 4_bytes Func(2_bytes, 4_bytes) #ifdef __cplusplus
 inl// pascal 4_bytes Func(2_bytes, 4_bytes) 
-    FMFontFamilyCallbackFilterProcPtr userRoutine) {
+    FMFontFamilyCallbackFilterProcPtr userRoutine)
+{
   return (FMFontFamilyCallbackFilterUPP)NewRoutineDescriptor(
       (ProcPtr)(userRoutine), uppFMFontFamilyCallbackFilterProcInfo,
       GetCurrentArchitecture());
 }
 #else
-#define NewFMFontFamilyCallbackFilterUPP(userRoutine)                          \
-  (FMFontFamilyCallbackFilterUPP) NewRoutineDescriptor(                        \
-      (ProcPtr)(userRoutine), uppFMFontFamilyCallbackFilterProcInfo,           \
-      GetCurrentArchitecture())
+#define NewFMFontFamilyCallbackFilterUPP(userRoutine)              \
+(FMFontFamilyCallbackFilterUPP) NewRoutineDescriptor(              \
+    (ProcPtr)(userRoutine), uppFMFontFamilyCallbackFilterProcInfo, \
+    GetCurrentArchitecture())
 #endif
 #endif
 
@@ -153,19 +170,20 @@ inl// pascal 4_bytes Func(2_bytes, 4_bytes)
 FMFontCallbackFilterUPP
 NewFMFontCallbackFilterUPP(FMFontCallbackFilterProcPtr userRoutine);
 #if !OPAQUE_UPP_TYPES
-enum {
+enum
+{
   uppFMFontCallbackFilterProcInfo = 0x000003F0
 }; // pascal 4_bytes Func(4_bytes, 4_bytes) #ifdef __cplusplus
 inline FMFontCallbackFilterUPP
-New// pascal 4_bytes Func(4_bytes, 4_bytes) 
-  return (FMFontCallbackFilterUPP)NewRoutineDescriptor(
-      (ProcPtr)(userRoutine), uppFMFontCallbackFilterProcInfo,
-      GetCurrentArchitecture());
+    New // pascal 4_bytes Func(4_bytes, 4_bytes)
+    return (FMFontCallbackFilterUPP)NewRoutineDescriptor(
+        (ProcPtr)(userRoutine), uppFMFontCallbackFilterProcInfo,
+        GetCurrentArchitecture());
 }
 #else
-#define NewFMFontCallbackFilterUPP(userRoutine)                                \
-  (FMFontCallbackFilterUPP) NewRoutineDescriptor(                              \
-      (ProcPtr)(userRoutine), uppFMFontCallbackFilterProcInfo,                 \
+#define NewFMFontCallbackFilterUPP(userRoutine)                \
+  (FMFontCallbackFilterUPP) NewRoutineDescriptor(              \
+      (ProcPtr)(userRoutine), uppFMFontCallbackFilterProcInfo, \
       GetCurrentArchitecture())
 #endif
 #endif
@@ -178,16 +196,16 @@ New// pascal 4_bytes Func(4_bytes, 4_bytes)
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-void
-DisposeFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterUPP userUPP);
+void DisposeFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
 inline void
-DisposeFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterUPP userUPP) {
+DisposeFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterUPP userUPP)
+{
   DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
 }
 #else
-#define DisposeFMFontFamilyCallbackFilterUPP(userUPP)                          \
+#define DisposeFMFontFamilyCallbackFilterUPP(userUPP) \
   DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
@@ -200,15 +218,15 @@ DisposeFMFontFamilyCallbackFilterUPP(FMFontFamilyCallbackFilterUPP userUPP) {
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
-void
-DisposeFMFontCallbackFilterUPP(FMFontCallbackFilterUPP userUPP);
+void DisposeFMFontCallbackFilterUPP(FMFontCallbackFilterUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
-inline void DisposeFMFontCallbackFilterUPP(FMFontCallbackFilterUPP userUPP) {
+inline void DisposeFMFontCallbackFilterUPP(FMFontCallbackFilterUPP userUPP)
+{
   DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
 }
 #else
-#define DisposeFMFontCallbackFilterUPP(userUPP)                                \
+#define DisposeFMFontCallbackFilterUPP(userUPP) \
   DisposeRoutineDescriptor(userUPP)
 #endif
 #endif
@@ -228,7 +246,8 @@ InvokeFMFontFamilyCallbackFilterUPP(FMFontFamily iFontFamily, void *iRefCon,
 #ifdef __cplusplus
 inline OSStatus
 InvokeFMFontFamilyCallbackFilterUPP(FMFontFamily iFontFamily, void *iRefCon,
-                                    FMFontFamilyCallbackFilterUPP userUPP) {
+                                    FMFontFamilyCallbackFilterUPP userUPP)
+{
   return (OSStatus)CALL_TWO_PARAMETER_UPP(
       userUPP, uppFMFontFamilyCallbackFilterProcInfo, iFontFamily, iRefCon);
 }
@@ -254,13 +273,14 @@ InvokeFMFontCallbackFilterUPP(FMFont iFont, void *iRefCon,
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
 inline OSStatus InvokeFMFontCallbackFilterUPP(FMFont iFont, void *iRefCon,
-                                              FMFontCallbackFilterUPP userUPP) {
+                                              FMFontCallbackFilterUPP userUPP)
+{
   return (OSStatus)CALL_TWO_PARAMETER_UPP(
       userUPP, uppFMFontCallbackFilterProcInfo, iFont, iRefCon);
 }
 #else
-#define InvokeFMFontCallbackFilterUPP(iFont, iRefCon, userUPP)                 \
-  (OSStatus) CALL_TWO_PARAMETER_UPP(                                           \
+#define InvokeFMFontCallbackFilterUPP(iFont, iRefCon, userUPP) \
+  (OSStatus) CALL_TWO_PARAMETER_UPP(                           \
       (userUPP), uppFMFontCallbackFilterProcInfo, (iFont), (iRefCon))
 #endif
 #endif
@@ -268,22 +288,25 @@ inline OSStatus InvokeFMFontCallbackFilterUPP(FMFont iFont, void *iRefCon,
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewFMFontFamilyCallbackFilterProc(userRoutine)                         \
   NewFMFontFamilyCallbackFilterUPP(userRoutine)
-#define NewFMFontCallbackFilterProc(userRoutine)                               \
-// support for pre-Carbon UPP routines: New...Proc and Call...Proc 
-#define CallFMFontFamilyCallbackFilterProc(userRoutine, iFontFamily, iRefCon)  \
+#define NewFMFontCallbackFilterProc(userRoutine) \
+// support for pre-Carbon UPP routines: New...Proc and Call...Proc
+#define CallFMFontFamilyCallbackFilterProc(userRoutine, iFontFamily, iRefCon) \
   InvokeFMFontFamilyCallbackFilterUPP(iFontFamily, iRefCon, userRoutine)
-#define CallFMFontCallbackFilterProc(userRoutine, iFont, iRefCon)              \
+#define CallFMFontCallbackFilterProc(userRoutine, iFont, iRefCon) \
   InvokeFMFontCallbackFilterUPP(iFont, iRefCon, userRoutine)
-#endif // CALL_NOT_IN_CARBON 
-struct FMFontDirectoryFilter {
+#endif // CALL_NOT_IN_CARBON
+struct FMFontDirectoryFilter
+{
   SInt16 fontFolderDomain;
   UInt32 reserved[2];
-};// CALL_NOT_IN_CARBON 
+}; // CALL_NOT_IN_CARBON
 typedef struct FMFontDirectoryFilter FMFontDirectoryFilter;
-struct FMFilter {
+struct FMFilter
+{
   UInt32 format;
   FMFilterSelector selector;
-  union {
+  union
+  {
     FourCharCode fontTechnologyFilter;
     FSSpec fontContainerFilter;
     FMGeneration generationFilter;
@@ -301,14 +324,16 @@ typedef UInt32 ATSFontFamilyRef;
 typedef UInt32 ATSFontRef;
 typedef UInt16 ATSGlyphRef;
 typedef Float32 ATSFontSize;
-enum {
+enum
+{
   kATSGenerationUnspecified = 0L,
   kATSFontContainerRefUnspecified = 0L,
   kATSFontFamilyRefUnspecified = 0L,
   kATSFontRefUnspecified = 0L
 };
 
-struct ATSFontMetrics {
+struct ATSFontMetrics
+{
   UInt32 version;
   Float32 ascent; /* Maximum height above baseline reached by the glyphs in the
                      font */
@@ -318,66 +343,73 @@ struct ATSFontMetrics {
                       font */
   /* or maximum distance to the left of the centerline reached by the glyphs in
    * the font */
-  Float32 leading; // Desired spacing between lines of text   Float32 avgAdvanceWidth;
-  Float32 maxAdvanceWidth; /* Maximum advance width or height of the glyphs in
-                              the font */
-  Float32 minLeftSideBearing;  // Minimum left or top side bearing   Float32 minRightSideBearing; // Minimum right or bottom side bearing   Float32 stemWidth;  /* Width of the dominant vertical stems of the glyphs in
-                         the font */
-  Float32 stemHeigh// Desired spacing between lines of text 
-                         glyphs in the font */
-  Float32 capHeight;  /* Height of a capital letter from the baseline to the top
-                         of the letter */
-  Float32 xHeight; /* Height of// Minimum left or top side bearing 
-                      letter x,// Minimum right or bottom side bearing 
+  Float32 leading;             // Desired spacing between lines of text   Float32 avgAdvanceWidth;
+  Float32 maxAdvanceWidth;     /* Maximum advance width or height of the glyphs in
+                                  the font */
+  Float32 minLeftSideBearing;  // Minimum left or top side bearing
+  Float32 minRightSideBearing; // Minimum right or bottom side bearing
+  Float32 stemWidth;           /* Width of the dominant vertical stems of the glyphs in the font */
+  Float32 stemHeigh;           // Desired spacing between lines of text glyphs in the font */
+  Float32 capHeight;           /* Height of a capital letter from the baseline to the top
+                                  of the letter */
+  Float32 xHeight;             /* Height of letter x */
   Float32
-      italicAngle; /* Angle in degrees counterclockwise from the vertical of the
-                      dominant vertical strokes of the glyphs in the font */
+      italicAngle;            /* Angle in degrees counterclockwise from the vertical of the
+                                 dominant vertical strokes of the glyphs in the font */
   Float32 underlinePosition;  /* Distance from the baseline for positioning
                                  underlining strokes */
-  Float32 underlineThickness; // Stroke width for underlining };
+  Float32 underlineThickness; // Stroke width for underlining
+};
 typedef struct ATSFontMetrics ATSFontMetrics;
-enum {
-  kATSItalicQDSkew = (1 << 16) / 4,      // fixed value of 0.25   kATSBoldQDStretch = (1 << 16) * 3 / 2, // fixed value of 1.50   kATSRadiansFactor = 1144 // fixed value of approx. pi/180 (0.0174560546875) };
+enum
+{
+  kATSItalicQDSkew = (1 << 16) / 4,             /** value */
+  of 0.25 kATSBoldQDStretch = (1 << 16) * 3 / 2 // fixed value of 1.50   kATSRadiansFactor = 1144 // fixed value of approx. pi/180 (0.0174560546875)
+};
 
 // Glyph outline path constants used in ATSFontGetNativeCurveType. typedef UInt16 ATSCurveType;
-enum {
+enum
+{
   kATSCubicCurveType = 0x0001,
-  kATSQuadCurveType = 0x0002,// Stroke width for underlining 
+  kATSQuadCurveType = 0x0002, // Stroke width for underlining
   kATSOtherCurveType = 0x0003
 };
 
-struct ATSUCurvePath {// fixed value of 0.25 
-  UInt32 vectors;// fixed value of 1.50 
-  UInt32 controlBits[1];// fixed value of approx. pi/180 (0.0174560546875) 
+struct ATSUCurvePath
+{                        // fixed value of 0.25
+  UInt32 vectors;        // fixed value of 1.50
+  UInt32 controlBits[1]; // fixed value of approx. pi/180 (0.0174560546875)
   Float32Point vector[1];
 };
-// Glyph outline path constants used in ATSFontGetNativeCurveType. 
-struct ATSUCurvePaths {
+// Glyph outline path constants used in ATSFontGetNativeCurveType.
+struct ATSUCurvePaths
+{
   UInt32 contours;
   ATSUCurvePath contour[1];
 };
 typedef struct ATSUCurvePaths ATSUCurvePaths;
 // Glyph ideal metrics struct ATSGlyphIdealMetrics {
-  Float32Point advance;
-  Float32Point sideBearing;
-  Float32Point otherSideBearing;
-};
+Float32Point advance;
+Float32Point sideBearing;
+Float32Point otherSideBearing;
+}
+;
 typedef struct ATSGlyphIdealMetrics ATSGlyphIdealMetrics;
 // Glyph screen metrics struct ATSGlyphScreenMetrics {
-  Float32Point deviceAdvance;
-  Float32Point topLeft;
-  UInt32 height;
-  UInt32 width;
-  Float32Point sideBearing;
-  Float32Point otherSideBearing;
-// Glyph ideal metrics 
+Float32Point deviceAdvance;
+Float32Point topLeft;
+UInt32 height;
+UInt32 width;
+Float32Point sideBearing;
+Float32Point otherSideBearing;
+// Glyph ideal metrics
 typedef struct ATSGlyphScreenMetrics ATSGlyphScreenMetrics;
 
 typedef ATSGlyphRef GlyphID;
 
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
-// Glyph screen metrics 
+// Glyph screen metrics
 #pragma pack(pop)
 #elif PRAGMA_STRUCT_PACK
 #pragma pack()
@@ -393,4 +425,4 @@ typedef ATSGlyphRef GlyphID;
 }
 #endif
 
-#endif // __ATSTYPES__ // __ATSTYPES__ 
+#endif // __ATSTYPES__ // __ATSTYPES__

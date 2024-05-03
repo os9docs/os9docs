@@ -157,8 +157,7 @@ extern "C"
 #pragma parameter __D0 InvokeSlotIntServiceUPP(__A1, __A0)
 #endif
 	short
-	InvokeSlotIntServiceUPP(long sqParameter, SlotIntServiceUPP userUPP)
-		ONEWORDINLINE(0x4E90);
+	InvokeSlotIntServiceUPP(long sqParameter, SlotIntServiceUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
 	(!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -489,7 +488,7 @@ smsPointerNil (-335) LPointer is nil From sOffsetData. If this error occurs;
 #pragma parameter __D0 SReadByte(__A0)
 #endif
 	OSErr
-	SReadByte(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7000, 0xA06E);
+	SReadByte(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return a 16-bit ID value
@@ -549,7 +548,7 @@ smsPointerNil (-335) LPointer is nil From sOffsetData. If this error occurs;
 #pragma parameter __D0 SReadWord(__A0)
 #endif
 	OSErr
-	SReadWord(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7001, 0xA06E);
+	SReadWord(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return a 32-bit ID value
@@ -609,7 +608,7 @@ smCPUErr (-334) The CPU field of the code was wrong.
 #pragma parameter __D0 SReadLong(__A0)
 #endif
 	OSErr
-	SReadLong(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7002, 0xA06E);
+	SReadLong(SpBlockPtr spBlkPtr);
 
 /**
  *  SGetCString()
@@ -623,7 +622,7 @@ smCPUErr (-334) The CPU field of the code was wrong.
 #pragma parameter __D0 SGetCString(__A0)
 #endif
 	OSErr
-	SGetCString(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7003, 0xA06E);
+	SGetCString(SpBlockPtr spBlkPtr);
 
 /**
  *  SGetBlock()
@@ -637,7 +636,7 @@ smCPUErr (-334) The CPU field of the code was wrong.
 #pragma parameter __D0 SGetBlock(__A0)
 #endif
 	OSErr
-	SGetBlock(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7005, 0xA06E);
+	SGetBlock(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return a pointer to a data structure
@@ -685,7 +684,7 @@ defined by spID in the sResource list pointed to by spsPointer .
 #pragma parameter __D0 SFindStruct(__A0)
 #endif
 	OSErr
-	SFindStruct(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7006, 0xA06E);
+	SFindStruct(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Copy a data structure into a new block
@@ -735,7 +734,7 @@ calling program and pointed to by spResult .
 #pragma parameter __D0 SReadStruct(__A0)
 #endif
 	OSErr
-	SReadStruct(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7007, 0xA06E);
+	SReadStruct(SpBlockPtr spBlkPtr);
 
 	/**  Special  */
 
@@ -786,7 +785,7 @@ spResult .
 #pragma parameter __D0 SReadInfo(__A0)
 #endif
 	OSErr
-	SReadInfo(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7010, 0xA06E);
+	SReadInfo(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Copy the sPRAM data structure into a new record
@@ -837,7 +836,7 @@ SInitPRAMRecs .
 #pragma parameter __D0 SReadPRAMRec(__A0)
 #endif
 	OSErr
-	SReadPRAMRec(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7011, 0xA06E);
+	SReadPRAMRec(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Copy  data from spsPointer's block into SPRAMRecord
@@ -885,7 +884,7 @@ an Apple-defined field and is protected during execution of SPutPRAMRec.
 #pragma parameter __D0 SPutPRAMRec(__A0)
 #endif
 	OSErr
-	SPutPRAMRec(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7012, 0xA06E);
+	SPutPRAMRec(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Copy the slot's format block into an FHeaderRec
@@ -934,7 +933,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SReadFHeader(__A0)
 #endif
 	OSErr
-	SReadFHeader(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7013, 0xA06E);
+	SReadFHeader(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Determine the set of all a slot card's or NuBus's sResources
@@ -996,7 +995,7 @@ following:
 #pragma parameter __D0 SNextSRsrc(__A0)
 #endif
 	OSErr
-	SNextSRsrc(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7014, 0xA06E);
+	SNextSRsrc(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return information about sResources of a specified type.
@@ -1059,7 +1058,7 @@ be one of the following:
 #pragma parameter __D0 SNextTypeSRsrc(__A0)
 #endif
 	OSErr
-	SNextTypeSRsrc(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7015, 0xA06E);
+	SNextTypeSRsrc(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return the driver reference number
@@ -1118,7 +1117,7 @@ spExtDev .
 #pragma parameter __D0 SRsrcInfo(__A0)
 #endif
 	OSErr
-	SRsrcInfo(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7016, 0xA06E);
+	SRsrcInfo(SpBlockPtr spBlkPtr);
 
 /**
  *  SDisposePtr()
@@ -1132,7 +1131,7 @@ spExtDev .
 #pragma parameter __D0 SDisposePtr(__A0)
 #endif
 	OSErr
-	SDisposePtr(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7017, 0xA06E);
+	SDisposePtr(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Check the SInfoRecord's InitStatusA field
@@ -1192,7 +1191,7 @@ smNilsBlockErr (-336) The physical block size (of an sBlock) was zero.
 #pragma parameter __D0 SCkCardStat(__A0)
 #endif
 	OSErr
-	SCkCardStat(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7018, 0xA06E);
+	SCkCardStat(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Read the name of the sResource for this slot and list ID
@@ -1247,7 +1246,7 @@ name is compatible with the Open routine.
 #pragma parameter __D0 SReadDrvrName(__A0)
 #endif
 	OSErr
-	SReadDrvrName(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7019, 0xA06E);
+	SReadDrvrName(SpBlockPtr spBlkPtr);
 
 /**
  *  SFindSRTRec()
@@ -1261,7 +1260,7 @@ name is compatible with the Open routine.
 #pragma parameter __D0 SFindSRTRec(__A0)
 #endif
 	OSErr
-	SFindSRTRec(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x701A, 0xA06E);
+	SFindSRTRec(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return a pointer to the base of a device
@@ -1310,7 +1309,7 @@ Cards and Drivers for Macintosh II and Macintosh SE .
 #pragma parameter __D0 SFindDevBase(__A0)
 #endif
 	OSErr
-	SFindDevBase(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x701B, 0xA06E);
+	SFindDevBase(SpBlockPtr spBlkPtr);
 
 /**
  *  SFindBigDevBase()
@@ -1324,7 +1323,7 @@ Cards and Drivers for Macintosh II and Macintosh SE .
 #pragma parameter __D0 SFindBigDevBase(__A0)
 #endif
 	OSErr
-	SFindBigDevBase(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x701C, 0xA06E);
+	SFindBigDevBase(SpBlockPtr spBlkPtr);
 
 /**  Advanced  */
 /**
@@ -1339,7 +1338,7 @@ Cards and Drivers for Macintosh II and Macintosh SE .
 #pragma parameter __D0 InitSDeclMgr(__A0)
 #endif
 	OSErr
-	InitSDeclMgr(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7020, 0xA06E);
+	InitSDeclMgr(SpBlockPtr spBlkPtr);
 
 /**
  *  SPrimaryInit()
@@ -1353,7 +1352,7 @@ Cards and Drivers for Macintosh II and Macintosh SE .
 #pragma parameter __D0 SPrimaryInit(__A0)
 #endif
 	OSErr
-	SPrimaryInit(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7021, 0xA06E);
+	SPrimaryInit(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Indicate if a card has been changed
@@ -1398,7 +1397,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SCardChanged(__A0)
 #endif
 	OSErr
-	SCardChanged(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7022, 0xA06E);
+	SCardChanged(SpBlockPtr spBlkPtr);
 
 /**
  *  SExec()
@@ -1412,7 +1411,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SExec(__A0)
 #endif
 	OSErr
-	SExec(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7023, 0xA06E);
+	SExec(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return the contents of the offset/data field
@@ -1465,7 +1464,7 @@ number in the sResource list.
 #pragma parameter __D0 SOffsetData(__A0)
 #endif
 	OSErr
-	SOffsetData(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7024, 0xA06E);
+	SOffsetData(SpBlockPtr spBlkPtr);
 
 /**
  *  SInitPRAMRecs()
@@ -1479,7 +1478,7 @@ number in the sResource list.
 #pragma parameter __D0 SInitPRAMRecs(__A0)
 #endif
 	OSErr
-	SInitPRAMRecs(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7025, 0xA06E);
+	SInitPRAMRecs(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Read the size of the indicated sBlock
@@ -1532,7 +1531,7 @@ when SReadPBSize is done.
 #pragma parameter __D0 SReadPBSize(__A0)
 #endif
 	OSErr
-	SReadPBSize(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7026, 0xA06E);
+	SReadPBSize(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Find the field sizes in the indicated block
@@ -1582,7 +1581,7 @@ consecutive bytes; otherwise it calculates it for consecutive IDs.
 #pragma parameter __D0 SCalcStep(__A0)
 #endif
 	OSErr
-	SCalcStep(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7028, 0xA06E);
+	SCalcStep(SpBlockPtr spBlkPtr);
 
 /**
  *  SInitSRsrcTable()
@@ -1596,7 +1595,7 @@ consecutive bytes; otherwise it calculates it for consecutive IDs.
 #pragma parameter __D0 SInitSRsrcTable(__A0)
 #endif
 	OSErr
-	SInitSRsrcTable(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7029, 0xA06E);
+	SInitSRsrcTable(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Find the record corresponding to this sResource
@@ -1648,7 +1647,7 @@ that record; if it has a value of 1, it searches for the next record.
 #pragma parameter __D0 SSearchSRT(__A0)
 #endif
 	OSErr
-	SSearchSRT(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x702A, 0xA06E);
+	SSearchSRT(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Update the Slot Resource Table
@@ -1705,7 +1704,7 @@ opened or closed.
 #pragma parameter __D0 SUpdateSRT(__A0)
 #endif
 	OSErr
-	SUpdateSRT(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x702B, 0xA06E);
+	SUpdateSRT(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return pointer to a byte in declaration ROM
@@ -1751,7 +1750,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SCalcSPointer(__A0)
 #endif
 	OSErr
-	SCalcSPointer(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x702C, 0xA06E);
+	SCalcSPointer(SpBlockPtr spBlkPtr);
 
 /**
  *  SGetDriver()
@@ -1765,7 +1764,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SGetDriver(__A0)
 #endif
 	OSErr
-	SGetDriver(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x702D, 0xA06E);
+	SGetDriver(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return the slot number of a card
@@ -1812,7 +1811,7 @@ number.
 #pragma parameter __D0 SPtrToSlot(__A0)
 #endif
 	OSErr
-	SPtrToSlot(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x702E, 0xA06E);
+	SPtrToSlot(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief SFindSInfoRecPtr Return pointer to the sInfoRecord
@@ -1856,7 +1855,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SFindSInfoRecPtr(__A0)
 #endif
 	OSErr
-	SFindSInfoRecPtr(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x702F, 0xA06E);
+	SFindSInfoRecPtr(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return pointer to sRsrc list
@@ -1903,7 +1902,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SFindSRsrcPtr(__A0)
 #endif
 	OSErr
-	SFindSRsrcPtr(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7030, 0xA06E);
+	SFindSRsrcPtr(SpBlockPtr spBlkPtr);
 
 /**
  *  SDeleteSRTRec()
@@ -1917,7 +1916,7 @@ smBadBoardId (-319) Board ID was wrong; reinit the PRAM record
 #pragma parameter __D0 SDeleteSRTRec(__A0)
 #endif
 	OSErr
-	SDeleteSRTRec(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7031, 0xA06E);
+	SDeleteSRTRec(SpBlockPtr spBlkPtr);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -1981,7 +1980,7 @@ Manager . Other than that, it is the equivalent of PBOpen
 #pragma parameter __D0 OpenSlotSync(__A0)
 #endif
 	OSErr
-	OpenSlotSync(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA200);
+	OpenSlotSync(ParmBlkPtr paramBlock);
 
 /**
  *  OpenSlotAsync()
@@ -1995,7 +1994,7 @@ Manager . Other than that, it is the equivalent of PBOpen
 #pragma parameter __D0 OpenSlotAsync(__A0)
 #endif
 	OSErr
-	OpenSlotAsync(ParmBlkPtr paramBlock) ONEWORDINLINE(0xA600);
+	OpenSlotAsync(ParmBlkPtr paramBlock);
 
 	/**  Device Manager Slot Support  */
 
@@ -2021,7 +2020,7 @@ slotNumErr (-360)   invalid slot # error
 #pragma parameter __D0 SIntInstall(__A0, __D0)
 #endif
 	OSErr
-	SIntInstall(SQElemPtr sIntQElemPtr, short theSlot) ONEWORDINLINE(0xA075);
+	SIntInstall(SQElemPtr sIntQElemPtr, short theSlot);
 
 	/**
 	\brief Remove an element from the interrupt queue
@@ -2045,7 +2044,7 @@ slotNumErr (-360)   invalid slot # error
 #pragma parameter __D0 SIntRemove(__A0, __D0)
 #endif
 	OSErr
-	SIntRemove(SQElemPtr sIntQElemPtr, short theSlot) ONEWORDINLINE(0xA076);
+	SIntRemove(SQElemPtr sIntQElemPtr, short theSlot);
 
 	/**
 	\brief Return the version number of the Slot Manager
@@ -2080,7 +2079,7 @@ in the spsPointer field.
 #pragma parameter __D0 SVersion(__A0)
 #endif
 	OSErr
-	SVersion(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7008, 0xA06E);
+	SVersion(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Enables or disables an sResource data structure
@@ -2119,7 +2118,7 @@ smNoMoresRsrcs (-344) No more sResources.
 #pragma parameter __D0 SetSRsrcState(__A0)
 #endif
 	OSErr
-	SetSRsrcState(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x7009, 0xA06E);
+	SetSRsrcState(SpBlockPtr spBlkPtr);
 
 /**
  *  InsertSRTRec()
@@ -2133,7 +2132,7 @@ smNoMoresRsrcs (-344) No more sResources.
 #pragma parameter __D0 InsertSRTRec(__A0)
 #endif
 	OSErr
-	InsertSRTRec(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x700A, 0xA06E);
+	InsertSRTRec(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return information about the sResource data structure
@@ -2186,7 +2185,7 @@ The SGetSRsrc function returns new values in the spSlot, spID, and
 #pragma parameter __D0 SGetSRsrc(__A0)
 #endif
 	OSErr
-	SGetSRsrc(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x700B, 0xA06E);
+	SGetSRsrc(SpBlockPtr spBlkPtr);
 
 	/**
 	\brief Return information about a matching sResource
@@ -2242,7 +2241,7 @@ In addition, you must clear the fall flag of the spParamData field (bit 0) to
 #pragma parameter __D0 SGetTypeSRsrc(__A0)
 #endif
 	OSErr
-	SGetTypeSRsrc(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x700C, 0xA06E);
+	SGetTypeSRsrc(SpBlockPtr spBlkPtr);
 
 /**
  *  SGetSRsrcPtr()
@@ -2256,7 +2255,7 @@ In addition, you must clear the fall flag of the spParamData field (bit 0) to
 #pragma parameter __D0 SGetSRsrcPtr(__A0)
 #endif
 	OSErr
-	SGetSRsrcPtr(SpBlockPtr spBlkPtr) TWOWORDINLINE(0x701D, 0xA06E);
+	SGetSRsrcPtr(SpBlockPtr spBlkPtr);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -2278,5 +2277,4 @@ In addition, you must clear the fall flag of the spParamData field (bit 0) to
 }
 #endif
 
-#endif /** __SLOTS__ */
-* /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ * /*/*/ */*/
+#endif /** __SLOTS__ */ *          /*/

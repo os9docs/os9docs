@@ -86,8 +86,7 @@ extern "C"
      */
     ComponentResult
     CMXYZToLab(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-               CMColor *dst, unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0000, 0x7000, 0xA82A);
+               CMColor *dst, unsigned long count);
 
     /**
      *  CMLabToXYZ()
@@ -99,8 +98,7 @@ extern "C"
      */
     ComponentResult
     CMLabToXYZ(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-               CMColor *dst, unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0001, 0x7000, 0xA82A);
+               CMColor *dst, unsigned long count);
 
     /**
      *  CMXYZToLuv()
@@ -112,8 +110,7 @@ extern "C"
      */
     ComponentResult
     CMXYZToLuv(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-               CMColor *dst, unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0002, 0x7000, 0xA82A);
+               CMColor *dst, unsigned long count);
 
     /**
      *  CMLuvToXYZ()
@@ -125,8 +122,7 @@ extern "C"
      */
     ComponentResult
     CMLuvToXYZ(ComponentInstance ci, const CMColor *src, const CMXYZColor *white,
-               CMColor *dst, unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x0010, 0x0003, 0x7000, 0xA82A);
+               CMColor *dst, unsigned long count);
 
     /**
      *  CMXYZToYxy()
@@ -138,8 +134,7 @@ extern "C"
      */
     ComponentResult
     CMXYZToYxy(ComponentInstance ci, const CMColor *src, CMColor *dst,
-               unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0004, 0x7000, 0xA82A);
+               unsigned long count);
 
     /**
      *  CMYxyToXYZ()
@@ -151,8 +146,7 @@ extern "C"
      */
     ComponentResult
     CMYxyToXYZ(ComponentInstance ci, const CMColor *src, CMColor *dst,
-               unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0005, 0x7000, 0xA82A);
+               unsigned long count);
 
     /**
      *  CMRGBToHLS()
@@ -164,8 +158,7 @@ extern "C"
      */
     ComponentResult
     CMRGBToHLS(ComponentInstance ci, const CMColor *src, CMColor *dst,
-               unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0006, 0x7000, 0xA82A);
+               unsigned long count);
 
     /**
      *  CMHLSToRGB()
@@ -177,8 +170,7 @@ extern "C"
      */
     ComponentResult
     CMHLSToRGB(ComponentInstance ci, const CMColor *src, CMColor *dst,
-               unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0007, 0x7000, 0xA82A);
+               unsigned long count);
 
     /**
      *  CMRGBToHSV()
@@ -190,8 +182,7 @@ extern "C"
      */
     ComponentResult
     CMRGBToHSV(ComponentInstance ci, const CMColor *src, CMColor *dst,
-               unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0008, 0x7000, 0xA82A);
+               unsigned long count);
 
     /**
      *  CMHSVToRGB()
@@ -203,8 +194,7 @@ extern "C"
      */
     ComponentResult
     CMHSVToRGB(ComponentInstance ci, const CMColor *src, CMColor *dst,
-               unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x0009, 0x7000, 0xA82A);
+               unsigned long count);
 
     /**
      *  CMRGBToGray()
@@ -216,8 +206,7 @@ extern "C"
      */
     ComponentResult
     CMRGBToGray(ComponentInstance ci, const CMColor *src, CMColor *dst,
-                unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000A, 0x7000, 0xA82A);
+                unsigned long count);
 
     /**
      *  CMXYZToFixedXYZ()
@@ -229,8 +218,7 @@ extern "C"
      */
     ComponentResult
     CMXYZToFixedXYZ(ComponentInstance ci, const CMXYZColor *src,
-                    CMFixedXYZColor *dst, unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000B, 0x7000, 0xA82A);
+                    CMFixedXYZColor *dst, unsigned long count);
 
     /**
      *  CMFixedXYZToXYZ()
@@ -242,8 +230,7 @@ extern "C"
      */
     ComponentResult
     CMFixedXYZToXYZ(ComponentInstance ci, const CMFixedXYZColor *src,
-                    CMXYZColor *dst, unsigned long count)
-        FIVEWORDINLINE(0x2F3C, 0x000C, 0x000C, 0x7000, 0xA82A);
+                    CMXYZColor *dst, unsigned long count);
 
 #endif /** CALL_NOT_IN_CARBON */
 

@@ -67,39 +67,48 @@ extern "C"
   typedef short ButtonOpcode;
   // ButtonOpcodes   enum
   {
-    kButtonNoOp = 0,        // No action for this button     kButtonSingleClick = 1, // Normal mouse button     kButtonDoubleClick = 2, // Click-release-click when pressed     kButtonClickLock = 3    // Click on press, release on next press   };
-// No action for this button 
-  enum// Normal mouse button 
-  {// Click-release-click when pressed 
-    kButtonCustom = 6 // Cus// Click on press, release on next press 
+      kButtonNoOp = 0,  /** action */
+for this button     kButtonSingleClick  =  1  /** mouse */
+button     kButtonDoubleClick  =  2  /** when */
+pressed     kButtonClickLock  =  3    // Click on press release on next press
+  };
+  // No action for this button
+  enum                // Normal mouse button
+  {                   // Click-release-click when pressed
+    kButtonCustom = 6 // Cus// Click on press, release on next press
 
-  // Device Classes   enum
-  {
-    kDeviceClassAbsolute = 0,  // a flat-response device     kDeviceClassMouse = 1,     // mechanical or optical mouse     kDeviceClassTrackball = 2, // trackball     kDeviceClassTrackPad = 3
-  };// Custom behavior, data = CursorDeviceCustomButtonUPP 
+    // Device Classes   enum
+    {
+        kDeviceClassAbsolute = 0,               /** flat-response */
+        device kDeviceClassMouse = 1            /** or */
+        optical mouse kDeviceClassTrackball = 2 // trackball     kDeviceClassTrackPad = 3
+    };                                          // Custom behavior, data = CursorDeviceCustomButtonUPP
 
-  enum
-  // Device Classes 
-    kDeviceClass3D = 6 // a 3D pointing device   };
+    enum
+    // Device Classes
+    kDeviceClass3D = 6 // a 3D pointing device
+  };
 
-  // Structures used in Cursor // a flat-response device 
-  {// mechanical or optical mouse 
-    struct CursorData *nextCurs// trackball 
-  typedef struct CursorData CursorData;
-  typedef CursorData *CursorDataPtr;
-  struct CursorDevice
-  {
+  // Structures used in Cursor // a flat-response device
+  {                             // mechanical or optical mouse
+    struct CursorData *nextCurs // trackball
+        typedef struct CursorData CursorData;
+    typedef CursorData *CursorDataPtr;
     struct CursorDevice
-        *nextCursorDevi// a 3D pointing device 
-        buttonTicks[8];            // ticks when button last went up (for debounce)     long buttonData[8];            // data for the button operation     unsigned long doubleClickTime; // device-specific double click speed     Fixed acceleration;            // current acceleration     short privateFields[15];       // fields used internally to CDM   };
-  typedef struct CursorDevice CursorDevice;
-  // Structures used in Cursor Device Manager calls 
-  // for use with CursorDeviceButtonOp when opcode = kButtonCustom   typedef CALLBACK_API_REGISTER68K(void, CursorDeviceCustomButtonProcPtr,
-                                   (CursorDevicePtr ourDevice, short button));
+    {
+      struct CursorDevice
+          *nextCursorDevi     // a 3D pointing device
+              buttonTicks[8]; // ticks when button last went up (for debounce)     long buttonData[8];            // data for the button operation     unsigned long doubleClickTime; // device-specific double click speed     Fixed acceleration;            // current acceleration     short privateFields[15];       // fields used internally to CDM
+    };
+    typedef struct CursorDevice CursorDevice;
+    // Structures used in Cursor Device Manager calls
+    /** use */
+    with CursorDeviceButtonOp when opcode = kButtonCustom typedef CALLBACK_API_REGISTER68K(void CursorDeviceCustomButtonProcPtr,
+                                                                                           (CursorDevicePtr ourDevice, short button));
   typedef REGISTER_UPP_TYPE(CursorDevic// next in global list 
-      CursorDeviceCustomButtonUPP;// unused (reserved for future) 
-#if CALL_NOT_IN_CARBON// horizontal position 
-  /**// vertical position 
+      CursorDeviceCustomButtonUPP;// unused (reserved for future)
+#if CALL_NOT_IN_CARBON            // horizontal position 
+  /**  vertical position 
    *  NewCursorDeviceCustomButtonUPP()// the pixel position 
    *// has been stuffed with absolute coords 
 // number of buttons currently pressed 
@@ -120,14 +129,14 @@ extern "C"
     return (CursorDeviceCusto// device class (from ADB reg 1) 
         (ProcPtr)(userRoutine// number of buttons (from ADB reg 1) 
         GetCurrentArchitectur// reserved for future 
-  }// state of all buttons 
-#else// action performed per button 
-#define NewCursorDeviceCustomButtonUPP(userRoutine)                \
-  (CursorDeviceCustomButtonUPP) New// ticks when button last went up (for debounce) 
-      (ProcPtr)(userRoutine), uppCu// data for the button operation 
-      GetCurrentArchitecture())// device-specific double click speed 
-#endif// current acceleration 
-#endif// fields used internally to CDM 
+  }// state of all buttons
+#else // action performed per button
+#define NewCursorDeviceCustomButtonUPP(userRoutine) \
+  (CursorDeviceCustomButtonUPP) New // ticks when button last went up (for debounce)
+                              (ProcPtr)(userRoutine), uppCu                         // data for the button operation
+                                                          GetCurrentArchitecture()) // device-specific double click speed
+#endif                              // current acceleration
+#endif                              // fields used internally to CDM 
 
   /**
    *  DisposeCursorDeviceCustomButtonUPP()
@@ -144,7 +153,7 @@ extern "C"
   inline void
   DisposeCursorDeviceCustomButtonUPP(CursorDeviceCustomButtonUPP userUPP)
   {
-    DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
+      DisposeRoutineDescriptor((UniversalProcPtr)userUPP);
   }
 #else
 #define DisposeCursorDeviceCustomButtonUPP(userUPP) \
@@ -170,8 +179,8 @@ extern "C"
   InvokeCursorDeviceCustomButtonUPP(CursorDevicePtr ourDevice, short button,
                                     CursorDeviceCustomButtonUPP userUPP)
   {
-    CALL_TWO_PARAMETER_UPP(userUPP, uppCursorDeviceCustomButtonProcInfo,
-                           ourDevice, button);
+      CALL_TWO_PARAMETER_UPP(userUPP, uppCursorDeviceCustomButtonProcInfo,
+                             ourDevice, button);
   }
 #else
 #define InvokeCursorDeviceCustomButtonUPP(ourDevice, button, userUPP)    \
@@ -180,13 +189,13 @@ extern "C"
 #endif
 #endif
 
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON || OLDROUTINENAMES
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc #define NewCursorDeviceCustomButtonProc(userRoutine) \
   NewCursorDeviceCustomButtonUPP(userRoutine)
 #define CallCursorDeviceCustomButtonProc(userRoutine, ourDevice, button) \
   InvokeCursorDeviceCustomButtonUPP(ourDevice, button, userRoutine)
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if CALL_NOT_IN_CARBON
   /**
    *  CursorDeviceMove()
@@ -198,7 +207,7 @@ extern "C"
    */
   OSErr
   CursorDeviceMove(CursorDevicePtr ourDevice, long deltaX, long deltaY)
-      TWOWORDINLINE(0x7000, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceMoveTo()
@@ -210,7 +219,7 @@ extern "C"
    */
   OSErr
   CursorDeviceMoveTo(CursorDevicePtr ourDevice, long absX, long absY)
-      TWOWORDINLINE(0x7001, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceFlush()
@@ -221,7 +230,7 @@ extern "C"
    *    \mac_os_x         not available
    */// CALL_NOT_IN_CARBON 
   OSErr
-  CursorDeviceFlush(CursorDevicePtr ourDevice) TWOWORDINLINE(0x7002, 0xAADB);
+  CursorDeviceFlush(CursorDevicePtr ourDevice);
 // support for pre-Carbon UPP routines: New...Proc and Call...Proc 
   /**
    *  CursorDeviceButtons()
@@ -233,7 +242,7 @@ extern "C"
    */
   OSErr
   CursorDeviceButtons(CursorDevicePtr ourDevice, short buttons)
-      TWOWORDINLINE(0x7003, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceButtonDown()
@@ -244,7 +253,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CursorDeviceButtonDown(CursorDevicePtr ourDevice) TWOWORDINLINE(0x7004, 0xAADB);
+  CursorDeviceButtonDown(CursorDevicePtr ourDevice);
 
   /**
    *  CursorDeviceButtonUp()
@@ -255,7 +264,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CursorDeviceButtonUp(CursorDevicePtr ourDevice) TWOWORDINLINE(0x7005, 0xAADB);
+  CursorDeviceButtonUp(CursorDevicePtr ourDevice);
 
   /**
    *  CursorDeviceButtonOp()
@@ -268,7 +277,7 @@ extern "C"
   OSErr
   CursorDeviceButtonOp(CursorDevicePtr ourDevice, short buttonNumber,
                        ButtonOpcode opcode, long data)
-      TWOWORDINLINE(0x7006, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceSetButtons()
@@ -280,7 +289,7 @@ extern "C"
    */
   OSErr
   CursorDeviceSetButtons(CursorDevicePtr ourDevice, short numberOfButtons)
-      TWOWORDINLINE(0x7007, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceSetAcceleration()
@@ -292,7 +301,7 @@ extern "C"
    */
   OSErr
   CursorDeviceSetAcceleration(CursorDevicePtr ourDevice, Fixed acceleration)
-      TWOWORDINLINE(0x7008, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceDoubleTime()
@@ -304,7 +313,7 @@ extern "C"
    */
   OSErr
   CursorDeviceDoubleTime(CursorDevicePtr ourDevice, long durationTicks)
-      TWOWORDINLINE(0x7009, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceUnitsPerInch()
@@ -316,7 +325,7 @@ extern "C"
    */
   OSErr
   CursorDeviceUnitsPerInch(CursorDevicePtr ourDevice, Fixed resolution)
-      TWOWORDINLINE(0x700A, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceNextDevice()
@@ -328,7 +337,7 @@ extern "C"
    */
   OSErr
   CursorDeviceNextDevice(CursorDevicePtr *ourDevice)
-      TWOWORDINLINE(0x700B, 0xAADB);
+ ;
 
   /**
    *  CursorDeviceNewDevice()
@@ -339,7 +348,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CursorDeviceNewDevice(CursorDevicePtr *ourDevice) TWOWORDINLINE(0x700C, 0xAADB);
+  CursorDeviceNewDevice(CursorDevicePtr *ourDevice);
 
   /**
    *  CursorDeviceDisposeDevice()
@@ -351,7 +360,7 @@ extern "C"
    */
   OSErr
   CursorDeviceDisposeDevice(CursorDevicePtr ourDevice)
-      TWOWORDINLINE(0x700D, 0xAADB);
+ ;
 
 /**
                        * * *  W A R N I N G  * * *
@@ -362,7 +371,7 @@ extern "C"
     CursorDeviceNextDevice instead.
 
 */
-#endif // CALL_NOT_IN_CARBON 
+#endif // CALL_NOT_IN_CARBON
 #if OLDROUTINENAMES
 #if CALL_NOT_IN_CARBON
   /**
@@ -375,7 +384,7 @@ extern "C"
    */
   OSErr
   CrsrDevMoveTo(CursorDevicePtr ourDevice, long absX, long absY)
-      TWOWORDINLINE(0x7001, 0xAADB);
+ ;
 
   /**
    *  CrsrDevNextDevice()
@@ -386,10 +395,10 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  CrsrDevNextDevice(CursorDevicePtr *ourDevice) TWOWORDINLINE(0x700B, 0xAADB);
+  CrsrDevNextDevice(CursorDevicePtr *ourDevice);
 
-#endif // CALL_NOT_IN_CARBON 
-#endif // OLDROUTINENAMES 
+#endif // CALL_NOT_IN_CARBON
+#endif // OLDROUTINENAMES
 #if PRAGMA_STRUCT_ALIGN
 #pragma options align = reset
 #elif PRAGMA_STRUCT_PACKPUSH
@@ -404,10 +413,10 @@ extern "C"
 #pragma import reset
 #endif
 
-#ifdef // CALL_NOT_IN_CARBON 
-}
+#ifdef // CALL_NOT_IN_CARBON
+  }
 #endif
 
-#endif // __CURSORDEVICES__ // CALL_NOT_IN_CARBON 
-// OLDROUTINENAMES 
-// __CURSORDEVICES__ 
+#endif // __CURSORDEVICES__ // CALL_NOT_IN_CARBON
+       // OLDROUTINENAMES
+       // __CURSORDEVICES__

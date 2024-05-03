@@ -543,8 +543,7 @@ extern "C"
    */
   OSErr
   GetPictInfo(PicHandle thePictHandle, PictInfo *thePictInfo, short verb,
-              short colorsRequested, short colorPickMethod, short version)
-      THREEWORDINLINE(0x303C, 0x0800, 0xA831);
+              short colorsRequested, short colorPickMethod, short version);
 
   /**
    *  GetPixMapInfo()
@@ -556,8 +555,7 @@ extern "C"
    */
   OSErr
   GetPixMapInfo(PixMapHandle thePixMapHandle, PictInfo *thePictInfo, short verb,
-                short colorsRequested, short colorPickMethod, short version)
-      THREEWORDINLINE(0x303C, 0x0801, 0xA831);
+                short colorsRequested, short colorPickMethod, short version);
 
   /**
    *  NewPictInfo()
@@ -569,8 +567,7 @@ extern "C"
    */
   OSErr
   NewPictInfo(PictInfoID *thePictInfoID, short verb, short colorsRequested,
-              short colorPickMethod, short version)
-      THREEWORDINLINE(0x303C, 0x0602, 0xA831);
+              short colorPickMethod, short version);
 
   /**
    *  RecordPictInfo()
@@ -581,8 +578,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  RecordPictInfo(PictInfoID thePictInfoID, PicHandle thePictHandle)
-      THREEWORDINLINE(0x303C, 0x0403, 0xA831);
+  RecordPictInfo(PictInfoID thePictInfoID, PicHandle thePictHandle);
 
   /**
    *  RecordPixMapInfo()
@@ -593,8 +589,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  RecordPixMapInfo(PictInfoID thePictInfoID, PixMapHandle thePixMapHandle)
-      THREEWORDINLINE(0x303C, 0x0404, 0xA831);
+  RecordPixMapInfo(PictInfoID thePictInfoID, PixMapHandle thePixMapHandle);
 
   /**
    *  RetrievePictInfo()
@@ -606,7 +601,7 @@ extern "C"
    */
   OSErr
   RetrievePictInfo(PictInfoID thePictInfoID, PictInfo *thePictInfo,
-                   short colorsRequested) THREEWORDINLINE(0x303C, 0x0505, 0xA831);
+                   short colorsRequested);
 
   /**
    *  DisposePictInfo()
@@ -617,8 +612,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   OSErr
-  DisposePictInfo(PictInfoID thePictInfoID)
-      THREEWORDINLINE(0x303C, 0x0206, 0xA831);
+  DisposePictInfo(PictInfoID thePictInfoID);
 
 #if OLDROUTINENAMES
 #define DisposPictInfo(thePictInfoID) DisposePictInfo(thePictInfoID)

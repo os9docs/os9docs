@@ -294,7 +294,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   NumVersion
-  MIDIVersion(void) FOURWORDINLINE(0x203C, 0x0000, 0x0004, 0xA800);
+  MIDIVersion(void);
 
   /**
    *  MIDISignIn()
@@ -305,8 +305,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  MIDISignIn(OSType clientID, long refCon, Handle icon, ConstStr255Param name)
-      FOURWORDINLINE(0x203C, 0x0004, 0x0004, 0xA800);
+  MIDISignIn(OSType clientID, long refCon, Handle icon, ConstStr255Param name);
 
   /**
    *  MIDISignOut()
@@ -317,7 +316,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISignOut(OSType clientID) FOURWORDINLINE(0x203C, 0x0008, 0x0004, 0xA800);
+  MIDISignOut(OSType clientID);
 
   /**
    *  MIDIGetClients()
@@ -328,7 +327,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   MIDIIDListHandle
-  MIDIGetClients(void) FOURWORDINLINE(0x203C, 0x000C, 0x0004, 0xA800);
+  MIDIGetClients(void);
 
   /**
    *  MIDIGetClientName()
@@ -339,8 +338,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIGetClientName(OSType clientID, Str255 name)
-      FOURWORDINLINE(0x203C, 0x0010, 0x0004, 0xA800);
+  MIDIGetClientName(OSType clientID, Str255 name);
 
   /**
    *  MIDISetClientName()
@@ -351,8 +349,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetClientName(OSType clientID, ConstStr255Param name)
-      FOURWORDINLINE(0x203C, 0x0014, 0x0004, 0xA800);
+  MIDISetClientName(OSType clientID, ConstStr255Param name);
 
   /**
    *  MIDIGetPorts()
@@ -363,7 +360,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   MIDIIDListHandle
-  MIDIGetPorts(OSType clientID) FOURWORDINLINE(0x203C, 0x0018, 0x0004, 0xA800);
+  MIDIGetPorts(OSType clientID);
 
   /**
    *  MIDIAddPort()
@@ -375,8 +372,7 @@ extern "C"
    */
   OSErr
   MIDIAddPort(OSType clientID, short BufSize, short *refnum,
-              MIDIPortParamsPtr init)
-      FOURWORDINLINE(0x203C, 0x001C, 0x0004, 0xA800);
+              MIDIPortParamsPtr init);
 
   /**
    *  MIDIGetPortInfo()
@@ -387,8 +383,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   MIDIPortInfoHandle
-  MIDIGetPortInfo(OSType clientID, OSType portID)
-      FOURWORDINLINE(0x203C, 0x0020, 0x0004, 0xA800);
+  MIDIGetPortInfo(OSType clientID, OSType portID);
 
   /**
    *  MIDIConnectData()
@@ -400,8 +395,7 @@ extern "C"
    */
   OSErr
   MIDIConnectData(OSType srcClID, OSType srcPortID, OSType dstClID,
-                  OSType dstPortID)
-      FOURWORDINLINE(0x203C, 0x0024, 0x0004, 0xA800);
+                  OSType dstPortID);
 
   /**
    *  MIDIUnConnectData()
@@ -413,8 +407,7 @@ extern "C"
    */
   OSErr
   MIDIUnConnectData(OSType srcClID, OSType srcPortID, OSType dstClID,
-                    OSType dstPortID)
-      FOURWORDINLINE(0x203C, 0x0028, 0x0004, 0xA800);
+                    OSType dstPortID);
 
   /**
    *  MIDIConnectTime()
@@ -426,8 +419,7 @@ extern "C"
    */
   OSErr
   MIDIConnectTime(OSType srcClID, OSType srcPortID, OSType dstClID,
-                  OSType dstPortID)
-      FOURWORDINLINE(0x203C, 0x002C, 0x0004, 0xA800);
+                  OSType dstPortID);
 
   /**
    *  MIDIUnConnectTime()
@@ -439,8 +431,7 @@ extern "C"
    */
   OSErr
   MIDIUnConnectTime(OSType srcClID, OSType srcPortID, OSType dstClID,
-                    OSType dstPortID)
-      FOURWORDINLINE(0x203C, 0x0030, 0x0004, 0xA800);
+                    OSType dstPortID);
 
   /**
    *  MIDIFlush()
@@ -451,7 +442,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIFlush(short refnum) FOURWORDINLINE(0x203C, 0x0034, 0x0004, 0xA800);
+  MIDIFlush(short refnum);
 
   /**
    *  MIDIGetReadHook()
@@ -462,7 +453,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ProcPtr
-  MIDIGetReadHook(short refnum) FOURWORDINLINE(0x203C, 0x0038, 0x0004, 0xA800);
+  MIDIGetReadHook(short refnum);
 
   /**
    *  MIDISetReadHook()
@@ -473,8 +464,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetReadHook(short refnum, ProcPtr hook)
-      FOURWORDINLINE(0x203C, 0x003C, 0x0004, 0xA800);
+  MIDISetReadHook(short refnum, ProcPtr hook);
 
   /**
    *  MIDIGetPortName()
@@ -485,8 +475,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIGetPortName(OSType clientID, OSType portID, Str255 name)
-      FOURWORDINLINE(0x203C, 0x0040, 0x0004, 0xA800);
+  MIDIGetPortName(OSType clientID, OSType portID, Str255 name);
 
   /**
    *  MIDISetPortName()
@@ -497,8 +486,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetPortName(OSType clientID, OSType portID, ConstStr255Param name)
-      FOURWORDINLINE(0x203C, 0x0044, 0x0004, 0xA800);
+  MIDISetPortName(OSType clientID, OSType portID, ConstStr255Param name);
 
   /**
    *  MIDIWakeUp()
@@ -509,8 +497,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIWakeUp(short refnum, long time, long period, MIDITimeUPP timeProc)
-      FOURWORDINLINE(0x203C, 0x0048, 0x0004, 0xA800);
+  MIDIWakeUp(short refnum, long time, long period, MIDITimeUPP timeProc);
 
   /**
    *  MIDIRemovePort()
@@ -521,7 +508,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIRemovePort(short refnum) FOURWORDINLINE(0x203C, 0x004C, 0x0004, 0xA800);
+  MIDIRemovePort(short refnum);
 
   /**
    *  MIDIGetSync()
@@ -532,7 +519,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   short
-  MIDIGetSync(short refnum) FOURWORDINLINE(0x203C, 0x0050, 0x0004, 0xA800);
+  MIDIGetSync(short refnum);
 
   /**
    *  MIDISetSync()
@@ -543,8 +530,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetSync(short refnum, short sync)
-      FOURWORDINLINE(0x203C, 0x0054, 0x0004, 0xA800);
+  MIDISetSync(short refnum, short sync);
 
   /**
    *  MIDIGetCurTime()
@@ -555,7 +541,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   long
-  MIDIGetCurTime(short refnum) FOURWORDINLINE(0x203C, 0x0058, 0x0004, 0xA800);
+  MIDIGetCurTime(short refnum);
 
   /**
    *  MIDISetCurTime()
@@ -566,8 +552,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetCurTime(short refnum, long time)
-      FOURWORDINLINE(0x203C, 0x005C, 0x0004, 0xA800);
+  MIDISetCurTime(short refnum, long time);
 
   /**
    *  MIDIStartTime()
@@ -578,7 +563,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIStartTime(short refnum) FOURWORDINLINE(0x203C, 0x0060, 0x0004, 0xA800);
+  MIDIStartTime(short refnum);
 
   /**
    *  MIDIStopTime()
@@ -589,7 +574,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIStopTime(short refnum) FOURWORDINLINE(0x203C, 0x0064, 0x0004, 0xA800);
+  MIDIStopTime(short refnum);
 
   /**
    *  MIDIPoll()
@@ -600,8 +585,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIPoll(short refnum, long offsetTime)
-      FOURWORDINLINE(0x203C, 0x0068, 0x0004, 0xA800);
+  MIDIPoll(short refnum, long offsetTime);
 
   /**
    *  MIDIWritePacket()
@@ -612,8 +596,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  MIDIWritePacket(short refnum, MIDIPacketPtr packet)
-      FOURWORDINLINE(0x203C, 0x006C, 0x0004, 0xA800);
+  MIDIWritePacket(short refnum, MIDIPacketPtr packet);
 
   /**
    *  MIDIWorldChanged()
@@ -624,8 +607,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   Boolean
-  MIDIWorldChanged(OSType clientID)
-      FOURWORDINLINE(0x203C, 0x0070, 0x0004, 0xA800);
+  MIDIWorldChanged(OSType clientID);
 
   /**
    *  MIDIGetOffsetTime()
@@ -636,7 +618,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   long
-  MIDIGetOffsetTime(short refnum) FOURWORDINLINE(0x203C, 0x0074, 0x0004, 0xA800);
+  MIDIGetOffsetTime(short refnum);
 
   /**
    *  MIDISetOffsetTime()
@@ -647,8 +629,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetOffsetTime(short refnum, long offsetTime)
-      FOURWORDINLINE(0x203C, 0x0078, 0x0004, 0xA800);
+  MIDISetOffsetTime(short refnum, long offsetTime);
 
   /**
    *  MIDIConvertTime()
@@ -659,8 +640,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   long
-  MIDIConvertTime(short srcFormat, short dstFormat, long time)
-      FOURWORDINLINE(0x203C, 0x007C, 0x0004, 0xA800);
+  MIDIConvertTime(short srcFormat, short dstFormat, long time);
 
   /**
    *  MIDIGetRefCon()
@@ -671,7 +651,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   long
-  MIDIGetRefCon(short refnum) FOURWORDINLINE(0x203C, 0x0080, 0x0004, 0xA800);
+  MIDIGetRefCon(short refnum);
 
   /**
    *  MIDISetRefCon()
@@ -682,8 +662,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetRefCon(short refnum, long refCon)
-      FOURWORDINLINE(0x203C, 0x0084, 0x0004, 0xA800);
+  MIDISetRefCon(short refnum, long refCon);
 
   /**
    *  MIDIGetClRefCon()
@@ -694,7 +673,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   long
-  MIDIGetClRefCon(OSType clientID) FOURWORDINLINE(0x203C, 0x0088, 0x0004, 0xA800);
+  MIDIGetClRefCon(OSType clientID);
 
   /**
    *  MIDISetClRefCon()
@@ -705,8 +684,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetClRefCon(OSType clientID, long refCon)
-      FOURWORDINLINE(0x203C, 0x008C, 0x0004, 0xA800);
+  MIDISetClRefCon(OSType clientID, long refCon);
 
   /**
    *  MIDIGetTCFormat()
@@ -717,7 +695,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   short
-  MIDIGetTCFormat(short refnum) FOURWORDINLINE(0x203C, 0x0090, 0x0004, 0xA800);
+  MIDIGetTCFormat(short refnum);
 
   /**
    *  MIDISetTCFormat()
@@ -728,8 +706,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetTCFormat(short refnum, short format)
-      FOURWORDINLINE(0x203C, 0x0094, 0x0004, 0xA800);
+  MIDISetTCFormat(short refnum, short format);
 
   /**
    *  MIDISetRunRate()
@@ -740,8 +717,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetRunRate(short refnum, short rate, long time)
-      FOURWORDINLINE(0x203C, 0x0098, 0x0004, 0xA800);
+  MIDISetRunRate(short refnum, short rate, long time);
 
   /**
    *  MIDIGetClientIcon()
@@ -752,8 +728,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   Handle
-  MIDIGetClientIcon(OSType clientID)
-      FOURWORDINLINE(0x203C, 0x009C, 0x0004, 0xA800);
+  MIDIGetClientIcon(OSType clientID);
 
   /**
    *  MIDICallAddress()
@@ -764,7 +739,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   ProcPtr
-  MIDICallAddress(short callNum) FOURWORDINLINE(0x203C, 0x00A4, 0x0004, 0xA800);
+  MIDICallAddress(short callNum);
 
   /**
    *  MIDISetConnectionProc()
@@ -775,8 +750,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDISetConnectionProc(short refNum, ProcPtr connectionProc, long refCon)
-      FOURWORDINLINE(0x203C, 0x00A8, 0x0004, 0xA800);
+  MIDISetConnectionProc(short refNum, ProcPtr connectionProc, long refCon);
 
   /**
    *  MIDIGetConnectionProc()
@@ -787,8 +761,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIGetConnectionProc(short refnum, ProcPtr *connectionProc, long *refCon)
-      FOURWORDINLINE(0x203C, 0x00AC, 0x0004, 0xA800);
+  MIDIGetConnectionProc(short refnum, ProcPtr *connectionProc, long *refCon);
 
   /**
    *  MIDIDiscardPacket()
@@ -799,8 +772,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MIDIDiscardPacket(short refnum, MIDIPacketPtr packet)
-      FOURWORDINLINE(0x203C, 0x00B0, 0x0004, 0xA800);
+  MIDIDiscardPacket(short refnum, MIDIPacketPtr packet);
 
   /**
    *  MDVRSignIn()
@@ -811,8 +783,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   OSErr
-  MDVRSignIn(OSType clientID, long refCon, Handle icon, Str255 name)
-      FOURWORDINLINE(0x203C, 0x00B4, 0x0004, 0xA800);
+  MDVRSignIn(OSType clientID, long refCon, Handle icon, Str255 name);
 
   /**
    *  MDVRSignOut()
@@ -823,7 +794,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MDVRSignOut(OSType clientID) FOURWORDINLINE(0x203C, 0x00B8, 0x0004, 0xA800);
+  MDVRSignOut(OSType clientID);
 
   /**
    *  MDVROpen()
@@ -834,8 +805,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   MDVRPtr
-  MDVROpen(short portType, short refnum)
-      FOURWORDINLINE(0x203C, 0x00BC, 0x0004, 0xA800);
+  MDVROpen(short portType, short refnum);
 
   /**
    *  MDVRClose()
@@ -846,7 +816,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MDVRClose(MDVRPtr driverPtr) FOURWORDINLINE(0x203C, 0x00C0, 0x0004, 0xA800);
+  MDVRClose(MDVRPtr driverPtr);
 
   /**
    *  MDVRControlIn()
@@ -857,8 +827,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MDVRControlIn(MDVRPtr portPtr, MDVRInCtlPtr inputCtl)
-      FOURWORDINLINE(0x203C, 0x00C4, 0x0004, 0xA800);
+  MDVRControlIn(MDVRPtr portPtr, MDVRInCtlPtr inputCtl);
 
   /**
    *  MDVRControlOut()
@@ -869,8 +838,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MDVRControlOut(MDVRPtr portPtr, MDVROutCtlPtr outputCtl)
-      FOURWORDINLINE(0x203C, 0x00C8, 0x0004, 0xA800);
+  MDVRControlOut(MDVRPtr portPtr, MDVROutCtlPtr outputCtl);
 
   /**
    *  MDVRIn()
@@ -881,7 +849,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MDVRIn(MDVRPtr portPtr) FOURWORDINLINE(0x203C, 0x00CC, 0x0004, 0xA800);
+  MDVRIn(MDVRPtr portPtr);
 
   /**
    *  MDVROut()
@@ -892,8 +860,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MDVROut(MDVRPtr portPtr, char *dataPtr, short length)
-      FOURWORDINLINE(0x203C, 0x00D0, 0x0004, 0xA800);
+  MDVROut(MDVRPtr portPtr, char *dataPtr, short length);
 
   /**
    *  MDVRNotesOff()
@@ -904,8 +871,7 @@ extern "C"
    *    \mac_os_x         not available
    */
   void
-  MDVRNotesOff(MDVRPtr portPtr, short mode)
-      FOURWORDINLINE(0x203C, 0x00D4, 0x0004, 0xA800);
+  MDVRNotesOff(MDVRPtr portPtr, short mode);
 
 #endif /** CALL_NOT_IN_CARBON */
 

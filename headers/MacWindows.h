@@ -837,21 +837,20 @@ extern "C"
   typedef struct CWindowRecord CWindowRecord;
   typedef CWindowRecord *CWindowPeek;
   /**
-  <pre>fields */
-  </ pre>
-      * \note<pre> The only difference between a CWindowRecord and a WindowRecord is
-          that the CWindowRecord's port field is a cGrafPort rather than a grafPort . Because everything else about the two structures is identical,
-      and because
-              all non -
-          color Window Manager routines work with the new structure by
-              accepting CWindowPtrs as well as WindowPtr s,
+          * \note<pre> The only difference between a CWindowRecord and a WindowRecord is
+              that the CWindowRecord's port field is a cGrafPort rather than a grafPort . Because everything else about the two structures is identical,
+                  and because
+                      all non -
+      color Window Manager routines work with the new structure by
+          accepting CWindowPtrs as well as WindowPtr s,
       all window management
           changes should be transparent to your applications.A
           CWindowPeek(ie, the address of a CWindowRecord) is used in
       nearly all Window Manager calls.The port field is a CGrafPort(all 108 bytes of it)
           .It contains such
       important items as the size and location of the window,
-      the text font and display attributes, etc.The windowKind field identifies which of the standard or user - defined window definition routines will draw the window.Note : For desk accessories, windowKind contains the driver reference number(a negative value).This affects how DAs must handle calls to</ pre> * \copyright THINK Reference © 1991 - 1992 Symantec Corporation * / struct CWindowRecord
+      the text font and display attributes, etc.The windowKind field identifies which of the standard or user - defined window definition routines will draw the window.Note : For desk accessories, windowKind contains the driver reference number(a negative value).This affects how DAs must handle calls to</ pre> * \copyright THINK Reference © 1991 - 1992 Symantec Corporation */
+  struct CWindowRecord
   {
     CGrafPort port;           /**< portBits, portRect, pnSize, txFont*/
     short windowKind;         /**< Class;/**< documentProc, etc.*/
@@ -1128,8 +1127,7 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  DisposeWindowDefUPP(WindowDefUPP userUPP);
+  void DisposeWindowDefUPP(WindowDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline void DisposeWindowDefUPP(WindowDefUPP userUPP)
@@ -1150,8 +1148,7 @@ extern "C"
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  DisposeDeskHookUPP(DeskHookUPP userUPP);
+  void DisposeDeskHookUPP(DeskHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline void DisposeDeskHookUPP(DeskHookUPP userUPP)
@@ -1173,8 +1170,7 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  DisposeWindowPaintUPP(WindowPaintUPP userUPP);
+  void DisposeWindowPaintUPP(WindowPaintUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline void DisposeWindowPaintUPP(WindowPaintUPP userUPP)
@@ -1194,9 +1190,8 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  long
-  InvokeWindowDefUPP(short varCode, WindowRef window, short message, long param,
-                     WindowDefUPP userUPP);
+  long InvokeWindowDefUPP(short varCode, WindowRef window, short message, long param,
+                          WindowDefUPP userUPP);
 #if !OPAQUE_UPP_TYPES
 #ifdef __cplusplus
   inline long InvokeWindowDefUPP(short varCode, WindowRef window, short message,
@@ -1224,9 +1219,8 @@ extern "C"
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter InvokeDeskHookUPP(__D0, __A0, __A1)
 #endif
-  void
-  InvokeDeskHookUPP(Boolean mouseClick, EventRecord *theEvent,
-                    DeskHookUPP userUPP) ONEWORDINLINE(0x4E91);
+  void InvokeDeskHookUPP(Boolean mouseClick, EventRecord *theEvent,
+                         DeskHookUPP userUPP);
 #if !OPAQUE_UPP_TYPES && \
     (!TARGET_OS_MAC || !TARGET_CPU_68K || TARGET_RT_MAC_CFM)
 #ifdef __cplusplus
@@ -1323,8 +1317,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   WindowRef
-  GetNewCWindow(short windowID, void *wStorage, WindowRef behind)
-      ONEWORDINLINE(0xAA46);
+  GetNewCWindow(short windowID, void *wStorage, WindowRef behind);
 
   /**
    *  NewWindow()
@@ -1337,7 +1330,7 @@ extern "C"
   WindowRef
   NewWindow(void *wStorage, const Rect *boundsRect, ConstStr255Param title,
             Boolean visible, short theProc, WindowRef behind, Boolean goAwayFlag,
-            long refCon) ONEWORDINLINE(0xA913);
+            long refCon);
 
   /**
    *  GetNewWindow()
@@ -1348,8 +1341,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   WindowRef
-  GetNewWindow(short windowID, void *wStorage, WindowRef behind)
-      ONEWORDINLINE(0xA9BD);
+  GetNewWindow(short windowID, void *wStorage, WindowRef behind);
 
   /**
    *  NewCWindow()
@@ -1362,7 +1354,7 @@ extern "C"
   WindowRef
   NewCWindow(void *wStorage, const Rect *boundsRect, ConstStr255Param title,
              Boolean visible, short procID, WindowRef behind, Boolean goAwayFlag,
-             long refCon) ONEWORDINLINE(0xAA45);
+             long refCon);
 
   /**
    *  DisposeWindow()
@@ -1372,8 +1364,7 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  DisposeWindow(WindowRef window) ONEWORDINLINE(0xA914);
+  void DisposeWindow(WindowRef window);
 
 #if CALL_NOT_IN_CARBON
 /**
@@ -1387,8 +1378,7 @@ extern "C"
 #if TARGET_OS_MAC
 #define MacCloseWindow CloseWindow
 #endif
-  void
-  MacCloseWindow(WindowRef window) ONEWORDINLINE(0xA92D);
+  void MacCloseWindow(WindowRef window);
 
   /**
      Routines available from Mac OS 8.5 forward
@@ -2899,8 +2889,7 @@ extern "C"
    X version 10.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  DebugPrintWindowGroup(WindowGroupRef inGroup);
+  void DebugPrintWindowGroup(WindowGroupRef inGroup);
 
   /**
    *  DebugPrintAllWindowGroups()
@@ -2915,8 +2904,7 @@ extern "C"
    X version 10.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  DebugPrintAllWindowGroups(void);
+  void DebugPrintAllWindowGroups(void);
 
 /** SetWinColor is not available in Carbon.*/
 #if CALL_NOT_IN_CARBON
@@ -2928,8 +2916,7 @@ extern "C"
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  SetWinColor(WindowRef window, WCTabHandle newColorTable) ONEWORDINLINE(0xAA41);
+  void SetWinColor(WindowRef window, WCTabHandle newColorTable);
 
   /** SetDeskCPat is not available in Carbon.*/
   /**
@@ -2940,8 +2927,7 @@ extern "C"
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  SetDeskCPat(PixPatHandle deskPixPat) ONEWORDINLINE(0xAA47);
+  void SetDeskCPat(PixPatHandle deskPixPat);
 
 /**
    Routines available from Mac OS 8.5 forward
@@ -3062,8 +3048,7 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  ClipAbove(WindowRef window) ONEWORDINLINE(0xA90B);
+  void ClipAbove(WindowRef window);
 
 /** SaveOld/DrawNew are not available in Carbon.  Use ReshapeCustomWindow
  * instead.*/
@@ -3076,8 +3061,7 @@ extern "C"
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  SaveOld(WindowRef window) ONEWORDINLINE(0xA90E);
+  void SaveOld(WindowRef window);
 
   /**
    *  DrawNew()
@@ -3087,8 +3071,7 @@ extern "C"
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  DrawNew(WindowRef window, Boolean update) ONEWORDINLINE(0xA90F);
+  void DrawNew(WindowRef window, Boolean update);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -3100,9 +3083,8 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  PaintOne(WindowRef window, /** can be NULL */
-           RgnHandle clobberedRgn) ONEWORDINLINE(0xA90C);
+  void PaintOne(WindowRef window, /** can be NULL */
+                RgnHandle clobberedRgn);
 
   /**
    *  PaintBehind()
@@ -3112,9 +3094,8 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  PaintBehind(WindowRef startWindow, /** can be NULL */
-              RgnHandle clobberedRgn) ONEWORDINLINE(0xA90D);
+  void PaintBehind(WindowRef startWindow, /** can be NULL */
+                   RgnHandle clobberedRgn);
 
   /**
    *  CalcVis()
@@ -3124,8 +3105,7 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  CalcVis(WindowRef window) ONEWORDINLINE(0xA909);
+  void CalcVis(WindowRef window);
 
   /**
    *  CalcVisBehind()
@@ -3135,9 +3115,8 @@ extern "C"
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  CalcVisBehind(WindowRef startWindow, /** can be NULL */
-                RgnHandle clobberedRgn) ONEWORDINLINE(0xA90A);
+  void CalcVisBehind(WindowRef startWindow, /** can be NULL */
+                     RgnHandle clobberedRgn);
 
   /**
    *  CheckUpdate()
@@ -3148,7 +3127,7 @@ extern "C"
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  CheckUpdate(EventRecord *theEvent) ONEWORDINLINE(0xA911);
+  CheckUpdate(EventRecord *theEvent);
 
 /**
  *  [Mac]FindWindow()
@@ -3162,24 +3141,24 @@ extern "C"
 #define MacFindWindow FindWindow
 #endif
   WindowPartCode
-  MacFindWindow(Point thePoint, WindowRef *window) ONEWORDINLINE(0xA92C);
+  MacFindWindow(Point thePoint, WindowRef *window);
 
   /**
   \brief Return a pointer to the frontmost window
 
   <pre>FrontWindow will return the next lower window.
-Under MultiFinder , this function (and many others) apply only to the
-current window layer (usually the caller's application).  Thus, you may
-get a NIL return value even if there are many windows visible. Under
-Finder, you may get a WindowPtr to a DA.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  Under MultiFinder , this function (and many others) apply only to the
+  current window layer (usually the caller's application).  Thus, you may
+  get a NIL return value even if there are many windows visible. Under
+  Finder, you may get a WindowPtr to a DA.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
   WindowRef
-  FrontWindow(void) ONEWORDINLINE(0xA924);
+  FrontWindow(void);
 
   /**
    *  BringToFront()
@@ -3189,8 +3168,7 @@ Finder, you may get a WindowPtr to a DA.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  BringToFront(WindowRef window) ONEWORDINLINE(0xA920);
+  void BringToFront(WindowRef window);
 
   /**
    *  SendBehind()
@@ -3200,8 +3178,7 @@ Finder, you may get a WindowPtr to a DA.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SendBehind(WindowRef window, WindowRef behindWindow) ONEWORDINLINE(0xA921);
+  void SendBehind(WindowRef window, WindowRef behindWindow);
 
   /**
    *  SelectWindow()
@@ -3211,8 +3188,7 @@ Finder, you may get a WindowPtr to a DA.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SelectWindow(WindowRef window) ONEWORDINLINE(0xA91F);
+  void SelectWindow(WindowRef window);
 
   /**
      Routines available from Mac OS 8.6 forward
@@ -3373,8 +3349,7 @@ Finder, you may get a WindowPtr to a DA.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  InitWindows(void) ONEWORDINLINE(0xA912);
+  void InitWindows(void);
 
   /**  The window manager port does not exist in Carbon.   */
   /**  We are investigating replacement technologies.      */
@@ -3383,38 +3358,36 @@ Finder, you may get a WindowPtr to a DA.
   \brief Obtain a pointer to the Window Manager port
 
   <pre>use the WMgrPort directly and you shouldn't call GetWMgrPort ever.
-Rules
-Only draw to the whole screen in a "modal" way.  This could be an
-animation across windows or visual feedback from dragging from one to
-another. It is important to know that no other application, including the
-Finder, will draw until you have finished. In the case of an animation effect,
-the drawing shouldn't take much time. In the case of a drag, you should only
-draw while the mouse button is down.
-All operations should end with nothing left drawn outside your windows.
-Under MultiFinder it is alright not to call GetNextEvent, EventAvail or
-WaitNextEvent while drawing outside your windows. Use the StillDown or
-WaitMouseUp functions for loops that wait for the mouse button to go up.
-Never draw something on the desktop and leave it there. There is no way to
-tell the system that you have drawn on the desktop, so the Finder may draw
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  Rules
+  Only draw to the whole screen in a "modal" way.  This could be an
+  animation across windows or visual feedback from dragging from one to
+  another. It is important to know that no other application, including the
+  Finder, will draw until you have finished. In the case of an animation effect,
+  the drawing shouldn't take much time. In the case of a drag, you should only
+  draw while the mouse button is down.
+  All operations should end with nothing left drawn outside your windows.
+  Under MultiFinder it is alright not to call GetNextEvent, EventAvail or
+  WaitNextEvent while drawing outside your windows. Use the StillDown or
+  WaitMouseUp functions for loops that wait for the mouse button to go up.
+  Never draw something on the desktop and leave it there. There is no way to
+  tell the system that you have drawn on the desktop, so the Finder may draw
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        not available
-*    \mac_os_x         not available
-*/
-  void
-  GetWMgrPort(GrafPtr *wPort) ONEWORDINLINE(0xA910);
+  *    \carbon_lib        not available
+  *    \mac_os_x         not available
+  */
+  void GetWMgrPort(GrafPtr *wPort);
 
   /**
   \brief Obtain a pointer to the Window Manager port
 
 
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        not available
-*    \mac_os_x         not available
-*/
-  void
-  GetCWMgrPort(CGrafPtr *wMgrCPort) ONEWORDINLINE(0xAA48);
+  *    \carbon_lib        not available
+  *    \mac_os_x         not available
+  */
+  void GetCWMgrPort(CGrafPtr *wMgrCPort);
 
 /**
    Routines available from Mac OS 8.5 forward
@@ -3461,146 +3434,141 @@ tell the system that you have drawn on the desktop, so the Finder may draw
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  HiliteWindow(WindowRef window, Boolean fHilite) ONEWORDINLINE(0xA91C);
+  void HiliteWindow(WindowRef window, Boolean fHilite);
 
   /**
   \brief Set the reference value (refCon) for a window
 
   <pre>SetWRefCon sets the "reference constant" (the WindowRecord .refCon value)
-for the selected window.  The reference constant is an application-defined
-value you can use for any purpose.
-theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
-newRefis a 4-byte value for the private use of your application. This value
-will be stored in the WindowRecord and will be available via
-GetWRefCon .
-</pre>
-* \returns <pre>none
-</pre>
-* \note <pre>Use this to store some identifier or other information so that you can more
-easily classify or identify the window later.
-You may wish to use the WindowRecord .refCon field to hold a pointer or
-Handle to additional information about the window. Just allocate some
-storage on the heap and save its address using this call. Be sure to free the
-allocation when you close the window.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  for the selected window.  The reference constant is an application-defined
+  value you can use for any purpose.
+  theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
+  newRefis a 4-byte value for the private use of your application. This value
+  will be stored in the WindowRecord and will be available via
+  GetWRefCon .
+  </pre>
+  * \returns <pre>none
+  </pre>
+  * \note <pre>Use this to store some identifier or other information so that you can more
+  easily classify or identify the window later.
+  You may wish to use the WindowRecord .refCon field to hold a pointer or
+  Handle to additional information about the window. Just allocate some
+  storage on the heap and save its address using this call. Be sure to free the
+  allocation when you close the window.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  void
-  SetWRefCon(WindowRef window, long data) ONEWORDINLINE(0xA918);
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  void SetWRefCon(WindowRef window, long data);
 
   /**
   \brief Return a window's reference value
 
   <pre>NewWindow ). Use SetWRefCon to change it. Use GetWRefCon to
-obtain its current value, or just read it directly from the window record:
-wPeek = ( WindowPeek )theWindow;
-myRefCon = wPeek -> refCon;
-This user-defined value is often used as a good place to store a Handle
-leading to additional information about the window. For instance, such a
-handle could contain information to help you keep track of the scrolling
-position or the name and reference of a file read to obtain the contents of the
-window, etc.
-Note: if you do maintain such a Handle, be sure to dispose of it before you
-close the window.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  obtain its current value, or just read it directly from the window record:
+  wPeek = ( WindowPeek )theWindow;
+  myRefCon = wPeek -> refCon;
+  This user-defined value is often used as a good place to store a Handle
+  leading to additional information about the window. For instance, such a
+  handle could contain information to help you keep track of the scrolling
+  position or the name and reference of a file read to obtain the contents of the
+  window, etc.
+  Note: if you do maintain such a Handle, be sure to dispose of it before you
+  close the window.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  long
-  GetWRefCon(WindowRef window) ONEWORDINLINE(0xA917);
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  long GetWRefCon(WindowRef window);
 
   /**
   \brief Set a PicHandle for alternative updating
 
   <pre>SetWindowPic stores a PicHandle into the WindowRecord . A non-NIL value
-causes the Window Manager to draw that picture instead of generating an
-update event. You will no longer receive update events for theWindow .
-theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
-thePicture is a handle of a picture that will be drawn automatically when the
-window needs to be updated.
-</pre>
-* \returns <pre>none
-</pre>
-* \note <pre>This function causes thePicture  to be stored in the windowPic field of the
-WindowRecord structure of theWindow . When that field is an address (as
-opposed to the default value of NIL), update events will not get generated
-when that window is moved, sized, uncovered, etc. Instead, thePicture  is
-drawn.
-SetWindowPic is typically used for windows that are never changed; for
-instance, an introduction window or a one-screen help window.
-It can also be used to force fast screen updates, at the expense of
-extravagant memory usage. For instance, you could use CopyBits to
-generate a picture of the content region of your window and use
-SetWindowPic to point to that picture. Now you will find that moving,
-uncovering, or sizing the window will go faster than would be possible when
-an update event occurred and you needed to redraw it from scratch.
-Use SetWindowPic again, setting thePicture = NIL in order to resume
-normal generation of update events.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  causes the Window Manager to draw that picture instead of generating an
+  update event. You will no longer receive update events for theWindow .
+  theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
+  thePicture is a handle of a picture that will be drawn automatically when the
+  window needs to be updated.
+  </pre>
+  * \returns <pre>none
+  </pre>
+  * \note <pre>This function causes thePicture  to be stored in the windowPic field of the
+  WindowRecord structure of theWindow . When that field is an address (as
+  opposed to the default value of NIL), update events will not get generated
+  when that window is moved, sized, uncovered, etc. Instead, thePicture  is
+  drawn.
+  SetWindowPic is typically used for windows that are never changed; for
+  instance, an introduction window or a one-screen help window.
+  It can also be used to force fast screen updates, at the expense of
+  extravagant memory usage. For instance, you could use CopyBits to
+  generate a picture of the content region of your window and use
+  SetWindowPic to point to that picture. Now you will find that moving,
+  uncovering, or sizing the window will go faster than would be possible when
+  an update event occurred and you needed to redraw it from scratch.
+  Use SetWindowPic again, setting thePicture = NIL in order to resume
+  normal generation of update events.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  void
-  SetWindowPic(WindowRef window, PicHandle pic) ONEWORDINLINE(0xA92E);
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  void SetWindowPic(WindowRef window, PicHandle pic);
 
   /**
   \brief Obtain Handle of window picture, if any
 
   <pre>GetWindowPic returns a PicHandle of the picture that defines the contents
-of a window. In most cases, it returns NIL, indicating that no such picture
-exists.
-</pre>
-* \returns <pre>the value found in the windowPic field of theWindow 's
-WindowRecord . A non-NIL value indicates that a previous call to
-SetWindowPic has defined such a picture.
-</pre>
-* \note <pre>This routine can be used as part of a speed-optimization technique you can
-use to avoid time-consuming updates on windows that do not change, or
-windows that have been saved temporarily as a bit image.
-Use SetWindowPic to install a picture defining a window. See that topic
-for related information.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  of a window. In most cases, it returns NIL, indicating that no such picture
+  exists.
+  </pre>
+  * \returns <pre>the value found in the windowPic field of theWindow 's
+  WindowRecord . A non-NIL value indicates that a previous call to
+  SetWindowPic has defined such a picture.
+  </pre>
+  * \note <pre>This routine can be used as part of a speed-optimization technique you can
+  use to avoid time-consuming updates on windows that do not change, or
+  windows that have been saved temporarily as a bit image.
+  Use SetWindowPic to install a picture defining a window. See that topic
+  for related information.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
   PicHandle
-  GetWindowPic(WindowRef window) ONEWORDINLINE(0xA92F);
+  GetWindowPic(WindowRef window);
 
   /**
   \brief Get the variant code for a window
 
   <pre>GetWVariant returns a variant code for the window pointed to by
-whichWindow . Use this function to determine the type of a particular
-window.
-whichWin is the window whose variant code you wish to find.
-</pre>
-* \returns <pre>a short indicating the variant code of the window.
-</pre>
-* \note <pre>The variant code allows a single window definition function ('WDEF') to
-implement several related types of windows as "variations on a theme". For
-example, the dBoxProc type of window is a variation of the standard
-document window; both use the window definition function whose resource
-ID is 0, but the document window has a variation code of 0 while the
-dBoxProc window has a variation code of 1. See Window Types for more
-information.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  whichWindow . Use this function to determine the type of a particular
+  window.
+  whichWin is the window whose variant code you wish to find.
+  </pre>
+  * \returns <pre>a short indicating the variant code of the window.
+  </pre>
+  * \note <pre>The variant code allows a single window definition function ('WDEF') to
+  implement several related types of windows as "variations on a theme". For
+  example, the dBoxProc type of window is a variation of the standard
+  document window; both use the window definition function whose resource
+  ID is 0, but the document window has a variation code of 0 while the
+  dBoxProc window has a variation code of 1. See Window Types for more
+  information.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  short
-  GetWVariant(WindowRef window) ONEWORDINLINE(0xA80A);
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  short GetWVariant(WindowRef window);
 
   /** Routines available from Mac OS 8.0 (Appearance 1.0) forward*/
   /**
@@ -3612,8 +3580,7 @@ information.
    *    \mac_os_x         in version 10.0 and later
    */
   OSStatus
-  GetWindowFeatures(WindowRef window, UInt32 *outFeatures)
-      THREEWORDINLINE(0x303C, 0x0013, 0xAA74);
+  GetWindowFeatures(WindowRef window, UInt32 *outFeatures);
 
   /**
    *  GetWindowRegion()
@@ -3625,7 +3592,7 @@ information.
    */
   OSStatus
   GetWindowRegion(WindowRef window, WindowRegionCode inRegionCode,
-                  RgnHandle ioWinRgn) THREEWORDINLINE(0x303C, 0x0014, 0xAA74);
+                  RgnHandle ioWinRgn);
 
   /**
    *  GetWindowStructureWidths()
@@ -3651,8 +3618,7 @@ information.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  InvalRect(const Rect *badRect) ONEWORDINLINE(0xA928);
+  void InvalRect(const Rect *badRect);
 
   /**
    *  InvalRgn()
@@ -3662,8 +3628,7 @@ information.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  InvalRgn(RgnHandle badRgn) ONEWORDINLINE(0xA927);
+  void InvalRgn(RgnHandle badRgn);
 
   /**
    *  ValidRect()
@@ -3673,8 +3638,7 @@ information.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  ValidRect(const Rect *goodRect) ONEWORDINLINE(0xA92A);
+  void ValidRect(const Rect *goodRect);
 
   /**
    *  ValidRgn()
@@ -3684,8 +3648,7 @@ information.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  ValidRgn(RgnHandle goodRgn) ONEWORDINLINE(0xA929);
+  void ValidRgn(RgnHandle goodRgn);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -3697,8 +3660,7 @@ information.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  BeginUpdate(WindowRef window) ONEWORDINLINE(0xA922);
+  void BeginUpdate(WindowRef window);
 
   /**
    *  EndUpdate()
@@ -3708,8 +3670,7 @@ information.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  EndUpdate(WindowRef window) ONEWORDINLINE(0xA923);
+  void EndUpdate(WindowRef window);
 
   /**
      Routines available from Mac OS 8.5 forward
@@ -3773,8 +3734,7 @@ information.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  DrawGrowIcon(WindowRef window) ONEWORDINLINE(0xA904);
+  void DrawGrowIcon(WindowRef window);
 
   /**
    *  SetWTitle()
@@ -3784,25 +3744,24 @@ information.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SetWTitle(WindowRef window, ConstStr255Param title) ONEWORDINLINE(0xA91A);
+  void SetWTitle(WindowRef window, ConstStr255Param title);
 
   /**
   \brief Obtain the text of a window's title
 
   <pre>GetWTitle obtains the title of the specified window.
-theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
-theTitle is the address of a pointer to a Str255. Upon return, it will contain
-a pointer to the text of the title.
-</pre>
-* \returns <pre>none
-Example
-#include < Windows.h >
-WindowPtr myWindow;
-Str255 *theTitle;
-// ... 
+  theWindow is a WindowPtr obtained via NewWindow or GetNewWindow .
+  theTitle is the address of a pointer to a Str255. Upon return, it will contain
+  a pointer to the text of the title.
+  </pre>
+  * \returns <pre>none
+  Example
+  #include < Windows.h >
+  WindowPtr myWindow;
+  Str255 *theTitle;
+  // ...
   GetWTitle(myWindow, &theTitle);
-  PtoCstr(theTitle); // ASCIIZ for printf() 
+  PtoCstr(theTitle); // ASCIIZ for printf()
   printf("The current title is %s\n", theTitle);
   </ pre>
               * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -3813,8 +3772,7 @@ Str255 *theTitle;
           *    \mac_os_x in version 10.0 and
       later
             */
-          void
-          GetWTitle(WindowRef window, Str255 title) ONEWORDINLINE(0xA919);
+  void GetWTitle(WindowRef window, Str255 title);
 
   /**
    *  SetWindowTitleWithCFString()
@@ -4051,8 +4009,7 @@ Str255 *theTitle;
    *    \mac_os_x         in version 10.0 and later
    */
   OSStatus
-  HiliteWindowFrameForDrag(WindowRef window, Boolean hilited)
-      TWOWORDINLINE(0x7019, 0xA829);
+  HiliteWindowFrameForDrag(WindowRef window, Boolean hilited);
 
   /** */
   /**  TransitionWindow displays a window with accompanying animation and sound.
@@ -4223,9 +4180,7 @@ Str255 *theTitle;
 #if TARGET_OS_MAC
 #define MacMoveWindow MoveWindow
 #endif
-  void
-  MacMoveWindow(WindowRef window, short hGlobal, short vGlobal, Boolean front)
-      ONEWORDINLINE(0xA91B);
+  void MacMoveWindow(WindowRef window, short hGlobal, short vGlobal, Boolean front);
 
   /**
    *  SizeWindow()
@@ -4235,9 +4190,7 @@ Str255 *theTitle;
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SizeWindow(WindowRef window, short w, short h, Boolean fUpdate)
-      ONEWORDINLINE(0xA91D);
+  void SizeWindow(WindowRef window, short w, short h, Boolean fUpdate);
 
   /** Note: bBox can only be NULL when linking to CarbonLib 1.0 forward */
   /**
@@ -4248,9 +4201,8 @@ Str255 *theTitle;
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  long
-  GrowWindow(WindowRef window, Point startPt,
-             const Rect *bBox) /** can be NULL */ ONEWORDINLINE(0xA92B);
+  long GrowWindow(WindowRef window, Point startPt,
+                  const Rect *bBox) /** can be NULL */;
 
   /** Note: boundsRect can only be NULL when linking to CarbonLib 1.0 forward */
   /**
@@ -4261,9 +4213,8 @@ Str255 *theTitle;
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  DragWindow(WindowRef window, Point startPt,
-             const Rect *boundsRect) /** can be NULL */ ONEWORDINLINE(0xA925);
+  void DragWindow(WindowRef window, Point startPt,
+                  const Rect *boundsRect) /** can be NULL */;
 
   /**
    *  ZoomWindow()
@@ -4273,9 +4224,7 @@ Str255 *theTitle;
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  ZoomWindow(WindowRef window, WindowPartCode partCode, Boolean front)
-      ONEWORDINLINE(0xA83A);
+  void ZoomWindow(WindowRef window, WindowPartCode partCode, Boolean front);
 
   /** Routines available from Mac OS 8.0 (Appearance 1.0) forward*/
   /**
@@ -4287,7 +4236,7 @@ Str255 *theTitle;
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  IsWindowCollapsable(WindowRef window) THREEWORDINLINE(0x303C, 0x000F, 0xAA74);
+  IsWindowCollapsable(WindowRef window);
 
   /**
    *  IsWindowCollapsed()
@@ -4298,7 +4247,7 @@ Str255 *theTitle;
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  IsWindowCollapsed(WindowRef window) THREEWORDINLINE(0x303C, 0x0010, 0xAA74);
+  IsWindowCollapsed(WindowRef window);
 
   /**
    *  CollapseWindow()
@@ -4309,8 +4258,7 @@ Str255 *theTitle;
    *    \mac_os_x         in version 10.0 and later
    */
   OSStatus
-  CollapseWindow(WindowRef window, Boolean collapse)
-      THREEWORDINLINE(0x303C, 0x0011, 0xAA74);
+  CollapseWindow(WindowRef window, Boolean collapse);
 
   /**
    *  CollapseAllWindows()
@@ -4321,7 +4269,7 @@ Str255 *theTitle;
    *    \mac_os_x         in version 10.0 and later
    */
   OSStatus
-  CollapseAllWindows(Boolean collapse) THREEWORDINLINE(0x303C, 0x0012, 0xAA74);
+  CollapseAllWindows(Boolean collapse);
 
   /** Routines available on Mac OS X*/
 
@@ -4694,8 +4642,7 @@ Str255 *theTitle;
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  HideWindow(WindowRef window) ONEWORDINLINE(0xA916);
+  void HideWindow(WindowRef window);
 
 /**
  *  [Mac]ShowWindow()
@@ -4708,8 +4655,7 @@ Str255 *theTitle;
 #if TARGET_OS_MAC
 #define MacShowWindow ShowWindow
 #endif
-  void
-  MacShowWindow(WindowRef window) ONEWORDINLINE(0xA915);
+  void MacShowWindow(WindowRef window);
 
   /**
    *  ShowHide()
@@ -4719,8 +4665,7 @@ Str255 *theTitle;
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  ShowHide(WindowRef window, Boolean showFlag) ONEWORDINLINE(0xA908);
+  void ShowHide(WindowRef window, Boolean showFlag);
 
 /**
  *  [Mac]IsWindowVisible()
@@ -5170,36 +5115,35 @@ Str255 *theTitle;
   \brief Find point on a rectangle's border near point
 
   <pre>PinRect returns the coordinates inside a rectangle that most-closely match
-the coordinates of a specified point. If the point is inside the rectangle, it is
-returned unchanged. If the point is outside the rectangle, the return value is a
-position on the border of the rectangle that is closest the point.
-theRectis a pointer to a rectangle.
-thePoint is any point (typically the position of a mouse-down event), in local
-window coordinates.
-</pre>
-* \returns <pre>a 32-bit long integer, defined as two 16-bit words that indicate the
-coordinates of the point, pinned to the rectangle. The return value
-may be cast as a Point; it is broken up as follows:
-high word the vertical coordinate
-low word the horizontal coordinate
-</pre>
-* \note <pre>After a mouse-down event, you may use PinRect to determine if the point
-is inside theRect or to determine the point on the rectangle that is nearest
-to the mouse.
-This could be used when limiting mouse drawing to a defined area - if the
-mouse has moved outside of a specified area you can assume that the edge of
-the area was desired.
-Note that the return value is in the same order as a Point data type, so it
-may be cast as such for comparisons or for use in functions that need that
-type of parameter.
-</pre>
-* \copyright THINK Reference © 1991-1992 Symantec Corporation
+  the coordinates of a specified point. If the point is inside the rectangle, it is
+  returned unchanged. If the point is outside the rectangle, the return value is a
+  position on the border of the rectangle that is closest the point.
+  theRectis a pointer to a rectangle.
+  thePoint is any point (typically the position of a mouse-down event), in local
+  window coordinates.
+  </pre>
+  * \returns <pre>a 32-bit long integer, defined as two 16-bit words that indicate the
+  coordinates of the point, pinned to the rectangle. The return value
+  may be cast as a Point; it is broken up as follows:
+  high word the vertical coordinate
+  low word the horizontal coordinate
+  </pre>
+  * \note <pre>After a mouse-down event, you may use PinRect to determine if the point
+  is inside theRect or to determine the point on the rectangle that is nearest
+  to the mouse.
+  This could be used when limiting mouse drawing to a defined area - if the
+  mouse has moved outside of a specified area you can assume that the edge of
+  the area was desired.
+  Note that the return value is in the same order as a Point data type, so it
+  may be cast as such for comparisons or for use in functions that need that
+  type of parameter.
+  </pre>
+  * \copyright THINK Reference © 1991-1992 Symantec Corporation
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        in CarbonLib 1.0 and later
-*    \mac_os_x         in version 10.0 and later
-*/
-  long
-  PinRect(const Rect *theRect, Point thePt) ONEWORDINLINE(0xA94E);
+  *    \carbon_lib        in CarbonLib 1.0 and later
+  *    \mac_os_x         in version 10.0 and later
+  */
+  long PinRect(const Rect *theRect, Point thePt);
 
   /**
    *  GetGrayRgn()
@@ -5210,7 +5154,7 @@ type of parameter.
    *    \mac_os_x         in version 10.0 and later
    */
   RgnHandle
-  GetGrayRgn(void) TWOWORDINLINE(0x2EB8, 0x09EE);
+  GetGrayRgn(void);
 
   /**
    *  TrackBox()
@@ -5221,8 +5165,7 @@ type of parameter.
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  TrackBox(WindowRef window, Point thePt, WindowPartCode partCode)
-      ONEWORDINLINE(0xA83B);
+  TrackBox(WindowRef window, Point thePt, WindowPartCode partCode);
 
   /**
    *  TrackGoAway()
@@ -5233,7 +5176,7 @@ type of parameter.
    *    \mac_os_x         in version 10.0 and later
    */
   Boolean
-  TrackGoAway(WindowRef window, Point thePt) ONEWORDINLINE(0xA91E);
+  TrackGoAway(WindowRef window, Point thePt);
 
   /**
    *  DragGrayRgn()
@@ -5243,10 +5186,8 @@ type of parameter.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  long
-  DragGrayRgn(RgnHandle theRgn, Point startPt, const Rect *limitRect,
-              const Rect *slopRect, short axis, DragGrayRgnUPP actionProc)
-      ONEWORDINLINE(0xA905);
+  long DragGrayRgn(RgnHandle theRgn, Point startPt, const Rect *limitRect,
+                   const Rect *slopRect, short axis, DragGrayRgnUPP actionProc);
 
   /**
    *  DragTheRgn()
@@ -5256,10 +5197,8 @@ type of parameter.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  long
-  DragTheRgn(RgnHandle theRgn, Point startPt, const Rect *limitRect,
-             const Rect *slopRect, short axis, DragGrayRgnUPP actionProc)
-      ONEWORDINLINE(0xA926);
+  long DragTheRgn(RgnHandle theRgn, Point startPt, const Rect *limitRect,
+                  const Rect *slopRect, short axis, DragGrayRgnUPP actionProc);
 
   /**  © GetAuxWin */
   /** */
@@ -5273,11 +5212,11 @@ type of parameter.
 
 
    *    \non_carbon_cfm   in InterfaceLib 7.1 and later
-*    \carbon_lib        not available
-*    \mac_os_x         not available
-*/
+  *    \carbon_lib        not available
+  *    \mac_os_x         not available
+  */
   Boolean
-  GetAuxWin(WindowRef window, AuxWinHandle *awHndl) ONEWORDINLINE(0xAA42);
+  GetAuxWin(WindowRef window, AuxWinHandle *awHndl);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -5292,8 +5231,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  setwtitle(WindowRef window, const char *title);
+  void setwtitle(WindowRef window, const char *title);
 
   /**
    *  trackgoaway()
@@ -5314,8 +5252,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  short
-  findwindow(Point *thePoint, WindowRef *window);
+  short findwindow(Point *thePoint, WindowRef *window);
 
   /**
    *  getwtitle()
@@ -5325,8 +5262,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  getwtitle(WindowRef window, char *title);
+  void getwtitle(WindowRef window, char *title);
 
   /**
    *  growwindow()
@@ -5336,8 +5272,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  long
-  growwindow(WindowRef window, Point *startPt, const Rect *bBox);
+  long growwindow(WindowRef window, Point *startPt, const Rect *bBox);
 
   /**
    *  newwindow()
@@ -5373,8 +5308,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  long
-  pinrect(const Rect *theRect, Point *thePt);
+  long pinrect(const Rect *theRect, Point *thePt);
 
   /**
    *  trackbox()
@@ -5395,9 +5329,8 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  long
-  draggrayrgn(RgnHandle theRgn, Point *startPt, const Rect *boundsRect,
-              const Rect *slopRect, short axis, DragGrayRgnUPP actionProc);
+  long draggrayrgn(RgnHandle theRgn, Point *startPt, const Rect *boundsRect,
+                   const Rect *slopRect, short axis, DragGrayRgnUPP actionProc);
 
   /**
    *  dragwindow()
@@ -5407,8 +5340,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  dragwindow(WindowRef window, Point *startPt, const Rect *boundsRect);
+  void dragwindow(WindowRef window, Point *startPt, const Rect *boundsRect);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -5514,8 +5446,7 @@ type of parameter.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  short
-  GetWindowKind(WindowRef window);
+  short GetWindowKind(WindowRef window);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline DEFINE_API(short) GetWindowKind(WindowRef window)
@@ -5664,8 +5595,7 @@ type of parameter.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SetWindowKind(WindowRef window, short kind);
+  void SetWindowKind(WindowRef window, short kind);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline DEFINE_API(void) SetWindowKind(WindowRef window, short kind)
@@ -5685,8 +5615,7 @@ type of parameter.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SetWindowStandardState(WindowRef window, const Rect *rect);
+  void SetWindowStandardState(WindowRef window, const Rect *rect);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline DEFINE_API(void)
@@ -5715,8 +5644,7 @@ type of parameter.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SetWindowUserState(WindowRef window, const Rect *rect);
+  void SetWindowUserState(WindowRef window, const Rect *rect);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline DEFINE_API(void) SetWindowUserState(WindowRef window, const Rect *rect)
@@ -5748,8 +5676,7 @@ type of parameter.
    *    \carbon_lib        in CarbonLib 1.0 and later
    *    \mac_os_x         in version 10.0 and later
    */
-  void
-  SetPortWindowPort(WindowRef window);
+  void SetPortWindowPort(WindowRef window);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline DEFINE_API(void) SetPortWindowPort(WindowRef window)
@@ -5839,8 +5766,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  SetWindowDataHandle(WindowRef window, Handle data);
+  void SetWindowDataHandle(WindowRef window, Handle data);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline void SetWindowDataHandle(WindowRef window, Handle data)
@@ -5882,8 +5808,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  GetWindowStructureRgn(WindowRef window, RgnHandle r);
+  void GetWindowStructureRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline void GetWindowStructureRgn(WindowRef window, RgnHandle r)
@@ -5904,8 +5829,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  GetWindowContentRgn(WindowRef window, RgnHandle r);
+  void GetWindowContentRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline void GetWindowContentRgn(WindowRef window, RgnHandle r)
@@ -5926,8 +5850,7 @@ type of parameter.
    *    \carbon_lib        not available
    *    \mac_os_x         not available
    */
-  void
-  GetWindowUpdateRgn(WindowRef window, RgnHandle r);
+  void GetWindowUpdateRgn(WindowRef window, RgnHandle r);
 #if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
 #ifdef __cplusplus
   inline void GetWindowUpdateRgn(WindowRef window, RgnHandle r)
@@ -5990,182 +5913,3 @@ type of parameter.
 #ifdef __cplusplus
 }
 #endif
-
-#endif /** __MACWINDOWS__ */
-* /
-    inline Handle GetWindowDataHandle(WindowRef window)
-{
-  return ((WindowPeek)window)->dataHandle;
-}
-#else
-#define GetWindowDataHandle(window) (((WindowPeek)window)->dataHandle)
-#endif
-#endif
-
-/**
- *  SetWindowDataHandle()
- *
-
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void SetWindowDataHandle(WindowRef window, Handle data);
-#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#ifdef __cplusplus
-inline void SetWindowDataHandle(WindowRef window, Handle data)
-{
-  ((WindowPeek)window)->dataHandle = data;
-}
-#else
-#define SetWindowDataHandle(window, data) \
-  (((WindowPeek)window)->dataHandle = data)
-#endif
-#endif
-
-/**
- *  GetWindowZoomFlag()
- *
-
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-Boolean
-GetWindowZoomFlag(WindowRef window);
-#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#ifdef __cplusplus
-inline Boolean GetWindowZoomFlag(WindowRef window)
-{
-  return ((WindowPeek)window)->spareFlag;
-}
-#else
-#define GetWindowZoomFlag(window) (((WindowPeek)window)->spareFlag)
-#endif
-#endif
-
-/**
- *  GetWindowStructureRgn()
- *
-
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void GetWindowStructureRgn(WindowRef window, RgnHandle r);
-#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#ifdef __cplusplus
-inline void GetWindowStructureRgn(WindowRef window, RgnHandle r)
-{
-  MacCopyRgn(((WindowPeek)window)->strucRgn, r);
-}
-#else
-#define GetWindowStructureRgn(window, r) \
-  (MacCopyRgn(((WindowPeek)window)->strucRgn, r))
-#endif
-#endif
-
-/**
- *  GetWindowContentRgn()
- *
-
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void GetWindowContentRgn(WindowRef window, RgnHandle r);
-#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#ifdef __cplusplus
-inline void GetWindowContentRgn(WindowRef window, RgnHandle r)
-{
-  MacCopyRgn(((WindowPeek)window)->contRgn, r);
-}
-#else
-#define GetWindowContentRgn(window, r) \
-  (MacCopyRgn(((WindowPeek)window)->contRgn, r))
-#endif
-#endif
-
-/**
- *  GetWindowUpdateRgn()
- *
-
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-void GetWindowUpdateRgn(WindowRef window, RgnHandle r);
-#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#ifdef __cplusplus
-inline void GetWindowUpdateRgn(WindowRef window, RgnHandle r)
-{
-  MacCopyRgn(((WindowPeek)window)->updateRgn, r);
-}
-#else
-#define GetWindowUpdateRgn(window, r) \
-  (MacCopyRgn(((WindowPeek)window)->updateRgn, r))
-#endif
-#endif
-
-/**
- *  GetWindowTitleWidth()
- *
-
- *    \non_carbon_cfm   available as macro/inline
- *    \carbon_lib        not available
- *    \mac_os_x         not available
- */
-SInt16
-GetWindowTitleWidth(WindowRef window);
-#if !OPAQUE_TOOLBOX_STRUCTS && !ACCESSOR_CALLS_ARE_FUNCTIONS
-#ifdef __cplusplus
-inline SInt16 GetWindowTitleWidth(WindowRef window)
-{
-  return ((WindowPeek)window)->titleWidth;
-}
-#else
-#define GetWindowTitleWidth(window) (((WindowPeek)window)->titleWidth)
-#endif
-#endif
-
-/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-/** Obsolete symbolic names */
-/**©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©©*/
-#endif /** CALL_NOT_IN_CARBON */
-
-enum
-{
-  kWindowGroupAttrSelectable = kWindowGroupAttrSelectAsLayer,
-  kWindowGroupAttrPositionFixed = kWindowGroupAttrMoveTogether,
-  kWindowGroupAttrZOrderFixed = kWindowGroupAttrLayerTogether
-};
-
-#if PRAGMA_STRUCT_ALIGN
-#pragma options align = reset
-#elif PRAGMA_STRUCT_PACKPUSH
-#pragma pack(pop)
-#elif PRAGMA_STRUCT_PACK
-#pragma pack()
-#endif
-
-#ifdef PRAGMA_IMPORT_OFF
-#pragma import off
-#elif PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /** __MACWINDOWS__ */
-* / if PRAGMA_IMPORT
-#pragma import reset
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif            /** __MACWINDOWS__ */
-* /*/*/ * /*/*/ * /*/*/

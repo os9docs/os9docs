@@ -272,8 +272,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    DateString(long dateTime, DateForm longFlag, Str255 result, Handle intlHandle)
-        THREEWORDINLINE(0x3F3C, 0x000E, 0xA9ED);
+    DateString(long dateTime, DateForm longFlag, Str255 result, Handle intlHandle);
 
     /**
      *  TimeString()
@@ -284,8 +283,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    TimeString(long dateTime, Boolean wantSeconds, Str255 result, Handle intlHandle)
-        THREEWORDINLINE(0x3F3C, 0x0010, 0xA9ED);
+    TimeString(long dateTime, Boolean wantSeconds, Str255 result, Handle intlHandle);
 
     /**
      *  LongDateString()
@@ -297,7 +295,7 @@ extern "C"
      */
     void
     LongDateString(const LongDateTime *dateTime, DateForm longFlag, Str255 result,
-                   Handle intlHandle) THREEWORDINLINE(0x3F3C, 0x0014, 0xA9ED);
+                   Handle intlHandle);
 
     /**
      *  LongTimeString()
@@ -309,7 +307,7 @@ extern "C"
      */
     void
     LongTimeString(const LongDateTime *dateTime, Boolean wantSeconds, Str255 result,
-                   Handle intlHandle) THREEWORDINLINE(0x3F3C, 0x0016, 0xA9ED);
+                   Handle intlHandle);
 
     /**
         These routine are available in Carbon and InterfaceLib with their new name
@@ -323,8 +321,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     OSErr
-    InitDateCache(DateCachePtr theCache)
-        FOURWORDINLINE(0x2F3C, 0x8204, 0xFFF8, 0xA8B5);
+    InitDateCache(DateCachePtr theCache);
 
     /**
      *  StringToDate()
@@ -336,8 +333,7 @@ extern "C"
      */
     StringToDateStatus
     StringToDate(Ptr textPtr, long textLen, DateCachePtr theCache, long *lengthUsed,
-                 LongDateRec *dateTime)
-        FOURWORDINLINE(0x2F3C, 0x8214, 0xFFF6, 0xA8B5);
+                 LongDateRec *dateTime);
 
     /**
      *  StringToTime()
@@ -349,8 +345,7 @@ extern "C"
      */
     StringToDateStatus
     StringToTime(Ptr textPtr, long textLen, DateCachePtr theCache, long *lengthUsed,
-                 LongDateRec *dateTime)
-        FOURWORDINLINE(0x2F3C, 0x8214, 0xFFF4, 0xA8B5);
+                 LongDateRec *dateTime);
 
     /**
      *  LongDateToSeconds()
@@ -361,8 +356,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    LongDateToSeconds(const LongDateRec *lDate, LongDateTime *lSecs)
-        FOURWORDINLINE(0x2F3C, 0x8008, 0xFFF2, 0xA8B5);
+    LongDateToSeconds(const LongDateRec *lDate, LongDateTime *lSecs);
 
     /**
      *  LongSecondsToDate()
@@ -373,8 +367,7 @@ extern "C"
      *    \mac_os_x         in version 10.0 and later
      */
     void
-    LongSecondsToDate(const LongDateTime *lSecs, LongDateRec *lDate)
-        FOURWORDINLINE(0x2F3C, 0x8008, 0xFFF0, 0xA8B5);
+    LongSecondsToDate(const LongDateTime *lSecs, LongDateRec *lDate);
 
     /**
     \brief Modify a LongDateTime parameter
@@ -393,8 +386,7 @@ to System Software
 */
     ToggleResults
     ToggleDate(LongDateTime *lSecs, LongDateField field, DateDelta delta, short ch,
-               const TogglePB *params)
-        FOURWORDINLINE(0x2F3C, 0x820E, 0xFFEE, 0xA8B5);
+               const TogglePB *params);
 
     /**
     \brief Check the validity of a long date record
@@ -410,8 +402,7 @@ information see, Macintosh Worldwide Development: Guide to System Software.
 *    \mac_os_x         in version 10.0 and later
 */
     short
-    ValidDate(const LongDateRec *vDate, long flags, LongDateTime *newSecs)
-        FOURWORDINLINE(0x2F3C, 0x820C, 0xFFE4, 0xA8B5);
+    ValidDate(const LongDateRec *vDate, long flags, LongDateTime *newSecs);
 
     /**
     \brief Copy clock-chip time to Time variable
@@ -444,7 +435,7 @@ February 6, 2040.
 #pragma parameter __D0 ReadDateTime(__A0)
 #endif
     OSErr
-    ReadDateTime(unsigned long *time) ONEWORDINLINE(0xA039);
+    ReadDateTime(unsigned long *time);
 
     /**
     \brief Obtain "raw seconds" value of Time variable
@@ -461,7 +452,7 @@ the Time Manager ).
 (at 0x020C) and into the specified variable. Thus, the following are
 functionally equivalent:
 unsigned long secs;
-GetDateTime ( &secs); // is the same as . . . 
+GetDateTime ( &secs); // is the same as . . .
     secs = Time;
 It is recommended that you obtain the value using the GetDateTime trap
 rather than using the low-memory variable however, as it is possible that
@@ -476,15 +467,15 @@ is a 32-bit value, you won't be able to calculate with dates beyond February
 6, 2040.
 </pre>
  * \copyright THINK Reference © 1991-1992 Symantec Corporation
-			 *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+       *    \non_carbon_cfm   in InterfaceLib 7.1 and later
  *    \carbon_lib        in CarbonLib 1.0 and later
  *    \mac_os_x         in version 10.0 and later
  */
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter GetDateTime(__A0)
 #endif
-void
-GetDateTime(unsigned long *secs) TWOWORDINLINE(0x20B8, 0x020C);
+    void
+    GetDateTime(unsigned long *secs);
 
 /**
 \brief Set system date and time in "raw" seconds
@@ -515,7 +506,7 @@ automatically.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter __D0 SetDateTime(__D0)
 #endif
-OSErr SetDateTime(unsigned long time) ONEWORDINLINE(0xA03A);
+    OSErr SetDateTime(unsigned long time);
 
 /**
 \brief Set system date/time, using DateTimeRec  format
@@ -542,7 +533,7 @@ Panel DA.
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter SetTime(__A0)
 #endif
-void SetTime(const DateTimeRec *d) TWOWORDINLINE(0xA9C7, 0xA03A);
+    void SetTime(const DateTimeRec *d);
 
 /**
 \brief Get current date and time in DateTimeRec format
@@ -556,7 +547,7 @@ its fields contain the current year, month, day, etc.
 </pre>
 * \note <pre>GetTime calls GetDateTime and converts its "raw" seconds value into
 corresponding DateTimeRec . For example:
-DateTimeRec now; // create a 14-byte record 
+DateTimeRec now; // create a 14-byte record
 GetTime(&now);
 printf("Today is %d/%d/%d\n", now.month, now.day, now.year);
 printf("The first day of the rest of your life. . . ");
@@ -572,18 +563,18 @@ printf("The first day of the rest of your life. . . ");
 #if TARGET_OS_MAC && TARGET_CPU_68K && !TARGET_RT_MAC_CFM
 #pragma parameter GetTime(__A0)
 #endif
-        void
-        GetTime(DateTimeRec *d) THREEWORDINLINE(0x2038, 0x020C, 0xA9C6);
+    void
+    GetTime(DateTimeRec *d);
 
-/**
- *  DateToSeconds()
- *
+    /**
+     *  DateToSeconds()
+     *
 
- *    \non_carbon_cfm   in InterfaceLib 7.1 and later
- *    \carbon_lib        in CarbonLib 1.0 and later
- *    \mac_os_x         in version 10.0 and later
- */
-void DateToSeconds(const DateTimeRec *d, unsigned long *secs);
+     *    \non_carbon_cfm   in InterfaceLib 7.1 and later
+     *    \carbon_lib        in CarbonLib 1.0 and later
+     *    \mac_os_x         in version 10.0 and later
+     */
+    void DateToSeconds(const DateTimeRec *d, unsigned long *secs);
 
 /**
  *  SecondsToDate()
@@ -597,7 +588,7 @@ void DateToSeconds(const DateTimeRec *d, unsigned long *secs);
 #pragma parameter SecondsToDate(__D0, __A0)
 #endif
     void
-    SecondsToDate(unsigned long secs, DateTimeRec *d) ONEWORDINLINE(0xA9C6);
+    SecondsToDate(unsigned long secs, DateTimeRec *d);
 
 /**
     These routine are available in InterfaceLib using their old name.
@@ -613,8 +604,7 @@ void DateToSeconds(const DateTimeRec *d, unsigned long *secs);
      *    \mac_os_x         not available
      */
     void
-    IUDateString(long dateTime, DateForm longFlag, Str255 result)
-        TWOWORDINLINE(0x4267, 0xA9ED);
+    IUDateString(long dateTime, DateForm longFlag, Str255 result);
 
     /**
     \brief Convert "raw" seconds into ASCII time string
@@ -645,8 +635,8 @@ Example
 #include < Packages.h >
 long nowNum;
 Str255 nowStr;
-GetDateTime ( &nowNum ); // or today = Time 
-    IUTimeString(nowNum, TRUE, nowStr); // exclude seconds 
+GetDateTime ( &nowNum ); // or today = Time
+    IUTimeString(nowNum, TRUE, nowStr); // exclude seconds
     DrawString("\pThe time is: ");
     DrawString(nowStr);
     </ pre>
@@ -657,7 +647,7 @@ GetDateTime ( &nowNum ); // or today = Time
             /
             void
             IUTimeString(long dateTime, Boolean wantSeconds, Str255 result)
-                THREEWORDINLINE(0x3F3C, 0x0002, 0xA9ED);
+ ;
 
     /**
      *  IUDatePString()
@@ -669,7 +659,7 @@ GetDateTime ( &nowNum ); // or today = Time
      */
     void
     IUDatePString(long dateTime, DateForm longFlag, Str255 result,
-                  Handle intlHandle) THREEWORDINLINE(0x3F3C, 0x000E, 0xA9ED);
+                  Handle intlHandle);
 
     /**
     \brief Convert "raw" seconds to time string (with parm)
@@ -703,9 +693,9 @@ Example
 */
     long nowNum;
     Str255 nowStr;
-    Intl0Hndl i0h;                 // handle to an Intl0Rec 
-    i0h = (Intl0Hndl)IUGetIntl(0); // get current settings 
-    (*i0h)->timeCycle = 0;         // 24-hr format 
+    Intl0Hndl i0h;                 // handle to an Intl0Rec
+    i0h = (Intl0Hndl)IUGetIntl(0); // get current settings
+    (*i0h)->timeCycle = 0;         // 24-hr format
     (*i0h)->timeFmt |= secLeadingZ | minLeadingZ | hrLeadingZ;
     </ pre>
                 * \copyright THINK Reference © 1991 - 1992 Symantec Corporation
@@ -715,7 +705,7 @@ Example
             /
             void
             IUTimePString(long dateTime, Boolean wantSeconds, Str255 result,
-                          Handle intlHandle) THREEWORDINLINE(0x3F3C, 0x0010, 0xA9ED);
+                          Handle intlHandle);
 
     /**
      *  IULDateString()
@@ -727,7 +717,7 @@ Example
      */
     void
     IULDateString(LongDateTime *dateTime, DateForm longFlag, Str255 result,
-                  Handle intlHandle) THREEWORDINLINE(0x3F3C, 0x0014, 0xA9ED);
+                  Handle intlHandle);
 
     /**
      *  IULTimeString()
@@ -739,7 +729,7 @@ Example
      */
     void
     IULTimeString(LongDateTime *dateTime, Boolean wantSeconds, Str255 result,
-                  Handle intlHandle) THREEWORDINLINE(0x3F3C, 0x0016, 0xA9ED);
+                  Handle intlHandle);
 
 #endif /** CALL_NOT_IN_CARBON */
 
@@ -855,5 +845,4 @@ Example
   }
 #endif
 
-#endif                  /** __DATETIMEUTILS__ */
-    */*/*/ * /*/*/ * /*/*/
+#endif /** __DATETIMEUTILS__ */
