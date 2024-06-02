@@ -4,7 +4,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_gestalt_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_gestalt_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -16,7 +16,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/aegetparamptr.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//aegetparamptr.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -28,7 +28,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/converting_textedit_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//converting_textedit_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -40,7 +40,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/font_families_and_scripts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//font_families_and_scripts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -52,7 +52,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_your_application_specifies_scheduling_options.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_your_application_specifies_scheduling_options.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -60,11 +60,11 @@
 
 
 /**
-	\page error_return_codes Error/Return Codes 
+	\page error_return_codes Error//Return Codes 
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/error_return_codes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//error_return_codes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -76,7 +76,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_data_out_of_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_data_out_of_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -88,7 +88,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/open_application_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//open_application_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -100,7 +100,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/determining_features_of_synthesizers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//determining_features_of_synthesizers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -112,7 +112,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/definition_procedures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//definition_procedures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -124,7 +124,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/localizing_dates__times__and_metric_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//localizing_dates__times__and_metric_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -136,7 +136,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/application_resource_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//application_resource_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -148,7 +148,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_power_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_power_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -160,7 +160,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/file_reference_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//file_reference_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -172,7 +172,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_cdev_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_cdev_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -184,7 +184,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/file_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//file_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -196,7 +196,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/providing_help_balloons_for_menus.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//providing_help_balloons_for_menus.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -208,7 +208,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_a_size_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_a_size_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -220,7 +220,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/calling_the_appletalk_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//calling_the_appletalk_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -232,7 +232,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getprocessserialnumberfromportname.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getprocessserialnumberfromportname.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -244,7 +244,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_components_of_macintosh_graphics.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_components_of_macintosh_graphics.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -256,7 +256,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/edition_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//edition_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -268,7 +268,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/appletalk_transaction_protocol.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//appletalk_transaction_protocol.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -280,7 +280,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_mntr_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_mntr_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -292,7 +292,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itlc_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itlc_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -304,7 +304,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/color_usage_categories.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//color_usage_categories.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -316,7 +316,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_slot_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_slot_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -328,7 +328,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_palette_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_palette_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -340,7 +340,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/opening_an_edition_container_to_write_data.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//opening_an_edition_container_to_write_data.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -352,7 +352,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/computing_elapsed_time.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//computing_elapsed_time.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -364,7 +364,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_card_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_card_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -376,7 +376,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/recording_sounds_directly_from_a_device.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//recording_sounds_directly_from_a_device.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -388,7 +388,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_palette_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_palette_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -400,7 +400,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/modal_dialog_hints.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//modal_dialog_hints.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -412,7 +412,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/offscreen_graphics.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//offscreen_graphics.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -424,7 +424,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_color_quickdraw.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_color_quickdraw.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -436,7 +436,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/ascii.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//ascii.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -448,7 +448,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_compatibility.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_compatibility.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -460,7 +460,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_icon_and_cicn_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_icon_and_cicn_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -472,7 +472,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_alias_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_alias_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -484,7 +484,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_a_reply_filter_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_a_reply_filter_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -496,7 +496,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/printing_a_bit_dump_of_floating_point_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//printing_a_bit_dump_of_floating_point_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -508,7 +508,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_user_interface_design_principles.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_user_interface_design_principles.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -520,7 +520,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/inhibited_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//inhibited_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -532,7 +532,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/designing_an_extension_for_the_monitors_control_panel.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//designing_an_extension_for_the_monitors_control_panel.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -544,7 +544,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/responding_to_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//responding_to_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -556,7 +556,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_application_global_variables_in_tasks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_application_global_variables_in_tasks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -568,7 +568,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/specifying_the_format_for_help_balloon_content.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//specifying_the_format_for_help_balloon_content.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -580,7 +580,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/vertical_movement_of_the_caret.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//vertical_movement_of_the_caret.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -592,7 +592,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_gestalt_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_gestalt_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -604,7 +604,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/wordbreak_hook.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//wordbreak_hook.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -616,7 +616,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_process_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_process_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -628,7 +628,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -640,7 +640,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/enhancements_to_international_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//enhancements_to_international_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -652,7 +652,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/your_own_appletalk_transition.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//your_own_appletalk_transition.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -664,7 +664,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/ascii_matrix.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//ascii_matrix.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -676,7 +676,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/file_manager_extensions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//file_manager_extensions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -688,7 +688,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/size_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//size_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -700,7 +700,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_low_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_low_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -712,7 +712,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_rect_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_rect_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -724,7 +724,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itl2_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itl2_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -736,7 +736,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/accepting_implicit_script_codes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//accepting_implicit_script_codes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -748,7 +748,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_linestarts_array_to_determine_line_length.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_linestarts_array_to_determine_line_length.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -760,7 +760,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the__mpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the__mpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -772,7 +772,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_font_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_font_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -784,7 +784,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/manipulating_a_sound_that_is_playing.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//manipulating_a_sound_that_is_playing.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -796,7 +796,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/generating_a_list_of_ports.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//generating_a_list_of_ports.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -808,7 +808,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_start_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_start_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -820,7 +820,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/searching_for_disabled_sresource_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//searching_for_disabled_sresource_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -832,7 +832,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/requesting_return_receipts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//requesting_return_receipts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -844,7 +844,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/explicit_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//explicit_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -856,7 +856,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_fsread_to_read_from_a_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_fsread_to_read_from_a_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -868,7 +868,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_idle_state.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_idle_state.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -880,7 +880,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/disposing_of_apple_event_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//disposing_of_apple_event_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -892,7 +892,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/preparing_for_a_session.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//preparing_for_a_session.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -904,7 +904,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/aliases_and_the_finder.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//aliases_and_the_finder.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -916,7 +916,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/closing_an_edition.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//closing_an_edition.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -928,7 +928,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/interacting_with_the_user.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//interacting_with_the_user.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -940,7 +940,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/obtaining_script_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//obtaining_script_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -952,7 +952,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/file_manager_caches.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//file_manager_caches.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -964,7 +964,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/stationery_pads.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//stationery_pads.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -976,7 +976,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getnodeaddress.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getnodeaddress.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -988,7 +988,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_temporary_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_temporary_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -996,11 +996,11 @@
 
 
 /**
-	\page running_macintosh_programs_under_a_ux Running Macintosh Programs Under A/UX 
+	\page running_macintosh_programs_under_a_ux Running Macintosh Programs Under A//UX 
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/running_macintosh_programs_under_a_ux.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//running_macintosh_programs_under_a_ux.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1012,7 +1012,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_data_access_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_data_access_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1024,7 +1024,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/create_publisher_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//create_publisher_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1036,7 +1036,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/calling_the__xpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//calling_the__xpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1048,7 +1048,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creators__file_types__and_the_signature_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creators__file_types__and_the_signature_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1060,7 +1060,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_multifinder.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_multifinder.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1072,7 +1072,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/hardware_interfaces.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//hardware_interfaces.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1084,7 +1084,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/8_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//8_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1096,7 +1096,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_information_about_sessions_in_progress.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_information_about_sessions_in_progress.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1108,7 +1108,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/apple_event_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//apple_event_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1120,7 +1120,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_list_manager_in_a_modal_dialog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_list_manager_in_a_modal_dialog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1132,7 +1132,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_system_folder_and_its_related_directories.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_system_folder_and_its_related_directories.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1144,7 +1144,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_control_panel_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_control_panel_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1156,7 +1156,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/customizing_textedits_features.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//customizing_textedits_features.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1168,7 +1168,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/deferring_user_interrupt_handling.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//deferring_user_interrupt_handling.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1180,7 +1180,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_size_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_size_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1192,7 +1192,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/limitations_on_mfs_disks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//limitations_on_mfs_disks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1204,7 +1204,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/cdev.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//cdev.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1216,7 +1216,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_disk_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_disk_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1228,7 +1228,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/making_a_connection_listener.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//making_a_connection_listener.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1240,7 +1240,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/auxiliary_controls.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//auxiliary_controls.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1252,7 +1252,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_the_edition_container.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_the_edition_container.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1264,7 +1264,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_apple_event_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_apple_event_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1276,7 +1276,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/multiple_channels_of_sound.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//multiple_channels_of_sound.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1288,7 +1288,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_script_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_script_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1300,7 +1300,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/identifying_senders_and_receivers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//identifying_senders_and_receivers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1312,7 +1312,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_appletalk_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_appletalk_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1324,7 +1324,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/installing_apple_event_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//installing_apple_event_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1336,7 +1336,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/handling_justified_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//handling_justified_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1348,7 +1348,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_publisher_and_subscriber_options.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_publisher_and_subscriber_options.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1360,7 +1360,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_resource_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_resource_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1372,7 +1372,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/printing_a_text_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//printing_a_text_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1384,7 +1384,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/apple_event_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//apple_event_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1396,7 +1396,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_window_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_window_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1408,7 +1408,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/application_generated_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//application_generated_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1420,7 +1420,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1432,7 +1432,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/representing_scripts_on_the_macintosh.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//representing_scripts_on_the_macintosh.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1444,7 +1444,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/components_of_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//components_of_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1456,7 +1456,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_vertical_retrace_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_vertical_retrace_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1468,7 +1468,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/enhanced_user_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//enhanced_user_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1480,7 +1480,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/pausing_and_restarting_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//pausing_and_restarting_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1492,7 +1492,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_cooperative_multitasking_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_cooperative_multitasking_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1504,7 +1504,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/searching_all_directories_on_an_hfs_volume.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//searching_all_directories_on_an_hfs_volume.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1516,7 +1516,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/receiving_low_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//receiving_low_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1528,7 +1528,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_your_own_tip_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_your_own_tip_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1540,7 +1540,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/localizing_word_selection_and_line_break_tables.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//localizing_word_selection_and_line_break_tables.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1552,7 +1552,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/32_bit_gray_scale_ramp_palette_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//32_bit_gray_scale_ramp_palette_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1564,7 +1564,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/choosing_truetype_fonts_over_bitmapped_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//choosing_truetype_fonts_over_bitmapped_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1576,7 +1576,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/defining_word_boundaries_and_line_breaks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//defining_word_boundaries_and_line_breaks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1588,7 +1588,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/32_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//32_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1600,7 +1600,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/history_of_the_desktop_database.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//history_of_the_desktop_database.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1612,7 +1612,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sending_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sending_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1624,7 +1624,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_control_panels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_control_panels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1636,7 +1636,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_process_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_process_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1648,7 +1648,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/playing_frequencies.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//playing_frequencies.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1660,7 +1660,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/format_marks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//format_marks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1672,7 +1672,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/invalidating_user_reference_numbers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//invalidating_user_reference_numbers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1684,7 +1684,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/user_documentation.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//user_documentation.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1696,7 +1696,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_init_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_init_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1708,7 +1708,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/replying_to_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//replying_to_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1720,7 +1720,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/edition_manager_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//edition_manager_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1732,7 +1732,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sound_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sound_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1744,7 +1744,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_and_setting_sound_input_device_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_and_setting_sound_input_device_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1756,7 +1756,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/desktop_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//desktop_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1768,7 +1768,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/providing_text_or_pictures_for_help_balloons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//providing_text_or_pictures_for_help_balloons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1780,7 +1780,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/opening_and_closing_a_document_containing_sections.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//opening_and_closing_a_document_containing_sections.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1792,7 +1792,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sound_commands.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sound_commands.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1804,7 +1804,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_fref__bndl__icon_family__and_signature_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_fref__bndl__icon_family__and_signature_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1812,11 +1812,11 @@
 
 
 /**
-	\page async_i_o Async I/O 
+	\page async_i_o Async I//O 
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/async_i_o.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//async_i_o.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1828,7 +1828,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/receiving_high_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//receiving_high_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1840,7 +1840,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_quickdraw_globals_in_an_init.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_quickdraw_globals_in_an_init.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1852,7 +1852,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/launching_another_application_with_a_document_under_system_6.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//launching_another_application_with_a_document_under_system_6.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1864,7 +1864,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/clearmenubar.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//clearmenubar.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1876,7 +1876,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/allocating_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//allocating_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1888,7 +1888,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/help_balloons_in_static_windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//help_balloons_in_static_windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1900,7 +1900,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/launch_application_with_doc_using_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//launch_application_with_doc_using_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1912,7 +1912,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/extending_the_operating_systems_available_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//extending_the_operating_systems_available_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1924,7 +1924,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/manipulating_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//manipulating_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1936,7 +1936,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/memory_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//memory_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1948,7 +1948,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/terminology.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//terminology.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1960,7 +1960,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/packages.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//packages.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1972,7 +1972,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_apple_events_with_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_apple_events_with_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1984,7 +1984,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_an_idle_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_an_idle_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -1996,7 +1996,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/event_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//event_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2008,7 +2008,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_graphics_devices.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_graphics_devices.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2020,7 +2020,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_alias_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_alias_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2032,7 +2032,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_temporary_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_temporary_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2044,7 +2044,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_script_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_script_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2056,7 +2056,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/icon_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//icon_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2068,7 +2068,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itlb_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itlb_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2080,7 +2080,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/comparison_of_the_high_level_and_low_level_interfaces.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//comparison_of_the_high_level_and_low_level_interfaces.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2092,7 +2092,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/specifying_options_in_help_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//specifying_options_in_help_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2104,7 +2104,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itl2_resource_header.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itl2_resource_header.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2116,7 +2116,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_control_panel.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_control_panel.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2128,7 +2128,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sendmode_flags.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sendmode_flags.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2140,7 +2140,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/function_key_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//function_key_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2152,7 +2152,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/localizing_macintosh_programs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//localizing_macintosh_programs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2164,7 +2164,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/overriding_other_default_help_balloons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//overriding_other_default_help_balloons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2176,7 +2176,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_a_publisher.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_a_publisher.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2188,7 +2188,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_international_utilities_package.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_international_utilities_package.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2200,7 +2200,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/reading_packets.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//reading_packets.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2212,7 +2212,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_slot_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_slot_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2224,7 +2224,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/flushing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//flushing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2236,7 +2236,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/afp_implementation.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//afp_implementation.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2248,7 +2248,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_power_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_power_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2260,7 +2260,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/operating_system_resource_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//operating_system_resource_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2272,7 +2272,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/communication_over_a_network.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//communication_over_a_network.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2284,7 +2284,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_data_access_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_data_access_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2296,7 +2296,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_color_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_color_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2308,7 +2308,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/built_in_coercion_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//built_in_coercion_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2320,7 +2320,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/animated_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//animated_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2332,7 +2332,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_double_buffers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_double_buffers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2344,7 +2344,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getportnamefromprocessserialnumber.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getportnamefromprocessserialnumber.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2356,7 +2356,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/obtaining_information_about_sound_features.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//obtaining_information_about_sound_features.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2368,7 +2368,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_and_setting_information_for_help_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_and_setting_information_for_help_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2380,7 +2380,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/extensions_to_the_version_2_picture_format.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//extensions_to_the_version_2_picture_format.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2392,7 +2392,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_sound_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_sound_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2404,7 +2404,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/specifying_callback_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//specifying_callback_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2416,7 +2416,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/number_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//number_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2428,7 +2428,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/exchanging_message_blocks_between_programs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//exchanging_message_blocks_between_programs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2440,7 +2440,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_international_utilities_package_and_keyboard_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_international_utilities_package_and_keyboard_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2452,7 +2452,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/determining_word_selection__an_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//determining_word_selection__an_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2464,7 +2464,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_compatible_graphics_applications.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_compatible_graphics_applications.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2476,7 +2476,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/opening_an_edition_container_to_read_data.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//opening_an_edition_container_to_read_data.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2488,7 +2488,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_file_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_file_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2500,7 +2500,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/c_____pascal.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//c_____pascal.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2512,7 +2512,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_shutdown_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_shutdown_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2524,7 +2524,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/recording_sounds_through_the_sound_input_dialog_box.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//recording_sounds_through_the_sound_input_dialog_box.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2536,7 +2536,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/checking_and_modifying_script_manager_global_and_local_variables.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//checking_and_modifying_script_manager_global_and_local_variables.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2548,7 +2548,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/releasing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//releasing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2560,7 +2560,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/localizing_to_other_languages_and_regions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//localizing_to_other_languages_and_regions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2572,7 +2572,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sound_synthesizers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sound_synthesizers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2584,7 +2584,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/32_bit_address.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//32_bit_address.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2596,7 +2596,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_file_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_file_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2608,7 +2608,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_to_access_the__xpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_to_access_the__xpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2620,7 +2620,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/synchronizing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//synchronizing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2632,7 +2632,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2644,7 +2644,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/locating_a_port.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//locating_a_port.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2656,7 +2656,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/offscreen_pixel_maps.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//offscreen_pixel_maps.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2668,7 +2668,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/playing_sampled_sounds.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//playing_sampled_sounds.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2680,7 +2680,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/keyboard_compatibility.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//keyboard_compatibility.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2692,7 +2692,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/more_user_interface_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//more_user_interface_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2704,7 +2704,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/font_scaling.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//font_scaling.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2716,7 +2716,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/customized_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//customized_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2728,7 +2728,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_graphics_path.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_graphics_path.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2740,7 +2740,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/determining_the_version_of_textedit.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//determining_the_version_of_textedit.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2752,7 +2752,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itl4_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itl4_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2764,7 +2764,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_color_picker_package_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_color_picker_package_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2776,7 +2776,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/setting_and_checking_system_variables.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//setting_and_checking_system_variables.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2788,7 +2788,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/required_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//required_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2800,7 +2800,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/default_help_balloons_for_menus__windows__and_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//default_help_balloons_for_menus__windows__and_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2812,7 +2812,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/keytrans.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//keytrans.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2824,7 +2824,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sending_messages_to_the_atq.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sending_messages_to_the_atq.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2836,7 +2836,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/setting_a_devices_pixel_depth.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//setting_a_devices_pixel_depth.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2848,7 +2848,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_memory_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_memory_management.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2860,7 +2860,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/system_coercion_table.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//system_coercion_table.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2872,7 +2872,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/finder_related_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//finder_related_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2884,7 +2884,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/setting_the_active_keyboard_script.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//setting_the_active_keyboard_script.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2896,7 +2896,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/handling_printing_errors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//handling_printing_errors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2908,7 +2908,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_custom_color_sampling_methods.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_custom_color_sampling_methods.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2920,7 +2920,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/desk_accessories.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//desk_accessories.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2932,7 +2932,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2944,7 +2944,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/worldwide_development.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//worldwide_development.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2956,7 +2956,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_notification_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_notification_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2968,7 +2968,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_a_status_routine_for_high_level_functions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_a_status_routine_for_high_level_functions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2980,7 +2980,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -2992,7 +2992,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/accepting_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//accepting_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3004,7 +3004,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/books_on_macintosh_programming.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//books_on_macintosh_programming.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3016,7 +3016,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_and_sending_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_and_sending_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3028,7 +3028,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/custom_search_and_complement_procedures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//custom_search_and_complement_procedures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3040,7 +3040,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/controlling_the_system_memory_settings.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//controlling_the_system_memory_settings.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3052,7 +3052,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_and_installing_coercion_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_and_installing_coercion_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3064,7 +3064,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_desktop_database.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_desktop_database.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3076,7 +3076,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sending_a_message_block.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sending_a_message_block.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3088,7 +3088,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/gray_scale_ramp_palette_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//gray_scale_ramp_palette_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3100,7 +3100,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/_dsp_driver_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//_dsp_driver_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3112,7 +3112,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/searching_for_a_specific_high_level_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//searching_for_a_specific_high_level_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3124,7 +3124,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/identifying_files__directories__and_volumes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//identifying_files__directories__and_volumes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3136,7 +3136,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/font_rules.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//font_rules.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3148,7 +3148,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/textedit_and_truetype_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//textedit_and_truetype_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3160,7 +3160,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/initializing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//initializing_sound_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3172,7 +3172,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_color_picker.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_color_picker.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3184,7 +3184,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/bitmapped_graphics_borders.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//bitmapped_graphics_borders.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3196,7 +3196,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/context_switching.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//context_switching.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3208,7 +3208,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/laserwriter_techniques.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//laserwriter_techniques.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3220,7 +3220,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_a_connection_routine.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_a_connection_routine.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3232,7 +3232,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_worldwide_software.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_worldwide_software.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3244,7 +3244,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/embedded_defproc.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//embedded_defproc.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3256,7 +3256,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/displaying_and_removing_help_balloons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//displaying_and_removing_help_balloons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3268,7 +3268,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/search_strategies_for_resolving_alias_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//search_strategies_for_resolving_alias_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3280,7 +3280,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_memory_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_memory_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3292,7 +3292,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_desktop_database.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_desktop_database.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3304,7 +3304,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/collecting_information_from_multiple_pixel_maps_or_pictures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//collecting_information_from_multiple_pixel_maps_or_pictures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3316,7 +3316,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_wordredraw_for_line_calculations.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_wordredraw_for_line_calculations.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3328,7 +3328,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/installing_voices_into_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//installing_voices_into_channels.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3340,7 +3340,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/ascii_dec_hex_oct_bin_xref.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//ascii_dec_hex_oct_bin_xref.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3352,7 +3352,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_system_7_0_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_system_7_0_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3364,7 +3364,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_scrn_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_scrn_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3376,7 +3376,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_keyboard_menu.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_keyboard_menu.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3388,7 +3388,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_icon_families.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_icon_families.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3400,7 +3400,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_to_get_zone_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_to_get_zone_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3412,7 +3412,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/timing_services.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//timing_services.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3424,7 +3424,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_to_hide_the_menubar.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_to_hide_the_menubar.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3436,7 +3436,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/overview_of_the_script_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//overview_of_the_script_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3448,7 +3448,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3460,7 +3460,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/mouse_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//mouse_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3472,7 +3472,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/appletalk_protocols.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//appletalk_protocols.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3484,7 +3484,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/calling_a_code_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//calling_a_code_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3496,7 +3496,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/font_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//font_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3508,7 +3508,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_a_query_definition_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_a_query_definition_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3520,7 +3520,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_simple_script_systems.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_simple_script_systems.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3532,7 +3532,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_your_own_balloon_definition_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_your_own_balloon_definition_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3544,7 +3544,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/finder_icons___bndls.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//finder_icons___bndls.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3556,7 +3556,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itl1_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itl1_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3568,7 +3568,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/_enet_driver_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//_enet_driver_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3580,7 +3580,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/drawhook.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//drawhook.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3592,7 +3592,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_to_spool_a_picture_to_a_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_to_spool_a_picture_to_a_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3604,7 +3604,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_standard_file_package_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_standard_file_package_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3616,7 +3616,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/drawing_outside_windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//drawing_outside_windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3628,7 +3628,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/date__time_and_number_formats.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//date__time_and_number_formats.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3640,7 +3640,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/query_records_and_query_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//query_records_and_query_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3652,7 +3652,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/receiving_session_requests.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//receiving_session_requests.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3664,7 +3664,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/launching_another_application_under_system_6.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//launching_another_application_under_system_6.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3676,7 +3676,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_international_and_keyboard_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_international_and_keyboard_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3688,7 +3688,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/trapwords.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//trapwords.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3700,7 +3700,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_monitor_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_monitor_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3712,7 +3712,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/structures_bigger_than_32k.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//structures_bigger_than_32k.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3724,7 +3724,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_high_level_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_high_level_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3736,7 +3736,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/event_loops.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//event_loops.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3748,7 +3748,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_slot_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_slot_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3760,7 +3760,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/time_manager_versions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//time_manager_versions.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3772,7 +3772,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/overriding_help_balloons_for_application_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//overriding_help_balloons_for_application_icons.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3784,7 +3784,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_process_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_process_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3796,7 +3796,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/locking_and_unlocking_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//locking_and_unlocking_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3808,7 +3808,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_color_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_color_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3820,7 +3820,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the__xpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the__xpp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3832,7 +3832,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/obtaining_information_about_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//obtaining_information_about_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3844,7 +3844,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sending_events_between_applications.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sending_events_between_applications.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3856,7 +3856,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/ccb_sizes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//ccb_sizes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3868,7 +3868,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_textedit.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_textedit.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3880,7 +3880,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/qsort_examples.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//qsort_examples.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3892,7 +3892,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/saving_styled_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//saving_styled_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3904,7 +3904,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_help_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_help_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3916,7 +3916,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_and_when_the_finder_launches_your_application.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_and_when_the_finder_launches_your_application.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3928,7 +3928,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sending_high_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sending_high_level_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3940,7 +3940,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_process_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_process_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3952,7 +3952,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itlm_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itlm_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3964,7 +3964,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_palette_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_palette_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3976,7 +3976,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/writing_apple_event_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//writing_apple_event_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -3988,7 +3988,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/new_special_purpose_features_in_the_file_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//new_special_purpose_features_in_the_file_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4000,7 +4000,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/standard_text_styles.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//standard_text_styles.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4012,7 +4012,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_enet_handler.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_enet_handler.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4024,7 +4024,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_alias_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_alias_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4036,7 +4036,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/palettes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//palettes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4048,7 +4048,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_application_died_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_application_died_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4060,7 +4060,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/which_file_system_is_active.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//which_file_system_is_active.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4072,7 +4072,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_international_utilities_package_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_international_utilities_package_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4084,7 +4084,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_preferred_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_preferred_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4096,7 +4096,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_memory_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_memory_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4108,7 +4108,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/color_design_for_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//color_design_for_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4120,7 +4120,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_bundle_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_bundle_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4132,7 +4132,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/ending_a_session.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//ending_a_session.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4144,7 +4144,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/process_management_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//process_management_information.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4156,7 +4156,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/tolerant_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//tolerant_colors.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4168,7 +4168,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_sleep_queue.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_sleep_queue.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4180,7 +4180,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/double_linked_list.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//double_linked_list.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4192,7 +4192,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4204,7 +4204,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/open_documents_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//open_documents_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4216,7 +4216,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_to_tell_if_macsbug_is_installed.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_to_tell_if_macsbug_is_installed.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4228,7 +4228,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_itl0_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_itl0_resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4240,7 +4240,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/quit_application_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//quit_application_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4252,7 +4252,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/16_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//16_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4264,7 +4264,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_color_picker_package.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_color_picker_package.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4276,7 +4276,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/font_terminology.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//font_terminology.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4288,7 +4288,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/worldwide_software_development.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//worldwide_software_development.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4300,7 +4300,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_time_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_time_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4312,7 +4312,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_atp.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_atp.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4324,7 +4324,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/messages_to_the_monitor_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//messages_to_the_monitor_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4336,7 +4336,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/determining_whether_the_power_manager_is_present.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//determining_whether_the_power_manager_is_present.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4348,7 +4348,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/playing_sound_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//playing_sound_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4360,7 +4360,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/high_level_file_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//high_level_file_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4372,7 +4372,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/dialog_boxes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//dialog_boxes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4384,7 +4384,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/dynamic_allocation_of_two_dimensional_arrays.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//dynamic_allocation_of_two_dimensional_arrays.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4396,7 +4396,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sound_compression_and_expansion.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sound_compression_and_expansion.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4408,7 +4408,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_notification_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_notification_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4420,7 +4420,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/arrays_bigger_than_32k.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//arrays_bigger_than_32k.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4432,7 +4432,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/reading_and_writing_edition_data.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//reading_and_writing_edition_data.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4444,7 +4444,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_device_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_device_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4456,7 +4456,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/holding_and_releasing_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//holding_and_releasing_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4468,7 +4468,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_lap_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_lap_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4480,7 +4480,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/data_access_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//data_access_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4492,7 +4492,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/your_first_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//your_first_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4504,7 +4504,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/gray_scale_palette_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//gray_scale_palette_example.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4516,7 +4516,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/window_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//window_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4528,7 +4528,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/convert_decimal_number_to_hexadecimal_string.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//convert_decimal_number_to_hexadecimal_string.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4540,7 +4540,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_textedits_default_click_procedure.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_textedits_default_click_procedure.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4552,7 +4552,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/overview_of_the_intl_utils_package_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//overview_of_the_intl_utils_package_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4564,7 +4564,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/card_initialization.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//card_initialization.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4576,7 +4576,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_nbp.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_nbp.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4588,7 +4588,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/help_balloons_for_movable_modal_dialogs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//help_balloons_for_movable_modal_dialogs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4600,7 +4600,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/textedit_hooks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//textedit_hooks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4612,7 +4612,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/textedit_width_hooks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//textedit_width_hooks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4624,7 +4624,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/opening_a_port.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//opening_a_port.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4636,7 +4636,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/edition_manager_dialog_boxes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//edition_manager_dialog_boxes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4648,7 +4648,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_vers_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_vers_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4660,7 +4660,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/file_information_flags.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//file_information_flags.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4672,7 +4672,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/responding_to_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//responding_to_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4684,7 +4684,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_appletalk_manager_1.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_appletalk_manager_1.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4696,7 +4696,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_the_process_manager_schedules_processes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_the_process_manager_schedules_processes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4708,7 +4708,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/more_than_you_could_ever_want_to_know_about_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//more_than_you_could_ever_want_to_know_about_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4720,7 +4720,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/requesting_services_through_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//requesting_services_through_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4732,7 +4732,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/version_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//version_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4744,7 +4744,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_files_selected_from_the_finder.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_files_selected_from_the_finder.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4756,7 +4756,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/application_status_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//application_status_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4768,7 +4768,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_to_display_a_progress_bar.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_to_display_a_progress_bar.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4780,7 +4780,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/keeping_an_adsp_connection.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//keeping_an_adsp_connection.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4792,7 +4792,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_help_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_help_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4804,7 +4804,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_tickcount_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_tickcount_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4816,7 +4816,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_event_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_event_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4828,7 +4828,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/restoring_the_color_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//restoring_the_color_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4840,7 +4840,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/keyboard_types_and_modifier_bits.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//keyboard_types_and_modifier_bits.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4852,7 +4852,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the__atp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the__atp_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4864,7 +4864,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/storing_a_font_name_in_a_document.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//storing_a_font_name_in_a_document.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4876,7 +4876,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/asynchronous_execution_of_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//asynchronous_execution_of_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4888,7 +4888,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_notification_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_notification_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4900,7 +4900,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/receiving_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//receiving_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4912,7 +4912,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/localization.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//localization.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4924,7 +4924,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sleep_request_revocations.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sleep_request_revocations.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4936,7 +4936,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/modifying_a_subscriber.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//modifying_a_subscriber.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4948,7 +4948,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/playing_sampled_sounds_from_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//playing_sampled_sounds_from_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4960,7 +4960,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/customizing_your_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//customizing_your_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4972,7 +4972,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_time_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_time_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4984,7 +4984,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/custom_file_dialog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//custom_file_dialog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -4996,7 +4996,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/edition_formats.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//edition_formats.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5008,7 +5008,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/text_parameters.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//text_parameters.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5020,7 +5020,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/animated_cursor.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//animated_cursor.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5032,7 +5032,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/calling_your_atq_entry.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//calling_your_atq_entry.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5044,7 +5044,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/associating_one_palette_with_many_ports.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//associating_one_palette_with_many_ports.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5056,7 +5056,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/trans_32_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//trans_32_bit_data_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5068,7 +5068,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/responding_when_the_sleep_queue_calls_your_routine.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//responding_when_the_sleep_queue_calls_your_routine.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5080,7 +5080,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/printing_a_drawing.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//printing_a_drawing.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5092,7 +5092,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/adding_parameters_to_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//adding_parameters_to_an_apple_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5104,7 +5104,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_offscreen_bitmaps.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_offscreen_bitmaps.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5116,7 +5116,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/large_picts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//large_picts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5128,7 +5128,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/a_sample_of_an_extension_to_the_monitors_control_panel.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//a_sample_of_an_extension_to_the_monitors_control_panel.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5140,7 +5140,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_gama_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_gama_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5152,7 +5152,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/verbs_for_getscript_and_setscript.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//verbs_for_getscript_and_setscript.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5164,7 +5164,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_font_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_font_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5176,7 +5176,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/finder_flags.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//finder_flags.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5188,7 +5188,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_palettes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_palettes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5200,7 +5200,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5212,7 +5212,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/resource_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//resource_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5224,7 +5224,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/including_another_control_panel_definition_in_a_monitors_extension_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//including_another_control_panel_definition_in_a_monitors_extension_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5236,7 +5236,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/list_manager_demo.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//list_manager_demo.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5248,7 +5248,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/an_example_init.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//an_example_init.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5260,7 +5260,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_data_out_of_a_parameter.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_data_out_of_a_parameter.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5272,7 +5272,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/lap_manager_802_2_protocol.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//lap_manager_802_2_protocol.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5284,7 +5284,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/linking_a_color_table_to_a_palette.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//linking_a_color_table_to_a_palette.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5296,7 +5296,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/assigning_a_default_palette_to_an_application.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//assigning_a_default_palette_to_an_application.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5308,7 +5308,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_truetype_fonts_in_preference_to_bitmapped_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_truetype_fonts_in_preference_to_bitmapped_fonts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5320,7 +5320,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/processing_query_results.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//processing_query_results.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5332,7 +5332,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/debugger_support_under_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//debugger_support_under_virtual_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5344,7 +5344,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/help_balloons_in_dynamic_windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//help_balloons_in_dynamic_windows.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5356,7 +5356,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getprocessserialnumberfromportname_tips.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getprocessserialnumberfromportname_tips.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5368,7 +5368,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/opening_and_maintaining_an_adsp_connection.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//opening_and_maintaining_an_adsp_connection.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5380,7 +5380,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/performing_periodic_tasks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//performing_periodic_tasks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5392,7 +5392,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_finder_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_finder_interface.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5404,7 +5404,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/resolving_alias_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//resolving_alias_files.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5416,7 +5416,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/miscellaneous_apple_event_manager_topics.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//miscellaneous_apple_event_manager_topics.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5428,7 +5428,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/variable_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//variable_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5440,7 +5440,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/handling_data_during_a_session.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//handling_data_during_a_session.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5452,7 +5452,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/slot_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//slot_manager_routines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5464,7 +5464,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/appletalk_data_stream_protocol__adsp_.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//appletalk_data_stream_protocol__adsp_.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5476,7 +5476,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/standard_resource_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//standard_resource_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5488,7 +5488,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_a_subscriber.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_a_subscriber.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5500,7 +5500,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_gestalt_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_gestalt_manager_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5512,7 +5512,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/determining_features_of_temporary_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//determining_features_of_temporary_memory.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5524,7 +5524,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/receiving_apple_events_from_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//receiving_apple_events_from_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5536,7 +5536,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_script_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_script_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5548,7 +5548,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/text_edit_record_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//text_edit_record_types.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5560,7 +5560,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_data_out_of_an_attribute.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_data_out_of_an_attribute.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5572,7 +5572,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/supporting_required_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//supporting_required_apple_events.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5584,7 +5584,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/textedit_limits.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//textedit_limits.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5596,7 +5596,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/changing_the_color_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//changing_the_color_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5608,7 +5608,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/date_and_time_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//date_and_time_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5620,7 +5620,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_script_management_system.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_script_management_system.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5632,7 +5632,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_str__resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_str__resource.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5644,7 +5644,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/a_simpler_safe_save_strategy.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//a_simpler_safe_save_strategy.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5656,7 +5656,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/print_documents_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//print_documents_event.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5668,7 +5668,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/arrow_key_actions_for_selected_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//arrow_key_actions_for_selected_text.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5680,7 +5680,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_ppc_toolbox.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_ppc_toolbox.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5692,7 +5692,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_resource_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_resource_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5704,7 +5704,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/custom_802_2_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//custom_802_2_handlers.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5716,7 +5716,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/resource_ids.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//resource_ids.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5728,7 +5728,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/publishing_a_new_edition_while_saving_or_manually.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//publishing_a_new_edition_while_saving_or_manually.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5740,7 +5740,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/providing_help_balloons_for_items_in_dialog_and_alert_boxes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//providing_help_balloons_for_items_in_dialog_and_alert_boxes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5752,7 +5752,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/getting_data_out_of_a_descriptor_list.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//getting_data_out_of_a_descriptor_list.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5764,7 +5764,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_compatibility_guidelines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_compatibility_guidelines.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5776,7 +5776,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/textedit_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//textedit_data_structures.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5788,7 +5788,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_ppc_toolbox.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_ppc_toolbox.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5800,7 +5800,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/installing_and_activating_task_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//installing_and_activating_task_records.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5812,7 +5812,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_apple_event_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_apple_event_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5824,7 +5824,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/hfs_notes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//hfs_notes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5836,7 +5836,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/determining_the_quickdraw_version.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//determining_the_quickdraw_version.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5848,7 +5848,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/eolhook.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//eolhook.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5860,7 +5860,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/setting__disabling__and_reading_the_wakeup_timer.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//setting__disabling__and_reading_the_wakeup_timer.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5872,7 +5872,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/finder_information_in_the_volume_catalog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//finder_information_in_the_volume_catalog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5884,7 +5884,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/converting_case_and_stripping_diacritical_marks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//converting_case_and_stripping_diacritical_marks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5896,7 +5896,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_sound_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_sound_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5908,7 +5908,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/wakeup_demands.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//wakeup_demands.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5920,7 +5920,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/dialog_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//dialog_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5932,7 +5932,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/adding_items_to_the_print_dialogs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//adding_items_to_the_print_dialogs.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5944,7 +5944,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/file_dialog_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//file_dialog_utilities.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5956,7 +5956,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_color_quickdraw_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_color_quickdraw_and_system_7_0.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5968,7 +5968,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_delay_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_delay_function.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5980,7 +5980,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/launching_other_applications.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//launching_other_applications.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -5992,7 +5992,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/enabling_or_disabling_the_idle_state.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//enabling_or_disabling_the_idle_state.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6004,7 +6004,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/___.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//___.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6016,7 +6016,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/opening_an_edition.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//opening_an_edition.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6028,7 +6028,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_the_edition_manager.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6040,7 +6040,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/managing_the_cpu_load.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//managing_the_cpu_load.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6052,7 +6052,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/textedit_style_modes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//textedit_style_modes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6064,7 +6064,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_sleep_state.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_sleep_state.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6076,7 +6076,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/playing_snd__resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//playing_snd__resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6088,7 +6088,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/a_user_item_in_a_dialog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//a_user_item_in_a_dialog.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6100,7 +6100,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/compressing_and_expanding_sounds.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//compressing_and_expanding_sounds.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6112,7 +6112,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/sorting.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//sorting.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6124,7 +6124,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/using_fswrite_to_write_to_a_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//using_fswrite_to_write_to_a_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6136,7 +6136,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/shared_files_and_folders.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//shared_files_and_folders.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6148,7 +6148,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/switching_serial_power_on_and_off.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//switching_serial_power_on_and_off.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6160,7 +6160,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/patching_a_trap.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//patching_a_trap.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6172,7 +6172,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/handling_incoming_session_requests.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//handling_incoming_session_requests.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6184,7 +6184,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the__enet_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the__enet_driver.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6196,7 +6196,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/custom_controls.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//custom_controls.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6208,7 +6208,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/how_the_process_manager_creates_processes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//how_the_process_manager_creates_processes.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6220,7 +6220,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/changing_the_stack_size.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//changing_the_stack_size.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6232,7 +6232,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_kcs___kcs4__and_kcs8_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_kcs___kcs4__and_kcs8_resources.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6244,7 +6244,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/textedit_with_style.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//textedit_with_style.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6256,7 +6256,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/the_system_7_0_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//the_system_7_0_environment.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6268,7 +6268,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_graphics_overview.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_graphics_overview.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6280,7 +6280,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/producing_an_alert_sound.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//producing_an_alert_sound.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6292,7 +6292,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/dealing_with_timeouts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//dealing_with_timeouts.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6304,7 +6304,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/picking_a_node_address.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//picking_a_node_address.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6316,7 +6316,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/about_the_appletalk_manager_2.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//about_the_appletalk_manager_2.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6328,7 +6328,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/creating_a_query_document.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//creating_a_query_document.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6340,7 +6340,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/ppc_toolbox_parameter_blocks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//ppc_toolbox_parameter_blocks.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6352,7 +6352,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/compatibility.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//compatibility.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6364,7 +6364,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/connection_listener_setup.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//connection_listener_setup.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6376,7 +6376,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/continuous_play_from_disk.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//continuous_play_from_disk.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
@@ -6388,7 +6388,7 @@
 
 	\htmlonly
 	
-		<embed src="/os9docs/pdf/resources_in_the_system_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application/pdf">
+		<embed src="..//pdf//resources_in_the_system_file.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" width=800 height=600 type="application//pdf">
 	
 	\endhtmlonly		 
 
