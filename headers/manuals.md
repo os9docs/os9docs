@@ -1,4 +1,4 @@
-/\*\*
+/**
 \page using_the_gestalt_manager Using the Gestalt Manager
 
 \htmlonly
@@ -7,9 +7,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page aegetparamptr AEGetParamPtr
 
 \htmlonly
@@ -18,9 +18,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page converting_textedit_records Converting TextEdit records
 
 \htmlonly
@@ -29,9 +29,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page font_families_and_scripts Font Families and Scripts
 
 \htmlonly
@@ -40,9 +40,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_your_application_specifies_scheduling_options How Your Application Specifies Scheduling Options
 
 \htmlonly
@@ -51,9 +51,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page error_return_codes Error/Return Codes
 
 \htmlonly
@@ -62,9 +62,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_data_out_of_an_apple_event Getting Data Out of an Apple Event
 
 \htmlonly
@@ -73,9 +73,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page open_application_event Open Application Event
 
 \htmlonly
@@ -84,9 +84,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page determining_features_of_synthesizers Determining Features of Synthesizers
 
 \htmlonly
@@ -95,9 +95,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page definition_procedures Definition Procedures
 
 \htmlonly
@@ -106,10 +106,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page localizing_dates**times\*\*and_metric_information Localizing Dates, Times, and Metric Information
+\page localizing_dates**times**and_metric_information Localizing Dates, Times, and Metric Information
 
 \htmlonly
 
@@ -117,9 +117,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page application_resource_types Application Resource Types
 
 \htmlonly
@@ -128,9 +128,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_power_manager Using the Power Manager
 
 \htmlonly
@@ -139,9 +139,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page file_reference_resources File Reference Resources
 
 \htmlonly
@@ -150,9 +150,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_cdev_resource The 'cdev' Resource
 
 \htmlonly
@@ -161,9 +161,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page file_management File Management
 
 \htmlonly
@@ -172,9 +172,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page providing_help_balloons_for_menus Providing Help Balloons for Menus
 
 \htmlonly
@@ -183,9 +183,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_a_size_resource Creating a 'SIZE' Resource
 
 \htmlonly
@@ -194,9 +194,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page calling_the_appletalk_manager Calling the AppleTalk Manager
 
 \htmlonly
@@ -205,9 +205,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getprocessserialnumberfromportname GetProcessSerialNumberFromPortName
 
 \htmlonly
@@ -216,9 +216,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_components_of_macintosh_graphics The Components of Macintosh Graphics
 
 \htmlonly
@@ -227,9 +227,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page edition_icons Edition Icons
 
 \htmlonly
@@ -238,9 +238,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page appletalk_transaction_protocol AppleTalk Transaction Protocol
 
 \htmlonly
@@ -249,9 +249,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_mntr_resource The 'mntr' Resource
 
 \htmlonly
@@ -260,9 +260,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itlc_resource The 'itlc' Resource
 
 \htmlonly
@@ -271,9 +271,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page color_usage_categories Color Usage Categories
 
 \htmlonly
@@ -282,9 +282,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_slot_manager_and_system_7_0 About Slot Manager and System 7.0
 
 \htmlonly
@@ -293,9 +293,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_palette_manager Using the Palette Manager
 
 \htmlonly
@@ -304,9 +304,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page opening_an_edition_container_to_write_data Opening an Edition Container to Write Data
 
 \htmlonly
@@ -315,9 +315,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page computing_elapsed_time Computing Elapsed Time
 
 \htmlonly
@@ -326,9 +326,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_card_resource The 'card' Resource
 
 \htmlonly
@@ -337,9 +337,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page recording_sounds_directly_from_a_device Recording Sounds Directly From a Device
 
 \htmlonly
@@ -348,9 +348,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_palette_manager_and_system_7_0 About the Palette Manager and System 7.0
 
 \htmlonly
@@ -359,9 +359,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page modal_dialog_hints Modal Dialog Hints
 
 \htmlonly
@@ -370,9 +370,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page offscreen_graphics Offscreen Graphics
 
 \htmlonly
@@ -381,9 +381,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_color_quickdraw Using Color QuickDraw
 
 \htmlonly
@@ -392,9 +392,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page ascii ASCII
 
 \htmlonly
@@ -403,9 +403,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_compatibility About Compatibility
 
 \htmlonly
@@ -414,9 +414,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_icon_and_cicn_resources The 'ICON' and 'cicn' Resources
 
 \htmlonly
@@ -425,9 +425,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_alias_manager Using the Alias Manager
 
 \htmlonly
@@ -436,9 +436,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_a_reply_filter_function Writing a Reply Filter Function
 
 \htmlonly
@@ -447,9 +447,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page printing_a_bit_dump_of_floating_point_types Printing a Bit Dump of Floating Point Types
 
 \htmlonly
@@ -458,9 +458,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_user_interface_design_principles About User Interface Design Principles
 
 \htmlonly
@@ -469,9 +469,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page inhibited_colors Inhibited Colors
 
 \htmlonly
@@ -480,9 +480,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page designing_an_extension_for_the_monitors_control_panel Designing an Extension for the Monitors Control Panel
 
 \htmlonly
@@ -491,9 +491,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page responding_to_apple_events Responding to Apple Events
 
 \htmlonly
@@ -502,9 +502,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_application_global_variables_in_tasks Using Application Global Variables in Tasks
 
 \htmlonly
@@ -513,9 +513,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page specifying_the_format_for_help_balloon_content Specifying the Format for Help Balloon Content
 
 \htmlonly
@@ -524,9 +524,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page vertical_movement_of_the_caret Vertical Movement of the Caret
 
 \htmlonly
@@ -535,9 +535,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_gestalt_manager About the Gestalt Manager
 
 \htmlonly
@@ -546,9 +546,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page wordbreak_hook wordBreak hook
 
 \htmlonly
@@ -557,9 +557,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_process_manager_routines About Process Manager Routines
 
 \htmlonly
@@ -568,9 +568,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sound_channels Sound Channels
 
 \htmlonly
@@ -579,9 +579,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page enhancements_to_international_resources Enhancements to International Resources
 
 \htmlonly
@@ -590,9 +590,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page your_own_appletalk_transition Your Own AppleTalk Transition
 
 \htmlonly
@@ -601,9 +601,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page ascii_matrix ASCII Matrix
 
 \htmlonly
@@ -612,9 +612,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page file_manager_extensions File Manager Extensions
 
 \htmlonly
@@ -623,9 +623,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page size_resource 'SIZE' Resource
 
 \htmlonly
@@ -634,9 +634,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_low_level_events About Low-Level Events
 
 \htmlonly
@@ -645,9 +645,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_rect_resource The 'RECT' Resource
 
 \htmlonly
@@ -656,9 +656,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itl2_resource The 'itl2' Resource
 
 \htmlonly
@@ -667,9 +667,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page accepting_implicit_script_codes Accepting Implicit Script Codes
 
 \htmlonly
@@ -678,9 +678,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_linestarts_array_to_determine_line_length Using the lineStarts Array to Determine Line Length
 
 \htmlonly
@@ -689,9 +689,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the\_\_mpp_driver The .MPP Driver
 
 \htmlonly
@@ -700,9 +700,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_font_manager Using the Font Manager
 
 \htmlonly
@@ -711,9 +711,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page manipulating_a_sound_that_is_playing Manipulating a Sound That Is Playing
 
 \htmlonly
@@ -722,9 +722,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page generating_a_list_of_ports Generating a List of Ports
 
 \htmlonly
@@ -733,9 +733,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_start_manager About the Start Manager
 
 \htmlonly
@@ -744,9 +744,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page searching_for_disabled_sresource_data_structures Searching for Disabled SResource Data Structures
 
 \htmlonly
@@ -755,9 +755,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page requesting_return_receipts Requesting Return Receipts
 
 \htmlonly
@@ -766,9 +766,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page explicit_colors Explicit Colors
 
 \htmlonly
@@ -777,9 +777,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_fsread_to_read_from_a_file Using FSRead to Read from a File
 
 \htmlonly
@@ -788,9 +788,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_idle_state The Idle State
 
 \htmlonly
@@ -799,9 +799,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page disposing_of_apple_event_data_structures Disposing of Apple Event Data Structures
 
 \htmlonly
@@ -810,9 +810,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page preparing_for_a_session Preparing for a Session
 
 \htmlonly
@@ -821,9 +821,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page aliases_and_the_finder Aliases and the Finder
 
 \htmlonly
@@ -832,9 +832,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page closing_an_edition Closing an Edition
 
 \htmlonly
@@ -843,9 +843,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page interacting_with_the_user Interacting With the User
 
 \htmlonly
@@ -854,9 +854,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page obtaining_script_information Obtaining Script Information
 
 \htmlonly
@@ -865,9 +865,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page file_manager_caches File Manager Caches
 
 \htmlonly
@@ -876,9 +876,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page stationery_pads Stationery Pads
 
 \htmlonly
@@ -887,9 +887,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getnodeaddress GetNodeAddress
 
 \htmlonly
@@ -898,9 +898,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_temporary_memory About Temporary Memory
 
 \htmlonly
@@ -909,9 +909,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page running_macintosh_programs_under_a_ux Running Macintosh Programs Under A/UX
 
 \htmlonly
@@ -920,9 +920,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_data_access_manager About the Data Access Manager
 
 \htmlonly
@@ -931,9 +931,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page create_publisher_event Create Publisher Event
 
 \htmlonly
@@ -942,9 +942,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page calling_the\_\_xpp_driver Calling the .XPP Driver
 
 \htmlonly
@@ -953,10 +953,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page creators**file_types\*\*and_the_signature_resource Creators, File Types, and the Signature Resource
+\page creators**file_types**and_the_signature_resource Creators, File Types, and the Signature Resource
 
 \htmlonly
 
@@ -964,9 +964,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_multifinder About MultiFinder
 
 \htmlonly
@@ -975,9 +975,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page hardware_interfaces Hardware Interfaces
 
 \htmlonly
@@ -986,9 +986,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page 8_bit_data_types 8-bit Data Types
 
 \htmlonly
@@ -997,9 +997,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_information_about_sessions_in_progress Getting Information About Sessions in Progress
 
 \htmlonly
@@ -1008,9 +1008,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page apple_event_types Apple Event Types
 
 \htmlonly
@@ -1019,9 +1019,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_list_manager_in_a_modal_dialog Using the List Manager in a Modal Dialog
 
 \htmlonly
@@ -1030,9 +1030,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_system_folder_and_its_related_directories The System Folder and Its Related Directories
 
 \htmlonly
@@ -1041,9 +1041,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_control_panel_files Writing Control Panel Files
 
 \htmlonly
@@ -1052,9 +1052,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page customizing_textedits_features Customizing TextEdit's Features
 
 \htmlonly
@@ -1063,9 +1063,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page deferring_user_interrupt_handling Deferring User Interrupt Handling
 
 \htmlonly
@@ -1074,9 +1074,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_size_resource The Size Resource
 
 \htmlonly
@@ -1085,9 +1085,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page limitations_on_mfs_disks Limitations on MFS Disks
 
 \htmlonly
@@ -1096,9 +1096,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page cdev cdev
 
 \htmlonly
@@ -1107,9 +1107,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_disk_driver About the Disk Driver
 
 \htmlonly
@@ -1118,9 +1118,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page making_a_connection_listener Making a Connection Listener
 
 \htmlonly
@@ -1129,9 +1129,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page auxiliary_controls Auxiliary Controls
 
 \htmlonly
@@ -1140,9 +1140,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_the_edition_container Creating the Edition Container
 
 \htmlonly
@@ -1151,9 +1151,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_apple_event_manager Using the Apple Event Manager
 
 \htmlonly
@@ -1162,9 +1162,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page multiple_channels_of_sound Multiple Channels of Sound
 
 \htmlonly
@@ -1173,9 +1173,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_script_manager_and_system_7_0 About the Script Manager and System 7.0
 
 \htmlonly
@@ -1184,9 +1184,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page identifying_senders_and_receivers Identifying Senders and Receivers
 
 \htmlonly
@@ -1195,9 +1195,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_appletalk_manager Using The AppleTalk Manager
 
 \htmlonly
@@ -1206,9 +1206,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page installing_apple_event_handlers Installing Apple Event Handlers
 
 \htmlonly
@@ -1217,9 +1217,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page handling_justified_text Handling Justified Text
 
 \htmlonly
@@ -1228,9 +1228,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_publisher_and_subscriber_options Using Publisher and Subscriber Options
 
 \htmlonly
@@ -1239,9 +1239,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_resource_manager_and_system_7_0 About the Resource Manager and System 7.0
 
 \htmlonly
@@ -1250,9 +1250,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page printing_a_text_file Printing a Text File
 
 \htmlonly
@@ -1261,9 +1261,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page apple_event_data_structures Apple Event Data Structures
 
 \htmlonly
@@ -1272,9 +1272,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_window_manager About the Window Manager
 
 \htmlonly
@@ -1283,9 +1283,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page application_generated_events Application-Generated Events
 
 \htmlonly
@@ -1294,9 +1294,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_fonts About Fonts
 
 \htmlonly
@@ -1305,9 +1305,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page representing_scripts_on_the_macintosh Representing Scripts on the Macintosh
 
 \htmlonly
@@ -1316,9 +1316,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page components_of_apple_events Components of Apple Events
 
 \htmlonly
@@ -1327,9 +1327,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_vertical_retrace_manager The Vertical Retrace Manager
 
 \htmlonly
@@ -1338,9 +1338,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page enhanced_user_interface Enhanced User Interface
 
 \htmlonly
@@ -1349,9 +1349,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page pausing_and_restarting_sound_channels Pausing and Restarting Sound Channels
 
 \htmlonly
@@ -1360,9 +1360,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_cooperative_multitasking_environment The Cooperative Multitasking Environment
 
 \htmlonly
@@ -1371,9 +1371,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page searching_all_directories_on_an_hfs_volume Searching All Directories on an HFS Volume
 
 \htmlonly
@@ -1382,9 +1382,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page receiving_low_level_events Receiving Low-Level Events
 
 \htmlonly
@@ -1393,9 +1393,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_your_own_tip_function Using Your Own Tip Function
 
 \htmlonly
@@ -1404,9 +1404,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page localizing_word_selection_and_line_break_tables Localizing Word Selection and Line Break Tables
 
 \htmlonly
@@ -1415,9 +1415,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page 32_bit_gray_scale_ramp_palette_example 32 Bit Gray Scale Ramp Palette Example
 
 \htmlonly
@@ -1426,9 +1426,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page choosing_truetype_fonts_over_bitmapped_fonts Choosing TrueType Fonts Over Bitmapped Fonts
 
 \htmlonly
@@ -1437,9 +1437,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page defining_word_boundaries_and_line_breaks Defining Word Boundaries and Line Breaks
 
 \htmlonly
@@ -1448,9 +1448,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page 32_bit_data_types 32-bit Data Types
 
 \htmlonly
@@ -1459,9 +1459,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page history_of_the_desktop_database History of the Desktop Database
 
 \htmlonly
@@ -1470,9 +1470,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sending_an_apple_event Sending an Apple Event
 
 \htmlonly
@@ -1481,9 +1481,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_control_panels About Control Panels
 
 \htmlonly
@@ -1492,9 +1492,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_process_management About Process Management
 
 \htmlonly
@@ -1503,9 +1503,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page playing_frequencies Playing Frequencies
 
 \htmlonly
@@ -1514,9 +1514,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page format_marks Format Marks
 
 \htmlonly
@@ -1525,9 +1525,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page invalidating_user_reference_numbers Invalidating User Reference Numbers
 
 \htmlonly
@@ -1536,9 +1536,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page user_documentation User Documentation
 
 \htmlonly
@@ -1547,9 +1547,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_init_resource The 'INIT' Resource
 
 \htmlonly
@@ -1558,9 +1558,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page replying_to_an_apple_event Replying to an Apple Event
 
 \htmlonly
@@ -1569,9 +1569,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page edition_manager_events Edition Manager Events
 
 \htmlonly
@@ -1580,9 +1580,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sound_files Sound Files
 
 \htmlonly
@@ -1591,9 +1591,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_and_setting_sound_input_device_information Getting and Setting Sound Input Device Information
 
 \htmlonly
@@ -1602,9 +1602,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page desktop_manager_routines Desktop Manager Routines
 
 \htmlonly
@@ -1613,9 +1613,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page providing_text_or_pictures_for_help_balloons Providing Text or Pictures for Help Balloons
 
 \htmlonly
@@ -1624,9 +1624,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page opening_and_closing_a_document_containing_sections Opening and Closing a Document Containing Sections
 
 \htmlonly
@@ -1635,9 +1635,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sound_commands Sound Commands
 
 \htmlonly
@@ -1646,10 +1646,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page the_fref**bndl\*\*icon_family\_\_and_signature_resources The 'FREF', 'BNDL', Icon Family, and Signature Resources
+\page the_fref**bndl**icon_family\_\_and_signature_resources The 'FREF', 'BNDL', Icon Family, and Signature Resources
 
 \htmlonly
 
@@ -1657,9 +1657,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page async_i_o Async I/O
 
 \htmlonly
@@ -1668,9 +1668,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page receiving_high_level_events Receiving High-Level Events
 
 \htmlonly
@@ -1679,9 +1679,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_quickdraw_globals_in_an_init Using Quickdraw Globals in an INIT
 
 \htmlonly
@@ -1690,9 +1690,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page launching_another_application_with_a_document_under_system_6 Launching Another Application with a Document under System 6
 
 \htmlonly
@@ -1701,9 +1701,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page clearmenubar ClearMenuBar
 
 \htmlonly
@@ -1712,9 +1712,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page allocating_sound_channels Allocating Sound Channels
 
 \htmlonly
@@ -1723,9 +1723,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page help_balloons_in_static_windows Help Balloons in Static Windows
 
 \htmlonly
@@ -1734,9 +1734,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page launch_application_with_doc_using_apple_events Launch Application with Doc using Apple Events
 
 \htmlonly
@@ -1745,9 +1745,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page extending_the_operating_systems_available_memory Extending the Operating System's Available Memory
 
 \htmlonly
@@ -1756,9 +1756,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page manipulating_text Manipulating Text
 
 \htmlonly
@@ -1767,9 +1767,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page memory_management Memory Management
 
 \htmlonly
@@ -1778,9 +1778,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page terminology Terminology
 
 \htmlonly
@@ -1789,9 +1789,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page packages Packages
 
 \htmlonly
@@ -1800,9 +1800,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_apple_events_with_the_edition_manager Using Apple Events with the Edition Manager
 
 \htmlonly
@@ -1811,9 +1811,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_an_idle_function Writing an Idle Function
 
 \htmlonly
@@ -1822,9 +1822,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page event_types Event Types
 
 \htmlonly
@@ -1833,9 +1833,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_graphics_devices About Graphics Devices
 
 \htmlonly
@@ -1844,9 +1844,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_alias_manager About the Alias Manager
 
 \htmlonly
@@ -1855,9 +1855,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_temporary_memory Using Temporary Memory
 
 \htmlonly
@@ -1866,9 +1866,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_script_manager Using the Script Manager
 
 \htmlonly
@@ -1877,9 +1877,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page icon_resources Icon Resources
 
 \htmlonly
@@ -1888,9 +1888,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itlb_resource The 'itlb' Resource
 
 \htmlonly
@@ -1899,9 +1899,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page comparison_of_the_high_level_and_low_level_interfaces Comparison of the High-Level and Low-Level Interfaces
 
 \htmlonly
@@ -1910,9 +1910,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page specifying_options_in_help_resources Specifying Options in Help Resources
 
 \htmlonly
@@ -1921,9 +1921,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itl2_resource_header The 'itl2' Resource Header
 
 \htmlonly
@@ -1932,9 +1932,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_control_panel About The Control Panel
 
 \htmlonly
@@ -1943,9 +1943,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sendmode_flags SendMode Flags
 
 \htmlonly
@@ -1954,9 +1954,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page function_key_resources Function Key Resources
 
 \htmlonly
@@ -1965,9 +1965,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page localizing_macintosh_programs Localizing Macintosh Programs
 
 \htmlonly
@@ -1976,9 +1976,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page overriding_other_default_help_balloons Overriding Other Default Help Balloons
 
 \htmlonly
@@ -1987,9 +1987,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_a_publisher Creating a Publisher
 
 \htmlonly
@@ -1998,9 +1998,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_international_utilities_package About the International Utilities Package
 
 \htmlonly
@@ -2009,9 +2009,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page reading_packets Reading Packets
 
 \htmlonly
@@ -2020,9 +2020,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_slot_manager About the Slot Manager
 
 \htmlonly
@@ -2031,9 +2031,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page flushing_sound_channels Flushing Sound Channels
 
 \htmlonly
@@ -2042,9 +2042,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page afp_implementation AFP Implementation
 
 \htmlonly
@@ -2053,9 +2053,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_power_manager About the Power Manager
 
 \htmlonly
@@ -2064,9 +2064,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page operating_system_resource_types Operating System Resource Types
 
 \htmlonly
@@ -2075,9 +2075,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page communication_over_a_network Communication Over a Network
 
 \htmlonly
@@ -2086,9 +2086,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_data_access_manager Using the Data Access Manager
 
 \htmlonly
@@ -2097,9 +2097,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_color_information Getting Color Information
 
 \htmlonly
@@ -2108,9 +2108,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page built_in_coercion_handlers Built-in Coercion Handlers
 
 \htmlonly
@@ -2119,9 +2119,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page animated_colors Animated Colors
 
 \htmlonly
@@ -2130,9 +2130,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_double_buffers Using Double Buffers
 
 \htmlonly
@@ -2141,9 +2141,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getportnamefromprocessserialnumber GetPortNameFromProcessSerialNumber
 
 \htmlonly
@@ -2152,9 +2152,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page obtaining_information_about_sound_features Obtaining Information About Sound Features
 
 \htmlonly
@@ -2163,9 +2163,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_and_setting_information_for_help_resources Getting and Setting Information for Help Resources
 
 \htmlonly
@@ -2174,9 +2174,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page extensions_to_the_version_2_picture_format Extensions to the Version 2 Picture format
 
 \htmlonly
@@ -2185,9 +2185,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_sound_manager About the Sound Manager
 
 \htmlonly
@@ -2196,9 +2196,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page specifying_callback_routines Specifying Callback Routines
 
 \htmlonly
@@ -2207,9 +2207,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page number_utilities Number Utilities
 
 \htmlonly
@@ -2218,9 +2218,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page exchanging_message_blocks_between_programs Exchanging Message Blocks Between Programs
 
 \htmlonly
@@ -2229,9 +2229,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_international_utilities_package_and_keyboard_resources About the International Utilities Package and Keyboard Resources
 
 \htmlonly
@@ -2240,9 +2240,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page determining_word_selection\_\_an_example Determining Word Selection: An Example
 
 \htmlonly
@@ -2251,9 +2251,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_compatible_graphics_applications Writing Compatible Graphics Applications
 
 \htmlonly
@@ -2262,9 +2262,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page opening_an_edition_container_to_read_data Opening an Edition Container to Read Data
 
 \htmlonly
@@ -2273,9 +2273,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_file_manager Using the File Manager
 
 \htmlonly
@@ -2284,10 +2284,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page c**\_\*\*pascal C <=> Pascal
+\page c**\_**pascal C <=> Pascal
 
 \htmlonly
 
@@ -2295,9 +2295,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_shutdown_manager About the ShutDown Manager
 
 \htmlonly
@@ -2306,9 +2306,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page recording_sounds_through_the_sound_input_dialog_box Recording Sounds Through the Sound Input Dialog Box
 
 \htmlonly
@@ -2317,9 +2317,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page checking_and_modifying_script_manager_global_and_local_variables Checking and Modifying Script Manager Global and Local Variables
 
 \htmlonly
@@ -2328,9 +2328,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page releasing_sound_channels Releasing Sound Channels
 
 \htmlonly
@@ -2339,9 +2339,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page localizing_to_other_languages_and_regions Localizing to Other Languages and Regions
 
 \htmlonly
@@ -2350,9 +2350,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sound_synthesizers Sound Synthesizers
 
 \htmlonly
@@ -2361,9 +2361,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page 32_bit_address 32-bit Address
 
 \htmlonly
@@ -2372,9 +2372,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_file_manager_and_system_7_0 About the File Manager and System 7.0
 
 \htmlonly
@@ -2383,9 +2383,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_to_access_the\_\_xpp_driver How to Access the .XPP Driver
 
 \htmlonly
@@ -2394,9 +2394,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page synchronizing_sound_channels Synchronizing Sound Channels
 
 \htmlonly
@@ -2405,9 +2405,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page windows Windows
 
 \htmlonly
@@ -2416,9 +2416,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page locating_a_port Locating a Port
 
 \htmlonly
@@ -2427,9 +2427,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page offscreen_pixel_maps Offscreen Pixel Maps
 
 \htmlonly
@@ -2438,9 +2438,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page playing_sampled_sounds Playing Sampled Sounds
 
 \htmlonly
@@ -2449,9 +2449,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page keyboard_compatibility Keyboard Compatibility
 
 \htmlonly
@@ -2460,9 +2460,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page more_user_interface_information More User Interface Information
 
 \htmlonly
@@ -2471,9 +2471,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page font_scaling Font Scaling
 
 \htmlonly
@@ -2482,9 +2482,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page customized_icons Customized Icons
 
 \htmlonly
@@ -2493,9 +2493,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_graphics_path The Graphics Path
 
 \htmlonly
@@ -2504,9 +2504,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page determining_the_version_of_textedit Determining the Version of TextEdit
 
 \htmlonly
@@ -2515,9 +2515,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itl4_resource The 'itl4' Resource
 
 \htmlonly
@@ -2526,9 +2526,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_color_picker_package_and_system_7_0 About the Color Picker Package and System 7.0
 
 \htmlonly
@@ -2537,9 +2537,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page setting_and_checking_system_variables Setting and Checking System Variables
 
 \htmlonly
@@ -2548,9 +2548,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page required_apple_events Required Apple Events
 
 \htmlonly
@@ -2559,10 +2559,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page default_help_balloons_for_menus**windows\*\*and_icons Default Help Balloons for Menus, Windows, and Icons
+\page default_help_balloons_for_menus**windows**and_icons Default Help Balloons for Menus, Windows, and Icons
 
 \htmlonly
 
@@ -2570,9 +2570,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page keytrans KeyTrans
 
 \htmlonly
@@ -2581,9 +2581,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sending_messages_to_the_atq Sending Messages to the ATQ
 
 \htmlonly
@@ -2592,9 +2592,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page setting_a_devices_pixel_depth Setting a Device's Pixel Depth
 
 \htmlonly
@@ -2603,9 +2603,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_memory_management About Memory Management
 
 \htmlonly
@@ -2614,9 +2614,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page system_coercion_table System Coercion Table
 
 \htmlonly
@@ -2625,9 +2625,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page finder_related_resources Finder-Related Resources
 
 \htmlonly
@@ -2636,9 +2636,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page setting_the_active_keyboard_script Setting the Active Keyboard Script
 
 \htmlonly
@@ -2647,9 +2647,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page handling_printing_errors Handling Printing Errors
 
 \htmlonly
@@ -2658,9 +2658,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_custom_color_sampling_methods Creating Custom Color-Sampling Methods
 
 \htmlonly
@@ -2669,9 +2669,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page desk_accessories Desk Accessories
 
 \htmlonly
@@ -2680,9 +2680,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_an_apple_event Creating an Apple Event
 
 \htmlonly
@@ -2691,9 +2691,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page worldwide_development Worldwide Development
 
 \htmlonly
@@ -2702,9 +2702,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_notification_manager_and_system_7_0 About The Notification Manager and System 7.0
 
 \htmlonly
@@ -2713,9 +2713,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_a_status_routine_for_high_level_functions Writing a Status Routine for High-Level Functions
 
 \htmlonly
@@ -2724,9 +2724,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page apple_events Apple Events
 
 \htmlonly
@@ -2735,9 +2735,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page accepting_an_apple_event Accepting an Apple Event
 
 \htmlonly
@@ -2746,9 +2746,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page books_on_macintosh_programming Books on Macintosh programming
 
 \htmlonly
@@ -2757,9 +2757,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_and_sending_apple_events Creating and Sending Apple Events
 
 \htmlonly
@@ -2768,9 +2768,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page custom_search_and_complement_procedures Custom Search and Complement Procedures
 
 \htmlonly
@@ -2779,9 +2779,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page controlling_the_system_memory_settings Controlling the System Memory Settings
 
 \htmlonly
@@ -2790,9 +2790,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_and_installing_coercion_handlers Writing and Installing Coercion Handlers
 
 \htmlonly
@@ -2801,9 +2801,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_desktop_database Using the Desktop Database
 
 \htmlonly
@@ -2812,9 +2812,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sending_a_message_block Sending a Message Block
 
 \htmlonly
@@ -2823,9 +2823,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page gray_scale_ramp_palette_example Gray Scale Ramp Palette Example
 
 \htmlonly
@@ -2834,9 +2834,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page \_dsp_driver_routines .DSP Driver Routines
 
 \htmlonly
@@ -2845,9 +2845,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page searching_for_a_specific_high_level_event Searching for a Specific High-Level Event
 
 \htmlonly
@@ -2856,10 +2856,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page identifying_files**directories\*\*and_volumes Identifying Files, Directories, and Volumes
+\page identifying_files**directories**and_volumes Identifying Files, Directories, and Volumes
 
 \htmlonly
 
@@ -2867,9 +2867,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page font_rules Font Rules
 
 \htmlonly
@@ -2878,9 +2878,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page textedit_and_truetype_fonts TextEdit and TrueType Fonts
 
 \htmlonly
@@ -2889,9 +2889,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page initializing_sound_channels Initializing Sound Channels
 
 \htmlonly
@@ -2900,9 +2900,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_color_picker About the Color Picker
 
 \htmlonly
@@ -2911,9 +2911,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page bitmapped_graphics_borders Bitmapped Graphics Borders
 
 \htmlonly
@@ -2922,9 +2922,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page context_switching Context Switching
 
 \htmlonly
@@ -2933,9 +2933,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page laserwriter_techniques LaserWriter Techniques
 
 \htmlonly
@@ -2944,9 +2944,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_a_connection_routine Writing a Connection Routine
 
 \htmlonly
@@ -2955,9 +2955,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_worldwide_software About Worldwide Software
 
 \htmlonly
@@ -2966,9 +2966,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page embedded_defproc Embedded DefProc
 
 \htmlonly
@@ -2977,9 +2977,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page displaying_and_removing_help_balloons Displaying and Removing Help Balloons
 
 \htmlonly
@@ -2988,9 +2988,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page search_strategies_for_resolving_alias_records Search Strategies for Resolving Alias Records
 
 \htmlonly
@@ -2999,9 +2999,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_memory_manager Using the Memory Manager
 
 \htmlonly
@@ -3010,9 +3010,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_desktop_database The Desktop Database
 
 \htmlonly
@@ -3021,9 +3021,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page collecting_information_from_multiple_pixel_maps_or_pictures Collecting Information From Multiple Pixel Maps or Pictures
 
 \htmlonly
@@ -3032,9 +3032,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_wordredraw_for_line_calculations Using WordRedraw for Line Calculations
 
 \htmlonly
@@ -3043,9 +3043,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page installing_voices_into_channels Installing Voices Into Channels
 
 \htmlonly
@@ -3054,9 +3054,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page ascii_dec_hex_oct_bin_xref ASCII>Dec>Hex>Oct>Bin Xref
 
 \htmlonly
@@ -3065,9 +3065,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_system_7_0_environment About the System 7.0 Environment
 
 \htmlonly
@@ -3076,9 +3076,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_scrn_resource The 'scrn' Resource
 
 \htmlonly
@@ -3087,9 +3087,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_keyboard_menu Using the Keyboard Menu
 
 \htmlonly
@@ -3098,9 +3098,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_icon_families Using Icon Families
 
 \htmlonly
@@ -3109,9 +3109,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_to_get_zone_information How to Get Zone Information
 
 \htmlonly
@@ -3120,9 +3120,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page timing_services Timing Services
 
 \htmlonly
@@ -3131,9 +3131,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_to_hide_the_menubar How To Hide the MenuBar
 
 \htmlonly
@@ -3142,9 +3142,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page overview_of_the_script_manager_routines Overview of the Script Manager Routines
 
 \htmlonly
@@ -3153,9 +3153,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_edition_manager About The Edition Manager
 
 \htmlonly
@@ -3164,9 +3164,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page mouse_events Mouse Events
 
 \htmlonly
@@ -3175,9 +3175,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page appletalk_protocols AppleTalk Protocols
 
 \htmlonly
@@ -3186,9 +3186,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page calling_a_code_resource Calling a Code Resource
 
 \htmlonly
@@ -3197,9 +3197,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page font_manager_routines Font Manager Routines
 
 \htmlonly
@@ -3208,9 +3208,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_a_query_definition_function Writing a Query Definition Function
 
 \htmlonly
@@ -3219,9 +3219,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_simple_script_systems Creating Simple Script Systems
 
 \htmlonly
@@ -3230,9 +3230,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_your_own_balloon_definition_function Writing Your Own Balloon Definition Function
 
 \htmlonly
@@ -3241,9 +3241,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page finder_icons\_\_\_bndls Finder Icons & BNDLs
 
 \htmlonly
@@ -3252,9 +3252,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itl1_resource The 'itl1' Resource
 
 \htmlonly
@@ -3263,9 +3263,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page \_enet_driver_routines .ENET Driver Routines
 
 \htmlonly
@@ -3274,9 +3274,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page drawhook DRAWHook
 
 \htmlonly
@@ -3285,9 +3285,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_to_spool_a_picture_to_a_file How To Spool a Picture to a File
 
 \htmlonly
@@ -3296,9 +3296,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_standard_file_package_and_system_7_0 About the Standard File Package and System 7.0
 
 \htmlonly
@@ -3307,9 +3307,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page drawing_outside_windows Drawing Outside Windows
 
 \htmlonly
@@ -3318,9 +3318,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page date\_\_time_and_number_formats Date, Time and Number Formats
 
 \htmlonly
@@ -3329,9 +3329,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page query_records_and_query_resources Query Records and Query Resources
 
 \htmlonly
@@ -3340,9 +3340,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page receiving_session_requests Receiving Session Requests
 
 \htmlonly
@@ -3351,9 +3351,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page launching_another_application_under_system_6 Launching Another Application under System 6
 
 \htmlonly
@@ -3362,9 +3362,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_international_and_keyboard_resources Using The International and Keyboard Resources
 
 \htmlonly
@@ -3373,9 +3373,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page trapwords TrapWords
 
 \htmlonly
@@ -3384,9 +3384,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_monitor_function The Monitor Function
 
 \htmlonly
@@ -3395,9 +3395,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page structures_bigger_than_32k Structures Bigger than 32K
 
 \htmlonly
@@ -3406,9 +3406,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_high_level_interface Using the High-Level Interface
 
 \htmlonly
@@ -3417,9 +3417,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page event_loops Event Loops
 
 \htmlonly
@@ -3428,9 +3428,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_slot_manager Using the Slot Manager
 
 \htmlonly
@@ -3439,9 +3439,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page time_manager_versions Time Manager Versions
 
 \htmlonly
@@ -3450,9 +3450,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page overriding_help_balloons_for_application_icons Overriding Help Balloons for Application Icons
 
 \htmlonly
@@ -3461,9 +3461,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_process_manager Using the Process Manager
 
 \htmlonly
@@ -3472,9 +3472,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page locking_and_unlocking_memory Locking and Unlocking Memory
 
 \htmlonly
@@ -3483,9 +3483,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_color_manager About the Color Manager
 
 \htmlonly
@@ -3494,9 +3494,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the\_\_xpp_driver The .XPP Driver
 
 \htmlonly
@@ -3505,9 +3505,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page obtaining_information_about_virtual_memory Obtaining Information About Virtual Memory
 
 \htmlonly
@@ -3516,9 +3516,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sending_events_between_applications Sending Events Between Applications
 
 \htmlonly
@@ -3527,9 +3527,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page ccb_sizes CCB Sizes
 
 \htmlonly
@@ -3538,9 +3538,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_textedit About TextEdit
 
 \htmlonly
@@ -3549,9 +3549,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page qsort_examples QSort Examples
 
 \htmlonly
@@ -3560,9 +3560,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page saving_styled_text Saving Styled Text
 
 \htmlonly
@@ -3571,9 +3571,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_help_manager About The Help Manager
 
 \htmlonly
@@ -3582,9 +3582,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_and_when_the_finder_launches_your_application How and When the Finder Launches Your Application
 
 \htmlonly
@@ -3593,9 +3593,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sending_high_level_events Sending High-Level Events
 
 \htmlonly
@@ -3604,9 +3604,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_process_manager About The Process Manager
 
 \htmlonly
@@ -3615,9 +3615,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itlm_resource The 'itlm' Resource
 
 \htmlonly
@@ -3626,9 +3626,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_palette_manager About the Palette Manager
 
 \htmlonly
@@ -3637,9 +3637,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page writing_apple_event_handlers Writing Apple Event Handlers
 
 \htmlonly
@@ -3648,9 +3648,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page new_special_purpose_features_in_the_file_manager New Special-Purpose Features in the File Manager
 
 \htmlonly
@@ -3659,9 +3659,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page standard_text_styles Standard Text Styles
 
 \htmlonly
@@ -3670,9 +3670,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_enet_handler Using the ENET Handler
 
 \htmlonly
@@ -3681,9 +3681,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_alias_records About Alias Records
 
 \htmlonly
@@ -3692,9 +3692,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page palettes Palettes
 
 \htmlonly
@@ -3703,9 +3703,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_application_died_event The Application-Died Event
 
 \htmlonly
@@ -3714,9 +3714,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page which_file_system_is_active Which File System Is Active
 
 \htmlonly
@@ -3725,9 +3725,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_international_utilities_package_routines Using The International Utilities Package Routines
 
 \htmlonly
@@ -3736,9 +3736,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_preferred_interface The Preferred Interface
 
 \htmlonly
@@ -3747,9 +3747,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_memory_manager About the Memory Manager
 
 \htmlonly
@@ -3758,9 +3758,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page color_design_for_system_7_0 Color Design for System 7.0
 
 \htmlonly
@@ -3769,9 +3769,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_bundle_resource The Bundle Resource
 
 \htmlonly
@@ -3780,9 +3780,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page ending_a_session Ending a Session
 
 \htmlonly
@@ -3791,9 +3791,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page process_management_information Process Management Information
 
 \htmlonly
@@ -3802,9 +3802,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page tolerant_colors Tolerant Colors
 
 \htmlonly
@@ -3813,9 +3813,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_sleep_queue The Sleep Queue
 
 \htmlonly
@@ -3824,9 +3824,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page double_linked_list Double Linked List
 
 \htmlonly
@@ -3835,9 +3835,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_virtual_memory About Virtual Memory
 
 \htmlonly
@@ -3846,9 +3846,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page open_documents_event Open Documents Event
 
 \htmlonly
@@ -3857,9 +3857,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_to_tell_if_macsbug_is_installed How To Tell if MacsBug is Installed
 
 \htmlonly
@@ -3868,9 +3868,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_itl0_resource The 'itl0' Resource
 
 \htmlonly
@@ -3879,9 +3879,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page quit_application_event Quit Application Event
 
 \htmlonly
@@ -3890,9 +3890,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page 16_bit_data_types 16-bit Data Types
 
 \htmlonly
@@ -3901,9 +3901,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_color_picker_package Using the Color Picker Package
 
 \htmlonly
@@ -3912,9 +3912,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page font_terminology Font Terminology
 
 \htmlonly
@@ -3923,9 +3923,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page worldwide_software_development Worldwide Software Development
 
 \htmlonly
@@ -3934,9 +3934,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_time_manager Using the Time Manager
 
 \htmlonly
@@ -3945,9 +3945,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_atp Using ATP
 
 \htmlonly
@@ -3956,9 +3956,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page messages_to_the_monitor_function Messages to the Monitor Function
 
 \htmlonly
@@ -3967,9 +3967,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page determining_whether_the_power_manager_is_present Determining Whether the Power Manager Is Present
 
 \htmlonly
@@ -3978,9 +3978,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page playing_sound_resources Playing Sound Resources
 
 \htmlonly
@@ -3989,9 +3989,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page high_level_file_manager_routines High-Level File Manager Routines
 
 \htmlonly
@@ -4000,9 +4000,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page dialog_boxes Dialog Boxes
 
 \htmlonly
@@ -4011,9 +4011,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page dynamic_allocation_of_two_dimensional_arrays Dynamic Allocation of Two Dimensional Arrays
 
 \htmlonly
@@ -4022,9 +4022,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sound_compression_and_expansion Sound Compression and Expansion
 
 \htmlonly
@@ -4033,9 +4033,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_notification_manager Using the Notification Manager
 
 \htmlonly
@@ -4044,9 +4044,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page arrays_bigger_than_32k Arrays Bigger than 32K
 
 \htmlonly
@@ -4055,9 +4055,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page reading_and_writing_edition_data Reading and Writing Edition Data
 
 \htmlonly
@@ -4066,9 +4066,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_device_manager About the Device Manager
 
 \htmlonly
@@ -4077,9 +4077,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page holding_and_releasing_memory Holding and Releasing Memory
 
 \htmlonly
@@ -4088,9 +4088,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_lap_manager The LAP Manager
 
 \htmlonly
@@ -4099,9 +4099,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page data_access_manager_routines Data Access Manager Routines
 
 \htmlonly
@@ -4110,9 +4110,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page your_first_apple_event Your First Apple Event
 
 \htmlonly
@@ -4121,9 +4121,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page gray_scale_palette_example Gray Scale Palette Example
 
 \htmlonly
@@ -4132,9 +4132,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page window_events Window Events
 
 \htmlonly
@@ -4143,9 +4143,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page convert_decimal_number_to_hexadecimal_string Convert Decimal Number to Hexadecimal String
 
 \htmlonly
@@ -4154,9 +4154,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_textedits_default_click_procedure Using TextEdit's Default Click Procedure
 
 \htmlonly
@@ -4165,9 +4165,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page overview_of_the_intl_utils_package_routines Overview of the Intl Utils Package Routines
 
 \htmlonly
@@ -4176,9 +4176,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page card_initialization Card Initialization
 
 \htmlonly
@@ -4187,9 +4187,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_nbp Using NBP
 
 \htmlonly
@@ -4198,9 +4198,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page help_balloons_for_movable_modal_dialogs Help Balloons for Movable Modal Dialogs
 
 \htmlonly
@@ -4209,9 +4209,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page textedit_hooks TextEdit hooks
 
 \htmlonly
@@ -4220,9 +4220,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page textedit_width_hooks TextEdit Width Hooks
 
 \htmlonly
@@ -4231,9 +4231,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page opening_a_port Opening a Port
 
 \htmlonly
@@ -4242,9 +4242,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page edition_manager_dialog_boxes Edition Manager Dialog Boxes
 
 \htmlonly
@@ -4253,9 +4253,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_vers_resources The 'vers' Resources
 
 \htmlonly
@@ -4264,9 +4264,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page file_information_flags File Information Flags
 
 \htmlonly
@@ -4275,9 +4275,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page responding_to_events Responding to Events
 
 \htmlonly
@@ -4286,9 +4286,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_appletalk_manager_1 About the AppleTalk Manager-1
 
 \htmlonly
@@ -4297,9 +4297,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_the_process_manager_schedules_processes How the Process Manager Schedules Processes
 
 \htmlonly
@@ -4308,9 +4308,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page more_than_you_could_ever_want_to_know_about_apple_events More than you could ever want to know about Apple Events
 
 \htmlonly
@@ -4319,9 +4319,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page requesting_services_through_apple_events Requesting Services Through Apple Events
 
 \htmlonly
@@ -4330,9 +4330,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page version_resources Version Resources
 
 \htmlonly
@@ -4341,9 +4341,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_files_selected_from_the_finder Getting Files Selected from the Finder
 
 \htmlonly
@@ -4352,9 +4352,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page application_status_events Application Status Events
 
 \htmlonly
@@ -4363,9 +4363,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_to_display_a_progress_bar How to Display a Progress Bar
 
 \htmlonly
@@ -4374,9 +4374,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page keeping_an_adsp_connection Keeping an ADSP Connection
 
 \htmlonly
@@ -4385,9 +4385,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_help_manager Using the Help Manager
 
 \htmlonly
@@ -4396,9 +4396,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_tickcount_function The TickCount Function
 
 \htmlonly
@@ -4407,9 +4407,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_event_manager About the Event Manager
 
 \htmlonly
@@ -4418,9 +4418,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page restoring_the_color_environment Restoring the Color Environment
 
 \htmlonly
@@ -4429,9 +4429,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page keyboard_types_and_modifier_bits Keyboard Types and Modifier Bits
 
 \htmlonly
@@ -4440,9 +4440,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the\_\_atp_driver The .ATP Driver
 
 \htmlonly
@@ -4451,9 +4451,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page storing_a_font_name_in_a_document Storing a Font Name in a Document
 
 \htmlonly
@@ -4462,9 +4462,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page asynchronous_execution_of_routines Asynchronous Execution of Routines
 
 \htmlonly
@@ -4473,9 +4473,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_notification_manager About the Notification Manager
 
 \htmlonly
@@ -4484,9 +4484,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page receiving_apple_events Receiving Apple Events
 
 \htmlonly
@@ -4495,9 +4495,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page localization Localization
 
 \htmlonly
@@ -4506,9 +4506,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sleep_request_revocations Sleep-Request Revocations
 
 \htmlonly
@@ -4517,9 +4517,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page modifying_a_subscriber Modifying a Subscriber
 
 \htmlonly
@@ -4528,9 +4528,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page playing_sampled_sounds_from_files Playing Sampled Sounds From Files
 
 \htmlonly
@@ -4539,9 +4539,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page customizing_your_interface Customizing Your Interface
 
 \htmlonly
@@ -4550,9 +4550,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_time_manager About the Time Manager
 
 \htmlonly
@@ -4561,9 +4561,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page custom_file_dialog Custom File Dialog
 
 \htmlonly
@@ -4572,9 +4572,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page edition_formats Edition Formats
 
 \htmlonly
@@ -4583,9 +4583,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page text_parameters Text Parameters
 
 \htmlonly
@@ -4594,9 +4594,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page animated_cursor Animated Cursor
 
 \htmlonly
@@ -4605,9 +4605,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page calling_your_atq_entry Calling Your ATQ Entry
 
 \htmlonly
@@ -4616,9 +4616,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page associating_one_palette_with_many_ports Associating One Palette With Many Ports
 
 \htmlonly
@@ -4627,9 +4627,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page trans_32_bit_data_types Trans 32-bit Data Types
 
 \htmlonly
@@ -4638,9 +4638,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page responding_when_the_sleep_queue_calls_your_routine Responding When the Sleep Queue Calls Your Routine
 
 \htmlonly
@@ -4649,9 +4649,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page printing_a_drawing Printing a Drawing
 
 \htmlonly
@@ -4660,9 +4660,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page adding_parameters_to_an_apple_event Adding Parameters to an Apple Event
 
 \htmlonly
@@ -4671,9 +4671,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_offscreen_bitmaps Creating Offscreen Bitmaps
 
 \htmlonly
@@ -4682,9 +4682,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page large_picts Large PICTs
 
 \htmlonly
@@ -4693,9 +4693,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page a_sample_of_an_extension_to_the_monitors_control_panel A Sample of an Extension to the Monitors Control Panel
 
 \htmlonly
@@ -4704,9 +4704,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_gama_resources The 'gama' Resources
 
 \htmlonly
@@ -4715,9 +4715,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page verbs_for_getscript_and_setscript Verbs for GetScript and SetScript
 
 \htmlonly
@@ -4726,9 +4726,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_font_manager About the Font Manager
 
 \htmlonly
@@ -4737,9 +4737,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page finder_flags Finder Flags
 
 \htmlonly
@@ -4748,9 +4748,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_palettes Creating Palettes
 
 \htmlonly
@@ -4759,9 +4759,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_virtual_memory Using Virtual Memory
 
 \htmlonly
@@ -4770,9 +4770,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page resource_manager_routines Resource Manager Routines
 
 \htmlonly
@@ -4781,9 +4781,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page including_another_control_panel_definition_in_a_monitors_extension_file Including Another Control Panel Definition in a Monitors Extension File
 
 \htmlonly
@@ -4792,9 +4792,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page list_manager_demo List Manager Demo
 
 \htmlonly
@@ -4803,9 +4803,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page an_example_init An Example INIT
 
 \htmlonly
@@ -4814,9 +4814,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_data_out_of_a_parameter Getting Data Out of a Parameter
 
 \htmlonly
@@ -4825,9 +4825,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page lap_manager_802_2_protocol LAP Manager 802.2 Protocol
 
 \htmlonly
@@ -4836,9 +4836,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page linking_a_color_table_to_a_palette Linking a Color Table to a Palette
 
 \htmlonly
@@ -4847,9 +4847,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page assigning_a_default_palette_to_an_application Assigning a Default Palette to an Application
 
 \htmlonly
@@ -4858,9 +4858,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_truetype_fonts_in_preference_to_bitmapped_fonts Using TrueType Fonts in Preference to Bitmapped Fonts
 
 \htmlonly
@@ -4869,9 +4869,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page processing_query_results Processing Query Results
 
 \htmlonly
@@ -4880,9 +4880,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page debugger_support_under_virtual_memory Debugger Support Under Virtual Memory
 
 \htmlonly
@@ -4891,9 +4891,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page help_balloons_in_dynamic_windows Help Balloons in Dynamic Windows
 
 \htmlonly
@@ -4902,9 +4902,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getprocessserialnumberfromportname_tips GetProcessSerialNumberFromPortName Tips
 
 \htmlonly
@@ -4913,9 +4913,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page opening_and_maintaining_an_adsp_connection Opening and Maintaining an ADSP Connection
 
 \htmlonly
@@ -4924,9 +4924,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page performing_periodic_tasks Performing Periodic Tasks
 
 \htmlonly
@@ -4935,9 +4935,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_finder_interface About the Finder Interface
 
 \htmlonly
@@ -4946,9 +4946,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page resolving_alias_files Resolving Alias Files
 
 \htmlonly
@@ -4957,9 +4957,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page miscellaneous_apple_event_manager_topics Miscellaneous Apple Event Manager Topics
 
 \htmlonly
@@ -4968,9 +4968,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page variable_resources Variable Resources
 
 \htmlonly
@@ -4979,9 +4979,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page handling_data_during_a_session Handling Data During a Session
 
 \htmlonly
@@ -4990,9 +4990,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page slot_manager_routines Slot Manager Routines
 
 \htmlonly
@@ -5001,10 +5001,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\**
-\page appletalk*data_stream_protocol\_\_adsp\* AppleTalk Data Stream Protocol (ADSP)
+/**
+\page appletalk*data_stream_protocol\_\_adsp* AppleTalk Data Stream Protocol (ADSP)
 
 \htmlonly
 
@@ -5012,9 +5012,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page standard_resource_types Standard Resource Types
 
 \htmlonly
@@ -5023,9 +5023,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_a_subscriber Creating a Subscriber
 
 \htmlonly
@@ -5034,9 +5034,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_gestalt_manager_and_system_7_0 About the Gestalt Manager and System 7.0
 
 \htmlonly
@@ -5045,9 +5045,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page determining_features_of_temporary_memory Determining Features of Temporary Memory
 
 \htmlonly
@@ -5056,9 +5056,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page receiving_apple_events_from_the_edition_manager Receiving Apple Events From the Edition Manager
 
 \htmlonly
@@ -5067,9 +5067,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_script_manager About the Script Manager
 
 \htmlonly
@@ -5078,9 +5078,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page text_edit_record_types Text Edit record Types
 
 \htmlonly
@@ -5089,9 +5089,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_data_out_of_an_attribute Getting Data Out of an Attribute
 
 \htmlonly
@@ -5100,9 +5100,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page supporting_required_apple_events Supporting Required Apple Events
 
 \htmlonly
@@ -5111,9 +5111,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page textedit_limits TextEdit Limits
 
 \htmlonly
@@ -5122,9 +5122,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page changing_the_color_environment Changing the Color Environment
 
 \htmlonly
@@ -5133,9 +5133,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page date_and_time_utilities Date and Time Utilities
 
 \htmlonly
@@ -5144,9 +5144,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_script_management_system About the Script Management System
 
 \htmlonly
@@ -5155,9 +5155,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_str\_\_resource The 'STR#' Resource
 
 \htmlonly
@@ -5166,9 +5166,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page a_simpler_safe_save_strategy A Simpler Safe-Save Strategy
 
 \htmlonly
@@ -5177,9 +5177,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page print_documents_event Print Documents Event
 
 \htmlonly
@@ -5188,9 +5188,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page arrow_key_actions_for_selected_text Arrow Key Actions for Selected Text
 
 \htmlonly
@@ -5199,9 +5199,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_ppc_toolbox About the PPC Toolbox
 
 \htmlonly
@@ -5210,9 +5210,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_resource_manager Using the Resource Manager
 
 \htmlonly
@@ -5221,9 +5221,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page custom_802_2_handlers Custom 802.2 Handlers
 
 \htmlonly
@@ -5232,9 +5232,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page resource_ids Resource IDs
 
 \htmlonly
@@ -5243,9 +5243,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page publishing_a_new_edition_while_saving_or_manually Publishing a New Edition While Saving or Manually
 
 \htmlonly
@@ -5254,9 +5254,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page providing_help_balloons_for_items_in_dialog_and_alert_boxes Providing Help Balloons for Items in Dialog and Alert Boxes
 
 \htmlonly
@@ -5265,9 +5265,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page getting_data_out_of_a_descriptor_list Getting Data Out of a Descriptor List
 
 \htmlonly
@@ -5276,9 +5276,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_compatibility_guidelines About Compatibility Guidelines
 
 \htmlonly
@@ -5287,9 +5287,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page textedit_data_structures TextEdit Data Structures
 
 \htmlonly
@@ -5298,9 +5298,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_ppc_toolbox Using the PPC Toolbox
 
 \htmlonly
@@ -5309,9 +5309,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page installing_and_activating_task_records Installing and Activating Task Records
 
 \htmlonly
@@ -5320,9 +5320,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_apple_event_manager About the Apple Event Manager
 
 \htmlonly
@@ -5331,9 +5331,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page hfs_notes HFS Notes
 
 \htmlonly
@@ -5342,9 +5342,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page determining_the_quickdraw_version Determining The QuickDraw Version
 
 \htmlonly
@@ -5353,9 +5353,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page eolhook EOLHook
 
 \htmlonly
@@ -5364,10 +5364,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page setting**disabling\*\*and_reading_the_wakeup_timer Setting, Disabling, and Reading the Wakeup Timer
+\page setting**disabling**and_reading_the_wakeup_timer Setting, Disabling, and Reading the Wakeup Timer
 
 \htmlonly
 
@@ -5375,9 +5375,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page finder_information_in_the_volume_catalog Finder Information in the Volume Catalog
 
 \htmlonly
@@ -5386,9 +5386,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page converting_case_and_stripping_diacritical_marks Converting Case and Stripping Diacritical Marks
 
 \htmlonly
@@ -5397,9 +5397,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_sound_manager Using the Sound Manager
 
 \htmlonly
@@ -5408,9 +5408,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page wakeup_demands Wakeup Demands
 
 \htmlonly
@@ -5419,9 +5419,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page dialog_utilities Dialog Utilities
 
 \htmlonly
@@ -5430,9 +5430,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page adding_items_to_the_print_dialogs Adding Items to the Print Dialogs
 
 \htmlonly
@@ -5441,9 +5441,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page file_dialog_utilities File Dialog Utilities
 
 \htmlonly
@@ -5452,9 +5452,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_color_quickdraw_and_system_7_0 About Color QuickDraw and System 7.0
 
 \htmlonly
@@ -5463,9 +5463,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_delay_function The Delay Function
 
 \htmlonly
@@ -5474,9 +5474,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page launching_other_applications Launching Other Applications
 
 \htmlonly
@@ -5485,9 +5485,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page enabling_or_disabling_the_idle_state Enabling or Disabling the Idle State
 
 \htmlonly
@@ -5496,9 +5496,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page \_\_\_ ???
 
 \htmlonly
@@ -5507,9 +5507,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page opening_an_edition Opening an Edition
 
 \htmlonly
@@ -5518,9 +5518,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_the_edition_manager Using The Edition Manager
 
 \htmlonly
@@ -5529,9 +5529,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page managing_the_cpu_load Managing the CPU Load
 
 \htmlonly
@@ -5540,9 +5540,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page textedit_style_modes TextEdit Style Modes
 
 \htmlonly
@@ -5551,9 +5551,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_sleep_state The Sleep State
 
 \htmlonly
@@ -5562,9 +5562,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page playing_snd\_\_resources Playing 'snd ' Resources
 
 \htmlonly
@@ -5573,9 +5573,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page a_user_item_in_a_dialog A User Item in a Dialog
 
 \htmlonly
@@ -5584,9 +5584,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page compressing_and_expanding_sounds Compressing and Expanding Sounds
 
 \htmlonly
@@ -5595,9 +5595,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page sorting Sorting
 
 \htmlonly
@@ -5606,9 +5606,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page using_fswrite_to_write_to_a_file Using FSWrite to Write to a File
 
 \htmlonly
@@ -5617,9 +5617,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page shared_files_and_folders Shared Files and Folders
 
 \htmlonly
@@ -5628,9 +5628,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page switching_serial_power_on_and_off Switching Serial Power On and Off
 
 \htmlonly
@@ -5639,9 +5639,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page patching_a_trap Patching a Trap
 
 \htmlonly
@@ -5650,9 +5650,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page handling_incoming_session_requests Handling Incoming Session Requests
 
 \htmlonly
@@ -5661,9 +5661,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the\_\_enet_driver The .ENET Driver
 
 \htmlonly
@@ -5672,9 +5672,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page custom_controls Custom Controls
 
 \htmlonly
@@ -5683,9 +5683,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page how_the_process_manager_creates_processes How the Process Manager Creates Processes
 
 \htmlonly
@@ -5694,9 +5694,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page changing_the_stack_size Changing the Stack Size
 
 \htmlonly
@@ -5705,10 +5705,10 @@
 
 \endhtmlonly
 
-\*/
+*/
 
 /**
-\page the_kcs**\_kcs4\*\*and_kcs8_resources The 'kcs#', 'kcs4', and 'kcs8' Resources
+\page the_kcs**\_kcs4**and_kcs8_resources The 'kcs#', 'kcs4', and 'kcs8' Resources
 
 \htmlonly
 
@@ -5716,9 +5716,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page textedit_with_style TextEdit With Style
 
 \htmlonly
@@ -5727,9 +5727,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page the_system_7_0_environment The System 7.0 Environment
 
 \htmlonly
@@ -5738,9 +5738,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_graphics_overview About the Graphics Overview
 
 \htmlonly
@@ -5749,9 +5749,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page producing_an_alert_sound Producing an Alert Sound
 
 \htmlonly
@@ -5760,9 +5760,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page dealing_with_timeouts Dealing with Timeouts
 
 \htmlonly
@@ -5771,9 +5771,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page picking_a_node_address Picking a Node Address
 
 \htmlonly
@@ -5782,9 +5782,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page about_the_appletalk_manager_2 About the AppleTalk Manager-2
 
 \htmlonly
@@ -5793,9 +5793,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page creating_a_query_document Creating a Query Document
 
 \htmlonly
@@ -5804,9 +5804,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page ppc_toolbox_parameter_blocks PPC Toolbox Parameter Blocks
 
 \htmlonly
@@ -5815,9 +5815,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page compatibility Compatibility
 
 \htmlonly
@@ -5826,9 +5826,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page connection_listener_setup Connection Listener Setup
 
 \htmlonly
@@ -5837,9 +5837,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page continuous_play_from_disk Continuous Play From Disk
 
 \htmlonly
@@ -5848,9 +5848,9 @@
 
 \endhtmlonly
 
-\*/
+*/
 
-/\*\*
+/**
 \page resources_in_the_system_file Resources in the System File
 
 \htmlonly
@@ -5859,4 +5859,4 @@
 
 \endhtmlonly
 
-\*/
+*/
